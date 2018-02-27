@@ -22,6 +22,30 @@
       "revId": "b19b371f77112bce6e620323da3a93e9911cf06b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be2a513_0619e5e5",
+        "filename": "sigchainlib/sigchain_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-02-27T02:39:22Z",
+      "side": 1,
+      "message": "In theory, we might want to make these tests pass on glibc as well. The outer defined(__BIONIC__) is \"these currently build, but all fail on non-bionic\", the inner one is \"we have to do this to make this compile on bionic\".\n\n(Then again, we shouldn\u0027t need to guard these on bionic anyway. I don\u0027t have a strong opinion on this, let me know if you want me to delete the guard)",
+      "parentUuid": "bbb22f18_5da40417",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 23
+      },
+      "revId": "b19b371f77112bce6e620323da3a93e9911cf06b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
