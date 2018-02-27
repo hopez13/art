@@ -900,6 +900,39 @@ bool DoInvokePolymorphic(Thread* self,
   }
 }
 
+static ObjPtr<mirror::Class> GetClassForBootstrapArgument(EncodedArrayValueIterator::ValueType type)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  switch (type) {
+    case EncodedArrayValueIterator::ValueType::kBoolean:
+      return class_linker->FindPrimitiveClass('Z');
+    case EncodedArrayValueIterator::ValueType::kByte:
+      return class_linker->FindPrimitiveClass('B');
+    case EncodedArrayValueIterator::ValueType::kChar:
+      return class_linker->FindPrimitiveClass('C');
+    case EncodedArrayValueIterator::ValueType::kShort:
+      return class_linker->FindPrimitiveClass('S');
+    case EncodedArrayValueIterator::ValueType::kInt:
+      return class_linker->FindPrimitiveClass('I');
+    case EncodedArrayValueIterator::ValueType::kLong:
+      return class_linker->FindPrimitiveClass('J');
+    case EncodedArrayValueIterator::ValueType::kFloat:
+      return class_linker->FindPrimitiveClass('F');
+    case EncodedArrayValueIterator::ValueType::kDouble:
+      return class_linker->FindPrimitiveClass('D');
+    case EncodedArrayValueIterator::ValueType::kMethodType:
+      return mirror::MethodType::StaticClass();
+    case EncodedArrayValueIterator::ValueType::kMethodHandle:
+      return mirror::MethodHandle::StaticClass();
+    case EncodedArrayValueIterator::ValueType::kString:
+      return mirror::String::GetJavaLangString();
+    case EncodedArrayValueIterator::ValueType::kType:
+      return mirror::Class::GetJavaLangClass();
+    default:
+      UNREACHABLE();
+  }
+}
+
 static ObjPtr<mirror::CallSite> InvokeBootstrapMethod(Thread* self,
                                                       ShadowFrame& shadow_frame,
                                                       uint32_t call_site_idx)
@@ -921,11 +954,32 @@ static ObjPtr<mirror::CallSite> InvokeBootstrapMethod(Thread* self,
     DCHECK(self->IsExceptionPending());
     return nullptr;
   }
+
   Handle<mirror::MethodType> bootstrap_method_type = hs.NewHandle(bootstrap->GetMethodType());
   it.Next();
 
-  DCHECK_EQ(static_cast<size_t>(bootstrap->GetMethodType()->GetPTypes()->GetLength()), it.Size());
-  const size_t num_bootstrap_vregs = bootstrap->GetMethodType()->NumberOfVRegs();
+  int expected_args_count = bootstrap_method_type->GetNumberOfPTypes();
+  static constexpr int kMandatoryArgsCount = 3;
+  if (expected_args_count < kMandatoryArgsCount) {
+    ThrowWrongMethodTypeException("Bootstrap method has too few parameter types");
+    return nullptr;
+  }
+
+  bool bsm_is_variable_arity = bootstrap->GetTargetMethod()->IsVarargs();
+  if (bsm_is_variable_arity) {
+    // Minimum number of arguments is arguments aside from trailing array
+    if (static_cast<int>(it.Size()) < expected_args_count - 1) {
+      ThrowWrongMethodTypeException("Wrong number of constant arguments");
+      return nullptr;
+    }
+  } else {
+    if (static_cast<int>(it.Size()) != expected_args_count) {
+      ThrowWrongMethodTypeException("Wrong number of constant arguments");
+      return nullptr;
+    }
+  }
+
+  const size_t num_bootstrap_vregs = bootstrap_method_type->NumberOfVRegs();
 
   // Set-up a shadow frame for invoking the bootstrap method handle.
   ShadowFrameAllocaUniquePtr bootstrap_frame =
@@ -971,9 +1025,18 @@ static ObjPtr<mirror::CallSite> InvokeBootstrapMethod(Thread* self,
   it.Next();
 
   // Append remaining arguments (if any).
+  int parameter_index = 3;
   while (it.HasNext()) {
+    EncodedArrayValueIterator::ValueType value_type = it.GetValueType();
+    ObjPtr<mirror::Class> parameter_type = bootstrap_method_type->GetPTypes()->Get(parameter_index);
+    ObjPtr<mirror::Class> argument_type = GetClassForBootstrapArgument(value_type);
+    if (argument_type != parameter_type) {
+      ThrowClassCastException(parameter_type, argument_type);
+      return nullptr;
+    }
+
     const jvalue& jvalue = it.GetJavaValue();
-    switch (it.GetValueType()) {
+    switch (value_type) {
       case EncodedArrayValueIterator::ValueType::kBoolean:
       case EncodedArrayValueIterator::ValueType::kByte:
       case EncodedArrayValueIterator::ValueType::kChar:
@@ -1041,9 +1104,6 @@ static ObjPtr<mirror::CallSite> InvokeBootstrapMethod(Thread* self,
         break;
       }
       case EncodedArrayValueIterator::ValueType::kNull:
-        bootstrap_frame->SetVRegReference(vreg, nullptr);
-        vreg += 1;
-        break;
       case EncodedArrayValueIterator::ValueType::kField:
       case EncodedArrayValueIterator::ValueType::kMethod:
       case EncodedArrayValueIterator::ValueType::kEnum:
@@ -1052,7 +1112,7 @@ static ObjPtr<mirror::CallSite> InvokeBootstrapMethod(Thread* self,
         // Unreachable based on current EncodedArrayValueIterator::Next().
         UNREACHABLE();
     }
-
+    parameter_index += 1;
     it.Next();
   }
 
@@ -1129,8 +1189,11 @@ bool DoInvokeCustom(Thread* self,
     call_site.Assign(InvokeBootstrapMethod(self, shadow_frame, call_site_idx));
     if (UNLIKELY(call_site.IsNull())) {
       CHECK(self->IsExceptionPending());
-      ThrowWrappedBootstrapMethodError("Exception from call site #%u bootstrap method",
-                                       call_site_idx);
+      if (!self->GetException()->IsError()) {
+        // Use a BootstrapMethodError if the exception is not an instance of java.lang.Error.
+        ThrowWrappedBootstrapMethodError("Exception from call site #%u bootstrap method",
+                                         call_site_idx);
+      }
       result->SetJ(0);
       return false;
     }
