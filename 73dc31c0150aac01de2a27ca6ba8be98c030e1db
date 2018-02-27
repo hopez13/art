@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df871f1e_27250978",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-27T00:42:18Z",
+      "side": 1,
+      "message": "these are no longer in the headers, but they\u0027ve always been available and were in the headers once.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 31
+      },
+      "revId": "73dc31c0150aac01de2a27ca6ba8be98c030e1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b26604e3_e1860f44",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-02-27T00:42:18Z",
+      "side": 1,
+      "message": "sighold and sigset are both in the headers, but deprecated.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 60
+      },
+      "revId": "73dc31c0150aac01de2a27ca6ba8be98c030e1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
