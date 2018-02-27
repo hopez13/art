@@ -28,6 +28,14 @@
 
 namespace art {
 
+#define CHECK_NO_EXCEPTIONS(env)       \
+  do {                                 \
+    if ((env)->ExceptionCheck()) {     \
+      (env)->ExceptionDescribe();      \
+      (env)->FatalError(__FUNCTION__); \
+    }                                  \
+  } while (false)
+
 static JavaVM* jvm = nullptr;
 
 static jint Java_Main_intFastNativeMethod(JNIEnv*, jclass, jint a, jint b, jint c);
@@ -89,11 +97,11 @@ static void PthreadHelper(void (*fn)(JNIEnv*)) {
 static void testFindClassOnAttachedNativeThread(JNIEnv* env) {
   jclass clazz = env->FindClass("Main");
   CHECK(clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jobjectArray array = env->NewObjectArray(0, clazz, nullptr);
   CHECK(array != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 }
 
 extern "C" JNIEXPORT jint JNICALL Java_Main_getFieldSubclass(JNIEnv* env,
@@ -112,11 +120,11 @@ extern "C" JNIEXPORT void JNICALL Java_Main_testFindClassOnAttachedNativeThread(
 static void testFindFieldOnAttachedNativeThread(JNIEnv* env) {
   jclass clazz = env->FindClass("Main");
   CHECK(clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jfieldID field = env->GetStaticFieldID(clazz, "testFindFieldOnAttachedNativeThreadField", "Z");
   CHECK(field != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   env->SetStaticBooleanField(clazz, field, JNI_TRUE);
 }
@@ -129,37 +137,37 @@ extern "C" JNIEXPORT void JNICALL Java_Main_testFindFieldOnAttachedNativeThreadN
 static void testReflectFieldGetFromAttachedNativeThread(JNIEnv* env) {
   jclass clazz = env->FindClass("Main");
   CHECK(clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jclass class_clazz = env->FindClass("java/lang/Class");
   CHECK(class_clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jmethodID getFieldMetodId = env->GetMethodID(class_clazz, "getField",
                                                "(Ljava/lang/String;)Ljava/lang/reflect/Field;");
   CHECK(getFieldMetodId != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jstring field_name = env->NewStringUTF("testReflectFieldGetFromAttachedNativeThreadField");
   CHECK(field_name != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jobject field = env->CallObjectMethod(clazz, getFieldMetodId, field_name);
   CHECK(field != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jclass field_clazz = env->FindClass("java/lang/reflect/Field");
   CHECK(field_clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jmethodID getBooleanMetodId = env->GetMethodID(field_clazz, "getBoolean",
                                                  "(Ljava/lang/Object;)Z");
   CHECK(getBooleanMetodId != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   jboolean value = env->CallBooleanMethod(field, getBooleanMetodId, /* ignored */ clazz);
   CHECK(value == false);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 }
 
 // http://b/15539150
@@ -197,7 +205,7 @@ extern "C" void JNICALL Java_Main_testZeroLengthByteBuffers(JNIEnv* env, jclass)
   std::vector<uint8_t> buffer(1);
   jobject byte_buffer = env->NewDirectByteBuffer(&buffer[0], 0);
   CHECK(byte_buffer != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   CHECK_EQ(env->GetDirectBufferAddress(byte_buffer), &buffer[0]);
   CHECK_EQ(env->GetDirectBufferCapacity(byte_buffer), 0);
@@ -307,35 +315,35 @@ static void testShallowGetCallingClassLoader(JNIEnv* env) {
   {
     jclass vmstack_clazz = env->FindClass("dalvik/system/VMStack");
     CHECK(vmstack_clazz != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     jmethodID getCallingClassLoaderMethodId = env->GetStaticMethodID(vmstack_clazz,
                                                                      "getCallingClassLoader",
                                                                      "()Ljava/lang/ClassLoader;");
     CHECK(getCallingClassLoaderMethodId != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     jobject class_loader = env->CallStaticObjectMethod(vmstack_clazz,
                                                        getCallingClassLoaderMethodId);
     CHECK(class_loader == nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
   }
 
   // Test one-level call. Use System.loadLibrary().
   {
     jclass system_clazz = env->FindClass("java/lang/System");
     CHECK(system_clazz != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     jmethodID loadLibraryMethodId = env->GetStaticMethodID(system_clazz, "loadLibrary",
                                                            "(Ljava/lang/String;)V");
     CHECK(loadLibraryMethodId != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     // Create a string object.
     jobject library_string = env->NewStringUTF("non_existing_library");
     CHECK(library_string != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     env->CallStaticVoidMethod(system_clazz, loadLibraryMethodId, library_string);
     CHECK(env->ExceptionCheck());
@@ -359,18 +367,18 @@ extern "C" JNIEXPORT void JNICALL Java_Main_nativeTestShallowGetCallingClassLoad
 static void testShallowGetStackClass2(JNIEnv* env) {
   jclass vmstack_clazz = env->FindClass("dalvik/system/VMStack");
   CHECK(vmstack_clazz != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   // Test direct call.
   {
     jmethodID getStackClass2MethodId = env->GetStaticMethodID(vmstack_clazz, "getStackClass2",
                                                               "()Ljava/lang/Class;");
     CHECK(getStackClass2MethodId != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     jobject caller_class = env->CallStaticObjectMethod(vmstack_clazz, getStackClass2MethodId);
     CHECK(caller_class == nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
   }
 
   // Test one-level call. Use VMStack.getStackClass1().
@@ -378,11 +386,11 @@ static void testShallowGetStackClass2(JNIEnv* env) {
     jmethodID getStackClass1MethodId = env->GetStaticMethodID(vmstack_clazz, "getStackClass1",
                                                               "()Ljava/lang/Class;");
     CHECK(getStackClass1MethodId != nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
 
     jobject caller_class = env->CallStaticObjectMethod(vmstack_clazz, getStackClass1MethodId);
     CHECK(caller_class == nullptr);
-    CHECK(!env->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env);
   }
 
   // For better testing we would need to compile against libcore and have a two-deep stack
@@ -441,7 +449,7 @@ class JniCallNonvirtualVoidMethodTest {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
-    CHECK(!env_->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env_);
     CHECK(c != nullptr);
     return c;
   }
@@ -594,16 +602,16 @@ extern "C" JNIEXPORT void JNICALL Java_Main_testNewStringObject(JNIEnv* env, jcl
 
   jmethodID mid1 = env->GetMethodID(c, "<init>", "()V");
   CHECK(mid1 != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
   jmethodID mid2 = env->GetMethodID(c, "<init>", "([B)V");
   CHECK(mid2 != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
   jmethodID mid3 = env->GetMethodID(c, "<init>", "([C)V");
   CHECK(mid3 != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
   jmethodID mid4 = env->GetMethodID(c, "<init>", "(Ljava/lang/String;)V");
   CHECK(mid4 != nullptr);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 
   const char* test_array = "Test";
   int byte_array_length = strlen(test_array);
@@ -689,7 +697,7 @@ class JniCallDefaultMethodsTest {
  public:
   explicit JniCallDefaultMethodsTest(JNIEnv* env)
       : env_(env), concrete_class_(env_->FindClass("ConcreteClass")) {
-    CHECK(!env_->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env_);
     CHECK(concrete_class_ != nullptr);
   }
 
@@ -713,14 +721,14 @@ class JniCallDefaultMethodsTest {
   void TestCalls(const char* declaring_class, std::vector<const char*> methods) {
     jmethodID new_method = env_->GetMethodID(concrete_class_, "<init>", "()V");
     jobject obj = env_->NewObject(concrete_class_, new_method);
-    CHECK(!env_->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env_);
     CHECK(obj != nullptr);
     jclass decl_class = env_->FindClass(declaring_class);
-    CHECK(!env_->ExceptionCheck());
+    CHECK_NO_EXCEPTIONS(env_);
     CHECK(decl_class != nullptr);
     for (const char* method : methods) {
       jmethodID method_id = env_->GetMethodID(decl_class, method, "()V");
-      CHECK(!env_->ExceptionCheck());
+      CHECK_NO_EXCEPTIONS(env_);
       printf("Calling method %s->%s on object of type ConcreteClass\n", declaring_class, method);
       env_->CallVoidMethod(obj, method_id);
       if (env_->ExceptionCheck()) {
@@ -729,9 +737,9 @@ class JniCallDefaultMethodsTest {
         jmethodID to_string = env_->GetMethodID(
             env_->FindClass("java/lang/Object"), "toString", "()Ljava/lang/String;");
         jstring exception_string = (jstring) env_->CallObjectMethod(thrown, to_string);
-        CHECK(!env_->ExceptionCheck());
+        CHECK_NO_EXCEPTIONS(env_);
         const char* exception_string_utf8 = env_->GetStringUTFChars(exception_string, nullptr);
-        CHECK(!env_->ExceptionCheck());
+        CHECK_NO_EXCEPTIONS(env_);
         CHECK(exception_string_utf8 != nullptr);
         printf("EXCEPTION OCCURED: %s\n", exception_string_utf8);
         env_->ReleaseStringUTFChars(exception_string, exception_string_utf8);
@@ -749,12 +757,12 @@ extern "C" JNIEXPORT void JNICALL Java_Main_testCallDefaultMethods(JNIEnv* env) 
 
 static void InvokeSpecificMethod(JNIEnv* env, jobject obj, const char* method) {
   jclass lambda_class = env->FindClass("LambdaInterface");
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
   CHECK(lambda_class != nullptr);
   jmethodID method_id = env->GetMethodID(lambda_class, method, "()V");
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
   env->CallVoidMethod(obj, method_id);
-  CHECK(!env->ExceptionCheck());
+  CHECK_NO_EXCEPTIONS(env);
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_testInvokeLambdaDefaultMethod(
