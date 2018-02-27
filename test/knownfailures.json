@@ -717,9 +717,15 @@
     },
     {
         "tests": [
-          "030-bad-finalizer",
+          "030-bad-finalizer"
+        ],
+        "variant": "jvm",
+        "bug": "b/73900724",
+        "description": ["Finalizer thread does not timeout in RI."]
+    },
+    {
+        "tests": [
           "031-class-attributes",
-          "034-call-null",
           "038-inner-null",
           "044-proxy",
           "046-reflect",
