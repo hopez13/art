@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3af34be1_604b5c7b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-02-27T23:15:34Z",
+      "side": 1,
+      "message": "I Really don\u0027t like these inner-functions that are there only for minimizing line-number diff.\n\nIt is really hard to understand and not at all standard.\n\nalso python style guide: Nested local functions or classes are fine when used to close over a local variable",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 376,
+        "endChar": 0
+      },
+      "revId": "66074021ac90cd71788f6ea778bb9d3ca477bf28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
