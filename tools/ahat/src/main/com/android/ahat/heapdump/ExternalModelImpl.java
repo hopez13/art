@@ -59,6 +59,25 @@ class ExternalModelImpl {
         }
       }
 
+      // SurfaceView: 3 * 4 * (mRight - mLeft) * (mBottom - mTop), if mSurface.mHwuiContext != null
+      if ("android.view.SurfaceView".equals(inst.getClassName())) {
+        Value right = inst.getField("mRight");
+        Value left = inst.getField("mLeft");
+        Value bottom = inst.getField("mBottom");
+        Value top = inst.getField("mTop");
+        AhatInstance surface = inst.getRefField("mSurface");
+        if (surface != null) {
+          AhatInstance hwui = surface.getRefField("mHwuiContext");
+          if (hwui != null
+              && right != null && left != null && bottom != null && top != null
+              && right.isInteger() && left.isInteger() && bottom.isInteger() && top.isInteger()) {
+            int width = right.asInteger() - left.asInteger();
+            int height = bottom.asInteger() - top.asInteger();
+            hwui.addExternalModel(3 * (4 * width * height));
+          }
+        }
+      }
+
       // TODO: Add more models.
     }
   }

@@ -66,4 +66,17 @@ public class ActionableMemoryMetricTest {
     AhatInstance view = main.getRefField("mTextureViewUse").getRefField("mTextureView");
     assertEquals(2 * 4 * 200 * 500, view.getSize().getModeledExternalSize());
   }
+
+  @Test
+  public void surfaceView() throws IOException {
+    TestDump dump = getAMMTestDump();
+    AhatInstance main = getMainActivity(dump);
+    AhatInstance view = main.getRefField("mSurfaceViewUse").getRefField("mSurfaceView");
+
+    // The external model is associated with the SurfaceView's HwuiContext
+    // rather than the SurfaceView instance itself, so check for the external
+    // model in the retained size of the SurfaceView instead of the shallow
+    // size of it.
+    assertEquals(3 * 4 * 240 * 250, view.getTotalRetainedSize().getModeledExternalSize());
+  }
 }
