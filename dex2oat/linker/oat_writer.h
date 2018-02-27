@@ -24,6 +24,8 @@
 
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
+#include "base/safe_map.h"
+#include "compiler.h"
 #include "dex/compact_dex_level.h"
 #include "debug/debug_info.h"
 #include "linker/relative_patcher.h"  // For RelativePatcherTargetProvider.
@@ -32,7 +34,6 @@
 #include "mirror/class.h"
 #include "oat.h"
 #include "os.h"
-#include "safe_map.h"
 #include "string_reference.h"
 #include "type_reference.h"
 
