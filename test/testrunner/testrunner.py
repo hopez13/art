@@ -290,6 +290,167 @@ def get_device_name():
     print_text("Continuing anyway.\n")
     return "UNKNOWN_TARGET"
 
+def create_test_combinations(tests, target_input_variants, user_input_variants):
+  """
+  Returns an iterable which lists all the test combinations we need to execute.
+  """
+  config = itertools.product(tests, target_input_variants, user_input_variants['run'],
+                             user_input_variants['prebuild'], user_input_variants['compiler'],
+                             user_input_variants['relocate'], user_input_variants['trace'],
+                             user_input_variants['gc'], user_input_variants['jni'],
+                             user_input_variants['image'], user_input_variants['pictest'],
+                             user_input_variants['debuggable'], user_input_variants['jvmti'],
+                             user_input_variants['cdex_level'])
+  return config
+
+def run_single_test(config_tuple, address_size, options_all):
+  """
+  Creates a thread that immediately starts executing a single run-test.
+  """
+  test, target, run, prebuild, compiler, relocate, trace, gc, \
+  jni, image, pictest, debuggable, jvmti, cdex_level = config_tuple
+
+  if stop_testrunner:
+    # When ART_TEST_KEEP_GOING is set to false, then as soon as a test
+    # fails, stop_testrunner is set to True. When this happens, the method
+    # stops creating any any thread and wait for all the exising threads
+    # to end.
+    while threading.active_count() > 2:
+      time.sleep(0.1)
+      return
+  # NB The order of components here should match the order of
+  # components in the regex parser in parse_test_name.
+  test_name = 'test-art-'
+  test_name += target + '-run-test-'
+  test_name += run + '-'
+  test_name += prebuild + '-'
+  test_name += compiler + '-'
+  test_name += relocate + '-'
+  test_name += trace + '-'
+  test_name += gc + '-'
+  test_name += jni + '-'
+  test_name += image + '-'
+  test_name += pictest + '-'
+  test_name += debuggable + '-'
+  test_name += jvmti + '-'
+  test_name += cdex_level + '-'
+  test_name += test
+  test_name += address_size
+
+  variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni,
+                 image, pictest, debuggable, jvmti, cdex_level, address_size}
+
+  options_test = options_all
+
+  if target == 'host':
+    options_test += ' --host'
+  elif target == 'jvm':
+    options_test += ' --jvm'
+
+  if run == 'ndebug':
+    options_test += ' -O'
+
+  if prebuild == 'prebuild':
+    options_test += ' --prebuild'
+  elif prebuild == 'no-prebuild':
+    options_test += ' --no-prebuild'
+  elif prebuild == 'no-dex2oat':
+    options_test += ' --no-prebuild --no-dex2oat'
+
+  # Add option and remove the cdex- prefix.
+  options_test += ' --compact-dex-level ' + cdex_level.replace('cdex-','')
+
+  if compiler == 'optimizing':
+    options_test += ' --optimizing'
+  elif compiler == 'regalloc_gc':
+    options_test += ' --optimizing -Xcompiler-option --register-allocation-strategy=graph-color'
+  elif compiler == 'interpreter':
+    options_test += ' --interpreter'
+  elif compiler == 'interp-ac':
+    options_test += ' --interpreter --verify-soft-fail'
+  elif compiler == 'jit':
+    options_test += ' --jit'
+  elif compiler == 'speed-profile':
+    options_test += ' --random-profile'
+
+  if relocate == 'relocate':
+    options_test += ' --relocate'
+  elif relocate == 'no-relocate':
+    options_test += ' --no-relocate'
+  elif relocate == 'relocate-npatchoat':
+    options_test += ' --relocate --no-patchoat'
+
+  if trace == 'trace':
+    options_test += ' --trace'
+  elif trace == 'stream':
+    options_test += ' --trace --stream'
+
+  if gc == 'gcverify':
+    options_test += ' --gcverify'
+  elif gc == 'gcstress':
+    options_test += ' --gcstress'
+
+  if jni == 'forcecopy':
+    options_test += ' --runtime-option -Xjniopts:forcecopy'
+  elif jni == 'checkjni':
+    options_test += ' --runtime-option -Xcheck:jni'
+
+  if image == 'no-image':
+    options_test += ' --no-image'
+  elif image == 'multipicimage':
+    options_test += ' --multi-image'
+
+  if pictest == 'pictest':
+    options_test += ' --pic-test'
+
+  if debuggable == 'debuggable':
+    options_test += ' --debuggable'
+
+  if jvmti == 'jvmti-stress':
+    options_test += ' --jvmti-trace-stress --jvmti-redefine-stress --jvmti-field-stress'
+  elif jvmti == 'field-stress':
+    options_test += ' --jvmti-field-stress'
+  elif jvmti == 'trace-stress':
+    options_test += ' --jvmti-trace-stress'
+  elif jvmti == 'redefine-stress':
+    options_test += ' --jvmti-redefine-stress'
+  elif jvmti == 'step-stress':
+    options_test += ' --jvmti-step-stress'
+
+  if address_size == '64':
+    options_test += ' --64'
+
+    if env.DEX2OAT_HOST_INSTRUCTION_SET_FEATURES:
+      options_test += ' --instruction-set-features' + env.DEX2OAT_HOST_INSTRUCTION_SET_FEATURES
+
+  elif address_size == '32':
+    if env.HOST_2ND_ARCH_PREFIX_DEX2OAT_HOST_INSTRUCTION_SET_FEATURES:
+      options_test += ' --instruction-set-features ' + \
+                      env.HOST_2ND_ARCH_PREFIX_DEX2OAT_HOST_INSTRUCTION_SET_FEATURES
+
+  # Use the default run-test behavior unless ANDROID_COMPILE_WITH_JACK is explicitly set.
+  if env.ANDROID_COMPILE_WITH_JACK == True:
+    options_test += ' --build-with-jack'
+  elif env.ANDROID_COMPILE_WITH_JACK == False:
+    options_test += ' --build-with-javac-dx'
+
+  if env.USE_D8_BY_DEFAULT == True:
+    options_test += ' --build-with-d8'
+
+  # TODO(http://36039166): This is a temporary solution to
+  # fix build breakages.
+  options_test = (' --output-path %s') % (
+      tempfile.mkdtemp(dir=env.ART_HOST_TEST_DIR)) + options_test
+
+  run_test_sh = env.ANDROID_BUILD_TOP + '/art/test/run-test'
+  command = ' '.join((run_test_sh, options_test, ' '.join(extra_arguments[target]), test))
+
+  semaphore.acquire()
+  worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
+  worker.daemon = True
+  worker.start()
+
+
 def run_tests(tests):
   """Creates thread workers to run the tests.
 
@@ -348,179 +509,26 @@ def run_tests(tests):
   if dex2oat_jobs != -1:
     options_all += ' --dex2oat-jobs ' + str(dex2oat_jobs)
 
-  def iter_config(tests, input_variants, user_input_variants):
-    config = itertools.product(tests, input_variants, user_input_variants['run'],
-                                 user_input_variants['prebuild'], user_input_variants['compiler'],
-                                 user_input_variants['relocate'], user_input_variants['trace'],
-                                 user_input_variants['gc'], user_input_variants['jni'],
-                                 user_input_variants['image'], user_input_variants['pictest'],
-                                 user_input_variants['debuggable'], user_input_variants['jvmti'],
-                                 user_input_variants['cdex_level'])
-    return config
-
   # [--host, --target] combines with all the other user input variants.
-  config = iter_config(tests, target_input_variants, _user_input_variants)
+  config = create_test_combinations(tests, target_input_variants, _user_input_variants)
   # [--jvm] currently combines with nothing else. most of the extra flags we'd insert
   # would be unrecognizable by the 'java' binary, so avoid inserting any extra flags for now.
-  uncombinated_config = iter_config(tests, uncombinated_target_input_variants, { 'run': [''],
+  uncombinated_config = create_test_combinations(tests, uncombinated_target_input_variants,
+    { 'run': [''],
       'prebuild': [''], 'compiler': [''],
       'relocate': [''], 'trace': [''],
       'gc': [''], 'jni': [''],
       'image': [''], 'pictest': [''],
       'debuggable': [''], 'jvmti': [''],
-      'cdex_level': ['']})
-
-  def start_combination(config_tuple, address_size):
-      test, target, run, prebuild, compiler, relocate, trace, gc, \
-      jni, image, pictest, debuggable, jvmti, cdex_level = config_tuple
-
-      if stop_testrunner:
-        # When ART_TEST_KEEP_GOING is set to false, then as soon as a test
-        # fails, stop_testrunner is set to True. When this happens, the method
-        # stops creating any any thread and wait for all the exising threads
-        # to end.
-        while threading.active_count() > 2:
-          time.sleep(0.1)
-          return
-      # NB The order of components here should match the order of
-      # components in the regex parser in parse_test_name.
-      test_name = 'test-art-'
-      test_name += target + '-run-test-'
-      test_name += run + '-'
-      test_name += prebuild + '-'
-      test_name += compiler + '-'
-      test_name += relocate + '-'
-      test_name += trace + '-'
-      test_name += gc + '-'
-      test_name += jni + '-'
-      test_name += image + '-'
-      test_name += pictest + '-'
-      test_name += debuggable + '-'
-      test_name += jvmti + '-'
-      test_name += cdex_level + '-'
-      test_name += test
-      test_name += address_size
-
-      variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni,
-                     image, pictest, debuggable, jvmti, cdex_level, address_size}
-
-      options_test = options_all
-
-      if target == 'host':
-        options_test += ' --host'
-      elif target == 'jvm':
-        options_test += ' --jvm'
-
-      if run == 'ndebug':
-        options_test += ' -O'
-
-      if prebuild == 'prebuild':
-        options_test += ' --prebuild'
-      elif prebuild == 'no-prebuild':
-        options_test += ' --no-prebuild'
-      elif prebuild == 'no-dex2oat':
-        options_test += ' --no-prebuild --no-dex2oat'
-
-      # Add option and remove the cdex- prefix.
-      options_test += ' --compact-dex-level ' + cdex_level.replace('cdex-','')
-
-      if compiler == 'optimizing':
-        options_test += ' --optimizing'
-      elif compiler == 'regalloc_gc':
-        options_test += ' --optimizing -Xcompiler-option --register-allocation-strategy=graph-color'
-      elif compiler == 'interpreter':
-        options_test += ' --interpreter'
-      elif compiler == 'interp-ac':
-        options_test += ' --interpreter --verify-soft-fail'
-      elif compiler == 'jit':
-        options_test += ' --jit'
-      elif compiler == 'speed-profile':
-        options_test += ' --random-profile'
-
-      if relocate == 'relocate':
-        options_test += ' --relocate'
-      elif relocate == 'no-relocate':
-        options_test += ' --no-relocate'
-      elif relocate == 'relocate-npatchoat':
-        options_test += ' --relocate --no-patchoat'
-
-      if trace == 'trace':
-        options_test += ' --trace'
-      elif trace == 'stream':
-        options_test += ' --trace --stream'
-
-      if gc == 'gcverify':
-        options_test += ' --gcverify'
-      elif gc == 'gcstress':
-        options_test += ' --gcstress'
-
-      if jni == 'forcecopy':
-        options_test += ' --runtime-option -Xjniopts:forcecopy'
-      elif jni == 'checkjni':
-        options_test += ' --runtime-option -Xcheck:jni'
-
-      if image == 'no-image':
-        options_test += ' --no-image'
-      elif image == 'multipicimage':
-        options_test += ' --multi-image'
-
-      if pictest == 'pictest':
-        options_test += ' --pic-test'
-
-      if debuggable == 'debuggable':
-        options_test += ' --debuggable'
-
-      if jvmti == 'jvmti-stress':
-        options_test += ' --jvmti-trace-stress --jvmti-redefine-stress --jvmti-field-stress'
-      elif jvmti == 'field-stress':
-        options_test += ' --jvmti-field-stress'
-      elif jvmti == 'trace-stress':
-        options_test += ' --jvmti-trace-stress'
-      elif jvmti == 'redefine-stress':
-        options_test += ' --jvmti-redefine-stress'
-      elif jvmti == 'step-stress':
-        options_test += ' --jvmti-step-stress'
-
-      if address_size == '64':
-        options_test += ' --64'
-
-        if env.DEX2OAT_HOST_INSTRUCTION_SET_FEATURES:
-          options_test += ' --instruction-set-features' + env.DEX2OAT_HOST_INSTRUCTION_SET_FEATURES
-
-      elif address_size == '32':
-        if env.HOST_2ND_ARCH_PREFIX_DEX2OAT_HOST_INSTRUCTION_SET_FEATURES:
-          options_test += ' --instruction-set-features ' + \
-                          env.HOST_2ND_ARCH_PREFIX_DEX2OAT_HOST_INSTRUCTION_SET_FEATURES
-
-      # Use the default run-test behavior unless ANDROID_COMPILE_WITH_JACK is explicitly set.
-      if env.ANDROID_COMPILE_WITH_JACK == True:
-        options_test += ' --build-with-jack'
-      elif env.ANDROID_COMPILE_WITH_JACK == False:
-        options_test += ' --build-with-javac-dx'
-
-      if env.USE_D8_BY_DEFAULT == True:
-        options_test += ' --build-with-d8'
-
-      # TODO(http://36039166): This is a temporary solution to
-      # fix build breakages.
-      options_test = (' --output-path %s') % (
-          tempfile.mkdtemp(dir=env.ART_HOST_TEST_DIR)) + options_test
-
-      run_test_sh = env.ANDROID_BUILD_TOP + '/art/test/run-test'
-      command = ' '.join((run_test_sh, options_test, ' '.join(extra_arguments[target]), test))
-
-      semaphore.acquire()
-      worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
-      worker.daemon = True
-      worker.start()
+      'cdex_level': [''] })
 
   for config_tuple in config:
     target = config_tuple[1]
     for address_size in _user_input_variants['address_sizes_target'][target]:
-      start_combination(config_tuple, address_size)
+      run_single_test(config_tuple, address_size, options_all)
 
   for config_tuple in uncombinated_config:
-      start_combination(config_tuple, "")  # no address size
+      run_single_test(config_tuple, "", options_all)  # no address size
 
   while threading.active_count() > 2:
     time.sleep(0.1)
