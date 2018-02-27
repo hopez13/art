@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d327236_5ab30913",
+        "filename": "oatdump/oatdump_app_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T17:40:45Z",
+      "side": 1,
+      "message": "2018?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a15ea619_0fee2204",
+        "filename": "oatdump/oatdump_image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T17:40:45Z",
+      "side": 1,
+      "message": "2017? (This file seems to have been added in https://android-review.googlesource.com/386752.)",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37c1b095_9047703c",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T17:40:45Z",
+      "side": 1,
+      "message": "Suggestion:\n\n    std::vector\u003cstd::string\u003e exec_argv \u003d {\n      dex2oat_path,\n      \"--runtime-arg\",\n      \"-Xms64m\",\n      \"--runtime-arg\",\n      \"-Xmx512m\",\n      \"--runtime-arg\",\n      \"-Xnorelocate\",\n      \"--boot-image\u003d\" + GetCoreArtLocation(),\n      \"--instruction-set\u003d\" + std::string(GetInstructionSetString(kRuntimeISA)),\n      \"--dex-file\u003d\" + GetTestDexFileName(GetAppBaseName().c_str()),\n      \"--oat-file\u003d\" + GetAppOdexName(),\n      \"--compiler-filter\u003dspeed\"\n    };",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c6b0d3_46bd90ae",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T17:40:45Z",
+      "side": 1,
+      "message": "Nit:\n\n  /* out */ pid_t* pid,\n  /* out */ int* pipe_fd,\n  /* out */ std::string* error_msg",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 41
+      },
+      "revId": "98d0f8302050ac41775290c57cf39810cbfe9fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
