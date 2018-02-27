@@ -162,7 +162,7 @@ public class Main {
         try {
             src.getChars(2, 10, dst, 0);
             System.out.println("GLITCH: expected exception");
-        } catch (ArrayIndexOutOfBoundsException aioobe) {
+        } catch (StringIndexOutOfBoundsException aioobe) {
             System.out.println("Got expected exception");
         }
 
