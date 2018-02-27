@@ -48,6 +48,75 @@
     },
     {
       "key": {
+        "uuid": "ede1042e_9b646974",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T19:42:51Z",
+      "side": 1,
+      "message": "Maybe get rid of this (unless the default environment is not an empty one)?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19ddf78a_fb616d99",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T19:42:51Z",
+      "side": 1,
+      "message": "Nit: While you\u0027re at it, maybe swap lines 235–236 and 237–238 to have the cases be in the same order as in lines 228–233 (\u0027target\u0027, \u0027host\u0027, \u0027jvm\u0027)?",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 47
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631e4722_a2e038f4",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-02-27T19:42:51Z",
+      "side": 1,
+      "message": "ART_2ND_PHONY_TEST_HOST_SUFFIX?",
+      "range": {
+        "startLine": 240,
+        "startChar": 14,
+        "endLine": 240,
+        "endChar": 46
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d69ea82_8df987a6",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
