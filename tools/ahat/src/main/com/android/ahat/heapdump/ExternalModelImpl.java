@@ -78,6 +78,15 @@ class ExternalModelImpl {
         }
       }
 
+      // ThreadedRenderer: 3 * 4 * mWidth * mHeight
+      if ("android.view.ThreadedRenderer".equals(inst.getClassName())) {
+        Value width = inst.getField("mWidth");
+        Value height = inst.getField("mHeight");
+        if (width != null && height != null && width.isInteger() && height.isInteger()) {
+          inst.addExternalModel(3 * (4 * width.asInteger() * height.asInteger()));
+        }
+      }
+
       // TODO: Add more models.
     }
   }

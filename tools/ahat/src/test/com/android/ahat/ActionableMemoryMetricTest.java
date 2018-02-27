@@ -79,4 +79,13 @@ public class ActionableMemoryMetricTest {
     // size of it.
     assertEquals(3 * 4 * 240 * 250, view.getTotalRetainedSize().getModeledExternalSize());
   }
+
+  @Test
+  public void threadedRenderer() throws IOException {
+    TestDump dump = getAMMTestDump();
+    AhatInstance main = getMainActivity(dump);
+    AhatInstance view = main.getRefField("mThreadedRendererUse").getRefField("mTextView");
+    AhatInstance renderer = view.getRefField("mAttachInfo").getRefField("mThreadedRenderer");
+    assertEquals(3 * 4 * 122 * 152, renderer.getSize().getModeledExternalSize());
+  }
 }
