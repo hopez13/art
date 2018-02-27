@@ -298,6 +298,9 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isClassMoveable(JNIEnv*,
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_waitForCompilation(JNIEnv*, jclass) {
+  if (Runtime::Current() == nullptr) {
+    return;
+  }
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr) {
     jit->WaitForCompilationToFinish(Thread::Current());
@@ -305,6 +308,9 @@ extern "C" JNIEXPORT void JNICALL Java_Main_waitForCompilation(JNIEnv*, jclass) 
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_stopJit(JNIEnv*, jclass) {
+  if (Runtime::Current() == nullptr) {
+    return;
+  }
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr) {
     jit->Stop();
@@ -312,6 +318,9 @@ extern "C" JNIEXPORT void JNICALL Java_Main_stopJit(JNIEnv*, jclass) {
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_startJit(JNIEnv*, jclass) {
+  if (Runtime::Current() == nullptr) {
+    return;
+  }
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr) {
     jit->Start();

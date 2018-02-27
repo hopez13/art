@@ -725,9 +725,23 @@
     },
     {
         "tests": [
+          "038-inner-null"
+        ],
+        "variant": "jvm",
+        "bug": "b/73899151",
+        "description": ["Irrelevant output difference. Needs only a .diff file."]
+    },
+    {
+        "tests": [
+          "044-proxy"
+        ],
+        "variant": "jvm",
+        "bug": "b/73901493",
+        "description": ["Wrong method invocation / missing OOME."]
+    },
+    {
+        "tests": [
           "031-class-attributes",
-          "038-inner-null",
-          "044-proxy",
           "046-reflect",
           "064-field-access",
           "068-classloader",
