@@ -28,11 +28,22 @@ import static org.junit.Assert.assertEquals;
 
 public class ActionableMemoryMetricTest {
 
+  // Returns the AmmTest.hprof dump loaded with AMM as the external model
+  // source.
   private static TestDump getAMMTestDump() throws IOException {
     return TestDump.getTestDump("AmmTest.hprof",
                                 null,
                                 null,
                                 ExternalModelSource.ACTIONABLE_MEMORY_METRIC);
+  }
+
+  // Returns the instance of MainActivity in the AmmTest.hprof dump.
+  private static AhatInstance getMainActivity(TestDump dump) {
+    AhatSnapshot snapshot = dump.getAhatSnapshot();
+    List<AhatInstance> mainActivities = new ArrayList<AhatInstance>();
+    snapshot.getRootSite().getObjects(null, "com.android.amm.test.MainActivity", mainActivities);
+    assertEquals(1, mainActivities.size());
+    return mainActivities.get(0);
   }
 
   @Test
@@ -41,14 +52,18 @@ public class ActionableMemoryMetricTest {
   }
 
   @Test
-  public void bitmapModel() throws IOException {
+  public void bitmap() throws IOException {
     TestDump dump = getAMMTestDump();
-    AhatSnapshot snapshot = dump.getAhatSnapshot();
-    List<AhatInstance> mainActivities = new ArrayList<AhatInstance>();
-    snapshot.getRootSite().getObjects(null, "com.android.amm.test.MainActivity", mainActivities);
-    assertEquals(1, mainActivities.size());
-    AhatInstance main = mainActivities.get(0);
+    AhatInstance main = getMainActivity(dump);
     AhatInstance bitmap = main.getRefField("mBitmapUse").getRefField("mBitmap");
     assertEquals(4 * 132 * 154, bitmap.getSize().getModeledExternalSize());
+  }
+
+  @Test
+  public void textureView() throws IOException {
+    TestDump dump = getAMMTestDump();
+    AhatInstance main = getMainActivity(dump);
+    AhatInstance view = main.getRefField("mTextureViewUse").getRefField("mTextureView");
+    assertEquals(2 * 4 * 200 * 500, view.getSize().getModeledExternalSize());
   }
 }

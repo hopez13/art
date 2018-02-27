@@ -45,6 +45,20 @@ class ExternalModelImpl {
         }
       }
 
+      // TextureView: 2 * 4 * (mRight - mLeft) * (mBottom - mTop)
+      if ("android.view.TextureView".equals(inst.getClassName())) {
+        Value right = inst.getField("mRight");
+        Value left = inst.getField("mLeft");
+        Value bottom = inst.getField("mBottom");
+        Value top = inst.getField("mTop");
+        if (right != null && left != null && bottom != null && top != null
+            && right.isInteger() && left.isInteger() && bottom.isInteger() && top.isInteger()) {
+          int width = right.asInteger() - left.asInteger();
+          int height = bottom.asInteger() - top.asInteger();
+          inst.addExternalModel(2 * (4 * width * height));
+        }
+      }
+
       // TODO: Add more models.
     }
   }
