@@ -18,3 +18,45 @@ testStaticFieldAccessors
 testInstanceFieldAccessors
 testInvokeVirtual => max(77, -3) = 77
 testConstructor => class TestInvocationKinds$Widget
+TestDynamicArguments
+bsm
+0, One, 3.141592653589793
+bsm
+1, Two, 2.718281828459045
+bsm
+2, Three, 0.0
+0, One, 3.141592653589793
+1, Two, 2.718281828459045
+2, Three, 0.0
+TestBadBootstrapArguments
+bsm(class TestBadBootstrapArguments, happy, ()void, -1, very)
+happy
+invokeWrongParameterTypes => class java.lang.NoSuchMethodError
+invokeMissingParameterTypes => class java.lang.NoSuchMethodError
+invokeExtraArguments => class java.lang.BootstrapMethodError => class java.lang.invoke.WrongMethodTypeException
+invokeWrongArguments => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+invokeWrongArguments => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+invokeWrongArgumentsAgain => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+bsmDJ(..., 1.7976931348623157E308, 2147483647)
+wideningArguments
+bsmDoubleLong(..., 1.7976931348623157E308, 9223372036854775807)
+boxingArguments
+invokeWideningBoxingArguments => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+linkerMethod(class TestVariableArityLinkerMethod, methodA, ()void, Aachen, Aalborg, Aalto)
+methodA
+linkerMethod(class TestVariableArityLinkerMethod, methodB, ()void, barium)
+methodB
+linkerMethod(class TestVariableArityLinkerMethod, methodC, ()void)
+methodC
+methodA
+methodB
+methodC
+linkerMethod2(class TestVariableArityLinkerMethod, methodX, ()void, 101, zoo, zoogene, zoogenic)
+methodX
+linkerMethod2(class TestVariableArityLinkerMethod, methodY, ()void, 102, zonic)
+methodY
+linkerMethod2(class TestVariableArityLinkerMethod, methodZ, ()void, 103)
+methodZ
+methodX
+methodY
+methodZ
