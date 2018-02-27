@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5c40c6d_b50e1e05",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-27T02:02:11Z",
+      "side": 1,
+      "message": "Can you put this into a separate change? It would make it cleaner what fixes what (the default method stuff might get reverted at some point, while this won\u0027t).",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "f0d8f19e43ec96f73a306e48f84f148050d4c803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
