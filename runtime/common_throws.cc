@@ -893,4 +893,8 @@ void ThrowWrongMethodTypeException(mirror::MethodType* expected_type,
                               actual_type->PrettyDescriptor().c_str()).c_str());
 }
 
+void ThrowWrongMethodTypeException(const char* msg) {
+  ThrowException("Ljava/lang/invoke/WrongMethodTypeException;", nullptr, msg);
+}
+
 }  // namespace art

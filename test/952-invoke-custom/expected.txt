@@ -18,3 +18,22 @@ testStaticFieldAccessors
 testInstanceFieldAccessors
 testInvokeVirtual => max(77, -3) = 77
 testConstructor => class TestInvocationKinds$Widget
+TestDynamicArguments
+bsm
+0, One, 3.141592653589793
+bsm
+1, Two, 2.718281828459045
+bsm
+2, Three, 0.0
+0, One, 3.141592653589793
+1, Two, 2.718281828459045
+2, Three, 0.0
+TestBadBootstrapArguments
+bsm(class TestBadBootstrapArguments, happy, ()void, -1, very)
+happy
+invokeWrongParameterTypes => class java.lang.NoSuchMethodError
+invokeMissingParameterTypes => class java.lang.NoSuchMethodError
+invokeExtraArguments => class java.lang.BootstrapMethodError => class java.lang.invoke.WrongMethodTypeException
+invokeWrongArguments => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+invokeWrongArguments => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
+invokeWrongArgumentsAgain => class java.lang.BootstrapMethodError => class java.lang.ClassCastException
