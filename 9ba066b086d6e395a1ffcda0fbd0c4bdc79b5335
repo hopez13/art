@@ -22,6 +22,29 @@
       "revId": "9ba066b086d6e395a1ffcda0fbd0c4bdc79b5335",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "042d86b0_760bb48e",
+        "filename": "test/021-string2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-27T09:22:45Z",
+      "side": 1,
+      "message": "Why not just `result \u003d \"OK\";` and pull the println() out of the if-then-else? Then we can enable the very long constant string check below.",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "9ba066b086d6e395a1ffcda0fbd0c4bdc79b5335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
