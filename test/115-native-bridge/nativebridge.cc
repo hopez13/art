@@ -206,6 +206,20 @@ static void raise_sigsegv() {
 #endif
 }
 
+#if defined(__BIONIC__)
+extern "C" int sigblock(int);
+extern "C" int sigsetmask(int);
+static void CheckSigMask(const char* function_name) {
+  sigset_t current_set = {};
+  if (sigprocmask(SIG_SETMASK, nullptr, &current_set) == -1) {
+    printf("ERROR: sigprocmask query failed\n");
+  }
+  if (!sigismember(&current_set, SIGSEGV)) {
+    printf("ERROR: %s blocked SIGSEGV!\n", function_name);
+  }
+}
+#endif
+
 static jint trampoline_Java_Main_testSignal(JNIEnv*, jclass) {
   // Install the sigaction handler above, which should *not* be reached as the native-bridge
   // handler should be called first. Note: we won't chain at all, if we ever get here, we'll die.
@@ -223,6 +237,40 @@ static jint trampoline_Java_Main_testSignal(JNIEnv*, jclass) {
   // Test sigill
   sigaction(SIGILL, &tmp, nullptr);
   kill(getpid(), SIGILL);
+
+#if defined(__BIONIC__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  // In a sigchain-using context, no C library function should be able to
+  // block SIGSEGV. If one does, it means libsigchain isn't working. See
+  // http://b/73344857 for an example.
+
+  // pthread_sigmask.
+  sigset_t segv_set = {};
+  sigaddset(&segv_set, SIGSEGV);
+  if (pthread_sigmask(SIG_BLOCK, &segv_set, nullptr) != 0) {
+    printf("ERROR: pthread_sigmask failed\n");
+  }
+  CheckSigMask("pthread_sigmask");
+
+  // sigblock.
+  if (sigblock(1U << (SIGSEGV - 1)) == -1) printf("ERROR: sigblock failed\n");
+  CheckSigMask("sigblock");
+
+  // sigsetmask.
+  int mask = sigblock(0) & ~(1U << (SIGSEGV - 1));
+  if (sigsetmask(mask) == -1) printf("ERROR: sigsetmask failed\n");
+  CheckSigMask("sigsetmask");
+
+  // sighold.
+  if (sighold(SIGSEGV) == -1) printf("ERROR: sighold failed\n");
+  CheckSigMask("sighold");
+
+  // sigset.
+  sigset(SIGSEGV, SIG_HOLD);
+  CheckSigMask("sigset");
+#pragma clang diagnostic pop
+#endif
 
   return 1234;
 }
@@ -562,7 +610,7 @@ static bool StandardSignalHandler(int sig, siginfo_t* info ATTRIBUTE_UNUSED,
   return true;
 }
 
-// A dummy special handler, continueing after the faulting location. This code comes from
+// A dummy special handler, continuing after the faulting location. This code comes from
 // 004-SignalTest.
 static bool nb_signalhandler(int sig, siginfo_t* info, void* context) {
   printf("NB signal handler with signal %d.\n", sig);
