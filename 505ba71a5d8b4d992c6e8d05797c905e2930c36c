@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8885d81_b0c57635",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b4060c5_82503725",
+      "range": {
+        "startLine": 965,
+        "startChar": 16,
+        "endLine": 965,
+        "endChar": 20
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fa7af00_f7268fbb",
         "filename": "test/testrunner/run_build_test_target.py",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5ed48389_6564eae8",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fa7af00_f7268fbb",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ede1042e_9b646974",
         "filename": "test/testrunner/target_config.py",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-02-27T19:42:51Z",
       "side": 1,
       "message": "Maybe get rid of this (unless the default environment is not an empty one)?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01152d95_7d31270b",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ede1042e_9b646974",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -105,6 +177,30 @@
       "writtenOn": "2018-02-27T19:42:51Z",
       "side": 1,
       "message": "ART_2ND_PHONY_TEST_HOST_SUFFIX?",
+      "range": {
+        "startLine": 240,
+        "startChar": 14,
+        "endLine": 240,
+        "endChar": 46
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efa79536_b341168f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Didn\u0027t need these jvm changes, removed.",
+      "parentUuid": "631e4722_a2e038f4",
       "range": {
         "startLine": 240,
         "startChar": 14,
@@ -175,6 +271,54 @@
       "side": 1,
       "message": "\"config\" ends up being a tuple of those values. except for uncombinated_config it ends up being a much smaller tuple because it only varies over the test.\n\nCan you be a bit more specific in what your question here about \"Why do you need all this?\"\n\nthe --jvm config needs to run with minimal flags passed to run-test because otherwise it would blindly pass down flags to the jvm command and it would fail every single test being ran.\n\nI also wanted to minimize refactoring because there\u0027s no test for the testrunner and breaking existing functionality seems like a bad idea?\n\nPlease let me know how you\u0027d like to proceed so I can make the appropriate changes.",
       "parentUuid": "553a3cbc_4cf79420",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 376,
+        "endChar": 95
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb25893_6d670c15",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d69ea82_8df987a6",
+      "range": {
+        "startLine": 376,
+        "startChar": 88,
+        "endLine": 376,
+        "endChar": 90
+      },
+      "revId": "505ba71a5d8b4d992c6e8d05797c905e2930c36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead1e137_54c998c9",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-27T22:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3201fce_0d16640f",
       "range": {
         "startLine": 362,
         "startChar": 2,
