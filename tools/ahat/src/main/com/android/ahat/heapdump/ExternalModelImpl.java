@@ -32,7 +32,21 @@ class ExternalModelImpl {
   }
 
   private static void applyActionableMemoryMetricModels(Iterable<AhatInstance> instances) {
-    // TODO: Add some models.
+    for (AhatInstance inst : instances) {
+      // Bitmap: 4 * mWidth * mHeight if mNativePtr != 0
+      if ("android.graphics.Bitmap".equals(inst.getClassName())) {
+        // TODO: test and handle case where pixel format isn't 4 bytes per pixel.
+        Value width = inst.getField("mWidth");
+        Value height = inst.getField("mHeight");
+        Value nptr = inst.getField("mNativePtr");
+        if (width != null && height != null && nptr != null
+            && width.isInteger() && height.isInteger() && nptr.isLong() && nptr.asLong() != 0) {
+          inst.addExternalModel(4 * width.asInteger() * height.asInteger());
+        }
+      }
+
+      // TODO: Add more models.
+    }
   }
 
   static void applyExternalModel(ExternalModelSource source, Iterable<AhatInstance> instances) {
