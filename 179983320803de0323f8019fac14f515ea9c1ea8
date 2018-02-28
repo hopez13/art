@@ -94,6 +94,30 @@
       "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6c259c7_fe429081",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-28T05:50:16Z",
+      "side": 1,
+      "message": "Hm, dist doesn\u0027t really help, we don\u0027t push it, anyways (we\u0027re *not* doing a dist build). So I guess I\u0027ll just leave it like this.",
+      "parentUuid": "1a67bdaa_95f950bf",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
