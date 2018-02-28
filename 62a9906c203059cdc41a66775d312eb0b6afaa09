@@ -46,6 +46,30 @@
       "revId": "62a9906c203059cdc41a66775d312eb0b6afaa09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23750dde_bf5bc7c5",
+        "filename": "test/004-JniTest/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-28T00:10:04Z",
+      "side": 1,
+      "message": "Doesn\u0027t it? Your commit message says you want to skip checking slowDebug, but this way you do. The other way around fast-fail of \u0027\u0026\u0026\u0027 would avoid the call.",
+      "parentUuid": "dd6d3cbf_098c4eb6",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "62a9906c203059cdc41a66775d312eb0b6afaa09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
