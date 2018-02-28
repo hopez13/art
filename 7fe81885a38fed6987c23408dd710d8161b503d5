@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdcbd796_66acbb8e",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "typo: occurrences",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eafc0eeb_342f82cf",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "typo: intended",
+      "range": {
+        "startLine": 116,
+        "startChar": 19,
+        "endLine": 116,
+        "endChar": 27
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2db7352a_caa51521",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "public in this class (for the ctor and methods below) isn\u0027t needed",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a783f78f_66837b80",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "pathClassLoader cannot be null",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1f67a78_62a98d83",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "Not needed to catch and print stack trace here - the caller of main() should do this.",
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8167482e_aa36caba",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "null is not needed here",
+      "range": {
+        "startLine": 94,
+        "startChar": 78,
+        "endLine": 94,
+        "endChar": 94
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9643cd0_fa7a9e6b",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "typo: branch",
+      "range": {
+        "startLine": 109,
+        "startChar": 14,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "818efb75_aad2af69",
+        "filename": "test/616-cha-unloading/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-02-28T17:17:33Z",
+      "side": 1,
+      "message": "I think it\u0027s better to use private for these native methods",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 8
+      },
+      "revId": "7fe81885a38fed6987c23408dd710d8161b503d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
