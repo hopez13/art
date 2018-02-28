@@ -602,6 +602,7 @@ END art_quick_invoke_stub_internal
 ENTRY art_quick_osr_stub
     SPILL_ALL_CALLEE_SAVE_GPRS             @ Spill regs (9)
     mov    r11, sp                         @ Save the stack pointer
+    .cfi_def_cfa_register r11
     mov    r10, r1                         @ Save size of stack
     ldr    r9, [r11, #40]                  @ Move managed thread pointer into r9
     REFRESH_MARKING_REGISTER
@@ -620,8 +621,10 @@ ENTRY art_quick_osr_stub
     mov    r0, sp
     bl     memcpy                          @ memcpy (dest r0, src r1, bytes r2)
     bl     .Losr_entry                     @ Call the method
+    .cfi_remember_state
     ldr    r10, [sp, #8]                   @ Restore JValue* result
     ldr    sp, [sp, #4]                    @ Restore saved stack pointer
+    .cfi_def_cfa_register sp
     ldr    r4, [sp, #36]                   @ load shorty
     ldrb   r4, [r4, #0]                    @ load return type
     cmp    r4, #68                         @ Test if result type char == 'D'.
@@ -635,6 +638,7 @@ ENTRY art_quick_osr_stub
 .Losr_exit:
     pop    {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 .Losr_entry:
+    .cfi_restore_state
     sub r10, r10, #4
     str lr, [sp, r10]                     @ Store link register per the compiler ABI
     bx r6

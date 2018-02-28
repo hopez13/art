@@ -1064,7 +1064,7 @@ END art_quick_invoke_static_stub
 ENTRY art_quick_osr_stub
 SAVE_SIZE=15*8   // x3, x4, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, SP, LR, FP saved.
     mov x9, sp                             // Save stack pointer.
-    .cfi_register sp,x9
+    .cfi_def_cfa_register x9
 
     sub x10, sp, # SAVE_SIZE
     and x10, x10, # ~0xf                   // Enforce 16 byte stack alignment.
@@ -1085,10 +1085,40 @@ SAVE_SIZE=15*8   // x3, x4, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, SP
     str xzr, [sp]                         // Store null for ArtMethod* slot
     // Branch to stub.
     bl .Losr_entry
+    .cfi_remember_state
+
+    // cfa = [sp + 48]
+    .cfi_escape \
+      0x0f, 0x03,           /* DW_CFA_def_cfa_expression, 0x03 */ \
+      0x92, 31, 48          /* DW_OP_bregx 31, 48 */
+    // lr = [(([sp + 48] - SAVE_SIZE) & ~0xf) + 8]
+    .cfi_escape \
+      0x10, 30, 0x0c,       /* DW_CFA_expression 30, 0x10 */ \
+      0x92, 31, 48,         /* DW_OP_bregx 31, 48 */ \
+      0x06,                 /* DW_OP_deref */ \
+      0x08, SAVE_SIZE,      /* DW_OP_const1u SAVE_SIZE */ \
+      0x1c,                 /* DW_OP_minus */ \
+      0x09, 0xf0,           /* DW_OP_const1s 0xf0 */ \
+      0x1a,                 /* DW_OP_and */ \
+      0x23, 0x08            /* DW_OP_plus_uconst 8 */
     add sp, sp, #16
+    // cfa = [sp + 32]
+    .cfi_escape \
+      0x0f, 0x03,           /* DW_CFA_def_cfa_expression, 0x03 */ \
+      0x92, 31, 32          /* DW_OP_bregx 31, 48 */
+    // lr = [(([sp + 32] - SAVE_SIZE) & ~0xf) + 8]
+    .cfi_escape \
+      0x10, 30, 0x0c,       /* DW_CFA_expression 30, 0x10 */ \
+      0x92, 31, 32,         /* DW_OP_bregx 31, 32 */ \
+      0x06,                 /* DW_OP_deref */ \
+      0x08, SAVE_SIZE,      /* DW_OP_const1u SAVE_SIZE */ \
+      0x1c,                 /* DW_OP_minus */ \
+      0x09, 0xf0,           /* DW_OP_const1s 0xf0 */ \
+      0x1a,                 /* DW_OP_and */ \
+      0x23, 0x08            /* DW_OP_plus_uconst 8 */
 
     // Restore return value address and shorty address.
-    ldp x3,x4, [sp, #16]
+    ldp x3, x4, [sp, #16]
     ldr x28, [sp, #112]
     ldp x26, x27, [sp, #96]
     ldp x24, x25, [sp, #80]
@@ -1121,11 +1151,23 @@ SAVE_SIZE=15*8   // x3, x4, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, SP
 
 .Losr_exit:  // Finish up.
     ldp x2, x19, [sp, #32]   // Restore stack pointer and x19.
+    .cfi_def_cfa_register x2
     ldp xFP, xLR, [sp]    // Restore old frame pointer and link register.
+    .cfi_restore lr
     mov sp, x2
     ret
 
 .Losr_entry:
+    .cfi_restore_state
+    // lr = [((x9 - SAVE_SIZE) & ~0xf) + 8]
+    .cfi_escape \
+      0x10, 30, 0x0b,       /* DW_CFA_expression 30, 0x10 */ \
+      0x92, 9, 0,           /* DW_OP_bregx 9, 0 */ \
+      0x08, SAVE_SIZE,      /* DW_OP_const1u SAVE_SIZE */ \
+      0x1c,                 /* DW_OP_minus */ \
+      0x09, 0xf0,           /* DW_OP_const1s 0xf0 */ \
+      0x1a,                 /* DW_OP_and */ \
+      0x23, 0x08            /* DW_OP_plus_uconst 8 */
     // Update stack pointer for the callee
     sub sp, sp, x1
 

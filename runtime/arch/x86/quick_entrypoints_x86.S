@@ -2373,16 +2373,19 @@ DEFINE_FUNCTION art_quick_osr_stub
     mov 8+16(%esp), %ecx           // ECX = size of args
     mov 12+16(%esp), %ebx          // EBX = pc to call
     mov %esp, %ebp                 // Save stack pointer
+    .cfi_def_cfa_register ebp
     andl LITERAL(0xFFFFFFF0), %esp // Align stack
-    PUSH ebp                       // Save old stack pointer
+    pushl %ebp                     // Save old stack pointer
     subl LITERAL(12), %esp         // Align stack
     movl LITERAL(0), (%esp)        // Store null for ArtMethod* slot
     call .Losr_entry
+    .cfi_remember_state
 
     // Restore stack pointer.
     addl LITERAL(12), %esp
-    POP ebp
+    popl %ebp
     mov %ebp, %esp
+    .cfi_def_cfa_register esp
 
     // Restore callee saves.
     POP edi
@@ -2405,6 +2408,7 @@ DEFINE_FUNCTION art_quick_osr_stub
     movss %xmm0, (%ecx)           // Store the floating point result
     ret
 .Losr_entry:
+    .cfi_restore_state
     subl LITERAL(4), %ecx         // Given stack size contains pushed frame pointer, substract it.
     subl %ecx, %esp
     mov %esp, %edi                // EDI = beginning of stack
