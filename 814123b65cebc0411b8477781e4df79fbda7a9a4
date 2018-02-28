@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "986db988_afe2732e",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelSource.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:59:09Z",
+      "side": 1,
+      "message": "Having both of these lines is unnecessary.\n\nMight be woth specifying what the default is.\n\n(It would be better to have this comment in the CL that added the file rather than this one, but not a big deal)",
+      "revId": "814123b65cebc0411b8477781e4df79fbda7a9a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a96867c_b85d4297",
+        "filename": "tools/ahat/src/test/com/android/ahat/TestDump.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:59:09Z",
+      "side": 1,
+      "message": "could be made final? (and the above too?)",
+      "revId": "814123b65cebc0411b8477781e4df79fbda7a9a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "312d64b3_e3fd74f4",
+        "filename": "tools/ahat/src/test/com/android/ahat/TestDump.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:59:09Z",
+      "side": 1,
+      "message": "Could use ternary operator rather then if below",
+      "revId": "814123b65cebc0411b8477781e4df79fbda7a9a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
