@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4ccf22c_40755bcf",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-28T14:32:02Z",
+      "side": 1,
+      "message": "Currently using the InternTable mmapped to .bss, soon the .data.bimg.rel.ro (https://android-review.googlesource.com/622866). Neither is annotated by the disassembler in oatdump.",
+      "range": {
+        "startLine": 102,
+        "startChar": 49,
+        "endLine": 102,
+        "endChar": 56
+      },
+      "revId": "421087b06b44c66c8b3010ee5ea6c9a54461d38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
