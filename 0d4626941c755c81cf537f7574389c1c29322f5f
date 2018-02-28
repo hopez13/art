@@ -22,6 +22,30 @@
       "revId": "0d4626941c755c81cf537f7574389c1c29322f5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eba15bcf_67dd89e9",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-28T13:30:08Z",
+      "side": 1,
+      "message": "Actually, VerifierDeps is a very bad choice as the only compiled code is two methods with simple \"ret\".",
+      "parentUuid": "a86c92ae_6f4ca8f1",
+      "range": {
+        "startLine": 101,
+        "startChar": 12,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "0d4626941c755c81cf537f7574389c1c29322f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
