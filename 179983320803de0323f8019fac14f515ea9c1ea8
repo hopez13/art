@@ -46,6 +46,30 @@
       "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16a80567_d770fdfa",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-28T05:38:40Z",
+      "side": 1,
+      "message": "It\u0027s one of the things you still let pass through? (Copying after the fact is non-sensical, I want to suppress emitting it at all if it\u0027s not dist)",
+      "parentUuid": "7adf3cd3_90d70d19",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
