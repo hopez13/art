@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3a8f95e_810f0bc4",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:48:32Z",
+      "side": 1,
+      "message": "every method in this class takes Iterable\u003cAhatInstance\u003e as a parameter, which suggests it may be better make the method non-static and have the Interable as a member?",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 23
+      },
+      "revId": "70dadacf6c7b1de89f2b30d69be6df3a6d1fdfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bc99b4a_4fb44a9d",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:48:32Z",
+      "side": 1,
+      "message": "should this be rna?",
+      "range": {
+        "startLine": 27,
+        "startChar": 46,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "70dadacf6c7b1de89f2b30d69be6df3a6d1fdfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afce98e1_2a6227ba",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelSource.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T16:48:32Z",
+      "side": 1,
+      "message": "could drop the \"Source\" from the method name, it\u0027s implied by the context.",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "70dadacf6c7b1de89f2b30d69be6df3a6d1fdfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
