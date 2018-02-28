@@ -23,6 +23,7 @@
 #include "gc/accounting/space_bitmap-inl.h"
 #include "gc/heap.h"
 #include "gc/space/region_space.h"
+#include "gc/verification.h"
 #include "lock_word.h"
 #include "mirror/object-readbarrier-inl.h"
 
@@ -144,6 +145,12 @@ inline mirror::Object* ConcurrentCopying::Mark(mirror::Object* from_ref,
       return MarkUnevacFromSpaceRegion(from_ref, region_space_bitmap_);
     }
     case space::RegionSpace::RegionType::kRegionTypeNone:
+      // The reference should not be in the region space in that case.
+      if (region_space_->HasAddress(from_ref)) {
+        region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
+        LOG(FATAL_WITHOUT_ABORT) << DumpHeapReference(holder, offset, from_ref);
+        heap_->GetVerification()->LogHeapCorruption(holder, offset, from_ref, /* fatal */ true);
+      }
       if (immune_spaces_.ContainsObject(from_ref)) {
         return MarkImmuneSpace<kGrayImmuneObject>(from_ref);
       } else {
