@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b254fc3_e690a13c",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-02-28T05:29:30Z",
+      "side": 1,
+      "message": "It seems this is always set, even if there\u0027s no explicit external DIST_DIR. Not super happy, but I guess out/dist isn\u0027t too bad - m clean will blow the unnecessary stuff away.",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
