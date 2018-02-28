@@ -70,6 +70,30 @@
       "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a67bdaa_95f950bf",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-02-28T05:45:15Z",
+      "side": 1,
+      "message": "Yes, it\u0027s in PARSE_TIME_MAKE_GOALS.\n\nCopying makes some amount of sense, that\u0027s absolutely expected for builds, though as this is a test, the behavior could be somewhat different. For builds, clearing the dist directory and running the build again should just copy the results, not force things to re-run (or in this case, not produce anything into the dist directory, since it\u0027s not marked as an output in the build graph).",
+      "parentUuid": "16a80567_d770fdfa",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
