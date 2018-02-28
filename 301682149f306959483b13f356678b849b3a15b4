@@ -22,6 +22,30 @@
       "revId": "301682149f306959483b13f356678b849b3a15b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b52c301_a83851fc",
+        "filename": "test/046-reflect/expected_jvm.diff",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-02-28T15:01:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t work, I tried enumerating all the flags (including --illegal-access\u003dpermit) and it still warns.\n\nSupposedly on JDK9 there is a new flag which will actually not warn, we will see..",
+      "parentUuid": "f09091f2_c86d987e",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 36
+      },
+      "revId": "301682149f306959483b13f356678b849b3a15b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
