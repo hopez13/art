@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79d688cd_ed6d6c9e",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-02-28T13:11:34Z",
+      "side": 1,
+      "message": "Doesn\u0027t this CL mean you also need to update *all* CHECKs in our native code?",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 26
+      },
+      "revId": "a654d22001e316f85ecf7de60bfbbf05db3fd103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
