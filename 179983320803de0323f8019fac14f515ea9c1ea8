@@ -118,6 +118,30 @@
       "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a342f3_1f8da836",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-02-28T06:46:22Z",
+      "side": 1,
+      "message": "This only affects your art test builds, so not a huge deal, but other than this nothing else writes to $(DIST_DIR) if dist is not on the command line.  But all this is going away anyways when the test runner moves out of Make.\n\nAs Dan said, the correctest thing to do is to write these xml files into the out dir somewhere, and then use $(call dist-for-goals,test-art-host-gtest,$(ART_TEST_XML_FILE)).",
+      "parentUuid": "e6c259c7_fe429081",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
