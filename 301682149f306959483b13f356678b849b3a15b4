@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f09091f2_c86d987e",
+        "filename": "test/046-reflect/expected_jvm.diff",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-02-28T11:11:50Z",
+      "side": 1,
+      "message": "Can we pass something like --illegal-access\u003dquiet to silence this particular warning?",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 36
+      },
+      "revId": "301682149f306959483b13f356678b849b3a15b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
