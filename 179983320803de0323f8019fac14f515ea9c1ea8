@@ -22,6 +22,30 @@
       "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7adf3cd3_90d70d19",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-02-28T05:33:32Z",
+      "side": 1,
+      "message": "Check to see if dist is in MAKECMDGOALS (or just copy the output with dist-for-goals, though that doesn\u0027t work if you want to run things differently in dist builds)",
+      "parentUuid": "7b254fc3_e690a13c",
+      "range": {
+        "startLine": 510,
+        "startChar": 12,
+        "endLine": 510,
+        "endChar": 20
+      },
+      "revId": "179983320803de0323f8019fac14f515ea9c1ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
