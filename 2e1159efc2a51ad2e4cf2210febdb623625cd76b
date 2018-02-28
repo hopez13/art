@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6fa5ed_72709309",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T17:11:04Z",
+      "side": 1,
+      "message": "It looks like the pattern here is going to be repeated multiple times? i.e. the `if (\"some.Class\".equals(inst.getClassName()))` ?\n\nIf so, it might be better to have a better paradigm, that just a big method with a bunch of if statements.\n\nAs a straw man proposal:\n\n  public abstract class ActionableMemoryMetricModel {\n    public abstract String getHandledClassName();\n    public abstract long getModelledMemoryUsage(AhatInstance instance);\n  }\n\nyou could then maintain a map of these, indexed by class name, and keep all the individual model encapsulated in their own classes. It would probably make your tests simpler too (each model can have it\u0027s own test too; you could use a mocked AhatInstance to make tests easier to understand, etc)",
+      "revId": "2e1159efc2a51ad2e4cf2210febdb623625cd76b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d9c6659_52cf8d46",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T17:11:04Z",
+      "side": 1,
+      "message": "It looks like the pattern here is going to be repeated multiple times? i.e. the `if (\"some.Class\".equals(inst.getClassName()))` ?\n\nIf so, it might be better to have a better paradigm, that just a big method with a bunch of if statements.\n\nAs a straw man proposal:\n\n  public abstract class ActionableMemoryMetricModel {\n    public abstract String getHandledClassName();\n    public abstract long getModelledMemoryUsage(AhatInstance instance);\n  }\n\nyou could then maintain a map of these, indexed by class name, and keep all the individual model encapsulated in their own classes. It would probably make your tests simpler too (each model can have it\u0027s own test too; you could use a mocked AhatInstance to make tests easier to understand, etc)",
+      "revId": "2e1159efc2a51ad2e4cf2210febdb623625cd76b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c213718a_c8a91ab9",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/ExternalModelImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-02-28T17:11:04Z",
+      "side": 1,
+      "message": "is this (or the above class) subclass-able?",
+      "revId": "2e1159efc2a51ad2e4cf2210febdb623625cd76b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
