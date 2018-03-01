@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b0944881_4e1eaee0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T23:41:39Z",
+      "side": 1,
+      "message": "I filed b/74081213 for team to discuss, marking this thread resolved.",
+      "parentUuid": "cc7620dd_290a434c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e65cde0b_065b433f",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "5e5d52c8_e3c300a9",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T23:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2645d4e2_cc4855a3",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 381,
+        "endChar": 40
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24db38dc_2b37c57b",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -155,6 +203,30 @@
       "writtenOn": "2018-03-01T14:37:49Z",
       "side": 1,
       "message": "nit/suggestion only: terminology: \"mode\" -\u003e \"platform\"?",
+      "range": {
+        "startLine": 838,
+        "startChar": 30,
+        "endLine": 838,
+        "endChar": 34
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae2b4d7f_7aeb814b",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T23:41:39Z",
+      "side": 1,
+      "message": "See b/74081213",
+      "parentUuid": "24db38dc_2b37c57b",
       "range": {
         "startLine": 838,
         "startChar": 30,
@@ -226,6 +298,30 @@
       "side": 1,
       "message": "Not sure what \"do nothing\" and \"call bootjars.sh \"are. I\u0027m only suggesting to change:\n\nif (a !\u003d b) then foo else bar;\n\ninto\n\nif (a \u003d\u003d b) then bar else foo;",
       "parentUuid": "2ff061fa_3fca7daf",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 21
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ceb3f69_41f26e8c",
+        "filename": "tools/javac-helper.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T23:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b14ec82a_2b224546",
       "range": {
         "startLine": 78,
         "startChar": 1,
