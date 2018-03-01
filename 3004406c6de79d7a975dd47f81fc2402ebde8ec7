@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "5b4a1011_5dd74472",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-01T15:24:48Z",
+      "side": 1,
+      "message": "Letting the debugger restore registers properly is better.",
+      "parentUuid": "af5b7b66_71e0a136",
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ffebef1_ad4b59bb",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "Not sure, but this might be looked at by our stack walker. But it doesn\u0027t hurt to try removing it :)",
       "parentUuid": "4ffebef1_ad4b59bb",
+      "range": {
+        "startLine": 2378,
+        "startChar": 4,
+        "endLine": 2378,
+        "endChar": 14
+      },
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "041c8f11_0fc8e134",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2378,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-01T15:24:48Z",
+      "side": 1,
+      "message": "Indeed, this looks unnecessary; if the stack walker looked at it, I would expect this to be saved at a specific offset for all platforms. We should remove lines 2378-2379 and insert\n\n    subl LITERAL(__SIZEOF_POINTER__), %esp // Make space for ArtMethod*\n\nbefore line 2377.",
+      "parentUuid": "f062f231_946f70c3",
       "range": {
         "startLine": 2378,
         "startChar": 4,
