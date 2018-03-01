@@ -16,6 +16,24 @@
       "revId": "7138dba676f049482edfedb5de007c132018d7af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f083c185_74839a92",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T20:20:40Z",
+      "side": 1,
+      "message": "Right. I realized that we were already doing the test\n\n  region_space_-\u003eHasAddress(from_ref)\n\nwhen querying the region type of `from_space` line 127. I uncoupled these two actions and moved the former earlier, so that there should be no run-time penalty.",
+      "parentUuid": "b0a5bdb3_c573562a",
+      "revId": "7138dba676f049482edfedb5de007c132018d7af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
