@@ -1,0 +1,572 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03380cc1_8baf5bf1",
+        "filename": "test/09871-cc-deadlock/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Nit: Wrap long lines.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 39
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1710fc23_e202951b",
+        "filename": "test/09871-cc-deadlock/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Also mention that this is a non-regression test for b/72457759.",
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69a962d8_b6cef922",
+        "filename": "test/09871-cc-deadlock/sigquittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Can you add the copyright header we use in other tests to this file? (Likewise in other files of this CL.)",
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a86616_478673d4",
+        "filename": "test/09871-cc-deadlock/sigquittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "I think this should be removed.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50acb38a_e53a3ff8",
+        "filename": "test/09871-cc-deadlock/sigquittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Replace with:\n\n  #include \u003csys/types.h\u003e\n\n?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00b276b8_b60c2cf3",
+        "filename": "test/09871-cc-deadlock/sigquittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Insert a blank line between lines 4 and 5.",
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e83487f_91f5a6c8",
+        "filename": "test/09871-cc-deadlock/sigquittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Enclose this in:\n\n  namespace art {\n\nand:\n\n  }  // namespace art\n\n(see other tests).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71b480af_65eee2a7",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c2db31e_5d7ea900",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Nit: Sort these import statements.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8867afd5_08fab794",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "whether ART deadlocks",
+      "range": {
+        "startLine": 31,
+        "startChar": 34,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6811989f_ff107fc7",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Turn this into an abstract method?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09894acc_693b0dc6",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f90ebdd2_16a25363",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 105
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4b7ff4e_86e9f872",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t thus be\n\n  MILLISECONDS_OF_MINUTE?\n\n?",
+      "range": {
+        "startLine": 206,
+        "startChar": 29,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b7101b0_fa4c6bba",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Nit: Add space.",
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfb5766c_b0efb894",
+        "filename": "test/09871-cc-deadlock/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Consider adding a $noinline$ prefix to this method\u0027s name. Otherwise, it will be inlined in `run` and reduced to a no-operation.",
+      "range": {
+        "startLine": 473,
+        "startChar": 16,
+        "endLine": 473,
+        "endChar": 28
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612b4382_eb04c1ce",
+        "filename": "test/09871-cc-deadlock/watchdogtest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dac2418_39925c29",
+        "filename": "test/09871-cc-deadlock/watchdogtest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Are these needed?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 19
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6025f76a_c63d216b",
+        "filename": "test/09871-cc-deadlock/watchdogtest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Sort these #include statements, and insert a blank line between #includes of system and local headers.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c33e36bc_a045a2cf",
+        "filename": "test/09871-cc-deadlock/watchdogtest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "}  // namespace art",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47d540c7_ff5d7911",
+        "filename": "test/09871-cc-deadlock/weakglobalref.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7468d9eb_f90a8ad5",
+        "filename": "test/09871-cc-deadlock/weakglobalref.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Remove and replace with:\n\n  #include \u003cstring.h\u003e\n\n?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a716012_877c8f13",
+        "filename": "test/09871-cc-deadlock/weakglobalref.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 27
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac65cee4_97d047e1",
+        "filename": "test/09871-cc-deadlock/weakglobalref.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Please encode the code below in namespace `art` (see other tests).",
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aea58873_43341ce8",
+        "filename": "test/09871-cc-deadlock/weakglobalref.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 104
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50335894_d2ff5839",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-01T14:47:40Z",
+      "side": 1,
+      "message": "Could you use a prefix in the 19.. range?",
+      "range": {
+        "startLine": 361,
+        "startChar": 9,
+        "endLine": 361,
+        "endChar": 14
+      },
+      "revId": "afc397fec80002c91766fc75b7df07c50f1e303a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
