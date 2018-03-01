@@ -22,6 +22,30 @@
       "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38c10a53_8d961531",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-01T14:23:52Z",
+      "side": 1,
+      "message": "Don\u0027t you need it if there\u0027s multitple writers?",
+      "parentUuid": "d64909b3_9e0b40de",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
