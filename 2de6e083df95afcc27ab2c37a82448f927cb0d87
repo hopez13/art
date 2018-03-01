@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8486914e_b45e1605",
+        "filename": "test/641-checker-arraycopy/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-01T23:54:37Z",
+      "side": 1,
+      "message": "I think this makes the test not test what it states in line 19. The test should be deleted in a follow-up.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 97
+      },
+      "revId": "2de6e083df95afcc27ab2c37a82448f927cb0d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
