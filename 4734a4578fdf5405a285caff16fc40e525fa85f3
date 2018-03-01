@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcfee63f_4578734d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-01T22:00:15Z",
+      "side": 1,
+      "message": "Can you get rid of this argument? It can be passed by capture if required?",
+      "range": {
+        "startLine": 1137,
+        "startChar": 12,
+        "endLine": 1137,
+        "endChar": 41
+      },
+      "revId": "4734a4578fdf5405a285caff16fc40e525fa85f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
