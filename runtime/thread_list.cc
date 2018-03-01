@@ -1360,12 +1360,13 @@ void ThreadList::SuspendAllDaemonThreadsForShutdown() {
       thread->GetJniEnv()->SetFunctionsToRuntimeShutdownFunctions();
     }
   }
-  // If we have any daemons left, wait 200ms to ensure they are not stuck in a place where they
+  // If we have any daemons left, wait 400ms to ensure they are not stuck in a place where they
   // are about to access runtime state and are not in a runnable state. Examples: Monitor code
   // or waking up from a condition variable. TODO: Try and see if there is a better way to wait
   // for daemon threads to be in a blocked state.
+  // Bugs: b/26483935, b/73871735
   if (daemons_left > 0) {
-    static constexpr size_t kDaemonSleepTime = 200 * 1000;
+    static constexpr size_t kDaemonSleepTime = 400 * 1000;
     usleep(kDaemonSleepTime);
   }
   // Give the threads a chance to suspend, complaining if they're slow.
