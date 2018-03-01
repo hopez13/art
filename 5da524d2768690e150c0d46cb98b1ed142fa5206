@@ -46,6 +46,30 @@
       "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adc5d8f2_d0690d1e",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-01T14:37:08Z",
+      "side": 1,
+      "message": "The writes happen here and are under a lock, so there is no multi-writer race.\n\nI assume that normal write will still be atomic (i.e. it is not possible to observe just half of the uint32 being written).\n\nAnd I assume that normal write still respect the ordering guarantees provided by the barriers.",
+      "parentUuid": "38c10a53_8d961531",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
