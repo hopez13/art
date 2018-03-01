@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af6cfc5c_18666888",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T14:49:23Z",
+      "side": 1,
+      "message": "We use --mode\u003d throughout all the ART tools including the chrome buildbot test scripts.\n\n(I think it\u0027s definitely outside the scope of this CL due to size, but maybe we should consider a follow up CL to do more cleanup?)\n\nWDYT Nicolas? Worth trying to do a surgery to rename it to --platform everywhere?",
+      "parentUuid": "f0718c46_f3a77ef0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e65cde0b_065b433f",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-01T14:37:49Z",
       "side": 1,
       "message": "nit/suggestion: Since nothing in this file uses $JAVAC} any more, and since all javac_with_bootclasspath invocations use ${JAVAC_ARGS}, this could potentially be simplified, eg. rename javac_with_bootclasspath -\u003e run_javac, and move ${JAVAC_ARGS} into that method? Up to you.",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 381,
+        "endChar": 40
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2645d4e2_cc4855a3",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T14:49:23Z",
+      "side": 1,
+      "message": "Thanks, nice catch :).",
+      "parentUuid": "e65cde0b_065b433f",
       "range": {
         "startLine": 381,
         "startChar": 2,
