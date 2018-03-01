@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b52e99e6_70496c8a",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-01T14:07:26Z",
+      "side": 1,
+      "message": "WDYM? A class loader has only one linear alloc doesn\u0027t it? So instead of passing it, can you fetch it from klass?",
+      "parentUuid": "eed87037_7767b3d6",
+      "range": {
+        "startLine": 81,
+        "startChar": 67,
+        "endLine": 81,
+        "endChar": 91
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb80dd0c_e178456c",
         "filename": "runtime/cha.cc",
         "patchSetId": 6
