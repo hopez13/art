@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5374fbac_dbd60855",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T14:50:44Z",
+      "side": 1,
+      "message": "Actually the other inconsistent thing we do is\n\n* Sometimes --host, --target instead of --mode\u003dhost|target\n* Usually --target is implied, but sometimes it\u0027s not an explicit option",
+      "parentUuid": "af6cfc5c_18666888",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e65cde0b_065b433f",
         "filename": "test/etc/default-build",
         "patchSetId": 1
