@@ -46,6 +46,30 @@
       "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b14ec82a_2b224546",
+        "filename": "tools/javac-helper.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-01T14:20:46Z",
+      "side": 1,
+      "message": "Not sure what \"do nothing\" and \"call bootjars.sh \"are. I\u0027m only suggesting to change:\n\nif (a !\u003d b) then foo else bar;\n\ninto\n\nif (a \u003d\u003d b) then bar else foo;",
+      "parentUuid": "2ff061fa_3fca7daf",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 21
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
