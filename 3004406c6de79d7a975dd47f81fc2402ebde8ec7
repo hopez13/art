@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a340d856_1ce6bbf5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-01T14:46:56Z",
+      "side": 1,
+      "message": "r11 should still be valid, so this can be omitted (including the remember/restore state). Having a single POP restore many registers has some advantages.",
+      "range": {
+        "startLine": 627,
+        "startChar": 4,
+        "endLine": 627,
+        "endChar": 28
+      },
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3acd06f7_de963889",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-01T14:46:56Z",
+      "side": 1,
+      "message": "There are no .cfi_rel_offset/cfi_restore directives for these saves. I think it would be better to rewrite the code to save registers before doing the aligining SP adjustment and then use a callee-save register instead of x9 as the CFA register (just like on ARM). That shall remove the need for complicated .cfi_escape directives.\n\nUse the macros SAVE_{REG,TWO_REGS}{,_INCREASE_FRAME} and match them with RESTORE_{REG,TWO_REGS}{,_DECREASE_FRAME} below.",
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
