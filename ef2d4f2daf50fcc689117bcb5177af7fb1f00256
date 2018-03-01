@@ -22,6 +22,30 @@
       "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ff061fa_3fca7daf",
+        "filename": "tools/javac-helper.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-01T14:16:43Z",
+      "side": 1,
+      "message": "Like this?\n\n  if [[ mode \u003d\u003d jvm ]]; then\n    ... do nothing\n  else\n    call bootjars.sh\n  fi\n\n?",
+      "parentUuid": "38d8541f_e48bb5e0",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 21
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
