@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0a5bdb3_c573562a",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-01T17:35:50Z",
+      "side": 1,
+      "message": "Can you maybe move this to the non immune space case to reduce the perf hit? The regions space should never overlap with the immune spaces.",
+      "revId": "7138dba676f049482edfedb5de007c132018d7af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
