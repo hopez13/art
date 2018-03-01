@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b2a29b6b_97024c69",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-01T21:51:51Z",
+      "side": 1,
+      "message": "Can we somehow provide an API to do this? The memory ordering requirements to do this correctly are complicated and counter-intuitive. See http://www.hpl.hp.com/techreports/2012/HPL-2012-68.pdf .\n\nI don\u0027t fully understand the context here, but this scheme generally isn\u0027t correct unless you also make all the data in the linked list atomic, and impose some draconian constraints on the reader. The practical problem is that before the final check, the reader can see arbitrarily inconsistent data, and it\u0027s not easy to ensure that this doesn\u0027t result in a crash before it does the second read to discover that it was all useless. And if the data is not atomic, this is all undefined behavior anyway, and the compiler may break it in other exciting ways.\n\nIf the debugger is reading this via something like ptrace, it can probably be defensive enough about this. But for something libunwind, this seems very tricky.\n\nIs it possible to use bionics rwlocks here instead? That seems MUCH cleaner, even if it\u0027s a bit more painful to set up and slightly slower.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 71
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d64909b3_9e0b40de",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 2
@@ -70,6 +93,76 @@
       "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eed13883_82ec25a9",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-01T21:51:51Z",
+      "side": 1,
+      "message": "You also need it if there are concurrent readers, which is the point, right?",
+      "parentUuid": "adc5d8f2_d0690d1e",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6f7e25a_f590df4f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-01T21:51:51Z",
+      "side": 1,
+      "message": "Surprisingly, I think this would be necessary in spite of the fact that fetch_or is already seq_cst, if the rest of this were correct. I mention this only to convince you that this is way too subtle to use here.",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 54
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a88b61_5fd7b1fb",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-01T21:51:51Z",
+      "side": 1,
+      "message": "Unnecessary. The fetch_add defaults to memory_order_seq_cst, which suffices here.",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 54
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
