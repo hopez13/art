@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f0718c46_f3a77ef0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-03-01T14:37:49Z",
+      "side": 1,
+      "message": "Just a suggestion: since these three are mutually exclusive, wouldn\u0027t it be clearer to use the format\n\n--platform\u003d(jvm|host|target)\n\ninstead (where --platform\u003dtarget is the default)? I guess you\u0027ve done it this way because there are existing scripts that pass --target or --host?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65cde0b_065b433f",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-03-01T14:37:49Z",
+      "side": 1,
+      "message": "nit/suggestion: Since nothing in this file uses $JAVAC} any more, and since all javac_with_bootclasspath invocations use ${JAVAC_ARGS}, this could potentially be simplified, eg. rename javac_with_bootclasspath -\u003e run_javac, and move ${JAVAC_ARGS} into that method? Up to you.",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 381,
+        "endChar": 40
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24db38dc_2b37c57b",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-03-01T14:37:49Z",
+      "side": 1,
+      "message": "nit/suggestion only: terminology: \"mode\" -\u003e \"platform\"?",
+      "range": {
+        "startLine": 838,
+        "startChar": 30,
+        "endLine": 838,
+        "endChar": 34
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38d8541f_e48bb5e0",
         "filename": "tools/javac-helper.sh",
         "patchSetId": 1
