@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "2a39eb30_dd126b8e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-02T14:10:07Z",
+      "side": 1,
+      "message": "AAPCS64 says that \"SP mod 16 \u003d 0\" at a \"public interface\" (and also \"at any point at which memory is accessed via SP, the hardware requires that SP mod 16 \u003d 0\"), so the weird alignment operation above is unnecessary, we just need to round up SAVE_SIZE. And if we drop the SP from saves, it\u0027s already rounded correctly.\n\nRewrite: https://android-review.googlesource.com/631908",
+      "parentUuid": "85da36fb_afb49c73",
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ffebef1_ad4b59bb",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
