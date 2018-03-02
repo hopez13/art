@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffcfa9f_51a8608f",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-02T21:57:49Z",
+      "side": 1,
+      "message": "It isn\u0027t fully clear whether this is a good idea. In a sense, one could say we should attempt running out of the original dex files, if we can. Opinions? I could do:\n\n  case kOatBootImageOutOfDate:\n    if (HasOriginalDexFiles()) {\n      break;\n    }\n    FALLTHROUGH_INTENDED;",
+      "range": {
+        "startLine": 1265,
+        "startChar": 4,
+        "endLine": 1265,
+        "endChar": 32
+      },
+      "revId": "b9ad5b56f8c5a138b8656e026e4b991316b29e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
