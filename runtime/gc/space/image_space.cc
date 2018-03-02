@@ -274,7 +274,9 @@ static bool RelocateImage(const char* image_location,
 
   std::string command_line(android::base::Join(argv, ' '));
   LOG(INFO) << "RelocateImage: " << command_line;
-  return Exec(argv, error_msg);
+  bool success = Exec(argv, error_msg);
+  LOG(INFO) << "RelocateImage: success=" << success;
+  return success;
 }
 
 static bool VerifyImage(const char* image_location,
@@ -1531,15 +1533,19 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
                                            &has_cache,
                                            &cache_filename);
 
-  if (is_zygote && dalvik_cache_exists) {
+  if (is_zygote && dalvik_cache_exists && !secondary_image) {
+    // Extra checks for the zygote. These only apply when loading the first image, explained below.
     DCHECK(!dalvik_cache.empty());
     std::string local_error_msg;
-    // All secondary images are verified when the primary image is verified.
-    bool verified = secondary_image || VerifyImage(image_location,
-                                                   dalvik_cache.c_str(),
-                                                   image_isa,
-                                                   &local_error_msg);
-    if (!(verified && CheckSpace(dalvik_cache, &local_error_msg))) {
+    bool prune =
+        // All secondary images are verified when the primary image is verified.
+        !VerifyImage(image_location, dalvik_cache.c_str(), image_isa, &local_error_msg)
+        // If we prune for space at a secondary image, we may end up in a crash loop with the _exit
+        // path.
+        || !CheckSpace(dalvik_cache, &local_error_msg);
+    if (prune) {
+      // Note: it is important to only prune for space on the primary image, or we will hit the
+      //       restart path.
       LOG(WARNING) << local_error_msg << " Preemptively pruning the dalvik cache.";
       PruneDalvikCache(image_isa);
 
@@ -1625,6 +1631,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     } else if (secondary_image) {
       // We really want a working image. Prune and restart.
       PruneDalvikCache(image_isa);
+      LOG(ERROR) << "Killing ourselves!";
       _exit(1);
     } else if (ImageCreationAllowed(is_global_cache, image_isa, &local_error_msg)) {
       bool patch_success =
@@ -1721,6 +1728,7 @@ bool ImageSpace::LoadBootImage(const std::string& image_file_name,
         image_instruction_set,
         index > 0,
         &error_msg);
+    LOG(ERROR) << "LoadBootImage: " << index << " " << (boot_image_space_uptr != nullptr);
     if (boot_image_space_uptr != nullptr) {
       space::ImageSpace* boot_image_space = boot_image_space_uptr.release();
       boot_image_spaces->push_back(boot_image_space);
