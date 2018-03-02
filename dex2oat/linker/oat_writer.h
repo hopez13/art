@@ -470,7 +470,6 @@ class OatWriter {
   uint32_t size_oat_header_key_value_store_;
   uint32_t size_dex_file_;
   uint32_t size_verifier_deps_;
-  uint32_t size_verifier_deps_alignment_;
   uint32_t size_quickening_info_;
   uint32_t size_quickening_info_alignment_;
   uint32_t size_interpreter_to_interpreter_bridge_;
