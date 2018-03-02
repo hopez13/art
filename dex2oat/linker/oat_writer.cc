@@ -395,7 +395,6 @@ OatWriter::OatWriter(bool compiling_boot_image,
     size_oat_header_key_value_store_(0),
     size_dex_file_(0),
     size_verifier_deps_(0),
-    size_verifier_deps_alignment_(0),
     size_quickening_info_(0),
     size_quickening_info_alignment_(0),
     size_interpreter_to_interpreter_bridge_(0),
@@ -555,8 +554,9 @@ bool OatWriter::AddVdexDexFilesSource(const VdexFile& vdex_file,
                                       const char* location,
                                       CreateTypeLookupTable create_type_lookup_table) {
   DCHECK(write_state_ == WriteState::kAddingDexFileSources);
+  DCHECK(vdex_file.HasDexSection());
   const uint8_t* current_dex_data = nullptr;
-  for (size_t i = 0; i < vdex_file.GetHeader().GetNumberOfDexFiles(); ++i) {
+  for (size_t i = 0; i < vdex_file.GetDexSectionHeader().GetNumberOfDexFiles(); ++i) {
     current_dex_data = vdex_file.GetNextDexFileData(current_dex_data);
     if (current_dex_data == nullptr) {
       LOG(ERROR) << "Unexpected number of dex files in vdex " << location;
@@ -659,7 +659,7 @@ bool OatWriter::WriteAndOpenDexFiles(
   // Initialize VDEX and OAT headers.
 
   // Reserve space for Vdex header and checksums.
-  vdex_size_ = sizeof(VdexFile::Header) + oat_dex_files_.size() * sizeof(VdexFile::VdexChecksum);
+  vdex_size_ = sizeof(VdexFile::VerifierDepsHeader);
   oat_size_ = InitOatHeader(instruction_set,
                             instruction_set_features,
                             dchecked_integral_cast<uint32_t>(oat_dex_files_.size()),
@@ -2846,12 +2846,8 @@ bool OatWriter::WriteVerifierDeps(OutputStream* vdex_out, verifier::VerifierDeps
     return true;
   }
 
-  size_t initial_offset = vdex_size_;
-  size_t start_offset = RoundUp(initial_offset, 4u);
-
-  vdex_size_ = start_offset;
+  size_t start_offset = vdex_size_;
   vdex_verifier_deps_offset_ = vdex_size_;
-  size_verifier_deps_alignment_ = start_offset - initial_offset;
 
   off_t actual_offset = vdex_out->Seek(start_offset, kSeekSet);
   if (actual_offset != static_cast<off_t>(start_offset)) {
@@ -2914,7 +2910,7 @@ bool OatWriter::WriteCode(OutputStream* out) {
   if (kIsDebugBuild) {
     uint32_t size_total = 0;
     #define DO_STAT(x) \
-      VLOG(compiler) << #x "=" << PrettySize(x) << " (" << (x) << "B)"; \
+      LOG(INFO) << #x "=" << PrettySize(x) << " (" << (x) << "B)"; \
       size_total += (x);
 
     DO_STAT(size_vdex_header_);
@@ -2925,7 +2921,6 @@ bool OatWriter::WriteCode(OutputStream* out) {
     DO_STAT(size_oat_header_key_value_store_);
     DO_STAT(size_dex_file_);
     DO_STAT(size_verifier_deps_);
-    DO_STAT(size_verifier_deps_alignment_);
     DO_STAT(size_quickening_info_);
     DO_STAT(size_quickening_info_alignment_);
     DO_STAT(size_interpreter_to_interpreter_bridge_);
@@ -3333,8 +3328,6 @@ bool OatWriter::WriteDexFiles(OutputStream* out,
                               bool copy_dex_files) {
   TimingLogger::ScopedTiming split("Write Dex files", timings_);
 
-  vdex_dex_files_offset_ = vdex_size_;
-
   // If extraction is enabled, only do it if not all the dex files are aligned and uncompressed.
   if (copy_dex_files) {
     extract_dex_files_into_vdex_ = false;
@@ -3354,6 +3347,10 @@ bool OatWriter::WriteDexFiles(OutputStream* out,
   }
 
   if (extract_dex_files_into_vdex_) {
+    // Add the dex section header and checksums to the size.
+    vdex_size_ += sizeof(VdexFile::DexSectionHeader) +
+        oat_dex_files_.size() * sizeof(VdexFile::VdexChecksum);
+    vdex_dex_files_offset_ = vdex_size_;
     // Write dex files.
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
       if (!WriteDexFile(out, file, &oat_dex_file, update_input_vdex)) {
@@ -4069,51 +4066,65 @@ bool OatWriter::WriteDexLayoutSections(
 
 bool OatWriter::WriteChecksumsAndVdexHeader(OutputStream* vdex_out) {
   // Write checksums
-  off_t actual_offset = vdex_out->Seek(sizeof(VdexFile::Header), kSeekSet);
-  if (actual_offset != sizeof(VdexFile::Header)) {
-    PLOG(ERROR) << "Failed to seek to the checksum location of vdex file. Actual: " << actual_offset
-                << " File: " << vdex_out->GetLocation();
-    return false;
-  }
-
-  for (size_t i = 0, size = oat_dex_files_.size(); i != size; ++i) {
-    OatDexFile* oat_dex_file = &oat_dex_files_[i];
-    if (!vdex_out->WriteFully(
-            &oat_dex_file->dex_file_location_checksum_, sizeof(VdexFile::VdexChecksum))) {
-      PLOG(ERROR) << "Failed to write dex file location checksum. File: "
-                  << vdex_out->GetLocation();
+  bool has_dex_section = extract_dex_files_into_vdex_;
+  off_t checksums_offset = sizeof(VdexFile::VerifierDepsHeader);
+  if (has_dex_section) {
+    checksums_offset += sizeof(VdexFile::DexSectionHeader);
+    off_t actual_offset = vdex_out->Seek(checksums_offset, kSeekSet);
+    if (actual_offset != checksums_offset) {
+      PLOG(ERROR) << "Failed to seek to the checksum location of vdex file. Actual: " << actual_offset
+                  << " File: " << vdex_out->GetLocation();
       return false;
     }
-    size_vdex_checksums_ += sizeof(VdexFile::VdexChecksum);
+
+    for (size_t i = 0, size = oat_dex_files_.size(); i != size; ++i) {
+      OatDexFile* oat_dex_file = &oat_dex_files_[i];
+      if (!vdex_out->WriteFully(
+              &oat_dex_file->dex_file_location_checksum_, sizeof(VdexFile::VdexChecksum))) {
+        PLOG(ERROR) << "Failed to write dex file location checksum. File: "
+                    << vdex_out->GetLocation();
+        return false;
+      }
+      size_vdex_checksums_ += sizeof(VdexFile::VdexChecksum);
+    }
   }
 
   // Write header.
-  actual_offset = vdex_out->Seek(0, kSeekSet);
+  off_t actual_offset = vdex_out->Seek(0, kSeekSet);
   if (actual_offset != 0) {
     PLOG(ERROR) << "Failed to seek to the beginning of vdex file. Actual: " << actual_offset
                 << " File: " << vdex_out->GetLocation();
     return false;
   }
 
-  DCHECK_NE(vdex_dex_files_offset_, 0u);
   DCHECK_NE(vdex_verifier_deps_offset_, 0u);
   DCHECK_NE(vdex_quickening_info_offset_, 0u);
 
-  size_t dex_section_size = vdex_dex_shared_data_offset_ - vdex_dex_files_offset_;
-  size_t dex_shared_data_size = vdex_verifier_deps_offset_ - vdex_dex_shared_data_offset_;
   size_t verifier_deps_section_size = vdex_quickening_info_offset_ - vdex_verifier_deps_offset_;
-  size_t quickening_info_section_size = vdex_size_ - vdex_quickening_info_offset_;
 
-  VdexFile::Header vdex_header(oat_dex_files_.size(),
-                               dex_section_size,
-                               dex_shared_data_size,
-                               verifier_deps_section_size,
-                               quickening_info_section_size);
-  if (!vdex_out->WriteFully(&vdex_header, sizeof(VdexFile::Header))) {
+  VdexFile::VerifierDepsHeader deps_header(verifier_deps_section_size, has_dex_section);
+  if (!vdex_out->WriteFully(&deps_header, sizeof(VdexFile::VerifierDepsHeader))) {
     PLOG(ERROR) << "Failed to write vdex header. File: " << vdex_out->GetLocation();
     return false;
   }
-  size_vdex_header_ = sizeof(VdexFile::Header);
+  size_vdex_header_ += sizeof(VdexFile::VerifierDepsHeader);
+
+  if (has_dex_section) {
+    DCHECK_NE(vdex_dex_files_offset_, 0u);
+    size_t dex_section_size = vdex_dex_shared_data_offset_ - vdex_dex_files_offset_;
+    size_t dex_shared_data_size = vdex_verifier_deps_offset_ - vdex_dex_shared_data_offset_;
+    size_t quickening_info_section_size = vdex_size_ - vdex_quickening_info_offset_;
+
+    VdexFile::DexSectionHeader dex_section_header(oat_dex_files_.size(),
+                                                  dex_section_size,
+                                                  dex_shared_data_size,
+                                                  quickening_info_section_size);
+    if (!vdex_out->WriteFully(&dex_section_header, sizeof(VdexFile::DexSectionHeader))) {
+      PLOG(ERROR) << "Failed to write vdex header. File: " << vdex_out->GetLocation();
+      return false;
+    }
+    size_vdex_header_ += sizeof(VdexFile::DexSectionHeader);
+  }
 
   if (!vdex_out->Flush()) {
     PLOG(ERROR) << "Failed to flush stream after writing to vdex file."

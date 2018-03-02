@@ -402,13 +402,17 @@ OatFileAssistant::OatStatus OatFileAssistant::OatFileStatus() {
 }
 
 bool OatFileAssistant::DexChecksumUpToDate(const VdexFile& file, std::string* error_msg) {
+  if (!file.HasDexSection()) {
+    // If there is no dex section, no need to check for matching checksums.
+    return true;
+  }
   const std::vector<uint32_t>* required_dex_checksums = GetRequiredDexChecksums();
   if (required_dex_checksums == nullptr) {
     LOG(WARNING) << "Required dex checksums not found. Assuming dex checksums are up to date.";
     return true;
   }
 
-  uint32_t number_of_dex_files = file.GetHeader().GetNumberOfDexFiles();
+  uint32_t number_of_dex_files = file.GetDexSectionHeader().GetNumberOfDexFiles();
   if (required_dex_checksums->size() != number_of_dex_files) {
     *error_msg = StringPrintf("expected %zu dex files but found %u",
                               required_dex_checksums->size(),
