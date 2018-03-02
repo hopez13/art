@@ -3395,7 +3395,10 @@ bool OatWriter::WriteDexFiles(OutputStream* out,
             PLOG(ERROR) << "Failed to read dex header for updating";
             return false;
           }
-          CHECK(CompactDexFile::IsMagicValid(header.magic_)) << "Must be compact dex";
+          if (!CompactDexFile::IsMagicValid(header.magic_)) {
+            // Non-compact dex file, probably failed to convert due to duplicate methods.
+            continue;
+          }
           CHECK_GT(vdex_dex_shared_data_offset_, oat_dex_file.dex_file_offset_);
           // Offset is from the dex file base.
           header.data_off_ = vdex_dex_shared_data_offset_ - oat_dex_file.dex_file_offset_;
