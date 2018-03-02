@@ -33,6 +33,24 @@
       "revId": "a93b22aece06a39a56b5a4bd4e49657518c27da2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "077da8aa_5315b96e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-02T05:25:38Z",
+      "side": 1,
+      "message": "This is rewritten anyways.",
+      "parentUuid": "72819cea_318fc5dd",
+      "revId": "a93b22aece06a39a56b5a4bd4e49657518c27da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
