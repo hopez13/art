@@ -66,6 +66,11 @@ from device_config import device_config
 # TODO: make it adjustable per tests and for buildbots
 timeout = 3000 # 50 minutes
 
+# FLAKY_TEST_CONTAINER holds information about the flaky tests. It is a map
+# that has key as the test name (like 001-HelloWorld), and value as set of
+# variants that the test is disabled for.
+FLAKY_TEST_CONTAINER = {}
+
 # DISABLED_TEST_CONTAINER holds information about the disabled tests. It is a map
 # that has key as the test name (like 001-HelloWorld), and value as set of
 # variants that the test is disabled for.
@@ -103,6 +108,7 @@ semaphore = threading.Semaphore(1)
 print_mutex = threading.Lock()
 failed_tests = []
 skipped_tests = []
+flaked_tests = []
 
 # Flags
 n_thread = -1
@@ -117,6 +123,8 @@ gdb_arg = ''
 stop_testrunner = False
 dex2oat_jobs = -1   # -1 corresponds to default threads for dex2oat
 run_all_configs = False
+
+flake_retry = 1  # Number of times we retry flaky tests.
 
 # Dict containing extra arguments
 extra_arguments = { "host" : [], "target" : [] }
@@ -133,6 +141,7 @@ def gather_test_info():
   """
   global TOTAL_VARIANTS_SET
   global DISABLED_TEST_CONTAINER
+  global FLAKY_TEST_CONTAINER
   # TODO: Avoid duplication of the variant names in different lists.
   VARIANT_TYPE_DICT['pictest'] = {'pictest', 'npictest'}
   VARIANT_TYPE_DICT['run'] = {'ndebug', 'debug'}
@@ -158,7 +167,7 @@ def gather_test_info():
   for f in os.listdir(test_dir):
     if fnmatch.fnmatch(f, '[0-9]*'):
       RUN_TEST_SET.add(f)
-  DISABLED_TEST_CONTAINER = get_disabled_test_info()
+  DISABLED_TEST_CONTAINER, FLAKY_TEST_CONTAINER = get_disabled_test_info()
 
 
 def setup_test_env():
@@ -546,28 +555,65 @@ def run_test(command, test, test_variant, test_name):
     test_name: The name of the test along with the variants.
   """
   global stop_testrunner
+  if is_test_flaky(test, test_variant):
+    num_tries = flake_retry + 1 if not gdb else 1
+    is_flaky = True
+  else:
+    num_tries = 1
+    is_flaky = False
+
+  test_passed = []
+  script_output = []
   try:
     if is_test_disabled(test, test_variant):
       test_skipped = True
     else:
       test_skipped = False
-      if gdb:
-        proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT, universal_newlines=True)
-      else:
-        proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT, stdout = subprocess.PIPE,
-                                universal_newlines=True)
-      script_output = proc.communicate(timeout=timeout)[0]
-      test_passed = not proc.wait()
+      for _ in range(num_tries):
+        if gdb:
+          proc = subprocess.Popen(command.split(),
+                                  stderr=subprocess.STDOUT,
+                                  universal_newlines=True)
+        else:
+          proc = subprocess.Popen(command.split(),
+                                  stderr=subprocess.STDOUT,
+                                  stdout = subprocess.PIPE,
+                                  universal_newlines=True)
+        script_output.append(proc.communicate(timeout=timeout)[0])
+        test_passed.append(not proc.wait())
+        if test_passed[-1]:
+          # Stop on the first success
+          break
 
     if not test_skipped:
-      if test_passed:
+      if all(test_passed):
         print_test_info(test_name, 'PASS')
-      else:
-        failed_tests.append((test_name, str(command) + "\n" + script_output))
+      elif any(test_passed):
+        flaked_tests.append((test_name,
+                             str(command) + "\n" +
+                             "\n".join(map(lambda a: "Flake {}/{}\n{}".format(a[0],
+                                                                              len(script_output),
+                                                                              a[1]),
+                                           zip(itertools.count(1), script_output[:-1])))))
+        print_test_info(test_name,
+                        'PASS (Flakes {})'.format(
+                            len(list(filter(lambda a: not a, test_passed)))))
+      elif not is_flaky:
+        failed_tests.append((test_name, str(command) + "\n" + script_output[0]))
         if not env.ART_TEST_KEEP_GOING:
           stop_testrunner = True
         print_test_info(test_name, 'FAIL', ('%s\n%s') % (
-          command, script_output))
+          command, script_output[0]))
+      else:
+        flaked_tests.append((test_name, str(command) + "\n" +
+                             "\n".join(map(lambda a: "Failure {}/{}\n{}".format(a[0],
+                                                                                len(script_output),
+                                                                                a[1]),
+                                           zip(itertools.count(1), script_output)))))
+        if not env.ART_TEST_KEEP_GOING:
+          stop_testrunner = True
+        print_test_info(test_name, 'FAIL (Attempts {})'.format(len(script_output)),
+                        ('%s\n%s') % (command, script_output[0]))
     elif not dry_run:
       print_test_info(test_name, 'SKIP')
       skipped_tests.append(test_name)
@@ -617,7 +663,7 @@ def print_test_info(test_name, result, failed_test_info=""):
       test_count,
       total_test_count)
 
-    if result == 'FAIL' or result == 'TIMEOUT':
+    if result.startswith('FAIL') or result == 'TIMEOUT':
       if not verbose:
         info += ('%s %s %s\n') % (
           progress_info,
@@ -631,8 +677,8 @@ def print_test_info(test_name, result, failed_test_info=""):
           failed_test_info)
     else:
       result_text = ''
-      if result == 'PASS':
-        result_text += COLOR_PASS + 'PASS' + COLOR_NORMAL
+      if result.startswith('PASS'):
+        result_text += COLOR_PASS + result + COLOR_NORMAL
       elif result == 'SKIP':
         result_text += COLOR_SKIP + 'SKIP' + COLOR_NORMAL
 
@@ -669,6 +715,7 @@ def verify_knownfailure_entry(entry):
       'bug' : (str,),
       'variant' : (str,),
       'env_vars' : (dict,),
+      'type' : (str,),
   }
   for field in entry:
     field_type = type(entry[field])
@@ -679,20 +726,21 @@ def verify_knownfailure_entry(entry):
           str(entry)))
 
 def get_disabled_test_info():
-  """Generate set of known failures.
+  """Generate set of known failures and flakes.
 
   It parses the art/test/knownfailures.json file to generate the list of
   disabled tests.
 
   Returns:
-    The method returns a dict of tests mapped to the variants list
-    for which the test should not be run.
+    The method returns a pair of dicts of tests mapped to the variants list
+    for which the test should not be run or is flaky.
   """
   known_failures_file = env.ANDROID_BUILD_TOP + '/art/test/knownfailures.json'
   with open(known_failures_file) as known_failures_json:
     known_failures_info = json.loads(known_failures_json.read())
 
   disabled_test_info = {}
+  flaky_test_info = {}
   for failure in known_failures_info:
     verify_knownfailure_entry(failure)
     tests = failure.get('tests', [])
@@ -706,16 +754,24 @@ def get_disabled_test_info():
     variants = parse_variants(failure.get('variant'))
     env_vars = failure.get('env_vars')
 
+    fail_type = failure.get("type", "failure")
+    if fail_type not in ("failure", "flake"):
+      raise ValueError("type '%s' is not 'failure' or 'flake'" % fail_type)
+    if fail_type == "flake" and failure.get("bug", None) is None:
+      raise ValueError("Any tests with type: 'flake' must have a bug associated with them!")
+
+    to_add = disabled_test_info if fail_type == 'failure' else flaky_test_info
+
     if check_env_vars(env_vars):
       for test in tests:
         if test not in RUN_TEST_SET:
           raise ValueError('%s is not a valid run-test' % (
               test))
-        if test in disabled_test_info:
-          disabled_test_info[test] = disabled_test_info[test].union(variants)
+        if test in to_add:
+          to_add[test] = disabled_test_info[test].union(variants)
         else:
-          disabled_test_info[test] = variants
-  return disabled_test_info
+          to_add[test] = variants
+  return disabled_test_info, flaky_test_info
 
 
 def check_env_vars(env_vars):
@@ -759,6 +815,25 @@ def is_test_disabled(test, variant_set):
       return True
   return False
 
+def is_test_flaky(test, variant_set):
+  """Checks if the test along with the variant_set is marked as flaky.
+
+  Args:
+    test: The name of the test as in art/test directory.
+    variant_set: Variants to be used for the test.
+  Returns:
+    True, if the test is flaky.
+  """
+  variants_list = FLAKY_TEST_CONTAINER.get(test, {})
+  for variants in variants_list:
+    variants_present = True
+    for variant in variants:
+      if variant not in variant_set:
+        variants_present = False
+        break
+    if variants_present:
+      return True
+  return False
 
 def parse_variants(variants):
   """Parse variants fetched from art/test/knownfailures.json.
@@ -812,6 +887,15 @@ def print_analysis():
     for test in skipped_tests:
       print_text(test + '\n')
     print_text('\n')
+
+  # Prints the list of flaked tests, if any.
+  if flaked_tests:
+    print_text(COLOR_ERROR + "FLAKED TESTS: " + COLOR_NORMAL + "\n")
+    for test_info in flaked_tests:
+      print_text(('%s\n%s\n' % (test_info[0], test_info[1])))
+    print_text(COLOR_ERROR + '----------' + COLOR_NORMAL + '\n')
+    for flaked_test in sorted([test_info[0] for test_info in flaked_tests]):
+      print_text(('%s\n' % (flaked_test)))
 
   # Prints the list of failed tests, if any.
   if failed_tests:
@@ -924,6 +1008,7 @@ def parse_option():
   global timeout
   global dex2oat_jobs
   global run_all_configs
+  global flake_retry
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', action='append', dest='tests', help='name(s) of the test(s)')
@@ -938,6 +1023,8 @@ def parse_option():
                       help="Skip the given test in all circumstances.")
   parser.add_argument("--no-skips", dest="ignore_skips", action="store_true", default=False,
                       help="Don't skip any run-test configurations listed in knownfailures.json.")
+  parser.add_argument("--retry-flakes", "-r", dest="flake_retry", type=int, default=1,
+                      help="Number of times to retry tests marked as flaky. Default=1")
   parser.add_argument('--no-build-dependencies',
                       action='store_false', dest='build',
                       help="Don't build dependencies under any circumstances. This is the " +
@@ -981,6 +1068,7 @@ def parse_option():
     dry_run = True
     verbose = True
   build = options['build']
+  flake_retry = options['flake_retry']
   if options['gdb']:
     n_thread = 1
     gdb = True
