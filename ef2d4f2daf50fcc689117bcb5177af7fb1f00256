@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "e6b7c759_2e2b1939",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-03-02T00:25:42Z",
+      "side": 1,
+      "message": "This comment here is about using either --mode\u003d[jvm|host|target] or --platform\u003d[jvm|host|target] in favor of --jvm, --host, --target. The latter looks like they\u0027re unrelated options when really they are three possible values for the same option.\n\nWhether the name of that same option is \"mode\" or \"platform\" was not the main part of this comment (I had a separate, less important, comment about that). I only used \"platform\" here to be consistent with my other comment.",
+      "parentUuid": "b0944881_4e1eaee0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "ef2d4f2daf50fcc689117bcb5177af7fb1f00256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e65cde0b_065b433f",
         "filename": "test/etc/default-build",
         "patchSetId": 1
