@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "04e6a7c1_20ffec8c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-02T17:02:48Z",
+      "side": 1,
+      "message": "Yes, in fact, I believe seq_cst of the fetch has no value here at all.  Plain relaxed write would do.",
+      "parentUuid": "c6f7e25a_f590df4f",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 54
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "67a88b61_5fd7b1fb",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 2
@@ -154,6 +178,30 @@
       "writtenOn": "2018-03-01T21:51:51Z",
       "side": 1,
       "message": "Unnecessary. The fetch_add defaults to memory_order_seq_cst, which suffices here.",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 54
+      },
+      "revId": "5da524d2768690e150c0d46cb98b1ed142fa5206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bc6af2_9dc942ff",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-02T17:02:48Z",
+      "side": 1,
+      "message": "I think I need it.  I want to be sure writes after the unlock  (anything that would use the freed memory) don\u0027t get moved before the unlock. Again, I don\u0027t think the seq_cst is very helpful here, so I need my own fence.\n\nI moved this line outside though and added a comment to make it clearer.\n\nThe main motivation for this fence is this:\n1) The reader gets the counter - which ends up being locked.\n2) It reads the data of the entry anyway (but does not use it yet).\n3) It reads the counter again.\n4) If the two counter values match, the data is safe to use, despite the fact it is in a locked state.\n\nI know that sounds a bit weird, but we are not always in position to wait and retry (e.g. the process crashed and will never unlock). So this ensures we can reason about consistency of the data even in a locked state.",
+      "parentUuid": "67a88b61_5fd7b1fb",
       "range": {
         "startLine": 125,
         "startChar": 2,
