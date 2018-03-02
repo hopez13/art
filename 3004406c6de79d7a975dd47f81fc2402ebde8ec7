@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e53b3ac7_aa8a3340",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-02T16:02:39Z",
+      "side": 1,
+      "message": "At these two lines r11 is not necessarily valid. This corresponds to the clobbered EBP register on x86. This could be fixed with special CFI directives.",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 72
+      },
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a340d856_1ce6bbf5",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -221,6 +244,30 @@
       "side": 1,
       "message": "Indeed, this looks unnecessary; if the stack walker looked at it, I would expect this to be saved at a specific offset for all platforms. We should remove lines 2378-2379 and insert\n\n    subl LITERAL(__SIZEOF_POINTER__), %esp // Make space for ArtMethod*\n\nbefore line 2377.",
       "parentUuid": "f062f231_946f70c3",
+      "range": {
+        "startLine": 2378,
+        "startChar": 4,
+        "endLine": 2378,
+        "endChar": 14
+      },
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "012051c9_df95c933",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2378,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-02T16:02:39Z",
+      "side": 1,
+      "message": "This is actually necessary because we do not store the EBP into the frame of the function we\u0027re about to call, so it shall be clobbered on return.\n\nThis is also why unwinding does not work at lines 2385-2386 unless we add some magic CFI directives.",
+      "parentUuid": "041c8f11_0fc8e134",
       "range": {
         "startLine": 2378,
         "startChar": 4,
