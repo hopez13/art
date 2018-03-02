@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "fd246ddb_3f6c42b9",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-02T13:30:53Z",
+      "side": 1,
+      "message": "But that method (ResetSIInHierarchyByDeletedAllocation) is only called for classes of a class loader with alloc \u003d classloader\u0027s alloc.\n\nSo what am I missing?",
+      "parentUuid": "6ae83481_35a7af12",
+      "range": {
+        "startLine": 81,
+        "startChar": 67,
+        "endLine": 81,
+        "endChar": 91
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb80dd0c_e178456c",
         "filename": "runtime/cha.cc",
         "patchSetId": 6
