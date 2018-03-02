@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "6ae83481_35a7af12",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-03-02T13:25:30Z",
+      "side": 1,
+      "message": "Exactly.\n\nFor example, 616-cha-unloading:\nklass LConcreteCHATester; Loader 0x12c045d0 allocator 0x559670e75460, alloc 0x559670e75460\nklass LAbstractCHATester; Loader 0x12c02488 allocator 0x559670e76510, alloc 0x559670e75460",
+      "parentUuid": "fa65ab80_9de72109",
+      "range": {
+        "startLine": 81,
+        "startChar": 67,
+        "endLine": 81,
+        "endChar": 91
+      },
+      "revId": "35c2108b537b70578ffd996f96b8b3db9a1e298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb80dd0c_e178456c",
         "filename": "runtime/cha.cc",
         "patchSetId": 6
