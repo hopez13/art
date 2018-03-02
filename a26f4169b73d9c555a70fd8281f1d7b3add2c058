@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d2354dc_9cc8b0c5",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-02T15:32:40Z",
+      "side": 1,
+      "message": "Nice :-)",
+      "range": {
+        "startLine": 1120,
+        "startChar": 5,
+        "endLine": 1120,
+        "endChar": 23
+      },
+      "revId": "a26f4169b73d9c555a70fd8281f1d7b3add2c058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "902678c1_5ab9a4c7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-02T15:32:40Z",
+      "side": 1,
+      "message": "This should be callee save register (per ART ABI).\nBut since you fixed the rest, those two lines shouldn\u0027t be needed anymore.\nUnless you intention is to preserve semantics here, and remove those lines in the other CL, in which case it is fine.",
+      "range": {
+        "startLine": 1122,
+        "startChar": 4,
+        "endLine": 1123,
+        "endChar": 28
+      },
+      "revId": "a26f4169b73d9c555a70fd8281f1d7b3add2c058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
