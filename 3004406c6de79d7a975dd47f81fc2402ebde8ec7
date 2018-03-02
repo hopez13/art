@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6db1269f_48920740",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-03-02T02:17:29Z",
+      "side": 1,
+      "message": "Yeah, I went for explicit but I\u0027d be fine if it was removed.",
+      "parentUuid": "75efef27_b29dc719",
+      "range": {
+        "startLine": 627,
+        "startChar": 4,
+        "endLine": 627,
+        "endChar": 28
+      },
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3acd06f7_de963889",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "Letting the debugger restore registers properly is better.",
       "parentUuid": "af5b7b66_71e0a136",
+      "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85da36fb_afb49c73",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-03-02T02:17:29Z",
+      "side": 1,
+      "message": "There was a version that used a mov x19, x9 but then the 570 osr test failed with a trap. I\u0027d be happier if I could have used x19 so that it stayed valid all through the function. I think the problem is that x19 is XSELF, so I don\u0027t think it\u0027s usable for this purpose.\n\nMaybe a different register could be used, but I felt like some complicated unwinding information was better than trying to modify the code. However, if there is an easy modification, to make it easier to follow and less likely that this will cause problems in the future.",
+      "parentUuid": "5b4a1011_5dd74472",
       "revId": "3004406c6de79d7a975dd47f81fc2402ebde8ec7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
