@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93fd22f6_8e3194e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-02T22:46:46Z",
+      "side": 1,
+      "message": "versioning",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6757712_9b4a58dd",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2850,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-02T22:46:46Z",
+      "side": 1,
+      "message": "Why is this no longer aligned?",
+      "range": {
+        "startLine": 2850,
+        "startChar": 0,
+        "endLine": 2850,
+        "endChar": 35
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41526899_3823d956",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-02T22:46:46Z",
+      "side": 1,
+      "message": "Add a helper function for this?",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 95
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
