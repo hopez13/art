@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cb3ede3_9a66fb38",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-02T17:31:28Z",
+      "side": 1,
+      "message": "Is there any need for the remember/restore?\n\nSide-note, why isn\u0027t the osr_entry call just inlined here?",
+      "range": {
+        "startLine": 2373,
+        "startChar": 4,
+        "endLine": 2373,
+        "endChar": 22
+      },
+      "revId": "134cfddbbb70d4c4de26a3c94eb34c43e5df2003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
