@@ -1531,15 +1531,19 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
                                            &has_cache,
                                            &cache_filename);
 
-  if (is_zygote && dalvik_cache_exists) {
+  if (is_zygote && dalvik_cache_exists && !secondary_image) {
+    // Extra checks for the zygote. These only apply when loading the first image, explained below.
     DCHECK(!dalvik_cache.empty());
     std::string local_error_msg;
-    // All secondary images are verified when the primary image is verified.
-    bool verified = secondary_image || VerifyImage(image_location,
-                                                   dalvik_cache.c_str(),
-                                                   image_isa,
-                                                   &local_error_msg);
-    if (!(verified && CheckSpace(dalvik_cache, &local_error_msg))) {
+    bool prune =
+        // All secondary images are verified when the primary image is verified.
+        !VerifyImage(image_location, dalvik_cache.c_str(), image_isa, &local_error_msg)
+        // If we prune for space at a secondary image, we may end up in a crash loop with the _exit
+        // path.
+        || !CheckSpace(dalvik_cache, &local_error_msg);
+    if (prune) {
+      // Note: it is important to only prune for space on the primary image, or we will hit the
+      //       restart path.
       LOG(WARNING) << local_error_msg << " Preemptively pruning the dalvik cache.";
       PruneDalvikCache(image_isa);
 
