@@ -6,14 +6,22 @@
         "bug": "http://b/33389022"
     },
     {
-        "tests": "579-inline-infinite",
-        "description": ["This test seems to fail often on redefine-stress for unknown reasons"],
+        "tests": ["579-inline-infinite",
+                  "132-daemon-locks-shutdown",
+                  "607-daemon-stress",
+                  "121-simple-suspend-check",
+                  "083-compiler-regressions"
+        ],
+        "description": ["These tests fail sometimes on redefine-stress for due to spurious",
+                        "wakeups of a futex in daemon threads during runtime shutdown."],
         "variant": "redefine-stress",
+        "type": "flake",
         "bug": "http://b/73871735"
     },
     {
         "tests": "080-oom-fragmentation",
         "description": "Disable 080-oom-fragmentation due to flakes.",
+        "type": "flake",
         "bug": "http://b/33795328"
     },
     {
@@ -103,6 +111,8 @@
     {
         "tests": "163-app-image-methods",
         "variant": "gcstress",
+        "type": "flake",
+        "bug": "http://b/69149957",
         "description": ["This test sometimes runs out of memory initializing the boot classpath."]
     },
     {
@@ -450,15 +460,10 @@
         "variant": "jvmti-stress | redefine-stress | trace-stress | field-stress | step-stress"
     },
     {
-        "tests": [
-            "132-daemon-locks-shutdown",
-            "607-daemon-stress",
-            "602-deoptimizeable",
-            "121-simple-suspend-check",
-            "083-compiler-regressions"
-        ],
+        "tests": [ "602-deoptimizeable" ],
         "description": ["Tests that have failed on redefine stress for unknown reasons"],
         "bug": "b/73177368",
+        "type": "flake",
         "variant": "redefine-stress"
     },
     {
