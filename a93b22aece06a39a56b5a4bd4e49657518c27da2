@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "129aae2a_2c1467b9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-03-02T04:59:03Z",
+      "side": 1,
+      "message": "(nit/optional): I would move the comments about secondary images to above the if statement and maybe merge them, since they explain why \"!secondary_image\" is there.",
+      "revId": "a93b22aece06a39a56b5a4bd4e49657518c27da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72819cea_318fc5dd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1249526
+      },
+      "writtenOn": "2018-03-02T04:59:03Z",
+      "side": 1,
+      "message": "(nit/style/optional): I would prefer this as\nbool verified \u003d VerifyImage(image_location, dalvik_cache.c_str(), image_isa, \u0026local_error_msg);\nif (!verified || !CheckSpace(dalvik_cache, \u0026local_error_msg)) {\n...",
+      "revId": "a93b22aece06a39a56b5a4bd4e49657518c27da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
