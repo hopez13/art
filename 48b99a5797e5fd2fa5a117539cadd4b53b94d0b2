@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fda862cf_e7e996c4",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-02T19:08:12Z",
+      "side": 1,
+      "message": "CHECK_NE(compact_dex_level, CompactDexLevel::kCompactDexLevelNone)",
+      "range": {
+        "startLine": 3375,
+        "startChar": 0,
+        "endLine": 3375,
+        "endChar": 8
+      },
+      "revId": "48b99a5797e5fd2fa5a117539cadd4b53b94d0b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
