@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c695952_37657cf6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "nit: see options parsing",
+      "range": {
+        "startLine": 559,
+        "startChar": 32,
+        "endLine": 559,
+        "endChar": 49
+      },
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "705de1dd_2b0c300f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "Can you use list comprehension syntax for this?",
+      "range": {
+        "startLine": 594,
+        "startChar": 39,
+        "endLine": 597,
+        "endChar": 89
+      },
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf9c300e_40de59b9",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc0c718a_64aa583e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "Can you also add \u0027unsupported\u0027 type while we\u0027re at it, for example some tests are JIT-only so they should use type: unsupported (for the optimizing interpreter etc variants) instead of type: failure.",
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9213405_59d984bd",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "nit: 0 with gdb",
+      "range": {
+        "startLine": 1027,
+        "startChar": 75,
+        "endLine": 1027,
+        "endChar": 85
+      },
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c6857f7_e23cab87",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-02T21:36:49Z",
+      "side": 1,
+      "message": "nit: I\u0027d prefer it if this was set to 0 here if gdb was also set instead of having the logic elsewhere.",
+      "revId": "57f4da88372897429af3861883dd2991cbea52ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
