@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "27951cb8_a1058273",
+        "filename": "dexdump/dexdump_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-02T19:24:17Z",
+      "side": 1,
+      "message": "This is related, in the sense that the original command would not fail when this test is executed in a chroot. I.e. if `ART_TEST_CHROOT` is `/data/local/art-test-chroot`, writing to /joho would actually write to /data/local/art-test-chroot/joho, which would work (and fail the test).\n\nI did not send this change as a separate CL, as it really only makes sense when you use a chroot.",
+      "parentUuid": "984acd51_28ec891e",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3be224b_b8bd8f61",
         "filename": "dexlist/dexlist_test.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-02T18:09:20Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 0
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f01c06_0c7eae70",
+        "filename": "dexlist/dexlist_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-02T19:24:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "e3be224b_b8bd8f61",
       "range": {
         "startLine": 63,
         "startChar": 0,
