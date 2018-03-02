@@ -46,6 +46,30 @@
       "revId": "2de6e083df95afcc27ab2c37a82448f927cb0d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ebd84cc_20c68d6b",
+        "filename": "test/641-checker-arraycopy/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-02T14:14:21Z",
+      "side": 1,
+      "message": "No, we want to keep it. We want the call to be there, which the compiler will do.",
+      "parentUuid": "0464efa2_c644ae06",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 97
+      },
+      "revId": "2de6e083df95afcc27ab2c37a82448f927cb0d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
