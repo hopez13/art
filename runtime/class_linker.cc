@@ -4977,8 +4977,12 @@ bool ClassLinker::InitializeDefaultInterfaceRecursive(Thread* self,
   // interface since we can still avoid the traversal. This is purely a performance optimization.
   if (result) {
     // TODO This should be done in a better way
-    ObjectLock<mirror::Class> lock(self, iface);
-    iface->SetRecursivelyInitialized();
+    // Note: Use a try-lock to avoid blocking when someone else is holding the lock on this
+    //       interface. It is bad (Java) style, but not impossible.
+    ObjectTryLock<mirror::Class> lock(self, iface);
+    if (lock.Acquired()) {
+      iface->SetRecursivelyInitialized();
+    }
   }
   return result;
 }
