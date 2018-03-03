@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "921c7b53_03c741f7",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-03-03T03:41:05Z",
+      "side": 1,
+      "message": "This is not doing what you probably want. I assume you intended to test \n(!hasDexSection || dexSectionValid) \u0026\u0026 (!hasNoDexSection \u0026\u0026 noDexSectionValid).\n\nWhat if you have neither sections?",
+      "range": {
+        "startLine": 54,
+        "startChar": 93,
+        "endLine": 54,
+        "endChar": 95
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae122871_b041e10e",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-03-03T03:41:05Z",
+      "side": 1,
+      "message": "do you want to conditionally check these? (based on their presence)",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41526899_3823d956",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 3
@@ -64,6 +110,29 @@
         "startChar": 4,
         "endLine": 177,
         "endChar": 95
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32fff50f_e7f45cda",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-03-03T03:41:05Z",
+      "side": 1,
+      "message": "Is this the quickening section? Can you align the file format doc at L37 with the names of these 3 sections?\n\nAlso, \"NoDex\" is a pretty bad name.",
+      "range": {
+        "startLine": 96,
+        "startChar": 29,
+        "endLine": 96,
+        "endChar": 49
       },
       "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
