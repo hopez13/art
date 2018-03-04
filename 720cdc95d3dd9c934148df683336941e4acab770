@@ -22,6 +22,30 @@
       "revId": "720cdc95d3dd9c934148df683336941e4acab770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3862756a_8d01ced7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4985,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-04T18:21:27Z",
+      "side": 1,
+      "message": "I thought this was covered enough be the line 4975ff comment: marking recursive-init-done is a pure performance optimization. Do you still think it necessary?",
+      "parentUuid": "da563095_220f393a",
+      "range": {
+        "startLine": 4980,
+        "startChar": 3,
+        "endLine": 4985,
+        "endChar": 5
+      },
+      "revId": "720cdc95d3dd9c934148df683336941e4acab770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
