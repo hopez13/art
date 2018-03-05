@@ -46,6 +46,30 @@
       "revId": "720cdc95d3dd9c934148df683336941e4acab770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d7013e_bf451490",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4985,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-05T14:41:23Z",
+      "side": 1,
+      "message": "Ah missed that bit. Yeah, I\u0027d still think it would be important to add why it\u0027s ok to not update to recursively initialized, and whether we will eventually end up in that state, or never.",
+      "parentUuid": "3862756a_8d01ced7",
+      "range": {
+        "startLine": 4980,
+        "startChar": 3,
+        "endLine": 4985,
+        "endChar": 5
+      },
+      "revId": "720cdc95d3dd9c934148df683336941e4acab770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
