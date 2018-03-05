@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89c136b8_7a7abe3e",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-05T12:45:35Z",
+      "side": 1,
+      "message": "called while visiting classes in the class table of a class loader.",
+      "range": {
+        "startLine": 94,
+        "startChar": 20,
+        "endLine": 94,
+        "endChar": 82
+      },
+      "revId": "cb335bb1e6d620e7e2f7df3727d6f12a85744899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
