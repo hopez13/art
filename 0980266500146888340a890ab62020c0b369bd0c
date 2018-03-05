@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "73c530d1_a43047a2",
+        "filename": "libdexfile/dex/dex_file_layout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-05T21:59:56Z",
+      "side": 1,
+      "message": "I\u0027ve added a TODO to refactor this out.",
+      "parentUuid": "05274876_ff1ca6f5",
+      "revId": "0980266500146888340a890ab62020c0b369bd0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc79e4d6_50f46381",
         "filename": "runtime/base/scoped_arena_allocator.h",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "0980266500146888340a890ab62020c0b369bd0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68813703_9a5f4c91",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-05T21:59:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc79e4d6_50f46381",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "0980266500146888340a890ab62020c0b369bd0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
