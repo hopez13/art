@@ -95,7 +95,9 @@ void ProfilingInfo::AddInvokeInfo(uint32_t dex_pc, mirror::Class* cls) {
       GcRoot<mirror::Class> expected_root(existing);
       GcRoot<mirror::Class> desired_root(cls);
       auto atomic_root = reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(&cache->classes_[i]);
-      if (!atomic_root->CompareAndSetStrongSequentiallyConsistent(expected_root, desired_root)) {
+      if (!atomic_root->compare_exchange_strong(expected_root,
+                                                desired_root,
+                                                std::memory_order_seq_cst)) {
         // Some other thread put a class in the cache, continue iteration starting at this
         // entry in case the entry contains `cls`.
         --i;

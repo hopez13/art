@@ -1279,7 +1279,7 @@ bool Thread::ModifySuspendCountInternal(Thread* self,
     AtomicClearFlag(kSuspendRequest);
   } else {
     // Two bits might be set simultaneously.
-    tls32_.state_and_flags.as_atomic_int.FetchAndBitwiseOrSequentiallyConsistent(flags);
+    tls32_.state_and_flags.as_atomic_int.fetch_or(flags, std::memory_order_seq_cst);
     TriggerSuspend();
   }
   return true;
@@ -1317,10 +1317,12 @@ bool Thread::PassActiveSuspendBarriers(Thread* self) {
     if (pending_threads != nullptr) {
       bool done = false;
       do {
-        int32_t cur_val = pending_threads->LoadRelaxed();
+        int32_t cur_val = pending_threads->load(std::memory_order_relaxed);
         CHECK_GT(cur_val, 0) << "Unexpected value for PassActiveSuspendBarriers(): " << cur_val;
         // Reduce value by 1.
-        done = pending_threads->CompareAndSetWeakRelaxed(cur_val, cur_val - 1);
+        done = pending_threads->compare_exchange_weak(cur_val,
+                                                      cur_val - 1,
+                                                      std::memory_order_relaxed);
 #if ART_USE_FUTEXES
         if (done && (cur_val - 1) == 0) {  // Weak CAS may fail spuriously.
           futex(pending_threads->Address(), FUTEX_WAKE, -1, nullptr, nullptr, 0);
@@ -1380,19 +1382,19 @@ void Thread::RunEmptyCheckpoint() {
 }
 
 bool Thread::RequestCheckpoint(Closure* function) {
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
+  CachedStateAndFlags old_state_and_flags(tls32_.state_and_flags.as_int);
   if (old_state_and_flags.as_struct.state != kRunnable) {
     return false;  // Fail, thread is suspended and so can't run a checkpoint.
   }
 
   // We must be runnable to request a checkpoint.
   DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
-  union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
+  CachedStateAndFlags new_state_and_flags(old_state_and_flags.as_int);
   new_state_and_flags.as_struct.flags |= kCheckpointRequest;
-  bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+  bool success = tls32_.state_and_flags.as_atomic_int.compare_exchange_strong(
+      old_state_and_flags.as_int,
+      new_state_and_flags.as_int,
+      std::memory_order_seq_cst);
   if (success) {
     // Succeeded setting checkpoint flag, now insert the actual checkpoint.
     if (tlsPtr_.checkpoint_function == nullptr) {
@@ -1407,8 +1409,7 @@ bool Thread::RequestCheckpoint(Closure* function) {
 }
 
 bool Thread::RequestEmptyCheckpoint() {
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
+  CachedStateAndFlags old_state_and_flags(tls32_.state_and_flags.as_int);
   if (old_state_and_flags.as_struct.state != kRunnable) {
     // If it's not runnable, we don't need to do anything because it won't be in the middle of a
     // heap access (eg. the read barrier).
@@ -1417,11 +1418,12 @@ bool Thread::RequestEmptyCheckpoint() {
 
   // We must be runnable to request a checkpoint.
   DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
-  union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
+  CachedStateAndFlags new_state_and_flags(old_state_and_flags.as_int);
   new_state_and_flags.as_struct.flags |= kEmptyCheckpointRequest;
-  bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+  bool success = tls32_.state_and_flags.as_atomic_int.compare_exchange_strong(
+      old_state_and_flags.as_int,
+      new_state_and_flags.as_int,
+      std::memory_order_seq_cst);
   if (success) {
     TriggerSuspend();
   }
@@ -1557,11 +1559,11 @@ Closure* Thread::GetFlipFunction() {
   Atomic<Closure*>* atomic_func = reinterpret_cast<Atomic<Closure*>*>(&tlsPtr_.flip_function);
   Closure* func;
   do {
-    func = atomic_func->LoadRelaxed();
+    func = atomic_func->load(std::memory_order_relaxed);
     if (func == nullptr) {
       return nullptr;
     }
-  } while (!atomic_func->CompareAndSetWeakSequentiallyConsistent(func, nullptr));
+  } while (!atomic_func->compare_exchange_weak(func, nullptr, std::memory_order_seq_cst));
   DCHECK(func != nullptr);
   return func;
 }
@@ -1569,7 +1571,7 @@ Closure* Thread::GetFlipFunction() {
 void Thread::SetFlipFunction(Closure* function) {
   CHECK(function != nullptr);
   Atomic<Closure*>* atomic_func = reinterpret_cast<Atomic<Closure*>*>(&tlsPtr_.flip_function);
-  atomic_func->StoreSequentiallyConsistent(function);
+  atomic_func->store(function, std::memory_order_seq_cst);
 }
 
 void Thread::FullSuspendCheck() {
@@ -2098,7 +2100,7 @@ Thread::Thread(bool daemon)
                 "art::Thread has a size which is not a multiple of 4.");
   tls32_.state_and_flags.as_struct.flags = 0;
   tls32_.state_and_flags.as_struct.state = kNative;
-  tls32_.interrupted.StoreRelaxed(false);
+  tls32_.interrupted.store(false, std::memory_order_relaxed);
   memset(&tlsPtr_.held_mutexes[0], 0, sizeof(tlsPtr_.held_mutexes));
   std::fill(tlsPtr_.rosalloc_runs,
             tlsPtr_.rosalloc_runs + kNumRosAllocThreadLocalSizeBracketsInThread,
@@ -2393,24 +2395,24 @@ bool Thread::IsJWeakCleared(jweak obj) const {
 bool Thread::Interrupted() {
   DCHECK_EQ(Thread::Current(), this);
   // No other thread can concurrently reset the interrupted flag.
-  bool interrupted = tls32_.interrupted.LoadSequentiallyConsistent();
+  bool interrupted = tls32_.interrupted.load(std::memory_order_seq_cst);
   if (interrupted) {
-    tls32_.interrupted.StoreSequentiallyConsistent(false);
+    tls32_.interrupted.store(false, std::memory_order_seq_cst);
   }
   return interrupted;
 }
 
 // Implements java.lang.Thread.isInterrupted.
 bool Thread::IsInterrupted() {
-  return tls32_.interrupted.LoadSequentiallyConsistent();
+  return tls32_.interrupted.load(std::memory_order_seq_cst);
 }
 
 void Thread::Interrupt(Thread* self) {
   MutexLock mu(self, *wait_mutex_);
-  if (tls32_.interrupted.LoadSequentiallyConsistent()) {
+  if (tls32_.interrupted.load(std::memory_order_seq_cst)) {
     return;
   }
-  tls32_.interrupted.StoreSequentiallyConsistent(true);
+  tls32_.interrupted.store(true, std::memory_order_seq_cst);
   NotifyLocked(self);
 }
 
