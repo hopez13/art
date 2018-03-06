@@ -31,8 +31,10 @@ void ObjectReference<kPoisonReferences, MirrorType>::Assign(ObjPtr<MirrorType> p
 
 template<class MirrorType>
 bool HeapReference<MirrorType>::CasWeakRelaxed(MirrorType* expected_ptr, MirrorType* new_ptr) {
-  return reference_.CompareAndSetWeakRelaxed(Compression::Compress(expected_ptr),
-                                             Compression::Compress(new_ptr));
+  auto expected_value = Compression::Compress(expected_ptr);
+  return reference_.compare_exchange_weak(expected_value,
+                                          Compression::Compress(new_ptr),
+                                          std::memory_order_relaxed);
 }
 
 }  // namespace mirror

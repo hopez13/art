@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2011 The Android Open Source Project
  *
@@ -1159,9 +1160,11 @@ class ReadBarrierOnNativeRootsVisitor {
       // Update the field atomically. This may fail if mutator updates before us, but it's ok.
       auto* atomic_root =
           reinterpret_cast<Atomic<CompressedReference<Object>>*>(root);
-      atomic_root->CompareAndSetStrongSequentiallyConsistent(
-          CompressedReference<Object>::FromMirrorPtr(old_ref.Ptr()),
-          CompressedReference<Object>::FromMirrorPtr(new_ref.Ptr()));
+      auto expected_compressed = CompressedReference<Object>::FromMirrorPtr(old_ref.Ptr());
+      atomic_root->compare_exchange_strong(
+          expected_compressed,
+          CompressedReference<Object>::FromMirrorPtr(new_ref.Ptr()),
+          std::memory_order_seq_cst);
     }
   }
 };
