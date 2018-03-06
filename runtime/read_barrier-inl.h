@@ -126,12 +126,12 @@ inline MirrorType* ReadBarrier::BarrierForRoot(MirrorType** root,
       if (self != nullptr &&
           self->GetIsGcMarking() &&
           Runtime::Current()->GetHeap()->GetReadBarrierTable()->IsSet(ref)) {
-        MirrorType* old_ref = ref;
+        mirror::Object* old_ref = ref;
         ref = reinterpret_cast<MirrorType*>(Mark(old_ref));
         // Update the field atomically. This may fail if mutator updates before us, but it's ok.
         if (ref != old_ref) {
           Atomic<mirror::Object*>* atomic_root = reinterpret_cast<Atomic<mirror::Object*>*>(root);
-          atomic_root->CompareAndSetStrongRelaxed(old_ref, ref);
+          atomic_root->compare_exchange_strong(old_ref, ref, std::memory_order_relaxed);
         }
       }
       AssertToSpaceInvariant(gc_root_source, ref);
@@ -174,7 +174,7 @@ inline MirrorType* ReadBarrier::BarrierForRoot(mirror::CompressedReference<Mirro
       if (new_ref.AsMirrorPtr() != old_ref.AsMirrorPtr()) {
         auto* atomic_root =
             reinterpret_cast<Atomic<mirror::CompressedReference<MirrorType>>*>(root);
-        atomic_root->CompareAndSetStrongRelaxed(old_ref, new_ref);
+        atomic_root->compare_exchange_strong(old_ref, new_ref, std::memory_order_relaxed);
       }
     }
     AssertToSpaceInvariant(gc_root_source, ref);
