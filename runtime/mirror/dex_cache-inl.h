@@ -154,7 +154,7 @@ inline CallSite* DexCache::GetResolvedCallSite(uint32_t call_site_idx) {
   GcRoot<mirror::CallSite>& target = GetResolvedCallSites()[call_site_idx];
   Atomic<GcRoot<mirror::CallSite>>& ref =
       reinterpret_cast<Atomic<GcRoot<mirror::CallSite>>&>(target);
-  return ref.LoadSequentiallyConsistent().Read();
+  return ref.load(std::memory_order_seq_cst).Read();
 }
 
 inline CallSite* DexCache::SetResolvedCallSite(uint32_t call_site_idx, CallSite* call_site) {
@@ -168,7 +168,7 @@ inline CallSite* DexCache::SetResolvedCallSite(uint32_t call_site_idx, CallSite*
   // The first assignment for a given call site wins.
   Atomic<GcRoot<mirror::CallSite>>& ref =
       reinterpret_cast<Atomic<GcRoot<mirror::CallSite>>&>(target);
-  if (ref.CompareAndSetStrongSequentiallyConsistent(null_call_site, candidate)) {
+  if (ref.compare_exchange_strong(null_call_site, candidate, std::memory_order_seq_cst)) {
     // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
     Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
     return call_site;
