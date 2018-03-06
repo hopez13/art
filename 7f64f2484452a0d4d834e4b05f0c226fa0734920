@@ -93,6 +93,24 @@
       "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1834d90_8af25750",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-06T22:59:38Z",
+      "side": 1,
+      "message": "I\u0027d be just fine with tests that use the .so be listed as expected failures in knownfailures.json.",
+      "parentUuid": "ec5321ee_dc89a13e",
+      "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
