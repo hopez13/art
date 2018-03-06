@@ -75,6 +75,8 @@ class IntrinsicCodeGeneratorMIPS64 FINAL : public IntrinsicVisitor {
 
   CodeGeneratorMIPS64* const codegen_;
 
+  bool HasMsa() const;
+
   DISALLOW_COPY_AND_ASSIGN(IntrinsicCodeGeneratorMIPS64);
 };
 
