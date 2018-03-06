@@ -39,6 +39,24 @@
       "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32b7fb2c_0cdfb374",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-06T06:10:08Z",
+      "side": 1,
+      "message": "FYI, I think this comment looks a bit out of place, considering that we didn\u0027t do the same for non-JIT configurations on the Java level, instead electing to ignore that in native, just like this change is suggesting. So I think this is OK, as an incremental step...",
+      "parentUuid": "51b094ea_57517e55",
+      "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
