@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1e866e8_b95580c9",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-06T19:16:51Z",
+      "side": 1,
+      "message": "Unnecessary DCHECK. There\u0027s one at the top of the method.",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 46
+      },
+      "revId": "9083a54bdd231258ca7091d29d44092d6db8ab51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f353f3a_47dda839",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-06T19:16:51Z",
+      "side": 1,
+      "message": "Probably remove this unnecessary if() as well.",
+      "range": {
+        "startLine": 451,
+        "startChar": 11,
+        "endLine": 451,
+        "endChar": 47
+      },
+      "revId": "9083a54bdd231258ca7091d29d44092d6db8ab51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a231b542_62a297a2",
+        "filename": "compiler/optimizing/intrinsics_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-06T19:16:51Z",
+      "side": 1,
+      "message": "Move HasMsa() to public for consistency with MIPS32.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "9083a54bdd231258ca7091d29d44092d6db8ab51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
