@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6316a25f_4c8d181c",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-06T21:57:33Z",
+      "side": 0,
+      "message": "This original code was wrong (should test for null, not non-null). The point is moot since you removed it, but please attach b/74198030 to your commit message, since this showed up on our internal buganizer list.",
+      "revId": "b95eb37a04874a57046fba7fc09a8b197691e9a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
