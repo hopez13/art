@@ -57,6 +57,24 @@
       "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e27c23f_7cf5f9b8",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-06T09:16:14Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you\u0027re saying :(\n\nI understand the value of running some tests under --jvm. But I\u0027d go with not spending cycles trying to make those tests pass if they load this ART-specific .so.",
+      "parentUuid": "32b7fb2c_0cdfb374",
+      "revId": "7f64f2484452a0d4d834e4b05f0c226fa0734920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
