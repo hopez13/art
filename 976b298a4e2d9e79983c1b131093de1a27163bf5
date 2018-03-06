@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2832b863_96dd9dc5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4983,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-06T09:21:04Z",
+      "side": 1,
+      "message": "Sorry for being a pain, but it would be great to have the comment say what are the consequences here. Will the iface never be in the \"RecursivelyInitialized\" state if we fail the acquire the lock? Or will we rely on another class that implements that interface for eventually being in that state?",
+      "revId": "976b298a4e2d9e79983c1b131093de1a27163bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
