@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a17d241f_1c9c4fa1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1094349
+      },
+      "writtenOn": "2018-03-06T21:57:15Z",
+      "side": 1,
+      "message": "A couple questions:\n\n1. Is \"ArtTi\" something new? Or just a synonym for the the same JVMTI since Oreo?\n\n2. I thought JVMTI agents can already be loaded but any processes of a userdebug/eng device, since they are all debuggable. Am I wrong? If yes, how does this affect us? (e.g. when do we know we should use kArtTiVersion instead of JVMTI_VERSION_1_2)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "c2b98cf004f2df688e5db807363c4777851a0a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "851902d3_950cfc30",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1094349
+      },
+      "writtenOn": "2018-03-06T21:57:15Z",
+      "side": 1,
+      "message": "Please igore if I am stupid, but I think the negate should not be there...",
+      "range": {
+        "startLine": 1612,
+        "startChar": 33,
+        "endLine": 1612,
+        "endChar": 34
+      },
+      "revId": "c2b98cf004f2df688e5db807363c4777851a0a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
