@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e1c0025_bd8a2f9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-06T22:26:21Z",
+      "side": 1,
+      "message": "\u003e 1. Is \"ArtTi\" something new? Or just a synonym for the the same JVMTI since Oreo?\n\nThis is something we exposed to allow us to replace the JDWP implementation. It isn\u0027t exposed anywhere else currently. It is new in P.\n \n\u003e 2. I thought JVMTI agents can already be loaded but any processes of a userdebug/eng device, since they are all debuggable. Am I wrong? If yes, how does this affect us? (e.g. when do we know we should use kArtTiVersion instead of JVMTI_VERSION_1_2)\n\nNo that\u0027s not true. Currently we only allow jvmti to be loaded by processes that are actually debuggable. Being userdebug is not good enough. If this goes in you could change your agent to use kArtTiVersion and work on non-debuggable processes on userdebug devices (you won\u0027t be able ot do class-redefinition though). This started out of one of the perf people complaining that they couldn\u0027t use the new AS profiler tools on system-server (or something).\n\nIf this does go in you should continue to use JVMTI_VERSION_1_2 if possible (since we disable some stuff for kArtTiVersion envs) but if that fails you could try kArtTiVersion as a fallback with reduced functionality.\n\nIt\u0027s not clear if we are going to do this yet.",
+      "parentUuid": "a17d241f_1c9c4fa1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "c2b98cf004f2df688e5db807363c4777851a0a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "851902d3_950cfc30",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-06T21:57:15Z",
       "side": 1,
       "message": "Please igore if I am stupid, but I think the negate should not be there...",
+      "range": {
+        "startLine": 1612,
+        "startChar": 33,
+        "endLine": 1612,
+        "endChar": 34
+      },
+      "revId": "c2b98cf004f2df688e5db807363c4777851a0a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae350647_35f8780b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-06T22:26:21Z",
+      "side": 1,
+      "message": "This is runtime-\u003eIsJavaDebuggable() \u0027implies\u0027 Dbg::IsJdwpAllowed().\n\nAlthough it is backwards from the usual order.",
+      "parentUuid": "851902d3_950cfc30",
       "range": {
         "startLine": 1612,
         "startChar": 33,
