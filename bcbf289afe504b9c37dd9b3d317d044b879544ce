@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e276b675_43fb5655",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93fd22f6_8e3194e0",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6757712_9b4a58dd",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-02T22:46:46Z",
       "side": 1,
       "message": "Why is this no longer aligned?",
+      "range": {
+        "startLine": 2850,
+        "startChar": 0,
+        "endLine": 2850,
+        "endChar": 35
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58e5f891_4cd8e451",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2850,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "Leftover from where I was trying to put the verifier deps at the beginning of the file.\n\nI\u0027ve put the alignment back.",
+      "parentUuid": "f6757712_9b4a58dd",
       "range": {
         "startLine": 2850,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6d094cc4_8f6ec6a3",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "I think that\u0027s exactly what I want to test :) I want to test you either have a version number that is the current version, or you have a magic version number (000) indicating there is no dex section. Does that make sense?",
+      "parentUuid": "921c7b53_03c741f7",
+      "range": {
+        "startLine": 54,
+        "startChar": 93,
+        "endLine": 54,
+        "endChar": 95
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae122871_b041e10e",
         "filename": "runtime/vdex_file.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-03T03:41:05Z",
       "side": 1,
       "message": "do you want to conditionally check these? (based on their presence)",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe3b0b2_3defd526",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "Both will be present, so I want to always check.",
+      "parentUuid": "ae122871_b041e10e",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a7f744f7_b308a45a",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41526899_3823d956",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 95
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32fff50f_e7f45cda",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2018-03-03T03:41:05Z",
       "side": 1,
       "message": "Is this the quickening section? Can you align the file format doc at L37 with the names of these 3 sections?\n\nAlso, \"NoDex\" is a pretty bad name.",
+      "range": {
+        "startLine": 96,
+        "startChar": 29,
+        "endLine": 96,
+        "endChar": 49
+      },
+      "revId": "bcbf289afe504b9c37dd9b3d317d044b879544ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6d9bf04_2e8be347",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T14:34:07Z",
+      "side": 1,
+      "message": "No, that\u0027s the version for when you don\u0027t have dex files and quickening info. I\u0027ve added comments.",
+      "parentUuid": "32fff50f_e7f45cda",
       "range": {
         "startLine": 96,
         "startChar": 29,
