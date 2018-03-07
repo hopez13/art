@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7d8f82e2_f811ddb9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-07T11:34:24Z",
+      "side": 1,
+      "message": "As discussed, I am wondering if we can just drop most of the spills here...",
+      "range": {
+        "startLine": 616,
+        "startChar": 38,
+        "endLine": 616,
+        "endChar": 77
+      },
+      "revId": "6a31042149d3db28ecd869b336d34813d6cdf246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76474e0d_3e07bec9",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 3
