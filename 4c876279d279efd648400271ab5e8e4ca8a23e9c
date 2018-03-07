@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c686c3db_521ce158",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T13:29:38Z",
+      "side": 1,
+      "message": "Any way this could be made consistent? Either two jvalue, or two JValue.",
+      "range": {
+        "startLine": 943,
+        "startChar": 42,
+        "endLine": 944,
+        "endChar": 48
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64cd3f5_801591c8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T13:29:38Z",
+      "side": 1,
+      "message": "J",
+      "range": {
+        "startLine": 1129,
+        "startChar": 28,
+        "endLine": 1129,
+        "endChar": 29
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e9f492a_3a028048",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T13:29:38Z",
+      "side": 1,
+      "message": "Long (that code is missing a test?)",
+      "range": {
+        "startLine": 1129,
+        "startChar": 31,
+        "endLine": 1129,
+        "endChar": 34
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c941f98_2be79f66",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T13:29:38Z",
+      "side": 1,
+      "message": "Add a comment what those 3 are.",
+      "range": {
+        "startLine": 1201,
+        "startChar": 26,
+        "endLine": 1201,
+        "endChar": 54
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "409bb7a9_91f4f895",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T13:29:38Z",
+      "side": 1,
+      "message": "cannot",
+      "range": {
+        "startLine": 1300,
+        "startChar": 39,
+        "endLine": 1300,
+        "endChar": 44
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
