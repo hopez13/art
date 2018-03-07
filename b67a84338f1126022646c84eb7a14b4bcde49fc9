@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "556e4392_8083da64",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T11:41:39Z",
+      "side": 1,
+      "message": "Can you add a DCHECK in these methods that this is only called for the AOT compiler?",
+      "revId": "b67a84338f1126022646c84eb7a14b4bcde49fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "223bd030_933ede8b",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-07T11:41:39Z",
+      "side": 1,
+      "message": "nit: add a one liner comment like: \"check that sections size in the boot images agree with object offsets\".",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 736,
+        "endChar": 25
+      },
+      "revId": "b67a84338f1126022646c84eb7a14b4bcde49fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
