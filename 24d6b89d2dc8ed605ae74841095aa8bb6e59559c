@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b34d94e_edfa80a1",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-07T22:05:30Z",
+      "side": 1,
+      "message": "add a comment (with a bit more detail than the name already implies)",
+      "revId": "24d6b89d2dc8ed605ae74841095aa8bb6e59559c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e234f0e4_3f5c877d",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-07T22:05:30Z",
+      "side": 1,
+      "message": "comment correct? peeling?",
+      "revId": "24d6b89d2dc8ed605ae74841095aa8bb6e59559c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd907acd_e596e8bf",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-07T22:05:30Z",
+      "side": 1,
+      "message": "satisfy -\u003e satisfies\n\nfor the fast -\u003e for fast   [sounds bit better to me?]",
+      "revId": "24d6b89d2dc8ed605ae74841095aa8bb6e59559c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb71bca5_f14f97a9",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-07T22:05:30Z",
+      "side": 1,
+      "message": "you mix control-flow and control flow in the comments: pick one style",
+      "revId": "24d6b89d2dc8ed605ae74841095aa8bb6e59559c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
