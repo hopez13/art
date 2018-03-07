@@ -22,6 +22,29 @@
       "revId": "632c9fe9f11c08b24ce79335547468e7075bca47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c60a8bb6_b67bc036",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-07T18:51:09Z",
+      "side": 1,
+      "message": "As I said in the other discussion, you cannot reliably deal with the case in which the writer crashed and the seqlock counter has an odd value, without switching to a proper obstruction-free linked list data structure. Any claim along these lines would need to be probabilistic. I think it\u0027s best to ignore this case, and handle the situation on a best effort basis. There aren\u0027t many reasons this code can crash while holding the lock.\n\nInstead, let me suggest some usage rules here that would clarify what\u0027s going on:\n\n* The tool should not trust any data, or use it an any way, without first verifying that the seqlock value is unchanged and even. It may try to handle a crashed process by proceeding to read with an unchanged odd value. In that case, it should be robust against reading arbitrarily inconsistent data.\n\n* Since the writer may concurrently remove and deallocate objects from the linked list while the reader is reading them, before it has a chance to check the seqlock counter, the reader must be robust against reading from no-longer-mapped addresses. If the reader is in the same process and uses ordinary load instructions to read, it must recover from SIGSEGV. Readers generally use system calls rather than ordinary loads to read.\n\n* All read and write operations on the linked list data should ideally be atomic. We explicitly guarantee sufficient ordering that memory_order_relaxed accesses are fine. The granularity of the accesses doesn\u0027t matter, since we check that there was no race before relying on the result. However we need to inform the compiler that values may change, or may be read, concurrently, and thus certain optimizations are invalid. In a few cases, e.g. for memcpy, we pretend that accesses are atomic because there is currently no good atomic equivalent, and because it is extremely unlikely that the generated code will differ from relaxed atomic accesses.\n\nIf you want to add fences to make it more likely we get a consistent picture from a process that crashed in the middle of an update, I won\u0027t object. But those only need to be compiler fences, which are MUCH cheaper. atomic_signal_fence should have that effect.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 71
+      },
+      "revId": "632c9fe9f11c08b24ce79335547468e7075bca47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
