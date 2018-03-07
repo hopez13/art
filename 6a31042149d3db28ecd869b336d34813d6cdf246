@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c63371ff_698c5eab",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-07T12:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d8f82e2_f811ddb9",
+      "range": {
+        "startLine": 616,
+        "startChar": 38,
+        "endLine": 616,
+        "endChar": 77
+      },
+      "revId": "6a31042149d3db28ecd869b336d34813d6cdf246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76474e0d_3e07bec9",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-07T11:07:09Z",
       "side": 1,
       "message": "Can we write xFP here?",
+      "range": {
+        "startLine": 626,
+        "startChar": 26,
+        "endLine": 626,
+        "endChar": 29
+      },
+      "revId": "6a31042149d3db28ecd869b336d34813d6cdf246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac64afc9_872c0c81",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-07T12:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76474e0d_3e07bec9",
       "range": {
         "startLine": 626,
         "startChar": 26,
