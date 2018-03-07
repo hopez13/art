@@ -22,6 +22,30 @@
       "revId": "2da72ed76edca8818191fb59386cdefde5049d30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "982ee3ed_0f62f8be",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-07T17:07:52Z",
+      "side": 1,
+      "message": "That should be perfectly fine if they do not define the same symbols.",
+      "parentUuid": "c5c307c0_fb056b94",
+      "range": {
+        "startLine": 873,
+        "startChar": 6,
+        "endLine": 873,
+        "endChar": 54
+      },
+      "revId": "2da72ed76edca8818191fb59386cdefde5049d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
