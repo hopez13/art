@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82e7ae80_28f69a2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-07T18:11:51Z",
+      "side": 1,
+      "message": "I\u0027d mention that we are no longer saving/restoring x21–x28 in this CL. Actually, I think it would make sense to move that part of the change (the diff between PS4 and PS5) to its own CL.",
+      "revId": "6f25a598c02ca0bb76eb39ccd10a88546627881b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d256a72_742e8772",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-07T18:11:51Z",
+      "side": 1,
+      "message": "Nit: Align comments.",
+      "range": {
+        "startLine": 625,
+        "startChar": 43,
+        "endLine": 625,
+        "endChar": 45
+      },
+      "revId": "6f25a598c02ca0bb76eb39ccd10a88546627881b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
