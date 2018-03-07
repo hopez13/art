@@ -51,6 +51,24 @@
       "revId": "b95eb37a04874a57046fba7fc09a8b197691e9a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bc3936a_aedad9c2",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-07T23:21:00Z",
+      "side": 0,
+      "message": "It is checked right before the control flow info adjustments SuperblockCloner::Run.",
+      "parentUuid": "15c9116c_60c81273",
+      "revId": "b95eb37a04874a57046fba7fc09a8b197691e9a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
