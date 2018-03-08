@@ -1,0 +1,596 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61234009_ff23839a",
+        "filename": "compiler/utils/atomic_dex_ref_map-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "What about keeping the `CompareAndSet*` methods (and implement them with `std::atomic::compare_echange*`) to mask the implementation detail of preserving `expected`?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 97
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b97542_25bab065",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 166,
+        "startChar": 60,
+        "endLine": 166,
+        "endChar": 61
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb2b31b_642b76a6",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Nit:\n\n  /* pid */ 0\n\n?",
+      "range": {
+        "startLine": 991,
+        "startChar": 32,
+        "endLine": 991,
+        "endChar": 33
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3bc9c0_29b74c28",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 32,
+        "endLine": 1037,
+        "endChar": 33
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1c17fc3_4daf341b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "QuasiAtomic::ThreadFenceRelease is part of runtime/base/quasi_atomic.h; maybe move this change to another CL?",
+      "range": {
+        "startLine": 6143,
+        "startChar": 2,
+        "endLine": 6143,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfcfef7a_658788b0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Nit: Preserve the extra 4-space indentation.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 12
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cd9fddf_e5259df4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2173,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Should a copy of `expected_ref` be passed as first argument to compare_exchange_weak to prevent `expected_ref` from being modified (and thus alter the semantics of the test line 2169)?",
+      "range": {
+        "startLine": 2173,
+        "startChar": 42,
+        "endLine": 2173,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "028df6fe_5d5c2e55",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Likewise, should a copy of `expected_ref` be passed as first argument to compare_exchange_weak, to make sure we always used the same expected value in the CAS?",
+      "range": {
+        "startLine": 2192,
+        "startChar": 42,
+        "endLine": 2192,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "121fb0f4_9b900f93",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2474,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 2474,
+        "startChar": 4,
+        "endLine": 2474,
+        "endChar": 56
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "577dc303_172e5769",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 2569,
+        "startChar": 2,
+        "endLine": 2569,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce624221_c1673074",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1474,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Nit: Align on operator `\u003c\u003c` from previous line.",
+      "range": {
+        "startLine": 1474,
+        "startChar": 0,
+        "endLine": 1474,
+        "endChar": 10
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "483b4815_b6315c33",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1481,
+        "startChar": 0,
+        "endLine": 1481,
+        "endChar": 10
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae192757_83793090",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1485,
+        "startChar": 0,
+        "endLine": 1485,
+        "endChar": 10
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa0c53a_4e2674f7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Nit: Align on operator `\u003c\u003c` from previous line.",
+      "range": {
+        "startLine": 1149,
+        "startChar": 0,
+        "endLine": 1149,
+        "endChar": 10
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51eca237_c7725fbc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1708,
+        "startChar": 0,
+        "endLine": 1708,
+        "endChar": 22
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46ede27_fd5227ff",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 1538,
+        "startChar": 2,
+        "endLine": 1538,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5220998_34547e1f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1555,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 1555,
+        "startChar": 2,
+        "endLine": 1555,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "302f5c9c_3bce01d7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2eaafcd_60c619c4",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Explicitly pass `std::memory_order_relaxed` as third argument to compare_exchange_weak?",
+      "range": {
+        "startLine": 139,
+        "startChar": 19,
+        "endLine": 139,
+        "endChar": 40
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdfe744d_0e26bb6d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 1106,
+        "startChar": 8,
+        "endLine": 1106,
+        "endChar": 60
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c5423d_e0091754",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01dde144_2da39ee4",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be092172_fcf304bb",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Same comment about QuasiAtomic::ThreadFenceRelease().",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 54
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460dbe8a_c342d138",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Keep `MirrorType` here (see also suggestions on line 133)?",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 129,
+        "endChar": 22
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77689481_b9399810",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be changed to `MirrorType` instead of the change line 129?",
+      "range": {
+        "startLine": 133,
+        "startChar": 17,
+        "endLine": 133,
+        "endChar": 31
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e178f6_1e7f9360",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:25:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 133,
+        "startChar": 73,
+        "endLine": 133,
+        "endChar": 87
+      },
+      "revId": "74a9af5b8a3024f72fca6959dbb842f6ce0ee8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
