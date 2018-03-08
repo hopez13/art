@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d5a85b1_5afbc46e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-08T18:57:32Z",
+      "side": 1,
+      "message": "Since you\u0027re touching this, should we change this to\n\nbool done \u003d false;\ndo { ...} while (!done);\n\ninstead of the break? We could then also replace the continues with an \"if ... else if ... else\", making the control structure here significantly more transparent, I think.",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 16
+      },
+      "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
