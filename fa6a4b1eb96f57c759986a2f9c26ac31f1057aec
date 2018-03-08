@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62f9e900_d7c87f33",
+        "filename": "libartbase/base/os_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-08T16:32:09Z",
+      "side": 1,
+      "message": "I\u0027d move the comment line 92, and maybe quote the documentation:\n\n       st_size\n              This  field gives the size of the file (if it is a regular file or a symbolic link)\n              in bytes.  The size of a symbolic link is the length of the pathname  it  contains,\n              without a terminating null byte.",
+      "range": {
+        "startLine": 94,
+        "startChar": 16,
+        "endLine": 94,
+        "endChar": 44
+      },
+      "revId": "fa6a4b1eb96f57c759986a2f9c26ac31f1057aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
