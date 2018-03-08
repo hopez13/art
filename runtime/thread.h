@@ -105,13 +105,27 @@ enum ThreadPriority {
   kMaxThreadPriority = 10,
 };
 
-enum ThreadFlag {
+enum ThreadFlag : uint16_t {
   kSuspendRequest   = 1,  // If set implies that suspend_count_ > 0 and the Thread should enter the
                           // safepoint handler.
   kCheckpointRequest = 2,  // Request that the thread do some checkpoint work and then continue.
   kEmptyCheckpointRequest = 4,  // Request that the thread do empty checkpoint and then continue.
   kActiveSuspendBarrier = 8,  // Register that at least 1 suspend barrier needs to be passed.
+  kAllFlags = 15  // All flags set
 };
+std::ostream& operator<<(std::ostream& os, ThreadFlag flag);
+
+inline ThreadFlag operator|(ThreadFlag lhs, ThreadFlag rhs) {
+  return static_cast<ThreadFlag>(static_cast<uint16_t>(lhs) | static_cast<uint16_t>(rhs));
+}
+
+inline ThreadFlag operator^(ThreadFlag lhs, ThreadFlag rhs) {
+  return static_cast<ThreadFlag>(static_cast<uint16_t>(lhs) ^ static_cast<uint16_t>(rhs));
+}
+
+inline ThreadFlag operator&(ThreadFlag lhs, ThreadFlag rhs) {
+  return static_cast<ThreadFlag>(static_cast<uint16_t>(lhs) & static_cast<uint16_t>(rhs));
+}
 
 enum class StackedShadowFrameType {
   kShadowFrameUnderConstruction,
@@ -225,9 +239,10 @@ class Thread {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ThreadState GetState() const {
-    DCHECK_GE(tls32_.state_and_flags.as_struct.state, kTerminated);
-    DCHECK_LE(tls32_.state_and_flags.as_struct.state, kSuspended);
-    return static_cast<ThreadState>(tls32_.state_and_flags.as_struct.state);
+    ThreadState state = StateAndFlags(tls32_.state_and_flags).State();
+    DCHECK_GE(state, kTerminated);
+    DCHECK_LE(state, kSuspended);
+    return state;
   }
 
   ThreadState SetState(ThreadState new_state);
@@ -246,10 +261,8 @@ class Thread {
   }
 
   bool IsSuspended() const {
-    union StateAndFlags state_and_flags;
-    state_and_flags.as_int = tls32_.state_and_flags.as_int;
-    return state_and_flags.as_struct.state != kRunnable &&
-        (state_and_flags.as_struct.flags & kSuspendRequest) != 0;
+    StateAndFlags state_and_flags(tls32_.state_and_flags);
+    return state_and_flags.State() != kRunnable && state_and_flags.TestFlag(kSuspendRequest);
   }
 
   // If delta > 0 and (this != self or suspend_barrier is not null), this function may temporarily
@@ -1086,19 +1099,14 @@ class Thread {
       REQUIRES(Locks::thread_suspend_count_lock_);
 
   bool ReadFlag(ThreadFlag flag) const {
-    return (tls32_.state_and_flags.as_struct.flags & flag) != 0;
+    DCHECK(IsPowerOfTwo(static_cast<uint16_t>(flag)));
+    StateAndFlags state_and_flags(tls32_.state_and_flags);
+    return state_and_flags.TestFlag(flag);
   }
 
   bool TestAllFlags() const {
-    return (tls32_.state_and_flags.as_struct.flags != 0);
-  }
-
-  void AtomicSetFlag(ThreadFlag flag) {
-    tls32_.state_and_flags.as_atomic_int.FetchAndBitwiseOrSequentiallyConsistent(flag);
-  }
-
-  void AtomicClearFlag(ThreadFlag flag) {
-    tls32_.state_and_flags.as_atomic_int.FetchAndBitwiseAndSequentiallyConsistent(-1 ^ flag);
+    StateAndFlags state_and_flags(tls32_.state_and_flags);
+    return state_and_flags.TestAllFlags(ThreadFlag::kAllFlags);
   }
 
   void ResetQuickAllocEntryPointsForThread(bool is_marking);
@@ -1293,9 +1301,27 @@ class Thread {
       // Since we transitioned to a suspended state, check the pass barrier requests.
       PassActiveSuspendBarriers();
     } else {
-      tls32_.state_and_flags.as_struct.state = new_state;
+      AtomicSetState(new_state);
     }
     return old_state;
+  }
+
+  void AtomicSetFlag(ThreadFlag flag) {
+    StateAndFlags state_and_flags(flag);
+    tls32_.state_and_flags.fetch_or(state_and_flags.Flags());
+  }
+
+  void AtomicClearFlag(ThreadFlag flag) {
+    StateAndFlags state_and_flags(ThreadFlag::kAllFlags ^ flag);
+    tls32_.state_and_flags.fetch_and(state_and_flags.Flags());
+  }
+
+  void AtomicSetState(ThreadState new_state) {
+    static_assert(sizeof(std::atomic<uint16_t>) == sizeof(ThreadState), "Atomic size mismatch");
+    auto atomic_state = reinterpret_cast<std::atomic<uint16_t>*>(
+        reinterpret_cast<uint8_t*>(&tls32_.state_and_flags) +
+        OFFSETOF_MEMBER(StateAndFlags, as_struct.state));
+    atomic_state->store(new_state, std::memory_order_seq_cst);
   }
 
   void VerifyStackImpl() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1383,29 +1409,52 @@ class Thread {
 
   static bool IsAotCompiler();
 
-  // 32 bits of atomically changed state and flags. Keeping as 32 bits allows and atomic CAS to
-  // change from being Suspended to Runnable without a suspend request occurring.
-  union PACKED(4) StateAndFlags {
-    StateAndFlags() {}
-    struct PACKED(4) {
-      // Bitfield of flag values. Must be changed atomically so that flag values aren't lost. See
-      // ThreadFlags for bit field meanings.
-      volatile uint16_t flags;
-      // Holds the ThreadState. May be changed non-atomically between Suspended (ie not Runnable)
-      // transitions. Changing to Runnable requires that the suspend_request be part of the atomic
-      // operation. If a thread is suspended and a suspend_request is present, a thread may not
-      // change to Runnable as a GC or other operation is in progress.
-      volatile uint16_t state;
-    } as_struct;
-    AtomicInteger as_atomic_int;
-    volatile int32_t as_int;
+  // 32 bits that correspond to a locally cached copy of a thread's
+  // state_and_flags field. This allows for local modifications to be
+  // made before writing back to thread local state.
+  struct PACKED(4) StateAndFlags {
+    StateAndFlags(ThreadState state, ThreadFlag flags) {
+      as_struct.state = state;
+      as_struct.flags = flags;
+    }
 
-   private:
-    // gcc does not handle struct with volatile member assignments correctly.
-    // See http://gcc.gnu.org/bugzilla/show_bug.cgi?id=47409
-    DISALLOW_COPY_AND_ASSIGN(StateAndFlags);
+    StateAndFlags(ThreadState state) {
+      as_struct.state = state;
+      as_struct.flags = static_cast<ThreadFlag>(0);
+    }
+
+    StateAndFlags(ThreadFlag flags) {
+      as_int = 0;
+      as_struct.flags = flags;
+    }
+
+    StateAndFlags(const AtomicInteger& atomic_value)
+        : as_int(atomic_value.load(std::memory_order_seq_cst)) {}
+
+    StateAndFlags& operator=(const AtomicInteger& atomic_value) {
+      as_int = atomic_value.load(std::memory_order_seq_cst);
+      return *this;
+    }
+
+    ThreadState State() const { return static_cast<ThreadState>(as_struct.state); }
+    void SetState(ThreadState state) { as_struct.state = state; }
+    ThreadFlag Flags() const { return static_cast<ThreadFlag>(as_struct.flags); }
+    bool TestFlag(ThreadFlag flag) const { return (Flags() & flag) == flag; }
+    bool TestAllFlags(ThreadFlag flags) const { return (Flags() & flags) != 0; }
+
+    // TODO(oth): private
+    union {
+      struct PACKED(4) {
+        // Bitfield of flag values. See ThreadFlag for bit field definitions.
+        uint16_t flags;
+        // Holds the thread state. See ThreadState for possible states.
+        uint16_t state;
+      } as_struct;
+
+      int32_t as_int;
+    };
   };
-  static_assert(sizeof(StateAndFlags) == sizeof(int32_t), "Weird state_and_flags size");
+  static_assert(sizeof(StateAndFlags) == sizeof(int32_t), "Weird CachedStateAndFlags size");
 
   static void ThreadExitCallback(void* arg);
 
@@ -1448,8 +1497,10 @@ class Thread {
       disable_thread_flip_count(0), user_code_suspend_count(0) {
     }
 
-    union StateAndFlags state_and_flags;
-    static_assert(sizeof(union StateAndFlags) == sizeof(int32_t),
+    // The thread execution state and thread request word. The format of the bit level
+    // representation is based on the CacheStateAndFlags.
+    AtomicInteger state_and_flags;
+    static_assert(sizeof(state_and_flags) == sizeof(int32_t),
                   "Size of state_and_flags and int32 are different");
 
     // A non-zero value is used to tell the current thread to enter a safe point
