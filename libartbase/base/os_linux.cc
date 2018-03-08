@@ -89,9 +89,9 @@ bool OS::DirectoryExists(const char* name) {
 int64_t OS::GetFileSizeBytes(const char* name) {
   struct stat st;
   if (stat(name, &st) == 0) {
-    return -1;  // TODO: Deal with symlinks?
-  } else {
     return st.st_size;
+  } else {
+    return -1;  // TODO: Deal with symlinks?
   }
 }
 
