@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7ed89fe_3b90e848",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T12:29:03Z",
+      "side": 1,
+      "message": "Added more details into commit message but keeping this all in a single CL.",
+      "parentUuid": "82e7ae80_28f69a2b",
+      "revId": "6f25a598c02ca0bb76eb39ccd10a88546627881b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d256a72_742e8772",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2018-03-07T18:11:51Z",
       "side": 1,
       "message": "Nit: Align comments.",
+      "range": {
+        "startLine": 625,
+        "startChar": 43,
+        "endLine": 625,
+        "endChar": 45
+      },
+      "revId": "6f25a598c02ca0bb76eb39ccd10a88546627881b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "239219e6_a431df82",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T12:29:03Z",
+      "side": 1,
+      "message": "These comments are aligned, except for the line above where the instruction is too long.",
+      "parentUuid": "8d256a72_742e8772",
       "range": {
         "startLine": 625,
         "startChar": 43,
