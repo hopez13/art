@@ -436,6 +436,38 @@ void InstructionCodeGeneratorARM64::VisitVecAdd(HVecAdd* instruction) {
   }
 }
 
+void LocationsBuilderARM64::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorARM64::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  VRegister lhs = VRegisterFrom(locations->InAt(0));
+  VRegister rhs = VRegisterFrom(locations->InAt(1));
+  VRegister dst = VRegisterFrom(locations->Out());
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kUint8:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Uqadd(dst.V16B(), lhs.V16B(), rhs.V16B());
+      break;
+    case DataType::Type::kInt8:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Sqadd(dst.V16B(), lhs.V16B(), rhs.V16B());
+      break;
+    case DataType::Type::kUint16:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Uqadd(dst.V8H(), lhs.V8H(), rhs.V8H());
+      break;
+    case DataType::Type::kInt16:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Sqadd(dst.V8H(), lhs.V8H(), rhs.V8H());
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
 void LocationsBuilderARM64::VisitVecHalvingAdd(HVecHalvingAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
@@ -511,6 +543,38 @@ void InstructionCodeGeneratorARM64::VisitVecSub(HVecSub* instruction) {
     case DataType::Type::kFloat64:
       DCHECK_EQ(2u, instruction->GetVectorLength());
       __ Fsub(dst.V2D(), lhs.V2D(), rhs.V2D());
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
+void LocationsBuilderARM64::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorARM64::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  VRegister lhs = VRegisterFrom(locations->InAt(0));
+  VRegister rhs = VRegisterFrom(locations->InAt(1));
+  VRegister dst = VRegisterFrom(locations->Out());
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kUint8:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Uqsub(dst.V16B(), lhs.V16B(), rhs.V16B());
+      break;
+    case DataType::Type::kInt8:
+      DCHECK_EQ(16u, instruction->GetVectorLength());
+      __ Sqsub(dst.V16B(), lhs.V16B(), rhs.V16B());
+      break;
+    case DataType::Type::kUint16:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Uqsub(dst.V8H(), lhs.V8H(), rhs.V8H());
+      break;
+    case DataType::Type::kInt16:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Sqsub(dst.V8H(), lhs.V8H(), rhs.V8H());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type";

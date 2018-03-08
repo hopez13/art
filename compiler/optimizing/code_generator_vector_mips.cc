@@ -439,6 +439,14 @@ void InstructionCodeGeneratorMIPS::VisitVecAdd(HVecAdd* instruction) {
   }
 }
 
+void LocationsBuilderMIPS::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  LOG(FATAL) << "Unsupported SIMD " << instruction->GetId();
+}
+
 void LocationsBuilderMIPS::VisitVecHalvingAdd(HVecHalvingAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
@@ -519,6 +527,14 @@ void InstructionCodeGeneratorMIPS::VisitVecSub(HVecSub* instruction) {
       LOG(FATAL) << "Unsupported SIMD type";
       UNREACHABLE();
   }
+}
+
+void LocationsBuilderMIPS::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  LOG(FATAL) << "Unsupported SIMD " << instruction->GetId();
 }
 
 void LocationsBuilderMIPS::VisitVecMul(HVecMul* instruction) {
