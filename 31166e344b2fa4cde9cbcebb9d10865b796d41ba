@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fb456c8_d1004f20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-08T14:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98094220_76881f4c",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "31166e344b2fa4cde9cbcebb9d10865b796d41ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16df10a1_6affe769",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-08T13:54:41Z",
       "side": 1,
       "message": "Maybe mention that it is safe not to do a read barrier here and read an old class in the from-space, as its access flags shall be the same as the ones in the to-space copy?",
+      "range": {
+        "startLine": 676,
+        "startChar": 30,
+        "endLine": 676,
+        "endChar": 49
+      },
+      "revId": "31166e344b2fa4cde9cbcebb9d10865b796d41ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e155e11_a24afd76",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-08T14:02:15Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "16df10a1_6affe769",
       "range": {
         "startLine": 676,
         "startChar": 30,
