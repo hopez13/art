@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5997dac3_8b65e107",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 1,
+      "message": "Done.\n\nThese are both a bit awkward JValue is ART, jvalue is jni and used in libdexfile for the enumerate values. Added the method ConvertScalarBootstrapMethodArgument to \"translate\" between the two.",
+      "parentUuid": "c686c3db_521ce158",
+      "range": {
+        "startLine": 943,
+        "startChar": 42,
+        "endLine": 944,
+        "endChar": 48
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b64cd3f5_801591c8",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 7
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "e0040989_d7fce5a5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64cd3f5_801591c8",
+      "range": {
+        "startLine": 1129,
+        "startChar": 28,
+        "endLine": 1129,
+        "endChar": 29
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74855731_9c23bc8f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e9f492a_3a028048",
+      "range": {
+        "startLine": 1129,
+        "startChar": 31,
+        "endLine": 1129,
+        "endChar": 34
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c941f98_2be79f66",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "85270362_da37dd60",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c941f98_2be79f66",
+      "range": {
+        "startLine": 1201,
+        "startChar": 26,
+        "endLine": 1201,
+        "endChar": 54
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "409bb7a9_91f4f895",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2018-03-07T13:29:38Z",
       "side": 1,
       "message": "cannot",
+      "range": {
+        "startLine": 1300,
+        "startChar": 39,
+        "endLine": 1300,
+        "endChar": 44
+      },
+      "revId": "4c876279d279efd648400271ab5e8e4ca8a23e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a59ec2_57f8d3d3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "409bb7a9_91f4f895",
       "range": {
         "startLine": 1300,
         "startChar": 39,

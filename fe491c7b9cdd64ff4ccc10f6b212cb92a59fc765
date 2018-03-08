@@ -16,6 +16,24 @@
       "revId": "fe491c7b9cdd64ff4ccc10f6b212cb92a59fc765",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8db29be0_c780f695",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4225,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-08T10:07:31Z",
+      "side": 0,
+      "message": "Yes, we would hard fail some of the additional tests here that check error conditions in the bytecode, e.g. too few static arguments in the file. These conditions now lead to BootstrapMethodErrors.",
+      "parentUuid": "9ed5d0bf_402f67bc",
+      "revId": "fe491c7b9cdd64ff4ccc10f6b212cb92a59fc765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
