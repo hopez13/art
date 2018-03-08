@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53989e73_b337776a",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T10:59:14Z",
+      "side": 1,
+      "message": "Weird that we use upper-case letters for the x86 test and lower-case letters for the x86-64 test.",
+      "range": {
+        "startLine": 1285,
+        "startChar": 32,
+        "endLine": 1285,
+        "endChar": 35
+      },
+      "revId": "4ca17350c0c0f7582d909d2776cc3d5f99b4b18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
