@@ -22,6 +22,30 @@
       "revId": "4ca17350c0c0f7582d909d2776cc3d5f99b4b18a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9eaed82_4e424a86",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-08T17:00:09Z",
+      "side": 1,
+      "message": "Agreed, I just always follow the style found in the file. Another issue that bugs me is the double line break in one file; we don\u0027t use that anywhere else. Perhaps a cleanup one of these days? :-)",
+      "parentUuid": "53989e73_b337776a",
+      "range": {
+        "startLine": 1285,
+        "startChar": 32,
+        "endLine": 1285,
+        "endChar": 35
+      },
+      "revId": "4ca17350c0c0f7582d909d2776cc3d5f99b4b18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
