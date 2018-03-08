@@ -22,6 +22,23 @@
       "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd7fd52e_cc977b89",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-08T19:37:23Z",
+      "side": 1,
+      "message": "nit: would be nice to mention as_int is used by atomics in a comment (to justify the complexity)",
+      "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
