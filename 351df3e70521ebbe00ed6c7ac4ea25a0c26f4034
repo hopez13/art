@@ -22,6 +22,30 @@
       "revId": "351df3e70521ebbe00ed6c7ac4ea25a0c26f4034",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69ac31ad_5dcc211e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5553,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-08T17:07:31Z",
+      "side": 1,
+      "message": "Now that you mention this, I think rpl ask for something similar in the vector codegen at one point; I leave this for later and really do it this time :-)",
+      "parentUuid": "379e29c0_25e24d0b",
+      "range": {
+        "startLine": 5553,
+        "startChar": 41,
+        "endLine": 5553,
+        "endChar": 48
+      },
+      "revId": "351df3e70521ebbe00ed6c7ac4ea25a0c26f4034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
