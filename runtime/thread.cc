@@ -1247,7 +1247,7 @@ bool Thread::ModifySuspendCountInternal(Thread* self,
     return false;
   }
 
-  uint16_t flags = kSuspendRequest;
+  ThreadFlag flags = kSuspendRequest;
   if (delta > 0 && suspend_barrier != nullptr) {
     uint32_t available_barrier = kMaxSuspendBarriers;
     for (uint32_t i = 0; i < kMaxSuspendBarriers; ++i) {
@@ -1280,7 +1280,7 @@ bool Thread::ModifySuspendCountInternal(Thread* self,
     AtomicClearFlag(kSuspendRequest);
   } else {
     // Two bits might be set simultaneously.
-    tls32_.state_and_flags.as_atomic_int.FetchAndBitwiseOrSequentiallyConsistent(flags);
+    AtomicSetFlag(flags);
     TriggerSuspend();
   }
   return true;
@@ -1381,19 +1381,18 @@ void Thread::RunEmptyCheckpoint() {
 }
 
 bool Thread::RequestCheckpoint(Closure* function) {
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
-  if (old_state_and_flags.as_struct.state != kRunnable) {
+  StateAndFlags old_state_and_flags(tls32_.state_and_flags);
+  if (old_state_and_flags.State() != kRunnable) {
     return false;  // Fail, thread is suspended and so can't run a checkpoint.
   }
 
   // We must be runnable to request a checkpoint.
-  DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
-  union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
-  new_state_and_flags.as_struct.flags |= kCheckpointRequest;
-  bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+  DCHECK_EQ(old_state_and_flags.State(), kRunnable);
+  StateAndFlags new_state_and_flags(old_state_and_flags.State(),
+                                    old_state_and_flags.Flags() | kCheckpointRequest);
+  bool success = tls32_.state_and_flags.CompareAndSetStrongSequentiallyConsistent(
+      old_state_and_flags.as_int,
+      new_state_and_flags.as_int);
   if (success) {
     // Succeeded setting checkpoint flag, now insert the actual checkpoint.
     if (tlsPtr_.checkpoint_function == nullptr) {
@@ -1408,21 +1407,20 @@ bool Thread::RequestCheckpoint(Closure* function) {
 }
 
 bool Thread::RequestEmptyCheckpoint() {
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
-  if (old_state_and_flags.as_struct.state != kRunnable) {
+  StateAndFlags old_state_and_flags(tls32_.state_and_flags);
+  if (old_state_and_flags.State() != kRunnable) {
     // If it's not runnable, we don't need to do anything because it won't be in the middle of a
     // heap access (eg. the read barrier).
     return false;
   }
 
   // We must be runnable to request a checkpoint.
-  DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
-  union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
-  new_state_and_flags.as_struct.flags |= kEmptyCheckpointRequest;
-  bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+  DCHECK_EQ(old_state_and_flags.State(), kRunnable);
+  StateAndFlags new_state_and_flags(old_state_and_flags.State(),
+                                    old_state_and_flags.Flags() | kEmptyCheckpointRequest);
+  bool success = tls32_.state_and_flags.CompareAndSetStrongSequentiallyConsistent(
+      old_state_and_flags.as_int,
+      new_state_and_flags.as_int);
   if (success) {
     TriggerSuspend();
   }
@@ -1680,7 +1678,7 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
     os << "  | group=\"" << group_name << "\""
        << " sCount=" << thread->tls32_.suspend_count
        << " dsCount=" << thread->tls32_.debug_suspend_count
-       << " flags=" << thread->tls32_.state_and_flags.as_struct.flags
+       << " flags=" << StateAndFlags(thread->tls32_.state_and_flags).Flags()
        << " obj=" << reinterpret_cast<void*>(thread->tlsPtr_.opeer)
        << " self=" << reinterpret_cast<const void*>(thread) << "\n";
   }
@@ -2100,8 +2098,8 @@ Thread::Thread(bool daemon)
 
   static_assert((sizeof(Thread) % 4) == 0U,
                 "art::Thread has a size which is not a multiple of 4.");
-  tls32_.state_and_flags.as_struct.flags = 0;
-  tls32_.state_and_flags.as_struct.state = kNative;
+  StateAndFlags state_and_flags(kNative);
+  tls32_.state_and_flags.store(state_and_flags.as_int, std::memory_order_seq_cst);
   tls32_.interrupted.StoreRelaxed(false);
   memset(&tlsPtr_.held_mutexes[0], 0, sizeof(tlsPtr_.held_mutexes));
   std::fill(tlsPtr_.rosalloc_runs,
@@ -4012,6 +4010,10 @@ mirror::Object* Thread::GetPeerFromOtherThread() const {
 void Thread::SetReadBarrierEntrypoints() {
   // Make sure entrypoints aren't null.
   UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_active*/ true);
+}
+
+std::ostream& operator<<(std::ostream& os, ThreadFlag flag) {
+  return os << static_cast<uint16_t>(flag);
 }
 
 }  // namespace art
