@@ -297,6 +297,38 @@ void InstructionCodeGeneratorARMVIXL::VisitVecAdd(HVecAdd* instruction) {
   }
 }
 
+void LocationsBuilderARMVIXL::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  vixl32::DRegister lhs = DRegisterFrom(locations->InAt(0));
+  vixl32::DRegister rhs = DRegisterFrom(locations->InAt(1));
+  vixl32::DRegister dst = DRegisterFrom(locations->Out());
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kUint8:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Vqadd(DataTypeValue::U8, dst, lhs, rhs);
+      break;
+    case DataType::Type::kInt8:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Vqadd(DataTypeValue::S8, dst, lhs, rhs);
+      break;
+    case DataType::Type::kUint16:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Vqadd(DataTypeValue::U16, dst, lhs, rhs);
+      break;
+    case DataType::Type::kInt16:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Vqadd(DataTypeValue::S16, dst, lhs, rhs);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
 void LocationsBuilderARMVIXL::VisitVecHalvingAdd(HVecHalvingAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
@@ -360,6 +392,38 @@ void InstructionCodeGeneratorARMVIXL::VisitVecSub(HVecSub* instruction) {
     case DataType::Type::kInt32:
       DCHECK_EQ(2u, instruction->GetVectorLength());
       __ Vsub(I32, dst, lhs, rhs);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type";
+      UNREACHABLE();
+  }
+}
+
+void LocationsBuilderARMVIXL::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  vixl32::DRegister lhs = DRegisterFrom(locations->InAt(0));
+  vixl32::DRegister rhs = DRegisterFrom(locations->InAt(1));
+  vixl32::DRegister dst = DRegisterFrom(locations->Out());
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kUint8:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Vqsub(DataTypeValue::U8, dst, lhs, rhs);
+      break;
+    case DataType::Type::kInt8:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ Vqsub(DataTypeValue::S8, dst, lhs, rhs);
+      break;
+    case DataType::Type::kUint16:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Vqsub(DataTypeValue::U16, dst, lhs, rhs);
+      break;
+    case DataType::Type::kInt16:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ Vqsub(DataTypeValue::S16, dst, lhs, rhs);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type";
