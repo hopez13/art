@@ -21,7 +21,7 @@
 
 namespace art {
 
-enum ThreadState {
+enum ThreadState : uint16_t {
   //                                   Thread.State   JDWP state
   kTerminated = 66,                 // TERMINATED     TS_ZOMBIE    Thread.run has returned, but Thread* still around
   kRunnable,                        // RUNNABLE       TS_RUNNING   runnable
