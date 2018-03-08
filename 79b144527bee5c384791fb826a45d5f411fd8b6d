@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c19b923d_c4bec8a3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T17:02:57Z",
+      "side": 1,
+      "message": "Nit: This is needed only after the \"bl .Losr_entry\".",
+      "revId": "79b144527bee5c384791fb826a45d5f411fd8b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a24ee7ac_e3c12799",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T17:02:57Z",
+      "side": 1,
+      "message": "Is this necessary? Doesn\u0027t .cfi_restore_state restore the CFA on ARM?",
+      "range": {
+        "startLine": 646,
+        "startChar": 4,
+        "endLine": 646,
+        "endChar": 31
+      },
+      "revId": "79b144527bee5c384791fb826a45d5f411fd8b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c7aabe0_a8146bd8",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2390,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T17:02:57Z",
+      "side": 1,
+      "message": "Needed only after the \"call .Osr_entry\".",
+      "revId": "79b144527bee5c384791fb826a45d5f411fd8b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59313f96_a66abbf0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-08T17:02:57Z",
+      "side": 1,
+      "message": "Is this necessary?",
+      "range": {
+        "startLine": 2417,
+        "startChar": 4,
+        "endLine": 2417,
+        "endChar": 31
+      },
+      "revId": "79b144527bee5c384791fb826a45d5f411fd8b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
