@@ -246,10 +246,9 @@ class Thread {
   }
 
   bool IsSuspended() const {
-    union StateAndFlags state_and_flags;
-    state_and_flags.as_int = tls32_.state_and_flags.as_int;
-    return state_and_flags.as_struct.state != kRunnable &&
-        (state_and_flags.as_struct.flags & kSuspendRequest) != 0;
+    CachedStateAndFlags state_and_flags(tls32_.state_and_flags);
+    return (state_and_flags.as_struct.state != kRunnable &&
+            (state_and_flags.as_struct.flags & kSuspendRequest) != 0);
   }
 
   // If delta > 0 and (this != self or suspend_barrier is not null), this function may temporarily
@@ -1385,11 +1384,11 @@ class Thread {
 
   // 32 bits of atomically changed state and flags. Keeping as 32 bits allows and atomic CAS to
   // change from being Suspended to Runnable without a suspend request occurring.
-  union PACKED(4) StateAndFlags {
-    StateAndFlags() {}
+  union PACKED(4) TlsStateAndFlags {
+    TlsStateAndFlags() {}
     struct PACKED(4) {
       // Bitfield of flag values. Must be changed atomically so that flag values aren't lost. See
-      // ThreadFlags for bit field meanings.
+      // ThreadFlag for bit field definitions.
       volatile uint16_t flags;
       // Holds the ThreadState. May be changed non-atomically between Suspended (ie not Runnable)
       // transitions. Changing to Runnable requires that the suspend_request be part of the atomic
@@ -1403,9 +1402,33 @@ class Thread {
    private:
     // gcc does not handle struct with volatile member assignments correctly.
     // See http://gcc.gnu.org/bugzilla/show_bug.cgi?id=47409
-    DISALLOW_COPY_AND_ASSIGN(StateAndFlags);
+    DISALLOW_COPY_AND_ASSIGN(TlsStateAndFlags);
   };
-  static_assert(sizeof(StateAndFlags) == sizeof(int32_t), "Weird state_and_flags size");
+  static_assert(sizeof(TlsStateAndFlags) == sizeof(int32_t), "Weird state_and_flags size");
+
+  // 32 bits that correspond to a locally cached copy of a thread's
+  // state_and_flags field. This allows for local modifications to be
+  // made before writing back to thread local state. It is not
+  // shareable between threads since it lacks the atomic fields of
+  // TlsStateAndFlags.
+  struct PACKED(4) CachedStateAndFlags {
+    CachedStateAndFlags(const TlsStateAndFlags& tls_state_and_flags)
+        : as_int(tls_state_and_flags.as_int) {}
+    union {
+      struct PACKED(4) {
+        // Bitfield of flag values. See ThreadFlag for bit field definitions.
+        uint16_t flags;
+        // Holds the thread state. See ThreadState for possible states.
+        uint16_t state;
+      } as_struct;
+
+      // Convenience field used for transferring the fields
+      // from a TlsStateAndFlags instance in a single atomic move.
+      int32_t as_int;
+    };
+  };
+  static_assert(sizeof(CachedStateAndFlags) == sizeof(TlsStateAndFlags),
+                "Weird CachedStateAndFlags size");
 
   static void ThreadExitCallback(void* arg);
 
@@ -1448,8 +1471,8 @@ class Thread {
       disable_thread_flip_count(0), user_code_suspend_count(0) {
     }
 
-    union StateAndFlags state_and_flags;
-    static_assert(sizeof(union StateAndFlags) == sizeof(int32_t),
+    TlsStateAndFlags state_and_flags;
+    static_assert(sizeof(TlsStateAndFlags) == sizeof(int32_t),
                   "Size of state_and_flags and int32 are different");
 
     // A non-zero value is used to tell the current thread to enter a safe point
