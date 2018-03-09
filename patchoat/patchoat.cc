@@ -65,6 +65,8 @@ namespace art {
 
 using android::base::StringPrintf;
 
+namespace {
+
 static const OatHeader* GetOatHeader(const ElfFile* elf_file) {
   uint64_t off = 0;
   if (!elf_file->GetSectionOffsetAndSize(".rodata", &off, nullptr)) {
@@ -126,6 +128,38 @@ static bool SymlinkFile(const std::string& input_filename, const std::string& ou
 
   return true;
 }
+
+// Holder class for runtime options and related objects.
+class PatchoatRuntimeOptionsHolder {
+ public:
+  PatchoatRuntimeOptionsHolder(const std::string& image_location, InstructionSet isa) {
+    options.push_back(std::make_pair("compilercallbacks", &callbacks));
+    img = "-Ximage:" + image_location;
+    options.push_back(std::make_pair(img.c_str(), nullptr));
+    isa_name = GetInstructionSetString(isa);
+    options.push_back(std::make_pair("imageinstructionset",
+                                     reinterpret_cast<const void*>(isa_name.c_str())));
+    options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
+    // We do not want the runtime to attempt to patch the image.
+    options.push_back(std::make_pair("-Xnorelocate", nullptr));
+    // Don't try to compile.
+    options.push_back(std::make_pair("-Xnoimage-dex2oat", nullptr));
+    // Do not accept broken image.
+    options.push_back(std::make_pair("-Xno-dex-file-fallback", nullptr));
+  }
+
+  const RuntimeOptions& GetRuntimeOptions() {
+    return options;
+  }
+
+ private:
+  RuntimeOptions options;
+  NoopCompilerCallbacks callbacks;
+  std::string isa_name;
+  std::string img;
+};
+
+}  // namespace
 
 bool PatchOat::GeneratePatch(
     const MemMap& original,
@@ -440,17 +474,10 @@ bool PatchOat::Patch(const std::string& image_location,
   TimingLogger::ScopedTiming t("Runtime Setup", timings);
 
   CHECK_NE(isa, InstructionSet::kNone);
-  const char* isa_name = GetInstructionSetString(isa);
 
   // Set up the runtime
-  RuntimeOptions options;
-  NoopCompilerCallbacks callbacks;
-  options.push_back(std::make_pair("compilercallbacks", &callbacks));
-  std::string img = "-Ximage:" + image_location;
-  options.push_back(std::make_pair(img.c_str(), nullptr));
-  options.push_back(std::make_pair("imageinstructionset", reinterpret_cast<const void*>(isa_name)));
-  options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
-  if (!Runtime::Create(options, false)) {
+  PatchoatRuntimeOptionsHolder options_holder(image_location, isa);
+  if (!Runtime::Create(options_holder.GetRuntimeOptions(), false)) {
     LOG(ERROR) << "Unable to initialize runtime";
     return false;
   }
@@ -608,17 +635,10 @@ bool PatchOat::Verify(const std::string& image_location,
   TimingLogger::ScopedTiming t("Runtime Setup", timings);
 
   CHECK_NE(isa, InstructionSet::kNone);
-  const char* isa_name = GetInstructionSetString(isa);
 
   // Set up the runtime
-  RuntimeOptions options;
-  NoopCompilerCallbacks callbacks;
-  options.push_back(std::make_pair("compilercallbacks", &callbacks));
-  std::string img = "-Ximage:" + image_location;
-  options.push_back(std::make_pair(img.c_str(), nullptr));
-  options.push_back(std::make_pair("imageinstructionset", reinterpret_cast<const void*>(isa_name)));
-  options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
-  if (!Runtime::Create(options, false)) {
+  PatchoatRuntimeOptionsHolder options_holder(image_location, isa);
+  if (!Runtime::Create(options_holder.GetRuntimeOptions(), false)) {
     LOG(ERROR) << "Unable to initialize runtime";
     return false;
   }
