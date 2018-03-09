@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7286392_4bea2a0d",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "Maybe inline the RHS of the assignment to `done` from lines 201–204 here?",
+      "range": {
+        "startLine": 205,
+        "startChar": 12,
+        "endLine": 205,
+        "endChar": 16
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db9799a4_4be51e53",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "What about keeping the `CompareAndSet*` methods (and implement them with `std::atomic::compare_exchange*`)?",
+      "range": {
+        "startLine": 1392,
+        "startChar": 54,
+        "endLine": 1392,
+        "endChar": 77
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92227656_2c67bfa5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "ThreadFlag",
+      "range": {
+        "startLine": 1391,
+        "startChar": 9,
+        "endLine": 1391,
+        "endChar": 20
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fbf8feb_acb29b27",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "thread\u0027s",
+      "range": {
+        "startLine": 1409,
+        "startChar": 59,
+        "endLine": 1409,
+        "endChar": 66
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264732f8_1c676b41",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "ThreadFlag",
+      "range": {
+        "startLine": 1419,
+        "startChar": 40,
+        "endLine": 1419,
+        "endChar": 51
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83f4cd1a_b6db4553",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "meaning?",
+      "range": {
+        "startLine": 1419,
+        "startChar": 66,
+        "endLine": 1419,
+        "endChar": 71
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c36adb_02cb4786",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-09T11:59:06Z",
+      "side": 1,
+      "message": "I would also add these static assertions:\n\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_struct::flags,\n          std::add_volatile\u003cCachedStateAndFlags::as_struct::flags\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_struct::flags \"\n      \"and CachedStateAndFlags::as_struct::flags\");\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_struct::state,\n          std::add_volatile\u003cCachedStateAndFlags::as_struct::state\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_struct::state \"\n      \"and CachedStateAndFlags::as_struct::state\");\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_int,\n          std::add_volatile\u003cCachedStateAndFlags::as_int\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_int \"\n      \"and CachedStateAndFlags::as_int\");",
+      "range": {
+        "startLine": 1430,
+        "startChar": 2,
+        "endLine": 1430,
+        "endChar": 15
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
