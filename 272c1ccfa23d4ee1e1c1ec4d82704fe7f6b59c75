@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6958ae0d_95b247ff",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "Fix indentation? It should be 4 spaces here.",
+      "range": {
+        "startLine": 100,
+        "startChar": 24,
+        "endLine": 100,
+        "endChar": 25
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64d6b9e5_2e2bc905",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "Prefer to use ObjPtr for these if possible.",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 16
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99834de2_74247f17",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 22
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f760b5ab_467f19d2",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "Is it necessarily true that the klass has a vtable if the super class has one?",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 13
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47cff452_89beb0d8",
+        "filename": "test/616-cha-unloading/cha_unload.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "Please fix indentation",
+      "range": {
+        "startLine": 41,
+        "startChar": 68,
+        "endLine": 43,
+        "endChar": 72
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "face9be7_badaea94",
+        "filename": "test/616-cha-unloading/cha_unload.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-09T07:35:32Z",
+      "side": 1,
+      "message": "unique_ptr\u003cLinearAlloc\u003e?",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
