@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f165c8d0_80a4e539",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T19:35:01Z",
+      "side": 1,
+      "message": "I was initially suggesting we quote the JMM, is the JLS citation wrong? Or is it merely confusing because of the VarHandle re-use of the term \u0027program order\u0027 and so we should avoid it entirely?\n\n\u003e Promises memory access semantics of ordinary Java data. Does not order other memory accesses. Long and double accesses may be performed 32 bits at a time. There are not even \"cache coherence\" guarantees; e.g. loads from the same location may be reordered. But unlike normal C++ accesses, racing accesses are allowed.\n\nSounds good to me, and lets use \"semantics of ordinary Java Language data\" here.",
+      "parentUuid": "8948a538_e6a04dde",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de52010b_ca206eed",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 8
