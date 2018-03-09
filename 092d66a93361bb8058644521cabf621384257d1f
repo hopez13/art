@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6d3d3f5_0aa02dbe",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-03-09T20:50:19Z",
+      "side": 1,
+      "message": "Hmm, so what\u0027s the intended use for this? if there is no data, why do we need a magic version? Is it just a marker to tell that we have no dex or quickening?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "092d66a93361bb8058644521cabf621384257d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
