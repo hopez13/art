@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5493225e_ac2f933b",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "We need to change the scope of old_state_and_flags and new_state_and_flags which reads a little less smoothly here.",
+      "parentUuid": "b7286392_4bea2a0d",
+      "range": {
+        "startLine": 205,
+        "startChar": 12,
+        "endLine": 205,
+        "endChar": 16
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db9799a4_4be51e53",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be2a144b_2e9028e3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db9799a4_4be51e53",
+      "range": {
+        "startLine": 1392,
+        "startChar": 54,
+        "endLine": 1392,
+        "endChar": 77
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "beee4d25_3dd57c9d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92227656_2c67bfa5",
+      "range": {
+        "startLine": 1391,
+        "startChar": 9,
+        "endLine": 1391,
+        "endChar": 20
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fbf8feb_acb29b27",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f56afa8_b8a9d972",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fbf8feb_acb29b27",
+      "range": {
+        "startLine": 1409,
+        "startChar": 59,
+        "endLine": 1409,
+        "endChar": 66
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "7965e886_4829d443",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "264732f8_1c676b41",
+      "range": {
+        "startLine": 1419,
+        "startChar": 40,
+        "endLine": 1419,
+        "endChar": 51
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bdc0b77_9660cfa2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83f4cd1a_b6db4553",
+      "range": {
+        "startLine": 1419,
+        "startChar": 66,
+        "endLine": 1419,
+        "endChar": 71
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2c36adb_02cb4786",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2018-03-09T11:59:06Z",
       "side": 1,
       "message": "I would also add these static assertions:\n\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_struct::flags,\n          std::add_volatile\u003cCachedStateAndFlags::as_struct::flags\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_struct::flags \"\n      \"and CachedStateAndFlags::as_struct::flags\");\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_struct::state,\n          std::add_volatile\u003cCachedStateAndFlags::as_struct::state\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_struct::state \"\n      \"and CachedStateAndFlags::as_struct::state\");\n  static_assert(std::is_same\u003c\n          TlsStateAndFlags::as_int,\n          std::add_volatile\u003cCachedStateAndFlags::as_int\u003e::type\n      \u003e,\n      \"type mismatch between TlsStateAndFlags::as_int \"\n      \"and CachedStateAndFlags::as_int\");",
+      "range": {
+        "startLine": 1430,
+        "startChar": 2,
+        "endLine": 1430,
+        "endChar": 15
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "721c1b8f_cf8a5dc1",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T15:12:22Z",
+      "side": 1,
+      "message": "This is a good suggestion, though it\u0027s left undone for now. I am wondering if we\u0027d get the same effect if we used enum classes instead of uint16_t (and whether there is any compiler overhead, e.g. operator| for bit set values needs to be defined). Then we\u0027d be assigning between fields of the same type.\n\nThe other test that could be here is the relative offset of the fields.",
+      "parentUuid": "c2c36adb_02cb4786",
       "range": {
         "startLine": 1430,
         "startChar": 2,
