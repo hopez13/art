@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3a4aa64d_e6b08b6a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:51:24Z",
+      "side": 1,
+      "message": "Sorry, ignore this comment. I thought it was doing something else because of the new unified diff view.\n\n  union StateAndFlags {\n     union TlsStateAndFlags{...}\n     union CachedStateAndFlags{...}\n  }\n\nbut I can see that\u0027s not actually the case :).",
+      "parentUuid": "7aa25842_088d3bf6",
+      "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f091fb2_ad57b3f1",
         "filename": "runtime/thread.h",
         "patchSetId": 3
