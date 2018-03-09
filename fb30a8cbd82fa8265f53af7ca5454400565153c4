@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "756cf5f8_0c2acc9b",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T10:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d5a85b1_5afbc46e",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 16
+      },
+      "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb04e327_747e07f8",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-09T05:25:29Z",
       "side": 1,
       "message": "Why so strong? Don\u0027t we take the required memory order as a template argument in other contexts?",
+      "range": {
+        "startLine": 1395,
+        "startChar": 24,
+        "endLine": 1395,
+        "endChar": 31
+      },
+      "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e399b53_1534bcc2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T10:39:07Z",
+      "side": 1,
+      "message": "AFAIK, we have no code in ART that takes a template argument of memory order. The memory ordering used is typically hardcoded based on how a field is expected to be used.\n\nThe expectation is that when one thread asks another thread to run a checkpoint, then it should be run promptly. Weaker ordering might prevent this, ie the receiver will only inspect the checkpoint_function and checkpoint_over_ list if it observes that the kCheckpointRequest bit set. NB the code that drains the checkpoints is run by the receiver and it performs weaker CAS operations on this field which is less important (e.g. Thread::TransitionToSuspendedAndRunCheckpoints()).",
+      "parentUuid": "eb04e327_747e07f8",
       "range": {
         "startLine": 1395,
         "startChar": 24,
@@ -62,6 +110,24 @@
       "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa7af5cb_950cca53",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-09T10:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd7fd52e_cc977b89",
+      "revId": "fb30a8cbd82fa8265f53af7ca5454400565153c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
