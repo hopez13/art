@@ -51,6 +51,23 @@
       "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805dbeb7_eac1e4d7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1474,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:55:08Z",
+      "side": 1,
+      "message": "So this is probably bigger surgery than you\u0027d want to do, but the whole problem here seems like  it should\u0027ve been using std::atomic\u003cStateAndFlags\u003e to begin with ?\n\nThen the atomic/volatile can go away completely, and it only needs one struct.",
+      "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
