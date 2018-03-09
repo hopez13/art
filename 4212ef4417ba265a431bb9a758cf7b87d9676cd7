@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8948a538_e6a04dde",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-09T19:19:10Z",
+      "side": 1,
+      "message": "I would replace the comment by something like:\n\n\"Promises memory access semantics of ordinary Java data. Does not order other memory accesses. Long and double accesses may be performed 32 bits at a time. There are not even \"cache coherence\" guarantees; e.g. loads from the same location may be reordered. But unlike normal C++ accesses, racing accesses are allowed.\n\nIn my opinion, the use of the term \"Program Order\" in the VarHandle specification is unfortunate, and we shouldn\u0027t use it here. I don\u0027t know how to map it to a mathematically meaningful statement\n\n\"Opaque\" accesses map reasonably well to memory_order_relaxed. There is an argument that C++ compilers are allowed to move relaxed accesses out of longer running loops than \"Opaque\" is intended to allow. But my impression is that C++ compilers are (fortunately, since it can be a huge pessimization!) hesitant to do this.",
+      "parentUuid": "19211c0e_bc1a81cb",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de52010b_ca206eed",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 8
@@ -76,6 +100,30 @@
       "writtenOn": "2018-03-09T15:31:28Z",
       "side": 1,
       "message": "This volatile seems sketchy.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 10
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4696a37_37388ee6",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-09T19:19:10Z",
+      "side": 1,
+      "message": "Yes. But it seems to be used to generate mainly (only?) a value we can pass to futex(), and it may be the best we can do there. Maybe just add a comment describing its intended use?",
+      "parentUuid": "7ffe5a15_00fd49bd",
       "range": {
         "startLine": 94,
         "startChar": 2,
