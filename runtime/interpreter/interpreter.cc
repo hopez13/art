@@ -298,23 +298,29 @@ static inline JValue Execute(
   // reduction of template parameters, we gate it behind access-checks mode.
   DCHECK(!method->SkipAccessChecks() || !method->MustCountLocks());
 
+  SwitchImplContext ctx {
+    .self = self,
+    .accessor = accessor,
+    .shadow_frame = shadow_frame,
+    .result_register = result_register,
+    .interpret_one_instruction = false,
+  };
+
   bool transaction_active = Runtime::Current()->IsActiveTransaction();
   if (LIKELY(method->SkipAccessChecks())) {
     // Enter the "without access check" interpreter.
     if (kInterpreterImplKind == kMterpImplKind) {
       if (transaction_active) {
         // No Mterp variant - just use the switch interpreter.
-        return ExecuteSwitchImpl<false, true>(self, accessor, shadow_frame, result_register,
-                                              false);
+        ExecuteSwitchImplWithCFI<false, true>(&ctx);
       } else if (UNLIKELY(!Runtime::Current()->IsStarted())) {
-        return ExecuteSwitchImpl<false, false>(self, accessor, shadow_frame, result_register,
-                                               false);
+        ExecuteSwitchImplWithCFI<false, false>(&ctx);
       } else {
         while (true) {
           // Mterp does not support all instrumentation/debugging.
           if (MterpShouldSwitchInterpreters() != 0) {
-            return ExecuteSwitchImpl<false, false>(self, accessor, shadow_frame, result_register,
-                                                   false);
+            ExecuteSwitchImplWithCFI<false, false>(&ctx);
+            break;
           }
           bool returned = ExecuteMterpImpl(self,
                                            accessor.Insns(),
@@ -324,8 +330,9 @@ static inline JValue Execute(
             return result_register;
           } else {
             // Mterp didn't like that instruction.  Single-step it with the reference interpreter.
-            result_register = ExecuteSwitchImpl<false, false>(self, accessor, shadow_frame,
-                                                              result_register, true);
+            ctx.interpret_one_instruction = true;
+            ExecuteSwitchImplWithCFI<false, false>(&ctx);
+            ctx.interpret_one_instruction = false;
             if (shadow_frame.GetDexPC() == dex::kDexNoIndex) {
               // Single-stepped a return or an exception not handled locally.  Return to caller.
               return result_register;
@@ -336,11 +343,9 @@ static inline JValue Execute(
     } else {
       DCHECK_EQ(kInterpreterImplKind, kSwitchImplKind);
       if (transaction_active) {
-        return ExecuteSwitchImpl<false, true>(self, accessor, shadow_frame, result_register,
-                                              false);
+        ExecuteSwitchImplWithCFI<false, true>(&ctx);
       } else {
-        return ExecuteSwitchImpl<false, false>(self, accessor, shadow_frame, result_register,
-                                               false);
+        ExecuteSwitchImplWithCFI<false, false>(&ctx);
       }
     }
   } else {
@@ -348,23 +353,20 @@ static inline JValue Execute(
     if (kInterpreterImplKind == kMterpImplKind) {
       // No access check variants for Mterp.  Just use the switch version.
       if (transaction_active) {
-        return ExecuteSwitchImpl<true, true>(self, accessor, shadow_frame, result_register,
-                                             false);
+        ExecuteSwitchImplWithCFI<true, true>(&ctx);
       } else {
-        return ExecuteSwitchImpl<true, false>(self, accessor, shadow_frame, result_register,
-                                              false);
+        ExecuteSwitchImplWithCFI<true, false>(&ctx);
       }
     } else {
       DCHECK_EQ(kInterpreterImplKind, kSwitchImplKind);
       if (transaction_active) {
-        return ExecuteSwitchImpl<true, true>(self, accessor, shadow_frame, result_register,
-                                             false);
+        ExecuteSwitchImplWithCFI<true, true>(&ctx);
       } else {
-        return ExecuteSwitchImpl<true, false>(self, accessor, shadow_frame, result_register,
-                                              false);
+        ExecuteSwitchImplWithCFI<true, false>(&ctx);
       }
     }
   }
+  return ctx.result_register;
 }
 
 void EnterInterpreterFromInvoke(Thread* self,
