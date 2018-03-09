@@ -328,6 +328,30 @@
       "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a0e684_82c64063",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:21:13Z",
+      "side": 1,
+      "message": "This would work:\n\n  enum Name : uint16_t {\n    First,\n    Last \u003d UINT16_MAX;\n  };",
+      "parentUuid": "721c1b8f_cf8a5dc1",
+      "range": {
+        "startLine": 1430,
+        "startChar": 2,
+        "endLine": 1430,
+        "endChar": 15
+      },
+      "revId": "251a12f9705184ef51364f1da23eabf8a1f7de60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
