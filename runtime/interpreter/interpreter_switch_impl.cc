@@ -38,7 +38,8 @@ namespace interpreter {
         /* Signal mterp to return to caller */                                                  \
         shadow_frame.SetDexPC(dex::kDexNoIndex);                                                \
       }                                                                                         \
-      return JValue(); /* Handled in caller. */                                                 \
+      ctx->result = JValue(); /* Handled in caller. */                                          \
+      return;                                                                                   \
     } else {                                                                                    \
       int32_t displacement =                                                                    \
           static_cast<int32_t>(shadow_frame.GetDexPC()) - static_cast<int32_t>(dex_pc);         \
@@ -95,7 +96,8 @@ namespace interpreter {
         /* OSR has completed execution of the method.  Signal mterp to return to caller */     \
         shadow_frame.SetDexPC(dex::kDexNoIndex);                                               \
       }                                                                                        \
-      return result;                                                                           \
+      ctx->result = result;                                                                    \
+      return;                                                                                  \
     }                                                                                          \
   } while (false)
 
@@ -192,13 +194,17 @@ NO_INLINE static bool SendMethodExitEvents(Thread* self,
 }
 
 template<bool do_access_check, bool transaction_active>
-JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
-                         ShadowFrame& shadow_frame, JValue result_register,
-                         bool interpret_one_instruction) {
+void ExecuteSwitchImpl(SwitchImplContext* ctx) {
+  Thread* self = ctx->self;
+  const CodeItemDataAccessor& accessor = ctx->accessor;
+  ShadowFrame& shadow_frame = ctx->shadow_frame;
+  JValue result_register = ctx->result_register;
+  bool interpret_one_instruction = ctx->interpret_one_instruction;
   constexpr bool do_assignability_check = do_access_check;
   if (UNLIKELY(!shadow_frame.HasReferenceArray())) {
     LOG(FATAL) << "Invalid shadow frame for interpreter use";
-    return JValue();
+    ctx->result = JValue();
+    return;
   }
   self->VerifyStack();
 
@@ -316,7 +322,8 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
           /* Signal mterp to return to caller */
           shadow_frame.SetDexPC(dex::kDexNoIndex);
         }
-        return result;
+        ctx->result = result;
+        return;
       }
       case Instruction::RETURN_VOID: {
         PREAMBLE();
@@ -338,7 +345,8 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
           /* Signal mterp to return to caller */
           shadow_frame.SetDexPC(dex::kDexNoIndex);
         }
-        return result;
+        ctx->result = result;
+        return;
       }
       case Instruction::RETURN: {
         PREAMBLE();
@@ -361,7 +369,8 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
           /* Signal mterp to return to caller */
           shadow_frame.SetDexPC(dex::kDexNoIndex);
         }
-        return result;
+        ctx->result = result;
+        return;
       }
       case Instruction::RETURN_WIDE: {
         PREAMBLE();
@@ -383,7 +392,8 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
           /* Signal mterp to return to caller */
           shadow_frame.SetDexPC(dex::kDexNoIndex);
         }
-        return result;
+        ctx->result = result;
+        return;
       }
       case Instruction::RETURN_OBJECT: {
         PREAMBLE();
@@ -427,7 +437,8 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
           /* Signal mterp to return to caller */
           shadow_frame.SetDexPC(dex::kDexNoIndex);
         }
-        return result;
+        ctx->result = result;
+        return;
       }
       case Instruction::CONST_4: {
         PREAMBLE();
@@ -2486,26 +2497,19 @@ JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
   } while (!interpret_one_instruction);
   // Record where we stopped.
   shadow_frame.SetDexPC(inst->GetDexPc(insns));
-  return result_register;
+  ctx->result = result_register;
+  return;
 }  // NOLINT(readability/fn_size)
 
 // Explicit definitions of ExecuteSwitchImpl.
 template HOT_ATTR
-JValue ExecuteSwitchImpl<true, false>(Thread* self, const CodeItemDataAccessor& accessor,
-                                      ShadowFrame& shadow_frame, JValue result_register,
-                                      bool interpret_one_instruction);
+void ExecuteSwitchImpl<true, false>(SwitchImplContext* ctx);
 template HOT_ATTR
-JValue ExecuteSwitchImpl<false, false>(Thread* self, const CodeItemDataAccessor& accessor,
-                                       ShadowFrame& shadow_frame, JValue result_register,
-                                       bool interpret_one_instruction);
+void ExecuteSwitchImpl<false, false>(SwitchImplContext* ctx);
 template
-JValue ExecuteSwitchImpl<true, true>(Thread* self, const CodeItemDataAccessor& accessor,
-                                     ShadowFrame& shadow_frame, JValue result_register,
-                                     bool interpret_one_instruction);
+void ExecuteSwitchImpl<true, true>(SwitchImplContext* ctx);
 template
-JValue ExecuteSwitchImpl<false, true>(Thread* self, const CodeItemDataAccessor& accessor,
-                                      ShadowFrame& shadow_frame, JValue result_register,
-                                      bool interpret_one_instruction);
+void ExecuteSwitchImpl<false, true>(SwitchImplContext* ctx);
 
 }  // namespace interpreter
 }  // namespace art

@@ -20,23 +20,39 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "dex/dex_file.h"
+#include "dex/code_item_accessors.h"
 #include "jvalue.h"
 #include "obj_ptr.h"
 
 namespace art {
 
-class CodeItemDataAccessor;
 class ShadowFrame;
 class Thread;
 
 namespace interpreter {
 
+struct SwitchImplContext {
+  Thread* self;
+  const CodeItemDataAccessor& accessor;
+  ShadowFrame& shadow_frame;
+  JValue& result_register;
+  bool interpret_one_instruction;
+  JValue result;
+};
+
 template<bool do_access_check, bool transaction_active>
-JValue ExecuteSwitchImpl(Thread* self,
-                         const CodeItemDataAccessor& accessor,
-                         ShadowFrame& shadow_frame,
-                         JValue result_register,
-                         bool interpret_one_instruction) REQUIRES_SHARED(Locks::mutator_lock_);
+void ExecuteSwitchImpl(SwitchImplContext* ctx)
+  REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" void ExecuteSwitchImplWithCFI(SwitchImplContext* ctx, void* impl, const uint16_t* dexpc)
+  REQUIRES_SHARED(Locks::mutator_lock_);
+
+template<bool do_access_check, bool transaction_active>
+ALWAYS_INLINE void ExecuteSwitchImplWithCFI(SwitchImplContext* ctx)
+  REQUIRES_SHARED(Locks::mutator_lock_) {
+  void* impl = reinterpret_cast<void*>(&ExecuteSwitchImpl<do_access_check, transaction_active>);
+  ExecuteSwitchImplWithCFI(ctx, impl, ctx->accessor.Insns());
+}
 
 }  // namespace interpreter
 }  // namespace art
