@@ -20,23 +20,51 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "dex/dex_file.h"
+#include "dex/code_item_accessors.h"
 #include "jvalue.h"
 #include "obj_ptr.h"
 
 namespace art {
 
-class CodeItemDataAccessor;
 class ShadowFrame;
 class Thread;
 
 namespace interpreter {
 
+struct SwitchImplContext {
+  Thread* self;
+  const CodeItemDataAccessor& accessor;
+  ShadowFrame& shadow_frame;
+  JValue& result_register;
+  bool interpret_one_instruction;
+  JValue result;
+};
+
 template<bool do_access_check, bool transaction_active>
-JValue ExecuteSwitchImpl(Thread* self,
-                         const CodeItemDataAccessor& accessor,
-                         ShadowFrame& shadow_frame,
-                         JValue result_register,
-                         bool interpret_one_instruction) REQUIRES_SHARED(Locks::mutator_lock_);
+void ExecuteSwitchImplCpp(SwitchImplContext* ctx)
+  REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" void ExecuteSwitchImplAsm(SwitchImplContext* ctx, void* impl, const uint16_t* dexpc)
+  REQUIRES_SHARED(Locks::mutator_lock_);
+
+template<bool do_access_check, bool transaction_active>
+ALWAYS_INLINE JValue ExecuteSwitchImpl(Thread* self, const CodeItemDataAccessor& accessor,
+                                       ShadowFrame& shadow_frame, JValue result_register,
+                                       bool interpret_one_instruction)
+  REQUIRES_SHARED(Locks::mutator_lock_) {
+  SwitchImplContext ctx {
+    .self = self,
+    .accessor = accessor,
+    .shadow_frame = shadow_frame,
+    .result_register = result_register,
+    .interpret_one_instruction = interpret_one_instruction,
+    .result = JValue(),
+  };
+  void* impl = reinterpret_cast<void*>(&ExecuteSwitchImplCpp<do_access_check, transaction_active>);
+  const uint16_t* dex_pc = ctx.accessor.Insns();
+  ExecuteSwitchImplAsm(&ctx, impl, dex_pc);
+  return ctx.result;
+}
 
 }  // namespace interpreter
 }  // namespace art
