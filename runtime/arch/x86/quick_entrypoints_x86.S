@@ -15,6 +15,7 @@
  */
 
 #include "asm_support_x86.S"
+#include "interpreter/mterp/cfi_asm_support.h"
 
 #include "arch/quick_alloc_entrypoints.S"
 
@@ -2505,6 +2506,23 @@ END_MACRO
     HANDLER_TABLE_ENTRY(.Lstore_boolean_result)    // Z (boolean)
 
 END_FUNCTION art_quick_invoke_polymorphic
+
+DEFINE_FUNCTION ExecuteSwitchImplWithCFI
+    PUSH ebx                 // Spill EBX
+    mov 8(%esp), %eax        // EAX = C++ templated interpreter function
+    mov 16(%esp), %ebx       // EBX = DEX PC (callee save register)
+    mov 12(%esp), %ecx       // ECX = Context argument for the function
+    CFI_DEFINE_DEX_PC_WITH_OFFSET(0 /* EAX */, 3 /* EBX */, 0)
+
+    push %ecx                // Push argument
+    CFI_ADJUST_CFA_OFFSET(4)
+    call *%eax               // Call the wrapped function
+    addl LITERAL(4), %esp    // Pop argument
+    CFI_ADJUST_CFA_OFFSET(-4)
+
+    POP ebx                  // Restore EBX
+    ret
+END_FUNCTION WrapExecuteSwitchImpl
 
     // TODO: implement these!
 UNIMPLEMENTED art_quick_memcmp16
