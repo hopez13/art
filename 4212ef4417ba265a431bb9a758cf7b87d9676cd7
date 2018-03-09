@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19211c0e_bc1a81cb",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:31:28Z",
+      "side": 1,
+      "message": "nit: Add some explanation here?\n\n   Loads using the weakest memory ordering in JLS, program order. Program order actions are not ordered w.r.t to other threads\u0027 actions.\n   This is still stronger than C++ unordered memory loads because it does not allow undefined behavior.\n   See also JLS 17.4.3 \"Programs and Program Order\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de52010b_ca206eed",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:31:28Z",
+      "side": 1,
+      "message": "nit: Same as L42",
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1528c23_0ba77b4a",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:31:28Z",
+      "side": 1,
+      "message": "For later cleanup perhaps?",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ffe5a15_00fd49bd",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-09T15:31:28Z",
+      "side": 1,
+      "message": "This volatile seems sketchy.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 10
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
