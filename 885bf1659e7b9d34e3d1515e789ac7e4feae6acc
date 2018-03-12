@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fa90c16_750d5d95",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-12T21:52:33Z",
+      "side": 1,
+      "message": "nit: I think you can delete any lines saying \"ART_USE_READ_BARRIER: true\" as the art Android.bp defaults to it being true.\n\nThis also makes validation a lot faster because if you have a regular master tree the default env{} results in a binary equivalent to env{ART_USE_READ_BARRIER:true} and yet soong will trigger a rebuild because it doesn\u0027t know that the two envs are the same.",
+      "revId": "885bf1659e7b9d34e3d1515e789ac7e4feae6acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
