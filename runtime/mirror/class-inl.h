@@ -1140,13 +1140,13 @@ inline bool Class::CanAccess(ObjPtr<Class> that) {
 
 
 inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flags) {
+  // Check that the class member is not hidden to this class. Hidden members
+  // should be filtered out early.
+  DCHECK(!hiddenapi::ShouldBlockAccessToMember(member_flags, GetClassLoader()));
+
   // Classes can access all of their own members
   if (this == access_to) {
     return true;
-  }
-  // Do not allow non-boot class path classes access hidden APIs.
-  if (hiddenapi::ShouldBlockAccessToMember(member_flags, this)) {
-    return false;
   }
   // Public members are trivially accessible
   if (member_flags & kAccPublic) {
