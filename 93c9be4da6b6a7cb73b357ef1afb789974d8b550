@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "dc127f41_09c74c2c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-12T17:18:46Z",
+      "side": 1,
+      "message": "The latest change just has StateAndFlags and makes tls32_.state_and_flags into an AtomicInteger.\n\n[ It\u0027s not quite ready, but it\u0027s uploaded as I find reading the diff in gerrit easier than with local tools. ]",
+      "parentUuid": "7f091fb2_ad57b3f1",
+      "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "805dbeb7_eac1e4d7",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2018-03-09T15:55:08Z",
       "side": 1,
       "message": "So this is probably bigger surgery than you\u0027d want to do, but the whole problem here seems like  it should\u0027ve been using std::atomic\u003cStateAndFlags\u003e to begin with ?\n\nThen the atomic/volatile can go away completely, and it only needs one struct.",
+      "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31550fc1_dbc8cffd",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1474,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-12T17:18:46Z",
+      "side": 1,
+      "message": "std::atomic\u003cStateAndFlags\u003e is also awkward as it\u0027s a compound type so atomic::fetch_{or,xor,and} aren\u0027t available. However, if we make StateAndFlags a helper class for generating 32-bit values and have state_and_flags as an AtomicInteger, the code might be a little easier to read (currently not correct though :-)).",
+      "parentUuid": "805dbeb7_eac1e4d7",
       "revId": "93c9be4da6b6a7cb73b357ef1afb789974d8b550",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
