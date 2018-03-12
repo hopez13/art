@@ -70,35 +70,19 @@ target_config = {
     },
     'art-gcstress-gcverify': {
         'run-test': ['--gcstress',
-                     '--gcverify'],
-        'env' : {
-            'ART_USE_READ_BARRIER' : 'false',
-            'ART_DEFAULT_GC_TYPE' : 'SS'
-        }
+                     '--gcverify']
     },
     'art-interpreter-gcstress' : {
         'run-test' : ['--interpreter',
-                      '--gcstress'],
-        'env' : {
-            'ART_USE_READ_BARRIER' : 'false',
-            'ART_DEFAULT_GC_TYPE' : 'SS'
-        }
+                      '--gcstress']
     },
     'art-optimizing-gcstress' : {
         'run-test' : ['--gcstress',
-                      '--optimizing'],
-        'env' : {
-            'ART_USE_READ_BARRIER' : 'false',
-            'ART_DEFAULT_GC_TYPE' : 'SS'
-        }
+                      '--optimizing']
     },
     'art-jit-gcstress' : {
         'run-test' : ['--jit',
-                      '--gcstress'],
-        'env' : {
-            'ART_USE_READ_BARRIER' : 'false',
-            'ART_DEFAULT_GC_TYPE' : 'SS'
-        }
+                      '--gcstress']
     },
     'art-read-barrier' : {
         'run-test': ['--interpreter',
