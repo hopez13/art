@@ -22,6 +22,53 @@
       "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77aab66d_21057b3f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-12T15:48:59Z",
+      "side": 1,
+      "message": "Yes, you can do:\nlocations-\u003eSetInAt(0, Location::NoLocation());        // Unused argument.",
+      "parentUuid": "4e7c5d8b_43fcb3f6",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92a31526_fcb3ecee",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-12T15:48:59Z",
+      "side": 1,
+      "message": "Should this be all side effects? (Read + write)",
+      "range": {
+        "startLine": 221,
+        "startChar": 58,
+        "endLine": 221,
+        "endChar": 75
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
