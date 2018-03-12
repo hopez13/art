@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89cc42aa_22847435",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-12T18:23:40Z",
+      "side": 1,
+      "message": "Refactor. The entrypoints shouldn\u0027t rely on this.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
