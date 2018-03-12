@@ -22,6 +22,52 @@
       "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ab4217_df23cacd",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-12T18:31:29Z",
+      "side": 1,
+      "message": "2 (and use \"//\" for the comment and align with the comments below)",
+      "range": {
+        "startLine": 2715,
+        "startChar": 20,
+        "endLine": 2715,
+        "endChar": 21
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c33a62d_a45c2fbc",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-12T18:31:29Z",
+      "side": 1,
+      "message": "PUSH ecx",
+      "range": {
+        "startLine": 2523,
+        "startChar": 0,
+        "endLine": 2524,
+        "endChar": 28
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
