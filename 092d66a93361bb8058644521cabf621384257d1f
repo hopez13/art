@@ -46,6 +46,30 @@
       "revId": "092d66a93361bb8058644521cabf621384257d1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ded71bb_4db4c359",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-03-12T18:58:27Z",
+      "side": 1,
+      "message": "Oki. You might consider making that explicit in a comment or name.\ni.e. when I first read this code, because all the versions are listed one after the other:\n\nkVerifierDepsVersion\nkDexSectionVersion\nkNoDexSectionVersion\n\nI thought we will have 3 different sections, each with its own version.",
+      "parentUuid": "0eba29e2_eb978149",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "092d66a93361bb8058644521cabf621384257d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
