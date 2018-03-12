@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "14026de7_642be389",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-03-12T17:19:57Z",
+      "side": 1,
+      "message": "Could you please explain why? I\u0027m struggling to understand the purpose of using ObjPtr both in general and in this particular case.",
+      "parentUuid": "64d6b9e5_2e2bc905",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 16
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "99834de2_74247f17",
         "filename": "runtime/cha.cc",
         "patchSetId": 15
@@ -82,6 +106,30 @@
       "writtenOn": "2018-03-09T07:35:32Z",
       "side": 1,
       "message": "Is it necessarily true that the klass has a vtable if the super class has one?",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 13
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8f089fe_aceabbcf",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-03-12T17:19:57Z",
+      "side": 1,
+      "message": "Yes, if the klass passes linking stage. With the latest patchset, we filter out misformed classes, i.e. every klass shall be at least linked.",
+      "parentUuid": "f760b5ab_467f19d2",
       "range": {
         "startLine": 117,
         "startChar": 8,
