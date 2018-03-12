@@ -46,6 +46,7 @@ In the end, the script will print the failed and skipped tests if any.
 """
 import argparse
 import collections
+import contextlib
 import fnmatch
 import itertools
 import json
@@ -117,6 +118,10 @@ gdb_arg = ''
 stop_testrunner = False
 dex2oat_jobs = -1   # -1 corresponds to default threads for dex2oat
 run_all_configs = False
+
+# File we will send logcat output to.
+logcat_file = None
+logcat_invoke = "adb logcat"
 
 # Dict containing extra arguments
 extra_arguments = { "host" : [], "target" : [] }
@@ -924,6 +929,8 @@ def parse_option():
   global timeout
   global dex2oat_jobs
   global run_all_configs
+  global logcat_file
+  global logcat_invoke
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', action='append', dest='tests', help='name(s) of the test(s)')
@@ -954,11 +961,27 @@ def parse_option():
                       help='Number of dex2oat jobs')
   parser.add_argument('-a', '--all', action='store_true', dest='run_all',
                       help="Run all the possible configurations for the input test set")
+  parser.add_argument('--logcat-invoke', dest='logcat_invoke', action='store',
+                      default="adb logcat",
+                      help="""Command to invoke to get logcat data from device. This command is run
+                      in the background while all the tests are running then killed with a SIGTERM.
+                      By default it is 'adb logcat'. If one needs to perform pre-processing (for
+                      example to clear the logcat) one should pass a shell script that does the
+                      needed operations. This command will only be run if a --logcat-file is given
+                      and at least one --target test is being run.""")
+  parser.add_argument('--logcat-file', dest='logcat_file', action='store',
+                      type=lambda f: open(f, 'w'),
+                      help="""A file we will write the logcat output received during the test.
+                      This is only valid during --target tests. The file will be created if it does
+                      not already exist.""")
 
   options = vars(parser.parse_args())
   if options['build_target']:
     options = setup_env_for_build_target(target_config[options['build_target']],
                                          parser, options)
+
+  logcat_file = options['logcat_file']
+  logcat_invoke = options['logcat_invoke']
 
   tests = None
   env.EXTRA_DISABLED_TESTS.update(set(options['skips']))
@@ -994,6 +1017,21 @@ def parse_option():
 
   return tests
 
+@contextlib.contextmanager
+def start_logcat_thread(output_file, should_run):
+  if not should_run or output_file is None:
+    # Don't need to do anything.
+    yield
+    return
+  # Start up a process for the logcat.
+  with subprocess.Popen(logcat_invoke.split(),
+                        stdout=output_file,
+                        stderr=subprocess.STDOUT,
+                        shell=False,
+                        universal_newlines = True) as proc:
+    yield
+    proc.kill()
+
 def main():
   gather_test_info()
   user_requested_tests = parse_option()
@@ -1021,15 +1059,17 @@ def main():
     test_runner_thread = threading.Thread(target=run_tests, args=(RUN_TEST_SET,))
   test_runner_thread.daemon = True
   try:
-    test_runner_thread.start()
-    # This loops waits for all the threads to finish, unless
-    # stop_testrunner is set to True. When ART_TEST_KEEP_GOING
-    # is set to false, stop_testrunner is set to True as soon as
-    # a test fails to signal the parent thread  to stop
-    # the execution of the testrunner.
-    while threading.active_count() > 1 and not stop_testrunner:
-      time.sleep(0.1)
-    print_analysis()
+    # This will send a logcat to logcat_file if we have target variants.
+    with start_logcat_thread(logcat_file, 'target' in _user_input_variants['target']):
+      test_runner_thread.start()
+      # This loops waits for all the threads to finish, unless
+      # stop_testrunner is set to True. When ART_TEST_KEEP_GOING
+      # is set to false, stop_testrunner is set to True as soon as
+      # a test fails to signal the parent thread  to stop
+      # the execution of the testrunner.
+      while threading.active_count() > 1 and not stop_testrunner:
+        time.sleep(0.1)
+      print_analysis()
   except Exception as e:
     print_analysis()
     print_text(str(e))
