@@ -1138,15 +1138,10 @@ inline bool Class::CanAccess(ObjPtr<Class> that) {
   return that->IsPublic() || this->IsInSamePackage(that);
 }
 
-
 inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flags) {
   // Classes can access all of their own members
   if (this == access_to) {
     return true;
-  }
-  // Do not allow non-boot class path classes access hidden APIs.
-  if (hiddenapi::ShouldBlockAccessToMember(member_flags, this)) {
-    return false;
   }
   // Public members are trivially accessible
   if (member_flags & kAccPublic) {

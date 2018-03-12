@@ -394,6 +394,13 @@ void ThrowNoSuchFieldError(const StringPiece& scope, ObjPtr<mirror::Class> c,
   ThrowException("Ljava/lang/NoSuchFieldError;", c, msg.str().c_str());
 }
 
+void ThrowNoSuchFieldError(ArtField* field) {
+  ThrowNoSuchFieldError(field->IsStatic() ? "static " : "instance ",
+                        field->GetDeclaringClass(),
+                        field->GetTypeDescriptor(),
+                        field->GetName());
+}
+
 void ThrowNoSuchFieldException(ObjPtr<mirror::Class> c, const StringPiece& name) {
   std::ostringstream msg;
   std::string temp;
@@ -410,6 +417,13 @@ void ThrowNoSuchMethodError(InvokeType type, ObjPtr<mirror::Class> c, const Stri
   msg << "No " << type << " method " << name << signature
       << " in class " << c->GetDescriptor(&temp) << " or its super classes";
   ThrowException("Ljava/lang/NoSuchMethodError;", c, msg.str().c_str());
+}
+
+void ThrowNoSuchMethodError(ArtMethod* method) {
+  ThrowNoSuchMethodError(method->GetInvokeType(),
+                         method->GetDeclaringClass(),
+                         method->GetName(),
+                         method->GetSignature());
 }
 
 // NullPointerException

@@ -202,6 +202,9 @@ void ThrowNoSuchFieldError(const StringPiece& scope,
                            const StringPiece& name)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
+void ThrowNoSuchFieldError(ArtField* field)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
 void ThrowNoSuchFieldException(ObjPtr<mirror::Class> c, const StringPiece& name)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
@@ -211,6 +214,9 @@ void ThrowNoSuchMethodError(InvokeType type,
                             ObjPtr<mirror::Class> c,
                             const StringPiece& name,
                             const Signature& signature)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
+
+void ThrowNoSuchMethodError(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
 // NullPointerException
