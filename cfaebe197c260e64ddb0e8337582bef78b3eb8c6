@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e7ed45e9_24901655",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-12T19:39:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89cc42aa_22847435",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9ab4217_df23cacd",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2cf259f0_2e79808d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-12T19:39:17Z",
+      "side": 1,
+      "message": "Ups. Thanks. Done.",
+      "parentUuid": "f9ab4217_df23cacd",
+      "range": {
+        "startLine": 2715,
+        "startChar": 20,
+        "endLine": 2715,
+        "endChar": 21
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c33a62d_a45c2fbc",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-12T18:31:29Z",
       "side": 1,
       "message": "PUSH ecx",
+      "range": {
+        "startLine": 2523,
+        "startChar": 0,
+        "endLine": 2524,
+        "endChar": 28
+      },
+      "revId": "cfaebe197c260e64ddb0e8337582bef78b3eb8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9db8602_18eaffa4",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-12T19:39:17Z",
+      "side": 1,
+      "message": "This is not a register spill :-)",
+      "parentUuid": "3c33a62d_a45c2fbc",
       "range": {
         "startLine": 2523,
         "startChar": 0,

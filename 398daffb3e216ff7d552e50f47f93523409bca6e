@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "25092651_45e12d85",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-12T19:39:17Z",
+      "side": 0,
+      "message": "When running in pure interpreter mode, it uses generic JNI handler and no compiled code.  Thus this might not show in the trace.",
+      "parentUuid": "6b05ab78_0fca52d1",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 28
+      },
+      "revId": "398daffb3e216ff7d552e50f47f93523409bca6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2058da61_63b134be",
         "filename": "test/137-cfi/cfi.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-12T18:31:29Z",
       "side": 0,
       "message": "And this?",
+      "range": {
+        "startLine": 232,
+        "startChar": 8,
+        "endLine": 232,
+        "endChar": 20
+      },
+      "revId": "398daffb3e216ff7d552e50f47f93523409bca6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "552e76e4_102f8265",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-12T19:39:17Z",
+      "side": 0,
+      "message": "ditto",
+      "parentUuid": "2058da61_63b134be",
       "range": {
         "startLine": 232,
         "startChar": 8,
