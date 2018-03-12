@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec1d615b_7a31c886",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-12T18:33:11Z",
+      "side": 1,
+      "message": "I believe you\u0027re missing this in the -inl (iwyu)?\n\nIs there a real reason to put the code into the -inl?",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "8d7a8c536b3f8c4683645b7b550e3933d47332a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
