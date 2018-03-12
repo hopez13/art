@@ -22,6 +22,30 @@
       "revId": "0530bccdc6e79d6015d16cb868444a19004f3bf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8a76b7f_704c0e27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-12T14:13:22Z",
+      "side": 1,
+      "message": "I decided to use flags that align with the bug description and the failing build bot\u0027s settings. (I also previously reproduced the bug and tested this fix locally without the heap poisoning.)",
+      "parentUuid": "cf61afb2_a57e0f3b",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "0530bccdc6e79d6015d16cb868444a19004f3bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
