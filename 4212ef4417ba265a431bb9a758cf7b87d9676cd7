@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6c4b5448_af123738",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-12T22:58:32Z",
+      "side": 1,
+      "message": "My understanding is that the program order (for non-synchronized actions) from the JMM papers I\u0027ve read !\u003d VarHandle program order described in the APIs (for get/setOpaque).\n\nIf at least that much understanding is correct, then I think I understand why we should avoid \"program order\" in this comment :)",
+      "parentUuid": "8a5d9d22_086855b6",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de52010b_ca206eed",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 8
