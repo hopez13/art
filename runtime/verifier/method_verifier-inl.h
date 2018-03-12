@@ -79,6 +79,35 @@ inline const RegType& MethodVerifier::ResolveCheckedClass(dex::TypeIndex class_i
   return result;
 }
 
+// Note: returns true on failure.
+inline bool MethodVerifier::FailOrAbort(bool condition,
+                                        const char* error_msg,
+                                        uint32_t work_insn_idx) {
+  if (kIsDebugBuild) {
+    // In a debug build, abort if the error condition is wrong. Only warn if
+    // we are already aborting (as this verification is likely run to print
+    // lock information).
+    if (LIKELY(gAborting == 0)) {
+      DCHECK(condition) << error_msg << work_insn_idx << " "
+                        << dex_file_->PrettyMethod(dex_method_idx_);
+    } else {
+      if (!condition) {
+        LOG(ERROR) << error_msg << work_insn_idx;
+        Fail(VERIFY_ERROR_BAD_CLASS_HARD) << error_msg << work_insn_idx;
+        return true;
+      }
+    }
+  } else {
+    // In a non-debug build, just fail the class.
+    if (!condition) {
+      Fail(VERIFY_ERROR_BAD_CLASS_HARD) << error_msg << work_insn_idx;
+      return true;
+    }
+  }
+
+  return false;
+}
+
 }  // namespace verifier
 }  // namespace art
 
