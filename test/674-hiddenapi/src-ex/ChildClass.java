@@ -123,6 +123,9 @@ public class ChildClass {
           // Check whether you can use an interface default method.
           String name = "method" + visibility.name() + "Default" + hiddenness.name();
           checkMethod(ParentInterface.class, name, /*isStatic*/ false, visibility, expected);
+
+          checkOverriding(
+              "callMethod" + visibility.name() + suffix, isStatic, visibility, expected);
         }
 
         // Test whether static linking succeeds.
@@ -389,7 +392,7 @@ public class ChildClass {
   private static void checkLinking(String className, boolean takesParameter, Behaviour behaviour)
       throws Exception {
     boolean canAccess = (behaviour != Behaviour.Denied);
-    boolean setsWarning = false;  // we do not set the flag in verifier or at runtime
+    boolean setsWarning = (behaviour == Behaviour.Warning);
 
     clearWarning();
     if (Linking.canAccess(className, takesParameter) != canAccess) {
@@ -400,6 +403,45 @@ public class ChildClass {
     if (canAccess && hasPendingWarning() != setsWarning) {
       throwWarningException(
           Class.forName(className), "access", false, "static linking", setsWarning);
+    }
+  }
+
+  private static void checkOverriding(String methodName,
+                                      boolean isStatic,
+                                      Visibility visibility,
+                                      Behaviour behaviour) throws Exception {
+    switch (visibility) {
+      case Private:
+        return;
+      case Public:
+      case Protected:
+        break;
+      case Package:
+        // The classes are in the same package, but will be able to access each
+        // other only if loaded with the same class loader.
+        behaviour = (isParentInBoot && isChildInBoot) ? Behaviour.Granted : Behaviour.Denied;
+        break;
+    }
+
+    if (isStatic) {
+      return;
+    }
+
+    boolean canAccess = (behaviour != Behaviour.Denied);
+    boolean setsWarning = false;
+
+    // Force the test class to link its vtable, which may cause warnings, before
+    // the actual test.
+    new OverrideClass().methodPublicWhitelist();
+
+    clearWarning();
+    if (Linking.canOverride(methodName) != canAccess) {
+      throw new RuntimeException("Expected to " + (canAccess ? "" : "not ") +
+          "be able to override " + methodName + "." +
+          "isParentInBoot = " + isParentInBoot + ", " + "isChildInBoot = " + isChildInBoot);
+    }
+    if (canAccess && hasPendingWarning() != setsWarning) {
+      throwWarningException(ParentClass.class, methodName, false, "static linking", setsWarning);
     }
   }
 

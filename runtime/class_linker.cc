@@ -5836,6 +5836,15 @@ bool ClassLinker::LinkVirtualMethods(
       // smaller as we go on.
       uint32_t hash_index = hash_table.FindAndRemove(&super_method_name_comparator);
       if (hash_index != hash_table.GetNotFoundIndex()) {
+        if (hiddenapi::ShouldBlockAccessToMember(super_method, klass->GetClassLoader())) {
+          // We are going to override a method which is hidden to `klass`.
+          // Similarly to package-private methods, create its own vtable entry
+          // for the overriding method.
+          // We cannot do this test earlier because we need to establish that
+          // a method is being overridden first. ShouldBlockAccessToMember would
+          // print bogus warnings otherwise.
+          continue;
+        }
         ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(
             hash_index, image_pointer_size_);
         if (super_method->IsFinal()) {
@@ -7907,6 +7916,9 @@ ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
     resolved = klass->FindClassMethod(dex_cache, method_idx, image_pointer_size_);
   }
   DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
+  if (resolved != nullptr && hiddenapi::ShouldBlockAccessToMember(resolved, class_loader)) {
+    resolved = nullptr;
+  }
   if (resolved != nullptr) {
     // In case of jmvti, the dex file gets verified before being registered, so first
     // check if it's registered before checking class tables.
@@ -8045,7 +8057,9 @@ ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(uint32_t method_idx,
   } else {
     resolved = klass->FindClassMethod(dex_cache.Get(), method_idx, image_pointer_size_);
   }
-
+  if (resolved != nullptr && hiddenapi::ShouldBlockAccessToMember(resolved, class_loader.Get())) {
+    resolved = nullptr;
+  }
   return resolved;
 }
 
@@ -8124,6 +8138,11 @@ ArtField* ClassLinker::ResolveField(uint32_t field_idx,
       return nullptr;
     }
   }
+  DCHECK(resolved != nullptr);
+  if (hiddenapi::ShouldBlockAccessToMember(resolved, class_loader.Get())) {
+    ThrowNoSuchFieldError(resolved);
+    return nullptr;
+  }
   dex_cache->SetResolvedField(field_idx, resolved, image_pointer_size_);
   return resolved;
 }
@@ -8149,6 +8168,9 @@ ArtField* ClassLinker::ResolveFieldJLS(uint32_t field_idx,
   StringPiece name(dex_file.GetFieldName(field_id));
   StringPiece type(dex_file.GetFieldTypeDescriptor(field_id));
   resolved = mirror::Class::FindField(self, klass, name, type);
+  if (resolved != nullptr && hiddenapi::ShouldBlockAccessToMember(resolved, class_loader.Get())) {
+    resolved = nullptr;
+  }
   if (resolved != nullptr) {
     dex_cache->SetResolvedField(field_idx, resolved, image_pointer_size_);
   } else {
