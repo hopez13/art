@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d081232e_c8692cee",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-12T19:52:11Z",
+      "side": 1,
+      "message": "ObjPtr should almost always be preferred over mirror::* as it provides safety debug checks against moving GC.",
+      "parentUuid": "14026de7_642be389",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 16
+      },
+      "revId": "272c1ccfa23d4ee1e1c1ec4d82704fe7f6b59c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "99834de2_74247f17",
         "filename": "runtime/cha.cc",
         "patchSetId": 15
