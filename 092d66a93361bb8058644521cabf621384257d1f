@@ -22,6 +22,30 @@
       "revId": "092d66a93361bb8058644521cabf621384257d1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eba29e2_eb978149",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-12T10:00:49Z",
+      "side": 1,
+      "message": "Yes, it\u0027s just a marker. We need it because the verifier deps header needs an entry for the version of the dex section. If that entry is that marker, then there is no dex section.",
+      "parentUuid": "b6d3d3f5_0aa02dbe",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "092d66a93361bb8058644521cabf621384257d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
