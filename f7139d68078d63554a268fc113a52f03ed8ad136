@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae4ccede_687b8a03",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be negated?",
+      "range": {
+        "startLine": 207,
+        "startChar": 15,
+        "endLine": 209,
+        "endChar": 66
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83412875_55abe826",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "\u003c\u003c flag;",
+      "range": {
+        "startLine": 1106,
+        "startChar": 53,
+        "endLine": 1106,
+        "endChar": 54
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a5555d_0875b74d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Maybe explicitly set the memory order?",
+      "range": {
+        "startLine": 1315,
+        "startChar": 4,
+        "endLine": 1315,
+        "endChar": 61
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ce8c0dd_226bf9c9",
         "filename": "runtime/thread.h",
         "patchSetId": 6
@@ -18,6 +87,98 @@
         "startChar": 27,
         "endLine": 1320,
         "endChar": 36
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98e77e5e_17c42533",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Maybe explicitly set the memory order?",
+      "range": {
+        "startLine": 1320,
+        "startChar": 4,
+        "endLine": 1320,
+        "endChar": 62
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28af5d44_c1db0053",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Maybe DCHECK that this address is 16-bit aligned?",
+      "range": {
+        "startLine": 1326,
+        "startChar": 8,
+        "endLine": 1327,
+        "endChar": 55
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42ebad41_db83fdf7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Would:\n\n      as_int \u003d 0;\n      as_struct.state \u003d state;\n\nwork too?",
+      "range": {
+        "startLine": 1426,
+        "startChar": 0,
+        "endLine": 1427,
+        "endChar": 51
+      },
+      "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c1507d_c1f06ee2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-12T18:05:04Z",
+      "side": 1,
+      "message": "Maybe add:\n\n  DCHECK(IsPowerOfTwo(static_cast\u003cuint16_t\u003e(flag)) \u003c\u003c flag;\n\nbefore?",
+      "range": {
+        "startLine": 1446,
+        "startChar": 50,
+        "endLine": 1446,
+        "endChar": 75
       },
       "revId": "f7139d68078d63554a268fc113a52f03ed8ad136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
