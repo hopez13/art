@@ -23,7 +23,6 @@
 
 #include "base/utils.h"
 #include "base/value_object.h"
-#include "thread.h"
 
 #if ART_USE_FUTEXES
 #include "linux/futex.h"
@@ -50,114 +49,22 @@ static_assert(sizeof(pid_t) <= sizeof(int32_t), "pid_t should fit in 32 bits");
 
 static inline pid_t SafeGetTid(const Thread* self) {
   if (self != nullptr) {
-    return self->GetTid();
+    return MutexContract::GetTid(self);
   } else {
     return GetTid();
   }
 }
 
-static inline void CheckUnattachedThread(LockLevel level) NO_THREAD_SAFETY_ANALYSIS {
-  // The check below enumerates the cases where we expect not to be able to sanity check locks
-  // on a thread. Lock checking is disabled to avoid deadlock when checking shutdown lock.
-  // TODO: tighten this check.
-  if (kDebugLocking) {
-    CHECK(!Locks::IsSafeToCallAbortRacy() ||
-          // Used during thread creation to avoid races with runtime shutdown. Thread::Current not
-          // yet established.
-          level == kRuntimeShutdownLock ||
-          // Thread Ids are allocated/released before threads are established.
-          level == kAllocatedThreadIdsLock ||
-          // Thread LDT's are initialized without Thread::Current established.
-          level == kModifyLdtLock ||
-          // Threads are unregistered while holding the thread list lock, during this process they
-          // no longer exist and so we expect an unlock with no self.
-          level == kThreadListLock ||
-          // Ignore logging which may or may not have set up thread data structures.
-          level == kLoggingLock ||
-          // When transitioning from suspended to runnable, a daemon thread might be in
-          // a situation where the runtime is shutting down. To not crash our debug locking
-          // mechanism we just pass null Thread* to the MutexLock during that transition
-          // (see Thread::TransitionFromSuspendedToRunnable).
-          level == kThreadSuspendCountLock ||
-          // Avoid recursive death.
-          level == kAbortLock ||
-          // Locks at the absolute top of the stack can be locked at any time.
-          level == kTopLockLevel) << level;
-  }
-}
-
 inline void BaseMutex::RegisterAsLocked(Thread* self) {
-  if (UNLIKELY(self == nullptr)) {
-    CheckUnattachedThread(level_);
-    return;
-  }
-  if (kDebugLocking) {
-    // Check if a bad Mutex of this level or lower is held.
-    bool bad_mutexes_held = false;
-    // Specifically allow a kTopLockLevel lock to be gained when the current thread holds the
-    // mutator_lock_ exclusive. This is because we suspending when holding locks at this level is
-    // not allowed and if we hold the mutator_lock_ exclusive we must unsuspend stuff eventually
-    // so there are no deadlocks.
-    if (level_ == kTopLockLevel &&
-        Locks::mutator_lock_->IsSharedHeld(self) &&
-        !Locks::mutator_lock_->IsExclusiveHeld(self)) {
-      LOG(ERROR) << "Lock level violation: holding \"" << Locks::mutator_lock_->name_ << "\" "
-                  << "(level " << kMutatorLock << " - " << static_cast<int>(kMutatorLock)
-                  << ") non-exclusive while locking \"" << name_ << "\" "
-                  << "(level " << level_ << " - " << static_cast<int>(level_) << ") a top level"
-                  << "mutex. This is not allowed.";
-      bad_mutexes_held = true;
-    } else if (this == Locks::mutator_lock_ && self->GetHeldMutex(kTopLockLevel) != nullptr) {
-      LOG(ERROR) << "Lock level violation. Locking mutator_lock_ while already having a "
-                 << "kTopLevelLock (" << self->GetHeldMutex(kTopLockLevel)->name_ << "held is "
-                 << "not allowed.";
-      bad_mutexes_held = true;
-    }
-    for (int i = level_; i >= 0; --i) {
-      LockLevel lock_level_i = static_cast<LockLevel>(i);
-      BaseMutex* held_mutex = self->GetHeldMutex(lock_level_i);
-      if (level_ == kTopLockLevel &&
-          lock_level_i == kMutatorLock &&
-          Locks::mutator_lock_->IsExclusiveHeld(self)) {
-        // This is checked above.
-        continue;
-      } else if (UNLIKELY(held_mutex != nullptr) && lock_level_i != kAbortLock) {
-        LOG(ERROR) << "Lock level violation: holding \"" << held_mutex->name_ << "\" "
-                   << "(level " << lock_level_i << " - " << i
-                   << ") while locking \"" << name_ << "\" "
-                   << "(level " << level_ << " - " << static_cast<int>(level_) << ")";
-        if (lock_level_i > kAbortLock) {
-          // Only abort in the check below if this is more than abort level lock.
-          bad_mutexes_held = true;
-        }
-      }
-    }
-    if (gAborting == 0) {  // Avoid recursive aborts.
-      CHECK(!bad_mutexes_held);
-    }
-  }
-  // Don't record monitors as they are outside the scope of analysis. They may be inspected off of
-  // the monitor list.
-  if (level_ != kMonitorLock) {
-    self->SetHeldMutex(level_, this);
-  }
+  MutexContract::RegisterAsLocked(self, level_, this);
 }
 
 inline void BaseMutex::RegisterAsUnlocked(Thread* self) {
-  if (UNLIKELY(self == nullptr)) {
-    CheckUnattachedThread(level_);
-    return;
-  }
-  if (level_ != kMonitorLock) {
-    if (kDebugLocking && gAborting == 0) {  // Avoid recursive aborts.
-      CHECK(self->GetHeldMutex(level_) == this) << "Unlocking on unacquired mutex: " << name_;
-    }
-    self->SetHeldMutex(level_, nullptr);
-  }
+  MutexContract::RegisterAsUnlocked(self, level_, this);
 }
 
 inline void ReaderWriterMutex::SharedLock(Thread* self) {
-  DCHECK(self == nullptr || self == Thread::Current());
+  DCHECK(MutexContract::IsNullOrCurrentThread(self));
 #if ART_USE_FUTEXES
   bool done = false;
   do {
@@ -178,7 +85,7 @@ inline void ReaderWriterMutex::SharedLock(Thread* self) {
 }
 
 inline void ReaderWriterMutex::SharedUnlock(Thread* self) {
-  DCHECK(self == nullptr || self == Thread::Current());
+  DCHECK(MutexContract::IsNullOrCurrentThread(self));
   DCHECK(GetExclusiveOwnerTid() == 0 || GetExclusiveOwnerTid() == -1);
   AssertSharedHeld(self);
   RegisterAsUnlocked(self);
@@ -209,12 +116,12 @@ inline void ReaderWriterMutex::SharedUnlock(Thread* self) {
 }
 
 inline bool Mutex::IsExclusiveHeld(const Thread* self) const {
-  DCHECK(self == nullptr || self == Thread::Current());
+  DCHECK(MutexContract::IsNullOrCurrentThread(self));
   bool result = (GetExclusiveOwnerTid() == SafeGetTid(self));
   if (kDebugLocking) {
     // Sanity debug check that if we think it is locked we have it in our held mutexes.
     if (result && self != nullptr && level_ != kMonitorLock && !gAborting) {
-      CHECK_EQ(self->GetHeldMutex(level_), this);
+      CHECK(MutexContract::IsCurrentMutexAtLevel(self, level_, this));
     }
   }
   return result;
@@ -235,12 +142,12 @@ inline void Mutex::AssertHeld(const Thread* self) const {
 }
 
 inline bool ReaderWriterMutex::IsExclusiveHeld(const Thread* self) const {
-  DCHECK(self == nullptr || self == Thread::Current());
+  DCHECK(MutexContract::IsNullOrCurrentThread(self));
   bool result = (GetExclusiveOwnerTid() == SafeGetTid(self));
   if (kDebugLocking) {
     // Sanity that if the pthread thinks we own the lock the Thread agrees.
     if (self != nullptr && result)  {
-      CHECK_EQ(self->GetHeldMutex(level_), this);
+      CHECK(MutexContract::IsCurrentMutexAtLevel(self, level_, this));
     }
   }
   return result;
@@ -269,16 +176,6 @@ inline void ReaderWriterMutex::AssertExclusiveHeld(const Thread* self) const {
 
 inline void ReaderWriterMutex::AssertWriterHeld(const Thread* self) const {
   AssertExclusiveHeld(self);
-}
-
-inline void MutatorMutex::TransitionFromRunnableToSuspended(Thread* self) {
-  AssertSharedHeld(self);
-  RegisterAsUnlocked(self);
-}
-
-inline void MutatorMutex::TransitionFromSuspendedToRunnable(Thread* self) {
-  RegisterAsLocked(self);
-  AssertSharedHeld(self);
 }
 
 inline ReaderMutexLock::ReaderMutexLock(Thread* self, ReaderWriterMutex& mu)

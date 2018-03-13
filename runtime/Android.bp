@@ -35,7 +35,9 @@ cc_defaults {
         "base/arena_allocator.cc",
         "base/arena_bit_vector.cc",
         "base/file_utils.cc",
+        "base/locks.cc",
         "base/mutex.cc",
+        "base/mutex_contract.cc",
         "base/quasi_atomic.cc",
         "base/scoped_arena_allocator.cc",
         "base/timing_logger.cc",
@@ -424,6 +426,7 @@ gensrcs {
     tools: ["generate_operator_out"],
     srcs: [
         "arch/instruction_set.h",
+        "base/lock_level.h",
         "base/mutex.h",
         "class_status.h",
         "debugger.h",
