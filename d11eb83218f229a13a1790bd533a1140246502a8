@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3fa1aafc_3172c7ac",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1541,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-13T22:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b5d4aab_05adc3ad",
+      "range": {
+        "startLine": 1541,
+        "startChar": 0,
+        "endLine": 1541,
+        "endChar": 36
+      },
+      "revId": "d11eb83218f229a13a1790bd533a1140246502a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1aa8e4b_da750584",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-13T21:56:38Z",
       "side": 1,
       "message": "| kNoSaturation",
+      "range": {
+        "startLine": 1545,
+        "startChar": 0,
+        "endLine": 1545,
+        "endChar": 54
+      },
+      "revId": "d11eb83218f229a13a1790bd533a1140246502a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acbd8ec6_cfb04a2e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-13T22:02:58Z",
+      "side": 1,
+      "message": "Done. My hope, of course, is that you will add the MIPS codegen for us? ;-)",
+      "parentUuid": "f1aa8e4b_da750584",
       "range": {
         "startLine": 1545,
         "startChar": 0,
