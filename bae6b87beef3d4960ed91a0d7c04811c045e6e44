@@ -51,6 +51,24 @@
       "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e34ec1_5c5cf03a",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-13T16:34:02Z",
+      "side": 1,
+      "message": "The proposed plan is to:\n- remove or disable art-read-barrier-gcstress (see Task 3. in my proposal in Bug 62611253, comment #2);\n- rename or repurpose art-read-barrier as art-read-barrier-heap-poisoning (see Task 2.).\n\nI was planning to implement these actions in different CLs; does that sound good to you?",
+      "parentUuid": "3f4b0705_ab796910",
+      "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
