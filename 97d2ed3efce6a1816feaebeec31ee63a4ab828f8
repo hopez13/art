@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dbd446f_fcb86225",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-13T10:02:18Z",
+      "side": 1,
+      "message": "This still relates to the interpreter, so it should have stayed in runtime/interpreter/ (pulled out of mterp/).\n\nI think that the quick_entrypoints_\u003carch\u003e.S are supposed to be used only for compiled code and we should use different files for interpreter stubs; OTOH, the artInvokePolymorphic has already established a precedent for runtime stuff not related to compiled code.",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 28
+      },
+      "revId": "97d2ed3efce6a1816feaebeec31ee63a4ab828f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
