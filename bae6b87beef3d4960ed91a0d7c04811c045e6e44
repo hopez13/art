@@ -34,6 +34,23 @@
       "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f4b0705_ab796910",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-13T14:56:49Z",
+      "side": 1,
+      "message": "You might want to explain how these read-barrier-gcstress configs will be different from the above configs now that SS is removed.\n\nIt seems identical except that ART_HEAP_POISONING Is also true. All in all it seems like it\u0027s testing the same thing except with strictly less checking done.",
+      "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
