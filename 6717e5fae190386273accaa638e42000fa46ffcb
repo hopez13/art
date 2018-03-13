@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6b3ff84_36c1dbb3",
+        "filename": "tools/wrap-logcat.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-13T21:57:23Z",
+      "side": 1,
+      "message": "Consider this, which will do perfect forwarding:\n\n  parser.add_argument(\u0027command\u0027, nargs\u003dargparse.REMAINDER)\n\nhttps://docs.python.org/2/library/argparse.html#argparse-remainder",
+      "revId": "6717e5fae190386273accaa638e42000fa46ffcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74b921cd_34fa9146",
+        "filename": "tools/wrap-logcat.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-13T21:57:23Z",
+      "side": 1,
+      "message": "(With the above adjustment)\n\n  args.command",
+      "range": {
+        "startLine": 47,
+        "startChar": 26,
+        "endLine": 47,
+        "endChar": 51
+      },
+      "revId": "6717e5fae190386273accaa638e42000fa46ffcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
