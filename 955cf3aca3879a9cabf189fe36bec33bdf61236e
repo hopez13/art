@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "dd8ba5ca_d49b851c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-13T16:28:18Z",
+      "side": 1,
+      "message": "The only current user is the chromium buildbot which already does this separately.\n\nFor regular users I don\u0027t think having some extra data will be all that big of an issue.",
+      "parentUuid": "aa1f4ea5_45a6835b",
+      "range": {
+        "startLine": 1021,
+        "startChar": 25,
+        "endLine": 1021,
+        "endChar": 37
+      },
+      "revId": "955cf3aca3879a9cabf189fe36bec33bdf61236e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d52474_93b84718",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "So how often will we be doing adb logcat?",
       "parentUuid": "72bccfb6_5dc68866",
+      "range": {
+        "startLine": 1026,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 9
+      },
+      "revId": "955cf3aca3879a9cabf189fe36bec33bdf61236e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a1005_121fd757",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-13T16:28:18Z",
+      "side": 1,
+      "message": "This calls it exactly once and lets it run until all tests are run.",
+      "parentUuid": "9714c34e_fe462abe",
       "range": {
         "startLine": 1026,
         "startChar": 4,
