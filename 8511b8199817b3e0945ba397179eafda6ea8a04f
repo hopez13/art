@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ac44dbd0_cd5b2252",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-13T01:52:13Z",
+      "side": 1,
+      "message": "I really want to say that it needs to be someplace from where I could load it into a register if I wanted, but I don\u0027t care whether it actually is in a register. It could be in a stack slot. It could be a constant if it were null, but that\u0027s an unlikely and uninteresting case.\n\nBased on what I could immediately find, NoLocation sounds like it might be too weak, in that it wouldn\u0027t force the value to be kept anywhere? It seems to be used for dead arguments? Is Location::Any() better?",
+      "parentUuid": "77aab66d_21057b3f",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2018-03-12T15:48:59Z",
       "side": 1,
       "message": "Should this be all side effects? (Read + write)",
+      "range": {
+        "startLine": 221,
+        "startChar": 58,
+        "endLine": 221,
+        "endChar": 75
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "743e15f5_23f7725a",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-13T01:52:13Z",
+      "side": 1,
+      "message": "I think this is correct. This should not be advanced past any read or write accesses to the heap. kWriteSideEffects should have that effect, right?",
+      "parentUuid": "92a31526_fcb3ecee",
       "range": {
         "startLine": 221,
         "startChar": 58,
