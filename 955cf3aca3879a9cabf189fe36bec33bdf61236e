@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "aa1f4ea5_45a6835b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-13T16:10:18Z",
+      "side": 1,
+      "message": "I\u0027d rather we do this here instead of requiring another layer. Otherwise it will come as a surprise from anyone using the flag.",
+      "parentUuid": "303ebe2a_58c66ecd",
+      "range": {
+        "startLine": 1021,
+        "startChar": 25,
+        "endLine": 1021,
+        "endChar": 37
+      },
+      "revId": "955cf3aca3879a9cabf189fe36bec33bdf61236e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d52474_93b84718",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The popen does a fork-exec. We don\u0027t need to sleep. It\u0027s a whole different process.\n\nThis yield delays the kill (and the wait when we leave the \u0027with\u0027 block) until after all the tests have been run.",
       "parentUuid": "05d52474_93b84718",
+      "range": {
+        "startLine": 1026,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 9
+      },
+      "revId": "955cf3aca3879a9cabf189fe36bec33bdf61236e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9714c34e_fe462abe",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-13T16:10:18Z",
+      "side": 1,
+      "message": "So how often will we be doing adb logcat?",
+      "parentUuid": "72bccfb6_5dc68866",
       "range": {
         "startLine": 1026,
         "startChar": 4,
