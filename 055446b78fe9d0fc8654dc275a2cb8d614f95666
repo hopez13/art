@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "35f52fad_65f902f2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-13T13:30:10Z",
+      "side": 1,
+      "message": "Aren\u0027t we supposed to make 1-arg constructors `explicit`?",
+      "parentUuid": "c9f755ac_01d8add6",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "030c2578_01e824e4",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -280,6 +298,30 @@
     },
     {
       "key": {
+        "uuid": "93dd23ed_bbad0c77",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-13T13:30:10Z",
+      "side": 1,
+      "message": "Why is this redundant?",
+      "parentUuid": "c391b5d5_6ed135ff",
+      "range": {
+        "startLine": 1420,
+        "startChar": 9,
+        "endLine": 1420,
+        "endChar": 18
+      },
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ada59b3b_1d077cbb",
         "filename": "runtime/thread.h",
         "patchSetId": 7
@@ -385,6 +427,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "84ce3206_ee79ae74",
+      "range": {
+        "startLine": 1458,
+        "startChar": 13,
+        "endLine": 1458,
+        "endChar": 22
+      },
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f555d178_0e4ccb45",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-13T13:30:10Z",
+      "side": 1,
+      "message": "Likewise, why is this redundant?",
+      "parentUuid": "f4078482_fe14f317",
       "range": {
         "startLine": 1458,
         "startChar": 13,
