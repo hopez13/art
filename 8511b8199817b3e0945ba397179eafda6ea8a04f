@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "de97b10e_4e5f6445",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-13T13:39:38Z",
+      "side": 1,
+      "message": "Correct, the liveness analysis will indeed use the location information. So you\u0027re right that Location::Any is best here.",
+      "parentUuid": "ac44dbd0_cd5b2252",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I think this is correct. This should not be advanced past any read or write accesses to the heap. kWriteSideEffects should have that effect, right?",
       "parentUuid": "92a31526_fcb3ecee",
+      "range": {
+        "startLine": 221,
+        "startChar": 58,
+        "endLine": 221,
+        "endChar": 75
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b450fda9_4410f646",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-13T13:39:38Z",
+      "side": 1,
+      "message": "Yes. If you add read to it, that will make other (aliasing) writes not be scheduled before the intrinsic.\n\nI guess scheduling write instructions before the intrinsic is OK?",
+      "parentUuid": "743e15f5_23f7725a",
       "range": {
         "startLine": 221,
         "startChar": 58,
