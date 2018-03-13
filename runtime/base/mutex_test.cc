@@ -17,7 +17,6 @@
 #include "mutex-inl.h"
 
 #include "common_runtime_test.h"
-#include "thread-current-inl.h"
 
 namespace art {
 
@@ -29,9 +28,9 @@ struct MutexTester {
 
     // This test is single-threaded, so we also know _who_ should hold the lock.
     if (expected_depth == 0) {
-      mu.AssertNotHeld(Thread::Current());
+      mu.AssertNotHeld(BaseMutex::CurrentThread());
     } else {
-      mu.AssertHeld(Thread::Current());
+      mu.AssertHeld(BaseMutex::CurrentThread());
     }
   }
 };
@@ -39,9 +38,9 @@ struct MutexTester {
 TEST_F(MutexTest, LockUnlock) {
   Mutex mu("test mutex");
   MutexTester::AssertDepth(mu, 0U);
-  mu.Lock(Thread::Current());
+  mu.Lock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 1U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 0U);
 }
 
@@ -49,9 +48,9 @@ TEST_F(MutexTest, LockUnlock) {
 static void TryLockUnlockTest() NO_THREAD_SAFETY_ANALYSIS {
   Mutex mu("test mutex");
   MutexTester::AssertDepth(mu, 0U);
-  ASSERT_TRUE(mu.TryLock(Thread::Current()));
+  ASSERT_TRUE(mu.TryLock(BaseMutex::CurrentThread()));
   MutexTester::AssertDepth(mu, 1U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 0U);
 }
 
@@ -63,13 +62,13 @@ TEST_F(MutexTest, TryLockUnlock) {
 static void RecursiveLockUnlockTest() NO_THREAD_SAFETY_ANALYSIS {
   Mutex mu("test mutex", kDefaultMutexLevel, true);
   MutexTester::AssertDepth(mu, 0U);
-  mu.Lock(Thread::Current());
+  mu.Lock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 1U);
-  mu.Lock(Thread::Current());
+  mu.Lock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 2U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 1U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 0U);
 }
 
@@ -81,13 +80,13 @@ TEST_F(MutexTest, RecursiveLockUnlock) {
 static void RecursiveTryLockUnlockTest() NO_THREAD_SAFETY_ANALYSIS {
   Mutex mu("test mutex", kDefaultMutexLevel, true);
   MutexTester::AssertDepth(mu, 0U);
-  ASSERT_TRUE(mu.TryLock(Thread::Current()));
+  ASSERT_TRUE(mu.TryLock(BaseMutex::CurrentThread()));
   MutexTester::AssertDepth(mu, 1U);
-  ASSERT_TRUE(mu.TryLock(Thread::Current()));
+  ASSERT_TRUE(mu.TryLock(BaseMutex::CurrentThread()));
   MutexTester::AssertDepth(mu, 2U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 1U);
-  mu.Unlock(Thread::Current());
+  mu.Unlock(BaseMutex::CurrentThread());
   MutexTester::AssertDepth(mu, 0U);
 }
 
@@ -107,26 +106,26 @@ struct RecursiveLockWait {
 
 static void* RecursiveLockWaitCallback(void* arg) {
   RecursiveLockWait* state = reinterpret_cast<RecursiveLockWait*>(arg);
-  state->mu.Lock(Thread::Current());
-  state->cv.Signal(Thread::Current());
-  state->mu.Unlock(Thread::Current());
+  state->mu.Lock(BaseMutex::CurrentThread());
+  state->cv.Signal(BaseMutex::CurrentThread());
+  state->mu.Unlock(BaseMutex::CurrentThread());
   return nullptr;
 }
 
 // GCC has trouble with our mutex tests, so we have to turn off thread safety analysis.
 static void RecursiveLockWaitTest() NO_THREAD_SAFETY_ANALYSIS {
   RecursiveLockWait state;
-  state.mu.Lock(Thread::Current());
-  state.mu.Lock(Thread::Current());
+  state.mu.Lock(BaseMutex::CurrentThread());
+  state.mu.Lock(BaseMutex::CurrentThread());
 
   pthread_t pthread;
   int pthread_create_result = pthread_create(&pthread, nullptr, RecursiveLockWaitCallback, &state);
   ASSERT_EQ(0, pthread_create_result);
 
-  state.cv.Wait(Thread::Current());
+  state.cv.Wait(BaseMutex::CurrentThread());
 
-  state.mu.Unlock(Thread::Current());
-  state.mu.Unlock(Thread::Current());
+  state.mu.Unlock(BaseMutex::CurrentThread());
+  state.mu.Unlock(BaseMutex::CurrentThread());
   EXPECT_EQ(pthread_join(pthread, nullptr), 0);
 }
 
@@ -138,33 +137,33 @@ TEST_F(MutexTest, RecursiveLockWait) {
 
 TEST_F(MutexTest, SharedLockUnlock) {
   ReaderWriterMutex mu("test rwmutex");
-  mu.AssertNotHeld(Thread::Current());
-  mu.AssertNotExclusiveHeld(Thread::Current());
-  mu.SharedLock(Thread::Current());
-  mu.AssertSharedHeld(Thread::Current());
-  mu.AssertNotExclusiveHeld(Thread::Current());
-  mu.SharedUnlock(Thread::Current());
-  mu.AssertNotHeld(Thread::Current());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
+  mu.AssertNotExclusiveHeld(BaseMutex::CurrentThread());
+  mu.SharedLock(BaseMutex::CurrentThread());
+  mu.AssertSharedHeld(BaseMutex::CurrentThread());
+  mu.AssertNotExclusiveHeld(BaseMutex::CurrentThread());
+  mu.SharedUnlock(BaseMutex::CurrentThread());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
 }
 
 TEST_F(MutexTest, ExclusiveLockUnlock) {
   ReaderWriterMutex mu("test rwmutex");
-  mu.AssertNotHeld(Thread::Current());
-  mu.ExclusiveLock(Thread::Current());
-  mu.AssertSharedHeld(Thread::Current());
-  mu.AssertExclusiveHeld(Thread::Current());
-  mu.ExclusiveUnlock(Thread::Current());
-  mu.AssertNotHeld(Thread::Current());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
+  mu.ExclusiveLock(BaseMutex::CurrentThread());
+  mu.AssertSharedHeld(BaseMutex::CurrentThread());
+  mu.AssertExclusiveHeld(BaseMutex::CurrentThread());
+  mu.ExclusiveUnlock(BaseMutex::CurrentThread());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
 }
 
 // GCC has trouble with our mutex tests, so we have to turn off thread safety analysis.
 static void SharedTryLockUnlockTest() NO_THREAD_SAFETY_ANALYSIS {
   ReaderWriterMutex mu("test rwmutex");
-  mu.AssertNotHeld(Thread::Current());
-  ASSERT_TRUE(mu.SharedTryLock(Thread::Current()));
-  mu.AssertSharedHeld(Thread::Current());
-  mu.SharedUnlock(Thread::Current());
-  mu.AssertNotHeld(Thread::Current());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
+  ASSERT_TRUE(mu.SharedTryLock(BaseMutex::CurrentThread()));
+  mu.AssertSharedHeld(BaseMutex::CurrentThread());
+  mu.SharedUnlock(BaseMutex::CurrentThread());
+  mu.AssertNotHeld(BaseMutex::CurrentThread());
 }
 
 TEST_F(MutexTest, SharedTryLockUnlock) {
