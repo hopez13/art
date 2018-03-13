@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "677ca3b6_0b84d7b2",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-13T16:45:28Z",
+      "side": 1,
+      "message": "Made help message explicit about what the --logcat-invoke option does to prevent confusion.",
+      "parentUuid": "dd8ba5ca_d49b851c",
+      "range": {
+        "startLine": 1021,
+        "startChar": 25,
+        "endLine": 1021,
+        "endChar": 37
+      },
+      "revId": "955cf3aca3879a9cabf189fe36bec33bdf61236e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d52474_93b84718",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
