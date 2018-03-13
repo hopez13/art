@@ -34,6 +34,24 @@
       "revId": "63392c17015728f088ab29c7cbe482463e5dabe5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fb6e8b1_cd596091",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-13T13:35:16Z",
+      "side": 1,
+      "message": "Yes, per rpl\u0027s suggestion to drop it and keep the scope of changes here smaller.\n\nhttps://android-review.googlesource.com/c/platform/art/+/635046/6/runtime/class_linker.cc#6143",
+      "parentUuid": "efb487a0_19f4c611",
+      "revId": "63392c17015728f088ab29c7cbe482463e5dabe5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

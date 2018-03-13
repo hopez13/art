@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "7dd3990d_bd965535",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-13T13:35:16Z",
+      "side": 1,
+      "message": "Update, PTAL.",
+      "parentUuid": "71466e9e_bb33725e",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de52010b_ca206eed",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 8
@@ -162,6 +186,24 @@
     },
     {
       "key": {
+        "uuid": "8b0ed8aa_02496db2",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-13T13:35:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de52010b_ca206eed",
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1528c23_0ba77b4a",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 8
@@ -173,6 +215,30 @@
       "writtenOn": "2018-03-09T15:31:28Z",
       "side": 1,
       "message": "For later cleanup perhaps?",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "332ff0aa_6a5fbf2c",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-13T13:35:16Z",
+      "side": 1,
+      "message": "The main issues with these operations that are untouched is that the atomic::compare_exchange_xyz flavors have a reference value as the first argument.\n\nThis gives rise to more code being needed in various places, e.g. the expected_value is a constant or has different volatile properties (e.g. part of the motivation for touching StateAndFlags).\n\nIf we go this route, it\u0027d be better in a separate CL so they are easier to scrutinize.",
+      "parentUuid": "a1528c23_0ba77b4a",
       "range": {
         "startLine": 53,
         "startChar": 7,
@@ -220,6 +286,30 @@
       "side": 1,
       "message": "Yes. But it seems to be used to generate mainly (only?) a value we can pass to futex(), and it may be the best we can do there. Maybe just add a comment describing its intended use?",
       "parentUuid": "7ffe5a15_00fd49bd",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 10
+      },
+      "revId": "4212ef4417ba265a431bb9a758cf7b87d9676cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "858c50fb_4119e328",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-13T13:35:16Z",
+      "side": 1,
+      "message": "Comment added, though I\u0027m still sketchy on the intent (man futex(2) does not have volatile pointer, ART\u0027s does).",
+      "parentUuid": "f4696a37_37388ee6",
       "range": {
         "startLine": 94,
         "startChar": 2,
