@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8602832f_38f5ee7e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-13T14:35:46Z",
+      "side": 1,
+      "message": "AtomicSetState already has this static_assert, remove.",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "739b89a4_589ad6d8",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
