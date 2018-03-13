@@ -16,6 +16,24 @@
       "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7aeb996_b9aaed45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-13T14:48:02Z",
+      "side": 1,
+      "message": "No, as we still use the SS collector in ART (see art::gc::Heap::PreZygoteFork and art::gc::ZygoteCompactingCollector).\n\nI think we used to use SS for gcstress configurations because this was best for stressing garbage collection, as it was the only moving collector in the old days. Now that CC is the default collector *and* and it is a moving collector, it seems logical to have gcstress configurations use it.",
+      "parentUuid": "22f82a6c_87754506",
+      "revId": "bae6b87beef3d4960ed91a0d7c04811c045e6e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
