@@ -888,8 +888,14 @@ static bool EventNeedsFullDeopt(ArtJvmtiEvent event) {
     case ArtJvmtiEvent::kBreakpoint:
     case ArtJvmtiEvent::kException:
       return false;
+#if 0
+      // TODO Need to make this actually true.
+    // Exception throw events need full deopt if we are going to be potentially forcing frames to
+    // pop.
+      return UNLIKELY(art::Runtime::Current()->AreNonStandardExitsEnabled());
     // TODO We should support more of these or at least do something to make them discriminate by
     // thread.
+#endif
     case ArtJvmtiEvent::kMethodEntry:
     case ArtJvmtiEvent::kExceptionCatch:
     case ArtJvmtiEvent::kMethodExit:
@@ -923,6 +929,11 @@ void EventHandler::SetupTraceListener(JvmtiMethodTraceListener* listener,
       }
       deopt_manager->RemoveDeoptimizationRequester();
     }
+  }
+
+  if (enable && event == ArtJvmtiEvent::kException) {
+    // Keep track of if we ever requested kException since it affects capabilities we can provide.
+    exception_event_requested = true;
   }
 
   // Add the actual listeners.
