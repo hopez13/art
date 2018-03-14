@@ -313,10 +313,10 @@ class JvmtiFunctions {
     return StackUtil::GetFrameCount(env, thread, count_ptr);
   }
 
-  static jvmtiError PopFrame(jvmtiEnv* env, jthread thread ATTRIBUTE_UNUSED) {
+  static jvmtiError PopFrame(jvmtiEnv* env, jthread thread) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_pop_frame);
-    return ERR(NOT_IMPLEMENTED);
+    return StackUtil::PopFrame(env, thread);
   }
 
   static jvmtiError GetFrameLocation(jvmtiEnv* env,
@@ -1160,6 +1160,12 @@ class JvmtiFunctions {
 
       FOR_ALL_CAPABILITIES(REMOVE_NONDEBUGGABLE_UNSUPPORTED);
 #undef REMOVE_NONDEBUGGABLE_UNSUPPORTED
+    }
+    // If we are in the middle of an ExceptionEvent we cannot guarantee that it is possible to
+    // PopFrame in all cases. Remove the can_pop_frame capability if so.
+    if (!art::Runtime::Current()->AreNonStandardExitsEnabled() &&
+        gEventHandler->WasExceptionEventEnabled()) {
+      capabilities_ptr->can_pop_frame = 0;
     }
     return OK;
   }
