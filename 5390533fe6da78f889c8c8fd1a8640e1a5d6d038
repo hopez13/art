@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32e1a20f_cb6dbad5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T11:18:04Z",
+      "side": 1,
+      "message": "Please do this in a separate CL and let\u0027s have a discussion there.",
+      "range": {
+        "startLine": 5839,
+        "startChar": 0,
+        "endLine": 5847,
+        "endChar": 9
+      },
+      "revId": "5390533fe6da78f889c8c8fd1a8640e1a5d6d038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7867bf20_81ad1c75",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T11:18:04Z",
+      "side": 1,
+      "message": "These look odd (no such field though you pass ArtField). I think I\u0027d prefer not having them.",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "5390533fe6da78f889c8c8fd1a8640e1a5d6d038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

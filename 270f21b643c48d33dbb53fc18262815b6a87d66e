@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7119ad44_ce5cd9e3",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T11:18:04Z",
+      "side": 0,
+      "message": "remove",
+      "revId": "270f21b643c48d33dbb53fc18262815b6a87d66e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea8ec673_808df8fe",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T11:18:04Z",
+      "side": 0,
+      "message": "Can you DCHECK that this is never the case (ie you cannot enter here if that\u0027s the case).",
+      "revId": "270f21b643c48d33dbb53fc18262815b6a87d66e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
