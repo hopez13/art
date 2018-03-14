@@ -172,6 +172,16 @@ ALWAYS_INLINE bool DoFieldPutCommon(Thread* self,
     if (UNLIKELY(self->IsExceptionPending())) {
       return false;
     }
+    if (shadow_frame.GetForcePopFrame()) {
+      // We need to check this here since we expect that the PUT FieldWriteEvent happens before
+      // the actual field write. If one pops the stack we should not modify the field.  The next
+      // instruction will force a pop. Return true.
+      DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
+      DCHECK(shadow_frame.GetLink() != nullptr &&
+             shadow_frame.GetLink()->GetForceRetryInstruction())
+          << "Pop frame forced without previous frame ready to retry instruction!";
+      return true;
+    }
   }
 
   switch (field_type) {
