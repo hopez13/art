@@ -1,0 +1,51 @@
+Test stopped using breakpoint
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 2 }
+Test stopped on single step
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 2 }
+Test stopped on field access
+Single call with PopFrame on FieldBasedTestObject { cnt: 0, TARGET_FIELD: 0 }
+result is FieldBasedTestObject { cnt: 2, TARGET_FIELD: 10 }
+Test stopped on field modification
+Single call with PopFrame on FieldBasedTestObject { cnt: 0, TARGET_FIELD: 0 }
+result is FieldBasedTestObject { cnt: 2, TARGET_FIELD: 10 }
+Test stopped during Method Exit of doNothing
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 1 }
+Test stopped during Method Enter of doNothing
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 1 }
+Test stopped during Method Exit of calledFunction
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 2 }
+Test stopped during Method Enter of calledFunction
+Single call with PopFrame on StandardTestObject { cnt: 0 }
+result is StandardTestObject { cnt: 1 }
+Test stopped during ExceptionCatch event of calledFunction (catch in called function, throw in called function)
+Single call with PopFrame on ExceptionThrowTestObject { cnt: 0 }
+TestError caught in same function.
+result is ExceptionThrowTestObject { cnt: 2 }
+Test stopped during ExceptionCatch event of calledFunction (catch in called function, throw in subroutine)
+Single call with PopFrame on ExceptionCatchTestObject { cnt: 0 }
+TestError caught in called function.
+result is ExceptionCatchTestObject { cnt: 2 }
+Test stopped during Exception event of calledFunction (catch in calling function)
+Single call with PopFrame on ExceptionThrowTestObject { cnt: 0 }
+TestError thrown and caught!
+result is ExceptionThrowTestObject { cnt: 2 }
+Test stopped during Exception event of calledFunction (catch in called function)
+Single call with PopFrame on ExceptionThrowTestObject { cnt: 0 }
+TestError caught in same function.
+result is ExceptionThrowTestObject { cnt: 2 }
+Test stopped during Exception event of calledFunction (catch in parent of calling function)
+Single call with PopFrame on ExceptionThrowFarTestObject { cnt: 0 }
+TestError thrown and caught!
+result is ExceptionThrowFarTestObject { cnt: 2 }
+Test stopped during Exception event of calledFunction (catch in called function)
+Single call with PopFrame on ExceptionThrowFarTestObject { cnt: 0 }
+TestError caught in same function.
+result is ExceptionThrowFarTestObject { cnt: 2 }
+Test stopped during random Suspend.
+Single call with PopFrame on SuspendSuddenlyObject { cnt: 0 }
+result is SuspendSuddenlyObject { cnt: 2 }
