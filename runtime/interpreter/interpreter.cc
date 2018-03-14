@@ -261,6 +261,14 @@ static inline JValue Execute(
                                         shadow_frame.GetThisObject(accessor.InsSize()),
                                         method,
                                         0);
+      if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
+        // The caller will retry this invoke. Just return immediately without any value.
+        DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
+        DCHECK(shadow_frame.GetLink() != nullptr &&
+               shadow_frame.GetLink()->GetForceRetryInstruction())
+            << "Pop frame forced without previous frame ready to retry instruction!";
+        return JValue();
+      }
       if (UNLIKELY(self->IsExceptionPending())) {
         instrumentation->MethodUnwindEvent(self,
                                            shadow_frame.GetThisObject(accessor.InsSize()),
