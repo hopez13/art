@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1e8aa6_4c5bbc04",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Shorten/simplify and comment:\n\n  // Detect the three following bit patterns:\n  // - all zeroes followed by all ones,\n  // - all ones followed by all zeroes,\n  // - all ones followed by all zeroes followed by all ones.\n  // In these cases we can use the ins instruction to clear a contiguous group of bits.\n  DCHECK_NE(imm, 0);\n  uint32_t imm_unsigned \u003d static_cast\u003cuint32_t\u003e(imm);\n  uint32_t imm_unsigned_flipped \u003d ~imm_unsigned;\n  int total_ones \u003d POPCOUNT(imm_unsigned);\n  int leading_ones \u003d JAVASTYLE_CLZ(imm_unsigned_flipped);\n  int trailing_ones \u003d JAVASTYLE_CTZ(imm_unsigned_flipped);\n  if (leading_ones + trailing_ones \u003d\u003d total_ones) {\n    can_use_imm \u003d true;\n  }",
+      "range": {
+        "startLine": 1999,
+        "startChar": 0,
+        "endLine": 2018,
+        "endChar": 13
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e805aa8_8dac87cb",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2115,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Shorten/simplify:\n\n  uint32_t imm_unsigned \u003d static_cast\u003cuint32_t\u003e(imm);\n  uint32_t imm_unsigned_flipped \u003d ~imm_unsigned;\n  int total_ones \u003d POPCOUNT(imm_unsigned);\n  DCHECK((0 \u003c total_ones) \u0026\u0026 (total_ones \u003c 32)) \u003c\u003c total_ones;\n  int leading_ones \u003d JAVASTYLE_CLZ(imm_unsigned_flipped);\n  int trailing_ones \u003d JAVASTYLE_CTZ(imm_unsigned_flipped);\n  DCHECK_EQ(leading_ones + trailing_ones, total_ones) \u003c\u003c leading_ones \u003c\u003c \" + \" \u003c\u003c trailing_ones;\n  int zeroes \u003d 32 - leading_ones - trailing_ones;\n  __ Ins(dst, ZERO, trailing_ones, zeroes);",
+      "range": {
+        "startLine": 2097,
+        "startChar": 0,
+        "endLine": 2115,
+        "endChar": 13
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bff7c5f_a1d8f7f5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Same as MIPS32.",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1862,
+        "endChar": 15
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8965d86_7108d5ef",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1883,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Similar to MIPS32.",
+      "range": {
+        "startLine": 1864,
+        "startChar": 0,
+        "endLine": 1883,
+        "endChar": 15
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "484afcc5_8ae0f974",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1969,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Same as MIPS32.",
+      "range": {
+        "startLine": 1951,
+        "startChar": 0,
+        "endLine": 1969,
+        "endChar": 15
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d8e36b_5c8a27b8",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2018-03-14T04:58:00Z",
+      "side": 1,
+      "message": "Similar to MIPS32.",
+      "range": {
+        "startLine": 1971,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 15
+      },
+      "revId": "aa3547059ac3a2c08cbaecaff82feb5f027dbd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
