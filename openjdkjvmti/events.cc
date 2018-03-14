@@ -888,8 +888,6 @@ static bool EventNeedsFullDeopt(ArtJvmtiEvent event) {
     case ArtJvmtiEvent::kBreakpoint:
     case ArtJvmtiEvent::kException:
       return false;
-    // TODO We should support more of these or at least do something to make them discriminate by
-    // thread.
     case ArtJvmtiEvent::kMethodEntry:
     case ArtJvmtiEvent::kExceptionCatch:
     case ArtJvmtiEvent::kMethodExit:
