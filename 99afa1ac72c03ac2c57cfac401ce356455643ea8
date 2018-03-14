@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "6bf4e665_d5105412",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Avoid code repetition.\n\n  if ((cmp \u003d\u003d kCondLT || cmp \u003d\u003d kCondLE || cmp \u003d\u003d kCondGT || cmp \u003d\u003d kCondGE) \u0026\u0026\n      ((a \u003d\u003d true_value \u0026\u0026 b \u003d\u003d false_value) ||\n       (b \u003d\u003d true_value \u0026\u0026 a \u003d\u003d false_value))) {\n    bool is_min \u003d (cmp \u003d\u003d kCondLT || cmp \u003d\u003d kCondLE) \u003d\u003d (a \u003d\u003d true_value);\n    replace_with \u003d NewIntegralMinMax(GetGraph()-\u003eGetAllocator(), a, b, select, is_min);\n  }\n\n(Also avoids the two lines exceeding 100 characters.)",
+      "range": {
+        "startLine": 954,
+        "startChar": 8,
+        "endLine": 955,
+        "endChar": 52
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c1f4ee7_1464a6df",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Only if we didn\u0027t simplify above? After the suggested rewrite above, this can be simply \"else if\".",
+      "range": {
+        "startLine": 960,
+        "startChar": 6,
+        "endLine": 960,
+        "endChar": 8
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a84981d_e8fb4b4f",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -87,6 +133,212 @@
         "startChar": 68,
         "endLine": 338,
         "endChar": 75
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b2bbebd_4e492e57",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Move inside the loop below.",
+      "range": {
+        "startLine": 344,
+        "startChar": 4,
+        "endLine": 344,
+        "endChar": 18
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f340af6_b0ad3443",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Add a comment?\n\nMin(Min(a,b), 0) -\u003e return false",
+      "range": {
+        "startLine": 356,
+        "startChar": 4,
+        "endLine": 356,
+        "endChar": 17
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d6f53b_927cf343",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "This needs a comment. Though, I would just rewrite the recursion as a loop and return false if we detected no clipping at all.",
+      "range": {
+        "startLine": 360,
+        "startChar": 9,
+        "endLine": 360,
+        "endChar": 13
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4465843_110e6467",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "lo \u003c\u003d 0",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 19
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31dd3b38_b1d249f4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "I\u0027d go with a ternary operator `is_unsigned ? ... : ...`",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1ecd1f_8c2fc423",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc4fa5ca_ac338958",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "hi \u003e\u003d std::numeric_limits\u003cuint8_t\u003e::max()",
+      "range": {
+        "startLine": 387,
+        "startChar": 19,
+        "endLine": 387,
+        "endChar": 30
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92eb5233_f4327d66",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "Ternary operator?",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a80658b9_a282b1f8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9b407f_4677ea8e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-14T11:03:45Z",
+      "side": 1,
+      "message": "You didn\u0027t check that clippee is a binary operation, so you\u0027re going to trigger some DCHECK()s.\nFiltering with IsAdd() and IsSub() should precede IsNarrowerOperands().",
+      "range": {
+        "startLine": 1907,
+        "startChar": 26,
+        "endLine": 1907,
+        "endChar": 66
       },
       "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
