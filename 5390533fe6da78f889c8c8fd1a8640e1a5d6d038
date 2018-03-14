@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c5e068f9_75f66571",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T14:31:06Z",
+      "side": 1,
+      "message": "Right. After discussing about this, let\u0027s just log for now.",
+      "parentUuid": "9efef744_6fee0d71",
+      "range": {
+        "startLine": 5839,
+        "startChar": 0,
+        "endLine": 5847,
+        "endChar": 9
+      },
+      "revId": "5390533fe6da78f889c8c8fd1a8640e1a5d6d038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7867bf20_81ad1c75",
         "filename": "runtime/common_throws.h",
         "patchSetId": 1
