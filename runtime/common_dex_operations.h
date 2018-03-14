@@ -171,6 +171,12 @@ ALWAYS_INLINE bool DoFieldPutCommon(Thread* self,
     if (UNLIKELY(self->IsExceptionPending())) {
       return false;
     }
+    if (shadow_frame.GetForcePopFrame()) {
+      // We need to check this here since we expect that the PUT FieldWriteEvent happens before
+      // the actual field write. If one pops the stack we should not modify the field.  The next
+      // instruction will force a pop. Return true.
+      return true;
+    }
   }
 
   switch (field_type) {

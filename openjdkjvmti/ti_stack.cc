@@ -1085,4 +1085,86 @@ jvmtiError StackUtil::NotifyFramePop(jvmtiEnv* env, jthread thread, jint depth) 
   } while (true);
 }
 
+jvmtiError StackUtil::PopFrame(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread thread) {
+  art::Thread* self = art::Thread::Current();
+  art::Thread* target;
+  do {
+    ThreadUtil::SuspendCheck(self);
+    art::MutexLock ucsl_mu(self, *art::Locks::user_code_suspension_lock_);
+    // Make sure we won't be suspended in the middle of holding the thread_suspend_count_lock_ by a
+    // user-code suspension. We retry and do another SuspendCheck to clear this.
+    if (ThreadUtil::WouldSuspendForUserCodeLocked(self)) {
+      continue;
+    }
+    // From now on we know we cannot get suspended by user-code.
+    // NB This does a SuspendCheck (during thread state change) so we need to make sure we don't
+    // have the 'suspend_lock' locked here.
+    art::ScopedObjectAccess soa(self);
+    art::MutexLock tll_mu(self, *art::Locks::thread_list_lock_);
+    jvmtiError err = ERR(INTERNAL);
+    if (!ThreadUtil::GetAliveNativeThread(thread, soa, &target, &err)) {
+      return err;
+    }
+    {
+      art::MutexLock tscl_mu(self, *art::Locks::thread_suspend_count_lock_);
+      if (target == self || target->GetUserCodeSuspendCount() == 0) {
+        // We cannot be the current thread for this function.
+        return ERR(THREAD_NOT_SUSPENDED);
+      }
+    }
+    // We hold the user_code_suspension_lock_ so the target thread is staying suspended until we are
+    // done (unless it's 'self' in which case we don't care since we aren't going to be returning).
+    // TODO We could implement this using a synchronous checkpoint and not bother with any of the
+    // suspension stuff. The spec does specifically say to return THREAD_NOT_SUSPENDED though.
+    // Find the requested stack frame.
+    std::unique_ptr<art::Context> context(art::Context::Create());
+    FindFrameAtDepthVisitor final_frame(target, context.get(), 0);
+    FindFrameAtDepthVisitor penultimate_frame(target, context.get(), 1);
+    final_frame.WalkStack();
+    penultimate_frame.WalkStack();
+
+    if (!final_frame.FoundFrame() || !penultimate_frame.FoundFrame()) {
+      // Cannot do it if there is only one frame!
+      return ERR(NO_MORE_FRAMES);
+    }
+
+    art::ArtMethod* called_method = final_frame.GetMethod();
+    art::ArtMethod* calling_method = penultimate_frame.GetMethod();
+    if (calling_method->IsNative() || called_method->IsNative()) {
+      return ERR(OPAQUE_FRAME);
+    }
+    // From here we are sure to succeed.
+    bool needs_instrument = false;
+    // Get/create a shadow frame
+    art::ShadowFrame* called_shadow_frame = final_frame.GetCurrentShadowFrame();
+    if (called_shadow_frame == nullptr) {
+      needs_instrument = true;
+      const size_t frame_id = final_frame.GetFrameId();
+      const uint16_t num_regs = called_method->DexInstructionData().RegistersSize();
+      called_shadow_frame = target->FindOrCreateDebuggerShadowFrame(
+          frame_id, num_regs, called_method, final_frame.GetDexPc());
+    }
+    art::ShadowFrame* calling_shadow_frame = penultimate_frame.GetCurrentShadowFrame();
+    if (calling_shadow_frame == nullptr) {
+      needs_instrument = true;
+      const size_t frame_id = penultimate_frame.GetFrameId();
+      const uint16_t num_regs = calling_method->DexInstructionData().RegistersSize();
+      calling_shadow_frame = target->FindOrCreateDebuggerShadowFrame(
+          frame_id, num_regs, calling_method, penultimate_frame.GetDexPc());
+    }
+    CHECK_NE(called_shadow_frame, calling_shadow_frame)
+        << "Frames at different depths not different!";
+
+    // Tell the shadow-frame to return immediately and skip all exit events.
+    called_shadow_frame->SetForcePopFrame(true);
+    calling_shadow_frame->SetForceRetryInstruction(true);
+
+    // Make sure can we will go to the interpreter and use the shadow frames.
+    if (needs_instrument) {
+      art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
+    }
+    return OK;
+  } while (true);
+}
+
 }  // namespace openjdkjvmti

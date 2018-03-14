@@ -28,10 +28,28 @@
 namespace art {
 namespace interpreter {
 
+#define CHECK_FORCE_RETURN()                                                 \
+  do {                                                                       \
+    if (UNLIKELY(shadow_frame.GetForcePopFrame())) {                         \
+      DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());              \
+      if (UNLIKELY(NeedsMethodExitEvent(instrumentation))) {                 \
+        SendMethodExitEvents(self,                                           \
+                             instrumentation,                                \
+                             shadow_frame,                                   \
+                             shadow_frame.GetThisObject(accessor.InsSize()), \
+                             shadow_frame.GetMethod(),                       \
+                             inst->GetDexPc(insns),                          \
+                             JValue());                                      \
+      }                                                                      \
+      return JValue(); /* Handled in caller. */                              \
+    }                                                                        \
+  } while (false)
+
 #define HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(instr)                                    \
   do {                                                                                          \
     DCHECK(self->IsExceptionPending());                                                         \
     self->AllowThreadSuspension();                                                              \
+    CHECK_FORCE_RETURN();                                                                       \
     if (!MoveToExceptionHandler(self, shadow_frame, instr)) {                                   \
       /* Structured locking is to be enforced for abnormal termination, too. */                 \
       DoMonitorCheckOnExit<do_assignability_check>(self, &shadow_frame);                        \
@@ -42,6 +60,7 @@ namespace interpreter {
       ctx->result = JValue(); /* Handled in caller. */                                          \
       return;                                                                                   \
     } else {                                                                                    \
+      CHECK_FORCE_RETURN(); \
       int32_t displacement =                                                                    \
           static_cast<int32_t>(shadow_frame.GetDexPC()) - static_cast<int32_t>(dex_pc);         \
       inst = inst->RelativeAt(displacement);                                                    \
@@ -50,8 +69,39 @@ namespace interpreter {
 
 #define HANDLE_PENDING_EXCEPTION() HANDLE_PENDING_EXCEPTION_WITH_INSTRUMENTATION(instrumentation)
 
+#define POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_IMPL(_is_exception_pending, _next_function) \
+  do {                                                                                          \
+    if (UNLIKELY(shadow_frame.GetForceRetryInstruction())) {                                    \
+      /* Don't need to do anything except clear the flag and exception. We leave the */         \
+      /* instruction the same so it will be re-executed on the next go-around.       */         \
+      DCHECK(inst->IsInvoke());                                                                 \
+      shadow_frame.SetForceRetryInstruction(false);                                             \
+      if (UNLIKELY(_is_exception_pending)) {                                                    \
+        DCHECK(self->IsExceptionPending());                                                     \
+        if (kIsDebugBuild) {                                                                    \
+          LOG(WARNING) << "Suppressing exception for instruction-retry: "                       \
+                       << self->GetException()->Dump();                                         \
+        }                                                                                       \
+        self->ClearException();                                                                 \
+      }                                                                                         \
+    } else if (UNLIKELY(_is_exception_pending)) {                                               \
+      /* Should have succeeded. */                                                              \
+      DCHECK(!shadow_frame.GetForceRetryInstruction());                                         \
+      HANDLE_PENDING_EXCEPTION();                                                               \
+    } else {                                                                                    \
+      inst = inst->_next_function();                                                            \
+    }                                                                                           \
+  } while (false)
+
+#define POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_POLYMORPHIC(_is_exception_pending) \
+  POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_IMPL(_is_exception_pending, Next_4xx)
+#define POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(_is_exception_pending) \
+  POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_IMPL(_is_exception_pending, Next_3xx)
+
 #define POSSIBLY_HANDLE_PENDING_EXCEPTION(_is_exception_pending, _next_function)  \
   do {                                                                            \
+    /* Should only be on invoke instructions. */                                  \
+    DCHECK(!shadow_frame.GetForceRetryInstruction());                             \
     if (UNLIKELY(_is_exception_pending)) {                                        \
       HANDLE_PENDING_EXCEPTION();                                                 \
     } else {                                                                      \
@@ -65,17 +115,22 @@ namespace interpreter {
   }
 
 // Code to run before each dex instruction.
-#define PREAMBLE_SAVE(save_ref)                                                                      \
+#define PREAMBLE_SAVE(save_ref)                                                                 \
   {                                                                                             \
-    if (UNLIKELY(instrumentation->HasDexPcListeners()) &&                                       \
-        UNLIKELY(!DoDexPcMoveEvent(self,                                                        \
-                                   accessor,                                                    \
-                                   shadow_frame,                                                \
-                                   dex_pc,                                                      \
-                                   instrumentation,                                             \
-                                   save_ref))) {                                                \
-      HANDLE_PENDING_EXCEPTION();                                                               \
-      break;                                                                                    \
+    /* We need to put this before & after the instrumentation to avoid having to put in a */    \
+    /* post-script macro.                                                                 */    \
+    CHECK_FORCE_RETURN();                                                                       \
+    if (UNLIKELY(instrumentation->HasDexPcListeners())) {                                       \
+      if (UNLIKELY(!DoDexPcMoveEvent(self,                                                      \
+                                     accessor,                                                  \
+                                     shadow_frame,                                              \
+                                     dex_pc,                                                    \
+                                     instrumentation,                                           \
+                                     save_ref))) {                                              \
+        HANDLE_PENDING_EXCEPTION();                                                             \
+        break;                                                                                  \
+      }                                                                                         \
+      CHECK_FORCE_RETURN();                                                                     \
     }                                                                                           \
   }                                                                                             \
   do {} while (false)
@@ -179,7 +234,8 @@ NO_INLINE static bool SendMethodExitEvents(Thread* self,
                                            const JValue& result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   bool had_event = false;
-  if (UNLIKELY(instrumentation->HasMethodExitListeners())) {
+  // We don't send method-exit if it's a pop-frame. We still send frame_popped though.
+  if (UNLIKELY(instrumentation->HasMethodExitListeners() && !frame.GetForcePopFrame())) {
     had_event = true;
     instrumentation->MethodExitEvent(self, thiz.Ptr(), method, dex_pc, result);
   }
@@ -1602,84 +1658,84 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
         PREAMBLE();
         bool success = DoInvoke<kVirtual, false, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_VIRTUAL_RANGE: {
         PREAMBLE();
         bool success = DoInvoke<kVirtual, true, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_SUPER: {
         PREAMBLE();
         bool success = DoInvoke<kSuper, false, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_SUPER_RANGE: {
         PREAMBLE();
         bool success = DoInvoke<kSuper, true, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_DIRECT: {
         PREAMBLE();
         bool success = DoInvoke<kDirect, false, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_DIRECT_RANGE: {
         PREAMBLE();
         bool success = DoInvoke<kDirect, true, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_INTERFACE: {
         PREAMBLE();
         bool success = DoInvoke<kInterface, false, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_INTERFACE_RANGE: {
         PREAMBLE();
         bool success = DoInvoke<kInterface, true, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_STATIC: {
         PREAMBLE();
         bool success = DoInvoke<kStatic, false, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_STATIC_RANGE: {
         PREAMBLE();
         bool success = DoInvoke<kStatic, true, do_access_check>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_VIRTUAL_QUICK: {
         PREAMBLE();
         bool success = DoInvokeVirtualQuick<false>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_VIRTUAL_RANGE_QUICK: {
         PREAMBLE();
         bool success = DoInvokeVirtualQuick<true>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_POLYMORPHIC: {
@@ -1687,7 +1743,7 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
         DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
         bool success = DoInvokePolymorphic<false /* is_range */>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_4xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_POLYMORPHIC(!success);
         break;
       }
       case Instruction::INVOKE_POLYMORPHIC_RANGE: {
@@ -1695,7 +1751,7 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
         DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
         bool success = DoInvokePolymorphic<true /* is_range */>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_4xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE_POLYMORPHIC(!success);
         break;
       }
       case Instruction::INVOKE_CUSTOM: {
@@ -1703,7 +1759,7 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
         DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
         bool success = DoInvokeCustom<false /* is_range */>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::INVOKE_CUSTOM_RANGE: {
@@ -1711,7 +1767,7 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
         DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
         bool success = DoInvokeCustom<true /* is_range */>(
             self, shadow_frame, inst, inst_data, &result_register);
-        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION_ON_INVOKE(!success);
         break;
       }
       case Instruction::NEG_INT:

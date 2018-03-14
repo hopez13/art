@@ -368,6 +368,10 @@ bool DoIPutQuick(const ShadowFrame& shadow_frame, const Instruction* inst, uint1
     if (UNLIKELY(self->IsExceptionPending())) {
       return false;
     }
+    if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
+      // Don't actually set the field. The next instruction will force us to pop.
+      return true;
+    }
   }
   // Note: iput-x-quick instructions are only for non-volatile fields.
   switch (field_type) {
