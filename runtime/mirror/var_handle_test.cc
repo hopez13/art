@@ -31,6 +31,7 @@
 #include "object_array-inl.h"
 #include "reflection.h"
 #include "scoped_thread_state_change-inl.h"
+#include "verify_object.h"
 
 namespace art {
 namespace mirror {

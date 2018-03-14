@@ -261,6 +261,9 @@ static inline JValue Execute(
                                         shadow_frame.GetThisObject(accessor.InsSize()),
                                         method,
                                         0);
+      if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
+        return JValue();
+      }
       if (UNLIKELY(self->IsExceptionPending())) {
         instrumentation->MethodUnwindEvent(self,
                                            shadow_frame.GetThisObject(accessor.InsSize()),
