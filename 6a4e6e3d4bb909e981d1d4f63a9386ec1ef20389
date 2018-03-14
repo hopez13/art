@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1450920e_1d33a3ed",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T20:16:54Z",
+      "side": 1,
+      "message": "env should be for make options, not for specifying run-test options. You can add a flag to testrunner.py to forward the --runtime option to run-test and then add it on L96-L97\n\nAnd the other option is in run-test itself to add the -Xjitthreshold:0 for --gcstress.",
+      "revId": "6a4e6e3d4bb909e981d1d4f63a9386ec1ef20389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
