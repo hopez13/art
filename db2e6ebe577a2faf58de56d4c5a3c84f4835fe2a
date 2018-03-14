@@ -1,0 +1,391 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bfa98ed_1250a71b",
+        "filename": "runtime/base/lock_level.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe60e77_e39f4cdc",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b27b7e9_e933fa74",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Likely too many #includes, StringPrintf isn\u0027t used anywhere for example.",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7439bb99_5a5a5cac",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Assuming the rest of this is just moved, the .h file didn\u0027t have anything new added.",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa51fd6_107f6f10",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Too many includes, we shouldn\u0027t need this much.\n\nOther than std::ostream, std::vector,  Atomic most things can be forward-declared.",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c08e6d_492265f2",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Consider cleaning up the file structure while doing this\n\n  runtime/base/sync/mutator_mutex.h\n  runtime/base/sync/base_mutex.h\n  runtime/base/sync/locks.h\n  ...\n\netc.\n\nAt any rate it seems unexpected that a class XMutex to be in a file called Locks ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a3a3f2_bfe3e920",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "(I\u0027m at a loss for words...)",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "484d824d_c681d6fe",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Document if this can return null?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06388334_5d8965e0",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Is it \"safe\" or is it \"racy\" ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6237f433_ed16f5aa",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: should probably have \u0027Set...\u0027 as prefix to be similar to L92, L97.\n\nalso it is \"safe\" or \"racy\" ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "338bda01_844c53f6",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: should probably have \u0027Set...\u0027 as prefix to be similar to L92, L97.\n\nalso it is \"safe\" or \"racy\" ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16be26f9_96f0d805",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "This actually either calls LOG(FATAL) or exit(1) neither of which is obvious from the name/comments.\n\nI suggest:\n\n   // Report that.. and then terminate.\n   FatalUnlockFailed(...)",
+      "range": {
+        "startLine": 125,
+        "startChar": 14,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c9624a4_bd9c4e62",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: Explain in comment why this would be desirable?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2cbe5f1_0d908a53",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "What is \"i\" ? Seems like it\u0027s supposed to approximate microseconds from reading code.",
+      "range": {
+        "startLine": 158,
+        "startChar": 31,
+        "endLine": 158,
+        "endChar": 32
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4956da28_cb376a1f",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f09267_4b599e09",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Too many includes?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d891e66f_41ab74eb",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: can invert this for readability\n\n  if (!kDebugLocking) return",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59f401b7_6f36f58f",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: remove redundant ()",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9652784_5b0205a0",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: invert for readability",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77fac904_1f39b450",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "nit: invert for readability",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3c51705_85e04cd3",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-14T23:24:13Z",
+      "side": 1,
+      "message": "Hmmm. Do you want to pass file and line as argument?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
