@@ -261,6 +261,14 @@ static inline JValue Execute(
                                         shadow_frame.GetThisObject(accessor.InsSize()),
                                         method,
                                         0);
+      if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
+        // The caller will retry this invoke. Just return immediately without any value.
+        DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
+        DCHECK(shadow_frame.GetLink() != nullptr &&
+               shadow_frame.GetLink()->GetForceRetryInstruction())
+            << "Pop frame forced without previous frame ready to retry instruction!";
+        return JValue();
+      }
       if (UNLIKELY(self->IsExceptionPending())) {
         instrumentation->MethodUnwindEvent(self,
                                            shadow_frame.GetThisObject(accessor.InsSize()),
@@ -496,6 +504,8 @@ void EnterInterpreterFromDeoptimize(Thread* self,
   value.SetJ(ret_val->GetJ());
   // Are we executing the first shadow frame?
   bool first = true;
+  // Are we executing the second shadow-frame?
+  bool second = false;
   while (shadow_frame != nullptr) {
     // We do not want to recover lock state for lock counting when deoptimizing. Currently,
     // the compiler should not have compiled a method that failed structured-locking checks.
@@ -516,14 +526,18 @@ void EnterInterpreterFromDeoptimize(Thread* self,
     } else if (!from_code) {
       // Deoptimization is not called from code directly.
       const Instruction* instr = &accessor.InstructionAt(dex_pc);
-      if (deopt_method_type == DeoptimizationMethodType::kKeepDexPc) {
-        DCHECK(first);
+      if (deopt_method_type == DeoptimizationMethodType::kKeepDexPc ||
+          shadow_frame->GetForceRetryInstruction()) {
+        DCHECK(first || (second && shadow_frame->GetForceRetryInstruction()));
         // Need to re-execute the dex instruction.
         // (1) An invocation might be split into class initialization and invoke.
         //     In this case, the invoke should not be skipped.
         // (2) A suspend check should also execute the dex instruction at the
         //     corresponding dex pc.
+        // If the ForceRetryInstruction bit is set this must be the second frame (the first being
+        // the one that is being popped).
         DCHECK_EQ(new_dex_pc, dex_pc);
+        shadow_frame->SetForceRetryInstruction(false);
       } else if (instr->Opcode() == Instruction::MONITOR_ENTER ||
                  instr->Opcode() == Instruction::MONITOR_EXIT) {
         DCHECK(deopt_method_type == DeoptimizationMethodType::kDefault);
@@ -585,6 +599,7 @@ void EnterInterpreterFromDeoptimize(Thread* self,
     // and should advance dex pc past the invoke instruction.
     from_code = false;
     deopt_method_type = DeoptimizationMethodType::kDefault;
+    second = first;
     first = false;
   }
   ret_val->SetJ(value.GetJ());
