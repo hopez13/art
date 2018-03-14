@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59e240f4_196023ba",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a0a9dc_1eef0825",
+      "range": {
+        "startLine": 580,
+        "startChar": 42,
+        "endLine": 580,
+        "endChar": 44
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c6009f_74fa44ce",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-14T10:48:34Z",
       "side": 1,
       "message": "You should pass the condition instruction (cursor?) and/or use its dex pc.",
+      "range": {
+        "startLine": 872,
+        "startChar": 46,
+        "endLine": 872,
+        "endChar": 47
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58b972_445e32df",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Yes, that is better, and the cursor is the right one. Also done for ABS above.",
+      "parentUuid": "60c6009f_74fa44ce",
       "range": {
         "startLine": 872,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "90fd075f_5aa7e8b9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d2345bb_0ca717a3",
+      "range": {
+        "startLine": 874,
+        "startChar": 46,
+        "endLine": 874,
+        "endChar": 47
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bf4e665_d5105412",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-14T11:03:45Z",
       "side": 1,
       "message": "Avoid code repetition.\n\n  if ((cmp \u003d\u003d kCondLT || cmp \u003d\u003d kCondLE || cmp \u003d\u003d kCondGT || cmp \u003d\u003d kCondGE) \u0026\u0026\n      ((a \u003d\u003d true_value \u0026\u0026 b \u003d\u003d false_value) ||\n       (b \u003d\u003d true_value \u0026\u0026 a \u003d\u003d false_value))) {\n    bool is_min \u003d (cmp \u003d\u003d kCondLT || cmp \u003d\u003d kCondLE) \u003d\u003d (a \u003d\u003d true_value);\n    replace_with \u003d NewIntegralMinMax(GetGraph()-\u003eGetAllocator(), a, b, select, is_min);\n  }\n\n(Also avoids the two lines exceeding 100 characters.)",
+      "range": {
+        "startLine": 954,
+        "startChar": 8,
+        "endLine": 955,
+        "endChar": 52
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc11a467_8cd3dacf",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bf4e665_d5105412",
       "range": {
         "startLine": 954,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "38ba5f6f_4b9e9560",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c1f4ee7_1464a6df",
+      "range": {
+        "startLine": 960,
+        "startChar": 6,
+        "endLine": 960,
+        "endChar": 8
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a84981d_e8fb4b4f",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2018-03-14T10:48:34Z",
       "side": 1,
       "message": "Have this reference some doc / description?",
+      "range": {
+        "startLine": 338,
+        "startChar": 68,
+        "endLine": 338,
+        "endChar": 75
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "910e2239_6724ed98",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a84981d_e8fb4b4f",
       "range": {
         "startLine": 338,
         "startChar": 68,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7e2200df_100cb6e9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b2bbebd_4e492e57",
+      "range": {
+        "startLine": 344,
+        "startChar": 4,
+        "endLine": 344,
+        "endChar": 18
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fa0e713_808ae205",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2018-03-14T16:48:01Z",
       "side": 1,
       "message": "Could it be processed in a similar way as HBinaryOperation::OrderInputs does?",
+      "range": {
+        "startLine": 345,
+        "startChar": 12,
+        "endLine": 345,
+        "endChar": 53
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a8013ac_1ece1fc5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Neither is ideal perhaps. I like the brevity of the for-loop, even though I agree it obscures some semantics.",
+      "parentUuid": "4fa0e713_808ae205",
       "range": {
         "startLine": 345,
         "startChar": 12,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "fcc6e855_74d9c0b4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d6f53b_927cf343",
+      "range": {
+        "startLine": 360,
+        "startChar": 9,
+        "endLine": 360,
+        "endChar": 13
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4465843_110e6467",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -243,6 +459,30 @@
       "writtenOn": "2018-03-14T11:03:45Z",
       "side": 1,
       "message": "lo \u003c\u003d 0",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 19
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dea64edb_f198e0fe",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4465843_110e6467",
       "range": {
         "startLine": 368,
         "startChar": 8,
@@ -272,6 +512,24 @@
     },
     {
       "key": {
+        "uuid": "3b4dbaba_b723f24f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31dd3b38_b1d249f4",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b1ecd1f_8c2fc423",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -283,6 +541,24 @@
       "writtenOn": "2018-03-14T11:03:45Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ba0ae94_74c3346e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b1ecd1f_8c2fc423",
       "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -369,6 +645,30 @@
     },
     {
       "key": {
+        "uuid": "532504b5_ca665bca",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "yes good eye! I had that order originally, then foolishly restructured the code to be more concise. Fixed.",
+      "parentUuid": "8f9b407f_4677ea8e",
+      "range": {
+        "startLine": 1907,
+        "startChar": 26,
+        "endLine": 1907,
+        "endChar": 66
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ea44f49_12f65750",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -392,6 +692,30 @@
     },
     {
       "key": {
+        "uuid": "1afb66d2_0eacb102",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea44f49_12f65750",
+      "range": {
+        "startLine": 533,
+        "startChar": 72,
+        "endLine": 534,
+        "endChar": 7
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3852fa81_1e7fad42",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -403,6 +727,30 @@
       "writtenOn": "2018-03-14T16:48:01Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 622,
+        "startChar": 77,
+        "endLine": 623,
+        "endChar": 7
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcfc3_69bd15d2",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T17:57:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3852fa81_1e7fad42",
       "range": {
         "startLine": 622,
         "startChar": 77,
