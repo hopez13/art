@@ -244,6 +244,15 @@ class EventHandler {
   inline void DispatchEventOnEnv(ArtJvmTiEnv* env, art::Thread* thread, Args... args) const
       REQUIRES(!envs_lock_);
 
+  // Returns true if the exception event was ever enabled by any jvmti-env. This is needed since
+  // can_pop_frame is not always possible if a thread is stopped in an exception event. To simplify
+  // the code we will just disallow can_pop_frame if anything ever had an ExceptionEvent enabled.
+  // Normally it is expected that agents will ask for all caps they need once at the start so this
+  // is not expected to be common.
+  bool WasExceptionEventEnabled() const {
+    return exception_event_requested;
+  }
+
  private:
   void SetupTraceListener(JvmtiMethodTraceListener* listener, ArtJvmtiEvent event, bool enable);
 
@@ -329,6 +338,11 @@ class EventHandler {
   // continue to listen to this event even if it has been disabled.
   // TODO We could remove the listeners once all jvmtiEnvs have drained their shadow-frame vectors.
   bool frame_pop_enabled;
+
+  // True if we ever had an exception_event requested. We need this since if it happens before any
+  // jvmtiEnv requests can_pop_frame we cannot safely give that capability since we cannot PopFrame
+  // a thread stopped in art::Thread::QuickDeliverException.
+  bool exception_event_requested;
 };
 
 }  // namespace openjdkjvmti

@@ -243,8 +243,7 @@ class DebugInstrumentationListener FINAL : public instrumentation::Instrumentati
     Dbg::PostFieldModificationEvent(method, dex_pc, this_object.Get(), field, &field_value);
   }
 
-  void ExceptionThrown(Thread* thread ATTRIBUTE_UNUSED,
-                       Handle<mirror::Throwable> exception_object)
+  void ExceptionThrown(Thread* thread ATTRIBUTE_UNUSED, Handle<mirror::Throwable> exception_object)
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
     Dbg::PostException(exception_object.Get());
   }
