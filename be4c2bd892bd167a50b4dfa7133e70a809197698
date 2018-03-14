@@ -22,6 +22,30 @@
       "revId": "be4c2bd892bd167a50b4dfa7133e70a809197698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4127fcd3_e9f7f4ee",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-03-14T09:26:01Z",
+      "side": 1,
+      "message": "I think so. Resolving klass permanently modifies its underlying class hierarchy, no matter if klass is successfully initialized or not.",
+      "parentUuid": "f08eb244_80e1abc5",
+      "range": {
+        "startLine": 103,
+        "startChar": 24,
+        "endLine": 103,
+        "endChar": 27
+      },
+      "revId": "be4c2bd892bd167a50b4dfa7133e70a809197698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
