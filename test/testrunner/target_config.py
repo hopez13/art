@@ -97,7 +97,8 @@ target_config = {
                       '--gcstress'],
         'env' : {
             'ART_USE_READ_BARRIER' : 'false',
-            'ART_DEFAULT_GC_TYPE' : 'SS'
+            'ART_DEFAULT_GC_TYPE' : 'SS',
+            'ART_TEST_RUN_TEST_OPTIONS' : '--runtime-option -Xjitthreshold:0'
         }
     },
     'art-read-barrier' : {

@@ -341,6 +341,9 @@ def run_tests(tests):
   if env.ART_TEST_ANDROID_ROOT:
     options_all += ' --android-root ' + env.ART_TEST_ANDROID_ROOT
 
+  if env.ART_TEST_RUN_TEST_OPTIONS:
+    options_all += ' ' + env.ART_TEST_RUN_TEST_OPTIONS
+
   if gdb:
     options_all += ' --gdb'
     if gdb_arg:
