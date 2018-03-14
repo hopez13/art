@@ -5836,6 +5836,20 @@ bool ClassLinker::LinkVirtualMethods(
       // smaller as we go on.
       uint32_t hash_index = hash_table.FindAndRemove(&super_method_name_comparator);
       if (hash_index != hash_table.GetNotFoundIndex()) {
+        if (hiddenapi::WouldBlockAccessToMember(super_method->GetAccessFlags(),
+                                                klass->GetClassLoader())) {
+          // Warn that we are going to override a method which is hidden to `klass`.
+          // We cannot do this test earlier because we need to establish that
+          // a method is being overridden first. ShouldBlockAccessToMember would
+          // print bogus warnings otherwise.
+          std::string tmp;
+          LOG(WARNING) << "Overriding hidden method "
+                       << super_method->GetDeclaringClass()->GetDescriptor(&tmp) << "->"
+                       << super_method->GetName() << super_method->GetSignature().ToString()
+                       << " ("
+                       << HiddenApiAccessFlags::DecodeFromRuntime(super_method->GetAccessFlags())
+                       << ")";
+        }
         ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(
             hash_index, image_pointer_size_);
         if (super_method->IsFinal()) {
