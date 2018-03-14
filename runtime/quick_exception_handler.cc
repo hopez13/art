@@ -391,7 +391,7 @@ class DeoptimizeStackVisitor final : public StackVisitor {
                                           StackedShadowFrameType::kDeoptimizationShadowFrame);
       stacked_shadow_frame_pushed_ = true;
     }
-    if (GetMethod() == nullptr) {
+    if (GetMethod() == nullptr && UNLIKELY(!Runtime::Current()->AreNonStandardExitsEnabled())) {
       exception_handler_->SetFullFragmentDone(true);
     } else {
       CHECK(callee_method_ != nullptr) << GetMethod()->PrettyMethod(false);
@@ -428,6 +428,7 @@ class DeoptimizeStackVisitor final : public StackVisitor {
       // Check if a shadow frame already exists for debugger's set-local-value purpose.
       const size_t frame_id = GetFrameId();
       ShadowFrame* new_frame = GetThread()->FindDebuggerShadowFrame(frame_id);
+
       const bool* updated_vregs;
       CodeItemDataAccessor accessor(method->DexInstructionData());
       const size_t num_regs = accessor.RegistersSize();
