@@ -118,6 +118,30 @@
       "revId": "092d66a93361bb8058644521cabf621384257d1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5f0f914_d3c2ba4d",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T09:24:41Z",
+      "side": 1,
+      "message": "Done with kDexSectionVersionEmpty.",
+      "parentUuid": "aba3b9f7_03918694",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "092d66a93361bb8058644521cabf621384257d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
