@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4806985_d0a4617b",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done. Thanks, hang over from trying different factorings here.",
+      "parentUuid": "8602832f_38f5ee7e",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "739b89a4_589ad6d8",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-12T22:54:01Z",
       "side": 1,
       "message": "nit: This can be hidden further with a helper function\n\n  StateAndFlags old_state_and_flags \u003d GetCurrentStateAndFlags();",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ae4612f_c39a970d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done. This reads well.",
+      "parentUuid": "739b89a4_589ad6d8",
       "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "40e02b13_1612e2db",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35f52fad_65f902f2",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "030c2578_01e824e4",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -85,6 +139,24 @@
       "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55ab13c8_25008565",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "030c2578_01e824e4",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "ee392c25_a17d31fa",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b0131a_118352d6",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd9e6cd1_e53a1aec",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -119,6 +209,24 @@
       "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4096ea9_c7ebc14f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd9e6cd1_e53a1aec",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -169,6 +277,30 @@
     },
     {
       "key": {
+        "uuid": "d9e391bc_8f68d6c9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9dfd91a_1cf64e43",
+      "range": {
+        "startLine": 1323,
+        "startChar": 14,
+        "endLine": 1323,
+        "endChar": 28
+      },
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0f1156d_8281f90a",
         "filename": "runtime/thread.h",
         "patchSetId": 7
@@ -180,6 +312,24 @@
       "writtenOn": "2018-03-12T22:54:01Z",
       "side": 1,
       "message": "nit: I found this reinterpret cast to be a bit harmful for readability (and standards-compliance) since its hiding the fact that an atomic int is being aliased as an atomic byte.",
+      "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664cd6c8_f93d8c09",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-14T15:10:55Z",
+      "side": 1,
+      "message": "Changed to use a CAS here.",
+      "parentUuid": "e0f1156d_8281f90a",
       "revId": "055446b78fe9d0fc8654dc275a2cb8d614f95666",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
