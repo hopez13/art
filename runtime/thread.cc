@@ -3348,10 +3348,17 @@ void Thread::QuickDeliverException() {
     HandleWrapperObjPtr<mirror::Throwable> h_exception(hs.NewHandleWrapper(&exception));
     instrumentation->ExceptionThrownEvent(this, exception.Ptr());
   }
-  // Does instrumentation need to deoptimize the stack?
-  // Note: we do this *after* reporting the exception to instrumentation in case it
-  // now requires deoptimization. It may happen if a debugger is attached and requests
-  // new events (single-step, breakpoint, ...) when the exception is reported.
+  // Does instrumentation need to deoptimize the stack or otherwise go to interpreter for something?
+  // Note: we do this *after* reporting the exception to instrumentation in case it now requires
+  // deoptimization. It may happen if a debugger is attached and requests new events (single-step,
+  // breakpoint, ...) when the exception is reported.
+  if (kIsDebugBuild) {
+    NthCallerVisitor visitor(this, 0, false);
+    visitor.WalkStack();
+    ShadowFrame *cf = FindDebuggerShadowFrame(visitor.GetFrameId());
+    CHECK(cf == nullptr || !cf->GetForcePopFrame())
+        << "Cannot perform a pop-frame from quick exception delivery";
+  }
   if (Dbg::IsForcedInterpreterNeededForException(this)) {
     NthCallerVisitor visitor(this, 0, false);
     visitor.WalkStack();

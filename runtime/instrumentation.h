@@ -466,7 +466,8 @@ class Instrumentation {
   }
 
   // Inform listeners that an exception was thrown.
-  void ExceptionThrownEvent(Thread* thread, mirror::Throwable* exception_object) const
+  void ExceptionThrownEvent(Thread* thread,
+                            mirror::Throwable* exception_object) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Inform listeners that an exception has been handled. This is not sent for native code or for
