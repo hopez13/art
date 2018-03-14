@@ -81,6 +81,8 @@ class StackUtil {
                                         jobject** owned_monitors_ptr);
 
   static jvmtiError NotifyFramePop(jvmtiEnv* env, jthread thread, jint depth);
+
+  static jvmtiError PopFrame(jvmtiEnv* env, jthread thread);
 };
 
 struct FindFrameAtDepthVisitor : art::StackVisitor {

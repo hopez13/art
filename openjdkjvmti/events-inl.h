@@ -359,6 +359,7 @@ inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kFramePop>(
   // have to deal with use-after-free or the frames being reallocated later.
   art::WriterMutexLock lk(art::Thread::Current(), env->event_info_mutex_);
   return env->notify_frames.erase(frame) != 0 &&
+      !frame->GetForcePopFrame() &&
       ShouldDispatchOnThread<ArtJvmtiEvent::kFramePop>(env, thread);
 }
 
@@ -572,6 +573,13 @@ inline void EventHandler::HandleChangedCapabilities(ArtJvmTiEnv* env,
     }
     if (caps.can_generate_breakpoint_events == 1) {
       HandleBreakpointEventsChanged(added);
+    }
+  }
+  if (caps.can_pop_frame == 1) {
+    if (added) {
+      // TODO We should keep track of how many of these have been enabled and remove it if there are
+      // no more possible users.
+      art::Runtime::Current()->SetNonStandardExitsEnabled();
     }
   }
 }
