@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37a0a9dc_1eef0825",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T10:48:34Z",
+      "side": 1,
+      "message": "\u003c\u003c instruction-\u003eGetPackedType() (here and other places)",
+      "range": {
+        "startLine": 580,
+        "startChar": 42,
+        "endLine": 580,
+        "endChar": 44
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60c6009f_74fa44ce",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T10:48:34Z",
+      "side": 1,
+      "message": "You should pass the condition instruction (cursor?) and/or use its dex pc.",
+      "range": {
+        "startLine": 872,
+        "startChar": 46,
+        "endLine": 872,
+        "endChar": 47
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d2345bb_0ca717a3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T10:48:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 874,
+        "startChar": 46,
+        "endLine": 874,
+        "endChar": 47
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a84981d_e8fb4b4f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-14T10:48:34Z",
+      "side": 1,
+      "message": "Have this reference some doc / description?",
+      "range": {
+        "startLine": 338,
+        "startChar": 68,
+        "endLine": 338,
+        "endChar": 75
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
