@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb55c543_c26e67b3",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T23:17:57Z",
+      "side": 1,
+      "message": "method order in cc should reflect order in h file\n(in particular, this method is private, so really must go under the private section below)",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0245174_9be803f3",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T23:17:57Z",
+      "side": 1,
+      "message": "remove this \"statically\" (is not mentioned above or below either)",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cea00e1_ea2a667f",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-14T23:17:57Z",
+      "side": 1,
+      "message": "maybe put empty lines around this (only) multi line method",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
