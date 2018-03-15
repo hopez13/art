@@ -44,6 +44,7 @@ export JAVA="java"
 export JAVAC="javac -g -Xlint:-options"
 export RUN="${progdir}/etc/run-test-jar"
 export DEX_LOCATION=/data/run-test/${test_dir}
+export DXMERGER="d8"
 export NEED_DEX="true"
 export USE_D8="false"
 export USE_JACK="false"
@@ -63,11 +64,6 @@ fi
 # If smali was not set by the environment variable, assume it is in the path.
 if [ -z "$SMALI" ]; then
   export SMALI="smali"
-fi
-
-# If dexmerger was not set by the environment variable, assume it is in the path.
-if [ -z "$DXMERGER" ]; then
-  export DXMERGER="dexmerger"
 fi
 
 # If jack was not set by the environment variable, assume it is in the path.
