@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3a8b377_baa3b48a",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-15T09:14:53Z",
+      "side": 1,
+      "message": "Unused, do you want to get rid of it or use it in CanAccessMember?",
+      "range": {
+        "startLine": 173,
+        "startChar": 12,
+        "endLine": 173,
+        "endChar": 36
+      },
+      "revId": "00a96e45f1cfab608d11db5ec06aa435b87f119a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
