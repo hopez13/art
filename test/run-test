@@ -67,7 +67,7 @@ fi
 
 # If dexmerger was not set by the environment variable, assume it is in the path.
 if [ -z "$DXMERGER" ]; then
-  export DXMERGER="dexmerger"
+  export DXMERGER="d8"
 fi
 
 # If jack was not set by the environment variable, assume it is in the path.

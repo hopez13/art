@@ -341,8 +341,20 @@ function make_dexmerge() {
     shift
   done
 
-  # Should have at least 1 dex_files_to_merge here, otherwise dxmerger will print the help.
-  ${DXMERGER} "$dst_file" "${dex_files_to_merge[@]}"
+  # Should have at least 1 dex_files_to_merge here, otherwise the merger will print the help.
+  ${DXMERGER} --output "dex.zip" "${dex_files_to_merge[@]}"
+
+  # D8 only produce a single file. Due to possiblity of multidex, it will always
+  # be a single zip file.
+  if [[ `unzip -l dex.zip | grep classes.*.dex | wc -l` -ne "1" ]]; then
+    echo "Cannot merge all dex files into a single dex"
+    exit 1
+  fi
+
+  unzip -o dex.zip classes.dex
+  if [ "classes.dex" -ne "$dst_file" ]; then
+    mv classes.dex $dst_file
+  fi
 }
 
 function make_hiddenapi() {
