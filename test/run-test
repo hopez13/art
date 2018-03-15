@@ -65,9 +65,9 @@ if [ -z "$SMALI" ]; then
   export SMALI="smali"
 fi
 
-# If dexmerger was not set by the environment variable, assume it is in the path.
+# If dex merger tool (d8) was not set by the environment variable, assume it is in the path.
 if [ -z "$DXMERGER" ]; then
-  export DXMERGER="dexmerger"
+  export DXMERGER="d8"
 fi
 
 # If jack was not set by the environment variable, assume it is in the path.
