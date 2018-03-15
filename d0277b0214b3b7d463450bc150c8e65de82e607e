@@ -22,6 +22,30 @@
       "revId": "d0277b0214b3b7d463450bc150c8e65de82e607e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec1e0b9e_fb4a8b5c",
+        "filename": "libdexfile/dex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T11:41:28Z",
+      "side": 1,
+      "message": "Parts of data section are shared (e.g. strings), but other parts are not (e.g. the method bytecode). Knowing which is which helps to optimize libunwind (speed and memory). See the bug.",
+      "parentUuid": "90720135_c4048660",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 62
+      },
+      "revId": "d0277b0214b3b7d463450bc150c8e65de82e607e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
