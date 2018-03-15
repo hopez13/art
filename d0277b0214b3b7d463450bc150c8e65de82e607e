@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90720135_c4048660",
+        "filename": "libdexfile/dex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-15T09:27:34Z",
+      "side": 1,
+      "message": "I find the comment a bit confusing. If it\u0027s shared (with other cdex files), what does \"owning\" mean?",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 62
+      },
+      "revId": "d0277b0214b3b7d463450bc150c8e65de82e607e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
