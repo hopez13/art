@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7268d595_5f69b727",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-15T21:17:54Z",
+      "side": 1,
+      "message": "Done.\n(CheckForFiniteAndConstantProps is private actually)",
+      "parentUuid": "eb55c543_c26e67b3",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0245174_9be803f3",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 19
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "27b596a4_a29c2583",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-15T21:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0245174_9be803f3",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9cea00e1_ea2a667f",
         "filename": "compiler/optimizing/loop_analysis.h",
         "patchSetId": 19
@@ -47,6 +83,24 @@
       "writtenOn": "2018-03-14T23:17:57Z",
       "side": 1,
       "message": "maybe put empty lines around this (only) multi line method",
+      "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c9e6ec0_4da5dc29",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-15T21:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cea00e1_ea2a667f",
       "revId": "efb1ea153658341ceb203fac82a8ebbd537c9604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
