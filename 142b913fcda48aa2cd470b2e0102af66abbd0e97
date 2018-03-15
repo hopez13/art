@@ -22,6 +22,30 @@
       "revId": "142b913fcda48aa2cd470b2e0102af66abbd0e97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfbda379_afe45b5d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-15T16:41:03Z",
+      "side": 1,
+      "message": "For sure. We are not done having fun with MIN/MAX/ABS, but at the moment ABS only supports Int32/64. More generalizations are in the pipeline!",
+      "parentUuid": "97d5b93f_8de8ce72",
+      "range": {
+        "startLine": 943,
+        "startChar": 7,
+        "endLine": 944,
+        "endChar": 79
+      },
+      "revId": "142b913fcda48aa2cd470b2e0102af66abbd0e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
