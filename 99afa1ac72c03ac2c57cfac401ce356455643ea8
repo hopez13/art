@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "c13a72cf_1f38f6ef",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-15T11:31:17Z",
+      "side": 1,
+      "message": "But you can avoid the loop altogether if you use `instruction-\u003eAsBinaryOperation()-\u003eGetConstantRight()`.",
+      "parentUuid": "3a8013ac_1ece1fc5",
+      "range": {
+        "startLine": 345,
+        "startChar": 12,
+        "endLine": 345,
+        "endChar": 53
+      },
+      "revId": "99afa1ac72c03ac2c57cfac401ce356455643ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f340af6_b0ad3443",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
