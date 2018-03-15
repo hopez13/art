@@ -22,6 +22,30 @@
       "revId": "00a96e45f1cfab608d11db5ec06aa435b87f119a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e4fe39_e6a6c0aa",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-15T11:52:06Z",
+      "side": 1,
+      "message": "Ah right, removed. If we\u0027re going to get in the override warnings, the DCHECK does not make sense.",
+      "parentUuid": "c3a8b377_baa3b48a",
+      "range": {
+        "startLine": 173,
+        "startChar": 12,
+        "endLine": 173,
+        "endChar": 36
+      },
+      "revId": "00a96e45f1cfab608d11db5ec06aa435b87f119a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
