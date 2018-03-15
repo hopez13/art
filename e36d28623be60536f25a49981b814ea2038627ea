@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "922db35f_846c831a",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-15T03:26:48Z",
+      "side": 1,
+      "message": "Please add one more bullet:\n* For full conformance with the C++ memory model, all seqlock-protected accesses should be\natomic. We currently do this in the more critical cases. The rest will have to be fixed before attempting to run TSAN on this code.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 2
+      },
+      "revId": "e36d28623be60536f25a49981b814ea2038627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
