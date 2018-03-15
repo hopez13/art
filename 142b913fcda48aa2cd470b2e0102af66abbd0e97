@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97d5b93f_8de8ce72",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-15T11:22:13Z",
+      "side": 1,
+      "message": "TODO: Loosen this restriction to\n\n  DataType::IsIntegralType(t_type) \u0026\u0026 DataType::Kind(t_type) \u003d\u003d DataType::Kind(f_type)\n\nThis is unnecessary for the SIMD cases you\u0027re looking for at the moment (where the ADD/SUB has type Int32/Int64) but for non-SIMD cases this restriction does not make much sense. And we would need that if we want to vectorize\n\n  void computeMax(byte[] result, byte[] a, byte[] b) {\n    int size \u003d Math.min(result.length, Math.min(a.length, b.length));\n    for (int i \u003d 0; i \u003c size; ++i) {\n      // Both t_type and f_type are Int8:\n      result[i] \u003d a[i] \u003e b[i] ? a[i] : b[i];\n    }\n  }\n\n  void computeAbs(byte[] result, byte[] a) {\n    int size \u003d Math.min(result.length, a.length);\n    for (int i \u003d 0; i \u003c size; ++i) {\n      // t_type is Int8, f_type is Int 32:\n      result[i] \u003d (byte) (a[i] \u003e\u003d 0 ? a[i] : -a[i]);\n    }\n  }",
+      "range": {
+        "startLine": 943,
+        "startChar": 7,
+        "endLine": 944,
+        "endChar": 79
+      },
+      "revId": "142b913fcda48aa2cd470b2e0102af66abbd0e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
