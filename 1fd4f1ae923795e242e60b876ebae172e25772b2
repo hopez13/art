@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32a016d0_98b10c39",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-15T11:57:07Z",
+      "side": 1,
+      "message": "Can we pass it explicitly instead?",
+      "range": {
+        "startLine": 161,
+        "startChar": 64,
+        "endLine": 161,
+        "endChar": 75
+      },
+      "revId": "1fd4f1ae923795e242e60b876ebae172e25772b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "393d7d0b_7cb3e605",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-15T11:57:07Z",
+      "side": 1,
+      "message": "Add a comment that in the context of unstarted runtime, that\u0027s the only thinkg it can go through (reflection, and not linking).",
+      "range": {
+        "startLine": 187,
+        "startChar": 17,
+        "endLine": 187,
+        "endChar": 28
+      },
+      "revId": "1fd4f1ae923795e242e60b876ebae172e25772b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
