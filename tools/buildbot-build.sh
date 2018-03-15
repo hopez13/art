@@ -78,10 +78,11 @@ elif [[ $mode == "target" ]]; then
     echo 'TARGET_PRODUCT environment variable is empty; did you forget to run `lunch`?'
     exit 1
   fi
+  product=$(echo ${TARGET_PRODUCT} | sed 's/aosp_//')
   make_command="make $j_arg $extra_args $showcommands build-art-target-tests $common_targets"
   make_command+=" libjavacrypto-target libnetd_client-target linker toybox toolbox sh"
   make_command+=" ${out_dir}/host/linux-x86/bin/adb libstdc++ "
-  make_command+=" ${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
+  make_command+=" ${out_dir}/target/product/${product}/system/etc/public.libraries.txt"
   mode_suffix="-target"
 fi
 
