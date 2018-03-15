@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d731def_66a106fd",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2487,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T15:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f347361_7f592477",
+      "range": {
+        "startLine": 2487,
+        "startChar": 16,
+        "endLine": 2487,
+        "endChar": 19
+      },
+      "revId": "d5eb8ea4e71f0c46b25b8bb2288c8ec99ca0671e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee87e2bb_818a0caf",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-14T10:41:26Z",
       "side": 1,
       "message": "RBX",
+      "range": {
+        "startLine": 2497,
+        "startChar": 40,
+        "endLine": 2497,
+        "endChar": 43
+      },
+      "revId": "d5eb8ea4e71f0c46b25b8bb2288c8ec99ca0671e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ba8828_7152e1ea",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T15:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee87e2bb_818a0caf",
       "range": {
         "startLine": 2497,
         "startChar": 40,
