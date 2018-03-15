@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "67583bb3_e95c3f31",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T14:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "922db35f_846c831a",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 2
+      },
+      "revId": "e36d28623be60536f25a49981b814ea2038627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3655a69f_df7c16b7",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-15T09:23:24Z",
       "side": 1,
       "message": "Add a comment why this needs to be atomic (and also why \u0027prev\u0027 is not atomic).",
+      "range": {
+        "startLine": 83,
+        "startChar": 9,
+        "endLine": 83,
+        "endChar": 15
+      },
+      "revId": "e36d28623be60536f25a49981b814ea2038627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49d47fce_322de30d",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T14:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3655a69f_df7c16b7",
       "range": {
         "startLine": 83,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fbcad0dd_31b50c0c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T14:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56744a80_a57574e2",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 28
+      },
+      "revId": "e36d28623be60536f25a49981b814ea2038627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "442d51bd_9475d410",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 6
@@ -82,6 +154,24 @@
       "writtenOn": "2018-03-15T09:23:24Z",
       "side": 1,
       "message": "ditto: \"We are going to modify the linked list, so take the seqlock\".",
+      "revId": "e36d28623be60536f25a49981b814ea2038627ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba4ccdce_0638c64c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-15T14:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "442d51bd_9475d410",
       "revId": "e36d28623be60536f25a49981b814ea2038627ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
