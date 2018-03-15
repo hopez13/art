@@ -1435,7 +1435,9 @@ void Thread::RunEmptyCheckpoint() {
 
 bool Thread::RequestCheckpoint(Closure* function) {
   union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
+  old_state_and_flags.as_atomic_int.store(
+      tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
+      std::memory_order_relaxed);
   if (old_state_and_flags.as_struct.state != kRunnable) {
     return false;  // Fail, thread is suspended and so can't run a checkpoint.
   }
@@ -1443,10 +1445,11 @@ bool Thread::RequestCheckpoint(Closure* function) {
   // We must be runnable to request a checkpoint.
   DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
   union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
-  new_state_and_flags.as_struct.flags |= kCheckpointRequest;
+  new_state_and_flags.as_struct.state = old_state_and_flags.as_struct.state;
+  new_state_and_flags.as_struct.flags = old_state_and_flags.as_struct.flags | kCheckpointRequest;
   bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+      old_state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
+      new_state_and_flags.as_atomic_int.load(std::memory_order_relaxed));
   if (success) {
     // Succeeded setting checkpoint flag, now insert the actual checkpoint.
     if (tlsPtr_.checkpoint_function == nullptr) {
@@ -1455,6 +1458,13 @@ bool Thread::RequestCheckpoint(Closure* function) {
       checkpoint_overflow_.push_back(function);
     }
     CHECK_EQ(ReadFlag(kCheckpointRequest), true);
+    // The suspend trigger is removed in the SuspensionHandler signal handler, which means the
+    // following write in TriggerSuspend() must have been observed. This method and
+    // RunCheckpoint() add and remove checkpoint methods with the thread_suspend_count_lock_
+    // held. Polling of checkpoint methods continues until the queue is empty and
+    // kCheckpointRequest is cleared. As such the non-atomicity of TriggerSuspend() should not
+    // miss any checkpoints, but may occasionally trigger a suspension signal unnecessarily
+    // (b/112138190).
     TriggerSuspend();
   }
   return success;
@@ -1462,7 +1472,9 @@ bool Thread::RequestCheckpoint(Closure* function) {
 
 bool Thread::RequestEmptyCheckpoint() {
   union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_int = tls32_.state_and_flags.as_int;
+  old_state_and_flags.as_atomic_int.store(
+      tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
+      std::memory_order_relaxed);
   if (old_state_and_flags.as_struct.state != kRunnable) {
     // If it's not runnable, we don't need to do anything because it won't be in the middle of a
     // heap access (eg. the read barrier).
@@ -1472,10 +1484,12 @@ bool Thread::RequestEmptyCheckpoint() {
   // We must be runnable to request a checkpoint.
   DCHECK_EQ(old_state_and_flags.as_struct.state, kRunnable);
   union StateAndFlags new_state_and_flags;
-  new_state_and_flags.as_int = old_state_and_flags.as_int;
-  new_state_and_flags.as_struct.flags |= kEmptyCheckpointRequest;
+  new_state_and_flags.as_struct.state = old_state_and_flags.as_struct.state;
+  new_state_and_flags.as_struct.flags =
+      old_state_and_flags.as_struct.flags | kEmptyCheckpointRequest;
   bool success = tls32_.state_and_flags.as_atomic_int.CompareAndSetStrongSequentiallyConsistent(
-      old_state_and_flags.as_int, new_state_and_flags.as_int);
+      old_state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
+      new_state_and_flags.as_atomic_int.load(std::memory_order_relaxed));
   if (success) {
     TriggerSuspend();
   }

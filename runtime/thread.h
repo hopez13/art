@@ -235,9 +235,10 @@ class Thread {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ThreadState GetState() const {
-    DCHECK_GE(tls32_.state_and_flags.as_struct.state, kTerminated);
-    DCHECK_LE(tls32_.state_and_flags.as_struct.state, kSuspended);
-    return static_cast<ThreadState>(tls32_.state_and_flags.as_struct.state);
+    ThreadState state = static_cast<ThreadState>(tls32_.state_and_flags.as_struct.state);
+    DCHECK_GE(state, kTerminated);
+    DCHECK_LE(state, kSuspended);
+    return state;
   }
 
   ThreadState SetState(ThreadState new_state);
@@ -257,7 +258,9 @@ class Thread {
 
   bool IsSuspended() const {
     union StateAndFlags state_and_flags;
-    state_and_flags.as_int = tls32_.state_and_flags.as_int;
+    state_and_flags.as_atomic_int.store(
+        tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
+        std::memory_order_relaxed);
     return state_and_flags.as_struct.state != kRunnable &&
         (state_and_flags.as_struct.flags & kSuspendRequest) != 0;
   }
@@ -1440,7 +1443,6 @@ class Thread {
       volatile uint16_t state;
     } as_struct;
     AtomicInteger as_atomic_int;
-    volatile int32_t as_int;
 
    private:
     // gcc does not handle struct with volatile member assignments correctly.
