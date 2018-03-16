@@ -157,13 +157,13 @@ DEFINE_CHECK_EQ(static_cast<int32_t>(ROSALLOC_RUN_FREE_LIST_SIZE_OFFSET), (stati
 #define ROSALLOC_SLOT_NEXT_OFFSET 0
 DEFINE_CHECK_EQ(static_cast<int32_t>(ROSALLOC_SLOT_NEXT_OFFSET), (static_cast<int32_t>((art::gc::allocator::RosAlloc::RunSlotNextOffset()))))
 #define THREAD_SUSPEND_REQUEST 1
-DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_SUSPEND_REQUEST), (static_cast<int32_t>((art::kSuspendRequest))))
+DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_SUSPEND_REQUEST), (static_cast<int32_t>((art::ThreadFlag::kSuspendRequest))))
 #define THREAD_CHECKPOINT_REQUEST 2
-DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::kCheckpointRequest))))
+DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::ThreadFlag::kCheckpointRequest))))
 #define THREAD_EMPTY_CHECKPOINT_REQUEST 4
-DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_EMPTY_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::kEmptyCheckpointRequest))))
+DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_EMPTY_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::ThreadFlag::kEmptyCheckpointRequest))))
 #define THREAD_SUSPEND_OR_CHECKPOINT_REQUEST 7
-DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::kSuspendRequest | art::kCheckpointRequest | art::kEmptyCheckpointRequest))))
+DEFINE_CHECK_EQ(static_cast<int32_t>(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), (static_cast<int32_t>((art::ThreadFlag::kSuspendRequest | art::ThreadFlag::kCheckpointRequest | art::ThreadFlag::kEmptyCheckpointRequest))))
 #define JIT_CHECK_OSR (-1)
 DEFINE_CHECK_EQ(static_cast<int16_t>(JIT_CHECK_OSR), (static_cast<int16_t>((art::jit::kJitCheckForOSR))))
 #define JIT_HOTNESS_DISABLE (-2)

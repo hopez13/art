@@ -17,15 +17,15 @@
 // Constants within thread.h.
 
 #if defined(DEFINE_INCLUDE_DEPENDENCIES)
-#include "thread.h"   // art::kSuspendRequest, etc.
+#include "thread.h"   // art::ThreadFlag::kSuspendRequest, etc.
 #endif
 
 #define DEFINE_THREAD_CONSTANT(macro_name, type, expr) \
   DEFINE_EXPR(THREAD_ ## macro_name, type, (expr))
 
-DEFINE_THREAD_CONSTANT(SUSPEND_REQUEST,    int32_t, art::kSuspendRequest)
-DEFINE_THREAD_CONSTANT(CHECKPOINT_REQUEST, int32_t, art::kCheckpointRequest)
-DEFINE_THREAD_CONSTANT(EMPTY_CHECKPOINT_REQUEST, int32_t, art::kEmptyCheckpointRequest)
-DEFINE_THREAD_CONSTANT(SUSPEND_OR_CHECKPOINT_REQUEST,  int32_t, art::kSuspendRequest | art::kCheckpointRequest | art::kEmptyCheckpointRequest)
+DEFINE_THREAD_CONSTANT(SUSPEND_REQUEST,    int32_t, art::ThreadFlag::kSuspendRequest)
+DEFINE_THREAD_CONSTANT(CHECKPOINT_REQUEST, int32_t, art::ThreadFlag::kCheckpointRequest)
+DEFINE_THREAD_CONSTANT(EMPTY_CHECKPOINT_REQUEST, int32_t, art::ThreadFlag::kEmptyCheckpointRequest)
+DEFINE_THREAD_CONSTANT(SUSPEND_OR_CHECKPOINT_REQUEST,  int32_t, art::ThreadFlag::kSuspendRequest | art::ThreadFlag::kCheckpointRequest | art::ThreadFlag::kEmptyCheckpointRequest)
 
 #undef DEFINE_THREAD_CONSTANT
