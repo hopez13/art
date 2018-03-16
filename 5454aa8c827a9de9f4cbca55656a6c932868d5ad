@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ddaa93da_6085fdb3",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1095168
+      },
+      "writtenOn": "2018-03-16T06:38:40Z",
+      "side": 1,
+      "message": "If you don\u0027t specify the output at all, D8 will generate as many dex files as needed in the current directory: classes.dex, classes2.dex, ...\n\nSo instead of spending time both zipping and then unzipping, maybe you should just do that and make sure that there is no classes2.dex file at the end. If there is, print out your error?",
+      "range": {
+        "startLine": 345,
+        "startChar": 14,
+        "endLine": 345,
+        "endChar": 32
+      },
+      "revId": "5454aa8c827a9de9f4cbca55656a6c932868d5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45ddda18_847ce1cd",
         "filename": "test/run-test",
         "patchSetId": 1
