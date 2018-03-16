@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "51421ec9_4f0915ce",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-16T10:11:20Z",
+      "side": 1,
+      "message": "Copied from the other files.",
+      "parentUuid": "fa70dddc_2998ba18",
+      "range": {
+        "startLine": 48,
+        "startChar": 11,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "2320a396bb938c2b5f9528a48cc7e136cf3c0229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a0dfd06f_a4c25243",
         "filename": "runtime/interpreter/cfi_asm_support.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-16T10:09:36Z",
       "side": 1,
       "message": "I think we should still enumerate the parameters.",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 43
+      },
+      "revId": "2320a396bb938c2b5f9528a48cc7e136cf3c0229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "686b2822_beb6ac50",
+        "filename": "runtime/interpreter/cfi_asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-03-16T10:11:20Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "a0dfd06f_a4c25243",
       "range": {
         "startLine": 49,
         "startChar": 40,
