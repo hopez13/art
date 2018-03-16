@@ -482,6 +482,13 @@ art_cc_library {
                  thin: true,
             },
         },
+        // Exclude x86 from LTO, due to gold archieve rescan bug.
+        // http://b/75279968
+        android_x86: {
+            lto: {
+                thin: false,
+            },
+        },
     },
 }
 
