@@ -16,6 +16,29 @@
       "revId": "a461dcf11b050e8fa980eee81bf80c6b4c0edc9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c416624_34ee0d98",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-03-16T00:22:53Z",
+      "side": 1,
+      "message": "This should be the device, not the product from TARGET_PRODUCT. (get_build_var TARGET_DEVICE, etc)",
+      "range": {
+        "startLine": 85,
+        "startChar": 46,
+        "endLine": 85,
+        "endChar": 53
+      },
+      "revId": "a461dcf11b050e8fa980eee81bf80c6b4c0edc9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
