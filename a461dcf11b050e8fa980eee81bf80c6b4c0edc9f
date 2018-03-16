@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d027c0a_8c32a862",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-16T00:19:22Z",
+      "side": 1,
+      "message": "Doesn\u0027t it break it how it\u0027s used in the master-art repository then?\n\nI think the correct fix might be to fix one of device.mk files in master-art ?",
+      "revId": "a461dcf11b050e8fa980eee81bf80c6b4c0edc9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
