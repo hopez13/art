@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1846a0e6_590a0ec3",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-16T22:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddaa93da_6085fdb3",
+      "range": {
+        "startLine": 345,
+        "startChar": 14,
+        "endLine": 345,
+        "endChar": 32
+      },
+      "revId": "5454aa8c827a9de9f4cbca55656a6c932868d5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ddda18_847ce1cd",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-15T22:46:05Z",
       "side": 1,
       "message": "the dex merger tool (d8)",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "5454aa8c827a9de9f4cbca55656a6c932868d5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270a459a_1e749ab9",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-16T22:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ddda18_847ce1cd",
       "range": {
         "startLine": 68,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c5597ddc_fbf6607c",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-16T22:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390546b5_69f0363d",
+      "range": {
+        "startLine": 139,
+        "startChar": 50,
+        "endLine": 139,
+        "endChar": 62
+      },
+      "revId": "5454aa8c827a9de9f4cbca55656a6c932868d5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e67e6c6f_3582d05a",
         "filename": "test/testrunner/env.py",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-15T22:46:05Z",
       "side": 1,
       "message": "should this be d8?",
+      "range": {
+        "startLine": 140,
+        "startChar": 28,
+        "endLine": 140,
+        "endChar": 36
+      },
+      "revId": "5454aa8c827a9de9f4cbca55656a6c932868d5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38d59fd1_0ce144e4",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-16T22:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e67e6c6f_3582d05a",
       "range": {
         "startLine": 140,
         "startChar": 28,
