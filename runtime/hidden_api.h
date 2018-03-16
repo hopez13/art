@@ -72,6 +72,59 @@ inline Action GetMemberAction(uint32_t access_flags) {
   }
 }
 
+// Helper method for performing prefix matches on member signatures. Since the full member signature
+// is compose from several parts, we match each part in turn (rather then building the entire thing
+// in memory and performing a simple prefix match)
+inline bool DoesPrefixMatchParts(const std::string& prefix, const std::vector<std::string>& parts) {
+  size_t pos = 0;
+  for (const std::string& part : parts) {
+    size_t count = std::min(prefix.length() - pos, part.length());
+    if (prefix.compare(pos, count, part, 0, count) == 0) {
+      pos += count;
+    } else {
+      return false;
+    }
+  }
+  // We have a complete match if all parts match (we exit the loop without returning) AND this we've
+  // matched the whole prefix.
+  return pos == prefix.length();
+}
+
+inline bool IsMemberExempted(ArtField* field, const std::vector<std::string>& exemptions)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::string tmp;
+  std::vector<std::string> name_parts = {
+    field->GetDeclaringClass()->GetDescriptor(&tmp),
+    "->",
+    field->GetName(),
+    ":",
+    field->GetTypeDescriptor()
+  };
+  for (const std::string& exemption : exemptions) {
+    if (DoesPrefixMatchParts(exemption, name_parts)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+inline bool IsMemberExempted(ArtMethod* method, const std::vector<std::string>& exemptions)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  std::string tmp;
+  std::vector<std::string> name_parts = {
+    method->GetDeclaringClass()->GetDescriptor(&tmp),
+    "->",
+    method->GetName(),
+    method->GetSignature().ToString()
+  };
+  for (const std::string& exemption : exemptions) {
+    if (DoesPrefixMatchParts(exemption, name_parts)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // Issue a warning about field access.
 inline void WarnAboutMemberAccess(ArtField* field, AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -128,6 +181,17 @@ inline bool ShouldBlockAccessToMember(T* member,
   }
 
   // Member is hidden and we are not in the boot class path.
+
+  if (action == kDeny) {
+    // If we were about to deny, check for an exemption first.
+    // Exempted APIs are treated as light grey list.
+    if (IsMemberExempted(member, runtime->GetHiddenApiExemptions())) {
+      action = kAllowButWarn;
+      // avoid re-examining the exemption list next time.
+      member->SetAccessFlags(HiddenApiAccessFlags::EncodeForRuntime(
+              member->GetAccessFlags(), HiddenApiAccessFlags::kLightGreylist));
+    }
+  }
 
   // Print a log message with information about this class member access.
   // We do this regardless of whether we block the access or not.
