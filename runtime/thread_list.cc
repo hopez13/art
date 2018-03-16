@@ -487,7 +487,7 @@ void ThreadList::RunEmptyCheckpoint() {
                 std::find(runnable_thread_ids.begin(), runnable_thread_ids.end(), tid) !=
                 runnable_thread_ids.end();
             if (is_in_runnable_thread_ids &&
-                thread->ReadFlag(kEmptyCheckpointRequest)) {
+                thread->ReadFlag(ThreadFlag::kEmptyCheckpointRequest)) {
               // Found a runnable thread that hasn't responded to the empty checkpoint request.
               // Assume it's stuck and safe to dump its stack.
               thread->Dump(LOG_STREAM(FATAL_WITHOUT_ABORT),

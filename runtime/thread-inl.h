@@ -50,11 +50,11 @@ inline void Thread::AllowThreadSuspension() {
 inline void Thread::CheckSuspend() {
   DCHECK_EQ(Thread::Current(), this);
   for (;;) {
-    if (ReadFlag(kCheckpointRequest)) {
+    if (ReadFlag(ThreadFlag::kCheckpointRequest)) {
       RunCheckpointFunction();
-    } else if (ReadFlag(kSuspendRequest)) {
+    } else if (ReadFlag(ThreadFlag::kSuspendRequest)) {
       FullSuspendCheck();
-    } else if (ReadFlag(kEmptyCheckpointRequest)) {
+    } else if (ReadFlag(ThreadFlag::kEmptyCheckpointRequest)) {
       RunEmptyCheckpoint();
     } else {
       break;
@@ -66,7 +66,7 @@ inline void Thread::CheckEmptyCheckpointFromWeakRefAccess(BaseMutex* cond_var_mu
   Thread* self = Thread::Current();
   DCHECK_EQ(self, this);
   for (;;) {
-    if (ReadFlag(kEmptyCheckpointRequest)) {
+    if (ReadFlag(ThreadFlag::kEmptyCheckpointRequest)) {
       RunEmptyCheckpoint();
       // Check we hold only an expected mutex when accessing weak ref.
       if (kIsDebugBuild) {
@@ -90,7 +90,7 @@ inline void Thread::CheckEmptyCheckpointFromWeakRefAccess(BaseMutex* cond_var_mu
 inline void Thread::CheckEmptyCheckpointFromMutex() {
   DCHECK_EQ(Thread::Current(), this);
   for (;;) {
-    if (ReadFlag(kEmptyCheckpointRequest)) {
+    if (ReadFlag(ThreadFlag::kEmptyCheckpointRequest)) {
       RunEmptyCheckpoint();
     } else {
       break;
@@ -110,13 +110,19 @@ inline ThreadState Thread::SetState(ThreadState new_state) {
     LOG(FATAL) << "Thread \"" << name << "\"(" << this << " != Thread::Current()="
                << Thread::Current() << ") changing state to " << new_state;
   }
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_atomic_int.store(
-      tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-      std::memory_order_relaxed);
-  CHECK_NE(old_state_and_flags.as_struct.state, kRunnable);
-  tls32_.state_and_flags.as_struct.state = new_state;
-  return static_cast<ThreadState>(old_state_and_flags.as_struct.state);
+
+  // REVIEW(oth): SC is heavy, previously a relaxed 16-bit store.
+  bool done = false;
+  StateAndFlags old_state_and_flags, new_state_and_flags;
+  do {
+    old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+    CHECK_NE(old_state_and_flags.State(), kRunnable);
+    new_state_and_flags = old_state_and_flags.WithState(new_state);
+    done = tls32_.state_and_flags.CompareAndSetWeakSequentiallyConsistent(
+        old_state_and_flags.AsInt(),
+        new_state_and_flags.AsInt());
+  } while (!done);
+  return old_state_and_flags.State();
 }
 
 inline bool Thread::IsThreadSuspensionAllowable() const {
@@ -183,31 +189,25 @@ inline void Thread::AssertThreadSuspensionIsAllowable(bool check_locks) const {
 inline void Thread::TransitionToSuspendedAndRunCheckpoints(ThreadState new_state) {
   DCHECK_NE(new_state, kRunnable);
   DCHECK_EQ(GetState(), kRunnable);
-  union StateAndFlags old_state_and_flags;
-  union StateAndFlags new_state_and_flags;
+  StateAndFlags old_state_and_flags, new_state_and_flags;
   while (true) {
-    old_state_and_flags.as_atomic_int.store(
-        tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-        std::memory_order_relaxed);
-    if (UNLIKELY((old_state_and_flags.as_struct.flags & kCheckpointRequest) != 0)) {
+    old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+    if (UNLIKELY(old_state_and_flags.TestFlags(ThreadFlag::kCheckpointRequest))) {
       RunCheckpointFunction();
       continue;
     }
-    if (UNLIKELY((old_state_and_flags.as_struct.flags & kEmptyCheckpointRequest) != 0)) {
+    if (UNLIKELY(old_state_and_flags.TestFlags(ThreadFlag::kEmptyCheckpointRequest))) {
       RunEmptyCheckpoint();
       continue;
     }
-    // Change the state but keep the current flags (kCheckpointRequest is clear).
-    DCHECK_EQ((old_state_and_flags.as_struct.flags & kCheckpointRequest), 0);
-    DCHECK_EQ((old_state_and_flags.as_struct.flags & kEmptyCheckpointRequest), 0);
-    new_state_and_flags.as_struct.flags = old_state_and_flags.as_struct.flags;
-    new_state_and_flags.as_struct.state = new_state;
+    // Change the state but keep the current flags (ThreadFlag::kCheckpointRequest is clear).
+    DCHECK(!old_state_and_flags.TestFlags(ThreadFlag::kCheckpointRequest |
+                                          ThreadFlag::kEmptyCheckpointRequest));
+    new_state_and_flags = old_state_and_flags.WithState(new_state);
 
     // CAS the value with a memory ordering.
-    bool done =
-        tls32_.state_and_flags.as_atomic_int.CompareAndSetWeakRelease(
-            old_state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-            new_state_and_flags.as_atomic_int.load(std::memory_order_relaxed));
+    bool done = tls32_.state_and_flags.CompareAndSetWeakRelease(old_state_and_flags.AsInt(),
+                                                                new_state_and_flags.AsInt());
     if (LIKELY(done)) {
       break;
     }
@@ -216,11 +216,12 @@ inline void Thread::TransitionToSuspendedAndRunCheckpoints(ThreadState new_state
 
 inline void Thread::PassActiveSuspendBarriers() {
   while (true) {
-    uint16_t current_flags = tls32_.state_and_flags.as_struct.flags;
-    if (LIKELY((current_flags &
-                (kCheckpointRequest | kEmptyCheckpointRequest | kActiveSuspendBarrier)) == 0)) {
+    StateAndFlags state_and_flags = GetCurrentStateAndFlags();
+    if (LIKELY(!state_and_flags.TestFlags(ThreadFlag::kCheckpointRequest |
+                                          ThreadFlag::kEmptyCheckpointRequest |
+                                          ThreadFlag::kActiveSuspendBarrier))) {
       break;
-    } else if ((current_flags & kActiveSuspendBarrier) != 0) {
+    } else if (state_and_flags.TestFlags(ThreadFlag::kActiveSuspendBarrier)) {
       PassActiveSuspendBarriers(this);
     } else {
       // Impossible
@@ -242,42 +243,33 @@ inline void Thread::TransitionFromRunnableToSuspended(ThreadState new_state) {
 }
 
 inline ThreadState Thread::TransitionFromSuspendedToRunnable() {
-  union StateAndFlags old_state_and_flags;
-  old_state_and_flags.as_atomic_int.store(
-      tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-      std::memory_order_relaxed);
-  int16_t old_state = old_state_and_flags.as_struct.state;
-  DCHECK_NE(static_cast<ThreadState>(old_state), kRunnable);
+  StateAndFlags old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+  ThreadState old_state = old_state_and_flags.State();
+  DCHECK_NE(old_state, kRunnable);
   do {
     Locks::mutator_lock_->AssertNotHeld(this);  // Otherwise we starve GC..
-    old_state_and_flags.as_atomic_int.store(
-        tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-        std::memory_order_relaxed);
-    DCHECK_EQ(old_state_and_flags.as_struct.state, old_state);
-    if (LIKELY(old_state_and_flags.as_struct.flags == 0)) {
+    old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+    DCHECK_EQ(old_state_and_flags.State(), old_state);
+    if (LIKELY(old_state_and_flags.Flags() == ThreadFlag::kNoFlags)) {
       // Optimize for the return from native code case - this is the fast path.
       // Atomically change from suspended to runnable if no suspend request pending.
-      union StateAndFlags new_state_and_flags;
-      new_state_and_flags.as_struct.flags = old_state_and_flags.as_struct.flags;
-      new_state_and_flags.as_struct.state = kRunnable;
-
+      StateAndFlags new_state_and_flags = old_state_and_flags.WithState(kRunnable);
       // CAS the value with a memory barrier.
-      if (LIKELY(tls32_.state_and_flags.as_atomic_int.CompareAndSetWeakAcquire(
-              old_state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-              new_state_and_flags.as_atomic_int.load(std::memory_order_relaxed)))) {
+      if (LIKELY(tls32_.state_and_flags.CompareAndSetWeakAcquire(old_state_and_flags.AsInt(),
+                                                                 new_state_and_flags.AsInt()))) {
         // Mark the acquisition of a share of the mutator_lock_.
         Locks::mutator_lock_->TransitionFromSuspendedToRunnable(this);
         break;
       }
-    } else if ((old_state_and_flags.as_struct.flags & kActiveSuspendBarrier) != 0) {
+    } else if (old_state_and_flags.TestFlags(ThreadFlag::kActiveSuspendBarrier)) {
       PassActiveSuspendBarriers(this);
-    } else if ((old_state_and_flags.as_struct.flags &
-                (kCheckpointRequest | kEmptyCheckpointRequest)) != 0) {
+    } else if (old_state_and_flags.TestFlags(ThreadFlag::kCheckpointRequest |
+                                             ThreadFlag::kEmptyCheckpointRequest)) {
       // Impossible
       LOG(FATAL) << "Transitioning to runnable with checkpoint flag, "
-                 << " flags=" << old_state_and_flags.as_struct.flags
-                 << " state=" << old_state_and_flags.as_struct.state;
-    } else if ((old_state_and_flags.as_struct.flags & kSuspendRequest) != 0) {
+                 << " flags=" << old_state_and_flags.Flags()
+                 << " state=" << old_state_and_flags.State();
+    } else if (old_state_and_flags.TestFlags(ThreadFlag::kSuspendRequest)) {
       // Wait while our suspend count is non-zero.
 
       // We pass null to the MutexLock as we may be in a situation where the
@@ -291,17 +283,13 @@ inline ThreadState Thread::TransitionFromSuspendedToRunnable() {
       }
       MutexLock mu(thread_to_pass, *Locks::thread_suspend_count_lock_);
       ScopedTransitioningToRunnable scoped_transitioning_to_runnable(this);
-      old_state_and_flags.as_atomic_int.store(
-          tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-          std::memory_order_relaxed);
-      DCHECK_EQ(old_state_and_flags.as_struct.state, old_state);
-      while ((old_state_and_flags.as_struct.flags & kSuspendRequest) != 0) {
+      old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+      DCHECK_EQ(old_state_and_flags.State(), old_state);
+      while (old_state_and_flags.TestFlags(ThreadFlag::kSuspendRequest)) {
         // Re-check when Thread::resume_cond_ is notified.
         Thread::resume_cond_->Wait(thread_to_pass);
-        old_state_and_flags.as_atomic_int.store(
-            tls32_.state_and_flags.as_atomic_int.load(std::memory_order_relaxed),
-            std::memory_order_relaxed);
-        DCHECK_EQ(old_state_and_flags.as_struct.state, old_state);
+        old_state_and_flags = GetCurrentStateAndFlags(std::memory_order_relaxed);
+        DCHECK_EQ(old_state_and_flags.State(), old_state);
       }
       DCHECK_EQ(GetSuspendCount(), 0);
     }
