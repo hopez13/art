@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d271237b_144bbabf",
+        "filename": "veridex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-19T15:13:57Z",
+      "side": 1,
+      "message": "And device? I\u0027m assuming this should not install",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00d16ffa_b3614d67",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-19T15:13:57Z",
+      "side": 1,
+      "message": "Have we given up on C++/STL?",
+      "range": {
+        "startLine": 32,
+        "startChar": 19,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61029dd7_be16522f",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-19T15:13:57Z",
+      "side": 1,
+      "message": "How about:\n\n  std::vector\u003cstd::string\u003e tokens;\n  std::string tmp;\n  std::istringstream iss(str);\n  while (std::getline(iss, tmp, sep)) {\n    tokens.push_back(tmp);\n  }",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 61
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86f4f2ed_f649e478",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-19T15:13:57Z",
+      "side": 1,
+      "message": "What are you going to use these for? Why not just load the DEX files using mmap.",
+      "range": {
+        "startLine": 83,
+        "startChar": 29,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d68d88e_7e8e28c0",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-19T15:13:57Z",
+      "side": 1,
+      "message": "Uff, can we not add it right away?",
+      "range": {
+        "startLine": 123,
+        "startChar": 63,
+        "endLine": 123,
+        "endChar": 84
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
