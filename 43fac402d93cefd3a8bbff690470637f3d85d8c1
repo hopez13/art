@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "73fbeea9_41817af4",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T20:39:20Z",
+      "side": 1,
+      "message": "Never mind, I see that there\u0027s 2 other smali files that this references.\n\nIt would be nice though if d8 could be allowed to merge dex files. Would it make sense to have such a flag?\n\nOr maybe what we need is some sort of smalimerge that decompiles all dex files to smali, merges, then recreates dex file.",
+      "parentUuid": "a995d102_cbd4e4f4",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "382c2529_a88f23d2",
         "filename": "test/etc/default-build",
         "patchSetId": 2
