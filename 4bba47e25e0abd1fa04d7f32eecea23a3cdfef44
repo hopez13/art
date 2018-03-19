@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c86c37e_48ee178d",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-19T19:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec0c101_395210d8",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "4bba47e25e0abd1fa04d7f32eecea23a3cdfef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699391f7_f7cd9c75",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 21
@@ -36,6 +60,24 @@
       "writtenOn": "2018-03-16T21:37:57Z",
       "side": 1,
       "message": "These methods are in the wrong place. Logically they should go after the traverse. The easiest way is to follow the order you had in the header file, since I felt the order was logical there.",
+      "revId": "4bba47e25e0abd1fa04d7f32eecea23a3cdfef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d9f4e21_9c61711f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-03-19T19:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "699391f7_f7cd9c75",
       "revId": "4bba47e25e0abd1fa04d7f32eecea23a3cdfef44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
