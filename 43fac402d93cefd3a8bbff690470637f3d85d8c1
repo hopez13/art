@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "38f54c25_6ab4ba3e",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:38:08Z",
+      "side": 1,
+      "message": "This moves every input in this test into Smali and avoid merging anything.\n\nI added the check in default-build where if the there is nothing to merge, then don\u0027t invoke D8 as a merger.",
+      "parentUuid": "a995d102_cbd4e4f4",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "382c2529_a88f23d2",
         "filename": "test/etc/default-build",
         "patchSetId": 2
@@ -240,6 +258,24 @@
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c66cbbf2_6d11fb53",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ce42553_911ccd00",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
