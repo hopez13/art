@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "eec0c101_395210d8",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T10:42:29Z",
+      "side": 1,
+      "message": "nit: I\u0027d avoid those.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "4bba47e25e0abd1fa04d7f32eecea23a3cdfef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699391f7_f7cd9c75",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 21
