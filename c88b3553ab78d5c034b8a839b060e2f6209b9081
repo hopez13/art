@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ece5d13_6ba3928f",
+        "filename": "veridex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-19T15:22:45Z",
+      "side": 1,
+      "message": "As long as it\u0027s not in PRODUCT_PACKAGES, it won\u0027t be pulled in for regular builds.",
+      "parentUuid": "d271237b_144bbabf",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00d16ffa_b3614d67",
         "filename": "veridex/veridex.cc",
         "patchSetId": 1
