@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "740da976_9956930f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-19T17:24:40Z",
+      "side": 1,
+      "message": "Also mention the cleanup in test/570-checker-osr/src/Main.java (removal of inline-preventing Java statements, obsoleted by the \"$noinline$\" pattern)?",
+      "revId": "bf136afc398b6d3e34c7678f16c29ec677d2f4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4300054_97eadadc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-19T17:24:40Z",
+      "side": 1,
+      "message": "Nit: Missing `;`.",
+      "range": {
+        "startLine": 25,
+        "startChar": 43,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "bf136afc398b6d3e34c7678f16c29ec677d2f4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d908d9c1_974f3c2f",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-19T17:24:40Z",
+      "side": 1,
+      "message": "Maybe add a high-level comment here?",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 93
+      },
+      "revId": "bf136afc398b6d3e34c7678f16c29ec677d2f4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
