@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fd17738_41161ac2",
+        "filename": "test/121-modifiers/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T14:58:28Z",
+      "side": 1,
+      "message": "How does deleting the .class files work?",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea4a68c7_5c09cd5e",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T14:58:28Z",
+      "side": 1,
+      "message": "Can this be replaced with jasmin file, not smali?",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382c2529_a88f23d2",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T14:58:28Z",
+      "side": 1,
+      "message": "nit: [[ ]] everywhere",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d373cb8b_722448f9",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T14:58:28Z",
+      "side": 1,
+      "message": "space correctness:\n\n  \"$dst_file\"",
+      "range": {
+        "startLine": 362,
+        "startChar": 32,
+        "endLine": 362,
+        "endChar": 41
+      },
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036e98da_452c8d18",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T14:58:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this will work anymore with DXMERGER\u003ddexmerger will it? Because it\u0027s getting passed in extra flags.\n\nNot sure if having d8merger script with compatible dexmerger flags is worth it?",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
