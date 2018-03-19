@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4b4226c8_ad97bdbc",
+        "filename": "veridex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T18:43:57Z",
+      "side": 1,
+      "message": "Let\u0027s see in the future if it\u0027s useful to ship in userdebug/beta.",
+      "parentUuid": "1ece5d13_6ba3928f",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00d16ffa_b3614d67",
         "filename": "veridex/veridex.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2018-03-19T15:13:57Z",
       "side": 1,
       "message": "Have we given up on C++/STL?",
+      "range": {
+        "startLine": 32,
+        "startChar": 19,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2499b54d_451f8487",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T18:43:57Z",
+      "side": 1,
+      "message": "Potato/Potata :)",
+      "parentUuid": "00d16ffa_b3614d67",
       "range": {
         "startLine": 32,
         "startChar": 19,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "fd9a359e_4ef9538d",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T18:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61029dd7_be16522f",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 61
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86f4f2ed_f649e478",
         "filename": "veridex/veridex.cc",
         "patchSetId": 1
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "ee942bd0_ca22f2c4",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T18:43:57Z",
+      "side": 1,
+      "message": "That\u0027s the API required by ReadFileToString (following the pattern in some other projects).",
+      "parentUuid": "86f4f2ed_f649e478",
+      "range": {
+        "startLine": 83,
+        "startChar": 29,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d68d88e_7e8e28c0",
         "filename": "veridex/veridex.cc",
         "patchSetId": 1
@@ -129,6 +225,30 @@
       "writtenOn": "2018-03-19T15:13:57Z",
       "side": 1,
       "message": "Uff, can we not add it right away?",
+      "range": {
+        "startLine": 123,
+        "startChar": 63,
+        "endLine": 123,
+        "endChar": 84
+      },
+      "revId": "c88b3553ab78d5c034b8a839b060e2f6209b9081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cac61626_6bd9e20d",
+        "filename": "veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T18:43:57Z",
+      "side": 1,
+      "message": "That TODO is copied from other places. I assume it needs some refactoring.",
+      "parentUuid": "7d68d88e_7e8e28c0",
       "range": {
         "startLine": 123,
         "startChar": 63,
