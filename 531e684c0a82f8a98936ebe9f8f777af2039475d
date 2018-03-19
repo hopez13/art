@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "89645e8f_b55ed9e1",
+        "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-19T23:10:37Z",
+      "side": 1,
+      "message": ":( That\u0027s very subtle, you might want to document it. Does this test need to check against a golden file, or could you instead do the checks in Java?",
+      "parentUuid": "5f451d57_1e76fc05",
+      "range": {
+        "startLine": 153,
+        "startChar": 11,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "531e684c0a82f8a98936ebe9f8f777af2039475d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc8a8c2_6d8c6889",
         "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
         "patchSetId": 1
