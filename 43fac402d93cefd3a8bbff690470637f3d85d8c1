@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "bffc3362_98d0a227",
+        "filename": "test/121-modifiers/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T20:13:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be8b9f62_68b60a70",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea4a68c7_5c09cd5e",
         "filename": "test/161-final-abstract-class/smali/Main.smali",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "It is possible, however, we\u0027ll just run into the same problem: merging invalid dex files with D8 doesn\u0027t like to do.",
       "parentUuid": "ea4a68c7_5c09cd5e",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a995d102_cbd4e4f4",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T20:13:23Z",
+      "side": 1,
+      "message": "How does making it a smali file work around this issue?",
+      "parentUuid": "27dd3576_4b71de1a",
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -183,6 +219,24 @@
       "side": 1,
       "message": "Yeah. I say we delete it.",
       "parentUuid": "036e98da_452c8d18",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ce42553_911ccd00",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-19T20:13:23Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "e50a3b1d_5dae8554",
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
