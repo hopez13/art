@@ -156,6 +156,9 @@ public class Test1940 {
       res = processChunk(new Chunk(MY_INVALID_DDMS_TYPE, data, 0, 1));
       System.out.println("JVMTI returned chunk: " + printChunk(res));
     } catch (RuntimeException e) {
+      // Force a flush so that we won't get interspersed lines in output.
+      System.err.flush();
+      System.out.flush();
       System.out.println("Got error: " + e.getMessage());
     }
 
