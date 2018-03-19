@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "23fa1309_35523b6b",
+        "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-19T23:18:00Z",
+      "side": 1,
+      "message": "rewriting this test to not be against a golden file would be possible but rather complicated. It would definitely make it a lot less clear what is happening since we need to do stuff like call into JVMTI/DDMS and check once it returns that the right things were called.\n\nAnyway this is just a simple fix for what amounts to a flake caused by doing a \u00272\u003e\u00261\u0027. If you don\u0027t like having flushes my other solution would be to put a \u00272\u003e/dev/null\u0027 in the \u0027run\u0027 file and getting rid fo the \u0027check\u0027 file.",
+      "parentUuid": "89645e8f_b55ed9e1",
+      "range": {
+        "startLine": 153,
+        "startChar": 11,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "531e684c0a82f8a98936ebe9f8f777af2039475d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc8a8c2_6d8c6889",
         "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
         "patchSetId": 1
