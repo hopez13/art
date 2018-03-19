@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "be8b9f62_68b60a70",
+        "filename": "test/121-modifiers/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:07:02Z",
+      "side": 1,
+      "message": "The class files where meant to be used with Jack and Jill.\n\nSince then, the test has been moved to use smali inputs but the build script still merge the output of those class files into the final dex.\n\nD8 complains that there are two definitions of the same class so I removed the classses and stick with Smali only.",
+      "parentUuid": "2fd17738_41161ac2",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea4a68c7_5c09cd5e",
         "filename": "test/161-final-abstract-class/smali/Main.smali",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-19T14:58:28Z",
       "side": 1,
       "message": "Can this be replaced with jasmin file, not smali?",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27dd3576_4b71de1a",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:07:02Z",
+      "side": 1,
+      "message": "It is possible, however, we\u0027ll just run into the same problem: merging invalid dex files with D8 doesn\u0027t like to do.",
+      "parentUuid": "ea4a68c7_5c09cd5e",
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8480fb29_77e3c622",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:07:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "382c2529_a88f23d2",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "c77550e6_b0cf5cb3",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:07:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d373cb8b_722448f9",
+      "range": {
+        "startLine": 362,
+        "startChar": 32,
+        "endLine": 362,
+        "endChar": 41
+      },
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "036e98da_452c8d18",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -87,6 +165,24 @@
       "writtenOn": "2018-03-19T14:58:28Z",
       "side": 1,
       "message": "I don\u0027t think this will work anymore with DXMERGER\u003ddexmerger will it? Because it\u0027s getting passed in extra flags.\n\nNot sure if having d8merger script with compatible dexmerger flags is worth it?",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50a3b1d_5dae8554",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-19T20:07:02Z",
+      "side": 1,
+      "message": "Yeah. I say we delete it.",
+      "parentUuid": "036e98da_452c8d18",
       "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
