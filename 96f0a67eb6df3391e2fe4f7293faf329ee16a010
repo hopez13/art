@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "76aeb8f3_6ce97338",
+        "filename": "tools/veridex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to be the style in  other bp files.",
+      "parentUuid": "f2aaaaf5_4eafeb4c",
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58b26bd1_8a25421b",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3fbd3166_8773cbef",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58b26bd1_8a25421b",
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "016dcb7e_3c4d2f2d",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2018-03-20T14:40:35Z",
       "side": 1,
       "message": "\"Split\" for consistency",
+      "range": {
+        "startLine": 68,
+        "startChar": 32,
+        "endLine": 68,
+        "endChar": 37
+      },
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "149fe5f2_5ce90472",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "016dcb7e_3c4d2f2d",
       "range": {
         "startLine": 68,
         "startChar": 32,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c847789d_afcf2343",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb74f020_80f9821a",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0120533_74bb0ec6",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 2
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "9ca6bcd1_9681e5b7",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0120533_74bb0ec6",
+      "range": {
+        "startLine": 126,
+        "startChar": 37,
+        "endLine": 126,
+        "endChar": 43
+      },
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1319ff05_0f9396b8",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 2
@@ -116,6 +224,30 @@
       "writtenOn": "2018-03-20T14:40:35Z",
       "side": 1,
       "message": "This will have to be false for boot class path :/",
+      "range": {
+        "startLine": 132,
+        "startChar": 48,
+        "endLine": 132,
+        "endChar": 52
+      },
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783931a9_ceaf6896",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T16:46:57Z",
+      "side": 1,
+      "message": "Right, once/if we push the binary on device. Let\u0027s keep it like this right now until we need it?",
+      "parentUuid": "1319ff05_0f9396b8",
       "range": {
         "startLine": 132,
         "startChar": 48,
