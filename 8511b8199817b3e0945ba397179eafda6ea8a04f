@@ -165,6 +165,30 @@
       "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "442b0e7d_c6602223",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-20T00:43:43Z",
+      "side": 1,
+      "message": "I actually don\u0027t understand this. kWriteSideEffects presumably means that any heap location can conceivably be written? But if that\u0027s the case, then reordering it with another write, in either direction, should be unsafe, since a different write will \"win\". Similarly reordering with a read in either direction isn\u0027t safe, since the read will see a different value. That was certainly the assumption that went into the fullFence definition above.\n\nIs that not correct? Otherwise is there a difference between kWriteSideEffects and kAllSideEffects, aside from the fact that the latter can include suspend points, and thus we should be keeping derived pointers across a kAllSideEffects intrinsic?\n\nIn either case, I\u0027m currently leaning towards improving the comments defining these.",
+      "parentUuid": "b450fda9_4410f646",
+      "range": {
+        "startLine": 221,
+        "startChar": 58,
+        "endLine": 221,
+        "endChar": 75
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
