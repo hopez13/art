@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2aaaaf5_4eafeb4c",
+        "filename": "tools/veridex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-20T14:40:28Z",
+      "side": 1,
+      "message": "Newline at EOF?",
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b26bd1_8a25421b",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-20T14:40:28Z",
+      "side": 1,
+      "message": "C system headers should come before C++ system headers (sstream) according to the style guide.",
+      "revId": "96f0a67eb6df3391e2fe4f7293faf329ee16a010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
