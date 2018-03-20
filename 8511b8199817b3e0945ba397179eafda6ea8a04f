@@ -189,6 +189,30 @@
       "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8245c674_dc1fb261",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T14:08:19Z",
+      "side": 1,
+      "message": "The side effects aren\u0027t only used for reordering, they\u0027re also used for eg GVN and LSE (see uses of DoesAnyRead and DoesAnyWrite in the compiler code).\n\nSo I think you are right, this doesn\u0027t need to have a kRead, but needs an artificial side effect to prevent removal and reordering.",
+      "parentUuid": "442b0e7d_c6602223",
+      "range": {
+        "startLine": 221,
+        "startChar": 58,
+        "endLine": 221,
+        "endChar": 75
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
