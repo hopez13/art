@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0359522c_5d75020b",
+        "filename": "runtime/base/lock_level.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bfa98ed_1250a71b",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fe60e77_e39f4cdc",
         "filename": "runtime/base/locks.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ec0d3cb1_fb8861ef",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe60e77_e39f4cdc",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b27b7e9_e933fa74",
         "filename": "runtime/base/locks.cc",
         "patchSetId": 1
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "19e09ac0_16838c76",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b27b7e9_e933fa74",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7439bb99_5a5a5cac",
         "filename": "runtime/base/locks.cc",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "Assuming the rest of this is just moved, the .h file didn\u0027t have anything new added.",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5784f2e3_5b276d12",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "You\u0027re right.",
+      "parentUuid": "7439bb99_5a5a5cac",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "20a7f398_8c67d7fb",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daa51fd6_107f6f10",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c08e6d_492265f2",
         "filename": "runtime/base/locks.h",
         "patchSetId": 1
@@ -110,6 +212,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "Consider cleaning up the file structure while doing this\n\n  runtime/base/sync/mutator_mutex.h\n  runtime/base/sync/base_mutex.h\n  runtime/base/sync/locks.h\n  ...\n\netc.\n\nAt any rate it seems unexpected that a class XMutex to be in a file called Locks ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77f81690_40524b0f",
+        "filename": "runtime/base/locks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "I separated mutator_mutex.h from locks.h",
+      "parentUuid": "40c08e6d_492265f2",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "981791ad_476886e7",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Was there an action here?  I don\u0027t know what to do with such beautiful code.",
+      "parentUuid": "d9a3a3f2_bfe3e920",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "484d824d_c681d6fe",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -150,6 +288,24 @@
     },
     {
       "key": {
+        "uuid": "cbd51f25_1d9d13b7",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "484d824d_c681d6fe",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06388334_5d8965e0",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -161,6 +317,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "Is it \"safe\" or is it \"racy\" ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e34ad2_d8296711",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "It\u0027s a thin wrapper around a \"racy\" set of a TLS variable.  But the setter for that variable does not label it racy either.",
+      "parentUuid": "06388334_5d8965e0",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -184,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "c91fd1fc_ddf5ab6f",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Changed the set.  Same comment re: racy.",
+      "parentUuid": "6237f433_ed16f5aa",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "338bda01_844c53f6",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -195,6 +387,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "nit: should probably have \u0027Set...\u0027 as prefix to be similar to L92, L97.\n\nalso it is \"safe\" or \"racy\" ?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c15bd217_921aa005",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Same comment on set and racy.",
+      "parentUuid": "338bda01_844c53f6",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -224,6 +434,30 @@
     },
     {
       "key": {
+        "uuid": "9a3b2f7a_1c372681",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16be26f9_96f0d805",
+      "range": {
+        "startLine": 125,
+        "startChar": 14,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c9624a4_bd9c4e62",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -241,6 +475,24 @@
     },
     {
       "key": {
+        "uuid": "d79bf269_c5acfc96",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "I augmented the comment.",
+      "parentUuid": "3c9624a4_bd9c4e62",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2cbe5f1_0d908a53",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -252,6 +504,30 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "What is \"i\" ? Seems like it\u0027s supposed to approximate microseconds from reading code.",
+      "range": {
+        "startLine": 158,
+        "startChar": 31,
+        "endLine": 158,
+        "endChar": 32
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34c3f289_ed84aa86",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "changed.",
+      "parentUuid": "f2cbe5f1_0d908a53",
       "range": {
         "startLine": 158,
         "startChar": 31,
@@ -287,6 +563,30 @@
     },
     {
       "key": {
+        "uuid": "26f849dd_ee697ca4",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4956da28_cb376a1f",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f09267_4b599e09",
         "filename": "runtime/base/mutex_contract.cc",
         "patchSetId": 1
@@ -304,6 +604,24 @@
     },
     {
       "key": {
+        "uuid": "3fdfde85_2712ac7a",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f09267_4b599e09",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d891e66f_41ab74eb",
         "filename": "runtime/base/mutex_contract.cc",
         "patchSetId": 1
@@ -315,6 +633,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "nit: can invert this for readability\n\n  if (!kDebugLocking) return",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa12a19_62f53059",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "March to the right is the norm in Android as far as I can see, but I agree with your observation.",
+      "parentUuid": "d891e66f_41ab74eb",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -338,6 +674,24 @@
     },
     {
       "key": {
+        "uuid": "2df05d81_7d6c3419",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59f401b7_6f36f58f",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9652784_5b0205a0",
         "filename": "runtime/base/mutex_contract.cc",
         "patchSetId": 1
@@ -352,6 +706,24 @@
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "781596e6_e54d6fdd",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9652784_5b0205a0",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -372,6 +744,24 @@
     },
     {
       "key": {
+        "uuid": "f33226ce_d33f40f9",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "There\u0027s some code after the block that executes independently.  How to make the inversion work?",
+      "parentUuid": "77fac904_1f39b450",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3c51705_85e04cd3",
         "filename": "runtime/base/mutex_contract.cc",
         "patchSetId": 1
@@ -383,6 +773,24 @@
       "writtenOn": "2018-03-14T23:24:13Z",
       "side": 1,
       "message": "Hmmm. Do you want to pass file and line as argument?",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9980a25a_33a116ea",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-20T21:03:54Z",
+      "side": 1,
+      "message": "Yeah, that was dumb :-).  Fixed.",
+      "parentUuid": "b3c51705_85e04cd3",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
