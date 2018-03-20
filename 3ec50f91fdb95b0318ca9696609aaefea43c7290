@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16b2be63_c4edf73a",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-20T18:41:35Z",
+      "side": 1,
+      "message": "We can\u0027t do it now. DX is still dx at this point.",
+      "parentUuid": "a7250eba_b2c24439",
+      "range": {
+        "startLine": 355,
+        "startChar": 4,
+        "endLine": 355,
+        "endChar": 12
+      },
+      "revId": "3ec50f91fdb95b0318ca9696609aaefea43c7290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dea9b6ac_0c5f2b0c",
         "filename": "test/run-test",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "e1feb747_6c5b87a8",
+        "filename": "test/run-test",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-20T18:41:35Z",
+      "side": 1,
+      "message": "See previous comment.",
+      "parentUuid": "dea9b6ac_0c5f2b0c",
+      "revId": "3ec50f91fdb95b0318ca9696609aaefea43c7290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0facd506_9b433d34",
         "filename": "test/testrunner/env.py",
         "patchSetId": 4
@@ -53,6 +95,30 @@
       "writtenOn": "2018-03-19T20:51:09Z",
       "side": 1,
       "message": "Delete?",
+      "range": {
+        "startLine": 139,
+        "startChar": 47,
+        "endLine": 139,
+        "endChar": 55
+      },
+      "revId": "3ec50f91fdb95b0318ca9696609aaefea43c7290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d236dbda_b0be3ac5",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-20T18:41:35Z",
+      "side": 1,
+      "message": "See previous comment.",
+      "parentUuid": "0facd506_9b433d34",
       "range": {
         "startLine": 139,
         "startChar": 47,

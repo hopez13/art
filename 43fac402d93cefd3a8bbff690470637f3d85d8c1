@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "de9b9086_c6eb8656",
+        "filename": "test/161-final-abstract-class/smali/Main.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-20T18:41:35Z",
+      "side": 1,
+      "message": "I spoke to @ager about this. The ambiguity of two classes presented in the same build is probably too much for the type of optimizations that they want to do.",
+      "parentUuid": "73fbeea9_41817af4",
+      "revId": "43fac402d93cefd3a8bbff690470637f3d85d8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "382c2529_a88f23d2",
         "filename": "test/etc/default-build",
         "patchSetId": 2
