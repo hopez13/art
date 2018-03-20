@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "3e225eca_3abb972d",
+        "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-20T09:53:20Z",
+      "side": 1,
+      "message": "My worry is that the flush won\u0027t make things deterministic either. Maybe less likely, but the flake can still happen.\n\nI think if it\u0027s down to just ignoring the output, you could make the check just filter the things you care about. I wouldn\u0027t send the output to /dev/null as that would miss printing things when the test does have a genuine failure (I think?).",
+      "parentUuid": "23fa1309_35523b6b",
+      "range": {
+        "startLine": 153,
+        "startChar": 11,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "531e684c0a82f8a98936ebe9f8f777af2039475d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc8a8c2_6d8c6889",
         "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
         "patchSetId": 1
