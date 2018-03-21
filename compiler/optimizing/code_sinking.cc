@@ -424,7 +424,12 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
     // Bail if we could not find a position in the post dominated blocks (for example,
     // if there are multiple users whose common dominator is not in the list of
     // post dominated blocks).
-    if (!post_dominated.IsBitSet(position->GetBlock()->GetBlockId())) {
+    HBasicBlock* new_block = position->GetBlock();
+    if (!post_dominated.IsBitSet(new_block->GetBlockId())) {
+      continue;
+    }
+    // Bail if the instruction can throw and we are about to move into a catch block.
+    if (instruction->CanThrow() && new_block->GetTryCatchInformation()) {
       continue;
     }
     MaybeRecordStat(stats_, MethodCompilationStat::kInstructionSunk);
