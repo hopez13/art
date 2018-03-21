@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d8c6062d_147de98d",
+        "filename": "tools/veridex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:10:54Z",
+      "side": 1,
+      "message": "Thanks both, done.",
+      "parentUuid": "abe705d5_f3db176f",
+      "range": {
+        "startLine": 18,
+        "startChar": 25,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8c84db6_64c3a6a2",
         "filename": "tools/veridex/resolver.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2018-03-21T16:08:49Z",
       "side": 1,
       "message": "Why? This is what std::vector::reserve is for",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e24737_652067ed",
+        "filename": "tools/veridex/resolver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:10:54Z",
+      "side": 1,
+      "message": "OK, OK, you just caught me and my general distaste of STL...",
+      "parentUuid": "c8c84db6_64c3a6a2",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -89,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "a8160b6f_c41f7a16",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:10:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08f9fb4_880cb35f",
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1df2c1d_6ff74c1f",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -100,6 +166,30 @@
       "writtenOn": "2018-03-21T16:08:49Z",
       "side": 1,
       "message": "Could you allocate these in the vector? i.e. not use unique_ptr here",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 49
+      },
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19ab7689_d68b6fc1",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:10:54Z",
+      "side": 1,
+      "message": "Looks like I can. Done.",
+      "parentUuid": "e1df2c1d_6ff74c1f",
       "range": {
         "startLine": 119,
         "startChar": 4,
