@@ -352,6 +352,7 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
         }
       }
     }
+
     if (!can_move) {
       // Instruction cannot be moved, mark it as processed and remove it from the work
       // list.
@@ -424,11 +425,35 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
     // Bail if we could not find a position in the post dominated blocks (for example,
     // if there are multiple users whose common dominator is not in the list of
     // post dominated blocks).
-    if (!post_dominated.IsBitSet(position->GetBlock()->GetBlockId())) {
+    HBasicBlock* new_block = position->GetBlock();
+    if (!post_dominated.IsBitSet(new_block->GetBlockId())) {
       continue;
     }
-    MaybeRecordStat(stats_, MethodCompilationStat::kInstructionSunk);
-    instruction->MoveBefore(position, /* ensure_safety */ false);
+
+    // Check safety of environment when moving a throwing instruction to the
+    // new position. Make sure every register requested by a catching phi is set
+    // in the environment. This is a strict test to keep the graph checker
+    // happy; we could relax the requirement perhaps.
+    bool is_safe = true;
+    if (instruction->CanThrow() && new_block->IsTryBlock()) {
+      HEnvironment* environment = instruction->GetEnvironment();
+      const HTryBoundary& new_entry = new_block->GetTryCatchInformation()->GetTryEntry();
+      for (HBasicBlock* catch_block : new_entry.GetExceptionHandlers()) {
+        for (HInstructionIterator it(catch_block->GetPhis()); !it.Done(); it.Advance()) {
+          if (environment->GetInstructionAt(it.Current()->AsPhi()->GetRegNumber()) == nullptr) {
+            is_safe = false;
+            break;
+          }
+        }
+        if (!is_safe)
+          break;
+      }
+    }
+
+    if (is_safe) {
+      MaybeRecordStat(stats_, MethodCompilationStat::kInstructionSunk);
+      instruction->MoveBefore(position, /* ensure_safety */ false);
+    }
   }
 }
 
