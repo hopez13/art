@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24178231_0e06dba7",
+        "filename": "test/679-locks/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-21T17:38:07Z",
+      "side": 1,
+      "message": "This presumably fails with --jvm. Add to knownfailures.json.",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "37b6f16bcb06afebee4ad24a9201388a930c1500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
