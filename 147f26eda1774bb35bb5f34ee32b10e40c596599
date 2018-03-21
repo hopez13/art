@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "362f0e82_4169a8f8",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:43:00Z",
+      "side": 1,
+      "message": "Move this line 216. You don\u0027t need to compute the insert_pos if you\u0027re going to bail.",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 3
+      },
+      "revId": "147f26eda1774bb35bb5f34ee32b10e40c596599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
