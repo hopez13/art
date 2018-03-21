@@ -242,6 +242,11 @@ static HInstruction* FindIdealPosition(HInstruction* instruction,
       }
     }
   }
+  // Bail if the instruction can throw and we are about to move into a catch block.
+  if (instruction->CanThrow() && insert_pos->GetBlock()->GetTryCatchInformation()) {
+    return nullptr;
+  }
+  // Success!
   DCHECK(!insert_pos->IsPhi());
   return insert_pos;
 }
