@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d087902_51243ce1",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-21T20:43:24Z",
+      "side": 1,
+      "message": "nit: this is really an unrelated fix, I don\u0027t want to increase your work, but I would do this in a separate CL, and perhaps add a checker test (I can do that if you want)",
+      "revId": "265feedda93b7ce1bfc4bc9e9ac47d557e905e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
