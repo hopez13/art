@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e502ffde_e502b75d",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-21T21:33:48Z",
+      "side": 1,
+      "message": "On second thought, perhaps we should already bail if this condition is met, and not do the optimization at all if we reach L439 (see some thoughts in the buganizer).",
+      "revId": "749523e7123dff102d1f8429d2a129fc610e98de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
