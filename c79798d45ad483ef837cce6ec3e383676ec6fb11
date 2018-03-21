@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "c8c84db6_64c3a6a2",
+        "filename": "tools/veridex/resolver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-21T16:08:49Z",
+      "side": 1,
+      "message": "Why? This is what std::vector::reserve is for",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f08f9fb4_880cb35f",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2018-03-21T15:28:54Z",
       "side": 1,
       "message": "The header that belongs to that specific cc file should go in it\u0027s own block at the beginning of the include section according to the style guide.",
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1df2c1d_6ff74c1f",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-21T16:08:49Z",
+      "side": 1,
+      "message": "Could you allocate these in the vector? i.e. not use unique_ptr here",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 49
+      },
       "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
