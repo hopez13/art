@@ -40,6 +40,7 @@ const char* PrettyCause(GcCause cause) {
     case kGcCauseInstrumentation: return "Instrumentation";
     case kGcCauseAddRemoveAppImageSpace: return "AddRemoveAppImageSpace";
     case kGcCauseDebugger: return "Debugger";
+    case kGcCauseThreadSuspension: return "ThreadSuspension";
     case kGcCauseClassLinker: return "ClassLinker";
     case kGcCauseJitCodeCache: return "JitCodeCache";
     case kGcCauseAddRemoveSystemWeakHolder: return "SystemWeakHolder";

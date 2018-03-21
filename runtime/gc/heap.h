@@ -848,6 +848,8 @@ class Heap {
       REQUIRES(Locks::mutator_lock_);
 
   void LogGC(GcCause gc_cause, collector::GarbageCollector* collector);
+  bool TryStartGC(Thread* self, GcCause cause, CollectorType collector_type)
+      REQUIRES(!*gc_complete_lock_);
   void StartGC(Thread* self, GcCause cause, CollectorType collector_type)
       REQUIRES(!*gc_complete_lock_);
   void FinishGC(Thread* self, collector::GcType gc_type) REQUIRES(!*gc_complete_lock_);
@@ -1446,6 +1448,7 @@ class Heap {
   friend class collector::SemiSpace;
   friend class ReferenceQueue;
   friend class ScopedGCCriticalSection;
+  friend class ScopedGCPreventedSection;
   friend class VerifyReferenceCardVisitor;
   friend class VerifyReferenceVisitor;
   friend class VerifyObjectVisitor;

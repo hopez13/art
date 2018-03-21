@@ -76,6 +76,7 @@ cc_defaults {
         "gc/reference_processor.cc",
         "gc/reference_queue.cc",
         "gc/scoped_gc_critical_section.cc",
+        "gc/scoped_gc_prevented_section.cc",
         "gc/space/bump_pointer_space.cc",
         "gc/space/dlmalloc_space.cc",
         "gc/space/image_space.cc",

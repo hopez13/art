@@ -48,6 +48,8 @@ enum GcCause {
   kGcCauseAddRemoveAppImageSpace,
   // Not a real GC cause, used to implement exclusion between GC and debugger.
   kGcCauseDebugger,
+  // Not a real GC cause, used to implement exclusion between GC and thread suspension.
+  kGcCauseThreadSuspension,
   // GC triggered for background transition when both foreground and background collector are CMS.
   kGcCauseHomogeneousSpaceCompact,
   // Class linker cause, used to guard filling art methods with special values.
