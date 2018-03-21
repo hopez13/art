@@ -22,6 +22,30 @@
       "revId": "147f26eda1774bb35bb5f34ee32b10e40c596599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d80f3c_74c34ac3",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-21T22:57:12Z",
+      "side": 1,
+      "message": "Again a good idea. Done.",
+      "parentUuid": "362f0e82_4169a8f8",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 3
+      },
+      "revId": "147f26eda1774bb35bb5f34ee32b10e40c596599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
