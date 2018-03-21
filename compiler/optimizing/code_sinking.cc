@@ -352,6 +352,7 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
         }
       }
     }
+
     if (!can_move) {
       // Instruction cannot be moved, mark it as processed and remove it from the work
       // list.
@@ -424,11 +425,17 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
     // Bail if we could not find a position in the post dominated blocks (for example,
     // if there are multiple users whose common dominator is not in the list of
     // post dominated blocks).
-    if (!post_dominated.IsBitSet(position->GetBlock()->GetBlockId())) {
+    HBasicBlock* new_block = position->GetBlock();
+    if (!post_dominated.IsBitSet(new_block->GetBlockId())) {
       continue;
     }
-    MaybeRecordStat(stats_, MethodCompilationStat::kInstructionSunk);
-    instruction->MoveBefore(position, /* ensure_safety */ false);
+
+    // Finally, unless the instruction can throw and we are about to move into
+    // a catch block, sink the instruction into the new position.
+    if (!instruction->CanThrow() || !new_block->GetTryCatchInformation()) {
+      MaybeRecordStat(stats_, MethodCompilationStat::kInstructionSunk);
+      instruction->MoveBefore(position, /* ensure_safety */ false);
+    }
   }
 }
 
