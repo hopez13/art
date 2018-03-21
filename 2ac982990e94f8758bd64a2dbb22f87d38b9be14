@@ -1,0 +1,273 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6421c930_5db1b514",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: Locked\n\nalso\n\n\"IsSafeToCallAbortCallback...\"\n\nthe Callback part is missing.",
+      "range": {
+        "startLine": 73,
+        "startChar": 31,
+        "endLine": 73,
+        "endChar": 35
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "197973de_fc7ce8f4",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: Acquire\n\nI guess this always has to be at least \"acquire\", otherwise anything done afterwards could be reordered and this would be a useless operation.\n\n(which is indeed what the implementation does. I\u0027m just thinking non-Runtime implementations would also have to obey that).",
+      "range": {
+        "startLine": 76,
+        "startChar": 31,
+        "endLine": 76,
+        "endChar": 35
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01763ec8_fdb9a05c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "This IsSafeToCallAbort stuff seems to be effectively only used to LOG either at a WARNING or at a FATAL level.\n\nAt a higher level we should fix LOG(FATAL) or add new LOG(FATAL_IF_SAFE) level.\n\nCurrently Runtime initialization is:\n  InitLogging(, ... Abort)\n\nchange this to\n\n  InitLogging(,... AbortIfSafe)\n\n  void AbortIfSafe {\n    if (IsSafeToCallAbort()) {\n      Abort();\n    }\n  }\n\nshould be minimal work. It should still do fatal-severity logcat which is what we want.\n\nThen we can get rid of this \"IsSafeToCallAbort\" nonsense and always use LOG(FATAL) everywhere.\n\nAlthough that being said (FATAL_IF_SAFE) is probably better since it more clearly states that execution *could* continue past the fatal, so the rest of the code should be able to tolerate it.\n\n-----\nThe other higher level question is if its not safe to call Runtime::Abort, why cant we just do something more minimal and then call std::terminate ?",
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19fab3f6_c546ebcf",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: null for comments, nullptr for code",
+      "range": {
+        "startLine": 81,
+        "startChar": 59,
+        "endLine": 81,
+        "endChar": 66
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6bae9ae_d77169bb",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "I guess this one should be called \"...Unchecked\"/Unsafe rather than calling the rest of them \"...Checked\"",
+      "range": {
+        "startLine": 93,
+        "startChar": 14,
+        "endLine": 93,
+        "endChar": 36
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dedfedbb_6ef7f4da",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "Why does it need a parameter if its setting it to null? Unclear from docs.",
+      "range": {
+        "startLine": 118,
+        "startChar": 60,
+        "endLine": 118,
+        "endChar": 65
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aedf1ac_76f4918d",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "So I guess the idea here is that the runtime is already shutting down (or has shut down) then this implies the whole process itself is about to be terminated, therefore if we just sleep eventually the thread itself will terminate anyway? By sleeping it will avoid crashes during shutdown?",
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bc443c8_3fde9ed7",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "The way this is used is very racy and it seems like it\u0027s a \u0027best effort\u0027 to avoid crashing during aborting.",
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1da69158_a106137e",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: always {} around multi-line ifs",
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37a2a6b0_55518f91",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: always {} around multi-line ifs",
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf163fd6_50d1ef81",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: /*name*/",
+      "range": {
+        "startLine": 234,
+        "startChar": 40,
+        "endLine": 234,
+        "endChar": 47
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7b5ba7e_bf6d916b",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "Can we turn this into an enum?",
+      "range": {
+        "startLine": 238,
+        "startChar": 38,
+        "endLine": 238,
+        "endChar": 45
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "488e21a6_2bfcf5d8",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "nit: align under cur_state",
+      "range": {
+        "startLine": 250,
+        "startChar": 55,
+        "endLine": 250,
+        "endChar": 71
+      },
+      "revId": "2ac982990e94f8758bd64a2dbb22f87d38b9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "3f8f0aa8_f89bcde0",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5784f2e3_5b276d12",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daa51fd6_107f6f10",
         "filename": "runtime/base/locks.h",
         "patchSetId": 1
@@ -271,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "9cfc0fd2_39a1827a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "I don\u0027t think so, that\u0027s why I marked it as \"Resolved\" as soon as I made the comment :).",
+      "parentUuid": "981791ad_476886e7",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "484d824d_c681d6fe",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -335,6 +371,24 @@
       "side": 1,
       "message": "It\u0027s a thin wrapper around a \"racy\" set of a TLS variable.  But the setter for that variable does not label it racy either.",
       "parentUuid": "06388334_5d8965e0",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "928b0c1d_62ad4143",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "If it\u0027s only setting thread-locals then why would it be racy?\n\nIt\u0027s only racy if other threads are trying to read it also?",
+      "parentUuid": "40e34ad2_d8296711",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -756,6 +810,24 @@
       "side": 1,
       "message": "There\u0027s some code after the block that executes independently.  How to make the inversion work?",
       "parentUuid": "77fac904_1f39b450",
+      "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2747105a_121574f1",
+        "filename": "runtime/base/mutex_contract.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-21T23:01:57Z",
+      "side": 1,
+      "message": "Yeah, I didn\u0027t see that because of bad readability.\n\nI guess either scope guard\n\n  // #include \u003candroid-base/scopeguard.h\u003e\n  auto scope_guard \u003d android::base::make_scope_guard([\u0026] {\n    if (level !\u003d kMonitorLock) {\n      SetCurrentMutexAtLevel(self, level, mutex);\n    }\n  });\n  if (!kDebugLocking) return;\n\nor refactor the if(...) body into a separate function.\n\n  if (kDebugLocking) {\n    RegisterAsLockedLevelChecks(self, level, mutex);\n  }\n  if (level !\u003d kMonitorLock) {\n    SetCurrentMutexAtLevel(self, level, mutex);\n  }",
+      "parentUuid": "f33226ce_d33f40f9",
       "revId": "db2e6ebe577a2faf58de56d4c5a3c84f4835fe2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
