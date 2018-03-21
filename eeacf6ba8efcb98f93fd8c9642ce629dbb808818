@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c94d120_f4cea6e0",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-21T22:27:38Z",
+      "side": 1,
+      "message": "Could you move this to FindIdealPosition, where you would return null there?",
+      "range": {
+        "startLine": 435,
+        "startChar": 3,
+        "endLine": 435,
+        "endChar": 75
+      },
+      "revId": "eeacf6ba8efcb98f93fd8c9642ce629dbb808818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
