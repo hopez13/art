@@ -55,7 +55,6 @@ class TaskProcessor {
   TaskProcessor();
   virtual ~TaskProcessor();
   void AddTask(Thread* self, HeapTask* task) REQUIRES(!lock_);
-  HeapTask* GetTask(Thread* self) REQUIRES(!lock_);
   void Start(Thread* self) REQUIRES(!lock_);
   // Stop tells the RunAllTasks to finish up the remaining tasks as soon as
   // possible then return.
@@ -66,7 +65,16 @@ class TaskProcessor {
       REQUIRES(!lock_);
   Thread* GetRunningThread() const REQUIRES(!lock_);
 
+  bool IsPaused(Thread* self) REQUIRES(!lock_);
+  // Forces the TaskProcessor to stop servicing tasks temporarily. Returns false if the
+  // task-processor was already paused. Waits until the task-processor is actually paused.
+  bool Pause(Thread* self) REQUIRES(!lock_);
+  void Resume(Thread* self) REQUIRES(!lock_);
+
  private:
+  // Gets the next task or waits for 'Resume' to be called. Self must be 'GetRunningThread()'.
+  HeapTask* GetTask(Thread* self) REQUIRES(!lock_);
+
   class CompareByTargetRunTime {
    public:
     bool operator()(const HeapTask* a, const HeapTask* b) const {
@@ -75,8 +83,13 @@ class TaskProcessor {
   };
 
   mutable Mutex lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
+  // Condition variable to notify there is new work to be done/the processor is no longer paused.
   ConditionVariable cond_ GUARDED_BY(lock_);
+  // Condition variable to notify the processor is actually paused.
+  ConditionVariable pause_cond_ GUARDED_BY(lock_);
   bool is_running_ GUARDED_BY(lock_);
+  bool is_paused_ GUARDED_BY(lock_);
+  bool request_pause_ GUARDED_BY(lock_);
   std::multiset<HeapTask*, CompareByTargetRunTime> tasks_ GUARDED_BY(lock_);
   Thread* running_thread_ GUARDED_BY(lock_);
 

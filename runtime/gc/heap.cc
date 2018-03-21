@@ -1320,6 +1320,19 @@ void Heap::TrimIndirectReferenceTables(Thread* self) {
   }
 }
 
+bool Heap::TryStartGC(Thread* self, GcCause cause, CollectorType collector_type) {
+  MutexLock mu(self, *gc_complete_lock_);
+  // Ensure there is only one GC at a time.
+  if (collector_type_running_ != kCollectorTypeNone) {
+    return false;
+  }
+  DCHECK(thread_running_gc_ == nullptr);
+  collector_type_running_ = collector_type;
+  last_gc_cause_ = cause;
+  thread_running_gc_ = self;
+  return true;
+}
+
 void Heap::StartGC(Thread* self, GcCause cause, CollectorType collector_type) {
   // Need to do this before acquiring the locks since we don't want to get suspended while
   // holding any locks.

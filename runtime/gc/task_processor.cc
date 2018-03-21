@@ -25,7 +25,10 @@ namespace gc {
 TaskProcessor::TaskProcessor()
     : lock_("Task processor lock", kReferenceProcessorLock),
       cond_("Task processor condition", lock_),
+      pause_cond_("Task processor pause condition", lock_),
       is_running_(false),
+      is_paused_(false),
+      request_pause_(false),
       running_thread_(nullptr) {
 }
 
@@ -45,16 +48,57 @@ void TaskProcessor::AddTask(Thread* self, HeapTask* task) {
   cond_.Signal(self);
 }
 
+// void TaskProcessor::WaitForResume(Thread* self) {
+//   ScopedThreadStateChange tsc(self, kWaitingForTaskProcessor);
+//   MutexLock mu(self, lock_);
+//   while (request_pause_ || is_paused_) {
+//     pause_cond_.Wait(self);
+//   }
+// }
+
+void TaskProcessor::Resume(Thread* self) {
+  ScopedThreadStateChange tsc(self, kWaitingForTaskProcessor);
+  MutexLock mu(self, lock_);
+  CHECK(request_pause_) << "Called resume when the task-processor is not paused!";
+  request_pause_ = false;
+  cond_.Broadcast(self);
+}
+
+bool TaskProcessor::IsPaused(Thread* self) {
+  ScopedThreadStateChange tsc(self, kWaitingForTaskProcessor);
+  MutexLock mu(self, lock_);
+  return is_paused_;
+}
+
+bool TaskProcessor::Pause(Thread* self) {
+  ScopedThreadStateChange tsc(self, kWaitingForTaskProcessor);
+  MutexLock mu(self, lock_);
+  if (request_pause_) {
+    return false;
+  }
+  request_pause_ = true;
+  cond_.Broadcast(self);
+  while (!is_paused_) {
+    pause_cond_.Wait(self);
+  }
+  return true;
+}
+
 HeapTask* TaskProcessor::GetTask(Thread* self) {
   ScopedThreadStateChange tsc(self, kWaitingForTaskProcessor);
   MutexLock mu(self, lock_);
   while (true) {
-    if (tasks_.empty()) {
-      if (!is_running_) {
+    if (tasks_.empty() || request_pause_) {
+      if (!is_running_ && !request_pause_) {
         return nullptr;
       }
-      cond_.Wait(self);  // Empty queue, wait until we are signalled.
+      is_paused_ = true;
+      // Tell anything waiting for us to start pausing that it has happened.
+      pause_cond_.Broadcast(self);
+      cond_.Wait(self);  // Empty queue/paused, wait until we are signaled.
     } else {
+      is_paused_ = false;
+      pause_cond_.Broadcast(self);
       // Non empty queue, look at the top element and see if we are ready to run it.
       const uint64_t current_time = NanoTime();
       HeapTask* task = *tasks_.begin();
@@ -122,10 +166,12 @@ void TaskProcessor::Start(Thread* self) {
 }
 
 void TaskProcessor::RunAllTasks(Thread* self) {
+  ScopedObjectAccess soa(self);
   while (true) {
     // Wait and get a task, may be interrupted.
     HeapTask* task = GetTask(self);
     if (task != nullptr) {
+      ScopedThreadStateChange stsc(self, kNative);
       task->Run(self);
       task->Finalize();
     } else if (!IsRunning()) {

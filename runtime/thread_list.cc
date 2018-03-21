@@ -39,6 +39,9 @@
 #include "gc/gc_pause_listener.h"
 #include "gc/heap.h"
 #include "gc/reference_processor.h"
+#include "gc/scoped_gc_critical_section.h"
+#include "gc/scoped_gc_prevented_section.h"
+#include "gc/task_processor.h"
 #include "gc_root.h"
 #include "jni_internal.h"
 #include "lock_word.h"
@@ -898,6 +901,37 @@ static void ThreadSuspendByPeerWarning(Thread* self,
   }
 }
 
+// A helper that will force an (optional) gc-prevention section.
+class ScopedMaybePreventGc {
+ public:
+  ScopedMaybePreventGc(Thread* self, bool needs_wait) ACQUIRE(Roles::uninterruptible_)
+      : self_(self), sgccs_(nullptr) {
+    if (needs_wait) {
+      // This collector type is fake so it simply causes the task processor to pause until its
+      // released.
+      sgccs_.reset(new gc::ScopedGCPreventedSection(self_,
+                                                    gc::kGcCauseThreadSuspension,
+                                                    gc::kCollectorTypeThreadSuspend));
+    }
+    old_cause_ = self->StartAssertNoThreadSuspension(needs_wait ? "ScopedMaybePreventGc (REAL)"
+                                                                : "ScopedMaybePreventGc (FAKE)");
+  }
+
+  ~ScopedMaybePreventGc() RELEASE(Roles::uninterruptible_) {
+    self_->EndAssertNoThreadSuspension(old_cause_);
+  }
+
+  bool IsGcBlockedOrNotNeeded() const {
+    return sgccs_ == nullptr || sgccs_->IsGcBlocked();
+  }
+
+ private:
+  Thread* self_;
+  // TODO This could be a std::optional and avoid a heap ref.
+  std::unique_ptr<gc::ScopedGCPreventedSection> sgccs_;
+  const char* old_cause_;
+};
+
 Thread* ThreadList::SuspendThreadByPeer(jobject peer,
                                         bool request_suspension,
                                         SuspendReason reason,
@@ -908,7 +942,29 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
   Thread* const self = Thread::Current();
   Thread* suspended_thread = nullptr;
   VLOG(threads) << "SuspendThreadByPeer starting";
+  // We want to force GC tasks to complete before suspending the gc-heap task thread since otherwise
+  // we could have some very strange deadlocks as other code waits for a (suspended) gc to finish.
+  // This is always safe to do since only user-code actually suspends threads by peer (the GC does
+  // it directly). We cannot actually check if a thread is the heap task until it is too late to
+  // wait for it however. Therefore we check and if we are trying to suspend the heap-task we go
+  // around again, using this bool to tell us that we really need to wait for it this time.
+  bool thread_is_heap_task = false;
   while (true) {
+    // In the case where the thread is the gc task thread we want to wait for any current tasks to
+    // finish to prevent deadlocks (at least until we have actually suspended it by incrementing the
+    // suspend count). kAlwaysForceGcFinishOnSuspend is an option to control if we will
+    // unconditionally force any (running) gcs to complete before we suspend a remote thread. This
+    // is safe but somewhat slower than not waiting.
+    constexpr bool kAlwaysForceGcFinishOnSuspend = kIsDebugBuild;
+    if (request_suspension && (kAlwaysForceGcFinishOnSuspend ||
+                               reason == SuspendReason::kForUserCode)) {
+      if (thread_is_heap_task) {
+        VLOG(threads) << "Pausing to allow gc-heap daemon to finish work before suspension.";
+      }
+      gc::ScopedGCCriticalSection sgccs(self,
+                                        gc::kGcCauseThreadSuspension,
+                                        gc::kCollectorTypeThreadSuspend);
+    }
     Thread* thread;
     {
       // Note: this will transition to runnable and potentially suspend. We ensure only one thread
@@ -944,13 +1000,34 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
         return nullptr;
       }
       VLOG(threads) << "SuspendThreadByPeer found thread: " << *thread;
+      if (!thread_is_heap_task &&
+          art::Runtime::Current()->GetHeap()->GetTaskProcessor()->GetRunningThread() == thread) {
+        thread_is_heap_task = true;
+        VLOG(threads) << "Trying to suspend heap thread from peer. This is dangerous.";
+      }
       {
+        // We cannot proceed if the gc is doing things and the thread is the gc thread since that
+        // could cause major deadlock dangers. We need to do this before checking the actual
+        // suspend-count of the current thread to preserve lock ordering.
+        ScopedMaybePreventGc smpc(self,
+                                  (kAlwaysForceGcFinishOnSuspend ||
+                                   reason == SuspendReason::kForUserCode));
         MutexLock suspend_count_mu(self, *Locks::thread_suspend_count_lock_);
         if (request_suspension) {
           if (self->GetSuspendCount() > 0) {
             // We hold the suspend count lock but another thread is trying to suspend us. Its not
             // safe to try to suspend another thread in case we get a cycle. Start the loop again
             // which will allow this thread to be suspended.
+            continue;
+          }
+          if (!smpc.IsGcBlockedOrNotNeeded()) {
+            // There is a GC in progress and we are trying to suspend the heap-task daemon (or are
+            // configured to always perform this check). Actually suspending now could cause the
+            // heap-task daemon to hold the GC in progress indefinately, potentially causing
+            // deadlocks. Go around again and we will try waiting for the gc to finish before trying
+            // again.
+            VLOG(threads) << "Not incrementing " << reason << " suspend count of " << *thread
+                          << " due to in-progress GC.";
             continue;
           }
           CHECK(suspended_thread == nullptr);

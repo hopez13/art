@@ -48,6 +48,8 @@ enum CollectorType {
   kCollectorTypeAddRemoveAppImageSpace,
   // Fake collector used to implement exclusion between GC and debugger.
   kCollectorTypeDebugger,
+  // Fake collector used to implement exclusion between GC and thread suspension.
+  kCollectorTypeThreadSuspend,
   // A homogeneous space compaction collector used in background transition
   // when both foreground and background collector are CMS.
   kCollectorTypeHomogeneousSpaceCompact,

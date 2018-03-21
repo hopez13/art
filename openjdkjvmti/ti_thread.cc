@@ -42,6 +42,7 @@
 #include "gc/collector_type.h"
 #include "gc/gc_cause.h"
 #include "gc/scoped_gc_critical_section.h"
+#include "gc/task_processor.h"
 #include "gc_root-inl.h"
 #include "jni_internal.h"
 #include "mirror/class.h"
@@ -825,7 +826,7 @@ jvmtiError ThreadUtil::SuspendOther(art::Thread* self,
     // before continuing.
     SuspendCheck(self);
     art::MutexLock mu(self, *art::Locks::user_code_suspension_lock_);
-    if (WouldSuspendForUserCodeLocked(self)) {
+    if (WouldSuspendLocked(self)) {
       // Make sure we won't be suspended in the middle of holding the thread_suspend_count_lock_ by
       // a user-code suspension. We retry and do another SuspendCheck to clear this.
       continue;
