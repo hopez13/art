@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abe705d5_f3db176f",
+        "filename": "tools/veridex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-03-21T17:27:53Z",
+      "side": 1,
+      "message": "To the extent that there is a style accepted for .bp files, Meike\u0027s right, it should be \nsrcs: [\n   ...\n],\n\nSame with cflags, shared_libs as well.",
+      "parentUuid": "71d50d2e_7da5411c",
+      "range": {
+        "startLine": 18,
+        "startChar": 25,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "c79798d45ad483ef837cce6ec3e383676ec6fb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8c84db6_64c3a6a2",
         "filename": "tools/veridex/resolver.h",
         "patchSetId": 1
