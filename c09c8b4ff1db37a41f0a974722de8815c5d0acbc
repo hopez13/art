@@ -46,6 +46,30 @@
       "revId": "c09c8b4ff1db37a41f0a974722de8815c5d0acbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f49ed9e_bf3d1497",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-22T18:04:38Z",
+      "side": 1,
+      "message": "Failing two conditionals for most code is cheap? Citation needed.\n\nI don\u0027t understand why your API explicitly takes a function to postpone computation, and then you don\u0027t use that facility.",
+      "parentUuid": "7273430b_88f702f5",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 88
+      },
+      "revId": "c09c8b4ff1db37a41f0a974722de8815c5d0acbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
