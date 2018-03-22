@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de39ccab_e4b85aea",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-22T21:58:42Z",
+      "side": 1,
+      "message": "this is placed wrong. The enum should come first, then the method decls.\n\nso move this right before IsConstant",
+      "revId": "3cd82156383480a1210b1dbc0b35ec966c1a53c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1167507f_dc815c0b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-22T21:58:42Z",
+      "side": 1,
+      "message": "yes, I am okay with this new design, but would like to move this code out of the loop optimizer. either into loop_analysis.* (my preference) or its own.\n\nWDYT?",
+      "revId": "3cd82156383480a1210b1dbc0b35ec966c1a53c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3055a025_c3d8c06e",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-22T21:58:42Z",
+      "side": 1,
+      "message": "is this flag still useful if we introduce it under debug now?\nseems similar to graph checker",
+      "revId": "3cd82156383480a1210b1dbc0b35ec966c1a53c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
