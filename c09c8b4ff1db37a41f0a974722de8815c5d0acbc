@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "eb2bc069_855f2541",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-22T18:11:45Z",
+      "side": 1,
+      "message": "In the sea of string comparisons to resolve the class member? Yes\n\nThe reason why I avoided it is that I don\u0027t know how to make a lambda work with REQUIRES_SHARED. But I\u0027d be delighted to learn how.",
+      "parentUuid": "6f49ed9e_bf3d1497",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 88
+      },
+      "revId": "c09c8b4ff1db37a41f0a974722de8815c5d0acbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1fa78f9_176c4452",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
