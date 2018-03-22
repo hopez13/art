@@ -34,6 +34,24 @@
       "revId": "265feedda93b7ce1bfc4bc9e9ac47d557e905e7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf1d712_a6c768aa",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-22T02:15:45Z",
+      "side": 1,
+      "message": "Yes, moving this comment change into its own CL is all that is required. Sorry about the \"pavlov response\" of \"can you add a test for that\", not sure where that came from ;-)",
+      "parentUuid": "2937a3ef_821ea405",
+      "revId": "265feedda93b7ce1bfc4bc9e9ac47d557e905e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
