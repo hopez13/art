@@ -50,7 +50,7 @@
 namespace art {
 
 // Returns true if the first non-ClassClass caller up the stack is in boot class path.
-static bool IsCallerInBootClassPath(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+static bool IsCallerInFramework(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
   // Walk the stack and find the first frame not from java.lang.Class.
   // This is very expensive. Save this till the last.
   struct FirstNonClassClassCallerVisitor : public StackVisitor {
@@ -81,8 +81,7 @@ static bool IsCallerInBootClassPath(Thread* self) REQUIRES_SHARED(Locks::mutator
 
   FirstNonClassClassCallerVisitor visitor(self);
   visitor.WalkStack();
-  return visitor.caller != nullptr &&
-         visitor.caller->GetDeclaringClass()->IsBootStrapClassLoaded();
+  return visitor.caller != nullptr && visitor.caller->GetDeclaringClass()->IsFrameworkClass();
 }
 
 // Returns true if the first non-ClassClass caller up the stack is not allowed to
@@ -90,7 +89,7 @@ static bool IsCallerInBootClassPath(Thread* self) REQUIRES_SHARED(Locks::mutator
 ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   return Runtime::Current()->AreHiddenApiChecksEnabled() &&
-         !IsCallerInBootClassPath(self);
+         !IsCallerInFramework(self);
 }
 
 // Returns true if the first non-ClassClass caller up the stack should not be
@@ -99,7 +98,7 @@ template<typename T>
 ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   return hiddenapi::ShouldBlockAccessToMember(
-      member, self, IsCallerInBootClassPath, hiddenapi::kReflection);
+      member, self, IsCallerInFramework, hiddenapi::kReflection);
 }
 
 // Returns true if a class member should be discoverable with reflection given

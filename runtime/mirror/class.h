@@ -1239,6 +1239,10 @@ class MANAGED Class FINAL : public Object {
     return GetClassLoader() == nullptr;
   }
 
+  // Returns true if the class is either loaded by the boot strap class loader or comes from
+  // a dex file located in /system/framework/.
+  bool IsFrameworkClass() REQUIRES_SHARED(Locks::mutator_lock_);
+
   static size_t ImTableEntrySize(PointerSize pointer_size) {
     return static_cast<size_t>(pointer_size);
   }

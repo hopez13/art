@@ -98,6 +98,10 @@ inline DexCache* Class::GetDexCache() {
       OFFSET_OF_OBJECT_MEMBER(Class, dex_cache_));
 }
 
+inline bool Class::IsFrameworkClass() {
+  return hiddenapi::IsCallerInFramework(GetClassLoader(), GetDexCache());
+}
+
 inline uint32_t Class::GetCopiedMethodsStartOffset() {
   // Object::GetFieldShort returns an int16_t value, but
   // Class::copied_methods_offset_ is an uint16_t value; cast the
