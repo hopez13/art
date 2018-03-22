@@ -37,6 +37,7 @@
 #include <mutex>
 
 #include "art_jvmti.h"
+#include "gc_root-inl.h"
 #include "monitor.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
@@ -351,8 +352,7 @@ jvmtiError MonitorUtil::GetCurrentContendedMonitor(jvmtiEnv* env ATTRIBUTE_UNUSE
   }
   struct GetContendedMonitorClosure : public art::Closure {
    public:
-    explicit GetContendedMonitorClosure(art::Thread* current, jobject* out)
-        : result_thread_(current), out_(out) {}
+    GetContendedMonitorClosure() : out_(nullptr) {}
 
     void Run(art::Thread* target_thread) REQUIRES_SHARED(art::Locks::mutator_lock_) {
       switch (target_thread->GetState()) {
@@ -361,9 +361,7 @@ jvmtiError MonitorUtil::GetCurrentContendedMonitor(jvmtiEnv* env ATTRIBUTE_UNUSE
         case art::kBlocked:
         case art::kTimedWaiting:
         case art::kWaiting: {
-          art::mirror::Object* mon = art::Monitor::GetContendedMonitor(target_thread);
-          *out_ = (mon == nullptr) ? nullptr
-                                   : result_thread_->GetJniEnv()->AddLocalReference<jobject>(mon);
+          out_ = art::GcRoot<art::mirror::Object>(art::Monitor::GetContendedMonitor(target_thread));
           return;
         }
         case art::kTerminated:
@@ -390,22 +388,27 @@ jvmtiError MonitorUtil::GetCurrentContendedMonitor(jvmtiEnv* env ATTRIBUTE_UNUSE
         case art::kStarting:
         case art::kNative:
         case art::kSuspended: {
-          // We aren't currently (explicitly) waiting for a monitor anything so just return null.
-          *out_ = nullptr;
+          // We aren't currently (explicitly) waiting for a monitor so just return null.
           return;
         }
       }
     }
 
+    jobject GetResult() REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      return out_.IsNull()
+          ? nullptr
+          : art::Thread::Current()->GetJniEnv()->AddLocalReference<jobject>(out_.Read());
+    }
+
    private:
-    art::Thread* result_thread_;
-    jobject* out_;
+    art::GcRoot<art::mirror::Object> out_;
   };
-  GetContendedMonitorClosure closure(self, monitor);
+  GetContendedMonitorClosure closure;
   // RequestSynchronousCheckpoint releases the thread_list_lock_ as a part of its execution.
-  if (!ThreadUtil::RequestGCSafeSynchronousCheckpoint(target, &closure)) {
+  if (!target->RequestSynchronousCheckpoint(&closure)) {
     return ERR(THREAD_NOT_ALIVE);
   }
+  *monitor = closure.GetResult();
   return OK;
 }
 
