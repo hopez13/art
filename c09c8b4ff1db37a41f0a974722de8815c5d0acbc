@@ -70,6 +70,29 @@
       "revId": "c09c8b4ff1db37a41f0a974722de8815c5d0acbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1fa78f9_176c4452",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-22T18:06:07Z",
+      "side": 1,
+      "message": "I\u0027d drop this - I think it unnecessarily spreads the notion of \"framework\". I\u0027d add the helper as a static method in HiddenApi.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 1
+      },
+      "revId": "c09c8b4ff1db37a41f0a974722de8815c5d0acbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
