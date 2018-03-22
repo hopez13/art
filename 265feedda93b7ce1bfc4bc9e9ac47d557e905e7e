@@ -16,6 +16,24 @@
       "revId": "265feedda93b7ce1bfc4bc9e9ac47d557e905e7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2937a3ef_821ea405",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-22T00:58:15Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand. This is indeed unrelated. But AFAICT, this is purely a fix to a comment that isn\u0027t interpreted by any tools. It seems like slight overkill to me, but I can easily put it in a separate CL. But what kind of test did you have in mind?\n\nIIRC, there are a few places here were these definitions involve type punning, so checking for consistency of the comments with the implementation is probably not that easy.",
+      "parentUuid": "4d087902_51243ce1",
+      "revId": "265feedda93b7ce1bfc4bc9e9ac47d557e905e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
