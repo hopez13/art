@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56ff1e0e_364d3ac1",
+        "filename": "tools/veridex/resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-23T11:32:29Z",
+      "side": 1,
+      "message": "Sweet Jesus! Nice hack. Could use a comment and perhaps a DCHECK that the found entry\u0027s DexFile contains the class def",
+      "range": {
+        "startLine": 114,
+        "startChar": 21,
+        "endLine": 114,
+        "endChar": 95
+      },
+      "revId": "056b22315f92fdc97a57cde10f99e8ab73987582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ead20444_9c4e7014",
+        "filename": "tools/veridex/resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-23T11:32:29Z",
+      "side": 1,
+      "message": "Is this supposed to do interfaces first? Maybe a reference to spec/ART\u0027s resolution?",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 51
+      },
+      "revId": "056b22315f92fdc97a57cde10f99e8ab73987582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
