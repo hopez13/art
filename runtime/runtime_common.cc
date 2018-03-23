@@ -407,6 +407,9 @@ void HandleUnexpectedSignalCommon(int signal_number,
     std::string thread_name(GetThreadName(tid));
     UContext thread_context(raw_context);
     Backtrace thread_backtrace(raw_context);
+    // This is a crash backtrace, do not skip frames in case the crash is
+    // in the unwinder itself.
+    thread_backtrace.SetSkipFrames(false);
 
     stream << "*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***" << std::endl
            << StringPrintf("Fatal signal %d (%s), code %d (%s)",

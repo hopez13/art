@@ -40,13 +40,17 @@ struct Backtrace {
  public:
   explicit Backtrace(void* raw_context) : raw_context_(raw_context) {}
   void Dump(std::ostream& os) const {
-    DumpNativeStack(os, GetTid(), nullptr, "\t", nullptr, raw_context_);
+    DumpNativeStack(os, GetTid(), nullptr, "\t", nullptr, raw_context_, skip_frames_);
   }
+  void SetSkipFrames(bool skip_frames) { skip_frames_ = skip_frames; }
  private:
   // Stores the context of the signal that was unexpected and will terminate the runtime. The
   // DumpNativeStack code will take care of casting it to the expected type. This is required
   // as our signal handler runs on an alternate stack.
   void* raw_context_;
+  // Set to false when handling a crash so that all of the frames including
+  // those from the unwinder library will be shown.
+  bool skip_frames_ = true;
 };
 
 struct OsInfo {
