@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a141017f_2c33be33",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-23T18:43:19Z",
+      "side": 1,
+      "message": "There is a ScopedThreadSuspension in RequestSynchronousCheckpoint, doesn\u0027t this mean the current thread might have the is_gc_marking get cleared then the read barrier won\u0027t trigger? Doesn\u0027t seem safe unless you can guarantee there is no suspend point.",
+      "revId": "4f4ce3830614ffaf59710f7f41eebd6742dab660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
