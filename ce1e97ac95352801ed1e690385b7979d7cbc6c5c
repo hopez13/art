@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc405a0e_5f998848",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-23T18:22:03Z",
+      "side": 1,
+      "message": "Needs to be updated to \"run_build_test_target.py -j48 art-jit-on-first-use-gcstress\" and the number of failures needs to be re-tested because of https://android-review.googlesource.com/648519 .",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "ce1e97ac95352801ed1e690385b7979d7cbc6c5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
