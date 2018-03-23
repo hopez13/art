@@ -1,0 +1,602 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd1f27e_9eff2f9c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2840,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Seems like a correct translation of something that looks wrong. Argument should presumably be 1?",
+      "range": {
+        "startLine": 2840,
+        "startChar": 45,
+        "endLine": 2840,
+        "endChar": 76
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b21072e1_280e2e6f",
+        "filename": "compiler/utils/atomic_dex_ref_map-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Again a correct translation of something that looks wrong. This pretty clearly should be an atomic exchange. If it\u0027s not being changed concurrently, there\u0027s no reason for the atomics. If it is, then this can return (in out) something other than what I replaced.",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 64
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3dc5cd_50499c53",
+        "filename": "libartbase/base/allocator.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Again doesn\u0027t make any sense. If the first two need to be atomic, then g_max_bytes_used clearly also need to be atomic. I suspect it would be faster just to take a lock.",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "007f6044_b35e0d3f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter much, but since we don\u0027t look at the result, and nobody is going to make any decisions based on whether or not they saw the store, this can clearly be memory_order_relaxed. The other alternative is to just let it default; as is, it suggests the memory_order_seq_cst was deliberate, which it\u0027s not.",
+      "range": {
+        "startLine": 298,
+        "startChar": 36,
+        "endLine": 298,
+        "endChar": 56
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9de5458d_56b35da3",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "This is a sequentially consistent fetch_add. Since this is only incremented while holding a lock, and accessed outside the lock only by futex, this is clearly overkill. fetch_add(1, memory_order_relaxed) would make more sense.",
+      "range": {
+        "startLine": 901,
+        "startChar": 4,
+        "endLine": 901,
+        "endChar": 17
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13779f00_a322c708",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 927,
+        "startChar": 4,
+        "endLine": 927,
+        "endChar": 15
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc32e03f_e7be0301",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Makes no sense, since all loads are relaxed. Updated b/31023171, so that we can fix it with that bug.",
+      "range": {
+        "startLine": 1742,
+        "startChar": 45,
+        "endLine": 1742,
+        "endChar": 69
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d414ed20_eb0bba16",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Same issue here.",
+      "range": {
+        "startLine": 1744,
+        "startChar": 52,
+        "endLine": 1744,
+        "endChar": 72
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1de06e_7e377342",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "AFAICT, atomic_finger_ is default initialized, and then set to AtomicInteger::MaxValue(). Mathieu\u0027s impression is also that kUseFinger and atomic_finger are dead. If not, this should be fixed:\n\nMy guess is that we\u0027re trying to ensure that prior loads are ordered before the atomic_finger_ load. That\u0027s kind of brittle, but that may be unavoidable. This would be clearer and maybe slightly faster if we made this memory_order_acquire. A comment also wouldn\u0027t hurt.\n\nI\u0027m strongly in favor of a \"thou shalt document all explicit fences\" coding rule anyway.",
+      "range": {
+        "startLine": 725,
+        "startChar": 35,
+        "endLine": 725,
+        "endChar": 60
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b664f43d_e3dd23f9",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Doesn\u0027t matter much, but since this is a CHECK, and this would be flakey if the outcome depended on the load order, memory_order_relaxed has to be OK in both places here.  Or just delete the memory_order argument, and don\u0027t make it look like this is deliberate. But since we use relaxed everywhere else ...",
+      "range": {
+        "startLine": 1408,
+        "startChar": 37,
+        "endLine": 1408,
+        "endChar": 62
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa1f1320_c2554a84",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "The inside of the loop should be moved out. But more importantly, the whole function body should just be replaced by\n\nreturn storage-\u003eexchange(new_value);",
+      "range": {
+        "startLine": 1124,
+        "startChar": 2,
+        "endLine": 1128,
+        "endChar": 13
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba9e1dfa_72ce8db2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Remove? Another case were seq_cst is probably not needed, but it doesn\u0027t really matter. I would do the same for all the uses in RecordFreeRevoke below.",
+      "range": {
+        "startLine": 1531,
+        "startChar": 67,
+        "endLine": 1531,
+        "endChar": 93
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fbf57b7_dea5b3aa",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1707,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "relaxed is clearly safe here. Omitting the argument is also defensible, since it doesn\u0027t really matter. An explicit seq_cst seems strange. Applies to all the loads here.",
+      "range": {
+        "startLine": 1707,
+        "startChar": 74,
+        "endLine": 1707,
+        "endChar": 100
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccea1a57_1962df5b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1976,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Same comment here and for the one below.",
+      "range": {
+        "startLine": 1976,
+        "startChar": 56,
+        "endLine": 1976,
+        "endChar": 81
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68868353_e9365a0a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "I\u0027m unclear about whether this is actually read in a different thread without synchronization. If so, it could be OK as is, since it can result in dumping of data, which possibly needs to be up-to-date.",
+      "range": {
+        "startLine": 2817,
+        "startChar": 34,
+        "endLine": 2817,
+        "endChar": 59
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662a7112_f16ec3c1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3740,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "This CHECK and the two below look wrong. We can presumably get suspended between the two loads in the CHECK, and the second one can increase before we do the comparison. We should load the smaller value first, by using the result of the fetch_add. That probably requires release ordering on the updates to these counters, which I haven\u0027t confirmed.",
+      "range": {
+        "startLine": 3739,
+        "startChar": 6,
+        "endLine": 3740,
+        "endChar": 72
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a35811_d208fe0e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Looks fishy. Should probably say memory_order_relaxed, with a suitable comment that it should be treated as approximate, or maybe take a memory_order parameter.",
+      "range": {
+        "startLine": 498,
+        "startChar": 37,
+        "endLine": 498,
+        "endChar": 62
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c8a03cd_13719d0d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "GetBytesAllocated()",
+      "range": {
+        "startLine": 548,
+        "startChar": 28,
+        "endLine": 548,
+        "endChar": 80
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6f95ac6_3fab781f",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "bytes_allocated",
+      "range": {
+        "startLine": 548,
+        "startChar": 11,
+        "endLine": 548,
+        "endChar": 25
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb99f62_6429222c",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "We should just delete all of these in this file. I\u0027m pretty sure the intent here is \"It\u0027s a test; we didn\u0027t work out the actual ordering requirement.\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 30,
+        "endLine": 40,
+        "endChar": 55
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab5e8f3_d4b2861b",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure this is also just conservative; I would also delete the memory_order arguments in this file.",
+      "range": {
+        "startLine": 739,
+        "startChar": 45,
+        "endLine": 739,
+        "endChar": 70
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f71dbcd5_68ad6457",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "A little less clear here, but I would also just let these default.",
+      "range": {
+        "startLine": 1628,
+        "startChar": 36,
+        "endLine": 1628,
+        "endChar": 61
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59092b44_8e1872de",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Either memory_order_relaxed or let it default. Relaxed clearly suffices.",
+      "range": {
+        "startLine": 732,
+        "startChar": 45,
+        "endLine": 732,
+        "endChar": 72
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61eadd9_537a2574",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Doesn\u0027t really make sense. This is unrelated to anything else. Either use relaxed, or let it default.",
+      "range": {
+        "startLine": 823,
+        "startChar": 43,
+        "endLine": 823,
+        "endChar": 69
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be2f5a95_f85587ca",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1650,
+        "startChar": 35,
+        "endLine": 1650,
+        "endChar": 60
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbfb6426_bbf038da",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-23T01:38:35Z",
+      "side": 1,
+      "message": "Memory ordering in this file is inconsistent. Release doesn\u0027t help unless the corresponding load uses acquire. My best guess is that all the stores here should say memory_order_release, and all the loads should say memory_order_acquire.",
+      "range": {
+        "startLine": 625,
+        "startChar": 40,
+        "endLine": 625,
+        "endChar": 65
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
