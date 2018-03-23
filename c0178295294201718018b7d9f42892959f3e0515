@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "87abcb86_7fe45536",
+        "filename": "tools/veridex/resolver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-23T13:43:16Z",
+      "side": 1,
+      "message": "No, because it\u0027s queried on ClassDef pointers which are in the range DexFile-\u003eBegin() -\u003e DexFile-\u003eEnd()",
+      "parentUuid": "0f8b8e39_8139829a",
+      "range": {
+        "startLine": 27,
+        "startChar": 32,
+        "endLine": 27,
+        "endChar": 41
+      },
+      "revId": "c0178295294201718018b7d9f42892959f3e0515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e91abba_49cc4817",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -53,6 +77,30 @@
       "writtenOn": "2018-03-23T11:32:29Z",
       "side": 1,
       "message": "static",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 9
+      },
+      "revId": "c0178295294201718018b7d9f42892959f3e0515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbdd6d65_4f782707",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-23T13:43:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e91abba_49cc4817",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "6f5ccd48_7f2a778a",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-23T13:43:16Z",
+      "side": 1,
+      "message": "They\u0027ll most probably be used in folow-up CLs dealing with code items, so I want to have them accessible.",
+      "parentUuid": "22d6160f_0b001c5a",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 0
+      },
+      "revId": "c0178295294201718018b7d9f42892959f3e0515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc1f1cf9_f3766580",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -99,6 +171,30 @@
       "writtenOn": "2018-03-23T11:32:29Z",
       "side": 1,
       "message": "Still think that this would work better with the VeridexResolver being allocated directly in the vector. The vector owns the pointer anyway, so it will get destroyed at the end of this scope.",
+      "range": {
+        "startLine": 161,
+        "startChar": 16,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "c0178295294201718018b7d9f42892959f3e0515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c5533d_05e40f6b",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-23T13:43:16Z",
+      "side": 1,
+      "message": "The map from dex file address to resolver puts the address of resolver directly. I don\u0027t want that address to accidentally change because the vector needs to reallocate its memory.",
+      "parentUuid": "bc1f1cf9_f3766580",
       "range": {
         "startLine": 161,
         "startChar": 16,
