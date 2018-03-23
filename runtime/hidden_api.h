@@ -216,11 +216,13 @@ inline bool ShouldBlockAccessToMember(T* member,
                                       ObjPtr<mirror::DexCache> caller_dex_cache,
                                       AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  bool caller_in_platform = IsCallerInPlatformDex(caller_class_loader, caller_dex_cache);
-  return ShouldBlockAccessToMember(member,
-                                   /* thread */ nullptr,
-                                   [caller_in_platform] (Thread*) { return caller_in_platform; },
-                                   access_method);
+  return ShouldBlockAccessToMember(
+      member,
+      /* thread */ nullptr,
+      [ caller_class_loader, caller_dex_cache ] (Thread*) REQUIRES_SHARED(Locks::mutator_lock_) {
+        return IsCallerInPlatformDex(caller_class_loader, caller_dex_cache);
+      },
+      access_method);
 }
 
 }  // namespace hiddenapi
