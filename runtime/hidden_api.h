@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include <log/log_event_list.h>
+
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/dumpable.h"
@@ -24,6 +26,8 @@
 #include "mirror/class-inl.h"
 #include "reflection.h"
 #include "runtime.h"
+
+#define EVENT_LOG_TAG_art_hidden_api_access 20004
 
 namespace art {
 namespace hiddenapi {
@@ -113,16 +117,26 @@ inline Action GetMemberAction(uint32_t access_flags) {
 // is used as a helper when matching prefixes, and when logging the signature.
 class MemberSignature {
  private:
+  std::string class_name_;
+  std::string member_name_;
   std::vector<std::string> signature_parts_;
   std::string tmp_;
+  enum Type {
+    Field = 0,
+    Method = 1,
+  };
+  Type type_;
 
  public:
   inline explicit MemberSignature(ArtField* field)
       REQUIRES_SHARED(Locks::mutator_lock_) {
+    class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = field->GetName();
+    type_ = Field;
     signature_parts_ = {
-      field->GetDeclaringClass()->GetDescriptor(&tmp_),
+      class_name_,
       "->",
-      field->GetName(),
+      member_name_,
       ":",
       field->GetTypeDescriptor()
     };
@@ -130,10 +144,13 @@ class MemberSignature {
 
   inline explicit MemberSignature(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_) {
+    class_name_ = method->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = method->GetName();
+    type_ = Method;
     signature_parts_ = {
-      method->GetDeclaringClass()->GetDescriptor(&tmp_),
+      class_name_,
       "->",
-      method->GetName(),
+      member_name_,
       method->GetSignature().ToString()
     };
   }
@@ -175,6 +192,16 @@ class MemberSignature {
       }
     }
     return false;
+  }
+
+  inline void LogAccessToEventLog(AccessMethod access_method, HiddenApiAccessFlags::ApiList list) {
+    android_log_event_list ctx(EVENT_LOG_TAG_art_hidden_api_access);
+    ctx << access_method;
+    ctx << list;
+    ctx << type_;
+    ctx << class_name_;
+    ctx << member_name_;
+    ctx << LOG_ID_EVENTS;
   }
 };
 
@@ -231,6 +258,8 @@ inline bool ShouldBlockAccessToMember(T* member,
   LOG(WARNING) << "Accessing hidden field " << Dumpable<MemberSignature>(member_signature)
                << " (" << HiddenApiAccessFlags::DecodeFromRuntime(member->GetAccessFlags())
                << ", " << access_method << ")";
+
+  member_signature.LogAccessToEventLog(access_method);
 
   if (action == kDeny) {
     // Block access
