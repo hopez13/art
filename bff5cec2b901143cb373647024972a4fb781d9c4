@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8982258e_0a9bced4",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-03-23T17:28:50Z",
+      "side": 1,
+      "message": "Add comment that the GcRoot is used to convert the mirror object from a different thread? Another thing worth noting is that there shouldn\u0027t be a suspend point between Run() and GetResult().",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 0
+      },
+      "revId": "bff5cec2b901143cb373647024972a4fb781d9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
