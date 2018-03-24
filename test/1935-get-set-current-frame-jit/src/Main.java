@@ -38,7 +38,6 @@ public class Main {
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
     Locals.EnableLocalVariableAccess();
-    runGet();
     runSet();
   }
 
