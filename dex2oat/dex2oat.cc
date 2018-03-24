@@ -428,6 +428,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("  --class-loader-context=<string spec>: a string specifying the intended");
   UsageError("      runtime loading context for the compiled dex files.");
   UsageError("");
+  UsageError("  --stored-class-loader-context=<string spec>: a string specifying the intended");
+  UsageError("      runtime loading context that is stored in the oat file. Overrides");
+  UsageError("      --class-loader-context.");
+  UsageError("");
   UsageError("      It describes how the class loader chain should be built in order to ensure");
   UsageError("      classes are resolved during dex2aot as they would be resolved at runtime.");
   UsageError("      This spec will be encoded in the oat file. If at runtime the dex file is");
@@ -1265,6 +1269,23 @@ class Dex2Oat FINAL {
         Usage("Option --class-loader-context has an incorrect format: %s",
               args.Get(M::ClassLoaderContext)->c_str());
       }
+      if (args.Exists(M::StoredClassLoaderContext)) {
+        stored_class_loader_context_.reset(new std::string(*args.Get(M::StoredClassLoaderContext)));
+        std::unique_ptr<ClassLoaderContext> temp_context =
+            ClassLoaderContext::Create(*args.Get(M::ClassLoaderContext));
+        if (temp_context == nullptr) {
+          Usage("Option --stored-class-loader-context has an incorrect format: %s",
+                stored_class_loader_context_->c_str());
+        } else if (!class_loader_context_->VerifyClassLoaderContextMatch(
+            *stored_class_loader_context_,
+            /*verify_names*/ false)) {
+          Usage("Option --stored-class-loader-context mismatch against --class-loader-context: %s",
+                          stored_class_loader_context_->c_str());
+        }
+      }
+    } else if (args.Exists(M::StoredClassLoaderContext)) {
+      Usage("Option --stored-class-loader-context should only be used if "
+            "--class-loader-context is also specified");
     }
 
     if (!ReadCompilerOptions(args, compiler_options_.get(), &error_msg)) {
@@ -1579,7 +1600,7 @@ class Dex2Oat FINAL {
 
       if (class_loader_context_ == nullptr) {
         // If no context was specified use the default one (which is an empty PathClassLoader).
-        class_loader_context_ = std::unique_ptr<ClassLoaderContext>(ClassLoaderContext::Default());
+        class_loader_context_ = ClassLoaderContext::Default();
       }
 
       DCHECK_EQ(oat_writers_.size(), 1u);
@@ -1605,8 +1626,13 @@ class Dex2Oat FINAL {
       }
 
       // Store the class loader context in the oat header.
-      key_value_store_->Put(OatHeader::kClassPathKey,
-                            class_loader_context_->EncodeContextForOatFile(classpath_dir_));
+      std::string class_path_key;
+      if (stored_class_loader_context_ != nullptr) {
+        class_path_key = *stored_class_loader_context_;
+      } else {
+        class_path_key = class_loader_context_->EncodeContextForOatFile(classpath_dir_);
+      }
+      key_value_store_->Put(OatHeader::kClassPathKey, class_path_key);
     }
 
     // Now that we have finalized key_value_store_, start writing the oat file.
@@ -2852,6 +2878,9 @@ class Dex2Oat FINAL {
 
   // The spec describing how the class loader should be setup for compilation.
   std::unique_ptr<ClassLoaderContext> class_loader_context_;
+
+  // The class loader context stored in the oat file. May be equal to class_loader_context_.
+  std::unique_ptr<std::string> stored_class_loader_context_;
 
   size_t thread_count_;
   uint64_t start_ns_;
