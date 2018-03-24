@@ -428,6 +428,10 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("  --class-loader-context=<string spec>: a string specifying the intended");
   UsageError("      runtime loading context for the compiled dex files.");
   UsageError("");
+  UsageError("  --stored-class-loader-context=<string spec>: a string specifying the intended");
+  UsageError("      runtime loading context that is stored in the oat file. Overrides");
+  UsageError("      --class-loader-context.");
+  UsageError("");
   UsageError("      It describes how the class loader chain should be built in order to ensure");
   UsageError("      classes are resolved during dex2aot as they would be resolved at runtime.");
   UsageError("      This spec will be encoded in the oat file. If at runtime the dex file is");
@@ -1265,6 +1269,20 @@ class Dex2Oat FINAL {
         Usage("Option --class-loader-context has an incorrect format: %s",
               args.Get(M::ClassLoaderContext)->c_str());
       }
+      if (args.Exists(M::StoredClassLoaderContext)) {
+        stored_class_loader_context_ = ClassLoaderContext::Create(
+            *args.Get(M::StoredClassLoaderContext));
+        if (stored_class_loader_context_ == nullptr) {
+          Usage("Option --stored-class-loader-context has an incorrect format: %s",
+                args.Get(M::StoredClassLoaderContext)->c_str());
+        }
+      } else {
+        stored_class_loader_context_ = ClassLoaderContext::Create(*args.Get(M::ClassLoaderContext));
+      }
+
+    } else if (args.Exists(M::StoredClassLoaderContext)) {
+      Usage("Option --stored-class-loader-context should only be used if "
+            "--class-loader-context is also specified");
     }
 
     if (!ReadCompilerOptions(args, compiler_options_.get(), &error_msg)) {
@@ -2852,6 +2870,9 @@ class Dex2Oat FINAL {
 
   // The spec describing how the class loader should be setup for compilation.
   std::unique_ptr<ClassLoaderContext> class_loader_context_;
+
+  // The class loader context stored in the oat file. May be equal to class_loader_context_.
+  std::unique_ptr<ClassLoaderContext> stored_class_loader_context_;
 
   size_t thread_count_;
   uint64_t start_ns_;
