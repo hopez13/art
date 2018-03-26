@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fcf33f8_9dd319b2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-26T15:31:12Z",
+      "side": 1,
+      "message": "I\u0027d add this in the constructor:\n\n  CHECK_EQ(self_, Thread::Current());",
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a57163b5_ba8834a9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2900,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-26T15:31:12Z",
+      "side": 1,
+      "message": "Maybe add a comment that a 32-bit unsigned integer is enough to hold the count of objects in the managed heap failing verification?\n\nThis change could arguably be done in a separate CL too. :-)",
+      "range": {
+        "startLine": 2900,
+        "startChar": 2,
+        "endLine": 2900,
+        "endChar": 10
+      },
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab0b15c0_e2f95a05",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-26T15:31:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba22fdf_2683dfbe",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-26T15:31:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2932,
+        "startChar": 2,
+        "endLine": 2932,
+        "endChar": 10
+      },
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
