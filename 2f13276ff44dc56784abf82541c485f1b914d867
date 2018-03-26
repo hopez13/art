@@ -16,6 +16,24 @@
       "revId": "2f13276ff44dc56784abf82541c485f1b914d867",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f808349b_57136698",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-03-26T23:09:52Z",
+      "side": 0,
+      "message": "Right now no.\n\nWe moved away from USE_D8_BY_DEFAULT in the build system so env.py was checking the wrong variable.",
+      "parentUuid": "af85017b_c689df97",
+      "revId": "2f13276ff44dc56784abf82541c485f1b914d867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
