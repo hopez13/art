@@ -52,9 +52,10 @@ using ThreadIDBitSet = std::bitset<kMaxThreadIdNumber>;
 
 enum TracingMode {
   kTracingInactive,
-  kMethodTracingActive,
-  kSampleProfilingActive,
+  kMethodTracingActive,  // Trace activity synchronous with method progress.
+  kSampleProfilingActive,  // Trace activity captured by sampling thread.
 };
+std::ostream& operator<<(std::ostream& os, const TracingMode& rhs);
 
 // File format:
 //     header
@@ -98,6 +99,9 @@ enum TraceAction {
     kTraceMethodActionMask = 0x03,  // two bits
 };
 
+// Class for recording event traces. Trace data is either collected
+// synchronously during execution (TracingMode::kMethodTracingActive),
+// or by a separate sampling thread (TracingMode::kSampleProfilingActive).
 class Trace FINAL : public instrumentation::InstrumentationListener {
  public:
   enum TraceFlag {
