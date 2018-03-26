@@ -22,6 +22,30 @@
       "revId": "fe94875d94ef8c06f6322021d501d58bd64c1606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5a25549_593f1a76",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-26T17:07:31Z",
+      "side": 1,
+      "message": "Yes, that\u0027s new but the old behavior did not make sense anyway. If you\u0027re asking for deoptimization, you should not go straight back into compiled code.",
+      "parentUuid": "8b40bfe8_2a40a0f9",
+      "range": {
+        "startLine": 577,
+        "startChar": 22,
+        "endLine": 577,
+        "endChar": 53
+      },
+      "revId": "fe94875d94ef8c06f6322021d501d58bd64c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
