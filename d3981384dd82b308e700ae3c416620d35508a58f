@@ -95,6 +95,23 @@
     },
     {
       "key": {
+        "uuid": "6c33a595_b7f2b9c0",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-26T21:44:00Z",
+      "side": 1,
+      "message": "There should really be some sort of explanation here for how/where these writes to buf_[old_offset] synchronize-with future reads.\n\nIt\u0027s completely non-obvious regardless of what trace_output_mode_ is.",
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27c62b82_d18bdd8e",
         "filename": "runtime/trace.h",
         "patchSetId": 3
