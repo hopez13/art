@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5abd8e1c_55aba896",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T21:36:32Z",
+      "side": 1,
+      "message": "It now looks to me like these should stay as they were.",
+      "range": {
+        "startLine": 678,
+        "startChar": 40,
+        "endLine": 678,
+        "endChar": 66
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12e90bef_8becc27a",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
@@ -18,6 +41,76 @@
         "startChar": 4,
         "endLine": 999,
         "endChar": 61
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99cb31b4_6244c136",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T21:36:32Z",
+      "side": 1,
+      "message": "... and this should stay relaxed ...",
+      "parentUuid": "12e90bef_8becc27a",
+      "range": {
+        "startLine": 999,
+        "startChar": 4,
+        "endLine": 999,
+        "endChar": 61
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2aba2b_aa1bf030",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T21:36:32Z",
+      "side": 1,
+      "message": "... and this should become relaxed.\n\nAs should the stores in WriteToBuf, and FlushBuf, which I think should not race with anything, since everything appears to be lock-protected in streaming mode.",
+      "range": {
+        "startLine": 1006,
+        "startChar": 72,
+        "endLine": 1006,
+        "endChar": 97
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27c62b82_d18bdd8e",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T21:36:32Z",
+      "side": 1,
+      "message": "(Unless I\u0027m misunderstanding something) please add a comment:\nCur_offset_ is atomic to allow multiple writers to concurrently reserve space in the buffer. The newly written buffer contents are not read without some other form of thread synchronization, such as suspending all potential writers or acquiring *streaming_lock_. Reading cur_offset_ is thus never used to ensure visibility of any other objects, and all accesses are memory_order_relaxed.",
+      "range": {
+        "startLine": 346,
+        "startChar": 2,
+        "endLine": 346,
+        "endChar": 22
       },
       "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -60,6 +153,30 @@
       "side": 1,
       "message": "I\u0027m responsible for the bad overload, but please don\u0027t read it wrong.\n\ncur_offset_ is important for non-streaming mode. In that case, it is used to *allocate* a buffer chunk, not to synchronize reading it. \"Reading\" is done at the end, when a trace is actually written out. It\u0027s an old optimization, as writing traces *is* pretty much contended all the time - but nobody cares that the allocated data is up-to-date until the buffer has to be written out at the end.\n\nThe factoring with the streaming lock (in which case it is synchronizing because write-out can happen at any time) is crap, but it\u0027s hard to make it better w/o lots of code duplication.",
       "parentUuid": "fd8d968c_7b5618bc",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2221034_ada1cb5f",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T21:36:32Z",
+      "side": 1,
+      "message": "So if I call Stop(), it\u0027s the ScopedSuspendAll that guarantees that I will see a consistent state with no half-written entries?\n\nSo it seems to me that cur_offset_ is used exclusively to reserve buffer space. Suitable comment suggested above. Please correct if it looks like I\u0027m still missing something.",
+      "parentUuid": "0e4d7edd_7cb37402",
       "range": {
         "startLine": 359,
         "startChar": 2,
