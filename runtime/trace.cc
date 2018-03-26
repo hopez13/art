@@ -675,7 +675,7 @@ Trace::Trace(File* trace_file,
   static_assert(18 <= kMinBufSize, "Minimum buffer size not large enough for trace header");
 
   // Update current offset.
-  cur_offset_.store(kTraceHeaderLength, std::memory_order_relaxed);
+  cur_offset_.store(kTraceHeaderLength, std::memory_order_release);
 
   if (output_mode == TraceOutputMode::kStreaming) {
     streaming_lock_ = new Mutex("tracing lock", LockLevel::kTracingStreamingLock);
@@ -717,7 +717,7 @@ void Trace::FinishTracing() {
     // Clean up.
     STLDeleteValues(&seen_methods_);
   } else {
-    final_offset = cur_offset_.load(std::memory_order_relaxed);
+    final_offset = cur_offset_.load(std::memory_order_acquire);
     GetVisitedMethods(final_offset, &visited_methods);
   }
 
@@ -944,7 +944,9 @@ std::string Trace::GetMethodLine(ArtMethod* method) {
 }
 
 void Trace::WriteToBuf(const uint8_t* src, size_t src_size) {
-  int32_t old_offset = cur_offset_.load(std::memory_order_relaxed);
+  DCHECK_EQ(TracingMode::kSampleProfilingActive, GetMethodTracingMode());
+  DCHECK_EQ(pthread_self(), sampling_pthread_);
+  int32_t old_offset = cur_offset_.load(std::memory_order_acquire);
   int32_t new_offset = old_offset + static_cast<int32_t>(src_size);
   if (dchecked_integral_cast<size_t>(new_offset) > buffer_size_) {
     // Flush buffer.
@@ -970,16 +972,20 @@ void Trace::WriteToBuf(const uint8_t* src, size_t src_size) {
 }
 
 void Trace::FlushBuf() {
-  int32_t offset = cur_offset_.load(std::memory_order_relaxed);
+  DCHECK_EQ(TracingMode::kSampleProfilingActive, GetMethodTracingMode());
+  DCHECK_EQ(pthread_self(), sampling_pthread_);
+  int32_t offset = cur_offset_.exchange(0, std::memory_order_acq_rel);
   if (!trace_file_->WriteFully(buf_.get(), offset)) {
     PLOG(WARNING) << "Failed flush the remaining data in streaming.";
   }
-  cur_offset_.store(0, std::memory_order_release);
 }
 
 void Trace::LogMethodTraceEvent(Thread* thread, ArtMethod* method,
                                 instrumentation::Instrumentation::InstrumentationEvent event,
                                 uint32_t thread_clock_diff, uint32_t wall_clock_diff) {
+  // This method is called when the tracer is method tracing mode and
+  // also when sampling mode is selected.
+
   // Ensure we always use the non-obsolete version of the method so that entry/exit events have the
   // same pointer value.
   method = method->GetNonObsoleteMethod();
@@ -989,14 +995,14 @@ void Trace::LogMethodTraceEvent(Thread* thread, ArtMethod* method,
 
   // We do a busy loop here trying to acquire the next offset.
   if (trace_output_mode_ != TraceOutputMode::kStreaming) {
+    old_offset = cur_offset_.load(std::memory_order_acquire);
     do {
-      old_offset = cur_offset_.load(std::memory_order_relaxed);
       new_offset = old_offset + GetRecordSize(clock_source_);
       if (static_cast<size_t>(new_offset) > buffer_size_) {
         overflow_ = true;
         return;
       }
-    } while (!cur_offset_.CompareAndSetWeakSequentiallyConsistent(old_offset, new_offset));
+    } while (!cur_offset_.compare_exchange_weak(old_offset, new_offset, std::memory_order_acq_rel));
   }
 
   TraceAction action = kTraceMethodEnter;
