@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b40bfe8_2a40a0f9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-26T17:04:29Z",
+      "side": 1,
+      "message": "This looks like a new change; was the previous value (`false`) incorrect?",
+      "range": {
+        "startLine": 577,
+        "startChar": 22,
+        "endLine": 577,
+        "endChar": 53
+      },
+      "revId": "fe94875d94ef8c06f6322021d501d58bd64c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
