@@ -45,6 +45,30 @@
       "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4d7edd_7cb37402",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-26T19:01:20Z",
+      "side": 1,
+      "message": "I\u0027m responsible for the bad overload, but please don\u0027t read it wrong.\n\ncur_offset_ is important for non-streaming mode. In that case, it is used to *allocate* a buffer chunk, not to synchronize reading it. \"Reading\" is done at the end, when a trace is actually written out. It\u0027s an old optimization, as writing traces *is* pretty much contended all the time - but nobody cares that the allocated data is up-to-date until the buffer has to be written out at the end.\n\nThe factoring with the streaming lock (in which case it is synchronizing because write-out can happen at any time) is crap, but it\u0027s hard to make it better w/o lots of code duplication.",
+      "parentUuid": "fd8d968c_7b5618bc",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
