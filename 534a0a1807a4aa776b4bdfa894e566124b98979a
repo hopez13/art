@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "777e183c_ee839e13",
+        "filename": "tools/veridex/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-26T09:07:45Z",
+      "side": 1,
+      "message": "Can comments be put in the list right now David? If not, and we\u0027ll want to in the future, we need to come up with a symbol.",
+      "parentUuid": "90622190_a047a33b",
+      "range": {
+        "startLine": 65,
+        "startChar": 22,
+        "endLine": 65,
+        "endChar": 23
+      },
+      "revId": "534a0a1807a4aa776b4bdfa894e566124b98979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "339089a0_1255112b",
         "filename": "tools/veridex/resolver.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2018-03-26T08:39:31Z",
       "side": 1,
       "message": "Why warn only if it\u0027s hidden *and* unresolved?",
+      "range": {
+        "startLine": 291,
+        "startChar": 6,
+        "endLine": 291,
+        "endChar": 88
+      },
+      "revId": "534a0a1807a4aa776b4bdfa894e566124b98979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64ff7b21_d30680d2",
+        "filename": "tools/veridex/resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-26T09:07:45Z",
+      "side": 1,
+      "message": "No, we log unresolved only if we didn\u0027t see it in a hidden api list.",
+      "parentUuid": "339089a0_1255112b",
       "range": {
         "startLine": 291,
         "startChar": 6,
