@@ -2753,13 +2753,9 @@ class ScanVisitor {
 // Verify a reference from an object.
 class VerifyReferenceVisitor : public SingleRootVisitor {
  public:
-  VerifyReferenceVisitor(Heap* heap, Atomic<size_t>* fail_count, bool verify_referent)
+  VerifyReferenceVisitor(Heap* heap, std::atomic<uint32_t>* fail_count, bool verify_referent)
       REQUIRES_SHARED(Locks::mutator_lock_)
       : heap_(heap), fail_count_(fail_count), verify_referent_(verify_referent) {}
-
-  size_t GetFailureCount() const {
-    return fail_count_->load(std::memory_order_seq_cst);
-  }
 
   void operator()(ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED, ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -2810,7 +2806,9 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
       // Verify that the reference is live.
       return true;
     }
-    if (fail_count_->fetch_add(1, std::memory_order_seq_cst) == 0) {
+    // Relaxed increment of the atomic fail_count_ variable as it is
+    // only read from same thread performing the heap verification.
+    if (fail_count_->fetch_add(1, std::memory_order_relaxed) == 0) {
       // Print message on only on first failure to prevent spam.
       LOG(ERROR) << "!!!!!!!!!!!!!!Heap corruption detected!!!!!!!!!!!!!!!!!!!";
     }
@@ -2898,14 +2896,14 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
   }
 
   Heap* const heap_;
-  Atomic<size_t>* const fail_count_;
+  std::atomic<uint32_t>* const fail_count_;
   const bool verify_referent_;
 };
 
 // Verify all references within an object, for use with HeapBitmap::Visit.
 class VerifyObjectVisitor {
  public:
-  VerifyObjectVisitor(Heap* heap, Atomic<size_t>* fail_count, bool verify_referent)
+  VerifyObjectVisitor(Heap* heap, std::atomic<uint32_t>* fail_count, bool verify_referent)
       : heap_(heap), fail_count_(fail_count), verify_referent_(verify_referent) {}
 
   void operator()(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -2922,13 +2920,14 @@ class VerifyObjectVisitor {
     Runtime::Current()->VisitRoots(&visitor);
   }
 
-  size_t GetFailureCount() const {
-    return fail_count_->load(std::memory_order_seq_cst);
+  uint32_t GetFailureCount() const REQUIRES(Locks::mutator_lock_) {
+    // fail_count_ is local to the calling thread: relaxed ordering suffices.
+    return fail_count_->load(std::memory_order_relaxed);
   }
 
  private:
   Heap* const heap_;
-  Atomic<size_t>* const fail_count_;
+  std::atomic<uint32_t>* const fail_count_;
   const bool verify_referent_;
 };
 
@@ -2980,7 +2979,7 @@ size_t Heap::VerifyHeapReferences(bool verify_referents) {
   // Since we sorted the allocation stack content, need to revoke all
   // thread-local allocation stacks.
   RevokeAllThreadLocalAllocationStacks(self);
-  Atomic<size_t> fail_count_(0);
+  std::atomic<uint32_t> fail_count_(0);
   VerifyObjectVisitor visitor(this, &fail_count_, verify_referents);
   // Verify objects in the allocation stack since these will be objects which were:
   // 1. Allocated prior to the GC (pre GC verification).
