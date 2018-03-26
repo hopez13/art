@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b71e75a3_1989679b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-26T15:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fcf33f8_9dd319b2",
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a57163b5_ba8834a9",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "36f8322f_c9a292c8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2900,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-26T15:42:01Z",
+      "side": 1,
+      "message": "Left as size_t.",
+      "parentUuid": "a57163b5_ba8834a9",
+      "range": {
+        "startLine": 2900,
+        "startChar": 2,
+        "endLine": 2900,
+        "endChar": 10
+      },
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0b15c0_e2f95a05",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -56,6 +98,24 @@
       "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e0c3ff_bbf76c2b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-26T15:42:01Z",
+      "side": 1,
+      "message": "Left as size_t.",
+      "parentUuid": "ab0b15c0_e2f95a05",
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -79,6 +139,30 @@
       "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0859ded6_36561ae0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-26T15:42:01Z",
+      "side": 1,
+      "message": "Left as size_t.",
+      "parentUuid": "9ba22fdf_2683dfbe",
+      "range": {
+        "startLine": 2932,
+        "startChar": 2,
+        "endLine": 2932,
+        "endChar": 10
+      },
+      "revId": "dcd46ad889b22444893e7a277f45a4cfd5c60109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
