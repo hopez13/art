@@ -52,9 +52,10 @@ using ThreadIDBitSet = std::bitset<kMaxThreadIdNumber>;
 
 enum TracingMode {
   kTracingInactive,
-  kMethodTracingActive,
-  kSampleProfilingActive,
+  kMethodTracingActive,  // Trace activity synchronous with method progress.
+  kSampleProfilingActive,  // Trace activity captured by sampling thread.
 };
+std::ostream& operator<<(std::ostream& os, const TracingMode& rhs);
 
 // File format:
 //     header
@@ -98,6 +99,9 @@ enum TraceAction {
     kTraceMethodActionMask = 0x03,  // two bits
 };
 
+// Class for recording event traces. Trace data is either collected
+// synchronously during execution (TracingMode::kMethodTracingActive),
+// or by a separate sampling thread (TracingMode::kSampleProfilingActive).
 class Trace FINAL : public instrumentation::InstrumentationListener {
  public:
   enum TraceFlag {
@@ -316,7 +320,8 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
   // File to write trace data out to, null if direct to ddms.
   std::unique_ptr<File> trace_file_;
 
-  // Buffer to store trace data.
+  // Buffer to store trace data. This is an append-only buffer until
+  // tracing ceases via a call to Trace::Stop() or Trace::Abort().
   std::unique_ptr<uint8_t[]> buf_;
 
   // Flags enabling extra tracing of things such as alloc counts.
@@ -339,7 +344,8 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
   // Clock overhead.
   const uint32_t clock_overhead_ns_;
 
-  // Offset into buf_.
+  // Offset into buf_. Used to reserve new space in the buffer. Atomic
+  // as it may be updated concurrently when method tracing.
   AtomicInteger cur_offset_;
 
   // Did we overflow the buffer recording traces?
@@ -353,8 +359,8 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
 
   // Streaming mode data.
   Mutex* streaming_lock_;
-  std::map<const DexFile*, DexIndexBitSet*> seen_methods_;
-  std::unique_ptr<ThreadIDBitSet> seen_threads_;
+  std::map<const DexFile*, DexIndexBitSet*> seen_methods_ GUARDED_BY(streaming_lock_);
+  std::unique_ptr<ThreadIDBitSet> seen_threads_ GUARDED_BY(streaming_lock_);
 
   // Bijective map from ArtMethod* to index.
   // Map from ArtMethod* to index in unique_methods_;
