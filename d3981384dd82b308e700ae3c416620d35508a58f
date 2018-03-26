@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12e90bef_8becc27a",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T18:49:20Z",
+      "side": 1,
+      "message": "This looks like a speculative load used to implement what\u0027s effectively a fetch_add with overflow detection. If we need the acquire, we probably need it only for the overflow case. It\u0027s probably cheaper to put an atomic_thread_fence(memory_order_acquire) just in that branch. But see the other comment; I don\u0027t really understand what we need here.",
+      "range": {
+        "startLine": 999,
+        "startChar": 4,
+        "endLine": 999,
+        "endChar": 61
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd8d968c_7b5618bc",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-26T18:49:20Z",
+      "side": 1,
+      "message": "Do you understand the intended logic here?  I don\u0027t.\n\nIt seems like most users of cur_offset_ either hold streaming_lock, or could be made to hold it while accessing cur_offset_. And cur_offset is used in a way that seems to inherently require additional synchronization. cur_offset_ before filling in the corresponding trace entry. Thus reading the new value of cur_offset_ doesn\u0027t guarantee anything about the preceding data being up-to-date.\n\nThus the high-level question here in my mind is whether cur_offset_ needs to be atomic at all.\n\nIt would be great to document the overall synchronization scheme here.",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
