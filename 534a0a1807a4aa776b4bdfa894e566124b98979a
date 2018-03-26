@@ -188,6 +188,30 @@
       "revId": "534a0a1807a4aa776b4bdfa894e566124b98979a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89c68085_272b8f01",
+        "filename": "tools/veridex/resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-26T11:12:02Z",
+      "side": 1,
+      "message": "GetMethod returns null if it couldn\u0027t resolve. The intention is that we will pass the system stubs for boot classpath, so antyhing hidden will be unresolved.",
+      "parentUuid": "85b8aeaf_f922b777",
+      "range": {
+        "startLine": 291,
+        "startChar": 6,
+        "endLine": 291,
+        "endChar": 88
+      },
+      "revId": "534a0a1807a4aa776b4bdfa894e566124b98979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
