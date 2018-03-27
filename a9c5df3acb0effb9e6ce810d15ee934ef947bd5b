@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "507b9789_e5d64d9b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-27T14:21:46Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 2036,
+        "startChar": 62,
+        "endLine": 2036,
+        "endChar": 65
+      },
+      "revId": "a9c5df3acb0effb9e6ce810d15ee934ef947bd5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eb4badd_2437b0cc",
+        "filename": "test/678-checker-simd-saturation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-27T14:21:46Z",
+      "side": 1,
+      "message": "You already added x86/x86-64 instructions, are they disabled?",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 28
+      },
+      "revId": "a9c5df3acb0effb9e6ce810d15ee934ef947bd5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
