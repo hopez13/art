@@ -68,6 +68,30 @@
       "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe2cff03_837d37cf",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T10:41:30Z",
+      "side": 1,
+      "message": "good spot!\n\nWould \"member\" be ok? (else I\u0027ll bring back the helper method)",
+      "parentUuid": "f966bad4_707d1650",
+      "range": {
+        "startLine": 231,
+        "startChar": 36,
+        "endLine": 231,
+        "endChar": 41
+      },
+      "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
