@@ -16,6 +16,24 @@
       "revId": "2251041e978dce5f87797b9443b9af993866a245",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a198d45b_019cf071",
+        "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-27T20:52:38Z",
+      "side": 1,
+      "message": "no we want the flush to happen before since the print from native happens before this.",
+      "parentUuid": "55e0e17b_5ae45c84",
+      "revId": "2251041e978dce5f87797b9443b9af993866a245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
