@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed5b66dc_a46257d9",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-27T22:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e50cc4b_9fa6e4a1",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "5b48c31e7846858fbfcf4723e216c9ce59cb21e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f760e9eb_6a519a8d",
         "filename": "openjdkjvmti/deopt_manager.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b0e8680b_060586e7",
+        "filename": "openjdkjvmti/deopt_manager.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-27T22:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f760e9eb_6a519a8d",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "5b48c31e7846858fbfcf4723e216c9ce59cb21e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd81ae34_d2c3fc4e",
         "filename": "openjdkjvmti/deopt_manager.h",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "5b48c31e7846858fbfcf4723e216c9ce59cb21e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa43f185_e1246669",
+        "filename": "openjdkjvmti/deopt_manager.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-27T22:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd81ae34_d2c3fc4e",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "5b48c31e7846858fbfcf4723e216c9ce59cb21e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
