@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65bed717_cac7b6bf",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T15:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f498e87d_5ef7e3c4",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 9
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c96f93_23c0fba0",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "41e9fcc8_cf4d2f9f",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T15:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c96f93_23c0fba0",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 5
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01ea0ff0_393ab260",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-27T14:44:38Z",
       "side": 1,
       "message": "Can you rephrase? I\u0027m not sure I understand this.",
+      "range": {
+        "startLine": 228,
+        "startChar": 43,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fcadef_1b362bf9",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T15:31:20Z",
+      "side": 1,
+      "message": "Added missing word: Exemptions effectively add new members to the light greylist\n\nDoes that make sense to you now?",
+      "parentUuid": "01ea0ff0_393ab260",
       "range": {
         "startLine": 228,
         "startChar": 43,
