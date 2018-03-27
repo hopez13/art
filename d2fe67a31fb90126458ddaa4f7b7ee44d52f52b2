@@ -22,6 +22,30 @@
       "revId": "d2fe67a31fb90126458ddaa4f7b7ee44d52f52b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "487cd235_1cf96280",
+        "filename": "test/036-finalizer/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-27T11:26:48Z",
+      "side": 1,
+      "message": "D8 eliminates the \"dead\" write if I add the scope, keeping the v0 alive for the rest of the method. Filed b/76454261 .",
+      "parentUuid": "a956208f_ad9fafe7",
+      "range": {
+        "startLine": 78,
+        "startChar": 61,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "d2fe67a31fb90126458ddaa4f7b7ee44d52f52b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
