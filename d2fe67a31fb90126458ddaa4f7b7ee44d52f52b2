@@ -46,6 +46,30 @@
       "revId": "d2fe67a31fb90126458ddaa4f7b7ee44d52f52b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5925bcc8_6c6d1f7a",
+        "filename": "test/036-finalizer/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-27T20:27:05Z",
+      "side": 1,
+      "message": "I\u0027m also still fighting with this test. See go/aog/637929 .\n\nThis really wants a reachabilityFence(keepLive) before setting it to null. But the current implementation is too conservative for this test. (And it\u0027s terrible anyway, as documented.) But I hope to fix that shortly.",
+      "parentUuid": "487cd235_1cf96280",
+      "range": {
+        "startLine": 78,
+        "startChar": 61,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "d2fe67a31fb90126458ddaa4f7b7ee44d52f52b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
