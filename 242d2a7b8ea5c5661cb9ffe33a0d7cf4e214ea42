@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f498e87d_5ef7e3c4",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T14:44:38Z",
+      "side": 1,
+      "message": "Can we drop all these inlines? I think they\u0027re just noise at this point.",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 9
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c96f93_23c0fba0",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T14:44:38Z",
+      "side": 1,
+      "message": "I\u0027d expect the for loop to have a quick exit check too - so no need for this.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 5
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ea0ff0_393ab260",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T14:44:38Z",
+      "side": 1,
+      "message": "Can you rephrase? I\u0027m not sure I understand this.",
+      "range": {
+        "startLine": 228,
+        "startChar": 43,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "242d2a7b8ea5c5661cb9ffe33a0d7cf4e214ea42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
