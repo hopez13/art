@@ -93,6 +93,30 @@
       "revId": "a9c5df3acb0effb9e6ce810d15ee934ef947bd5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f9dd064_4fb599c3",
+        "filename": "test/678-checker-simd-saturation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-27T16:46:07Z",
+      "side": 1,
+      "message": "For the records, I filed b/76565577 to re-explore our run/checker test strategy in this regard.",
+      "parentUuid": "ccb4dbb5_3d26582a",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 28
+      },
+      "revId": "a9c5df3acb0effb9e6ce810d15ee934ef947bd5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
