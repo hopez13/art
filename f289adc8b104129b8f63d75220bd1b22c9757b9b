@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e56dd73f_af5ad1c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-27T16:55:22Z",
+      "side": 1,
+      "message": "* testrunner.py --trace\n* testrunner.py --stream",
+      "parentUuid": "d3b4f24e_be759070",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "f289adc8b104129b8f63d75220bd1b22c9757b9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23b7a7ac_5a6713e3",
         "filename": "runtime/trace.cc",
         "patchSetId": 6
