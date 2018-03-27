@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "31d21df5_c281f1e3",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T10:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1978cb_f4109624",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 45
+      },
+      "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "960895b7_1cb698d4",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d1e71e_9129efea",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T10:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "960895b7_1cb698d4",
+      "range": {
+        "startLine": 132,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 21
+      },
+      "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "good spot!\n\nWould \"member\" be ok? (else I\u0027ll bring back the helper method)",
       "parentUuid": "f966bad4_707d1650",
+      "range": {
+        "startLine": 231,
+        "startChar": 36,
+        "endLine": 231,
+        "endChar": 41
+      },
+      "revId": "64d1ce6c7e87188e1413a2f3d1c9ce17964b6756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a2e65f6_c880efbc",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-27T10:59:14Z",
+      "side": 1,
+      "message": "(made a method)",
+      "parentUuid": "fe2cff03_837d37cf",
       "range": {
         "startLine": 231,
         "startChar": 36,
