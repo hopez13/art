@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7527f682_75ea11e8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2840,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-27T01:00:14Z",
+      "side": 1,
+      "message": "On closer investigation, this looks fine. I was confused by variable naming, but this is probably not worth fixing.",
+      "parentUuid": "1fd1f27e_9eff2f9c",
+      "range": {
+        "startLine": 2840,
+        "startChar": 45,
+        "endLine": 2840,
+        "endChar": 76
+      },
+      "revId": "f4ccec59f6323a83973cae10c4a8ecbd1fe13123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b21072e1_280e2e6f",
         "filename": "compiler/utils/atomic_dex_ref_map-inl.h",
         "patchSetId": 13
