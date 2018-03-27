@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "448c3a93_5e7961c2",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T13:00:12Z",
+      "side": 1,
+      "message": "Isn\u0027t it both the odex and the vdex need to be up to date?",
+      "range": {
+        "startLine": 245,
+        "startChar": 47,
+        "endLine": 245,
+        "endChar": 70
+      },
+      "revId": "d078df1e18313f8ee0bbd4f8a939ad68621f7481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a1032df_8ff507a8",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T13:00:12Z",
+      "side": 1,
+      "message": "How can we guarantee the classes in the vdex file won\u0027t go through verification (which doesn\u0027t properly support quickened opcodes).",
+      "revId": "d078df1e18313f8ee0bbd4f8a939ad68621f7481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9e5e5cf_5e9ceab3",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-27T13:00:12Z",
+      "side": 1,
+      "message": "nit: High level comment please.",
+      "revId": "d078df1e18313f8ee0bbd4f8a939ad68621f7481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
