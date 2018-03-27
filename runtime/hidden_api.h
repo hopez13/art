@@ -52,10 +52,24 @@ enum Action {
   kDeny
 };
 
+// Do not change the values of items in this enum, as they are written to the
+// event log for offline analysis. Any changes will interfere with that analysis.
 enum AccessMethod {
-  kReflection,
-  kJNI,
-  kLinking,
+  kReflection = 0,
+  kJNI = 1,
+  kLinking = 2,
+};
+
+// Do not change the values of items in this enum, as they are written to the
+// event log for offline analysis. Any changes will interfere with that analysis.
+enum AccessContextFlags {
+  // Accessed member is a field if this bit is set, else a method
+  MemberIsField = 0x01,
+  // Set when we are performing AOT compilation. May be a false positive (i.e. a direct access
+  // in a codepath that is never run).
+  IsCompiling   = 0x02,
+  // Indicates if access was denied to the member, instead of just printing a warning.
+  AccessDenied  = 0x04,
 };
 
 inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
@@ -108,35 +122,42 @@ inline Action GetMemberAction(uint32_t access_flags) {
   }
 }
 
-
 // Class to encapsulate the signature of a member (ArtField or ArtMethod). This
 // is used as a helper when matching prefixes, and when logging the signature.
 class MemberSignature {
  private:
-  std::string member_type_;
+  enum MemberType {
+    Field,
+    Method,
+  };
+
+  std::string class_name_;
+  std::string member_name_;
+  std::string type_signature_;
   std::vector<std::string> signature_parts_;
   std::string tmp_;
+  MemberType type_;
+
+ private:
+  std::string GetTypeStr() {
+    return type_ == Field ? "field" : "method";
+  }
 
  public:
   explicit MemberSignature(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
-    member_type_ = "field";
-    signature_parts_ = {
-      field->GetDeclaringClass()->GetDescriptor(&tmp_),
-      "->",
-      field->GetName(),
-      ":",
-      field->GetTypeDescriptor()
-    };
+    class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = field->GetName();
+    type_signature_ = field->GetTypeDescriptor();
+    type_ = Field;
+    signature_parts_ = { class_name_, "->", member_name_, ":", type_signature_ };
   }
 
   explicit MemberSignature(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-    member_type_ = "method";
-    signature_parts_ = {
-      method->GetDeclaringClass()->GetDescriptor(&tmp_),
-      "->",
-      method->GetName(),
-      method->GetSignature().ToString()
-    };
+    class_name_ = method->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = method->GetName();
+    type_signature_ = method->GetSignature().ToString();
+    type_ = Method;
+    signature_parts_ = { class_name_, "->", member_name_, type_signature_ };
   }
 
   const std::vector<std::string>& Parts() const {
@@ -176,9 +197,11 @@ class MemberSignature {
   }
 
   void WarnAboutAccess(AccessMethod access_method, HiddenApiAccessFlags::ApiList list) {
-    LOG(WARNING) << "Accessing hidden " << member_type_ << " " << Dumpable<MemberSignature>(*this)
+    LOG(WARNING) << "Accessing hidden " << GetTypeStr() << " " << Dumpable<MemberSignature>(*this)
                  << " (" << list << ", " << access_method << ")";
   }
+
+  void LogAccessToEventLog(AccessMethod access_method, Action action_taken);
 };
 
 // Returns true if access to `member` should be denied to the caller of the
@@ -233,6 +256,13 @@ inline bool ShouldBlockAccessToMember(T* member,
   // We do this regardless of whether we block the access or not.
   member_signature.WarnAboutAccess(access_method,
       HiddenApiAccessFlags::DecodeFromRuntime(member->GetAccessFlags()));
+
+  if (kIsTargetBuild) {
+    uint32_t eventLogSamplePercent = runtime->GetHiddenApiEventLogSamplePercent();
+    if (eventLogSamplePercent != 0 && ((uint32_t)rand() % 100 < eventLogSamplePercent)) {
+      member_signature.LogAccessToEventLog(access_method, action);
+    }
+  }
 
   if (action == kDeny) {
     // Block access
