@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
+#include <log/log_event_list.h>
+
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/dumpable.h"
@@ -24,6 +26,8 @@
 #include "mirror/class-inl.h"
 #include "reflection.h"
 #include "runtime.h"
+
+#define EVENT_LOG_TAG_art_hidden_api_access 20004
 
 namespace art {
 namespace hiddenapi {
@@ -45,17 +49,21 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   return static_cast<EnforcementPolicy>(api_policy_int);
 }
 
+// Do not change the values of items in this enum, as they are written to the
+// event log for offline analysis. Any changes will interfere with that analysis.
 enum Action {
-  kAllow,
-  kAllowButWarn,
-  kAllowButWarnAndToast,
-  kDeny
+  kAllow = 0,
+  kAllowButWarn = 1,
+  kAllowButWarnAndToast = 2,
+  kDeny = 3,
 };
 
+// Do not change the values of items in this enum, as they are written to the
+// event log for offline analysis. Any changes will interfere with that analysis.
 enum AccessMethod {
-  kReflection,
-  kJNI,
-  kLinking,
+  kReflection = 0,
+  kJNI = 1,
+  kLinking = 2,
 };
 
 inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
@@ -113,30 +121,37 @@ inline Action GetMemberAction(uint32_t access_flags) {
 // is used as a helper when matching prefixes, and when logging the signature.
 class MemberSignature {
  private:
-  std::string member_type_;
+  std::string class_name_;
+  std::string member_name_;
+  std::string type_signature_;
   std::vector<std::string> signature_parts_;
   std::string tmp_;
+  enum Type {
+    Field = 0,
+    Method = 1,
+  };
+  Type type_;
+
+ private:
+  std::string GetTypeStr() {
+    return type_ == Field ? "field" : "method";
+  }
 
  public:
   explicit MemberSignature(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
-    member_type_ = "field";
-    signature_parts_ = {
-      field->GetDeclaringClass()->GetDescriptor(&tmp_),
-      "->",
-      field->GetName(),
-      ":",
-      field->GetTypeDescriptor()
-    };
+    class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = field->GetName();
+    type_signature_ = field->GetTypeDescriptor();
+    type_ = Field;
+    signature_parts_ = { class_name_, "->", member_name_, ":", type_signature_ };
   }
 
   explicit MemberSignature(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-    member_type_ = "method";
-    signature_parts_ = {
-      method->GetDeclaringClass()->GetDescriptor(&tmp_),
-      "->",
-      method->GetName(),
-      method->GetSignature().ToString()
-    };
+    class_name_ = method->GetDeclaringClass()->GetDescriptor(&tmp_);
+    member_name_ = method->GetName();
+    type_signature_ = method->GetSignature().ToString();
+    type_ = Method;
+    signature_parts_ = { class_name_, "->", member_name_, type_signature_ };
   }
 
   const std::vector<std::string>& Parts() const {
@@ -176,8 +191,19 @@ class MemberSignature {
   }
 
   void WarnAboutAccess(AccessMethod access_method, HiddenApiAccessFlags::ApiList list) {
-    LOG(WARNING) << "Accessing hidden " << member_type_ << " " << Dumpable<MemberSignature>(*this)
+    LOG(WARNING) << "Accessing hidden " << GetTypeStr() << " " << Dumpable<MemberSignature>(*this)
                  << " (" << list << ", " << access_method << ")";
+  }
+
+  void LogAccessToEventLog(AccessMethod access_method, Action action_taken) {
+    android_log_event_list ctx(EVENT_LOG_TAG_art_hidden_api_access);
+    ctx << access_method;
+    ctx << action_taken;
+    ctx << type_;
+    ctx << class_name_;
+    ctx << member_name_;
+    ctx << type_signature_;
+    ctx << LOG_ID_EVENTS;
   }
 };
 
@@ -233,6 +259,13 @@ inline bool ShouldBlockAccessToMember(T* member,
   // We do this regardless of whether we block the access or not.
   member_signature.WarnAboutAccess(access_method,
       HiddenApiAccessFlags::DecodeFromRuntime(member->GetAccessFlags()));
+
+  if (kIsTargetBuild) {
+    uint32_t eventLogSamplePercent = runtime->GetHiddenApiEventLogSamplePercent();
+    if (eventLogSamplePercent != 0 && ((uint32_t)rand() % 100 < eventLogSamplePercent)) {
+      member_signature.LogAccessToEventLog(access_method, action);
+    }
+  }
 
   if (action == kDeny) {
     // Block access
