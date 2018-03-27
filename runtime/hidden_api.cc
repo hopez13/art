@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <log/log_event_list.h>
+
 #include "hidden_api.h"
 
 #include "base/dumpable.h"
@@ -53,25 +55,26 @@ static_assert(
 
 namespace detail {
 
+constexpr int EVENT_LOG_TAG_art_hidden_api_access = 20004;
+
 MemberSignature::MemberSignature(ArtField* field) {
-  member_type_ = "field";
-  signature_parts_ = {
-    field->GetDeclaringClass()->GetDescriptor(&tmp_),
-    "->",
-    field->GetName(),
-    ":",
-    field->GetTypeDescriptor()
-  };
+  class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+  member_name_ = field->GetName();
+  type_signature_ = field->GetTypeDescriptor();
+  type_ = Field;
+  signature_parts_ = { class_name_, "->", member_name_, ":", type_signature_ };
 }
 
 MemberSignature::MemberSignature(ArtMethod* method) {
-  member_type_ = "method";
-  signature_parts_ = {
-    method->GetDeclaringClass()->GetDescriptor(&tmp_),
-    "->",
-    method->GetName(),
-    method->GetSignature().ToString()
-  };
+  class_name_ = method->GetDeclaringClass()->GetDescriptor(&tmp_);
+  member_name_ = method->GetName();
+  type_signature_ = method->GetSignature().ToString();
+  type_ = Method;
+  signature_parts_ = { class_name_, "->", member_name_, type_signature_ };
+}
+
+std::string MemberSignature::GetTypeStr() {
+  return type_ == Field ? "field" : "method";
 }
 
 bool MemberSignature::DoesPrefixMatch(const std::string& prefix) const {
@@ -106,8 +109,28 @@ void MemberSignature::Dump(std::ostream& os) const {
 
 void MemberSignature::WarnAboutAccess(AccessMethod access_method,
                                       HiddenApiAccessFlags::ApiList list) {
-  LOG(WARNING) << "Accessing hidden " << member_type_ << " " << Dumpable<MemberSignature>(*this)
+  LOG(WARNING) << "Accessing hidden " << GetTypeStr() << " " << Dumpable<MemberSignature>(*this)
                << " (" << list << ", " << access_method << ")";
+}
+
+void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action action_taken) {
+  uint32_t flags = 0;
+  if (action_taken == kDeny) {
+    flags |= AccessDenied;
+  }
+  if (type_ == Field) {
+    flags |= MemberIsField;
+  }
+  if (Runtime::Current()->IsAotCompiler()) {
+    flags |= IsCompiling;
+  }
+  android_log_event_list ctx(EVENT_LOG_TAG_art_hidden_api_access);
+  ctx << access_method;
+  ctx << flags;
+  ctx << class_name_;
+  ctx << member_name_;
+  ctx << type_signature_;
+  ctx << LOG_ID_EVENTS;
 }
 
 template<typename T>
@@ -135,6 +158,13 @@ bool ShouldBlockAccessToMemberImpl(T* member, Action action, AccessMethod access
   // We do this regardless of whether we block the access or not.
   member_signature.WarnAboutAccess(access_method,
       HiddenApiAccessFlags::DecodeFromRuntime(member->GetAccessFlags()));
+
+  if (kIsTargetBuild) {
+    uint32_t eventLogSamplePercent = runtime->GetHiddenApiEventLogSamplePercent();
+    if (eventLogSamplePercent != 0 && ((uint32_t)rand() % 100 < eventLogSamplePercent)) {
+      member_signature.LogAccessToEventLog(access_method, action);
+    }
+  }
 
   if (action == kDeny) {
     // Block access

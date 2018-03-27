@@ -564,6 +564,14 @@ class Runtime {
     return always_set_hidden_api_warning_flag_;
   }
 
+  void SetHiddenApiEventLogSamplePercent(uint32_t percent) {
+    hidden_api_access_event_log_percent_ = percent;
+  }
+
+  uint32_t GetHiddenApiEventLogSamplePercent() const {
+    return hidden_api_access_event_log_percent_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -1015,6 +1023,9 @@ class Runtime {
   // framework to show a UI warning. If this flag is set, always set the flag
   // when there is a warning. This is only used for testing.
   bool always_set_hidden_api_warning_flag_;
+
+  // How often to log hidden API access to the event log, as an integer percentage.
+  uint32_t hidden_api_access_event_log_percent_;
 
   // Whether the dalvik cache was pruned when initializing the runtime.
   bool pruned_dalvik_cache_;
