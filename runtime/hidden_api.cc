@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <log/log_event_list.h>
+
 #include "hidden_api.h"
 
 #include "base/dumpable.h"
@@ -53,31 +55,37 @@ static_assert(
 
 namespace detail {
 
+// This is the ID of the event log event. It is duplicated from
+// system/core/logcat/event.logtags
+constexpr int EVENT_LOG_TAG_art_hidden_api_access = 20004;
+
 MemberSignature::MemberSignature(ArtField* field) {
-  member_type_ = "field";
-  signature_parts_ = {
-    field->GetDeclaringClass()->GetDescriptor(&tmp_),
-    "->",
-    field->GetName(),
-    ":",
-    field->GetTypeDescriptor()
-  };
+  class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+  member_name_ = field->GetName();
+  type_signature_ = field->GetTypeDescriptor();
+  type_ = Field;
 }
 
 MemberSignature::MemberSignature(ArtMethod* method) {
-  member_type_ = "method";
-  signature_parts_ = {
-    method->GetDeclaringClass()->GetDescriptor(&tmp_),
-    "->",
-    method->GetName(),
-    method->GetSignature().ToString()
-  };
+  class_name_ = method->GetDeclaringClass()->GetDescriptor(&tmp_);
+  member_name_ = method->GetName();
+  type_signature_ = method->GetSignature().ToString();
+  type_ = Method;
+}
+
+inline std::vector<const char*> MemberSignature::GetSignatureParts() const {
+  if (type_ == Field) {
+    return { class_name_.c_str(), "->", member_name_.c_str(), ":", type_signature_.c_str() };
+  } else {
+    DCHECK_EQ(type_, Method);
+    return { class_name_.c_str(), "->", member_name_.c_str(), type_signature_.c_str() };
+  }
 }
 
 bool MemberSignature::DoesPrefixMatch(const std::string& prefix) const {
   size_t pos = 0;
-  for (const std::string& part : signature_parts_) {
-    size_t count = std::min(prefix.length() - pos, part.length());
+  for (const char* part : GetSignatureParts()) {
+    size_t count = std::min(prefix.length() - pos, strlen(part));
     if (prefix.compare(pos, count, part, 0, count) == 0) {
       pos += count;
     } else {
@@ -99,15 +107,37 @@ bool MemberSignature::IsExempted(const std::vector<std::string>& exemptions) {
 }
 
 void MemberSignature::Dump(std::ostream& os) const {
-  for (std::string part : signature_parts_) {
+  for (const char* part : GetSignatureParts()) {
     os << part;
   }
 }
 
 void MemberSignature::WarnAboutAccess(AccessMethod access_method,
                                       HiddenApiAccessFlags::ApiList list) {
-  LOG(WARNING) << "Accessing hidden " << member_type_ << " " << Dumpable<MemberSignature>(*this)
-               << " (" << list << ", " << access_method << ")";
+  LOG(WARNING) << "Accessing hidden " << (type_ == Field ? "field " : "method ")
+               << Dumpable<MemberSignature>(*this) << " (" << list << ", " << access_method << ")";
+}
+
+void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action action_taken) {
+  if (access_method == kLinking) {
+    // linking implies AOT compilation which we don't want to log, as it
+    // doesn't reflect runtime usage.
+    return;
+  }
+  uint32_t flags = 0;
+  if (action_taken == kDeny) {
+    flags |= AccessDenied;
+  }
+  if (type_ == Field) {
+    flags |= MemberIsField;
+  }
+  android_log_event_list ctx(EVENT_LOG_TAG_art_hidden_api_access);
+  ctx << access_method;
+  ctx << flags;
+  ctx << class_name_;
+  ctx << member_name_;
+  ctx << type_signature_;
+  ctx << LOG_ID_EVENTS;
 }
 
 template<typename T>
@@ -131,10 +161,18 @@ bool ShouldBlockAccessToMemberImpl(T* member, Action action, AccessMethod access
     }
   }
 
-  // Print a log message with information about this class member access.
   // We do this regardless of whether we block the access or not.
   member_signature.WarnAboutAccess(access_method,
       HiddenApiAccessFlags::DecodeFromRuntime(member->GetAccessFlags()));
+
+  if (kIsTargetBuild) {
+    uint32_t eventLogSampleRate = runtime->GetHiddenApiEventLogSampleRate();
+    // assert that MAX_RAND is big enough, to ensure sampling below works as expected.
+    static_assert(RAND_MAX >= 0xffff, "RAND_MAX too small");
+    if (eventLogSampleRate != 0 && (static_cast<uint32_t>(rand()) & 0xffff) < eventLogSampleRate) {
+      member_signature.LogAccessToEventLog(access_method, action);
+    }
+  }
 
   if (action == kDeny) {
     // Block access
