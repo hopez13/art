@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a13a0d41_8ec369c6",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-27T15:03:31Z",
+      "side": 1,
+      "message": "PS4 relaxes most access to cur_offset_.\n\nIn PS4, I think this needs to be seq_cst for the case when we are running with a sampling thread. The store here need to be visible when the sampling thread calls WriteBuf().\n\nPreviously, there was a seq_cst store in the constructor initializer values so not a material change.",
+      "parentUuid": "5abd8e1c_55aba896",
+      "range": {
+        "startLine": 678,
+        "startChar": 40,
+        "endLine": 678,
+        "endChar": 66
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12e90bef_8becc27a",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "721afc63_c7a8a1db",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-27T15:03:31Z",
+      "side": 1,
+      "message": "Yes. The relaxed form boils down to ldxr/sdxr and the acq_rel form to ldaxr/stlxr. The former should suffice here.\n\nI\u0027m not sure what purpose the acquire fence would serve here.",
+      "parentUuid": "99cb31b4_6244c136",
+      "range": {
+        "startLine": 999,
+        "startChar": 4,
+        "endLine": 999,
+        "endChar": 61
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e2aba2b_aa1bf030",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f77dfa2f_2886b318",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-27T15:03:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2aba2b_aa1bf030",
+      "range": {
+        "startLine": 1006,
+        "startChar": 72,
+        "endLine": 1006,
+        "endChar": 97
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c33a595_b7f2b9c0",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
@@ -106,6 +178,24 @@
       "writtenOn": "2018-03-26T21:44:00Z",
       "side": 1,
       "message": "There should really be some sort of explanation here for how/where these writes to buf_[old_offset] synchronize-with future reads.\n\nIt\u0027s completely non-obvious regardless of what trace_output_mode_ is.",
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e452f3_a14599fb",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-27T15:03:31Z",
+      "side": 1,
+      "message": "Comments added here, to the buf_ field, and to FinishTracing().",
+      "parentUuid": "6c33a595_b7f2b9c0",
       "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -194,6 +284,30 @@
       "side": 1,
       "message": "So if I call Stop(), it\u0027s the ScopedSuspendAll that guarantees that I will see a consistent state with no half-written entries?\n\nSo it seems to me that cur_offset_ is used exclusively to reserve buffer space. Suitable comment suggested above. Please correct if it looks like I\u0027m still missing something.",
       "parentUuid": "0e4d7edd_7cb37402",
+      "range": {
+        "startLine": 359,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11f32285_e6dbc2ca",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-27T15:03:31Z",
+      "side": 1,
+      "message": "Yes, the paths through Stop() appear to provide the required consistency enforcement, but it\u0027s a little cryptic.\n\nPS5 adds GUARDED_BY annotations to seen_methods_ and seen_threads_ which are streaming related fields.\n\nThis is expensive code. The trade-off between the effort in abstraction and legibility seems awry.",
+      "parentUuid": "a2221034_ada1cb5f",
       "range": {
         "startLine": 359,
         "startChar": 2,
