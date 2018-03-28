@@ -167,8 +167,8 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
       REQUIRES(!Locks::mutator_lock_, !Locks::thread_list_lock_, !Locks::trace_lock_);
   static TracingMode GetMethodTracingMode() REQUIRES(!Locks::trace_lock_);
 
-  bool UseWallClock();
-  bool UseThreadCpuClock();
+  bool UseWallClock() const;
+  bool UseThreadCpuClock() const;
   void MeasureClockOverhead();
   uint32_t GetClockOverheadNanoSeconds();
 
@@ -271,7 +271,15 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
   void LogMethodTraceEvent(Thread* thread, ArtMethod* method,
                            instrumentation::Instrumentation::InstrumentationEvent event,
                            uint32_t thread_clock_diff, uint32_t wall_clock_diff)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!*unique_methods_lock_, !*streaming_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!*unique_methods_lock_);
+
+  size_t StreamingReserveFixedSizeRecord(size_t record_bytes) REQUIRES(streaming_lock_);
+  void StreamingFlushBuffer() REQUIRES(streaming_lock_);
+  void StreamingWriteVariableSizedRecord(const uint8_t* record, size_t record_bytes)
+      REQUIRES(streaming_lock_);
+  void StreamingWriteMethodInfo(const std::string& method_line) REQUIRES(streaming_lock_);
+  void StreamingWriteThreadInfo(uint16_t tid, const std::string& thread_name)
+      REQUIRES(streaming_lock_);
 
   // Methods to output traced methods and threads.
   void GetVisitedMethods(size_t end_offset, std::set<ArtMethod*>* visited_methods)
@@ -287,13 +295,12 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
   bool RegisterThread(Thread* thread)
       REQUIRES(streaming_lock_);
 
-  // Copy a temporary buffer to the main buffer. Used for streaming. Exposed here for lock
-  // annotation.
-  void WriteToBuf(const uint8_t* src, size_t src_size)
-      REQUIRES(streaming_lock_);
-  // Flush the main buffer to file. Used for streaming. Exposed here for lock annotation.
-  void FlushBuf()
-      REQUIRES(streaming_lock_);
+  void WriteMethodTraceEvent(size_t reserved_offset,
+                             size_t reserved_bytes,
+                             uint16_t thread_id,
+                             uint32_t method_value,
+                             uint32_t thread_clock_diff,
+                             uint32_t wall_clock_diff) const;
 
   uint32_t EncodeTraceMethod(ArtMethod* method) REQUIRES(!*unique_methods_lock_);
   uint32_t EncodeTraceMethodAndAction(ArtMethod* method, TraceAction action)
@@ -346,7 +353,7 @@ class Trace FINAL : public instrumentation::InstrumentationListener {
 
   // Offset into buf_. Used to reserve new space in the buffer. Atomic
   // as it may be updated concurrently when method tracing.
-  AtomicInteger cur_offset_;
+  std::atomic<size_t> cur_offset_;
 
   // Did we overflow the buffer recording traces?
   bool overflow_;
