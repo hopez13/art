@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3abe1809_36017eb8",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "Many of these already included in hidden_api.h. Clean up",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "710b6a3f_3b50f3fc",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "static",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 3
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b248e66_6e1b551a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "I would leave this next to the code that uses it. Do we care that much which .o file it crashes in?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 42
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "499d0aa8_252043f8",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 114,
+        "startChar": 38,
+        "endLine": 114,
+        "endChar": 46
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9100c47c_7364c881",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "No need to expose this, i think",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 63
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05a9cc8_260fa5ae",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "Only needed by the test, but fine for now. I plan to pull this out into its own header and share it with tools/hiddenapi and tools/veridex.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 0
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "127d8451_6aee6e3e",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-28T23:54:40Z",
+      "side": 1,
+      "message": "nit: s/Hidden/Impl/ ?",
+      "range": {
+        "startLine": 112,
+        "startChar": 5,
+        "endLine": 112,
+        "endChar": 36
+      },
+      "revId": "a3e58319f814486685e0462c3e60dd43fd0d043f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
