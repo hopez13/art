@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "518b7886_c747bd89",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3731,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-28T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f84bede2_ee0b09d5",
+      "range": {
+        "startLine": 3731,
+        "startChar": 9,
+        "endLine": 3731,
+        "endChar": 13
+      },
+      "revId": "58cf7e2d0420b19000e477e5bd7a1fcfd371f2df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea0e98dd_419b95b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-28T14:08:35Z",
       "side": 1,
       "message": "I\u0027m not sure to understand this sentence; did you want mean that there is a potential race here?",
+      "range": {
+        "startLine": 3732,
+        "startChar": 59,
+        "endLine": 3733,
+        "endChar": 38
+      },
+      "revId": "58cf7e2d0420b19000e477e5bd7a1fcfd371f2df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e17231c5_d801b6c4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3733,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-28T14:48:32Z",
+      "side": 1,
+      "message": "Oops, that should have read \u0027suspended\u0027 rather than \u0027suspected\u0027. Revised the wording, hopefully clearer now.",
+      "parentUuid": "ea0e98dd_419b95b6",
       "range": {
         "startLine": 3732,
         "startChar": 59,
