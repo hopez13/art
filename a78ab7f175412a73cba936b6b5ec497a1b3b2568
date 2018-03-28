@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6db71c45_ddc3ece9",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-28T09:23:08Z",
+      "side": 1,
+      "message": "Is there a reason you are using a .mk file instead of doing this in a combination of .bp and .go files?",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "468e876d_a4a8ca92",
+        "filename": "tools/veridex/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-28T09:23:08Z",
+      "side": 1,
+      "message": "Maybe add to the note that it might also not find all uses of blacklist/greylist APIs?",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13278691_7b832758",
+        "filename": "tools/veridex/appcompat.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-28T09:23:08Z",
+      "side": 1,
+      "message": "Maybe end the sentence with a \".\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 63,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb59e039_d78db6ad",
+        "filename": "tools/veridex/appcompat.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115958
+      },
+      "writtenOn": "2018-03-28T09:23:08Z",
+      "side": 1,
+      "message": "(Same comment as in the README.md)\n\nMaybe add to the note that it might also not find all uses of blacklist/greylist APIs?",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
