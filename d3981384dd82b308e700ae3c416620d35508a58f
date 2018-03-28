@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f5585a80_bd947f48",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-28T12:38:02Z",
+      "side": 1,
+      "message": "This was being conservative as there isn\u0027t an acquire to pair with the release in the current code and the code already had a seq_cst store to this field in the constructor.\n\nOn closer inspection, it looks okay to be relaxed here:\n\n1) In non-streaming mode, the cur_offset is updated by compare_exchange_weak in LogMethodTraceEvent.\n2) In non-streaming mode, it is updated after acquiring the streaming mutex.\n3) When we reach FinishTracing(), the caller has acquired and released the trace_lock_.",
+      "parentUuid": "17018f4b_8d5c0ad4",
+      "range": {
+        "startLine": 678,
+        "startChar": 40,
+        "endLine": 678,
+        "endChar": 66
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12e90bef_8becc27a",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
