@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e2ec39a5_40db37a3",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T10:34:04Z",
+      "side": 1,
+      "message": "Yes: I don\u0027t speak either go or fancy bp :( This isn\u0027t what I wanted to do btw, I\u0027m pushing this now so that users can start using the tool, but we need to discuss of a prettier way to do this.",
+      "parentUuid": "6db71c45_ddc3ece9",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "468e876d_a4a8ca92",
         "filename": "tools/veridex/README.md",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-28T09:23:08Z",
       "side": 1,
       "message": "Maybe add to the note that it might also not find all uses of blacklist/greylist APIs?",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93c528b8_43126b3a",
+        "filename": "tools/veridex/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T10:34:04Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "468e876d_a4a8ca92",
       "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "05ccffc8_fe92711d",
+        "filename": "tools/veridex/appcompat.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T10:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13278691_7b832758",
+      "range": {
+        "startLine": 20,
+        "startChar": 63,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb59e039_d78db6ad",
         "filename": "tools/veridex/appcompat.sh",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2018-03-28T09:23:08Z",
       "side": 1,
       "message": "(Same comment as in the README.md)\n\nMaybe add to the note that it might also not find all uses of blacklist/greylist APIs?",
+      "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c55a1f42_6c55a27d",
+        "filename": "tools/veridex/appcompat.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T10:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb59e039_d78db6ad",
       "revId": "a78ab7f175412a73cba936b6b5ec497a1b3b2568",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
