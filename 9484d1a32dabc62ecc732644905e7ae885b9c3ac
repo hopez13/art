@@ -94,6 +94,30 @@
       "revId": "9484d1a32dabc62ecc732644905e7ae885b9c3ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d4fd3fd_1535a17d",
+        "filename": "test/1935-get-set-current-frame-jit/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T14:29:13Z",
+      "side": 1,
+      "message": "My suggestion does hasJit() so you won\u0027t get an axception in those jit-less run.",
+      "parentUuid": "c47d2603_7dc25240",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "9484d1a32dabc62ecc732644905e7ae885b9c3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
