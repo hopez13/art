@@ -34,6 +34,24 @@
       "revId": "2251041e978dce5f87797b9443b9af993866a245",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a452c72_70a6f1dd",
+        "filename": "test/1940-ddms-ext/src-art/art/Test1940.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-28T12:55:37Z",
+      "side": 1,
+      "message": "Can you help me understand how this is going to fix things then? The way I see what is happening is:\n\n1) Maybe some random prints on std.out\n2) Native prints using std.err, which isn\u0027t buffered.\n3) Maybe some random prints on std.out.\n4) This flush line 160\n5) The sys.out print line 161.\n\nEven if there is no 1) or 3) how will a flush in 4) fix the interleaved?",
+      "parentUuid": "a198d45b_019cf071",
+      "revId": "2251041e978dce5f87797b9443b9af993866a245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
