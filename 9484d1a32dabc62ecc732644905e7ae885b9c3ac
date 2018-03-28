@@ -22,6 +22,30 @@
       "revId": "9484d1a32dabc62ecc732644905e7ae885b9c3ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ae36bb2_c4ea11eb",
+        "filename": "test/1935-get-set-current-frame-jit/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-28T13:42:37Z",
+      "side": 1,
+      "message": "I\u0027d need to disable all not jit runs off this test",
+      "parentUuid": "bfa2e338_6775e102",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "9484d1a32dabc62ecc732644905e7ae885b9c3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
