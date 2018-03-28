@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "17018f4b_8d5c0ad4",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-28T05:30:48Z",
+      "side": 1,
+      "message": "What do you think needs to be made visible? Seq_cst ensures that stores are made visible in a globally consistent order, and before any following seq_cst loads are performed. It would be really surprising to me if this needed seq_cst. If it\u0027s used to publish the preceding appends, then release makes sense. I\u0027ll have to look at it more carefully tomorrow.",
+      "parentUuid": "a13a0d41_8ec369c6",
+      "range": {
+        "startLine": 678,
+        "startChar": 40,
+        "endLine": 678,
+        "endChar": 66
+      },
+      "revId": "d3981384dd82b308e700ae3c416620d35508a58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12e90bef_8becc27a",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
