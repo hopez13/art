@@ -70,6 +70,11 @@ class VeridexResolver {
   // entities, or entities part of a hidden API list.
   void ResolveAll(const HiddenApi& hidden_api);
 
+  // The dex file this resolver is associated to.
+  const DexFile& GetDexFile() const {
+    return dex_file_;
+  }
+
  private:
   // Return the resolver where `kls` is from.
   VeridexResolver* GetResolverOf(const VeriClass& kls) const;

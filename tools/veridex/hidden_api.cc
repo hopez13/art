@@ -76,4 +76,14 @@ void HiddenApi::FillList(const char* filename, std::set<std::string>& entries) {
   }
 }
 
+std::ostream& operator<<(std::ostream& os, ApiList api_list) {
+  switch (api_list) {
+    case ApiList::kBlacklist:      os << "Blacklist"; break;
+    case ApiList::kDarkGreylist:   os << "DarkGreylist"; break;
+    case ApiList::kLightGreylist:  os << "LightGreylist"; break;
+    case ApiList::kWhitelist:      os << "Whitelist"; break;
+  }
+  return os;
+}
+
 }  // namespace art
