@@ -162,12 +162,12 @@ static uint16_t GetRecordSize(TraceClockSource clock_source) {
                                                     : kTraceRecordSizeSingleClock;
 }
 
-bool Trace::UseThreadCpuClock() {
+bool Trace::UseThreadCpuClock() const {
   return (clock_source_ == TraceClockSource::kThreadCpu) ||
       (clock_source_ == TraceClockSource::kDual);
 }
 
-bool Trace::UseWallClock() {
+bool Trace::UseWallClock() const {
   return (clock_source_ == TraceClockSource::kWall) ||
       (clock_source_ == TraceClockSource::kDual);
 }
@@ -199,6 +199,11 @@ uint32_t Trace::GetClockOverheadNanoSeconds() {
 
   uint64_t elapsed_us = self->GetCpuMicroTime() - start;
   return static_cast<uint32_t>(elapsed_us / 32);
+}
+
+// Convenience method to ease readability.
+static void Append1LE(uint8_t* buf, uint8_t val) {
+  *buf = val;
 }
 
 // TODO: put this somewhere with the big-endian equivalent used by JDWP.
@@ -765,16 +770,16 @@ void Trace::FinishTracing() {
     MutexLock mu(Thread::Current(), *streaming_lock_);  // To serialize writing.
     // Write a special token to mark the end of trace records and the start of
     // trace summary.
-    uint8_t buf[7];
+    size_t offset = StreamingReserveFixedSizeRecord(7);
+    uint8_t* buf = buf_.get() + offset;
     Append2LE(buf, 0);
-    buf[2] = kOpTraceSummary;
+    Append1LE(buf + 2, kOpTraceSummary);
     Append4LE(buf + 3, static_cast<uint32_t>(header.length()));
-    WriteToBuf(buf, sizeof(buf));
     // Write the trace summary. The summary is identical to the file header when
     // the output mode is not streaming (except for methods).
-    WriteToBuf(reinterpret_cast<const uint8_t*>(header.c_str()), header.length());
-    // Flush the buffer, which may include some trace records before the summary.
-    FlushBuf();
+    StreamingWriteVariableSizedRecord(reinterpret_cast<const uint8_t*>(header.c_str()),
+                                      header.length());
+    StreamingFlushBuffer();
   } else {
     if (trace_file_.get() == nullptr) {
       std::vector<uint8_t> data;
@@ -946,75 +951,91 @@ std::string Trace::GetMethodLine(ArtMethod* method) {
       method->GetSignature().ToString().c_str(), method->GetDeclaringClassSourceFile());
 }
 
-void Trace::WriteToBuf(const uint8_t* src, size_t src_size) {
-  // Updates to cur_offset_ are done under the streaming_lock_ here as in streaming mode.
-  int32_t old_offset = cur_offset_.load(std::memory_order_relaxed);
-  int32_t new_offset = old_offset + static_cast<int32_t>(src_size);
-  if (dchecked_integral_cast<size_t>(new_offset) > buffer_size_) {
-    // Flush buffer.
-    if (!trace_file_->WriteFully(buf_.get(), old_offset)) {
-      PLOG(WARNING) << "Failed streaming a tracing event.";
-    }
-
-    // Check whether the data is too large for the buffer, then write immediately.
-    if (src_size >= buffer_size_) {
-      if (!trace_file_->WriteFully(src, src_size)) {
-        PLOG(WARNING) << "Failed streaming a tracing event.";
-      }
-      cur_offset_.store(0, std::memory_order_relaxed);  // Buffer is empty now.
-      return;
-    }
-
-    old_offset = 0;
-    new_offset = static_cast<int32_t>(src_size);
+size_t Trace::StreamingReserveFixedSizeRecord(size_t record_bytes) {
+  DCHECK_LE(record_bytes, buffer_size_);
+  size_t old_offset = cur_offset_.load(std::memory_order_relaxed);
+  if (old_offset + record_bytes > buffer_size_) {
+    StreamingFlushBuffer();
   }
-  cur_offset_.store(new_offset, std::memory_order_relaxed);
-  // Fill in data.
-  memcpy(buf_.get() + old_offset, src, src_size);
+  return cur_offset_.fetch_add(record_bytes, std::memory_order_relaxed);
 }
 
-void Trace::FlushBuf() {
+void Trace::StreamingWriteVariableSizedRecord(const uint8_t* record, size_t record_bytes) {
+  size_t new_offset = cur_offset_.load(std::memory_order_relaxed) + record_bytes;
+  if (new_offset > buffer_size_) {
+    StreamingFlushBuffer();
+    if (record_bytes > buffer_size_) {
+      if (!trace_file_->WriteFully(record, record_bytes)) {
+        PLOG(WARNING) << "Failed streaming a tracing event.";
+      }
+      return;
+    }
+    new_offset -= buffer_size_;
+  }
+  memcpy(buf_.get() + cur_offset_.load(std::memory_order_relaxed), record, record_bytes);
+  cur_offset_.store(new_offset, std::memory_order_relaxed);
+}
+
+void Trace::StreamingFlushBuffer() {
   // Updates to cur_offset_ are done under the streaming_lock_ here as in streaming mode.
-  int32_t offset = cur_offset_.load(std::memory_order_relaxed);
+  size_t offset = cur_offset_.load(std::memory_order_relaxed);
   if (!trace_file_->WriteFully(buf_.get(), offset)) {
     PLOG(WARNING) << "Failed flush the remaining data in streaming.";
   }
   cur_offset_.store(0, std::memory_order_relaxed);
 }
 
+void Trace::StreamingWriteMethodInfo(const std::string& method_line) {
+  size_t offset = StreamingReserveFixedSizeRecord(5);
+  uint8_t* buf = buf_.get() + offset;
+  Append2LE(buf, 0);
+  Append1LE(buf + 2, kOpNewMethod);
+  Append2LE(buf + 3, static_cast<uint16_t>(method_line.length()));
+  StreamingWriteVariableSizedRecord(reinterpret_cast<const uint8_t*>(method_line.c_str()),
+                                    method_line.length());
+}
+
+void Trace::StreamingWriteThreadInfo(uint16_t thread_id, const std::string& thread_name) {
+  DCHECK_LE(thread_name.length(), std::numeric_limits<uint16_t>::max());
+  uint16_t thread_name_length = static_cast<uint16_t>(thread_name.length());
+  size_t offset = StreamingReserveFixedSizeRecord(7);
+  uint8_t* buf = buf_.get() + offset;
+  Append2LE(buf, 0);
+  Append1LE(buf + 2, kOpNewThread);
+  Append2LE(buf + 3, thread_id);
+  Append2LE(buf + 5, thread_name_length);
+  StreamingWriteVariableSizedRecord(reinterpret_cast<const uint8_t*>(thread_name.c_str()),
+                                    thread_name_length);
+}
+
+void Trace::WriteMethodTraceEvent(size_t reserved_offset,
+                                  size_t reserved_bytes,
+                                  uint16_t thread_id,
+                                  uint32_t method_value,
+                                  uint32_t thread_clock_diff,
+                                  uint32_t wall_clock_diff) const {
+  uint8_t* ptr = buf_.get() + reserved_offset;
+  CHECK_LE(reserved_offset + reserved_bytes, buffer_size_);
+  Append2LE(ptr, thread_id);
+  Append4LE(ptr + 2, method_value);
+  ptr += 6;
+  if (UseThreadCpuClock()) {
+    Append4LE(ptr, thread_clock_diff);
+    ptr += 4;
+  }
+  if (UseWallClock()) {
+    Append4LE(ptr, wall_clock_diff);
+    ptr += 4;
+  }
+  DCHECK_LE(static_cast<size_t>(ptr - buf_.get()), reserved_bytes);
+}
+
 void Trace::LogMethodTraceEvent(Thread* thread, ArtMethod* method,
                                 instrumentation::Instrumentation::InstrumentationEvent event,
                                 uint32_t thread_clock_diff, uint32_t wall_clock_diff) {
-  // This method is called in both tracing modes (method and
-  // sampling). In sampling mode, this method is only called by the
-  // sampling thread. In method tracing mode, it can be called
-  // concurrently.
-
   // Ensure we always use the non-obsolete version of the method so that entry/exit events have the
   // same pointer value.
   method = method->GetNonObsoleteMethod();
-
-  // Advance cur_offset_ atomically.
-  int32_t new_offset;
-  int32_t old_offset = 0;
-
-  // In the non-streaming case, we do a busy loop here trying to get
-  // an offset to write our record and advance cur_offset_ for the
-  // next use.
-  if (trace_output_mode_ != TraceOutputMode::kStreaming) {
-    // Although multiple threads can call this method concurrently,
-    // the compare_exchange_weak here is still atomic (by definition).
-    // A succeeding update is visible to other cores when they pass
-    // through this point.
-    old_offset = cur_offset_.load(std::memory_order_relaxed);  // Speculative read
-    do {
-      new_offset = old_offset + GetRecordSize(clock_source_);
-      if (static_cast<size_t>(new_offset) > buffer_size_) {
-        overflow_ = true;
-        return;
-      }
-    } while (!cur_offset_.compare_exchange_weak(old_offset, new_offset, std::memory_order_relaxed));
-  }
 
   TraceAction action = kTraceMethodEnter;
   switch (event) {
@@ -1030,64 +1051,51 @@ void Trace::LogMethodTraceEvent(Thread* thread, ArtMethod* method,
     default:
       UNIMPLEMENTED(FATAL) << "Unexpected event: " << event;
   }
-
   uint32_t method_value = EncodeTraceMethodAndAction(method, action);
 
-  // Write data into the tracing buffer (if not streaming) or into a
-  // small buffer on the stack (if streaming) which we'll put into the
-  // tracing buffer below.
-  //
-  // These writes to the tracing buffer are synchronised with the
-  // future reads that (only) occur under FinishTracing(). The callers
-  // of FinishTracing() acquire locks and (implicitly) synchronise
-  // the buffer memory.
-  uint8_t* ptr;
-  static constexpr size_t kPacketSize = 14U;  // The maximum size of data in a packet.
-  uint8_t stack_buf[kPacketSize];             // Space to store a packet when in streaming mode.
-  if (trace_output_mode_ == TraceOutputMode::kStreaming) {
-    ptr = stack_buf;
-  } else {
-    ptr = buf_.get() + old_offset;
-  }
-
-  Append2LE(ptr, thread->GetTid());
-  Append4LE(ptr + 2, method_value);
-  ptr += 6;
-
-  if (UseThreadCpuClock()) {
-    Append4LE(ptr, thread_clock_diff);
-    ptr += 4;
-  }
-  if (UseWallClock()) {
-    Append4LE(ptr, wall_clock_diff);
-  }
-  static_assert(kPacketSize == 2 + 4 + 4 + 4, "Packet size incorrect.");
+  // TODO: This is problematic on platforms having sizeof(pid_t) > sizeof(uint16_t), but
+  // the current formats only support 16-bit thread ids.
+  uint16_t thread_id = static_cast<uint16_t>(thread->GetTid());
 
   if (trace_output_mode_ == TraceOutputMode::kStreaming) {
     MutexLock mu(Thread::Current(), *streaming_lock_);  // To serialize writing.
     if (RegisterMethod(method)) {
-      // Write a special block with the name.
       std::string method_line(GetMethodLine(method));
-      uint8_t buf2[5];
-      Append2LE(buf2, 0);
-      buf2[2] = kOpNewMethod;
-      Append2LE(buf2 + 3, static_cast<uint16_t>(method_line.length()));
-      WriteToBuf(buf2, sizeof(buf2));
-      WriteToBuf(reinterpret_cast<const uint8_t*>(method_line.c_str()), method_line.length());
+      StreamingWriteMethodInfo(method_line);
     }
     if (RegisterThread(thread)) {
-      // It might be better to postpone this. Threads might not have received names...
+      // It might be better to postpone this. Threads might not have received names.
       std::string thread_name;
       thread->GetThreadName(thread_name);
-      uint8_t buf2[7];
-      Append2LE(buf2, 0);
-      buf2[2] = kOpNewThread;
-      Append2LE(buf2 + 3, static_cast<uint16_t>(thread->GetTid()));
-      Append2LE(buf2 + 5, static_cast<uint16_t>(thread_name.length()));
-      WriteToBuf(buf2, sizeof(buf2));
-      WriteToBuf(reinterpret_cast<const uint8_t*>(thread_name.c_str()), thread_name.length());
+      StreamingWriteThreadInfo(thread_id, thread_name);
     }
-    WriteToBuf(stack_buf, sizeof(stack_buf));
+    static constexpr size_t kPacketSize = kPacketSize;  // The maximum size of data in a packet.
+    // NB the reserved region here is only safe whilst the streaming_lock_ is held.
+    size_t record_offset = StreamingReserveFixedSizeRecord(kPacketSize);
+    WriteMethodTraceEvent(record_offset,
+                          kPacketSize,
+                          thread_id,
+                          method_value,
+                          thread_clock_diff,
+                          wall_clock_diff);
+  } else {
+    // Reserve a region for the record to be written.
+    size_t record_size = GetRecordSize(clock_source_);
+    size_t record_offset = cur_offset_.load(std::memory_order_relaxed);  // Speculative read
+    do {
+      if (record_offset + record_size > buffer_size_) {
+        overflow_ = true;
+        return;
+      }
+    } while (!cur_offset_.compare_exchange_weak(record_offset,
+                                                record_offset + record_size,
+                                                std::memory_order_relaxed));
+    WriteMethodTraceEvent(record_offset,
+                          record_size,
+                          thread_id,
+                          method_value,
+                          thread_clock_diff,
+                          wall_clock_diff);
   }
 }
 
