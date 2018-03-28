@@ -16,6 +16,24 @@
       "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5be6d43_c7badd93",
+        "filename": "runtime/image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-28T21:18:16Z",
+      "side": 1,
+      "message": "I think so. I don\u0027t understand the logic here sufficiently, but is there any way to replace this by some kind of checksum? Manual updates here look problematic to me.",
+      "parentUuid": "56d3f77c_7bf13766",
+      "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
