@@ -93,6 +93,30 @@
       "revId": "58cf7e2d0420b19000e477e5bd7a1fcfd371f2df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf735616_4b76a4a2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3733,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-28T15:07:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e17231c5_d801b6c4",
+      "range": {
+        "startLine": 3732,
+        "startChar": 59,
+        "endLine": 3733,
+        "endChar": 38
+      },
+      "revId": "58cf7e2d0420b19000e477e5bd7a1fcfd371f2df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
