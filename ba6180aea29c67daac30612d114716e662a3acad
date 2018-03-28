@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e0ff891_5e1cfc54",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-28T15:41:37Z",
+      "side": 1,
+      "message": "See comment at top of function. The common synchronization is in StopTracing(). The Trace::the_trace_ singleton is null at this point and the sampling thread is gone.\n\nThe reason the lock acquisition here may be to emphasize it\u0027s modifying state that guarded by the streaming lock. In particular, it keeps the verifier happy.",
+      "parentUuid": "5a395607_757ad4c2",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec46c5f8_9c33618c",
         "filename": "runtime/trace.cc",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-28T14:56:13Z",
       "side": 1,
       "message": "same",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70c614c4_4b017e06",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-28T15:41:37Z",
+      "side": 1,
+      "message": "The comment in the code here doesn\u0027t seem very accurate, cut-and-paste artifact (?).",
+      "parentUuid": "ec46c5f8_9c33618c",
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
