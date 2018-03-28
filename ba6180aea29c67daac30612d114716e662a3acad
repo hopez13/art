@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a395607_757ad4c2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-28T14:56:13Z",
+      "side": 1,
+      "message": "Its only acquiring lock for streaming. How does this synchronize-with WriteBuffers for non-streaming modes?",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec46c5f8_9c33618c",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-03-28T14:56:13Z",
+      "side": 1,
+      "message": "same",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
