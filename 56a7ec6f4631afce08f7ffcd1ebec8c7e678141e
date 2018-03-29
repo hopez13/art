@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fd1687a6_e4b757a6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T17:33:19Z",
+      "side": 1,
+      "message": "Indeed it was. Fixed.",
+      "parentUuid": "021fb50c_3f685cde",
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd94d4f3_bb900e0e",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2018-03-29T17:19:17Z",
       "side": 1,
       "message": "I\u0027d move this condition to the previous `if`.",
+      "range": {
+        "startLine": 916,
+        "startChar": 10,
+        "endLine": 916,
+        "endChar": 61
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c63db7_078d359a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T17:33:19Z",
+      "side": 1,
+      "message": "Fail early. Good idea :-)",
+      "parentUuid": "bd94d4f3_bb900e0e",
       "range": {
         "startLine": 916,
         "startChar": 10,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "48b1a6d7_6cd49f72",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T17:33:19Z",
+      "side": 1,
+      "message": "makes sense, done.",
+      "parentUuid": "a3de588c_37583bac",
+      "range": {
+        "startLine": 917,
+        "startChar": 11,
+        "endLine": 918,
+        "endChar": 44
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2377041_cb18ad86",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "e2a098e9_ec6d2c20",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T17:33:19Z",
+      "side": 1,
+      "message": "interesting extensions; I also plan to do a bit more in min/max/abs visitors, so postpone this for now",
+      "parentUuid": "f2377041_cb18ad86",
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5516bd4c_ce044f98",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -93,6 +177,30 @@
       "writtenOn": "2018-03-29T17:19:17Z",
       "side": 1,
       "message": "Naming: I\u0027d prefer \"the_negated\" and \"not_negated\".",
+      "range": {
+        "startLine": 991,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 70
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "467f81f0_d928c0e3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T17:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5516bd4c_ce044f98",
       "range": {
         "startLine": 991,
         "startChar": 0,
