@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "ce4a20c4_377010f6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T08:56:24Z",
+      "side": 1,
+      "message": "What\u0027s the reason for keeping the reference alive from the last environment use until this intrinsic? Is that extra liveness observable?",
+      "parentUuid": "de97b10e_4e5f6445",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
