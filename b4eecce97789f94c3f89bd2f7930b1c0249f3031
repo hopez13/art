@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2114c54e_8e864f8b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T12:42:40Z",
+      "side": 1,
+      "message": "comment from cwren via email: \"I would advise picking a representation that allows for fractional percent sampling (so not an int 0-100) just because my gut tells me we\u0027re looking at big numbers.\"",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 87
+      },
+      "revId": "b4eecce97789f94c3f89bd2f7930b1c0249f3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
