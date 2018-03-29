@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "bb05efd1_c292415a",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T14:22:35Z",
+      "side": 1,
+      "message": "From a build PoV we should be able to know which build the event log comes from (and therefore know the lists).\n\nBut I guess more data doesn\u0027t hurt at this point where it\u0027s unknown what we\u0027ll really get.",
+      "parentUuid": "481786ec_4a51557a",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac6b54a7_c9614bf3",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
