@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4de23799_1af57ed6",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T15:36:34Z",
+      "side": 1,
+      "message": "\u003c has precedence over \u0026. You need brackets around the LHS.\n\nhttp://en.cppreference.com/w/cpp/language/operator_precedence",
+      "range": {
+        "startLine": 166,
+        "startChar": 66,
+        "endLine": 166,
+        "endChar": 76
+      },
+      "revId": "19852ca6bfe33533c24640b83beaab88e546e595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "62744d04_23fb5006",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T15:36:34Z",
+      "side": 1,
+      "message": "Ok, then do the same as Narayan in his CL:\n\n  std::ostringstream ss;\n  Dump(ss);\n  ctx \u003c\u003c ss.str();\n\nI just think it\u0027s good to avoid having two places where the signature needs to be assembled from its bits.",
+      "parentUuid": "2c7880e3_26bbe199",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dec7af89_6324a32a",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 6
