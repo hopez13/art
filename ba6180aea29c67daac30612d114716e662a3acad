@@ -120,6 +120,70 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03e7e57_8af331a7",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-29T00:28:06Z",
+      "side": 1,
+      "message": "It\u0027s really protecting access to buf_, right?",
+      "parentUuid": "70c614c4_4b017e06",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ddd10c1_7b25c734",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-29T00:28:06Z",
+      "side": 1,
+      "message": "Is that accurate?\n\nI think it\u0027s either protected by streaming_lock, or threads reserve space by incrementing cur_offset_ and then write into the reserved space, or it\u0027s accessed when all other threads are suspended, and thus can\u0027t be writing.",
+      "range": {
+        "startLine": 323,
+        "startChar": 33,
+        "endLine": 324,
+        "endChar": 66
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "216a6836_2d523a51",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-29T00:28:06Z",
+      "side": 1,
+      "message": "Is the comment I proposed in PS3 accurate? If so, I would prefer that. I think that more precisely we may be able to say that in non-streaming mode, the buffer is only read after\n\n1) In ScopedSuspendAll in RunSamplingThread, or\n2) In ScopedSuspendAll in StopTracing, or\n3) while holding the streaming lock, if we are in streaming mode.\n\nIn any case, cur_offset_ is never used for synchronization between buffer readers and writers.",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
