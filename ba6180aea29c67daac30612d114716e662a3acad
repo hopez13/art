@@ -442,6 +442,30 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c4232e6_ff29168d",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T20:06:11Z",
+      "side": 1,
+      "message": "The suggestion was intended to convey move all the logic relating to shutting down method tracing before the call to FinishTracing() assuming we\u0027re in agreement about their being a race.\n\nThe reasons for the move would be:\n\n1) it avoids a potential race.\n2) it draws a line of safety for the buffer contents that can clearly articulated in a comment.\n\nI see the description called out a couple features of that block and could be misconstrued as doing something half-baked.",
+      "parentUuid": "c1b45acb_b9474554",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
