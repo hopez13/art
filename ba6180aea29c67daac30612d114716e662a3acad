@@ -418,6 +418,30 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1b45acb_b9474554",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T18:33:43Z",
+      "side": 1,
+      "message": "DisableMethodTracing \u0026 RemoveListener require the exclusive mutator lock, I think exactly to avoid these races (so must be after the ScopedSuspendAll). The correctness strongly relies on no suspend points in the instrumentation code path, I guess.",
+      "parentUuid": "03a4472c_94bf8311",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
