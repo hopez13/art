@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec1a4aac_a77a3ad6",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T22:43:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78e57aab_c2a397f6",
+      "range": {
+        "startLine": 441,
+        "startChar": 2,
+        "endLine": 441,
+        "endChar": 45
+      },
+      "revId": "400a6bf5bd8f521665fe9b8a31c823344d3628b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d786872b_599a6c6b",
         "filename": "runtime/runtime_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-29T14:45:17Z",
       "side": 1,
       "message": "ditto: comment on what lock that is.",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 24
+      },
+      "revId": "400a6bf5bd8f521665fe9b8a31c823344d3628b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef2f2b2_6ad621e2",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T22:43:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d786872b_599a6c6b",
       "range": {
         "startLine": 442,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ef98f4a1_978ce06f",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T22:43:16Z",
+      "side": 1,
+      "message": "Yeah, I was playing with them. The array initializer is an excellent suggestion. Done.",
+      "parentUuid": "322d67c0_4f79b8d8",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 19
+      },
+      "revId": "400a6bf5bd8f521665fe9b8a31c823344d3628b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe8d135_fb91d094",
         "filename": "runtime/runtime_common.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-29T14:45:17Z",
       "side": 1,
       "message": "A bit of magic, comment please.",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 42
+      },
+      "revId": "400a6bf5bd8f521665fe9b8a31c823344d3628b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17e32ae3_0ad32d44",
+        "filename": "runtime/runtime_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T22:43:16Z",
+      "side": 1,
+      "message": "Amended the comment in line 448.",
+      "parentUuid": "fbe8d135_fb91d094",
       "range": {
         "startLine": 452,
         "startChar": 0,
