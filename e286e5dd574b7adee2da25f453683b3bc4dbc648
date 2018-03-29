@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8be76e19_e124aa97",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T12:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f6b36b5_84572ec9",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 14
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0cb3b0ce_de54f928",
         "filename": "tools/veridex/hidden_api.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-29T10:49:11Z",
       "side": 1,
       "message": "Change to the enum?",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c9537a9_804b299c",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T12:10:29Z",
+      "side": 1,
+      "message": "I\u0027ve removed the method.",
+      "parentUuid": "0cb3b0ce_de54f928",
       "range": {
         "startLine": 49,
         "startChar": 37,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "efbadbfb_ef3566db",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T12:10:29Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "c7700339_92544fbe",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 58
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f850ccc_a76221b8",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-29T10:49:11Z",
       "side": 1,
       "message": "Nice touch, but maybe making the format easily grep-able outweighs grammatic correctness?",
+      "range": {
+        "startLine": 187,
+        "startChar": 39,
+        "endLine": 187,
+        "endChar": 77
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "698a777f_77198997",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T12:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f850ccc_a76221b8",
       "range": {
         "startLine": 187,
         "startChar": 39,
