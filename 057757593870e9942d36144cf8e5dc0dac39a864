@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e4c2030_7ff597e1",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T09:32:48Z",
+      "side": 1,
+      "message": "Add a comment about this.",
+      "range": {
+        "startLine": 58,
+        "startChar": 52,
+        "endLine": 58,
+        "endChar": 57
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65bd1e51_835dc09e",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T09:32:48Z",
+      "side": 1,
+      "message": "Won\u0027t that turn into false positives with the current flexible way to use this with am instrument?\n\nGiven we do print the method/field, we will be able to know which list it belongs to, so not sure why we need this?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac6b54a7_c9614bf3",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T09:32:48Z",
+      "side": 1,
+      "message": "no need.",
+      "range": {
+        "startLine": 116,
+        "startChar": 1,
+        "endLine": 116,
+        "endChar": 8
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cdc34b4_0c11adba",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T09:32:48Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 27
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64c5dfc_299f7cc1",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T09:32:48Z",
+      "side": 1,
+      "message": "Could you follow-up in another CL with an HiddenApi abstraction? Runtime is getting quite populated with hidden api stuff now.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 0,
+        "endLine": 1028,
+        "endChar": 48
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
