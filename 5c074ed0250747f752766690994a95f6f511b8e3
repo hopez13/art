@@ -34,6 +34,24 @@
       "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe39801c_6cfe5de1",
+        "filename": "runtime/image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T10:24:59Z",
+      "side": 1,
+      "message": "How would that checksum work?\n\nAdding an intrinsic or changing the ABI in the compiler is a breaking change, so we need to ensure an existing .art or .oat file is discarded, which is what the version check accomplishes.",
+      "parentUuid": "c5be6d43_c7badd93",
+      "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
