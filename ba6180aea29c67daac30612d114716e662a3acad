@@ -370,6 +370,30 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf15bdb_dd05a497",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-03-29T16:36:07Z",
+      "side": 1,
+      "message": "I can\u0027t parse the question. ... has no meaning here, just saying that there shouldn\u0027t be a suspend point, so your assumptions are false, so there\u0027s no race.",
+      "parentUuid": "ba94b993_cb1a5a62",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
