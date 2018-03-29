@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "7a0066b9_c4e49e26",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T13:00:10Z",
+      "side": 1,
+      "message": "I\u0027ll keep it this way for now, this filters both class names and method/field names.",
+      "parentUuid": "ebe023ac_673c64fc",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 53
+      },
+      "revId": "de74a80c528fbdaa7f6cdfdcf15a2c47e48ac497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "575e36c6_277ff9eb",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T13:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "849fd91f_80c5c599",
+      "range": {
+        "startLine": 93,
+        "startChar": 16,
+        "endLine": 93,
+        "endChar": 22
+      },
+      "revId": "de74a80c528fbdaa7f6cdfdcf15a2c47e48ac497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "295784bf_e39a3054",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-29T12:34:13Z",
       "side": 1,
       "message": "Perhaps mention that inner classes are written with Outer$Inner for Class.forName. So it\u0027s not purely Java-level format and we don\u0027t need to do anything special for inner classes",
+      "range": {
+        "startLine": 95,
+        "startChar": 41,
+        "endLine": 95,
+        "endChar": 42
+      },
+      "revId": "de74a80c528fbdaa7f6cdfdcf15a2c47e48ac497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec7f5d9b_64044fb2",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-29T13:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "295784bf_e39a3054",
       "range": {
         "startLine": 95,
         "startChar": 41,
