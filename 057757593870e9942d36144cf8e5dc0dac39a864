@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "0f285b44_fda899f6",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:26:41Z",
+      "side": 1,
+      "message": "Yeah, we do know, but I think that data would be pretty hard to join into these logs when analyzing. Hopefully this will keep things slightly simpler.",
+      "parentUuid": "bb05efd1_c292415a",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac6b54a7_c9614bf3",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
