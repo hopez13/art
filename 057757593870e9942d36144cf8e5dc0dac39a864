@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfea25e1_e02fb489",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e4c2030_7ff597e1",
+      "range": {
+        "startLine": 58,
+        "startChar": 52,
+        "endLine": 58,
+        "endChar": 57
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "824f709a_c690675c",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0b23bacd_3ccb1fc7",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "My intention was that we just log this, and can filter these out at logs analysis time to avoid the false positives, and perhaps the AOT info will be useful too. If we log more, we give ourselves more options later. How do we know if we\u0027re doing verification at runtime?",
+      "parentUuid": "824f709a_c690675c",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84f63597_ebdcbf0f",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-29T11:49:54Z",
       "side": 1,
       "message": "Why not log this as dumpable MemberSignature ? You would reduce the number of std::string conversions in MemberSignature constructor and we\u0027re not really gaining anything from splitting this into the components, are we?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c7880e3_26bbe199",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "android_log_event_list defines its own operator\u003c\u003c and doesn\u0027t support Dumpable",
+      "parentUuid": "84f63597_ebdcbf0f",
       "range": {
         "startLine": 130,
         "startChar": 0,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "8ffbd332_1b7c2257",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "I thought making it explicit would be better, and simplify the data analysis, but I can remove it if you feel strongly.\n\n(I also figured that since we have some flags here, we may as well put in anything that might turn out to be useful, since it won\u0027t make the logs bigger)",
+      "parentUuid": "43cb5e75_3c769958",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65bd1e51_835dc09e",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
@@ -128,6 +224,30 @@
       "writtenOn": "2018-03-29T09:32:48Z",
       "side": 1,
       "message": "Won\u0027t that turn into false positives with the current flexible way to use this with am instrument?\n\nGiven we do print the method/field, we will be able to know which list it belongs to, so not sure why we need this?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "481786ec_4a51557a",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "Not sure what you mean by false positives; we set this bit iff we deny access to the member (so it takes into account of any exemptions; if API checks are disabled by the am flag, the detection code doesn\u0027t run).\n\nThe lists can change between builds, and can change if we push exemptions; it\u0027s far easier to know exactly what we did if we log it explicitly.",
+      "parentUuid": "65bd1e51_835dc09e",
       "range": {
         "startLine": 71,
         "startChar": 0,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "f9f94b7a_ebb4b911",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6b54a7_c9614bf3",
+      "range": {
+        "startLine": 116,
+        "startChar": 1,
+        "endLine": 116,
+        "endChar": 8
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cdc34b4_0c11adba",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "efa88001_22ae2741",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cdc34b4_0c11adba",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 27
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c5dfc_299f7cc1",
         "filename": "runtime/runtime.h",
         "patchSetId": 6
@@ -197,6 +365,30 @@
       "writtenOn": "2018-03-29T09:32:48Z",
       "side": 1,
       "message": "Could you follow-up in another CL with an HiddenApi abstraction? Runtime is getting quite populated with hidden api stuff now.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 0,
+        "endLine": 1028,
+        "endChar": 48
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e55369d_8cbd3eba",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T14:16:20Z",
+      "side": 1,
+      "message": "Yep, will do.",
+      "parentUuid": "d64c5dfc_299f7cc1",
       "range": {
         "startLine": 1008,
         "startChar": 0,
