@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "021fb50c_3f685cde",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:19:17Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd94d4f3_bb900e0e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:19:17Z",
+      "side": 1,
+      "message": "I\u0027d move this condition to the previous `if`.",
+      "range": {
+        "startLine": 916,
+        "startChar": 10,
+        "endLine": 916,
+        "endChar": 61
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3de588c_37583bac",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:19:17Z",
+      "side": 1,
+      "message": "is_max ? (value \u003e\u003d other_value) : (value \u003c\u003d other_value)",
+      "range": {
+        "startLine": 917,
+        "startChar": 11,
+        "endLine": 918,
+        "endChar": 44
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2377041_cb18ad86",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:19:17Z",
+      "side": 1,
+      "message": "else the Min/Max can be replaced by the constant `other` (also if `value \u003d\u003d other_value`).",
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5516bd4c_ce044f98",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:19:17Z",
+      "side": 1,
+      "message": "Naming: I\u0027d prefer \"the_negated\" and \"not_negated\".",
+      "range": {
+        "startLine": 991,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 70
+      },
+      "revId": "56a7ec6f4631afce08f7ffcd1ebec8c7e678141e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
