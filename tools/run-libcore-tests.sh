@@ -161,6 +161,10 @@ if [[ $gcstress ]]; then
   fi
 fi
 
+# Disable network-related libcore tests that are failing on new
+# devices running O as a workaround for b/74725685.
+expectations="$expectations --expectations art/tools/libcore_network_failures.txt"
+
 # Run the tests using vogar.
 echo "Running tests for the following test packages:"
 echo ${working_packages[@]} | tr " " "\n"
