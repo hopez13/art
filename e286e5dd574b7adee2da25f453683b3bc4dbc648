@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f6b36b5_84572ec9",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T10:49:11Z",
+      "side": 1,
+      "message": "Can\u0027t you include dex/hidden_api_access_flags.h? It\u0027s in libdexfile",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 14
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb3b0ce_de54f928",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T10:49:11Z",
+      "side": 1,
+      "message": "Change to the enum?",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7700339_92544fbe",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T10:49:11Z",
+      "side": 1,
+      "message": "Did you see this detect anything? Class.forName() takes the name in dot format with dollar signs for inner classes. So this should be:\n\n  IsInRestrictionList(\"L\" + name.replace(\".\", \"/\") + \";\")\n\nwhen comparing against the API lists.\n\nI would also argue that this is too conservative, because it assumes the whole class is hidden, not just individual APIs.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 58
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f850ccc_a76221b8",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T10:49:11Z",
+      "side": 1,
+      "message": "Nice touch, but maybe making the format easily grep-able outweighs grammatic correctness?",
+      "range": {
+        "startLine": 187,
+        "startChar": 39,
+        "endLine": 187,
+        "endChar": 77
+      },
+      "revId": "e286e5dd574b7adee2da25f453683b3bc4dbc648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
