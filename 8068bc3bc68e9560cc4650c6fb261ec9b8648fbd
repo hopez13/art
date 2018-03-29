@@ -16,6 +16,24 @@
       "revId": "8068bc3bc68e9560cc4650c6fb261ec9b8648fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f93888e_1d71a870",
+        "filename": "test/680-checker-deopt-dex-pc-0/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T10:49:34Z",
+      "side": 1,
+      "message": "The purpose of the test is to test deoptimization which happens only in compiled code, so I think such comment is unnecessary. The HDeoptimize comment below should be enough.",
+      "parentUuid": "58f141c6_22dcfc40",
+      "revId": "8068bc3bc68e9560cc4650c6fb261ec9b8648fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
