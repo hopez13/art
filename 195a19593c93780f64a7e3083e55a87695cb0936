@@ -22,6 +22,30 @@
       "revId": "195a19593c93780f64a7e3083e55a87695cb0936",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d09eef5_43d1aa57",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-03-29T18:30:11Z",
+      "side": 1,
+      "message": "Done. Also documented this decision a bit better.",
+      "parentUuid": "8f038f9b_78c03400",
+      "range": {
+        "startLine": 48,
+        "startChar": 10,
+        "endLine": 48,
+        "endChar": 33
+      },
+      "revId": "195a19593c93780f64a7e3083e55a87695cb0936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
