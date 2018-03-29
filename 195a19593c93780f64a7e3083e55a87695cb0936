@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f038f9b_78c03400",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-03-29T17:51:05Z",
+      "side": 1,
+      "message": "I think what you\u0027re really looking for is a HCondition+HSelect that you want to treat as a single instruction. If the HSelect\u0027s condition comes from a different block, we should not ignore the select. Therefore, I\u0027d add\n\n    \u0026\u0026 instruction-\u003eAsSelect()-\u003eGetCondition()-\u003eGetBlock() \u003d\u003d block",
+      "range": {
+        "startLine": 48,
+        "startChar": 10,
+        "endLine": 48,
+        "endChar": 33
+      },
+      "revId": "195a19593c93780f64a7e3083e55a87695cb0936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
