@@ -25,6 +25,98 @@
     },
     {
       "key": {
+        "uuid": "824f709a_c690675c",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T11:49:54Z",
+      "side": 1,
+      "message": "What is the intent here? This will filter out warnings in dex2oat but not verification at runtime. But verification at runtime will not see the methods which had only light grey uses at dex2oat. Given that we may or may not run dex2oat under various circumstances, this will log a fairly unpredictable set of APIs. That could be fine, just want to check what exactly you\u0027re trying to do here.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84f63597_ebdcbf0f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T11:49:54Z",
+      "side": 1,
+      "message": "Why not log this as dumpable MemberSignature ? You would reduce the number of std::string conversions in MemberSignature constructor and we\u0027re not really gaining anything from splitting this into the components, are we?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dec7af89_6324a32a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T11:49:54Z",
+      "side": 1,
+      "message": "static_cast\u003cuint32_t\u003e(rand())",
+      "range": {
+        "startLine": 164,
+        "startChar": 40,
+        "endLine": 164,
+        "endChar": 48
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43cb5e75_3c769958",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-03-29T11:49:54Z",
+      "side": 1,
+      "message": "No need. We know that from the signature - fields\u0027 don\u0027t have brackets",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65bd1e51_835dc09e",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 6
