@@ -52,6 +52,24 @@
       "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12857373_48fa2f16",
+        "filename": "runtime/image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-03-29T18:32:29Z",
+      "side": 1,
+      "message": "My comment was based on wishful thinking rather than an actual plan.\n\nThe best concrete plan I can think of is to literally checksum the intrinsics related files (maybe), and combine that with more decentralized ABI versions elsewhere in the code base, e.g. in the instanceof() checking code. We could presumably embed those in some pseudo-comment, so a simple tool can find them. With sufficiently localized version information, reverts could presumably just revert the version as well. The disadvantage is that the build process would have to compute the actual \"version\". I don\u0027t know whether, on average, the problem is bad enough to justify that, or whether we just got caught in a storm here.",
+      "parentUuid": "fe39801c_6cfe5de1",
+      "revId": "5c074ed0250747f752766690994a95f6f511b8e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
