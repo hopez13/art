@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a9ebaad_28fe4634",
+        "filename": "test/171-init-aste/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-29T16:29:55Z",
+      "side": 1,
+      "message": "Maybe add:\n\n  which does not support dalvik.system.AnnotatedStackTraceElement\n\n?",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "0ed956e33f45db1a2b663b2402881b830d9402ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b9d0b78_875d0a1b",
+        "filename": "test/171-init-aste/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-03-29T16:29:55Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 10
+      },
+      "revId": "0ed956e33f45db1a2b663b2402881b830d9402ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
