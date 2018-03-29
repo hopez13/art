@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c94277dc_74fcfa08",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "See definition of CHECK_PTHREAD_CALL.",
+      "parentUuid": "08f6ac87_465a1ba7",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd2a861b_e4226243",
         "filename": "runtime/trace.cc",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-28T15:58:53Z",
       "side": 1,
       "message": "So I suppose the suspend-all is a guarantee that it finishes synchronizing?",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfbf8cea_839b1af0",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "I\u0027d feel happier if the code called ScopedSuspendAll / RemoveListener before calling FinishingTracing().",
+      "parentUuid": "fd2a861b_e4226243",
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac00d887_5200f479",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "Gone.",
+      "parentUuid": "deb2571b_d4baf316",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +139,24 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ba4d018_81fd58f0",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "My previous comment here is bogus. In particular, method tracing may still be active when we call this method. That seems problematic on the non-streaming paths as to what gets copied / written out further down.",
+      "parentUuid": "4e0ff891_5e1cfc54",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +213,24 @@
     },
     {
       "key": {
+        "uuid": "941c31d7_0278eb4b",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "Yes. Updated.",
+      "parentUuid": "a03e7e57_8af331a7",
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ddd10c1_7b25c734",
         "filename": "runtime/trace.h",
         "patchSetId": 9
@@ -164,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "aee46d91_1896ecf9",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "Good call.",
+      "parentUuid": "9ddd10c1_7b25c734",
+      "range": {
+        "startLine": 323,
+        "startChar": 33,
+        "endLine": 324,
+        "endChar": 66
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "216a6836_2d523a51",
         "filename": "runtime/trace.h",
         "patchSetId": 9
@@ -175,6 +289,30 @@
       "writtenOn": "2018-03-29T00:28:06Z",
       "side": 1,
       "message": "Is the comment I proposed in PS3 accurate? If so, I would prefer that. I think that more precisely we may be able to say that in non-streaming mode, the buffer is only read after\n\n1) In ScopedSuspendAll in RunSamplingThread, or\n2) In ScopedSuspendAll in StopTracing, or\n3) while holding the streaming lock, if we are in streaming mode.\n\nIn any case, cur_offset_ is never used for synchronization between buffer readers and writers.",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7f1e191_5f40712d",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T10:56:09Z",
+      "side": 1,
+      "message": "I\u0027ve revised the comment as suggested.\n\nDo we not have a race for in FinishTracing()? Specifically, when method tracing another thread may have just reserved a buffer region (and is then suspended), whilst the current thread calls FinishTracing(). The current reads cur_offset_ into final_offset and then calls WriteFully(buf_.get(), final_offset) before leaving FinishTracing().\n\nIf so, perhaps moving the RemoveListener() call (inside a ScopedSuspendAll) before calling FinishTracing would be an appropriate remedy. And it might make the code a little easier to reason about here.",
+      "parentUuid": "216a6836_2d523a51",
       "range": {
         "startLine": 347,
         "startChar": 2,
