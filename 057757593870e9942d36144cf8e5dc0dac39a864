@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "361b90bf_d70e0efa",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T15:43:11Z",
+      "side": 1,
+      "message": "we\u0027re not sending the full type signature here though, there\u0027s no need; we just include the component bits and can reassemble it when processing the log.\n\nSee the example output in the CL description - WDYT?",
+      "parentUuid": "62744d04_23fb5006",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 24
+      },
+      "revId": "057757593870e9942d36144cf8e5dc0dac39a864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dec7af89_6324a32a",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 6
