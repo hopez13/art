@@ -22,6 +22,30 @@
       "revId": "b4eecce97789f94c3f89bd2f7930b1c0249f3031",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2eecff0_09509a41",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-03-29T15:24:33Z",
+      "side": 1,
+      "message": "Made it an int in the range 0-0x10000 (also saves us in integer division)",
+      "parentUuid": "2114c54e_8e864f8b",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 87
+      },
+      "revId": "b4eecce97789f94c3f89bd2f7930b1c0249f3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
