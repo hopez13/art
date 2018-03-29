@@ -394,6 +394,30 @@
       "revId": "ba6180aea29c67daac30612d114716e662a3acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03a4472c_94bf8311",
+        "filename": "runtime/trace.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-03-29T17:22:04Z",
+      "side": 1,
+      "message": "The proposal to move RemoveListener() before FinishTracing() is to avoid what looks like a potential race in FinishTracing().\n\nIf this isn\u0027t a race condition, great, that\u0027s why the question is asked above to get additional input. We should be clear in documenting why.",
+      "parentUuid": "5bf15bdb_dd05a497",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "ba6180aea29c67daac30612d114716e662a3acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
