@@ -22,6 +22,30 @@
       "revId": "23be1464aab396f36f0183e635735cedf96d5607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b5b32c_9986f824",
+        "filename": "test/1935-get-set-current-frame-jit/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-03-30T21:34:13Z",
+      "side": 1,
+      "message": "yup. With how fiddly this test is I\u0027m going to wait until I\u0027m sure this has landed to actually fix it (merge-conflicts would make reverts more tricky).",
+      "parentUuid": "f3128853_32a34170",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "23be1464aab396f36f0183e635735cedf96d5607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
