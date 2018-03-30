@@ -982,5 +982,10 @@
                   "991-field-trace-2"],
         "variant": "gcstress & debug & target",
         "description": ["Test can time out on gcstress with debug"]
+    },
+    {
+        "tests": ["1935-get-set-current-frame-jit"],
+        "description": ["Test fails"],
+        "bug": ["b/77306669"]
     }
 ]
