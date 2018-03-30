@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d5631de_f65bdf11",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-30T15:02:15Z",
+      "side": 1,
+      "message": "Could you give more context to the comment? What\u0027s a? What\u0027s cmp? How does that look like in HIR?",
+      "range": {
+        "startLine": 906,
+        "startChar": 0,
+        "endLine": 910,
+        "endChar": 53
+      },
+      "revId": "c34de7932a1a63f311f53cf1d111b03fc71204e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c47f68a_4221a2ea",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-03-30T15:02:15Z",
+      "side": 1,
+      "message": "HSelect",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "c34de7932a1a63f311f53cf1d111b03fc71204e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
