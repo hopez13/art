@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4dfec6_aed155be",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-02T06:06:23Z",
+      "side": 1,
+      "message": "Maybe it would be possible to refactor this code to make it simpler by switching to a loop that just keeps a running count of the number of prior free regions.",
+      "range": {
+        "startLine": 317,
+        "startChar": 36,
+        "endLine": 317,
+        "endChar": 53
+      },
+      "revId": "a83a89c7e7fc6df457a0168d6ac43cc7a7a8eda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
