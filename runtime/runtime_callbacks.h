@@ -130,6 +130,10 @@ class MethodInspectionCallback {
   // Note that '!IsMethodSafeToJit(m) implies IsMethodBeingInspected(m)'. That is that if this
   // method returns false IsMethodBeingInspected must return true.
   virtual bool IsMethodSafeToJit(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+
+  // Returns true if we expect the method to be debuggable but are not doing anything unusual with
+  // it currently.
+  virtual bool MethodNeedsDebugVersion(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
 class RuntimeCallbacks {
@@ -197,6 +201,10 @@ class RuntimeCallbacks {
   // (which implies that it is being Inspected). Returns true otherwise. If it returns false the
   // entrypoint should not be changed to JITed code.
   bool IsMethodSafeToJit(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Returns false if no MethodInspectionCallback indicates the method needs a debug version. True
+  // otherwise.
+  bool MethodNeedsDebugVersion(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void AddMethodInspectionCallback(MethodInspectionCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
