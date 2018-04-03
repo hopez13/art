@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "a1e107c0_fcb3e247",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T17:49:06Z",
+      "side": 1,
+      "message": "I think it should be enough to keep the HInvokeStaticOrDirect/reachabilityFence live until codegen. Even if we start removing references from environments, it\u0027s probably impossible to do while there is a subsequent use of that reference. (GC may need to mark that reference through the environment use. The exception is the throwing slow paths where we could try to remove the environment use despite the subsequent use in normal path; but you advocated putting the reachabilityFence in a finally block exactly because of concerns with ordering finalization and stack unwinding, otherwise the reference can be considered dead in the slow path.)\n\nOnce we get to codegen, specifying Location::None() instead of Location::Any() can occasionally avoid a spill or move without affecting the liveness for preceding environment uses.",
+      "parentUuid": "e7d35c7a_ca2e6846",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
