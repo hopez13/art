@@ -1479,9 +1479,10 @@ class Dex2Oat FINAL {
   }
 
   void LoadClassProfileDescriptors() {
-    if (profile_compilation_info_ != nullptr && IsImage()) {
-      Runtime* runtime = Runtime::Current();
-      CHECK(runtime != nullptr);
+    if (!IsImage()) {
+      return;
+    }
+    if (profile_compilation_info_ != nullptr) {
       // Filter out class path classes since we don't want to include these in the image.
       image_classes_.reset(
           new std::unordered_set<std::string>(
@@ -1493,6 +1494,9 @@ class Dex2Oat FINAL {
           LOG(INFO) << "Image class " << s;
         }
       }
+    } else {
+      // If we don't have a profile, treat it as an empty set of classes. b/77340429
+      image_classes_.reset(new std::unordered_set<std::string>());
     }
   }
 
