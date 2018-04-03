@@ -22,6 +22,30 @@
       "revId": "252a4e49ddeff7c6977ea88dfb4f5ddf593ba826",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eea1276a_6a07c012",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2018-04-03T17:46:45Z",
+      "side": 1,
+      "message": "Without this fix, the test fails sometimes. Actually we noticed after back-porting be4c2bd89 (\"Fix dangling SingleImplementations left after class unloading\", which has 1st version of 616-cha-unloading) to Android 8.1.",
+      "parentUuid": "6bb1d4b1_f6de212e",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "252a4e49ddeff7c6977ea88dfb4f5ddf593ba826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
