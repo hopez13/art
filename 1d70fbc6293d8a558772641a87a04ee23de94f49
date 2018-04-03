@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73f2fa12_7094e8e6",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-03T01:07:37Z",
+      "side": 1,
+      "message": "This is terrible, in that it is the inverse of all the other docs. Please write something along the line of \"Returns true iff any ...\"",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 206,
+        "endChar": 15
+      },
+      "revId": "1d70fbc6293d8a558772641a87a04ee23de94f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
