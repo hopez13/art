@@ -117,6 +117,30 @@
       "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "903ea503_682086ef",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-04-03T12:36:24Z",
+      "side": 1,
+      "message": "Spec says it needs to be at least 7fff, but looks like bionic has a larger const. Probably the easiest is to static_assert RAND_MAX\u003e\u003d0xffff",
+      "parentUuid": "52a686d5_a67e2b1e",
+      "range": {
+        "startLine": 167,
+        "startChar": 58,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
