@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1376026_c4d42ce8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-04-03T23:59:21Z",
+      "side": 1,
+      "message": "Hmm Not sure what happened. I don\u0027t see it when I download the patch set. Let me see if it is still there after I re-upload.",
+      "parentUuid": "91a0c33a_a67a3813",
+      "range": {
+        "startLine": 11,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 64
+      },
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "484cda04_15e0dc62",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e52fab5c_d3b210c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-04-03T23:59:21Z",
+      "side": 1,
+      "message": "I re-ran the gcstress finalizer tests only which Hans suggest that CL would fix.\n\nThis is what I have done:\n\nart/test/run-test --host --never-clean -O --prebuild --compact-dex-level fast --optimizing --no-relocate --gcstress --runtime-option -Xcheck:jni --64 --build-with-javac-dx 036-finalizer\n\nTBH, I don\u0027t know enough about ART to answer your question.",
+      "parentUuid": "484cda04_15e0dc62",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "387098ce_fe778caf",
         "filename": "test/651-checker-short-simd-minmax/build",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2018-04-03T09:55:50Z",
       "side": 1,
       "message": "This file needs to be moved to test/651-checker-simd-minmax/ because of\n\n    https://android-review.googlesource.com/649803 .",
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be5b95b0_4b360816",
+        "filename": "test/651-checker-short-simd-minmax/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-04-03T23:59:21Z",
+      "side": 1,
+      "message": "I was so puzzled as to why this wasn\u0027t working. Thanks for pointing it out. It should be fixed.",
+      "parentUuid": "387098ce_fe778caf",
       "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
