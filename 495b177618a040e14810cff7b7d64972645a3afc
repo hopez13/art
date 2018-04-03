@@ -22,6 +22,30 @@
       "revId": "495b177618a040e14810cff7b7d64972645a3afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73eb532b_8b403091",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:57:55Z",
+      "side": 1,
+      "message": "Done, I was just quickly checking if it has the expected value and then forgot to remove this check. (I removed the arm64 one.)",
+      "parentUuid": "ac1641a3_2502d013",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 80
+      },
+      "revId": "495b177618a040e14810cff7b7d64972645a3afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
