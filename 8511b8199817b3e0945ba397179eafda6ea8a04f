@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "051d72f7_2a74cf2b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-03T18:27:55Z",
+      "side": 1,
+      "message": "I agree that Location::None() can potentially generate faster code. But I\u0027m still a little surprised that it\u0027s sufficient. You\u0027re saying that the liveness analysis considers inputs to intrinsics to be live even if they specify Location::NoLocation()? That seems wrong for something like UnsafeGet, that really completely ignores its first argument (the receiver object).\n\nI think we currently use Location::NoLocation in intrinsics only for reference arguments, so there\u0027s not currently any difference between the two interpretations.",
+      "parentUuid": "a1e107c0_fcb3e247",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
