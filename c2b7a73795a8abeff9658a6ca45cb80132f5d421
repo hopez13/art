@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "023226e5_bbae4250",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-03T22:10:35Z",
+      "side": 1,
+      "message": "nit: at all other places in this file (other than above which I missed in the first review), we just use node for the loop_node. can you change that so the code reads more consistent, (and shorter is often easier here)",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44e58cf6_472f07bc",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 15
