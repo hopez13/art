@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdb51ca1_a1eca154",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-04-03T11:49:18Z",
+      "side": 1,
+      "message": "s/lolcat/logcat/ :-)",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "999cc054_b9e8116b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-04-03T11:49:18Z",
+      "side": 1,
+      "message": "Is this rand() in stdlib (RAND_MAX cf 0xffff)? Not sure it\u0027d be significant in practice.",
+      "range": {
+        "startLine": 167,
+        "startChar": 58,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
