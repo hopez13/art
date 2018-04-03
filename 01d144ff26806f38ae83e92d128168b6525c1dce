@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "682e91e4_7695cfa0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T12:14:56Z",
+      "side": 1,
+      "message": "yep, lolcat works too :)\n\nThough perhaps logcat would be clearer in this instance. I just find lolcat marginally easier to type.",
+      "parentUuid": "1d352292_f870f9ee",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "999cc054_b9e8116b",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 9
@@ -60,6 +84,30 @@
       "writtenOn": "2018-04-03T11:49:18Z",
       "side": 1,
       "message": "Is this rand() in stdlib (RAND_MAX cf 0xffff)? Not sure it\u0027d be significant in practice.",
+      "range": {
+        "startLine": 167,
+        "startChar": 58,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "01d144ff26806f38ae83e92d128168b6525c1dce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52a686d5_a67e2b1e",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T12:14:56Z",
+      "side": 1,
+      "message": "I assume so, I just copied it from elsewhere:\n  https://cs.corp.google.com/aosp-kitkat/dalvik/vm/Sync.cpp?q\u003ddvm_lock_sample\u0026l\u003d375\n\nAlso:\nhttps://cs.corp.google.com/android/bionic/libc/include/stdlib.h?type\u003dcs\u0026q\u003dRAND_MAX\u0026sq\u003dpackage:%5Eandroid$\u0026l\u003d104\n\n#define RAND_MAX 0x7fffffff\n\n(is that the right place to look?)",
+      "parentUuid": "999cc054_b9e8116b",
       "range": {
         "startLine": 167,
         "startChar": 58,
