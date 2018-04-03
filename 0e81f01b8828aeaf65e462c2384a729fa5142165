@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91a0c33a_a67a3813",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T09:55:50Z",
+      "side": 1,
+      "message": "Trailing whitespace. (Avoid even in commit message, please.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 64
+      },
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "484cda04_15e0dc62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T09:55:50Z",
+      "side": 1,
+      "message": "Use full links that can be clicked by people outside Google:\n\n    https://android-review.googlesource.com/637929 .\n\nDid you actually run gcstress tests to check this? Because I see no reason why that CL would change the outcome.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "387098ce_fe778caf",
+        "filename": "test/651-checker-short-simd-minmax/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T09:55:50Z",
+      "side": 1,
+      "message": "This file needs to be moved to test/651-checker-simd-minmax/ because of\n\n    https://android-review.googlesource.com/649803 .",
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
