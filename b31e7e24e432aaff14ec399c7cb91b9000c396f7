@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4006be0b_7aa85f83",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:14:42Z",
+      "side": 1,
+      "message": "That doesn\u0027t work?\n\n\u0027const char*[]\u0027 gives compiler error (\"function cannot return array type \u0027const char *[]\u0027\"); \n\nconst char** would require an explicit new[] \u0026 doesn\u0027t work with an iterator?",
+      "parentUuid": "5307e747_a5961e36",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 31
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc10d725_9cd010bf",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8264fb8_43d4f152",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:14:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc10d725_9cd010bf",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 37
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b50f098f_bb3611cb",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:14:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b20f3f79_9e00ef47",
+      "range": {
+        "startLine": 171,
+        "startChar": 39,
+        "endLine": 171,
+        "endChar": 48
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a67df556_9949bcc0",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ca8b5e9a_cd27be62",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:14:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a67df556_9949bcc0",
+      "range": {
+        "startLine": 67,
+        "startChar": 18,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c99bbf3f_87817791",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 11
@@ -114,6 +210,30 @@
       "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f478215_f2068739",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:14:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c99bbf3f_87817791",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 9
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
