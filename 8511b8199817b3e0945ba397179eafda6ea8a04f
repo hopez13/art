@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "cc9dde57_65745a3b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T09:42:48Z",
+      "side": 1,
+      "message": "Consider\n\n  HInvokeVirtual (environment use)\n  HAdd\n  HMul\n  ... (whatever else without an environment)\n  ... (even volatile reads/writes)\n  HInvokeStaticOrDirect/reachabilityFence\n\nHow is the extra liveness over HAdd/HMul/... observable? The lack of an opportunity to mark thread roots means a lack of opportunity for the reference to become dead.",
+      "parentUuid": "01c6a2d4_00df3fa3",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
