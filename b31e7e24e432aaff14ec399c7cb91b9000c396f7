@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b20f3f79_9e00ef47",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-04-03T12:51:38Z",
+      "side": 1,
+      "message": "s/MAX_RAND/RAND_MAX/",
+      "range": {
+        "startLine": 171,
+        "startChar": 39,
+        "endLine": 171,
+        "endChar": 48
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
