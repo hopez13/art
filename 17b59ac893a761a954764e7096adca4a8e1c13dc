@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "70188ad9_b6514ff9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "This establishes a framework intended for all architectures that want to use such thunks.",
+      "parentUuid": "476c1746_afafa402",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5c68a56_406d50a4",
         "filename": "compiler/linker/relative_patcher.h",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "Nit: \"The\"",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f1cfa0f_42d491a2",
+        "filename": "compiler/linker/relative_patcher.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c68a56_406d50a4",
       "range": {
         "startLine": 50,
         "startChar": 18,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "6554cbba_fe56e53a",
+        "filename": "compiler/linker/relative_patcher.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "If there was only `code` I would have done that. As we\u0027ve got the second \"out\" argument `debug_name`, I prefer to do it this way.",
+      "parentUuid": "ede94fc4_0b92e82d",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 65
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8eb8281_3082e82f",
         "filename": "compiler/linker/relative_patcher_test.h",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK(debug_name !\u003d nullptr);\n\nbefore?",
+      "range": {
+        "startLine": 271,
+        "startChar": 7,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0feaeba4_7746069e",
+        "filename": "compiler/linker/relative_patcher_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8eb8281_3082e82f",
       "range": {
         "startLine": 271,
         "startChar": 7,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "fb921a55_c21395a6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d057614c_57fb11cf",
+      "range": {
+        "startLine": 1435,
+        "startChar": 22,
+        "endLine": 1435,
+        "endChar": 23
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69e4aa4c_69ae44a2",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 4
@@ -128,6 +242,24 @@
     },
     {
       "key": {
+        "uuid": "dbd32d0b_ffc0545a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69e4aa4c_69ae44a2",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ede47ee6_918ada28",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 4
@@ -139,6 +271,30 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "Could this method be made `const`?",
+      "range": {
+        "startLine": 626,
+        "startChar": 7,
+        "endLine": 626,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a603dea9_503a28f6",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ede47ee6_918ada28",
       "range": {
         "startLine": 626,
         "startChar": 7,
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "d0824cc0_9c80e2c6",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71fa8b0b_8b7c6bae",
+      "range": {
+        "startLine": 797,
+        "startChar": 0,
+        "endLine": 821,
+        "endChar": 3
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41a28473_f35cf09b",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 4
@@ -185,6 +365,30 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "Wouldn\u0027t it be better to have `code` passed by reference?",
+      "range": {
+        "startLine": 2429,
+        "startChar": 24,
+        "endLine": 2429,
+        "endChar": 25
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59133962_0894b7c1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41a28473_f35cf09b",
       "range": {
         "startLine": 2429,
         "startChar": 24,
@@ -237,6 +441,48 @@
     },
     {
       "key": {
+        "uuid": "0859498b_d2a2c388",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9f5b5e_5991c226",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9dc2d38_7c6e957a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06cbc9b2_f4f99794",
+      "range": {
+        "startLine": 2430,
+        "startChar": 43,
+        "endLine": 2430,
+        "endChar": 49
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e7c82d2_1f3ae5cc",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 4
@@ -248,6 +494,24 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "Ditto, maybe add\n\n  DCHECK_ALIGNED(offset, 2u);\n\nhere?",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72cca12_cf489bca",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Taking GetInsn16 by value is OK after GetInsn16 takes the `code` by reference. DCHECK_ALIGNED() in GetInsn16 should be enough.",
+      "parentUuid": "5e7c82d2_1f3ae5cc",
       "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -277,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "be178e49_e31cae25",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ed7af6_52a2cb35",
+      "range": {
+        "startLine": 597,
+        "startChar": 7,
+        "endLine": 597,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3655717a_b6ae3c97",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 4
@@ -288,6 +576,30 @@
       "writtenOn": "2018-04-03T13:57:13Z",
       "side": 1,
       "message": "What about moving (the implementation of) these methods to compiler/optimizing/code_generator_arm_vixl.cc? This would also permit the use of IP instead of 12u in CheckValidReg.",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 3
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cc57bda_dd185262",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-03T15:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3655717a_b6ae3c97",
       "range": {
         "startLine": 802,
         "startChar": 0,
