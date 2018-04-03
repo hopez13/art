@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2ff97134_c0719354",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-04-03T13:40:36Z",
+      "side": 1,
+      "message": "const char[][]? If not, it\u0027s fine with the vector",
+      "parentUuid": "4006be0b_7aa85f83",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 31
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc10d725_9cd010bf",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 11
