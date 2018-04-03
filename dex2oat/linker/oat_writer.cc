@@ -3673,7 +3673,11 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
     return false;
   }
   Options options;
-  options.compact_dex_level_ = compact_dex_level_;
+  // If compact dex is enabled by default, always use it.
+  options.compact_dex_level_ = kDefaultCompactDexLevel;
+  if (compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
+    options.compact_dex_level_ = compact_dex_level_;
+  }
   options.update_checksum_ = true;
   DexLayout dex_layout(options, profile_compilation_info_, /*file*/ nullptr, /*header*/ nullptr);
   const uint8_t* dex_src = nullptr;
