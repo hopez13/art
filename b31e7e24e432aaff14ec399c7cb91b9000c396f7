@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0a41f66d_ceab927a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-04-03T13:42:07Z",
+      "side": 1,
+      "message": "I\u0027ve spent a bunch of time on this already, let\u0027s stick with a vector.",
+      "parentUuid": "2ff97134_c0719354",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 31
+      },
+      "revId": "b31e7e24e432aaff14ec399c7cb91b9000c396f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc10d725_9cd010bf",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 11
