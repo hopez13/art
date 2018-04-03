@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "476c1746_afafa402",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T14:12:50Z",
+      "side": 1,
+      "message": "Maybe mention/remind the reader that this change is for ARM and ARM64?",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5c68a56_406d50a4",
         "filename": "compiler/linker/relative_patcher.h",
         "patchSetId": 4
