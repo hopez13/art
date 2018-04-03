@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "e7d35c7a_ca2e6846",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-03T17:20:07Z",
+      "side": 1,
+      "message": "Thanks for the explanation. I\u0027m still learning about terminology and conventions here.\n\nIIUC, you are right that there is no need to keep the reference live after the last environment use. My goal here is to make sure that it appears in the last environment. This is currently unnecessary because we don\u0027t remove references. But we want to start doing that in the future.\n\nIs there a better way to only keep the register live until the preceding environment use? We would presumably also need to make sure that the environment use is not reordered with preceding memory accesses.\n\n(ReachabilityFence() is nonetheless useful, even now. We already sometimes need reachabilityFence() to prevent d8 (and, possibly less frequently, dx) from eliminating dead references. In that case the intrinsic reduces the cost from a non-trivial function call to keeping a register live for a bit longer than necessary. But if there\u0027s a way to do even better ...)",
+      "parentUuid": "cc9dde57_65745a3b",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
