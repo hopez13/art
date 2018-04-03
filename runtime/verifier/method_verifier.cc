@@ -41,6 +41,7 @@
 #include "experimental_flags.h"
 #include "gc/accounting/card_table-inl.h"
 #include "handle_scope-inl.h"
+#include "hidden_api.h"
 #include "indenter.h"
 #include "intern_table.h"
 #include "mirror/class-inl.h"
@@ -3806,10 +3807,29 @@ ArtMethod* MethodVerifier::ResolveMethodAndCheckAccess(
       // methods for error message purposes. This will never be returned.
       // TODO We might want to change the verifier to not require this.
       res_method = klass->FindClassMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
+      if (kIsDebugBuild && res_method != nullptr) {
+        // The must-fail check at the end needs to pass. But ShouldBlockAccessToMember will log
+        // (again). So only do this in a debug build.
+        if (hiddenapi::ShouldBlockAccessToMember(res_method,
+                                                 class_loader_.Get(),
+                                                 dex_cache_.Get(),
+                                                 hiddenapi::kLinking)) {
+          res_method = nullptr;
+        }
+      }
     } else {
       // If there was an interface method with the same signature,
       // we would have found it also in the "copied" methods.
-      DCHECK(klass->FindInterfaceMethod(dex_cache_.Get(), dex_method_idx, pointer_size) == nullptr);
+      if (kIsDebugBuild) {
+        ArtMethod* interface_method =
+            klass->FindInterfaceMethod(dex_cache_.Get(), dex_method_idx, pointer_size);
+        if (interface_method != nullptr) {
+          DCHECK(hiddenapi::ShouldBlockAccessToMember(interface_method,
+                                                      class_loader_.Get(),
+                                                      dex_cache_.Get(),
+                                                      hiddenapi::kLinking));
+        }
+      }
     }
   }
 
