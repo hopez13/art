@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46385f3e_65fd8cea",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-03T21:58:42Z",
+      "side": 1,
+      "message": "notice this now: instead of the  ... however , start a new sentence:\nIt will increase code size only.",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44e58cf6_472f07bc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-03T21:58:42Z",
+      "side": 1,
+      "message": "this is a big block of code, repeated in peeling and unrolling client. any chance to push this into cloner and have less boilerplate here?",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "748ebca8_74583335",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-03T21:58:42Z",
+      "side": 1,
+      "message": "is this something that could be done inside the superblock cloner? it seems better to have this there than to ask clients to do this?",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db9dff3_2ab73a4a",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-03T21:58:42Z",
+      "side": 1,
+      "message": "any reason you don\u0027t want to commit to one way yet? it would make the code a bit simpler to have just one choice?",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
