@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5c68a56_406d50a4",
+        "filename": "compiler/linker/relative_patcher.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Nit: \"The\"",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ede94fc4_0b92e82d",
+        "filename": "compiler/linker/relative_patcher.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Why not returning the code of the thunk as return value of this method? I\u0027d expect the RVO to eliminate the cost of the copy.",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 65
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8eb8281_3082e82f",
+        "filename": "compiler/linker/relative_patcher_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(debug_name !\u003d nullptr);\n\nbefore?",
+      "range": {
+        "startLine": 271,
+        "startChar": 7,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d057614c_57fb11cf",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1435,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Ditto, wouldn\u0027t it be better to have `code` passed by reference?",
+      "range": {
+        "startLine": 1435,
+        "startChar": 22,
+        "endLine": 1435,
+        "endChar": 23
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69e4aa4c_69ae44a2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_ALIGNED(offset, 4u);\n\nhere?",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ede47ee6_918ada28",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Could this method be made `const`?",
+      "range": {
+        "startLine": 626,
+        "startChar": 7,
+        "endLine": 626,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71fa8b0b_8b7c6bae",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "What about moving (the implementation of) these methods to compiler/optimizing/code_generator_arm64.cc? This would also permit the use of X30, IP0 and IP1 instead of numeric values for registers in CheckValidReg.",
+      "range": {
+        "startLine": 797,
+        "startChar": 0,
+        "endLine": 821,
+        "endChar": 3
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41a28473_f35cf09b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2429,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to have `code` passed by reference?",
+      "range": {
+        "startLine": 2429,
+        "startChar": 24,
+        "endLine": 2429,
+        "endChar": 25
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb9f5b5e_5991c226",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_ALIGNED(offset, 2u);\n\nhere?",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06cbc9b2_f4f99794",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Nit: `offset + 0` (to preserve alignment as in CodeGeneratorARM64::Finalize).",
+      "range": {
+        "startLine": 2430,
+        "startChar": 43,
+        "endLine": 2430,
+        "endChar": 49
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e7c82d2_1f3ae5cc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Ditto, maybe add\n\n  DCHECK_ALIGNED(offset, 2u);\n\nhere?",
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60ed7af6_52a2cb35",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "Could this method be made `const`?",
+      "range": {
+        "startLine": 597,
+        "startChar": 7,
+        "endLine": 597,
+        "endChar": 21
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3655717a_b6ae3c97",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-03T13:57:13Z",
+      "side": 1,
+      "message": "What about moving (the implementation of) these methods to compiler/optimizing/code_generator_arm_vixl.cc? This would also permit the use of IP instead of 12u in CheckValidReg.",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 3
+      },
+      "revId": "17b59ac893a761a954764e7096adca4a8e1c13dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
