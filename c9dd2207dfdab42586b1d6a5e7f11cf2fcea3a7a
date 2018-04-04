@@ -16,6 +16,24 @@
       "revId": "c9dd2207dfdab42586b1d6a5e7f11cf2fcea3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b11e74ac_a5d3f1f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-04T10:33:09Z",
+      "side": 1,
+      "message": "Yes, the intent is a refactoring. As stated below, we could try and reuse the thunks for JIT. (Less code to maintain, possibly less pressure on the jit code cache.) Also, fewer linker changes for future thunk work, keeping the code mostly in the compiler.\n\nI guess there may be a small regression in compile time because of extra locking (no locking during single-threaded linking) and extra map lookups, so I\u0027ll watch Golem to see if it\u0027s significant.",
+      "parentUuid": "3d5f9b70_f014e3c9",
+      "revId": "c9dd2207dfdab42586b1d6a5e7f11cf2fcea3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
