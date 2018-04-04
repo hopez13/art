@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "dd3a5422_2c8ef1c9",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:41:20Z",
+      "side": 1,
+      "message": "ART style is to drop the virtual in those declarations.",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 44
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1df04ab7_e3aa1924",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
@@ -117,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "72502c8e_1d80a557",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:41:20Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dc30be1_a3f40f2b",
         "filename": "runtime/base/mem_map_arena_pool.h",
         "patchSetId": 1
@@ -137,6 +183,52 @@
       "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8d5c2f_d2de28b2",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:41:20Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf804d68_0d67b146",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:41:20Z",
+      "side": 1,
+      "message": "Why can\u0027t this be:\nMallocArenaPool default_arena_pool_ ? (at least for this CL)",
+      "range": {
+        "startLine": 795,
+        "startChar": 18,
+        "endLine": 795,
+        "endChar": 27
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
