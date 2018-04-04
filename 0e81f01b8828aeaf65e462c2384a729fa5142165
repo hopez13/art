@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3bdfc05a_2cbc8d26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-04T13:39:21Z",
+      "side": 1,
+      "message": "On a second thought, yes, that CL probably fixed it.\n\nI cherry-picked this CL and tried\n\n  art/test/testrunner/testrunner.py -j 48 -b --host --gcstress -t 036-finalizer\n\nand it passed (all 10 configurations).",
+      "parentUuid": "e52fab5c_d3b210c4",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "0e81f01b8828aeaf65e462c2384a729fa5142165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "387098ce_fe778caf",
         "filename": "test/651-checker-short-simd-minmax/build",
         "patchSetId": 1
