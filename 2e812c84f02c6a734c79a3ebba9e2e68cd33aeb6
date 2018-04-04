@@ -22,6 +22,30 @@
       "revId": "2e812c84f02c6a734c79a3ebba9e2e68cd33aeb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdd2c707_69e3bff3",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3678,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-04T00:33:44Z",
+      "side": 1,
+      "message": "Yes but only if we are already going to run dexlayout.",
+      "parentUuid": "68b088ed_7333bc51",
+      "range": {
+        "startLine": 3676,
+        "startChar": 0,
+        "endLine": 3678,
+        "endChar": 68
+      },
+      "revId": "2e812c84f02c6a734c79a3ebba9e2e68cd33aeb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
