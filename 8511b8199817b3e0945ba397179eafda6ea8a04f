@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "012b5263_185c956f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-04T09:32:00Z",
+      "side": 1,
+      "message": "The liveness analysis considers environment uses, so even if we use NoLocation() for the actual intrinsic, all the prior environment uses shall keep it alive as needed (essentially Location::Any()).",
+      "parentUuid": "051d72f7_2a74cf2b",
+      "range": {
+        "startLine": 2881,
+        "startChar": 24,
+        "endLine": 2881,
+        "endChar": 32
+      },
+      "revId": "8511b8199817b3e0945ba397179eafda6ea8a04f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a31526_fcb3ecee",
         "filename": "runtime/intrinsics_list.h",
         "patchSetId": 1
