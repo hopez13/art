@@ -355,7 +355,7 @@ void Thumb2RelativePatcher::CompileBakerReadBarrierThunk(arm::ArmVIXLAssembler& 
 }
 
 std::vector<uint8_t> Thumb2RelativePatcher::CompileThunk(const ThunkKey& key) {
-  ArenaPool pool;
+  MallocArenaPool pool;
   ArenaAllocator allocator(&pool);
   arm::ArmVIXLAssembler assembler(&allocator);
 
