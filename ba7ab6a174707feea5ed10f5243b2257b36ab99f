@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "4b3e58c6_b7fbbfd8",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-04T10:25:59Z",
+      "side": 1,
+      "message": "protected",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 255,
+        "endChar": 14
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca85c787_789a34cd",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-04T10:25:59Z",
+      "side": 1,
+      "message": "Can we push this and the lock_ down to concrete pool classes?",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 22
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82fd3114_443ecf74",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
