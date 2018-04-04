@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6c90eedf_c0db8bba",
+        "filename": "compiler/linker/arm/relative_patcher_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T18:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8876596_e6cb818e",
+      "revId": "8c12200126bdc8389f35dda1b52dd5580e2230b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5ab6240_9c81dbec",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6013627e_8dfea348",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T18:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5ab6240_9c81dbec",
+      "revId": "8c12200126bdc8389f35dda1b52dd5580e2230b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9760c25_5c10e2c1",
         "filename": "runtime/base/malloc_arena_pool.cc",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2018-04-04T17:59:27Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 115,
+        "startChar": 10,
+        "endLine": 115,
+        "endChar": 30
+      },
+      "revId": "8c12200126bdc8389f35dda1b52dd5580e2230b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59cea23d_8f8d187e",
+        "filename": "runtime/base/malloc_arena_pool.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T18:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9760c25_5c10e2c1",
       "range": {
         "startLine": 115,
         "startChar": 10,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "8e576116_2276f4e5",
+        "filename": "runtime/base/malloc_arena_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T18:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33634def_3daace80",
+      "range": {
+        "startLine": 41,
+        "startChar": 49,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "8c12200126bdc8389f35dda1b52dd5580e2230b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b603bf1c_f6f6ebc1",
         "filename": "runtime/base/mem_map_arena_pool.h",
         "patchSetId": 2
@@ -93,6 +177,30 @@
       "writtenOn": "2018-04-04T17:59:27Z",
       "side": 1,
       "message": "Remove (unrelated to MemMapArenaPool), rephrase the rest.",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "8c12200126bdc8389f35dda1b52dd5580e2230b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ed76382_8f25856e",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T18:31:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b603bf1c_f6f6ebc1",
       "range": {
         "startLine": 40,
         "startChar": 5,
