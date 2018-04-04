@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "226c9fae_4f4e4ffa",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "This is only exercised when we are creating an arena, which I think is very infrequent.  Expected performance shouldn\u0027t change.",
+      "parentUuid": "85a35b16_04f27a01",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 44
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11b10e90_8e48d4d3",
         "filename": "runtime/base/arena_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-04T08:42:42Z",
       "side": 1,
       "message": "Do you still need this?",
+      "range": {
+        "startLine": 278,
+        "startChar": 10,
+        "endLine": 278,
+        "endChar": 29
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f75b2b6e_966585b7",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Removed.  After moving as Calin suggested it became more obvious :-).",
+      "parentUuid": "11b10e90_8e48d4d3",
       "range": {
         "startLine": 278,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "95850ecb_245632fb",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b3e58c6_b7fbbfd8",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 255,
+        "endChar": 14
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca85c787_789a34cd",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-04-04T10:25:59Z",
       "side": 1,
       "message": "Can we push this and the lock_ down to concrete pool classes?",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 22
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b9ee878_e73e7e9b",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca85c787_789a34cd",
       "range": {
         "startLine": 267,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0cbf9218_250d97d8",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "I\u0027m not sure I know how to do this.  Suggestions?",
+      "parentUuid": "82fd3114_443ecf74",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 57
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d8c6fad_5d71e949",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0179f77f_ed0f7e5d",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d8c6fad_5d71e949",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 21
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd3a5422_2c8ef1c9",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2018-04-04T08:41:20Z",
       "side": 1,
       "message": "ART style is to drop the virtual in those declarations.",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 44
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26244cda_9f95fe8f",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd3a5422_2c8ef1c9",
       "range": {
         "startLine": 278,
         "startChar": 2,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "d2c41bf1_fe705f22",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1df04ab7_e3aa1924",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 285,
+        "endChar": 25
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c7e35f3_1d89dbbb",
         "filename": "runtime/base/mem_map_arena_pool.cc",
         "patchSetId": 1
@@ -206,6 +398,30 @@
       "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da62c09e_a6a3e3f9",
+        "filename": "runtime/base/mem_map_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c7e35f3_1d89dbbb",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "86b6e9df_0d025175",
+        "filename": "runtime/base/mem_map_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d54a218a_052790c5",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72502c8e_1d80a557",
         "filename": "runtime/base/mem_map_arena_pool.h",
         "patchSetId": 1
@@ -243,6 +483,30 @@
       "writtenOn": "2018-04-04T08:41:20Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "092f22aa_039967d1",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72502c8e_1d80a557",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d1cfd64a_f6be8433",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dc30be1_a3f40f2b",
+      "range": {
+        "startLine": 34,
+        "startChar": 80,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8d5c2f_d2de28b2",
         "filename": "runtime/base/mem_map_arena_pool.h",
         "patchSetId": 1
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "c8a93dea_425f13e7",
+        "filename": "runtime/base/mem_map_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8d5c2f_d2de28b2",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf804d68_0d67b146",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2018-04-04T08:41:20Z",
       "side": 1,
       "message": "Why can\u0027t this be:\nMallocArenaPool default_arena_pool_ ? (at least for this CL)",
+      "range": {
+        "startLine": 795,
+        "startChar": 18,
+        "endLine": 795,
+        "endChar": 27
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9241ca3_0ff3c562",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-04-04T17:44:01Z",
+      "side": 1,
+      "message": "Great catch.  I didn\u0027t notice that this wasn\u0027t being passed in...  Done.",
+      "parentUuid": "cf804d68_0d67b146",
       "range": {
         "startLine": 795,
         "startChar": 18,
