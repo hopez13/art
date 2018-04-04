@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "85a35b16_04f27a01",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:42:42Z",
+      "side": 1,
+      "message": "What\u0027s the performance tradeoff of moving away from MutexLock and using lock_guard?",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 44
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b10e90_8e48d4d3",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-04T08:42:42Z",
+      "side": 1,
+      "message": "Do you still need this?",
+      "range": {
+        "startLine": 278,
+        "startChar": 10,
+        "endLine": 278,
+        "endChar": 29
+      },
+      "revId": "ba7ab6a174707feea5ed10f5243b2257b36ab99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82fd3114_443ecf74",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
