@@ -70,6 +70,30 @@
       "revId": "2e812c84f02c6a734c79a3ebba9e2e68cd33aeb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad8b81f_3b7eb86b",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3678,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-04T01:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cba51280_8b2ebc3c",
+      "range": {
+        "startLine": 3676,
+        "startChar": 0,
+        "endLine": 3678,
+        "endChar": 68
+      },
+      "revId": "2e812c84f02c6a734c79a3ebba9e2e68cd33aeb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
