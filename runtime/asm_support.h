@@ -53,6 +53,11 @@ ADD_TEST_EQ(THREAD_EXCEPTION_OFFSET,
 ADD_TEST_EQ(THREAD_TOP_QUICK_FRAME_OFFSET,
             art::Thread::TopOfManagedStackOffset<POINTER_SIZE>().Int32Value())
 
+// Offset of field Thread::tlsPtr_.suspend_trigger.
+#define THREAD_SUSPEND_TRIGGER_OFFSET (THREAD_CARD_TABLE_OFFSET + (6 * __SIZEOF_POINTER__))
+ADD_TEST_EQ(THREAD_SUSPEND_TRIGGER_OFFSET,
+            art::Thread::ThreadSuspendTriggerOffset<POINTER_SIZE>().Int32Value())
+
 // Offset of field Thread::tlsPtr_.self.
 #define THREAD_SELF_OFFSET (THREAD_CARD_TABLE_OFFSET + (9 * __SIZEOF_POINTER__))
 ADD_TEST_EQ(THREAD_SELF_OFFSET,
