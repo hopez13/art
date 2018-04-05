@@ -41,6 +41,9 @@
 #define wMR w20
 #endif
 
+// Implicit suspend check register.
+#define xSUSPEND x21
+
 .macro CFI_EXPRESSION_BREG n, b, offset
     .if (-0x40 <= (\offset)) && ((\offset) < 0x40)
         CFI_EXPRESSION_BREG_1(\n, \b, \offset)
@@ -172,6 +175,10 @@
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     ldr wMR, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
 #endif
+.endm
+
+.macro REFRESH_SUSPEND_CHECK_REGISTER
+    ldr xSUSPEND, [xSELF, #THREAD_SUSPEND_TRIGGER_OFFSET]
 .endm
 
     /*

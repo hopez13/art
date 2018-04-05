@@ -273,6 +273,7 @@ ENTRY \name
   bl \helper
   RESTORE_SAVE_REFS_ONLY_FRAME
   REFRESH_MARKING_REGISTER
+  REFRESH_SUSPEND_CHECK_REGISTER
   RETURN_OR_DELIVER_PENDING_EXCEPTION
 END \name
 .endm
@@ -308,12 +309,9 @@ END \name
     cbz w2, NterpHandleHotnessOverflow
     add x2, x2, #-1
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // Otherwise, do a suspend check.
-    ldr w0, [xSELF, #THREAD_FLAGS_OFFSET]
-    tst w0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    b.eq 1b
+    // Otherwise, do an implicit suspend check.
     EXPORT_PC
-    bl    art_quick_test_suspend
+    ldr xSUSPEND, [xSUSPEND]
     b 1b
 .endm
 
@@ -432,24 +430,19 @@ END \name
 #error Expected 0 for hotness value
 #endif
     // If the counter is at zero, handle this in the runtime.
-    cbz w2, 2f
+    cbz w2, 1f
     add x2, x2, #-1
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    ldr w0, [xSELF, #THREAD_FLAGS_OFFSET]
-    tst w0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    b.ne 3f
-1:
+    // Implicit suspend check.
+    EXPORT_PC
+    ldr xSUSPEND, [xSUSPEND]
     FETCH_INST
     GET_INST_OPCODE ip
     GOTO_OPCODE ip
-2:
+1:
     mov x1, xzr
     mov x2, xFP
     bl nterp_hot_method
-    b 1b
-3:
-    EXPORT_PC
-    bl art_quick_test_suspend
     b 1b
 .endm
 
