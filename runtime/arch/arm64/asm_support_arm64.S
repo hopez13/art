@@ -40,6 +40,9 @@
 #define wMR w20
 #endif
 
+// Implicit suspend check register.
+#define xSUSPEND x21
+
 .macro ENTRY name
     .type \name, #function
     .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
