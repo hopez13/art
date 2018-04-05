@@ -41,6 +41,9 @@
 #define wMR w20
 #endif
 
+// Implicit suspend check register.
+#define xSUSPEND x21
+
 .macro CFI_EXPRESSION_BREG n, b, offset
     .if (-0x40 <= (\offset)) && ((\offset) < 0x40)
         CFI_EXPRESSION_BREG_1(\n, \b, \offset)

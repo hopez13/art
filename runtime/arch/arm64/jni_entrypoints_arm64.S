@@ -232,6 +232,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     RESTORE_REG_BASE x29, x29, 208
 
     REFRESH_MARKING_REGISTER
+    REFRESH_SUSPEND_CHECK_REGISTER
 
     // Check for exception before moving args back to keep the return PC for managed stack walk.
     cbz   x13, .Lcritical_deliver_exception
