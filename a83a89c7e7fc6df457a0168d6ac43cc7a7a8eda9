@@ -22,6 +22,30 @@
       "revId": "a83a89c7e7fc6df457a0168d6ac43cc7a7a8eda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "441e4020_eb2612b4",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-06T16:08:50Z",
+      "side": 1,
+      "message": "Thanks for the suggestion Mathieu; as discussed offline, I suggest we do this in another CL, as it is orthogonal to the cyclic allocation strategy.",
+      "parentUuid": "6e4dfec6_aed155be",
+      "range": {
+        "startLine": 317,
+        "startChar": 36,
+        "endLine": 317,
+        "endChar": 53
+      },
+      "revId": "a83a89c7e7fc6df457a0168d6ac43cc7a7a8eda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
