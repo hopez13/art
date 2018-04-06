@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f04fb892_ef7349d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-06T22:35:49Z",
+      "side": 1,
+      "message": "The framework has a decent number of switch-heavy methods (e.g., AIDL stubs). Can you measure possible boot.oat deltas and add to the commit message?",
+      "revId": "bac57fac64bd647b0f12b5ef6cb9411556a01abd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
