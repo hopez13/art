@@ -16,6 +16,24 @@
       "revId": "bac57fac64bd647b0f12b5ef6cb9411556a01abd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3693d2ae_dfea8a73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-06T23:10:13Z",
+      "side": 1,
+      "message": "I will add the summary in the commit message (delta seems 16488 bytes):\n\nBefore (I used the sailfish arm64 boot*.oat files, I hope that is what are were looking for)\n\n25688\tboot-android.hidl.base-V1.0-java.oat\n30528\tboot-android.hidl.manager-V1.0-java.oat\n37984\tboot-apache-xml.oat\n220912\tboot-bouncycastle.oat\n252912\tboot-conscrypt.oat\n1485424\tboot-core-libart.oat\n157928\tboot-ext.oat\n13210392\tboot-framework.oat\n30824\tboot-ims-common.oat\n43328\tboot-legacy-test.oat\n3728672\tboot.oat\n394440\tboot-okhttp.oat\n365224\tboot-org.apache.http.legacy.boot.oat\n856384\tboot-telephony-common.oat\n34992\tboot-voip-common.oat\n20875632\ttotal\n\nAfter (with the better heuristic in place):\n\n25688\tboot-android.hidl.base-V1.0-java.oat\n30528\tboot-android.hidl.manager-V1.0-java.oat\n37984\tboot-apache-xml.oat\n220912\tboot-bouncycastle.oat\n252912\tboot-conscrypt.oat\n1485424\tboot-core-libart.oat\n157928\tboot-ext.oat\n13210392\tboot-framework.oat\n30824\tboot-ims-common.oat\n43328\tboot-legacy-test.oat\n3728672\tboot.oat\n394440\tboot-okhttp.oat\n365224\tboot-org.apache.http.legacy.boot.oat\n872872\tboot-telephony-common.oat\n34992\tboot-voip-common.oat\n20892120\ttotal",
+      "parentUuid": "f04fb892_ef7349d0",
+      "revId": "bac57fac64bd647b0f12b5ef6cb9411556a01abd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
