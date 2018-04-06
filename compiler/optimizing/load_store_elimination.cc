@@ -103,6 +103,7 @@ class LSEVisitor : public HGraphDelegateVisitor {
                          allocator_.Adapter(kArenaAllocLSE)),
         removed_loads_(allocator_.Adapter(kArenaAllocLSE)),
         substitute_instructions_for_loads_(allocator_.Adapter(kArenaAllocLSE)),
+        phis_added_(allocator_.Adapter(kArenaAllocLSE)),
         possibly_removed_stores_(allocator_.Adapter(kArenaAllocLSE)),
         singleton_new_instances_(allocator_.Adapter(kArenaAllocLSE)) {
   }
@@ -113,7 +114,7 @@ class LSEVisitor : public HGraphDelegateVisitor {
     if (block->IsLoopHeader()) {
       HandleLoopSideEffects(block);
     } else {
-      MergePredecessorValues(block);
+      PopulateHeapFromPredecessors(block);
     }
     HGraphVisitor::VisitBasicBlock(block);
   }
@@ -260,6 +261,18 @@ class LSEVisitor : public HGraphDelegateVisitor {
     }
   }
 
+  void RemoveUnusedPhis() {
+    // If a Phi has no uses, it can be safely removed. Traverse in reverse order
+    // so we can also remove Phis whose only uses are unused Phis in later
+    // blocks.
+    for (size_t i = phis_added_.size(); i-- > 0;) {
+      HPhi* phi = phis_added_[i];
+      if (!phi->HasUses()) {
+        phi->GetBlock()->RemovePhi(phi);
+      }
+    }
+  }
+
  private:
   static bool IsLoad(HInstruction* instruction) {
     if (instruction == kUnknownHeapValue || instruction == kDefaultHeapValue) {
@@ -381,8 +394,243 @@ class LSEVisitor : public HGraphDelegateVisitor {
     }
   }
 
-  void MergePredecessorValues(HBasicBlock* block) {
+  // For all predecessors of `block`, keeps heap value at index `heap_index` if
+  // it is a Store.
+  void KeepHeapValueInPredecessors(HBasicBlock* block, int heap_index) {
+    for (HBasicBlock* predecessor : block->GetPredecessors()) {
+      ScopedArenaVector<HInstruction*>& pred_values =
+          heap_values_for_[predecessor->GetBlockId()];
+      KeepIfIsStore(pred_values[heap_index]);
+    }
+  }
+
+  // Creates a Phi instruction in `block`, with values `values`, and type
+  // `merged_type`.
+  HPhi* CreatePhi(HBasicBlock* block,
+                 ScopedArenaVector<HInstruction*>& values,
+                 DataType::Type& merged_type,
+                 ReferenceTypeInfo reference_type_info) {
+    HPhi* phi = new (GetGraph()->GetAllocator()) HPhi(
+        GetGraph()->GetAllocator(), kNoRegNumber, 0,
+        HPhi::ToPhiType(merged_type), values[0]->GetDexPc());
+    if (merged_type == DataType::Type::kReference) {
+      phi->SetReferenceTypeInfo(reference_type_info);
+    }
+    block->AddPhi(phi);
+    phis_added_.push_back(phi);
+    for (size_t j = 0; j < values.size(); j++) {
+      phi->AddInput(values[j]);
+    }
+    return phi;
+  }
+
+  // Returns the type of all values in the `values` vector. If the types are not
+  // equal or all values are kDefaultHeapValue, the respective flag is set, and
+  // DataType::Type::kVoid is returned.
+  DataType::Type GetCommonType(ScopedArenaVector<HInstruction*>& values,
+                               bool* types_are_compatible,
+                               bool* all_default_values) {
+    *types_are_compatible = true;
+    *all_default_values = true;
+
+    DataType::Type merged_type = DataType::Type::kVoid;
+    for (size_t j = 0; j < values.size(); j++) {
+      if (values[j] != kDefaultHeapValue) {
+        DataType::Type type = values[j]->GetType();
+        if (merged_type == DataType::Type::kVoid) {
+          *all_default_values = false;
+          merged_type = type;
+        } else if (merged_type != type) {
+          *types_are_compatible = false;
+          break;
+        }
+      }
+    }
+    DCHECK(merged_type != DataType::Type::kVoid ||
+           all_default_values ||
+           !types_are_compatible);
+    return merged_type;
+  }
+
+  // Returns the a vector of the heap values at index `heap_index` from all the
+  // predecessors of `block`, and updates a set of flags that determine how the
+  // values can be merged.
+  ScopedArenaVector<HInstruction*> GetPredecessorValues(
+      HBasicBlock* block,
+      int heap_index,
+      bool* can_be_merged,
+      bool* all_predecessors_have_same_value,
+      bool* all_predecessors_store_same_value,
+      bool* from_all_predecessors) {
+    *can_be_merged = true;
+    *all_predecessors_have_same_value = true;
+    *all_predecessors_store_same_value = true;
+    *from_all_predecessors = true;
+
     ArrayRef<HBasicBlock* const> predecessors(block->GetPredecessors());
+    ScopedArenaVector<HInstruction*> pred_values(allocator_.Adapter(kArenaAllocLSE));
+
+    for (HBasicBlock* predecessor : predecessors) {
+      HInstruction* pred_value =
+          heap_values_for_[predecessor->GetBlockId()][heap_index];
+      *all_predecessors_have_same_value &=
+          (pred_value == heap_values_for_[predecessors[0]->GetBlockId()][heap_index]);
+
+      if (!IsStore(pred_value)) {
+        pred_value = FindSubstitute(pred_value);
+      }
+      DCHECK(pred_value != nullptr);
+      HInstruction* pred_store_value = GetRealHeapValue(pred_value);
+
+      ReferenceInfo* ref_info =
+          heap_location_collector_.GetHeapLocation(heap_index)->GetReferenceInfo();
+      if (ref_info->IsSingleton() &&
+          !ref_info->GetReference()->GetBlock()->Dominates(predecessor)) {
+        // Singleton is not live in this predecessor. No need to merge
+        // since singleton is not live at the beginning of this block.
+        DCHECK_EQ(pred_value, kUnknownHeapValue);
+        *can_be_merged = false;
+        *from_all_predecessors = false;
+        break;
+      }
+
+      if (pred_store_value == kUnknownHeapValue) {
+        // We can only merge if we know the heap value from every predecessor.
+        // If the value is unknown at the end of this predecessor, we can't
+        // merge.
+        *can_be_merged = false;
+        break;
+      } else {
+        DCHECK(pred_store_value != nullptr);
+        pred_values.push_back(pred_store_value);
+        *all_predecessors_store_same_value &= (pred_store_value == pred_values[0]);
+      }
+    }
+
+    return pred_values;
+  }
+
+  // Populates heap value at index `heap_index`, by merging the heap values from
+  // the block's predecessors.
+  void MergePredecessorValues(HBasicBlock* block, int heap_index) {
+    ArrayRef<HBasicBlock* const> predecessors(block->GetPredecessors());
+    DCHECK_GT(predecessors.size(), (size_t) 1);
+
+    // If different predecessors have different values, keep all values and
+    // merge them by creating a Phi instruction.
+    bool can_be_merged = true;
+    DataType::Type merged_type = DataType::Type::kVoid;
+
+    // If all predecessors have the same value, or all predecessors have
+    // stores that store the same value, no need to merge.
+    bool all_predecessors_have_same_value = true;
+    bool all_predecessors_store_same_value = true;
+
+    // Whether merged heap value is a result that's merged from all predecessors.
+    bool from_all_predecessors = true;
+
+    ReferenceInfo* ref_info =
+        heap_location_collector_.GetHeapLocation(heap_index)->GetReferenceInfo();
+    HInstruction* ref = ref_info->GetReference();
+
+    // Fill array of predecessors values for this heap location.
+    ScopedArenaVector<HInstruction*> pred_values =
+      GetPredecessorValues(block,
+                           heap_index,
+                           &can_be_merged,
+                           &all_predecessors_have_same_value,
+                           &all_predecessors_store_same_value,
+                           &from_all_predecessors);
+
+    if (can_be_merged && pred_values.size() > 1) {
+      // Check the types of all predecessor's heap values are compatible.
+      bool types_are_compatible = true;
+      bool all_default_values = true;
+      merged_type = GetCommonType(pred_values,
+                                  &types_are_compatible,
+                                  &all_default_values);
+
+      if (!types_are_compatible) {
+        can_be_merged = false;
+      } else if (!all_default_values) {
+        DCHECK(merged_type != DataType::Type::kVoid);
+
+        // At least one value is not kDefaultHeapValue, so this gives us the
+        // type information we need to replace kDefaultHeapValue with a
+        // constant.
+        for (size_t j = 0; j < pred_values.size(); j++) {
+          if (pred_values[j] == kDefaultHeapValue) {
+            pred_values[j] = GetDefaultValue(merged_type);
+          }
+        }
+      } else {
+        // If all predecessor values are kDefaultHeapValue, we can't infer type
+        // information so we propapate kDefaultHeapValue. It will be resolved
+        // into a constant later.
+        DCHECK(all_predecessors_store_same_value && pred_values[0] == kDefaultHeapValue);
+      }
+    }
+
+    // Compute the merged heap value.
+    HInstruction* merged = nullptr;
+    if (all_predecessors_have_same_value) {
+      // The heap value is the same for all predecessors. Simply copy.
+      merged = heap_values_for_[predecessors[0]->GetBlockId()][heap_index];
+    } else if (from_all_predecessors && can_be_merged) {
+      if (all_predecessors_store_same_value) {
+        // All predecessors have stores that store the same value.
+        merged = pred_values[0];
+      } else {
+        DCHECK_GT(pred_values.size(), (size_t) 1);
+        // Create a Phi instruction (the heap value depends directly on which
+        // predecessor the block was entered from).
+        merged = CreatePhi(block, pred_values, merged_type,
+                           ref->GetReferenceTypeInfo());
+      }
+    } else if (!from_all_predecessors) {
+      DCHECK(ref_info->IsSingleton());
+      DCHECK((ref->GetBlock() == block) ||
+             !ref->GetBlock()->Dominates(block))
+          << "method: " << GetGraph()->GetMethodName();
+      // Singleton is not defined before block or defined only in some of its
+      // predecessors, so block doesn't really have the location at its entry.
+      merged = kUnknownHeapValue;
+    } else {
+      DCHECK(can_be_merged == false);
+      merged = kUnknownHeapValue;
+    }
+
+    DCHECK(merged == kUnknownHeapValue ||
+           merged == kDefaultHeapValue ||
+           merged->GetBlock()->Dominates(block));
+
+    ScopedArenaVector<HInstruction*>& heap_values =
+        heap_values_for_[block->GetBlockId()];
+    heap_values[heap_index] = merged;
+
+    // Ensure we keep any Store operations we are no longer keeping track of.
+    if (from_all_predecessors) {
+      if (ref_info->IsSingletonAndRemovable() &&
+          block->IsSingleReturnOrReturnVoidAllowingPhis()) {
+        // Values in the singleton are not needed anymore.
+      } else if (!IsStore(merged)) {
+        // We don't track merged value as a store anymore. We have to
+        // hold the stores in predecessors live here.
+        KeepHeapValueInPredecessors(block, heap_index);
+      }
+    } else {
+      DCHECK(ref_info->IsSingleton());
+      // Singleton is non-existing at the beginning of the block. There is
+      // no need to keep the stores.
+    }
+  }
+
+  // Populates the heap values for `block`, by merging the heap values of all its
+  // predecessors.
+  void PopulateHeapFromPredecessors(HBasicBlock* block) {
+    ArrayRef<HBasicBlock* const> predecessors(block->GetPredecessors());
+
+    // No need to populate heap values if this is an entry or exit block.
     if (predecessors.size() == 0) {
       return;
     }
@@ -393,111 +641,22 @@ class LSEVisitor : public HGraphDelegateVisitor {
       return;
     }
 
-    ScopedArenaVector<HInstruction*>& heap_values = heap_values_for_[block->GetBlockId()];
+    ScopedArenaVector<HInstruction*>& heap_values =
+        heap_values_for_[block->GetBlockId()];
+
+    // If there is only one predecessor, simply copy all heap values.
+    if (predecessors.size() == 1) {
+      ScopedArenaVector<HInstruction*>& pred_heap_values =
+          heap_values_for_[predecessors[0]->GetBlockId()];
+      for (size_t i = 0; i < heap_values.size(); i++) {
+        heap_values[i] = pred_heap_values[i];
+      }
+      return;
+    }
+
+    // If we have more than one predecessor, merge heap values one-by-one.
     for (size_t i = 0; i < heap_values.size(); i++) {
-      HInstruction* merged_value = nullptr;
-      // If we can merge the store itself from the predecessors, we keep
-      // the store as the heap value as long as possible. In case we cannot
-      // merge the store, we try to merge the values of the stores.
-      HInstruction* merged_store_value = nullptr;
-      // Whether merged_value is a result that's merged from all predecessors.
-      bool from_all_predecessors = true;
-      ReferenceInfo* ref_info = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
-      HInstruction* ref = ref_info->GetReference();
-      HInstruction* singleton_ref = nullptr;
-      if (ref_info->IsSingleton()) {
-        // We do more analysis based on singleton's liveness when merging
-        // heap values for such cases.
-        singleton_ref = ref;
-      }
-
-      for (HBasicBlock* predecessor : predecessors) {
-        HInstruction* pred_value = heap_values_for_[predecessor->GetBlockId()][i];
-        if (!IsStore(pred_value)) {
-          pred_value = FindSubstitute(pred_value);
-        }
-        DCHECK(pred_value != nullptr);
-        HInstruction* pred_store_value = GetRealHeapValue(pred_value);
-        if ((singleton_ref != nullptr) &&
-            !singleton_ref->GetBlock()->Dominates(predecessor)) {
-          // singleton_ref is not live in this predecessor. No need to merge
-          // since singleton_ref is not live at the beginning of this block.
-          DCHECK_EQ(pred_value, kUnknownHeapValue);
-          from_all_predecessors = false;
-          break;
-        }
-        if (merged_value == nullptr) {
-          // First seen heap value.
-          DCHECK(pred_value != nullptr);
-          merged_value = pred_value;
-        } else if (pred_value != merged_value) {
-          // There are conflicting values.
-          merged_value = kUnknownHeapValue;
-          // We may still be able to merge store values.
-        }
-
-        // Conflicting stores may be storing the same value. We do another merge
-        // of real stored values.
-        if (merged_store_value == nullptr) {
-          // First seen store value.
-          DCHECK(pred_store_value != nullptr);
-          merged_store_value = pred_store_value;
-        } else if (pred_store_value != merged_store_value) {
-          // There are conflicting store values.
-          merged_store_value = kUnknownHeapValue;
-          // There must be conflicting stores also.
-          DCHECK_EQ(merged_value, kUnknownHeapValue);
-          // No need to merge anymore.
-          break;
-        }
-      }
-
-      if (merged_value == nullptr) {
-        DCHECK(!from_all_predecessors);
-        DCHECK(singleton_ref != nullptr);
-      }
-      if (from_all_predecessors) {
-        if (ref_info->IsSingletonAndRemovable() &&
-            block->IsSingleReturnOrReturnVoidAllowingPhis()) {
-          // Values in the singleton are not needed anymore.
-        } else if (!IsStore(merged_value)) {
-          // We don't track merged value as a store anymore. We have to
-          // hold the stores in predecessors live here.
-          for (HBasicBlock* predecessor : predecessors) {
-            ScopedArenaVector<HInstruction*>& pred_values =
-                heap_values_for_[predecessor->GetBlockId()];
-            KeepIfIsStore(pred_values[i]);
-          }
-        }
-      } else {
-        DCHECK(singleton_ref != nullptr);
-        // singleton_ref is non-existing at the beginning of the block. There is
-        // no need to keep the stores.
-      }
-
-      if (!from_all_predecessors) {
-        DCHECK(singleton_ref != nullptr);
-        DCHECK((singleton_ref->GetBlock() == block) ||
-               !singleton_ref->GetBlock()->Dominates(block))
-            << "method: " << GetGraph()->GetMethodName();
-        // singleton_ref is not defined before block or defined only in some of its
-        // predecessors, so block doesn't really have the location at its entry.
-        heap_values[i] = kUnknownHeapValue;
-      } else if (predecessors.size() == 1) {
-        // Inherit heap value from the single predecessor.
-        DCHECK_EQ(heap_values_for_[predecessors[0]->GetBlockId()][i], merged_value);
-        heap_values[i] = merged_value;
-      } else {
-        DCHECK(merged_value == kUnknownHeapValue ||
-               merged_value == kDefaultHeapValue ||
-               merged_value->GetBlock()->Dominates(block));
-        if (merged_value != kUnknownHeapValue) {
-          heap_values[i] = merged_value;
-        } else {
-          // Stores in different predecessors may be storing the same value.
-          heap_values[i] = merged_store_value;
-        }
-      }
+      MergePredecessorValues(block, i);
     }
   }
 
@@ -939,6 +1098,12 @@ class LSEVisitor : public HGraphDelegateVisitor {
   ScopedArenaVector<HInstruction*> removed_loads_;
   ScopedArenaVector<HInstruction*> substitute_instructions_for_loads_;
 
+  // We record the Phi instructions added. Phis that have no uses will be
+  // removed in the end. Phi instructions in this vector should be stored in the
+  // order we visit blocks (revert post order), so that any Phis with
+  // dependencies on other Phis in the list will come after those dependencies.
+  ScopedArenaVector<HPhi*> phis_added_;
+
   // Stores in this list may be removed from the list later when it's
   // found that the store cannot be eliminated.
   ScopedArenaVector<HInstruction*> possibly_removed_stores_;
@@ -971,6 +1136,7 @@ void LoadStoreElimination::Run() {
     lse_visitor.VisitBasicBlock(block);
   }
   lse_visitor.RemoveInstructions();
+  lse_visitor.RemoveUnusedPhis();
 }
 
 }  // namespace art
