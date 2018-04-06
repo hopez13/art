@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b671419b_d0f6da6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-06T15:04:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6370f3_539e194a",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "a61cad534099531cb02fdbef4841bd3b9e9651d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "179ec568_df9bf6c3",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-06T14:22:14Z",
       "side": 1,
       "message": "Maybe move this after line 6416?",
+      "range": {
+        "startLine": 6413,
+        "startChar": 2,
+        "endLine": 6413,
+        "endChar": 56
+      },
+      "revId": "a61cad534099531cb02fdbef4841bd3b9e9651d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e7395d4_c3b8eaee",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-06T15:04:38Z",
+      "side": 1,
+      "message": "I\u0027ll keep this in sync with x86.",
+      "parentUuid": "179ec568_df9bf6c3",
       "range": {
         "startLine": 6413,
         "startChar": 2,
