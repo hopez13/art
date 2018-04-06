@@ -16,6 +16,24 @@
       "revId": "16f66d597bd3070b2266a0863af6a518bf335d8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33253014_28316524",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-06T21:33:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t matter too much, your choice.\n\nBut please move the out check to the top (before the TimingLogger), as it\u0027s an invariant check on a parameter.",
+      "parentUuid": "0296e193_365ba7fc",
+      "revId": "16f66d597bd3070b2266a0863af6a518bf335d8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
