@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "76ed0bca_3ccc292e",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-06T20:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46385f3e_65fd8cea",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "023226e5_bbae4250",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2018-04-03T22:10:35Z",
       "side": 1,
       "message": "nit: at all other places in this file (other than above which I missed in the first review), we just use node for the loop_node. can you change that so the code reads more consistent, (and shorter is often easier here)",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2edca040_ea6f9e0f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-06T20:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "023226e5_bbae4250",
       "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "aa4bede0_fa2ceb74",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-06T20:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e58cf6_472f07bc",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "748ebca8_74583335",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 15
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1bab3245_7d7e8ca4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-06T20:23:22Z",
+      "side": 1,
+      "message": "Not applicable any more as kSuperblockClonerPreserveLoopHeaders is removed.",
+      "parentUuid": "748ebca8_74583335",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4db9dff3_2ab73a4a",
         "filename": "compiler/optimizing/superblock_cloner.h",
         "patchSetId": 15
@@ -81,6 +153,24 @@
       "writtenOn": "2018-04-03T21:58:42Z",
       "side": 1,
       "message": "any reason you don\u0027t want to commit to one way yet? it would make the code a bit simpler to have just one choice?",
+      "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1677fe6b_fe7f60cf",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-06T20:23:22Z",
+      "side": 1,
+      "message": "The only reason to have this was for better testing. Removed now.",
+      "parentUuid": "4db9dff3_2ab73a4a",
       "revId": "c2b7a73795a8abeff9658a6ca45cb80132f5d421",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
