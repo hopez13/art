@@ -191,16 +191,23 @@ public class Main {
   }
 
   /// CHECK-START: int Main.test5(TestClass, boolean) load_store_elimination (before)
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
+  /// CHECK-DAG:  <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:  <<Int2:i\d+>>      IntConstant 2
+  /// CHECK-DAG:                     InstanceFieldSet [{{l\d+}},<<Int1>>]
+  /// CHECK-DAG:                     InstanceFieldSet [{{l\d+}},<<Int2>>]
+  /// CHECK-DAG:  <<GetField:i\d+>>  InstanceFieldGet [{{l\d+}}]
+  /// CHECK-DAG:                     Return [<<GetField>>]
 
   /// CHECK-START: int Main.test5(TestClass, boolean) load_store_elimination (after)
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldSet
+  /// CHECK-DAG:  <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:  <<Int2:i\d+>>      IntConstant 2
+  /// CHECK-DAG:                     InstanceFieldSet [{{l\d+}},<<Int1>>]
+  /// CHECK-DAG:                     InstanceFieldSet [{{l\d+}},<<Int2>>]
+  /// CHECK-DAG:  <<Phi:i\d+>>       Phi
+  /// CHECK-DAG:                     Return [<<Phi>>]
+
+  /// CHECK-START: int Main.test5(TestClass, boolean) load_store_elimination (after)
+  /// CHECK-NOT: InstanceFieldGet
 
   // Set and merge different values in two branches.
   static int test5(TestClass obj, boolean b) {
@@ -558,26 +565,35 @@ public class Main {
   }
 
   /// CHECK-START: int Main.test23(boolean) load_store_elimination (before)
-  /// CHECK: NewInstance
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
+  /// CHECK-DAG:  <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:  <<Int2:i\d+>>      IntConstant 2
+  /// CHECK-DAG:  <<Int3:i\d+>>      IntConstant 3
+  /// CHECK-DAG:  <<Obj:l\d+>>       NewInstance
+  /// CHECK-DAG:                     InstanceFieldSet [<<Obj>>,<<Int3>>]
+  /// CHECK-DAG:                     InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:  <<Add1:i\d+>>      Add [{{i\d+}},<<Int1>>]
+  /// CHECK-DAG:                     InstanceFieldSet [<<Obj>>,<<Add1>>]
+  /// CHECK-DAG:                     InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:  <<Add2:i\d+>>      Add [{{i\d+}},<<Int2>>]
+  /// CHECK-DAG:                     InstanceFieldSet [<<Obj>>,<<Add2>>]
+  /// CHECK-DAG:                     InstanceFieldGet [<<Obj>>]
 
   /// CHECK-START: int Main.test23(boolean) load_store_elimination (after)
-  /// CHECK: NewInstance
-  /// CHECK-NOT: InstanceFieldSet
-  /// CHECK-NOT: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
-  /// CHECK: InstanceFieldGet
-  /// CHECK: Return
-  /// CHECK-NOT: InstanceFieldGet
-  /// CHECK: InstanceFieldSet
+  /// CHECK-DAG:  <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:  <<Int2:i\d+>>      IntConstant 2
+  /// CHECK-DAG:  <<Int3:i\d+>>      IntConstant 3
+  /// CHECK-DAG:  <<Obj:l\d+>>       NewInstance
+  /// CHECK-DAG:  <<Add1:i\d+>>      Add [{{i\d+}},<<Int1>>]
+  /// CHECK-DAG:                     InstanceFieldSet [<<Obj>>,<<Add1>>]
+  /// CHECK-DAG:  <<Add2:i\d+>>      Add [{{i\d+}},<<Int2>>]
+  /// CHECK-DAG:                     InstanceFieldSet [<<Obj>>,<<Add2>>]
+  /// CHECK-DAG:  <<Phi:i\d+>>       Phi
+  /// CHECK-DAG:                     Return [<<Phi>>]
 
-  // Test store elimination on merging.
+  /// CHECK-START: int Main.test23(boolean) load_store_elimination (after)
+  /// CHECK-NOT: InstanceFieldGet
+
+  // Test heap value merging from multiple branches.
   static int test23(boolean b) {
     TestClass obj = new TestClass();
     obj.i = 3;      // This store can be eliminated since the value flows into each branch.
@@ -586,7 +602,7 @@ public class Main {
     } else {
       obj.i += 2;   // This store cannot be eliminated due to the merge later.
     }
-    return obj.i;
+    return obj.i;   // This load can be eliminated by creating a Phi.
   }
 
   /// CHECK-START: float Main.test24() load_store_elimination (before)
@@ -615,6 +631,232 @@ public class Main {
       a = obj.floatField;
     }
     return a;
+  }
+
+  /// CHECK-START: int Main.test25(boolean, boolean, boolean) load_store_elimination (before)
+  /// CHECK-DAG:     <<Int1:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<Int2:i\d+>>     IntConstant 2
+  /// CHECK-DAG:     <<Int3:i\d+>>     IntConstant 3
+  /// CHECK-DAG:     <<Int5:i\d+>>     IntConstant 5
+  /// CHECK-DAG:     <<Int6:i\d+>>     IntConstant 6
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int3>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int5>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int6>>]
+  /// CHECK-DAG:     <<GetField:i\d+>> InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:                       Return [<<GetField>>]
+
+  /// CHECK-START: int Main.test25(boolean, boolean, boolean) load_store_elimination (after)
+  /// CHECK-DAG:     <<Int1:i\d+>>     IntConstant 1
+  /// CHECK-DAG:     <<Int2:i\d+>>     IntConstant 2
+  /// CHECK-DAG:     <<Int3:i\d+>>     IntConstant 3
+  /// CHECK-DAG:     <<Int5:i\d+>>     IntConstant 5
+  /// CHECK-DAG:     <<Int6:i\d+>>     IntConstant 6
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int3>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int5>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Int6>>]
+  /// CHECK-DAG:     <<Phi:i\d+>>      Phi
+  /// CHECK-DAG:                       Return [<<Phi>>]
+
+  /// CHECK-START: int Main.test25(boolean, boolean, boolean) load_store_elimination (after)
+  /// CHECK-NOT:                       InstanceFieldGet
+
+  // Test heap value merging from nested branches.
+  static int test25(boolean b, boolean c, boolean d) {
+    TestClass obj = new TestClass();
+    // After b/77906240, all stores will eliminated as well.
+    if (b) {
+      if (c) {
+        obj.i = 1;
+      } else {
+        if (d) {
+          obj.i = 2;
+        } else {
+          obj.i = 3;
+        }
+      }
+    } else {
+      if (c) {
+        obj.i = 5;
+      } else {
+        obj.i = 6;
+      }
+    }
+    return obj.i;
+  }
+
+  /// CHECK-START: float Main.test26(int) load_store_elimination (before)
+  /// CHECK-DAG:     <<Float0:f\d+>>   FloatConstant 0
+  /// CHECK-DAG:     <<Float1:f\d+>>   FloatConstant 1
+  /// CHECK-DAG:     <<Float2:f\d+>>   FloatConstant 2
+  /// CHECK-DAG:     <<Float3:f\d+>>   FloatConstant 3
+  /// CHECK-DAG:     <<Float8:f\d+>>   FloatConstant 8
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float8>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float0>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float1>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float3>>]
+  /// CHECK-DAG:     <<GetField:f\d+>> InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:                       Return [<<GetField>>]
+
+  /// CHECK-START: float Main.test26(int) load_store_elimination (after)
+  /// CHECK-DAG:     <<Float0:f\d+>>   FloatConstant 0
+  /// CHECK-DAG:     <<Float1:f\d+>>   FloatConstant 1
+  /// CHECK-DAG:     <<Float2:f\d+>>   FloatConstant 2
+  /// CHECK-DAG:     <<Float3:f\d+>>   FloatConstant 3
+  /// CHECK-DAG:     <<Float8:f\d+>>   FloatConstant 8
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float0>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float1>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float3>>]
+  /// CHECK-DAG:     <<Phi:f\d+>>      Phi
+  /// CHECK-DAG:                       Return [<<Phi>>]
+
+  /// CHECK-START: float Main.test26(int) load_store_elimination (after)
+  /// CHECK-NOT: InstanceFieldGet
+
+  // Test heap value merging from switch statement.
+  static float test26(int b) {
+    TestClass3 obj = new TestClass3();
+    // After b/77906240, all stores will eliminated as well.
+    switch (b) {
+      case 1:
+        obj.floatField = 3.0f;
+        break;
+      case 2:
+        obj.floatField = 2.0f;
+        break;
+      case 3:
+        obj.floatField = 1.0f;
+        break;
+      default:
+        obj.floatField = 0.0f;
+        break;
+    }
+    return obj.floatField;
+  }
+
+  /// CHECK-START: int Main.test27(boolean, boolean) load_store_elimination (before)
+  /// CHECK-DAG:   <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:   <<Obj:l\d+>>       NewInstance
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:   <<GetField:i\d+>>  InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:                      Return [<<GetField>>]
+
+  /// CHECK-START: int Main.test27(boolean, boolean) load_store_elimination (after)
+  /// CHECK-DAG:   <<Int1:i\d+>>      IntConstant 1
+  /// CHECK-DAG:   <<Obj:l\d+>>       NewInstance
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      InstanceFieldSet [<<Obj>>,<<Int1>>]
+  /// CHECK-DAG:                      Return [<<Int1>>]
+
+  /// CHECK-START: int Main.test27(boolean, boolean) load_store_elimination (after)
+  /// CHECK-NOT: InstanceFieldGet
+  /// CHECK-NOT: Phi
+
+  // Test merging same value from nested branches.
+  static int test27(boolean b, boolean c) {
+    TestClass obj = new TestClass();
+    // After b/77906240, all stores will eliminated as well.
+    if (b) {
+      if (c) {
+        obj.i = 1;
+      } else {
+        obj.i = 1;
+      }
+    } else {
+      if (c) {
+        obj.i = 1;
+      } else {
+        obj.i = 1;
+      }
+    }
+    return obj.i;
+  }
+
+  /// CHECK-START: int Main.test28(boolean, boolean) load_store_elimination (before)
+  /// CHECK-DAG:   <<Int0:i\d+>>      IntConstant 0
+  /// CHECK-DAG:   <<Int5:i\d+>>      IntConstant 5
+  /// CHECK-DAG:   <<Int6:i\d+>>      IntConstant 6
+  /// CHECK-DAG:   <<Array:l\d+>>     NewArray
+  /// CHECK-DAG:                      ArraySet [<<Array>>,<<Int0>>,<<Int5>>]
+  /// CHECK-DAG:                      ArraySet [<<Array>>,<<Int0>>,<<Int6>>]
+  /// CHECK-DAG:   <<GetIndex:i\d+>>  ArrayGet [<<Array>>,<<Int0>>]
+  /// CHECK-DAG:                      Return [<<GetIndex>>]
+
+  /// CHECK-START: int Main.test28(boolean, boolean) load_store_elimination (after)
+  /// CHECK-DAG:   <<Int0:i\d+>>      IntConstant 0
+  /// CHECK-DAG:   <<Int5:i\d+>>      IntConstant 5
+  /// CHECK-DAG:   <<Int6:i\d+>>      IntConstant 6
+  /// CHECK-DAG:   <<Array:l\d+>>     NewArray
+  /// CHECK-DAG:                      ArraySet [<<Array>>,<<Int0>>,<<Int5>>]
+  /// CHECK-DAG:                      ArraySet [<<Array>>,<<Int0>>,<<Int6>>]
+  /// CHECK-DAG:   <<Phi:i\d+>>       Phi
+  /// CHECK-DAG:                      Return [<<Phi>>]
+
+  /// CHECK-START: int Main.test28(boolean, boolean) load_store_elimination (after)
+  /// CHECK-NOT: ArrayGet
+
+  // Test merging array stores in branches.
+  static int test28(boolean b, boolean c) {
+    int[] array = new int[1];
+    // After b/77906240, all stores will eliminated as well.
+    if (b) {
+      if (c) {
+        array[0] = 5;
+      } else {
+        array[0] = 6;
+      }
+    } else { /* Default value: 0. */ }
+    return array[0];
+  }
+
+  /// CHECK-START: float Main.test29(boolean) load_store_elimination (before)
+  /// CHECK-DAG:     <<Float2:f\d+>>   FloatConstant 2
+  /// CHECK-DAG:     <<Float5:f\d+>>   FloatConstant 5
+  /// CHECK-DAG:     <<Float8:f\d+>>   FloatConstant 8
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float8>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float5>>]
+  /// CHECK-DAG:     <<GetField:f\d+>> InstanceFieldGet [<<Obj>>]
+  /// CHECK-DAG:                       Return [<<GetField>>]
+
+  /// CHECK-START: float Main.test29(boolean) load_store_elimination (after)
+  /// CHECK-DAG:     <<Float2:f\d+>>   FloatConstant 2
+  /// CHECK-DAG:     <<Float5:f\d+>>   FloatConstant 5
+  /// CHECK-DAG:     <<Float8:f\d+>>   FloatConstant 8
+  /// CHECK-DAG:     <<Obj:l\d+>>      NewInstance
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float2>>]
+  /// CHECK-DAG:                       InstanceFieldSet [<<Obj>>,<<Float5>>]
+  /// CHECK-DAG:     <<Phi:f\d+>>      Phi
+  /// CHECK-DAG:                       Return [<<Phi>>]
+
+  /// CHECK-START: float Main.test29(boolean) load_store_elimination (after)
+  /// CHECK-NOT: InstanceFieldGet
+
+  // Test implicit type conversion in branches.
+  static float test29(boolean b) {
+    TestClass3 obj = new TestClass3();
+    // After b/77906240, all stores will eliminated as well.
+    if (b) {
+      obj.floatField = 5; // Int
+    } else {
+      obj.floatField = 2L; // Long
+    }
+    return obj.floatField;
   }
 
   /// CHECK-START: void Main.testFinalizable() load_store_elimination (before)
@@ -801,6 +1043,7 @@ public class Main {
   /// CHECK: InstanceFieldSet
   /// CHECK: InstanceFieldSet
   /// CHECK-NOT: InstanceFieldSet
+  /// CHECK-NOT: Phi
 
   private static void testStoreStore3(TestClass2 obj, boolean flag) {
     obj.i = 41;
@@ -1195,6 +1438,17 @@ public class Main {
     assertIntEquals(test23(true), 4);
     assertIntEquals(test23(false), 5);
     assertFloatEquals(test24(), 8.0f);
+    assertIntEquals(test25(false, true, true), 5);
+    assertIntEquals(test25(true, false, true), 2);
+    assertFloatEquals(test26(5), 0.0f);
+    assertFloatEquals(test26(3), 1.0f);
+    assertIntEquals(test27(false, true), 1);
+    assertIntEquals(test27(true, false), 1);
+    assertIntEquals(test28(false, true), 0);
+    assertIntEquals(test28(true, true), 5);
+    assertFloatEquals(test29(true), 5.0f);
+    assertFloatEquals(test29(false), 2.0f);
+
     testFinalizableByForcingGc();
     assertIntEquals($noinline$testHSelect(true), 0xdead);
     int[] array = {2, 5, 9, -1, -3, 10, 8, 4};
