@@ -34,6 +34,24 @@
       "revId": "16f66d597bd3070b2266a0863af6a518bf335d8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65ecf6fa_32d1be03",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2018-04-06T21:40:20Z",
+      "side": 1,
+      "message": "Moved the \u0027out\u0027 CHECK.  Leaving the \u0027image_\u0027 CHECK as-is to keep this minimal.",
+      "parentUuid": "33253014_28316524",
+      "revId": "16f66d597bd3070b2266a0863af6a518bf335d8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
