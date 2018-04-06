@@ -25,7 +25,8 @@
 #include "runtime.h"
 
 // Build flag for the bitstring subtype check runtime hooks.
-constexpr bool kBitstringSubtypeCheckEnabled = false;
+// Note: Bump the image version when enabling/disabling.
+constexpr bool kBitstringSubtypeCheckEnabled = true;
 
 /**
  * Any node in a tree can have its path (from the root to the node) represented as a string by

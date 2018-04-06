@@ -6578,7 +6578,8 @@ void InstructionCodeGeneratorX86::GenerateBitstringTypeCheckCompare(HTypeCheckIn
   DCHECK(IsPowerOfTwo(mask + 1));
   size_t mask_bits = WhichPowerOf2(mask + 1);
 
-  if (mask_bits == 16u) {
+  // DEBUGGING: 16-bit in-memory comparison disabled.
+  if ((false) && mask_bits == 16u) {
     // Compare the bitstring in memory.
     __ cmpw(Address(temp, mirror::Class::StatusOffset()), Immediate(path_to_root));
   } else {
@@ -7054,7 +7055,9 @@ void InstructionCodeGeneratorX86::VisitInstanceOf(HInstanceOf* instruction) {
 
 void LocationsBuilderX86::VisitCheckCast(HCheckCast* instruction) {
   TypeCheckKind type_check_kind = instruction->GetTypeCheckKind();
-  LocationSummary::CallKind call_kind = CodeGenerator::GetCheckCastCallKind(instruction);
+  LocationSummary::CallKind call_kind = (type_check_kind == TypeCheckKind::kBitstringCheck)
+      ? LocationSummary::kCallOnSlowPath
+      : CodeGenerator::GetCheckCastCallKind(instruction);
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(instruction, call_kind);
   locations->SetInAt(0, Location::RequiresRegister());
@@ -7066,6 +7069,8 @@ void LocationsBuilderX86::VisitCheckCast(HCheckCast* instruction) {
     locations->SetInAt(1, Location::ConstantLocation(instruction->InputAt(1)->AsConstant()));
     locations->SetInAt(2, Location::ConstantLocation(instruction->InputAt(2)->AsConstant()));
     locations->SetInAt(3, Location::ConstantLocation(instruction->InputAt(3)->AsConstant()));
+    // An extra temp for debugging kBitstringCheck.
+    locations->AddTemp(Location::RequiresRegister());
   } else {
     locations->SetInAt(1, Location::Any());
   }
@@ -7293,7 +7298,27 @@ void InstructionCodeGeneratorX86::VisitCheckCast(HCheckCast* instruction) {
                                         kWithoutReadBarrier);
 
       GenerateBitstringTypeCheckCompare(instruction, temp);
-      __ j(kNotEqual, type_check_slow_path->GetEntryLabel());
+
+      // DEBUGGING CODE BEGIN
+      // Previously: __ j(kNotEqual, type_check_slow_path->GetEntryLabel());
+      NearLabel continue_label;
+      __ j(kEqual, &continue_label);
+      Location temp2_loc = locations->GetTemp(1);  // Debugging temp.
+      // /* HeapReference<Class> */ temp2 = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp2_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        kWithReadBarrier);  // Retry with read barrier.
+      Register temp2 = temp2_loc.AsRegister<Register>();
+      GenerateBitstringTypeCheckCompare(instruction, temp2);
+      __ j(kNotEqual, type_check_slow_path->GetEntryLabel());  // Still failed, go to slow path.
+      // Checks with and without read barrier yielded different results.
+      // Deliberately crash with a fault address that indicates the temps.
+      uintptr_t addr = static_cast<uintptr_t>(temp) + (static_cast<uintptr_t>(temp2) << 8);
+      __ movl(Address::Absolute(addr), Immediate(0));
+      __ Bind(&continue_label);
+      // DEBUGGING CODE END
       break;
     }
   }
