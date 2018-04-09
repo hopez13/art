@@ -22,6 +22,30 @@
       "revId": "91690828cdcf0b2c1572748f826771bb78fe884e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a03309_33b308f7",
+        "filename": "test/151-OpenFileLimit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-04-09T15:59:35Z",
+      "side": 1,
+      "message": "I agree e.printStackTrace goes to System.err by default instead of System.out. Any reason to prefer System.out over System.err? It seemed to work fine in terms of the test reporting the exception on failure when I tried with System.err.",
+      "parentUuid": "ed3e0e56_dfb39c55",
+      "range": {
+        "startLine": 42,
+        "startChar": 34,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "91690828cdcf0b2c1572748f826771bb78fe884e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
