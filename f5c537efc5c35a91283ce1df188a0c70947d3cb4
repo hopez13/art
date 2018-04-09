@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb9bdddf_e22ef476",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-09T18:06:28Z",
+      "side": 1,
+      "message": "We could consider throwing a cause exception instead (though I\u0027m not sure APR shows cause, but it\u0027s more likely than logcat).",
+      "range": {
+        "startLine": 156,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 46
+      },
+      "revId": "f5c537efc5c35a91283ce1df188a0c70947d3cb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
