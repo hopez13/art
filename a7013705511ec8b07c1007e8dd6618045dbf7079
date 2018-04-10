@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2056df1_11bde52e",
+        "filename": "tools/dexanalyze/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-10T20:33:35Z",
+      "side": 1,
+      "message": "Why have defaults if you don\u0027t have multiple consumers?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "a7013705511ec8b07c1007e8dd6618045dbf7079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "727b628b_c598682f",
+        "filename": "tools/dexanalyze/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-10T20:33:35Z",
+      "side": 1,
+      "message": "Huh? Why?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "a7013705511ec8b07c1007e8dd6618045dbf7079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3b34bc_20627e64",
+        "filename": "tools/dexanalyze/dexanalyze.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-10T20:33:35Z",
+      "side": 1,
+      "message": "Document what this is for and its contract?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "a7013705511ec8b07c1007e8dd6618045dbf7079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3668383_c90d7b92",
+        "filename": "tools/dexanalyze/dexanalyze.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-10T20:33:35Z",
+      "side": 1,
+      "message": "You\u0027re using libbase. Consider LOG (with StderrLogger), instead.",
+      "range": {
+        "startLine": 173,
+        "startChar": 4,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "a7013705511ec8b07c1007e8dd6618045dbf7079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d1ebcd9_d8e44b60",
+        "filename": "tools/dexanalyze/dexanalyze_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-10T20:33:35Z",
+      "side": 1,
+      "message": "Why add an empty test?",
+      "revId": "a7013705511ec8b07c1007e8dd6618045dbf7079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
