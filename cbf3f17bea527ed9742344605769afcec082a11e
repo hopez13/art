@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35a37caf_088b3f25",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-11T01:38:43Z",
+      "side": 1,
+      "message": "add a sanity check that they have the same number of elements and class loaders (i.e. only the actual paths should be different).",
+      "range": {
+        "startLine": 1272,
+        "startChar": 25,
+        "endLine": 1272,
+        "endChar": 49
+      },
+      "revId": "cbf3f17bea527ed9742344605769afcec082a11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
