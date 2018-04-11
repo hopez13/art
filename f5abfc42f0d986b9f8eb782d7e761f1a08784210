@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "201726c6_716c5313",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-11T20:07:43Z",
+      "side": 1,
+      "message": "Usage is fatal, so the else isn\u0027t necessary. That would maybe allow you to indent the stuff differently.",
+      "range": {
+        "startLine": 1280,
+        "startChar": 10,
+        "endLine": 1280,
+        "endChar": 14
+      },
+      "revId": "f5abfc42f0d986b9f8eb782d7e761f1a08784210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
