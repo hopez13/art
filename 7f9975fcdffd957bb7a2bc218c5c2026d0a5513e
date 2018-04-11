@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c11f726_260fb467",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-11T18:05:51Z",
+      "side": 1,
+      "message": "add a note that this one ignores classpath_dir arg",
+      "range": {
+        "startLine": 431,
+        "startChar": 18,
+        "endLine": 431,
+        "endChar": 44
+      },
+      "revId": "7f9975fcdffd957bb7a2bc218c5c2026d0a5513e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "236b9309_9fee4a7f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-11T18:05:51Z",
+      "side": 1,
+      "message": "print ClassLoaderContext as well.",
+      "range": {
+        "startLine": 1283,
+        "startChar": 10,
+        "endLine": 1283,
+        "endChar": 15
+      },
+      "revId": "7f9975fcdffd957bb7a2bc218c5c2026d0a5513e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6383b0ae_6a769704",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-11T18:05:51Z",
+      "side": 1,
+      "message": "add a TODO to deprecate this, store_class_loader_context should be enough o cover the user of this one as well.",
+      "range": {
+        "startLine": 1634,
+        "startChar": 72,
+        "endLine": 1634,
+        "endChar": 86
+      },
+      "revId": "7f9975fcdffd957bb7a2bc218c5c2026d0a5513e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
