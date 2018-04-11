@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98b08732_1c5f65b7",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-11T17:34:46Z",
+      "side": 1,
+      "message": "Maybe comment that enabling the option increases RAM usage, hopefully not enough to cause tests to fail.",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71213b16_c6594bae",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-11T17:34:46Z",
+      "side": 1,
+      "message": "Could use std::fill to do this?",
+      "range": {
+        "startLine": 412,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 3
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
