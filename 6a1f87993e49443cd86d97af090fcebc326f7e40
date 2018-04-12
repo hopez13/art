@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f3494208_a2332147",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-12T14:55:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure to understand; my understanding is that this change should not affect physical memory usage, as the overwritten portions of memory are in the unevac from-space, which would not be mprotect\u0027d nor madvise\u0027d anyway otherwise.",
+      "parentUuid": "98b08732_1c5f65b7",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d98ff39a_80ac817a",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fd67c498_0a360390",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-12T14:55:56Z",
+      "side": 1,
+      "message": "I see; thanks for the information! Done in PS2.",
+      "parentUuid": "d98ff39a_80ac817a",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71213b16_c6594bae",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af35c9a_04fb7b58",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-12T14:55:56Z",
+      "side": 1,
+      "message": "Indeed. I changed the code to use std::fill, and also fixed it; in PS1, we were actually poisoning only half of the dead objects, as the increment value was `RegionSpace::kAlignment` \u003d `2 * sizeof(kPoisonDeadObject)`, instead of `sizeof(kPoisonDeadObject)`.",
+      "parentUuid": "71213b16_c6594bae",
+      "range": {
+        "startLine": 412,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 3
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
