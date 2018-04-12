@@ -1953,6 +1953,12 @@ END \name
 .endm
 
     /*
+     * Entry from managed code to resolve a method type. On entry, A0 holds the method type index.
+     * On success the MethodType is returned, otherwise an exception is raised.
+     */
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_method_type, artResolveMethodTypeFromCode
+
+    /*
      * Entry from managed code to resolve a string, this stub will allocate a String and deliver an
      * exception on error. On success the String is returned. A0 holds the string index. The fast
      * path check for hit in strings cache has already been performed.
