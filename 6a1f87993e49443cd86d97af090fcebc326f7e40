@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d98ff39a_80ac817a",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-12T00:07:45Z",
+      "side": 1,
+      "message": "AFAIK, our platforms are configured to support unaligned accesses :-(\n\nMaybe just delete this sentence?",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "6a1f87993e49443cd86d97af090fcebc326f7e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71213b16_c6594bae",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 1
