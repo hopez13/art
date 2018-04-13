@@ -1,0 +1,350 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c793b5aa_8c7fb4ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "Also add golem performance patch results here (+, - or no change)",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bfc61f1_1b48011d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "lets also test target",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a37c7bf7_3c756804",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "it seems this can be pushed down the first two returns",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6155a57f_2ada7933",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "moved just become it reads easier with the next test?",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9878bfbe_fedc2083",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "put rhs before the [i] in own variable too, as above, for readability",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "638d4484_9c202b18",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "this code was already long, and needs some supporting doc. document e.g. this for-loop as: Visit heap value for this block.",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456e6e01_ddc91a29",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "Since -\u003e If (even though you are already in the if, this reads weird). Or move this comment above the if",
+      "range": {
+        "startLine": 465,
+        "startChar": 18,
+        "endLine": 465,
+        "endChar": 19
+      },
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6534d946_fdef107a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "this method is becoming way too large; try to split out some logical helper methods, e.g. one that constructs a new HPhi node",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52fe9d39_2dc87386",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "do you have any intuition how many phis we create (and perhaps later delete) in general; are there pathological cases we should worry about; did you do any measurements on this?",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2d492f_a9314317",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "I know what you are trying to say here, but \"unused\" is confusing at first reading. Make it clear that we are talking about added phis that have no uses. Also document that the order in the vector matters.",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3cf1f6_789aa750",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "label the l\\d+ and make sure both InstanceFieldSets and Get work on the same reference, same below",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5a599d_92f7afef",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "same on reference",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd8e589_5887daba",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "use labels to test the exact inputs to phi",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9a7a023_9f5a6bae",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "perhaps make a new test that uses obj.i and obj.j in the if/else and use the original pattern to make sure we don\u0027t generate phi there (negative test)",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1a5856_661e5b53",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "this may conflict with my GVN movement CL that is pending, where we use a select on 1, 2 and one field store; adding a dummy \"noinline\" method may help",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3c9617c_ab87ebf9",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "same load elimination comment as below",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9e0764e_e9e9fe27",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "same, try to make sure you test what is merged here",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ced6d165_df54261b",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "and here (and below, won\u0027t repeat)",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4743322_fada029e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "we use TODO: for that, also below",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69a9efbd_ea9fd78c",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-13T22:17:37Z",
+      "side": 1,
+      "message": "if you want to test that there is no Phi at all use a new section, otherwise it just means that no Phi follows (given the CHECK)",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
