@@ -67,4 +67,26 @@ extern "C" JNIEXPORT void JNICALL Java_Main_nativeDumpClasses(JNIEnv*, jclass, j
   }
 }
 
+void wasteStackAndCallUnreachable(JNIEnv* env, jobject main, jmethodID unreachable, Thread* self)
+    NO_INLINE;
+void wasteStackAndCallUnreachable(JNIEnv* env, jobject main, jmethodID unreachable, Thread* self) {
+  if (__builtin_frame_address(0) < self->GetStackEnd()) {
+    env->CallVoidMethod(main, unreachable);
+  } else {
+    wasteStackAndCallUnreachable(env, main, unreachable, self);
+  }
+}
+
+extern "C" JNIEXPORT
+void JNICALL Java_Main_testStackOverflowDuringJniInvoke(JNIEnv* env, jobject main) {
+  ScopedObjectAccess soa(Thread::Current());
+  CHECK(main != nullptr);
+  jclass mainClass = env->GetObjectClass(main);
+  CHECK(!soa.Self()->IsExceptionPending());
+  jmethodID unreachable = env->GetMethodID(mainClass, "unreachable", "()V");
+  CHECK(unreachable != nullptr);
+  wasteStackAndCallUnreachable(env, main, unreachable, soa.Self());
+  CHECK(soa.Self()->IsExceptionPending());
+}
+
 }  // namespace art
