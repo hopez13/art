@@ -80,6 +80,9 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
   if (map.Exists(Base::CountHotnessInCompiledCode)) {
     options->count_hotness_in_compiled_code_ = true;
   }
+  if (map.Exists(Base::CheckProfiledMethods)) {
+    options->check_profiled_methods_ = true;
+  }
 
   if (map.Exists(Base::DumpTimings)) {
     options->dump_timings_ = true;
@@ -142,6 +145,9 @@ inline void AddCompilerOptionsArgumentParserOptions(Builder& b) {
 
       .Define({"--count-hotness-in-compiled-code"})
           .IntoKey(Map::CountHotnessInCompiledCode)
+
+      .Define({"--check-profiled-methods"})
+          .IntoKey(Map::CheckProfiledMethods)
 
       .Define({"--dump-timings"})
           .IntoKey(Map::DumpTimings)

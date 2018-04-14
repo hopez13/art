@@ -646,6 +646,11 @@ static void CompileMethodQuick(
                                                          class_loader,
                                                          dex_file,
                                                          dex_cache);
+        if (UNLIKELY(driver->GetCompilerOptions().CheckProfiledMethodsCompiled())) {
+          CHECK(!driver->ShouldCompileBasedOnProfile(method_ref) || (compiled_method != nullptr))
+              << "Failed to compile " << method_ref.dex_file->PrettyMethod(method_ref.index)
+              << "[" << method_ref.dex_file->GetLocation() << "] as expected by profile";
+        }
       }
       if (compiled_method == nullptr &&
           dex_to_dex_compilation_level !=
