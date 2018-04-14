@@ -35,6 +35,13 @@ class VerifierDepsTest;
 
 class DexFile;
 
+// Enum for CheckProfileMethodsCompiled. Outside CompilerOptions so it can be forward-declared.
+enum class ProfileMethodsCheck : uint8_t {
+  kNone,
+  kLog,
+  kAbort,
+};
+
 class CompilerOptions FINAL {
  public:
   // Guide heuristics to determine whether to compile method if profile data not available.
@@ -278,6 +285,10 @@ class CompilerOptions FINAL {
     return count_hotness_in_compiled_code_;
   }
 
+  ProfileMethodsCheck CheckProfiledMethodsCompiled() const {
+    return check_profiled_methods_;
+  }
+
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -343,6 +354,10 @@ class CompilerOptions FINAL {
   // Whether compiled code should increment the hotness count of ArtMethod. Note that the increments
   // won't be atomic for performance reasons, so we accept races, just like in interpreter.
   bool count_hotness_in_compiled_code_;
+
+  // When running profile-guided compilation, check that methods intended to be compiled end
+  // up compiled and are not punted.
+  ProfileMethodsCheck check_profiled_methods_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 
