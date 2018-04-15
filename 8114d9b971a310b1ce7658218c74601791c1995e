@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "ba855a78_d1c77570",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a37c7bf7_3c756804",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6155a57f_2ada7933",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f6b85a_7efcb31d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Yes, although with the other changes it no longer reads easier so I\u0027ve moved it back.",
+      "parentUuid": "6155a57f_2ada7933",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "c476df94_6352018d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9878bfbe_fedc2083",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "638d4484_9c202b18",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -101,6 +155,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d74b9d_b444d276",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "638d4484_9c202b18",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +199,30 @@
     },
     {
       "key": {
+        "uuid": "ce02f3ff_1bb5cc13",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "456e6e01_ddc91a29",
+      "range": {
+        "startLine": 465,
+        "startChar": 18,
+        "endLine": 465,
+        "endChar": 19
+      },
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6534d946_fdef107a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -141,6 +237,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7c7a9a6_7fc2e3bf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Absolutely; moved to another comment in the new patch set.",
+      "parentUuid": "6534d946_fdef107a",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +289,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a3cd943_a5cc6a4b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e2d492f_a9314317",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

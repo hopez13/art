@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef3aacdf_d558ceac",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-15T01:56:44Z",
+      "side": 1,
+      "message": "I tried my best to decouple and organize the logic into functions. It gets a bit tricky since there are many flags to manage, but this seems like a good solution. I saw the same pattern in the escape analysis code. Does this look okay? Or is there a better way?",
+      "range": {
+        "startLine": 431,
+        "startChar": 31,
+        "endLine": 432,
+        "endChar": 55
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
