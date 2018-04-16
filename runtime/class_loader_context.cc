@@ -294,18 +294,24 @@ bool ClassLoaderContext::RemoveLocationsFromClassPaths(
 }
 
 std::string ClassLoaderContext::EncodeContextForDex2oat(const std::string& base_dir) const {
-  return EncodeContext(base_dir, /*for_dex2oat*/ true);
+  return EncodeContext(base_dir, /*for_dex2oat*/ true, /*stored_context*/ nullptr);
 }
 
-std::string ClassLoaderContext::EncodeContextForOatFile(const std::string& base_dir) const {
-  return EncodeContext(base_dir, /*for_dex2oat*/ false);
+std::string ClassLoaderContext::EncodeContextForOatFile(const std::string& base_dir,
+                                                        ClassLoaderContext* stored_context) const {
+  return EncodeContext(base_dir, /*for_dex2oat*/ false, stored_context);
 }
 
 std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
-                                              bool for_dex2oat) const {
+                                              bool for_dex2oat,
+                                              ClassLoaderContext* stored_context) const {
   CheckDexFilesOpened("EncodeContextForOatFile");
   if (special_shared_library_) {
     return OatFile::kSpecialSharedLibrary;
+  }
+
+  if (stored_context != nullptr) {
+    DCHECK_EQ(class_loader_chain_.size(), stored_context->class_loader_chain_.size());
   }
 
   std::ostringstream out;
@@ -326,6 +332,10 @@ std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
     out << GetClassLoaderTypeName(info.type);
     out << kClassLoaderOpeningMark;
     std::set<std::string> seen_locations;
+    if (stored_context != nullptr) {
+      DCHECK_EQ(info.opened_dex_files.size(),
+                stored_context->class_loader_chain_[i].classpath.size());
+    }
     for (size_t k = 0; k < info.opened_dex_files.size(); k++) {
       const std::unique_ptr<const DexFile>& dex_file = info.opened_dex_files[k];
       if (for_dex2oat) {
@@ -337,7 +347,12 @@ std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
           continue;
         }
       }
-      const std::string& location = dex_file->GetLocation();
+      std::string location;
+      if (stored_context != nullptr) {
+        location = stored_context->class_loader_chain_[i].classpath[k];
+      } else {
+        location = dex_file->GetLocation();
+      }
       if (k > 0) {
         out << kClasspathSeparator;
       }
@@ -345,7 +360,7 @@ std::string ClassLoaderContext::EncodeContext(const std::string& base_dir,
       if (!base_dir.empty() && location.substr(0, base_dir.length()) == base_dir) {
         out << location.substr(base_dir.length() + 1).c_str();
       } else {
-        out << dex_file->GetLocation().c_str();
+        out << location.c_str();
       }
       // dex2oat does not need the checksums.
       if (!for_dex2oat) {
@@ -776,4 +791,3 @@ jclass ClassLoaderContext::GetClassLoaderClass(ClassLoaderType type) {
 }
 
 }  // namespace art
-
