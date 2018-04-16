@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63740205_67d5b668",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-16T16:35:11Z",
+      "side": 1,
+      "message": "Note that surprisingly this was the only place we missed a few optimizations due to running GVN earlier. If this is a concern, we could add an extra simplification/folding phase before the moved GVN (still better than running a 2nd GVN)",
+      "revId": "269343e086db7161bccde4f4b4e1dcbf2454cfdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
