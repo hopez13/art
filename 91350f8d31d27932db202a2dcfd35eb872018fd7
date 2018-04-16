@@ -45,6 +45,201 @@
       "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a7f765_4b158883",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "Isn\u0027t comparing ToPhiType() of these sufficient?",
+      "range": {
+        "startLine": 443,
+        "startChar": 15,
+        "endLine": 443,
+        "endChar": 39
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73e28990_4c7498aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "This function is much more than a getter. It should be renamed to CanBeMerged() and the *can_be_merged should be returned while the vector should be an output argument.",
+      "range": {
+        "startLine": 458,
+        "startChar": 35,
+        "endLine": 458,
+        "endChar": 55
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d089dd9_da3fe8ca",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "You\u0027re potentially allocating a lot of memory. We should reuse a single ScopedArenaVector\u003c\u003e for all these calls. This function should still take a pointer to it as an /*out*/ parameter but we should always pass the same one.",
+      "range": {
+        "startLine": 471,
+        "startChar": 4,
+        "endLine": 471,
+        "endChar": 85
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bcac08e_fb412975",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "Well, if this holds, you can simply drop this check and let it be handled by the `if` below. (And drop lines 590-597 as well.)",
+      "range": {
+        "startLine": 491,
+        "startChar": 8,
+        "endLine": 491,
+        "endChar": 49
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99371341_67b9affc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "This path can retain `*all_predecessors_store_same_value \u003d\u003d true`. That seems wrong.",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b8b90a2_27e9b7db",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "This should probably also check `can_be_merged`. This is related to my comment on line 501.",
+      "range": {
+        "startLine": 576,
+        "startChar": 8,
+        "endLine": 576,
+        "endChar": 40
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c2c12f1_4bf49c6d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "heap_values.assign(pred_heap_values.begin(), pred_heap_values_.end());",
+      "range": {
+        "startLine": 651,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 7
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96cc75af_87f9748f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "Eagerly allocating Phis can waste a lot of memory and do a lot of unnecessary work. Can we delay that?\n\nWe could allocate a marker HPhi using the ScopedArenaAllocator and initialize all the heap values with it. When we need a heap value and it\u0027s the marker Phi, we do the merging.",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9edca44_4f29a84d",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-16T17:52:20Z",
+      "side": 1,
+      "message": "be",
+      "range": {
+        "startLine": 672,
+        "startChar": 40,
+        "endLine": 672,
+        "endChar": 41
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
