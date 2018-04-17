@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "6132753f_386fd4ce",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T16:59:03Z",
+      "side": 1,
+      "message": "I like your suggestion on adding an prior-pass dependence to our phases. I will keep this CL as is then, but reintroduce a simplifier/folder in a next follow up CL together with a bit of dependence on inlining (there are a few other cases that may benefit from this too).",
+      "parentUuid": "5b6b9ae2_ec0a534e",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f143821_dee1dc2e",
         "filename": "test/679-checker-minmax/src/Main.java",
         "patchSetId": 3
