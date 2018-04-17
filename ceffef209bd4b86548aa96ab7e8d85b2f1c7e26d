@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04d7d2e7_c7f4cd83",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "since you have only one use here, this seems shorter without the pred_values helper, just index heap_values_for_[][] directly",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97bedcf_0b6cf7fe",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "we are usually a bit picky on having const reference parameters only and using pointer parameters otherwise, but I noticed that the original code was not very careful with this (bonus points for cleanup :-)",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c559557_afb2e23b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "use j \u003d 0, n \u003d values.size(); j \u003c n; j++ idiom",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2182017_6c565b81",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "mark all out parameters with /*out*/ (see other files for examples)",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd921992_0970252d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "idiom",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62c9e5d_c55e7893",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "this was already there, of course, but all this would read a bit more elegant with a true lattice (top, type, bottom) rather than using void for top and a boolean for bottomu",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfccb13_0367a2fb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "add comment to flag such break\nsomething like\n\nbreak;  // failure to merge: bail",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ad1467b_4a6e0092",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "out pars",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453ff96a_136b03d5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "all parameters on one line, or only one per line otherwise",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3612242e_c725edf5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "I think just using 1u suffices to avoid the compiler complaints, I find that a bit cleaner than the cast",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8867062_a5b41bf0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "opinions may vary, but I like to have such out parameters right before this call; also I like them to have the default value in the initializer, and not set them by default in the method again;",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "238fbf85_d009f2f9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "idiom",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eddc239_2d9be901",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "using one DCHECK per condition here makes it easier to see which one fails (if ever)",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "283c0534_3f0d087e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "idiom",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b0b5187_153fadf5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "2 times dependencies reads awkward; how about, \"so that the inputs of all Phis are visited first\" or something of that nature?",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "415b780b_906b2526",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "I think this Obj is a left-over from an earlier attempt? You don\u0027t use it elsewhere (since it goes through nullchecks)",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9616489_5eb23f1a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "same",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea12409_97c2b8fc",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "bonus points for making this so robust against order changes!",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "255f2a2c_805b422e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T23:49:38Z",
+      "side": 1,
+      "message": "here obj make sense, and is useful to make the pattern more clear",
+      "revId": "ceffef209bd4b86548aa96ab7e8d85b2f1c7e26d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
