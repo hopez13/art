@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5825510_6639a32c",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-17T18:44:36Z",
+      "side": 1,
+      "message": "Either add a comment that we don\u0027t care if the same name appears twice or check it during validation. I\u0027m fine with both options.\n\n(you can tecnically have: PLC[foo.apk;bar.apk;foo.apk] and the stored context [alias1.apk;aliase2.apk;alias3.apk])",
+      "range": {
+        "startLine": 341,
+        "startChar": 8,
+        "endLine": 341,
+        "endChar": 13
+      },
+      "revId": "33ba710c9e4c855b29877ff8fd9bba6670ec4bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d43b1a_efe0d7af",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-17T18:44:36Z",
+      "side": 1,
+      "message": "we have bunch of utilities in DexFileLoader. e.g. GetBaseLocation, GetMultiDexSuffix, GetMultiDexLocation. use them",
+      "range": {
+        "startLine": 362,
+        "startChar": 20,
+        "endLine": 362,
+        "endChar": 37
+      },
+      "revId": "33ba710c9e4c855b29877ff8fd9bba6670ec4bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
