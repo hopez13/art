@@ -83,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "5b6b9ae2_ec0a534e",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T16:39:34Z",
+      "side": 1,
+      "message": "I think we should add an option to skip a pass based on the output of a previous pass. I think that would save us some time to use on more simple passes. For example, the extra constant-folding+simplification before GVN that you\u0027re proposing would not run if the inliner didn\u0027t actually inline anything.\n\nBut such framework deserves its own CL. For the time being I\u0027m OK with both approaches - either lose these optimizations for now or add the extra simplifier pass.",
+      "parentUuid": "f73130d1_638d078b",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f143821_dee1dc2e",
         "filename": "test/679-checker-minmax/src/Main.java",
         "patchSetId": 3
