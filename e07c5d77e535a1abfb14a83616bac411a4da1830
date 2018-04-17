@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95c51f49_723a099a",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T09:53:10Z",
+      "side": 1,
+      "message": "ScopedArenaSafeMap",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 14
+      },
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7785d868_e4983356",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T09:53:10Z",
+      "side": 1,
+      "message": "expose",
+      "range": {
+        "startLine": 731,
+        "startChar": 57,
+        "endLine": 731,
+        "endChar": 64
+      },
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "739964e9_d8fc5fbe",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T09:53:10Z",
+      "side": 1,
+      "message": "Looks like we\u0027ve just lost some optimizations :(",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f143821_dee1dc2e",
+        "filename": "test/679-checker-minmax/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T09:53:10Z",
+      "side": 1,
+      "message": "Add a test with a control flow at this point.",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
