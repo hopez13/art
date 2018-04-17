@@ -400,6 +400,24 @@
     },
     {
       "key": {
+        "uuid": "2448236f_bc11e22a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T14:45:21Z",
+      "side": 1,
+      "message": "Yes, the marker Phi would be allocated locally and never added to a block, it would simply serve as a special value. (I prefer that over a weird value like reinterpret_cast\u003cHInstruction*\u003e(1).)\n\nThe advantage is that we would postpone the call to MergePredecessorValues(block, i /* remove: pred_values */) until we actually need the value and see the marker Phi there. This would avoid unnecessary work and memory allocations on the main arena (compared to this eager evaluation).",
+      "parentUuid": "7e30455d_000c0769",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2

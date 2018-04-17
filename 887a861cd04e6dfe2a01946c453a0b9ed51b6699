@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fabcc16_5bf2a4ec",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-17T14:45:21Z",
+      "side": 1,
+      "message": "Make this a member of LSEVisitor with a comment that it\u0027s a member only for memory reuse in MergePredecessorValues(). This makes it easy to reuse the memory also when the MergePredecessorValues() calls are delayed.",
+      "range": {
+        "startLine": 645,
+        "startChar": 4,
+        "endLine": 645,
+        "endChar": 85
+      },
+      "revId": "887a861cd04e6dfe2a01946c453a0b9ed51b6699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
