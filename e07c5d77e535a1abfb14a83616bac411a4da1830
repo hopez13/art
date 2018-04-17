@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a0c0b50_fd49db4f",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T17:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95c51f49_723a099a",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 14
+      },
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7785d868_e4983356",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-17T09:53:10Z",
       "side": 1,
       "message": "expose",
+      "range": {
+        "startLine": 731,
+        "startChar": 57,
+        "endLine": 731,
+        "endChar": 64
+      },
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70a6fe25_b3ba5a51",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T17:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7785d868_e4983356",
       "range": {
         "startLine": 731,
         "startChar": 57,
@@ -130,6 +178,24 @@
       "writtenOn": "2018-04-17T09:53:10Z",
       "side": 1,
       "message": "Add a test with a control flow at this point.",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d0c86a9_a4bf067d",
+        "filename": "test/679-checker-minmax/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T17:51:41Z",
+      "side": 1,
+      "message": "I was not completely sure what you were alluding to, but have a look at the added test case and see if that suffices.",
+      "parentUuid": "7f143821_dee1dc2e",
       "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
