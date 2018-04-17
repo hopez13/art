@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "f73130d1_638d078b",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-17T16:16:12Z",
+      "side": 1,
+      "message": "Yes, see my comment in a prior PS at line 731, as well as prior discussions when I send out the \"phase ordering\" email. I hate missing optimizations probably even more than you :-)\n\nIt may seem contrived and harmless in this example, but it means we may lose real optimizations \"in the field\".\n\nIf we all agree this is unacceptable, I propose to add a simplification phase (and possibly also a constant folding phase) right before the moved GVN. (1) It adds a little compile time, but not as much as having a 2nd GVN somewhere. (2) it may make this CL more elaborate, since I suspect many more checker tests will need to be rewritten since patterns change slightly and at different phases.\n\nWDYT?",
+      "parentUuid": "739964e9_d8fc5fbe",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f143821_dee1dc2e",
         "filename": "test/679-checker-minmax/src/Main.java",
         "patchSetId": 3
