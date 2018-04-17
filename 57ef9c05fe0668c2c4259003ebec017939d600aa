@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2b0ef18b_af8e4e80",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-17T17:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e23a2a36_30350d78",
+      "revId": "57ef9c05fe0668c2c4259003ebec017939d600aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f1e9575_f400db84",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 17
@@ -30,6 +48,24 @@
       "writtenOn": "2018-04-16T20:06:30Z",
       "side": 1,
       "message": "perhaps we can rid of these static true/flags now completely, and rely on ArchDefaultLoopHelper to return the value true/false from now on? the only drawback is that you test the latter much later",
+      "revId": "57ef9c05fe0668c2c4259003ebec017939d600aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdd36ca4_159ece77",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-04-17T17:43:01Z",
+      "side": 1,
+      "message": "I would suggest we keep kEnableScalarPeelingUnrolling in this CL and remove it in the next one which enables these loop optimizations by default (relying on ArchDefaultLoopHelper).\n\nIn this case we will be sure that until optimizations are turned on there is zero overhead on compile time and no bugs are possible.",
+      "parentUuid": "2f1e9575_f400db84",
       "revId": "57ef9c05fe0668c2c4259003ebec017939d600aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
