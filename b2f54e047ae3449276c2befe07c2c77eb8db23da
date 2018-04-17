@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f8a928d_917524a9",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-17T00:29:27Z",
+      "side": 1,
+      "message": "add a multidex test.",
+      "range": {
+        "startLine": 2128,
+        "startChar": 38,
+        "endLine": 2128,
+        "endChar": 62
+      },
+      "revId": "b2f54e047ae3449276c2befe07c2c77eb8db23da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e004b8d_d75689ac",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-17T00:29:27Z",
+      "side": 1,
+      "message": "This won\u0027t work as expected because of multi dex. The oat files get all the dex files encoded (including multidex). So the logic here needs to be more complex and unfortunately messy and ugly:\n\n- you need to match the current dex against it\u0027s class loader context position.\n- the problem is that we have this annoying historical support for the case were dex files can\u0027t be opened so it\u0027s not easy to make that connection.\n- you may need to build a map of name aliases to do this.",
+      "range": {
+        "startLine": 352,
+        "startChar": 8,
+        "endLine": 352,
+        "endChar": 71
+      },
+      "revId": "b2f54e047ae3449276c2befe07c2c77eb8db23da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
