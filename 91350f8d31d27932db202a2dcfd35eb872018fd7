@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "5481b13e_13aee4ad",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Great point, indeed I could/should be using ToPhiType().",
+      "parentUuid": "57a7f765_4b158883",
+      "range": {
+        "startLine": 443,
+        "startChar": 15,
+        "endLine": 443,
+        "endChar": 39
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73e28990_4c7498aa",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -82,6 +106,30 @@
       "writtenOn": "2018-04-16T17:52:20Z",
       "side": 1,
       "message": "This function is much more than a getter. It should be renamed to CanBeMerged() and the *can_be_merged should be returned while the vector should be an output argument.",
+      "range": {
+        "startLine": 458,
+        "startChar": 35,
+        "endLine": 458,
+        "endChar": 55
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a8c1882_59c7ddcb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Good idea, done.",
+      "parentUuid": "73e28990_4c7498aa",
       "range": {
         "startLine": 458,
         "startChar": 35,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "9c4c2e4d_3ba63d3f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d089dd9_da3fe8ca",
+      "range": {
+        "startLine": 471,
+        "startChar": 4,
+        "endLine": 471,
+        "endChar": 85
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bcac08e_fb412975",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -128,6 +200,30 @@
       "writtenOn": "2018-04-16T17:52:20Z",
       "side": 1,
       "message": "Well, if this holds, you can simply drop this check and let it be handled by the `if` below. (And drop lines 590-597 as well.)",
+      "range": {
+        "startLine": 491,
+        "startChar": 8,
+        "endLine": 491,
+        "endChar": 49
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4020316_f795a553",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bcac08e_fb412975",
       "range": {
         "startLine": 491,
         "startChar": 8,
@@ -157,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "e7577643_56f01cd5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Agreed, done.",
+      "parentUuid": "99371341_67b9affc",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b8b90a2_27e9b7db",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -168,6 +282,30 @@
       "writtenOn": "2018-04-16T17:52:20Z",
       "side": 1,
       "message": "This should probably also check `can_be_merged`. This is related to my comment on line 501.",
+      "range": {
+        "startLine": 576,
+        "startChar": 8,
+        "endLine": 576,
+        "endChar": 40
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95a30089_e51ef5f8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b8b90a2_27e9b7db",
       "range": {
         "startLine": 576,
         "startChar": 8,
@@ -203,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "9254e1fc_eb1026e1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c2c12f1_4bf49c6d",
+      "range": {
+        "startLine": 651,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 7
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96cc75af_87f9748f",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -220,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "7e30455d_000c0769",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "I definitely like the sound of this idea, although I\u0027m unsure of the specifics of what you\u0027re suggesting. Is a \"marker HPhi\" still an HPhi object, just allocated locally and not added to the block? Then when we actually need it for the first time we allocate it with the graph allocator and add it to the block? If so, is the advantage just that we use a ScopedArenaAllocator instead of the graph ArenaAllocator?",
+      "parentUuid": "96cc75af_87f9748f",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -231,6 +411,30 @@
       "writtenOn": "2018-04-16T17:52:20Z",
       "side": 1,
       "message": "be",
+      "range": {
+        "startLine": 672,
+        "startChar": 40,
+        "endLine": 672,
+        "endChar": 41
+      },
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "098cd563_0e794972",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9edca44_4f29a84d",
       "range": {
         "startLine": 672,
         "startChar": 40,

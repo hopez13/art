@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd45f3b7_bcbee97b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c793b5aa_8c7fb4ff",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bfc61f1_1b48011d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d94c9ed_26234c44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Thanks for the device, results on the way soon!",
+      "parentUuid": "6bfc61f1_1b48011d",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -275,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "f9237b9a_95377174",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "I haven\u0027t yet been able to come up with an extreme that will introduce a lot of Phis but I will keep thinking. In addition, Vladimir\u0027s suggestion of not allocating Phis until they are used will likely help minimize the impact of such cases.",
+      "parentUuid": "52fe9d39_2dc87386",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e2d492f_a9314317",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -327,6 +381,24 @@
     },
     {
       "key": {
+        "uuid": "38011867_dba93d88",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Discussed with Aart: each get/set goes through its own NullCheck, so we can\u0027t check that they have the same reference without this test getting a bit too lengthy and losing its generality. Checking they set Int1 / Int2 is enough.",
+      "parentUuid": "4a3cf1f6_789aa750",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5a599d_92f7afef",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -341,6 +413,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf402b9_84188fd1",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b5a599d_92f7afef",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -361,6 +451,24 @@
     },
     {
       "key": {
+        "uuid": "ede01aec_d1331705",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd8e589_5887daba",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a7a023_9f5a6bae",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -375,6 +483,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16eac145_ac63c783",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9a7a023_9f5a6bae",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -395,6 +521,24 @@
     },
     {
       "key": {
+        "uuid": "904faa9f_d582dc2c",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Discussed with Aart: it turns out that the way Checker tests are dexed, there are no side effects from the GVN movement CL.",
+      "parentUuid": "fc1a5856_661e5b53",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c9617c_ab87ebf9",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -409,6 +553,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc3d49ef_d1c64c4f",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Since the object is passed in as argument (not a singleton), we actually need to keep the stores, so the comment doesn\u0027t apply to this function.",
+      "parentUuid": "c3c9617c_ab87ebf9",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -429,6 +591,24 @@
     },
     {
       "key": {
+        "uuid": "a1420b08_7ec36b64",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e0764e_e9e9fe27",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ced6d165_df54261b",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -443,6 +623,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8695f0b_4d938213",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ced6d165_df54261b",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -463,6 +661,24 @@
     },
     {
       "key": {
+        "uuid": "f750c612_aecd85a6",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4743322_fada029e",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69a9efbd_ea9fd78c",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -477,6 +693,24 @@
       "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3eea8c_f2ee4a44",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-17T06:24:30Z",
+      "side": 1,
+      "message": "Ah yes, done.",
+      "parentUuid": "69a9efbd_ea9fd78c",
+      "revId": "8114d9b971a310b1ce7658218c74601791c1995e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
