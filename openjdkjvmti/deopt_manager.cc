@@ -127,6 +127,19 @@ void DeoptManager::FinishSetup() {
                    << "loaded too late to change runtime state to DEBUGGABLE. Only kArtTiVersion "
                    << "(0x" << std::hex << kArtTiVersion << ") environments are available. Some "
                    << "functionality might not work properly.";
+      if (runtime->GetJit() == nullptr && !runtime->GetInstrumentation()->IsForcedInterpretOnly()) {
+        // If we don't have a jit we should try to start the jit for performance reasons. We only
+        // need to do this for late attach on non-debuggable processes because for debuggable
+        // processes we already rely on jit and we cannot force this jit to start if we are still in
+        // OnLoad since the runtime hasn't started up sufficiently. This is only expected to happen
+        // on userdebug/eng builds.
+        runtime->CreateJit();
+        if (runtime->GetJit() == nullptr) {
+          LOG(WARNING) << "Could not start jit for openjdkjvmti plugin. This process might be "
+                       << "quite slow as it is running entirely in the interpreter. Try running "
+                       << "'setenforce 0' and restarting this process.";
+        }
+      }
     }
     runtime->DeoptimizeBootImage();
   }
