@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfa0efa2_fbc65c84",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-18T21:36:47Z",
+      "side": 1,
+      "message": "What do you suggest for a name? The Linux kernel uses cpu_relax, so we could just call it CpuRelax().\n\n\u003e I believe that none of the three implementations do that.\n\nOn x86, in the SMT case, the instruction literally yields to the other thread. But point taken.\n\n\u003e It prevents speculation past the instruction. It\u0027s not clear that really matters for our devices.\n\nMy motivation in using PAUSE here is to avoid the problem of excessively latency on leaving spinloops due to the piling up of load requests in superscalar execution. ARM processors would have the same problem, and AIUI, YIELD solves it in that environment in the same way.\n\nBesides: in Linux, ARM64 cpu_relax is literally just YIELD. On x86, cpu_relax is \"REP; NOP\", which is the same instruction as PAUSE. Why wouldn\u0027t what works for Linux work for us?",
+      "parentUuid": "d1c1ce19_1658592a",
+      "range": {
+        "startLine": 261,
+        "startChar": 26,
+        "endLine": 261,
+        "endChar": 34
+      },
+      "revId": "7c04f68187d70d34d5afe3d05075f03c070ad193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94d27166_ae10c166",
         "filename": "runtime/monitor.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-18T21:21:13Z",
       "side": 1,
       "message": "My usual strategy here is to back off by performing a slower local operation rather than immediately rereading the lockword. That probablly cuts down on cache traffic in highly contended cases. It\u0027s not clear it matters for us.",
+      "range": {
+        "startLine": 1068,
+        "startChar": 12,
+        "endLine": 1068,
+        "endChar": 23
+      },
+      "revId": "7c04f68187d70d34d5afe3d05075f03c070ad193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e05f6f33_04930ec8",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-18T21:36:47Z",
+      "side": 1,
+      "message": "But doing a local dummy operation increases the lock-acquisition latency (we won\u0027t notice the cacheline write immediately). What I really want is kind of like an ARM WFE with a timeout. Keep in mind that in Linux, cpu_relax() is what we\u0027re doing here, so it can\u0027t be that bad of an idea. :-)\n\nIn the meantime, I\u0027d rather spin on the load here, especially since we\u0027ll quickly transition to inflation.",
+      "parentUuid": "94d27166_ae10c166",
       "range": {
         "startLine": 1068,
         "startChar": 12,
