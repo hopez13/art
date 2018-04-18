@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d60d66f6_baa67c54",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T17:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74476819_cd2cb430",
+      "range": {
+        "startLine": 3240,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 50
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0679d64_b0403fb6",
         "filename": "test/683-deopt-regression/src/Main.java",
         "patchSetId": 2
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "b386d5f9_3ff8d620",
+        "filename": "test/683-deopt-regression/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T17:22:49Z",
+      "side": 1,
+      "message": "because it is thrown from reflection, we actually don\u0027t see the NullPointerException directly, but:\n\n\n+Exception in thread \"main\" java.lang.reflect.InvocationTargetException\n+\tat java.lang.reflect.Method.invoke(Native Method)\n+\tat Main.main(Main.java:26)\n+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method \u0027int java.lang.Object.hashCode()\u0027 on a null object reference\n\n\nwhich is why I had Exception. Would you prefer InvocationTargetException in the catch?",
+      "parentUuid": "d0679d64_b0403fb6",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fde95ada_d66e4708",
         "filename": "test/683-deopt-regression/src/Main.java",
         "patchSetId": 2
@@ -76,6 +124,30 @@
       "writtenOn": "2018-04-18T11:08:07Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 39,
+        "startChar": 15,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cda5b9ef_40a00aea",
+        "filename": "test/683-deopt-regression/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T17:22:49Z",
+      "side": 1,
+      "message": "as above?",
+      "parentUuid": "fde95ada_d66e4708",
       "range": {
         "startLine": 39,
         "startChar": 15,

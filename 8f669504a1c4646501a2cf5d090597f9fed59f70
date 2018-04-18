@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "78bceb76_a872717c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T17:22:49Z",
+      "side": 0,
+      "message": "Not completely, since I made a pass over all CanThrow() methods to find potential dangers, I decided that removing this unused one was a good idea.",
+      "parentUuid": "dc16f452_0ed9545b",
+      "range": {
+        "startLine": 1919,
+        "startChar": 0,
+        "endLine": 1926,
+        "endChar": 1
+      },
+      "revId": "8f669504a1c4646501a2cf5d090597f9fed59f70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14df2821_d0baf42b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
