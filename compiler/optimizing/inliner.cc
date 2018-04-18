@@ -124,11 +124,11 @@ void HInliner::UpdateInliningBudget() {
   }
 }
 
-void HInliner::Run() {
+bool HInliner::Run() {
   if (graph_->IsDebuggable()) {
     // For simplicity, we currently never inline when the graph is debuggable. This avoids
     // doing some logic in the runtime to discover if a method could have been inlined.
-    return;
+    return false;
   }
 
   // Initialize the number of instructions for the method being compiled. Recursive calls
@@ -185,6 +185,7 @@ void HInliner::Run() {
       instruction = next;
     }
   }
+  return true;
 }
 
 static bool IsMethodOrDeclaringClassFinal(ArtMethod* method)
