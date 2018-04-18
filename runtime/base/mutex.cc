@@ -26,6 +26,7 @@
 #include "base/systrace.h"
 #include "base/time_utils.h"
 #include "base/value_object.h"
+#include "base/utils.h"
 #include "mutex-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -106,17 +107,10 @@ static bool ComputeRelativeTimeSpec(timespec* result_ts, const timespec& lhs, co
 // Wait for an amount of time that roughly increases in the argument i.
 // Spin for small arguments and yield/sleep for longer ones.
 static void BackOff(uint32_t i) {
-  static constexpr uint32_t kSpinMax = 10;
-  static constexpr uint32_t kYieldMax = 20;
+  static constexpr uint32_t kSpinMax = 100;
+  static constexpr uint32_t kYieldMax = kSpinMax + 20;
   if (i <= kSpinMax) {
-    // TODO: Esp. in very latency-sensitive cases, consider replacing this with an explicit
-    // test-and-test-and-set loop in the caller.  Possibly skip entirely on a uniprocessor.
-    volatile uint32_t x = 0;
-    const uint32_t spin_count = 10 * i;
-    for (uint32_t spin = 0; spin < spin_count; ++spin) {
-      ++x;  // Volatile; hence should not be optimized away.
-    }
-    // TODO: Consider adding x86 PAUSE and/or ARM YIELD here.
+    CpuRelax();
   } else if (i <= kYieldMax) {
     sched_yield();
   } else {
