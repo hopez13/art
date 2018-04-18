@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6e3ec84_3f6700bb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:55:51Z",
+      "side": 1,
+      "message": "Any ideas? I\u0027ll keep thinking.",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 33
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571cc96e_0c68544c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:55:51Z",
+      "side": 1,
+      "message": "In progress: converting to SetRawInputAt.",
+      "range": {
+        "startLine": 437,
+        "startChar": 11,
+        "endLine": 437,
+        "endChar": 19
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10b419f5_e27ff840",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:55:51Z",
+      "side": 1,
+      "message": "In progress: adding local ScopedArenaAllocator.\n\n(I\u0027m getting a failed DCHECK, [debug_stack.h:111] Check failed: counter_-\u003eGetRefCount() \u003d\u003d ref_count_ (counter_-\u003eGetRefCount()\u003d2, ref_count_\u003d1), working on it)",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 540,
+        "endChar": 44
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b5d4520_68ef1806",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:55:51Z",
+      "side": 1,
+      "message": "In progress: looking into a way to pass the ScopedArenaAllocator here, since this constructor requires an ArenaAllocator.",
+      "range": {
+        "startLine": 599,
+        "startChar": 12,
+        "endLine": 599,
+        "endChar": 38
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
