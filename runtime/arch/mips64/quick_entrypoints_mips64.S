@@ -1303,11 +1303,7 @@ ENTRY_NO_GP art_quick_unlock_object
     li      $t8, LOCK_WORD_THIN_LOCK_COUNT_ONE
     li      $t3, LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED
 .Lretry_unlock:
-#ifndef USE_READ_BARRIER
-    lw      $t1, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)
-#else
-    ll      $t1, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)  # Need to use atomic read-modify-write for read barrier
-#endif
+    ll      $t1, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)  # Atomics for inflate sync, read barrier
     srl     $t2, $t1, LOCK_WORD_STATE_SHIFT
     bnezc   $t2, .Lslow_unlock         # if either of the top two bits are set, go slow path
     lw      $t0, THREAD_ID_OFFSET(rSELF)
@@ -1321,24 +1317,16 @@ ENTRY_NO_GP art_quick_unlock_object
     nor     $t2, $zero, $t3            # $t2 = LOCK_WORD_GC_STATE_MASK_SHIFTED
     and     $t2, $t1, $t2              # $t2: zero except for the preserved gc bits
     sync                               # full (LoadStore|StoreStore) memory barrier
-#ifndef USE_READ_BARRIER
-    sw      $t2, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)
-#else
     sc      $t2, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)
     beqzc   $t2, .Lretry_unlock        # store failed, retry
     nop
-#endif
     jic     $ra, 0
 .Lrecursive_thin_unlock:
     # t1: original lock word
     subu    $t2, $t1, $t8              # decrement count
-#ifndef USE_READ_BARRIER
-    sw      $t2, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)
-#else
     sc      $t2, MIRROR_OBJECT_LOCK_WORD_OFFSET($a0)
     beqzc   $t2, .Lretry_unlock        # store failed, retry
     nop
-#endif
     jic     $ra, 0
 .Lslow_unlock:
     .cpsetup $t9, $t8, art_quick_unlock_object

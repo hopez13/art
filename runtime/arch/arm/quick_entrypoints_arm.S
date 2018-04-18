@@ -741,11 +741,7 @@ END art_quick_lock_object_no_inline
 ENTRY art_quick_unlock_object
     cbz    r0, .Lslow_unlock
 .Lretry_unlock:
-#ifndef USE_READ_BARRIER
-    ldr    r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-#else
-    ldrex  r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ Need to use atomic instructions for read barrier
-#endif
+    ldrex  r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ Need atomics for inflate sync, read barrier
     lsr    r2, r1, #LOCK_WORD_STATE_SHIFT
     cbnz   r2, .Lslow_unlock          @ if either of the top two bits are set, go slow path
     ldr    r2, [r9, #THREAD_ID_OFFSET]
@@ -762,21 +758,13 @@ ENTRY art_quick_unlock_object
     mov    r3, r1
     and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED  @ r3: zero except for the preserved gc bits
     dmb    ish                        @ full (LoadStore|StoreStore) memory barrier
-#ifndef USE_READ_BARRIER
-    str    r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-#else
-    strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits
+    strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex for inflate sync, read barrier
     cbnz   r2, .Lunlock_strex_fail    @ store failed, retry
-#endif
     bx     lr
 .Lrecursive_thin_unlock:  @ r1: original lock word
     sub    r1, r1, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ decrement count
-#ifndef USE_READ_BARRIER
-    str    r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-#else
-    strex  r2, r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits
+    strex  r2, r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex for inflate sync, read barrier
     cbnz   r2, .Lunlock_strex_fail    @ store failed, retry
-#endif
     bx     lr
 .Lunlock_strex_fail:
     b      .Lretry_unlock             @ retry

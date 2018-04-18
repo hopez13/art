@@ -164,12 +164,15 @@ class Monitor {
  private:
   Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_code)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_code, MonitorId id)
+  Monitor(Thread* owner, mirror::Object* obj, int32_t hash_code, MonitorId id)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Install the monitor into its object, may fail if another thread installs a different monitor
-  // first.
-  bool Install(Thread* self)
+  // Install the monitor into its object, may fail if another thread installs a different
+  // monitor first. lw is the word we read when beginning the inflation process, which may
+  // be obsolete by the time we get around to attempting monitor installation. (We'll just
+  // fail if the cached lock word is out of date; the caller should re-attempt whatever
+  // it's trying to do in this case.)
+  bool Install(Thread* self, LockWord lw)
       REQUIRES(!monitor_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -181,11 +184,11 @@ class Monitor {
   // this routine.
   void RemoveFromWaitSet(Thread* thread) REQUIRES(monitor_lock_);
 
-  // Changes the shape of a monitor from thin to fat, preserving the internal lock state. The
-  // calling thread must own the lock or the owner must be suspended. There's a race with other
-  // threads inflating the lock, installing hash codes and spurious failures. The caller should
-  // re-read the lock word following the call.
-  static void Inflate(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_code)
+  // Changes the shape of a monitor from thin to fat, preserving the internal lock state.
+  // There's a race with other threads inflating the lock, installing hash codes and
+  // spurious failures. The caller should re-read the lock word following the call.
+  static void Inflate(Thread* self, Thread* owner, mirror::Object* obj,
+                      LockWord lock_word, int32_t hash_code)
       REQUIRES_SHARED(Locks::mutator_lock_)
       NO_THREAD_SAFETY_ANALYSIS;  // For m->Install(self)
 
