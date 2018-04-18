@@ -520,6 +520,24 @@
     },
     {
       "key": {
+        "uuid": "ec6afb8f_ec522692",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T17:27:24Z",
+      "side": 1,
+      "message": "I\u0027m more worried about pathological cases. For example\n\n  X x \u003d new X();\n  switch (v) {\n    case 1: x.field1 \u003d 1; break;\n    case 2: x.field2 \u003d 1; break;\n    ...\n    case 100: x.field100 \u003d 1; break;\n  }\n  // 100 Phis with 100*100 inputs created without any subsequent loads of fieldN.",
+      "parentUuid": "564124b7_1fbbcd07",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
