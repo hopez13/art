@@ -22,6 +22,30 @@
       "revId": "8d03193d97c4461dd3772090d855daeee781bcfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a884aef8_00a9efe5",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-18T22:18:05Z",
+      "side": 1,
+      "message": "\u003e 10 as before, since we\u0027re on a quest to reduce sched_yield calls? I could probably be talked into fewer.\n\nSure. Let\u0027s keep it at ten. I\u0027ll also add a cap on the nanosleep time so that it doesn\u0027t increase without bound.\n\nWe should get rid of this routine entirely eventually, but I want to focus on other wait loops first.",
+      "parentUuid": "6092a68c_473500ae",
+      "range": {
+        "startLine": 111,
+        "startChar": 51,
+        "endLine": 111,
+        "endChar": 53
+      },
+      "revId": "8d03193d97c4461dd3772090d855daeee781bcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
