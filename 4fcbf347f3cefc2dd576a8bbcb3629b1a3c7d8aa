@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eef9a789_8858bc80",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T00:07:55Z",
+      "side": 1,
+      "message": "I just realize, since we already have DoesAnyWrite above, we don\u0027t even need to add it here! So the change really then is just flipping the true/false for CanThrow on Deoptimize.\n\nAny other concern?",
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
