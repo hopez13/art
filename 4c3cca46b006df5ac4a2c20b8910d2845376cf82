@@ -68,6 +68,29 @@
       "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "427c688b_8fa8ce7e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-18T16:29:23Z",
+      "side": 1,
+      "message": "max_spins \u003d\u003d 0",
+      "range": {
+        "startLine": 1062,
+        "startChar": 15,
+        "endLine": 1062,
+        "endChar": 24
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
