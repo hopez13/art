@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "109a5432_81918c3c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8db395e_a489d824",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "If you want to keep using AddInput(), you may as well use range-based loop,\n\n  for (HInstruction* value : values) {\n    phi-\u003eAddInput(value);\n  }\n\nThe other alternative is to pre-allocate inputs in constructor, and add inputs using `SetRawInputAt()` before the `block-\u003eAddPhi(phi)`. (That has the advantage of allocating the exact amount of memory that we need.)",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 5
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486767ab_58696529",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "I strongly prefer `++j`. (And I mildly prefer `size` over `n`.)",
+      "range": {
+        "startLine": 433,
+        "startChar": 49,
+        "endLine": 433,
+        "endChar": 52
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86c91d32_162687b5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "I prefer this to be an /*out*/ parameter. That makes it easier to reason about as there would be only one function where `pred_values_` is directly referenced. And it would make it easier to change the pred_values_ back to a local variable.",
+      "range": {
+        "startLine": 492,
+        "startChar": 8,
+        "endLine": 492,
+        "endChar": 20
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3807c5b_4cd90d25",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "This should be done in CanMergePredecessorValues().\n\nAnd I realized that we can change pred_values_ to a local variable. Just add another local ScopedArenaAllocator and the memory shall be reused for the next execution of this function. Just make sure we\u0027re not allocating any memory from allocator_ while the local allocator is alive.",
+      "range": {
+        "startLine": 516,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 25
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70adc921_2cece7ee",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T12:10:50Z",
+      "side": 1,
+      "message": "Maybe DCHECK_EQ()?",
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
