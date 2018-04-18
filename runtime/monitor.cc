@@ -105,13 +105,10 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
   DCHECK(false) << "Should not be reached in 64b";
   next_free_ = nullptr;
 #endif
-  // We should only inflate a lock if the owner is ourselves or suspended. This avoids a race
-  // with the owner unlocking the thin-lock.
-  CHECK(owner == nullptr || owner == self || owner->IsSuspended());
   // The identity hash code is set for the life time of the monitor.
 }
 
-Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_code,
+Monitor::Monitor(Thread* owner, mirror::Object* obj, int32_t hash_code,
                  MonitorId id)
     : monitor_lock_("a monitor lock", kMonitorLock),
       monitor_contenders_("monitor contenders", monitor_lock_),
@@ -127,9 +124,6 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
 #ifdef __LP64__
   next_free_ = nullptr;
 #endif
-  // We should only inflate a lock if the owner is ourselves or suspended. This avoids a race
-  // with the owner unlocking the thin-lock.
-  CHECK(owner == nullptr || owner == self || owner->IsSuspended());
   // The identity hash code is set for the life time of the monitor.
 }
 
@@ -143,11 +137,9 @@ int32_t Monitor::GetHashCode() {
   return hash_code_.load(std::memory_order_relaxed);
 }
 
-bool Monitor::Install(Thread* self) {
+bool Monitor::Install(Thread* self, LockWord lw) {
   MutexLock mu(self, monitor_lock_);  // Uncontended mutex acquisition as monitor isn't yet public.
-  CHECK(owner_ == nullptr || owner_ == self || owner_->IsSuspended());
   // Propagate the lock state.
-  LockWord lw(GetObject()->GetLockWord(false));
   switch (lw.GetState()) {
     case LockWord::kThinLocked: {
       CHECK_EQ(owner_->GetThreadId(), lw.ThinLockOwner());
@@ -174,6 +166,7 @@ bool Monitor::Install(Thread* self) {
   LockWord fat(this, lw.GCState());
   // Publish the updated lock word, which may race with other threads.
   bool success = GetObject()->CasLockWordWeakRelease(lw, fat);
+#if 0  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX FIXME FOR SUSPENDLESS INFLATION XXX DO NOT SUBMIT XXX
   // Lock profiling.
   if (success && owner_ != nullptr && lock_profiling_threshold_ != 0) {
     // Do not abort on dex pc errors. This can easily happen when we want to dump a stack trace on
@@ -216,6 +209,7 @@ bool Monitor::Install(Thread* self) {
     }
     DCHECK(locking_method_ == nullptr || !locking_method_->IsProxyMethod());
   }
+#endif
   return success;
 }
 
@@ -954,13 +948,14 @@ bool Monitor::Deflate(Thread* self, mirror::Object* obj) {
   return true;
 }
 
-void Monitor::Inflate(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_code) {
+void Monitor::Inflate(Thread* self, Thread* owner, mirror::Object* obj,
+                      LockWord lock_word, int32_t hash_code) {
   DCHECK(self != nullptr);
   DCHECK(obj != nullptr);
   // Allocate and acquire a new monitor.
   Monitor* m = MonitorPool::CreateMonitor(self, owner, obj, hash_code);
   DCHECK(m != nullptr);
-  if (m->Install(self)) {
+  if (m->Install(self, lock_word)) {
     if (owner != nullptr) {
       VLOG(monitor) << "monitor: thread" << owner->GetThreadId()
           << " created monitor " << m << " for object " << obj;
@@ -969,7 +964,6 @@ void Monitor::Inflate(Thread* self, Thread* owner, mirror::Object* obj, int32_t 
           << " created monitor " << m << " for object " << obj;
     }
     Runtime::Current()->GetMonitorList()->Add(m);
-    CHECK_EQ(obj->GetLockWord(true).GetState(), LockWord::kFatLocked);
   } else {
     MonitorPool::ReleaseMonitor(self, m);
   }
@@ -981,31 +975,16 @@ void Monitor::InflateThinLocked(Thread* self, Handle<mirror::Object> obj, LockWo
   uint32_t owner_thread_id = lock_word.ThinLockOwner();
   if (owner_thread_id == self->GetThreadId()) {
     // We own the monitor, we can easily inflate it.
-    Inflate(self, self, obj.Get(), hash_code);
+    Inflate(self, self, obj.Get(), lock_word, hash_code);
   } else {
+    // Hold the thread list lock so that the target thread doesn't
+    // disappear while we inflate its lock.
+    MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
     ThreadList* thread_list = Runtime::Current()->GetThreadList();
-    // Suspend the owner, inflate. First change to blocked and give up mutator_lock_.
-    self->SetMonitorEnterObject(obj.Get());
-    bool timed_out;
-    Thread* owner;
-    {
-      ScopedThreadSuspension sts(self, kWaitingForLockInflation);
-      owner = thread_list->SuspendThreadByThreadId(owner_thread_id,
-                                                   SuspendReason::kInternal,
-                                                   &timed_out);
-    }
+    Thread* owner = thread_list->FindThreadByThreadId(owner_thread_id);
     if (owner != nullptr) {
-      // We succeeded in suspending the thread, check the lock's status didn't change.
-      lock_word = obj->GetLockWord(true);
-      if (lock_word.GetState() == LockWord::kThinLocked &&
-          lock_word.ThinLockOwner() == owner_thread_id) {
-        // Go ahead and inflate the lock.
-        Inflate(self, owner, obj.Get(), hash_code);
-      }
-      bool resumed = thread_list->Resume(owner, SuspendReason::kInternal);
-      DCHECK(resumed);
+      Inflate(self, owner, obj.Get(), lock_word, hash_code);
     }
-    self->SetMonitorEnterObject(nullptr);
   }
 }
 
@@ -1114,7 +1093,7 @@ mirror::Object* Monitor::MonitorEnter(Thread* self, mirror::Object* obj, bool tr
         // Inflate with the existing hashcode.
         // Again no ordering required for initial lockword read, since we don't rely
         // on the visibility of any prior computation.
-        Inflate(self, nullptr, h_obj.Get(), lock_word.GetHashCode());
+        Inflate(self, nullptr, h_obj.Get(), lock_word, lock_word.GetHashCode());
         continue;  // Start from the beginning.
       default: {
         LOG(FATAL) << "Invalid monitor state " << lock_word.GetState();
@@ -1216,7 +1195,7 @@ void Monitor::Wait(Thread* self, mirror::Object *obj, int64_t ms, int32_t ns,
         } else {
           // We own the lock, inflate to enqueue ourself on the Monitor. May fail spuriously so
           // re-load.
-          Inflate(self, self, h_obj.Get(), 0);
+          Inflate(self, self, h_obj.Get(), lock_word, 0);
           lock_word = h_obj->GetLockWord(true);
         }
         break;

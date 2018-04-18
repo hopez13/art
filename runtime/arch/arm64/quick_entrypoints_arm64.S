@@ -1209,11 +1209,7 @@ ENTRY art_quick_unlock_object
     cbz    x0, .Lslow_unlock
     add    x4, x0, #MIRROR_OBJECT_LOCK_WORD_OFFSET  // exclusive load/store has no immediate anymore
 .Lretry_unlock:
-#ifndef USE_READ_BARRIER
-    ldr    w1, [x4]
-#else
-    ldxr   w1, [x4]                   // Need to use atomic instructions for read barrier
-#endif
+    ldxr   w1, [x4]                   // Need to use atomic instructions for inflate sync, read barrier
     lsr    w2, w1, LOCK_WORD_STATE_SHIFT
     cbnz   w2, .Lslow_unlock          // if either of the top two bits are set, go slow path
     ldr    w2, [xSELF, #THREAD_ID_OFFSET]
@@ -1226,21 +1222,13 @@ ENTRY art_quick_unlock_object
     bpl    .Lrecursive_thin_unlock
     // transition to unlocked
     and    w3, w1, #LOCK_WORD_GC_STATE_MASK_SHIFTED  // w3: zero except for the preserved read barrier bits
-#ifndef USE_READ_BARRIER
-    stlr   w3, [x4]
-#else
-    stlxr  w2, w3, [x4]               // Need to use atomic instructions for read barrier
+    stlxr  w2, w3, [x4]               // Need to use atomic instructions for inflate sync, read barrier
     cbnz   w2, .Lunlock_stxr_fail     // store failed, retry
-#endif
     ret
 .Lrecursive_thin_unlock:  // w1: original lock word
     sub    w1, w1, #LOCK_WORD_THIN_LOCK_COUNT_ONE  // decrement count
-#ifndef USE_READ_BARRIER
-    str    w1, [x4]
-#else
-    stxr   w2, w1, [x4]               // Need to use atomic instructions for read barrier
+    stxr   w2, w1, [x4]               // Need to use atomic instructions for inflate sync, read barrier
     cbnz   w2, .Lunlock_stxr_fail     // store failed, retry
-#endif
     ret
 .Lunlock_stxr_fail:
     b      .Lretry_unlock             // retry

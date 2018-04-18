@@ -124,7 +124,7 @@ Monitor* MonitorPool::CreateMonitorInPool(Thread* self, Thread* owner, mirror::O
   MonitorId id = mon_uninitialized->monitor_id_;
 
   // Initialize it.
-  Monitor* monitor = new(mon_uninitialized) Monitor(self, owner, obj, hash_code, id);
+  Monitor* monitor = new(mon_uninitialized) Monitor(owner, obj, hash_code, id);
 
   return monitor;
 }
