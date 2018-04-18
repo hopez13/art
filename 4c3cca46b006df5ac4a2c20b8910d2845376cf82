@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "0f9fb764_b7ab6b15",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-18T18:00:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55d172ef_91e58dcb",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d596c315_15eae14a",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 2
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "It\u0027s not a replacement for a trivial counting loop to do nothing. E.g., with that argument I should reject your second CL.",
       "parentUuid": "5cab3b2a_99c47d97",
+      "range": {
+        "startLine": 267,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 6
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b949b7_9f52129f",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-18T18:00:33Z",
+      "side": 1,
+      "message": "Because if we literally do nothing, the compiler will optimize away the loop entirely? That\u0027s fair. I\u0027ll add a asm volatile nop or something.",
+      "parentUuid": "252e363f_429c2b40",
       "range": {
         "startLine": 267,
         "startChar": 1,
