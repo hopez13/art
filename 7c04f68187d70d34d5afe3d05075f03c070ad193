@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1c1ce19_1658592a",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-18T21:21:13Z",
+      "side": 1,
+      "message": "Please rename. The name is used in other Google code as an alias for sched_yield. I think this use is a misnomer; I believe that none of the three implementations do that.\n\nI decided against doing any of this earlier. I\u0027ll forward a relevant email message from ARM, AFAICT, x86 PAUSE really only seems to matter on SMT cores. It prevents speculation past the instruction. It\u0027s not clear that really matters for our devices.",
+      "range": {
+        "startLine": 261,
+        "startChar": 26,
+        "endLine": 261,
+        "endChar": 34
+      },
+      "revId": "7c04f68187d70d34d5afe3d05075f03c070ad193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94d27166_ae10c166",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-18T21:21:13Z",
+      "side": 1,
+      "message": "My usual strategy here is to back off by performing a slower local operation rather than immediately rereading the lockword. That probablly cuts down on cache traffic in highly contended cases. It\u0027s not clear it matters for us.",
+      "range": {
+        "startLine": 1068,
+        "startChar": 12,
+        "endLine": 1068,
+        "endChar": 23
+      },
+      "revId": "7c04f68187d70d34d5afe3d05075f03c070ad193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
