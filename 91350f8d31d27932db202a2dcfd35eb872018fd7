@@ -502,6 +502,24 @@
     },
     {
       "key": {
+        "uuid": "564124b7_1fbbcd07",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T17:17:03Z",
+      "side": 1,
+      "message": "Mart, have a look at our stats mechanism (MaybeRecordStat(stats_ ....). Perhaps you can add some counters of #phis generated, #phis preserved/wasted, and maybe max over all methods. Then run this over a representative set (compiling boot image?) and get some better feel on its behavior.",
+      "parentUuid": "1af53a0b_fcad1baa",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
