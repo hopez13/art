@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "74476819_cd2cb430",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-18T13:50:26Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 3240,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 50
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0679d64_b0403fb6",
         "filename": "test/683-deopt-regression/src/Main.java",
         "patchSetId": 2
