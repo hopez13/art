@@ -199,6 +199,24 @@
       "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe5364ad_f037b3f6",
+        "filename": "test/679-checker-minmax/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T09:07:00Z",
+      "side": 1,
+      "message": "The new test looks good. (I would have written something that would fall through to continue executing the rest of the function but for the purposes of my request the \"return\" is fine.)",
+      "parentUuid": "9d0c86a9_a4bf067d",
+      "revId": "e07c5d77e535a1abfb14a83616bac411a4da1830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
