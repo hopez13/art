@@ -1509,8 +1509,21 @@ static void CreateArtJvmTiEnv(art::JavaVMExt* vm, jint version, /*out*/void** ne
 // returns false and does not modify the 'env' pointer.
 static jint GetEnvHandler(art::JavaVMExt* vm, /*out*/void** env, jint version) {
   // JavaDebuggable will either be set by the runtime as it is starting up or the plugin if it's
-  // loaded early enough. If this is false we cannot guarantee conformance to all JVMTI behaviors
-  // due to optimizations. We will only allow agents to get ArtTiEnvs using the kArtTiVersion.
+  // loaded early enough.
+  //
+  // If the runtime is not JavaDebuggable we cannot guarantee conformance to all JVMTI behaviors due
+  // to optimizations. Most notably we will not be able to guarantee that all tracing related events
+  // will be triggered. Events, including breakpoints, single-steps, field events, method
+  // entry/exit, frame pop, object-alloc and any others, may be silently skipped or occur in an
+  // unexpected order or position. These events might not correspond to what is expected from
+  // examining the dex-bytecode. In general agents requesting kArtTiVersion environments should be
+  // aware of and tolerant of these missing events. Some capabilities (such as class-redefinition
+  // related capabilities) will also not be present if the agent is a kArtTiVersion. Functions
+  // unrelated to events and which have the required capabilities available should generally work
+  // correctly even when in a kArtTiVersion agent.
+  //
+  // In general agents should always prefer a JVMTI environment if possible and only fall back to
+  // kArtTiVersion if it is not available.
   if (IsFullJvmtiAvailable() && IsJvmtiVersion(version)) {
     CreateArtJvmTiEnv(vm, JVMTI_VERSION, env);
     return JNI_OK;
