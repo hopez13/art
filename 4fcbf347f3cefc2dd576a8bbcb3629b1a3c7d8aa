@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0d08ce35_fc160eb5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-18T23:05:12Z",
+      "side": 1,
+      "message": "Ok, this was not true, since Mingyao also introduce a non-writing deopt for CHA. So we need to keep this (treehugger test failure was real).",
+      "parentUuid": "eef9a789_8858bc80",
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74476819_cd2cb430",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
