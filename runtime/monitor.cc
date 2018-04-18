@@ -27,6 +27,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/time_utils.h"
+#include "base/utils.h"
 #include "class_linker.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_types.h"
@@ -1006,6 +1007,7 @@ mirror::Object* Monitor::MonitorEnter(Thread* self, mirror::Object* obj, bool tr
   self->AssertThreadSuspensionIsAllowable();
   obj = FakeLock(obj);
   uint32_t thread_id = self->GetThreadId();
+  size_t max_spins = 0;
   size_t contention_count = 0;
   StackHandleScope<1> hs(self);
   Handle<mirror::Object> h_obj(hs.NewHandle(obj));
@@ -1057,18 +1059,13 @@ mirror::Object* Monitor::MonitorEnter(Thread* self, mirror::Object* obj, bool tr
             return nullptr;
           }
           // Contention.
+          if (max_spins == 0) {
+            Runtime* runtime = Runtime::Current();
+            max_spins = runtime->GetMaxSpinsBeforeThinLockInflation();
+          }
           contention_count++;
-          Runtime* runtime = Runtime::Current();
-          if (contention_count <= runtime->GetMaxSpinsBeforeThinLockInflation()) {
-            // TODO: Consider switching the thread state to kWaitingForLockInflation when we are
-            // yielding.  Use sched_yield instead of NanoSleep since NanoSleep can wait much longer
-            // than the parameter you pass in. This can cause thread suspension to take excessively
-            // long and make long pauses. See b/16307460.
-            // TODO: We should literally spin first, without sched_yield. Sched_yield either does
-            // nothing (at significant expense), or guarantees that we wait at least microseconds.
-            // If the owner is running, I would expect the median lock hold time to be hundreds
-            // of nanoseconds or less.
-            sched_yield();
+          if (contention_count <= max_spins) {
+            YieldCpu();
           } else {
             contention_count = 0;
             // No ordering required for initial lockword read. Install rereads it anyway.
