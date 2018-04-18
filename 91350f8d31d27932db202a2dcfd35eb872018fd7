@@ -466,6 +466,24 @@
     },
     {
       "key": {
+        "uuid": "1241ec93_dd168c52",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T06:17:46Z",
+      "side": 1,
+      "message": "I\u0027ve played around with a couple version of this now, and believe I\u0027ve come to the conclusion that I won\u0027t be able to implement this. I\u0027ll try my best to explain my reasoning below.\n\nFirst, we can\u0027t delay all of MergePredecessorValues(block, i). This function may or may not create a Phi. For example, if a block has two predecessors, but the heap values are the same in both, we wouldn\u0027t want to mark that heap value with a marker Phi (there are some more complicated cases, like all predecessors having stores that store the same value).\n\nAs an alternative then, we can create a marker Phi only when we actually want to create a Phi. All logic would remain the same, but instead of creating a Phi, we create a marker one and resolve it when needed. There are two issues with this:\n\n1) It\u0027s tricky to think of a temporary instruction to place in the heap value (ex. a marker HPhi). Allocating an \"fake\" HPhi seems odd because the constructor requires an ArenaAllocator object (not ScopedArenaAllocator), and how would we check if the HPhi is a marker or an actual, resolved HPhi? Really, to resolve the temporary instruction later, we only need the block # where the HPhi should be added, so we could maybe create a custom class, or reinterpret_cast\u003cHInstruction*\u003e(BlockNumber), but this doesn\u0027t seem very clean.\n\n2) Resolving the temporary marker would happen in VisitGetLocation() (and recursively in the function that does the resolving). However, after resolving, do we then loop through all vectors in heap_values_for_[...] to replace any other instances of the marker?\n\u003e For example: Imagine the marker is created when merging block C w/ predecessors A and B, but the marker gets passed along to the heap values for blocks D and E. Then we have a GET in E, which sees the marker, creates a Phi in block C (Phi [val(A), val(B)]) and replaces the GET. What happens for the marker value in D?\n\nI understand that both can definitely be solved by some clever thinking and making some larger changes, but I don\u0027t think I\u0027ll be able to achieve this in my last 3 days.\n\nI definitely understand the value of getting this right, so I would understand if this CL needs to be dropped.",
+      "parentUuid": "2448236f_bc11e22a",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
