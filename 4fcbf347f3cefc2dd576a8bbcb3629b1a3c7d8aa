@@ -16,6 +16,52 @@
       "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0679d64_b0403fb6",
+        "filename": "test/683-deopt-regression/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T11:08:07Z",
+      "side": 1,
+      "message": "NullPointerException ignored",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fde95ada_d66e4708",
+        "filename": "test/683-deopt-regression/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-18T11:08:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 39,
+        "startChar": 15,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "4fcbf347f3cefc2dd576a8bbcb3629b1a3c7d8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
