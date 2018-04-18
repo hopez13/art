@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab1f2d45_736cff34",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-18T15:52:58Z",
+      "side": 1,
+      "message": "This has only one user file - don\u0027t put it into a widely distributed header.",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e200ce_0a2ae177",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-18T15:52:58Z",
+      "side": 1,
+      "message": "You probably want to put an always-inline on here.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 6
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d596c315_15eae14a",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-18T15:52:58Z",
+      "side": 1,
+      "message": "Add an #else case with sched_yield?",
+      "range": {
+        "startLine": 267,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 6
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
