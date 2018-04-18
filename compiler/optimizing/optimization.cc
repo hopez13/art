@@ -218,10 +218,11 @@ ArenaVector<HOptimization*> ConstructOptimizations(
         CHECK(most_recent_side_effects != nullptr);
         opt = new (allocator) LICM(graph, *most_recent_side_effects, stats, name);
         break;
-      case OptimizationPass::kLoopOptimization:
+      case OptimizationPass::kLoopOptimization: {
         CHECK(most_recent_induction != nullptr);
         opt = new (allocator) HLoopOptimization(graph, driver, most_recent_induction, stats, name);
         break;
+      }
       case OptimizationPass::kBoundsCheckElimination:
         CHECK(most_recent_side_effects != nullptr && most_recent_induction != nullptr);
         opt = new (allocator) BoundsCheckElimination(
