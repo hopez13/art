@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "379dcb47_39a78dcd",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-18T21:28:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether or not this change is an improvement. The main question is whether it makes sense to use increasingly large spins on a local to reduce cache traffic. I don\u0027t know.\n\nI expect this changes the meaning of the constants dramatically. As a guess, we should probably use something more like (200, 210). Ten spin cycles seems to short for things to change with sufficient probability.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 15
+      },
+      "revId": "3bdd6102b079088abf800575bf0da19f87757cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
