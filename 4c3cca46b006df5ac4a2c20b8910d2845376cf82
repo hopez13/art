@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "55d172ef_91e58dcb",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-18T17:52:26Z",
+      "side": 1,
+      "message": "Not very happy with that reasoning, but oh well.",
+      "parentUuid": "03fe66e8_bd62531f",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d596c315_15eae14a",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 2
@@ -140,6 +164,30 @@
       "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "252e363f_429c2b40",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-18T17:52:26Z",
+      "side": 1,
+      "message": "It\u0027s not a replacement for a trivial counting loop to do nothing. E.g., with that argument I should reject your second CL.",
+      "parentUuid": "5cab3b2a_99c47d97",
+      "range": {
+        "startLine": 267,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 6
+      },
+      "revId": "4c3cca46b006df5ac4a2c20b8910d2845376cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
