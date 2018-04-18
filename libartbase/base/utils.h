@@ -258,6 +258,15 @@ static inline size_t HashBytes(const uint8_t* data, size_t len) {
   return hash;
 }
 
+static inline void YieldCpu() {
+// Yield the CPU slightly in spin loops
+#if defined(__i386__) || defined(__x86_64__)
+  __asm__ volatile ("pause");
+#elif defined(__arm__) || defined(__aarch64__)
+  __asm__ volatile ("yield");
+#endif
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_UTILS_H_
