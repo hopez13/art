@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6092a68c_473500ae",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-04-18T22:12:11Z",
+      "side": 1,
+      "message": "10 as before, since we\u0027re on a quest to reduce sched_yield calls? I could probably be talked into fewer.\n\nShould we explicitly avoid inlining CpuRelax to add a bit of local work, and make behavior here less dependent on the build environment?",
+      "range": {
+        "startLine": 111,
+        "startChar": 51,
+        "endLine": 111,
+        "endChar": 53
+      },
+      "revId": "8d03193d97c4461dd3772090d855daeee781bcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
