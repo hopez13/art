@@ -538,6 +538,24 @@
     },
     {
       "key": {
+        "uuid": "8d5985b6_70ad57cc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Clever discovery. Indeed, this further motivates delaying the actual Phi allocation.\n\nI\u0027ve updated this CL with a potential solution to my initial concerns; I\u0027ll comment on a couple points I\u0027m unsure of.",
+      "parentUuid": "ec6afb8f_ec522692",
+      "revId": "91350f8d31d27932db202a2dcfd35eb872018fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9edca44_4f29a84d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2

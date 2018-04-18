@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2aea41d8_16ddffbd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "109a5432_81918c3c",
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8db395e_a489d824",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2018-04-18T12:10:50Z",
       "side": 1,
       "message": "If you want to keep using AddInput(), you may as well use range-based loop,\n\n  for (HInstruction* value : values) {\n    phi-\u003eAddInput(value);\n  }\n\nThe other alternative is to pre-allocate inputs in constructor, and add inputs using `SetRawInputAt()` before the `block-\u003eAddPhi(phi)`. (That has the advantage of allocating the exact amount of memory that we need.)",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 5
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "477c37c8_9d37aac4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8db395e_a489d824",
       "range": {
         "startLine": 420,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "486338f8_a8df547b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Done. Although I\u0027m curious: why the preference?",
+      "parentUuid": "486767ab_58696529",
+      "range": {
+        "startLine": 433,
+        "startChar": 49,
+        "endLine": 433,
+        "endChar": 52
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86c91d32_162687b5",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 7
@@ -76,6 +142,30 @@
       "writtenOn": "2018-04-18T12:10:50Z",
       "side": 1,
       "message": "I prefer this to be an /*out*/ parameter. That makes it easier to reason about as there would be only one function where `pred_values_` is directly referenced. And it would make it easier to change the pred_values_ back to a local variable.",
+      "range": {
+        "startLine": 492,
+        "startChar": 8,
+        "endLine": 492,
+        "endChar": 20
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04579433_0d98cd1d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86c91d32_162687b5",
       "range": {
         "startLine": 492,
         "startChar": 8,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "cd30c1d9_f2392961",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Ah great. I think I\u0027ve updated it now to what you mean, but let me know if I misunderstood.",
+      "parentUuid": "c3807c5b_4cd90d25",
+      "range": {
+        "startLine": 516,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 25
+      },
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70adc921_2cece7ee",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 7
@@ -122,6 +236,24 @@
       "writtenOn": "2018-04-18T12:10:50Z",
       "side": 1,
       "message": "Maybe DCHECK_EQ()?",
+      "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e311e11_f565dc9b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1272179
+      },
+      "writtenOn": "2018-04-18T23:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70adc921_2cece7ee",
       "revId": "2a2d057e32aac9020f987d587fc928dcd2648c70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
