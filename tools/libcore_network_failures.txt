@@ -88,5 +88,12 @@
           "org.apache.harmony.tests.java.util.ScannerTest#test_useDelimiter_String",
           "org.apache.harmony.tests.java.util.ScannerTest#test_useLocale_LLocale",
           "org.apache.harmony.tests.java.util.ScannerTest#test_useRadix_I"]
+},
+{
+  description: "Tries to access network when it should not; Times out",
+  result: EXEC_FAILED,
+  bug: 78269207,
+  modes: [device],
+  names: ["org.apache.harmony.tests.java.util.jar.JarFileTest#testGetJarEntry"]
 }
 ]
