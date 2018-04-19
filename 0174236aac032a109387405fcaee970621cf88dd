@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "767922df_e0466fa3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-19T10:01:34Z",
+      "side": 1,
+      "message": "Off-topic: Can we optimize the brain-dead x86-style code here and in the other locking functions? The distance between the LDREX and STREX can be easily halved.",
+      "revId": "0174236aac032a109387405fcaee970621cf88dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
