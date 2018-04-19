@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "4996a725_26fb23d2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-19T13:56:59Z",
+      "side": 1,
+      "message": "The LSEVisitor can have a member variable `marker_phi_` for comparison.",
+      "parentUuid": "d6e3ec84_3f6700bb",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 33
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a705534_4d76a983",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-19T13:56:59Z",
+      "side": 1,
+      "message": "This fits on one line. Does it fit if we add \"/* number_of_inputs */\" before the \"0\"?",
+      "range": {
+        "startLine": 413,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 34
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "571cc96e_0c68544c",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 9
@@ -59,6 +106,30 @@
       "writtenOn": "2018-04-18T23:55:51Z",
       "side": 1,
       "message": "In progress: adding local ScopedArenaAllocator.\n\n(I\u0027m getting a failed DCHECK, [debug_stack.h:111] Check failed: counter_-\u003eGetRefCount() \u003d\u003d ref_count_ (counter_-\u003eGetRefCount()\u003d2, ref_count_\u003d1), working on it)",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 540,
+        "endChar": 44
+      },
+      "revId": "28db6986d8f7ab9dfe2810bf6644fe79fe90dd34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35af136_8aa14372",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-19T13:56:59Z",
+      "side": 1,
+      "message": "That would mean that we\u0027re actually allocating something on the allocator_ while allocator is alive.\n\nThe problem is that you\u0027re allocating a marker phi below. I was thinking about having a single marker Phi shared for all the blocks and heap indexes (allocated in LSEVisitor\u0027s constructor). Do you really need the Phi to track the block where it comes from? It would seem that passing the block instead of the marker phi to ReplaceMarkerPhi() should be OK except for lines 440-445.",
+      "parentUuid": "10b419f5_e27ff840",
       "range": {
         "startLine": 539,
         "startChar": 4,
