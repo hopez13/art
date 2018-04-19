@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "324c3e6e_6296734e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-19T17:33:15Z",
+      "side": 1,
+      "message": "Nicolas, this is what I had in mind.\n\nThis is just for illustration purposes, and very much WIP (since this will require checker changes, which is why I planned it in a follow up CL).\n\nBut hopefully you like this approach.",
+      "revId": "97bcf18da4aa35d7a28bea06c4d153b912d36c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
