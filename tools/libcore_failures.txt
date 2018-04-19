@@ -214,5 +214,12 @@
   description: "java.io.IOException: Error writing ASN.1 encoding",
   result: EXEC_FAILED,
   names: ["libcore.javax.crypto.spec.AlgorithmParametersTestGCM#testEncoding"]
+},
+{
+  description: "Tries to access network when it should not; Times out",
+  result: EXEC_FAILED,
+  bug: 78269207,
+  modes: [device],
+  names: ["org.apache.harmony.tests.java.util.jar.JarFileTest#testGetJarEntry"]
 }
 ]
