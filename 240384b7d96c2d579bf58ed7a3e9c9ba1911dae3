@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30070633_be057b02",
+        "filename": "test/683-deopt-regression/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-19T16:19:14Z",
+      "side": 1,
+      "message": "PS1 vs PS2 shows the fix: I should not have relied on output under the equals(\"Dalvik\") condition, since that is not run under --jvm",
+      "revId": "240384b7d96c2d579bf58ed7a3e9c9ba1911dae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
