@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1937b70_734c1b66",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-19T00:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1bc086_bb1d36a8",
+      "range": {
+        "startLine": 288,
+        "startChar": 63,
+        "endLine": 288,
+        "endChar": 70
+      },
+      "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3844064_6c6efaec",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "35296cdf_f14f5f4e",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-19T00:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3844064_6c6efaec",
+      "range": {
+        "startLine": 291,
+        "startChar": 23,
+        "endLine": 291,
+        "endChar": 25
+      },
+      "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2234355a_da6acf47",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 1
@@ -62,6 +110,24 @@
       "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3c68e3d_59c67281",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-19T00:51:19Z",
+      "side": 1,
+      "message": "I personally prefer functions over macros, though it means it\u0027s more verbose, I guess.",
+      "parentUuid": "2234355a_da6acf47",
+      "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +151,30 @@
       "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13063b3_0756c9a6",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-19T00:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4269cc2_ec71fa74",
+      "range": {
+        "startLine": 2535,
+        "startChar": 48,
+        "endLine": 2536,
+        "endChar": 76
+      },
+      "revId": "af5921a9d16c86d1df8764d6cde4cf17f906c416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
