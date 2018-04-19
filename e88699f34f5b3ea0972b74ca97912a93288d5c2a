@@ -22,6 +22,52 @@
       "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79714c9d_6106e3c7",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-19T21:02:47Z",
+      "side": 1,
+      "message": "I don\u0027t think we need it here. Do we?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f23ae068_9e03ac19",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-04-19T21:02:47Z",
+      "side": 1,
+      "message": "Document why we need this passed around.",
+      "range": {
+        "startLine": 99,
+        "startChar": 27,
+        "endLine": 99,
+        "endChar": 33
+      },
+      "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
