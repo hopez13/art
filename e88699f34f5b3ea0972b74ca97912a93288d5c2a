@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4772f7a_2093e16c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-19T15:37:14Z",
+      "side": 1,
+      "message": "fds are not uints.",
+      "range": {
+        "startLine": 1162,
+        "startChar": 33,
+        "endLine": 1162,
+        "endChar": 41
+      },
+      "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
