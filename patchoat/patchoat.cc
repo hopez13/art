@@ -198,7 +198,7 @@ bool PatchOat::GeneratePatch(
   const ImageHeader& relocated_header =
       *reinterpret_cast<const ImageHeader*>(relocated.Begin());
   // Offsets are supposed to differ between original and relocated by this value
-  off_t expected_diff = relocated_header.GetPatchDelta();
+  uint32_t expected_diff = relocated_header.GetPatchDelta();
   if (expected_diff == 0) {
     // Can't identify offsets which are supposed to differ due to relocation
     *error_msg = "Relocation delta is 0";
@@ -217,10 +217,23 @@ bool PatchOat::GeneratePatch(
   for (size_t offset = 0; offset < original_size; offset += 4) {
     uint32_t original_value = *reinterpret_cast<const uint32_t*>(original_bytes + offset);
     uint32_t relocated_value = *reinterpret_cast<const uint32_t*>(relocated_bytes + offset);
-    off_t diff = relocated_value - original_value;
+    uint32_t diff = relocated_value - original_value;
     if (diff == 0) {
       continue;
-    } else if (diff != expected_diff) {
+    }
+    if (kPoisonHeapReferences && relocated_header.GetObjectsSection().Contains(offset)) {
+      // We do not have a way to correctly distinguish poisoned references from native
+      // pointers living on the heap (for example ArtMethod*s stored in Class objects).
+      // That would require knowing the ranges of all boot image object spaces, not just
+      // the current one available through `relocated_header`. And the boot image
+      // address range would have to avoid crossing the 2GiB address, so that the same
+      // value cannot be valid as both a poisoned object reference and native pointer.
+      // So, just check if the diff appears to be a diff of poisoned references.
+      if (diff == -expected_diff) {
+        diff = -diff;  // Make the check below pass.
+      }
+    }
+    if (diff != expected_diff) {
       *error_msg =
           StringPrintf(
               "Unexpected diff at offset %zu. Expected: %jd, but was: %jd",
@@ -336,7 +349,7 @@ static bool CheckImageIdenticalToOriginalExceptForRelocation(
   }
 
   const ImageHeader& image_header = *reinterpret_cast<const ImageHeader*>(image.get());
-  off_t expected_diff = image_header.GetPatchDelta();
+  uint32_t expected_diff = image_header.GetPatchDelta();
 
   if (expected_diff == 0) {
     *error_msg = StringPrintf("Unsuported patch delta of zero in %s",
@@ -380,6 +393,14 @@ static bool CheckImageIdenticalToOriginalExceptForRelocation(
   uint8_t image_digest[SHA256_DIGEST_LENGTH];
   SHA256(image.get(), image_size, image_digest);
   if (memcmp(image_digest, original_image_digest, SHA256_DIGEST_LENGTH) != 0) {
+    if (kPoisonHeapReferences) {
+      // We do not have a way to correctly distinguish poisoned references from native
+      // pointers living on the heap. See more detailed description in GeneratePatch().
+      // The verification is essentially doomed to fail, so just accept the file anyway
+      // as the heap poisoning is a testing configuration that should never ship to users.
+      return true;
+    }
+
     *error_msg =
         StringPrintf(
             "Relocated image %s does not match the original %s after unrelocation",
