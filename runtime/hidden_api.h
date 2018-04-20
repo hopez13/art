@@ -72,11 +72,10 @@ inline Action GetActionFromAccessFlags(uint32_t access_flags) {
   // The logic below relies on equality of values in the enums EnforcementPolicy and
   // HiddenApiAccessFlags::ApiList, and their ordering. Assertions are in hidden_api.cc.
   if (static_cast<int>(policy) > static_cast<int>(api_list)) {
-    return api_list == HiddenApiAccessFlags::kDarkGreylist
-        ? kAllowButWarnAndToast
-        : kAllowButWarn;
+    return kAllowButWarn;
   } else {
-    return kDeny;
+    // AOSP only: do not deny access to blacklist. Only warn at the moment.
+    return kAllowButWarn;
   }
 }
 
