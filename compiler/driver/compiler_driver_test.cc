@@ -30,7 +30,7 @@
 #include "dex/dex_file_types.h"
 #include "gc/heap.h"
 #include "handle_scope-inl.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "mirror/dex_cache-inl.h"

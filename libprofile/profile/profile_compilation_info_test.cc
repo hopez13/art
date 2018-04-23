@@ -26,7 +26,7 @@
 #include "dex/method_reference.h"
 #include "dex/type_reference.h"
 #include "handle_scope-inl.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "linear_alloc.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"

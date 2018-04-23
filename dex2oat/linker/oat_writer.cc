@@ -51,7 +51,7 @@
 #include "gc/space/space.h"
 #include "handle_scope-inl.h"
 #include "image_writer.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "linker/buffered_output_stream.h"
 #include "linker/file_output_stream.h"
 #include "linker/index_bss_mapping_encoder.h"
