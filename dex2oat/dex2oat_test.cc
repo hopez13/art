@@ -38,7 +38,7 @@
 #include "dex/dex_file_loader.h"
 #include "dex2oat_environment_test.h"
 #include "dex2oat_return_codes.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "oat.h"
 #include "oat_file.h"
 #include "vdex_file.h"

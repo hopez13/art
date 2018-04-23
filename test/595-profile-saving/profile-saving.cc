@@ -18,7 +18,7 @@
 
 #include "art_method-inl.h"
 #include "dex/method_reference.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "jit/profile_saver.h"
 #include "jni.h"
 #include "mirror/class-inl.h"

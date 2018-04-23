@@ -79,7 +79,7 @@
 #include "gc/verification.h"
 #include "interpreter/unstarted_runtime.h"
 #include "java_vm_ext.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "linker/buffered_output_stream.h"
 #include "linker/elf_writer.h"
 #include "linker/elf_writer_quick.h"

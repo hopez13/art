@@ -83,7 +83,7 @@
 #include "jit/debugger_interface.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "jni_internal.h"
 #include "linear_alloc.h"
 #include "mirror/call_site.h"

@@ -23,7 +23,7 @@
 #include "common_runtime_test.h"
 #include "dex/descriptors_names.h"
 #include "exec_utils.h"
-#include "jit/profile_compilation_info.h"
+#include "profile/profile_compilation_info.h"
 #include "linear_alloc.h"
 #include "mirror/class-inl.h"
 #include "obj_ptr-inl.h"
