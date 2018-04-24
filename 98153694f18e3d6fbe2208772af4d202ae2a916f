@@ -16,6 +16,24 @@
       "revId": "98153694f18e3d6fbe2208772af4d202ae2a916f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fff7a8b_9e3a6dc3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-24T17:29:50Z",
+      "side": 1,
+      "message": "I will change this to use the null check like the other places, seems cleaner than checking IsAotCompiler.",
+      "parentUuid": "eafe0aa6_a7fd12ca",
+      "revId": "98153694f18e3d6fbe2208772af4d202ae2a916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
