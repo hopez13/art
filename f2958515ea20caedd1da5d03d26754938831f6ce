@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d05b270_50569bf7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-24T20:41:09Z",
+      "side": 1,
+      "message": "typo (in orig): devirtualization",
+      "revId": "f2958515ea20caedd1da5d03d26754938831f6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "280b0ee4_bebe585b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-24T20:41:09Z",
+      "side": 1,
+      "message": "can we DCHECK on !AOT here then? This was not obvious too me from the change above\n\nsame probably for ClassHierarchyAnalysis::kEnabled",
+      "revId": "f2958515ea20caedd1da5d03d26754938831f6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
