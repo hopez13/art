@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbf58c8d_37595835",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-24T17:28:09Z",
+      "side": 1,
+      "message": "Use PRIx64",
+      "range": {
+        "startLine": 151,
+        "startChar": 36,
+        "endLine": 151,
+        "endChar": 39
+      },
+      "revId": "8bd3629bd3b6144d66a7afe6f748c9d85034477b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55873b36_b64ce1b2",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-24T17:28:09Z",
+      "side": 1,
+      "message": "Order",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 17
+      },
+      "revId": "8bd3629bd3b6144d66a7afe6f748c9d85034477b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
