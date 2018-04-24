@@ -19,6 +19,7 @@
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "builder.h"
+#include "cha.h"
 #include "class_linker.h"
 #include "constant_folding.h"
 #include "data_type-inl.h"
@@ -365,8 +366,8 @@ ArtMethod* HInliner::TryCHADevirtualization(ArtMethod* resolved_method) {
   if (!resolved_method->HasSingleImplementation()) {
     return nullptr;
   }
-  if (Runtime::Current()->IsAotCompiler()) {
-    // No CHA-based devirtulization for AOT compiler (yet).
+  if (caller_compilation_unit_.GetClassLinker()->GetClassHierarchyAnalysis() == nullptr) {
+    // No CHA-based devirtulization. (Maybe the AOT compiler).
     return nullptr;
   }
   if (outermost_graph_->IsCompilingOsr()) {
