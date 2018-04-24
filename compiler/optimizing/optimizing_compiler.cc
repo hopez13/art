@@ -314,10 +314,16 @@ class OptimizingCompiler FINAL : public Compiler {
         handles);
     DCHECK_EQ(length, optimizations.size());
     // Run the optimization passes one by one.
+    std::bitset<static_cast<size_t>(OptimizationPass::kLast) + 1u> pass_changes;
+    pass_changes[static_cast<size_t>(OptimizationPass::kNone)] = true;
     bool change = false;
     for (size_t i = 0; i < length; ++i) {
-      PassScope scope(optimizations[i]->GetPassName(), pass_observer);
-      change |= optimizations[i]->Run();
+      if (pass_changes[static_cast<size_t>(definitions[i].depends_on)]) {
+        PassScope scope(optimizations[i]->GetPassName(), pass_observer);
+        bool pass_change = optimizations[i]->Run();
+        pass_changes[static_cast<size_t>(definitions[i].pass)] = pass_change;
+        change |= pass_change;
+      }
     }
     return change;
   }
@@ -442,11 +448,6 @@ bool OptimizingCompiler::MaybeRunInliner(HGraph* graph,
                                          const DexCompilationUnit& dex_compilation_unit,
                                          PassObserver* pass_observer,
                                          VariableSizedHandleScope* handles) const {
-  const CompilerOptions& compiler_options = GetCompilerDriver()->GetCompilerOptions();
-  bool should_inline = (compiler_options.GetInlineMaxCodeUnits() > 0);
-  if (!should_inline) {
-    return false;
-  }
   OptimizationDef optimizations[] = {
     OptDef(OptimizationPass::kInliner)
   };
@@ -622,45 +623,34 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     return;
   }
 
-  OptimizationDef optimizations1[] = {
+  OptimizationDef optimizations[] = {
     OptDef(OptimizationPass::kIntrinsicsRecognizer),
     OptDef(OptimizationPass::kSharpening),
     OptDef(OptimizationPass::kConstantFolding),
     OptDef(OptimizationPass::kInstructionSimplifier),
-    OptDef(OptimizationPass::kDeadCodeElimination, "dead_code_elimination$initial")
-  };
-  RunOptimizations(graph,
-                   codegen,
-                   dex_compilation_unit,
-                   pass_observer,
-                   handles,
-                   optimizations1);
-
-  bool inlined = MaybeRunInliner(graph, codegen, dex_compilation_unit, pass_observer, handles);
-
-  if (inlined) {
-    // Run extra folding/simplifier/dce only if inlining occurred. Otherwise, there
-    // would be no point running these right after similar passes in optimization1.
-    OptimizationDef optimizations_after_inlining[] = {
-      OptDef(OptimizationPass::kConstantFolding,       "constant_folding$after_inlining"),
-      OptDef(OptimizationPass::kInstructionSimplifier, "instruction_simplifier$after_inlining"),
-      OptDef(OptimizationPass::kDeadCodeElimination,   "dead_code_elimination$after_inlining"),
-    };
-    RunOptimizations(graph,
-                     codegen,
-                     dex_compilation_unit,
-                     pass_observer,
-                     handles,
-                     optimizations_after_inlining);
-  }
-
-  OptimizationDef optimizations2[] = {
+    OptDef(OptimizationPass::kDeadCodeElimination, "dead_code_elimination$initial"),
+    OptDef(OptimizationPass::kInliner),
+    OptDef(OptimizationPass::kConstantFolding,
+           "constant_folding$after_inlining",
+           OptimizationPass::kInliner),
+    OptDef(OptimizationPass::kInstructionSimplifier,
+           "instruction_simplifier$after_inlining",
+           OptimizationPass::kInliner),
+    OptDef(OptimizationPass::kDeadCodeElimination,
+           "dead_code_elimination$after_inlining",
+           OptimizationPass::kInliner),
     OptDef(OptimizationPass::kSideEffectsAnalysis,   "side_effects$before_gvn"),
     OptDef(OptimizationPass::kGlobalValueNumbering),
+    OptDef(OptimizationPass::kConstantFolding,
+           "constant_folding$after_gvn",
+           OptimizationPass::kGlobalValueNumbering),
+    OptDef(OptimizationPass::kInstructionSimplifier,
+           "instruction_simplifier$after_gvn",
+           OptimizationPass::kGlobalValueNumbering),
+    OptDef(OptimizationPass::kDeadCodeElimination,
+           "dead_code_elimination$after_gvn",
+           OptimizationPass::kGlobalValueNumbering),
     OptDef(OptimizationPass::kSelectGenerator),
-    OptDef(OptimizationPass::kConstantFolding,       "constant_folding$after_gvn"),
-    OptDef(OptimizationPass::kInstructionSimplifier, "instruction_simplifier$after_gvn"),
-    OptDef(OptimizationPass::kDeadCodeElimination,   "dead_code_elimination$after_gvn"),
     OptDef(OptimizationPass::kSideEffectsAnalysis,   "side_effects$before_licm"),
     OptDef(OptimizationPass::kInvariantCodeMotion),
     OptDef(OptimizationPass::kInductionVarAnalysis),
@@ -688,7 +678,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
                    dex_compilation_unit,
                    pass_observer,
                    handles,
-                   optimizations2);
+                   optimizations);
 
   RunArchOptimizations(graph, codegen, dex_compilation_unit, pass_observer, handles);
 }
