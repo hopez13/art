@@ -22,6 +22,53 @@
       "revId": "0cfa0459ee3c607ca2cbc6780245b62de20cb742",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "170aeab1_f9f4863c",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-24T09:17:24Z",
+      "side": 1,
+      "message": "An alternative would be OptDef() containing an optional dependency specified as an OptimizationPass enumerator. RunOptimization() would record results of each pass\u0027s Run() in a bitset\u003c\u003e and check dependencies against that.\n\nThe function MaybeRunInliner() should be removed, the max-code-units check should be moved to the inliner itself.",
+      "parentUuid": "171b9deb_c7bed613",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 3
+      },
+      "revId": "0cfa0459ee3c607ca2cbc6780245b62de20cb742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0677b8_ee6d4d55",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-24T09:17:24Z",
+      "side": 1,
+      "message": "Run these right after GVN and only if GVN optimized something.",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 88
+      },
+      "revId": "0cfa0459ee3c607ca2cbc6780245b62de20cb742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
