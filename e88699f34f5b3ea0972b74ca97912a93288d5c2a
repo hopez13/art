@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c88ec29_aaa413f0",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-24T13:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4772f7a_2093e16c",
+      "range": {
+        "startLine": 1162,
+        "startChar": 33,
+        "endLine": 1162,
+        "endChar": 41
+      },
+      "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79714c9d_6106e3c7",
         "filename": "runtime/oat_file.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-19T21:02:47Z",
       "side": 1,
       "message": "I don\u0027t think we need it here. Do we?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "e88699f34f5b3ea0972b74ca97912a93288d5c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81908603_31e16965",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-24T13:39:40Z",
+      "side": 1,
+      "message": "No, but I felt this made the API a bit consistent. Let me know if you\u0027d rather not have it.",
+      "parentUuid": "79714c9d_6106e3c7",
       "range": {
         "startLine": 87,
         "startChar": 0,
