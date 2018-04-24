@@ -51,11 +51,11 @@ class HashMapWrapper {
 template <class Key, class Value, class EmptyFn,
     class HashFn = std::hash<Key>, class Pred = std::equal_to<Key>,
     class Alloc = std::allocator<std::pair<Key, Value>>>
-class HashMap : public HashSet<std::pair<Key, Value>,
-                               EmptyFn,
-                               HashMapWrapper<HashFn>,
-                               HashMapWrapper<Pred>,
-                               Alloc> {
+class HashMap : private HashSet<std::pair<Key, Value>,
+                                EmptyFn,
+                                HashMapWrapper<HashFn>,
+                                HashMapWrapper<Pred>,
+                                Alloc> {
  private:
   using Base = HashSet<std::pair<Key, Value>,
                        EmptyFn,
@@ -64,10 +64,109 @@ class HashMap : public HashSet<std::pair<Key, Value>,
                        Alloc>;
 
  public:
-  HashMap() : Base() { }
-  explicit HashMap(const Alloc& alloc)
+  using value_type = typename Base::value_type;
+  using allocator_type = typename Base::allocator_type;
+  using reference = typename Base::reference;
+  using const_reference = typename Base::const_reference;
+  using pointer = typename Base::pointer;
+  using const_pointer = typename Base::const_pointer;
+  using iterator = typename Base::iterator;
+  using const_iterator = typename Base::const_iterator;
+  using size_type = typename Base::size_type;
+  using difference_type = typename Base::difference_type;
+
+  HashMap() noexcept : Base() { }
+  HashMap(const HashMap& other) : Base(other) {}
+  HashMap(HashMap&& other) noexcept : Base(std::move(other)) {}
+
+  explicit HashMap(const Alloc& alloc) noexcept
       : Base(alloc) { }
+
+  HashMap& operator=(const HashMap& other) noexcept {
+    static_cast<Base&>(*this) = other;
+    return *this;
+  }
+
+  HashMap& operator=(HashMap&& other) noexcept {
+    static_cast<Base&>(*this) = std::move(other);
+    return *this;
+  }
+
+  using Base::Clear;
+  using Base::Empty;
+  using Base::Erase;
+  using Base::Find;
+  using Base::Insert;
+  using Base::Size;
+
+  // Compatibility with SafeMap
+
+  using Base::begin;
+  using Base::end;
+  using Base::get_allocator;
+  using Base::swap;
+
+  bool empty() const {
+    return Base::Empty();
+  }
+
+  size_type size() const {
+    return Base::Size();
+  }
+
+  size_type count(const Key& key) const {
+    return find(key) == end() ? 0 : 1;
+  }
+
+  template<typename V>
+  iterator Put(const Key& k, V&& v) {
+    // Make sure we're not adding a duplicate
+    DCHECK(Base::Find(k) == Base::end());
+    return Base::Insert(value_type(k, std::forward<V>(v)));
+  }
+
+  void clear() {
+    Base::Clear();
+  }
+
+  template<typename K>
+  iterator find(const K& key) {
+    return Base::Find(key);
+  }
+
+  template<typename K>
+  const_iterator find(const K& key) const {
+    return Base::Find(key);
+  }
+
+  iterator erase(iterator it) {
+    return Erase(it);
+  }
+
+  template<typename K>
+  size_t erase(const K& key) {
+    iterator it = Base::Find(key);
+    if (it == Base::end()) {
+      return 0;
+    }
+    Base::Erase(it);
+    return 1;
+  }
+
+  bool operator==(const HashMap& other) const {
+    return static_cast<const Base&>(*this) == other;
+  }
+
+  bool operator!=(const HashMap& other) const {
+    return static_cast<const Base&>(*this) != other;
+  }
 };
+
+template <class Key, class Value, class EmptyFn, class HashFn, class Pred, class Alloc>
+void swap(HashMap<Key, Value, EmptyFn, HashFn, Pred, Alloc>& lhs,
+          HashMap<Key, Value, EmptyFn, HashFn, Pred, Alloc>& rhs) noexcept {
+  lhs.swap(rhs);
+}
 
 }  // namespace art
 
