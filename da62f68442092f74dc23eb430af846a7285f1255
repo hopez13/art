@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "89621315_f6916735",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-24T16:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e67a8a7e_aa192229",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "da62f68442092f74dc23eb430af846a7285f1255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e58059f_7ab6686b",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-04-24T14:30:32Z",
       "side": 1,
       "message": "0xe8",
+      "range": {
+        "startLine": 2607,
+        "startChar": 74,
+        "endLine": 2607,
+        "endChar": 78
+      },
+      "revId": "da62f68442092f74dc23eb430af846a7285f1255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692953c8_32710736",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2607,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-24T16:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e58059f_7ab6686b",
       "range": {
         "startLine": 2607,
         "startChar": 74,
