@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e67a8a7e_aa192229",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-24T14:30:32Z",
+      "side": 1,
+      "message": "I\u0027d explicitly say we can (re)use MR (R8) as a temp register instead of R4 on ARM:\n\n  The marking register (r8 on ARM) is known to be 1 when entering the\n  introspection marking entrypoint, so we can clobber it, use it as a\n  temporary register (instead of r4) in the runtime entrypoint, and\n  reload the 1 before returning.",
+      "range": {
+        "startLine": 10,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "da62f68442092f74dc23eb430af846a7285f1255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e58059f_7ab6686b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2607,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-24T14:30:32Z",
+      "side": 1,
+      "message": "0xe8",
+      "range": {
+        "startLine": 2607,
+        "startChar": 74,
+        "endLine": 2607,
+        "endChar": 78
+      },
+      "revId": "da62f68442092f74dc23eb430af846a7285f1255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
