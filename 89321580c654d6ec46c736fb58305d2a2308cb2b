@@ -22,6 +22,30 @@
       "revId": "89321580c654d6ec46c736fb58305d2a2308cb2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ed14ec_e0cdc0c1",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-04-24T19:50:05Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m surprised that this thing compiled. The resulting value of digits is zero. That\u0027s a profoundly unhelpful value; it explains the failure.",
+      "parentUuid": "dfc29abc_2902b423",
+      "range": {
+        "startLine": 72,
+        "startChar": 46,
+        "endLine": 72,
+        "endChar": 56
+      },
+      "revId": "89321580c654d6ec46c736fb58305d2a2308cb2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
