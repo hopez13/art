@@ -19,6 +19,7 @@
 
 #include <memory>
 #include <vector>
+#include <limits>
 
 #include <android-base/logging.h>
 
@@ -64,6 +65,11 @@ class RegisterLine {
  public:
   // A map from register to a bit vector of indices into the monitors_ stack.
   using RegToLockDepthsMap = ScopedArenaSafeMap<uint32_t, uint32_t>;
+
+  // Maximum number of nested monitors to track before giving up and
+  // taking the slow path.
+  static constexpr size_t kMaxMonitorStackDepth =
+      std::numeric_limits<RegToLockDepthsMap::value_type>::digits;
 
   // Create a register line of num_regs registers.
   static RegisterLine* Create(size_t num_regs, MethodVerifier* verifier);
@@ -391,7 +397,7 @@ class RegisterLine {
   }
 
   bool SetRegToLockDepth(size_t reg, size_t depth) {
-    CHECK_LT(depth, 32u);
+    CHECK_LT(depth, kMaxMonitorStackDepth);
     if (IsSetLockDepth(reg, depth)) {
       return false;  // Register already holds lock so locking twice is erroneous.
     }
