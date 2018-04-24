@@ -79,7 +79,8 @@ class LinearAlloc;
  */
 class ClassHierarchyAnalysis {
  public:
-  static constexpr bool kEnabled = true;
+  // Disabled until interactions with app images are fixed. b/78446947
+  static constexpr bool kEnabled = false;
 
   // Types for recording CHA dependencies.
   // For invalidating CHA dependency, we need to know both the ArtMethod and
