@@ -365,9 +365,14 @@
         "variant": "speed-profile"
     },
     {
-        "test_patterns": ["616-cha.*"],
+        "test_patterns": ["616-cha.*",
+                          "1938-transform-abstract-single-impl"],
         "description": ["cha tests rely on knowing more about the state of the JIT then is possible with jvmti-stress"],
         "variant": "jvmti-stress & jit | redefine-stress & jit"
+    },
+    {
+        "test_patterns": ["616-cha.*"],
+        "description": ["cha tests are disabled until the feature is re-enabled."]
     },
     {
         "test_patterns": ["616-cha"],
