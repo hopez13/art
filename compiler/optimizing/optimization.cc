@@ -61,6 +61,9 @@ namespace art {
 
 const char* OptimizationPassName(OptimizationPass pass) {
   switch (pass) {
+    case OptimizationPass::kNone:
+      LOG(FATAL) << "kNone does not represent an actual pass";
+      UNREACHABLE();
     case OptimizationPass::kSideEffectsAnalysis:
       return SideEffectsAnalysis::kSideEffectsAnalysisPassName;
     case OptimizationPass::kInductionVarAnalysis:
@@ -187,14 +190,17 @@ ArenaVector<HOptimization*> ConstructOptimizations(
 
   // Loop over the requested optimizations.
   for (size_t i = 0; i < length; i++) {
-    OptimizationPass pass = definitions[i].first;
-    const char* alt_name = definitions[i].second;
+    OptimizationPass pass = definitions[i].pass;
+    const char* alt_name = definitions[i].name;
     const char* name = alt_name != nullptr
         ? alt_name
         : OptimizationPassName(pass);
     HOptimization* opt = nullptr;
 
     switch (pass) {
+      case OptimizationPass::kNone:
+        LOG(FATAL) << "kNone does not represent an actual pass";
+        UNREACHABLE();
       //
       // Analysis passes (kept in most recent for subsequent passes).
       //

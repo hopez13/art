@@ -102,6 +102,8 @@ enum class OptimizationPass {
 #if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)
   kX86MemoryOperandGeneration,
 #endif
+  kNone,
+  kLast = kNone
 };
 
 // Lookup name of optimization pass.
@@ -112,11 +114,17 @@ OptimizationPass OptimizationPassByName(const std::string& name);
 
 // Optimization definition consisting of an optimization pass
 // and an optional alternative name (nullptr denotes default).
-typedef std::pair<OptimizationPass, const char*> OptimizationDef;
+struct OptimizationDef {
+  OptimizationPass pass;
+  const char* name;
+  OptimizationPass depends_on;
+};
 
 // Helper method for optimization definition array entries.
-inline OptimizationDef OptDef(OptimizationPass pass, const char* name = nullptr) {
-  return std::make_pair(pass, name);
+inline OptimizationDef OptDef(OptimizationPass pass,
+                              const char* name = nullptr,
+                              OptimizationPass depends_on = OptimizationPass::kNone) {
+  return OptimizationDef{pass, name, depends_on};
 }
 
 // Helper method to construct series of optimization passes.

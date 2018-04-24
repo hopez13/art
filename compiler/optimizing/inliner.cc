@@ -125,6 +125,10 @@ void HInliner::UpdateInliningBudget() {
 }
 
 bool HInliner::Run() {
+  if (compiler_driver_->GetCompilerOptions().GetInlineMaxCodeUnits() == 0) {
+    return false;
+  }
+
   if (graph_->IsDebuggable()) {
     // For simplicity, we currently never inline when the graph is debuggable. This avoids
     // doing some logic in the runtime to discover if a method could have been inlined.
