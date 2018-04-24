@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eafe0aa6_a7fd12ca",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-24T17:13:09Z",
+      "side": 1,
+      "message": "how about having this at its own line and with its own reason:\n\nif (!ClassHierarchyAnalysis::kEnabled) {\n  // Optimization disabled.\n}\nif (Runtime::Current()-\u003eIsAotCompiler() {\n    // No CHA-based devirtulization for AOT compiler (yet).\n    return nullptr;\n}\n....\n\nso that the comments make more sense",
+      "revId": "98153694f18e3d6fbe2208772af4d202ae2a916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
