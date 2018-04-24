@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4edd9085_dc9aca03",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-24T15:57:10Z",
+      "side": 1,
+      "message": "We could for this specific case, but that would not allow for other cases, like what vmarko is proposing below. Having a return value from Run() seems useful for such and future cases, right?",
+      "parentUuid": "170aeab1_f9f4863c",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 3
+      },
+      "revId": "0cfa0459ee3c607ca2cbc6780245b62de20cb742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0677b8_ee6d4d55",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2018-04-24T09:17:24Z",
       "side": 1,
       "message": "Run these right after GVN and only if GVN optimized something.",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 88
+      },
+      "revId": "0cfa0459ee3c607ca2cbc6780245b62de20cb742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f6abbdd_0763b8fd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-24T15:57:10Z",
+      "side": 1,
+      "message": "happy to do that, which was the direction I was going in, but that needs the return value from Run() that Nicolas is now blocking a bit....",
+      "parentUuid": "dc0677b8_ee6d4d55",
       "range": {
         "startLine": 661,
         "startChar": 0,
