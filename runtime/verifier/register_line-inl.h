@@ -195,8 +195,7 @@ inline RegisterLine* RegisterLine::Create(size_t num_regs, MethodVerifier* verif
 inline RegisterLine::RegisterLine(size_t num_regs, MethodVerifier* verifier)
     : num_regs_(num_regs),
       monitors_(verifier->GetScopedAllocator().Adapter(kArenaAllocVerifier)),
-      reg_to_lock_depths_(std::less<uint32_t>(),
-                          verifier->GetScopedAllocator().Adapter(kArenaAllocVerifier)),
+      reg_to_lock_depths_(verifier->GetScopedAllocator().Adapter(kArenaAllocVerifier)),
       this_initialized_(false) {
   std::uninitialized_fill_n(line_, num_regs_, 0u);
   SetResultTypeToUnknown(verifier);

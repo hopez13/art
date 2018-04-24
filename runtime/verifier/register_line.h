@@ -62,9 +62,31 @@ enum class LockOp {
 // the status of all registers, and (if the method has any monitor-enter instructions) maintain a
 // stack of entered monitors (identified by code unit offset).
 class RegisterLine {
+  using Register = uint32_t;
+  using RegisterDepths = uint32_t;
+
+  class RegisterEmptyFn {
+   public:
+    using Item = std::pair<Register, RegisterDepths>;
+    static constexpr std::pair<Register, RegisterDepths> InvalidItem() {
+      return {
+        std::numeric_limits<Register>::max(),
+        std::numeric_limits<RegisterDepths>::max(),
+      };
+    }
+    void MakeEmpty(Item& item) const {
+      item = InvalidItem();
+    }
+    bool IsEmpty(const Item& item) const {
+      return item == InvalidItem();
+    }
+  };
+
  public:
   // A map from register to a bit vector of indices into the monitors_ stack.
-  using RegToLockDepthsMap = ScopedArenaSafeMap<uint32_t, uint32_t>;
+  using RegToLockDepthsMap = ScopedArenaHashMap<Register,
+                                                RegisterDepths,
+                                                RegisterEmptyFn>;
 
   // Maximum number of nested monitors to track before giving up and
   // taking the slow path.

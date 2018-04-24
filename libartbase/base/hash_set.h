@@ -389,12 +389,12 @@ class HashSet {
 
   // Insert an element, allows duplicates.
   template <typename U, typename = typename std::enable_if<std::is_convertible<U, T>::value>::type>
-  void Insert(U&& element) {
-    InsertWithHash(std::forward<U>(element), hashfn_(element));
+  iterator Insert(U&& element) {
+    return InsertWithHash(std::forward<U>(element), hashfn_(element));
   }
 
   template <typename U, typename = typename std::enable_if<std::is_convertible<U, T>::value>::type>
-  void InsertWithHash(U&& element, size_t hash) {
+  iterator InsertWithHash(U&& element, size_t hash) {
     DCHECK_EQ(hash, hashfn_(element));
     if (num_elements_ >= elements_until_expand_) {
       Expand();
@@ -403,13 +403,14 @@ class HashSet {
     const size_t index = FirstAvailableSlot(IndexForHash(hash));
     data_[index] = std::forward<U>(element);
     ++num_elements_;
+    return iterator(this, index);
   }
 
   size_t Size() const {
     return num_elements_;
   }
 
-  void swap(HashSet& other) {
+  void swap(HashSet& other) noexcept {
     // Use argument-dependent lookup with fall-back to std::swap() for function objects.
     using std::swap;
     swap(allocfn_, other.allocfn_);
@@ -521,6 +522,23 @@ class HashSet {
 
   size_t NumBuckets() const {
     return num_buckets_;
+  }
+
+  bool operator==(const HashSet& other) const {
+    if (Size() != other.Size()) {
+      return false;
+    }
+    for (auto it = begin(); it != end(); ++it) {
+      auto other_it = other.Find(*it);
+      if (other_it == other.end() || *it != *other_it) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool operator!=(const HashSet& other) const {
+    return !(*this == other);
   }
 
  private:
@@ -684,7 +702,7 @@ class HashSet {
 
 template <class T, class EmptyFn, class HashFn, class Pred, class Alloc>
 void swap(HashSet<T, EmptyFn, HashFn, Pred, Alloc>& lhs,
-          HashSet<T, EmptyFn, HashFn, Pred, Alloc>& rhs) {
+          HashSet<T, EmptyFn, HashFn, Pred, Alloc>& rhs) noexcept {
   lhs.swap(rhs);
 }
 
