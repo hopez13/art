@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53b9eb42_48e38eed",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Can we use \"\u003d default\" for these? (And maybe also for operator\u003d()s.)",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 63
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d4b45ec_99f2f2b3",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Add size() and empty() to HashSet\u003c\u003e (declare Size()/Empty() deprecated if you don\u0027t want to rewrite all uses), replace these with \"using\".",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdb8a213_1e575f46",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Add count() to HashSet\u003c\u003e.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 3
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f32f78f_636fa82f",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Add clear() to HashSet\u003c\u003e.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05a75f8c_d8bec89e",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "These operators should be in the namespace scope. We may need a friend declaration in the class.",
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "023aa6af_5413b952",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Maybe \"!(*this \u003d\u003d other)\" so that we don\u0027t need another friend declaration when moving this to the namespace scope.",
+      "range": {
+        "startLine": 161,
+        "startChar": 11,
+        "endLine": 161,
+        "endChar": 51
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3cecc63_83c52eb3",
+        "filename": "libartbase/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "These operators should be in the namespace scope.",
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca5de1bf_a68b3499",
+        "filename": "libartbase/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Use range-based loop.",
+      "range": {
+        "startLine": 531,
+        "startChar": 4,
+        "endLine": 531,
+        "endChar": 48
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48025ad2_a4b0606f",
+        "filename": "libartbase/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Looks wrong and unnecessary, other.Find() should have checked for equality (using pred_ instead of \u003d\u003d).",
+      "range": {
+        "startLine": 533,
+        "startChar": 33,
+        "endLine": 533,
+        "endChar": 53
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c1fa2da_078ff9c4",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-25T10:10:44Z",
+      "side": 1,
+      "message": "Isn\u0027t the purpose of this CL to replace this with ScopedArenaHashMap\u003c\u003e? If not, you should change the commit message and remove the Register/RegisterEmptyFn above.",
+      "range": {
+        "startLine": 88,
+        "startChar": 29,
+        "endLine": 88,
+        "endChar": 76
+      },
+      "revId": "dfa7bc064cb152e09c24b6a273b17e486ebb2ef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
