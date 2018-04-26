@@ -499,6 +499,10 @@ inline static constexpr T BitFieldExtract(T value, size_t lsb, size_t width) {
   return bitfield_unsigned;
 }
 
+inline static constexpr size_t BitsToBytesRoundUp(size_t num_bits) {
+  return RoundUp(num_bits, 8) / 8;
+}
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_BIT_UTILS_H_
