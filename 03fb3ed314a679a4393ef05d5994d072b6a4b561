@@ -22,6 +22,30 @@
       "revId": "03fb3ed314a679a4393ef05d5994d072b6a4b561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79ea3164_0bee4c12",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-26T15:30:14Z",
+      "side": 1,
+      "message": "Allocas have a well-defined lifetime (the enclosing function). Not very scary. Putting it into macros (like we do for ShadowFrame) is a bit more interesting.",
+      "parentUuid": "e4a492d2_9ebb7370",
+      "range": {
+        "startLine": 1257,
+        "startChar": 46,
+        "endLine": 1257,
+        "endChar": 52
+      },
+      "revId": "03fb3ed314a679a4393ef05d5994d072b6a4b561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
