@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87a4c9e0_3b3faccc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-26T13:39:27Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 18,
+        "startChar": 26,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "4b38182bba6ae2ac68bab0d2a2e9a1af3771bf15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "027708a8_328f2602",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-26T13:39:27Z",
+      "side": 1,
+      "message": "Should we have a check to ensure this, maybe in the build system (e.g. abort user builds that use heap poisoning)?",
+      "range": {
+        "startLine": 400,
+        "startChar": 12,
+        "endLine": 400,
+        "endChar": 89
+      },
+      "revId": "4b38182bba6ae2ac68bab0d2a2e9a1af3771bf15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
