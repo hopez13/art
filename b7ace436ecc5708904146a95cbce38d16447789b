@@ -22,6 +22,30 @@
       "revId": "b7ace436ecc5708904146a95cbce38d16447789b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39833eee_58be45bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-26T22:42:10Z",
+      "side": 1,
+      "message": "Size actually isn\u0027t impacted. Which is a bit curious, but I\u0027ll take it. It does make a bit of sense, as partial evaluation should eliminate the switches etc away, basically just breaking the current function up (and if things are inlined avoid prologue/epilogue).\n\nI used instruction count as it\u0027s something that can be easily measured, is quite stable, and usually strongly indicative of performance. If you want other stats, give me a list and I\u0027m happy to oblige.",
+      "parentUuid": "ff50856c_99e25b3b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "b7ace436ecc5708904146a95cbce38d16447789b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
