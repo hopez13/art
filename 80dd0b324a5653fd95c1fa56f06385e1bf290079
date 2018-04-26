@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "823f9831_250dbed3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-26T21:23:15Z",
+      "side": 1,
+      "message": "NOTE: the command-line passes lack the ability to specify dependences currently....",
+      "revId": "80dd0b324a5653fd95c1fa56f06385e1bf290079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a7fc88_5f205e77",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-26T21:23:15Z",
+      "side": 1,
+      "message": "Note: marked as TODO until I have figured how if pushing down select and doing the others conditionally impacts more checker tests",
+      "revId": "80dd0b324a5653fd95c1fa56f06385e1bf290079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
