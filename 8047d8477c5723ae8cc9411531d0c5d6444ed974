@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "299e78af_99e8aca9",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T12:05:05Z",
+      "side": 1,
+      "message": "DCHECK_EQ(expect_direct, direct_it \u003d\u003d nullptr);",
+      "range": {
+        "startLine": 679,
+        "startChar": 2,
+        "endLine": 679,
+        "endChar": 48
+      },
+      "revId": "8047d8477c5723ae8cc9411531d0c5d6444ed974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
