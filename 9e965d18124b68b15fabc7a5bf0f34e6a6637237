@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f062836c_30ac7999",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T09:21:43Z",
+      "side": 1,
+      "message": "There\u0027s no ARM instruction for POPCOUNT. Maybe it would be better to use\n\n  uint32_t access_flags \u003d flags \u0026 kAcc;\n  return flags \u003d\u003d 0 || IsPowerOfTwo(flags);\n\nActually, the IsPowerOfTwo() returns true also for 0, so the `flags \u003d\u003d 0` part is not really necessary.",
+      "range": {
+        "startLine": 2859,
+        "startChar": 9,
+        "endLine": 2859,
+        "endChar": 17
+      },
+      "revId": "9e965d18124b68b15fabc7a5bf0f34e6a6637237",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
