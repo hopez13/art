@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "c94356f8_ed9c1dbe",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-27T17:32:28Z",
+      "side": 1,
+      "message": "Argh, this doesn\u0027t work, though. Using the StringId*, I can\u0027t give a string for comparison purposes, so I don\u0027t win anything.\n\nIf we wanted to avoid the iterator, I guess I could copy-paste and special-case our binary-search implementation from DexFile (which I was trying to avoid).",
+      "parentUuid": "737785bf_c6e0a68f",
+      "range": {
+        "startLine": 3121,
+        "startChar": 20,
+        "endLine": 3121,
+        "endChar": 35
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "279168e5_82379b81",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
