@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9db0ac38_04c83957",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "!CheckIndex(string_idx, header_-\u003estring_ids_size, \"...\")\n\n(and drop the ErrorStringPrintf() below)",
+      "range": {
+        "startLine": 656,
+        "startChar": 17,
+        "endLine": 656,
+        "endChar": 56
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2c5426e_df615843",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "I\u0027d prefer\n\n  using value_type \u003d const char*;\n  using pointer \u003d void;\n  using reference \u003d void;\n  ...\n  value_type operator*() const { ... }\n  // No operator-\u003e().",
+      "range": {
+        "startLine": 3025,
+        "startChar": 0,
+        "endLine": 3027,
+        "endChar": 34
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52cc6657_84940b7d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3081,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3081,
+        "startChar": 4,
+        "endLine": 3081,
+        "endChar": 89
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b6c258e_6c07256a",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "DCHECK(begin_ \u003d\u003d rhs.begin_);\nreturn index_ \u003d\u003d rhs.index_;",
+      "range": {
+        "startLine": 3095,
+        "startChar": 6,
+        "endLine": 3095,
+        "endChar": 58
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c99691_3d7a80dd",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3098,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "!(*this \u003d\u003d rhs)",
+      "range": {
+        "startLine": 3098,
+        "startChar": 13,
+        "endLine": 3098,
+        "endChar": 57
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06b60f31_b3920150",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "rhs \u003c *this",
+      "range": {
+        "startLine": 3101,
+        "startChar": 13,
+        "endLine": 3101,
+        "endChar": 56
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f96341e0_881a5cca",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "DCHECK()",
+      "range": {
+        "startLine": 3104,
+        "startChar": 13,
+        "endLine": 3104,
+        "endChar": 33
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53e6888b_3fe51675",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "!(*this \u003c lhs)",
+      "range": {
+        "startLine": 3107,
+        "startChar": 13,
+        "endLine": 3107,
+        "endChar": 57
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ffc51f8_f724ddf8",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "!(rhs \u003c *this)",
+      "range": {
+        "startLine": 3110,
+        "startChar": 13,
+        "endLine": 3110,
+        "endChar": 57
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b86e63_fbc1f674",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "Can we move the iterator to an anonymous namespace, so that these operators can have namespace scope?",
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28728871_d3c8e82a",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "You could replace this with a single\n\n  const DexFile::StringId* string_id_;  // :\u003d str_table_ + index_",
+      "range": {
+        "startLine": 3115,
+        "startChar": 0,
+        "endLine": 3116,
+        "endChar": 18
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "279168e5_82379b81",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "header_-\u003estring_ids_size_ would be just as good, so you can simplify this and unconditionally execute line 3129.",
+      "range": {
+        "startLine": 3131,
+        "startChar": 31,
+        "endLine": 3131,
+        "endChar": 65
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c0e90c0_8ee72188",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "angle_end would be just as good, so you can execute the line 3136 unconditionally. And there\u0027s no reason for the early return, empty range searches should be pretty quick.",
+      "range": {
+        "startLine": 3138,
+        "startChar": 33,
+        "endLine": 3138,
+        "endChar": 67
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6ec1633_4880fbfb",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "or angle_bracket_end_index_,\n\n  if (it !\u003d angle_end \u0026\u0026 strcmp(\u0026*it, kClinit) !\u003d0) {\n    it \u003d angle_end\n  }\n  angle_clinit_angle_index_ \u003d it - first;",
+      "range": {
+        "startLine": 3150,
+        "startChar": 34,
+        "endLine": 3150,
+        "endChar": 68
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0da6cfbb_2a06ef6b",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T13:05:56Z",
+      "side": 1,
+      "message": "or angle_bracket_end_index_",
+      "range": {
+        "startLine": 3159,
+        "startChar": 32,
+        "endLine": 3159,
+        "endChar": 66
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
