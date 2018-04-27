@@ -226,6 +226,24 @@
     },
     {
       "key": {
+        "uuid": "3e963aff_975b6767",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-27T16:16:28Z",
+      "side": 1,
+      "message": "Can you explain why the namespace is better than being inside the function?",
+      "parentUuid": "79b86e63_fbc1f674",
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28728871_d3c8e82a",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
@@ -318,6 +336,30 @@
     },
     {
       "key": {
+        "uuid": "d6da0374_14497406",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-27T16:16:28Z",
+      "side": 1,
+      "message": "I\u0027d prefer this to be \"valid\" without having to check end_index.",
+      "parentUuid": "a6ec1633_4880fbfb",
+      "range": {
+        "startLine": 3150,
+        "startChar": 34,
+        "endLine": 3150,
+        "endChar": 68
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0da6cfbb_2a06ef6b",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
@@ -329,6 +371,30 @@
       "writtenOn": "2018-04-27T13:05:56Z",
       "side": 1,
       "message": "or angle_bracket_end_index_",
+      "range": {
+        "startLine": 3159,
+        "startChar": 32,
+        "endLine": 3159,
+        "endChar": 66
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5641f032_2487679e",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-04-27T16:16:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "0da6cfbb_2a06ef6b",
       "range": {
         "startLine": 3159,
         "startChar": 32,
