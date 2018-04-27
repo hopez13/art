@@ -46,6 +46,29 @@
       "revId": "b7ace436ecc5708904146a95cbce38d16447789b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5982979_f6b95a9c",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T12:40:05Z",
+      "side": 1,
+      "message": "Templatize this and you can drop the CheckIntraSectionIterateByType().",
+      "range": {
+        "startLine": 1813,
+        "startChar": 22,
+        "endLine": 1813,
+        "endChar": 41
+      },
+      "revId": "b7ace436ecc5708904146a95cbce38d16447789b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
