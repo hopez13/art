@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16f162e2_1f226a82",
+        "filename": "Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure this would be needed when I started to work on it. But as we support the combination of ART_TEST_CHROOT and ART_TEST_ANDROID_ROOT in the rest of this CL, I figured we could keep it. Would you prefer to abort in this case?\n\nEventually, the goal is to remove code related to ART_TEST_ANDROID_ROOT.",
+      "parentUuid": "3d686ea2_9ea80ba5",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 63
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c51802c3_b4b1db0b",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "80aeefaa_8a513c84",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "Good point; I\u0027ve refactored that part.",
+      "parentUuid": "c51802c3_b4b1db0b",
+      "range": {
+        "startLine": 463,
+        "startChar": 10,
+        "endLine": 463,
+        "endChar": 28
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8cbf5c_6a93fa41",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2018-03-06T12:56:39Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 504,
+        "startChar": 9,
+        "endLine": 504,
+        "endChar": 28
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ed55bcd_f2df70d1",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "6b8cbf5c_6a93fa41",
       "range": {
         "startLine": 504,
         "startChar": 9,
@@ -166,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "c98b8e9f_9b264725",
+        "filename": "dexdump/dexdump_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "Possibly, but I think that might depend on us not running tests as root (b/38000545).",
+      "parentUuid": "4d022168_0291f7b4",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3be224b_b8bd8f61",
         "filename": "dexlist/dexlist_test.cc",
         "patchSetId": 7
@@ -260,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "9253d768_2503f2c0",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "I think using DEX_LOCATION and CHROOT_DEX_LOCATION is clearer than having ORIGNAL_DEX_LOCATION and DEX_LOCATION: the later does not convey the meaning that the distinction between the two variables is due to the chroot path.",
+      "parentUuid": "2efd44d9_059121e1",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 41
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3445021f_e0292116",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -283,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "b3e97412_878e2cf8",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "3445021f_e0292116",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 42
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae860066_322b149c",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -294,6 +438,30 @@
       "writtenOn": "2018-03-06T12:56:39Z",
       "side": 1,
       "message": "return an error of bisection search if yes and chroot is yes?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 53,
+        "endLine": 1013,
+        "endChar": 68
+      },
+      "revId": "29f2aae79cb31d430cb4be204a4812efa09db636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa060f9_358a82cc",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-04-27T18:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae860066_322b149c",
       "range": {
         "startLine": 1013,
         "startChar": 53,
