@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f887ea8_821f51a9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T17:19:11Z",
+      "side": 1,
+      "message": "Should we clear the `pass_changes[static_cast\u003csize_t\u003e(definitions[i].pass)]` if the pass was not executed?",
+      "revId": "dd86421170f8c1ad4db9a80665eff6db46876d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbc359db_c116a3ff",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T17:19:11Z",
+      "side": 1,
+      "message": "Add a way to specify `depends_on`.",
+      "revId": "dd86421170f8c1ad4db9a80665eff6db46876d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
