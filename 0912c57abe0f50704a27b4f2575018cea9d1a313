@@ -356,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "9d4f672e_c4eeb993",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T17:36:03Z",
+      "side": 1,
+      "message": "AFAIK, the comparator for std::lower_bound() does not need to take two values of the same type.",
+      "parentUuid": "c94356f8_ed9c1dbe",
+      "range": {
+        "startLine": 3121,
+        "startChar": 20,
+        "endLine": 3121,
+        "endChar": 35
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "279168e5_82379b81",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
