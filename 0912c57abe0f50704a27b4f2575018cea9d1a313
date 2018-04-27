@@ -244,6 +244,24 @@
     },
     {
       "key": {
+        "uuid": "6a1a1869_35d8e8ac",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T16:59:09Z",
+      "side": 1,
+      "message": "There may be no practical difference in this particular case but there are some weird cases where defining operators at namespace scope has advantages, similar to defining swap() at namespace scope.",
+      "parentUuid": "3e963aff_975b6767",
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28728871_d3c8e82a",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
@@ -260,6 +278,29 @@
         "startChar": 0,
         "endLine": 3116,
         "endChar": 18
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5dff16f_1a67be91",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T16:59:09Z",
+      "side": 1,
+      "message": "Actually, why don\u0027t we take `const DexFile::StringId\u0026` here and we can use `const DexFile::StringId*` as the iterator, avoiding the entire class above. (This lambda shall just have to capture the `begin_`.)",
+      "range": {
+        "startLine": 3121,
+        "startChar": 20,
+        "endLine": 3121,
+        "endChar": 35
       },
       "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -348,6 +389,30 @@
       "side": 1,
       "message": "I\u0027d prefer this to be \"valid\" without having to check end_index.",
       "parentUuid": "a6ec1633_4880fbfb",
+      "range": {
+        "startLine": 3150,
+        "startChar": 34,
+        "endLine": 3150,
+        "endChar": 68
+      },
+      "revId": "0912c57abe0f50704a27b4f2575018cea9d1a313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aee9484_f4dd9ae7",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-27T16:59:09Z",
+      "side": 1,
+      "message": "Lines 660-661 check that the index is within \"[start,end)\", so leaving these as \"end\" does not change anything for lines 662 and 664.\n\nI see this as a matter of personal preference, so I shall not insist on changing it.",
+      "parentUuid": "d6da0374_14497406",
       "range": {
         "startLine": 3150,
         "startChar": 34,
