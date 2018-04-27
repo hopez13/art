@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2a69e4f9_ddbd78df",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-27T18:04:44Z",
+      "side": 1,
+      "message": "Yes, good suggestion, that would allow us to chain optimizations better without worrying what prior variants of the same pass did. It would avoid strange situations as in\n\npassX                     ; did something\npass1                     ; did nothing\npassX only if pass1       ; thus skipped\npass2 only if passX       ; what to do?\n\nwhere pass2 would run because the first passX did something while the intended behavior probably was to skip pass2.\n\n\nNote that some strong sense of generality in me would even like to expand the bit vector with variants of the same pass (simplification simplification@after_this simplification@after_that etc.), but simply depending on the most recent pass seems acceptable, and the one needed in practice too.\n\nI will make the change",
+      "parentUuid": "9f887ea8_821f51a9",
+      "revId": "dd86421170f8c1ad4db9a80665eff6db46876d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbc359db_c116a3ff",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 10
@@ -30,6 +48,24 @@
       "writtenOn": "2018-04-27T17:19:11Z",
       "side": 1,
       "message": "Add a way to specify `depends_on`.",
+      "revId": "dd86421170f8c1ad4db9a80665eff6db46876d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "720fb503_4890b6bd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-04-27T18:04:44Z",
+      "side": 1,
+      "message": "In this CL, or is a follow up CL good too? I need to think about that a bit. For now a TODO, which you can accept/reject ;-)",
+      "parentUuid": "cbc359db_c116a3ff",
       "revId": "dd86421170f8c1ad4db9a80665eff6db46876d2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
