@@ -46,6 +46,29 @@
       "revId": "03fb3ed314a679a4393ef05d5994d072b6a4b561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69090a70_266ea47e",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-04-27T03:14:27Z",
+      "side": 1,
+      "message": "AlignDown? I guess that\u0027s safe since the stack grows downwards, but I think it would be cleaner to use AlignUp.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 17
+      },
+      "revId": "03fb3ed314a679a4393ef05d5994d072b6a4b561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
