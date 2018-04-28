@@ -21,7 +21,7 @@
 
 #include "output_stream.h"
 
-#include "base/globals.h"
+#include "globals.h"
 
 namespace art {
 namespace linker {

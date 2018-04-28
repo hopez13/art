@@ -22,7 +22,7 @@
 
 #include "android-base/stringprintf.h"
 
-#include "logging.h"
+#include "base/logging.h"
 
 #if defined(__APPLE__)
 #include <sys/time.h>

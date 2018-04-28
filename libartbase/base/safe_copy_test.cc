@@ -22,7 +22,7 @@
 #include <sys/user.h>
 
 #include "android-base/logging.h"
-#include "globals.h"
+#include "base/globals.h"
 #include "gtest/gtest.h"
 
 

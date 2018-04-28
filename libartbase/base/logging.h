@@ -21,7 +21,7 @@
 #include <sstream>
 
 #include "android-base/logging.h"
-#include "macros.h"
+#include "base/macros.h"
 
 namespace art {
 

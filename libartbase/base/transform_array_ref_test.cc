@@ -18,7 +18,8 @@
 #include <vector>
 
 #include "gtest/gtest.h"
-#include "transform_array_ref.h"
+
+#include "base/transform_array_ref.h"
 
 namespace art {
 

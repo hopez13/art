@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef ART_LIBARTBASE_BASE_TRACKING_SAFE_MAP_H_
-#define ART_LIBARTBASE_BASE_TRACKING_SAFE_MAP_H_
+#ifndef ART_RUNTIME_GLOBALS_H_
+#define ART_RUNTIME_GLOBALS_H_
 
-#include "base/allocator.h"
-#include "base/safe_map.h"
+// TODO: remove this file in favor of libartbase/base/globals.h
+#include "base/globals.h"
 
-namespace art {
-
-template<class Key, class T, AllocatorTag kTag, class Compare = std::less<Key>>
-class AllocationTrackingSafeMap : public SafeMap<
-    Key, T, Compare, TrackingAllocator<std::pair<const Key, T>, kTag>> {
-};
-
-}  // namespace art
-
-#endif  // ART_LIBARTBASE_BASE_TRACKING_SAFE_MAP_H_
+#endif  // ART_RUNTIME_GLOBALS_H_

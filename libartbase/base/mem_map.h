@@ -25,7 +25,7 @@
 #include <string>
 
 #include "android-base/thread_annotations.h"
-#include "macros.h"
+#include "base/macros.h"
 
 namespace art {
 
