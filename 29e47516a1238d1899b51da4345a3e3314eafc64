@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44ea421_46e3ca69",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T09:02:56Z",
+      "side": 1,
+      "message": "If you really want to set \"start\" to \"max\", you should also set the \"end\" to \"max\" for consistency.\n\n(I\u0027d prefer the `angle_bracket_start_index_ \u003d angle_start - first;` but it\u0027s your choice.)",
+      "range": {
+        "startLine": 3160,
+        "startChar": 4,
+        "endLine": 3160,
+        "endChar": 68
+      },
+      "revId": "29e47516a1238d1899b51da4345a3e3314eafc64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
