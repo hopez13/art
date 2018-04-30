@@ -1,0 +1,625 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "784f7c00_8083b795",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "This is not a refactoring, you\u0027re deeply changing the encoding.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd1729e8_e084cb24",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Move `number_of_live_dex_registers` earlier, so that you can use it here. (Maybe split this into two separate `if`s.)",
+      "range": {
+        "startLine": 151,
+        "startChar": 36,
+        "endLine": 151,
+        "endChar": 73
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89a5682f_7a19e0f7",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "If you\u0027re improving the compression, why not get rid of this padding?",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 51
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e37f69_d506f1de",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Why the extra () around the adapter?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 93
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "037dab7a_ea774b47",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Can we do this in chunks of up to 32 bits?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 7
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d5ddfd_4efacf13",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Is this necessary? Shouldn\u0027t we just DCHECK() the size?",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 46
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fae2fa8_d6e99f78",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Do we need this prefix?",
+      "range": {
+        "startLine": 333,
+        "startChar": 17,
+        "endLine": 333,
+        "endChar": 67
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f18b342_5daf2db0",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Please, do not create an unnecessary allocator like this.\n\nIf you want to simplify the constructor, create another private constructor that takes an extra `ScopedArenaAllocatorAdapter\u003cvoid\u003e` and forward to that one.",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 55
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f56ddee_0643f59a",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "This is not an iterator, it\u0027s a \"row view\".",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 16
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "affd4b78_803c5f4e",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 18
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4146c30_f7de147b",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Shared bias is a bit restrictive.",
+      "range": {
+        "startLine": 88,
+        "startChar": 28,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06287b40_c815e1fb",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Pull this out of the `if` and remove the default initializer from line 137.",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 28
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98efdebf_8df41dc7",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "This is unnecessary and confusing. You should just construct those row views directly in the callers.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 3
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fed6cd69_7a3c80ec",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "uint16_t? And no DCHECK()s to enforce this limitation?",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 10
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51bc0a87_c322ebb2",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "This probably does not do what you think it does. You should use std::fill_n().",
+      "range": {
+        "startLine": 169,
+        "startChar": 42,
+        "endLine": 169,
+        "endChar": 47
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e83d081b_ea38d8ba",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 177,
+        "startChar": 39,
+        "endLine": 177,
+        "endChar": 42
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e386dc1_94753e67",
+        "filename": "libartbase/base/bit_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "The first arg is `expected`, the second is `actual`.",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 31
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd19e385_54b3e1f5",
+        "filename": "libartbase/base/bit_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 33
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e812d1_19803db6",
+        "filename": "libartbase/base/bit_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 105,
+        "startChar": 29,
+        "endLine": 105,
+        "endChar": 30
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3d5314e_b73db6f7",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Spell this out.",
+      "range": {
+        "startLine": 1828,
+        "startChar": 8,
+        "endLine": 1828,
+        "endChar": 12
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d42b23_258f3603",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1829,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "ditto; why not a const reference?",
+      "range": {
+        "startLine": 1829,
+        "startChar": 8,
+        "endLine": 1829,
+        "endChar": 12
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d86af05e_654e499f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1882,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "ditto; plural",
+      "range": {
+        "startLine": 1882,
+        "startChar": 10,
+        "endLine": 1882,
+        "endChar": 14
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1042b099_30a20518",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Exposes implementation details.",
+      "range": {
+        "startLine": 661,
+        "startChar": 17,
+        "endLine": 661,
+        "endChar": 23
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e5c3bae_e7245c67",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 708,
+        "startChar": 19,
+        "endLine": 708,
+        "endChar": 25
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b87f3aa5_9a6054b0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 777,
+        "startChar": 19,
+        "endLine": 777,
+        "endChar": 25
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a476f99_743fcbf4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Remove this constructor and the related #include.\n\nIf you don\u0027t like the OatQuickMethodHeader::GetOptimizedCodeInfo(), just inline this in each caller (callers must include both stack_map.h and oat_quick_method_header.h anyway).",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 822,
+        "endChar": 3
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcf0d04a_afef885a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-04-30T13:44:37Z",
+      "side": 1,
+      "message": "Plural for each.",
+      "range": {
+        "startLine": 1053,
+        "startChar": 0,
+        "endLine": 1055,
+        "endChar": 51
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
