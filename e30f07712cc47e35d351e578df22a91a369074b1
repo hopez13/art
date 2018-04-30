@@ -22,6 +22,30 @@
       "revId": "e30f07712cc47e35d351e578df22a91a369074b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6893582_408f8aa7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-04-30T21:11:54Z",
+      "side": 1,
+      "message": "If that\u0027s the case the parent change should fix it since those will be happening on JIT threads.",
+      "parentUuid": "5bd6690e_0440c731",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "e30f07712cc47e35d351e578df22a91a369074b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
