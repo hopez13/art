@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "09f06db5_179180a5",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-01T10:39:50Z",
+      "side": 1,
+      "message": "No, it\u0027s not. `allocator_adapter_` or `adapter` cannot be interpreted as a parameter type.",
+      "parentUuid": "f4b4f8f3_480da727",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 93
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "037dab7a_ea774b47",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 1

@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "c98d125d_4da5ec5c",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-01T10:39:50Z",
+      "side": 1,
+      "message": "And `const uint32_t row_`.",
+      "parentUuid": "03388f25_8fe3e329",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 12
+      },
+      "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52370cff_1511a5e0",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 3
@@ -516,6 +540,29 @@
       "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a29905c_d24cc246",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-01T10:39:50Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 52,
+        "endLine": 1033,
+        "endChar": 53
+      },
+      "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
