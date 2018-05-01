@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64528c14_651a8ce5",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T22:08:23Z",
+      "side": 1,
+      "message": "Imagine:\nfor (StackMap stack_map : code_info.GetStackMaps())",
+      "range": {
+        "startLine": 104,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 58
+      },
+      "revId": "d983d7fe167448f4437ba098987e346d65c4c7ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "f8750edf_49ecedd1",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T22:08:23Z",
+      "side": 1,
+      "message": "That won\u0027t work with operator++. Is it used though?",
+      "parentUuid": "c98d125d_4da5ec5c",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 12
+      },
+      "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52370cff_1511a5e0",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 3
@@ -484,6 +508,30 @@
       "side": 1,
       "message": "It does not fit :-/  By 1 character.",
       "parentUuid": "dcaf2616_43e364f3",
+      "range": {
+        "startLine": 1746,
+        "startChar": 10,
+        "endLine": 1747,
+        "endChar": 59
+      },
+      "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581e857e_8b59576e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T22:08:23Z",
+      "side": 1,
+      "message": "Oops",
+      "parentUuid": "9658217d_a78a80b5",
       "range": {
         "startLine": 1746,
         "startChar": 10,
