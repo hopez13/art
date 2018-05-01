@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4165808_9cdcac65",
+        "filename": "test/626-checker-arm64-scratch-register/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-05-01T20:31:00Z",
+      "side": 0,
+      "message": "This one only fails with ARM64. I believe your command line only test it on your host (x64)",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 16
+      },
+      "revId": "95bc9b25ee14aa2fac893fb3a3870d739698c421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b0e0525_92bad2f7",
+        "filename": "test/704-multiply-accumulate/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1080224
+      },
+      "writtenOn": "2018-05-01T20:31:00Z",
+      "side": 0,
+      "message": "This one fails only gcstress only:\n\n\n art/test.py --32 --target -r --gcstress",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 16
+      },
+      "revId": "95bc9b25ee14aa2fac893fb3a3870d739698c421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
