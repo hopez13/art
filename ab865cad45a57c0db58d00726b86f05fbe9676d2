@@ -22,6 +22,30 @@
       "revId": "ab865cad45a57c0db58d00726b86f05fbe9676d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2054343_82d439fc",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-01T13:54:56Z",
+      "side": 1,
+      "message": "Sure; but I\u0027d like to check first on which devices this command works (we now have a mix of Android N and O testing devices on the ART Buildbot), and then blacklist the devices on which it fails.",
+      "parentUuid": "99dab1ee_55caa926",
+      "range": {
+        "startLine": 220,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 20
+      },
+      "revId": "ab865cad45a57c0db58d00726b86f05fbe9676d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
