@@ -660,6 +660,29 @@
     },
     {
       "key": {
+        "uuid": "12b6675b_4ee0729e",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T07:18:45Z",
+      "side": 1,
+      "message": "Initializing to { 0 } initializes the first element to 0, but the other ones to default which happens to also be 0. I think it\u0027s cleaner to do \"\u003d {};\"",
+      "range": {
+        "startLine": 137,
+        "startChar": 44,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51bc0a87_c322ebb2",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -707,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "38816f3b_3be45b38",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T07:18:45Z",
+      "side": 1,
+      "message": "See my comment above, this technically works but doing \"\u003d {5};\" would only initialize the first element to 5. I recommend doing \u003d {};",
+      "parentUuid": "84219101_d9021c18",
+      "range": {
+        "startLine": 169,
+        "startChar": 42,
+        "endLine": 169,
+        "endChar": 47
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e83d081b_ea38d8ba",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -742,6 +789,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "e83d081b_ea38d8ba",
+      "range": {
+        "startLine": 177,
+        "startChar": 39,
+        "endLine": 177,
+        "endChar": 42
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07051a0f_e3015014",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-01T07:18:45Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "ea86b1ea_e75c5907",
       "range": {
         "startLine": 177,
         "startChar": 39,
