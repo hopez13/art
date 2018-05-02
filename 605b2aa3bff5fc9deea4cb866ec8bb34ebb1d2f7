@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "654053ad_c71b5c05",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-02T13:57:13Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ec103ba9_eccfc597",
+      "range": {
+        "startLine": 648,
+        "startChar": 6,
+        "endLine": 648,
+        "endChar": 34
+      },
+      "revId": "605b2aa3bff5fc9deea4cb866ec8bb34ebb1d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bdee63d_0901ab08",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-02T13:36:29Z",
       "side": 1,
       "message": "This sure is UNLIKELY().",
+      "range": {
+        "startLine": 650,
+        "startChar": 8,
+        "endLine": 650,
+        "endChar": 97
+      },
+      "revId": "605b2aa3bff5fc9deea4cb866ec8bb34ebb1d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3c625b_b05edb40",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-02T13:57:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9bdee63d_0901ab08",
       "range": {
         "startLine": 650,
         "startChar": 8,
