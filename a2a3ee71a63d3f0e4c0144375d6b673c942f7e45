@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f117c871_1ccadf85",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-02T19:17:21Z",
+      "side": 1,
+      "message": "This makes the flow hard to read and pretty complex. We should return an enum from the previous collision check saying what was done.",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 28
+      },
+      "revId": "a2a3ee71a63d3f0e4c0144375d6b673c942f7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88ecc3ba_c41d5b3d",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 2
@@ -61,6 +84,30 @@
       "side": 1,
       "message": "It seems to be around 10-15ms, only tested Maps launch on Pixel. Will see how much work it is to have verification that skips the check when there is no \"\u0026\".",
       "parentUuid": "8aa805f3_500a5fc5",
+      "range": {
+        "startLine": 545,
+        "startChar": 24,
+        "endLine": 545,
+        "endChar": 38
+      },
+      "revId": "a2a3ee71a63d3f0e4c0144375d6b673c942f7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f85cdd86_a1ec1c92",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-02T19:17:21Z",
+      "side": 1,
+      "message": "We should only do it if the context is an \u0027\u0026\u0027.",
+      "parentUuid": "f322f5cc_7440bd48",
       "range": {
         "startLine": 545,
         "startChar": 24,
