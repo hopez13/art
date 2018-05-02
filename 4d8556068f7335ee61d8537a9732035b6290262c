@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "d67ceca9_a99e6049",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-02T14:43:38Z",
+      "side": 1,
+      "message": "Well, the operator++() was added after my comments in PS2. And it makes it look a bit more like an \"iterator\" but it\u0027s still missing a lot of things I\u0027d like to see in an actual iterator, so the rename to Accessor in PS4 is welcome.",
+      "parentUuid": "f8750edf_49ecedd1",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 12
+      },
+      "revId": "4d8556068f7335ee61d8537a9732035b6290262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52370cff_1511a5e0",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 3
