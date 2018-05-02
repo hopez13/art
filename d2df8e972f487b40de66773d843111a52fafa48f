@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a444f27_f1f469d1",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-02T10:40:31Z",
+      "side": 1,
+      "message": "If aligning by hand, this should be AlignUp(), into the allocated memory, not peeking out of it.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 17
+      },
+      "revId": "d2df8e972f487b40de66773d843111a52fafa48f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
