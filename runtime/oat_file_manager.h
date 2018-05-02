@@ -119,6 +119,7 @@ class OatFileManager {
   // Return true if there are any class definition collisions in the oat_file.
   bool HasCollisions(const OatFile* oat_file,
                      const ClassLoaderContext* context,
+                     /*out*/ bool* out_verified_class_loader_context,
                      /*out*/ std::string* error_msg) const
       REQUIRES(!Locks::oat_file_manager_lock_);
 

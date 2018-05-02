@@ -109,9 +109,12 @@ class ClassLoaderContext {
   // This should be called after OpenDexFiles().
   // Names are only verified if verify_names is true.
   // Checksums are only verified if verify_checksums is true.
+  // verified_context is returned as true only if we actually verified, skipping the verification
+  // because of the special shared library will have verified_context = false.
   bool VerifyClassLoaderContextMatch(const std::string& context_spec,
                                      bool verify_names = true,
-                                     bool verify_checksums = true) const;
+                                     bool verify_checksums = true,
+                                     bool* verified_context = nullptr) const;
 
   // Creates the class loader context from the given string.
   // The format: ClassLoaderType1[ClasspathElem1:ClasspathElem2...];ClassLoaderType2[...]...
