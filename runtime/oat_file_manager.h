@@ -45,6 +45,13 @@ class OatFile;
 // pointers returned from functions are always valid.
 class OatFileManager {
  public:
+  enum class CheckCollisionResult {
+    kSkippedUnsupportedClassLoader,
+    kSkippedClassLoaderContextSharedLibrary,
+    kNoCollisions,
+    kPerformedHasCollisions,
+  };
+
   OatFileManager();
   ~OatFileManager();
 
@@ -117,9 +124,9 @@ class OatFileManager {
   // the given oat file against the oat files (either from the class loaders if possible or all
   // non-boot oat files otherwise).
   // Return true if there are any class definition collisions in the oat_file.
-  bool HasCollisions(const OatFile* oat_file,
-                     const ClassLoaderContext* context,
-                     /*out*/ std::string* error_msg) const
+  CheckCollisionResult CheckCollision(const OatFile* oat_file,
+                                      const ClassLoaderContext* context,
+                                      /*out*/ std::string* error_msg) const
       REQUIRES(!Locks::oat_file_manager_lock_);
 
   const OatFile* FindOpenedOatFileFromOatLocationLocked(const std::string& oat_location) const
