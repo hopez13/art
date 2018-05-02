@@ -674,10 +674,15 @@ static bool IsAbsoluteLocation(const std::string& location) {
 
 bool ClassLoaderContext::VerifyClassLoaderContextMatch(const std::string& context_spec,
                                                        bool verify_names,
-                                                       bool verify_checksums) const {
+                                                       bool verify_checksums,
+                                                       bool* verified_context) const {
   if (verify_names || verify_checksums) {
     DCHECK(dex_files_open_attempted_);
     DCHECK(dex_files_open_result_);
+  }
+
+  if (verified_context != nullptr) {
+    *verified_context = false;
   }
 
   ClassLoaderContext expected_context;
@@ -784,6 +789,9 @@ bool ClassLoaderContext::VerifyClassLoaderContextMatch(const std::string& contex
         return false;
       }
     }
+  }
+  if (verified_context != nullptr) {
+    *verified_context = true;
   }
   return true;
 }
