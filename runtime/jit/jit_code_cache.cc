@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2014 The Android Open Source Project
  *
@@ -121,27 +122,33 @@ class JitCodeCache::JniStubData {
     return GetCode() != nullptr;
   }
 
-  void AddMethod(ArtMethod* method) {
+  void AddMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
     if (!ContainsElement(methods_, method)) {
       methods_.push_back(method);
     }
+    VLOG(jni) << "OTH: AddMethod(" << method->PrettyMethod(false) << ")";
   }
 
   const std::vector<ArtMethod*>& GetMethods() const {
     return methods_;
   }
 
-  void RemoveMethodsIn(const LinearAlloc& alloc) {
+  void RemoveMethodsIn(const LinearAlloc& alloc) REQUIRES_SHARED(Locks::mutator_lock_) {
     auto kept_end = std::remove_if(
         methods_.begin(),
         methods_.end(),
         [&alloc](ArtMethod* method) { return alloc.ContainsUnsafe(method); });
+    auto it = kept_end;
+    while (it != kept_end) {
+      VLOG(jni) << "OTH: RemoveMethodsIn(" << (*it)->PrettyMethod(false) << ")";
+    }
     methods_.erase(kept_end, methods_.end());
   }
 
-  bool RemoveMethod(ArtMethod* method) {
+  bool RemoveMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
     auto it = std::find(methods_.begin(), methods_.end(), method);
     if (it != methods_.end()) {
+      VLOG(jni) << "OTH: RemoveMethod(" << (*it)->PrettyMethod(false) << ")";
       methods_.erase(it);
       return true;
     } else {
@@ -684,6 +691,7 @@ static void ClearMethodCounter(ArtMethod* method, bool was_warm) {
   method->SetCounter(std::min(jit_warmup_threshold - 1, 1));
 }
 
+[[ clang::optnone ]]
 uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           ArtMethod* method,
                                           uint8_t* stack_map,
@@ -795,6 +803,17 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       for (ArtMethod* m : data->GetMethods()) {
         instrum->UpdateMethodsCode(m, method_header->GetEntryPoint());
       }
+
+      uint16_t new_counter = Runtime::Current()->GetJit()->HotMethodThreshold() - 1u;
+      for (ArtMethod* m : data->GetMethods()) {
+        if (m->GetEntryPointFromQuickCompiledCode() == method_header->GetEntryPoint()) {
+          // Don't call Instrumentation::UpdateMethodsCode(), same as for normal methods above.
+          m->SetCounter(new_counter);
+          m->SetEntryPointFromQuickCompiledCode(GetQuickGenericJniStub());
+          VLOG(jit) << "OTH_XXX: Switching to QuickGenericJniStub for " << m->PrettyMethod(false);
+        }
+      }
+
     } else {
       // Fill the root table before updating the entry point.
       DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
@@ -819,6 +838,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       // code.
       GetLiveBitmap()->AtomicTestAndSet(FromCodeToAllocation(code_ptr));
     }
+    if (ArtMethod::PrettyMethod(method).find("testReturnValueConversions") != std::string::npos) {
+      VLOG(jit) << "GOT ONE: " << ArtMethod::PrettyMethod(method);
+    }
+
     VLOG(jit)
         << "JIT added (osr=" << std::boolalpha << osr << std::noboolalpha << ") "
         << ArtMethod::PrettyMethod(method) << "@" << method
@@ -1243,8 +1266,8 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
         DCHECK(CheckLiveCompiledCodeHasProfilingInfo());
 
         // Change entry points of native methods back to the GenericJNI entrypoint.
-        for (const auto& entry : jni_stubs_map_) {
-          const JniStubData& data = entry.second;
+        for (auto& entry : jni_stubs_map_) {
+          JniStubData& data = entry.second;
           if (!data.IsCompiled()) {
             continue;
           }
@@ -1257,6 +1280,7 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
               // Don't call Instrumentation::UpdateMethodsCode(), same as for normal methods above.
               method->SetCounter(new_counter);
               method->SetEntryPointFromQuickCompiledCode(GetQuickGenericJniStub());
+              VLOG(jit) << "OTH: Switching to QuickGenericJniStub for " << method->PrettyMethod(false);
             }
           }
         }
@@ -1415,6 +1439,7 @@ OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* 
     // On Thumb-2, the pc is offset by one.
     --pc;
   }
+
   if (!ContainsPc(reinterpret_cast<const void*>(pc))) {
     return nullptr;
   }
