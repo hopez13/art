@@ -2145,6 +2145,9 @@ void Thread::DumpStack(std::ostream& os,
   //       the race with the thread_suspend_count_lock_).
   bool dump_for_abort = (gAborting > 0);
   bool safe_to_dump = (this == Thread::Current() || IsSuspended());
+  std::string thread_name;
+  GetThreadName(thread_name);
+  LOG(INFO) << "Start dump backtrace tid:" << GetTid() << ", name:" << thread_name;
   if (!kIsDebugBuild) {
     // We always want to dump the stack for an abort, however, there is no point dumping another
     // thread's stack in debug builds where we'll hit the not suspended check in the stack walk.
@@ -2166,6 +2169,7 @@ void Thread::DumpStack(std::ostream& os,
   } else {
     os << "Not able to dump stack of thread that isn't suspended";
   }
+  LOG(INFO) << "End dump backtrace tid:" << GetTid() << ", name:" << thread_name;
 }
 
 void Thread::ThreadExitCallback(void* arg) {
