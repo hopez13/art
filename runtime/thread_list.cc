@@ -322,6 +322,7 @@ size_t ThreadList::RunCheckpoint(Closure* checkpoint_function, Closure* callback
   Locks::mutator_lock_->AssertNotExclusiveHeld(self);
   Locks::thread_list_lock_->AssertNotHeld(self);
   Locks::thread_suspend_count_lock_->AssertNotHeld(self);
+  dump_start_time_ = MicroTime();
 
   std::vector<Thread*> suspended_count_modified_threads;
   size_t count = 0;
@@ -382,8 +383,12 @@ size_t ThreadList::RunCheckpoint(Closure* checkpoint_function, Closure* callback
             << *thread << " suspension!";
       }
     }
-    // We know for sure that the thread is suspended at this point.
-    checkpoint_function->Run(thread);
+    if (MicroTime() - dump_time_begin < kDumpWaitTimeout) {
+      // We know for sure that the thread is suspended at this point.
+      checkpoint_function->Run(thread);
+    } else {
+      LOG(FATAL) << "Unexpected time out during dump checkpoint";
+    }
     {
       MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
       bool updated = thread->ModifySuspendCount(self, -1, nullptr, SuspendReason::kInternal);
