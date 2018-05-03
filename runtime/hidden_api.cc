@@ -116,6 +116,16 @@ void MemberSignature::WarnAboutAccess(AccessMethod access_method,
 
 template<typename T>
 Action GetMemberActionImpl(T* member, Action action, AccessMethod access_method) {
+  if (access_method == kJNI) {
+    std::string unused;
+    // We special case Landroid/content/res/AssetManager;->mObject as it is accessed
+    // by a platform .so file, but we don't recognize those yet. See b/73865351.
+    if ((strcmp(member->GetName(), "mObject") == 0) &&
+        (strcmp(member->GetDeclaringClass()->GetDescriptor(&unused),
+                "Landroid/content/res/AssetManager;") == 0)) {
+      return kAllow;
+    }
+  }
   // Get the signature, we need it later.
   MemberSignature member_signature(member);
 
