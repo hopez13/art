@@ -631,9 +631,8 @@ uintptr_t QuickExceptionHandler::UpdateInstrumentationStack() {
 
     size_t instrumentation_frames_to_pop = visitor.GetInstrumentationFramesToPop();
     instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-    for (size_t i = 0; i < instrumentation_frames_to_pop; ++i) {
-      return_pc = instrumentation->PopMethodForUnwind(self_, is_deoptimization_);
-    }
+    return_pc = instrumentation->PopFramesForUnwind(
+        self_, instrumentation_frames_to_pop, is_deoptimization_);
   }
   return return_pc;
 }

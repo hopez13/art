@@ -34,6 +34,7 @@
 #include "instrumentation.h"
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "linear_alloc.h"
 #include "method_handles.h"
 #include "mirror/class-inl.h"
@@ -1114,11 +1115,23 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   // that part.
   ScopedQuickEntrypointChecks sqec(self, kIsDebugBuild, false);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
+  bool release_code = false;
   if (instrumentation->IsDeoptimized(method)) {
     result = GetQuickToInterpreterBridge();
   } else {
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
-    DCHECK(!Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(result));
+    result = instrumentation->NeedDebugVersionFor(method)
+        ? GetQuickToInterpreterBridge()
+        : instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
+    if (Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(result) &&
+        Runtime::Current()->GetJit() != nullptr) {
+      ScopedAssertNoThreadSuspension sants("Retrieve JIT entrypoint");
+      const void* jit_code =
+          Runtime::Current()->GetJit()->GetCodeCache()->GetCompiledEntrypoint(method);
+      if (jit_code != nullptr) {
+        release_code = true;
+        result = jit_code;
+      }
+    }
   }
 
   bool interpreter_entry = (result == GetQuickToInterpreterBridge());
@@ -1142,6 +1155,11 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
     return nullptr;
   }
   CHECK(result != nullptr) << method->PrettyMethod();
+  // We won't suspend after this until we jump to 'result' so we can release the entrypoint.
+  if (release_code) {
+    ScopedAssertNoThreadSuspension sants("instrumentation entry");
+    Runtime::Current()->GetJit()->GetCodeCache()->ReleaseCompiledEntrypoint(result);
+  }
   return result;
 }
 

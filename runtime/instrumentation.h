@@ -494,9 +494,9 @@ class Instrumentation {
                                              uint64_t* gpr_result, uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
-  // Pops an instrumentation frame from the current thread and generate an unwind event.
-  // Returns the return pc for the instrumentation frame that's popped.
-  uintptr_t PopMethodForUnwind(Thread* self, bool is_deoptimization) const
+  // Pops nframes instrumentation frames from the current thread and generate an unwind event for
+  // each of them.  Returns the return pc for the last instrumentation frame that's popped.
+  uintptr_t PopFramesForUnwind(Thread* self, size_t nframes, bool is_deoptimization) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call back for configure stubs.

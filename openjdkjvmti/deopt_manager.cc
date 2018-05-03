@@ -159,6 +159,20 @@ bool DeoptManager::MethodHasBreakpointsLocked(art::ArtMethod* method) {
   return elem != breakpoint_status_.end() && elem->second != 0;
 }
 
+void DeoptManager::RemoveTraceAllMethods() {
+  art::Thread* self = art::Thread::Current();
+  art::ScopedThreadSuspension sts(self, art::kSuspended);
+  deoptimization_status_lock_.ExclusiveLock(self);
+  RemoveTraceAllMethodsLocked(self);
+}
+
+void DeoptManager::AddTraceAllMethods() {
+  art::Thread* self = art::Thread::Current();
+  art::ScopedThreadSuspension sts(self, art::kSuspended);
+  deoptimization_status_lock_.ExclusiveLock(self);
+  AddTraceAllMethodsLocked(self);
+}
+
 void DeoptManager::RemoveDeoptimizeAllMethods() {
   art::Thread* self = art::Thread::Current();
   art::ScopedThreadSuspension sts(self, art::kSuspended);
@@ -303,10 +317,33 @@ class ScopedDeoptimizationContext : public art::ValueObject {
   const char* uninterruptible_cause_;
 };
 
-void DeoptManager::AddDeoptimizeAllMethodsLocked(art::Thread* self) {
+void DeoptManager::AddTraceAllMethodsLocked(art::Thread* self) {
+  DCHECK_GE(global_deopt_count_, global_interpreter_deopt_count_);
   global_deopt_count_++;
   if (global_deopt_count_ == 1) {
-    PerformGlobalDeoptimization(self);
+    PerformGlobalDeoptimization(self, /*needs_interpreter*/false);
+  } else {
+    WaitForDeoptimizationToFinish(self);
+  }
+}
+
+void DeoptManager::RemoveTraceAllMethodsLocked(art::Thread* self) {
+  DCHECK_GT(global_deopt_count_, 0u) << "Request to remove non-existent global deoptimization!";
+  DCHECK_GT(global_deopt_count_, global_interpreter_deopt_count_);
+  global_deopt_count_--;
+  if (global_deopt_count_ == 0) {
+    PerformGlobalUndeoptimization(self, /*still_needs_stubs*/ false);
+  } else {
+    WaitForDeoptimizationToFinish(self);
+  }
+}
+
+void DeoptManager::AddDeoptimizeAllMethodsLocked(art::Thread* self) {
+  DCHECK_GE(global_deopt_count_, global_interpreter_deopt_count_);
+  global_deopt_count_++;
+  global_interpreter_deopt_count_++;
+  if (global_interpreter_deopt_count_ == 1) {
+    PerformGlobalDeoptimization(self, /*needs_interpreter*/true);
   } else {
     WaitForDeoptimizationToFinish(self);
   }
@@ -314,9 +351,11 @@ void DeoptManager::AddDeoptimizeAllMethodsLocked(art::Thread* self) {
 
 void DeoptManager::RemoveDeoptimizeAllMethodsLocked(art::Thread* self) {
   DCHECK_GT(global_deopt_count_, 0u) << "Request to remove non-existent global deoptimization!";
+  DCHECK_GE(global_deopt_count_, global_interpreter_deopt_count_);
   global_deopt_count_--;
-  if (global_deopt_count_ == 0) {
-    PerformGlobalUndeoptimization(self);
+  global_interpreter_deopt_count_--;
+  if (global_interpreter_deopt_count_ == 0) {
+    PerformGlobalUndeoptimization(self, /*still_needs_stubs*/ global_deopt_count_ > 0);
   } else {
     WaitForDeoptimizationToFinish(self);
   }
@@ -332,16 +371,21 @@ void DeoptManager::PerformLimitedUndeoptimization(art::Thread* self, art::ArtMet
   art::Runtime::Current()->GetInstrumentation()->Undeoptimize(method);
 }
 
-void DeoptManager::PerformGlobalDeoptimization(art::Thread* self) {
+void DeoptManager::PerformGlobalDeoptimization(art::Thread* self, bool needs_interpreter) {
   ScopedDeoptimizationContext sdc(self, this);
-  art::Runtime::Current()->GetInstrumentation()->DeoptimizeEverything(
-      kDeoptManagerInstrumentationKey);
+  art::Runtime::Current()->GetInstrumentation()->EnableMethodTracing(
+      kDeoptManagerInstrumentationKey, needs_interpreter);
 }
 
-void DeoptManager::PerformGlobalUndeoptimization(art::Thread* self) {
+void DeoptManager::PerformGlobalUndeoptimization(art::Thread* self, bool still_needs_stubs) {
   ScopedDeoptimizationContext sdc(self, this);
-  art::Runtime::Current()->GetInstrumentation()->UndeoptimizeEverything(
-      kDeoptManagerInstrumentationKey);
+  if (still_needs_stubs) {
+    art::Runtime::Current()->GetInstrumentation()->EnableMethodTracing(
+        kDeoptManagerInstrumentationKey, /*needs_interpreter*/false);
+  } else {
+    art::Runtime::Current()->GetInstrumentation()->DisableMethodTracing(
+        kDeoptManagerInstrumentationKey);
+  }
 }
 
 

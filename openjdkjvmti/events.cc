@@ -881,21 +881,29 @@ static uint32_t GetInstrumentationEventsFor(ArtJvmtiEvent event) {
   }
 }
 
-static bool EventNeedsFullDeopt(ArtJvmtiEvent event) {
+enum class DeoptRequirement {
+  kLimited,
+  kStubs,
+  kInterpreter,
+};
+
+static DeoptRequirement EventNeedsFullDeopt(ArtJvmtiEvent event) {
   switch (event) {
     case ArtJvmtiEvent::kBreakpoint:
     case ArtJvmtiEvent::kException:
-      return false;
-    // TODO We should support more of these or at least do something to make them discriminate by
-    // thread.
+      return DeoptRequirement::kLimited;
+    // TODO We should support more of these as Limited or at least do something to make them
+    // discriminate by thread.
     case ArtJvmtiEvent::kMethodEntry:
-    case ArtJvmtiEvent::kExceptionCatch:
     case ArtJvmtiEvent::kMethodExit:
+      // We only need MethodEntered and MethodExited for these so we can use Stubs.
+      return DeoptRequirement::kStubs;
+    case ArtJvmtiEvent::kExceptionCatch:
     case ArtJvmtiEvent::kFieldModification:
     case ArtJvmtiEvent::kFieldAccess:
     case ArtJvmtiEvent::kSingleStep:
     case ArtJvmtiEvent::kFramePop:
-      return true;
+      return DeoptRequirement::kInterpreter;
     default:
       LOG(FATAL) << "Unexpected event type!";
       UNREACHABLE();
@@ -905,19 +913,33 @@ static bool EventNeedsFullDeopt(ArtJvmtiEvent event) {
 void EventHandler::SetupTraceListener(JvmtiMethodTraceListener* listener,
                                       ArtJvmtiEvent event,
                                       bool enable) {
-  bool needs_full_deopt = EventNeedsFullDeopt(event);
+  DeoptRequirement req = EventNeedsFullDeopt(event);
   // Make sure we can deopt.
   {
     art::ScopedObjectAccess soa(art::Thread::Current());
     DeoptManager* deopt_manager = DeoptManager::Get();
     if (enable) {
       deopt_manager->AddDeoptimizationRequester();
-      if (needs_full_deopt) {
-        deopt_manager->AddDeoptimizeAllMethods();
+      switch (req) {
+        case DeoptRequirement::kLimited:
+          break;
+        case DeoptRequirement::kStubs:
+          deopt_manager->AddTraceAllMethods();
+          break;
+        case DeoptRequirement::kInterpreter:
+          deopt_manager->AddDeoptimizeAllMethods();
+          break;
       }
     } else {
-      if (needs_full_deopt) {
-        deopt_manager->RemoveDeoptimizeAllMethods();
+      switch (req) {
+        case DeoptRequirement::kLimited:
+          break;
+        case DeoptRequirement::kStubs:
+          deopt_manager->RemoveTraceAllMethods();
+          break;
+        case DeoptRequirement::kInterpreter:
+          deopt_manager->RemoveDeoptimizeAllMethods();
+          break;
       }
       deopt_manager->RemoveDeoptimizationRequester();
     }
