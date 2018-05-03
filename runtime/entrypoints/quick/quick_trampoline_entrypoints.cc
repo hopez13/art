@@ -34,6 +34,7 @@
 #include "instrumentation.h"
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "linear_alloc.h"
 #include "method_handles.h"
 #include "mirror/class-inl.h"
@@ -1114,12 +1115,9 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   // that part.
   ScopedQuickEntrypointChecks sqec(self, kIsDebugBuild, false);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-  if (instrumentation->IsDeoptimized(method)) {
-    result = GetQuickToInterpreterBridge();
-  } else {
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
-    DCHECK(!Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(result));
-  }
+  result = instrumentation->GetCodeFor(method, kRuntimePointerSize);
+
+  jit::ScopedHoldJitCodeLive shjcl(result);
 
   bool interpreter_entry = (result == GetQuickToInterpreterBridge());
   bool is_static = method->IsStatic();

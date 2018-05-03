@@ -25,6 +25,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "base/safe_map.h"
+#include "base/safe_bi_map.h"
 #include "dex/method_reference.h"
 #include "gc_root.h"
 
@@ -73,6 +74,16 @@ class JitInstrumentationCache;
 static constexpr int kJitCodeAlignment = 16;
 using CodeCacheBitmap = gc::accounting::MemoryRangeBitmap<kJitCodeAlignment>;
 
+// A holder for the method part of method_code_map_. It contains the method and whether the
+// compilation was for OSR.
+struct MethodValue {
+  ArtMethod* method_;
+  bool osr_;
+};
+
+bool operator<(const MethodValue& a, const MethodValue& b);
+
+class ScopedHoldJitCodeLive;
 class JitCodeCache {
  public:
   static constexpr size_t kMaxCapacity = 64 * MB;
@@ -153,6 +164,10 @@ class JitCodeCache {
 
   // Return the code pointer for a JNI-compiled stub if the method is in the cache, null otherwise.
   const void* GetJniStubCode(ArtMethod* method) REQUIRES(!lock_);
+
+  // Retrieves what the JIT thinks the compiled entrypoint of the given method should be.
+  const void* GetCompiledEntrypoint(ArtMethod* method)
+      REQUIRES(!lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Allocate a region of data that contain `size` bytes, and potentially space
   // for storing `number_of_roots` roots. Returns null if there is no more room.
@@ -364,6 +379,11 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool HoldCompiledEntrypointLive(const void* ep)
+      REQUIRES(!lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+  void ReleaseCompiledEntrypoint(const void* ep)
+      REQUIRES(!lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+
   class JniStubKey;
   class JniStubData;
 
@@ -386,9 +406,9 @@ class JitCodeCache {
   // Holds compiled code associated with the shorty for a JNI stub.
   SafeMap<JniStubKey, JniStubData> jni_stubs_map_ GUARDED_BY(lock_);
   // Holds compiled code associated to the ArtMethod.
-  SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(lock_);
-  // Holds osr compiled code associated to the ArtMethod.
-  SafeMap<ArtMethod*, const void*> osr_code_map_ GUARDED_BY(lock_);
+  SafeBiMap<const void*, MethodValue> method_code_map_ GUARDED_BY(lock_);
+  // Holds entrypoints being held live by calls to GetCompiledEntrypoint
+  SafeMap<const void*, uint32_t> extra_live_entrypoints_ GUARDED_BY(lock_);
   // ProfilingInfo objects we have allocated.
   std::vector<ProfilingInfo*> profiling_infos_ GUARDED_BY(lock_);
 
@@ -443,7 +463,18 @@ class JitCodeCache {
   ConditionVariable inline_cache_cond_ GUARDED_BY(lock_);
 
   friend class art::JitJniStubTestHelper;
+  friend class ScopedHoldJitCodeLive;
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCodeCache);
+};
+
+class ScopedHoldJitCodeLive {
+ public:
+  explicit ScopedHoldJitCodeLive(const void* ep);
+  ~ScopedHoldJitCodeLive();
+
+ private:
+  JitCodeCache* code_cache_;
+  const void* ep_;
 };
 
 }  // namespace jit

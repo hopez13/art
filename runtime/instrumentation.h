@@ -243,7 +243,7 @@ class Instrumentation {
       REQUIRES(Locks::mutator_lock_, !Locks::thread_list_lock_, !deoptimized_methods_lock_);
 
   // Indicates whether the method has been deoptimized so it is executed with the interpreter.
-  bool IsDeoptimized(ArtMethod* method)
+  bool IsDeoptimized(ArtMethod* method) const
       REQUIRES(!deoptimized_methods_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Enable method tracing by installing instrumentation entry/exit stubs or interpreter.
@@ -292,10 +292,12 @@ class Instrumentation {
   void UpdateMethodsCodeForJavaDebuggable(ArtMethod* method, const void* quick_code)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
-  // Get the quick code for the given method. More efficient than asking the class linker as it
-  // will short-cut to GetCode if instrumentation and static method resolution stubs aren't
-  // installed.
-  const void* GetQuickCodeFor(ArtMethod* method, PointerSize pointer_size) const
+  // Get the code we want to actually run. It will return Interpreter bridge if we are being force
+  // to interpreter. If we are using instrumentation entrypoints it will return the real code for
+  // the method. Callers should not suspend while holding this unless they use a
+  // jit::ScopedHoldJitCodeLive.
+  const void* GetCodeFor(ArtMethod* method, PointerSize pointer_size) const
+      REQUIRES(!deoptimized_methods_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void ForceInterpretOnly() {
@@ -494,9 +496,9 @@ class Instrumentation {
                                              uint64_t* gpr_result, uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
-  // Pops an instrumentation frame from the current thread and generate an unwind event.
-  // Returns the return pc for the instrumentation frame that's popped.
-  uintptr_t PopMethodForUnwind(Thread* self, bool is_deoptimization) const
+  // Pops nframes instrumentation frames from the current thread and generate an unwind event for
+  // each of them.  Returns the return pc for the last instrumentation frame that's popped.
+  uintptr_t PopFramesForUnwind(Thread* self, size_t nframes, bool is_deoptimization) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call back for configure stubs.
@@ -599,7 +601,7 @@ class Instrumentation {
   // Read barrier-aware utility functions for accessing deoptimized_methods_
   bool AddDeoptimizedMethod(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(deoptimized_methods_lock_);
-  bool IsDeoptimizedMethod(ArtMethod* method)
+  bool IsDeoptimizedMethod(ArtMethod* method) const
       REQUIRES_SHARED(Locks::mutator_lock_, deoptimized_methods_lock_);
   bool RemoveDeoptimizedMethod(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(deoptimized_methods_lock_);
