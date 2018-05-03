@@ -116,8 +116,16 @@ void MemberSignature::WarnAboutAccess(AccessMethod access_method,
 
 template<typename T>
 Action GetMemberActionImpl(T* member, Action action, AccessMethod access_method) {
-  // Get the signature, we need it later.
+  // Get the signature.
   MemberSignature member_signature(member);
+
+  if (access_method == kJNI) {
+    // We special case Landroid/content/res/AssetManager;->mObject as it is accessed
+    // by a platform .so file, but we don't recognize those yet. See b/73865351.
+    if (member_signature.DoesPrefixMatch("Landroid/content/res/AssetManager;->mObject")) {
+      return kAllow;
+    }
+  }
 
   Runtime* runtime = Runtime::Current();
 
