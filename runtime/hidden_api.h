@@ -156,6 +156,17 @@ inline Action GetMemberAction(T* member,
     return kAllow;
   }
 
+  if (access_method == kJNI) {
+    std::string unused;
+    // We special case Landroid/content/res/AssetManager;->mObject as it is accessed
+    // by a platform .so file, but we don't recognize those yet.
+    if ((strcmp(member->GetName(), "mObject") == 0) &&
+        (strcmp(member->GetDeclaringClass()->GetDescriptor(&unused),
+                "Landroid/content/res/AssetManager;") == 0)) {
+      return kAllow;
+    }
+  }
+
   // Member is hidden and caller is not in the platform.
   return detail::GetMemberActionImpl(member, action, access_method);
 }
