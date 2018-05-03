@@ -105,8 +105,8 @@ public class Main {
   /// CHECK-START: float Main.testMethod() load_store_elimination (after)
   /// CHECK-DAG: Deoptimize
   /// CHECK-DAG: Deoptimize
-  /// CHECK-NOT: NewInstance
-  /// CHECK-NOT: ConstructorFence
+  /// CHECK-DAG: NewInstance
+  /// CHECK-DAG: ConstructorFence
 
   private float testMethod() {
     {
@@ -221,4 +221,3 @@ public class Main {
     System.out.println("Done....");
   }
 }
-

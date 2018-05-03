@@ -732,7 +732,7 @@ public class Main {
   /// CHECK: NewInstance
 
   /// CHECK-START: float Main.testAllocationEliminationWithLoops() load_store_elimination (after)
-  /// CHECK-NOT: NewInstance
+  /// CHECK: NewInstance
 
   private static float testAllocationEliminationWithLoops() {
     for (int i0 = 0; i0 < 5; i0++) {

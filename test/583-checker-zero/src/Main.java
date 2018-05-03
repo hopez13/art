@@ -21,7 +21,6 @@ public class Main {
   // art::HConstant::IsArithmeticZero and art::HConstant::IsZeroBitPattern).
 
   /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK: InstanceFieldSet
   public static void main(String[] args) {
     if (new Float(0f).equals(new Float(-0f))) {
       throw new Error("Expected not equal");
