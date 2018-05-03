@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa0ca110_511da850",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-03T11:44:59Z",
+      "side": 1,
+      "message": "Nit:\n\n   last_size !\u003d 0\n\n(as `last_size` is unsigned).",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "ed283d2009b763248cd3044b1764ee4c4c869f0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be394b93_6e8ad9e6",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-03T11:44:59Z",
+      "side": 1,
+      "message": "\"last graph size %zu vs current graph size %zu\"",
+      "range": {
+        "startLine": 69,
+        "startChar": 62,
+        "endLine": 69,
+        "endChar": 85
+      },
+      "revId": "ed283d2009b763248cd3044b1764ee4c4c869f0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2362d57_c677f6e3",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-03T11:44:59Z",
+      "side": 1,
+      "message": "Turn this into (or add) a TODO?",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 11
+      },
+      "revId": "ed283d2009b763248cd3044b1764ee4c4c869f0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
