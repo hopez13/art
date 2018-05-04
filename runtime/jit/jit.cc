@@ -27,7 +27,7 @@
 #include "debugger.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "interpreter/interpreter.h"
-#include "java_vm_ext.h"
+#include "jni/java_vm_ext.h"
 #include "jit_code_cache.h"
 #include "mirror/method_handle_impl.h"
 #include "mirror/var_handle.h"
