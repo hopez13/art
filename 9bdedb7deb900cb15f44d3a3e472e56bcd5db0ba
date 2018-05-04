@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35a2e678_aed4a138",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Presumably, this might cost a bit more memory, right? It might be worth checking this change on our benchmarking infra before merging it.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "906b73de_098f4c5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Also mention that this change removes `HTemplateInstruction` (or merges it into `HExpression`)?",
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af224323_d3bab445",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Nit: Space before \u0027:\u0027.",
+      "range": {
+        "startLine": 2652,
+        "startChar": 20,
+        "endLine": 2652,
+        "endChar": 21
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3091ecb6_0ad45f8e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6702,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 6700,
+        "startChar": 0,
+        "endLine": 6702,
+        "endChar": 28
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "470541f6_b6811e10",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7131,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Nit: Move this to the previous line and align other arguments.",
+      "range": {
+        "startLine": 7131,
+        "startChar": 12,
+        "endLine": 7131,
+        "endChar": 26
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd62a96_bc54ffbc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7320,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:31:56Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 7320,
+        "startChar": 10,
+        "endLine": 7320,
+        "endChar": 27
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
