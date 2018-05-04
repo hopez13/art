@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4e0e657_97a45aaf",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2669,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T14:38:23Z",
+      "side": 1,
+      "message": "You could also keep InstructionTypeEquals() as an inline non-virtual method in HInstruction to keep that syntactic sugar (and maybe rename is as KindEquals()).",
+      "range": {
+        "startLine": 2669,
+        "startChar": 6,
+        "endLine": 2669,
+        "endChar": 47
+      },
+      "revId": "d390c7307afb213e7cad8bcc9961cfd2ee7c31dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
