@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b00dcff0_dfaa820d",
+        "filename": "test/530-checker-lse2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-04T21:04:37Z",
+      "side": 0,
+      "message": "format cleanup? Okay, but just want to verify?",
+      "revId": "d637fdac0ea396780b12052c7ab9de61744bcd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86c60c8f_7adeab36",
         "filename": "test/583-checker-zero/src/Main.java",
         "patchSetId": 1
@@ -13,6 +30,24 @@
       "writtenOn": "2018-05-03T18:09:53Z",
       "side": 0,
       "message": "fwiw, I don\u0027t think this is the right solution",
+      "revId": "d637fdac0ea396780b12052c7ab9de61744bcd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d3efc19_a9d3af39",
+        "filename": "test/583-checker-zero/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-04T21:04:37Z",
+      "side": 0,
+      "message": "No, it\u0027s not. Basically a no-test remains after your change?",
+      "parentUuid": "86c60c8f_7adeab36",
       "revId": "d637fdac0ea396780b12052c7ab9de61744bcd4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

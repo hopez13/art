@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06b338c1_e16b2b74",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-04T21:04:37Z",
+      "side": 1,
+      "message": "what is the context of this change? This checker tests verifies that LSE removes the singleton new instances. Your change basically nullifies that?!",
+      "revId": "a16a4e97157fe4b9848333c24afc180fa12e55f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee593663_1c2df697",
+        "filename": "test/530-checker-lse2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-04T21:04:37Z",
+      "side": 1,
+      "message": "same, a rather large deviation from the original intent?",
+      "revId": "a16a4e97157fe4b9848333c24afc180fa12e55f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
