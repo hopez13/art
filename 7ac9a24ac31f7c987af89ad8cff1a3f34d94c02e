@@ -22,6 +22,30 @@
       "revId": "7ac9a24ac31f7c987af89ad8cff1a3f34d94c02e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3c050a_f19fa6a3",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-04T18:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2da0427_e8945747",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 68
+      },
+      "revId": "7ac9a24ac31f7c987af89ad8cff1a3f34d94c02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
