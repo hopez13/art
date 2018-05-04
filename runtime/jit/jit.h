@@ -252,6 +252,11 @@ class JitOptions {
   void SetSaveProfilingInfo(bool save_profiling_info) {
     profile_saver_options_.SetEnabled(save_profiling_info);
   }
+
+  void SetWaitForJitNotificationsToSaveProfile(bool value) {
+    profile_saver_options_.SetWaitForJitNotificationsToSave(value);
+  }
+
   void SetJitAtFirstUse() {
     use_jit_compilation_ = true;
     compile_threshold_ = 0;

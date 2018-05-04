@@ -131,6 +131,11 @@ void ProfileSaver::Run() {
   }
   FetchAndCacheResolvedClassesAndMethods(/*startup*/ true);
 
+
+  // When we save without waiting for JIT notifications we use a simple
+  // exponential back off policy bounded by max_wait_without_jit.
+  uint32_t max_wait_without_jit = options_.GetMinSavePeriodMs() * 16;
+  uint64_t cur_wait_without_jit = options_.GetMinSavePeriodMs();
   // Loop for the profiled methods.
   while (!ShuttingDown(self)) {
     uint64_t sleep_start = NanoTime();
@@ -138,7 +143,14 @@ void ProfileSaver::Run() {
       uint64_t sleep_time = 0;
       {
         MutexLock mu(self, wait_lock_);
-        period_condition_.Wait(self);
+        if (options_.GetWaitForJitNotificationsToSave()) {
+          period_condition_.Wait(self);
+        } else {
+          period_condition_.TimedWait(self, cur_wait_without_jit, 0);
+          if (cur_wait_without_jit < max_wait_without_jit) {
+            cur_wait_without_jit *= 2;
+          }
+        }
         sleep_time = NanoTime() - sleep_start;
       }
       // Check if the thread was woken up for shutdown.
