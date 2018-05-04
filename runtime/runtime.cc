@@ -893,6 +893,10 @@ void Runtime::InitNonZygoteOrPostFork(
     jit_options_->SetSaveProfilingInfo(profile_system_server);
     if (profile_system_server) {
       VLOG(profiler) << "Enabling system server profiles";
+      // Do not wait for JIT notifications in order to save the system server
+      // profile. We always use AOT samples for it which don't go through the
+      // JIT flow.
+      jit_options_->SetWaitForJitNotificationsToSaveProfile(true);
     }
   }
   if (!safe_mode_ &&

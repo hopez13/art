@@ -41,7 +41,8 @@ struct ProfileSaverOptions {
     min_notification_before_wake_(kMinNotificationBeforeWake),
     max_notification_before_wake_(kMaxNotificationBeforeWake),
     profile_path_(""),
-    profile_boot_class_path_(false) {}
+    profile_boot_class_path_(false),
+    wait_for_jit_notifications_to_save_(true) {}
 
   ProfileSaverOptions(
       bool enabled,
@@ -53,7 +54,8 @@ struct ProfileSaverOptions {
       uint32_t min_notification_before_wake,
       uint32_t max_notification_before_wake,
       const std::string& profile_path,
-      bool profile_boot_class_path)
+      bool profile_boot_class_path,
+      bool wait_for_jit_notifications_to_save = true)
   : enabled_(enabled),
     min_save_period_ms_(min_save_period_ms),
     save_resolved_classes_delay_ms_(save_resolved_classes_delay_ms),
@@ -63,7 +65,8 @@ struct ProfileSaverOptions {
     min_notification_before_wake_(min_notification_before_wake),
     max_notification_before_wake_(max_notification_before_wake),
     profile_path_(profile_path),
-    profile_boot_class_path_(profile_boot_class_path) {}
+    profile_boot_class_path_(profile_boot_class_path),
+    wait_for_jit_notifications_to_save_(wait_for_jit_notifications_to_save) {}
 
   bool IsEnabled() const {
     return enabled_;
@@ -103,6 +106,12 @@ struct ProfileSaverOptions {
   bool GetProfileBootClassPath() const {
     return profile_boot_class_path_;
   }
+  bool GetWaitForJitNotificationsToSave() const {
+    return wait_for_jit_notifications_to_save_;
+  }
+  void SetWaitForJitNotificationsToSave(bool value) {
+    wait_for_jit_notifications_to_save_ = value;
+  }
 
   friend std::ostream & operator<<(std::ostream &os, const ProfileSaverOptions& pso) {
     os << "enabled_" << pso.enabled_
@@ -113,7 +122,8 @@ struct ProfileSaverOptions {
         << ", min_classes_to_save_" << pso.min_classes_to_save_
         << ", min_notification_before_wake_" << pso.min_notification_before_wake_
         << ", max_notification_before_wake_" << pso.max_notification_before_wake_
-        << ", profile_boot_class_path_" << pso.profile_boot_class_path_;
+        << ", profile_boot_class_path_" << pso.profile_boot_class_path_
+        << ", wait_for_jit_notifications_to_save_" << pso.wait_for_jit_notifications_to_save_;
     return os;
   }
 
@@ -129,6 +139,7 @@ struct ProfileSaverOptions {
   uint32_t max_notification_before_wake_;
   std::string profile_path_;
   bool profile_boot_class_path_;
+  bool wait_for_jit_notifications_to_save_;
 };
 
 }  // namespace art
