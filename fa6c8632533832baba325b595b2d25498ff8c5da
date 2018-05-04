@@ -22,6 +22,30 @@
       "revId": "fa6c8632533832baba325b595b2d25498ff8c5da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fc95ca7_6097580d",
+        "filename": "Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-04T15:10:19Z",
+      "side": 1,
+      "message": "Actually, I\u0027ve refactored this code in PS10 to make it shorter and easier to remove the ART_TEST_ANDROID_ROOT case later.",
+      "parentUuid": "1c4624dc_1c4e1a6f",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "fa6c8632533832baba325b595b2d25498ff8c5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
