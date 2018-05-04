@@ -22,6 +22,30 @@
       "revId": "a8b75d36097113d7a485da221851e385736dffa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9839f330_f9472e28",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-04T12:39:28Z",
+      "side": 1,
+      "message": "Good point, moved it to .cc file.",
+      "parentUuid": "d0585323_f8c2d717",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 3
+      },
+      "revId": "a8b75d36097113d7a485da221851e385736dffa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
