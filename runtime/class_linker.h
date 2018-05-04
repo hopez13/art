@@ -392,6 +392,19 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
+  ArtField* FindResolvedField(ObjPtr<mirror::Class> klass,
+                              ObjPtr<mirror::DexCache> dex_cache,
+                              ObjPtr<mirror::ClassLoader> class_loader,
+                              uint32_t field_idx,
+                              bool is_static)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ArtField* FindResolvedFieldJLS(ObjPtr<mirror::Class> klass,
+                                 ObjPtr<mirror::DexCache> dex_cache,
+                                 ObjPtr<mirror::ClassLoader> class_loader,
+                                 uint32_t field_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Resolve a method type with a given ID from the DexFile associated with a given DexCache
   // and ClassLoader, storing the result in the DexCache.
   ObjPtr<mirror::MethodType> ResolveMethodType(Thread* self,
@@ -473,6 +486,9 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_);
   ClassTable* FindClassTable(Thread* self, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES(!Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<mirror::ClassLoader> FindClassLoader(Thread* self, ObjPtr<mirror::DexCache> dex_cache)
+      REQUIRES(!Locks::dex_lock_, !Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   LengthPrefixedArray<ArtField>* AllocArtFieldArray(Thread* self,

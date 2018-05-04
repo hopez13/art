@@ -29,6 +29,7 @@
 #include "dex/dex_file.h"
 #include "gc/heap-inl.h"
 #include "gc_root.h"
+#include "hidden_api.h"
 #include "mirror/call_site.h"
 #include "mirror/class.h"
 #include "mirror/method_type.h"
@@ -191,8 +192,17 @@ inline ArtField* DexCache::GetResolvedField(uint32_t field_idx, PointerSize ptr_
 }
 
 inline void DexCache::SetResolvedField(uint32_t field_idx, ArtField* field, PointerSize ptr_size) {
-  DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), ptr_size);
-  DCHECK(field != nullptr);
+  if (kIsDebugBuild) {
+    ClassLinker* linker = Runtime::Current()->GetClassLinker();
+    DCHECK_EQ(linker->GetImagePointerSize(), ptr_size);
+    DCHECK(field != nullptr);
+    if (linker->IsDexFileRegistered(Thread::Current(), *GetDexFile())) {
+      ObjPtr<mirror::ClassLoader> class_loader = linker->FindClassLoader(Thread::Current(), this);
+      DCHECK_NE(hiddenapi::GetMemberAction(field, class_loader, this, hiddenapi::kNone),
+                hiddenapi::kDeny);
+    }
+  }
+
   FieldDexCachePair pair(field, field_idx);
   SetNativePairPtrSize(GetResolvedFields(), FieldSlotIndex(field_idx), pair, ptr_size);
 }
@@ -225,8 +235,17 @@ inline ArtMethod* DexCache::GetResolvedMethod(uint32_t method_idx, PointerSize p
 inline void DexCache::SetResolvedMethod(uint32_t method_idx,
                                         ArtMethod* method,
                                         PointerSize ptr_size) {
-  DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), ptr_size);
-  DCHECK(method != nullptr);
+  if (kIsDebugBuild) {
+    ClassLinker* linker = Runtime::Current()->GetClassLinker();
+    DCHECK_EQ(linker->GetImagePointerSize(), ptr_size);
+    DCHECK(method != nullptr);
+    if (linker->IsDexFileRegistered(Thread::Current(), *GetDexFile())) {
+      ObjPtr<mirror::ClassLoader> class_loader = linker->FindClassLoader(Thread::Current(), this);
+      DCHECK_NE(hiddenapi::GetMemberAction(method, class_loader, this, hiddenapi::kNone),
+                hiddenapi::kDeny);
+    }
+  }
+
   MethodDexCachePair pair(method, method_idx);
   SetNativePairPtrSize(GetResolvedMethods(), MethodSlotIndex(method_idx), pair, ptr_size);
 }
