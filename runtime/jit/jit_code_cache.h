@@ -88,6 +88,7 @@ class JitCodeCache {
   static JitCodeCache* Create(size_t initial_capacity,
                               size_t max_capacity,
                               bool generate_debug_info,
+                              bool used_only_for_profile_data,
                               std::string* error_msg);
   ~JitCodeCache();
 
@@ -270,7 +271,8 @@ class JitCodeCache {
                size_t initial_code_capacity,
                size_t initial_data_capacity,
                size_t max_capacity,
-               bool garbage_collect_code);
+               bool garbage_collect_code,
+               bool used_only_for_profile_data);
 
   // Internal version of 'CommitCode' that will not retry if the
   // allocation fails. Return null if the allocation fails.
@@ -441,6 +443,9 @@ class JitCodeCache {
 
   // Condition to wait on for accessing inline caches.
   ConditionVariable inline_cache_cond_ GUARDED_BY(lock_);
+
+  // Whether or not the code caches is in fact used only for the profile data.
+  const bool used_only_for_profile_data_;
 
   friend class art::JitJniStubTestHelper;
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCodeCache);
