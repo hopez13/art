@@ -861,7 +861,11 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
 }
 
 void Runtime::InitNonZygoteOrPostFork(
-    JNIEnv* env, bool is_system_server, NativeBridgeAction action, const char* isa) {
+    JNIEnv* env,
+    bool is_system_server,
+    NativeBridgeAction action,
+    const char* isa,
+    bool profile_system_server) {
   is_zygote_ = false;
 
   if (is_native_bridge_loaded_) {
@@ -884,6 +888,11 @@ void Runtime::InitNonZygoteOrPostFork(
   heap_->ResetGcPerformanceInfo();
 
   // We may want to collect profiling samples for system server, but we never want to JIT there.
+  if (is_system_server && profile_system_server) {
+    VLOG(profiler) << "Enabling system server profiles";
+    jit_options_->SetUseJitCompilation(false);
+    jit_options_->SetSaveProfilingInfo(true);
+  }
   if ((!is_system_server || !jit_options_->UseJitCompilation()) &&
       !safe_mode_ &&
       (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo()) &&
