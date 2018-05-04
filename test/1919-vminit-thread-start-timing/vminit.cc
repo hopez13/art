@@ -29,7 +29,7 @@
 // Test infrastructure
 #include "scoped_local_ref.h"
 #include "jvmti_helper.h"
-#include "jni_helper.h"
+#include "jni/jni_helper.h"
 #include "test_env.h"
 
 namespace art {
