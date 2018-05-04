@@ -161,6 +161,7 @@ class JitCodeCache::JniStubData {
 JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                    size_t max_capacity,
                                    bool generate_debug_info,
+                                   bool used_only_for_profile_data,
                                    std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   CHECK_GE(max_capacity, initial_capacity);
@@ -216,8 +217,12 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   DCHECK_EQ(code_size + data_size, max_capacity);
   uint8_t* divider = data_map->Begin() + data_size;
 
+  // NOTE: We could just not create the code_map at all but we will need to
+  // special case too many cases. So we prefer to map it kProtData and DCHECK that we never
+  // write in it.
+  int code_cache_map_flags = used_only_for_profile_data ? kProtData : kProtAll;
   MemMap* code_map =
-      data_map->RemapAtEnd(divider, "jit-code-cache", kProtAll, &error_str, use_ashmem);
+      data_map->RemapAtEnd(divider, "jit-code-cache", code_cache_map_flags, &error_str, use_ashmem);
   if (code_map == nullptr) {
     std::ostringstream oss;
     oss << "Failed to create read write execute cache: " << error_str << " size=" << max_capacity;
@@ -229,7 +234,13 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   code_size = initial_capacity - data_size;
   DCHECK_EQ(code_size + data_size, initial_capacity);
   return new JitCodeCache(
-      code_map, data_map.release(), code_size, data_size, max_capacity, garbage_collect_code);
+      code_map,
+      data_map.release(),
+      code_size,
+      data_size,
+      max_capacity,
+      garbage_collect_code,
+      used_only_for_profile_data);
 }
 
 JitCodeCache::JitCodeCache(MemMap* code_map,
@@ -237,7 +248,8 @@ JitCodeCache::JitCodeCache(MemMap* code_map,
                            size_t initial_code_capacity,
                            size_t initial_data_capacity,
                            size_t max_capacity,
-                           bool garbage_collect_code)
+                           bool garbage_collect_code,
+                           bool used_only_for_profile_data)
     : lock_("Jit code cache", kJitCodeCacheLock),
       lock_cond_("Jit code cache condition variable", lock_),
       collection_in_progress_(false),
@@ -258,7 +270,8 @@ JitCodeCache::JitCodeCache(MemMap* code_map,
       histogram_code_memory_use_("Memory used for compiled code", 16),
       histogram_profiling_info_memory_use_("Memory used for profiling info", 16),
       is_weak_access_enabled_(true),
-      inline_cache_cond_("Jit inline cache condition variable", lock_) {
+      inline_cache_cond_("Jit inline cache condition variable", lock_),
+      used_only_for_profile_data_(used_only_for_profile_data) {
 
   DCHECK_GE(max_capacity, initial_code_capacity + initial_data_capacity);
   code_mspace_ = create_mspace_with_base(code_map_->Begin(), code_end_, false /*locked*/);
@@ -274,7 +287,7 @@ JitCodeCache::JitCodeCache(MemMap* code_map,
               "mprotect jit code cache",
               code_map_->Begin(),
               code_map_->Size(),
-              kProtCode);
+              used_only_for_profile_data_ ? kProtData: kProtCode);
   CheckedCall(mprotect,
               "mprotect jit data cache",
               data_map_->Begin(),
@@ -327,19 +340,30 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
 
 class ScopedCodeCacheWrite : ScopedTrace {
  public:
-  explicit ScopedCodeCacheWrite(MemMap* code_map)
+  explicit ScopedCodeCacheWrite(
+      MemMap* code_map,
+      bool used_only_for_profile_data)
       : ScopedTrace("ScopedCodeCacheWrite"),
-        code_map_(code_map) {
+        code_map_(code_map),
+        used_only_for_profile_data_(used_only_for_profile_data) {
+    if (used_only_for_profile_data_) {
+      return;
+    }
     ScopedTrace trace("mprotect all");
     CheckedCall(mprotect, "make code writable", code_map_->Begin(), code_map_->Size(), kProtAll);
   }
+
   ~ScopedCodeCacheWrite() {
+    if (used_only_for_profile_data_) {
+      return;
+    }
     ScopedTrace trace("mprotect code");
     CheckedCall(mprotect, "make code protected", code_map_->Begin(), code_map_->Size(), kProtCode);
   }
 
  private:
   MemMap* const code_map_;
+  const bool used_only_for_profile_data_;
 
   DISALLOW_COPY_AND_ASSIGN(ScopedCodeCacheWrite);
 };
@@ -359,6 +383,8 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   Handle<mirror::ObjectArray<mirror::Object>> roots,
                                   bool has_should_deoptimize_flag,
                                   const ArenaSet<ArtMethod*>& cha_single_implementation_list) {
+  DCHECK(!used_only_for_profile_data_);
+
   uint8_t* result = CommitCodeInternal(self,
                                        method,
                                        stack_map,
@@ -557,7 +583,7 @@ void JitCodeCache::FreeAllMethodHeaders(
   // so it's possible for the same method_header to start representing
   // different compile code.
   MutexLock mu(Thread::Current(), lock_);
-  ScopedCodeCacheWrite scc(code_map_.get());
+  ScopedCodeCacheWrite scc(code_map_.get(), used_only_for_profile_data_);
   for (const OatQuickMethodHeader* method_header : method_headers) {
     FreeCode(method_header->GetCode());
   }
@@ -576,7 +602,7 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
     // with the classlinker_classes_lock_ held, and suspending ourselves could
     // lead to a deadlock.
     {
-      ScopedCodeCacheWrite scc(code_map_.get());
+      ScopedCodeCacheWrite scc(code_map_.get(), used_only_for_profile_data_);
       for (auto it = jni_stubs_map_.begin(); it != jni_stubs_map_.end();) {
         it->second.RemoveMethodsIn(alloc);
         if (it->second.GetMethods().empty()) {
@@ -715,7 +741,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     MutexLock mu(self, lock_);
     WaitForPotentialCollectionToComplete(self);
     {
-      ScopedCodeCacheWrite scc(code_map_.get());
+      ScopedCodeCacheWrite scc(code_map_.get(), used_only_for_profile_data_);
       memory = AllocateCode(total_size);
       if (memory == nullptr) {
         return nullptr;
@@ -878,7 +904,7 @@ bool JitCodeCache::RemoveMethodLocked(ArtMethod* method, bool release_memory) {
   }
 
   bool in_cache = false;
-  ScopedCodeCacheWrite ccw(code_map_.get());
+  ScopedCodeCacheWrite ccw(code_map_.get(), used_only_for_profile_data_);
   if (UNLIKELY(method->IsNative())) {
     auto it = jni_stubs_map_.find(JniStubKey(method));
     if (it != jni_stubs_map_.end() && it->second.RemoveMethod(method)) {
@@ -1105,8 +1131,7 @@ void JitCodeCache::SetFootprintLimit(size_t new_footprint) {
   DCHECK_EQ(per_space_footprint * 2, new_footprint);
   mspace_set_footprint_limit(data_mspace_, per_space_footprint);
   {
-    ScopedCodeCacheWrite scc(code_map_.get());
-    mspace_set_footprint_limit(code_mspace_, per_space_footprint);
+    ScopedCodeCacheWrite scc(code_map_.get(), used_only_for_profile_data_);
   }
 }
 
@@ -1273,7 +1298,7 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
   std::unordered_set<OatQuickMethodHeader*> method_headers;
   {
     MutexLock mu(self, lock_);
-    ScopedCodeCacheWrite scc(code_map_.get());
+    ScopedCodeCacheWrite scc(code_map_.get(), used_only_for_profile_data_);
     // Iterate over all compiled code and remove entries that are not marked.
     for (auto it = jni_stubs_map_.begin(); it != jni_stubs_map_.end();) {
       JniStubData* data = &it->second;
