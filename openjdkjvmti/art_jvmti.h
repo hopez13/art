@@ -48,7 +48,7 @@
 #include "base/mutex.h"
 #include "events.h"
 #include "java_vm_ext.h"
-#include "jni_env_ext.h"
+#include "jni/jni_env_ext.h"
 #include "jvmti.h"
 #include "ti_breakpoint.h"
 

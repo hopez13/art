@@ -30,7 +30,7 @@
 #include "hidden_api.h"
 #include "java_vm_ext.h"
 #include "jit/jit.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "native_util.h"
 #include "nativehelper/jni_macros.h"
 #include "nativehelper/scoped_utf_chars.h"

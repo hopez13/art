@@ -66,7 +66,7 @@
 #include "interpreter/shadow_frame.h"
 #include "java_frame_root_info.h"
 #include "java_vm_ext.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "mirror/object_array-inl.h"

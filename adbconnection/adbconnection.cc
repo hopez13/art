@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "java_vm_ext.h"
-#include "jni_env_ext.h"
+#include "jni/jni_env_ext.h"
 #include "mirror/throwable.h"
 #include "nativehelper/ScopedLocalRef.h"
 #include "runtime-inl.h"

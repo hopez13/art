@@ -49,7 +49,7 @@
 #include "handle_scope-inl.h"
 #include "interpreter/unstarted_runtime.h"
 #include "java_vm_ext.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "native/dalvik_system_DexFile.h"

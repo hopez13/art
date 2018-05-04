@@ -32,7 +32,7 @@
 #include "gc/heap.h"
 #include "gc_root-inl.h"
 #include "indirect_reference_table-inl.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
 #include "nativebridge/native_bridge.h"

@@ -97,7 +97,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profile_saver.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "linear_alloc.h"
 #include "memory_representation.h"
 #include "mirror/array.h"

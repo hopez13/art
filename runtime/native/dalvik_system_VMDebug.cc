@@ -36,7 +36,7 @@
 #include "handle_scope-inl.h"
 #include "hprof/hprof.h"
 #include "java_vm_ext.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "mirror/class.h"
 #include "mirror/object_array-inl.h"
 #include "native_util.h"

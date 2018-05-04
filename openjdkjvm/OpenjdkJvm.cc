@@ -49,7 +49,7 @@
 #include "gc/heap.h"
 #include "handle_scope-inl.h"
 #include "java_vm_ext.h"
-#include "jni_internal.h"
+#include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
 #include "mirror/string-inl.h"
 #include "monitor.h"
