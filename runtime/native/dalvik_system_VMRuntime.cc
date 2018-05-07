@@ -32,8 +32,8 @@ extern "C" void android_set_application_target_sdk_version(uint32_t version);
 #include "class_linker-inl.h"
 #include "common_throws.h"
 #include "debugger.h"
-#include "dex_file-inl.h"
-#include "dex_file_types.h"
+#include "dex/dex_file-inl.h"
+#include "dex/dex_file_types.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc/allocator/dlmalloc.h"
 #include "gc/heap.h"
@@ -72,6 +72,25 @@ static void VMRuntime_startJitCompilation(JNIEnv*, jobject) {
 }
 
 static void VMRuntime_disableJitCompilation(JNIEnv*, jobject) {
+}
+
+static jboolean VMRuntime_hasUsedHiddenApi(JNIEnv*, jobject) {
+  return Runtime::Current()->HasPendingHiddenApiWarning() ? JNI_TRUE : JNI_FALSE;
+}
+
+static void VMRuntime_setHiddenApiExemptions(JNIEnv* env,
+                                            jclass,
+                                            jobjectArray exemptions) {
+  std::vector<std::string> exemptions_vec;
+  int exemptions_length = env->GetArrayLength(exemptions);
+  for (int i = 0; i < exemptions_length; i++) {
+    jstring exemption = reinterpret_cast<jstring>(env->GetObjectArrayElement(exemptions, i));
+    const char* raw_exemption = env->GetStringUTFChars(exemption, nullptr);
+    exemptions_vec.push_back(raw_exemption);
+    env->ReleaseStringUTFChars(exemption, raw_exemption);
+  }
+
+  Runtime::Current()->SetHiddenApiExemptions(exemptions_vec);
 }
 
 static jobject VMRuntime_newNonMovableArray(JNIEnv* env, jobject, jclass javaElementClass,
@@ -223,7 +242,7 @@ static jboolean VMRuntime_is64Bit(JNIEnv*, jobject) {
 }
 
 static jboolean VMRuntime_isCheckJniEnabled(JNIEnv* env, jobject) {
-  return down_cast<JNIEnvExt*>(env)->vm->IsCheckJniEnabled() ? JNI_TRUE : JNI_FALSE;
+  return down_cast<JNIEnvExt*>(env)->GetVm()->IsCheckJniEnabled() ? JNI_TRUE : JNI_FALSE;
 }
 
 static void VMRuntime_setTargetSdkVersionNative(JNIEnv*, jobject, jint target_sdk_version) {
@@ -401,18 +420,15 @@ static void PreloadDexCachesResolveMethod(ObjPtr<mirror::DexCache> dex_cache, ui
   }
   const DexFile* dex_file = dex_cache->GetDexFile();
   const DexFile::MethodId& method_id = dex_file->GetMethodId(method_idx);
-  ObjPtr<mirror::Class> klass = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+
+  ObjPtr<mirror::Class> klass = class_linker->LookupResolvedType(
       method_id.class_idx_, dex_cache, /* class_loader */ nullptr);
   if (klass == nullptr) {
     return;
   }
-  ArtMethod* method = klass->IsInterface()
-      ? klass->FindInterfaceMethod(dex_cache, method_idx, kRuntimePointerSize)
-      : klass->FindClassMethod(dex_cache, method_idx, kRuntimePointerSize);
-  if (method == nullptr) {
-    return;
-  }
-  dex_cache->SetResolvedMethod(method_idx, method, kRuntimePointerSize);
+  // Call FindResolvedMethod to populate the dex cache.
+  class_linker->FindResolvedMethod(klass, dex_cache, /* class_loader */ nullptr, method_idx);
 }
 
 struct DexCacheStats {
@@ -670,6 +686,8 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, clearGrowthLimit, "()V"),
   NATIVE_METHOD(VMRuntime, concurrentGC, "()V"),
   NATIVE_METHOD(VMRuntime, disableJitCompilation, "()V"),
+  NATIVE_METHOD(VMRuntime, hasUsedHiddenApi, "()Z"),
+  NATIVE_METHOD(VMRuntime, setHiddenApiExemptions, "([Ljava/lang/String;)V"),
   NATIVE_METHOD(VMRuntime, getTargetHeapUtilization, "()F"),
   FAST_NATIVE_METHOD(VMRuntime, isDebuggerActive, "()Z"),
   FAST_NATIVE_METHOD(VMRuntime, isNativeDebuggable, "()Z"),

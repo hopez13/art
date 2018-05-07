@@ -31,10 +31,11 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "deoptimization_kind.h"
-#include "dex_file_types.h"
+#include "dex/dex_file_types.h"
 #include "experimental_flags.h"
 #include "gc_root.h"
 #include "instrumentation.h"
+#include "jdwp_provider.h"
 #include "obj_ptr.h"
 #include "offsets.h"
 #include "process_state.h"
@@ -47,6 +48,10 @@ namespace gc {
 class AbstractSystemWeakHolder;
 class Heap;
 }  // namespace gc
+
+namespace hiddenapi {
+enum class EnforcementPolicy;
+}  // namespace hiddenapi
 
 namespace jit {
 class Jit;
@@ -65,6 +70,7 @@ class Throwable;
 }  // namespace mirror
 namespace ti {
 class Agent;
+class AgentSpec;
 }  // namespace ti
 namespace verifier {
 class MethodVerifier;
@@ -285,7 +291,12 @@ class Runtime {
   // Get the special object used to mark a cleared JNI weak global.
   mirror::Object* GetClearedJniWeakGlobal() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  mirror::Throwable* GetPreAllocatedOutOfMemoryError() REQUIRES_SHARED(Locks::mutator_lock_);
+  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingException()
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME()
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenHandlingStackOverflow()
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::Throwable* GetPreAllocatedNoClassDefFoundError()
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -323,7 +334,7 @@ class Runtime {
   // instead.
   void VisitImageRoots(RootVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Visit all of the roots we can do safely do concurrently.
+  // Visit all of the roots we can safely visit concurrently.
   void VisitConcurrentRoots(RootVisitor* visitor,
                             VisitRootFlags flags = kVisitRootFlagAllRoots)
       REQUIRES(!Locks::classlinker_classes_lock_, !Locks::trace_lock_)
@@ -518,6 +529,46 @@ class Runtime {
   bool IsVerificationEnabled() const;
   bool IsVerificationSoftFail() const;
 
+  void SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy policy) {
+    hidden_api_policy_ = policy;
+  }
+
+  hiddenapi::EnforcementPolicy GetHiddenApiEnforcementPolicy() const {
+    return hidden_api_policy_;
+  }
+
+  void SetPendingHiddenApiWarning(bool value) {
+    pending_hidden_api_warning_ = value;
+  }
+
+  void SetHiddenApiExemptions(const std::vector<std::string>& exemptions) {
+    hidden_api_exemptions_ = exemptions;
+  }
+
+  const std::vector<std::string>& GetHiddenApiExemptions() {
+    return hidden_api_exemptions_;
+  }
+
+  bool HasPendingHiddenApiWarning() const {
+    return pending_hidden_api_warning_;
+  }
+
+  void SetDedupeHiddenApiWarnings(bool value) {
+    dedupe_hidden_api_warnings_ = value;
+  }
+
+  bool ShouldDedupeHiddenApiWarnings() {
+    return dedupe_hidden_api_warnings_;
+  }
+
+  void AlwaysSetHiddenApiWarningFlag() {
+    always_set_hidden_api_warning_flag_ = true;
+  }
+
+  bool ShouldAlwaysSetHiddenApiWarningFlag() const {
+    return always_set_hidden_api_warning_flag_;
+  }
+
   bool IsDexFileFallbackEnabled() const {
     return allow_dex_file_fallback_;
   }
@@ -659,9 +710,9 @@ class Runtime {
   void AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
   void RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
 
-  void AttachAgent(const std::string& agent_arg);
+  void AttachAgent(JNIEnv* env, const std::string& agent_arg, jobject class_loader);
 
-  const std::list<ti::Agent>& GetAgents() const {
+  const std::list<std::unique_ptr<ti::Agent>>& GetAgents() const {
     return agents_;
   }
 
@@ -696,6 +747,16 @@ class Runtime {
     return madvise_random_access_;
   }
 
+  const std::string& GetJdwpOptions() {
+    return jdwp_options_;
+  }
+
+  JdwpProvider GetJdwpProvider() const {
+    return jdwp_provider_;
+  }
+
+  static constexpr int32_t kUnsetSdkVersion = 0u;
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -705,6 +766,11 @@ class Runtime {
 
   bool Init(RuntimeArgumentMap&& runtime_options)
       SHARED_TRYLOCK_FUNCTION(true, Locks::mutator_lock_);
+  void InitPreAllocatedException(Thread* self,
+                                 GcRoot<mirror::Throwable> Runtime::* exception,
+                                 const char* exception_class_descriptor,
+                                 const char* msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   void InitNativeMethods() REQUIRES(!Locks::mutator_lock_);
   void RegisterRuntimeNativeMethods(JNIEnv* env);
 
@@ -737,7 +803,10 @@ class Runtime {
 
   // 64 bit so that we can share the same asm offsets for both 32 and 64 bits.
   uint64_t callee_save_methods_[kCalleeSaveSize];
-  GcRoot<mirror::Throwable> pre_allocated_OutOfMemoryError_;
+  // Pre-allocated exceptions (see Runtime::Init).
+  GcRoot<mirror::Throwable> pre_allocated_OutOfMemoryError_when_throwing_exception_;
+  GcRoot<mirror::Throwable> pre_allocated_OutOfMemoryError_when_throwing_oome_;
+  GcRoot<mirror::Throwable> pre_allocated_OutOfMemoryError_when_handling_stack_overflow_;
   GcRoot<mirror::Throwable> pre_allocated_NoClassDefFoundError_;
   ArtMethod* resolution_method_;
   ArtMethod* imt_conflict_method_;
@@ -770,7 +839,8 @@ class Runtime {
   std::string class_path_string_;
   std::vector<std::string> properties_;
 
-  std::list<ti::Agent> agents_;
+  std::list<ti::AgentSpec> agent_specs_;
+  std::list<std::unique_ptr<ti::Agent>> agents_;
   std::vector<Plugin> plugins_;
 
   // The default stack size for managed threads created by the runtime.
@@ -800,14 +870,6 @@ class Runtime {
   ClassLinker* class_linker_;
 
   SignalCatcher* signal_catcher_;
-
-  // If true, the runtime will connect to tombstoned via a socket to
-  // request an open file descriptor to write its traces to.
-  bool use_tombstoned_traces_;
-
-  // Location to which traces must be written on SIGQUIT. Only used if
-  // tombstoned_traces_ == false.
-  std::string stack_trace_file_;
 
   std::unique_ptr<JavaVMExt> java_vm_;
 
@@ -941,6 +1003,25 @@ class Runtime {
   // Whether the application should run in safe mode, that is, interpreter only.
   bool safe_mode_;
 
+  // Whether access checks on hidden API should be performed.
+  hiddenapi::EnforcementPolicy hidden_api_policy_;
+
+  // List of signature prefixes of methods that have been removed from the blacklist
+  std::vector<std::string> hidden_api_exemptions_;
+
+  // Whether the application has used an API which is not restricted but we
+  // should issue a warning about it.
+  bool pending_hidden_api_warning_;
+
+  // Do not warn about the same hidden API access violation twice.
+  // This is only used for testing.
+  bool dedupe_hidden_api_warnings_;
+
+  // Hidden API can print warnings into the log and/or set a flag read by the
+  // framework to show a UI warning. If this flag is set, always set the flag
+  // when there is a warning. This is only used for testing.
+  bool always_set_hidden_api_warning_flag_;
+
   // Whether threads should dump their native stack on SIGQUIT.
   bool dump_native_stack_on_sig_quit_;
 
@@ -952,6 +1033,12 @@ class Runtime {
 
   // Whether zygote code is in a section that should not start threads.
   bool zygote_no_threads_;
+
+  // The string containing requested jdwp options
+  std::string jdwp_options_;
+
+  // The jdwp provider we were configured with.
+  JdwpProvider jdwp_provider_;
 
   // Saved environment.
   class EnvSnapshot {

@@ -29,12 +29,13 @@
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
 #include "base/enums.h"
+#include "base/globals.h"
 #include "base/logging.h"  // For VLOG.
 #include "base/unix_file/fd_file.h"
 #include "class_linker-inl.h"
 #include "compiled_method.h"
-#include "dex_file-inl.h"
-#include "dex_file_types.h"
+#include "dex/dex_file-inl.h"
+#include "dex/dex_file_types.h"
 #include "driver/compiler_driver.h"
 #include "elf_file.h"
 #include "elf_utils.h"
@@ -47,7 +48,6 @@
 #include "gc/space/large_object_space.h"
 #include "gc/space/space-inl.h"
 #include "gc/verification.h"
-#include "globals.h"
 #include "handle_scope-inl.h"
 #include "image.h"
 #include "imt_conflict_table.h"
@@ -133,23 +133,31 @@ static void ClearDexFileCookies() REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime::Current()->GetHeap()->VisitObjects(visitor);
 }
 
-bool ImageWriter::PrepareImageAddressSpace() {
+bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
   target_ptr_size_ = InstructionSetPointerSize(compiler_driver_.GetInstructionSet());
   gc::Heap* const heap = Runtime::Current()->GetHeap();
   {
     ScopedObjectAccess soa(Thread::Current());
-    PruneNonImageClasses();  // Remove junk
+    {
+      TimingLogger::ScopedTiming t("PruneNonImageClasses", timings);
+      PruneNonImageClasses();  // Remove junk
+    }
     if (compile_app_image_) {
+      TimingLogger::ScopedTiming t("ClearDexFileCookies", timings);
       // Clear dex file cookies for app images to enable app image determinism. This is required
       // since the cookie field contains long pointers to DexFiles which are not deterministic.
       // b/34090128
       ClearDexFileCookies();
     } else {
+      TimingLogger::ScopedTiming t("ComputeLazyFieldsForImageClasses", timings);
       // Avoid for app image since this may increase RAM and image size.
       ComputeLazyFieldsForImageClasses();  // Add useful information
     }
   }
-  heap->CollectGarbage(false);  // Remove garbage.
+  {
+    TimingLogger::ScopedTiming t("CollectGarbage", timings);
+    heap->CollectGarbage(/* clear_soft_references */ false);  // Remove garbage.
+  }
 
   if (kIsDebugBuild) {
     ScopedObjectAccess soa(Thread::Current());
@@ -157,12 +165,14 @@ bool ImageWriter::PrepareImageAddressSpace() {
   }
 
   {
+    TimingLogger::ScopedTiming t("CalculateNewObjectOffsets", timings);
     ScopedObjectAccess soa(Thread::Current());
     CalculateNewObjectOffsets();
   }
 
   // This needs to happen after CalculateNewObjectOffsets since it relies on intern_table_bytes_ and
   // bin size sums being calculated.
+  TimingLogger::ScopedTiming t("AllocMemory", timings);
   if (!AllocMemory()) {
     return false;
   }
@@ -585,7 +595,7 @@ void ImageWriter::AssignImageBinSlot(mirror::Object* object, size_t oat_index) {
       if (dirty_image_objects_ != nullptr &&
           dirty_image_objects_->find(klass->PrettyDescriptor()) != dirty_image_objects_->end()) {
         bin = Bin::kKnownDirty;
-      } else if (klass->GetStatus() == Class::kStatusInitialized) {
+      } else if (klass->GetStatus() == ClassStatus::kInitialized) {
         bin = Bin::kClassInitialized;
 
         // If the class's static fields are all final, put it into a separate bin
@@ -650,7 +660,7 @@ bool ImageWriter::WillMethodBeDirty(ArtMethod* m) const {
   }
   mirror::Class* declaring_class = m->GetDeclaringClass();
   // Initialized is highly unlikely to dirty since there's no entry points to mutate.
-  return declaring_class == nullptr || declaring_class->GetStatus() != Class::kStatusInitialized;
+  return declaring_class == nullptr || declaring_class->GetStatus() != ClassStatus::kInitialized;
 }
 
 bool ImageWriter::IsImageBinSlotAssigned(mirror::Object* object) const {
@@ -692,7 +702,7 @@ bool ImageWriter::AllocMemory() {
   for (ImageInfo& image_info : image_infos_) {
     ImageSection unused_sections[ImageHeader::kSectionCount];
     const size_t length = RoundUp(
-        image_info.CreateImageSections(unused_sections, compile_app_image_), kPageSize);
+        image_info.CreateImageSections(unused_sections), kPageSize);
 
     std::string error_msg;
     image_info.image_.reset(MemMap::MapAnonymous("image writer image",
@@ -1842,7 +1852,7 @@ void ImageWriter::CalculateNewObjectOffsets() {
     image_info.image_offset_ = image_offset;
     ImageSection unused_sections[ImageHeader::kSectionCount];
     image_info.image_size_ =
-        RoundUp(image_info.CreateImageSections(unused_sections, compile_app_image_), kPageSize);
+        RoundUp(image_info.CreateImageSections(unused_sections), kPageSize);
     // There should be no gaps until the next image.
     image_offset += image_info.image_size_;
   }
@@ -1873,8 +1883,7 @@ void ImageWriter::CalculateNewObjectOffsets() {
   }
 }
 
-size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections,
-                                                   bool app_image) const {
+size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) const {
   DCHECK(out_sections != nullptr);
 
   // Do not round up any sections here that are represented by the bins since it will break
@@ -1912,13 +1921,8 @@ size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections,
   ImageSection* dex_cache_arrays_section = &out_sections[ImageHeader::kSectionDexCacheArrays];
   *dex_cache_arrays_section = ImageSection(GetBinSlotOffset(Bin::kDexCacheArray),
                                            GetBinSlotSize(Bin::kDexCacheArray));
-  // For boot image, round up to the page boundary to separate the interned strings and
-  // class table from the modifiable data. We shall mprotect() these pages read-only when
-  // we load the boot image. This is more than sufficient for the string table alignment,
-  // namely sizeof(uint64_t). See HashSet::WriteToMemory.
-  static_assert(IsAligned<sizeof(uint64_t)>(kPageSize), "String table alignment check.");
-  size_t cur_pos =
-      RoundUp(dex_cache_arrays_section->End(), app_image ? sizeof(uint64_t) : kPageSize);
+  // Round up to the alignment the string table expects. See HashSet::WriteToMemory.
+  size_t cur_pos = RoundUp(dex_cache_arrays_section->End(), sizeof(uint64_t));
   // Calculate the size of the interned strings.
   ImageSection* interned_strings_section = &out_sections[ImageHeader::kSectionInternedStrings];
   *interned_strings_section = ImageSection(cur_pos, intern_table_bytes_);
@@ -1941,7 +1945,7 @@ void ImageWriter::CreateHeader(size_t oat_index) {
 
   // Create the image sections.
   ImageSection sections[ImageHeader::kSectionCount];
-  const size_t image_end = image_info.CreateImageSections(sections, compile_app_image_);
+  const size_t image_end = image_info.CreateImageSections(sections);
 
   // Finally bitmap section.
   const size_t bitmap_bytes = image_info.image_bitmap_->Size();
@@ -2364,7 +2368,7 @@ void ImageWriter::FixupClass(mirror::Class* orig, mirror::Class* copy) {
   FixupClassVisitor visitor(this, copy);
   ObjPtr<mirror::Object>(orig)->VisitReferences(visitor, visitor);
 
-  if (compile_app_image_) {
+  if (kBitstringSubtypeCheckEnabled && compile_app_image_) {
     // When we call SubtypeCheck::EnsureInitialize, it Assigns new bitstring
     // values to the parent of that class.
     //

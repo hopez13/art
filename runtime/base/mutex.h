@@ -26,15 +26,15 @@
 
 #include <android-base/logging.h>
 
-#include "atomic.h"
 #include "base/aborting.h"
+#include "base/atomic.h"
+#include "base/globals.h"
 #include "base/macros.h"
-#include "globals.h"
 
-#if defined(__APPLE__)
-#define ART_USE_FUTEXES 0
-#else
+#if defined(__linux__)
 #define ART_USE_FUTEXES 1
+#else
+#define ART_USE_FUTEXES 0
 #endif
 
 // Currently Darwin doesn't support locks with timeouts.
@@ -50,6 +50,7 @@ class SHARED_LOCKABLE ReaderWriterMutex;
 class SHARED_LOCKABLE MutatorMutex;
 class ScopedContentionRecorder;
 class Thread;
+class Mutex;
 
 // LockLevel is used to impose a lock hierarchy [1] where acquisition of a Mutex at a higher or
 // equal level to a lock a thread holds is invalid. The lock hierarchy achieves a cycle free
@@ -62,6 +63,8 @@ enum LockLevel {
   kUnexpectedSignalLock,
   kThreadSuspendCountLock,
   kAbortLock,
+  kNativeDebugInterfaceLock,
+  kSignalHandlingLock,
   kJdwpAdbStateLock,
   kJdwpSocketLock,
   kRegionSpaceRegionLock,
@@ -101,6 +104,7 @@ enum LockLevel {
   kAllocatedThreadIdsLock,
   kMonitorPoolLock,
   kClassLinkerClassesLock,  // TODO rename.
+  kDexToDexCompilerLock,
   kJitCodeCacheLock,
   kCHALock,
   kSubtypeCheckLock,
@@ -220,7 +224,7 @@ class BaseMutex {
  public:
   bool HasEverContended() const {
     if (kLogLockContentions) {
-      return contention_log_data_->contention_count.LoadSequentiallyConsistent() > 0;
+      return contention_log_data_->contention_count.load(std::memory_order_seq_cst) > 0;
     }
     return false;
   }
@@ -744,8 +748,11 @@ class Locks {
   // One unexpected signal at a time lock.
   static Mutex* unexpected_signal_lock_ ACQUIRED_AFTER(thread_suspend_count_lock_);
 
+  // Guards the magic global variables used by native tools (e.g. libunwind).
+  static Mutex* native_debug_interface_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
+
   // Have an exclusive logging thread.
-  static Mutex* logging_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
+  static Mutex* logging_lock_ ACQUIRED_AFTER(native_debug_interface_lock_);
 
   // List of mutexes that we expect a thread may hold when accessing weak refs. This is used to
   // avoid a deadlock in the empty checkpoint while weak ref access is disabled (b/34964016). If we
