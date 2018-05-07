@@ -22,6 +22,30 @@
       "revId": "7f2aca64a82b6a27cfcd8474052bf4d2f6a51501",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f815787_ecc4ff60",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-07T21:21:11Z",
+      "side": 1,
+      "message": "There are still quite a few of speed-compiled packages, like gms, system ui, ims + prebuilt providers. Getting rid of the whole check will create a useless thread in all these processes. \n\nThat seems like a waste.",
+      "parentUuid": "28ed3a88_207366dd",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 22
+      },
+      "revId": "7f2aca64a82b6a27cfcd8474052bf4d2f6a51501",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
