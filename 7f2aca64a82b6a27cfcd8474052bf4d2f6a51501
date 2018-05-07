@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28ed3a88_207366dd",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-07T21:02:16Z",
+      "side": 1,
+      "message": "Why not just delete the compiler filter check instead? Speed/everything should almost never happen so it probably doesn\u0027t buy us anything. I don\u0027t see why it\u0027s worth adding extra boolean logic complexity.",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 22
+      },
+      "revId": "7f2aca64a82b6a27cfcd8474052bf4d2f6a51501",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
