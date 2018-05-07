@@ -19,6 +19,16 @@ if [ ! -d libcore ]; then
   exit 1
 fi
 
+# Prevent JDWP tests from running on the following devices running
+# Android O (they are failing because of a network-related issue), as
+# a workaround for b/74725685:
+# - FA7BN1A04406 (walleye device testing configuration aosp-poison/volantis-armv7-poison-debug)
+# - FA7BN1A04412 (walleye device testing configuration aosp-poison/volantis-armv8-poison-ndebug)
+# - FA7BN1A04433 (walleye device testing configuration aosp-poison/volantis-armv8-poison-debug)
+case "$ANDROID_SERIAL" in
+  (FA7BN1A04406|FA7BN1A04412|FA7BN1A04433) exit 0;;
+esac
+
 source build/envsetup.sh >&/dev/null # for get_build_var, setpaths
 setpaths # include platform prebuilt java, javac, etc in $PATH.
 
@@ -26,14 +36,17 @@ if [ -z "$ANDROID_HOST_OUT" ] ; then
   ANDROID_HOST_OUT=${OUT_DIR-$ANDROID_BUILD_TOP/out}/host/linux-x86
 fi
 
-using_jack=$(get_build_var ANDROID_COMPILE_WITH_JACK)
+android_root="/system"
+if [ -n "$ART_TEST_ANDROID_ROOT" ]; then
+  android_root="$ART_TEST_ANDROID_ROOT"
+fi
 
 java_lib_location="${ANDROID_HOST_OUT}/../common/obj/JAVA_LIBRARIES"
 make_target_name="apache-harmony-jdwp-tests-hostdex"
 
 vm_args=""
-art="/data/local/tmp/system/bin/art"
-art_debugee="sh /data/local/tmp/system/bin/art"
+art="$android_root/bin/art"
+art_debugee="sh $android_root/bin/art"
 args=$@
 debuggee_args="-Xcompiler-option --debuggable"
 device_dir="--device-dir=/data/local/tmp"
@@ -56,6 +69,7 @@ mode="target"
 # Use JIT compiling by default.
 use_jit=true
 variant_cmdline_parameter="--variant=X32"
+dump_command="/bin/true"
 # Timeout of JDWP test in ms.
 #
 # Note: some tests expect a timeout to check that *no* reply/event is received for a specific case.
@@ -184,7 +198,6 @@ if [[ $has_gdb = "yes" ]]; then
 fi
 
 if [[ $mode == "ri" ]]; then
-  using_jack="false"
   if [[ "x$with_jdwp_path" != "x" ]]; then
     vm_args="${vm_args} --vm-arg -Djpda.settings.debuggeeAgentArgument=-agentpath:${agent_wrapper}"
     vm_args="${vm_args} --vm-arg -Djpda.settings.debuggeeAgentName=$with_jdwp_path"
@@ -200,6 +213,15 @@ if [[ $mode == "ri" ]]; then
     exit 1
   fi
 else
+  if [[ "$mode" == "host" ]]; then
+    dump_command="/bin/kill -3"
+  else
+    # Note that this dumping command won't work when `$android_root`
+    # is different from `/system` (e.g. on ART Buildbot devices) when
+    # the device is running Android N, as the debuggerd protocol
+    # changed in an incompatible way in Android O (see b/32466479).
+    dump_command="$android_root/xbin/su root $android_root/bin/debuggerd"
+  fi
   if [[ $has_gdb = "yes" ]]; then
     if [[ $mode == "target" ]]; then
       echo "Cannot use --gdbserver with --mode=target"
@@ -225,10 +247,7 @@ function jlib_name {
   local str="classes"
   local suffix="jar"
   if [[ $mode == "ri" ]]; then
-    suffix="jar"
     str="javalib"
-  elif [[ $using_jack == "true" ]]; then
-    suffix="jack"
   fi
   echo "$path/$str.$suffix"
 }
@@ -290,10 +309,12 @@ if [[ $verbose == "yes" ]]; then
   art_debugee="$art_debugee -verbose:jdwp"
 fi
 
-if [[ $using_jack == "true" ]]; then
-  toolchain_args="--toolchain jack --language JN --jack-arg -g"
-elif [[ $mode != "ri" ]]; then
-  toolchain_args="--toolchain dx --language CUR"
+if [[ $mode != "ri" ]]; then
+  toolchain_args="--toolchain d8 --language CUR"
+  if [[ "x$with_jdwp_path" == "x" ]]; then
+    # Need to enable the internal jdwp implementation.
+    art_debugee="${art_debugee} -XjdwpProvider:internal"
+  fi
 else
   toolchain_args="--toolchain javac --language CUR"
 fi
@@ -310,6 +331,7 @@ vogar $vm_command \
       --vm-arg -Djpda.settings.timeout=$jdwp_test_timeout \
       --vm-arg -Djpda.settings.waitingTime=$jdwp_test_timeout \
       --vm-arg -Djpda.settings.transportAddress=127.0.0.1:55107 \
+      --vm-arg -Djpda.settings.dumpProcess="$dump_command" \
       --vm-arg -Djpda.settings.debuggeeJavaPath="$art_debugee $plugin $image $debuggee_args" \
       --classpath "$test_jar" \
       $toolchain_args \

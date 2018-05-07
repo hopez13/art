@@ -27,6 +27,7 @@
 #include "base/mutex.h"
 #include "base/runtime_debug.h"
 #include "debugger.h"
+#include "hidden_api.h"
 #include "java_vm_ext.h"
 #include "jit/jit.h"
 #include "jni_internal.h"
@@ -162,17 +163,24 @@ static void CollectNonDebuggableClasses() REQUIRES(!Locks::mutator_lock_) {
 
 // Must match values in com.android.internal.os.Zygote.
 enum {
-  DEBUG_ENABLE_JDWP               = 1,
-  DEBUG_ENABLE_CHECKJNI           = 1 << 1,
-  DEBUG_ENABLE_ASSERT             = 1 << 2,
-  DEBUG_ENABLE_SAFEMODE           = 1 << 3,
-  DEBUG_ENABLE_JNI_LOGGING        = 1 << 4,
-  DEBUG_GENERATE_DEBUG_INFO       = 1 << 5,
-  DEBUG_ALWAYS_JIT                = 1 << 6,
-  DEBUG_NATIVE_DEBUGGABLE         = 1 << 7,
-  DEBUG_JAVA_DEBUGGABLE           = 1 << 8,
-  DISABLE_VERIFIER                = 1 << 9,
-  ONLY_USE_SYSTEM_OAT_FILES       = 1 << 10,
+  DEBUG_ENABLE_JDWP                  = 1,
+  DEBUG_ENABLE_CHECKJNI              = 1 << 1,
+  DEBUG_ENABLE_ASSERT                = 1 << 2,
+  DEBUG_ENABLE_SAFEMODE              = 1 << 3,
+  DEBUG_ENABLE_JNI_LOGGING           = 1 << 4,
+  DEBUG_GENERATE_DEBUG_INFO          = 1 << 5,
+  DEBUG_ALWAYS_JIT                   = 1 << 6,
+  DEBUG_NATIVE_DEBUGGABLE            = 1 << 7,
+  DEBUG_JAVA_DEBUGGABLE              = 1 << 8,
+  DISABLE_VERIFIER                   = 1 << 9,
+  ONLY_USE_SYSTEM_OAT_FILES          = 1 << 10,
+  DEBUG_GENERATE_MINI_DEBUG_INFO     = 1 << 11,
+  HIDDEN_API_ENFORCEMENT_POLICY_MASK = (1 << 12)
+                                     | (1 << 13),
+
+  // bits to shift (flags & HIDDEN_API_ENFORCEMENT_POLICY_MASK) by to get a value
+  // corresponding to hiddenapi::EnforcementPolicy
+  API_ENFORCEMENT_POLICY_SHIFT = CTZ(HIDDEN_API_ENFORCEMENT_POLICY_MASK),
 };
 
 static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
@@ -209,12 +217,6 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
     runtime_flags &= ~DEBUG_ENABLE_SAFEMODE;
   }
 
-  const bool generate_debug_info = (runtime_flags & DEBUG_GENERATE_DEBUG_INFO) != 0;
-  if (generate_debug_info) {
-    runtime->AddCompilerOption("--generate-debug-info");
-    runtime_flags &= ~DEBUG_GENERATE_DEBUG_INFO;
-  }
-
   // This is for backwards compatibility with Dalvik.
   runtime_flags &= ~DEBUG_ENABLE_ASSERT;
 
@@ -228,6 +230,7 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
   bool needs_non_debuggable_classes = false;
   if ((runtime_flags & DEBUG_JAVA_DEBUGGABLE) != 0) {
     runtime->AddCompilerOption("--debuggable");
+    runtime_flags |= DEBUG_GENERATE_MINI_DEBUG_INFO;
     runtime->SetJavaDebuggable(true);
     // Deoptimize the boot image as it may be non-debuggable.
     runtime->DeoptimizeBootImage();
@@ -240,9 +243,21 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
 
   if ((runtime_flags & DEBUG_NATIVE_DEBUGGABLE) != 0) {
     runtime->AddCompilerOption("--debuggable");
-    runtime->AddCompilerOption("--generate-debug-info");
+    runtime_flags |= DEBUG_GENERATE_DEBUG_INFO;
     runtime->SetNativeDebuggable(true);
     runtime_flags &= ~DEBUG_NATIVE_DEBUGGABLE;
+  }
+
+  if ((runtime_flags & DEBUG_GENERATE_MINI_DEBUG_INFO) != 0) {
+    // Generate native minimal debug information to allow backtracing.
+    runtime->AddCompilerOption("--generate-mini-debug-info");
+    runtime_flags &= ~DEBUG_GENERATE_MINI_DEBUG_INFO;
+  }
+
+  if ((runtime_flags & DEBUG_GENERATE_DEBUG_INFO) != 0) {
+    // Generate all native debug information we can (e.g. line-numbers).
+    runtime->AddCompilerOption("--generate-debug-info");
+    runtime_flags &= ~DEBUG_GENERATE_DEBUG_INFO;
   }
 
   return runtime_flags;
@@ -268,11 +283,16 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
                                             jlong token,
                                             jint runtime_flags,
                                             jboolean is_system_server,
+                                            jboolean is_zygote,
                                             jstring instruction_set) {
+  DCHECK(!(is_system_server && is_zygote));
+
   Thread* thread = reinterpret_cast<Thread*>(token);
   // Our system thread ID, etc, has changed so reset Thread state.
   thread->InitAfterFork();
   runtime_flags = EnableDebugFeatures(runtime_flags);
+  hiddenapi::EnforcementPolicy api_enforcement_policy = hiddenapi::EnforcementPolicy::kNoChecks;
+  bool dedupe_hidden_api_warnings = true;
 
   if ((runtime_flags & DISABLE_VERIFIER) != 0) {
     Runtime::Current()->DisableVerifier();
@@ -284,9 +304,15 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     runtime_flags &= ~ONLY_USE_SYSTEM_OAT_FILES;
   }
 
+  api_enforcement_policy = hiddenapi::EnforcementPolicyFromInt(
+      (runtime_flags & HIDDEN_API_ENFORCEMENT_POLICY_MASK) >> API_ENFORCEMENT_POLICY_SHIFT);
+  runtime_flags &= ~HIDDEN_API_ENFORCEMENT_POLICY_MASK;
+
   if (runtime_flags != 0) {
     LOG(ERROR) << StringPrintf("Unknown bits set in runtime_flags: %#x", runtime_flags);
   }
+
+  Runtime::Current()->GetHeap()->PostForkChildAction(thread);
 
   // Update tracing.
   if (Trace::GetMethodTracingMode() != TracingMode::kTracingInactive) {
@@ -318,7 +344,6 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
 
       std::string trace_file = StringPrintf("/data/misc/trace/%s.trace.bin", proc_name.c_str());
       Trace::Start(trace_file.c_str(),
-                   -1,
                    buffer_size,
                    0,   // TODO: Expose flags.
                    output_mode,
@@ -329,6 +354,24 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
         thread->ClearException();
       }
     }
+  }
+
+  bool do_hidden_api_checks = api_enforcement_policy != hiddenapi::EnforcementPolicy::kNoChecks;
+  DCHECK(!(is_system_server && do_hidden_api_checks))
+      << "SystemServer should be forked with EnforcementPolicy::kDisable";
+  DCHECK(!(is_zygote && do_hidden_api_checks))
+      << "Child zygote processes should be forked with EnforcementPolicy::kDisable";
+  Runtime::Current()->SetHiddenApiEnforcementPolicy(api_enforcement_policy);
+  Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe_hidden_api_warnings);
+
+  // Clear the hidden API warning flag, in case it was set.
+  Runtime::Current()->SetPendingHiddenApiWarning(false);
+
+  if (is_zygote) {
+    // If creating a child-zygote, do not call into the runtime's post-fork logic.
+    // Doing so would spin up threads for Binder and JDWP. Instead, the Java side
+    // of the child process will call a static main in a class specified by the parent.
+    return;
   }
 
   if (instruction_set != nullptr && !is_system_server) {
@@ -358,7 +401,7 @@ static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
 
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
-  NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZLjava/lang/String;)V"),
+  NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZZLjava/lang/String;)V"),
   NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
   NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),
 };

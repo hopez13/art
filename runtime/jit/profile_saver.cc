@@ -32,19 +32,24 @@
 #include "base/time_utils.h"
 #include "class_table-inl.h"
 #include "compiler_filter.h"
-#include "dex_file_loader.h"
+#include "dex/dex_file_loader.h"
 #include "dex_reference_collection.h"
 #include "gc/collector_type.h"
 #include "gc/gc_cause.h"
 #include "gc/scoped_gc_critical_section.h"
-#include "jit/profile_compilation_info.h"
+#include "jit/profiling_info.h"
 #include "oat_file_manager.h"
+#include "profile/profile_compilation_info.h"
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {
 
 ProfileSaver* ProfileSaver::instance_ = nullptr;
 pthread_t ProfileSaver::profiler_pthread_ = 0U;
+
+static_assert(ProfileCompilationInfo::kIndividualInlineCacheSize ==
+              InlineCache::kIndividualCacheSize,
+              "InlineCache and ProfileCompilationInfo do not agree on kIndividualCacheSize");
 
 // At what priority to schedule the saver threads. 9 is the lowest foreground priority on device.
 static constexpr int kProfileSaverPthreadPriority = 9;
@@ -511,7 +516,7 @@ bool ProfileSaver::ProcessProfilingInfo(bool force_save, /*out*/uint16_t* number
       uint64_t last_save_number_of_methods = info.GetNumberOfMethods();
       uint64_t last_save_number_of_classes = info.GetNumberOfResolvedClasses();
 
-      info.AddMethods(profile_methods);
+      info.AddMethods(profile_methods, ProfileCompilationInfo::MethodHotness::kFlagPostStartup);
       auto profile_cache_it = profile_cache_.find(filename);
       if (profile_cache_it != profile_cache_.end()) {
         info.MergeWith(*(profile_cache_it->second));

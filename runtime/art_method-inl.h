@@ -21,14 +21,17 @@
 
 #include "art_field.h"
 #include "base/callee_save_type.h"
+#include "base/utils.h"
 #include "class_linker-inl.h"
-#include "code_item_accessors-inl.h"
 #include "common_throws.h"
-#include "dex_file-inl.h"
-#include "dex_file_annotations.h"
-#include "dex_file_types.h"
+#include "dex/code_item_accessors-inl.h"
+#include "dex/dex_file-inl.h"
+#include "dex/dex_file_annotations.h"
+#include "dex/dex_file_types.h"
+#include "dex/invoke_type.h"
+#include "dex/primitive.h"
 #include "gc_root-inl.h"
-#include "invoke_type.h"
+#include "intrinsics_enum.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
@@ -37,13 +40,11 @@
 #include "mirror/string.h"
 #include "oat.h"
 #include "obj_ptr-inl.h"
-#include "primitive.h"
 #include "quick/quick_method_frame_info.h"
 #include "read_barrier-inl.h"
 #include "runtime-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
-#include "utils.h"
 
 namespace art {
 
@@ -80,9 +81,8 @@ inline bool ArtMethod::CASDeclaringClass(mirror::Class* expected_class,
                                          mirror::Class* desired_class) {
   GcRoot<mirror::Class> expected_root(expected_class);
   GcRoot<mirror::Class> desired_root(desired_class);
-  return reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(&declaring_class_)->
-      CompareExchangeStrongSequentiallyConsistent(
-          expected_root, desired_root);
+  auto atomic_root_class = reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(&declaring_class_);
+  return atomic_root_class->CompareAndSetStrongSequentiallyConsistent(expected_root, desired_root);
 }
 
 inline uint16_t ArtMethod::GetMethodIndex() {
@@ -295,6 +295,11 @@ inline const DexFile::ClassDef& ArtMethod::GetClassDef() {
   return GetDexFile()->GetClassDef(GetClassDefIndex());
 }
 
+inline size_t ArtMethod::GetNumberOfParameters() {
+  constexpr size_t return_type_count = 1u;
+  return strlen(GetShorty()) - return_type_count;
+}
+
 inline const char* ArtMethod::GetReturnTypeDescriptor() {
   DCHECK(!IsProxyMethod());
   const DexFile* dex_file = GetDexFile();
@@ -328,6 +333,7 @@ inline mirror::DexCache* ArtMethod::GetDexCache() {
 }
 
 inline bool ArtMethod::IsProxyMethod() {
+  DCHECK(!IsRuntimeMethod()) << "ArtMethod::IsProxyMethod called on a runtime method";
   // Avoid read barrier since the from-space version of the class will have the correct proxy class
   // flags since they are constant for the lifetime of the class.
   return GetDeclaringClass<kWithoutReadBarrier>()->IsProxyClass();
@@ -368,13 +374,30 @@ inline ObjPtr<mirror::Class> ArtMethod::ResolveReturnType() {
   return ResolveClassFromTypeIndex(GetReturnTypeIndex());
 }
 
+template <ReadBarrierOption kReadBarrierOption>
 inline bool ArtMethod::HasSingleImplementation() {
-  if (IsFinal() || GetDeclaringClass()->IsFinal()) {
+  if (IsFinal<kReadBarrierOption>() || GetDeclaringClass<kReadBarrierOption>()->IsFinal()) {
     // We don't set kAccSingleImplementation for these cases since intrinsic
     // can use the flag also.
     return true;
   }
-  return (GetAccessFlags() & kAccSingleImplementation) != 0;
+  return (GetAccessFlags<kReadBarrierOption>() & kAccSingleImplementation) != 0;
+}
+
+inline bool ArtMethod::IsHiddenIntrinsic(uint32_t ordinal) {
+  switch (static_cast<Intrinsics>(ordinal)) {
+    case Intrinsics::kReferenceGetReferent:
+    case Intrinsics::kSystemArrayCopyChar:
+    case Intrinsics::kStringGetCharsNoCheck:
+    case Intrinsics::kVarHandleFullFence:
+    case Intrinsics::kVarHandleAcquireFence:
+    case Intrinsics::kVarHandleReleaseFence:
+    case Intrinsics::kVarHandleLoadLoadFence:
+    case Intrinsics::kVarHandleStoreStoreFence:
+      return true;
+    default:
+      return false;
+  }
 }
 
 inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
@@ -399,6 +422,7 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool is_default_conflict = IsDefaultConflicting();
     bool is_compilable = IsCompilable();
     bool must_count_locks = MustCountLocks();
+    HiddenApiAccessFlags::ApiList hidden_api_list = GetHiddenApiAccessFlags();
     SetAccessFlags(new_value);
     DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
     DCHECK_EQ(is_constructor, IsConstructor());
@@ -412,6 +436,15 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     DCHECK_EQ(is_default_conflict, IsDefaultConflicting());
     DCHECK_EQ(is_compilable, IsCompilable());
     DCHECK_EQ(must_count_locks, MustCountLocks());
+    if (kIsDebugBuild) {
+      if (IsHiddenIntrinsic(intrinsic)) {
+        // Special case some of our intrinsics because the access flags clash
+        // with the intrinsics ordinal.
+        DCHECK_EQ(HiddenApiAccessFlags::kWhitelist, GetHiddenApiAccessFlags());
+      } else {
+        DCHECK_EQ(hidden_api_list, GetHiddenApiAccessFlags());
+      }
+    }
   } else {
     SetAccessFlags(new_value);
   }
@@ -459,16 +492,16 @@ inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize poi
   }
 }
 
-inline IterationRange<DexInstructionIterator> ArtMethod::DexInstructions() {
-  CodeItemInstructionAccessor accessor(this);
-  return { accessor.begin(),
-           accessor.end() };
+inline CodeItemInstructionAccessor ArtMethod::DexInstructions() {
+  return CodeItemInstructionAccessor(*GetDexFile(), GetCodeItem());
 }
 
-inline IterationRange<DexInstructionIterator> ArtMethod::NullableDexInstructions() {
-  CodeItemInstructionAccessor accessor(CodeItemInstructionAccessor::CreateNullable(this));
-  return { accessor.begin(),
-           accessor.end() };
+inline CodeItemDataAccessor ArtMethod::DexInstructionData() {
+  return CodeItemDataAccessor(*GetDexFile(), GetCodeItem());
+}
+
+inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
+  return CodeItemDebugInfoAccessor(*GetDexFile(), GetCodeItem(), GetDexMethodIndex());
 }
 
 }  // namespace art

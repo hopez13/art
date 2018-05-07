@@ -10,8 +10,6 @@ art_static_dependencies = [
     "libz",
     "libbacktrace",
     "libcutils",
-    "libunwindbacktrace",
-    "libunwind",
     "libunwindstack",
     "libutils",
     "libbase",
@@ -20,6 +18,7 @@ art_static_dependencies = [
 ]
 
 subdirs = [
+    "adbconnection",
     "benchmark",
     "build",
     "cmdline",
@@ -31,7 +30,12 @@ subdirs = [
     "dexlist",
     "dexoptanalyzer",
     "disassembler",
+    "dt_fd_forward",
+    "dt_fd_forward/export",
     "imgdiag",
+    "libartbase",
+    "libdexfile",
+    "libprofile",
     "oatdump",
     "openjdkjvm",
     "openjdkjvmti",
@@ -41,9 +45,11 @@ subdirs = [
     "sigchainlib",
     "simulator",
     "test",
+    "tools",
     "tools/breakpoint-logger",
     "tools/cpp-define-generator",
     "tools/dmtracedump",
+    "tools/hiddenapi",
     "tools/titrace",
     "tools/wrapagentproperties",
 ]

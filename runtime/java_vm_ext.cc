@@ -26,7 +26,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "check_jni.h"
-#include "dex_file-inl.h"
+#include "dex/dex_file-inl.h"
 #include "fault_handler.h"
 #include "gc/allocation_record.h"
 #include "gc/heap.h"
@@ -48,6 +48,7 @@
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "ti/agent.h"
+#include "well_known_classes.h"
 
 namespace art {
 
@@ -337,7 +338,7 @@ class Libraries {
       } else {
         VLOG(jni) << "[JNI_OnUnload found for \"" << library->GetPath() << "\"]: Calling...";
         JNI_OnUnloadFn jni_on_unload = reinterpret_cast<JNI_OnUnloadFn>(sym);
-        jni_on_unload(self->GetJniEnv()->vm, nullptr);
+        jni_on_unload(self->GetJniEnv()->GetVm(), nullptr);
       }
       delete library;
     }
@@ -735,14 +736,14 @@ void JavaVMExt::DisallowNewWeakGlobals() {
   // mutator lock exclusively held so that we don't have any threads in the middle of
   // DecodeWeakGlobal.
   Locks::mutator_lock_->AssertExclusiveHeld(self);
-  allow_accessing_weak_globals_.StoreSequentiallyConsistent(false);
+  allow_accessing_weak_globals_.store(false, std::memory_order_seq_cst);
 }
 
 void JavaVMExt::AllowNewWeakGlobals() {
   CHECK(!kUseReadBarrier);
   Thread* self = Thread::Current();
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  allow_accessing_weak_globals_.StoreSequentiallyConsistent(true);
+  allow_accessing_weak_globals_.store(true, std::memory_order_seq_cst);
   weak_globals_add_condition_.Broadcast(self);
 }
 
@@ -769,7 +770,7 @@ inline bool JavaVMExt::MayAccessWeakGlobalsUnlocked(Thread* self) const {
   DCHECK(self != nullptr);
   return kUseReadBarrier ?
       self->GetWeakRefAccessEnabled() :
-      allow_accessing_weak_globals_.LoadSequentiallyConsistent();
+      allow_accessing_weak_globals_.load(std::memory_order_seq_cst);
 }
 
 ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobal(Thread* self, IndirectRef ref) {
@@ -808,7 +809,7 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobalDuringShutdown(Thread* self, I
   }
   // self can be null during a runtime shutdown. ~Runtime()->~ClassLinker()->DecodeWeakGlobal().
   if (!kUseReadBarrier) {
-    DCHECK(allow_accessing_weak_globals_.LoadSequentiallyConsistent());
+    DCHECK(allow_accessing_weak_globals_.load(std::memory_order_seq_cst));
   }
   return weak_globals_.SynchronizedGet(ref);
 }
@@ -853,7 +854,6 @@ void JavaVMExt::UnloadNativeLibraries() {
 bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
                                   const std::string& path,
                                   jobject class_loader,
-                                  jstring library_path,
                                   std::string* error_msg) {
   error_msg->clear();
 
@@ -950,6 +950,9 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
   // class unloading. Libraries will only be unloaded when the reference count (incremented by
   // dlopen) becomes zero from dlclose.
 
+  // Retrieve the library path from the classloader, if necessary.
+  ScopedLocalRef<jstring> library_path(env, GetLibrarySearchPath(env, class_loader));
+
   Locks::mutator_lock_->AssertNotHeld(self);
   const char* path_str = path.empty() ? nullptr : path.c_str();
   bool needs_native_bridge = false;
@@ -957,7 +960,7 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
                                             runtime_->GetTargetSdkVersion(),
                                             path_str,
                                             class_loader,
-                                            library_path,
+                                            library_path.get(),
                                             &needs_native_bridge,
                                             error_msg);
 
@@ -1052,17 +1055,17 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
 static void* FindCodeForNativeMethodInAgents(ArtMethod* m) REQUIRES_SHARED(Locks::mutator_lock_) {
   std::string jni_short_name(m->JniShortName());
   std::string jni_long_name(m->JniLongName());
-  for (const ti::Agent& agent : Runtime::Current()->GetAgents()) {
-    void* fn = agent.FindSymbol(jni_short_name);
+  for (const std::unique_ptr<ti::Agent>& agent : Runtime::Current()->GetAgents()) {
+    void* fn = agent->FindSymbol(jni_short_name);
     if (fn != nullptr) {
       VLOG(jni) << "Found implementation for " << m->PrettyMethod()
-                << " (symbol: " << jni_short_name << ") in " << agent;
+                << " (symbol: " << jni_short_name << ") in " << *agent;
       return fn;
     }
-    fn = agent.FindSymbol(jni_long_name);
+    fn = agent->FindSymbol(jni_long_name);
     if (fn != nullptr) {
       VLOG(jni) << "Found implementation for " << m->PrettyMethod()
-                << " (symbol: " << jni_long_name << ") in " << agent;
+                << " (symbol: " << jni_long_name << ") in " << *agent;
       return fn;
     }
   }
@@ -1117,6 +1120,18 @@ void JavaVMExt::VisitRoots(RootVisitor* visitor) {
   ReaderMutexLock mu(self, *Locks::jni_globals_lock_);
   globals_.VisitRoots(visitor, RootInfo(kRootJNIGlobal));
   // The weak_globals table is visited by the GC itself (because it mutates the table).
+}
+
+jstring JavaVMExt::GetLibrarySearchPath(JNIEnv* env, jobject class_loader) {
+  if (class_loader == nullptr) {
+    return nullptr;
+  }
+  if (!env->IsInstanceOf(class_loader, WellKnownClasses::dalvik_system_BaseDexClassLoader)) {
+    return nullptr;
+  }
+  return reinterpret_cast<jstring>(env->CallObjectMethod(
+      class_loader,
+      WellKnownClasses::dalvik_system_BaseDexClassLoader_getLdLibraryPath));
 }
 
 // JNI Invocation interface.

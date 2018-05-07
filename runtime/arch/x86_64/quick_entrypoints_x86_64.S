@@ -15,6 +15,7 @@
  */
 
 #include "asm_support_x86_64.S"
+#include "interpreter/cfi_asm_support.h"
 
 #include "arch/quick_alloc_entrypoints.S"
 
@@ -1402,6 +1403,10 @@ DEFINE_FUNCTION art_quick_unlock_object_no_inline
 END_FUNCTION art_quick_unlock_object_no_inline
 
 DEFINE_FUNCTION art_quick_check_instance_of
+    // Type check using the bit string passes null as the target class. In that case just throw.
+    testl %esi, %esi
+    jz .Lthrow_class_cast_exception_for_bitstring_check
+
     // We could check the super classes here but that is usually already checked in the caller.
     PUSH rdi                          // Save args for exc
     PUSH rsi
@@ -1410,21 +1415,22 @@ DEFINE_FUNCTION art_quick_check_instance_of
     SETUP_FP_CALLEE_SAVE_FRAME
     call SYMBOL(artInstanceOfFromCode)  // (Object* obj, Class* ref_klass)
     testq %rax, %rax
-    jz 1f                             // jump forward if not assignable
+    jz .Lthrow_class_cast_exception   // jump forward if not assignable
+    CFI_REMEMBER_STATE
     RESTORE_FP_CALLEE_SAVE_FRAME
     addq LITERAL(24), %rsp            // pop arguments
     CFI_ADJUST_CFA_OFFSET(-24)
-
-.Lreturn:
     ret
+    CFI_RESTORE_STATE                 // Reset unwind info so following code unwinds.
 
-    CFI_ADJUST_CFA_OFFSET(24 + 4 * 8)  // Reset unwind info so following code unwinds.
-1:
+.Lthrow_class_cast_exception:
     RESTORE_FP_CALLEE_SAVE_FRAME
     addq LITERAL(8), %rsp             // pop padding
     CFI_ADJUST_CFA_OFFSET(-8)
     POP rsi                           // Pop arguments
     POP rdi
+
+.Lthrow_class_cast_exception_for_bitstring_check:
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov %gs:THREAD_SELF_OFFSET, %rdx  // pass Thread::Current()
     call SYMBOL(artThrowClassCastExceptionForObject)  // (Object* src, Class* dest, Thread*)
@@ -1593,6 +1599,9 @@ UNIMPLEMENTED art_quick_lmul
 UNIMPLEMENTED art_quick_lshl
 UNIMPLEMENTED art_quick_lshr
 UNIMPLEMENTED art_quick_lushr
+
+// Note: Functions `art{Get,Set}<Kind>{Static,Instance}FromCompiledCode` are
+// defined with a macro in runtime/entrypoints/quick/quick_field_entrypoints.cc.
 
 THREE_ARG_REF_DOWNCALL art_quick_set8_instance, artSet8InstanceFromCompiledCode, RETURN_IF_EAX_ZERO
 THREE_ARG_REF_DOWNCALL art_quick_set16_instance, artSet16InstanceFromCompiledCode, RETURN_IF_EAX_ZERO
@@ -2362,12 +2371,16 @@ DEFINE_FUNCTION art_quick_osr_stub
     PUSH r15
 
     pushq LITERAL(0)              // Push null for ArtMethod*.
+    CFI_ADJUST_CFA_OFFSET(8)
     movl %esi, %ecx               // rcx := size of stack
     movq %rdi, %rsi               // rsi := stack to copy
+    movq %rsp, %rbp               // Save stack pointer to RBP for CFI use in .Losr_entry.
     call .Losr_entry
+    CFI_REMEMBER_STATE
 
     // Restore stack and callee-saves.
     addq LITERAL(8), %rsp
+    CFI_ADJUST_CFA_OFFSET(-8)
     POP r15
     POP r14
     POP r13
@@ -2389,6 +2402,9 @@ DEFINE_FUNCTION art_quick_osr_stub
     movss %xmm0, (%rcx)            // Store the floating point result.
     ret
 .Losr_entry:
+    CFI_RESTORE_STATE             // Restore CFI state; however, since the call has pushed the
+    CFI_DEF_CFA_REGISTER(rbp)     // return address we need to switch the CFA register to RBP.
+
     subl LITERAL(8), %ecx         // Given stack size contains pushed frame pointer, substract it.
     subq %rcx, %rsp
     movq %rsp, %rdi               // rdi := beginning of stack
@@ -2471,3 +2487,18 @@ END_MACRO
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     RETURN_OR_DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_invoke_polymorphic
+
+// Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
+//  Argument 0: RDI: The context pointer for ExecuteSwitchImpl.
+//  Argument 1: RSI: Pointer to the templated ExecuteSwitchImpl to call.
+//  Argument 2: RDX: The value of DEX PC (memory address of the methods bytecode).
+DEFINE_FUNCTION ExecuteSwitchImplAsm
+    PUSH rbx                 // Spill RBX
+    movq %rdx, %rbx          // RBX = DEX PC (callee save register)
+    CFI_DEFINE_DEX_PC_WITH_OFFSET(0 /* RAX */, 3 /* RBX */, 0)
+
+    call *%rsi               // Call the wrapped function
+
+    POP rbx                  // Restore RBX
+    ret
+END_FUNCTION ExecuteSwitchImplAsm

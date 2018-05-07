@@ -27,9 +27,9 @@
 #include "base/enums.h"
 #include "base/macros.h"
 #include "base/mutex.h"
-#include "dex_cache_resolved_classes.h"
-#include "dex_file.h"
-#include "dex_file_types.h"
+#include "dex/dex_cache_resolved_classes.h"
+#include "dex/dex_file.h"
+#include "dex/dex_file_types.h"
 #include "gc_root.h"
 #include "handle.h"
 #include "jni.h"
@@ -97,6 +97,14 @@ class ClassLoaderVisitor {
       REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_) = 0;
 };
 
+class AllocatorVisitor {
+ public:
+  virtual ~AllocatorVisitor() {}
+  // Return true to continue visiting.
+  virtual bool Visit(LinearAlloc* alloc)
+      REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_) = 0;
+};
+
 class ClassLinker {
  public:
   // Well known mirror::Class roots accessed via GetClassRoot.
@@ -151,6 +159,8 @@ class ClassLinker {
     kDalvikSystemClassExt,
     kClassRootsMax,
   };
+
+  static constexpr bool kAppImageMayContainStrings = false;
 
   explicit ClassLinker(InternTable* intern_table);
   virtual ~ClassLinker();
@@ -310,6 +320,13 @@ class ClassLinker {
   ArtMethod* LookupResolvedMethod(uint32_t method_idx,
                                   ObjPtr<mirror::DexCache> dex_cache,
                                   ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Find a method with the given index from class `klass`, and update the dex cache.
+  ArtMethod* FindResolvedMethod(ObjPtr<mirror::Class> klass,
+                                ObjPtr<mirror::DexCache> dex_cache,
+                                ObjPtr<mirror::ClassLoader> class_loader,
+                                uint32_t method_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Resolve a method with a given ID from the DexFile associated with the given DexCache
@@ -478,7 +495,7 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_);
   bool VerifyClassUsingOatFile(const DexFile& dex_file,
                                ObjPtr<mirror::Class> klass,
-                               mirror::Class::Status& oat_file_class_status)
+                               ClassStatus& oat_file_class_status)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
   void ResolveClassExceptionHandlerTypes(Handle<mirror::Class> klass)
@@ -655,6 +672,11 @@ class ClassLinker {
       REQUIRES(!Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Visit all of the allocators that belong to classloaders except boot classloader.
+  // This is used by 616-cha-unloading test to confirm memory reuse.
+  void VisitAllocators(AllocatorVisitor* visitor) const
+      REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_);
+
   // Throw the class initialization failure recorded when first trying to initialize the given
   // class.
   void ThrowEarlierClassFailure(ObjPtr<mirror::Class> c, bool wrap_in_no_class_def = false)
@@ -745,7 +767,7 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void DeleteClassLoader(Thread* self, const ClassLoaderData& data)
+  void DeleteClassLoader(Thread* self, const ClassLoaderData& data, bool cleanup_cha)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void VisitClassesInternal(ClassVisitor* visitor)
@@ -979,7 +1001,6 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::MethodHandle* ResolveMethodHandleForMethod(Thread* self,
-                                                     const DexFile* const dex_file,
                                                      const DexFile::MethodHandleItem& method_handle,
                                                      ArtMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1310,7 +1331,6 @@ class ClassLinker {
   friend class ImageDumper;  // for DexLock
   friend struct linker::CompilationHelper;  // For Compile in ImageTest.
   friend class linker::ImageWriter;  // for GetClassRoots
-  friend class linker::OatWriter;  // for boot image string/class table slot address lookup.
   friend class JniCompilerTest;  // for GetRuntimeQuickGenericJniStub
   friend class JniInternalTest;  // for GetRuntimeQuickGenericJniStub
   friend class VMClassLoader;  // for LookupClass and FindClassInBaseDexClassLoader.

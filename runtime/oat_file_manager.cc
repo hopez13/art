@@ -31,15 +31,17 @@
 #include "base/systrace.h"
 #include "class_linker.h"
 #include "class_loader_context.h"
-#include "dex_file-inl.h"
-#include "dex_file_loader.h"
-#include "dex_file_tracking_registrar.h"
+#include "dex/art_dex_file_loader.h"
+#include "dex/dex_file-inl.h"
+#include "dex/dex_file_loader.h"
+#include "dex/dex_file_tracking_registrar.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "gc/space/image_space.h"
 #include "handle_scope-inl.h"
 #include "jni_internal.h"
 #include "mirror/class_loader.h"
 #include "mirror/object-inl.h"
+#include "oat_file.h"
 #include "oat_file_assistant.h"
 #include "obj_ptr-inl.h"
 #include "scoped_thread_state_change-inl.h"
@@ -54,15 +56,11 @@ using android::base::StringPrintf;
 // If true, we attempt to load the application image if it exists.
 static constexpr bool kEnableAppImage = true;
 
-static bool OatFileIsOnSystem(const std::unique_ptr<const OatFile>& oat_file) {
-  UniqueCPtr<const char[]> path(realpath(oat_file->GetLocation().c_str(), nullptr));
-  return path != nullptr && android::base::StartsWith(oat_file->GetLocation(),
-                                                      GetAndroidRoot().c_str());
-}
-
 const OatFile* OatFileManager::RegisterOatFile(std::unique_ptr<const OatFile> oat_file) {
   WriterMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
-  CHECK(!only_use_system_oat_files_ || OatFileIsOnSystem(oat_file))
+  CHECK(!only_use_system_oat_files_ ||
+        LocationIsOnSystem(oat_file->GetLocation().c_str()) ||
+        !oat_file->IsExecutable())
       << "Registering a non /system oat file: " << oat_file->GetLocation();
   DCHECK(oat_file != nullptr);
   if (kIsDebugBuild) {
@@ -422,7 +420,8 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
 
   OatFileAssistant oat_file_assistant(dex_location,
                                       kRuntimeISA,
-                                      !runtime->IsAotCompiler());
+                                      !runtime->IsAotCompiler(),
+                                      only_use_system_oat_files_);
 
   // Lock the target oat location to avoid races generating and loading the
   // oat file.
@@ -435,8 +434,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
 
   const OatFile* source_oat_file = nullptr;
 
-  // No point in trying to make up-to-date if we can only use system oat files.
-  if (!only_use_system_oat_files_ && !oat_file_assistant.IsUpToDate()) {
+  if (!oat_file_assistant.IsUpToDate()) {
     // Update the oat file on disk if we can, based on the --compiler-filter
     // option derived from the current runtime options.
     // This may fail, but that's okay. Best effort is all that matters here.
@@ -471,10 +469,11 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
 
   // Get the oat file on disk.
   std::unique_ptr<const OatFile> oat_file(oat_file_assistant.GetBestOatFile().release());
+  VLOG(oat) << "OatFileAssistant(" << dex_location << ").GetBestOatFile()="
+            << reinterpret_cast<uintptr_t>(oat_file.get())
+            << " (executable=" << (oat_file != nullptr ? oat_file->IsExecutable() : false) << ")";
 
-  if (oat_file != nullptr && only_use_system_oat_files_ && !OatFileIsOnSystem(oat_file)) {
-    // If the oat file is not on /system, don't use it.
-  } else  if ((class_loader != nullptr || dex_elements != nullptr) && oat_file != nullptr) {
+  if ((class_loader != nullptr || dex_elements != nullptr) && oat_file != nullptr) {
     // Prevent oat files from being loaded if no class_loader or dex_elements are provided.
     // This can happen when the deprecated DexFile.<init>(String) is called directly, and it
     // could load oat files without checking the classpath, which would be incorrect.
@@ -527,8 +526,14 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   if (source_oat_file != nullptr) {
     bool added_image_space = false;
     if (source_oat_file->IsExecutable()) {
-      std::unique_ptr<gc::space::ImageSpace> image_space =
-          kEnableAppImage ? oat_file_assistant.OpenImageSpace(source_oat_file) : nullptr;
+      // We need to throw away the image space if we are debuggable but the oat-file source of the
+      // image is not otherwise we might get classes with inlined methods or other such things.
+      std::unique_ptr<gc::space::ImageSpace> image_space;
+      if (kEnableAppImage && (!runtime->IsJavaDebuggable() || source_oat_file->IsDebuggable())) {
+        image_space = oat_file_assistant.OpenImageSpace(source_oat_file);
+      } else {
+        image_space = nullptr;
+      }
       if (image_space != nullptr) {
         ScopedObjectAccess soa(self);
         StackHandleScope<1> hs(self);
@@ -606,12 +611,13 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     if (oat_file_assistant.HasOriginalDexFiles()) {
       if (Runtime::Current()->IsDexFileFallbackEnabled()) {
         static constexpr bool kVerifyChecksum = true;
-        if (!DexFileLoader::Open(dex_location,
-                                 dex_location,
-                                 Runtime::Current()->IsVerificationEnabled(),
-                                 kVerifyChecksum,
-                                 /*out*/ &error_msg,
-                                 &dex_files)) {
+        const ArtDexFileLoader dex_file_loader;
+        if (!dex_file_loader.Open(dex_location,
+                                  dex_location,
+                                  Runtime::Current()->IsVerificationEnabled(),
+                                  kVerifyChecksum,
+                                  /*out*/ &error_msg,
+                                  &dex_files)) {
           LOG(WARNING) << error_msg;
           error_msgs->push_back("Failed to open dex files from " + std::string(dex_location)
                                 + " because: " + error_msg);

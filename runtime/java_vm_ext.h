@@ -101,7 +101,6 @@ class JavaVMExt : public JavaVM {
   bool LoadNativeLibrary(JNIEnv* env,
                          const std::string& path,
                          jobject class_loader,
-                         jstring library_path,
                          std::string* error_msg);
 
   // Unload native libraries with cleared class loaders.
@@ -200,6 +199,11 @@ class JavaVMExt : public JavaVM {
 
   static bool IsBadJniVersion(int version);
 
+  // Return the library search path for the given classloader, if the classloader is of a
+  // well-known type. The jobject will be a local reference and is expected to be managed by the
+  // caller.
+  static jstring GetLibrarySearchPath(JNIEnv* env, jobject class_loader);
+
  private:
   // The constructor should not be called directly. It may leave the object in
   // an erroneous state, and the result needs to be checked.
@@ -221,7 +225,7 @@ class JavaVMExt : public JavaVM {
 
   // Extra checking.
   bool check_jni_;
-  bool force_copy_;
+  const bool force_copy_;
   const bool tracing_enabled_;
 
   // Extra diagnostics.

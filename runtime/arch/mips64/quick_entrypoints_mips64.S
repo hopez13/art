@@ -1364,6 +1364,9 @@ END art_quick_unlock_object_no_inline
     .extern artInstanceOfFromCode
     .extern artThrowClassCastExceptionForObject
 ENTRY art_quick_check_instance_of
+    // Type check using the bit string passes null as the target class. In that case just throw.
+    beqzc  $a1, .Lthrow_class_cast_exception_for_bitstring_check
+
     daddiu $sp, $sp, -32
     .cfi_adjust_cfa_offset 32
     sd     $ra, 24($sp)
@@ -1379,12 +1382,15 @@ ENTRY art_quick_check_instance_of
     jalr   $zero, $ra
     daddiu $sp, $sp, 32
     .cfi_adjust_cfa_offset -32
+
 .Lthrow_class_cast_exception:
     ld     $t9, 16($sp)
     ld     $a1, 8($sp)
     ld     $a0, 0($sp)
     daddiu $sp, $sp, 32
     .cfi_adjust_cfa_offset -32
+
+.Lthrow_class_cast_exception_for_bitstring_check:
     SETUP_GP
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
     dla  $t9, artThrowClassCastExceptionForObject
@@ -1565,6 +1571,9 @@ END \name
 
     /*
      * Called by managed code to resolve a static/instance field and load/store a value.
+     *
+     * Note: Functions `art{Get,Set}<Kind>{Static,Instance}FromCompiledCode` are
+     * defined with a macro in runtime/entrypoints/quick/quick_field_entrypoints.cc.
      */
 ONE_ARG_REF_DOWNCALL art_quick_get_byte_static, artGetByteStaticFromCompiledCode, RETURN_IF_NO_EXCEPTION
 ONE_ARG_REF_DOWNCALL art_quick_get_boolean_static, artGetBooleanStaticFromCompiledCode, RETURN_IF_NO_EXCEPTION
@@ -2204,8 +2213,9 @@ ENTRY art_quick_instrumentation_entry
                             # Deliver exception if we got nullptr as function.
     move    $t9, $v0        # $t9 holds reference to code
     ld      $a0, 8($sp)     # Restore arg0.
+    dla     $v0, art_quick_instrumentation_exit
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    dla     $ra, art_quick_instrumentation_exit
+    move    $ra, $v0
     jic     $t9, 0          # call method, returning to art_quick_instrumentation_exit
 .Ldeliver_instrumentation_entry_exception:
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
