@@ -22,6 +22,30 @@
       "revId": "da0243388e104e94212356ea6e297c8cefe8f725",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "075140e4_76744fba",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T16:19:49Z",
+      "side": 1,
+      "message": "Done, with no change in the output libart-compiler.so . (Whether with const or with constexpr, this is stored in .rodata and does not need init check.)",
+      "parentUuid": "27338c39_302aa9a3",
+      "range": {
+        "startLine": 7761,
+        "startChar": 0,
+        "endLine": 7763,
+        "endChar": 7
+      },
+      "revId": "da0243388e104e94212356ea6e297c8cefe8f725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
