@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6c52906b_62102cdf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "For old HExpression\u003c\u003e classes (and a few others that were explicitly storing the type in packed_fields_) there\u0027s absolutely no change, for other HIR classes we\u0027re using a few bits that were previously unused. As long as we do not need those bits for other stuff, there\u0027s no memory increase. So, the memory increase you\u0027re talking about is purely theoretical at this point.",
+      "parentUuid": "35a2e678_aed4a138",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "906b73de_098f4c5c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33245b35_167e3ebe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "906b73de_098f4c5c",
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a872f27e_1c990217",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af224323_d3bab445",
+      "range": {
+        "startLine": 2652,
+        "startChar": 20,
+        "endLine": 2652,
+        "endChar": 21
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3091ecb6_0ad45f8e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f939b77_7f74fff4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 6702,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3091ecb6_0ad45f8e",
+      "range": {
+        "startLine": 6700,
+        "startChar": 0,
+        "endLine": 6702,
+        "endChar": 28
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "adbbd548_4e86b343",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470541f6_b6811e10",
+      "range": {
+        "startLine": 7131,
+        "startChar": 12,
+        "endLine": 7131,
+        "endChar": 26
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dd62a96_bc54ffbc",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "62eb2424_eb8d8993",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd62a96_bc54ffbc",
+      "range": {
+        "startLine": 7320,
+        "startChar": 10,
+        "endLine": 7320,
+        "endChar": 27
+      },
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2e0bc8_fe6959cd",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -148,6 +286,24 @@
       "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a74bb730_075c068b",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:38:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f2e0bc8_fe6959cd",
+      "revId": "9bdedb7deb900cb15f44d3a3e472e56bcd5db0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
