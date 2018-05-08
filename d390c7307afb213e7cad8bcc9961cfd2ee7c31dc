@@ -22,6 +22,30 @@
       "revId": "d390c7307afb213e7cad8bcc9961cfd2ee7c31dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc333c5_791e4eef",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-08T10:39:12Z",
+      "side": 1,
+      "message": "I did consider that but it does not seem to add much value.",
+      "parentUuid": "e4e0e657_97a45aaf",
+      "range": {
+        "startLine": 2669,
+        "startChar": 6,
+        "endLine": 2669,
+        "endChar": 47
+      },
+      "revId": "d390c7307afb213e7cad8bcc9961cfd2ee7c31dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
