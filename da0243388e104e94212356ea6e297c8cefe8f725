@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27338c39_302aa9a3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-08T15:55:54Z",
+      "side": 1,
+      "message": "Can\u0027t this one be a constexpr? You\u0027ll pay a init check on each execution otherwise.",
+      "range": {
+        "startLine": 7761,
+        "startChar": 0,
+        "endLine": 7763,
+        "endChar": 7
+      },
+      "revId": "da0243388e104e94212356ea6e297c8cefe8f725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
