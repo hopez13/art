@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2752214f_8164c8d6",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2018-05-09T14:42:00Z",
+      "side": 1,
+      "message": "is this const_cast the norm for this code ? i see it in David\u0027s change too and it strikes me as odd, quite honestly.",
+      "range": {
+        "startLine": 837,
+        "startChar": 4,
+        "endLine": 837,
+        "endChar": 34
+      },
+      "revId": "1a922a37fd9b9664158c3729a65588a1d7e0b8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
