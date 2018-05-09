@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6847db8f_76a74d4f",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-09T22:51:50Z",
+      "side": 1,
+      "message": "let\u0027s use an enum here. All these ouput flags are kinda gross :)\n\nkContextVerifies\nkContextForcedToSkipChecks\nkContextMismatch",
+      "range": {
+        "startLine": 117,
+        "startChar": 37,
+        "endLine": 117,
+        "endChar": 70
+      },
+      "revId": "e25f992e2255ac5e5fd510ff1e319837410d4291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca8b7068_29d6a12a",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-09T22:51:50Z",
+      "side": 1,
+      "message": "similar comment.\n\nHasCollisions can return an enum and incorporate the values the class_loader_context_returns.\ne.g.\nkCollisionSkippedUnsupportedClassLoader\nkCollisionSkippedContexClassLoaderMismatch\nkCollisionSkippedContexClassLoaderSharedLibrary\nkCollisionPerformedNoCollisions\nkCollisionPerformedHasCollisions",
+      "range": {
+        "startLine": 370,
+        "startChar": 41,
+        "endLine": 370,
+        "endChar": 74
+      },
+      "revId": "e25f992e2255ac5e5fd510ff1e319837410d4291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fa96f4_bc551680",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-09T22:51:50Z",
+      "side": 1,
+      "message": "in some cases we may run this twice. I think using the an enum will help deciding when to do it.",
+      "range": {
+        "startLine": 552,
+        "startChar": 26,
+        "endLine": 552,
+        "endChar": 40
+      },
+      "revId": "e25f992e2255ac5e5fd510ff1e319837410d4291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
