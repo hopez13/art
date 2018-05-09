@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92036fa4_d7097b0d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-09T19:40:33Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this one.",
+      "range": {
+        "startLine": 195,
+        "startChar": 6,
+        "endLine": 195,
+        "endChar": 28
+      },
+      "revId": "44eb4f4e42dcc75c4da9ee1742419c5c2b3e5899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "703703ce_c03defe8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-09T19:40:33Z",
+      "side": 1,
+      "message": "How about just one flag memmap_flags_prot_code that toggles PROT_WRITE in the ScopedCodeCacheWrite?",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 88
+      },
+      "revId": "44eb4f4e42dcc75c4da9ee1742419c5c2b3e5899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
