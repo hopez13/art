@@ -48,6 +48,7 @@
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
+#include "stack_map.h"
 #include "thread-inl.h"
 #include "well_known_classes.h"
 

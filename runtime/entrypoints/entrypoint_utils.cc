@@ -35,9 +35,72 @@
 #include "oat_quick_method_header.h"
 #include "reflection.h"
 #include "scoped_thread_state_change-inl.h"
+#include "stack_map.h"
 #include "well_known_classes.h"
 
 namespace art {
+
+ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
+                             const MethodInfo& method_info,
+                             const InlineInfo& inline_info,
+                             const InlineInfoEncoding& encoding,
+                             uint8_t inlining_depth) {
+  DCHECK(!outer_method->IsObsolete());
+
+  // This method is being used by artQuickResolutionTrampoline, before it sets up
+  // the passed parameters in a GC friendly way. Therefore we must never be
+  // suspended while executing it.
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+
+  if (inline_info.EncodesArtMethodAtDepth(encoding, inlining_depth)) {
+    return inline_info.GetArtMethodAtDepth(encoding, inlining_depth);
+  }
+
+  uint32_t method_index = inline_info.GetMethodIndexAtDepth(encoding, method_info, inlining_depth);
+  if (inline_info.GetDexPcAtDepth(encoding, inlining_depth) == static_cast<uint32_t>(-1)) {
+    // "charAt" special case. It is the only non-leaf method we inline across dex files.
+    ArtMethod* inlined_method = jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt);
+    DCHECK_EQ(inlined_method->GetDexMethodIndex(), method_index);
+    return inlined_method;
+  }
+
+  // Find which method did the call in the inlining hierarchy.
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  ArtMethod* method = outer_method;
+  for (uint32_t depth = 0, end = inlining_depth + 1u; depth != end; ++depth) {
+    DCHECK(!inline_info.EncodesArtMethodAtDepth(encoding, depth));
+    DCHECK_NE(inline_info.GetDexPcAtDepth(encoding, depth), static_cast<uint32_t>(-1));
+    method_index = inline_info.GetMethodIndexAtDepth(encoding, method_info, depth);
+    ArtMethod* inlined_method = class_linker->LookupResolvedMethod(method_index,
+                                                                   method->GetDexCache(),
+                                                                   method->GetClassLoader());
+    if (UNLIKELY(inlined_method == nullptr)) {
+      LOG(FATAL) << "Could not find an inlined method from an .oat file: "
+                 << method->GetDexFile()->PrettyMethod(method_index) << " . "
+                 << "This must be due to duplicate classes or playing wrongly with class loaders";
+      UNREACHABLE();
+    }
+    DCHECK(!inlined_method->IsRuntimeMethod());
+    if (UNLIKELY(inlined_method->GetDexFile() != method->GetDexFile())) {
+      // TODO: We could permit inlining within a multi-dex oat file and the boot image,
+      // even going back from boot image methods to the same oat file. However, this is
+      // not currently implemented in the compiler. Therefore crossing dex file boundary
+      // indicates that the inlined definition is not the same as the one used at runtime.
+      LOG(FATAL) << "Inlined method resolution crossed dex file boundary: from "
+                 << method->PrettyMethod()
+                 << " in " << method->GetDexFile()->GetLocation() << "/"
+                 << static_cast<const void*>(method->GetDexFile())
+                 << " to " << inlined_method->PrettyMethod()
+                 << " in " << inlined_method->GetDexFile()->GetLocation() << "/"
+                 << static_cast<const void*>(inlined_method->GetDexFile()) << ". "
+                 << "This must be due to duplicate classes or playing wrongly with class loaders";
+      UNREACHABLE();
+    }
+    method = inlined_method;
+  }
+
+  return method;
+}
 
 void CheckReferenceResult(Handle<mirror::Object> o, Thread* self) {
   if (o == nullptr) {

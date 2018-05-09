@@ -45,6 +45,17 @@ class OatQuickMethodHeader;
 class ScopedObjectAccessAlreadyRunnable;
 class Thread;
 
+class MethodInfo;
+class InlineInfo;
+class InlineInfoEncoding;
+
+ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
+                             const MethodInfo& method_info,
+                             const InlineInfo& inline_info,
+                             const InlineInfoEncoding& encoding,
+                             uint8_t inlining_depth)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 // Given the context of a calling Method, use its DexCache to resolve a type to a Class. If it
 // cannot be resolved, throw an error. If it can, use it to create an instance.
 template <bool kInstrumented>

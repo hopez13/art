@@ -39,6 +39,7 @@
 #include "oat_quick_method_header.h"
 #include "quick/quick_method_frame_info.h"
 #include "runtime.h"
+#include "stack_map.h"
 #include "thread.h"
 #include "thread_list.h"
 
