@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fe2c646_8e132872",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-09T15:58:38Z",
+      "side": 1,
+      "message": "Done. Follow-up CL: https://android-review.googlesource.com/682224 .",
+      "parentUuid": "592314e9_7ff7bd3f",
+      "range": {
+        "startLine": 7750,
+        "startChar": 0,
+        "endLine": 7753,
+        "endChar": 29
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dd0a9d9_916fa527",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -68,6 +92,54 @@
       "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "534774f6_6f00256b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-09T15:58:38Z",
+      "side": 1,
+      "message": "Done: *_RESULT",
+      "parentUuid": "3eb5bdaa_af65a450",
+      "range": {
+        "startLine": 7769,
+        "startChar": 0,
+        "endLine": 7769,
+        "endChar": 34
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "502403e8_9df11880",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-09T15:58:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dd0a9d9_916fa527",
+      "range": {
+        "startLine": 7755,
+        "startChar": 0,
+        "endLine": 7769,
+        "endChar": 34
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
