@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "592314e9_7ff7bd3f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7753,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-09T15:38:25Z",
+      "side": 1,
+      "message": "I\u0027d add a comment saying that this part is implementing `HInstruction::Is\u003cType\u003e()` for concrete HIR instructions classes…",
+      "range": {
+        "startLine": 7750,
+        "startChar": 0,
+        "endLine": 7753,
+        "endChar": 29
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dd0a9d9_916fa527",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7769,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-09T15:38:25Z",
+      "side": 1,
+      "message": "… and that this part is implementing `HInstruction::Is\u003cType\u003e()` for abstract HIR instruction classes.",
+      "range": {
+        "startLine": 7755,
+        "startChar": 0,
+        "endLine": 7769,
+        "endChar": 34
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eb5bdaa_af65a450",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7769,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-09T15:38:25Z",
+      "side": 1,
+      "message": "INSTRUCTION_TYPE_CHECK_CASE seems to be defined nowhere.",
+      "range": {
+        "startLine": 7769,
+        "startChar": 0,
+        "endLine": 7769,
+        "endChar": 34
+      },
+      "revId": "a90dd515c4451ad3d6e7ecdf0f0527fcc1e32d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
