@@ -519,9 +519,9 @@ valgrind-$$(gtest_rule): $(ART_VALGRIND_TARGET_DEPENDENCIES) test-art-target-syn
 	$(hide) adb shell chmod 755 $(maybe_art_test_chroot)$$(PRIVATE_TARGET_EXE)
 	$(hide) $$(call ART_TEST_SKIP,$$@) && \
 	  (adb shell "$(maybe_chroot_command) env $(GCOV_ENV) LD_LIBRARY_PATH=$(4) \
-	       ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
+	       VALGRIND_LIB=$(4)/valgrind ANDROID_ROOT=$(ART_GTEST_TARGET_ANDROID_ROOT) \
 	       $(ART_GTEST_TARGET_ANDROID_ROOT)/bin/valgrind \
-	       --leak-check=full --error-exitcode=1 --workaround-gcc296-bugs=yes \
+	       --leak-check=full --error-exitcode=1 --ignore-range-below-sp=1024-1 \
 	       --suppressions=$(ART_TARGET_TEST_DIR)/valgrind-target-suppressions.txt \
 	       --num-callers=50 --show-mismatched-frees=no $$(PRIVATE_TARGET_EXE) \
 	     && touch $$(VALGRIND_GTEST_WITNESS)" \
