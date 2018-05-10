@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5705287_2bf429a0",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d961bd83_60f4f780",
+      "range": {
+        "startLine": 695,
+        "startChar": 31,
+        "endLine": 695,
+        "endChar": 50
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa3ddd2b_79e02763",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 7
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "647bc979_8edea5db",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b5f6c3_1d0752fa",
+      "range": {
+        "startLine": 495,
+        "startChar": 4,
+        "endLine": 495,
+        "endChar": 99
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37840525_04d5053a",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 7
@@ -85,6 +133,30 @@
       "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "925ae5eb_f1b6b185",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37840525_04d5053a",
+      "range": {
+        "startLine": 546,
+        "startChar": 8,
+        "endLine": 558,
+        "endChar": 9
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +183,54 @@
     },
     {
       "key": {
+        "uuid": "ef4fa601_76c440c5",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7409735a_bb7adaba",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96deef54_b8b880ef",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7409735a_bb7adaba",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6b5148d_96643559",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 7
@@ -131,6 +251,54 @@
       "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec858f7d_2e2f7256",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b5148d_96643559",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06701ff9_5d2e1687",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T23:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b5148d_96643559",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
