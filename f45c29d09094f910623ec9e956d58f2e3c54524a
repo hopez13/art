@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9ef0e40b_f01e8223",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T18:38:54Z",
+      "side": 1,
+      "message": "It would certainly be easier to reason the logic is correct for 32 bit compiler + 64 bit runtime if it\u0027s using uint32_t.",
+      "parentUuid": "f852dee8_37ccad68",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b31e994_fc8f6960",
         "filename": "libartbase/base/bit_memory_region_test.cc",
         "patchSetId": 1
