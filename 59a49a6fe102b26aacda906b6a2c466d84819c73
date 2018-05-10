@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0232aeee_8a55cd03",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-10T11:43:34Z",
+      "side": 1,
+      "message": "\u003e Nicolas comment from pi-dev: This should go first\n\nI wanted to put at least the `caller` null check first, so that it acts as an early exit when it\u0027s not set. Saves one/two memory accesses for linking.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 47
+      },
+      "revId": "59a49a6fe102b26aacda906b6a2c466d84819c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
