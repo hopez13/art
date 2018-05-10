@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6674bf9c_a236766f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-10T08:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b27b3be7_0248fbfd",
+      "range": {
+        "startLine": 1901,
+        "startChar": 2,
+        "endLine": 1901,
+        "endChar": 71
+      },
+      "revId": "b29b89a974be5b16b8c9f090dba3073da06fe158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd262d6f_96dbdeaa",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "225216ce_1b43961c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-10T08:23:01Z",
+      "side": 1,
+      "message": "Good spot.\n\nIt looks like arg0 rather than arg1 would be consistent with naming elsewhere in this file. The x86 file uses 1-based naming.",
+      "parentUuid": "dd262d6f_96dbdeaa",
+      "range": {
+        "startLine": 959,
+        "startChar": 58,
+        "endLine": 959,
+        "endChar": 70
+      },
+      "revId": "b29b89a974be5b16b8c9f090dba3073da06fe158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d550b841_e458f513",
         "filename": "test/979-const-method-handle/src/Main.java",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "b29b89a974be5b16b8c9f090dba3073da06fe158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4942f69e_cad6084e",
+        "filename": "test/979-const-method-handle/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-10T08:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d550b841_e458f513",
+      "range": {
+        "startLine": 72,
+        "startChar": 32,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "b29b89a974be5b16b8c9f090dba3073da06fe158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
