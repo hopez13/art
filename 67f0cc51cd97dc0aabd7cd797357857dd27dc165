@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3ddd2b_79e02763",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T21:15:10Z",
+      "side": 1,
+      "message": "This is required for fixing a linkage error in enum operator out, not sure why its trying to get the size of DexFile.",
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
