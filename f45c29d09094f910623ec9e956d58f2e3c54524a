@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4befa354_e58978fc",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-10T18:36:07Z",
+      "side": 1,
+      "message": "Yes, that was definitely the intention.  I will double check.",
+      "parentUuid": "b0c20ffb_29b22f6f",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 80
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad06705e_7f6f90b6",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-10T18:20:24Z",
       "side": 1,
       "message": "Does this need to work with 32vs64 cross compilation? Seems like there could be some issues?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f852dee8_37ccad68",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-10T18:36:07Z",
+      "side": 1,
+      "message": "What possible issues do you have in mind?\n\nOne thing I was wondering about - the implementation can handle uintptr store/load.  Should I artificially limit it to uint32?\n\nEither way, having data_ uintptr aligned is beneficial for performance.  Although I have not measured if downgrading to uint32 would cost much.  Should I try?",
+      "parentUuid": "ad06705e_7f6f90b6",
       "range": {
         "startLine": 126,
         "startChar": 2,
