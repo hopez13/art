@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89aa3edf_913f23d2",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1983,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:02:04Z",
+      "side": 1,
+      "message": "this is interesting. IS this code path being called only from host?",
+      "range": {
+        "startLine": 1983,
+        "startChar": 39,
+        "endLine": 1983,
+        "endChar": 57
+      },
+      "revId": "2b80ed488c497393270c98f7a767d8495166db8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb914cc_af1e934b",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:02:04Z",
+      "side": 1,
+      "message": "I see this pattern often. Do we need an abstraction?",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 7
+      },
+      "revId": "2b80ed488c497393270c98f7a767d8495166db8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df128569_a34e5736",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:02:04Z",
+      "side": 1,
+      "message": "does this include the fact that you may return before releasing?",
+      "range": {
+        "startLine": 459,
+        "startChar": 6,
+        "endLine": 462,
+        "endChar": 21
+      },
+      "revId": "2b80ed488c497393270c98f7a767d8495166db8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
