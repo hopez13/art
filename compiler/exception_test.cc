@@ -68,47 +68,37 @@ class ExceptionTest : public CommonRuntimeTest {
       fake_code_.push_back(0x70 | i);
     }
 
+    const uint32_t native_pc_offset = 4u;
+    CHECK_ALIGNED_PARAM(native_pc_offset, GetInstructionSetInstructionAlignment(kRuntimeISA));
+
     MallocArenaPool pool;
     ArenaStack arena_stack(&pool);
     ScopedArenaAllocator allocator(&arena_stack);
     StackMapStream stack_maps(&allocator, kRuntimeISA);
-    stack_maps.BeginStackMapEntry(kDexPc,
-                                  /* native_pc_offset */ 3u,
-                                  /* register_mask */ 0u,
-                                  /* sp_mask */ nullptr,
-                                  /* num_dex_registers */ 0u,
-                                  /* inlining_depth */ 0u);
+    stack_maps.BeginMethod(4 * sizeof(void*), 0u, 0u, 0u);
+    stack_maps.BeginStackMapEntry(kDexPc, native_pc_offset);
     stack_maps.EndStackMapEntry();
-    size_t stack_maps_size = stack_maps.PrepareForFillIn();
-    size_t stack_maps_offset = stack_maps_size +  sizeof(OatQuickMethodHeader);
+    stack_maps.EndMethod();
+    ScopedArenaVector<uint8_t> stack_map = stack_maps.Encode();
 
-    fake_header_code_and_maps_.resize(stack_maps_offset + fake_code_.size());
-    MemoryRegion stack_maps_region(&fake_header_code_and_maps_[0], stack_maps_size);
-    stack_maps.FillInCodeInfo(stack_maps_region);
-    OatQuickMethodHeader method_header(stack_maps_offset, 0u, 4 * sizeof(void*), 0u, 0u, code_size);
-    memcpy(&fake_header_code_and_maps_[stack_maps_size], &method_header, sizeof(method_header));
-    std::copy(fake_code_.begin(),
-              fake_code_.end(),
-              fake_header_code_and_maps_.begin() + stack_maps_offset);
+    const size_t stack_maps_size = stack_map.size();
+    const size_t header_size = sizeof(OatQuickMethodHeader);
+    const size_t code_alignment = GetInstructionSetAlignment(kRuntimeISA);
 
-    // Align the code.
-    const size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
-    fake_header_code_and_maps_.reserve(fake_header_code_and_maps_.size() + alignment);
-    const void* unaligned_code_ptr =
-        fake_header_code_and_maps_.data() + (fake_header_code_and_maps_.size() - code_size);
-    size_t offset = dchecked_integral_cast<size_t>(reinterpret_cast<uintptr_t>(unaligned_code_ptr));
-    size_t padding = RoundUp(offset, alignment) - offset;
-    // Make sure no resizing takes place.
-    CHECK_GE(fake_header_code_and_maps_.capacity(), fake_header_code_and_maps_.size() + padding);
-    fake_header_code_and_maps_.insert(fake_header_code_and_maps_.begin(), padding, 0);
-    const void* code_ptr = reinterpret_cast<const uint8_t*>(unaligned_code_ptr) + padding;
-    CHECK_EQ(code_ptr,
-             static_cast<const void*>(fake_header_code_and_maps_.data() +
-                                          (fake_header_code_and_maps_.size() - code_size)));
+    fake_header_code_and_maps_.resize(stack_maps_size + header_size + code_size + code_alignment);
+    // NB: The start of the vector might not have been allocated the desired alignment.
+    uint8_t* code_ptr =
+      AlignUp(&fake_header_code_and_maps_[stack_maps_size + header_size], code_alignment);
+
+    memcpy(&fake_header_code_and_maps_[0], stack_map.data(), stack_maps_size);
+    OatQuickMethodHeader method_header(code_ptr - fake_header_code_and_maps_.data(), code_size);
+    static_assert(std::is_trivially_copyable<OatQuickMethodHeader>::value, "Cannot use memcpy");
+    memcpy(code_ptr - header_size, &method_header, header_size);
+    memcpy(code_ptr, fake_code_.data(), fake_code_.size());
 
     if (kRuntimeISA == InstructionSet::kArm) {
       // Check that the Thumb2 adjustment will be a NOP, see EntryPointToCodePointer().
-      CHECK_ALIGNED(stack_maps_offset, 2);
+      CHECK_ALIGNED(code_ptr, 2);
     }
 
     method_f_ = my_klass_->FindClassMethod("f", "()I", kRuntimePointerSize);

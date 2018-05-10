@@ -354,45 +354,18 @@ class QuickArgumentVisitor {
     uintptr_t outer_pc_offset = current_code->NativeQuickPcOffset(outer_pc);
 
     if (current_code->IsOptimized()) {
-      CodeInfo code_info = current_code->GetOptimizedCodeInfo();
-      CodeInfoEncoding encoding = code_info.ExtractEncoding();
-      StackMap stack_map = code_info.GetStackMapForNativePcOffset(outer_pc_offset, encoding);
+      CodeInfo code_info(current_code, CodeInfo::DecodeFlags::InlineInfoOnly);
+      StackMap stack_map = code_info.GetStackMapForNativePcOffset(outer_pc_offset);
       DCHECK(stack_map.IsValid());
-      if (stack_map.HasInlineInfo(encoding.stack_map.encoding)) {
-        InlineInfo inline_info = code_info.GetInlineInfoOf(stack_map, encoding);
-        return inline_info.GetDexPcAtDepth(encoding.inline_info.encoding,
-                                           inline_info.GetDepth(encoding.inline_info.encoding)-1);
+      BitTableRange<InlineInfo> inline_infos = code_info.GetInlineInfosOf(stack_map);
+      if (!inline_infos.empty()) {
+        return inline_infos.back().GetDexPc();
       } else {
-        return stack_map.GetDexPc(encoding.stack_map.encoding);
+        return stack_map.GetDexPc();
       }
     } else {
       return current_code->ToDexPc(*caller_sp, outer_pc);
     }
-  }
-
-  static bool GetInvokeType(ArtMethod** sp, InvokeType* invoke_type, uint32_t* dex_method_index)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK((*sp)->IsCalleeSaveMethod());
-    const size_t callee_frame_size = GetCalleeSaveFrameSize(kRuntimeISA,
-                                                            CalleeSaveType::kSaveRefsAndArgs);
-    ArtMethod** caller_sp = reinterpret_cast<ArtMethod**>(
-        reinterpret_cast<uintptr_t>(sp) + callee_frame_size);
-    uintptr_t outer_pc = QuickArgumentVisitor::GetCallingPc(sp);
-    const OatQuickMethodHeader* current_code = (*caller_sp)->GetOatQuickMethodHeader(outer_pc);
-    if (!current_code->IsOptimized()) {
-      return false;
-    }
-    uintptr_t outer_pc_offset = current_code->NativeQuickPcOffset(outer_pc);
-    CodeInfo code_info = current_code->GetOptimizedCodeInfo();
-    CodeInfoEncoding encoding = code_info.ExtractEncoding();
-    MethodInfo method_info = current_code->GetOptimizedMethodInfo();
-    InvokeInfo invoke(code_info.GetInvokeInfoForNativePcOffset(outer_pc_offset, encoding));
-    if (invoke.IsValid()) {
-      *invoke_type = static_cast<InvokeType>(invoke.GetInvokeType(encoding.invoke_info.encoding));
-      *dex_method_index = invoke.GetMethodIndex(encoding.invoke_info.encoding, method_info);
-      return true;
-    }
-    return false;
   }
 
   // For the given quick ref and args quick frame, return the caller's PC.
@@ -1228,12 +1201,10 @@ static void DumpB74410240DebugData(ArtMethod** sp) REQUIRES_SHARED(Locks::mutato
   CHECK(current_code != nullptr);
   CHECK(current_code->IsOptimized());
   uintptr_t native_pc_offset = current_code->NativeQuickPcOffset(caller_pc);
-  CodeInfo code_info = current_code->GetOptimizedCodeInfo();
-  MethodInfo method_info = current_code->GetOptimizedMethodInfo();
-  CodeInfoEncoding encoding = code_info.ExtractEncoding();
-  StackMap stack_map = code_info.GetStackMapForNativePcOffset(native_pc_offset, encoding);
+  CodeInfo code_info(current_code);
+  StackMap stack_map = code_info.GetStackMapForNativePcOffset(native_pc_offset);
   CHECK(stack_map.IsValid());
-  uint32_t dex_pc = stack_map.GetDexPc(encoding.stack_map.encoding);
+  uint32_t dex_pc = stack_map.GetDexPc();
 
   // Log the outer method and its associated dex file and class table pointer which can be used
   // to find out if the inlined methods were defined by other dex file(s) or class loader(s).
@@ -1247,40 +1218,35 @@ static void DumpB74410240DebugData(ArtMethod** sp) REQUIRES_SHARED(Locks::mutato
   LOG(FATAL_WITHOUT_ABORT) << "  instruction: " << DumpInstruction(outer_method, dex_pc);
 
   ArtMethod* caller = outer_method;
-  if (stack_map.HasInlineInfo(encoding.stack_map.encoding)) {
-    InlineInfo inline_info = code_info.GetInlineInfoOf(stack_map, encoding);
-    const InlineInfoEncoding& inline_info_encoding = encoding.inline_info.encoding;
-    size_t depth = inline_info.GetDepth(inline_info_encoding);
-    for (size_t d = 0; d < depth; ++d) {
-      const char* tag = "";
-      dex_pc = inline_info.GetDexPcAtDepth(inline_info_encoding, d);
-      if (inline_info.EncodesArtMethodAtDepth(inline_info_encoding, d)) {
-        tag = "encoded ";
-        caller = inline_info.GetArtMethodAtDepth(inline_info_encoding, d);
+  BitTableRange<InlineInfo> inline_infos = code_info.GetInlineInfosOf(stack_map);
+  for (InlineInfo inline_info : inline_infos) {
+    const char* tag = "";
+    dex_pc = inline_info.GetDexPc();
+    if (inline_info.EncodesArtMethod()) {
+      tag = "encoded ";
+      caller = inline_info.GetArtMethod();
+    } else {
+      uint32_t method_index = code_info.GetMethodIndexOf(inline_info);
+      if (dex_pc == static_cast<uint32_t>(-1)) {
+        tag = "special ";
+        CHECK(inline_info.Equals(inline_infos.back()));
+        caller = jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt);
+        CHECK_EQ(caller->GetDexMethodIndex(), method_index);
       } else {
-        uint32_t method_index = inline_info.GetMethodIndexAtDepth(inline_info_encoding,
-                                                                  method_info,
-                                                                  d);
-        if (dex_pc == static_cast<uint32_t>(-1)) {
-          tag = "special ";
-          CHECK_EQ(d + 1u, depth);
-          caller = jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt);
-          CHECK_EQ(caller->GetDexMethodIndex(), method_index);
-        } else {
-          ObjPtr<mirror::DexCache> dex_cache = caller->GetDexCache();
-          ObjPtr<mirror::ClassLoader> class_loader = caller->GetClassLoader();
-          caller = class_linker->LookupResolvedMethod(method_index, dex_cache, class_loader);
-          CHECK(caller != nullptr);
-        }
+        ObjPtr<mirror::DexCache> dex_cache = caller->GetDexCache();
+        ObjPtr<mirror::ClassLoader> class_loader = caller->GetClassLoader();
+        caller = class_linker->LookupResolvedMethod(method_index, dex_cache, class_loader);
+        CHECK(caller != nullptr);
       }
-      LOG(FATAL_WITHOUT_ABORT) << "Inlined method #" << d << ": " << tag << caller->PrettyMethod()
-          << " dex pc: " << dex_pc
-          << " dex file: " << caller->GetDexFile()->GetLocation()
-          << " class table: "
-          << class_linker->ClassTableForClassLoader(caller->GetClassLoader());
-      DumpB74410240ClassData(caller->GetDeclaringClass());
-      LOG(FATAL_WITHOUT_ABORT) << "  instruction: " << DumpInstruction(caller, dex_pc);
     }
+    LOG(FATAL_WITHOUT_ABORT) << "InlineInfo #" << inline_info.Row()
+        << ": " << tag << caller->PrettyMethod()
+        << " dex pc: " << dex_pc
+        << " dex file: " << caller->GetDexFile()->GetLocation()
+        << " class table: "
+        << class_linker->ClassTableForClassLoader(caller->GetClassLoader());
+    DumpB74410240ClassData(caller->GetDeclaringClass());
+    LOG(FATAL_WITHOUT_ABORT) << "  instruction: " << DumpInstruction(caller, dex_pc);
   }
 }
 
@@ -1308,14 +1274,7 @@ extern "C" const void* artQuickResolutionTrampoline(
     caller = QuickArgumentVisitor::GetCallingMethod(sp);
     called_method.dex_file = caller->GetDexFile();
 
-    InvokeType stack_map_invoke_type;
-    uint32_t stack_map_dex_method_idx;
-    const bool found_stack_map = QuickArgumentVisitor::GetInvokeType(sp,
-                                                                     &stack_map_invoke_type,
-                                                                     &stack_map_dex_method_idx);
-    // For debug builds, we make sure both of the paths are consistent by also looking at the dex
-    // code.
-    if (!found_stack_map || kIsDebugBuild) {
+    {
       uint32_t dex_pc = QuickArgumentVisitor::GetCallingDexPc(sp);
       CodeItemInstructionAccessor accessor(caller->DexInstructions());
       CHECK_LT(dex_pc, accessor.InsnsSizeInCodeUnits());
@@ -1369,23 +1328,8 @@ extern "C" const void* artQuickResolutionTrampoline(
           UNREACHABLE();
       }
       called_method.index = (is_range) ? instr.VRegB_3rc() : instr.VRegB_35c();
-      // Check that the invoke matches what we expected, note that this path only happens for debug
-      // builds.
-      if (found_stack_map) {
-        DCHECK_EQ(stack_map_invoke_type, invoke_type);
-        if (invoke_type != kSuper) {
-          // Super may be sharpened.
-          DCHECK_EQ(stack_map_dex_method_idx, called_method.index)
-              << called_method.dex_file->PrettyMethod(stack_map_dex_method_idx) << " "
-              << called_method.PrettyMethod();
-        }
-      } else {
-        VLOG(dex) << "Accessed dex file for invoke " << invoke_type << " "
-                  << called_method.index;
-      }
-    } else {
-      invoke_type = stack_map_invoke_type;
-      called_method.index = stack_map_dex_method_idx;
+      VLOG(dex) << "Accessed dex file for invoke " << invoke_type << " "
+                << called_method.index;
     }
   } else {
     invoke_type = kStatic;

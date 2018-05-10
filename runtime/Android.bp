@@ -48,6 +48,7 @@ cc_defaults {
         "debugger.cc",
         "dex/art_dex_file_loader.cc",
         "dex/dex_file_annotations.cc",
+        "dex_register_location.cc",
         "dex_to_dex_decompiler.cc",
         "elf_file.cc",
         "exec_utils.cc",

@@ -3559,17 +3559,17 @@ class ReferenceMapVisitor : public StackVisitor {
       StackReference<mirror::Object>* vreg_base = reinterpret_cast<StackReference<mirror::Object>*>(
           reinterpret_cast<uintptr_t>(cur_quick_frame));
       uintptr_t native_pc_offset = method_header->NativeQuickPcOffset(GetCurrentQuickFramePc());
-      CodeInfo code_info = method_header->GetOptimizedCodeInfo();
-      CodeInfoEncoding encoding = code_info.ExtractEncoding();
-      StackMap map = code_info.GetStackMapForNativePcOffset(native_pc_offset, encoding);
+      CodeInfo code_info(method_header, kPrecise
+          ? CodeInfo::DecodeFlags::AllTables  // We will need dex register maps.
+          : CodeInfo::DecodeFlags::GcMasksOnly);
+      StackMap map = code_info.GetStackMapForNativePcOffset(native_pc_offset);
       DCHECK(map.IsValid());
 
-      T vreg_info(m, code_info, encoding, map, visitor_);
+      T vreg_info(m, code_info, map, visitor_);
 
       // Visit stack entries that hold pointers.
-      const size_t number_of_bits = code_info.GetNumberOfStackMaskBits(encoding);
-      BitMemoryRegion stack_mask = code_info.GetStackMaskOf(encoding, map);
-      for (size_t i = 0; i < number_of_bits; ++i) {
+      BitMemoryRegion stack_mask = code_info.GetStackMaskOf(map);
+      for (size_t i = 0; i < stack_mask.size_in_bits(); ++i) {
         if (stack_mask.LoadBit(i)) {
           StackReference<mirror::Object>* ref_addr = vreg_base + i;
           mirror::Object* ref = ref_addr->AsMirrorPtr();
@@ -3578,12 +3578,12 @@ class ReferenceMapVisitor : public StackVisitor {
             vreg_info.VisitStack(&new_ref, i, this);
             if (ref != new_ref) {
               ref_addr->Assign(new_ref);
-           }
+            }
           }
         }
       }
       // Visit callee-save registers that hold pointers.
-      uint32_t register_mask = code_info.GetRegisterMaskOf(encoding, map);
+      uint32_t register_mask = code_info.GetRegisterMaskOf(map);
       for (size_t i = 0; i < BitSizeOf<uint32_t>(); ++i) {
         if (register_mask & (1 << i)) {
           mirror::Object** ref_addr = reinterpret_cast<mirror::Object**>(GetGPRAddress(i));
@@ -3631,7 +3631,6 @@ class ReferenceMapVisitor : public StackVisitor {
     struct UndefinedVRegInfo {
       UndefinedVRegInfo(ArtMethod* method ATTRIBUTE_UNUSED,
                         const CodeInfo& code_info ATTRIBUTE_UNUSED,
-                        const CodeInfoEncoding& encoding ATTRIBUTE_UNUSED,
                         const StackMap& map ATTRIBUTE_UNUSED,
                         RootVisitor& _visitor)
           : visitor(_visitor) {
@@ -3662,15 +3661,11 @@ class ReferenceMapVisitor : public StackVisitor {
     struct StackMapVRegInfo {
       StackMapVRegInfo(ArtMethod* method,
                        const CodeInfo& _code_info,
-                       const CodeInfoEncoding& _encoding,
                        const StackMap& map,
                        RootVisitor& _visitor)
           : number_of_dex_registers(method->DexInstructionData().RegistersSize()),
             code_info(_code_info),
-            encoding(_encoding),
-            dex_register_map(code_info.GetDexRegisterMapOf(map,
-                                                           encoding,
-                                                           number_of_dex_registers)),
+            dex_register_map(code_info.GetDexRegisterMapOf(map)),
             visitor(_visitor) {
       }
 
@@ -3683,8 +3678,7 @@ class ReferenceMapVisitor : public StackVisitor {
           REQUIRES_SHARED(Locks::mutator_lock_) {
         bool found = false;
         for (size_t dex_reg = 0; dex_reg != number_of_dex_registers; ++dex_reg) {
-          DexRegisterLocation location = dex_register_map.GetDexRegisterLocation(
-              dex_reg, number_of_dex_registers, code_info, encoding);
+          DexRegisterLocation location = dex_register_map[dex_reg];
           if (location.GetKind() == kind && static_cast<size_t>(location.GetValue()) == index) {
             visitor(ref, dex_reg, stack_visitor);
             found = true;
@@ -3718,7 +3712,6 @@ class ReferenceMapVisitor : public StackVisitor {
 
       size_t number_of_dex_registers;
       const CodeInfo& code_info;
-      const CodeInfoEncoding& encoding;
       DexRegisterMap dex_register_map;
       RootVisitor& visitor;
     };

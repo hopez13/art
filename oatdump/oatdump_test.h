@@ -162,8 +162,7 @@ class OatDumpTest : public CommonRuntimeTest {
         // Code and dex code do not show up if list only.
         expected_prefixes.push_back("DEX CODE:");
         expected_prefixes.push_back("CODE:");
-        expected_prefixes.push_back("CodeInfoEncoding");
-        expected_prefixes.push_back("CodeInfoInlineInfo");
+        expected_prefixes.push_back("InlineInfo");
       }
       if (mode == kModeArt) {
         exec_argv.push_back("--image=" + core_art_location_);

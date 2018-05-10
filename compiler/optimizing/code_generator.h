@@ -35,7 +35,6 @@
 #include "optimizing_compiler_stats.h"
 #include "read_barrier_option.h"
 #include "stack.h"
-#include "stack_map.h"
 #include "utils/label.h"
 
 namespace art {
@@ -324,7 +323,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   }
 
   // Record native to dex mapping for a suspend point.  Required by runtime.
-  void RecordPcInfo(HInstruction* instruction, uint32_t dex_pc, SlowPathCode* slow_path = nullptr);
+  void RecordPcInfo(HInstruction* instruction,
+                    uint32_t dex_pc,
+                    SlowPathCode* slow_path = nullptr,
+                    bool native_debug_info = false);
   // Check whether we have already recorded mapping at this PC.
   bool HasStackMapAtCurrentPc();
   // Record extra stack maps if we support native debugging.
@@ -350,10 +352,7 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   void AddSlowPath(SlowPathCode* slow_path);
 
-  void BuildStackMaps(MemoryRegion stack_map_region,
-                      MemoryRegion method_info_region,
-                      const DexFile::CodeItem* code_item_for_osr_check);
-  void ComputeStackMapAndMethodInfoSize(size_t* stack_map_size, size_t* method_info_size);
+  ScopedArenaVector<uint8_t> BuildStackMaps(const DexFile::CodeItem* code_item_for_osr_check);
   size_t GetNumberOfJitRoots() const;
 
   // Fills the `literals` array with literals collected during code generation.
