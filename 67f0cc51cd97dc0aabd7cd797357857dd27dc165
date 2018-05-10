@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d961bd83_60f4f780",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T21:43:55Z",
+      "side": 1,
+      "message": "Should we case this when the apk is the the only one in the classpath. Otherwise we will performed that check for every prebuilt.",
+      "range": {
+        "startLine": 695,
+        "startChar": 31,
+        "endLine": 695,
+        "endChar": 50
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa3ddd2b_79e02763",
         "filename": "runtime/class_loader_context.h",
         "patchSetId": 7
@@ -16,6 +39,98 @@
       "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b5f6c3_1d0752fa",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T21:43:55Z",
+      "side": 1,
+      "message": "add a helper method for this one (even if one line) and document that we are ok with shared_libraries and unsupported class loaders despite them being a risk.",
+      "range": {
+        "startLine": 495,
+        "startChar": 4,
+        "endLine": 495,
+        "endChar": 99
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37840525_04d5053a",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T21:43:55Z",
+      "side": 1,
+      "message": "ditto, add a helper method. It is worth pointing out that the behavior does not match the one in accept_oat_file.",
+      "range": {
+        "startLine": 546,
+        "startChar": 8,
+        "endLine": 558,
+        "endChar": 9
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7409735a_bb7adaba",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T21:43:55Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b5148d_96643559",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T21:43:55Z",
+      "side": 1,
+      "message": "update",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "67f0cc51cd97dc0aabd7cd797357857dd27dc165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
