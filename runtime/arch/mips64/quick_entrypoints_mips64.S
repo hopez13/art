@@ -1959,6 +1959,7 @@ END \name
      * Entry from managed code to resolve a method type. On entry, A0 holds the method type index.
      * On success the MethodType is returned, otherwise an exception is raised.
      */
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_method_handle, artResolveMethodHandleFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_method_type, artResolveMethodTypeFromCode
 
     /*
