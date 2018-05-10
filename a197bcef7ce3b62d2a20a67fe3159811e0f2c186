@@ -22,6 +22,30 @@
       "revId": "a197bcef7ce3b62d2a20a67fe3159811e0f2c186",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86e2cd21_4bfbd321",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-10T15:52:25Z",
+      "side": 1,
+      "message": "Sry, that doesn\u0027t exist.\n\n  (kIsTargetBuild \u0026\u0026 !kIsTargetLinux)",
+      "parentUuid": "81098fe0_fba68e23",
+      "range": {
+        "startLine": 235,
+        "startChar": 6,
+        "endLine": 235,
+        "endChar": 20
+      },
+      "revId": "a197bcef7ce3b62d2a20a67fe3159811e0f2c186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
