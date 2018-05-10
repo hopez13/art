@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e20d8e5c_3f4ce365",
+        "filename": "runtime/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:26:28Z",
+      "side": 1,
+      "message": "It is worth adding a comment that the canonical location will call realpath.",
+      "range": {
+        "startLine": 537,
+        "startChar": 5,
+        "endLine": 537,
+        "endChar": 13
+      },
+      "revId": "bdde01a21c2ef487df552da77c34f3371c529da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0660cd4d_0aeac0f5",
+        "filename": "runtime/dex/art_dex_file_loader_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:26:28Z",
+      "side": 1,
+      "message": "empty spaces",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 4
+      },
+      "revId": "bdde01a21c2ef487df552da77c34f3371c529da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6e35656_4d71f647",
+        "filename": "runtime/dex/art_dex_file_loader_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-05-10T18:26:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 409,
+        "startChar": 1,
+        "endLine": 409,
+        "endChar": 2
+      },
+      "revId": "bdde01a21c2ef487df552da77c34f3371c529da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
