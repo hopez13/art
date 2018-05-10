@@ -158,6 +158,7 @@ inline static int32_t GetEnumValueForLog(AccessMethod access_method) {
 }
 
 void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action action_taken) {
+#ifdef ART_TARGET_ANDROID
   if (access_method == kLinking) {
     // Linking warnings come from static analysis/compilation of the bytecode
     // and can contain false positives (i.e. code that is never run). We choose
@@ -173,6 +174,10 @@ void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action act
   Dump(signature_str);
   log_maker.AddTaggedData(FIELD_HIDDEN_API_SIGNATURE, signature_str.str());
   log_maker.Record();
+#else
+  UNUSED(access_method);
+  UNUSED(action_taken);
+#endif
 }
 
 static ALWAYS_INLINE bool CanUpdateMemberAccessFlags(ArtField*) {
