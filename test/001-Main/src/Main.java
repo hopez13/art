@@ -15,6 +15,29 @@
  */
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
+        System.loadLibrary(args[0]);
+        final Main m0 = new Main();
+        final Main m = new Main();
+        Thread t = new Thread() {
+            public void run() {
+                m0.stop = true;
+                Main m1 = m;  // `m` is in a field of this object, bring it to a local variable.
+                // Triggering checkpoints in this loop.
+                while (!m1.stop) {
+                    ++m1.counter;
+                }
+            }
+        };
+        t.start();
+        // Wait for `t` to enter Java code.
+        while (!m0.stop) { }
+        m.benchmarkSuspend(t);
+        m.stop = true;
+        t.join();
     }
+
+    public volatile boolean stop = false;
+    public volatile int counter = 0;
+    public native void benchmarkSuspend(Thread t);
 }
