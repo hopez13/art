@@ -91,6 +91,91 @@ extern "C" JNIEXPORT void JNICALL Java_Main_restoreResolvedMethods(
   }
 }
 
+constexpr size_t histogramIndex(uint64_t value) {
+  if (value < 2) {
+    return value;
+  }
+  size_t lead_digit = 63 - CLZ(value);
+  return 2 * lead_digit + ((value >> (lead_digit - 1u)) & 1u);
+}
+
+extern "C" JNIEXPORT void JNICALL Java_Main_benchmarkSuspend(
+    JNIEnv*, jobject m, jobject t) {
+  Thread* self = Thread::Current();
+  Thread* other;
+  ScopedObjectAccess soa(Thread::Current());
+  {
+    MutexLock mu(self, *Locks::thread_list_lock_);
+    other = Thread::FromManagedThread(soa, t);
+  }
+  CHECK(self != other);
+  CHECK(other != nullptr);
+  ArtField* counter =
+      soa.Decode<mirror::Object>(m)->GetClass()->FindDeclaredInstanceField("counter", "I");
+  CHECK(counter != nullptr) << soa.Decode<mirror::Object>(m)->GetClass()->PrettyDescriptor();
+  DCHECK(counter->IsVolatile());
+  MemberOffset counter_offset = counter->GetOffset();
+
+  struct Checkpoint : Closure {
+    Checkpoint(uint64_t* hit_time, std::atomic<bool>* cont)
+        : hit_time_(hit_time),
+          cont_(cont) { }
+    void Run(Thread* t ATTRIBUTE_UNUSED) override {
+      *hit_time_ = NanoTime();
+      cont_->store(!cont_->load(std::memory_order_relaxed), std::memory_order_release);
+    }
+    uint64_t* const hit_time_;
+    std::atomic<bool>* const cont_;
+  };
+
+  constexpr size_t histogram_size = histogramIndex(std::numeric_limits<uint64_t>::max()) + 1u;
+  uint32_t hit_time_histogram[histogram_size];
+  std::fill_n(hit_time_histogram, histogram_size, 0u);
+  uint32_t end_time_histogram[histogram_size];
+  std::fill_n(end_time_histogram, histogram_size, 0u);
+  uint64_t hit_time;
+  std::atomic<bool> cont(false);
+  Checkpoint checkpoint(&hit_time, &cont);
+  uint64_t start_time = NanoTime();
+  uint64_t end_time;
+  uint64_t total_hit_time = 0u;
+  uint64_t total_end_time = 0u;
+  uint32_t total_count = 0u;
+  do {
+    bool old_cont = cont.load(std::memory_order_acquire);
+    uint64_t request_time = NanoTime();
+    {
+      MutexLock mu(self, *Locks::thread_suspend_count_lock_);
+      other->RequestCheckpoint(&checkpoint);
+    }
+    // Wait until we hit the checkpoint.
+    while (cont.load(std::memory_order_acquire) == old_cont) {}
+    // Wait until we get back to compiled code and start changing the "counter".
+    int32_t old_counter = soa.Decode<mirror::Object>(m)->GetField32Volatile(counter_offset);
+    while (old_counter == soa.Decode<mirror::Object>(m)->GetField32Volatile(counter_offset)) { }
+    // Update the statistics.
+    end_time = NanoTime();
+    hit_time_histogram[histogramIndex(hit_time - request_time)] += 1u;
+    end_time_histogram[histogramIndex(end_time - request_time)] += 1u;
+    total_hit_time += hit_time - request_time;
+    total_end_time += end_time - request_time;
+    total_count += 1u;
+  } while (end_time - start_time < UINT64_C(10000000000));
+
+  std::ostringstream hoss;
+  for (uint32_t v : hit_time_histogram) {
+    hoss << " " << v;
+  }
+  LOG(ERROR) << "hit_time histogram:" << hoss.str();
+  std::ostringstream eoss;
+  for (uint32_t v : end_time_histogram) {
+    eoss << " " << v;
+  }
+  LOG(ERROR) << "end_time histogram:" << eoss.str();
+  LOG(ERROR) << "Average hit_time: " << (total_hit_time / total_count);
+  LOG(ERROR) << "Average end_time: " << (total_end_time / total_count);
+}
+
 }  // namespace
 
 }  // namespace art
