@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0c20ffb_29b22f6f",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T18:20:24Z",
+      "side": 1,
+      "message": "Are the bits stored in the exact same order as before? If not you probably need to increment the oat version.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 80
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad06705e_7f6f90b6",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T18:20:24Z",
+      "side": 1,
+      "message": "Does this need to work with 32vs64 cross compilation? Seems like there could be some issues?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b31e994_fc8f6960",
+        "filename": "libartbase/base/bit_memory_region_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T18:20:24Z",
+      "side": 1,
+      "message": "Nit: Preferred style is one arg per line.",
+      "range": {
+        "startLine": 23,
+        "startChar": 23,
+        "endLine": 24,
+        "endChar": 67
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eac6ba9_a4ee914f",
+        "filename": "libartbase/base/bit_memory_region_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-10T18:20:24Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 56,
+        "startChar": 64,
+        "endLine": 56,
+        "endChar": 65
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
