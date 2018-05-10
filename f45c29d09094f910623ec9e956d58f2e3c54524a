@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "eaf54830_17c22b77",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-10T18:47:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand the comment. The underlying format isn\u0027t size-dependent, I thought - it\u0027s a bitset, after all. So the \"logic\" is size-independent. So it doesn\u0027t matter what size accesses you use (as long as they\u0027re functionally correct).",
+      "parentUuid": "9ef0e40b_f01e8223",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "f45c29d09094f910623ec9e956d58f2e3c54524a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b31e994_fc8f6960",
         "filename": "libartbase/base/bit_memory_region_test.cc",
         "patchSetId": 1
