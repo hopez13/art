@@ -46,6 +46,30 @@
       "revId": "59a49a6fe102b26aacda906b6a2c466d84819c73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e90d240c_3ff1b503",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-10T13:12:04Z",
+      "side": 1,
+      "message": "It\u0027s 99.9% of the time null. I pass null for all linking (line 229)",
+      "parentUuid": "2a81c6be_ba1d34c6",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 47
+      },
+      "revId": "59a49a6fe102b26aacda906b6a2c466d84819c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
