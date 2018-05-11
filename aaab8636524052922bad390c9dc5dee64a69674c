@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "9dd51ee2_444e8956",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T12:25:17Z",
+      "side": 1,
+      "message": "Ouch! I did not think of valgrind, thanks.\n\nBefore trying to fix it, do you think it might be a problem, or do you know it is a problem?\n\nIf the tools track memory only at word-size granularity (which would seem reasonable), then there would be no issue.",
+      "parentUuid": "6cd9fcf4_fe3dc2e8",
+      "range": {
+        "startLine": 63,
+        "startChar": 13,
+        "endLine": 63,
+        "endChar": 25
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22439cf9_ee19f564",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 2
