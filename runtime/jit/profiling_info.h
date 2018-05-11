@@ -129,6 +129,14 @@ class ProfilingInfo {
         (current_inline_uses_ > 0);
   }
 
+  void SetIsMethodBeingCollected(bool value) {
+    is_method_being_collected_ = value;
+  }
+
+  bool IsMethodBeingCollected() const {
+    return is_method_being_collected_;
+  }
+
  private:
   ProfilingInfo(ArtMethod* method, const std::vector<uint32_t>& entries);
 
@@ -146,12 +154,16 @@ class ProfilingInfo {
   bool is_method_being_compiled_;
   bool is_osr_method_being_compiled_;
 
+  // Whether the compiled code is being considered for collection.
+  bool is_method_being_collected_;
+
   // When the compiler inlines the method associated to this ProfilingInfo,
   // it updates this counter so that the GC does not try to clear the inline caches.
   uint16_t current_inline_uses_;
 
-  // Entry point of the corresponding ArtMethod, while the JIT code cache
-  // is poking for the liveness of compiled code.
+  // Entry point of the corresponding ArtMethod. This will be set the first time the method is
+  // compiled and set back to null if the code is collected.
+  // TODO Actually do this.
   const void* saved_entry_point_;
 
   // Dynamically allocated array of size `number_of_inline_caches_`.

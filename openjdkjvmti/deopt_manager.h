@@ -94,6 +94,14 @@ class DeoptManager {
       REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
 
+  void AddTraceAllMethods()
+      REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
+      REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+  void RemoveTraceAllMethods()
+      REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
+      REQUIRES_SHARED(art::Locks::mutator_lock_);
+
   void AddDeoptimizeAllMethods()
       REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
@@ -132,6 +140,14 @@ class DeoptManager {
   void WaitForDeoptimizationToFinishLocked(art::Thread* self)
       REQUIRES(deoptimization_status_lock_, !art::Locks::mutator_lock_);
 
+  void AddTraceAllMethodsLocked(art::Thread* self)
+      RELEASE(deoptimization_status_lock_)
+      REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
+
+  void RemoveTraceAllMethodsLocked(art::Thread* self)
+      RELEASE(deoptimization_status_lock_)
+      REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
+
   void AddDeoptimizeAllMethodsLocked(art::Thread* self)
       RELEASE(deoptimization_status_lock_)
       REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
@@ -140,11 +156,11 @@ class DeoptManager {
       RELEASE(deoptimization_status_lock_)
       REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
 
-  void PerformGlobalDeoptimization(art::Thread* self)
+  void PerformGlobalDeoptimization(art::Thread* self, bool needs_interpreter)
       RELEASE(deoptimization_status_lock_)
       REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
 
-  void PerformGlobalUndeoptimization(art::Thread* self)
+  void PerformGlobalUndeoptimization(art::Thread* self, bool needs_interpreter)
       RELEASE(deoptimization_status_lock_)
       REQUIRES(!art::Roles::uninterruptible_, !art::Locks::mutator_lock_);
 
@@ -162,8 +178,12 @@ class DeoptManager {
   art::ConditionVariable deoptimization_condition_ GUARDED_BY(deoptimization_status_lock_);
   bool performing_deoptimization_ GUARDED_BY(deoptimization_status_lock_);
 
-  // Number of times we have gotten requests to deopt everything.
+  // Number of times we have gotten requests to deopt everything both requiring and not requiring
+  // interpreter.
   uint32_t global_deopt_count_ GUARDED_BY(deoptimization_status_lock_);
+
+  // Number of deopt-everything requests that require interpreter.
+  uint32_t global_interpreter_deopt_count_ GUARDED_BY(deoptimization_status_lock_);
 
   // Number of users of deoptimization there currently are.
   uint32_t deopter_count_ GUARDED_BY(deoptimization_status_lock_);
