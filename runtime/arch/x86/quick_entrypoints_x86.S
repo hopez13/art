@@ -1993,7 +1993,8 @@ DEFINE_FUNCTION art_quick_generic_jni_trampoline
     DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_generic_jni_trampoline
 
-DEFINE_FUNCTION art_quick_to_interpreter_bridge
+MACRO2(GENERATE_INTERPRETER_BRIDGE, name, entrypoint)
+DEFINE_FUNCTION VAR(name)
     SETUP_SAVE_REFS_AND_ARGS_FRAME  ebx, ebx  // save frame
     mov %esp, %edx                // remember SP
     PUSH eax                      // alignment padding
@@ -2001,7 +2002,7 @@ DEFINE_FUNCTION art_quick_to_interpreter_bridge
     pushl %fs:THREAD_SELF_OFFSET  // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH eax                      // pass  method
-    call SYMBOL(artQuickToInterpreterBridge)  // (method, Thread*, SP)
+    call CALLVAR(entrypoint)      // (method, Thread*, SP)
     addl LITERAL(16), %esp        // pop arguments
     CFI_ADJUST_CFA_OFFSET(-16)
 
@@ -2018,7 +2019,11 @@ DEFINE_FUNCTION art_quick_to_interpreter_bridge
     POP edi
 
     RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
-END_FUNCTION art_quick_to_interpreter_bridge
+END_FUNCTION VAR(name)
+END_MACRO
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
     /*
      * Called by managed code, saves callee saves and then calls artInvokeObsoleteMethod
@@ -2045,9 +2050,6 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
     addl LITERAL(28), %esp        // Pop arguments upto saved Method*.
     CFI_ADJUST_CFA_OFFSET(-28)
 
-    testl %eax, %eax
-    jz 1f                         // Test for null return (indicating exception) and handle it.
-
     movl 60(%esp), %edi           // Restore edi.
     movl %eax, 60(%esp)           // Place code* over edi, just under return pc.
     movl SYMBOL(art_quick_instrumentation_exit)@GOT(%ebx), %ebx
@@ -2069,12 +2071,6 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
     addl LITERAL(60), %esp        // Wind stack back upto code*.
     CFI_ADJUST_CFA_OFFSET(-60)
     ret                           // Call method (and pop).
-1:
-    // Make caller handle exception
-    addl LITERAL(4), %esp
-    CFI_ADJUST_CFA_OFFSET(-4)
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_instrumentation_entry
 
 DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0

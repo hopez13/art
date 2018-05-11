@@ -69,6 +69,7 @@ namespace jit {
 
 class JitInstrumentationCache;
 class ScopedCodeCacheWrite;
+class ClearProfilingInfoVisitor;
 
 // Alignment in bits that will suit all architectures.
 static constexpr int kJitCodeAlignment = 16;
@@ -206,6 +207,8 @@ class JitCodeCache {
   void RemoveMethodsIn(Thread* self, const LinearAlloc& alloc)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void ClearAllCompiledDexCode() REQUIRES(!lock_, Locks::mutator_lock_);
 
   void CopyInlineCacheInto(const InlineCache& ic, Handle<mirror::ObjectArray<mirror::Class>> array)
       REQUIRES(!lock_)
@@ -450,6 +453,7 @@ class JitCodeCache {
 
   friend class art::JitJniStubTestHelper;
   friend class ScopedCodeCacheWrite;
+  friend class ClearProfilingInfoVisitor;  // for lock_ annotations.
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCodeCache);
 };
