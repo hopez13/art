@@ -21,7 +21,6 @@
 #include "base/enums.h"
 #include "debugger.h"
 #include "dex/dex_file_types.h"
-#include "entrypoints/runtime_asm_entrypoints.h"
 #include "intrinsics_enum.h"
 #include "jit/jit.h"
 #include "jvalue.h"

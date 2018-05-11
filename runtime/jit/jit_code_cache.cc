@@ -345,6 +345,38 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
   return nullptr;
 }
 
+class ClearProfilingInfoVisitor : public ClassVisitor {
+ public:
+  explicit ClearProfilingInfoVisitor(JitCodeCache* cache) : cache_(cache) {}
+
+  bool operator()(ObjPtr<mirror::Class> klass)
+      OVERRIDE REQUIRES(cache_->lock_, Locks::mutator_lock_) {
+    for (ArtMethod& meth : klass->GetMethods(kRuntimePointerSize)) {
+      if (!meth.IsNative() && meth.GetProfilingInfo(kRuntimePointerSize) != nullptr) {
+        ProfilingInfo* info = meth.GetProfilingInfo(kRuntimePointerSize);
+        if (cache_->ContainsPc(meth.GetEntryPointFromQuickCompiledCode()) ||
+            (info->GetSavedEntryPoint() != nullptr &&
+             cache_->ContainsPc(info->GetSavedEntryPoint()))) {
+          meth.SetProfilingInfo(nullptr);
+        }
+      }
+    }
+    return true;
+  }
+ private:
+  JitCodeCache* cache_;
+};
+
+void JitCodeCache::ClearAllCompiledDexCode() {
+  ScopedJitSuspend pause_jit;
+  MutexLock mu(Thread::Current(), lock_);
+  // Get rid of OSR code waiting to be put on a thread.
+  osr_code_map_.clear();
+
+  ClearProfilingInfoVisitor visitor(this);
+  Runtime::Current()->GetClassLinker()->VisitClasses(&visitor);
+}
+
 class ScopedCodeCacheWrite : ScopedTrace {
  public:
   explicit ScopedCodeCacheWrite(const JitCodeCache* const code_cache)
@@ -841,6 +873,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
       } else {
+        ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
+        if (info != nullptr) {
+          info->SetSavedEntryPoint(method_header->GetEntryPoint());
+        }
         Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
             method, method_header->GetEntryPoint());
       }
@@ -1256,13 +1292,13 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
 
       // Start polling the liveness of compiled code to prepare for the next full collection.
       if (next_collection_will_be_full) {
-        // Save the entry point of methods we have compiled, and update the entry
-        // point of those methods to the interpreter. If the method is invoked, the
-        // interpreter will update its entry point to the compiled code and call it.
+        // Mark the method as slated for collection, and update the entry point of those methods to
+        // the interpreter. If the method is invoked, the interpreter will update its entry point to
+        // the compiled code and call it.
         for (ProfilingInfo* info : profiling_infos_) {
           const void* entry_point = info->GetMethod()->GetEntryPointFromQuickCompiledCode();
           if (ContainsPc(entry_point)) {
-            info->SetSavedEntryPoint(entry_point);
+            info->SetIsMethodBeingCollected(true);
             // Don't call Instrumentation::UpdateMethodsCode(), as it can check the declaring
             // class of the method. We may be concurrently running a GC which makes accessing
             // the class unsafe. We know it is OK to bypass the instrumentation as we've just
@@ -1334,15 +1370,19 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
   {
     MutexLock mu(self, lock_);
     if (collect_profiling_info) {
-      // Clear the profiling info of methods that do not have compiled code as entrypoint.
-      // Also remove the saved entry point from the ProfilingInfo objects.
+      // Clear the profiling info of methods that do not have compiled code or the instrumentation
+      // entrypoint as their entrypoint.  Also remove the saved entry point from the ProfilingInfo
+      // objects.
       for (ProfilingInfo* info : profiling_infos_) {
         const void* ptr = info->GetMethod()->GetEntryPointFromQuickCompiledCode();
-        if (!ContainsPc(ptr) && !info->IsInUseByCompiler()) {
+        if (ptr != GetQuickInstrumentationEntryPoint() &&
+            !ContainsPc(ptr) &&
+            !info->IsInUseByCompiler()) {
           info->GetMethod()->SetProfilingInfo(nullptr);
         }
 
-        if (info->GetSavedEntryPoint() != nullptr) {
+        if (info->IsMethodBeingCollected()) {
+          // Make sure we don't have any dangling pointers to the code.
           info->SetSavedEntryPoint(nullptr);
           // We are going to move this method back to interpreter. Clear the counter now to
           // give it a chance to be hot again.
@@ -1350,9 +1390,9 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
         }
       }
     } else if (kIsDebugBuild) {
-      // Sanity check that the profiling infos do not have a dangling entry point.
       for (ProfilingInfo* info : profiling_infos_) {
-        DCHECK(info->GetSavedEntryPoint() == nullptr);
+        DCHECK(info->GetSavedEntryPoint() == nullptr || ContainsPc(info->GetSavedEntryPoint()))
+            << "0x" << std::hex << info->GetSavedEntryPoint();
       }
     }
 
@@ -1375,7 +1415,11 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
       ArtMethod* method = it.second;
       const void* code_ptr = it.first;
       const OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
-      if (method_header->GetEntryPoint() == method->GetEntryPointFromQuickCompiledCode()) {
+      if (method_header->GetEntryPoint() == method->GetEntryPointFromQuickCompiledCode() ||
+          (method->GetEntryPointFromQuickCompiledCode() == GetQuickInstrumentationEntryPoint() &&
+           method->GetProfilingInfo(kRuntimePointerSize) != nullptr &&
+           method->GetProfilingInfo(kRuntimePointerSize)
+                 ->GetSavedEntryPoint() == method_header->GetEntryPoint())) {
         GetLiveBitmap()->AtomicTestAndSet(FromCodeToAllocation(code_ptr));
       }
     }
