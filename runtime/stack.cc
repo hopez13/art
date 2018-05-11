@@ -736,7 +736,8 @@ QuickMethodFrameInfo StackVisitor::GetCurrentQuickFrameInfo() const {
           // The current entrypoint (after filtering out trampolines) may have changed
           // from GenericJNI to JIT-compiled stub since we have entered this frame.
           (runtime->GetJit() != nullptr &&
-           runtime->GetJit()->GetCodeCache()->ContainsPc(entry_point))) << method->PrettyMethod();
+           runtime->GetJit()->GetCodeCache()->ContainsPc(entry_point)))
+        << method->PrettyMethod() << " 0x" << std::hex << entry_point;
   }
   // Generic JNI frame.
   uint32_t handle_refs = GetNumberOfReferenceArgsWithoutReceiver(method) + 1;
@@ -855,7 +856,8 @@ void StackVisitor::WalkStack(bool include_transitions) {
         uint8_t* return_pc_addr = reinterpret_cast<uint8_t*>(cur_quick_frame_) + return_pc_offset;
         uintptr_t return_pc = *reinterpret_cast<uintptr_t*>(return_pc_addr);
 
-        if (UNLIKELY(exit_stubs_installed)) {
+        if (UNLIKELY(exit_stubs_installed ||
+                     reinterpret_cast<uintptr_t>(GetQuickInstrumentationExitPc()) == return_pc)) {
           // While profiling, the return pc is restored from the side stack, except when walking
           // the stack for an exception where the side stack will be unwound in VisitFrame.
           if (reinterpret_cast<uintptr_t>(GetQuickInstrumentationExitPc()) == return_pc) {

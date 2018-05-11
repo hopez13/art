@@ -331,9 +331,10 @@ void ThrowIncompatibleClassChangeErrorForMethodConflict(ArtMethod* method) {
 
 // IndexOutOfBoundsException
 
-void ThrowIndexOutOfBoundsException(int index, int length) {
+void ThrowIndexOutOfBoundsException(int index ATTRIBUTE_UNUSED, int length ATTRIBUTE_UNUSED) {
   ThrowException("Ljava/lang/IndexOutOfBoundsException;", nullptr,
-                 StringPrintf("length=%d; index=%d", length, index).c_str());
+                 "TMP");
+                 // StringPrintf("length=%d; index=%d", length, index).c_str());
 }
 
 // InternalError
