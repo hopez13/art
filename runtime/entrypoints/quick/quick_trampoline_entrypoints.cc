@@ -766,7 +766,10 @@ static void HandleDeoptimization(JValue* result,
                                               DeoptimizationMethodType::kDefault);
 }
 
-extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+static ALWAYS_INLINE uint64_t QuickToInterpreterBridgeCommon(ArtMethod* method,
+                                                             Thread* self,
+                                                             ArtMethod** sp,
+                                                             bool send_instrumentation_events)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Ensure we don't get thread suspension until the object arguments are safely in the shadow
   // frame.
@@ -824,7 +827,10 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
       }
     }
 
-    result = interpreter::EnterInterpreterFromEntryPoint(self, accessor, shadow_frame);
+    result = interpreter::EnterInterpreterFromEntryPoint(self,
+                                                         accessor,
+                                                         shadow_frame,
+                                                         send_instrumentation_events);
   }
 
   // Pop transition.
@@ -857,6 +863,22 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
 
   // No need to restore the args since the method has already been run by the interpreter.
   return result.GetJ();
+}
+
+extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return QuickToInterpreterBridgeCommon(method, self, sp, /* send_instrumentation_events */ true);
+}
+
+extern "C" uint64_t artInstrumentationToInterpreterBridge(ArtMethod* method,
+                                                          Thread* self,
+                                                          ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  if (UNLIKELY(self->IsExceptionPending() || self->ObserveAsyncException())) {
+    return 0;
+  }
+  return QuickToInterpreterBridgeCommon(method, self, sp, /* send_instrumentation_events */ false);
 }
 
 // Visits arguments on the stack placing them into the args vector, Object* arguments are converted
@@ -1109,19 +1131,11 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
                                                              Thread* self,
                                                              ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  const void* result;
   // Instrumentation changes the stack. Thus, when exiting, the stack cannot be verified, so skip
   // that part.
   ScopedQuickEntrypointChecks sqec(self, kIsDebugBuild, false);
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-  if (instrumentation->IsDeoptimized(method)) {
-    result = GetQuickToInterpreterBridge();
-  } else {
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
-    DCHECK(!Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(result));
-  }
 
-  bool interpreter_entry = (result == GetQuickToInterpreterBridge());
   bool is_static = method->IsStatic();
   uint32_t shorty_len;
   const char* shorty =
@@ -1131,16 +1145,33 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   RememberForGcArgumentVisitor visitor(sp, is_static, shorty, shorty_len, &soa);
   visitor.VisitArguments();
 
-  instrumentation->PushInstrumentationStackFrame(self,
-                                                 is_static ? nullptr : this_object,
-                                                 method,
-                                                 QuickArgumentVisitor::GetCallingPc(sp),
-                                                 interpreter_entry);
+  instrumentation::InstrumentationFrameResult res(
+      instrumentation->PushInstrumentationStackFrame(self,
+                                                     is_static ? nullptr : this_object,
+                                                     method,
+                                                     QuickArgumentVisitor::GetCallingPc(sp)));
 
-  visitor.FixupReferences();
-  if (UNLIKELY(self->IsExceptionPending())) {
-    return nullptr;
+  const void* result;
+  if (instrumentation->IsDeoptimized(method)) {
+    result = GetQuickToInterpreterBridge();
+  } else {
+    // This will get the entry point either from the oat file, the JIT or the appropriate bridge
+    // method if none of those can be found.
+    result = instrumentation->GetCodeForInvoke(method);
   }
+  if (result == GetQuickToInterpreterBridge() || self->IsExceptionPending()) {
+    // Tell the instrumentation stack that we are going into the interpreter.
+    res.SetFrameIsInterpreter(true);
+    // We want to actually use a slightly different bridge function to avoid a second call of
+    // instrumentation events.  This bridge will (among other things) check for and immediately
+    // return due to a pending exception. We need to do this rigmarole to ensure that stack walking
+    // works and is not confused by threads throwing in quick_instrumentation_entry (which leaves it
+    // unable to figure out what the actual method being called is).
+    result = GetInstrumentationToInterpreterBridge();
+  } else {
+    res.SetFrameIsInterpreter(false);
+  }
+  visitor.FixupReferences();
   CHECK(result != nullptr) << method->PrettyMethod();
   return result;
 }
@@ -1154,8 +1185,8 @@ extern "C" TwoWordReturn artInstrumentationMethodExitFromCode(Thread* self,
   CHECK(gpr_result != nullptr);
   CHECK(fpr_result != nullptr);
   // Instrumentation exit stub must not be entered with a pending exception.
-  CHECK(!self->IsExceptionPending()) << "Enter instrumentation exit stub with pending exception "
-                                     << self->GetException()->Dump();
+  // CHECK(!self->IsExceptionPending()) << "Enter instrumentation exit stub with pending exception "
+  //                                    << self->GetException()->Dump();
   // Compute address of return PC and sanity check that it currently holds 0.
   size_t return_pc_offset = GetCalleeSaveReturnPcOffset(kRuntimeISA,
                                                         CalleeSaveType::kSaveEverything);

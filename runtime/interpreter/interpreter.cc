@@ -244,7 +244,8 @@ static inline JValue Execute(
     ShadowFrame& shadow_frame,
     JValue result_register,
     bool stay_in_interpreter = false,
-    bool from_deoptimize = false) REQUIRES_SHARED(Locks::mutator_lock_) {
+    bool from_deoptimize = false,
+    bool send_instrumentation_events = true) REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(!shadow_frame.GetMethod()->IsAbstract());
   DCHECK(!shadow_frame.GetMethod()->IsNative());
   if (LIKELY(!from_deoptimize)) {  // Entering the method, but not via deoptimization.
@@ -255,7 +256,8 @@ static inline JValue Execute(
     instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
     ArtMethod *method = shadow_frame.GetMethod();
 
-    if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
+    if (UNLIKELY(send_instrumentation_events && instrumentation->HasMethodEntryListeners())) {
+      LOG(WARNING) << "Sending method events from interpreter for " << method->PrettyMethod();
       instrumentation->MethodEnterEvent(self,
                                         shadow_frame.GetThisObject(accessor.InsSize()),
                                         method,
@@ -458,7 +460,13 @@ void EnterInterpreterFromInvoke(Thread* self,
     }
   }
   if (LIKELY(!method->IsNative())) {
-    JValue r = Execute(self, accessor, *shadow_frame, JValue(), stay_in_interpreter);
+    JValue r = Execute(self,
+                       accessor,
+                       *shadow_frame,
+                       JValue(),
+                       stay_in_interpreter,
+                       /* from_deoptimize */false,
+                       /* send_instrumentation_events */true);
     if (result != nullptr) {
       *result = r;
     }
@@ -575,7 +583,8 @@ void EnterInterpreterFromDeoptimize(Thread* self,
                       *shadow_frame,
                       value,
                       /* stay_in_interpreter */ true,
-                      /* from_deoptimize */ true);
+                      /* from_deoptimize */ true,
+                      /* send_instrumtation_events */ false);
     }
     ShadowFrame* old_frame = shadow_frame;
     shadow_frame = shadow_frame->GetLink();
@@ -589,8 +598,10 @@ void EnterInterpreterFromDeoptimize(Thread* self,
   ret_val->SetJ(value.GetJ());
 }
 
-JValue EnterInterpreterFromEntryPoint(Thread* self, const CodeItemDataAccessor& accessor,
-                                      ShadowFrame* shadow_frame) {
+JValue EnterInterpreterFromEntryPoint(Thread* self,
+                                      const CodeItemDataAccessor& accessor,
+                                      ShadowFrame* shadow_frame,
+                                      bool send_instrumentation_events) {
   DCHECK_EQ(self, Thread::Current());
   bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
   if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
@@ -602,7 +613,13 @@ JValue EnterInterpreterFromEntryPoint(Thread* self, const CodeItemDataAccessor& 
   if (jit != nullptr) {
     jit->NotifyCompiledCodeToInterpreterTransition(self, shadow_frame->GetMethod());
   }
-  return Execute(self, accessor, *shadow_frame, JValue());
+  return Execute(self,
+                 accessor,
+                 *shadow_frame,
+                 JValue(),
+                 /* stay_in_interpreter */ false,
+                 /* is_deoptimize */ false,
+                 send_instrumentation_events);
 }
 
 void ArtInterpreterToInterpreterBridge(Thread* self,
@@ -617,6 +634,7 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
 
   self->PushShadowFrame(shadow_frame);
   ArtMethod* method = shadow_frame->GetMethod();
+  LOG(WARNING) << "Performing interpreter-to-interpreter-bridge for " << method->PrettyMethod();
   // Ensure static methods are initialized.
   const bool is_static = method->IsStatic();
   if (is_static) {

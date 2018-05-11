@@ -68,6 +68,7 @@ template<class T> class ObjectArray;
 namespace jit {
 
 class JitInstrumentationCache;
+class ScopedPauseJitGc;
 
 // Alignment in bits that will suit all architectures.
 static constexpr int kJitCodeAlignment = 16;
@@ -443,7 +444,22 @@ class JitCodeCache {
   ConditionVariable inline_cache_cond_ GUARDED_BY(lock_);
 
   friend class art::JitJniStubTestHelper;
+  friend class art::jit::ScopedPauseJitGc;
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCodeCache);
+};
+
+class ScopedPauseJitGc {
+ public:
+  explicit ScopedPauseJitGc(bool can_suspend) REQUIRES_SHARED(Locks::mutator_lock_);
+  ~ScopedPauseJitGc();
+
+  bool IsCollectionPaused() const {
+    return collection_paused_;
+  }
+
+ private:
+  JitCodeCache* jcc_;
+  bool collection_paused_;
 };
 
 }  // namespace jit

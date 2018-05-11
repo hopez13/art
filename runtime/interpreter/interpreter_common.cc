@@ -1527,6 +1527,8 @@ static inline bool DoCallCommon(ArtMethod* called_method,
       ClassLinker::ShouldUseInterpreterEntrypoint(
           called_method,
           called_method->GetEntryPointFromQuickCompiledCode());
+  // LOG(INFO) << (use_interpreter_entrypoint ? "" : "Not ")
+  //           << "Performing interpreter entrypoint for " << called_method->PrettyMethod();
   if (LIKELY(accessor.HasCodeItem())) {
     // When transitioning to compiled code, space only needs to be reserved for the input registers.
     // The rest of the frame gets discarded. This also prevents accessing the called method's code

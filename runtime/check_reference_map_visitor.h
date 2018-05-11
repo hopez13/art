@@ -81,7 +81,7 @@ class CheckReferenceMapVisitor : public StackVisitor {
       switch (location.GetKind()) {
         case DexRegisterLocation::Kind::kNone:
           // Not set, should not be a reference.
-          CHECK(false);
+          LOG(ERROR) << "in " << m->PrettyMethod() << " register " << i << " is type none!";
           break;
         case DexRegisterLocation::Kind::kInStack:
           DCHECK_EQ(location.GetValue() % kFrameSlotSize, 0);

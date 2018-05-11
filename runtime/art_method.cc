@@ -667,7 +667,7 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
   }
   const void* oat_entry_point = oat_method.GetQuickCode();
   if (oat_entry_point == nullptr || class_linker->IsQuickGenericJniStub(oat_entry_point)) {
-    DCHECK(IsNative()) << PrettyMethod();
+    DCHECK(IsNative()) << PrettyMethod() << " oat entry " << oat_entry_point;
     return nullptr;
   }
 

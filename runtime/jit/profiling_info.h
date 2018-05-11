@@ -150,8 +150,9 @@ class ProfilingInfo {
   // it updates this counter so that the GC does not try to clear the inline caches.
   uint16_t current_inline_uses_;
 
-  // Entry point of the corresponding ArtMethod, while the JIT code cache
-  // is poking for the liveness of compiled code.
+  // Entry point of the corresponding ArtMethod. This will be set the first time the method is
+  // compiled and set back to null if the code is collected.
+  // TODO Actually do this.
   const void* saved_entry_point_;
 
   // Dynamically allocated array of size `number_of_inline_caches_`.

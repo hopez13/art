@@ -57,6 +57,41 @@ static constexpr int kProtCode = PROT_READ | PROT_EXEC;
 static constexpr size_t kCodeSizeLogThreshold = 50 * KB;
 static constexpr size_t kStackMapSizeLogThreshold = 50 * KB;
 
+ScopedPauseJitGc::ScopedPauseJitGc(bool can_suspend) {
+  Thread* self = Thread::Current();
+  Jit* jit = Runtime::Current()->GetJit();
+  if (jit == nullptr) {
+    jcc_ = nullptr;
+    collection_paused_ = true;
+    return;
+  }
+  jcc_ = jit->GetCodeCache();
+  if (can_suspend) {
+    ScopedThreadSuspension sts(self, kSuspended);
+    MutexLock mu(self, jcc_->lock_);
+    jcc_->WaitForPotentialCollectionToComplete(self);
+    jcc_->collection_in_progress_ = true;
+    collection_paused_ = true;
+  } else {
+    MutexLock mu(self, jcc_->lock_);
+    if (jcc_->collection_in_progress_) {
+      LOG(INFO) << "Unable to pause jit collection.";
+      collection_paused_ = false;
+    } else {
+      jcc_->collection_in_progress_ = true;
+      collection_paused_ = true;
+    }
+  }
+}
+
+ScopedPauseJitGc::~ScopedPauseJitGc() {
+  if (jcc_ != nullptr && collection_paused_) {
+    Thread* self = Thread::Current();
+    MutexLock mu(self, jcc_->lock_);
+    jcc_->NotifyCollectionDone(self);
+  }
+}
+
 class JitCodeCache::JniStubKey {
  public:
   explicit JniStubKey(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_)
