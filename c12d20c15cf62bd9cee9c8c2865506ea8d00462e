@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d77f9d2a_47d06df3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-11T23:02:41Z",
+      "side": 1,
+      "message": "these lines are the real difference in this CL (which becomes more apparent once I submit the refactoring CL and rebase this one)",
+      "range": {
+        "startLine": 461,
+        "startChar": 12,
+        "endLine": 467,
+        "endChar": 72
+      },
+      "revId": "c12d20c15cf62bd9cee9c8c2865506ea8d00462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6cb2d6f_5fcfaceb",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-11T23:02:41Z",
+      "side": 1,
+      "message": "and this is the low hanging fruit we optimize now too",
+      "range": {
+        "startLine": 1161,
+        "startChar": 3,
+        "endLine": 1169,
+        "endChar": 16
+      },
+      "revId": "c12d20c15cf62bd9cee9c8c2865506ea8d00462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
