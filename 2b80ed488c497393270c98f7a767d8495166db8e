@@ -68,6 +68,30 @@
       "revId": "2b80ed488c497393270c98f7a767d8495166db8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdd8c27d_63907bbb",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-11T04:51:51Z",
+      "side": 1,
+      "message": "This is causing ASAN tests to fail btw.",
+      "parentUuid": "df128569_a34e5736",
+      "range": {
+        "startLine": 459,
+        "startChar": 6,
+        "endLine": 462,
+        "endChar": 21
+      },
+      "revId": "2b80ed488c497393270c98f7a767d8495166db8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
