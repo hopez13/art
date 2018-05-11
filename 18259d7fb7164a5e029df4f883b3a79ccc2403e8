@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7a6f5d4_35273e00",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-11T10:59:05Z",
+      "side": 1,
+      "message": "Done. Rolled into the second CL in this series: https://android-review.googlesource.com/c/platform/art/+/682844/5",
+      "parentUuid": "c005c447_08fcaaf3",
+      "range": {
+        "startLine": 243,
+        "startChar": 51,
+        "endLine": 243,
+        "endChar": 62
+      },
+      "revId": "18259d7fb7164a5e029df4f883b3a79ccc2403e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a93de13_c3ee18ab",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8a74d47e_fafe8016",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6543,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-11T10:59:05Z",
+      "side": 1,
+      "message": "Done. Rolled into https://android-review.googlesource.com/c/platform/art/+/682844/5",
+      "parentUuid": "1a93de13_c3ee18ab",
+      "range": {
+        "startLine": 6543,
+        "startChar": 2,
+        "endLine": 6543,
+        "endChar": 10
+      },
+      "revId": "18259d7fb7164a5e029df4f883b3a79ccc2403e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9029c722_060c1208",
         "filename": "test/979-const-method-handle/src/Main.java",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-11T08:55:13Z",
       "side": 1,
       "message": "Note: for ART specific way to know if it\u0027s JIT compiled, there\u0027s ensureJitCompiled.\n\nI\u0027d put a comment here that you\u0027re iterating to hopefully JIT.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "18259d7fb7164a5e029df4f883b3a79ccc2403e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d23e620_8a77aea4",
+        "filename": "test/979-const-method-handle/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-11T10:59:05Z",
+      "side": 1,
+      "message": "Done. Rolled into https://android-review.googlesource.com/c/platform/art/+/682844/5",
+      "parentUuid": "9029c722_060c1208",
       "range": {
         "startLine": 55,
         "startChar": 0,
