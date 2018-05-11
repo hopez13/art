@@ -55,7 +55,8 @@ extern void EnterInterpreterFromDeoptimize(Thread* self,
 
 extern JValue EnterInterpreterFromEntryPoint(Thread* self,
                                              const CodeItemDataAccessor& accessor,
-                                             ShadowFrame* shadow_frame)
+                                             ShadowFrame* shadow_frame,
+                                             bool send_instrumentation_events)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 void ArtInterpreterToInterpreterBridge(Thread* self,

@@ -353,6 +353,21 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
     constexpr bool kLogInvocationStartAndReturn = false;
     bool have_quick_code = GetEntryPointFromQuickCompiledCode() != nullptr;
     if (LIKELY(have_quick_code)) {
+#if 0
+      const void* ep = GetEntryPointFromQuickCompiledCode();
+      instrumentation::Instrumentation* inst = runtime->GetInstrumentation();
+      {
+        ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+        CHECK(ep == inst->GetCodeForInvoke(this) ||
+              IsNative() ||
+              runtime->GetClassLinker()->IsQuickToInterpreterBridge(ep) ||
+              runtime->GetClassLinker()->IsQuickResolutionStub(ep) ||
+              ep == GetQuickInstrumentationEntryPoint())
+            << PrettyMethod() << " expected " << inst->GetCodeForInvoke(this)
+            << " or interpreter but got " << ep << " (in jit? "
+            << runtime->GetJit()->GetCodeCache()->ContainsPc(ep) << ")";
+      }
+#endif
       if (kLogInvocationStartAndReturn) {
         LOG(INFO) << StringPrintf(
             "Invoking '%s' quick code=%p static=%d", PrettyMethod().c_str(),
@@ -370,6 +385,8 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
             << "Don't call compiled code when -Xint " << PrettyMethod();
       }
 
+      CHECK_GT(reinterpret_cast<uintptr_t>(GetEntryPointFromQuickCompiledCode()), 0x4000u)
+          << PrettyMethod();
       if (!IsStatic()) {
         (*art_quick_invoke_stub)(this, args, args_size, self, result, shorty);
       } else {

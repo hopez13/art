@@ -207,6 +207,8 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void ClearAllCompiledDexCode() REQUIRES(!lock_, Locks::mutator_lock_);
+
   void CopyInlineCacheInto(const InlineCache& ic, Handle<mirror::ObjectArray<mirror::Class>> array)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -264,6 +266,8 @@ class JitCodeCache {
   void SetGarbageCollectCode(bool value) {
     garbage_collect_code_ = value;
   }
+
+  const void* FindCompiledCode(ArtMethod* method) REQUIRES(Roles::uninterruptible_, !lock_);
 
  private:
   // Take ownership of maps.
@@ -392,6 +396,8 @@ class JitCodeCache {
   SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(lock_);
   // Holds osr compiled code associated to the ArtMethod.
   SafeMap<ArtMethod*, const void*> osr_code_map_ GUARDED_BY(lock_);
+  // Holds non-osr compiled code associated to the ArtMethod.
+  SafeMap<ArtMethod*, const void*> non_osr_code_map_ GUARDED_BY(lock_);
   // ProfilingInfo objects we have allocated.
   std::vector<ProfilingInfo*> profiling_infos_ GUARDED_BY(lock_);
 
