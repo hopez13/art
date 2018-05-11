@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76c3a95c_be26c3c7",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "While you\u0027re at it, do you mind rewriting this to copy the BitVector\u0027s contents in chunks? I think we should access the BitVector\u0027s storage directly (and make sure we don\u0027t go over the end as the storage can be smaller than `BitsToBytesRoundUp(entry_size_in_bits)`).",
+      "range": {
+        "startLine": 605,
+        "startChar": 4,
+        "endLine": 607,
+        "endChar": 5
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9219ce1_66092a08",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "Reorder the AlignDown() and reinterpret_cast\u003c\u003e.",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d53a4c47_0cdd1a92",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "Avoid arithmetic overflow:\n\n    DCHECK_LE(bit_offset, bit_size_);\n    DCHECK_LE(bit_length, bit_size_ - bit_offset_);",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b2210e_66acb6cd",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd9fcf4_fe3dc2e8",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "ASAN/valgrind may not be happy when accessing the data around the original allocated region.\n\nCan we use helper functions for loading/storing data_[index] that check for reads/writes outside the region and perform them in bytes?\n\n    if (kMemoryToolIsAvailable \u0026\u0026\n        (index * kBitsPerIntPtrT \u003c bit_start_ ||\n         (index + 1) * kBitsPerIntPtrT \u003e bit_start + bit_size_)) {\n      // Read/write only relevant bytes.\n    } else {\n      // Read/write data_[index].\n    }\n\nThis would currently slow things down for the default configuration as kMemoryToolIsAvailable is true until we drop the valgrind support.",
+      "range": {
+        "startLine": 63,
+        "startChar": 13,
+        "endLine": 63,
+        "endChar": 25
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22439cf9_ee19f564",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "This look unnecessary. Every `uintptr_t*` should be aligned like this.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 48
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34a34050_b3c84888",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-11T10:20:49Z",
+      "side": 1,
+      "message": "unnecessary",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
