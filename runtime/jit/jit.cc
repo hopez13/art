@@ -738,8 +738,11 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
 
   ProfilingInfo* profiling_info = method->GetProfilingInfo(kRuntimePointerSize);
   // Update the entrypoint if the ProfilingInfo has one. The interpreter will call it
-  // instead of interpreting the method.
+  // instead of interpreting the method. If we are doing a full collection this will tell the
+  // jit_code_cache that the method is actually being used.
   if ((profiling_info != nullptr) && (profiling_info->GetSavedEntryPoint() != nullptr)) {
+    CHECK(GetCodeCache()->ContainsPc(profiling_info->GetSavedEntryPoint()))
+        << method->PrettyMethod();;
     Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
         method, profiling_info->GetSavedEntryPoint());
   } else {

@@ -1988,15 +1988,20 @@ END_FUNCTION art_quick_generic_jni_trampoline
      * RDI = method being called / to bridge to.
      * RSI, RDX, RCX, R8, R9 are arguments to that method.
      */
-DEFINE_FUNCTION art_quick_to_interpreter_bridge
+MACRO2(GENERATE_INTERPRETER_BRIDGE, name, entrypoint)
+DEFINE_FUNCTION VAR(name)
     SETUP_SAVE_REFS_AND_ARGS_FRAME     // Set up frame and save arguments.
     movq %gs:THREAD_SELF_OFFSET, %rsi  // RSI := Thread::Current()
     movq %rsp, %rdx                    // RDX := sp
-    call SYMBOL(artQuickToInterpreterBridge)  // (method, Thread*, SP)
+    call CALLVAR(entrypoint)           // (method, Thread*, SP)
     RESTORE_SAVE_REFS_AND_ARGS_FRAME   // TODO: no need to restore arguments in this case.
     movq %rax, %xmm0                   // Place return value also into floating point return value.
     RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
-END_FUNCTION art_quick_to_interpreter_bridge
+END_FUNCTION VAR(name)
+END_MACRO
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
     /*
      * Called to catch an attempt to invoke an obsolete method.
@@ -2021,10 +2026,6 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
 
     call SYMBOL(artInstrumentationMethodEntryFromCode) // (Method*, Object*, Thread*, SP)
 
-                                  // %rax = result of call.
-    testq %rax, %rax
-    jz 1f
-
     movq %r12, %rdi               // Reload method pointer.
     leaq art_quick_instrumentation_exit(%rip), %r12   // Set up return through instrumentation
     movq %r12, FRAME_SIZE_SAVE_REFS_AND_ARGS-8(%rsp)  // exit.
@@ -2032,9 +2033,6 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
 
     jmp *%rax                     // Tail call to intended method.
-1:
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    DELIVER_PENDING_EXCEPTION
 #endif  // __APPLE__
 END_FUNCTION art_quick_instrumentation_entry
 

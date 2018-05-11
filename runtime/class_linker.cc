@@ -2931,7 +2931,15 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
     // and check whether it's been compiled debuggable, but we decided to
     // only rely on the JIT for debuggable apps.
     jit::Jit* jit = Runtime::Current()->GetJit();
-    return (jit == nullptr) || !jit->GetCodeCache()->ContainsPc(quick_code);
+    if (jit != nullptr && jit->GetCodeCache()->ContainsPc(quick_code)) {
+      return false;
+    } else if (quick_code == GetQuickInstrumentationEntryPoint()) {
+      // Don't bother going into compiled code if it looks like we will just be punted right back
+      // out of it.
+      return instr->GetCodeForInvoke(method) == GetQuickToInterpreterBridge();
+    } else {
+      return true;
+    }
   }
 
   if (runtime->IsNativeDebuggable()) {
