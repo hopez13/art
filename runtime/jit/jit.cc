@@ -735,10 +735,24 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
 
   ProfilingInfo* profiling_info = method->GetProfilingInfo(kRuntimePointerSize);
   // Update the entrypoint if the ProfilingInfo has one. The interpreter will call it
-  // instead of interpreting the method.
-  if ((profiling_info != nullptr) && (profiling_info->GetSavedEntryPoint() != nullptr)) {
-    Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
-        method, profiling_info->GetSavedEntryPoint());
+  // instead of interpreting the method. If we are doing a full collection this will tell the
+  // jit_code_cache that the method is actually being used.
+  const void* new_entry_point = nullptr;
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  if (profiling_info != nullptr) {
+    if (profiling_info->GetSavedEntryPoint() != nullptr) {
+      // TODO Having check a check that this is the same as FindCompiledCde() would be nice but it
+      // isn't really possible due to the convoluted way we update profiling info. It is possible
+      // that we could end up with a method being compiled multiple times and an earlier one ending
+      // up in the SavedEntryPoint.
+      new_entry_point = profiling_info->GetSavedEntryPoint();
+    } else {
+      new_entry_point = GetCodeCache()->FindCompiledCode(method);
+    }
+  }
+  if (new_entry_point != nullptr) {
+    CHECK(GetCodeCache()->ContainsPc(new_entry_point)) << method->PrettyMethod();
+    Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(method, new_entry_point);
   } else {
     AddSamples(thread, method, 1, /* with_backedges */false);
   }

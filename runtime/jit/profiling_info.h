@@ -92,11 +92,11 @@ class ProfilingInfo {
   }
 
   void SetSavedEntryPoint(const void* entry_point) {
-    saved_entry_point_ = entry_point;
+    saved_entry_point_.store(entry_point, std::memory_order_seq_cst);
   }
 
   const void* GetSavedEntryPoint() const {
-    return saved_entry_point_;
+    return saved_entry_point_.load(std::memory_order_seq_cst);
   }
 
   void ClearGcRootsInInlineCaches() {
@@ -137,12 +137,15 @@ class ProfilingInfo {
   // See JitCodeCache::MoveObsoleteMethod.
   ArtMethod* method_;
 
-  // Entry point of the corresponding ArtMethod, while the JIT code cache
-  // is poking for the liveness of compiled code.
-  const void* saved_entry_point_;
+  // Entry point of the corresponding ArtMethod. This will be set the first time the method is
+  // compiled and set back to null if the code is collected.
+  std::atomic<const void*> saved_entry_point_;
 
   // Number of instructions we are profiling in the ArtMethod.
   const uint32_t number_of_inline_caches_;
+
+  // Whether the compiled code is being considered for collection.
+  bool is_method_being_collected_;
 
   // When the compiler inlines the method associated to this ProfilingInfo,
   // it updates this counter so that the GC does not try to clear the inline caches.

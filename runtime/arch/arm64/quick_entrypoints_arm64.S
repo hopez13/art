@@ -2240,16 +2240,18 @@ END art_quick_generic_jni_trampoline
  * x0 = method being called/to bridge to.
  * x1..x7, d0..d7 = arguments to that method.
  */
-ENTRY art_quick_to_interpreter_bridge
+.macro GENERATE_INTERPRETER_BRIDGE name, entrypoint
+    .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME         // Set up frame and save arguments.
 
     //  x0 will contain mirror::ArtMethod* method.
     mov x1, xSELF                          // How to get Thread::Current() ???
     mov x2, sp
 
-    // uint64_t artQuickToInterpreterBridge(mirror::ArtMethod* method, Thread* self,
-    //                                      mirror::ArtMethod** sp)
-    bl   artQuickToInterpreterBridge
+    // uint64_t \entrypoint(mirror::ArtMethod* method, Thread* self,
+    //                      mirror::ArtMethod** sp)
+    bl   \entrypoint
 
     RESTORE_SAVE_REFS_AND_ARGS_FRAME       // TODO: no need to restore arguments in this case.
     REFRESH_MARKING_REGISTER
@@ -2257,7 +2259,11 @@ ENTRY art_quick_to_interpreter_bridge
     fmov d0, x0
 
     RETURN_OR_DELIVER_PENDING_EXCEPTION
-END art_quick_to_interpreter_bridge
+END \name
+.endm
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
 /*
  * Called to attempt to execute an obsolete method.
@@ -2283,12 +2289,8 @@ ENTRY art_quick_instrumentation_entry
 
     RESTORE_SAVE_REFS_AND_ARGS_FRAME  // Note: will restore xSELF
     REFRESH_MARKING_REGISTER
-    cbz   xIP0, 1f            // Deliver the pending exception if method is null.
     adr   xLR, art_quick_instrumentation_exit
     br    xIP0                // Tail-call method with lr set to art_quick_instrumentation_exit.
-
-1:
-    DELIVER_PENDING_EXCEPTION
 END art_quick_instrumentation_entry
 
     .extern artInstrumentationMethodExitFromCode

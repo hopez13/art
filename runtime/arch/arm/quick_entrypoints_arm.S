@@ -1807,12 +1807,13 @@ ENTRY art_quick_generic_jni_trampoline
     DELIVER_PENDING_EXCEPTION
 END art_quick_generic_jni_trampoline
 
-    .extern artQuickToInterpreterBridge
-ENTRY art_quick_to_interpreter_bridge
+.macro GENERATE_INTERPRETER_BRIDGE name, entrypoint
+    .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME r1
     mov     r1, rSELF              @ pass Thread::Current
     mov     r2, sp                 @ pass SP
-    blx     artQuickToInterpreterBridge    @ (Method* method, Thread*, SP)
+    blx     \entrypoint            @ (Method* method, Thread*, SP)
     ldr     r2, [rSELF, #THREAD_EXCEPTION_OFFSET]  @ load Thread::Current()->exception_
     // Tear down the callee-save frame. Skip arg registers.
     add     sp, #(FRAME_SIZE_SAVE_REFS_AND_ARGS - FRAME_SIZE_SAVE_REFS_ONLY)
@@ -1824,7 +1825,11 @@ ENTRY art_quick_to_interpreter_bridge
     bx      lr                     @ return on success
 1:
     DELIVER_PENDING_EXCEPTION
-END art_quick_to_interpreter_bridge
+END \name
+.endm
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
 /*
  * Called to attempt to execute an obsolete method.
@@ -1844,8 +1849,6 @@ ENTRY art_quick_instrumentation_entry
     mov   r2, rSELF      @ pass Thread::Current
     mov   r3, sp         @ pass SP
     blx   artInstrumentationMethodEntryFromCode  @ (Method*, Object*, Thread*, SP)
-    cbz   r0, .Ldeliver_instrumentation_entry_exception
-                         @ Deliver exception if we got nullptr as function.
     mov   r12, r0        @ r12 holds reference to code
     ldr   r0, [sp, #4]   @ restore r0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
@@ -1853,11 +1856,6 @@ ENTRY art_quick_instrumentation_entry
                          @ load art_quick_instrumentation_exit into lr in thumb mode
     REFRESH_MARKING_REGISTER
     bx    r12            @ call method with lr set to art_quick_instrumentation_exit
-.Ldeliver_instrumentation_entry_exception:
-    @ Deliver exception for art_quick_instrumentation_entry placed after
-    @ art_quick_instrumentation_exit so that the fallthrough works.
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    DELIVER_PENDING_EXCEPTION
 END art_quick_instrumentation_entry
 
 ENTRY art_quick_instrumentation_exit

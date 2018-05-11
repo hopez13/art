@@ -2846,7 +2846,17 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
     // and check whether it's been compiled debuggable, but we decided to
     // only rely on the JIT for debuggable apps.
     jit::Jit* jit = Runtime::Current()->GetJit();
-    return (jit == nullptr) || !jit->GetCodeCache()->ContainsPc(quick_code);
+    if (jit != nullptr && jit->GetCodeCache()->ContainsPc(quick_code)) {
+      return false;
+    } else if (quick_code == GetQuickInstrumentationEntryPoint()) {
+      ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+      // Don't bother going into compiled code if it looks like we will just be punted right back
+      // out of it.
+      // TODO Maybe do some path that doesn't require getting a lock?
+      return jit == nullptr || jit->GetCodeCache()->FindCompiledCode(method) == nullptr;
+    } else {
+      return true;
+    }
   }
 
   if (runtime->IsNativeDebuggable()) {
@@ -2863,6 +2873,7 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
 }
 
 void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   DCHECK(klass->IsInitialized()) << klass->PrettyDescriptor();
   if (klass->NumDirectMethods() == 0) {
     return;  // No direct methods => no static methods.
@@ -2924,6 +2935,7 @@ static void LinkCode(ClassLinker* class_linker,
                      ArtMethod* method,
                      const OatFile::OatClass* oat_class,
                      uint32_t class_def_method_index) REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   Runtime* const runtime = Runtime::Current();
   if (runtime->IsAotCompiler()) {
     // The following code only applies to a non-compiler runtime.
@@ -8481,6 +8493,7 @@ bool ClassLinker::IsQuickResolutionStub(const void* entry_point) const {
 
 bool ClassLinker::IsQuickToInterpreterBridge(const void* entry_point) const {
   return (entry_point == GetQuickToInterpreterBridge()) ||
+      (entry_point == GetInstrumentationToInterpreterBridge()) ||
       (quick_to_interpreter_bridge_trampoline_ == entry_point);
 }
 
