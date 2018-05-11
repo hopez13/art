@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4ffea51_0ba24578",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "I agree. I have already done it in future CL.\nBut I don\u0027t want to include it in this CL.",
+      "parentUuid": "76c3a95c_be26c3c7",
+      "range": {
+        "startLine": 605,
+        "startChar": 4,
+        "endLine": 607,
+        "endChar": 5
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9219ce1_66092a08",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-11T10:20:49Z",
       "side": 1,
       "message": "Reorder the AlignDown() and reinterpret_cast\u003c\u003e.",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c358a996_b6ce864e",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9219ce1_66092a08",
       "range": {
         "startLine": 32,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ebffa106_15562495",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d53a4c47_0cdd1a92",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3b2210e_66acb6cd",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2018-05-11T10:20:49Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 50
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7086a8cd_bff00f95",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3b2210e_66acb6cd",
       "range": {
         "startLine": 50,
         "startChar": 4,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "e0c85b82_f6c957a6",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "Done. Added attribute, as discussed offline.",
+      "parentUuid": "9dd51ee2_444e8956",
+      "range": {
+        "startLine": 63,
+        "startChar": 13,
+        "endLine": 63,
+        "endChar": 25
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22439cf9_ee19f564",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 2
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "b85c99d3_5f811e82",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "It should be, but I don\u0027t think it must be...",
+      "parentUuid": "22439cf9_ee19f564",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 48
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "34a34050_b3c84888",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 2
@@ -175,6 +319,30 @@
       "writtenOn": "2018-05-11T10:20:49Z",
       "side": 1,
       "message": "unnecessary",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "aaab8636524052922bad390c9dc5dee64a69674c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e5155a9_250674a6",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-11T14:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34a34050_b3c84888",
       "range": {
         "startLine": 98,
         "startChar": 4,
