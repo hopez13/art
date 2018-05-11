@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "54635e8b_074bf0ce",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-11T09:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ebe38eb_98241ab3",
+      "revId": "99bcb6bfad149c94bbb31d882c5945fe599e08ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cea49350_bfc94dba",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "99bcb6bfad149c94bbb31d882c5945fe599e08ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d56957ec_9973c161",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-11T09:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea49350_bfc94dba",
+      "revId": "99bcb6bfad149c94bbb31d882c5945fe599e08ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
