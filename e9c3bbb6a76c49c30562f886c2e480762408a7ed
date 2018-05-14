@@ -22,6 +22,30 @@
       "revId": "e9c3bbb6a76c49c30562f886c2e480762408a7ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43df8ece_1e9b9e83",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-14T15:31:17Z",
+      "side": 1,
+      "message": "My CL is a cherry-pick, we can do that in a follow-up CL.",
+      "parentUuid": "ddee7dbf_9bf6ab4f",
+      "range": {
+        "startLine": 161,
+        "startChar": 6,
+        "endLine": 161,
+        "endChar": 57
+      },
+      "revId": "e9c3bbb6a76c49c30562f886c2e480762408a7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
