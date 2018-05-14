@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e8eb74a_46bf801e",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-14T08:27:00Z",
+      "side": 1,
+      "message": "This makes me nervous from a locking perspective. Callers of SetResolvedField could be assuming SetResolvedField doesn\u0027t take locks and doesn\u0027t suspend.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 5
+      },
+      "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
