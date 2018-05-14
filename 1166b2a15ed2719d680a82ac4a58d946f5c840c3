@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a73c327_3670a930",
+        "filename": "libdexfile/dex/type_lookup_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-14T15:11:02Z",
+      "side": 1,
+      "message": "Lift outside loop. Only useful on first iteration.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6f50298_2a63206e",
+        "filename": "libdexfile/dex/type_lookup_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-14T15:11:02Z",
+      "side": 1,
+      "message": "Consider implementing overloads with and without storage and moving the constructor body into a common method \"BuildTable\" or somesuch.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d23ec1eb_eca3ebc7",
+        "filename": "libdexfile/dex/type_lookup_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-14T15:11:02Z",
+      "side": 1,
+      "message": "A description of the storage argument would be helpful here. What size?",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b482203_8df9e6dc",
+        "filename": "libdexfile/dex/type_lookup_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-14T15:11:02Z",
+      "side": 1,
+      "message": "\"encoded implicitly in the bucket index\"?\n\nFor the reader, ZYX aren\u0027t too clear. Might be better to use something like S (start table index), P (partial hash), D (discarded hash bits).",
+      "range": {
+        "startLine": 102,
+        "startChar": 28,
+        "endLine": 102,
+        "endChar": 45
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
