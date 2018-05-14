@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3162cbd_55e21e6a",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-14T10:36:59Z",
+      "side": 1,
+      "message": "method \u003d\u003d nullptr ||\n\n(If the FindResolvedMethod() didn\u0027t actually resolve the method, the one with stored_index should remain in the dex cache.)",
+      "range": {
+        "startLine": 1075,
+        "startChar": 15,
+        "endLine": 1075,
+        "endChar": 16
+      },
+      "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1cc02df_e295c217",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-14T10:36:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1112,
+        "startChar": 15,
+        "endLine": 1112,
+        "endChar": 16
+      },
+      "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da6d432c_ccd4cea2",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-14T10:36:59Z",
+      "side": 1,
+      "message": "Why are the \u003c\u003e includes split?",
+      "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e8eb74a_46bf801e",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 1
