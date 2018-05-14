@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddee7dbf_9bf6ab4f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-14T15:14:46Z",
+      "side": 1,
+      "message": "Good catch. Can we turn it around and say:\n\n  method !\u003d Reflection \u0026\u0026 method !\u003d JNI\n\nIt\u0027s more future proof",
+      "range": {
+        "startLine": 161,
+        "startChar": 6,
+        "endLine": 161,
+        "endChar": 57
+      },
+      "revId": "e9c3bbb6a76c49c30562f886c2e480762408a7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
