@@ -22,6 +22,30 @@
       "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78512dc1_b5a6d6d6",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-14T08:41:05Z",
+      "side": 1,
+      "message": "Yeah, I do wish doing this was easier. The fact that finding the class loader requires effectively a join of two database tables is pretty awful. If we got rid of that, the locking would go away too.\n\nThe DCHECK is a nice-to-have and I\u0027m fine with removing it, but at the same time, ideally callers would not invoke this directly and would go through the ClassLinker.",
+      "parentUuid": "8e8eb74a_46bf801e",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 5
+      },
+      "revId": "5ad3cb88ff6e3dbe81c8b6a2d7e82070dbd6a223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
