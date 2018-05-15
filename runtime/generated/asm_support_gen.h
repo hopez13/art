@@ -98,6 +98,14 @@ DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_READ_BARRIER_STATE_SHIFT), (stati
 DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_READ_BARRIER_STATE_MASK), (static_cast<uint32_t>(art::LockWord::kReadBarrierStateMaskShifted)))
 #define LOCK_WORD_READ_BARRIER_STATE_MASK_TOGGLED 0xefffffff
 DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_READ_BARRIER_STATE_MASK_TOGGLED), (static_cast<uint32_t>(art::LockWord::kReadBarrierStateMaskShiftedToggled)))
+#define LOCK_WORD_THIN_LOCK_COUNT_SIZE 12
+DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_THIN_LOCK_COUNT_SIZE), (static_cast<int32_t>(art::LockWord::kThinLockCountSize)))
+#define LOCK_WORD_THIN_LOCK_COUNT_SHIFT 16
+DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_THIN_LOCK_COUNT_SHIFT), (static_cast<int32_t>(art::LockWord::kThinLockCountShift)))
+#define LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED 268369920
+DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED), (static_cast<int32_t>(art::LockWord::kThinLockCountMaskShifted)))
+#define LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED_TOGGLED (-268369921)
+DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED_TOGGLED), (static_cast<int32_t>(art::LockWord::kThinLockCountMaskShiftedToggled)))
 #define LOCK_WORD_THIN_LOCK_COUNT_ONE 65536
 DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_THIN_LOCK_COUNT_ONE), (static_cast<int32_t>(art::LockWord::kThinLockCountOne)))
 #define LOCK_WORD_STATE_FORWARDING_ADDRESS 0x3
@@ -110,6 +118,8 @@ DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT),
 DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_GC_STATE_MASK_SHIFTED), (static_cast<uint32_t>(art::LockWord::kGCStateMaskShifted)))
 #define LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED 0xcfffffff
 DEFINE_CHECK_EQ(static_cast<uint32_t>(LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED), (static_cast<uint32_t>(art::LockWord::kGCStateMaskShiftedToggled)))
+#define LOCK_WORD_GC_STATE_SIZE 2
+DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_GC_STATE_SIZE), (static_cast<int32_t>(art::LockWord::kGCStateSize)))
 #define LOCK_WORD_GC_STATE_SHIFT 28
 DEFINE_CHECK_EQ(static_cast<int32_t>(LOCK_WORD_GC_STATE_SHIFT), (static_cast<int32_t>(art::LockWord::kGCStateShift)))
 #define LOCK_WORD_MARK_BIT_SHIFT 29
