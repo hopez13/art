@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "25d07336_95ad0911",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-15T07:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14a9c2e9_19fdc4f0",
+      "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085c055e_ed8a797c",
         "filename": "libdexfile/dex/dex_file_types.h",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "d05da477_97b4c5bf",
+        "filename": "libdexfile/dex/dex_file_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-15T07:21:57Z",
+      "side": 1,
+      "message": "There may be a misunderstanding here :- we\u0027re using uint16_t for TypeIndex independently of this CL.\n\nThe index types defined here are used within the DexFile class and this places constraints on their size. An example being DexFile::MethodId.",
+      "parentUuid": "085c055e_ed8a797c",
+      "range": {
+        "startLine": 63,
+        "startChar": 35,
+        "endLine": 63,
+        "endChar": 43
+      },
+      "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "751a4f3c_bc2ba253",
         "filename": "runtime/entrypoints/entrypoint_utils.h",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2018-05-14T14:06:54Z",
       "side": 1,
       "message": "Extra line ?",
+      "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "decab823_698559d0",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-15T07:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "751a4f3c_bc2ba253",
       "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "2d2db48f_9213aa2c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-15T07:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9321eb88_80b061cc",
+      "range": {
+        "startLine": 969,
+        "startChar": 34,
+        "endLine": 969,
+        "endChar": 62
+      },
+      "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabfee55_8a6f92f1",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -93,6 +177,30 @@
       "writtenOn": "2018-05-14T14:06:54Z",
       "side": 1,
       "message": "Why not the constructor?",
+      "range": {
+        "startLine": 3121,
+        "startChar": 40,
+        "endLine": 3121,
+        "endChar": 68
+      },
+      "revId": "9e205c4f5a725e73248ac9126bd0ed69c72e454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e500b484_6096714e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-15T07:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabfee55_8a6f92f1",
       "range": {
         "startLine": 3121,
         "startChar": 40,
