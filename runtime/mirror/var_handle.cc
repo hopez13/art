@@ -1425,6 +1425,45 @@ int32_t VarHandle::GetAccessModesBitMask() {
   return GetField32(AccessModesBitMaskOffset());
 }
 
+bool VarHandle::IsMethodTypeExactlyCompatible(AccessMode access_mode, MethodType* method_type) {
+  StackHandleScope<3> hs(Thread::Current());
+  Handle<Class> mt_rtype(hs.NewHandle(method_type->GetRType()));
+  Handle<VarHandle> vh(hs.NewHandle(this));
+  Handle<Class> var_type(hs.NewHandle(vh->GetVarType()));
+  AccessModeTemplate access_mode_template = GetAccessModeTemplate(access_mode);
+
+  // Check return type first.
+  if (mt_rtype->GetPrimitiveType() == Primitive::Type::kPrimVoid) {
+    // The result of the operation will be discarded. The return type
+    // of the VarHandle is immaterial.
+  } else {
+    ObjPtr<Class> vh_rtype(GetReturnType(access_mode_template, var_type.Get()));
+    if (vh_rtype != mt_rtype.Get()) {
+      return false;
+    }
+  }
+
+  // Check the number of parameters matches.
+  ObjPtr<Class> vh_ptypes[VarHandle::kMaxAccessorParameters];
+  const int32_t vh_ptypes_count = BuildParameterArray(vh_ptypes,
+                                                      access_mode_template,
+                                                      var_type.Get(),
+                                                      GetCoordinateType0(),
+                                                      GetCoordinateType1());
+  if (vh_ptypes_count != method_type->GetPTypes()->GetLength()) {
+    return false;
+  }
+
+  // Check the parameter types are compatible.
+  ObjPtr<ObjectArray<Class>> mt_ptypes = method_type->GetPTypes();
+  for (int32_t i = 0; i < vh_ptypes_count; ++i) {
+    if (mt_ptypes->Get(i) != vh_ptypes[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
 bool VarHandle::IsMethodTypeCompatible(AccessMode access_mode, MethodType* method_type) {
   StackHandleScope<3> hs(Thread::Current());
   Handle<Class> mt_rtype(hs.NewHandle(method_type->GetRType()));
