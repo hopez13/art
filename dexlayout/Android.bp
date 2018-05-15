@@ -41,6 +41,7 @@ art_cc_library {
     shared_libs: [
         "libart",
         "libdexfile",
+        "libartbase",
         "libprofile",
     ],
 
@@ -62,6 +63,7 @@ art_cc_library {
     shared_libs: [
         "libartd",
         "libdexfiled",
+        "libartbased",
         "libprofiled",
     ],
 }
