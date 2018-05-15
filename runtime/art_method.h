@@ -195,7 +195,9 @@ class ArtMethod FINAL {
   }
 
   void SetNotIntrinsic() REQUIRES_SHARED(Locks::mutator_lock_) {
-    ClearAccessFlags(kAccIntrinsic | kAccIntrinsicBits);
+    if (IsIntrinsic()) {
+      ClearAccessFlags(kAccIntrinsic | kAccIntrinsicBits);
+    }
   }
 
   bool IsCopied() {
