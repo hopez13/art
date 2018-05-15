@@ -529,6 +529,7 @@ MemMap::~MemMap() {
   }
 
   // Remove it from gMaps.
+  CHECK(mem_maps_lock_ != nullptr);
   std::lock_guard<std::mutex> mu(*mem_maps_lock_);
   bool found = false;
   DCHECK(gMaps != nullptr);
@@ -557,6 +558,7 @@ MemMap::MemMap(const std::string& name, uint8_t* begin, size_t size, void* base_
     CHECK_NE(base_size_, 0U);
 
     // Add it to gMaps.
+    CHECK(mem_maps_lock_ != nullptr);
     std::lock_guard<std::mutex> mu(*mem_maps_lock_);
     DCHECK(gMaps != nullptr);
     gMaps->insert(std::make_pair(base_begin_, this));
