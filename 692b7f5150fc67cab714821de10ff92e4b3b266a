@@ -22,6 +22,30 @@
       "revId": "692b7f5150fc67cab714821de10ff92e4b3b266a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef018534_f0bf4a18",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-05-15T18:15:44Z",
+      "side": 1,
+      "message": "MutatorLock is held exclusive when this is called.",
+      "parentUuid": "a846e503_4a321c36",
+      "range": {
+        "startLine": 713,
+        "startChar": 16,
+        "endLine": 713,
+        "endChar": 31
+      },
+      "revId": "692b7f5150fc67cab714821de10ff92e4b3b266a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
