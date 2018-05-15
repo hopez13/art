@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a846e503_4a321c36",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-05-15T17:05:37Z",
+      "side": 1,
+      "message": "are there race conditions in here? Or is there some lock held at a higher level?",
+      "range": {
+        "startLine": 713,
+        "startChar": 16,
+        "endLine": 713,
+        "endChar": 31
+      },
+      "revId": "692b7f5150fc67cab714821de10ff92e4b3b266a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
