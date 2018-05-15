@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f4af115e_fc5af5af",
+        "filename": "libdexfile/dex/type_lookup_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-15T10:26:59Z",
+      "side": 1,
+      "message": "I\u0027ll drop this altogether. It\u0027s DCHECK()ed in the GetNextPosDelta() anyway.",
+      "parentUuid": "3a73c327_3670a930",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6f50298_2a63206e",
         "filename": "libdexfile/dex/type_lookup_table.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ae19c8_7932efec",
+        "filename": "libdexfile/dex/type_lookup_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-15T10:26:59Z",
+      "side": 1,
+      "message": "Moved to the Create() function.",
+      "parentUuid": "b6f50298_2a63206e",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "63979242_3e71e4d2",
+        "filename": "libdexfile/dex/type_lookup_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-15T10:26:59Z",
+      "side": 1,
+      "message": "Actually, I\u0027ll remove the unused argument.",
+      "parentUuid": "d23ec1eb_eca3ebc7",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b482203_8df9e6dc",
         "filename": "libdexfile/dex/type_lookup_table.h",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13130efd_808694ad",
+        "filename": "libdexfile/dex/type_lookup_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-15T10:26:59Z",
+      "side": 1,
+      "message": "Done; The previous line \"defines\" X, Y, Z.",
+      "parentUuid": "8b482203_8df9e6dc",
+      "range": {
+        "startLine": 102,
+        "startChar": 28,
+        "endLine": 102,
+        "endChar": 45
+      },
+      "revId": "1166b2a15ed2719d680a82ac4a58d946f5c840c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
