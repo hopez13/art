@@ -682,34 +682,35 @@ TWO_ARG_REF_DOWNCALL art_quick_handle_fill_data, artHandleFillArrayDataFromCode,
      */
     .extern artLockObjectFromCode
 ENTRY art_quick_lock_object
+    ldr    r1, [r9, #THREAD_ID_OFFSET]
     cbz    r0, .Lslow_lock
 .Lretry_lock:
-    ldr    r2, [r9, #THREAD_ID_OFFSET]
-    ldrex  r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-    mov    r3, r1
-    and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ zero the gc bits
-    cbnz   r3, .Lnot_unlocked         @ already thin locked
-    @ unlocked case - r1: original lock word that's zero except for the read barrier bits.
-    orr    r2, r1, r2                 @ r2 holds thread id with count of 0 with preserved read barrier bits
-    strex  r3, r2, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-    cbnz   r3, .Llock_strex_fail      @ store failed, retry
-    dmb    ish                        @ full (LoadLoad|LoadStore) memory barrier
+    ldrex  r2, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
+    eor    r3, r2, r1                 @ Prepare the value to store if unlocked
+                                      @   (thread id, count of 0 and preserved read barrier bits),
+                                      @ or prepare to compare thread id for recursive lock check
+                                      @   (lock_word.ThreadId() ^ self->ThreadId()).
+    ands   ip, r2, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ Test the non-gc bits.
+    bne    .Lnot_unlocked             @ Check if unlocked.
+    @ unlocked case - store r3: original lock word plus thread id, preserved read barrier bits.
+    strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
+    cbnz   r2, .Llock_strex_fail      @ If store failed, retry.
+    dmb    ish                        @ Full (LoadLoad|LoadStore) memory barrier.
     bx lr
-.Lnot_unlocked:  @ r1: original lock word, r2: thread_id with count of 0 and zero read barrier bits
-    lsr    r3, r1, LOCK_WORD_STATE_SHIFT
-    cbnz   r3, .Lslow_lock            @ if either of the top two bits are set, go slow path
-    eor    r2, r1, r2                 @ lock_word.ThreadId() ^ self->ThreadId()
-    uxth   r2, r2                     @ zero top 16 bits
-    cbnz   r2, .Lslow_lock            @ lock word and self thread id's match -> recursive lock
-                                      @ else contention, go to slow path
-    mov    r3, r1                     @ copy the lock word to check count overflow.
-    and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ zero the gc bits.
-    add    r2, r3, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ increment count in lock word placing in r2 to check overflow
-    lsr    r3, r2, #LOCK_WORD_GC_STATE_SHIFT    @ if the first gc state bit is set, we overflowed.
-    cbnz   r3, .Lslow_lock            @ if we overflow the count go slow path
-    add    r2, r1, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ increment count for real
-    strex  r3, r2, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET] @ strex necessary for read barrier bits
-    cbnz   r3, .Llock_strex_fail      @ strex failed, retry
+.Lnot_unlocked:  @ r2: original lock word, r1: thread_id, r3: r2 ^ r1
+#if LOCK_WORD_THIN_LOCK_COUNT_SHIFT + LOCK_WORD_THIN_LOCK_COUNT_SIZE != LOCK_WORD_GC_STATE_SHIFT
+#error "Expecting thin lock count and gc state in consecutive bits."
+#endif
+                                      @ Check lock word state and thread id together,
+    bfc    r3, #LOCK_WORD_THIN_LOCK_COUNT_SHIFT, #(LOCK_WORD_THIN_LOCK_COUNT_SIZE + LOCK_WORD_GC_STATE_SIZE)
+    cbnz   r3, .Lslow_lock            @ if either of the top two bits are set, or the lock word's
+                                      @ thread id did not match, go slow path.
+    add    r3, r2, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ Increment the recursive lock count.
+                                      @ Extract the new thin lock count for overflow check.
+    ubfx   r2, r3, #LOCK_WORD_THIN_LOCK_COUNT_SHIFT, #LOCK_WORD_THIN_LOCK_COUNT_SIZE
+    cbz    r2, .Lslow_lock            @ Zero as the new count indicates overflow, go slow path.
+    strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits.
+    cbnz   r2, .Llock_strex_fail      @ If strex failed, retry.
     bx lr
 .Llock_strex_fail:
     b      .Lretry_lock               @ retry
@@ -739,43 +740,44 @@ END art_quick_lock_object_no_inline
      */
     .extern artUnlockObjectFromCode
 ENTRY art_quick_unlock_object
+    ldr    r1, [r9, #THREAD_ID_OFFSET]
     cbz    r0, .Lslow_unlock
 .Lretry_unlock:
 #ifndef USE_READ_BARRIER
-    ldr    r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
+    ldr    r2, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
 #else
-    ldrex  r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ Need to use atomic instructions for read barrier
+                                      @ Need to use atomic instructions for read barrier.
+    ldrex  r2, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
 #endif
-    lsr    r2, r1, #LOCK_WORD_STATE_SHIFT
-    cbnz   r2, .Lslow_unlock          @ if either of the top two bits are set, go slow path
-    ldr    r2, [r9, #THREAD_ID_OFFSET]
-    mov    r3, r1                     @ copy lock word to check thread id equality
-    and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ zero the gc bits
-    eor    r3, r3, r2                 @ lock_word.ThreadId() ^ self->ThreadId()
-    uxth   r3, r3                     @ zero top 16 bits
-    cbnz   r3, .Lslow_unlock          @ do lock word and self thread id's match?
-    mov    r3, r1                     @ copy lock word to detect transition to unlocked
-    and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ zero the gc bits
-    cmp    r3, #LOCK_WORD_THIN_LOCK_COUNT_ONE
-    bpl    .Lrecursive_thin_unlock
-    @ transition to unlocked
-    mov    r3, r1
-    and    r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED  @ r3: zero except for the preserved gc bits
-    dmb    ish                        @ full (LoadStore|StoreStore) memory barrier
+    eor    r3, r2, r1                 @ Prepare the value to store if simply locked
+                                      @   (mosly 0s, and preserved read barrier bits),
+                                      @ or prepare to compare thread id for recursive lock check
+                                      @   (lock_word.ThreadId() ^ self->ThreadId()).
+    ands   ip, r3, #LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED  @ Test the non-gc bits.
+    bne    .Lnot_simply_locked        @ Locked recursively or by other thread?
+    @ Transition to unlocked.
+    dmb    ish                        @ Full (LoadStore|StoreStore) memory barrier.
 #ifndef USE_READ_BARRIER
     str    r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
 #else
     strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits
-    cbnz   r2, .Lunlock_strex_fail    @ store failed, retry
+    cbnz   r2, .Lunlock_strex_fail    @ If the store failed, retry.
 #endif
     bx     lr
-.Lrecursive_thin_unlock:  @ r1: original lock word
-    sub    r1, r1, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ decrement count
+.Lnot_simply_locked:  @ r2: original lock word, r1: thread_id, r3: r2 ^ r1
+#if LOCK_WORD_THIN_LOCK_COUNT_SHIFT + LOCK_WORD_THIN_LOCK_COUNT_SIZE != LOCK_WORD_GC_STATE_SHIFT
+#error "Expecting thin lock count and gc state in consecutive bits."
+#endif
+                                      @ Check lock word state and thread id together,
+    bfc    r3, #LOCK_WORD_THIN_LOCK_COUNT_SHIFT, #(LOCK_WORD_THIN_LOCK_COUNT_SIZE + LOCK_WORD_GC_STATE_SIZE)
+    cbnz   r3, .Lslow_unlock          @ if either of the top two bits are set, or the lock word's
+                                      @ thread id did not match, go slow path.
+    sub    r3, r2, #LOCK_WORD_THIN_LOCK_COUNT_ONE  @ Decrement recursive lock count.
 #ifndef USE_READ_BARRIER
-    str    r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
+    str    r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
 #else
-    strex  r2, r1, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits
-    cbnz   r2, .Lunlock_strex_fail    @ store failed, retry
+    strex  r2, r3, [r0, #MIRROR_OBJECT_LOCK_WORD_OFFSET]  @ strex necessary for read barrier bits.
+    cbnz   r2, .Lunlock_strex_fail    @ If the store failed, retry.
 #endif
     bx     lr
 .Lunlock_strex_fail:

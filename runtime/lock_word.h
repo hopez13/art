@@ -85,6 +85,8 @@ class LockWord {
     kThinLockCountMask = (1 << kThinLockCountSize) - 1,
     kThinLockMaxCount = kThinLockCountMask,
     kThinLockCountOne = 1 << kThinLockCountShift,  // == 65536 (0x10000)
+    kThinLockCountMaskShifted = kThinLockCountMask << kThinLockCountShift,
+    kThinLockCountMaskShiftedToggled = ~kThinLockCountMaskShifted,
 
     // State in the highest bits.
     kStateShift = kReadBarrierStateSize + kThinLockCountSize + kThinLockCountShift +
