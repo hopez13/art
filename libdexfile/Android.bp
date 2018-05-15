@@ -19,6 +19,7 @@ cc_defaults {
     defaults: ["art_defaults"],
     host_supported: true,
     srcs: [
+        "dex/art_dex_file_loader.cc",
         "dex/compact_dex_file.cc",
         "dex/compact_offset_table.cc",
         "dex/descriptors_names.cc",
@@ -55,11 +56,11 @@ cc_defaults {
     },
     generated_sources: ["dexfile_operator_srcs"],
     shared_libs: [
+        // For MemMap.
         "libartbase",
-        // Important note: relying on libartbase's header_lib is perfectly acceptable.
-        // However, relying on the libartbase shared library introduces further, possibly cyclic,
-	// dependencies for clients outside of ART.
         "liblog",
+        // For atrace.
+        "libcutils",
         // For common macros.
         "libbase",
         "libz",
@@ -115,6 +116,7 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     srcs: [
+        "dex/art_dex_file_loader_test.cc",
         "dex/code_item_accessors_test.cc",
         "dex/compact_dex_file_test.cc",
         "dex/compact_offset_table_test.cc",
