@@ -100,6 +100,16 @@ class MANAGED VarHandle : public Object {
   }
 
   // Returns true if the MethodType specified is compatible with the
+  // method type associated with the specified AccessMode without
+  // any type conversions. The supplied MethodType is assumed to be
+  // from the point of invocation so it is valid for the supplied
+  // MethodType to have a void return value when the return value
+  // for the AccessMode is non-void. This corresponds to the result
+  // of the accessor being discarded.
+  bool IsMethodTypeExactlyCompatible(AccessMode access_mode, MethodType* method_type)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Returns true if the MethodType specified is compatible with the
   // method type associated with the specified AccessMode with argument
   // and return value conversions. The supplied MethodType is assumed
   // to be from the point of invocation so it is valid for the supplied

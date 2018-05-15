@@ -42,6 +42,10 @@ bool VarHandleInvokeAccessor(Thread* self,
     return false;
   }
 
+  if (var_handle->IsMethodTypeExactlyCompatible(access_mode, callsite_type.Get())) {
+    return var_handle->Access(access_mode, &shadow_frame, operands, result);
+  }
+
   if (!var_handle->IsMethodTypeCompatible(access_mode, callsite_type.Get())) {
     ThrowWrongMethodTypeException(var_handle->GetMethodTypeForAccessMode(self, access_mode),
                                   callsite_type.Get());
@@ -49,17 +53,12 @@ bool VarHandleInvokeAccessor(Thread* self,
   }
 
   StackHandleScope<1> hs(self);
-
-  // TODO(oth): GetMethodTypeForAccessMode() allocates a MethodType()
-  // which is only required if we need to convert argument and/or
-  // return types.
   Handle<mirror::MethodType> accessor_type(hs.NewHandle(
       var_handle->GetMethodTypeForAccessMode(self, access_mode)));
   const size_t num_vregs = accessor_type->NumberOfVRegs();
   const int num_params = accessor_type->GetPTypes()->GetLength();
   ShadowFrameAllocaUniquePtr accessor_frame =
       CREATE_SHADOW_FRAME(num_vregs, nullptr, shadow_frame.GetMethod(), shadow_frame.GetDexPC());
-
   ShadowFrameGetter getter(shadow_frame, operands);
   static const uint32_t kFirstDestinationReg = 0;
   ShadowFrameSetter setter(accessor_frame.get(), kFirstDestinationReg);
