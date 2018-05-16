@@ -22,6 +22,30 @@
       "revId": "f5c70c41783177280aef0f9d6c3c4fd8aa2722eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab04813a_50c5769f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-16T12:31:27Z",
+      "side": 1,
+      "message": "Oh, interesting, sure, makes sense",
+      "parentUuid": "76f16283_0488c913",
+      "range": {
+        "startLine": 939,
+        "startChar": 10,
+        "endLine": 939,
+        "endChar": 35
+      },
+      "revId": "f5c70c41783177280aef0f9d6c3c4fd8aa2722eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
