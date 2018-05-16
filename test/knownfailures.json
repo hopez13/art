@@ -454,7 +454,8 @@
             "674-hiddenapi",
             "649-vdex-duplicate-method",
             "804-class-extends-itself",
-            "921-hello-failure"
+            "921-hello-failure",
+	    "999-hiddenapi-redefine"
         ],
         "description": [
             "Tests that use illegal dex files or otherwise break dexter assumptions"
@@ -471,7 +472,8 @@
             "629-vdex-speed",
             "647-jni-get-field-id",
             "674-hiddenapi",
-            "944-transform-classloaders"
+            "944-transform-classloaders",
+	    "999-hiddenapi-redefine"
         ],
         "description": [
             "Tests that use custom class loaders or other features not supported ",
@@ -934,6 +936,7 @@
           "988-method-trace",
           "989-method-trace-throw",
           "993-breakpoints",
+	  "999-hiddenapi-redefine",
           "1900-track-alloc",
           "1906-suspend-list-me-first",
           "1914-get-local-instance",
