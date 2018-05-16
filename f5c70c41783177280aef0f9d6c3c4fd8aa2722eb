@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76f16283_0488c913",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-16T12:27:00Z",
+      "side": 1,
+      "message": "Could you move this to the next block (\"Doesn\u0027t run on RI.\"), i.e. after line 961?",
+      "range": {
+        "startLine": 939,
+        "startChar": 10,
+        "endLine": 939,
+        "endChar": 35
+      },
+      "revId": "f5c70c41783177280aef0f9d6c3c4fd8aa2722eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
