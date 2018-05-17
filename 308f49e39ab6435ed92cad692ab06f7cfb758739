@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "582f4e77_f3675f22",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done, in the entire file.",
+      "parentUuid": "4802921e_69da429f",
+      "range": {
+        "startLine": 685,
+        "startChar": 16,
+        "endLine": 685,
+        "endChar": 18
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd7d80f7_bb5a7480",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a085231e_4267be27",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd7d80f7_bb5a7480",
+      "range": {
+        "startLine": 753,
+        "startChar": 43,
+        "endLine": 753,
+        "endChar": 48
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f5a82c9b_fde7c9c0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0f7bc9_05dca2b7",
+      "range": {
+        "startLine": 1172,
+        "startChar": 17,
+        "endLine": 1172,
+        "endChar": 105
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5c5fb07_58fda36b",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4a20a0e_7f8c7c50",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c5fb07_58fda36b",
+      "range": {
+        "startLine": 1232,
+        "startChar": 17,
+        "endLine": 1232,
+        "endChar": 105
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "add9cbef_c01ec64c",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done (note: this file is auto-generated, changing type to uint32_t makes this emitted as hexadecimal)",
+      "parentUuid": "9bdd73c7_11897e83",
+      "range": {
+        "startLine": 105,
+        "startChar": 47,
+        "endLine": 105,
+        "endChar": 56
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b620d326_f2566910",
         "filename": "runtime/generated/asm_support_gen.h",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb8927b_6cf4d753",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b620d326_f2566910",
+      "range": {
+        "startLine": 107,
+        "startChar": 55,
+        "endLine": 107,
+        "endChar": 67
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a917ba35_87834364",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69196380_013fc73f",
+      "range": {
+        "startLine": 68,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 25
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "271312b6_c38ccea7",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2
@@ -177,6 +345,24 @@
       "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78e33bf0_793b212c",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-17T16:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "271312b6_c38ccea7",
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
