@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24cebe1a_8a67b0e0",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-05-17T16:30:56Z",
+      "side": 1,
+      "message": "Did you mean \u0027a[i \u0026 0xff]\u0027 ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 30,
+        "endLine": 156,
+        "endChar": 41
+      },
+      "revId": "b765a3f7f7b7c7efaab5fb331796b53439dbe04c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
