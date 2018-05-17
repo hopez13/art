@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4802921e_69da429f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "Maybe take the opportunity of this change to rename `r9` to `rSELF` in `art_quick_lock_object` and `art_quick_unlock_object`?",
+      "range": {
+        "startLine": 685,
+        "startChar": 16,
+        "endLine": 685,
+        "endChar": 18
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7d80f7_bb5a7480",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "mostly",
+      "range": {
+        "startLine": 753,
+        "startChar": 43,
+        "endLine": 753,
+        "endChar": 48
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a0f7bc9_05dca2b7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "What about\n\n  LOCK_WORD_STATE_MASK_SHIFTED | LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED\n\n(after introducing `LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED` and `LockWord::kThinLockOwnerMaskShifted`)?",
+      "range": {
+        "startLine": 1172,
+        "startChar": 17,
+        "endLine": 1172,
+        "endChar": 105
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5c5fb07_58fda36b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1232,
+        "startChar": 17,
+        "endLine": 1232,
+        "endChar": 105
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bdd73c7_11897e83",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "What about:\n\n  0x0fff0000\n\n?",
+      "range": {
+        "startLine": 105,
+        "startChar": 47,
+        "endLine": 105,
+        "endChar": 56
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b620d326_f2566910",
+        "filename": "runtime/generated/asm_support_gen.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "What about:\n\n  0xf000ffff\n\n?",
+      "range": {
+        "startLine": 107,
+        "startChar": 55,
+        "endLine": 107,
+        "endChar": 67
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69196380_013fc73f",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "Side node: `LockWord::SizeShiftsAndMasks` seems to be used nowhere. Maybe we should consider turning these enum values into proper constants (in another CL).",
+      "range": {
+        "startLine": 68,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 25
+      },
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "271312b6_c38ccea7",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-17T14:58:12Z",
+      "side": 1,
+      "message": "Remove blank line 79?",
+      "revId": "308f49e39ab6435ed92cad692ab06f7cfb758739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
