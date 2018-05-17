@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5a39a0f_cd2cd1fd",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-05-17T21:54:33Z",
+      "side": 1,
+      "message": "and?",
+      "range": {
+        "startLine": 691,
+        "startChar": 40,
+        "endLine": 691,
+        "endChar": 42
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fef95e1_76a92e25",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-05-17T21:54:33Z",
+      "side": 1,
+      "message": "I presume we do this to get static branch prediction right? Maybe comment that?\n\nI have no idea whether this is actually a win on modern processors. I would expect this code is executed frequently enough that this will be correctly predicted, based on history, in any case. ARM\u0027s sample code doesn\u0027t seem to do this. If we have data, it would be good to say that.",
+      "range": {
+        "startLine": 715,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 45
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11945c7e_dfd3381e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-05-17T21:54:33Z",
+      "side": 1,
+      "message": "Unrelated to this CL, but:\n\nHaving a dmb between the ldrex and strex has always made me nervous.\n\nThe manual more or less requires:\n\"Between the Load-Exclusive and the Store-Exclusive, there are no explicit memory accesses,\npreloads, direct or indirect System register writes, address translation instructions, cache or TLB maintenance instructions, exception generating instructions, exception returns, or indirect branches.\" which probably allows it, but ...\n\nI sent a request to Will to clarify.",
+      "range": {
+        "startLine": 756,
+        "startChar": 4,
+        "endLine": 756,
+        "endChar": 83
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
