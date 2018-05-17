@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54e1509a_e5864218",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-17T07:33:58Z",
+      "side": 1,
+      "message": "Is there a reference for valid range? Is this a pthread priority?",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49483d34_4bbad9ad",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-17T07:33:58Z",
+      "side": 1,
+      "message": "\"Add an empty line to separate two consecutive function declarations or definitions\"",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80c172d4_03a95cd2",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-17T07:33:58Z",
+      "side": 1,
+      "message": "This is the treehugger failure. Needs to be explicit.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 27
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
