@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd9cfb51_96c6abe4",
+        "filename": "tools/dexanalyze/dexanalyze_experiments.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-05-17T17:03:29Z",
+      "side": 1,
+      "message": "It seems like you\u0027re assuming here that strings are sorted.  Otherwise the best prefix matches could be with arbitrary other positions.",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 33
+      },
+      "revId": "35ddc6fc26594326ddfddeac447e7aa1321726ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
