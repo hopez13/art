@@ -46,6 +46,23 @@
       "revId": "69c14f0b8a282da8c92a92de0e2c660db6246b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06545c90_20eda9ca",
+        "filename": "tools/dexanalyze/dexanalyze.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-17T18:20:25Z",
+      "side": 1,
+      "message": "do you plan to have some doc on error return codes?",
+      "revId": "69c14f0b8a282da8c92a92de0e2c660db6246b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
