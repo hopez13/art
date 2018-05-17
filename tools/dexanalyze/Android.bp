@@ -1,4 +1,3 @@
-//
 // Copyright (C) 2018 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,29 +11,23 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
 
 cc_defaults {
-    name: "dexanalyze-defaults",
-    defaults: ["art_defaults"],
-    host_supported: true,
+    name: "dexanalyze_defaults",
     srcs: [
         "dexanalyze.cc",
         "dexanalyze_experiments.cc",
     ],
-    target: {
-        android: {
-            shared_libs: ["libcutils"],
-        },
-    },
+    cflags: ["-Wall", "-Werror"],
     header_libs: [
-        "art_cmdlineparser_headers",
+        "art_libartbase_headers",
     ],
 }
 
 art_cc_binary {
     name: "dexanalyze",
-    defaults: ["dexanalyze-defaults"],
+    defaults: ["dexanalyze_defaults"],
+    host_supported: true,
     shared_libs: [
         "libdexfile",
         "libbase",
@@ -43,11 +36,8 @@ art_cc_binary {
 
 art_cc_test {
     name: "art_dexanalyze_tests",
-    required: ["dexanalyze"],
     defaults: [
         "art_gtest_defaults",
     ],
-    srcs: [
-        "dexanalyze_test.cc",
-    ],
+    srcs: ["dexanalyze_test.cc"],
 }

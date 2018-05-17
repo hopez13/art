@@ -14,34 +14,50 @@
  * limitations under the License.
  */
 
+#include <string>
+#include <vector>
+
+#include "base/os.h"
+#include "base/utils.h"
 #include "common_runtime_test.h"
 #include "exec_utils.h"
 
 namespace art {
 
 class DexAnalyzeTest : public CommonRuntimeTest {
- public:
-  std::string GetDexAnalyzePath() {
-    return GetTestAndroidRoot() + "/bin/dexanalyze";
+ protected:
+  virtual void SetUp() {
+    CommonRuntimeTest::SetUp();
+    // Dogfood our own lib core dex file.
+    dex_file_ = GetLibCoreDexFileNames()[0];
   }
 
-  void DexAnalyzeExec(const std::vector<std::string>& args, bool expect_success) {
-    std::string binary = GetDexAnalyzePath();
-    CHECK(OS::FileExists(binary.c_str())) << binary << " should be a valid file path";
-    std::vector<std::string> argv;
-    argv.push_back(binary);
-    argv.insert(argv.end(), args.begin(), args.end());
-    std::string error_msg;
-    ASSERT_EQ(::art::Exec(argv, &error_msg), expect_success) << error_msg;
+  // Runs test with given arguments.
+  bool Exec(const std::vector<std::string>& args, std::string* error_msg) {
+    std::string file_path = GetTestAndroidRoot() + "/bin/dexanalyze";
+    EXPECT_TRUE(OS::FileExists(file_path.c_str())) << file_path << " should be a valid file path";
+    std::vector<std::string> exec_argv = { file_path };
+    exec_argv.insert(exec_argv.end(), args.begin(), args.end());
+    return ::art::Exec(exec_argv, error_msg);
   }
+
+  std::string dex_file_;
 };
 
-TEST_F(DexAnalyzeTest, TestAnalyzeMultidex) {
-  DexAnalyzeExec({ "-a", GetTestDexFileName("MultiDex") }, /*expect_success*/ true);
+
+TEST_F(DexAnalyzeTest, NoInputFileGiven) {
+  std::string error_msg;
+  ASSERT_FALSE(Exec({}, &error_msg)) << error_msg;
 }
 
-TEST_F(DexAnalyzeTest, TestInvalidArg) {
-  DexAnalyzeExec({ "-invalid-option" }, /*expect_success*/ false);
+TEST_F(DexAnalyzeTest, CantOpenOutput) {
+  std::string error_msg;
+  ASSERT_FALSE(Exec({"-o", "/non/existent/path", dex_file_}, &error_msg)) << error_msg;
+}
+
+TEST_F(DexAnalyzeTest, AllExperiments) {
+  std::string error_msg;
+  ASSERT_TRUE(Exec({"-a", dex_file_}, &error_msg)) << error_msg;
 }
 
 }  // namespace art
