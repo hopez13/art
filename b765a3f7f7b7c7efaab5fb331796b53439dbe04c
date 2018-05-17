@@ -22,6 +22,30 @@
       "revId": "b765a3f7f7b7c7efaab5fb331796b53439dbe04c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f02f2174_f5cb0b4f",
+        "filename": "compiler/optimizing/load_store_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-05-17T16:36:15Z",
+      "side": 1,
+      "message": "No, I really meant a[i] \u0026 0xff, which, for bytes, is converted to a load of an unsigned byte (zero extension), while a[i] remains load of signed byte (sign extension). They should be mapped to the same reference (to reduce # references of course, but also to avoid having different aliased references for the same singleton).",
+      "parentUuid": "24cebe1a_8a67b0e0",
+      "range": {
+        "startLine": 156,
+        "startChar": 30,
+        "endLine": 156,
+        "endChar": 41
+      },
+      "revId": "b765a3f7f7b7c7efaab5fb331796b53439dbe04c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
