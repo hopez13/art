@@ -48,8 +48,8 @@ bool VarHandleInvokeAccessor(Thread* self,
     return var_handle->Access(access_mode, &shadow_frame, operands, result);
   }
   if (match_kind == mirror::VarHandle::MatchKind::kNone) {
-    ThrowWrongMethodTypeException(var_handle->GetMethodTypeForAccessMode(self, access_mode),
-                                  callsite_type.Get());
+    ThrowWrongMethodTypeException(var_handle->PrettyDescriptorForAccessMode(access_mode),
+                                  callsite_type->PrettyDescriptor());
     return false;
   }
   DCHECK_EQ(mirror::VarHandle::MatchKind::kWithConversions, match_kind);
