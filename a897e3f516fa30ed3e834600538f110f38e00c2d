@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "bd96dd98_a0528b82",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-17T13:08:59Z",
+      "side": 1,
+      "message": "Added the Java class that references this.",
+      "range": {
+        "startLine": 47,
+        "startChar": 50,
+        "endLine": 47,
+        "endChar": 51
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49483d34_4bbad9ad",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
@@ -48,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "5fd9776b_e8ef9249",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-17T13:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49483d34_4bbad9ad",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80c172d4_03a95cd2",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
@@ -59,6 +106,30 @@
       "writtenOn": "2018-05-17T07:33:58Z",
       "side": 1,
       "message": "This is the treehugger failure. Needs to be explicit.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 27
+      },
+      "revId": "a897e3f516fa30ed3e834600538f110f38e00c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a1f4e0_01888c30",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-17T13:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80c172d4_03a95cd2",
       "range": {
         "startLine": 267,
         "startChar": 2,
