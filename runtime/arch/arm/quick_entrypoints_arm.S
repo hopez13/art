@@ -2695,6 +2695,7 @@ ENTRY art_quick_invoke_polymorphic
     .cfi_adjust_cfa_offset 4
     mov     r0, sp                 @ pass JValue for return result as first argument.
     bl      artInvokePolymorphic   @ artInvokePolymorphic(JValue, receiver, Thread*, SP)
+.Lpost_polymorphic_call:
     sub     r0, 'A'                @ return value is descriptor of handle's return type.
     cmp     r0, 'Z' - 'A'          @ check if value is in bounds of handler table
     bgt     .Lcleanup_and_return   @ and clean-up if not.
@@ -2763,6 +2764,21 @@ ENTRY art_quick_invoke_polymorphic
     HANDLER_TABLE_OFFSET(.Lstore_boolean_result)  // Z (boolean)
 .purgem HANDLER_TABLE_OFFSET
 END art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME r1
+    mov     r1, rSELF              @ pass Thread::Current
+    mov     r2, sp                 @ pass SP
+    mov     r0, #0                 @ initialize 64-bit JValue as zero.
+    str     r0, [sp, #-4]!
+    .cfi_adjust_cfa_offset 4
+    str     r0, [sp, #-4]!
+    .cfi_adjust_cfa_offset 4
+    mov     r0, sp                 @ pass JValue for return result as first argument.
+    bl      artInvokeCustom        @ artInvokeCustom(JValue, Thread*, SP)
+    b       .Lpost_polymorphic_call
+END art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: r0: The context pointer for ExecuteSwitchImpl.

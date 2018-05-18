@@ -3056,6 +3056,7 @@ ENTRY art_quick_invoke_polymorphic
     sd     $zero, 0($sp)                       # Initialize JValue result.
     jal    artInvokePolymorphic                # artInvokePolymorphic(result, receiver, Thread*, context)
     move   $a0, $sp                            # Make $a0 a pointer to the JValue result
+.Lpost_polymorphic_call:
 .macro MATCH_RETURN_TYPE c, handler
     li     $t0, \c
     beq    $v0, $t0, \handler
@@ -3103,4 +3104,17 @@ ENTRY art_quick_invoke_polymorphic
     DELIVER_PENDING_EXCEPTION
 END art_quick_invoke_polymorphic
 
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move   $a1, rSELF                          # Make $a2 an alias for the current Thread.
+    move   $a2, $sp                            # Make $a3 a pointer to the saved frame context.
+    daddiu $sp, $sp, -8                        # Reserve space for JValue result.
+    .cfi_adjust_cfa_offset 8
+    sd     $zero, 0($sp)                       # Initialize JValue result.
+    jal    artInvokeCustom                     # Call artInvokeCustom(result, Thread*, context).
+    move   $a0, $sp                            # Make $a0 a pointer to the JValue result.
+    j      .Lpost_polymorphic_call             # Jump to common post-polymorphic call return value handling.
+    nop
+END art_quick_invoke_polymorphic
   .set pop
