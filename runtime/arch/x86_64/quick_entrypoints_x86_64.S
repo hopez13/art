@@ -2417,6 +2417,39 @@ DEFINE_FUNCTION art_quick_osr_stub
     jmp *%rdx
 END_FUNCTION art_quick_osr_stub
 
+// Moves the result value (on the stack) from the polymorphic call into the expected return
+// location based on the return descriptor returned (in %al) by the polymorphic call.
+ MACRO0(RETURN_FROM_POLYMORPHIC_CALL)
+    cmpb LITERAL('V'), %al
+    je 5f
+0:  cmpb LITERAL('Z'), %al
+    jne 1f
+    movzbq (%rsp), %rax                            // Copy boolean result to the accumulator
+    jmp 5f
+1:  cmpb LITERAL('C'), %al
+    jne 2f
+    movzwq (%rsp), %rax                            // Copy char result to the accumulator
+    jmp 5f
+2:  cmpb LITERAL('D'), %al
+    jne 3f
+    movsd (%rsp), %xmm0                            // Copy double result to the context restored by
+    movsd %xmm0, 32(%rsp)                          // RESTORE_SAVE_REFS_AND_ARGS_FRAME.
+    jmp 5f
+3:  cmpb LITERAL('F'), %al
+    jne 4f
+    movd (%rsp), %xmm0                             // Copy float result to the context restored by
+    movd %xmm0, 32(%rsp)                           // RESTORE_SAVE_REFS_AND_ARGS_FRAME.
+    jmp 5f
+4:                                                 // Must be byte, short, int, long, or reference.
+    movq (%rsp), %rax                              // Copy long result to the accumulator.
+    // Fall-through
+5:
+    addq LITERAL(16), %rsp                         // Pop space for JValue result.
+    CFI_ADJUST_CFA_OFFSET(16)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_MACRO
+
 DEFINE_FUNCTION art_quick_invoke_polymorphic
     SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
     movq %gs:THREAD_SELF_OFFSET, %rdx              // pass Thread
@@ -2425,73 +2458,22 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
     CFI_ADJUST_CFA_OFFSET(16)
     movq LITERAL(0), (%rsp)                        // initialize result
     movq %rsp, %rdi                                // store pointer to JValue result
-    call SYMBOL(artInvokePolymorphic)              // artInvokePolymorphic(result, receiver, Thread*, SP)
-                                                   // save the code pointer
-    subq LITERAL('A'), %rax                        // Convert type descriptor character value to a zero based index.
-    cmpb LITERAL('Z' - 'A'), %al                   // Eliminate out of bounds options
-    ja .Lcleanup_and_return
-    movzbq %al, %rax
-    leaq .Lhandler_table(%rip), %rcx               // Get the address of the handler table
-    movslq (%rcx, %rax, 4), %rax                   // Lookup handler offset relative to table
-    addq %rcx, %rax                                // Add table address to yield handler address.
-    jmpq *%rax                                     // Jump to handler.
-
-.align 4
-.Lhandler_table:                                   // Table of type descriptor to handlers.
-MACRO1(HANDLER_TABLE_OFFSET, handle_label)
-    // NB some tools require 32-bits for relocations. Shouldn't need adjusting.
-    .long RAW_VAR(handle_label) - .Lhandler_table
-END_MACRO
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // A
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)      // B (byte)
-    HANDLER_TABLE_OFFSET(.Lstore_char_result)      // C (char)
-    HANDLER_TABLE_OFFSET(.Lstore_double_result)    // D (double)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // E
-    HANDLER_TABLE_OFFSET(.Lstore_float_result)     // F (float)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // G
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // H
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)      // I (int)
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)      // J (long)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // K
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)      // L (object - references are compressed and only 32-bits)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // M
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // N
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // O
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // P
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // Q
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // R
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)      // S (short)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // T
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // U
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // V (void)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // W
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // X
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // Y
-    HANDLER_TABLE_OFFSET(.Lstore_boolean_result)   // Z (boolean)
-
-.Lstore_boolean_result:
-    movzbq (%rsp), %rax                            // Copy boolean result to the accumulator
-    jmp .Lcleanup_and_return
-.Lstore_char_result:
-    movzwq (%rsp), %rax                            // Copy char result to the accumulator
-    jmp .Lcleanup_and_return
-.Lstore_float_result:
-    movd (%rsp), %xmm0                             // Copy float result to the context restored by
-    movd %xmm0, 32(%rsp)                           // RESTORE_SAVE_REFS_AND_ARGS_FRAME.
-    jmp .Lcleanup_and_return
-.Lstore_double_result:
-    movsd (%rsp), %xmm0                            // Copy double result to the context restored by
-    movsd %xmm0, 32(%rsp)                          // RESTORE_SAVE_REFS_AND_ARGS_FRAME.
-    jmp .Lcleanup_and_return
-.Lstore_long_result:
-    movq (%rsp), %rax                              // Copy long result to the accumulator.
-     // Fall-through
-.Lcleanup_and_return:
-    addq LITERAL(16), %rsp                         // Pop space for JValue result.
-    CFI_ADJUST_CFA_OFFSET(16)
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    RETURN_OR_DELIVER_PENDING_EXCEPTION
+    call SYMBOL(artInvokePolymorphic)              // with arguments (result, receiver, Thread*, SP)
+    RETURN_FROM_POLYMORPHIC_CALL
 END_FUNCTION art_quick_invoke_polymorphic
+
+DEFINE_FUNCTION art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
+    movq %gs:THREAD_SELF_OFFSET, %rsi              // pass Thread
+    movq %rsp, %rdx                                // pass SP
+    subq LITERAL(16), %rsp                         // make space for JValue result
+    CFI_ADJUST_CFA_OFFSET(16)
+    movq LITERAL(0), (%rsp)                        // initialize result
+    movq %rsp, %rdi                                // store pointer to JValue result
+    call SYMBOL(artInvokeCustom)                   // artInvokeCustom(result, Thread*, SP)
+                                                   // save the code pointer
+    RETURN_FROM_POLYMORPHIC_CALL
+END_FUNCTION art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: RDI: The context pointer for ExecuteSwitchImpl.

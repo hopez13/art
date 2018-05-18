@@ -3046,6 +3046,56 @@ art_quick_read_barrier_mark_introspection_end_of_entries:
     BRB_FIELD_EXIT_BREAK
 END art_quick_read_barrier_mark_introspection
 
+    /*
+     * Moves the result value (on the stack) from the polymorphic call into the expected return
+     * location based on the return descriptor returned (in %al) by the polymorphic call.
+     *
+     * $v0 contains descriptor of return type.
+     */
+.macro RETURN_FROM_POLYMORPHIC_CALL
+    move   $a0, $sp                            # Make $a0 a pointer to the JValue result
+    li     $t0, 'V'                            # Is void?
+    beq    $v0, $t0, 9f
+    nop
+0:  li     $t0, 'L'                            # Is reference?
+    bne    $v0, $t0, 1f
+    nop
+    b      9f
+    lwu    $v0, 0($sp)                         # Move zero extended lower 32-bits to return register
+1:  li     $t0, 'Z'                            # Is boolean?
+    bne    $v0, t0, 2f
+    nop
+    b      9f
+    lbu    $v0, 0($sp)                         # Move byte from JValue result to return register.
+2:  li     $t0, 'C'                            # Is char?
+    bne    $v0, t0, 3f
+    nop
+    b      9f
+    lhu    $v0, 0($sp)                         # Move char from JValue result to return register.
+3:  li     $t0, 'F'                            # Is float?
+    beq    $v0, $t0, 5f
+    nop
+4:  li     $t0, 'D'                            # Is double?
+    bne    $v0, $t0, 5f
+    nop
+    b      9f
+    l.d    $f0, 0($sp)                         # Move double/float from JValue to return register.
+5:                                             # Must be one of byte, short, int or long.
+    ld     $v0, 0($sp)                         # Move long from JValue result to return register.
+    // Fall-through to clean up and return.
+9:                                             # Clean up and return.
+    daddiu $sp, $sp, 8                         # Remove space for JValue result.
+    .cfi_adjust_cfa_offset -8
+    ld     $t0, THREAD_EXCEPTION_OFFSET(rSELF) # Load Thread::Current()->exception_
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    bnez   $t0, 10f                            # Success if no exception is pending.
+    nop
+    jalr   $zero, $ra
+    nop
+10:
+    DELIVER_PENDING_EXCEPTION
+.endm
+
 .extern artInvokePolymorphic
 ENTRY art_quick_invoke_polymorphic
     SETUP_SAVE_REFS_AND_ARGS_FRAME
@@ -3054,53 +3104,19 @@ ENTRY art_quick_invoke_polymorphic
     daddiu $sp, $sp, -8                        # Reserve space for JValue result.
     .cfi_adjust_cfa_offset 8
     sd     $zero, 0($sp)                       # Initialize JValue result.
-    jal    artInvokePolymorphic                # artInvokePolymorphic(result, receiver, Thread*, context)
-    move   $a0, $sp                            # Make $a0 a pointer to the JValue result
-.macro MATCH_RETURN_TYPE c, handler
-    li     $t0, \c
-    beq    $v0, $t0, \handler
-.endm
-    MATCH_RETURN_TYPE 'V', .Lcleanup_and_return
-    MATCH_RETURN_TYPE 'L', .Lstore_ref_result
-    MATCH_RETURN_TYPE 'I', .Lstore_long_result
-    MATCH_RETURN_TYPE 'J', .Lstore_long_result
-    MATCH_RETURN_TYPE 'B', .Lstore_long_result
-    MATCH_RETURN_TYPE 'C', .Lstore_char_result
-    MATCH_RETURN_TYPE 'D', .Lstore_double_result
-    MATCH_RETURN_TYPE 'F', .Lstore_float_result
-    MATCH_RETURN_TYPE 'S', .Lstore_long_result
-    MATCH_RETURN_TYPE 'Z', .Lstore_boolean_result
-.purgem MATCH_RETURN_TYPE
-    nop
-    b .Lcleanup_and_return
-    nop
-.Lstore_boolean_result:
-    b      .Lcleanup_and_return
-    lbu    $v0, 0($sp)                         # Move byte from JValue result to return value register.
-.Lstore_char_result:
-    b      .Lcleanup_and_return
-    lhu    $v0, 0($sp)                         # Move char from JValue result to return value register.
-.Lstore_double_result:
-.Lstore_float_result:
-    b      .Lcleanup_and_return
-    l.d    $f0, 0($sp)                         # Move double/float from JValue result to return value register.
-.Lstore_ref_result:
-    b      .Lcleanup_and_return
-    lwu    $v0, 0($sp)                         # Move zero extended lower 32-bits to return value register.
-.Lstore_long_result:
-    ld     $v0, 0($sp)                         # Move long from JValue result to return value register.
-    // Fall-through to clean up and return.
-.Lcleanup_and_return:
-    daddiu $sp, $sp, 8                         # Remove space for JValue result.
-    .cfi_adjust_cfa_offset -8
-    ld     $t0, THREAD_EXCEPTION_OFFSET(rSELF) # Load Thread::Current()->exception_
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    bnez   $t0, 1f                             # Success if no exception is pending.
-    nop
-    jalr   $zero, $ra
-    nop
-1:
-    DELIVER_PENDING_EXCEPTION
+    jal    artInvokePolymorphic                # Call with args (result, receiver, Thread*, context)
+    RETURN_FROM_POLYMORPHIC_CALL
 END art_quick_invoke_polymorphic
 
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move   $a1, rSELF                          # Make $a2 an alias for the current Thread.
+    move   $a2, $sp                            # Make $a3 a pointer to the saved frame context.
+    daddiu $sp, $sp, -8                        # Reserve space for JValue result.
+    .cfi_adjust_cfa_offset 8
+    sd     $zero, 0($sp)                       # Initialize JValue result.
+    jal    artInvokeCustom                     # Call artInvokeCustom(result, Thread*, context).
+    RETURN_FROM_POLYMORPHIC_CALL
+END art_quick_invoke_polymorphic
   .set pop
