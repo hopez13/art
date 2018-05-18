@@ -544,6 +544,7 @@ void CodeGenerator::GenerateInvokeStaticOrDirectRuntimeCall(
     case kVirtual:
     case kInterface:
     case kPolymorphic:
+    case kCustom:
       LOG(FATAL) << "Unexpected invoke type: " << invoke->GetInvokeType();
       UNREACHABLE();
   }
@@ -572,6 +573,7 @@ void CodeGenerator::GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invok
       entrypoint = kQuickInvokeInterfaceTrampolineWithAccessCheck;
       break;
     case kPolymorphic:
+    case kCustom:
       LOG(FATAL) << "Unexpected invoke type: " << invoke->GetInvokeType();
       UNREACHABLE();
   }
@@ -580,6 +582,12 @@ void CodeGenerator::GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invok
 
 void CodeGenerator::GenerateInvokePolymorphicCall(HInvokePolymorphic* invoke) {
   QuickEntrypointEnum entrypoint = kQuickInvokePolymorphic;
+  InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
+}
+
+void CodeGenerator::GenerateInvokeCustomCall(HInvokeCustom* invoke) {
+  MoveConstant(invoke->GetLocations()->GetTemp(0), invoke->GetCallSiteIndex());
+  QuickEntrypointEnum entrypoint = kQuickInvokeCustom;
   InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
 }
 
