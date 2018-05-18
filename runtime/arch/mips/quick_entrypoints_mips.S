@@ -3246,6 +3246,51 @@ art_quick_read_barrier_mark_introspection_end_of_entries:
     BRB_FIELD_EXIT_BREAK
 END art_quick_read_barrier_mark_introspection
 
+    /*
+     * Moves the result value (on the stack) from the polymorphic call into the expected return
+     * location based on the return descriptor returned (in %al) by the polymorphic call.
+    */
+.macro RETURN_FROM_POLYMORPHIC_CALL
+    li    $t0, 'V'
+    beq   $v0, $t0, 9f
+    nop
+0:  li    $t0, 'Z'
+    bne   $v0, $t0, 1f
+    nop
+    b     9f
+    lbu   $v0, 16($sp)                        # Move byte from JValue result to return register.
+1:  li    $t0, 'C'
+    bne   2f
+    nop
+    b     9f
+    lhu   $v0, 16($sp)                        # Move char from JValue result to return register.
+2:  li    $t0, 'F'
+    beq   $v0, $t0, 4f
+    nop
+3:  li    $t0, 'D'
+    bne   5f
+    nop
+4:  CHECK_ALIGNMENT $sp, $t0
+    ldc1  $f0, 16($sp)                        # Move double/float from JValue result to context.
+    b     9f
+    nop
+5:  li    $t0, 'J'
+    bne   $v0, $t0, 6f
+    nop
+    lw    $v1, 20($sp)                        # Move upper bits from JValue result to context.
+6:                                            # Must be byte, short, int, or reference.
+    lw    $v0, 16($sp)                        # Move int from JValue result to return register.
+9:                                            # Clean-up and return.
+    lw    $t7, THREAD_EXCEPTION_OFFSET(rSELF) # Load Thread::Current()->exception_
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    bnez  $t7, 10f                            # Success if no exception is pending.
+    nop
+    jalr  $zero, $ra
+    nop
+10:
+    DELIVER_PENDING_EXCEPTION
+.endm
+
 .extern artInvokePolymorphic
 ENTRY art_quick_invoke_polymorphic
     SETUP_SAVE_REFS_AND_ARGS_FRAME
@@ -3254,51 +3299,20 @@ ENTRY art_quick_invoke_polymorphic
     sw    $zero, 20($sp)                      # Initialize JValue result.
     sw    $zero, 16($sp)
     la    $t9, artInvokePolymorphic
-    jalr  $t9                                 # artInvokePolymorphic(result, receiver, Thread*, context)
-    addiu $a0, $sp, 16                        # Make $a0 a pointer to the JValue result
-.macro MATCH_RETURN_TYPE c, handler
-    li    $t0, \c
-    beq   $v0, $t0, \handler
-.endm
-    MATCH_RETURN_TYPE 'V', .Lcleanup_and_return
-    MATCH_RETURN_TYPE 'L', .Lstore_int_result
-    MATCH_RETURN_TYPE 'I', .Lstore_int_result
-    MATCH_RETURN_TYPE 'J', .Lstore_long_result
-    MATCH_RETURN_TYPE 'B', .Lstore_int_result
-    MATCH_RETURN_TYPE 'C', .Lstore_char_result
-    MATCH_RETURN_TYPE 'D', .Lstore_double_result
-    MATCH_RETURN_TYPE 'F', .Lstore_float_result
-    MATCH_RETURN_TYPE 'S', .Lstore_int_result
-    MATCH_RETURN_TYPE 'Z', .Lstore_boolean_result
-.purgem MATCH_RETURN_TYPE
-    nop
-    b .Lcleanup_and_return
-    nop
-.Lstore_boolean_result:
-    b .Lcleanup_and_return
-    lbu   $v0, 16($sp)                        # Move byte from JValue result to return value register.
-.Lstore_char_result:
-    b .Lcleanup_and_return
-    lhu   $v0, 16($sp)                        # Move char from JValue result to return value register.
-.Lstore_double_result:
-.Lstore_float_result:
-    CHECK_ALIGNMENT $sp, $t0
-    ldc1  $f0, 16($sp)                        # Move double/float from JValue result to return value register.
-    b .Lcleanup_and_return
-    nop
-.Lstore_long_result:
-    lw    $v1, 20($sp)                        # Move upper bits from JValue result to return value register.
-    // Fall-through for lower bits.
-.Lstore_int_result:
-    lw    $v0, 16($sp)                        # Move lower bits from JValue result to return value register.
-    // Fall-through to clean up and return.
-.Lcleanup_and_return:
-    lw    $t7, THREAD_EXCEPTION_OFFSET(rSELF) # Load Thread::Current()->exception_
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    bnez  $t7, 1f                             # Success if no exception is pending.
-    nop
-    jalr  $zero, $ra
-    nop
-1:
-    DELIVER_PENDING_EXCEPTION
+    jalr  $t9                                 # call with args (result, receiver, Thread*, context).
+    addiu $a0, $sp, 16                        # Make $a0 a pointer to the JValue result.
+    RETURN_FROM_POLYMORPHIC_CALL
 END art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move  $a1, rSELF                          # Make $a1 an alias for the current Thread.
+    addiu $a2, $sp, ARG_SLOT_SIZE             # Make $a2 a pointer to the saved frame context.
+    sw    $zero, 20($sp)                      # Initialize JValue result.
+    sw    $zero, 16($sp)
+    la    $t9, artInvokeCustom
+    jalr  $t9                                 # Call artInvokeCustom(result, Thread*, context).
+    addiu $a0, $sp, 16                        # Make $a0 a pointer to the JValue result.
+    RETURN_FROM_POLYMORPHIC_CALL
+END art_quick_invoke_custom

@@ -2842,85 +2842,62 @@ art_quick_read_barrier_mark_introspection_gc_roots:
     READ_BARRIER_MARK_INTROSPECTION_SLOW_PATH BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET
 END art_quick_read_barrier_mark_introspection
 
-.extern artInvokePolymorphic
-ENTRY art_quick_invoke_polymorphic
-    SETUP_SAVE_REFS_AND_ARGS_FRAME                // Save callee saves in case allocation triggers GC.
-    mov     x2, xSELF
-    mov     x3, sp
-    INCREASE_FRAME 16                             // Reserve space for JValue result.
-    str     xzr, [sp, #0]                         // Initialize result to zero.
-    mov     x0, sp                                // Set r0 to point to result.
-    bl      artInvokePolymorphic                  // artInvokePolymorphic(result, receiver, thread, save_area)
-    uxtb    w0, w0                                // Result is the return type descriptor as a char.
-    sub     w0, w0, 'A'                           // Convert to zero based index.
-    cmp     w0, 'Z' - 'A'
-    bhi     .Lcleanup_and_return                  // Clean-up if out-of-bounds.
-    adrp    x1, .Lhandler_table                   // Compute address of handler table.
-    add     x1, x1, :lo12:.Lhandler_table
-    ldrb    w0, [x1, w0, uxtw]                    // Lookup handler offset in handler table.
-    adr     x1, .Lstart_of_handlers
-    add     x0, x1, w0, sxtb #2                   // Convert relative offset to absolute address.
-    br      x0                                    // Branch to handler.
-
-.Lstart_of_handlers:
-.Lstore_boolean_result:
-    ldrb    w0, [sp]
-    b       .Lcleanup_and_return
-.Lstore_char_result:
-    ldrh    w0, [sp]
-    b       .Lcleanup_and_return
-.Lstore_float_result:
-    ldr     s0, [sp]
-    str     s0, [sp, #32]
-    b       .Lcleanup_and_return
-.Lstore_double_result:
-    ldr     d0, [sp]
+// Moves the result value (on the stack) from the polymorphic call into the expected return
+// location based on the return descriptor returned (in r0) by the polymorphic call.
+.macro RETURN_FROM_POLYMORPHIC_CALL
+    uxtb    w0, w0                    // Result is the return type descriptor as a char.
+    cmp     w0, 'V'                   // Check for void
+    beq     5f                        // Advance to clean-up if void.
+0:  cmp     w0, 'Z'                   // Check for boolean.
+    bne     1f                        // Skip to next comparison.
+    ldrb    w0, [sp]                  // Store boolean value.
+    b       5f                        // Advance to clean-up.
+1:  cmp     w0, 'C'                   // Check for char.
+    bne     2f                        // Skip to next comparison.
+    ldrh    w0, [sp]                  // Store char value.
+    b       5f                        // Advance to clean-up.
+2:  cmp     w0, 'D'
+    bne     3f                        // Skip to next comparison.
+    ldr     d0, [sp]                  // Store double value.
     str     d0, [sp, #32]
-    b       .Lcleanup_and_return
-.Lstore_long_result:
+    b       5f                        // Advance to clean-up.
+3:  cmp     w0, 'F'                   // Check for float.
+    bne     4f                        // Skip to next comparison.
+    ldr     s0, [sp]                  // Store float value.
+    str     s0, [sp, #32]
+    b       5f                        // Advance to clean-up.
+4:                                    // Must be one of byte, short, int, long, or reference.
     ldr     x0, [sp]
-    // Fall-through
-.Lcleanup_and_return:
+5:                                    // Clean-up and return
     DECREASE_FRAME 16
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     REFRESH_MARKING_REGISTER
     RETURN_OR_DELIVER_PENDING_EXCEPTION_X1
-
-    .section    .rodata                           // Place handler table in read-only section away from text.
-    .align  2
-.macro HANDLER_TABLE_OFFSET handler_label
-    .byte (\handler_label - .Lstart_of_handlers) / 4
 .endm
-.Lhandler_table:
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // A
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // B (byte)
-    HANDLER_TABLE_OFFSET(.Lstore_char_result)     // C (char)
-    HANDLER_TABLE_OFFSET(.Lstore_double_result)   // D (double)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // E
-    HANDLER_TABLE_OFFSET(.Lstore_float_result)    // F (float)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // G
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // H
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // I (int)
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // J (long)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // K
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // L (object - references are compressed and only 32-bits)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // M
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // N
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // O
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // P
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // Q
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // R
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // S (short)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // T
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // U
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // V (void)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // W
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // X
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // Y
-    HANDLER_TABLE_OFFSET(.Lstore_boolean_result)  // Z (boolean)
-    .text
 
+.extern artInvokePolymorphic
+ENTRY art_quick_invoke_polymorphic
+    SETUP_SAVE_REFS_AND_ARGS_FRAME    // Save callee saves in case allocation triggers GC.
+    mov     x2, xSELF
+    mov     x3, sp
+    INCREASE_FRAME 16                 // Reserve space for JValue result.
+    str     xzr, [sp, #0]             // Initialize result to zero.
+    mov     x0, sp                    // Set x0 to point to result.
+    bl      artInvokePolymorphic      // artInvokePolymorphic(result, receiver, thread, save_area)
+    RETURN_FROM_POLYMORPHIC_CALL
 END  art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME    // Save callee saves in case allocation triggers GC.
+    mov     x1, xSELF
+    mov     x2, sp
+    INCREASE_FRAME 16                 // Reserve space for JValue result.
+    str     xzr, [sp, #0]             // Initialize result to zero.
+    mov     x0, sp                    // Set r0 to point to result.
+    bl      artInvokeCustom           // artInvokeCustom(result, thread, save_area)
+    RETURN_FROM_POLYMORPHIC_CALL
+END  art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: x0: The context pointer for ExecuteSwitchImpl.
