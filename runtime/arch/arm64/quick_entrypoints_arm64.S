@@ -2851,6 +2851,7 @@ ENTRY art_quick_invoke_polymorphic
     str     xzr, [sp, #0]                         // Initialize result to zero.
     mov     x0, sp                                // Set r0 to point to result.
     bl      artInvokePolymorphic                  // artInvokePolymorphic(result, receiver, thread, save_area)
+.Lpost_polymorphic_call:
     uxtb    w0, w0                                // Result is the return type descriptor as a char.
     sub     w0, w0, 'A'                           // Convert to zero based index.
     cmp     w0, 'Z' - 'A'
@@ -2921,6 +2922,18 @@ ENTRY art_quick_invoke_polymorphic
     .text
 
 END  art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME                // Save callee saves in case allocation triggers GC.
+    mov     x1, xSELF
+    mov     x2, sp
+    INCREASE_FRAME 16                             // Reserve space for JValue result.
+    str     xzr, [sp, #0]                         // Initialize result to zero.
+    mov     x0, sp                                // Set r0 to point to result.
+    bl      artInvokeCustom                       // artInvokeCustom(result, thread, save_area)
+    b       .Lpost_polymorphic_call
+END  art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: x0: The context pointer for ExecuteSwitchImpl.

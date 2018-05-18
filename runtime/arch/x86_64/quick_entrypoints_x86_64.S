@@ -2427,6 +2427,7 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
     movq %rsp, %rdi                                // store pointer to JValue result
     call SYMBOL(artInvokePolymorphic)              // artInvokePolymorphic(result, receiver, Thread*, SP)
                                                    // save the code pointer
+.invoke_polymorphic_cleanup:                       // post-invoke sequence used by invoke-{custom,polymorphic}
     subq LITERAL('A'), %rax                        // Convert type descriptor character value to a zero based index.
     cmpb LITERAL('Z' - 'A'), %al                   // Eliminate out of bounds options
     ja .Lcleanup_and_return
@@ -2468,7 +2469,6 @@ END_MACRO
     HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // X
     HANDLER_TABLE_OFFSET(.Lcleanup_and_return)     // Y
     HANDLER_TABLE_OFFSET(.Lstore_boolean_result)   // Z (boolean)
-
 .Lstore_boolean_result:
     movzbq (%rsp), %rax                            // Copy boolean result to the accumulator
     jmp .Lcleanup_and_return
@@ -2492,6 +2492,19 @@ END_MACRO
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     RETURN_OR_DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_invoke_polymorphic
+
+DEFINE_FUNCTION art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
+    movq %gs:THREAD_SELF_OFFSET, %rsi              // pass Thread
+    movq %rsp, %rdx                                // pass SP
+    subq LITERAL(16), %rsp                         // make space for JValue result
+    CFI_ADJUST_CFA_OFFSET(16)
+    movq LITERAL(0), (%rsp)                        // initialize result
+    movq %rsp, %rdi                                // store pointer to JValue result
+    call SYMBOL(artInvokeCustom)                   // artInvokeCustom(result, Thread*, SP)
+                                                   // save the code pointer
+    jmp .invoke_polymorphic_cleanup
+END_FUNCTION art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: RDI: The context pointer for ExecuteSwitchImpl.

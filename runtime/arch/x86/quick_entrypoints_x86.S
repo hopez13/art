@@ -2434,7 +2434,7 @@ DEFINE_FUNCTION art_quick_osr_stub
 END_FUNCTION art_quick_osr_stub
 
 DEFINE_FUNCTION art_quick_invoke_polymorphic
-    SETUP_SAVE_REFS_AND_ARGS_FRAME  ebx, ebx       // Save frame.
+    SETUP_SAVE_REFS_AND_ARGS_FRAME ebx, ebx        // Save frame.
     mov %esp, %edx                                 // Remember SP.
     subl LITERAL(16), %esp                         // Make space for JValue result.
     CFI_ADJUST_CFA_OFFSET(16)
@@ -2447,6 +2447,9 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
     PUSH ecx                                       // pass receiver (method handle)
     PUSH eax                                       // pass JResult
     call SYMBOL(artInvokePolymorphic)              // artInvokePolymorphic(result, receiver, Thread*, SP)
+    addl LITERAL(16), %esp                         // Pop arguments to artInvokePolymorphic.
+    CFI_ADJUST_CFA_OFFSET(-16)
+.Lpost_polymorphic_call:
     subl LITERAL('A'), %eax                        // Eliminate out of bounds options
     cmpb LITERAL('Z' - 'A'), %al
     ja .Lcleanup_and_return
@@ -2462,29 +2465,29 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
 
     // Handlers for different return types.
 .Lstore_boolean_result:
-    movzbl 16(%esp), %eax                          // Copy boolean result to the accumulator.
+    movzbl 0(%esp), %eax                           // Copy boolean result to the accumulator.
     jmp .Lcleanup_and_return
 .Lstore_char_result:
-    movzwl 16(%esp), %eax                          // Copy char result to the accumulator.
+    movzwl 0(%esp), %eax                           // Copy char result to the accumulator.
     jmp .Lcleanup_and_return
 .Lstore_float_result:
-    movd 16(%esp), %xmm0                           // Copy float result to the context restored by
-    movd %xmm0, 36(%esp)                           // RESTORE_SAVE_REFS_ONLY_FRAME.
+    movd 0(%esp), %xmm0                            // Copy float result to the context restored by
+    movd %xmm0, 20(%esp)                           // RESTORE_SAVE_REFS_ONLY_FRAME.
     jmp .Lcleanup_and_return
 .Lstore_double_result:
-    movsd 16(%esp), %xmm0                          // Copy double result to the context restored by
-    movsd %xmm0, 36(%esp)                          // RESTORE_SAVE_REFS_ONLY_FRAME.
+    movsd 0(%esp), %xmm0                           // Copy double result to the context restored by
+    movsd %xmm0, 20(%esp)                          // RESTORE_SAVE_REFS_ONLY_FRAME.
     jmp .Lcleanup_and_return
 .Lstore_long_result:
-    movl 20(%esp), %edx                            // Copy upper-word of result to the context restored by
-    movl %edx, 72(%esp)                            // RESTORE_SAVE_REFS_ONLY_FRAME.
+    movl 4(%esp), %edx                             // Copy upper-word of result to the context restored by
+    movl %edx, 56(%esp)                            // RESTORE_SAVE_REFS_ONLY_FRAME.
     // Fall-through for lower bits.
 .Lstore_int_result:
-    movl 16(%esp), %eax                            // Copy int result to the accumulator.
+    movl 0(%esp), %eax                             // Copy int result to the accumulator.
     // Fall-through to clean up and return.
 .Lcleanup_and_return:
-    addl LITERAL(32), %esp                         // Pop arguments and stack allocated JValue result.
-    CFI_ADJUST_CFA_OFFSET(-32)
+    addl LITERAL(16), %esp                         // Pop stack allocated JValue result.
+    CFI_ADJUST_CFA_OFFSET(-16)
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     RETURN_OR_DELIVER_PENDING_EXCEPTION
 
@@ -2524,8 +2527,26 @@ END_MACRO
     HANDLER_TABLE_ENTRY(.Lcleanup_and_return)      // X
     HANDLER_TABLE_ENTRY(.Lcleanup_and_return)      // Y
     HANDLER_TABLE_ENTRY(.Lstore_boolean_result)    // Z (boolean)
-
 END_FUNCTION art_quick_invoke_polymorphic
+
+DEFINE_FUNCTION art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME ebx, ebx        // Save frame.
+    mov %esp, %ecx                                 // Remember SP.
+    subl LITERAL(16), %esp                         // Make space for JValue result.
+    CFI_ADJUST_CFA_OFFSET(16)
+    movl LITERAL(0), (%esp)                        // Initialize result to zero.
+    movl LITERAL(0), 4(%esp)
+    mov %esp, %eax                                 // Store pointer to JValue result in eax.
+    PUSH ecx                                       // Push padding to maintain 16-byte alignment
+    PUSH ecx                                       // pass SP
+    pushl %fs:THREAD_SELF_OFFSET                   // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    PUSH eax                                       // pass JResult
+    call SYMBOL(artInvokeCustom)                   // artInvokeCustom(result, Thread*, SP)
+    addl LITERAL(16), %esp                         // Pop arguments to artInvokeCustom.
+    CFI_ADJUST_CFA_OFFSET(-16)
+    jmp .Lpost_polymorphic_call
+END_FUNCTION art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: ESP+4: The context pointer for ExecuteSwitchImpl.

@@ -410,6 +410,7 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   static_assert(!IsDirectEntrypoint(kQuickInvokeVirtualTrampolineWithAccessCheck),
                 "Non-direct C stub marked direct.");
   qpoints->pInvokePolymorphic = art_quick_invoke_polymorphic;
+  qpoints->pInvokeCustom = art_quick_invoke_custom;
 
   // Thread
   qpoints->pTestSuspend = art_quick_test_suspend;

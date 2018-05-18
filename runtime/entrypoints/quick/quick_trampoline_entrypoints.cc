@@ -35,6 +35,7 @@
 #include "index_bss_mapping.h"
 #include "instrumentation.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/interpreter_common.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "jit/jit.h"
 #include "linear_alloc.h"
@@ -2851,6 +2852,79 @@ extern "C" uintptr_t artInvokePolymorphic(
   // Pop transition record.
   self->PopManagedStackFragment(fragment);
 
+  // Return the type descriptor of the result.
+  return static_cast<uintptr_t>(shorty[0]);
+}
+
+// Returns shorty type so the caller can determine how to put |result|
+// into expected registers. The shorty type is static so the compiler
+// could call different flavors of this code path depending on the
+// shorty type though this would require different entry points for
+// each type.
+extern "C" uintptr_t artInvokeCustom(JValue* result, Thread* self, ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  DCHECK_EQ(*sp, Runtime::Current()->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs));
+
+  // invoke-custom is effectively a static call (no receiver).
+  static constexpr bool kMethodIsStatic = true;
+
+  // Start new JNI local reference state
+  JNIEnvExt* env = self->GetJniEnv();
+  ScopedObjectAccessUnchecked soa(env);
+  ScopedJniEnvLocalRefState env_state(env);
+
+  const char* old_cause = self->StartAssertNoThreadSuspension("Making stack arguments safe.");
+
+  // From the instruction, get the |callsite_shorty| and expose arguments on the stack to the GC.
+  ArtMethod* caller_method = QuickArgumentVisitor::GetCallingMethod(sp);
+  uint32_t dex_pc = QuickArgumentVisitor::GetCallingDexPc(sp);
+  const Instruction& inst = caller_method->DexInstructions().InstructionAt(dex_pc);
+  DCHECK(inst.Opcode() == Instruction::INVOKE_CUSTOM ||
+         inst.Opcode() == Instruction::INVOKE_CUSTOM_RANGE);
+  const DexFile* dex_file = caller_method->GetDexFile();
+  const dex::ProtoIndex proto_idx(dex_file->GetProtoIndexForCallSite(inst.VRegB()));
+  const char* shorty = caller_method->GetDexFile()->GetShorty(proto_idx);
+  const uint32_t shorty_len = strlen(shorty);
+
+  RememberForGcArgumentVisitor gc_visitor(sp, kMethodIsStatic, shorty, shorty_len, &soa);
+  gc_visitor.VisitArguments();
+  self->EndAssertNoThreadSuspension(old_cause);
+
+  // Fix references before constructing the shadow frame.
+  gc_visitor.FixupReferences();
+
+  // Construct the shadow frame placing arguments consecutively from |first_arg|.
+  const size_t first_arg = 0;
+  const size_t num_vregs = ArtMethod::NumArgRegisters(shorty);
+  DCHECK_EQ(num_vregs, (uint32_t)inst.VRegA());
+  ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
+      CREATE_SHADOW_FRAME(num_vregs, /* link */ nullptr, caller_method, dex_pc);
+  ShadowFrame* shadow_frame = shadow_frame_unique_ptr.get();
+  ScopedStackedShadowFramePusher
+      frame_pusher(self, shadow_frame, StackedShadowFrameType::kShadowFrameUnderConstruction);
+  BuildQuickShadowFrameVisitor shadow_frame_builder(sp,
+                                                    kMethodIsStatic,
+                                                    shorty,
+                                                    shorty_len,
+                                                    shadow_frame,
+                                                    first_arg);
+  shadow_frame_builder.VisitArguments();
+
+  // Push a transition back into managed code onto the linked list in thread.
+  ManagedStack fragment;
+  self->PushManagedStackFragment(&fragment);
+
+  // Perform the invoke-custom operation.
+  RangeInstructionOperands operands(first_arg, num_vregs);
+  const uint32_t call_site_idx = inst.VRegB();
+  bool success = interpreter::DoInvokeCustom(self, *shadow_frame, call_site_idx, &operands, result);
+  DCHECK(success || self->IsExceptionPending());
+
+  // Pop transition record.
+  self->PopManagedStackFragment(fragment);
+
+  // Return the type descriptor of the result.
   return static_cast<uintptr_t>(shorty[0]);
 }
 

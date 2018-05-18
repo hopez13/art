@@ -542,9 +542,12 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   void GenerateInvokeStaticOrDirectRuntimeCall(
       HInvokeStaticOrDirect* invoke, Location temp, SlowPathCode* slow_path);
+
   void GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invoke);
 
   void GenerateInvokePolymorphicCall(HInvokePolymorphic* invoke);
+
+  void GenerateInvokeCustomCall(HInvokeCustom* invoke);
 
   void CreateUnresolvedFieldLocationSummary(
       HInstruction* field_access,
@@ -563,9 +566,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
                                                         Location runtime_return_location);
   void GenerateLoadClassRuntimeCall(HLoadClass* cls);
 
-  static void CreateLoadMethodHandleRuntimeCallLocationSummary(HLoadMethodHandle* method_handle,
-                                                             Location runtime_handle_index_location,
-                                                             Location runtime_return_location);
+  static void CreateLoadMethodHandleRuntimeCallLocationSummary(
+      HLoadMethodHandle* method_handle,
+      Location runtime_handle_index_location,
+      Location runtime_return_location);
   void GenerateLoadMethodHandleRuntimeCall(HLoadMethodHandle* method_handle);
 
   static void CreateLoadMethodTypeRuntimeCallLocationSummary(HLoadMethodType* method_type,

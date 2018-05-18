@@ -3116,10 +3116,7 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
       // Step 2. Check the register arguments correspond to the expected arguments for the
       // method handle produced by step 1. The dex file verifier has checked ranges for
       // the first three arguments and CheckCallSite has checked the method handle type.
-      CallSiteArrayValueIterator it(*dex_file_, dex_file_->GetCallSiteId(call_site_idx));
-      it.Next();  // Skip to name.
-      it.Next();  // Skip to method type of the method handle
-      const dex::ProtoIndex proto_idx(it.GetJavaValue().c);
+      const dex::ProtoIndex proto_idx = dex_file_->GetProtoIndexForCallSite(call_site_idx);
       const DexFile::ProtoId& proto_id = dex_file_->GetProtoId(proto_idx);
       DexFileParameterIterator param_it(*dex_file_, proto_id);
       // Treat method as static as it has yet to be determined.
@@ -3135,8 +3132,6 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
         work_line_->SetResultRegisterTypeWide(return_type, return_type.HighHalf(&reg_types_));
       }
       just_set_result = true;
-      // TODO: Add compiler support for invoke-custom (b/35337872).
-      Fail(VERIFY_ERROR_FORCE_INTERPRETER);
       break;
     }
     case Instruction::NEG_INT:

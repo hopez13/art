@@ -1032,8 +1032,7 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
   return HandleInvoke(invoke, operands, descriptor, clinit_check, false /* is_unresolved */);
 }
 
-bool HInstructionBuilder::BuildInvokePolymorphic(const Instruction& instruction ATTRIBUTE_UNUSED,
-                                                 uint32_t dex_pc,
+bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
                                                  uint32_t method_idx,
                                                  dex::ProtoIndex proto_idx,
                                                  const InstructionOperands& operands) {
@@ -1051,6 +1050,24 @@ bool HInstructionBuilder::BuildInvokePolymorphic(const Instruction& instruction 
                       descriptor,
                       nullptr /* clinit_check */,
                       false /* is_unresolved */);
+}
+
+
+bool HInstructionBuilder::BuildInvokeCustom(uint32_t dex_pc,
+                                            uint32_t call_site_idx,
+                                            const InstructionOperands& operands) {
+  dex::ProtoIndex proto_idx = dex_file_->GetProtoIndexForCallSite(call_site_idx);
+  const char* descriptor = dex_file_->GetShorty(proto_idx);
+  DataType::Type return_type = DataType::FromShorty(descriptor[0]);
+  size_t number_of_arguments = strlen(descriptor) - 1;
+  HInvoke* invoke = new (allocator_) HInvokeCustom(allocator_,
+                                                   number_of_arguments,
+                                                   return_type,
+                                                   dex_pc);
+  bool success = HandleInvoke(invoke, operands, descriptor, nullptr /* clinit_check */,
+                              false /* is_unresolved */);
+  CHECK(success) << "HandleInvoke failed, call_site_idx = " << call_site_idx << " descriptor " << descriptor;
+  return success;
 }
 
 HNewInstance* HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, uint32_t dex_pc) {
@@ -2144,14 +2161,28 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
       uint32_t args[5];
       uint32_t number_of_vreg_arguments = instruction.GetVarArgs(args);
       VarArgsInstructionOperands operands(args, number_of_vreg_arguments);
-      return BuildInvokePolymorphic(instruction, dex_pc, method_idx, proto_idx, operands);
+      return BuildInvokePolymorphic(dex_pc, method_idx, proto_idx, operands);
     }
 
     case Instruction::INVOKE_POLYMORPHIC_RANGE: {
       uint16_t method_idx = instruction.VRegB_4rcc();
       dex::ProtoIndex proto_idx(instruction.VRegH_4rcc());
       RangeInstructionOperands operands(instruction.VRegC_4rcc(), instruction.VRegA_4rcc());
-      return BuildInvokePolymorphic(instruction, dex_pc, method_idx, proto_idx, operands);
+      return BuildInvokePolymorphic(dex_pc, method_idx, proto_idx, operands);
+    }
+
+    case Instruction::INVOKE_CUSTOM: {
+      uint16_t call_site_idx = instruction.VRegB_35c();
+      uint32_t args[5];
+      uint32_t number_of_vreg_arguments = instruction.GetVarArgs(args);
+      VarArgsInstructionOperands operands(args, number_of_vreg_arguments);
+      return BuildInvokeCustom(dex_pc, call_site_idx, operands);
+    }
+
+    case Instruction::INVOKE_CUSTOM_RANGE: {
+      uint16_t call_site_idx = instruction.VRegB_3rc();
+      RangeInstructionOperands operands(instruction.VRegC_3rc(), instruction.VRegA_3rc());
+      return BuildInvokeCustom(dex_pc, call_site_idx, operands);
     }
 
     case Instruction::NEG_INT: {
@@ -2933,7 +2964,21 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
       break;
     }
 
-    default:
+    case Instruction::UNUSED_3E:
+    case Instruction::UNUSED_3F:
+    case Instruction::UNUSED_40:
+    case Instruction::UNUSED_41:
+    case Instruction::UNUSED_42:
+    case Instruction::UNUSED_43:
+    case Instruction::UNUSED_79:
+    case Instruction::UNUSED_7A:
+    case Instruction::UNUSED_F3:
+    case Instruction::UNUSED_F4:
+    case Instruction::UNUSED_F5:
+    case Instruction::UNUSED_F6:
+    case Instruction::UNUSED_F7:
+    case Instruction::UNUSED_F8:
+    case Instruction::UNUSED_F9: {
       VLOG(compiler) << "Did not compile "
                      << dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex())
                      << " because of unhandled instruction "
@@ -2941,6 +2986,7 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction,
       MaybeRecordStat(compilation_stats_,
                       MethodCompilationStat::kNotCompiledUnhandledInstruction);
       return false;
+    }
   }
   return true;
 }  // NOLINT(readability/fn_size)
