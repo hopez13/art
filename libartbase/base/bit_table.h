@@ -20,8 +20,9 @@
 #include <vector>
 
 #include "base/bit_memory_region.h"
-#include "base/bit_utils.h"
 #include "base/memory_region.h"
+#include "base/scoped_arena_containers.h"
+#include "base/stl_util.h"
 
 namespace art {
 
@@ -104,8 +105,7 @@ class BitTable {
       column_offset_[0] = 0;
       for (uint32_t i = 0; i < kNumColumns; i++) {
         size_t column_end = column_offset_[i] + DecodeVarintBits(region, bit_offset);
-        column_offset_[i + 1] = column_end;
-        DCHECK_EQ(column_offset_[i + 1], column_end) << "Overflow";
+        column_offset_[i + 1] = dchecked_integral_cast<uint16_t>(column_end);
       }
     }
 
@@ -114,11 +114,18 @@ class BitTable {
     *bit_offset += table_data_.size_in_bits();
   }
 
-  ALWAYS_INLINE uint32_t Get(uint32_t row, uint32_t column = 0) const {
+  ALWAYS_INLINE uint32_t Get(uint32_t row, uint32_t column = 0, uint32_t bias = kValueBias) const {
     DCHECK_LT(row, num_rows_);
     DCHECK_LT(column, kNumColumns);
     size_t offset = row * NumRowBits() + column_offset_[column];
-    return table_data_.LoadBits(offset, NumColumnBits(column)) + kValueBias;
+    return table_data_.LoadBits(offset, NumColumnBits(column)) + bias;
+  }
+
+  ALWAYS_INLINE BitMemoryRegion GetBitMemoryRegion(uint32_t row, uint32_t column = 0) const {
+    DCHECK_LT(row, num_rows_);
+    DCHECK_LT(column, kNumColumns);
+    size_t offset = row * NumRowBits() + column_offset_[column];
+    return table_data_.Subregion(offset, NumColumnBits(column));
   }
 
   size_t NumRows() const { return num_rows_; }
@@ -146,73 +153,181 @@ constexpr uint32_t BitTable<kNumColumns>::Accessor::kNoValue;
 template<uint32_t kNumColumns>
 constexpr uint32_t BitTable<kNumColumns>::kValueBias;
 
-template<uint32_t kNumColumns, typename Alloc = std::allocator<uint32_t>>
-class BitTableBuilder {
+// Helper class for encoding BitTable. It can optionally de-duplicate the inputs.
+// Type 'T' must be POD type consisting of uint32_t fields (one for each column).
+template<typename T>
+class BitTableBuilder : public ScopedArenaVector<T*> {
  public:
-  BitTableBuilder(Alloc alloc = Alloc()) : buffer_(alloc) {}
+  BitTableBuilder(ScopedArenaAllocator* const allocator)
+    : ScopedArenaVector<T*>(allocator->Adapter(kArenaAllocBitTableBuilder)),
+      allocator_(allocator),
+      dedup_(0, allocator_->Adapter(kArenaAllocBitTableBuilder)) {
+  }
 
-  template<typename ... T>
-  uint32_t AddRow(T ... values) {
-    constexpr size_t count = sizeof...(values);
-    static_assert(count == kNumColumns, "Incorrect argument count");
-    uint32_t data[count] = { values... };
-    buffer_.insert(buffer_.end(), data, data + count);
-    return num_rows_++;
+  // Append given value to the vector without de-duplication, and return its index.
+  // This will not add the element to the dedup map to avoid its associated costs.
+  uint32_t Add(T value) {
+    uint32_t index = this->size();
+    this->push_back(allocator_->Alloc<T>(kArenaAllocBitTableBuilder));
+    *this->back() = value;
+    return index;
+  }
+
+  // Append given list of values to the vector and return the index of the first value.
+  // If the exactly same set of values was already added, return the old index.
+  uint32_t Dedup(T* values, size_t count = 1) {
+    MemoryRegion storage(values, sizeof(T) * count);
+    auto it = dedup_.find(storage);
+    if (it == dedup_.end()) {
+      T* copy = allocator_->AllocArray<T>(count, kArenaAllocBitTableBuilder);
+      std::copy(values, values + count, copy);
+      it = dedup_.emplace(MemoryRegion(copy, storage.size()), this->size()).first;
+      for (size_t i = 0; i < count; i++) {
+        this->push_back(&copy[i]);
+      }
+    }
+    return it->second;
   }
 
   ALWAYS_INLINE uint32_t Get(uint32_t row, uint32_t column) const {
-    return buffer_[row * kNumColumns + column];
+    const uint32_t* data = reinterpret_cast<const uint32_t*>((*this)[row]);
+    return data[column];
   }
 
+  // Encode the stored data into a BitTable.
+  // Type 'T' must be POD type consisting of uint32_t fields.
   template<typename Vector>
-  void Encode(Vector* out, size_t* bit_offset) {
+  void Encode(Vector* out, size_t* bit_offset) const {
+    constexpr size_t kNumColumns = sizeof(T)/sizeof(uint32_t);
     constexpr uint32_t bias = BitTable<kNumColumns>::kValueBias;
     size_t initial_bit_offset = *bit_offset;
+
     // Measure data size.
     uint32_t max_column_value[kNumColumns] = {};
-    for (uint32_t r = 0; r < num_rows_; r++) {
+    for (uint32_t r = 0; r < this->size(); r++) {
       for (uint32_t c = 0; c < kNumColumns; c++) {
         max_column_value[c] |= Get(r, c) - bias;
       }
     }
+
     // Write table header.
     uint32_t table_data_bits = 0;
     uint32_t column_bits[kNumColumns] = {};
-    EncodeVarintBits(out, bit_offset, num_rows_);
-    if (num_rows_ != 0) {
+    EncodeVarintBits(out, bit_offset, this->size());
+    if (this->size() != 0) {
       for (uint32_t c = 0; c < kNumColumns; c++) {
         column_bits[c] = MinimumBitsToStore(max_column_value[c]);
         EncodeVarintBits(out, bit_offset, column_bits[c]);
-        table_data_bits += num_rows_ * column_bits[c];
+        table_data_bits += this->size() * column_bits[c];
       }
     }
+
     // Write table data.
     out->resize(BitsToBytesRoundUp(*bit_offset + table_data_bits));
     BitMemoryRegion region(MemoryRegion(out->data(), out->size()));
-    for (uint32_t r = 0; r < num_rows_; r++) {
+    for (uint32_t r = 0; r < this->size(); r++) {
       for (uint32_t c = 0; c < kNumColumns; c++) {
         region.StoreBitsAndAdvance(bit_offset, Get(r, c) - bias, column_bits[c]);
       }
     }
+
     // Verify the written data.
     if (kIsDebugBuild) {
       BitTable<kNumColumns> table;
       table.Decode(region, &initial_bit_offset);
-      DCHECK_EQ(this->num_rows_, table.NumRows());
+      DCHECK_EQ(this->size(), table.NumRows());
       for (uint32_t c = 0; c < kNumColumns; c++) {
         DCHECK_EQ(column_bits[c], table.NumColumnBits(c));
       }
-      for (uint32_t r = 0; r < num_rows_; r++) {
+      for (uint32_t r = 0; r < this->size(); r++) {
         for (uint32_t c = 0; c < kNumColumns; c++) {
-          DCHECK_EQ(this->Get(r, c), table.Get(r, c)) << " (" << r << ", " << c << ")";
+          DCHECK_EQ(Get(r, c), table.Get(r, c)) << " (" << r << ", " << c << ")";
         }
       }
     }
   }
 
  protected:
-  std::vector<uint32_t, Alloc> buffer_;
-  uint32_t num_rows_ = 0;
+  ScopedArenaAllocator* const allocator_;
+  ScopedArenaUnorderedMap<MemoryRegion,
+                          size_t,
+                          FNVHash<MemoryRegion>,
+                          MemoryRegion::ContentEquals> dedup_;
+};
+
+// Helper class for encoding single-column BitTable of bitmaps (allows more than 32 bits).
+class BitmapTableBuilder : public ScopedArenaVector<MemoryRegion> {
+ public:
+  BitmapTableBuilder(ScopedArenaAllocator* const allocator)
+    : ScopedArenaVector<MemoryRegion>(allocator->Adapter(kArenaAllocBitTableBuilder)),
+      allocator_(allocator),
+      dedup_(0, allocator_->Adapter(kArenaAllocBitTableBuilder)) {
+  }
+
+  uint32_t Dedup(void* bitmap, size_t num_bits) {
+    MemoryRegion storage(bitmap, BitsToBytesRoundUp(num_bits));
+    auto it = dedup_.find(storage);
+    if (it == dedup_.end()) {
+      void* copy = allocator_->Alloc(storage.size(), kArenaAllocBitTableBuilder);
+      memcpy(copy, storage.pointer(), storage.size());
+      it = dedup_.emplace(MemoryRegion(copy, storage.size()), dedup_.size()).first;
+      this->push_back(it->first);
+      max_num_bits_ = std::max(max_num_bits_, num_bits);
+    }
+    return it->second;
+  }
+
+  template<typename Vector>
+  void Encode(Vector* out, size_t* bit_offset) const {
+    size_t initial_bit_offset = *bit_offset;
+
+    // Write table header.
+    EncodeVarintBits(out, bit_offset, dedup_.size());
+    if (dedup_.size() != 0) {
+      EncodeVarintBits(out, bit_offset, max_num_bits_);
+    }
+
+    // Write table data.
+    out->resize(BitsToBytesRoundUp(*bit_offset + max_num_bits_ * dedup_.size()));
+    BitMemoryRegion region(MemoryRegion(out->data(), out->size()));
+    BitMemoryRegion data_region = region.Subregion(*bit_offset, max_num_bits_ * dedup_.size());
+    for (auto row : dedup_) {
+      BitMemoryRegion src(row.first);
+      BitMemoryRegion dst = data_region.Subregion(row.second * max_num_bits_, max_num_bits_);
+      size_t copy_bits = std::min(max_num_bits_, src.size_in_bits());
+      for (size_t bit = 0; bit < copy_bits; bit += BitSizeOf<uint32_t>()) {
+        size_t num_bits = std::min<size_t>(copy_bits - bit, BitSizeOf<uint32_t>());
+        dst.StoreBits(bit, src.LoadBits(bit, num_bits), num_bits);
+      }
+    }
+    *bit_offset += data_region.size_in_bits();
+
+    // Verify the written data.
+    if (kIsDebugBuild) {
+      BitTable<1> table;
+      table.Decode(region, &initial_bit_offset);
+      DCHECK_EQ(this->size(), table.NumRows());
+      DCHECK_EQ(max_num_bits_, table.NumColumnBits(0));
+      for (uint32_t r = 0; r < this->size(); r++) {
+        BitMemoryRegion expected((*this)[r]);
+        BitMemoryRegion seen = table.GetBitMemoryRegion(r);
+        size_t num_bits = std::max(expected.size_in_bits(), seen.size_in_bits());
+        for (size_t b = 0; b < num_bits; b++) {
+          bool e = b < expected.size_in_bits() && expected.LoadBit(b);
+          bool s = b < seen.size_in_bits() && seen.LoadBit(b);
+          DCHECK_EQ(e, s) << " (" << r << ")[" << b << "]";
+        }
+      }
+    }
+  }
+
+ private:
+  ScopedArenaAllocator* const allocator_;
+  ScopedArenaUnorderedMap<MemoryRegion,
+                          size_t,
+                          FNVHash<MemoryRegion>,
+                          MemoryRegion::ContentEquals> dedup_;
+  size_t max_num_bits_ = 0;
 };
 
 }  // namespace art
