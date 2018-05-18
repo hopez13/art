@@ -2697,6 +2697,20 @@ ENTRY art_quick_invoke_polymorphic
     RETURN_OR_DELIVER_PENDING_EXCEPTION_REG r2
 END art_quick_invoke_polymorphic
 
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME r1
+                                   @ r0 := call_site_idx
+    mov     r1, rSELF              @ r1 := Thread::Current
+    mov     r2, sp                 @ r2 := SP
+    bl      artInvokeCustom        @ artInvokeCustom(call_site_idx, Thread*, SP)
+    str     r1, [sp, #72]          @ Save r1 to context (r0:r1 = result)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    REFRESH_MARKING_REGISTER
+    vmov    d0, r0, r1             @ Put result r0:r1 into floating point return  register.
+    RETURN_OR_DELIVER_PENDING_EXCEPTION_REG r2
+END art_quick_invoke_custom
+
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: r0: The context pointer for ExecuteSwitchImpl.
 //  Argument 1: r1: Pointer to the templated ExecuteSwitchImpl to call.
