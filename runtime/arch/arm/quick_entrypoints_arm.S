@@ -2683,86 +2683,71 @@ ENTRY art_quick_read_barrier_mark_introspection
 END art_quick_read_barrier_mark_introspection
 #endif  // defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
 
+// Moves the result value (on the stack) from the polymorphic call into the expected return
+// location based on the return descriptor returned (in r0) by the polymorphic call.
+.macro RETURN_FROM_POLYMORPHIC_CALL
+    cmp     r0, 'V'                 @ Check for void
+    beq     6f
+0:  cmp     r0, 'Z'                 @ Check for boolean
+    bne     1f
+    ldrb    r0, [sp]                @ Copy boolean value to return value of this function.
+    b       6f
+1:  cmp     r0, 'C'                 @ Check for char
+    bne     2f
+    ldrh    r0, [sp]                @ Copy char value to return value of this function.
+    b       6f
+2:  cmp     r0, 'D'                 @ Check for double
+    bne     3f
+    vldr    d0, [sp]                @ Copy double value from JValue result to the context restored
+    vstr    d0, [sp, #16]           @ by RESTORE_SAVE_REFS_AND_ARGS_FRAME.
+    b       6f
+3:  cmp     r0, 'F'                 @ Check for float
+    bne     4f
+    vldr    s0, [sp]                @ Copy float value from JValue result to the context restored
+    vstr    s0, [sp, #16]           @ by RESTORE_SAVE_REFS_AND_ARGS_FRAME.
+    b       6f
+4:  cmp     r0, 'J'                 @ Check for long
+    bne     5f
+    ldr     r1, [sp, #4]            @ Copy the upper bits from JValue result to the context restored
+    str     r1, [sp, #80]           @ by RESTORE_SAVE_REFS_AND_ARGS_FRAME.
+    ldr     r0, [sp]                @ Copy lower bits to return value of this function.
+    b       6f
+5:                                  @ Must be one of byte, short, int, or ref.
+    ldr     r0, [sp]                @ Copy int value to return value of this function.
+                                    @ Fall-through to clean-up and return
+6:                                  @ Clean-up and return
+    add     sp, #8
+    .cfi_adjust_cfa_offset -8
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    REFRESH_MARKING_REGISTER
+    RETURN_OR_DELIVER_PENDING_EXCEPTION_REG r2
+.endm
+
 .extern artInvokePolymorphic
 ENTRY art_quick_invoke_polymorphic
     SETUP_SAVE_REFS_AND_ARGS_FRAME r2
     mov     r2, rSELF              @ pass Thread::Current
     mov     r3, sp                 @ pass SP
     mov     r0, #0                 @ initialize 64-bit JValue as zero.
-    str     r0, [sp, #-4]!
-    .cfi_adjust_cfa_offset 4
-    str     r0, [sp, #-4]!
-    .cfi_adjust_cfa_offset 4
+    strd    r0, r0, [sp, #-8]!
+    .cfi_adjust_cfa_offset 8
     mov     r0, sp                 @ pass JValue for return result as first argument.
     bl      artInvokePolymorphic   @ artInvokePolymorphic(JValue, receiver, Thread*, SP)
-    sub     r0, 'A'                @ return value is descriptor of handle's return type.
-    cmp     r0, 'Z' - 'A'          @ check if value is in bounds of handler table
-    bgt     .Lcleanup_and_return   @ and clean-up if not.
-    adr     r1, .Lhandler_table
-    tbb     [r0, r1]               @ branch to handler for return value based on return type.
-
-.Lstart_of_handlers:
-.Lstore_boolean_result:
-    ldrb    r0, [sp]               @ Copy boolean value to return value of this function.
-    b       .Lcleanup_and_return
-.Lstore_char_result:
-    ldrh    r0, [sp]               @ Copy char value to return value of this function.
-    b       .Lcleanup_and_return
-.Lstore_float_result:
-    vldr    s0, [sp]               @ Copy float value from JValue result to the context restored by
-    vstr    s0, [sp, #16]          @ RESTORE_SAVE_REFS_AND_ARGS_FRAME.
-    b       .Lcleanup_and_return
-.Lstore_double_result:
-    vldr    d0, [sp]               @ Copy double value from JValue result to the context restored by
-    vstr    d0, [sp, #16]          @ RESTORE_SAVE_REFS_AND_ARGS_FRAME.
-    b       .Lcleanup_and_return
-.Lstore_long_result:
-    ldr     r1, [sp, #4]           @ Copy the upper bits from JValue result to the context restored by
-    str     r1, [sp, #80]          @ RESTORE_SAVE_REFS_AND_ARGS_FRAME.
-    // Fall-through for lower bits.
-.Lstore_int_result:
-    ldr     r0, [sp]               @ Copy int value to return value of this function.
-    // Fall-through to clean up and return.
-.Lcleanup_and_return:
-    add     sp, #8
-    .cfi_adjust_cfa_offset -8
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    REFRESH_MARKING_REGISTER
-    RETURN_OR_DELIVER_PENDING_EXCEPTION_REG r2
-
-.macro HANDLER_TABLE_OFFSET handler_label
-    .byte (\handler_label - .Lstart_of_handlers) / 2
-.endm
-
-.Lhandler_table:
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // A
-    HANDLER_TABLE_OFFSET(.Lstore_int_result)      // B (byte)
-    HANDLER_TABLE_OFFSET(.Lstore_char_result)     // C (char)
-    HANDLER_TABLE_OFFSET(.Lstore_double_result)   // D (double)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // E
-    HANDLER_TABLE_OFFSET(.Lstore_float_result)    // F (float)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // G
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // H
-    HANDLER_TABLE_OFFSET(.Lstore_int_result)      // I (int)
-    HANDLER_TABLE_OFFSET(.Lstore_long_result)     // J (long)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // K
-    HANDLER_TABLE_OFFSET(.Lstore_int_result)      // L (object)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // M
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // N
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // O
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // P
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // Q
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // R
-    HANDLER_TABLE_OFFSET(.Lstore_int_result)      // S (short)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // T
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // U
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // V (void)
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // W
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // X
-    HANDLER_TABLE_OFFSET(.Lcleanup_and_return)    // Y
-    HANDLER_TABLE_OFFSET(.Lstore_boolean_result)  // Z (boolean)
-.purgem HANDLER_TABLE_OFFSET
+    RETURN_FROM_POLYMORPHIC_CALL
 END art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME r1
+    mov     r1, rSELF              @ pass Thread::Current
+    mov     r2, sp                 @ pass SP
+    mov     r0, #0                 @ initialize 64-bit JValue as zero.
+    strd    r0, r0, [sp, #-8]!
+    .cfi_adjust_cfa_offset 8
+    mov     r0, sp                 @ pass JValue for return result as first argument.
+    bl      artInvokeCustom        @ artInvokeCustom(JValue, Thread*, SP)
+    RETURN_FROM_POLYMORPHIC_CALL
+END art_quick_invoke_custom
 
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: r0: The context pointer for ExecuteSwitchImpl.
