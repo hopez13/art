@@ -3269,3 +3269,19 @@ ENTRY art_quick_invoke_polymorphic
 1:
     DELIVER_PENDING_EXCEPTION
 END art_quick_invoke_polymorphic
+
+.extern artInvokeCustom
+ENTRY art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    move    $a0, rSELF                          # Make $a0 an alias for the current Thread.
+    la      $t9, artInvokeCustom
+    jalr    $t9                                 # Call artInvokeCustom(Thread*, context).
+    addiu   $a1, $sp, ARG_SLOT_SIZE             # Make $a1 a pointer to the saved frame context.
+    lw      $t7, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    bnez    $t7, 1f
+    # don't care if $v0 and/or $v1 are modified, when exception branch taken
+    MTD     $v0, $v1, $f0, $f1                  # move float value to return value
+    jalr    $zero, $ra
+    nop
+END art_quick_invoke_custom
