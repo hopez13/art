@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "664e62c2_d880ab16",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-18T10:51:09Z",
+      "side": 1,
+      "message": "Also note that on ARM, CBNZ (used lines 697 and 713) and CBZ can only jump forward. The documentation says \"Permitted offsets are even numbers in the range 0 to 126.\".",
+      "parentUuid": "7fef95e1_76a92e25",
+      "range": {
+        "startLine": 715,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 45
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "11945c7e_dfd3381e",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
