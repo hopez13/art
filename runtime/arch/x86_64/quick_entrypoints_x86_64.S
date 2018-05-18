@@ -2430,6 +2430,16 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
     RETURN_OR_DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_invoke_polymorphic
 
+DEFINE_FUNCTION art_quick_invoke_custom
+    SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
+    movq %gs:THREAD_SELF_OFFSET, %rdi              // RDI := Thread::Current()
+    movq %rsp, %rsi                                // RSI := SP
+    call SYMBOL(artInvokeCustom)                   // artInvokeCustom(Thread*, SP)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    movq %rax, %xmm0                               // Result is in RAX. Copy to FP result register.
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_invoke_custom
+
 // Wrap ExecuteSwitchImpl in assembly method which specifies DEX PC for unwinding.
 //  Argument 0: RDI: The context pointer for ExecuteSwitchImpl.
 //  Argument 1: RSI: Pointer to the templated ExecuteSwitchImpl to call.
