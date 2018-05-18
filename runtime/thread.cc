@@ -3566,9 +3566,8 @@ class ReferenceMapVisitor : public StackVisitor {
       T vreg_info(m, code_info, map, visitor_);
 
       // Visit stack entries that hold pointers.
-      const size_t number_of_bits = code_info.GetNumberOfStackMaskBits();
       BitMemoryRegion stack_mask = code_info.GetStackMaskOf(map);
-      for (size_t i = 0; i < number_of_bits; ++i) {
+      for (size_t i = 0; i < stack_mask.size_in_bits(); ++i) {
         if (stack_mask.LoadBit(i)) {
           StackReference<mirror::Object>* ref_addr = vreg_base + i;
           mirror::Object* ref = ref_addr->AsMirrorPtr();
@@ -3678,8 +3677,7 @@ class ReferenceMapVisitor : public StackVisitor {
           REQUIRES_SHARED(Locks::mutator_lock_) {
         bool found = false;
         for (size_t dex_reg = 0; dex_reg != number_of_dex_registers; ++dex_reg) {
-          DexRegisterLocation location = dex_register_map.GetDexRegisterLocation(
-              dex_reg, number_of_dex_registers, code_info);
+          DexRegisterLocation location = dex_register_map.GetDexRegisterLocation(dex_reg);
           if (location.GetKind() == kind && static_cast<size_t>(location.GetValue()) == index) {
             visitor(ref, dex_reg, stack_visitor);
             found = true;

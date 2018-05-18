@@ -17,42 +17,21 @@
 #ifndef ART_COMPILER_OPTIMIZING_STACK_MAP_STREAM_H_
 #define ART_COMPILER_OPTIMIZING_STACK_MAP_STREAM_H_
 
+#include "arch/code_offset.h"
+#include "base/allocator.h"
+#include "base/arena_bit_vector.h"
+#include "base/bit_table.h"
 #include "base/bit_vector-inl.h"
-#include "base/hash_map.h"
 #include "base/memory_region.h"
 #include "base/scoped_arena_containers.h"
 #include "base/value_object.h"
+#include "dex_register_location.h"
 #include "method_info.h"
 #include "nodes.h"
-#include "stack_map.h"
 
 namespace art {
 
-// Helper to build art::StackMapStream::LocationCatalogEntriesIndices.
-class LocationCatalogEntriesIndicesEmptyFn {
- public:
-  void MakeEmpty(std::pair<DexRegisterLocation, size_t>& item) const {
-    item.first = DexRegisterLocation::None();
-  }
-  bool IsEmpty(const std::pair<DexRegisterLocation, size_t>& item) const {
-    return item.first == DexRegisterLocation::None();
-  }
-};
-
-// Hash function for art::StackMapStream::LocationCatalogEntriesIndices.
-// This hash function does not create collisions.
-class DexRegisterLocationHashFn {
- public:
-  size_t operator()(DexRegisterLocation key) const {
-    // Concatenate `key`s fields to create a 64-bit value to be hashed.
-    int64_t kind_and_value =
-        (static_cast<int64_t>(key.kind_) << 32) | static_cast<int64_t>(key.value_);
-    return inner_hash_fn_(kind_and_value);
-  }
- private:
-  std::hash<int64_t> inner_hash_fn_;
-};
-
+class DexRegisterMap;
 
 /**
  * Collects and builds stack maps for a method. All the stack maps
@@ -61,72 +40,62 @@ class DexRegisterLocationHashFn {
 class StackMapStream : public ValueObject {
  public:
   explicit StackMapStream(ScopedArenaAllocator* allocator, InstructionSet instruction_set)
-      : allocator_(allocator),
-        instruction_set_(instruction_set),
-        stack_maps_(allocator->Adapter(kArenaAllocStackMapStream)),
-        location_catalog_entries_(allocator->Adapter(kArenaAllocStackMapStream)),
-        location_catalog_entries_indices_(allocator->Adapter(kArenaAllocStackMapStream)),
-        dex_register_locations_(allocator->Adapter(kArenaAllocStackMapStream)),
-        inline_infos_(allocator->Adapter(kArenaAllocStackMapStream)),
-        stack_masks_(allocator->Adapter(kArenaAllocStackMapStream)),
-        register_masks_(allocator->Adapter(kArenaAllocStackMapStream)),
-        method_indices_(allocator->Adapter(kArenaAllocStackMapStream)),
-        dex_register_entries_(allocator->Adapter(kArenaAllocStackMapStream)),
-        stack_mask_max_(-1),
+      : instruction_set_(instruction_set),
+        stack_maps_(allocator),
+        register_masks_(allocator),
+        stack_masks_(allocator),
+        invoke_infos_(allocator),
+        inline_infos_(allocator),
+        dex_register_masks_(allocator),
+        dex_register_maps_(allocator),
+        dex_register_catalog_(allocator),
         out_(allocator->Adapter(kArenaAllocStackMapStream)),
-        dex_map_hash_to_stack_map_indices_(std::less<uint32_t>(),
-                                           allocator->Adapter(kArenaAllocStackMapStream)),
-        current_entry_(),
-        current_inline_info_(),
-        current_dex_register_(0),
-        in_inline_frame_(false) {
-    stack_maps_.reserve(10);
-    out_.reserve(64);
-    location_catalog_entries_.reserve(4);
-    dex_register_locations_.reserve(10 * 4);
-    inline_infos_.reserve(2);
+        method_indices_(allocator),
+        in_stack_map_(false),
+        in_inline_info_(false),
+        current_inline_infos_(allocator->Adapter(kArenaAllocStackMapStream)),
+        current_dex_registers_(allocator->Adapter(kArenaAllocStackMapStream)),
+        temp_dex_register_mask_(allocator, 32, true, kArenaAllocStackMapStream),
+        temp_dex_register_map_(allocator->Adapter(kArenaAllocStackMapStream)) {
   }
 
-  // A dex register map entry for a single stack map entry, contains what registers are live as
-  // well as indices into the location catalog.
-  class DexRegisterMapEntry {
-   public:
-    static const uint32_t kOffsetUnassigned = -1;
+  static_assert(sizeof(CodeOffset) == sizeof(uint32_t), "CodeOffset must be uint32_t");
 
-    BitVector* live_dex_registers_mask;
-    uint32_t num_dex_registers;
-    size_t locations_start_index;
-    // Computed fields
-    size_t hash = 0;
-    uint32_t offset = kOffsetUnassigned;
+  static constexpr uint32_t kNoValue = -1;
 
-    size_t ComputeSize(size_t catalog_size) const;
-  };
-
-  // See runtime/stack_map.h to know what these fields contain.
+  // The fields must be uint32_t and exactly match the definitions in stack_map.h!
   struct StackMapEntry {
-    uint32_t dex_pc;
-    CodeOffset native_pc_code_offset;
-    uint32_t register_mask;
-    BitVector* sp_mask;
-    uint32_t inlining_depth;
-    size_t inline_infos_start_index;
-    uint32_t stack_mask_index;
-    uint32_t register_mask_index;
-    DexRegisterMapEntry dex_register_entry;
-    size_t dex_register_map_index;
-    InvokeType invoke_type;
-    uint32_t dex_method_index;
-    uint32_t dex_method_index_idx;  // Index into dex method index table.
+    CodeOffset native_pc_offset;
+    uint32_t dex_pc = kNoValue;
+    uint32_t register_mask_index = kNoValue;
+    uint32_t stack_mask_index = kNoValue;
+    uint32_t inline_info_index = kNoValue;
+    uint32_t dex_register_mask_index = kNoValue;
+    uint32_t dex_register_map_index = kNoValue;
   };
 
+  // The fields must be uint32_t and exactly match the definitions in stack_map.h!
   struct InlineInfoEntry {
-    uint32_t dex_pc;  // dex::kDexNoIndex for intrinsified native methods.
-    ArtMethod* method;
-    uint32_t method_index;
-    DexRegisterMapEntry dex_register_entry;
-    size_t dex_register_map_index;
-    uint32_t dex_method_index_idx;  // Index into the dex method index table.
+    uint32_t is_last = kNoValue;
+    uint32_t dex_pc = kNoValue;
+    uint32_t method_index_idx = kNoValue;
+    uint32_t art_method_hi = kNoValue;
+    uint32_t art_method_lo = kNoValue;
+    uint32_t dex_register_mask_index = kNoValue;
+    uint32_t dex_register_map_index = kNoValue;
+  };
+
+  // The fields must be uint32_t and exactly match the definitions in stack_map.h!
+  struct InvokeInfoEntry {
+    CodeOffset native_pc_offset;
+    uint32_t invoke_type;
+    uint32_t method_index_idx;
+  };
+
+  // The fields must be uint32_t and exactly match the definitions in stack_map.h!
+  struct DexRegisterEntry {
+    uint32_t kind;
+    uint32_t packed_value;
   };
 
   void BeginStackMapEntry(uint32_t dex_pc,
@@ -151,12 +120,12 @@ class StackMapStream : public ValueObject {
     return stack_maps_.size();
   }
 
-  const StackMapEntry& GetStackMap(size_t i) const {
-    return stack_maps_[i];
+  uint32_t GetStackMapNativePcOffset(size_t i) {
+    return stack_maps_[i]->native_pc_offset.Uint32Value(instruction_set_);
   }
 
   void SetStackMapNativePcOffset(size_t i, uint32_t native_pc_offset) {
-    stack_maps_[i].native_pc_code_offset =
+    stack_maps_[i]->native_pc_offset =
         CodeOffset::FromOffset(native_pc_offset, instruction_set_);
   }
 
@@ -169,68 +138,42 @@ class StackMapStream : public ValueObject {
   size_t ComputeMethodInfoSize() const;
 
  private:
-  size_t ComputeDexRegisterLocationCatalogSize() const;
+  void CreateDexRegisterMap();
 
-  // Returns the number of unique stack masks.
-  size_t PrepareStackMasks(size_t entry_size_in_bits);
-
-  // Returns the number of unique register masks.
-  size_t PrepareRegisterMasks();
-
-  // Prepare and deduplicate method indices.
-  void PrepareMethodIndices();
-
-  // Deduplicate entry if possible and return the corresponding index into dex_register_entries_
-  // array. If entry is not a duplicate, a new entry is added to dex_register_entries_.
-  size_t AddDexRegisterMapEntry(const DexRegisterMapEntry& entry);
-
-  // Return true if the two dex register map entries are equal.
-  bool DexRegisterMapEntryEquals(const DexRegisterMapEntry& a, const DexRegisterMapEntry& b) const;
-
-  // Fill in the corresponding entries of a register map.
-  void FillInDexRegisterMap(DexRegisterMap dex_register_map,
-                            uint32_t num_dex_registers,
-                            const BitVector& live_dex_registers_mask,
-                            uint32_t start_index_in_dex_register_locations) const;
-
-  void CheckDexRegisterMap(const CodeInfo& code_info,
-                           const DexRegisterMap& dex_register_map,
-                           size_t num_dex_registers,
-                           BitVector* live_dex_registers_mask,
-                           size_t dex_register_locations_index) const;
+  void CheckDexRegisterMap(const DexRegisterMap& dex_register_map,
+                           size_t dex_register_mask_index,
+                           size_t dex_register_map_index) const;
   void CheckCodeInfo(MemoryRegion region) const;
 
-  ScopedArenaAllocator* const allocator_;
   const InstructionSet instruction_set_;
-  ScopedArenaVector<StackMapEntry> stack_maps_;
-
-  // A catalog of unique [location_kind, register_value] pairs (per method).
-  ScopedArenaVector<DexRegisterLocation> location_catalog_entries_;
-  // Map from Dex register location catalog entries to their indices in the
-  // location catalog.
-  using LocationCatalogEntriesIndices = ScopedArenaHashMap<DexRegisterLocation,
-                                                           size_t,
-                                                           LocationCatalogEntriesIndicesEmptyFn,
-                                                           DexRegisterLocationHashFn>;
-  LocationCatalogEntriesIndices location_catalog_entries_indices_;
-
-  // A set of concatenated maps of Dex register locations indices to `location_catalog_entries_`.
-  ScopedArenaVector<size_t> dex_register_locations_;
-  ScopedArenaVector<InlineInfoEntry> inline_infos_;
-  ScopedArenaVector<uint8_t> stack_masks_;
-  ScopedArenaVector<uint32_t> register_masks_;
-  ScopedArenaVector<uint32_t> method_indices_;
-  ScopedArenaVector<DexRegisterMapEntry> dex_register_entries_;
-  int stack_mask_max_;
-
+  BitTableBuilder<StackMapEntry> stack_maps_;
+  BitmapTableBuilder register_masks_;
+  BitmapTableBuilder stack_masks_;
+  BitTableBuilder<InvokeInfoEntry> invoke_infos_;
+  BitTableBuilder<InlineInfoEntry> inline_infos_;
+  BitmapTableBuilder dex_register_masks_;
+  BitTableBuilder<uint32_t> dex_register_maps_;
+  BitTableBuilder<DexRegisterEntry> dex_register_catalog_;
   ScopedArenaVector<uint8_t> out_;
 
-  ScopedArenaSafeMap<uint32_t, ScopedArenaVector<uint32_t>> dex_map_hash_to_stack_map_indices_;
+  BitTableBuilder<uint32_t> method_indices_;
 
-  StackMapEntry current_entry_;
-  InlineInfoEntry current_inline_info_;
-  uint32_t current_dex_register_;
-  bool in_inline_frame_;
+  // Variables which track the current state between Begin/End calls;
+  std::atomic_bool in_stack_map_;
+  std::atomic_bool in_inline_info_;
+  StackMapEntry current_stack_map_;
+  ScopedArenaVector<InlineInfoEntry> current_inline_infos_;
+  ScopedArenaVector<DexRegisterLocation> current_dex_registers_;
+  size_t expected_num_dex_registers_;
+
+  // Temporary variables used in AddDexRegisterMap.
+  // They are moved here so that we can reused the reserved memory.
+  ArenaBitVector temp_dex_register_mask_;
+  ScopedArenaVector<uint32_t> temp_dex_register_map_;
+
+  // Records num_dex_registers for every StackMapEntry and InlineInfoEntry.
+  // Only used in debug builds to verify the dex registers at the end.
+  std::vector<uint32_t> dcheck_num_dex_registers_;
 
   DISALLOW_COPY_AND_ASSIGN(StackMapStream);
 };
