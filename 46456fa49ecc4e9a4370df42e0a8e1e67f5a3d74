@@ -543,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "09d43c96_859cfb26",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T10:26:45Z",
+      "side": 1,
+      "message": "Some things are surely better encoded with bias 0.",
+      "parentUuid": "80c01dba_163c6e92",
+      "range": {
+        "startLine": 88,
+        "startChar": 28,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06287b40_c815e1fb",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
