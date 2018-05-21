@@ -652,7 +652,7 @@
     },
     {
         "tests": "712-varhandle-invocations",
-        "variant": "speed-profile & debug & gcstress & target",
+        "variant": "gcstress & target",
         "bug": "b/73275005",
         "description": ["Time out"]
     },
