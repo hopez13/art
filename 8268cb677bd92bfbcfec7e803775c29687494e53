@@ -22,6 +22,30 @@
       "revId": "8268cb677bd92bfbcfec7e803775c29687494e53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c318ac_aaaaeb86",
+        "filename": "libartbase/base/memory_tool.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-21T16:57:06Z",
+      "side": 1,
+      "message": "I\u0027ve started to use this in other places in ART. I believe increasing/decreasing indentation of a non-trivial block of preprocessor directives (following the nesting of #if/#ifdef/#ifndef statements) makes it easier to follow the logic. In the present case, I had started to annotate some statements to help me see the nesting, until I decide to indent – which is what we naturally do with non-preprocessor code.\n\nI\u0027ve used the convention of a single-space indentation per level, which I have seen in some other C/C++ projects. Last time I checked, this style was considered acceptable under our C++ guidelines. (I do agree this style would be a bit overkill for trivial preprocessor pieces of code and would not recommend it in those cases.)",
+      "parentUuid": "8dfe0eca_d36c791d",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "8268cb677bd92bfbcfec7e803775c29687494e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
