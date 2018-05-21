@@ -34,6 +34,24 @@
       "revId": "873263ac32e4eddf410f246605b785989e2bb992",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "201430c3_d836dcbe",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T14:24:15Z",
+      "side": 1,
+      "message": "If the next CL removes this, then it\u0027s fine.",
+      "parentUuid": "43e90af4_b35c0bcf",
+      "revId": "873263ac32e4eddf410f246605b785989e2bb992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

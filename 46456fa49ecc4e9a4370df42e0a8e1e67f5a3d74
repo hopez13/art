@@ -591,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "9b90df9f_552567f0",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T14:24:15Z",
+      "side": 1,
+      "message": "You already have the GetWhatever() helper functions in every \"accessor\".",
+      "parentUuid": "7c0e5cdd_e20f3f2f",
+      "range": {
+        "startLine": 88,
+        "startChar": 28,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06287b40_c815e1fb",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
