@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e139017a_20f80394",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T09:05:40Z",
+      "side": 1,
+      "message": "Depending whether we take the branch below, it serves one _or_ the other purpose.",
+      "parentUuid": "a5a39a0f_cd2cd1fd",
+      "range": {
+        "startLine": 691,
+        "startChar": 40,
+        "endLine": 691,
+        "endChar": 42
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fef95e1_76a92e25",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "6af982b8_71fc36ca",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T09:05:40Z",
+      "side": 1,
+      "message": "As Roland wrote, CBZ/CBNZ does not allow backward branches on ARM. I\u0027ve removed identical indirection on ARM64.",
+      "parentUuid": "664e62c2_d880ab16",
+      "range": {
+        "startLine": 715,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 45
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11945c7e_dfd3381e",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 6
@@ -92,6 +140,30 @@
       "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef1baf3_8f2105f6",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T09:05:40Z",
+      "side": 1,
+      "message": "I\u0027ll submit the CL as is. We shall rewrite this later if needed.",
+      "parentUuid": "11945c7e_dfd3381e",
+      "range": {
+        "startLine": 756,
+        "startChar": 4,
+        "endLine": 756,
+        "endChar": 83
+      },
+      "revId": "d7798a5ed59315deb313d01c72d654b65a9c90ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
