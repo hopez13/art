@@ -615,6 +615,30 @@
     },
     {
       "key": {
+        "uuid": "143c58de_8efc50f4",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-21T16:04:20Z",
+      "side": 1,
+      "message": "Yeah, I could get a explicit bias argument to all the Get methods.\n\nAnd then equivalent explicit unbias in the stack_map_stream when building the data.\n\nOr introduce extra pluming to ensure both can refer to the same one source of truth.\n\nEither way, it extra code complexity / inconsistency rick for little or no gain.\n\nIf a need arises in the future, I will give it a thought.  For now, there is no reason/need.",
+      "parentUuid": "9b90df9f_552567f0",
+      "range": {
+        "startLine": 88,
+        "startChar": 28,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "46456fa49ecc4e9a4370df42e0a8e1e67f5a3d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "06287b40_c815e1fb",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
