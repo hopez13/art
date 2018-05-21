@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b458347b_16ecacb7",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T09:26:44Z",
+      "side": 1,
+      "message": "Store in local variable.\n\n  for (size_t i \u003d 0, num_operands \u003d operands-\u003eGetNumberOfOperands(); i !\u003d num_operands; ++i) {\n    ...\n  }",
+      "range": {
+        "startLine": 1673,
+        "startChar": 25,
+        "endLine": 1673,
+        "endChar": 56
+      },
+      "revId": "d0548172d1298a64146d7e4a7d7efea40e73f99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a4a3113_151e9e70",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-21T09:26:44Z",
+      "side": 1,
+      "message": "Take operands by reference.",
+      "range": {
+        "startLine": 172,
+        "startChar": 44,
+        "endLine": 172,
+        "endChar": 45
+      },
+      "revId": "d0548172d1298a64146d7e4a7d7efea40e73f99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
