@@ -22,6 +22,30 @@
       "revId": "d983d7fe167448f4437ba098987e346d65c4c7ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467758ac_68ecf72e",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-21T13:34:10Z",
+      "side": 1,
+      "message": "Or:\nfor (StackMap s \u003d code_info.GetStackMapAt(0); s.IsValid(); ++s)",
+      "parentUuid": "64528c14_651a8ce5",
+      "range": {
+        "startLine": 104,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 58
+      },
+      "revId": "d983d7fe167448f4437ba098987e346d65c4c7ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
