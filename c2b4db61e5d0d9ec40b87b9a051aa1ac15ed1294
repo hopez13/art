@@ -22,6 +22,30 @@
       "revId": "c2b4db61e5d0d9ec40b87b9a051aa1ac15ed1294",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1442f5fc_f508df0b",
+        "filename": "libdexfile/dex/class_accessor-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-22T16:49:22Z",
+      "side": 1,
+      "message": "Usually happens from the other constructor, having the null check here removes the need to have it in most callers.",
+      "parentUuid": "6a8c99fa_3e0bf262",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "c2b4db61e5d0d9ec40b87b9a051aa1ac15ed1294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
