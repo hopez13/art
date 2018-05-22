@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b57ca2c6_5c8c9d1c",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T16:30:39Z",
+      "side": 1,
+      "message": "Do you need to pass it? Looks like you could just use the instance field?",
+      "range": {
+        "startLine": 527,
+        "startChar": 54,
+        "endLine": 527,
+        "endChar": 81
+      },
+      "revId": "e4929639bdd7455f8e872ce262a0395d4e391c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11367cd1_414cc73f",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T16:30:39Z",
+      "side": 1,
+      "message": "Please add a high level comment for this loop.",
+      "revId": "e4929639bdd7455f8e872ce262a0395d4e391c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9a5b38_dc6124f1",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T16:30:39Z",
+      "side": 1,
+      "message": "Do you want to address this in this CL?",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 82
+      },
+      "revId": "e4929639bdd7455f8e872ce262a0395d4e391c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "296dc170_b9c619bf",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T16:30:39Z",
+      "side": 1,
+      "message": "edges",
+      "range": {
+        "startLine": 618,
+        "startChar": 12,
+        "endLine": 618,
+        "endChar": 16
+      },
+      "revId": "e4929639bdd7455f8e872ce262a0395d4e391c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a5bfc43_e0dd1054",
+        "filename": "test/530-checker-peel-unroll/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T16:30:39Z",
+      "side": 1,
+      "message": "Could you add some checker lines around environment updates?",
+      "revId": "e4929639bdd7455f8e872ce262a0395d4e391c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
