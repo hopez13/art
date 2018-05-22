@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d821beba_ac21ac63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T13:56:35Z",
+      "side": 1,
+      "message": "I\u0027ll stick with the original.",
+      "parentUuid": "c1e45706_df99fad5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "51bbc61e0e6a1efc8698a4a2dbaab9380212b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a5fe2fd_3db7ee80",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "51bbc61e0e6a1efc8698a4a2dbaab9380212b13f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abb20eca_e75309a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T13:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a5fe2fd_3db7ee80",
+      "revId": "51bbc61e0e6a1efc8698a4a2dbaab9380212b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
