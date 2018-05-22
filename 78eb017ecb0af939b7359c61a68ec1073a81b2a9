@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "165cd5b9_848ecb3e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T14:20:02Z",
+      "side": 1,
+      "message": "You\u0027re not clearing the method_code_map_ ?",
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c81d71db_1f3480ca",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T14:20:02Z",
+      "side": 1,
+      "message": "Why are you not looking at profiling_infos_ ?",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 63
+      },
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f38301a_f173a51e",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-22T14:20:02Z",
+      "side": 1,
+      "message": "This is probably what\u0027s breaking. It needs to be cleared for other cases I think, like deopt.",
+      "range": {
+        "startLine": 148,
+        "startChar": 48,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
