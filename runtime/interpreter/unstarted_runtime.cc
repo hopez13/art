@@ -131,7 +131,7 @@ static void UnstartedRuntimeFindClass(Thread* self, Handle<mirror::String> class
   std::string descriptor(DotToDescriptor(className->ToModifiedUtf8().c_str()));
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
 
-  mirror::Class* found = class_linker->FindClass(self, descriptor.c_str(), class_loader);
+  ObjPtr<mirror::Class> found = class_linker->FindClass(self, descriptor.c_str(), class_loader);
   if (found == nullptr && abort_if_not_found) {
     if (!self->IsExceptionPending()) {
       AbortTransactionOrFail(self, "%s failed in un-started runtime for class: %s",
@@ -142,7 +142,7 @@ static void UnstartedRuntimeFindClass(Thread* self, Handle<mirror::String> class
   }
   if (found != nullptr && initialize_class) {
     StackHandleScope<1> hs(self);
-    Handle<mirror::Class> h_class(hs.NewHandle(found));
+    HandleWrapperObjPtr<mirror::Class> h_class = hs.NewHandleWrapper(&found);
     if (!class_linker->EnsureInitialized(self, h_class, true, true)) {
       CHECK(self->IsExceptionPending());
       return;
@@ -269,7 +269,7 @@ void UnstartedRuntime::UnstartedClassNewInstance(
     AbortTransactionOrFail(self, "Null-pointer in Class.newInstance.");
     return;
   }
-  mirror::Class* klass = param->AsClass();
+  ObjPtr<mirror::Class> klass = param->AsClass();
   Handle<mirror::Class> h_klass(hs.NewHandle(klass));
 
   // Check that it's not null.
@@ -299,7 +299,7 @@ void UnstartedRuntime::UnstartedClassNewInstance(
       cons = nullptr;
     }
     if (cons != nullptr) {
-      Handle<mirror::Object> h_obj(hs.NewHandle(klass->AllocObject(self)));
+      Handle<mirror::Object> h_obj(hs.NewHandle(h_klass->AllocObject(self)));
       CHECK(h_obj != nullptr);  // We don't expect OOM at compile-time.
       EnterInterpreterFromInvoke(self, cons, h_obj.Get(), nullptr, nullptr);
       if (!self->IsExceptionPending()) {
@@ -323,8 +323,8 @@ void UnstartedRuntime::UnstartedClassGetDeclaredField(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
   // Special managed code cut-out to allow field lookup in a un-started runtime that'd fail
   // going the reflective Dex way.
-  mirror::Class* klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
-  mirror::String* name2 = shadow_frame->GetVRegReference(arg_offset + 1)->AsString();
+  ObjPtr<mirror::Class> klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
+  ObjPtr<mirror::String> name2 = shadow_frame->GetVRegReference(arg_offset + 1)->AsString();
   ArtField* found = nullptr;
   for (ArtField& field : klass->GetIFields()) {
     if (name2->Equals(field.GetName())) {
@@ -376,13 +376,13 @@ void UnstartedRuntime::UnstartedClassGetDeclaredField(
 void UnstartedRuntime::UnstartedClassGetDeclaredMethod(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
   // Special managed code cut-out to allow method lookup in a un-started runtime.
-  mirror::Class* klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
+  ObjPtr<mirror::Class> klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
   if (klass == nullptr) {
     ThrowNullPointerExceptionForMethodAccess(shadow_frame->GetMethod(), InvokeType::kVirtual);
     return;
   }
-  mirror::String* name = shadow_frame->GetVRegReference(arg_offset + 1)->AsString();
-  mirror::ObjectArray<mirror::Class>* args =
+  ObjPtr<mirror::String> name = shadow_frame->GetVRegReference(arg_offset + 1)->AsString();
+  ObjPtr<mirror::ObjectArray<mirror::Class>> args =
       shadow_frame->GetVRegReference(arg_offset + 2)->AsObjectArray<mirror::Class>();
   Runtime* runtime = Runtime::Current();
   bool transaction = runtime->IsActiveTransaction();
@@ -414,7 +414,7 @@ void UnstartedRuntime::UnstartedClassGetDeclaredMethod(
 // Special managed code cut-out to allow constructor lookup in a un-started runtime.
 void UnstartedRuntime::UnstartedClassGetDeclaredConstructor(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
-  mirror::Class* klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
+  ObjPtr<mirror::Class> klass = shadow_frame->GetVRegReference(arg_offset)->AsClass();
   if (klass == nullptr) {
     ThrowNullPointerExceptionForMethodAccess(shadow_frame->GetMethod(), InvokeType::kVirtual);
     return;
@@ -830,12 +830,12 @@ void UnstartedRuntime::UnstartedSystemArraycopy(
   }
 
   // Type checking.
-  mirror::Class* src_type = shadow_frame->GetVRegReference(arg_offset)->GetClass()->
+  ObjPtr<mirror::Class> src_type = shadow_frame->GetVRegReference(arg_offset)->GetClass()->
       GetComponentType();
 
   if (!src_type->IsPrimitive()) {
     // Check that the second type is not primitive.
-    mirror::Class* trg_type = shadow_frame->GetVRegReference(arg_offset + 2)->GetClass()->
+    ObjPtr<mirror::Class> trg_type = shadow_frame->GetVRegReference(arg_offset + 2)->GetClass()->
         GetComponentType();
     if (trg_type->IsPrimitiveInt()) {
       AbortTransactionOrFail(self, "Type mismatch in arraycopy: %s vs %s",
@@ -1894,7 +1894,7 @@ void UnstartedRuntime::UnstartedJNIUnsafePutObject(
 void UnstartedRuntime::UnstartedJNIUnsafeGetArrayBaseOffsetForComponentType(
     Thread* self ATTRIBUTE_UNUSED, ArtMethod* method ATTRIBUTE_UNUSED,
     mirror::Object* receiver ATTRIBUTE_UNUSED, uint32_t* args, JValue* result) {
-  mirror::Class* component = reinterpret_cast<mirror::Object*>(args[0])->AsClass();
+  ObjPtr<mirror::Class> component = reinterpret_cast<mirror::Object*>(args[0])->AsClass();
   Primitive::Type primitive_type = component->GetPrimitiveType();
   result->SetI(mirror::Array::DataOffset(Primitive::ComponentSize(primitive_type)).Int32Value());
 }
@@ -1902,7 +1902,7 @@ void UnstartedRuntime::UnstartedJNIUnsafeGetArrayBaseOffsetForComponentType(
 void UnstartedRuntime::UnstartedJNIUnsafeGetArrayIndexScaleForComponentType(
     Thread* self ATTRIBUTE_UNUSED, ArtMethod* method ATTRIBUTE_UNUSED,
     mirror::Object* receiver ATTRIBUTE_UNUSED, uint32_t* args, JValue* result) {
-  mirror::Class* component = reinterpret_cast<mirror::Object*>(args[0])->AsClass();
+  ObjPtr<mirror::Class> component = reinterpret_cast<mirror::Object*>(args[0])->AsClass();
   Primitive::Type primitive_type = component->GetPrimitiveType();
   result->SetI(Primitive::ComponentSize(primitive_type));
 }
