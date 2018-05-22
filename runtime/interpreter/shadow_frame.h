@@ -25,6 +25,7 @@
 #include "base/mutex.h"
 #include "dex/dex_file.h"
 #include "lock_count_data.h"
+#include "obj_ptr-inl.h"
 #include "read_barrier.h"
 #include "stack_reference.h"
 #include "verify_object.h"
@@ -245,12 +246,13 @@ class ShadowFrame {
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  void SetVRegReference(size_t i, mirror::Object* val) REQUIRES_SHARED(Locks::mutator_lock_) {
+  void SetVRegReference(size_t i, ObjPtr<mirror::Object> val)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK_LT(i, NumberOfVRegs());
     if (kVerifyFlags & kVerifyWrites) {
       VerifyObject(val);
     }
-    ReadBarrier::MaybeAssertToSpaceInvariant(val);
+    ReadBarrier::MaybeAssertToSpaceInvariant(val.Ptr());
     uint32_t* vreg = &vregs_[i];
     reinterpret_cast<StackReference<mirror::Object>*>(vreg)->Assign(val);
     if (HasReferenceArray()) {
