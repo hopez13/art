@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd26552_64e9175c",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T14:31:19Z",
+      "side": 1,
+      "message": "#include \"base/casts.h\"",
+      "range": {
+        "startLine": 108,
+        "startChar": 32,
+        "endLine": 108,
+        "endChar": 54
+      },
+      "revId": "13d6f83da0deff352bd5d26e541881758dffbc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee4ca492_3a0e16de",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T14:31:19Z",
+      "side": 1,
+      "message": "Use a member variable. (We should mark dchecked_vector\u003c\u003e as final.)",
+      "range": {
+        "startLine": 159,
+        "startChar": 22,
+        "endLine": 159,
+        "endChar": 52
+      },
+      "revId": "13d6f83da0deff352bd5d26e541881758dffbc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "940833aa_39ed9350",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T14:31:19Z",
+      "side": 1,
+      "message": "Top-level const is useless for function parameters.",
+      "range": {
+        "startLine": 161,
+        "startChar": 49,
+        "endLine": 161,
+        "endChar": 54
+      },
+      "revId": "13d6f83da0deff352bd5d26e541881758dffbc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7002197_70dd0385",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-22T14:31:19Z",
+      "side": 1,
+      "message": "Indirection to save memory?",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 26
+      },
+      "revId": "13d6f83da0deff352bd5d26e541881758dffbc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
