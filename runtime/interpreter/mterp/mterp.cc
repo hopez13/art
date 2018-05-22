@@ -24,6 +24,7 @@
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "interpreter/interpreter_common.h"
 #include "interpreter/interpreter_intrinsics.h"
+#include "interpreter/shadow_frame-inl.h"
 
 namespace art {
 namespace interpreter {
