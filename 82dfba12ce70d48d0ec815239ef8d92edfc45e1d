@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "d3780f4d_7d79fe58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-23T15:58:35Z",
+      "side": 1,
+      "message": "Personally I do not like this. I prefer reproducible (and possibly executable) stanzas. So a \"m test-art-host\" would be a lot more illuminating (and basically what TH does).",
+      "parentUuid": "580f36c1_48e3edd3",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "327f6a05_98d67f89",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 2
