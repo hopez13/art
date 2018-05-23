@@ -22,6 +22,30 @@
       "revId": "71d19648b9385dc96c5ad949c19e02b78d402115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ee9e1c_dc90cdd5",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-23T16:02:25Z",
+      "side": 1,
+      "message": "Oh right; this would indeed be more consistent. Changed in PS2/PS3.",
+      "parentUuid": "b02bda58_04e82c05",
+      "range": {
+        "startLine": 494,
+        "startChar": 40,
+        "endLine": 494,
+        "endChar": 60
+      },
+      "revId": "71d19648b9385dc96c5ad949c19e02b78d402115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
