@@ -16,7 +16,13 @@
 
 #include "bit_table.h"
 
+#include <map>
+
 #include "gtest/gtest.h"
+
+#include "base/arena_allocator.h"
+#include "base/bit_utils.h"
+#include "base/malloc_arena_pool.h"
 
 namespace art {
 
@@ -38,9 +44,13 @@ TEST(BitTableTest, TestVarint) {
 }
 
 TEST(BitTableTest, TestEmptyTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
   std::vector<uint8_t> buffer;
   size_t encode_bit_offset = 0;
-  BitTableBuilder<1> builder;
+  BitTableBuilder<uint32_t> builder(&allocator);
   builder.Encode(&buffer, &encode_bit_offset);
 
   size_t decode_bit_offset = 0;
@@ -50,14 +60,18 @@ TEST(BitTableTest, TestEmptyTable) {
 }
 
 TEST(BitTableTest, TestSingleColumnTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
   constexpr uint32_t kNoValue = -1;
   std::vector<uint8_t> buffer;
   size_t encode_bit_offset = 0;
-  BitTableBuilder<1> builder;
-  builder.AddRow(42u);
-  builder.AddRow(kNoValue);
-  builder.AddRow(1000u);
-  builder.AddRow(kNoValue);
+  BitTableBuilder<uint32_t> builder(&allocator);
+  builder.Add(42u);
+  builder.Add(kNoValue);
+  builder.Add(1000u);
+  builder.Add(kNoValue);
   builder.Encode(&buffer, &encode_bit_offset);
 
   size_t decode_bit_offset = 0;
@@ -72,11 +86,15 @@ TEST(BitTableTest, TestSingleColumnTable) {
 }
 
 TEST(BitTableTest, TestUnalignedTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
   for (size_t start_bit_offset = 0; start_bit_offset <= 32; start_bit_offset++) {
     std::vector<uint8_t> buffer;
     size_t encode_bit_offset = start_bit_offset;
-    BitTableBuilder<1> builder;
-    builder.AddRow(42u);
+    BitTableBuilder<uint32_t> builder(&allocator);
+    builder.Add(42u);
     builder.Encode(&buffer, &encode_bit_offset);
 
     size_t decode_bit_offset = start_bit_offset;
@@ -88,12 +106,22 @@ TEST(BitTableTest, TestUnalignedTable) {
 }
 
 TEST(BitTableTest, TestBigTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
   constexpr uint32_t kNoValue = -1;
   std::vector<uint8_t> buffer;
   size_t encode_bit_offset = 0;
-  BitTableBuilder<4> builder;
-  builder.AddRow(42u, kNoValue, 0u, static_cast<uint32_t>(-2));
-  builder.AddRow(62u, kNoValue, 63u, static_cast<uint32_t>(-3));
+  struct RowData {
+    uint32_t a;
+    uint32_t b;
+    uint32_t c;
+    uint32_t d;
+  };
+  BitTableBuilder<RowData> builder(&allocator);
+  builder.Add(RowData{42u, kNoValue, 0u, static_cast<uint32_t>(-2)});
+  builder.Add(RowData{62u, kNoValue, 63u, static_cast<uint32_t>(-3)});
   builder.Encode(&buffer, &encode_bit_offset);
 
   size_t decode_bit_offset = 0;
@@ -112,6 +140,55 @@ TEST(BitTableTest, TestBigTable) {
   EXPECT_EQ(0u, table.NumColumnBits(1));
   EXPECT_EQ(7u, table.NumColumnBits(2));
   EXPECT_EQ(32u, table.NumColumnBits(3));
+}
+
+TEST(BitTableTest, TestDedup) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
+  struct RowData {
+    int a;
+    int b;
+  };
+  BitTableBuilder<RowData> builder(&allocator);
+  RowData value0{1, 2};
+  RowData value1{3, 4};
+  EXPECT_EQ(0u, builder.Dedup(&value0));
+  EXPECT_EQ(1u, builder.Dedup(&value1));
+  EXPECT_EQ(0u, builder.Dedup(&value0));
+  EXPECT_EQ(1u, builder.Dedup(&value1));
+  EXPECT_EQ(2u, builder.size());
+}
+
+TEST(BitTableTest, TestBitmapTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
+  std::vector<uint8_t> buffer;
+  size_t encode_bit_offset = 0;
+  const uint64_t value = 0xDEADBEEF0BADF00Dull;
+  BitmapTableBuilder builder(&allocator);
+  std::multimap<uint64_t, size_t> indicies;  // bitmap -> row.
+  for (size_t bit_length = 0; bit_length < BitSizeOf<uint64_t>(); ++bit_length) {
+    uint64_t bitmap = value & MaxInt<uint64_t>(bit_length);
+    indicies.emplace(bitmap, builder.Dedup(&bitmap, bit_length));
+  }
+  builder.Encode(&buffer, &encode_bit_offset);
+  DCHECK_EQ(42u, builder.size());  // Some of the subsets are duplicates.
+
+  size_t decode_bit_offset = 0;
+  BitTable<1> table(buffer.data(), buffer.size(), &decode_bit_offset);
+  EXPECT_EQ(encode_bit_offset, decode_bit_offset);
+  for (auto it : indicies) {
+    uint64_t expected = it.first;
+    BitMemoryRegion actual = table.GetBitMemoryRegion(it.second);
+    EXPECT_GE(actual.size_in_bits(), MinimumBitsToStore(expected));
+    for (size_t b = 0; b < actual.size_in_bits(); b++, expected >>= 1) {
+      EXPECT_EQ(expected & 1, actual.LoadBit(b)) << "b=" << b;
+    }
+  }
 }
 
 }  // namespace art

@@ -48,10 +48,6 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
         ArenaBitVector::Create(allocator_, num_dex_registers, true, kArenaAllocStackMapStream);
     current_entry_.dex_register_entry.live_dex_registers_mask->ClearAllBits();
   }
-  if (sp_mask != nullptr) {
-    stack_mask_max_ = std::max(stack_mask_max_, sp_mask->GetHighestBitSet());
-  }
-
   current_dex_register_ = 0;
 }
 
@@ -199,9 +195,6 @@ static MemoryRegion EncodeMemoryRegion(Vector* out, size_t* bit_offset, uint32_t
   return region;
 }
 
-template<uint32_t NumColumns>
-using ScopedBitTableBuilder = BitTableBuilder<NumColumns, ScopedArenaAllocatorAdapter<uint32_t>>;
-
 size_t StackMapStream::PrepareForFillIn() {
   size_t bit_offset = 0;
   out_.clear();
@@ -220,11 +213,32 @@ size_t StackMapStream::PrepareForFillIn() {
   PrepareMethodIndices();
 
   // Dedup stack masks. Needs to be done first as it modifies the stack map entry.
-  size_t stack_mask_bits = stack_mask_max_ + 1;  // Need room for max element too.
-  size_t num_stack_masks = PrepareStackMasks(stack_mask_bits);
+  BitmapTableBuilder stack_mask_builder(allocator_);
+  for (StackMapEntry& stack_map : stack_maps_) {
+    BitVector* mask = stack_map.sp_mask;
+    size_t num_bits = (mask != nullptr) ? mask->GetNumberOfBits() : 0;
+    if (num_bits != 0) {
+      stack_map.stack_mask_index = stack_mask_builder.Dedup(mask->GetRawStorage(), num_bits);
+    } else {
+      stack_map.stack_mask_index = StackMap::kNoValue;
+    }
+  }
 
   // Dedup register masks. Needs to be done first as it modifies the stack map entry.
-  size_t num_register_masks = PrepareRegisterMasks();
+  BitTableBuilder<std::array<uint32_t, RegisterMask::kCount>> register_mask_builder(allocator_);
+  for (StackMapEntry& stack_map : stack_maps_) {
+    uint32_t register_mask = stack_map.register_mask;
+    if (register_mask != 0) {
+      uint32_t shift = LeastSignificantBit(register_mask);
+      std::array<uint32_t, RegisterMask::kCount> entry = {
+        register_mask >> shift,
+        shift,
+      };
+      stack_map.register_mask_index = register_mask_builder.Dedup(&entry);
+    } else {
+      stack_map.register_mask_index = StackMap::kNoValue;
+    }
+  }
 
   // Write dex register maps.
   MemoryRegion dex_register_map_region =
@@ -258,20 +272,21 @@ size_t StackMapStream::PrepareForFillIn() {
   DCHECK_EQ(location_catalog_offset, dex_register_location_catalog_region.size());
 
   // Write stack maps.
-  ScopedArenaAllocatorAdapter<void> adapter = allocator_->Adapter(kArenaAllocStackMapStream);
-  ScopedBitTableBuilder<StackMap::Field::kCount> stack_map_builder((adapter));
-  ScopedBitTableBuilder<InvokeInfo::Field::kCount> invoke_info_builder((adapter));
-  ScopedBitTableBuilder<InlineInfo::Field::kCount> inline_info_builder((adapter));
+  BitTableBuilder<std::array<uint32_t, StackMap::kCount>> stack_map_builder(allocator_);
+  BitTableBuilder<std::array<uint32_t, InvokeInfo::kCount>> invoke_info_builder(allocator_);
+  BitTableBuilder<std::array<uint32_t, InlineInfo::kCount>> inline_info_builder(allocator_);
   for (const StackMapEntry& entry : stack_maps_) {
     if (entry.dex_method_index != dex::kDexNoIndex) {
-      invoke_info_builder.AddRow(
+      std::array<uint32_t, InvokeInfo::kCount> invoke_info_entry {
           entry.native_pc_code_offset.CompressedValue(),
           entry.invoke_type,
-          entry.dex_method_index_idx);
+          entry.dex_method_index_idx
+      };
+      invoke_info_builder.Add(invoke_info_entry);
     }
 
     // Set the inlining info.
-    uint32_t inline_info_index = StackMap::kNoValue;
+    uint32_t inline_info_index = inline_info_builder.size();
     DCHECK_LE(entry.inline_infos_start_index + entry.inlining_depth, inline_infos_.size());
     for (size_t depth = 0; depth < entry.inlining_depth; ++depth) {
       InlineInfoEntry inline_entry = inline_infos_[depth + entry.inline_infos_start_index];
@@ -281,52 +296,30 @@ size_t StackMapStream::PrepareForFillIn() {
         method_index_idx = High32Bits(reinterpret_cast<uintptr_t>(inline_entry.method));
         extra_data = Low32Bits(reinterpret_cast<uintptr_t>(inline_entry.method));
       }
-      uint32_t index = inline_info_builder.AddRow(
+      std::array<uint32_t, InlineInfo::kCount> inline_info_entry {
           (depth == entry.inlining_depth - 1) ? InlineInfo::kLast : InlineInfo::kMore,
           method_index_idx,
           inline_entry.dex_pc,
           extra_data,
-          dex_register_entries_[inline_entry.dex_register_map_index].offset);
-      if (depth == 0) {
-        inline_info_index = index;
-      }
+          dex_register_entries_[inline_entry.dex_register_map_index].offset,
+      };
+      inline_info_builder.Add(inline_info_entry);
     }
-    stack_map_builder.AddRow(
+    std::array<uint32_t, StackMap::kCount> stack_map_entry {
         entry.native_pc_code_offset.CompressedValue(),
         entry.dex_pc,
         dex_register_entries_[entry.dex_register_map_index].offset,
-        inline_info_index,
+        entry.inlining_depth != 0 ? inline_info_index : InlineInfo::kNoValue,
         entry.register_mask_index,
-        entry.stack_mask_index);
+        entry.stack_mask_index,
+    };
+    stack_map_builder.Add(stack_map_entry);
   }
   stack_map_builder.Encode(&out_, &bit_offset);
   invoke_info_builder.Encode(&out_, &bit_offset);
   inline_info_builder.Encode(&out_, &bit_offset);
-
-  // Write register masks table.
-  ScopedBitTableBuilder<1> register_mask_builder((adapter));
-  for (size_t i = 0; i < num_register_masks; ++i) {
-    register_mask_builder.AddRow(register_masks_[i]);
-  }
   register_mask_builder.Encode(&out_, &bit_offset);
-
-  // Write stack masks table.
-  EncodeVarintBits(&out_, &bit_offset, stack_mask_bits);
-  out_.resize(BitsToBytesRoundUp(bit_offset + stack_mask_bits * num_stack_masks));
-  BitMemoryRegion stack_mask_region(MemoryRegion(out_.data(), out_.size()),
-                                    bit_offset,
-                                    stack_mask_bits * num_stack_masks);
-  if (stack_mask_bits > 0) {
-    for (size_t i = 0; i < num_stack_masks; ++i) {
-      size_t stack_mask_bytes = BitsToBytesRoundUp(stack_mask_bits);
-      BitMemoryRegion src(MemoryRegion(&stack_masks_[i * stack_mask_bytes], stack_mask_bytes));
-      BitMemoryRegion dst = stack_mask_region.Subregion(i * stack_mask_bits, stack_mask_bits);
-      for (size_t bit_index = 0; bit_index < stack_mask_bits; bit_index += BitSizeOf<uint32_t>()) {
-        size_t num_bits = std::min<size_t>(stack_mask_bits - bit_index, BitSizeOf<uint32_t>());
-        dst.StoreBits(bit_index, src.LoadBits(bit_index, num_bits), num_bits);
-      }
-    }
-  }
+  stack_mask_builder.Encode(&out_, &bit_offset);
 
   return UnsignedLeb128Size(out_.size()) +  out_.size();
 }
@@ -449,17 +442,6 @@ void StackMapStream::CheckDexRegisterMap(const CodeInfo& code_info,
   }
 }
 
-size_t StackMapStream::PrepareRegisterMasks() {
-  register_masks_.resize(stack_maps_.size(), 0u);
-  ScopedArenaUnorderedMap<uint32_t, size_t> dedupe(allocator_->Adapter(kArenaAllocStackMapStream));
-  for (StackMapEntry& stack_map : stack_maps_) {
-    const size_t index = dedupe.size();
-    stack_map.register_mask_index = dedupe.emplace(stack_map.register_mask, index).first->second;
-    register_masks_[index] = stack_map.register_mask;
-  }
-  return dedupe.size();
-}
-
 void StackMapStream::PrepareMethodIndices() {
   CHECK(method_indices_.empty());
   method_indices_.resize(stack_maps_.size() + inline_infos_.size());
@@ -482,35 +464,10 @@ void StackMapStream::PrepareMethodIndices() {
   method_indices_.resize(dedupe.size());
 }
 
-
-size_t StackMapStream::PrepareStackMasks(size_t entry_size_in_bits) {
-  // Preallocate memory since we do not want it to move (the dedup map will point into it).
-  const size_t byte_entry_size = RoundUp(entry_size_in_bits, kBitsPerByte) / kBitsPerByte;
-  stack_masks_.resize(byte_entry_size * stack_maps_.size(), 0u);
-  // For deduplicating we store the stack masks as byte packed for simplicity. We can bit pack later
-  // when copying out from stack_masks_.
-  ScopedArenaUnorderedMap<MemoryRegion,
-                          size_t,
-                          FNVHash<MemoryRegion>,
-                          MemoryRegion::ContentEquals> dedup(
-                              stack_maps_.size(), allocator_->Adapter(kArenaAllocStackMapStream));
-  for (StackMapEntry& stack_map : stack_maps_) {
-    size_t index = dedup.size();
-    MemoryRegion stack_mask(stack_masks_.data() + index * byte_entry_size, byte_entry_size);
-    BitMemoryRegion stack_mask_bits(stack_mask);
-    for (size_t i = 0; i < entry_size_in_bits; i++) {
-      stack_mask_bits.StoreBit(i, stack_map.sp_mask != nullptr && stack_map.sp_mask->IsBitSet(i));
-    }
-    stack_map.stack_mask_index = dedup.emplace(stack_mask, index).first->second;
-  }
-  return dedup.size();
-}
-
 // Check that all StackMapStream inputs are correctly encoded by trying to read them back.
 void StackMapStream::CheckCodeInfo(MemoryRegion region) const {
   CodeInfo code_info(region);
   DCHECK_EQ(code_info.GetNumberOfStackMaps(), stack_maps_.size());
-  DCHECK_EQ(code_info.GetNumberOfStackMaskBits(), static_cast<uint32_t>(stack_mask_max_ + 1));
   DCHECK_EQ(code_info.GetNumberOfLocationCatalogEntries(), location_catalog_entries_.size());
   size_t invoke_info_index = 0;
   for (size_t s = 0; s < stack_maps_.size(); ++s) {
@@ -523,18 +480,15 @@ void StackMapStream::CheckCodeInfo(MemoryRegion region) const {
     DCHECK_EQ(stack_map.GetDexPc(), entry.dex_pc);
     DCHECK_EQ(stack_map.GetRegisterMaskIndex(), entry.register_mask_index);
     DCHECK_EQ(code_info.GetRegisterMaskOf(stack_map), entry.register_mask);
-    const size_t num_stack_mask_bits = code_info.GetNumberOfStackMaskBits();
     DCHECK_EQ(stack_map.GetStackMaskIndex(), entry.stack_mask_index);
     BitMemoryRegion stack_mask = code_info.GetStackMaskOf(stack_map);
     if (entry.sp_mask != nullptr) {
       DCHECK_GE(stack_mask.size_in_bits(), entry.sp_mask->GetNumberOfBits());
-      for (size_t b = 0; b < num_stack_mask_bits; b++) {
-        DCHECK_EQ(stack_mask.LoadBit(b), entry.sp_mask->IsBitSet(b));
+      for (size_t b = 0; b < stack_mask.size_in_bits(); b++) {
+        DCHECK_EQ(stack_mask.LoadBit(b), entry.sp_mask->IsBitSet(b)) << b;
       }
     } else {
-      for (size_t b = 0; b < num_stack_mask_bits; b++) {
-        DCHECK_EQ(stack_mask.LoadBit(b), 0u);
-      }
+      DCHECK_EQ(stack_mask.size_in_bits(), 0u);
     }
     if (entry.dex_method_index != dex::kDexNoIndex) {
       InvokeInfo invoke_info = code_info.GetInvokeInfo(invoke_info_index);
