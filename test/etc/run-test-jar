@@ -535,7 +535,6 @@ if [ "$USE_JVM" = "y" ]; then
   exit
 fi
 
-
 if [ "$HAVE_IMAGE" = "n" ]; then
     if [ "${HOST}" = "y" ]; then
         framework="${ANDROID_HOST_OUT}/framework"
