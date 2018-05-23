@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e45ef739_4cfdaa17",
+        "filename": "test/450-checker-types/smali/Main2.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-05-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb9d1aba_7958c925",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 4
+      },
+      "revId": "4240c12ff696e29889c816866e8ec62c596d40f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95f3ed36_2de8e932",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-23T10:29:47Z",
       "side": 1,
       "message": "Move this to the smali file.",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 30
+      },
+      "revId": "4240c12ff696e29889c816866e8ec62c596d40f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05f13794_3e90113f",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-05-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95f3ed36_2de8e932",
       "range": {
         "startLine": 466,
         "startChar": 0,
