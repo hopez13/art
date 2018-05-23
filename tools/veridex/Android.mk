@@ -27,9 +27,16 @@ $(oahl_stub_dex): PRIVATE_MIN_SDK_VERSION := 1000
 $(oahl_stub_dex): $(call get-prebuilt-sdk-dir,current)/org.apache.http.legacy.jar | $(ZIP2ZIP) $(DX)
 	$(transform-classes-d8.jar-to-dex)
 
-.PHONY: appcompat
-
-appcompat: $(system_stub_dex) $(oahl_stub_dex) $(HOST_OUT_EXECUTABLES)/veridex \
+app_compat_lists := \
   ${TARGET_OUT_COMMON_INTERMEDIATES}/PACKAGING/hiddenapi-light-greylist.txt \
   ${TARGET_OUT_COMMON_INTERMEDIATES}/PACKAGING/hiddenapi-dark-greylist.txt \
   ${TARGET_OUT_COMMON_INTERMEDIATES}/PACKAGING/hiddenapi-blacklist.txt
+
+.PHONY: appcompat
+appcompat: $(system_stub_dex) $(oahl_stub_dex) $(HOST_OUT_EXECUTABLES)/veridex $(app_compat_lists)
+
+$(call dist-for-goals,sdk,$(HOST_OUT_EXECUTABLES)/veridex)
+$(call dist-for-goals,sdk,$(LOCAL_PATH)/appcompat.sh)
+$(call dist-for-goals,sdk,$(oahl_stub_dex):org.apache.http.legacy-stubs.dex)
+$(call dist-for-goals,sdk,$(oahl_stub_dex):system-stubs.dex)
+$(call dist-for-goals,sdk,$(app_compat_lists))
