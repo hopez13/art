@@ -22,6 +22,30 @@
       "revId": "71833836a4941fc2c6a75579eb6b4116b744af8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f12abd9_46707b9f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-23T15:46:11Z",
+      "side": 1,
+      "message": "Done.\n\nHaving src-art allows there to be different implementations of the test on ART (src-art) and the RI (src). We have prior form of making the non-ART version simply print the expectation.",
+      "parentUuid": "3ae63233_ecd53522",
+      "range": {
+        "startLine": 740,
+        "startChar": 10,
+        "endLine": 740,
+        "endChar": 35
+      },
+      "revId": "71833836a4941fc2c6a75579eb6b4116b744af8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
