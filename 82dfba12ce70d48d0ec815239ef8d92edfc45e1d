@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "01fff259_e4dc8ced",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-23T12:28:18Z",
+      "side": 1,
+      "message": "I did not count the fixes in the test. There are 2 fixes in the unstarted runtime itself, first changing Handle\u003c\u003e to HandleWrapperObjPtr\u003c\u003e and second adding an almost invosible \"h_\" (line 302).",
+      "parentUuid": "b204b16e_5e2cbda7",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "717a9873_4d9b1240",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22b20c4a_7f24a813",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-23T12:28:18Z",
+      "side": 1,
+      "message": "I don\u0027t think \"Test:\" is intended for external folks.",
+      "parentUuid": "717a9873_4d9b1240",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "afa0fc62_a4621f77",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-23T12:28:18Z",
+      "side": 1,
+      "message": "Done; also moved code around so that the shadow_frame-inl.h is included only from .cc files and method_handles-inl.h which is in turn included only from .cc files.",
+      "parentUuid": "327f6a05_98d67f89",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 3
+      },
+      "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3048c469_9b17dce0",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
@@ -115,6 +187,30 @@
       "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90e130a_f6653da9",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-23T12:28:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3048c469_9b17dce0",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 23
+      },
+      "revId": "82dfba12ce70d48d0ec815239ef8d92edfc45e1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
