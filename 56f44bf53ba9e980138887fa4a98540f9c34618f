@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0438a99b_7a29da07",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-23T10:49:49Z",
+      "side": 1,
+      "message": "Could you change these to the same constants used in frameworks/base/Android.mk (bottom of the file)?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 75
+      },
+      "revId": "56f44bf53ba9e980138887fa4a98540f9c34618f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
