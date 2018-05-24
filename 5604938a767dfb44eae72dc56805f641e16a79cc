@@ -22,6 +22,30 @@
       "revId": "5604938a767dfb44eae72dc56805f641e16a79cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd1cc4bb_78e992dd",
+        "filename": "tools/teardown-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-24T12:39:09Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I like the idea of using functions to factor redundant parts. I\u0027m not sure about using a here doc though. I need to give it some thoughts; I think we can submit the current version and refactor later.",
+      "parentUuid": "c94ab2c6_586f4a5a",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 6
+      },
+      "revId": "5604938a767dfb44eae72dc56805f641e16a79cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
