@@ -342,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "8182e72c_d0589fe4",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-24T15:24:49Z",
+      "side": 1,
+      "message": "Yes, std::array\u003c\u003e is good.",
+      "parentUuid": "16bbdf4e_86c43416",
+      "range": {
+        "startLine": 223,
+        "startChar": 15,
+        "endLine": 223,
+        "endChar": 48
+      },
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f9ffe25_fc036889",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
