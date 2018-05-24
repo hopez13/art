@@ -258,6 +258,7 @@ art_cc_defaults {
         "931-agent-thread/agent_thread.cc",
         "933-misc-events/misc_events.cc",
         "945-obsolete-native/obsolete_native.cc",
+        "980-redefine-object/redef_object.cc",
         "983-source-transform-verify/source_transform.cc",
         "984-obsolete-invoke/obsolete_invoke.cc",
         "986-native-method-bind/native_bind.cc",
@@ -317,6 +318,9 @@ art_cc_defaults {
         "983-source-transform-verify/source_transform_art.cc",
         "1940-ddms-ext/ddm_ext.cc",
         "1944-sudden-exit/sudden_exit.cc",
+    ],
+    shared_libs: [
+        "slicer",
     ],
 }
 
