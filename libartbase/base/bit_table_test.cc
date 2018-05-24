@@ -161,4 +161,34 @@ TEST(BitTableTest, TestDedup) {
   EXPECT_EQ(2u, builder.size());
 }
 
+TEST(BitTableTest, TestBitmapTable) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
+  std::vector<uint8_t> buffer;
+  size_t encode_bit_offset = 0;
+  const uint64_t value = 0xDEADBEEF0BADF00Dull;
+  BitmapTableBuilder builder(&allocator);
+  std::multimap<uint64_t, size_t> indicies;  // bitmap -> row.
+  for (size_t bit_length = 0; bit_length < BitSizeOf<uint64_t>(); ++bit_length) {
+    uint64_t bitmap = value & MaxInt<uint64_t>(bit_length);
+    indicies.emplace(bitmap, builder.Dedup(&bitmap, bit_length));
+  }
+  builder.Encode(&buffer, &encode_bit_offset);
+  DCHECK_EQ(42u, builder.size());  // Some of the subsets are duplicates.
+
+  size_t decode_bit_offset = 0;
+  BitTable<1> table(buffer.data(), buffer.size(), &decode_bit_offset);
+  EXPECT_EQ(encode_bit_offset, decode_bit_offset);
+  for (auto it : indicies) {
+    uint64_t expected = it.first;
+    BitMemoryRegion actual = table.GetBitMemoryRegion(it.second);
+    EXPECT_GE(actual.size_in_bits(), MinimumBitsToStore(expected));
+    for (size_t b = 0; b < actual.size_in_bits(); b++, expected >>= 1) {
+      EXPECT_EQ(expected & 1, actual.LoadBit(b)) << "b=" << b;
+    }
+  }
+}
+
 }  // namespace art
