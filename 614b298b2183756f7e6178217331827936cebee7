@@ -45,6 +45,29 @@
       "revId": "614b298b2183756f7e6178217331827936cebee7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617954f0_7455283a",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-24T16:05:03Z",
+      "side": 1,
+      "message": "This is\n\n  std::equals(values,\n              values + count,\n              index,\n              [](const T\u0026 lhs, const T\u0026 rhs) {\n                return memcmp(\u0026lhs, \u0026rhs, sizeof(T)) \u003d\u003d 0;\n              });",
+      "range": {
+        "startLine": 187,
+        "startChar": 37,
+        "endLine": 187,
+        "endChar": 70
+      },
+      "revId": "614b298b2183756f7e6178217331827936cebee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
