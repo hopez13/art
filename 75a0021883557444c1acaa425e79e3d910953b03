@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd8b32ce_a8b59dd9",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T07:48:04Z",
+      "side": 1,
+      "message": "Possible to move native_pc_offset inside of the kVerifyStackMaps?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 0
+      },
+      "revId": "75a0021883557444c1acaa425e79e3d910953b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
