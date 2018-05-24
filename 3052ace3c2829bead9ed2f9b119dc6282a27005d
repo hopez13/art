@@ -65,6 +65,29 @@
     },
     {
       "key": {
+        "uuid": "b6af7b42_a7fb13ec",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T18:18:54Z",
+      "side": 1,
+      "message": "const void*",
+      "range": {
+        "startLine": 303,
+        "startChar": 17,
+        "endLine": 303,
+        "endChar": 22
+      },
+      "revId": "3052ace3c2829bead9ed2f9b119dc6282a27005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35627311_91b6da80",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -79,6 +102,29 @@
       "revId": "3052ace3c2829bead9ed2f9b119dc6282a27005d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47894d1c_ad994cc6",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T18:18:54Z",
+      "side": 1,
+      "message": "Is this supposed to be a multi map?",
+      "range": {
+        "startLine": 369,
+        "startChar": 2,
+        "endLine": 369,
+        "endChar": 25
+      },
+      "revId": "3052ace3c2829bead9ed2f9b119dc6282a27005d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
