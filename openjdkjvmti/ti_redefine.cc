@@ -42,6 +42,7 @@
 #include "base/array_ref.h"
 #include "base/stringpiece.h"
 #include "class_linker-inl.h"
+#include "class_root.h"
 #include "debugger.h"
 #include "dex/art_dex_file_loader.h"
 #include "dex/dex_file.h"
@@ -485,7 +486,7 @@ art::mirror::DexCache* Redefiner::ClassRedefinition::CreateNewDexCache(
   art::ClassLinker* cl = driver_->runtime_->GetClassLinker();
   art::Handle<art::mirror::DexCache> cache(hs.NewHandle(
       art::ObjPtr<art::mirror::DexCache>::DownCast(
-          cl->GetClassRoot(art::ClassLinker::kJavaLangDexCache)->AllocObject(driver_->self_))));
+          art::GetClassRoot(art::ClassRoot::kJavaLangDexCache, cl)->AllocObject(driver_->self_))));
   if (cache.IsNull()) {
     driver_->self_->AssertPendingOOMException();
     return nullptr;
@@ -863,7 +864,7 @@ class RedefinitionDataHolder {
       hs->NewHandle(
         art::mirror::ObjectArray<art::mirror::Object>::Alloc(
             self,
-            runtime->GetClassLinker()->GetClassRoot(art::ClassLinker::kObjectArrayClass),
+            art::GetClassRoot(art::ClassRoot::kObjectArrayClass, runtime->GetClassLinker()),
             redefinitions->size() * kNumSlots))),
     redefinitions_(redefinitions) {}
 
