@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c94ab2c6_586f4a5a",
+        "filename": "tools/teardown-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-24T09:33:49Z",
+      "side": 1,
+      "message": "I wonder if this would be simpler/cleaner as a here doc. Maybe too stylistically different.\n\nadb shell \u003c\u003cDEVICE_MKSH_SCRIPT\n\n  function remove_from_chroot {\n    fs\u003d$0\n    mountpoint\u003d$1\n    mount | grep -q \"^$fs on $mountpoint type $fs\" \\\n       \u0026\u0026 umount $mountpoint\" \\\n       \u0026\u0026 rmdir \"$mountpoint\"\n  }\n\n  remove_from_chroot tmpfs \"$ART_TEST_CHROOT/dev\"\n    ...\n\u003c\u003cDEVICE_MKSH_SCRIPT",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 6
+      },
+      "revId": "5604938a767dfb44eae72dc56805f641e16a79cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
