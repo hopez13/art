@@ -55,6 +55,17 @@ class TestVisitor : public StackVisitor {
         CHECK(GetVReg(m, dex_register_of_first_parameter, kIntVReg, &value));
         CHECK_EQ(value, 1u);
       }
+    } else if (m_name.compare("$opt$noinline$testCodeSinking") == 0) {
+      found_method_ = true;
+      uint32_t value = 0;
+      uint32_t dex_register = 0;
+      if (GetCurrentQuickFrame() != nullptr &&
+          GetCurrentOatQuickMethodHeader()->IsOptimized() &&
+          !Runtime::Current()->IsJavaDebuggable()) {
+        CHECK_EQ(GetVReg(m, dex_register, kReferenceVReg, &value), true);
+      } else {
+        CHECK(GetVReg(m, dex_register, kReferenceVReg, &value));
+      }
     }
 
     return true;
