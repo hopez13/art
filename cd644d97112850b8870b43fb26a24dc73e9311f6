@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50b1e0d9_b453f357",
+        "filename": "test/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-24T17:46:41Z",
+      "side": 1,
+      "message": "This may need to be static to avoid namespace issues, possibly. Not sure.",
+      "range": {
+        "startLine": 322,
+        "startChar": 4,
+        "endLine": 322,
+        "endChar": 15
+      },
+      "revId": "cd644d97112850b8870b43fb26a24dc73e9311f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
