@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7a26c7e_a7015ef1",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-05-24T17:34:14Z",
+      "side": 1,
+      "message": "This can be a single call to dist-for-goals with a list of files.\n\nThis is quite a few files to have to download individually, maybe zip them up instead?",
+      "revId": "8129973881814131959faa7af72a5da2e6e684fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
