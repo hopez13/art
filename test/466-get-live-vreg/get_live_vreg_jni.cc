@@ -55,6 +55,14 @@ class TestVisitor : public StackVisitor {
         CHECK(GetVReg(m, dex_register_of_first_parameter, kIntVReg, &value));
         CHECK_EQ(value, 1u);
       }
+    } else if (m_name.compare("$opt$noinline$testCodeSinking") == 0) {
+      found_method_ = true;
+      uint32_t value = 0;
+      uint32_t dex_register = 0;
+
+      // The value of dex register which holds "Object[] o = new Object[1];" should be live
+      // at the call to doStaticNativeCallLiveVreg however after code sinking it is not.
+      CHECK(GetVReg(m, dex_register, kReferenceVReg, &value));
     }
 
     return true;

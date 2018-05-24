@@ -63,6 +63,8 @@ public class Main {
 
     testWrapperIntervalHole(1, true);
     testWrapperIntervalHole(1, false);
+
+    $opt$noinline$testCodeSinking(1);
   }
 
   // Wrapper method to avoid inlining, which affects liveness
@@ -75,6 +77,18 @@ public class Main {
       throw new Error(e);
     }
   }
+
+
+  static void $opt$noinline$testCodeSinking(int x) {
+    Object[] o = new Object[1];
+    o[0] = o;
+    doStaticNativeCallLiveVreg();
+    if (doThrow) {
+      throw new Error(o.toString());
+    }
+  }
+
+  static boolean doThrow;
 
   static int staticField1;
   static int staticField2;
