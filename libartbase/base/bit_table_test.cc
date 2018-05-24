@@ -142,4 +142,23 @@ TEST(BitTableTest, TestBigTable) {
   EXPECT_EQ(32u, table.NumColumnBits(3));
 }
 
+TEST(BitTableTest, TestDedup) {
+  MallocArenaPool pool;
+  ArenaStack arena_stack(&pool);
+  ScopedArenaAllocator allocator(&arena_stack);
+
+  struct RowData {
+    int a;
+    int b;
+  };
+  BitTableBuilder<RowData> builder(&allocator);
+  RowData value0{1, 2};
+  RowData value1{3, 4};
+  EXPECT_EQ(0u, builder.Dedup(&value0));
+  EXPECT_EQ(1u, builder.Dedup(&value1));
+  EXPECT_EQ(0u, builder.Dedup(&value0));
+  EXPECT_EQ(1u, builder.Dedup(&value1));
+  EXPECT_EQ(2u, builder.size());
+}
+
 }  // namespace art
