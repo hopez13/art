@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d75b0d1d_43761e72",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-24T15:08:27Z",
+      "side": 1,
+      "message": "This should be \"true.\" ASAN supports things alright (this worked before, see the old condition), it just seems like we need to increase the reserved size or so.",
+      "range": {
+        "startLine": 1353,
+        "startChar": 6,
+        "endLine": 1355,
+        "endChar": 50
+      },
+      "revId": "e1b98e4e5395cfe82574df828b198c7c01503b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
