@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb8953ab_488f961d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T17:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b2ec0e_d513abb3",
+      "range": {
+        "startLine": 1691,
+        "startChar": 7,
+        "endLine": 1691,
+        "endChar": 15
+      },
+      "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "381bd188_1367573b",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "65e7b20a_84b5138b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T17:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "381bd188_1367573b",
+      "range": {
+        "startLine": 1746,
+        "startChar": 74,
+        "endLine": 1747,
+        "endChar": 48
+      },
+      "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "639bedca_d15e7d8e",
         "filename": "libdexfile/dex/class_accessor.h",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0391ec4_20f0fe48",
+        "filename": "libdexfile/dex/class_accessor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-24T17:51:37Z",
+      "side": 1,
+      "message": "They were used in an earlier version of the CL but I can make them private now.",
+      "parentUuid": "639bedca_d15e7d8e",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
