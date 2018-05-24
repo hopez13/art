@@ -22,6 +22,52 @@
       "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "381bd188_1367573b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-05-24T17:40:21Z",
+      "side": 1,
+      "message": "Comment is out of sync with the flag change from true -\u003e false.",
+      "range": {
+        "startLine": 1746,
+        "startChar": 74,
+        "endLine": 1747,
+        "endChar": 48
+      },
+      "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "639bedca_d15e7d8e",
+        "filename": "libdexfile/dex/class_accessor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-05-24T17:40:21Z",
+      "side": 1,
+      "message": "Are GetDirectMethodInvokeType() and GetVirtualMethodInvokeType() part of the public contract with this class, or is GetInvokeType() the only method actually used externally?",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "43016d2b1cf0ed0db282bc18489c42c60b0ff969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
