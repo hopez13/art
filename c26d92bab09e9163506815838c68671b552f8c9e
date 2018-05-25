@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47c1fda2_3303b30b",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca13266_d2abd69a",
+      "range": {
+        "startLine": 187,
+        "startChar": 33,
+        "endLine": 188,
+        "endChar": 12
+      },
+      "revId": "c26d92bab09e9163506815838c68671b552f8c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7370f483_349fe8e5",
         "filename": "libartbase/base/scoped_arena_containers.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c26d92bab09e9163506815838c68671b552f8c9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44fefd1f_e19ee969",
+        "filename": "libartbase/base/scoped_arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7370f483_349fe8e5",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 102
+      },
+      "revId": "c26d92bab09e9163506815838c68671b552f8c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
