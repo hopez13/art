@@ -46,6 +46,30 @@
       "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "364a00c1_288da480",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-05-25T16:42:44Z",
+      "side": 1,
+      "message": "Ah, I wasn\u0027t looking closely enough. If there are places where we cast ClassRoot for comparison, we could add the enum operator\u003c\u003c to be able to use CHECK_EQ on them.",
+      "parentUuid": "7c766ec9_2373e8b5",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
