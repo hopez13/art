@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a430950e_c29f50a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T16:29:42Z",
+      "side": 1,
+      "message": "On what platform? I think you should report numbers separately for ARM and ARM64.\n\nNote that each platform has different number of caller-save low registers which usually (at least for Invoke environments) translates to zeros in the low bits of the register mask.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "4591f18ad68376f61574663422e8b7315a1323a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
