@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24d2223b_8e7c32fc",
+        "filename": "test/466-get-live-vreg/get_live_vreg_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-25T08:39:12Z",
+      "side": 1,
+      "message": "Ins\u0027t this just:\nCHECK(GetVReg(m, dex_register, kReferenceVReg, \u0026value));",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 7
+      },
+      "revId": "ffffab16a74c1567bc151ebfaa5699350c6e1401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
