@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "645f4ecf_5d555124",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-25T17:08:47Z",
+      "side": 0,
+      "message": "I\u0027d rather not, to allow the use case where one has ART_TEST_CHROOT defined in their environment and is able to do both target and host testing without to unset that variable.\n\nIn that respect, it is pretty similar to ART_TEST_ANDROID_ROOT, which is ignored on host testing.",
+      "parentUuid": "9169e838_260e4960",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 208,
+        "endChar": 8
+      },
+      "revId": "0b7e6c96ea859fa948b4a1973c5d1f17a8b9021a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db34baba_a8fcc4b6",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "0b7e6c96ea859fa948b4a1973c5d1f17a8b9021a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "748ced28_f64971dd",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-25T17:08:47Z",
+      "side": 0,
+      "message": "Ditto, I don\u0027t think this is desirable.",
+      "parentUuid": "db34baba_a8fcc4b6",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "0b7e6c96ea859fa948b4a1973c5d1f17a8b9021a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
