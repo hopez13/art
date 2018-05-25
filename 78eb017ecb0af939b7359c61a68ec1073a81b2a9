@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cc2104aa_b47ff4a1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-05-25T18:04:12Z",
+      "side": 1,
+      "message": "The code might still be on some stacks. We cannot clear it from method_code_map_ or else it may be overwritten before the method has returned AIUI.,",
+      "parentUuid": "165cd5b9_848ecb3e",
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c81d71db_1f3480ca",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "c8ed38a6_30d784a5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-05-25T18:04:12Z",
+      "side": 1,
+      "message": "I didn\u0027t think of that.\n\nI\u0027ll look into doing that once everything else is working.",
+      "parentUuid": "c81d71db_1f3480ca",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 63
+      },
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f38301a_f173a51e",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 5
@@ -53,6 +95,30 @@
       "writtenOn": "2018-05-22T14:20:02Z",
       "side": 1,
       "message": "This is probably what\u0027s breaking. It needs to be cleared for other cases I think, like deopt.",
+      "range": {
+        "startLine": 148,
+        "startChar": 48,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cfa824a_a5389549",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-05-25T18:04:12Z",
+      "side": 1,
+      "message": "That doesn\u0027t seem to help.\n\nI have found that there seems to be common cases where a method is compiled multiple times which seems strange. Any ideas?",
+      "parentUuid": "9f38301a_f173a51e",
       "range": {
         "startLine": 148,
         "startChar": 48,
