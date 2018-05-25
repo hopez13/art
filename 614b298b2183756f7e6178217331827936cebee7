@@ -68,6 +68,23 @@
       "revId": "614b298b2183756f7e6178217331827936cebee7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3c64f08_475185c1",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T08:54:08Z",
+      "side": 1,
+      "message": "As Mathieu pointed out on the next CL, this needs to be multimap. That\u0027s also the reason I wanted tests for hash conflicts added on the original CL before splitting.",
+      "revId": "614b298b2183756f7e6178217331827936cebee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
