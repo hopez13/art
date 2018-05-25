@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "26696bab_8feeef18",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T09:57:18Z",
+      "side": 1,
+      "message": "Yes, the declaration of SetClassRoot() needs this, I\u0027m not including \"class_root.h\" here.",
+      "parentUuid": "49e24a33_e3a1a4e2",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 32
+      },
+      "revId": "ada23790c5f14eba0140279a16dec3d8898c4a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86f2017c_984345e4",
         "filename": "runtime/class_root.cc",
         "patchSetId": 2

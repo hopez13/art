@@ -22,6 +22,30 @@
       "revId": "9239e1eb52444058924297216cd40662ef0d1c01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5055d831_2f7df650",
+        "filename": "runtime/class_root.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T09:57:18Z",
+      "side": 1,
+      "message": "I don\u0027t see an easy way to do that given the fact that some of the enumerations do not have a corresponding mirror class.",
+      "parentUuid": "f4fa13cb_c0b8520f",
+      "range": {
+        "startLine": 155,
+        "startChar": 31,
+        "endLine": 155,
+        "endChar": 43
+      },
+      "revId": "9239e1eb52444058924297216cd40662ef0d1c01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
