@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ed708b_9f939c00",
+        "filename": "runtime/native/java_lang_Thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-25T15:26:04Z",
+      "side": 1,
+      "message": "You could consider moving this to FastNative.",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 30
+      },
+      "revId": "a4f1f6e7ea1066a0ee3a2d99eb0b2bd90474bf04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
