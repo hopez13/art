@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f0ce38d_f0c38b56",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-25T15:11:17Z",
+      "side": 1,
+      "message": "Suggestion: you can replace (resp.) \"yes\" and \"no\" for these variables with (resp.) \u0027true\u0027 and \u0027false\u0027, and replace a test like:\n\n  if [ \"${USAGE}\" \u003d \"yes\" ]; then\n    # ...\n\nwith:\n\n  if [ \"$USAGE\" ]; then\n    # ...",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 11
+      },
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e960b510_2f93ae04",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-25T15:11:17Z",
+      "side": 1,
+      "message": "$# -ne 0",
+      "range": {
+        "startLine": 52,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c4139ba_54f2d283",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-25T15:11:17Z",
+      "side": 1,
+      "message": "Maybe avoid running the tests (lines 87–102) when reference output are updated?",
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
