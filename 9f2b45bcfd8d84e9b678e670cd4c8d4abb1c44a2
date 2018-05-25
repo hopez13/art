@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8348125a_ffa766a7",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d21e23d6_4ffbb743",
+      "range": {
+        "startLine": 221,
+        "startChar": 54,
+        "endLine": 221,
+        "endChar": 92
+      },
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c4d2645_76c917a5",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -210,6 +234,30 @@
       "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5e0e941_81efe6e1",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "337c9c65_b9bdcd74",
+      "range": {
+        "startLine": 191,
+        "startChar": 37,
+        "endLine": 191,
+        "endChar": 70
+      },
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -653,6 +701,24 @@
     },
     {
       "key": {
+        "uuid": "055dc148_06cab2cc",
+        "filename": "libartbase/base/bit_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:34:26Z",
+      "side": 1,
+      "message": "Done.  It seems to be decent hash.  I had to birthday attack it to find collision.",
+      "parentUuid": "4061ee49_a4cb8c81",
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a5446e6_a732a8c1",
         "filename": "libartbase/base/bit_table_test.cc",
         "patchSetId": 1
@@ -676,6 +742,30 @@
     },
     {
       "key": {
+        "uuid": "e91a4291_4726a778",
+        "filename": "libartbase/base/bit_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:34:26Z",
+      "side": 1,
+      "message": "Done - That was my plan, I somehow could not find the POPCOUNT - didn\u0027t expect all capitals.",
+      "parentUuid": "2a5446e6_a732a8c1",
+      "range": {
+        "startLine": 179,
+        "startChar": 12,
+        "endLine": 179,
+        "endChar": 15
+      },
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f003fb04_17f645bc",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -696,6 +786,30 @@
       "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521aa6a4_ce14a9cf",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:34:26Z",
+      "side": 1,
+      "message": "I split it into multiple CLs on Nicolas\u0027 request.\nI reported the impact separately in the commit message.",
+      "parentUuid": "f003fb04_17f645bc",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 0
+      },
+      "revId": "9f2b45bcfd8d84e9b678e670cd4c8d4abb1c44a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
