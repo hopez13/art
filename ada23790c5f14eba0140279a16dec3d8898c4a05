@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9338332_858c15dc",
+        "filename": "runtime/class_root.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T09:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86f2017c_984345e4",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 31
+      },
+      "revId": "ada23790c5f14eba0140279a16dec3d8898c4a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ff48280_9d0b2832",
         "filename": "runtime/class_root.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-25T09:10:42Z",
       "side": 1,
       "message": "Is that standard naming? Could it be something like class_root_impl_ instead?",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 17
+      },
+      "revId": "ada23790c5f14eba0140279a16dec3d8898c4a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "282312b8_d98f8ff9",
+        "filename": "runtime/class_root.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T09:47:57Z",
+      "side": 1,
+      "message": "Looks like I\u0027m the only one using \"detail_\", the rest is just \"detail\". I\u0027ll rename this and the one in callee_save_frame.h .",
+      "parentUuid": "2ff48280_9d0b2832",
       "range": {
         "startLine": 139,
         "startChar": 10,
