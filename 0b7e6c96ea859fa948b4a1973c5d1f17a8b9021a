@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9169e838_260e4960",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T16:21:16Z",
+      "side": 0,
+      "message": "Should we warn about ART_TEST_CHROOT being set on host?",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 208,
+        "endChar": 8
+      },
+      "revId": "0b7e6c96ea859fa948b4a1973c5d1f17a8b9021a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db34baba_a8fcc4b6",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T16:21:16Z",
+      "side": 0,
+      "message": "Is there any value in warning if ART_TEST_CHROOT is set on host?",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "0b7e6c96ea859fa948b4a1973c5d1f17a8b9021a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

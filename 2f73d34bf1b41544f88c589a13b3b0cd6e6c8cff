@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84487d9c_5789adac",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T16:21:16Z",
+      "side": 1,
+      "message": "Could be:\nandroid_root\u003d${ART_TEST_ANDROID_ROOT:-/system}",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 2
+      },
+      "revId": "2f73d34bf1b41544f88c589a13b3b0cd6e6c8cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a5b1f01_06db5bbc",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T16:21:16Z",
+      "side": 1,
+      "message": "Default value assignment?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "2f73d34bf1b41544f88c589a13b3b0cd6e6c8cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
