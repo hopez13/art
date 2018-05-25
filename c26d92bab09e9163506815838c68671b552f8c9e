@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ca13266_d2abd69a",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T15:42:39Z",
+      "side": 1,
+      "message": "You could have kept the \"\u0026\u0026\".",
+      "range": {
+        "startLine": 187,
+        "startChar": 33,
+        "endLine": 188,
+        "endChar": 12
+      },
+      "revId": "c26d92bab09e9163506815838c68671b552f8c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7370f483_349fe8e5",
+        "filename": "libartbase/base/scoped_arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T15:42:39Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 102
+      },
+      "revId": "c26d92bab09e9163506815838c68671b552f8c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
