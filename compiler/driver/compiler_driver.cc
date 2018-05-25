@@ -1935,8 +1935,9 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
           // Just update the compiled_classes_ map. The compiler doesn't need to resolve
           // the type.
           ClassReference ref(dex_file, class_def_idx);
-          ClassStatus existing = ClassStatus::kNotReady;
-          DCHECK(compiled_classes_.Get(ref, &existing)) << ref.dex_file->GetLocation();
+          ClassStatus temp;
+          DCHECK(compiled_classes_.Get(ref, &temp)) << ref.dex_file->GetLocation();
+          const ClassStatus existing = ClassStatus::kNotReady;
           ClassStateTable::InsertResult result =
              compiled_classes_.Insert(ref, existing, ClassStatus::kVerified);
           CHECK_EQ(result, ClassStateTable::kInsertResultSuccess);
@@ -1962,8 +1963,8 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
                             class_loader,
                             soa.Self());
       }
+      ++class_def_idx;
     }
-    ++class_def_idx;
   }
   return true;
 }
