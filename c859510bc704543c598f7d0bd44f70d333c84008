@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3fc3f79_641f683a",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:28:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d6c207_f5f8d615",
+      "range": {
+        "startLine": 157,
+        "startChar": 49,
+        "endLine": 157,
+        "endChar": 50
+      },
+      "revId": "c859510bc704543c598f7d0bd44f70d333c84008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c248332_4663fc66",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "afe95e8e_499ac2ad",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:28:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c248332_4663fc66",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 4
+      },
+      "revId": "c859510bc704543c598f7d0bd44f70d333c84008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f79bd731_7dbdbb1c",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-24T13:34:57Z",
       "side": 1,
       "message": "Reads odd to call it Measure and not returning anything. \"AdjustBitWidth\" ?",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 14
+      },
+      "revId": "c859510bc704543c598f7d0bd44f70d333c84008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a903314_af9125e7",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-25T15:28:35Z",
+      "side": 1,
+      "message": "The parameter is an output. I changed the argument to std::array pointer.",
+      "parentUuid": "f79bd731_7dbdbb1c",
       "range": {
         "startLine": 179,
         "startChar": 2,
