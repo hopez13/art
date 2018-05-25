@@ -22,6 +22,30 @@
       "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c766ec9_2373e8b5",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-25T16:38:32Z",
+      "side": 1,
+      "message": "At this place, DCHECK_EQ() would require only the existing operator\u003c\u003c(std::ostream\u0026, ObjPtr\u003c\u003e).\n\nOr did you mean to ask about the places where we\u0027re doing the static_cast\u003c\u003es from ClassRoot?",
+      "parentUuid": "bff490c1_91352255",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
