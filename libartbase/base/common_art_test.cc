@@ -355,8 +355,8 @@ std::string CommonArtTestImpl::GetTestDexFileName(const char* name) const {
   return filename;
 }
 
-std::vector<std::unique_ptr<const DexFile>> CommonArtTestImpl::OpenTestDexFiles(const char* name) {
-  std::string filename = GetTestDexFileName(name);
+std::vector<std::unique_ptr<const DexFile>> CommonArtTestImpl::OpenDexFilesForFilename(
+    const std::string& filename) {
   static constexpr bool kVerifyChecksum = true;
   std::string error_msg;
   const ArtDexFileLoader dex_file_loader;
@@ -372,6 +372,11 @@ std::vector<std::unique_ptr<const DexFile>> CommonArtTestImpl::OpenTestDexFiles(
     CHECK(dex_file->IsReadOnly());
   }
   return dex_files;
+}
+
+
+std::vector<std::unique_ptr<const DexFile>> CommonArtTestImpl::OpenTestDexFiles(const char* name) {
+  return OpenDexFilesForFilename(GetTestDexFileName(name));
 }
 
 std::unique_ptr<const DexFile> CommonArtTestImpl::OpenTestDexFile(const char* name) {

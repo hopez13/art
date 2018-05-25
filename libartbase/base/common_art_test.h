@@ -150,6 +150,8 @@ class CommonArtTestImpl {
 
   std::vector<std::unique_ptr<const DexFile>> OpenTestDexFiles(const char* name);
 
+  std::vector<std::unique_ptr<const DexFile>> OpenDexFilesForFilename(const std::string& name);
+
   std::unique_ptr<const DexFile> OpenTestDexFile(const char* name);
 
 
