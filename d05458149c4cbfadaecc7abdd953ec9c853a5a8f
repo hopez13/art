@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "529b7619_f5fe0764",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T15:46:52Z",
+      "side": 1,
+      "message": "Yes, though I lean towards explicit value checking to disambiguate between \"forgot to set this value\" and \"this was value as consciously chosen\".",
+      "parentUuid": "0f0ce38d_f0c38b56",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 11
+      },
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e960b510_2f93ae04",
         "filename": "test/dexdump/run-all-tests",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5b13c228_b1f878d8",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T15:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e960b510_2f93ae04",
+      "range": {
+        "startLine": 52,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c4139ba_54f2d283",
         "filename": "test/dexdump/run-all-tests",
         "patchSetId": 2
@@ -62,6 +110,24 @@
       "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca6cccdd_c7888c3f",
+        "filename": "test/dexdump/run-all-tests",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-05-25T15:46:52Z",
+      "side": 1,
+      "message": "Done. This was a check that that there\u0027s not a temporal aspect to the output (e.g. timestamp), but this would also be evidenced by the references being updated.",
+      "parentUuid": "3c4139ba_54f2d283",
+      "revId": "d05458149c4cbfadaecc7abdd953ec9c853a5a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
