@@ -46,6 +46,30 @@
       "revId": "6ba4e992cf8f9cbba2aebfc4733814b66cdbdf36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d10c3e76_3fdb152a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-29T10:29:32Z",
+      "side": 1,
+      "message": "I think it would be fine to replace \"Similar to b/73624630\" with \"Similar to the problem addressed by https://android-review.googlesource.com/c/platform/art/+/628465\".",
+      "parentUuid": "6b129e44_00f6e079",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6ba4e992cf8f9cbba2aebfc4733814b66cdbdf36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
