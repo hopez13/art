@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766fd2a8_0b2f90c6",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1211949
+      },
+      "writtenOn": "2018-05-29T12:35:28Z",
+      "side": 1,
+      "message": "Shoudn\u0027t this be test -d, instead of test -f, since system is a folder and not a file?",
+      "revId": "59df4f8698cc267e49a6ca5f59abdded89a1f5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
