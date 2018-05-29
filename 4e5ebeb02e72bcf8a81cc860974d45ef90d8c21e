@@ -46,6 +46,30 @@
       "revId": "4e5ebeb02e72bcf8a81cc860974d45ef90d8c21e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371e4245_f13b0baa",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-29T17:13:49Z",
+      "side": 1,
+      "message": "If you do this, it would probably make sense to not declare c1 \u0026 c2 in line 726. The DCHECK is debug-only, so repeating GetClass shouldn\u0027t be too performance-sensitive.",
+      "parentUuid": "81232f7d_f0683bc2",
+      "range": {
+        "startLine": 745,
+        "startChar": 23,
+        "endLine": 747,
+        "endChar": 42
+      },
+      "revId": "4e5ebeb02e72bcf8a81cc860974d45ef90d8c21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
