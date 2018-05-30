@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "16ccc34d_2adb199f",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T08:34:22Z",
+      "side": 1,
+      "message": "Ambiguous; correct reference is GetInstructionSetInstructionAlignment(isa).",
+      "range": {
+        "startLine": 77,
+        "startChar": 73,
+        "endLine": 77,
+        "endChar": 84
+      },
+      "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a86587af_a9b7c349",
         "filename": "compiler/exception_test.cc",
         "patchSetId": 2
