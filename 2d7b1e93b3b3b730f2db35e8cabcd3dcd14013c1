@@ -22,6 +22,30 @@
       "revId": "2d7b1e93b3b3b730f2db35e8cabcd3dcd14013c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd85f81_60ad6941",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T13:14:36Z",
+      "side": 1,
+      "message": "It is needed in some cases (to count number of live register up to a number \u003c\u003d total number of registers).",
+      "parentUuid": "f3b15aac_ea59b286",
+      "range": {
+        "startLine": 557,
+        "startChar": 2,
+        "endLine": 557,
+        "endChar": 78
+      },
+      "revId": "2d7b1e93b3b3b730f2db35e8cabcd3dcd14013c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
