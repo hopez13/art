@@ -46,6 +46,30 @@
       "revId": "6940ab40e4422ce1741743390a29f28c66542383",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c295749_d8cb17da",
+        "filename": "test/466-get-live-vreg/get_live_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T13:12:24Z",
+      "side": 1,
+      "message": "1. What is the contract between the compiler in non-debuggable mode and native code in terms of which v-register are supposed to be accessible via StackVisitor?\n\nNone\n\n2. Why do we have such restrictions that in non-debuggable mode we must have the values of the primitive types preserved in the environments? I understand the HDeoptimize case but what about others?\n\nYou mean non-primitive right? That\u0027s due to liveness issues, which has a very long story somewhat commented in ShouldBeLiveForEnvironment.\n\n3. I have also come up with a example (in 466-get-live-vreg) which in my understanding should pass however it fails due to code sinking removing some env-uses. Is my understanding incorrect?\"\n\nIt should be ok to move for non-debuggable as long as the vreg is not used for deopt.",
+      "parentUuid": "cb9f52fd_97caae5c",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 88
+      },
+      "revId": "6940ab40e4422ce1741743390a29f28c66542383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
