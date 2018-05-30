@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81372b4b_a1ad64f0",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T08:54:17Z",
+      "side": 1,
+      "message": "This is the wrong reference. You\u0027d need 16 on arm64 if this was true.",
+      "range": {
+        "startLine": 77,
+        "startChar": 73,
+        "endLine": 77,
+        "endChar": 89
+      },
+      "revId": "01c7047b484eef58fa4e0d9ba7a1b7d729f6ad75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
