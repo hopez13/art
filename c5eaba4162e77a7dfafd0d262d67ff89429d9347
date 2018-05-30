@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "98c7a798_873f0df9",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T09:10:50Z",
+      "side": 1,
+      "message": "Done. I see, it took me a while to realize there are two alignment functions.",
+      "parentUuid": "77089e1a_f95ad874",
+      "range": {
+        "startLine": 77,
+        "startChar": 73,
+        "endLine": 77,
+        "endChar": 84
+      },
+      "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a86587af_a9b7c349",
         "filename": "compiler/exception_test.cc",
         "patchSetId": 2
@@ -117,6 +141,30 @@
       "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0140d172_dc2a1a7c",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T09:10:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1db9953e_c23b3b7f",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 0
+      },
+      "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
