@@ -45,6 +45,54 @@
       "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f224b920_dbba9eb1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T13:09:56Z",
+      "side": 1,
+      "message": "I am actually not sure why.  I just observed the fact from the encoded data.",
+      "parentUuid": "7f020ed6_da06b13f",
+      "range": {
+        "startLine": 802,
+        "startChar": 18,
+        "endLine": 802,
+        "endChar": 22
+      },
+      "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c6d453b_eb8a13c0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T13:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fd4ca56_caae9855",
+      "range": {
+        "startLine": 802,
+        "startChar": 36,
+        "endLine": 802,
+        "endChar": 43
+      },
+      "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
