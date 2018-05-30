@@ -93,6 +93,30 @@
       "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e22651e_c75c162e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T13:18:10Z",
+      "side": 1,
+      "message": "I\u0027d believe my intuition on caller saves :)",
+      "parentUuid": "f224b920_dbba9eb1",
+      "range": {
+        "startLine": 802,
+        "startChar": 18,
+        "endLine": 802,
+        "endChar": 22
+      },
+      "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
