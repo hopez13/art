@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4070cdf0_069b17bb",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T11:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf9a8820_a3b5d4ec",
+      "range": {
+        "startLine": 947,
+        "startChar": 29,
+        "endLine": 949,
+        "endChar": 70
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d21d00_419c9517",
         "filename": "runtime/verifier/reg_type.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ccf32d81_70abaf6c",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T11:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d21d00_419c9517",
+      "range": {
+        "startLine": 1028,
+        "startChar": 16,
+        "endLine": 1029,
+        "endChar": 33
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "373f68fa_e0a205f2",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb247997_72607fba",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T11:52:31Z",
+      "side": 1,
+      "message": "Nope, this is used also for ArtMethod* and ArtField*.",
+      "parentUuid": "373f68fa_e0a205f2",
+      "range": {
+        "startLine": 238,
+        "startChar": 33,
+        "endLine": 238,
+        "endChar": 36
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
