@@ -16,6 +16,24 @@
       "revId": "2cffc5d2807096c0b7a07b89f5dda6920c6429f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1317bd9_cc7a5b1c",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-30T13:15:41Z",
+      "side": 1,
+      "message": "To avoid excessive rebasing, I\u0027ll add that to the String::java_lang_String_ removal CL.",
+      "parentUuid": "fbf991c1_a98db40c",
+      "revId": "2cffc5d2807096c0b7a07b89f5dda6920c6429f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
