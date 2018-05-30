@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab484e3_5b0a327b",
+        "filename": "tools/dexanalyze/dexanalyze_experiments.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-05-30T20:22:38Z",
+      "side": 1,
+      "message": "Why +1?",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "09e762112c49d42ad69e42844d04be9a49b6cc23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d258925c_99824816",
+        "filename": "tools/dexanalyze/dexanalyze_experiments.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-05-30T20:22:38Z",
+      "side": 1,
+      "message": "Seems like this belongs outside of the conditional (like the other cases below).",
+      "range": {
+        "startLine": 179,
+        "startChar": 14,
+        "endLine": 179,
+        "endChar": 31
+      },
+      "revId": "09e762112c49d42ad69e42844d04be9a49b6cc23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
