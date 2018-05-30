@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fd4ca56_caae9855",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T12:14:27Z",
+      "side": 1,
+      "message": "trailing",
+      "range": {
+        "startLine": 802,
+        "startChar": 36,
+        "endLine": 802,
+        "endChar": 43
+      },
+      "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f020ed6_da06b13f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T12:14:27Z",
+      "side": 1,
+      "message": "Add a possible explanation (eg caller saves are not encoded and are usually the first?)",
+      "range": {
+        "startLine": 802,
+        "startChar": 18,
+        "endLine": 802,
+        "endChar": 22
+      },
+      "revId": "dda4a096bf46f2f69e1de0bec927c967920b4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
