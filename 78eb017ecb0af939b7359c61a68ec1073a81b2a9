@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ddffadd4_e9f1307f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T12:03:49Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "cc2104aa_b47ff4a1",
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c81d71db_1f3480ca",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "That doesn\u0027t seem to help.\n\nI have found that there seems to be common cases where a method is compiled multiple times which seems strange. Any ideas?",
       "parentUuid": "9f38301a_f173a51e",
+      "range": {
+        "startLine": 148,
+        "startChar": 48,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "78eb017ecb0af939b7359c61a68ec1073a81b2a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c95d03_904c0d2d",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T12:03:49Z",
+      "side": 1,
+      "message": "Ah yes, a method can be compiled multiple times, currently only due to explicit deopt I believe, but there will be other cases in the future.\n\nSo you can\u0027t really use this for remembering an entrypoint. A method can have multiple live JIT entrypoints.",
+      "parentUuid": "4cfa824a_a5389549",
       "range": {
         "startLine": 148,
         "startChar": 48,
