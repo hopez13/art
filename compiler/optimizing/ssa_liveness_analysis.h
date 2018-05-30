@@ -1259,7 +1259,7 @@ class SsaLivenessAnalysis : public ValueObject {
   // Returns whether `instruction` in an HEnvironment held by `env_holder`
   // should be kept live by the HEnvironment.
   static bool ShouldBeLiveForEnvironment(HInstruction* env_holder, HInstruction* instruction) {
-    if (instruction == nullptr) return false;
+    DCHECK(instruction != nullptr);
     // A value that's not live in compiled code may still be needed in interpreter,
     // due to code motion, etc.
     if (env_holder->IsDeoptimize()) return true;
