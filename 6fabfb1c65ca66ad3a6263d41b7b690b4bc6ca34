@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf9a8820_a3b5d4ec",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T11:44:32Z",
+      "side": 1,
+      "message": "Nit: One argument per line.",
+      "range": {
+        "startLine": 947,
+        "startChar": 29,
+        "endLine": 949,
+        "endChar": 70
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d21d00_419c9517",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T11:44:32Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1028,
+        "startChar": 16,
+        "endLine": 1029,
+        "endChar": 33
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "373f68fa_e0a205f2",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T11:44:32Z",
+      "side": 1,
+      "message": "If the expected argument was always a pointer to a mirror object, maybe this could be changed to\n\n  ObjPtr\u003cT\u003e\n\n?",
+      "range": {
+        "startLine": 238,
+        "startChar": 33,
+        "endLine": 238,
+        "endChar": 36
+      },
+      "revId": "6fabfb1c65ca66ad3a6263d41b7b690b4bc6ca34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
