@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "babaf1d9_d3335752",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T18:36:03Z",
+      "side": 1,
+      "message": "I personally like using (non-const) references as argument, but I remember that this is against our coding style…",
+      "range": {
+        "startLine": 68,
+        "startChar": 40,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "cf49f51072e38e3f8b6d3a74059eec8551676247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc785fef_69b79840",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T18:36:03Z",
+      "side": 1,
+      "message": "Nit: in-out?",
+      "range": {
+        "startLine": 3304,
+        "startChar": 41,
+        "endLine": 3304,
+        "endChar": 46
+      },
+      "revId": "cf49f51072e38e3f8b6d3a74059eec8551676247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
