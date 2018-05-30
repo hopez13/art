@@ -599,10 +599,11 @@ TEST_F(VarHandleTest, ArrayElementVarHandle) {
                                     VarHandle::AccessMode::kGetAndBitwiseXorRelease,
                                     VarHandle::AccessMode::kGetAndBitwiseXorAcquire);
 
-  ObjPtr<mirror::Class> string_class = mirror::String::GetJavaLangString();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  Handle<Class> string_array_class(hs.NewHandle(class_linker->FindArrayClass(self, &string_class)));
-  Handle<mirror::ArrayElementVarHandle> vh(hs.NewHandle(CreateArrayElementVarHandle(self, string_array_class, mask)));
+  Handle<mirror::Class> string_array_class = hs.NewHandle(
+      GetClassRoot<mirror::ObjectArray<mirror::String>>(class_linker));
+  Handle<mirror::ArrayElementVarHandle> vh(
+      hs.NewHandle(CreateArrayElementVarHandle(self, string_array_class, mask)));
   EXPECT_FALSE(vh.IsNull());
 
   // Check access modes
