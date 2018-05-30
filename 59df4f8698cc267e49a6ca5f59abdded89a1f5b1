@@ -16,6 +16,24 @@
       "revId": "59df4f8698cc267e49a6ca5f59abdded89a1f5b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa237b17_317310a9",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-05-30T14:23:33Z",
+      "side": 1,
+      "message": "Thanks for catching this! I\u0027ve uploaded a fix here: https://android-review.googlesource.com/c/platform/art/+/695303.",
+      "parentUuid": "766fd2a8_0b2f90c6",
+      "revId": "59df4f8698cc267e49a6ca5f59abdded89a1f5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
