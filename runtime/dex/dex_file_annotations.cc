@@ -849,7 +849,7 @@ ObjPtr<mirror::Object> GetAnnotationValue(const ClassData& klass,
   return annotation_value.value_.GetL();
 }
 
-mirror::ObjectArray<mirror::String>* GetSignatureValue(const ClassData& klass,
+static ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureValue(const ClassData& klass,
     const DexFile::AnnotationSetItem* annotation_set)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const DexFile& dex_file = klass.GetDexFile();
@@ -860,12 +860,9 @@ mirror::ObjectArray<mirror::String>* GetSignatureValue(const ClassData& klass,
   if (annotation_item == nullptr) {
     return nullptr;
   }
-  ObjPtr<mirror::Class> string_class = mirror::String::GetJavaLangString();
-  Handle<mirror::Class> string_array_class(hs.NewHandle(
-      Runtime::Current()->GetClassLinker()->FindArrayClass(Thread::Current(), &string_class)));
-  if (string_array_class == nullptr) {
-    return nullptr;
-  }
+  Handle<mirror::Class> string_array_class =
+      hs.NewHandle(GetClassRoot<mirror::ObjectArray<mirror::String>>());
+  DCHECK(string_array_class != nullptr);
   ObjPtr<mirror::Object> obj =
       GetAnnotationValue(klass, annotation_item, "value", string_array_class,
                          DexFile::kDexAnnotationArray);
@@ -1020,7 +1017,7 @@ ObjPtr<mirror::ObjectArray<mirror::Object>> GetAnnotationsForField(ArtField* fie
   return ProcessAnnotationSet(field_class, annotation_set, DexFile::kDexVisibilityRuntime);
 }
 
-mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForField(ArtField* field) {
+ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureAnnotationForField(ArtField* field) {
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForField(field);
   if (annotation_set == nullptr) {
     return nullptr;
@@ -1171,9 +1168,10 @@ ObjPtr<mirror::Object> GetAnnotationForMethodParameter(ArtMethod* method,
                                               annotation_class);
 }
 
-bool GetParametersMetadataForMethod(ArtMethod* method,
-                                    MutableHandle<mirror::ObjectArray<mirror::String>>* names,
-                                    MutableHandle<mirror::IntArray>* access_flags) {
+bool GetParametersMetadataForMethod(
+    ArtMethod* method,
+    /*out*/ MutableHandle<mirror::ObjectArray<mirror::String>>* names,
+    /*out*/ MutableHandle<mirror::IntArray>* access_flags) {
   const DexFile::AnnotationSetItem* annotation_set =
       FindAnnotationSetForMethod(method);
   if (annotation_set == nullptr) {
@@ -1193,12 +1191,10 @@ bool GetParametersMetadataForMethod(ArtMethod* method,
   StackHandleScope<4> hs(Thread::Current());
 
   // Extract the parameters' names String[].
-  ObjPtr<mirror::Class> string_class = mirror::String::GetJavaLangString();
-  Handle<mirror::Class> string_array_class(hs.NewHandle(
-      Runtime::Current()->GetClassLinker()->FindArrayClass(Thread::Current(), &string_class)));
-  if (UNLIKELY(string_array_class == nullptr)) {
-    return false;
-  }
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  Handle<mirror::Class> string_array_class =
+      hs.NewHandle(GetClassRoot<mirror::ObjectArray<mirror::String>>(class_linker));
+  DCHECK(string_array_class != nullptr);
 
   ClassData data(method);
   Handle<mirror::Object> names_obj =
@@ -1212,10 +1208,8 @@ bool GetParametersMetadataForMethod(ArtMethod* method,
   }
 
   // Extract the parameters' access flags int[].
-  Handle<mirror::Class> int_array_class(hs.NewHandle(GetClassRoot<mirror::IntArray>()));
-  if (UNLIKELY(int_array_class == nullptr)) {
-    return false;
-  }
+  Handle<mirror::Class> int_array_class(hs.NewHandle(GetClassRoot<mirror::IntArray>(class_linker)));
+  DCHECK(int_array_class != nullptr);
   Handle<mirror::Object> access_flags_obj =
       hs.NewHandle(GetAnnotationValue(data,
                                       annotation_item,
@@ -1226,12 +1220,12 @@ bool GetParametersMetadataForMethod(ArtMethod* method,
     return false;
   }
 
-  names->Assign(names_obj.Get()->AsObjectArray<mirror::String>());
-  access_flags->Assign(access_flags_obj.Get()->AsIntArray());
+  names->Assign(names_obj->AsObjectArray<mirror::String>());
+  access_flags->Assign(access_flags_obj->AsIntArray());
   return true;
 }
 
-mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForMethod(ArtMethod* method) {
+ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureAnnotationForMethod(ArtMethod* method) {
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForMethod(method);
   if (annotation_set == nullptr) {
     return nullptr;
@@ -1446,7 +1440,7 @@ ObjPtr<mirror::Object> GetEnclosingMethod(Handle<mirror::Class> klass) {
       DexFile::kDexAnnotationMethod);
 }
 
-bool GetInnerClass(Handle<mirror::Class> klass, ObjPtr<mirror::String>* name) {
+bool GetInnerClass(Handle<mirror::Class> klass, /*out*/ ObjPtr<mirror::String>* name) {
   ClassData data(klass);
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForClass(data);
   if (annotation_set == nullptr) {
@@ -1513,7 +1507,8 @@ bool GetInnerClassFlags(Handle<mirror::Class> klass, uint32_t* flags) {
   return true;
 }
 
-mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForClass(Handle<mirror::Class> klass) {
+ObjPtr<mirror::ObjectArray<mirror::String>> GetSignatureAnnotationForClass(
+    Handle<mirror::Class> klass) {
   ClassData data(klass);
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForClass(data);
   if (annotation_set == nullptr) {
