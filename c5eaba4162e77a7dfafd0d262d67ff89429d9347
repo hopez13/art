@@ -22,6 +22,30 @@
       "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "060d5938_6ca65165",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T08:32:04Z",
+      "side": 1,
+      "message": "I believe the OatQuickMethodHeader must be before the code without padding in between.",
+      "parentUuid": "a86587af_a9b7c349",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 0
+      },
+      "revId": "c5eaba4162e77a7dfafd0d262d67ff89429d9347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
