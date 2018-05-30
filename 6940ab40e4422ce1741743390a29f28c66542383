@@ -94,6 +94,30 @@
       "revId": "6940ab40e4422ce1741743390a29f28c66542383",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4cb5973_dca403d8",
+        "filename": "test/466-get-live-vreg/get_live_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T14:46:12Z",
+      "side": 1,
+      "message": "Primitive types can be dropped any time for non-debuggable non-deopt cases.",
+      "parentUuid": "5e92aeea_aded69ee",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 88
+      },
+      "revId": "6940ab40e4422ce1741743390a29f28c66542383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
