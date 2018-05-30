@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d9f929a_72d6596e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-30T17:01:54Z",
+      "side": 1,
+      "message": "I had to disable this DCHECK.\nThe CodeOffset code does not have it, and it get triggered a lot in tests on target.\nI will fix the tests and re-enable it in followup CL.",
+      "range": {
+        "startLine": 690,
+        "startChar": 13,
+        "endLine": 690,
+        "endChar": 33
+      },
+      "revId": "d02b23f7ee9664213216a82bfdcb0ee83824de04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
