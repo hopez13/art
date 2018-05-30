@@ -860,12 +860,9 @@ mirror::ObjectArray<mirror::String>* GetSignatureValue(const ClassData& klass,
   if (annotation_item == nullptr) {
     return nullptr;
   }
-  ObjPtr<mirror::Class> string_class = mirror::String::GetJavaLangString();
-  Handle<mirror::Class> string_array_class(hs.NewHandle(
-      Runtime::Current()->GetClassLinker()->FindArrayClass(Thread::Current(), &string_class)));
-  if (string_array_class == nullptr) {
-    return nullptr;
-  }
+  Handle<mirror::Class> string_array_class =
+      hs.NewHandle(GetClassRoot<mirror::ObjectArray<mirror::String>>());
+  DCHECK(string_array_class != nullptr);
   ObjPtr<mirror::Object> obj =
       GetAnnotationValue(klass, annotation_item, "value", string_array_class,
                          DexFile::kDexAnnotationArray);
@@ -1193,12 +1190,10 @@ bool GetParametersMetadataForMethod(ArtMethod* method,
   StackHandleScope<4> hs(Thread::Current());
 
   // Extract the parameters' names String[].
-  ObjPtr<mirror::Class> string_class = mirror::String::GetJavaLangString();
-  Handle<mirror::Class> string_array_class(hs.NewHandle(
-      Runtime::Current()->GetClassLinker()->FindArrayClass(Thread::Current(), &string_class)));
-  if (UNLIKELY(string_array_class == nullptr)) {
-    return false;
-  }
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  Handle<mirror::Class> string_array_class =
+      hs.NewHandle(GetClassRoot<mirror::ObjectArray<mirror::String>>(class_linker));
+  DCHECK(string_array_class != nullptr);
 
   ClassData data(method);
   Handle<mirror::Object> names_obj =
@@ -1212,7 +1207,7 @@ bool GetParametersMetadataForMethod(ArtMethod* method,
   }
 
   // Extract the parameters' access flags int[].
-  Handle<mirror::Class> int_array_class(hs.NewHandle(GetClassRoot<mirror::IntArray>()));
+  Handle<mirror::Class> int_array_class(hs.NewHandle(GetClassRoot<mirror::IntArray>(class_linker)));
   if (UNLIKELY(int_array_class == nullptr)) {
     return false;
   }
