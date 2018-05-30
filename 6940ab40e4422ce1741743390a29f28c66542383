@@ -70,6 +70,30 @@
       "revId": "6940ab40e4422ce1741743390a29f28c66542383",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e92aeea_aded69ee",
+        "filename": "test/466-get-live-vreg/get_live_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-05-30T13:43:44Z",
+      "side": 1,
+      "message": "2. I meant Primitive types (not references); this test for the \"testLiveArgument case above checks that a value of a primitive type (kInt32_t) is accessible through a StackVisitor for all modes including non-debuggable. Could this test be relaxed to only check for the values (non-primitive, ShouldBeLiveForEnvironment() \u003d\u003d true)? for example instead of checking \"int arg\" check \"Object arg\"?\n\nAfter what you\u0027ve said (e.g. \"for non-debuggable as long as the vreg is not used for deopt.\" and other) it seems that primitive-typed env-uses for which ShouldBeLiveForEnvironment returns false can be dropped. I am going to upload a PoC/RFC patch for that.",
+      "parentUuid": "6c295749_d8cb17da",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 88
+      },
+      "revId": "6940ab40e4422ce1741743390a29f28c66542383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
