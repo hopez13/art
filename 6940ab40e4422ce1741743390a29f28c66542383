@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e82450e7_5c789056",
+        "filename": "test/466-get-live-vreg/get_live_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-30T12:00:27Z",
+      "side": 1,
+      "message": "Right this means we need to avoid sinking instructions that have environment uses for debuggable apps. Do you want to make this change?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 88
+      },
+      "revId": "6940ab40e4422ce1741743390a29f28c66542383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
