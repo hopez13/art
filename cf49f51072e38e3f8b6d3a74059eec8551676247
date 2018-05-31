@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34e3c14f_79afa1dd",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-31T08:31:20Z",
+      "side": 1,
+      "message": "We\u0027re passing ScopedObjectAccess by reference everywhere else.\n\nNote that we could change that all to const reference as all its functions are const-qualified. However, that\u0027s out of scope for this CL.",
+      "parentUuid": "babaf1d9_d3335752",
+      "range": {
+        "startLine": 68,
+        "startChar": 40,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "cf49f51072e38e3f8b6d3a74059eec8551676247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc785fef_69b79840",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cf49f51072e38e3f8b6d3a74059eec8551676247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80139e1a_c3ebdb92",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-31T08:31:20Z",
+      "side": 1,
+      "message": "From \"inout\", \"in/out\" and \"in-out\", the \"inout\" has the most uses.",
+      "parentUuid": "cc785fef_69b79840",
+      "range": {
+        "startLine": 3304,
+        "startChar": 41,
+        "endLine": 3304,
+        "endChar": 46
+      },
+      "revId": "cf49f51072e38e3f8b6d3a74059eec8551676247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
