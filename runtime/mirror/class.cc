@@ -1059,7 +1059,8 @@ ObjPtr<Class> Class::ResolveDirectInterface(Thread* self, Handle<Class> klass, u
     DCHECK(!klass->IsArrayClass());
     DCHECK(!klass->IsProxyClass());
     dex::TypeIndex type_idx = klass->GetDirectInterfaceTypeIdx(idx);
-    interface = Runtime::Current()->GetClassLinker()->ResolveType(type_idx, klass.Get());
+    interface = Runtime::Current()->GetClassLinker()->ResolveType(type_idx,
+                                                                  ObjPtr<Class>(klass.Get()));
     CHECK(interface != nullptr || self->IsExceptionPending());
   }
   return interface;

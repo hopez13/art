@@ -5403,7 +5403,8 @@ bool ClassLinker::LoadSuperAndInterfaces(Handle<mirror::Class> klass, const DexF
       return false;
     }
 
-    ObjPtr<mirror::Class> super_class = ResolveType(super_class_idx, klass.Get());
+    ObjPtr<mirror::Class> super_class = ResolveType(super_class_idx,
+                                                    ObjPtr<mirror::Class>(klass.Get()));
     if (super_class == nullptr) {
       DCHECK(Thread::Current()->IsExceptionPending());
       return false;
@@ -5422,7 +5423,7 @@ bool ClassLinker::LoadSuperAndInterfaces(Handle<mirror::Class> klass, const DexF
   if (interfaces != nullptr) {
     for (size_t i = 0; i < interfaces->Size(); i++) {
       dex::TypeIndex idx = interfaces->GetTypeItem(i).type_idx_;
-      ObjPtr<mirror::Class> interface = ResolveType(idx, klass.Get());
+      ObjPtr<mirror::Class> interface = ResolveType(idx, ObjPtr<mirror::Class>(klass.Get()));
       if (interface == nullptr) {
         DCHECK(Thread::Current()->IsExceptionPending());
         return false;

@@ -17,6 +17,9 @@
 #ifndef ART_RUNTIME_CLASS_LINKER_INL_H_
 #define ART_RUNTIME_CLASS_LINKER_INL_H_
 
+#include <atomic>
+#include <type_traits>
+
 #include "art_field.h"
 #include "class_linker.h"
 #include "gc/heap-inl.h"
@@ -28,8 +31,6 @@
 #include "mirror/object_array-inl.h"
 #include "obj_ptr-inl.h"
 #include "scoped_thread_state_change-inl.h"
-
-#include <atomic>
 
 namespace art {
 
@@ -84,8 +85,11 @@ inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
   return resolved_type;
 }
 
+template <typename ArtFieldOrMethod>
 inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
-                                                      ArtMethod* referrer) {
+                                                      ArtFieldOrMethod* referrer) {
+  static_assert(std::is_same<ArtFieldOrMethod, ArtField>::value ||
+                std::is_same<ArtFieldOrMethod, ArtMethod>::value, "Instantiation type check.");
   Thread::PoisonObjectPointersIfDebug();
   if (kIsDebugBuild) {
     Thread::Current()->AssertNoPendingException();
@@ -93,11 +97,11 @@ inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
   // We do not need the read barrier for getting the DexCache for the initial resolved type
   // lookup as both from-space and to-space copies point to the same native resolved types array.
   ObjPtr<mirror::Class> resolved_type =
-      referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
+      referrer->template GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
   if (UNLIKELY(resolved_type == nullptr)) {
     StackHandleScope<2> hs(Thread::Current());
     ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
+    Handle<mirror::DexCache> dex_cache(hs.NewHandle(referring_class->GetDexCache()));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referring_class->GetClassLoader()));
     resolved_type = DoResolveType(type_idx, dex_cache, class_loader);
   }
@@ -128,14 +132,20 @@ inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(dex::TypeIndex type
   return type;
 }
 
+template <class ArtFieldOrMethod>
 inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(dex::TypeIndex type_idx,
-                                                             ArtMethod* referrer) {
+                                                             ArtFieldOrMethod* referrer) {
+  static_assert(std::is_same<ArtFieldOrMethod, ArtField>::value ||
+                std::is_same<ArtFieldOrMethod, ArtMethod>::value, "Instantiation type check.");
   // We do not need the read barrier for getting the DexCache for the initial resolved type
   // lookup as both from-space and to-space copies point to the same native resolved types array.
   ObjPtr<mirror::Class> type =
-      referrer->GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
+      referrer->template GetDexCache<kWithoutReadBarrier>()->GetResolvedType(type_idx);
   if (type == nullptr) {
-    type = DoLookupResolvedType(type_idx, referrer->GetDexCache(), referrer->GetClassLoader());
+    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
+    type = DoLookupResolvedType(type_idx,
+                                referring_class->GetDexCache(),
+                                referring_class->GetClassLoader());
   }
   return type;
 }

@@ -246,7 +246,8 @@ static jobjectArray Class_getInterfacesInternal(JNIEnv* env, jobject javaThis) {
 
   for (uint32_t i = 0; i < num_ifaces; ++i) {
     const dex::TypeIndex type_idx = iface_list->GetTypeItem(i).type_idx_;
-    ObjPtr<mirror::Class> interface = linker->LookupResolvedType(type_idx, klass.Get());
+    ObjPtr<mirror::Class> interface =
+        linker->LookupResolvedType(type_idx, ObjPtr<mirror::Class>(klass.Get()));
     DCHECK(interface != nullptr);
     ifaces->SetWithoutChecks<false>(i, interface);
   }
