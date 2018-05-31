@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a49135fc_9144b81f",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-05-31T17:22:08Z",
+      "side": 1,
+      "message": "Curious: the ObjPtr non-explicit constructor doesn\u0027t take care of this?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 66,
+        "endLine": 1063,
+        "endChar": 79
+      },
+      "revId": "595a540ece74ebf0a7e69a1046c98a28837d15e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
