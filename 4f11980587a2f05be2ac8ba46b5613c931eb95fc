@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6df1127f_71839242",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-05-31T16:06:33Z",
+      "side": 1,
+      "message": "I\u0027m not going to block this CL, but perhaps would be worth packaging this into a JAR/APK so that the build rules below and appcompat.sh don\u0027t silently fail when it inevitably exceeds one dex file.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 0
+      },
+      "revId": "4f11980587a2f05be2ac8ba46b5613c931eb95fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
