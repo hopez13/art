@@ -519,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "5efcd9f3_64dba6ae",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-31T15:17:13Z",
+      "side": 1,
+      "message": "But why? stack map writing isn\u0027t multithreaded.",
+      "parentUuid": "089f9306_716c0ea5",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 18
+      },
+      "revId": "17e3f0ae19f43890bd844651f275a5f80756430d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2ebb1cb_7ed667a1",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 6
