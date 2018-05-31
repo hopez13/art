@@ -46,6 +46,30 @@
       "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9742934_70f641a5",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-05-31T09:49:00Z",
+      "side": 1,
+      "message": "Could do. I thought you don\u0027t like invalid objects :-)\n\nNote that the weirdness happens only due to the splitting of the API changes, it disappears again in the next CL, sine DexRegisterMap is completely self contained there.",
+      "parentUuid": "0d0bcdf2_c0606052",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 53
+      },
+      "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
