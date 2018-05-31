@@ -22,6 +22,30 @@
       "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e156a6ae_e54f2146",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-31T17:27:40Z",
+      "side": 1,
+      "message": "There is a comment in the commit message. I do not think this deserves a comment in the code. Explaining the kWithoutReadBarrier over and over would just clutter the code.",
+      "parentUuid": "8abb8459_f213f7a1",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
