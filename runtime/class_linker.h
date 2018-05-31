@@ -67,6 +67,8 @@ using MethodDexCachePair = NativeDexCachePair<ArtMethod>;
 using MethodDexCacheType = std::atomic<MethodDexCachePair>;
 }  // namespace mirror
 
+class ArtField;
+class ArtMethod;
 class ClassHierarchyAnalysis;
 enum class ClassRoot : uint32_t;
 class ClassTable;
@@ -223,7 +225,8 @@ class ClassLinker {
   // Resolve a type with the given index from the DexFile associated with the given `referrer`,
   // storing the result in the DexCache. The `referrer` is used to identify the target DexCache
   // and ClassLoader to use for resolution.
-  ObjPtr<mirror::Class> ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer)
+  template <typename ArtFieldOrMethod>
+  ObjPtr<mirror::Class> ResolveType(dex::TypeIndex type_idx, ArtFieldOrMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
@@ -246,7 +249,9 @@ class ClassLinker {
   // Look up a resolved type with the given index from the DexFile associated with the given
   // `referrer`, storing the result in the DexCache. The `referrer` is used to identify the
   // target DexCache and ClassLoader to use for lookup.
-  ObjPtr<mirror::Class> LookupResolvedType(dex::TypeIndex type_idx, ArtMethod* referrer)
+  template <class ArtFieldOrMethod>
+  ObjPtr<mirror::Class>
+  LookupResolvedType(dex::TypeIndex type_idx, ArtFieldOrMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Look up a resolved type with the given index from the DexFile associated with the given
