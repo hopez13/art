@@ -22,6 +22,30 @@
       "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d0bcdf2_c0606052",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-05-31T09:33:59Z",
+      "side": 1,
+      "message": "What about\n\n  const CodeInfo code_info \u003d (accessor.HasCodeItem() \u0026\u0026 mi-\u003ecode_info !\u003d nullptr)\n      ? CodeInfo(mi-\u003ecode_info)\n      : CodeInfo();\n\n(You\u0027d need an extra constructor for invalid code info.)",
+      "parentUuid": "5f656276_dd27fd9c",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 53
+      },
+      "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
