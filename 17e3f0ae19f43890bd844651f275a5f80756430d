@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "970e9a1d_7d7e0925",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-05-31T15:45:12Z",
+      "side": 1,
+      "message": "If the optimization can be done in a follow-up CL, we generally prefer that :)",
+      "parentUuid": "8314d4c1_81669e6b",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 86
+      },
+      "revId": "17e3f0ae19f43890bd844651f275a5f80756430d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50e67f12_1908ed86",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 6
