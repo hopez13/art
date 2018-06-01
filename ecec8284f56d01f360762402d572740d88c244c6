@@ -16,6 +16,24 @@
       "revId": "ecec8284f56d01f360762402d572740d88c244c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185b084d_40e3ab34",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 7601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-01T15:37:28Z",
+      "side": 1,
+      "message": "Intentional for consistency with the others. With the other change, it may be necessary (?), as then the type of the label won\u0027t be a code type anymore, so it may be necessary to switch back to the right thing.",
+      "parentUuid": "30cb55a2_01ee0eaa",
+      "revId": "ecec8284f56d01f360762402d572740d88c244c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
