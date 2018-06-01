@@ -70,6 +70,41 @@
       "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e5ae95_8dc72776",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2018-06-01T21:55:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "aed48cda_559317f2",
+      "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9eb639e_dd9b65c0",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2018-06-01T21:55:05Z",
+      "side": 0,
+      "message": "If install succeeded then the lock should be fat locked.\n\nIs it not worth doing this check, or is it some issue preventing it? At this point the lockword state bits should be fat-locked ?",
+      "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
