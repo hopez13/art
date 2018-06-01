@@ -117,6 +117,30 @@
       "revId": "71e1e79b9d04c13613f47e6c231a760ac9181854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01a55d0a_3da2bfa8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-01T09:55:41Z",
+      "side": 1,
+      "message": "I don\u0027t follow.  \u0027size_\u0027 is the number of dex register locations stored in this map.\n\nIf the number of dex register locations is small enough, it is stored in regs_small_ to avoid memory allocation.\n\n// To avoid memory allocations, store the data inline if the number of registers is small.\n\n?",
+      "parentUuid": "4863c228_60a913a7",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 67
+      },
+      "revId": "71e1e79b9d04c13613f47e6c231a760ac9181854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
