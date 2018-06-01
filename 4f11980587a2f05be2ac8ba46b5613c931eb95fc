@@ -46,6 +46,30 @@
       "revId": "4f11980587a2f05be2ac8ba46b5613c931eb95fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84db2d30_4e22a9b1",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-01T08:52:10Z",
+      "side": 1,
+      "message": "Maybe I\u0027m missing something, so correct me if I\u0027m wrong...\n\n$(system_stub_dex) is the classes.dex file. As the SDK JAR grows, d8 will eventually generate classes.dex and classes2.dex. But the second file will be ignored by the dependent rules without any warning because they only refer to $(system_stub_dex).\n\nA lot of build rules have the classes.dex as an output, but they always iterate over classes*.dex when it is an input. That\u0027s one option, but I think it would be easier if you ZIP-ed here and treated it as an APK.",
+      "parentUuid": "3c37bf66_455befb7",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 0
+      },
+      "revId": "4f11980587a2f05be2ac8ba46b5613c931eb95fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
