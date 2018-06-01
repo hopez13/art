@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed1ad267_c7121078",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-01T06:02:30Z",
+      "side": 1,
+      "message": "Seems like it would be easier to maintain if you used an array and the enum values from stack_map.h as indices? That would ensure the layout is correct.",
+      "range": {
+        "startLine": 98,
+        "startChar": 37,
+        "endLine": 98,
+        "endChar": 65
+      },
+      "revId": "74c095a273c11930517169112748731af075207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
