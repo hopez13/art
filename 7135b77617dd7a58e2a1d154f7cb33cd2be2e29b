@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e624331b_91797f5a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-01T13:20:15Z",
+      "side": 1,
+      "message": "Could you make this a macro you could inline? ditto for all other archs.",
+      "range": {
+        "startLine": 2699,
+        "startChar": 0,
+        "endLine": 2703,
+        "endChar": 91
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adf0d2b0_e1654cdf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2877,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-01T13:20:15Z",
+      "side": 1,
+      "message": "I think we have a ScopeThing for this?",
+      "range": {
+        "startLine": 2877,
+        "startChar": 2,
+        "endLine": 2877,
+        "endChar": 94
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
