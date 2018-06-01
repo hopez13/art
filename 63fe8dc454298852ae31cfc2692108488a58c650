@@ -16,6 +16,24 @@
       "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29f7af2a_2307aaa7",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-06-01T20:39:40Z",
+      "side": 0,
+      "message": "Joel, the new code uses CAS to unlock. If the lock is inflated during the unlock attempt, the CAS will fail, causing the unlocker to loop around and go down the thick-lock path for unlock.",
+      "parentUuid": "503aad31_0588de5c",
+      "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
