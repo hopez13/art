@@ -94,6 +94,30 @@
       "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12c5b3c_47772987",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-01T15:09:30Z",
+      "side": 1,
+      "message": "Because a class shouldn\u0027t be touched when it isn\u0027t at least in the loaded state, as it isn\u0027t complete and invariants don\u0027t hold. It\u0027s a very simple invariant, really. In the Idx stage, nothing but the class-linker should be working on it, and that doesn\u0027t need to call GetDeclaringClass.",
+      "parentUuid": "b735f452_48512667",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
