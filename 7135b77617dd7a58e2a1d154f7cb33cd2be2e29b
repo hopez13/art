@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "918c9f36_64b94a08",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done and rippled through to be consistent.",
+      "parentUuid": "e25f4354_9475b3d9",
+      "range": {
+        "startLine": 1060,
+        "startChar": 14,
+        "endLine": 1060,
+        "endChar": 24
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b1df3a2_f61e47f1",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-01T14:07:42Z",
       "side": 1,
       "message": "I prefer the \"nullptr\" after the comment (but this file itself is inconsistent).",
+      "range": {
+        "startLine": 1070,
+        "startChar": 22,
+        "endLine": 1070,
+        "endChar": 48
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64b5e7e2_ba311f18",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done.\n\nAlso swapped the order of the clinit_check and is_unresolved arguments in HandleInvoke, making the default value for clinit_check nullptr. The latter is plainly a one-off special case.",
+      "parentUuid": "1b1df3a2_f61e47f1",
       "range": {
         "startLine": 1070,
         "startChar": 22,
@@ -68,6 +116,30 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fc41e35_b18105f0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4399,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a88a6bb_127f9ebb",
+      "range": {
+        "startLine": 4399,
+        "startChar": 16,
+        "endLine": 4399,
+        "endChar": 23
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "b7ae3960_55ca22bf",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2777,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42581f9f_ce6d538d",
+      "range": {
+        "startLine": 2774,
+        "startChar": 0,
+        "endLine": 2777,
+        "endChar": 28
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1245a14_fffaf6f7",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 3
@@ -131,6 +227,24 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4887a663_a5a0d2d6",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2449,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1245a14_fffaf6f7",
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "65c0e0c8_12d70e03",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f7bc3cc_0dae7de9",
+      "range": {
+        "startLine": 2540,
+        "startChar": 4,
+        "endLine": 2540,
+        "endChar": 96
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6341bb_abdb2951",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 3
@@ -168,6 +306,24 @@
       "writtenOn": "2018-06-01T14:07:42Z",
       "side": 1,
       "message": "Line too long. Missing \"L\" in local label name (.L*).",
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2c6ea68_330bbd20",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Good spot. Done.",
+      "parentUuid": "ca6341bb_abdb2951",
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -244,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "505dc694_9b8c9a45",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f091c6e_be4c71f3",
+      "range": {
+        "startLine": 2892,
+        "startChar": 2,
+        "endLine": 2892,
+        "endChar": 47
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a58214ca_c41acbea",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -267,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "3e1d93cc_d8e4c59d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a58214ca_c41acbea",
+      "range": {
+        "startLine": 1393,
+        "startChar": 24,
+        "endLine": 1393,
+        "endChar": 33
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8274c035_5dc62443",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -287,6 +491,30 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d07e98_6435aa93",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T16:20:17Z",
+      "side": 1,
+      "message": "Made the objptr changes here. Prefer keeping the dex cache logic for callsites in one place though it adds a test-and-branch here (InvokeBootstrapMethod is large and gnarly).",
+      "parentUuid": "8274c035_5dc62443",
+      "range": {
+        "startLine": 1404,
+        "startChar": 64,
+        "endLine": 1404,
+        "endChar": 70
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
