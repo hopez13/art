@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d132229_d7b05236",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 572,
+        "endChar": 40
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55ed71c2_e2505716",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 17
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb44f13_650ab700",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "This should be covered by the verifier already.",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 82
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bab8d29_c309206a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "Line length",
+      "range": {
+        "startLine": 2847,
+        "startChar": 50,
+        "endLine": 2847,
+        "endChar": 70
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "249a909d_8ee2e348",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2928,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "Line length",
+      "range": {
+        "startLine": 2928,
+        "startChar": 50,
+        "endLine": 2928,
+        "endChar": 67
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77fb7154_42d720ec",
+        "filename": "runtime/arch/mips/entrypoints_init_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "static_asserts here",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 51
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "458ae7fa_9969e1e9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2428,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2428,
+        "startChar": 54,
+        "endLine": 2428,
+        "endChar": 74
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55063270_90286cda",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "line length",
+      "range": {
+        "startLine": 2430,
+        "startChar": 58,
+        "endLine": 2430,
+        "endChar": 59
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f091117_7ba0c6f2",
+        "filename": "runtime/entrypoints/quick/quick_default_externs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-01T07:07:54Z",
+      "side": 1,
+      "message": "The return type ... or a primitive...",
+      "range": {
+        "startLine": 117,
+        "startChar": 35,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "360d01f5b82fc1d80a6465a0b2953df3e01a887a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
