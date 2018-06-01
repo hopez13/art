@@ -141,6 +141,30 @@
       "revId": "71e1e79b9d04c13613f47e6c231a760ac9181854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3164fca1_35e79c19",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-01T10:00:42Z",
+      "side": 1,
+      "message": "So why not naming the field number_of_dex_registers_? Ie less generic than size_.",
+      "parentUuid": "01a55d0a_3da2bfa8",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 67
+      },
+      "revId": "71e1e79b9d04c13613f47e6c231a760ac9181854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
