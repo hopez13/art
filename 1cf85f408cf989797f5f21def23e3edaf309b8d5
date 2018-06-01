@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba73cf0a_cc435f40",
+        "filename": "tools/veridex/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-01T11:45:54Z",
+      "side": 1,
+      "message": "I think you need `-f` per file, at least it seems so from `soong_zip --help`",
+      "range": {
+        "startLine": 52,
+        "startChar": 82,
+        "endLine": 52,
+        "endChar": 123
+      },
+      "revId": "1cf85f408cf989797f5f21def23e3edaf309b8d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
