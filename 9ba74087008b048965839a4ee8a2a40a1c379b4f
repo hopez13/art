@@ -118,6 +118,30 @@
       "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7258650_27639e5f",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-01T15:27:59Z",
+      "side": 1,
+      "message": "I think ClassLinker has exclusive access to the class all the way until kResolved but asserting IsResolved() || IsErroneous() would make it much harder for the ClassLinker to do its work.",
+      "parentUuid": "b12c5b3c_47772987",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
