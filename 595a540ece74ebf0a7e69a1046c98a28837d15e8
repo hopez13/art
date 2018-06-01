@@ -92,6 +92,30 @@
       "revId": "595a540ece74ebf0a7e69a1046c98a28837d15e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0be706dd_122aa781",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-01T10:18:24Z",
+      "side": 1,
+      "message": "Explicit conversion reverted in PS3/PS4.",
+      "parentUuid": "6caa9bf8_5ab62751",
+      "range": {
+        "startLine": 1063,
+        "startChar": 66,
+        "endLine": 1063,
+        "endChar": 79
+      },
+      "revId": "595a540ece74ebf0a7e69a1046c98a28837d15e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

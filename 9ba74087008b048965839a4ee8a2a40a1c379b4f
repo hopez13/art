@@ -70,6 +70,30 @@
       "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b735f452_48512667",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-01T10:18:24Z",
+      "side": 1,
+      "message": "Why was the check here in the first place? Why would we want to prevent using the declaring class of the field in the short period between the field\u0027s construction while the class is in kIdx until the class reaches kLoaded shortly thereafter?\n\nThis check comes from 0cfe1fb7060576d047f7f894fc0d8b87de84fcab and the corresponding check for methods has been relaxed in 65ca077378935beb113bb5aec5e890054ca3286e . (Neither is visible in AOSP gerrit, you need to checkout the AOSP art project or use the internal gerrit.)",
+      "parentUuid": "f5959e1d_c7ad2562",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "9ba74087008b048965839a4ee8a2a40a1c379b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
