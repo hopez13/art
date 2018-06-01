@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "503aad31_0588de5c",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1124848
+      },
+      "writtenOn": "2018-06-01T20:00:58Z",
+      "side": 0,
+      "message": "Dan, how is the race described in this comment (owner unlocking the thin lock while it is being inflated) avoided in this \"suspend-less inflate\" design? thanks.",
+      "revId": "63fe8dc454298852ae31cfc2692108488a58c650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
