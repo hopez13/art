@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99139132_d3aedade",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-04T17:02:44Z",
+      "side": 1,
+      "message": "Maybe replace this with\n\n  mirror::ObjectArray\u003cmirror::Object\u003e\n\nto make it more explicit?",
+      "range": {
+        "startLine": 976,
+        "startChar": 2,
+        "endLine": 976,
+        "endChar": 6
+      },
+      "revId": "0ae05b1dd7e0bc446ad14f4bdad281b802c38c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23a9db05_981c0238",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-04T17:02:44Z",
+      "side": 1,
+      "message": "Would it make sense to do some sanity checking (maybe in debug mode) in the case where these pre-allocated exceptions are in the boot image, e.g. verifying their exact type?",
+      "range": {
+        "startLine": 1519,
+        "startChar": 17,
+        "endLine": 1519,
+        "endChar": 34
+      },
+      "revId": "0ae05b1dd7e0bc446ad14f4bdad281b802c38c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
