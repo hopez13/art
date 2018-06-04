@@ -22,6 +22,30 @@
       "revId": "5b48f88710cd415f7cafbc64ee9e19e866e8c690",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09286f30_961b09ef",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc117217_953a8229",
+      "range": {
+        "startLine": 2692,
+        "startChar": 4,
+        "endLine": 2695,
+        "endChar": 28
+      },
+      "revId": "5b48f88710cd415f7cafbc64ee9e19e866e8c690",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

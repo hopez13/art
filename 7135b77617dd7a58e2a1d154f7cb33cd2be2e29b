@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fa871c19_7194d170",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2703,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e624331b_91797f5a",
+      "range": {
+        "startLine": 2699,
+        "startChar": 0,
+        "endLine": 2703,
+        "endChar": 91
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42581f9f_ce6d538d",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -374,6 +398,30 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11d578f7_bda48cc0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2877,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:22:49Z",
+      "side": 1,
+      "message": "Yes, but here as elsewhere in this file, this adds constraints around variable visibility which doesn\u0027t work too well. Here we need operands and shadow_frame outside of the Start..End.. block which wouldn\u0027t available with the ScopedAssertNoThreadSuspension.",
+      "parentUuid": "1a7be8e2_c438173e",
+      "range": {
+        "startLine": 2877,
+        "startChar": 2,
+        "endLine": 2877,
+        "endChar": 94
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
