@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0ce5fd9f_c670009e",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:25:15Z",
+      "side": 1,
+      "message": "Marking resolved.",
+      "parentUuid": "918c9f36_64b94a08",
+      "range": {
+        "startLine": 1060,
+        "startChar": 14,
+        "endLine": 1060,
+        "endChar": 24
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b1df3a2_f61e47f1",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eae0137_f003c713",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:25:15Z",
+      "side": 1,
+      "message": "Marking resolved.",
+      "parentUuid": "64b5e7e2_ba311f18",
+      "range": {
+        "startLine": 1070,
+        "startChar": 22,
+        "endLine": 1070,
+        "endChar": 48
+      },
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -351,6 +399,24 @@
       "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e11e37ea_dec138d6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-04T14:25:15Z",
+      "side": 1,
+      "message": "-",
+      "parentUuid": "e2c6ea68_330bbd20",
+      "revId": "7135b77617dd7a58e2a1d154f7cb33cd2be2e29b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
