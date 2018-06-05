@@ -376,6 +376,7 @@ ClassLinker::ClassLinker(InternTable* intern_table)
     : boot_class_table_(new ClassTable()),
       failed_dex_cache_class_lookups_(0),
       class_roots_(nullptr),
+      boot_image_live_objects_(nullptr),
       find_array_class_cache_next_victim_(0),
       init_done_(false),
       log_new_roots_(false),
@@ -990,8 +991,10 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   class_roots_ = GcRoot<mirror::ObjectArray<mirror::Class>>(
       ObjPtr<mirror::ObjectArray<mirror::Class>>::DownCast(MakeObjPtr(
           spaces[0]->GetImageHeader().GetImageRoot(ImageHeader::kClassRoots))));
-  DCHECK_EQ(GetClassRoot(ClassRoot::kJavaLangClass, this)->GetClassFlags(),
-            mirror::kClassFlagClass);
+  DCHECK_EQ(GetClassRoot<mirror::Class>(this)->GetClassFlags(), mirror::kClassFlagClass);
+  boot_image_live_objects_ = GcRoot<mirror::ObjectArray<mirror::Object>>(
+      ObjPtr<mirror::ObjectArray<mirror::Object>>::DownCast(MakeObjPtr(
+          spaces[0]->GetImageHeader().GetImageRoot(ImageHeader::kBootImageLiveObjects))));
 
   ObjPtr<mirror::Class> java_lang_Object = GetClassRoot<mirror::Object>(this);
   java_lang_Object->SetObjectSize(sizeof(mirror::Object));
@@ -1610,10 +1613,9 @@ bool ClassLinker::AddImageSpace(
       hs.NewHandle(dex_caches_object->AsObjectArray<mirror::DexCache>()));
   Handle<mirror::ObjectArray<mirror::Class>> class_roots(hs.NewHandle(
       header.GetImageRoot(ImageHeader::kClassRoots)->AsObjectArray<mirror::Class>()));
-  static_assert(ImageHeader::kClassLoader + 1u == ImageHeader::kImageRootsMax,
-                "Class loader should be the last image root.");
   MutableHandle<mirror::ClassLoader> image_class_loader(hs.NewHandle(
-      app_image ? header.GetImageRoot(ImageHeader::kClassLoader)->AsClassLoader() : nullptr));
+      app_image ? header.GetImageRoot(ImageHeader::kAppImageClassLoader)->AsClassLoader()
+                : nullptr));
   DCHECK(class_roots != nullptr);
   if (class_roots->GetLength() != static_cast<int32_t>(ClassRoot::kMax)) {
     *error_msg = StringPrintf("Expected %d class roots but got %d",
@@ -1925,6 +1927,7 @@ void ClassLinker::VisitClassRoots(RootVisitor* visitor, VisitRootFlags flags) {
 // mapped image.
 void ClassLinker::VisitRoots(RootVisitor* visitor, VisitRootFlags flags) {
   class_roots_.VisitRootIfNonNull(visitor, RootInfo(kRootVMInternal));
+  boot_image_live_objects_.VisitRootIfNonNull(visitor, RootInfo(kRootVMInternal));
   VisitClassRoots(visitor, flags);
   // Instead of visiting the find_array_class_cache_ drop it so that it doesn't prevent class
   // unloading if we are marking roots.

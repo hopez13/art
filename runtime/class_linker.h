@@ -1303,6 +1303,9 @@ class ClassLinker {
   // Well known mirror::Class roots.
   GcRoot<mirror::ObjectArray<mirror::Class>> class_roots_;
 
+  // Boot image objects that need to be kept alive.
+  GcRoot<mirror::ObjectArray<mirror::Object>> boot_image_live_objects_;
+
   // A cache of the last FindArrayClass results. The cache serves to avoid creating array class
   // descriptors for the sake of performing FindClass.
   static constexpr size_t kFindArrayCacheSize = 16;

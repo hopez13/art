@@ -450,6 +450,10 @@ class ImageWriter FINAL {
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CreateHeader(size_t oat_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<mirror::ObjectArray<mirror::Object>> CollectDexCaches(Thread* self, size_t oat_index) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<mirror::ObjectArray<mirror::Object>> CollectBootImageLiveObjects(Thread* self) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
   mirror::ObjectArray<mirror::Object>* CreateImageRoots(size_t oat_index) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CalculateObjectBinSlots(mirror::Object* obj)
