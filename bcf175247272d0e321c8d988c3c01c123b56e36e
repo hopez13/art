@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9e03431a_ca2a075d",
+        "filename": "runtime/reference_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-05T12:54:25Z",
+      "side": 1,
+      "message": "Nit: I think for consistency, I\u0027d prefer our style to have two handles here, avoids copy/paste refactorings errors, and mental overhead of knowing if handle or objptr.",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 27
+      },
+      "revId": "bcf175247272d0e321c8d988c3c01c123b56e36e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19623b64_7ff6e43e",
         "filename": "runtime/reference_table_test.cc",
         "patchSetId": 1
