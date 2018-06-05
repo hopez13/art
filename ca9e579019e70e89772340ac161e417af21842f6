@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "96824b48_c01362eb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-05T13:53:40Z",
+      "side": 1,
+      "message": "For fewer taken branches, this should be a slow path at the end.",
+      "range": {
+        "startLine": 2701,
+        "startChar": 0,
+        "endLine": 2703,
+        "endChar": 14
+      },
+      "revId": "ca9e579019e70e89772340ac161e417af21842f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28feaeca_fa12ccb2",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-05T13:53:40Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2706,
+        "startChar": 0,
+        "endLine": 2708,
+        "endChar": 14
+      },
+      "revId": "ca9e579019e70e89772340ac161e417af21842f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68c6b461_b41857fb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2716,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-05T13:53:40Z",
+      "side": 1,
+      "message": "Given the sign-/zero-extension done by the JValue.setX() functions, this can be used for Z and C as well and it would do no harm for V either. J can also fall through to reuse this code unless you move the J handling to the end as suggested for D/F.",
+      "range": {
+        "startLine": 2716,
+        "startChar": 4,
+        "endLine": 2716,
+        "endChar": 20
+      },
+      "revId": "ca9e579019e70e89772340ac161e417af21842f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1e7f969_c40e79c6",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 8
@@ -13,6 +82,24 @@
       "writtenOn": "2018-06-04T14:28:28Z",
       "side": 1,
       "message": "I liked the TBB approach more.",
+      "revId": "ca9e579019e70e89772340ac161e417af21842f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6081374f_9929c369",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-05T13:53:40Z",
+      "side": 1,
+      "message": "It\u0027s not that difficult to add specialized labels to macros, see for example BRBMI_UNMARKED_FORWARDING_ADDRESS_CHECK. But if you shorten the macro as suggested above (use the default path for Z/C/V), the branching implementation shall be OK.\n\nOTOH, it should be rather simple to do the conversion in compiler. Just pretend that the entrypoint returns J. Copying to FP registers would be inserted automatically by the register allocator when the result is used.",
+      "parentUuid": "a1e7f969_c40e79c6",
       "revId": "ca9e579019e70e89772340ac161e417af21842f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
