@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1103586b_688224c5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-06-05T17:21:30Z",
+      "side": 1,
+      "message": "Would it be helpful to retain the previous ClassAccessor constructor in addition to the new one?    I count ~6 cases where the extra gymnastics are now required of the caller.",
+      "revId": "4d2299aab28395985522c553ec216466696463b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
