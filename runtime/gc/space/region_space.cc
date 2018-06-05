@@ -316,6 +316,9 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   };
   for (size_t i = 0; i < std::min(num_regions_, non_free_region_index_limit_); ++i) {
     Region* r = &regions_[i];
+    if (kIsDebugBuild) {
+      CheckLiveBytesAgainstRegionBitmap(r);
+    }
     if (r->IsInFromSpace()) {
       *cleared_bytes += r->BytesAllocated();
       *cleared_objects += r->ObjectsAllocated();
@@ -402,6 +405,42 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   evac_region_ = nullptr;
   num_non_free_regions_ += num_evac_regions_;
   num_evac_regions_ = 0;
+}
+
+void RegionSpace::CheckLiveBytesAgainstRegionBitmap(Region* r) {
+  if (r->LiveBytes() == static_cast<size_t>(-1)) {
+    // Live bytes count is undefined for `r`; nothing to check here.
+    return;
+  }
+
+  // Functor walking the region space bitmap for the range corresponding
+  // to region `r` and calculating the sum of live bytes.
+  size_t live_bytes_recount = 0u;
+  auto recount_live_bytes =
+      [&r, &live_bytes_recount](mirror::Object* obj) REQUIRES(Locks::mutator_lock_) {
+    DCHECK_ALIGNED(obj, kAlignment);
+    if (r->IsLarge()) {
+      // If `r` is a large region, then it contains at most one
+      // object, which must start at the beginning of the
+      // region. The live byte count in that case is equal to the
+      // allocated regions (large region + large tails regions).
+      DCHECK_EQ(reinterpret_cast<uint8_t*>(obj), r->Begin());
+      DCHECK_EQ(live_bytes_recount, 0u);
+      live_bytes_recount = r->Top() - r->Begin();
+    } else {
+      DCHECK(r->IsAllocated())
+          << "r->State()=" << r->State() << " r->LiveBytes()=" << r->LiveBytes();
+      size_t obj_size = obj->SizeOf<kDefaultVerifyFlags>();
+      size_t alloc_size = RoundUp(obj_size, space::RegionSpace::kAlignment);
+      live_bytes_recount += alloc_size;
+    }
+  };
+  // Visit live objects in `r` and recount the live bytes.
+  GetLiveBitmap()->VisitMarkedRange(reinterpret_cast<uintptr_t>(r->Begin()),
+                                    reinterpret_cast<uintptr_t>(r->Top()),
+                                    recount_live_bytes);
+  // Check that this recount matches the region's current live bytes count.
+  DCHECK_EQ(live_bytes_recount, r->LiveBytes());
 }
 
 // Poison the memory area in range [`begin`, `end`) with value `kPoisonDeadObject`.
