@@ -25,6 +25,7 @@
 #include "base/bit_vector.h"
 #include "base/leb128.h"
 #include "base/memory_region.h"
+#include "base/stats.h"
 #include "dex/dex_file_types.h"
 #include "dex_register_location.h"
 #include "method_info.h"
@@ -245,6 +246,18 @@ class InvokeInfo : public BitTable<3>::Accessor {
   uint32_t GetMethodIndex(MethodInfo method_info) const {
     return method_info.GetMethodIndex(GetMethodInfoIndex());
   }
+};
+
+class MaskInfo : public BitTable<1>::Accessor {
+ public:
+  BIT_TABLE_HEADER()
+  BIT_TABLE_COLUMN(0, Mask)
+};
+
+class DexRegisterMapInfo : public BitTable<1>::Accessor {
+ public:
+  BIT_TABLE_HEADER()
+  BIT_TABLE_COLUMN(0, CatalogueIndex)
 };
 
 class DexRegisterInfo : public BitTable<2>::Accessor {
@@ -468,6 +481,9 @@ class CodeInfo {
             InstructionSet instruction_set,
             const MethodInfo& method_info) const;
 
+  // Accumulate code info size statistics into the given Stats tree.
+  void AddSizeStats(/*out*/ Stats* parent) const;
+
  private:
   ALWAYS_INLINE DexRegisterMap DecodeDexRegisterMap(uint32_t mask_index,
                                                     uint32_t map_index,
@@ -506,11 +522,11 @@ class CodeInfo {
   size_t size_;
   BitTable<StackMap::kCount> stack_maps_;
   BitTable<RegisterMask::kCount> register_masks_;
-  BitTable<1> stack_masks_;
+  BitTable<MaskInfo::kCount> stack_masks_;
   BitTable<InvokeInfo::kCount> invoke_infos_;
   BitTable<InlineInfo::kCount> inline_infos_;
-  BitTable<1> dex_register_masks_;
-  BitTable<1> dex_register_maps_;
+  BitTable<MaskInfo::kCount> dex_register_masks_;
+  BitTable<DexRegisterMapInfo::kCount> dex_register_maps_;
   BitTable<DexRegisterInfo::kCount> dex_register_catalog_;
 
   friend class OatDumper;
