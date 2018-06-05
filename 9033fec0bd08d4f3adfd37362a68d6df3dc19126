@@ -22,6 +22,30 @@
       "revId": "9033fec0bd08d4f3adfd37362a68d6df3dc19126",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d37f84a_7c376964",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-05T14:23:34Z",
+      "side": 1,
+      "message": "That is up for debate, they are used interchangeably in the file.\nrelocated_filename is something like \"boot.art\", and rel_filename is \"boot.art.rel\".\nI think \"boot.art\" is more appropriate here.",
+      "parentUuid": "13f49917_d98827fa",
+      "range": {
+        "startLine": 367,
+        "startChar": 68,
+        "endLine": 367,
+        "endChar": 86
+      },
+      "revId": "9033fec0bd08d4f3adfd37362a68d6df3dc19126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
