@@ -149,7 +149,7 @@ class VerifierDepsTest : public CommonCompilerTest {
     Handle<mirror::DexCache> dex_cache_handle(hs.NewHandle(klass_Main_->GetDexCache()));
 
     const DexFile::ClassDef* class_def = klass_Main_->GetClassDef();
-    ClassAccessor accessor(*primary_dex_file_, *class_def);
+    ClassAccessor accessor(*primary_dex_file_, primary_dex_file_->GetIndexForClassDef(*class_def));
 
     bool has_failures = true;
     bool found_method = false;

@@ -2736,7 +2736,7 @@ uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
   size_t num_16 = 0;
   size_t num_32 = 0;
   size_t num_64 = 0;
-  ClassAccessor accessor(dex_file, dex_class_def);
+  ClassAccessor accessor(dex_file, dex_file.GetIndexForClassDef(dex_class_def));
   // We allow duplicate definitions of the same field in a class_data_item
   // but ignore the repeated indexes here, b/21868015.
   uint32_t last_field_idx = dex::kDexNoIndex;
@@ -2870,9 +2870,9 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
   }
 
   const DexFile& dex_file = klass->GetDexFile();
-  const DexFile::ClassDef* dex_class_def = klass->GetClassDef();
-  CHECK(dex_class_def != nullptr);
-  ClassAccessor accessor(dex_file, *dex_class_def);
+  const uint16_t class_def_idx = klass->GetDexClassDefIndex();
+  CHECK_NE(class_def_idx, DexFile::kDexNoIndex16);
+  ClassAccessor accessor(dex_file, class_def_idx);
   // There should always be class data if there were direct methods.
   CHECK(accessor.HasClassData()) << klass->PrettyDescriptor();
   bool has_oat_class;
@@ -3051,7 +3051,7 @@ void ClassLinker::LoadClass(Thread* self,
                             const DexFile& dex_file,
                             const DexFile::ClassDef& dex_class_def,
                             Handle<mirror::Class> klass) {
-  ClassAccessor accessor(dex_file, dex_class_def);
+  ClassAccessor accessor(dex_file, dex_file.GetIndexForClassDef(dex_class_def));
   if (!accessor.HasClassData()) {
     return;
   }
@@ -4761,7 +4761,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     const DexFile& dex_file = *dex_cache->GetDexFile();
 
     if (value_it.HasNext()) {
-      ClassAccessor accessor(dex_file, *dex_class_def);
+      ClassAccessor accessor(dex_file, dex_file.GetIndexForClassDef(*dex_class_def));
       CHECK(can_init_statics);
       for (const ClassAccessor::Field& field : accessor.GetStaticFields()) {
         if (!value_it.HasNext()) {

@@ -246,7 +246,7 @@ class ClassAccessor {
   // Not explicit specifically for range-based loops.
   ALWAYS_INLINE ClassAccessor(const ClassIteratorData& data);
 
-  ClassAccessor(const DexFile& dex_file, const DexFile::ClassDef& class_def);
+  ClassAccessor(const DexFile& dex_file, uint32_t class_def_index);
 
   // Return the code item for a method.
   const DexFile::CodeItem* GetCodeItem(const Method& method) const;
@@ -315,9 +315,7 @@ class ClassAccessor {
 
   const char* GetDescriptor() const;
 
-  dex::TypeIndex GetClassIdx() const {
-    return descriptor_index_;
-  }
+  dex::TypeIndex GetClassIdx() const;
 
   const DexFile& GetDexFile() const {
     return dex_file_;
@@ -325,6 +323,10 @@ class ClassAccessor {
 
   bool HasClassData() const {
     return ptr_pos_ != nullptr;
+  }
+
+  uint32_t GetClassDefIndex() const {
+    return class_def_index_;
   }
 
  protected:
@@ -341,7 +343,7 @@ class ClassAccessor {
   IterationRange<DataIterator<Method>> GetMethodsInternal(size_t count) const;
 
   const DexFile& dex_file_;
-  const dex::TypeIndex descriptor_index_ = {};
+  const uint32_t class_def_index_;
   const uint8_t* ptr_pos_ = nullptr;  // Pointer into stream of class_data_item.
   const uint32_t num_static_fields_ = 0u;
   const uint32_t num_instance_fields_ = 0u;
