@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "498a9b84_b2da15bd",
+        "filename": "runtime/reference_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-05T13:19:46Z",
+      "side": 1,
+      "message": "This is a test, so you shouldn\u0027t look at this too much unless it\u0027s failing. (And the checks in ObjPtr\u003c\u003e should keep this safe as is.)",
+      "parentUuid": "8b0fb7cd_8f2ac519",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 27
+      },
+      "revId": "bcf175247272d0e321c8d988c3c01c123b56e36e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19623b64_7ff6e43e",
         "filename": "runtime/reference_table_test.cc",
         "patchSetId": 1
