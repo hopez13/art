@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "581e5e71_5a546305",
+        "filename": "runtime/reference_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-05T13:07:17Z",
+      "side": 1,
+      "message": "Isn\u0027t `s2` in an ObjPtr\u003c\u003e (and not a Handle\u003c\u003e) on purpose, to check that we shouldn\u0027t need a handle in that case (as opposed to `s1`, which needs to be in a Handle\u003c\u003e)?",
+      "parentUuid": "9e03431a_ca2a075d",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 27
+      },
+      "revId": "bcf175247272d0e321c8d988c3c01c123b56e36e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19623b64_7ff6e43e",
         "filename": "runtime/reference_table_test.cc",
         "patchSetId": 1
