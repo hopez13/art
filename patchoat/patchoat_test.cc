@@ -537,6 +537,22 @@ TEST_F(PatchoatTest, RelFileVerification) {
     FAIL() << "VerifyBootImage failed: " << error_msg;
   }
 
+  // Corrupt the relocation file and check that the verification fails gracefully.
+  std::string rel_filename = dex2oat_orig_dir + "/boot.art.rel";
+  std::unique_ptr<File> rel_file(OS::OpenFileReadWrite(rel_filename.c_str()));
+  for (int64_t offset = 0; offset < rel_file->GetLength(); ++offset) {
+    uint8_t data = 0x7F;  // Largest single byte LEB128 integer.
+    ASSERT_TRUE(rel_file->WriteFully(&data, sizeof(data)));
+  }
+  ASSERT_EQ(rel_file->FlushClose(), 0);
+  if (VerifyBootImage(
+      dex2oat_orig_dir + "/boot.art",
+      relocated_dir,
+      base_addr_delta,
+      &error_msg)) {
+    FAIL() << "VerifyBootImage should have failed since the file was intentionally corrupted";
+  }
+
   ClearDirectory(dex2oat_orig_dir.c_str(), /*recursive*/ true);
   ClearDirectory(relocated_dir.c_str(), /*recursive*/ true);
 
