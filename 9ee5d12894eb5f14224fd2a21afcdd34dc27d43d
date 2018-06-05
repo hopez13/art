@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d58b8524_9b7d543f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-05T16:59:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf871f2_8e1ad71e",
+      "range": {
+        "startLine": 349,
+        "startChar": 80,
+        "endLine": 349,
+        "endChar": 81
+      },
+      "revId": "9ee5d12894eb5f14224fd2a21afcdd34dc27d43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "928dfff7_a3d82728",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "43c1b24b_e5c212fe",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-05T16:59:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "928dfff7_a3d82728",
+      "revId": "9ee5d12894eb5f14224fd2a21afcdd34dc27d43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21e1fce0_c4a94474",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2018-06-05T14:15:26Z",
       "side": 1,
       "message": "GetIsLast (and/or make it return a bool?)",
+      "range": {
+        "startLine": 225,
+        "startChar": 11,
+        "endLine": 225,
+        "endChar": 17
+      },
+      "revId": "9ee5d12894eb5f14224fd2a21afcdd34dc27d43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad736f92_ff8c0b27",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-05T16:59:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21e1fce0_c4a94474",
       "range": {
         "startLine": 225,
         "startChar": 11,
