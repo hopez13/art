@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8b0fb7cd_8f2ac519",
+        "filename": "runtime/reference_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-05T13:16:51Z",
+      "side": 1,
+      "message": "Yeah s2 doesn\u0027t need to be in a handle. I\u0027m suggesting we avoid the mental overhead of deciding/knowing by putting everything in handles when there\u0027s a handlescope.",
+      "parentUuid": "581e5e71_5a546305",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 27
+      },
+      "revId": "bcf175247272d0e321c8d988c3c01c123b56e36e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19623b64_7ff6e43e",
         "filename": "runtime/reference_table_test.cc",
         "patchSetId": 1
