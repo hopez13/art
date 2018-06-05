@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5587acba_eb87e50e",
+        "filename": "runtime/jdwp_provider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-05T16:31:34Z",
+      "side": 1,
+      "message": "ART style dictated by bdc is to avoid else branches if it\u0027s an early exit.",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 8
+      },
+      "revId": "12144afd14a186203c14223baec29da70bf5d772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
