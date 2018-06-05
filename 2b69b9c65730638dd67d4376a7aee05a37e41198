@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "00b45352_c6575a2b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3514,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-05T19:29:40Z",
+      "side": 1,
+      "message": "Also, it\u0027s not great to decode these without holding the mutator lock. Is the ScopedThreadStateChange really required?",
+      "range": {
+        "startLine": 3514,
+        "startChar": 35,
+        "endLine": 3514,
+        "endChar": 52
+      },
+      "revId": "2b69b9c65730638dd67d4376a7aee05a37e41198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "492c9fe1_fe52c0bb",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
