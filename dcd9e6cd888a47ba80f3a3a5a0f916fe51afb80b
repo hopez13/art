@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d2123e6_f5a084ec",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-06T18:21:29Z",
+      "side": 1,
+      "message": "This API will add maybe add nodes, it seems clearer to have separate functions to do look ups and add new nodes.",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "dcd9e6cd888a47ba80f3a3a5a0f916fe51afb80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43482ca_8d3b73db",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-06T18:21:29Z",
+      "side": 1,
+      "message": "If this is only used by oatdump, can you use std::string to avoid some of the possible dangling pointer errors?",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "dcd9e6cd888a47ba80f3a3a5a0f916fe51afb80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
