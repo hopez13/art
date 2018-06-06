@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a8621f7_93923064",
+        "filename": "test/800-smali/smali/ConstClassAliasing.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-06T21:24:13Z",
+      "side": 1,
+      "message": "I\u0027d think this test isn\u0027t an actual regression test. It doesn\u0027t look like it would fail w/o your change, it would just run slow. Am I missing something?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "db30551563dcab78ecd50aad8235915124883127",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
