@@ -2726,11 +2726,7 @@ extern "C" TwoWordReturn artInvokeInterfaceTrampoline(ArtMethod* interface_metho
 // could call different flavors of this code path depending on the
 // shorty type though this would require different entry points for
 // each type.
-extern "C" uintptr_t artInvokePolymorphic(
-    JValue* result,
-    mirror::Object* raw_receiver,
-    Thread* self,
-    ArtMethod** sp)
+extern "C" uint64_t artInvokePolymorphic(mirror::Object* raw_receiver, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   DCHECK_EQ(*sp, Runtime::Current()->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs));
@@ -2765,18 +2761,12 @@ extern "C" uintptr_t artInvokePolymorphic(
   ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
       self, inst.VRegB(), caller_method, kVirtual);
 
-  if (UNLIKELY(receiver_handle.IsNull())) {
-    ThrowNullPointerExceptionForMethodAccess(resolved_method, InvokeType::kVirtual);
-    return static_cast<uintptr_t>('V');
-  }
-
   Handle<mirror::MethodType> method_type(
       hs.NewHandle(linker->ResolveMethodType(self, proto_idx, caller_method)));
-
-  // This implies we couldn't resolve one or more types in this method handle.
   if (UNLIKELY(method_type.IsNull())) {
+    // This implies we couldn't resolve one or more types in this method handle.
     CHECK(self->IsExceptionPending());
-    return static_cast<uintptr_t>('V');
+    return 0UL;
   }
 
   DCHECK_EQ(ArtMethod::NumArgRegisters(shorty) + 1u, (uint32_t)inst.VRegA());
@@ -2810,6 +2800,7 @@ extern "C" uintptr_t artInvokePolymorphic(
   // consecutive order.
   RangeInstructionOperands operands(first_arg + 1, num_vregs - 1);
   Intrinsics intrinsic = static_cast<Intrinsics>(resolved_method->GetIntrinsic());
+  JValue result;
   bool success = false;
   if (resolved_method->GetDeclaringClass() == GetClassRoot<mirror::MethodHandle>(linker)) {
     Handle<mirror::MethodHandle> method_handle(hs.NewHandle(
@@ -2820,7 +2811,7 @@ extern "C" uintptr_t artInvokePolymorphic(
                                         method_handle,
                                         method_type,
                                         &operands,
-                                        result);
+                                        &result);
     } else {
       DCHECK_EQ(static_cast<uint32_t>(intrinsic),
                 static_cast<uint32_t>(Intrinsics::kMethodHandleInvoke));
@@ -2829,7 +2820,7 @@ extern "C" uintptr_t artInvokePolymorphic(
                                    method_handle,
                                    method_type,
                                    &operands,
-                                   result);
+                                   &result);
     }
   } else {
     DCHECK_EQ(GetClassRoot<mirror::VarHandle>(linker), resolved_method->GetDeclaringClass());
@@ -2843,7 +2834,7 @@ extern "C" uintptr_t artInvokePolymorphic(
                                       method_type,
                                       access_mode,
                                       &operands,
-                                      result);
+                                      &result);
   }
 
   DCHECK(success || self->IsExceptionPending());
@@ -2851,7 +2842,7 @@ extern "C" uintptr_t artInvokePolymorphic(
   // Pop transition record.
   self->PopManagedStackFragment(fragment);
 
-  return static_cast<uintptr_t>(shorty[0]);
+  return static_cast<uint64_t>(result.GetJ());
 }
 
 }  // namespace art
