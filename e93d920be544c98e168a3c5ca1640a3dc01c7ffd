@@ -34,6 +34,24 @@
       "revId": "e93d920be544c98e168a3c5ca1640a3dc01c7ffd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0954042_2ae9f03a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-06T15:44:15Z",
+      "side": 1,
+      "message": "Actually, the app image class loader is a dummy that does not own a ClassTable, so this would not be a problem. Right?",
+      "parentUuid": "501a8b22_89bc326d",
+      "revId": "e93d920be544c98e168a3c5ca1640a3dc01c7ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
