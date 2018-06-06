@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a18968b_008aea3a",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-06T18:30:10Z",
+      "side": 1,
+      "message": "That is intentional - the nature of the API (to accumulate data over many objects), means that you pretty much always want this (find an object and create if it does not exist in one operation).",
+      "parentUuid": "0d2123e6_f5a084ec",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "dcd9e6cd888a47ba80f3a3a5a0f916fe51afb80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43482ca_8d3b73db",
         "filename": "libartbase/base/stats.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "dcd9e6cd888a47ba80f3a3a5a0f916fe51afb80b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc4cd60_b026dd1a",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-06T18:30:10Z",
+      "side": 1,
+      "message": "It is only used by oatdump at the moment.  I have switched at least twice between const char* and string.  I can not decide.\n\nconst char* makes this a generic class could be in theory used in performance critical code.  I only pass compile time constants in so no dangling pointers.  I didn\u0027t find easy way to enforce compile time string constants.\n\nstring is safer and more flexible (the names could be dynamic), but the implied malloc dooms it just for debugging tool.\n\nSo having said that, what is your vote?  Any other votes?  I abstain.",
+      "parentUuid": "a43482ca_8d3b73db",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "dcd9e6cd888a47ba80f3a3a5a0f916fe51afb80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
