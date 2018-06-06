@@ -579,7 +579,6 @@ void CodeGenerator::GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invok
 }
 
 void CodeGenerator::GenerateInvokePolymorphicCall(HInvokePolymorphic* invoke) {
-  MoveConstant(invoke->GetLocations()->GetTemp(0), static_cast<int32_t>(invoke->GetType()));
   QuickEntrypointEnum entrypoint = kQuickInvokePolymorphic;
   InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
 }
