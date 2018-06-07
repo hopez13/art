@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49e84765_fc5853ac",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "Use VMOV after RESTORE_SAVE_REFS_AND_ARGS_FRAME as in art_quick_invoke_custom for consistency.",
+      "range": {
+        "startLine": 2695,
+        "startChar": 4,
+        "endLine": 2696,
+        "endChar": 24
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77936105_a9f8f647",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "This is not the caller\u0027s EDX, so we should not emit .cfi_rel_offset.",
+      "range": {
+        "startLine": 2441,
+        "startChar": 4,
+        "endLine": 2441,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d416430f_38e20356",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "The .cfi_rel_offset here would override the one from SETUP_SAVE_REFS_AND_ARGS_FRAME, losing the information about saved ECX after the CFI_ADJUST_CFA_OFFSET(-16) below.",
+      "range": {
+        "startLine": 2444,
+        "startChar": 4,
+        "endLine": 2444,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77edc581_b486e2d3",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "This one I don\u0027t really care. EAX is caller-save, so it should not matter whether we allow restoring it during unwinding.",
+      "range": {
+        "startLine": 2445,
+        "startChar": 4,
+        "endLine": 2445,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e17a9a9_c6288373",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "Erroneously overrides .cfi_rel_offset from SETUP_SAVE_REFS_AND_ARGS_FRAME.",
+      "range": {
+        "startLine": 2461,
+        "startChar": 4,
+        "endLine": 2461,
+        "endChar": 12
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31bf136d_85ea1f70",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T08:13:19Z",
+      "side": 1,
+      "message": "Isn\u0027t this \"ArtMethod* method\"?",
+      "range": {
+        "startLine": 2727,
+        "startChar": 4,
+        "endLine": 2727,
+        "endChar": 23
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
