@@ -22,6 +22,30 @@
       "revId": "db30551563dcab78ecd50aad8235915124883127",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e8f25db_1bac4b37",
+        "filename": "test/800-smali/smali/ConstClassAliasing.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-07T08:29:00Z",
+      "side": 1,
+      "message": "Maybe checker tests would ensure the method is compiled?",
+      "parentUuid": "0a8621f7_93923064",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "db30551563dcab78ecd50aad8235915124883127",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
