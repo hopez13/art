@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57fe6a1b_8ffa65f0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T16:03:48Z",
+      "side": 1,
+      "message": "Add a comment that the \"method\" argument (for which we have actually reserved a temp at line 520) is uninitialized and unused.",
+      "revId": "12beddfe4352f2e62654f7070a88e01baad7f5f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50c4d7ab_24f0f2e5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-07T16:03:48Z",
+      "side": 1,
+      "message": "DCHECK(receiver_handle !\u003d nullptr); (Move into this CL from https://android-review.googlesource.com/697245 .)",
+      "revId": "12beddfe4352f2e62654f7070a88e01baad7f5f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
