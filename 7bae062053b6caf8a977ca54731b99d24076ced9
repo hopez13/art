@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "585a048e_2b8bd497",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-07T08:46:17Z",
+      "side": 1,
+      "message": "method_idx right? (same comment for all other archs)",
+      "range": {
+        "startLine": 2848,
+        "startChar": 49,
+        "endLine": 2848,
+        "endChar": 55
+      },
+      "revId": "7bae062053b6caf8a977ca54731b99d24076ced9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
