@@ -1,0 +1,6 @@
+<configuration description="Runs the ahat unit tests">
+    <option name="null-device" value="true" />
+    <test class="com.android.tradefed.testtype.HostTest" >
+        <option name="class" value="com.android.ahat.AhatTestSuite" />
+    </test>
+</configuration>
