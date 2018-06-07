@@ -226,6 +226,7 @@ package com.android.ahat.heapdump {
     method public int getLineNumber();
     method public java.lang.String getMethodName();
     method public void getObjects(java.lang.String, java.lang.String, java.util.Collection<com.android.ahat.heapdump.AhatInstance>);
+    method public void getObjects(java.lang.String, java.lang.String, boolean, java.util.Collection<com.android.ahat.heapdump.AhatInstance>);
     method public java.util.List<com.android.ahat.heapdump.Site.ObjectsInfo> getObjectsInfos();
     method public com.android.ahat.heapdump.Site getParent();
     method public java.lang.String getSignature();

@@ -259,14 +259,35 @@ public class Site implements Diffable<Site> {
    *                 every heap should be collected.
    * @param className the name of the class the collected objects should
    *                  belong to. This may be null to indicate objects of
-   *                  every class should be collected.
+   *                  every class should be collected. Instances of subclasses
+   *                  of this class are not included.
    * @param objects out parameter. A collection of objects that all
    *                collected objects should be added to.
    */
   public void getObjects(String heapName, String className, Collection<AhatInstance> objects) {
+    getObjects(heapName, className, false, objects);
+  }
+
+  /**
+   * Collects the objects allocated under this site, optionally filtered by
+   * heap name or class name. Includes objects allocated in children sites.
+   * @param heapName the name of the heap the collected objects should
+   *                 belong to. This may be null to indicate objects of
+   *                 every heap should be collected.
+   * @param className the name of the class the collected objects should
+   *                  belong to. This may be null to indicate objects of
+   *                  every class should be collected.
+   * @param subclass if true, instances of subclasses of the given class are
+   *                 included. Otherwise only direct instances of the class
+   *                 are included.
+   * @param objects out parameter. A collection of objects that all
+   *                collected objects should be added to.
+   */
+  public void getObjects(String heapName, String className, boolean subclass,
+      Collection<AhatInstance> objects) {
     for (AhatInstance inst : mObjects) {
       if ((heapName == null || inst.getHeap().getName().equals(heapName))
-          && (className == null || inst.getClassName().equals(className))) {
+          && (className == null || hasClass(subclass, className, inst))) {
         objects.add(inst);
       }
     }
@@ -274,8 +295,23 @@ public class Site implements Diffable<Site> {
     // Recursively visit children. Recursion should be okay here because the
     // stack depth is limited by a reasonable amount (128 frames or so).
     for (Site child : mChildren) {
-      child.getObjects(heapName, className, objects);
+      child.getObjects(heapName, className, subclass, objects);
     }
+  }
+
+  private static boolean hasClass(boolean subclass, String className, AhatInstance inst) {
+    if (subclass) {
+      AhatClassObj cls = inst.getClassObj();
+      while (cls != null) {
+        if (className.equals(cls.getName())) {
+          return true;
+        }
+        cls = cls.getSuperClassObj();
+      }
+      return false;
+    }
+
+    return className.equals(inst.getClassName());
   }
 
   /**

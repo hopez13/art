@@ -21,11 +21,13 @@ import com.android.ahat.heapdump.AhatSnapshot;
 import com.android.ahat.heapdump.Reachability;
 import com.android.ahat.heapdump.Site;
 import java.io.IOException;
+import java.util.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 public class SiteTest {
   @Test
@@ -131,5 +133,31 @@ public class SiteTest {
       }
     }
     assertEquals(2, numReferenceSoft);
+  }
+
+  @Test
+  public void getObjects() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    AhatSnapshot snapshot = dump.getAhatSnapshot();
+
+    Site root = snapshot.getRootSite();
+
+    // We expect a single instance of DumpedStuff
+    ArrayList<AhatInstance> dumped = new ArrayList<AhatInstance>();
+    root.getObjects(null, "DumpedStuff", false, dumped);
+    assertEquals(1, dumped.size());
+    assertTrue(dumped.get(0).getClassName().equals("DumpedStuff"));
+
+    // We expect no direct instances of SuperDumpedStuff
+    ArrayList<AhatInstance> direct = new ArrayList<AhatInstance>();
+    root.getObjects(null, "SuperDumpedStuff", false, direct);
+    assertTrue(direct.isEmpty());
+
+    // We expect one subclass instances of SuperDumpedStuff
+    ArrayList<AhatInstance> subclass = new ArrayList<AhatInstance>();
+    root.getObjects(null, "SuperDumpedStuff", true, subclass);
+    assertEquals(1, subclass.size());
+    assertTrue(subclass.get(0).getClassName().equals("DumpedStuff"));
+    assertEquals(dumped.get(0), subclass.get(0));
   }
 }

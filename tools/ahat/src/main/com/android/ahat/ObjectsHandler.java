@@ -16,11 +16,13 @@
 
 package com.android.ahat;
 
+import com.android.ahat.heapdump.AhatHeap;
 import com.android.ahat.heapdump.AhatInstance;
 import com.android.ahat.heapdump.AhatSnapshot;
 import com.android.ahat.heapdump.Site;
 import com.android.ahat.heapdump.Sort;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,32 +36,60 @@ class ObjectsHandler implements AhatHandler {
     mSnapshot = snapshot;
   }
 
+  // Convenience function for returning a DocString that has the link enabled
+  // only if link is true.
+  private static DocString linkIf(boolean link, URI uri, String text) {
+    DocString content = DocString.text(text);
+    return link ? DocString.link(uri, content) : content;
+  }
+
   @Override
   public void handle(Doc doc, Query query) throws IOException {
     int id = query.getInt("id", 0);
-    String className = query.get("class", null);
+    String className = query.get("class", "java.lang.Object");
     String heapName = query.get("heap", null);
+    boolean subclass = (query.getInt("subclass", 0) != 0);
     Site site = mSnapshot.getSite(id);
 
     List<AhatInstance> insts = new ArrayList<AhatInstance>();
-    site.getObjects(heapName, className, insts);
+    site.getObjects(heapName, className, subclass, insts);
     Collections.sort(insts, Sort.defaultInstanceCompare(mSnapshot));
 
-    doc.title("Objects");
 
-    SizeTable.table(doc, mSnapshot.isDiffed(),
-        new Column("Heap"),
-        new Column("Object"));
+    doc.title("Instances of %s", className);
 
-    SubsetSelector<AhatInstance> selector = new SubsetSelector(query, OBJECTS_ID, insts);
-    for (AhatInstance inst : selector.selected()) {
-      AhatInstance base = inst.getBaseline();
-      SizeTable.row(doc, inst.getSize(), base.getSize(),
-          DocString.text(inst.getHeap().getName()),
-          Summarizer.summarize(inst));
+    DocString chooseHeap = DocString.text("heap: ");
+    chooseHeap.append(linkIf(heapName != null, query.with("heap", null), "any"));
+    for (AhatHeap heap : mSnapshot.getHeaps()) {
+      chooseHeap.append(" - ");
+      chooseHeap.append(linkIf(!heap.getName().equals(heapName),
+            query.with("heap", heap.getName()), heap.getName()));
     }
-    SizeTable.end(doc);
-    selector.render(doc);
+    doc.big(chooseHeap);
+
+    DocString chooseSubclass = DocString.text("subclasses: ");
+    chooseSubclass.append(linkIf(subclass, query.with("subclass", 0), "exclude"));
+    chooseSubclass.append(" - ");
+    chooseSubclass.append(linkIf(!subclass, query.with("subclass", 1), "include"));
+    doc.big(chooseSubclass);
+
+    if (insts.isEmpty()) {
+      doc.println(DocString.text("(none)"));
+    } else {
+      SizeTable.table(doc, mSnapshot.isDiffed(),
+          new Column("Heap"),
+          new Column("Object"));
+
+      SubsetSelector<AhatInstance> selector = new SubsetSelector(query, OBJECTS_ID, insts);
+      for (AhatInstance inst : selector.selected()) {
+        AhatInstance base = inst.getBaseline();
+        SizeTable.row(doc, inst.getSize(), base.getSize(),
+            DocString.text(inst.getHeap().getName()),
+            Summarizer.summarize(inst));
+      }
+      SizeTable.end(doc);
+      selector.render(doc);
+    }
   }
 }
 

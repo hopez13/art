@@ -198,7 +198,7 @@ public class TestDump {
   private static AhatClassObj findClass(AhatSnapshot snapshot, String name) {
     Site root = snapshot.getRootSite();
     Collection<AhatInstance> classes = new ArrayList<AhatInstance>();
-    root.getObjects(null, "java.lang.Class", classes);
+    root.getObjects(null, "java.lang.Class", false, classes);
     for (AhatInstance inst : classes) {
       if (inst.isClassObj()) {
         AhatClassObj cls = inst.asClassObj();
