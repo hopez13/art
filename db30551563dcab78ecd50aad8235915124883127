@@ -46,6 +46,30 @@
       "revId": "db30551563dcab78ecd50aad8235915124883127",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd3de7f_9a3afa98",
+        "filename": "test/800-smali/smali/ConstClassAliasing.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-06-07T11:08:07Z",
+      "side": 1,
+      "message": "In my defence, at first I checked if similar test from https://android-review.googlesource.com/c/platform/art/+/167667 passed w/o its runtime patch itself. It did, so I was confused and made a similar-looking test with an intention to discuss the purpose of such tests. Having all that mess with branches I completely forgot to discuss it, sorry for that.\n\nI guess there are several ways to make it a regression test:\n1) Check it the method is compiled\n2) Compile it with abort-on-soft-verifier-error\n3) Also add logcat output as a test result, that way the test will fail having an extra output line \"Class ConstClassAliasing failed lock verification and will run slower.\"\n\nWhich one do you think is better?",
+      "parentUuid": "9e8f25db_1bac4b37",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "db30551563dcab78ecd50aad8235915124883127",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
