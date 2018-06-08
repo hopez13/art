@@ -150,6 +150,10 @@ class JitCodeCache {
   // Return true if the code cache contains this pc.
   bool ContainsPc(const void* pc) const;
 
+  // Returns true if either the method's entrypoint is JIT compiled code or it is the
+  // instrumentation entrypoint and we can jump to jit code for this method. For testing use only.
+  bool WillExecuteJitCode(ArtMethod* method) REQUIRES(!lock_);
+
   // Return true if the code cache contains this method.
   bool ContainsMethod(ArtMethod* method) REQUIRES(!lock_);
 
@@ -264,6 +268,12 @@ class JitCodeCache {
   void SetGarbageCollectCode(bool value) {
     garbage_collect_code_ = value;
   }
+
+  bool GetGarbageCollectCode() const {
+    return garbage_collect_code_;
+  }
+
+  const void* FindCompiledCode(ArtMethod* method) REQUIRES(!lock_);
 
  private:
   // Take ownership of maps.
@@ -392,6 +402,8 @@ class JitCodeCache {
   SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(lock_);
   // Holds osr compiled code associated to the ArtMethod.
   SafeMap<ArtMethod*, const void*> osr_code_map_ GUARDED_BY(lock_);
+  // Holds non-osr compiled code associated to the ArtMethod.
+  SafeMap<ArtMethod*, const void*> non_osr_code_map_ GUARDED_BY(lock_);
   // ProfilingInfo objects we have allocated.
   std::vector<ProfilingInfo*> profiling_infos_ GUARDED_BY(lock_);
 
