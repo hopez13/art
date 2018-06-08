@@ -182,6 +182,24 @@ class InstrumentationFrameResult {
   Instrumentation* instrumentation_;
 };
 
+// A helper to send instrumentation events while popping the stack in a safe way.
+class ScopedInstrumentationStackPopper {
+ public:
+  explicit ScopedInstrumentationStackPopper(Thread* self);
+  ~ScopedInstrumentationStackPopper() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Increase the number of frames being popped to 'desired_pops' return true if the frames were
+  // popped without any exceptions, false otherwise. The exception that caused the pop is
+  // 'exception'.
+  bool PopFramesTo(uint32_t desired_pops, MutableHandle<mirror::Throwable> exception)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
+  Thread* self_;
+  Instrumentation* instrumentation_;
+  uint32_t frames_to_remove_;
+};
+
 // Instrumentation is a catch-all for when extra information is required from the runtime. The
 // typical use for instrumentation is for profiling and debugging. Instrumentation may add stubs
 // to method entry and exit, it may also force execution to be switched to the interpreter and
@@ -522,9 +540,9 @@ class Instrumentation {
                                              uint64_t* gpr_result, uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
-  // Pops an instrumentation frame from the current thread and generate an unwind event.
-  // Returns the return pc for the instrumentation frame that's popped.
-  uintptr_t PopMethodForUnwind(Thread* self, bool is_deoptimization) const
+  // Pops nframes instrumentation frames from the current thread. Returns the return pc for the last
+  // instrumentation frame that's popped.
+  uintptr_t PopFramesForDeoptimization(Thread* self, size_t nframes) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call back for configure stubs.
