@@ -22,6 +22,30 @@
       "revId": "4fa0af831b36b3f9914666540219d5f0216c4892",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6148609c_df79aa8f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2875,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T14:37:51Z",
+      "side": 1,
+      "message": "Ack, good catch. Done.",
+      "parentUuid": "538ba0d6_a99a816c",
+      "range": {
+        "startLine": 2871,
+        "startChar": 0,
+        "endLine": 2875,
+        "endChar": 31
+      },
+      "revId": "4fa0af831b36b3f9914666540219d5f0216c4892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
