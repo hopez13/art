@@ -19,7 +19,7 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include <sys/mman.h>  // For the PROT_* and MAP_* constants.
-#ifndef ANDROID_OS
+#if !defined(ANDROID_OS) && !defined(__Fuchsia__)
 #include <sys/resource.h>
 #endif
 
@@ -29,7 +29,10 @@
 
 #include "android-base/stringprintf.h"
 #include "android-base/unique_fd.h"
+
+#if !defined(__Fuchsia__)
 #include "cutils/ashmem.h"
+#endif
 
 #include "allocator.h"
 #include "bit_utils.h"
@@ -37,6 +40,11 @@
 #include "logging.h"  // For VLOG_IS_ON.
 #include "memory_tool.h"
 #include "utils.h"
+
+#if defined(__Fuchsia__)
+#define mmap fuchsia_mmap
+#define munmap fuchsia_munmap
+#endif
 
 #ifndef MAP_ANONYMOUS
 #define MAP_ANONYMOUS MAP_ANON
@@ -161,7 +169,7 @@ bool MemMap::ContainedWithinExistingMap(uint8_t* ptr, size_t size, std::string* 
 // non-null, we check that pointer is the actual_ptr == expected_ptr,
 // and if not, report in error_msg what the conflict mapping was if
 // found, or a generic error in other cases.
-static bool CheckMapRequest(uint8_t* expected_ptr, void* actual_ptr, size_t byte_count,
+bool MemMap::CheckMapRequest(uint8_t* expected_ptr, void* actual_ptr, size_t byte_count,
                             std::string* error_msg) {
   // Handled first by caller for more specific error messages.
   CHECK(actual_ptr != MAP_FAILED);
@@ -253,6 +261,7 @@ MemMap* MemMap::MapAnonymous(const char* name,
     flags |= MAP_FIXED;
   }
 
+#if !defined(__Fuchsia__)
   if (use_ashmem) {
     if (!kIsTargetBuild) {
       // When not on Android (either host or assuming a linux target) ashmem is faked using
@@ -264,10 +273,11 @@ MemMap* MemMap::MapAnonymous(const char* name,
         (page_aligned_byte_count < rlimit_fsize.rlim_cur);
     }
   }
+#endif
 
   unique_fd fd;
 
-
+#if !defined(__Fuchsia__)
   if (use_ashmem) {
     // android_os_Debug.cpp read_mapinfo assumes all ashmem regions associated with the VM are
     // prefixed "dalvik-".
@@ -287,6 +297,7 @@ MemMap* MemMap::MapAnonymous(const char* name,
       flags &= ~MAP_ANONYMOUS;
     }
   }
+#endif
 
   // We need to store and potentially set an error number for pretty printing of errors
   int saved_errno = 0;
@@ -591,6 +602,7 @@ MemMap* MemMap::RemapAtEnd(uint8_t* new_end, const char* tail_name, int tail_pro
 
   unique_fd fd;
   int flags = MAP_PRIVATE | MAP_ANONYMOUS;
+#if !defined(__Fuchsia__)
   if (use_ashmem) {
     // android_os_Debug.cpp read_mapinfo assumes all ashmem regions associated with the VM are
     // prefixed "dalvik-".
@@ -604,6 +616,7 @@ MemMap* MemMap::RemapAtEnd(uint8_t* new_end, const char* tail_name, int tail_pro
       return nullptr;
     }
   }
+#endif
 
   MEMORY_TOOL_MAKE_UNDEFINED(tail_base_begin, tail_base_size);
   // Unmap/map the tail region.
@@ -989,6 +1002,11 @@ void* MemMap::MapInternal(void* addr,
 #if defined(__LP64__)
   if (low_4gb && addr == nullptr) {
     flags |= MAP_32BIT;
+  }
+#endif
+#if defined(__Fuchsia__)
+  if (addr != 0) {
+    flags |= MAP_FIXED;
   }
 #endif
   actual = mmap(addr, length, prot, flags, fd, offset);
