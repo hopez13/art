@@ -22,6 +22,30 @@
       "revId": "deca4836f6a5ed71553157608d90a158db026db3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc7030e4_a8a7e671",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T14:00:09Z",
+      "side": 1,
+      "message": "Added comment and removed the reservation for invoke-polymorphic.",
+      "parentUuid": "c93d5b83_7f9faaf0",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "deca4836f6a5ed71553157608d90a158db026db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
