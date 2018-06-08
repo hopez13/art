@@ -753,7 +753,10 @@ static void HandleDeoptimization(JValue* result,
                                               DeoptimizationMethodType::kDefault);
 }
 
-extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+static ALWAYS_INLINE uint64_t QuickToInterpreterBridgeCommon(ArtMethod* method,
+                                                             Thread* self,
+                                                             ArtMethod** sp,
+                                                             bool send_instrumentation_events)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Ensure we don't get thread suspension until the object arguments are safely in the shadow
   // frame.
@@ -811,7 +814,10 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
       }
     }
 
-    result = interpreter::EnterInterpreterFromEntryPoint(self, accessor, shadow_frame);
+    result = interpreter::EnterInterpreterFromEntryPoint(self,
+                                                         accessor,
+                                                         shadow_frame,
+                                                         send_instrumentation_events);
   }
 
   // Pop transition.
@@ -844,6 +850,24 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
 
   // No need to restore the args since the method has already been run by the interpreter.
   return result.GetJ();
+}
+
+extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return QuickToInterpreterBridgeCommon(method, self, sp, /* send_instrumentation_events */ true);
+}
+
+extern "C" uint64_t artInstrumentationToInterpreterBridge(ArtMethod* method,
+                                                          Thread* self,
+                                                          ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  if (UNLIKELY(self->IsExceptionPending() || self->ObserveAsyncException())) {
+    return 0;
+  }
+  // The instrumentation events will have been sent from artQuickInstrumentationMethodEntry so we
+  // don't want to send them again.
+  return QuickToInterpreterBridgeCommon(method, self, sp, /* send_instrumentation_events */ false);
 }
 
 // Visits arguments on the stack placing them into the args vector, Object* arguments are converted
@@ -1096,7 +1120,6 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
                                                              Thread* self,
                                                              ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  const void* result;
   // Instrumentation changes the stack. Thus, when exiting, the stack cannot be verified, so skip
   // that part.
   ScopedQuickEntrypointChecks sqec(self, kIsDebugBuild, false);
@@ -1105,13 +1128,7 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
       << "Proxy method " << method->PrettyMethod()
       << " (declaring class: " << method->GetDeclaringClass()->PrettyClass() << ")"
       << " should not hit instrumentation entrypoint.";
-  if (instrumentation->IsDeoptimized(method)) {
-    result = GetQuickToInterpreterBridge();
-  } else {
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
-  }
 
-  bool interpreter_entry = (result == GetQuickToInterpreterBridge());
   bool is_static = method->IsStatic();
   uint32_t shorty_len;
   const char* shorty =
@@ -1121,16 +1138,42 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   RememberForGcArgumentVisitor visitor(sp, is_static, shorty, shorty_len, &soa);
   visitor.VisitArguments();
 
-  instrumentation->PushInstrumentationStackFrame(self,
-                                                 is_static ? nullptr : this_object,
-                                                 method,
-                                                 QuickArgumentVisitor::GetCallingPc(sp),
-                                                 interpreter_entry);
+  // This lets us decide whether we are going into the interpreter after we have done all the
+  // instrumentation work. This is important because the instrumentation work can suspend us and if
+  // we get suspended JIT code could get Gc'd.
+  instrumentation::InstrumentationFrameResult res(
+      instrumentation->PushInstrumentationStackFrame(self,
+                                                     is_static ? nullptr : this_object,
+                                                     method,
+                                                     QuickArgumentVisitor::GetCallingPc(sp)));
 
-  visitor.FixupReferences();
-  if (UNLIKELY(self->IsExceptionPending())) {
-    return nullptr;
+  ScopedAssertNoThreadSuspension sants("artInstrumentationMethodEntryFromCode");
+  const void* result;
+  if (instrumentation->IsDeoptimized(method)) {
+    result = GetQuickToInterpreterBridge();
+  } else {
+    // This will get the entry point either from the oat file or the appropriate bridge
+    // method if none of those can be found.
+    // TODO We should search the jit as well.
+    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
+    DCHECK_NE(result, GetQuickInstrumentationEntryPoint()) << method->PrettyMethod();
   }
+  // TODO It might be good to give the pending exception state it's own path but that would require
+  // new asm entrypoints which is a lot of work considering all it needs to do is immediately
+  // return.
+  if (result == GetQuickToInterpreterBridge() || self->IsExceptionPending()) {
+    // Tell the instrumentation stack that we are going into the interpreter.
+    res.SetFrameIsInterpreter(true);
+    // We want to actually use a slightly different bridge function to avoid a second call of
+    // instrumentation events.  This bridge will (among other things) check for and immediately
+    // return due to a pending exception. We need to do this rigmarole to ensure that stack walking
+    // works and is not confused by threads throwing in quick_instrumentation_entry (which leaves it
+    // unable to figure out what the actual method being called is).
+    result = GetInstrumentationToInterpreterBridge();
+  } else {
+    res.SetFrameIsInterpreter(false);
+  }
+  visitor.FixupReferences();
   CHECK(result != nullptr) << method->PrettyMethod();
   return result;
 }
