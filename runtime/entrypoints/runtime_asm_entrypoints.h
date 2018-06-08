@@ -42,6 +42,13 @@ static inline const void* GetQuickToInterpreterBridge() {
   return reinterpret_cast<const void*>(art_quick_to_interpreter_bridge);
 }
 
+// Return the address of quick stub code for bridging from InstrumentationMethodEntry to the
+// interpreter.
+extern "C" void art_instrumentation_to_interpreter_bridge(ArtMethod*);
+static inline const void* GetInstrumentationToInterpreterBridge() {
+  return reinterpret_cast<const void*>(art_instrumentation_to_interpreter_bridge);
+}
+
 // Return the address of stub code for attempting to invoke an obsolete method.
 extern "C" void art_invoke_obsolete_method_stub(ArtMethod*);
 static inline const void* GetInvokeObsoleteMethodStub() {
