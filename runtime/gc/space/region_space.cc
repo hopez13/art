@@ -462,7 +462,8 @@ void RegionSpace::PoisonDeadObjectsInUnevacuatedRegion(Region* r) {
   // The live byte count of `r` should be different from -1, as this
   // region should neither be a newly allocated region nor an
   // evacuated region.
-  DCHECK_NE(r->LiveBytes(), static_cast<size_t>(-1));
+  DCHECK_NE(r->LiveBytes(), static_cast<size_t>(-1))
+      << "Unexpected live bytes count of -1 in " << r->Dump();
 
   // Past-the-end address of the previously visited (live) object (or
   // the beginning of the region, if `maybe_poison` has not run yet).
@@ -587,6 +588,10 @@ void RegionSpace::DumpRegions(std::ostream& os) {
 
 void RegionSpace::DumpNonFreeRegions(std::ostream& os) {
   MutexLock mu(Thread::Current(), region_lock_);
+  DumpNonFreeRegionsLocked(os);
+}
+
+void RegionSpace::DumpNonFreeRegionsLocked(std::ostream& os) {
   for (size_t i = 0; i < num_regions_; ++i) {
     Region* reg = &regions_[i];
     if (!reg->IsFree()) {
@@ -681,6 +686,12 @@ void RegionSpace::Region::Dump(std::ostream& os) const {
      << " is_newly_allocated=" << std::boolalpha << is_newly_allocated_ << std::noboolalpha
      << " is_a_tlab=" << std::boolalpha << is_a_tlab_ << std::noboolalpha
      << " thread=" << thread_ << '\n';
+}
+
+std::string RegionSpace::Region::Dump() const {
+  std::ostringstream oss;
+  Dump(oss);
+  return oss.str();
 }
 
 size_t RegionSpace::AllocationSizeNonvirtual(mirror::Object* obj, size_t* usable_size) {
