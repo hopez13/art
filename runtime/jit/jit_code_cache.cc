@@ -313,6 +313,11 @@ bool JitCodeCache::ContainsPc(const void* ptr) const {
   return code_map_->Begin() <= ptr && ptr < code_map_->End();
 }
 
+bool JitCodeCache::WillExecuteJitCode(ArtMethod* method) {
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  return FindCompiledCode(method) != nullptr;
+}
+
 bool JitCodeCache::ContainsMethod(ArtMethod* method) {
   MutexLock mu(Thread::Current(), lock_);
   if (UNLIKELY(method->IsNative())) {
@@ -341,6 +346,23 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
     if (data.IsCompiled() && ContainsElement(data.GetMethods(), method)) {
       return data.GetCode();
     }
+  }
+  return nullptr;
+}
+
+
+const void* JitCodeCache::FindCompiledCode(ArtMethod* method) {
+  Thread* self = Thread::Current();
+  MutexLock mu(self, lock_);
+  if (collection_in_progress_) {
+    // It would be nice to just 'WaitForCollectionToComplete' but that could cause deadlocks as the
+    // collection might be waiting for this thread to suspend (which isn't safe to do at this point)
+    // before finishing. Therefore if there is a collection in progress just fail.
+    return nullptr;
+  }
+  auto it = non_osr_code_map_.find(method);
+  if (it != non_osr_code_map_.end()) {
+    return OatQuickMethodHeader::FromCodePointer(it->second)->GetEntryPoint();
   }
   return nullptr;
 }
@@ -627,6 +649,15 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
         }
       }
     }
+    for (auto it = non_osr_code_map_.begin(); it != non_osr_code_map_.end();) {
+      if (alloc.ContainsUnsafe(it->first)) {
+        // Note that the code has already been pushed to method_headers in the loop
+        // above and is going to be removed in FreeCode() below.
+        it = non_osr_code_map_.erase(it);
+      } else {
+        ++it;
+      }
+    }
     for (auto it = osr_code_map_.begin(); it != osr_code_map_.end();) {
       if (alloc.ContainsUnsafe(it->first)) {
         // Note that the code has already been pushed to method_headers in the loop
@@ -841,6 +872,9 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
       } else {
+        // We can in some circumstances compile something multiple times. This is fine-ish and can
+        // be ignored.
+        non_osr_code_map_.Overwrite(method, code_ptr);
         Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
             method, method_header->GetEntryPoint());
       }
@@ -936,6 +970,10 @@ bool JitCodeCache::RemoveMethodLocked(ArtMethod* method, bool release_memory) {
       }
     }
 
+    auto non_osr_it = non_osr_code_map_.find(method);
+    if (non_osr_it != non_osr_code_map_.end()) {
+      non_osr_code_map_.erase(non_osr_it);
+    }
     auto osr_it = osr_code_map_.find(method);
     if (osr_it != osr_code_map_.end()) {
       osr_code_map_.erase(osr_it);
@@ -985,6 +1023,12 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
     if (it.second == old_method) {
       it.second = new_method;
     }
+  }
+  // Update non_osr_code_map_ to point to the new method.
+  auto it = non_osr_code_map_.find(old_method);
+  if (it != non_osr_code_map_.end()) {
+    non_osr_code_map_.Put(new_method, it->second);
+    non_osr_code_map_.erase(old_method);
   }
   // Update osr_code_map_ to point to the new method.
   auto code_map = osr_code_map_.find(old_method);
@@ -1321,7 +1365,16 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
       if (GetLiveBitmap()->Test(allocation)) {
         ++it;
       } else {
-        method_headers.insert(OatQuickMethodHeader::FromCodePointer(code_ptr));
+        // Remove from non-osr map. We want to do this now since we have the lock and otherwise some
+        // other thread could take an invalid pointer from the map.
+        auto non_osr_it = non_osr_code_map_.find(it->second);
+        OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+        if (non_osr_it != non_osr_code_map_.end() &&
+            non_osr_it->second == header->GetEntryPoint()) {
+          non_osr_code_map_.erase(non_osr_it);
+        }
+        non_osr_code_map_.erase(it->second);
+        method_headers.insert(header);
         it = method_code_map_.erase(it);
       }
     }
@@ -1792,6 +1845,12 @@ void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
     profiling_info->SetSavedEntryPoint(nullptr);
   }
 
+  MutexLock mu(Thread::Current(), lock_);
+  // Make sure we won't get the jump to the invalidated code from the interpreter bridge.
+  auto non_osr_it = non_osr_code_map_.find(method);
+  if (non_osr_it != non_osr_code_map_.end() && non_osr_it->second == header->GetEntryPoint()) {
+    non_osr_code_map_.erase(non_osr_it);
+  }
   if (method->GetEntryPointFromQuickCompiledCode() == header->GetEntryPoint()) {
     // The entrypoint is the one to invalidate, so we just update it to the interpreter entry point
     // and clear the counter to get the method Jitted again.
@@ -1799,7 +1858,6 @@ void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
         method, GetQuickToInterpreterBridge());
     ClearMethodCounter(method, /*was_warm*/ profiling_info != nullptr);
   } else {
-    MutexLock mu(Thread::Current(), lock_);
     auto it = osr_code_map_.find(method);
     if (it != osr_code_map_.end() && OatQuickMethodHeader::FromCodePointer(it->second) == header) {
       // Remove the OSR method, to avoid using it again.

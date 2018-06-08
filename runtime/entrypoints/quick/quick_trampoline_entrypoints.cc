@@ -38,6 +38,7 @@
 #include "interpreter/interpreter_common.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "linear_alloc.h"
 #include "method_handles.h"
 #include "mirror/class-inl.h"
@@ -1108,7 +1109,12 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   if (instrumentation->IsDeoptimized(method)) {
     result = GetQuickToInterpreterBridge();
   } else {
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
+    // This will get the entry point either from the oat file, the JIT or the appropriate bridge
+    // method if none of those can be found.
+    result = instrumentation->GetCodeForInvoke(method);
+    DCHECK_NE(result, GetQuickInstrumentationEntryPoint()) << method->PrettyMethod();
+    DCHECK(Runtime::Current()->GetJit() == nullptr ||
+           !Runtime::Current()->GetJit()->GetCodeCache()->GetGarbageCollectCode());
   }
 
   bool interpreter_entry = (result == GetQuickToInterpreterBridge());
