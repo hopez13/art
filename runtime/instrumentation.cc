@@ -1046,6 +1046,38 @@ void Instrumentation::DisableMethodTracing(const char* key) {
   ConfigureStubs(key, InstrumentationLevel::kInstrumentNothing);
 }
 
+const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) const {
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  if (LIKELY(!instrumentation_stubs_installed_ && !interpreter_stubs_installed_)) {
+    const void* code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
+    DCHECK(code != nullptr);
+    if (code != GetQuickInstrumentationEntryPoint()) {
+      return code;
+    } else if (method->IsNative()) {
+      return class_linker->GetQuickOatCodeFor(method);
+    }
+    // We don't know what it is. Fallthough to try to find the code from the JIT or Oat file.
+  } else if (method->IsNative()) {
+    return class_linker->GetQuickOatCodeFor(method);
+  } else if (UNLIKELY(interpreter_stubs_installed_)) {
+    return GetQuickToInterpreterBridge();
+  }
+  const void* result = GetQuickToInterpreterBridge();
+  if (!NeedDebugVersionFor(method)) {
+    result = class_linker->GetQuickOatCodeFor(method);
+  }
+  if (result == GetQuickToInterpreterBridge()) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      const void* res = jit->GetCodeCache()->FindCompiledCode(method);
+      if (res != nullptr) {
+        result = res;
+      }
+    }
+  }
+  return result;
+}
+
 const void* Instrumentation::GetQuickCodeFor(ArtMethod* method, PointerSize pointer_size) const {
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   if (LIKELY(!instrumentation_stubs_installed_)) {
