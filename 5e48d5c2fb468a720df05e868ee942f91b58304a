@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75fda52e_77a56ca0",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-08T20:33:27Z",
+      "side": 1,
+      "message": "Instead of adding this function, you should be able to use:\n\u003c\u003c Dumpable\u003cRegion\u003e(*r)",
+      "revId": "5e48d5c2fb468a720df05e868ee942f91b58304a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
