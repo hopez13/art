@@ -182,6 +182,24 @@ class InstrumentationFrameResult {
   Instrumentation* instrumentation_;
 };
 
+// A helper to send instrumentation events while popping the stack in a safe way.
+class ScopedInstrumentationStackPopper {
+ public:
+  explicit ScopedInstrumentationStackPopper(Thread* self);
+  ~ScopedInstrumentationStackPopper() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Increase the number of frames being popped to 'desired_pops' return true if the frames were
+  // popped without any exceptions, false otherwise. The exception that caused the pop is
+  // 'exception'.
+  bool PopFramesTo(uint32_t desired_pops, MutableHandle<mirror::Throwable> exception)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
+  Thread* self_;
+  Instrumentation* instrumentation_;
+  uint32_t frames_to_remove_;
+};
+
 // Instrumentation is a catch-all for when extra information is required from the runtime. The
 // typical use for instrumentation is for profiling and debugging. Instrumentation may add stubs
 // to method entry and exit, it may also force execution to be switched to the interpreter and
@@ -315,6 +333,10 @@ class Instrumentation {
   // Update the code of a method respecting any installed stubs from debugger.
   void UpdateMethodsCodeForJavaDebuggable(ArtMethod* method, const void* quick_code)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
+
+  // Return the code that we can execute for an invoke including from the JIT.
+  const void* GetCodeForInvoke(ArtMethod* method) const
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Roles::uninterruptible_);
 
   // Get the quick code for the given method. More efficient than asking the class linker as it
   // will short-cut to GetCode if instrumentation and static method resolution stubs aren't
@@ -522,9 +544,9 @@ class Instrumentation {
                                              uint64_t* gpr_result, uint64_t* fpr_result)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
-  // Pops an instrumentation frame from the current thread and generate an unwind event.
-  // Returns the return pc for the instrumentation frame that's popped.
-  uintptr_t PopMethodForUnwind(Thread* self, bool is_deoptimization) const
+  // Pops nframes instrumentation frames from the current thread. Returns the return pc for the last
+  // instrumentation frame that's popped.
+  uintptr_t PopFramesForDeoptimization(Thread* self, size_t nframes) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call back for configure stubs.
@@ -532,7 +554,9 @@ class Instrumentation {
       REQUIRES(!deoptimized_methods_lock_);
 
   void InstallStubsForMethod(ArtMethod* method)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!deoptimized_methods_lock_,
+               Roles::uninterruptible_);
 
   // Install instrumentation exit stub on every method of the stack of the given thread.
   // This is used by the debugger to cause a deoptimization of the thread's stack after updating

@@ -129,6 +129,14 @@ class ProfilingInfo {
         (current_inline_uses_ > 0);
   }
 
+  bool WasMethodCompiled() const {
+    return was_method_compiled_;
+  }
+
+  void SetMethodCompiled() {
+    was_method_compiled_ = true;
+  }
+
  private:
   ProfilingInfo(ArtMethod* method, const std::vector<uint32_t>& entries);
 
@@ -153,6 +161,8 @@ class ProfilingInfo {
   // TODO: Make the JIT code cache lock global.
   bool is_method_being_compiled_;
   bool is_osr_method_being_compiled_;
+  // Shortcut for finding out if anything was compiled.
+  bool was_method_compiled_;
 
   // Dynamically allocated array of size `number_of_inline_caches_`.
   InlineCache cache_[0];
