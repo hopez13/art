@@ -22,6 +22,30 @@
       "revId": "3cadc5e443a62a377db40723c03b1a81b73b2e81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da78c945_22e385ed",
+        "filename": "test/952-invoke-custom/src/TestReturnValues.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Done. And also for 956-method-handles where we have similar tests.",
+      "parentUuid": "0b6f9818_64fb3307",
+      "range": {
+        "startLine": 255,
+        "startChar": 60,
+        "endLine": 255,
+        "endChar": 61
+      },
+      "revId": "3cadc5e443a62a377db40723c03b1a81b73b2e81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afe76e4d_5a7bb1cd",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49e84765_fc5853ac",
+      "range": {
+        "startLine": 2695,
+        "startChar": 4,
+        "endLine": 2696,
+        "endChar": 24
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77936105_a9f8f647",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c268a4f1_d7c1000f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2441,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Done. And thanks for the discussion about this yesterday.",
+      "parentUuid": "77936105_a9f8f647",
+      "range": {
+        "startLine": 2441,
+        "startChar": 4,
+        "endLine": 2441,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fa89fa12_1f9089b0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2444,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d416430f_38e20356",
+      "range": {
+        "startLine": 2444,
+        "startChar": 4,
+        "endLine": 2444,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77edc581_b486e2d3",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 9
@@ -91,6 +163,30 @@
       "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1fc5fec_8f21d014",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Done (for consistency).",
+      "parentUuid": "77edc581_b486e2d3",
+      "range": {
+        "startLine": 2445,
+        "startChar": 4,
+        "endLine": 2445,
+        "endChar": 8
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -137,6 +233,30 @@
       "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc1eab0_6098f879",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2727,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:34:58Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "31bf136d_85ea1f70",
+      "range": {
+        "startLine": 2727,
+        "startChar": 4,
+        "endLine": 2727,
+        "endChar": 23
+      },
+      "revId": "81ee51a50fff3b6cbc230a9ab7fc102969f30ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
