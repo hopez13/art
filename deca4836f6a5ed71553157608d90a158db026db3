@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c93d5b83_7f9faaf0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-08T12:35:39Z",
+      "side": 1,
+      "message": "Add a comment why it\u0027s ok to still reserve a temporary, or whether we should fix this.",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "deca4836f6a5ed71553157608d90a158db026db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
