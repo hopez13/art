@@ -1222,9 +1222,23 @@ static void CheckStackDepth(Thread* self, const InstrumentationStackFrame& instr
   }
 }
 
-void Instrumentation::PushInstrumentationStackFrame(Thread* self, mirror::Object* this_object,
-                                                    ArtMethod* method,
-                                                    uintptr_t lr, bool interpreter_entry) {
+InstrumentationFrameResult::~InstrumentationFrameResult() {
+  if (instrumentation_ != nullptr) {
+    DCHECK(set_frame_called_);
+  }
+}
+
+void InstrumentationFrameResult::SetFrameIsInterpreter(bool is_interpreted) {
+  set_frame_called_ = true;
+  instrumentation_->SetTopFrameToInterpreter(Thread::Current(), is_interpreted);
+}
+
+void Instrumentation::SetTopFrameToInterpreter(Thread* self, bool is_interpreter) {
+  self->GetInstrumentationStack()->front().interpreter_entry_ = is_interpreter;
+}
+
+InstrumentationFrameResult Instrumentation::PushInstrumentationStackFrame(
+    Thread* self, mirror::Object* this_object, ArtMethod* method, uintptr_t lr) {
   DCHECK(!self->IsExceptionPending());
   std::deque<instrumentation::InstrumentationStackFrame>* stack = self->GetInstrumentationStack();
   if (kVerboseInstrumentation) {
@@ -1232,25 +1246,39 @@ void Instrumentation::PushInstrumentationStackFrame(Thread* self, mirror::Object
               << reinterpret_cast<void*>(lr);
   }
 
-  // We send the enter event before pushing the instrumentation frame to make cleanup easier. If the
-  // event causes an exception we can simply send the unwind event and return.
-  StackHandleScope<1> hs(self);
+  // Send the instrumentation event prior to pushing the instrumentation frame so we won't confuse
+  // the stack walker.
+  StackHandleScope<2> hs(self);
   Handle<mirror::Object> h_this(hs.NewHandle(this_object));
-  if (!interpreter_entry) {
-    MethodEnterEvent(self, h_this.Get(), method, 0);
-    if (self->IsExceptionPending()) {
-      MethodUnwindEvent(self, h_this.Get(), method, 0);
-      return;
+  DCHECK(!self->IsExceptionPending());
+  MethodEnterEvent(self, h_this.Get(), method, 0);
+  if (self->IsExceptionPending()) {
+    if (kVerboseInstrumentation) {
+      LOG(INFO) << "Exception thrown by method-enter of " << method->PrettyMethod()
+                << " exception is " << self->GetException()->Dump();
+    }
+    Handle<mirror::Throwable> h_orig_exception(
+        hs.NewHandle(kVerboseInstrumentation ? self->GetException() : nullptr));
+    MethodUnwindEvent(self, h_this.Get(), method, 0);
+    CHECK(self->IsExceptionPending());
+    if (kVerboseInstrumentation && self->GetException() != h_orig_exception.Get()) {
+      LOG(INFO) << "New Exception thrown by method-unwind of " << method->PrettyMethod()
+                << " exception is " << self->GetException()->Dump();
     }
   }
 
   // We have a callee-save frame meaning this value is guaranteed to never be 0.
-  DCHECK(!self->IsExceptionPending());
   size_t frame_id = StackVisitor::ComputeNumFrames(self, kInstrumentationStackWalk);
 
-  instrumentation::InstrumentationStackFrame instrumentation_frame(h_this.Get(), method, lr,
-                                                                   frame_id, interpreter_entry);
+  // Initially assume that the interpreter is not being entered. The caller will correct this if
+  // needed once the actual entrypoint is known.
+  instrumentation::InstrumentationStackFrame instrumentation_frame(h_this.Get(),
+                                                                   method,
+                                                                   lr,
+                                                                   frame_id,
+                                                                   /* interpreter_entry */false);
   stack->push_front(instrumentation_frame);
+  return InstrumentationFrameResult(this);
 }
 
 DeoptimizationMethodType Instrumentation::GetDeoptimizationMethodType(ArtMethod* method) {
