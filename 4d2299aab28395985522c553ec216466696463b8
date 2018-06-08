@@ -16,6 +16,24 @@
       "revId": "4d2299aab28395985522c553ec216466696463b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "667c170b_fbde7748",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-08T05:20:35Z",
+      "side": 1,
+      "message": "Good idea, added that constructor.",
+      "parentUuid": "1103586b_688224c5",
+      "revId": "4d2299aab28395985522c553ec216466696463b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
