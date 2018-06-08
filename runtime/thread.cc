@@ -3381,7 +3381,6 @@ void Thread::QuickDeliverException() {
   ClearException();
   QuickExceptionHandler exception_handler(this, false);
   exception_handler.FindCatch(exception);
-  exception_handler.UpdateInstrumentationStack();
   if (exception_handler.GetClearException()) {
     // Exception was cleared as part of delivery.
     DCHECK(!IsExceptionPending());
