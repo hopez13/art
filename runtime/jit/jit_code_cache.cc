@@ -171,7 +171,10 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   bool use_ashmem = !generate_debug_info && !kIsTargetLinux;
 
   // With 'perf', we want a 1-1 mapping between an address and a method.
-  bool garbage_collect_code = !generate_debug_info;
+  // We aren't able to keep method pointers live during the instrumentation method entry trampoline
+  // so we will just disable jit-gc if we are doing that.
+  bool garbage_collect_code = !generate_debug_info &&
+      !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled();
 
   // We need to have 32 bit offsets from method headers in code cache which point to things
   // in the data cache. If the maps are more than 4G apart, having multiple maps wouldn't work.
@@ -313,6 +316,12 @@ bool JitCodeCache::ContainsPc(const void* ptr) const {
   return code_map_->Begin() <= ptr && ptr < code_map_->End();
 }
 
+bool JitCodeCache::WillExecuteJitCode(ArtMethod* method) {
+  ScopedObjectAccess soa(art::Thread::Current());
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  return FindCompiledCode(method) != nullptr;
+}
+
 bool JitCodeCache::ContainsMethod(ArtMethod* method) {
   MutexLock mu(Thread::Current(), lock_);
   if (UNLIKELY(method->IsNative())) {
@@ -343,6 +352,18 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
     }
   }
   return nullptr;
+}
+
+const void* JitCodeCache::FindCompiledCode(ArtMethod* method) {
+  DCHECK(!GetGarbageCollectCode()) << "FindCompiledCode can only be used with JIT-GC disabled to "
+                                   << "ensure CHA/OSR entrypoints are distinguishable.";
+  ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
+  if (info == nullptr) {
+    return nullptr;
+  }
+  // When GC is disabled for trampoline tracing we will use SavedEntrypoint to hold the actual
+  // jit-compiled version of the method.
+  return info->GetSavedEntryPoint();
 }
 
 class ScopedCodeCacheWrite : ScopedTrace {
@@ -841,6 +862,8 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
       } else {
+        // We can in some circumstances compile something multiple times. This is fine-ish and can
+        // be ignored.
         Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
             method, method_header->GetEntryPoint());
       }
@@ -978,6 +1001,8 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
     // checks should always pass.
     DCHECK(!info->IsInUseByCompiler());
     new_method->SetProfilingInfo(info);
+    // Get rid of the old saved entrypoint if it is there.
+    info->SetSavedEntryPoint(nullptr);
     info->method_ = new_method;
   }
   // Update method_code_map_ to point to the new method.
@@ -1321,7 +1346,8 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
       if (GetLiveBitmap()->Test(allocation)) {
         ++it;
       } else {
-        method_headers.insert(OatQuickMethodHeader::FromCodePointer(code_ptr));
+        OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+        method_headers.insert(header);
         it = method_code_map_.erase(it);
       }
     }
@@ -1786,13 +1812,16 @@ void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
                                              const OatQuickMethodHeader* header) {
   DCHECK(!method->IsNative());
   ProfilingInfo* profiling_info = method->GetProfilingInfo(kRuntimePointerSize);
+  const void* old_saved_entrypoint = nullptr;
   if ((profiling_info != nullptr) &&
       (profiling_info->GetSavedEntryPoint() == header->GetEntryPoint())) {
     // Prevent future uses of the compiled code.
+    old_saved_entrypoint = profiling_info->GetSavedEntryPoint();
     profiling_info->SetSavedEntryPoint(nullptr);
   }
 
-  if (method->GetEntryPointFromQuickCompiledCode() == header->GetEntryPoint()) {
+  if (method->GetEntryPointFromQuickCompiledCode() == header->GetEntryPoint() ||
+      old_saved_entrypoint == header->GetEntryPoint()) {
     // The entrypoint is the one to invalidate, so we just update it to the interpreter entry point
     // and clear the counter to get the method Jitted again.
     Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
