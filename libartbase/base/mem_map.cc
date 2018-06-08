@@ -19,7 +19,7 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include <sys/mman.h>  // For the PROT_* and MAP_* constants.
-#ifndef ANDROID_OS
+#if !defined(ANDROID_OS) && !defined(__Fuchsia__)
 #include <sys/resource.h>
 #endif
 
@@ -29,7 +29,10 @@
 
 #include "android-base/stringprintf.h"
 #include "android-base/unique_fd.h"
+
+#if !defined(__Fuchsia__)
 #include "cutils/ashmem.h"
+#endif
 
 #include "allocator.h"
 #include "bit_utils.h"
@@ -37,6 +40,26 @@
 #include "logging.h"  // For VLOG_IS_ON.
 #include "memory_tool.h"
 #include "utils.h"
+
+#ifdef __Fuchsia__
+
+// stubs for features lacking in Fuchsia
+
+struct rlimit {
+  int rlim_cur;
+};
+
+#define RLIMIT_FSIZE (1)
+#define RLIM_INFINITY (-1)
+static int getrlimit(int resource, struct rlimit *rlim) {
+  LOG(FATAL) << "getrlimit not available for Fuchsia";
+}
+
+static int ashmem_create_region(const char *name, size_t size) {
+  LOG(FATAL) << "ashmem_create_region not available for Fuchsia";
+}
+
+#endif
 
 #ifndef MAP_ANONYMOUS
 #define MAP_ANONYMOUS MAP_ANON
@@ -113,7 +136,7 @@ uintptr_t CreateStartPos(uint64_t input) {
 #endif
 
 static uintptr_t GenerateNextMemPos() {
-#ifdef __BIONIC__
+#if defined(__BIONIC__) && !defined(__Fuchsia__)
   uint64_t random_data;
   arc4random_buf(&random_data, sizeof(random_data));
   return CreateStartPos(random_data);
@@ -161,7 +184,7 @@ bool MemMap::ContainedWithinExistingMap(uint8_t* ptr, size_t size, std::string* 
 // non-null, we check that pointer is the actual_ptr == expected_ptr,
 // and if not, report in error_msg what the conflict mapping was if
 // found, or a generic error in other cases.
-static bool CheckMapRequest(uint8_t* expected_ptr, void* actual_ptr, size_t byte_count,
+bool MemMap::CheckMapRequest(uint8_t* expected_ptr, void* actual_ptr, size_t byte_count,
                             std::string* error_msg) {
   // Handled first by caller for more specific error messages.
   CHECK(actual_ptr != MAP_FAILED);
@@ -178,7 +201,7 @@ static bool CheckMapRequest(uint8_t* expected_ptr, void* actual_ptr, size_t byte
   }
 
   // We asked for an address but didn't get what we wanted, all paths below here should fail.
-  int result = munmap(actual_ptr, byte_count);
+  int result = real_munmap(actual_ptr, byte_count);
   if (result == -1) {
     PLOG(WARNING) << StringPrintf("munmap(%p, %zd) failed", actual_ptr, byte_count);
   }
@@ -213,12 +236,12 @@ static inline void* TryMemMapLow4GB(void* ptr,
                                     int flags,
                                     int fd,
                                     off_t offset) {
-  void* actual = mmap(ptr, page_aligned_byte_count, prot, flags, fd, offset);
+  void* actual = real_mmap(ptr, page_aligned_byte_count, prot, flags, fd, offset);
   if (actual != MAP_FAILED) {
     // Since we didn't use MAP_FIXED the kernel may have mapped it somewhere not in the low
     // 4GB. If this is the case, unmap and retry.
     if (reinterpret_cast<uintptr_t>(actual) + page_aligned_byte_count >= 4 * GB) {
-      munmap(actual, page_aligned_byte_count);
+      real_munmap(actual, page_aligned_byte_count);
       actual = MAP_FAILED;
     }
   }
@@ -237,7 +260,7 @@ MemMap* MemMap::MapAnonymous(const char* name,
 #ifndef __LP64__
   UNUSED(low_4gb);
 #endif
-  use_ashmem = use_ashmem && !kIsTargetLinux;
+  use_ashmem = use_ashmem && !kIsTargetLinux && !kIsTargetFuchsia;
   if (byte_count == 0) {
     return new MemMap(name, nullptr, 0, nullptr, 0, prot, false);
   }
@@ -266,7 +289,6 @@ MemMap* MemMap::MapAnonymous(const char* name,
   }
 
   unique_fd fd;
-
 
   if (use_ashmem) {
     // android_os_Debug.cpp read_mapinfo assumes all ashmem regions associated with the VM are
@@ -521,7 +543,7 @@ MemMap::~MemMap() {
   if (!reuse_) {
     MEMORY_TOOL_MAKE_UNDEFINED(base_begin_, base_size_);
     if (!already_unmapped_) {
-      int result = munmap(base_begin_, base_size_);
+      int result = real_munmap(base_begin_, base_size_);
       if (result == -1) {
         PLOG(FATAL) << "munmap failed";
       }
@@ -565,7 +587,7 @@ MemMap::MemMap(const std::string& name, uint8_t* begin, size_t size, void* base_
 
 MemMap* MemMap::RemapAtEnd(uint8_t* new_end, const char* tail_name, int tail_prot,
                            std::string* error_msg, bool use_ashmem) {
-  use_ashmem = use_ashmem && !kIsTargetLinux;
+  use_ashmem = use_ashmem && !kIsTargetLinux && !kIsTargetFuchsia;
   DCHECK_GE(new_end, Begin());
   DCHECK_LE(new_end, End());
   DCHECK_LE(begin_ + size_, reinterpret_cast<uint8_t*>(base_begin_) + base_size_);
@@ -607,7 +629,7 @@ MemMap* MemMap::RemapAtEnd(uint8_t* new_end, const char* tail_name, int tail_pro
 
   MEMORY_TOOL_MAKE_UNDEFINED(tail_base_begin, tail_base_size);
   // Unmap/map the tail region.
-  int result = munmap(tail_base_begin, tail_base_size);
+  int result = real_munmap(tail_base_begin, tail_base_size);
   if (result == -1) {
     PrintFileToLog("/proc/self/maps", LogSeverity::WARNING);
     *error_msg = StringPrintf("munmap(%p, %zd) failed for '%s'. See process maps in the log.",
@@ -618,7 +640,7 @@ MemMap* MemMap::RemapAtEnd(uint8_t* new_end, const char* tail_name, int tail_pro
   // calls. Otherwise, libc (or something else) might take this memory
   // region. Note this isn't perfect as there's no way to prevent
   // other threads to try to take this memory region here.
-  uint8_t* actual = reinterpret_cast<uint8_t*>(mmap(tail_base_begin,
+  uint8_t* actual = reinterpret_cast<uint8_t*>(real_mmap(tail_base_begin,
                                                     tail_base_size,
                                                     tail_prot,
                                                     flags,
@@ -798,6 +820,8 @@ void MemMap::Init() {
   std::lock_guard<std::mutex> mu(*mem_maps_lock_);
   DCHECK(gMaps == nullptr);
   gMaps = new Maps;
+
+  real_mmap_init();
 }
 
 void MemMap::Shutdown() {
@@ -829,7 +853,7 @@ void MemMap::SetSize(size_t new_size) {
       reinterpret_cast<void*>(reinterpret_cast<uintptr_t>(BaseBegin()) +
                               new_base_size),
       base_size_ - new_base_size);
-  CHECK_EQ(munmap(reinterpret_cast<void*>(reinterpret_cast<uintptr_t>(BaseBegin()) + new_base_size),
+  CHECK_EQ(real_munmap(reinterpret_cast<void*>(reinterpret_cast<uintptr_t>(BaseBegin()) + new_base_size),
                   base_size_ - new_base_size), 0) << new_base_size << " " << base_size_;
   base_size_ = new_base_size;
   size_ = new_size;
@@ -976,7 +1000,7 @@ void* MemMap::MapInternal(void* addr,
     if (orig_prot != prot_non_exec) {
       if (mprotect(actual, length, orig_prot) != 0) {
         PLOG(ERROR) << "Could not protect to requested prot: " << orig_prot;
-        munmap(actual, length);
+        real_munmap(actual, length);
         errno = ENOMEM;
         return MAP_FAILED;
       }
@@ -984,14 +1008,19 @@ void* MemMap::MapInternal(void* addr,
     return actual;
   }
 
-  actual = mmap(addr, length, prot, flags, fd, offset);
+  actual = real_mmap(addr, length, prot, flags, fd, offset);
 #else
 #if defined(__LP64__)
   if (low_4gb && addr == nullptr) {
     flags |= MAP_32BIT;
   }
 #endif
-  actual = mmap(addr, length, prot, flags, fd, offset);
+#if defined(__Fuchsia__)
+  if (addr != 0) {
+    flags |= MAP_FIXED;
+  }
+#endif
+  actual = real_mmap(addr, length, prot, flags, fd, offset);
 #endif
   return actual;
 }
@@ -1067,13 +1096,13 @@ void MemMap::AlignBy(size_t size) {
   // Unmap the unaligned parts.
   if (base_begin < aligned_base_begin) {
     MEMORY_TOOL_MAKE_UNDEFINED(base_begin, aligned_base_begin - base_begin);
-    CHECK_EQ(munmap(base_begin, aligned_base_begin - base_begin), 0)
+    CHECK_EQ(real_munmap(base_begin, aligned_base_begin - base_begin), 0)
         << "base_begin=" << reinterpret_cast<void*>(base_begin)
         << " aligned_base_begin=" << reinterpret_cast<void*>(aligned_base_begin);
   }
   if (aligned_base_end < base_end) {
     MEMORY_TOOL_MAKE_UNDEFINED(aligned_base_end, base_end - aligned_base_end);
-    CHECK_EQ(munmap(aligned_base_end, base_end - aligned_base_end), 0)
+    CHECK_EQ(real_munmap(aligned_base_end, base_end - aligned_base_end), 0)
         << "base_end=" << reinterpret_cast<void*>(base_end)
         << " aligned_base_end=" << reinterpret_cast<void*>(aligned_base_end);
   }
