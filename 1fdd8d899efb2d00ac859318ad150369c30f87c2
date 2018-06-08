@@ -22,6 +22,30 @@
       "revId": "1fdd8d899efb2d00ac859318ad150369c30f87c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d732c7_a2acce0a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:29:40Z",
+      "side": 0,
+      "message": "This check should be unnecessary here. InstructionBuilder::HandleInvoke emits a null check if the is_unresolved parameter is false as it is invoke-polymorphic. Added a DCHECK at the function entry here.",
+      "parentUuid": "ab80330b_ffe7018c",
+      "range": {
+        "startLine": 2768,
+        "startChar": 0,
+        "endLine": 2771,
+        "endChar": 3
+      },
+      "revId": "1fdd8d899efb2d00ac859318ad150369c30f87c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

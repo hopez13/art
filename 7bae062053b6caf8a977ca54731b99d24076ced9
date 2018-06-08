@@ -22,6 +22,30 @@
       "revId": "7bae062053b6caf8a977ca54731b99d24076ced9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c777c8ef_acc9521e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-08T08:29:40Z",
+      "side": 1,
+      "message": "Changed to be unused. Calling convention uses it, but we have to look at the instruction in artInvokePolymorphic and any side info we need is there anyway.",
+      "parentUuid": "585a048e_2b8bd497",
+      "range": {
+        "startLine": 2848,
+        "startChar": 49,
+        "endLine": 2848,
+        "endChar": 55
+      },
+      "revId": "7bae062053b6caf8a977ca54731b99d24076ced9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
