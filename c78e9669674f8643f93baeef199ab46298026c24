@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9598c5ff_d2ccc226",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-08T23:31:52Z",
+      "side": 1,
+      "message": "I don\u0027t really like this name. We use Scoped for things that are usually undone at the end, while this actually applies the operations at the end.",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 12
+      },
+      "revId": "c78e9669674f8643f93baeef199ab46298026c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e88e5cb7_817581fc",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-08T23:31:52Z",
+      "side": 1,
+      "message": "Personally I think this isn\u0027t the greatest naming, though I don\u0027t know a better name.",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 85
+      },
+      "revId": "c78e9669674f8643f93baeef199ab46298026c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb456399_8490f8d9",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-08T23:31:52Z",
+      "side": 1,
+      "message": "That isn\u0027t true anymore?",
+      "range": {
+        "startLine": 198,
+        "startChar": 28,
+        "endLine": 198,
+        "endChar": 37
+      },
+      "revId": "c78e9669674f8643f93baeef199ab46298026c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a40201e_168d3b6a",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-08T23:31:52Z",
+      "side": 1,
+      "message": "There needs to be a comment here why you need to do this whole thing in a loop.",
+      "range": {
+        "startLine": 206,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 6
+      },
+      "revId": "c78e9669674f8643f93baeef199ab46298026c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e5e0ae_a5dce162",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-08T23:31:52Z",
+      "side": 1,
+      "message": "strange indent",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 22
+      },
+      "revId": "c78e9669674f8643f93baeef199ab46298026c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
