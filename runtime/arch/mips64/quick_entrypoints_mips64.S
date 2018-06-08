@@ -2188,11 +2188,12 @@ ENTRY art_quick_generic_jni_trampoline
     DELIVER_PENDING_EXCEPTION
 END art_quick_generic_jni_trampoline
 
-    .extern artQuickToInterpreterBridge
-ENTRY art_quick_to_interpreter_bridge
+.macro GENERATE_INTERPRETER_BRIDGE name, entrypoint
+    .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME
     move    $a1, rSELF             # pass Thread::Current
-    jal     artQuickToInterpreterBridge    # (Method* method, Thread*, SP)
+    jal     \entrypoint            # (Method* method, Thread*, SP)
     move    $a2, $sp               # pass $sp
     ld      $t0, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
     daddiu  $sp, $sp, REFS_AND_ARGS_MINUS_REFS_SIZE  # skip a0-a7 and f12-f19
@@ -2203,7 +2204,11 @@ ENTRY art_quick_to_interpreter_bridge
     dmtc1   $v1, $f1               # place return value to FP return value
 1:
     DELIVER_PENDING_EXCEPTION
-END art_quick_to_interpreter_bridge
+END \name
+.endm
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
     .extern artInvokeObsoleteMethod
 ENTRY art_invoke_obsolete_method_stub
@@ -2224,17 +2229,12 @@ ENTRY art_quick_instrumentation_entry
     move    $a3, $sp        # Pass $sp.
     jal     artInstrumentationMethodEntryFromCode  # (Method*, Object*, Thread*, SP)
     move    $a2, rSELF      # pass Thread::Current
-    beqzc   $v0, .Ldeliver_instrumentation_entry_exception
-                            # Deliver exception if we got nullptr as function.
     move    $t9, $v0        # $t9 holds reference to code
     ld      $a0, 8($sp)     # Restore arg0.
     dla     $v0, art_quick_instrumentation_exit
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     move    $ra, $v0
     jic     $t9, 0          # call method, returning to art_quick_instrumentation_exit
-.Ldeliver_instrumentation_entry_exception:
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    DELIVER_PENDING_EXCEPTION
 END art_quick_instrumentation_entry
 
 ENTRY_NO_GP art_quick_instrumentation_exit

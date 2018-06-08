@@ -37,6 +37,7 @@ class Throwable;
 class ArtField;
 class ArtMethod;
 template <typename T> class Handle;
+template <typename T> class MutableHandle;
 union JValue;
 class ShadowFrame;
 class Thread;
@@ -156,6 +157,29 @@ struct InstrumentationListener {
   virtual void WatchedFramePop(Thread* thread ATTRIBUTE_UNUSED,
                                const ShadowFrame& frame ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+};
+
+class Instrumentation;
+class InstrumentationFrameResult {
+ public:
+  InstrumentationFrameResult(InstrumentationFrameResult&& orig)
+      : set_frame_called_(orig.set_frame_called_), instrumentation_(orig.instrumentation_) {
+    // The old one doesn't need to do any checks.
+    orig.instrumentation_ = nullptr;
+  }
+
+  InstrumentationFrameResult(const InstrumentationFrameResult& v) = delete;
+
+  ~InstrumentationFrameResult();
+  void SetFrameIsInterpreter(bool is_interpreter) REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
+  explicit InstrumentationFrameResult(Instrumentation* instrumentation)
+      : set_frame_called_(false), instrumentation_(instrumentation) {}
+
+  friend class Instrumentation;
+  bool set_frame_called_;
+  Instrumentation* instrumentation_;
 };
 
 // Instrumentation is a catch-all for when extra information is required from the runtime. The
@@ -475,10 +499,14 @@ class Instrumentation {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Called when an instrumented method is entered. The intended link register (lr) is saved so
-  // that returning causes a branch to the method exit stub. Generates method enter events.
-  void PushInstrumentationStackFrame(Thread* self, mirror::Object* this_object,
-                                     ArtMethod* method, uintptr_t lr,
-                                     bool interpreter_entry)
+  // that returning causes a branch to the method exit stub. Generates method enter events in all
+  // circumstances. The pushed frame will be used to tell the interpreter not to double them up.
+  //
+  // The function InstrumentationFrameResult::SetIsInterpreter *must* be called after this function.
+  InstrumentationFrameResult PushInstrumentationStackFrame(Thread* self,
+                                                           mirror::Object* this_object,
+                                                           ArtMethod* method,
+                                                           uintptr_t lr)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   DeoptimizationMethodType GetDeoptimizationMethodType(ArtMethod* method)
@@ -526,6 +554,11 @@ class Instrumentation {
   InstrumentationLevel GetCurrentInstrumentationLevel() const;
 
  private:
+  // Sets the top frame as being an interpreter_entry. Used so that we can jump to JIT code in
+  // artInstrumtationEntryFromCode
+  void SetTopFrameToInterpreter(Thread* self, bool is_interpreter)
+      REQUIRES_SHARED(Locks::mutator_lock_);;
+
   // Returns true if moving to the given instrumentation level requires the installation of stubs.
   // False otherwise.
   bool RequiresInstrumentationInstallation(InstrumentationLevel new_level) const;
@@ -713,6 +746,8 @@ class Instrumentation {
   bool alloc_entrypoints_instrumented_;
 
   friend class InstrumentationTest;  // For GetCurrentInstrumentationLevel and ConfigureStubs.
+  friend class InstrumentationFrameResult;  // for SetTopFrameToInterpreter
+  friend class ScopedInstrumentationStackPopper;  // For popping instrumentation frames.
 
   DISALLOW_COPY_AND_ASSIGN(Instrumentation);
 };

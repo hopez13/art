@@ -2315,11 +2315,12 @@ ENTRY art_quick_generic_jni_trampoline
     DELIVER_PENDING_EXCEPTION
 END art_quick_generic_jni_trampoline
 
-    .extern artQuickToInterpreterBridge
-ENTRY art_quick_to_interpreter_bridge
+.macro GENERATE_INTERPRETER_BRIDGE name, entrypoint
+    .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME
     move    $a1, rSELF                          # pass Thread::Current
-    la      $t9, artQuickToInterpreterBridge
+    la      $t9, \entrypoint
     jalr    $t9                                 # (Method* method, Thread*, SP)
     addiu   $a2, $sp, ARG_SLOT_SIZE             # pass $sp (remove arg slots)
     lw      $t7, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
@@ -2331,7 +2332,11 @@ ENTRY art_quick_to_interpreter_bridge
     nop
 1:
     DELIVER_PENDING_EXCEPTION
-END art_quick_to_interpreter_bridge
+END \name
+.endm
+
+GENERATE_INTERPRETER_BRIDGE art_quick_to_interpreter_bridge, artQuickToInterpreterBridge
+GENERATE_INTERPRETER_BRIDGE art_instrumentation_to_interpreter_bridge, artInstrumentationToInterpreterBridge
 
     .extern artInvokeObsoleteMethod
 ENTRY art_invoke_obsolete_method_stub
@@ -2353,16 +2358,12 @@ ENTRY art_quick_instrumentation_entry
     la      $t9, artInstrumentationMethodEntryFromCode
     jalr    $t9             # (Method*, Object*, Thread*, SP)
     move    $a2, rSELF      # pass Thread::Current
-    beqz    $v0, .Ldeliver_instrumentation_entry_exception
     move    $t9, $v0        # $t9 holds reference to code
     lw      $a0, 28($sp)    # restore arg0 from free arg slot
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     la      $ra, art_quick_instrumentation_exit
     jalr    $zero, $t9      # call method, returning to art_quick_instrumentation_exit
     nop
-.Ldeliver_instrumentation_entry_exception:
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
-    DELIVER_PENDING_EXCEPTION
 END art_quick_instrumentation_entry
 
 ENTRY_NO_GP art_quick_instrumentation_exit
