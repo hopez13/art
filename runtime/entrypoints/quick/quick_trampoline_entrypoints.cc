@@ -1152,10 +1152,9 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
   if (instrumentation->IsDeoptimized(method)) {
     result = GetQuickToInterpreterBridge();
   } else {
-    // This will get the entry point either from the oat file or the appropriate bridge
+    // This will get the entry point either from the oat file, the JIT or the appropriate bridge
     // method if none of those can be found.
-    // TODO We should search the jit as well.
-    result = instrumentation->GetQuickCodeFor(method, kRuntimePointerSize);
+    result = instrumentation->GetCodeForInvoke(method);
     DCHECK_NE(result, GetQuickInstrumentationEntryPoint()) << method->PrettyMethod();
   }
   // TODO It might be good to give the pending exception state it's own path but that would require

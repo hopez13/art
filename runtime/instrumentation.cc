@@ -225,6 +225,9 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
     if ((forced_interpret_only_ || IsDeoptimized(method)) && !method->IsNative()) {
       new_quick_code = GetQuickToInterpreterBridge();
     } else if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
+      // It would be great to search the JIT for its implementation here but we cannot due to the
+      // locks we have held. Instead just set to the interpreter bridge and that code will search
+      // the JIT when it gets called.
       if (NeedDebugVersionFor(method)) {
         new_quick_code = GetQuickToInterpreterBridge();
       } else {
@@ -242,12 +245,13 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
       // class, all its static methods code will be set to the instrumentation entry point.
       // For more details, see ClassLinker::FixupStaticTrampolines.
       if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
-        if (NeedDebugVersionFor(method)) {
-          // Oat code should not be used. Don't install instrumentation stub and
-          // use interpreter for instrumentation.
-          new_quick_code = GetQuickToInterpreterBridge();
-        } else if (entry_exit_stubs_installed_) {
+        if (entry_exit_stubs_installed_) {
+          // This needs to be first since the instrumentation entrypoint will be able to find the
+          // actual JIT compiled code that corresponds to this method.
           new_quick_code = GetQuickInstrumentationEntryPoint();
+        } else if (NeedDebugVersionFor(method)) {
+          // We cannot actually get the acceptable JIT code here due to lock ordering.
+          new_quick_code = GetQuickToInterpreterBridge();
         } else {
           new_quick_code = class_linker->GetQuickOatCodeFor(method);
         }
@@ -1051,6 +1055,39 @@ void Instrumentation::EnableMethodTracing(const char* key, bool needs_interprete
 
 void Instrumentation::DisableMethodTracing(const char* key) {
   ConfigureStubs(key, InstrumentationLevel::kInstrumentNothing);
+}
+
+const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) const {
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  if (LIKELY(!instrumentation_stubs_installed_ && !interpreter_stubs_installed_)) {
+    const void* code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
+    DCHECK(code != nullptr);
+    if (code != GetQuickInstrumentationEntryPoint()) {
+      return code;
+    } else if (method->IsNative()) {
+      return class_linker->GetQuickOatCodeFor(method);
+    }
+    // We don't know what it is. Fallthough to try to find the code from the JIT or Oat file.
+  } else if (method->IsNative()) {
+    // TODO We could have JIT compiled native entrypoints. It might be worth it to find these.
+    return class_linker->GetQuickOatCodeFor(method);
+  } else if (UNLIKELY(interpreter_stubs_installed_)) {
+    return GetQuickToInterpreterBridge();
+  }
+  const void* result = GetQuickToInterpreterBridge();
+  if (!NeedDebugVersionFor(method)) {
+    result = class_linker->GetQuickOatCodeFor(method);
+  }
+  if (result == GetQuickToInterpreterBridge()) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      const void* res = jit->GetCodeCache()->FindCompiledCode(method);
+      if (res != nullptr) {
+        result = res;
+      }
+    }
+  }
+  return result;
 }
 
 const void* Instrumentation::GetQuickCodeFor(ArtMethod* method, PointerSize pointer_size) const {
