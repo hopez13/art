@@ -735,8 +735,12 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
 
   ProfilingInfo* profiling_info = method->GetProfilingInfo(kRuntimePointerSize);
   // Update the entrypoint if the ProfilingInfo has one. The interpreter will call it
-  // instead of interpreting the method.
-  if ((profiling_info != nullptr) && (profiling_info->GetSavedEntryPoint() != nullptr)) {
+  // instead of interpreting the method. We check for the instrumentation entrypoint since if that
+  // is there we are using the SavedEntryPoint for a different purpose and cannot replace the
+  // entrypoint with it.
+  if ((profiling_info != nullptr) &&
+      (profiling_info->GetSavedEntryPoint() != nullptr) &&
+      (method->GetEntryPointFromQuickCompiledCode() != GetQuickInstrumentationEntryPoint())) {
     Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
         method, profiling_info->GetSavedEntryPoint());
   } else {
