@@ -210,7 +210,7 @@ bool ArtMethod::HasSameNameAndSignature(ArtMethod* other) {
 }
 
 ArtMethod* ArtMethod::FindOverriddenMethod(PointerSize pointer_size) {
-  if (IsStatic()) {
+  if (IsDirect()) {
     return nullptr;
   }
   ObjPtr<mirror::Class> declaring_class = GetDeclaringClass();
@@ -369,7 +369,6 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
         CHECK(oat_quick_code == nullptr || oat_quick_code != GetEntryPointFromQuickCompiledCode())
             << "Don't call compiled code when -Xint " << PrettyMethod();
       }
-
       if (!IsStatic()) {
         (*art_quick_invoke_stub)(this, args, args_size, self, result, shorty);
       } else {
