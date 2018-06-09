@@ -94,6 +94,30 @@
       "revId": "db30551563dcab78ecd50aad8235915124883127",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59eb7f13_3bdcc820",
+        "filename": "test/800-smali/smali/ConstClassAliasing.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-06-09T09:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36cb7263_7d92d309",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "db30551563dcab78ecd50aad8235915124883127",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
