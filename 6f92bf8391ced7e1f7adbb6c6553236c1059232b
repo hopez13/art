@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e1566fb_a04475e0",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-09T00:16:17Z",
+      "side": 1,
+      "message": "REQUIRES_SHARED is only required for the declaration.",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 42
+      },
+      "revId": "6f92bf8391ced7e1f7adbb6c6553236c1059232b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
