@@ -22,6 +22,53 @@
       "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28bba5c_0419d5d1",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T23:07:05Z",
+      "side": 1,
+      "message": "I also think it should be REQUIRES_SHARED.",
+      "parentUuid": "57b22ec7_1580ff59",
+      "range": {
+        "startLine": 420,
+        "startChar": 53,
+        "endLine": 420,
+        "endChar": 61
+      },
+      "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f4d7501_ca976482",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T23:07:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t large region case be handled in CheckLiveBytesAgainstRegionBitmap() itself, given that it doesn\u0027t require scanning through the bitmap?",
+      "range": {
+        "startLine": 422,
+        "startChar": 1,
+        "endLine": 429,
+        "endChar": 49
+      },
+      "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
