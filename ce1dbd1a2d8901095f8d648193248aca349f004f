@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e23091c_6af23182",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T17:56:48Z",
+      "side": 1,
+      "message": "It can be done, but I doubt it will be more efficient. In most of the cases, when Mark is called, we already have access to Thread* self. So, fetching it again when kFromGCThread \u003d\u003d false will be redundant.\n\nThere are also cases where Mark is being called in a loop, and hence fetching current thread once outside the loop makes sense.",
+      "parentUuid": "160fe51f_4984205d",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 60
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e5783f0_03718685",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46b1bd17_328205c7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T17:56:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e5783f0_03718685",
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b43898b5_41e3df85",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T17:56:48Z",
+      "side": 1,
+      "message": "Done.\n\nMade some quick tests to confirm. The number of objects moved by GC thread are far more than mutators.",
+      "parentUuid": "c249590f_d84057b7",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 42
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
