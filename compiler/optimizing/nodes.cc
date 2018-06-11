@@ -1031,6 +1031,18 @@ void HBasicBlock::InsertInstructionAfter(HInstruction* instruction, HInstruction
   instructions_.InsertInstructionAfter(instruction, cursor);
 }
 
+void HBasicBlock::MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor) {
+  DCHECK(!cursor->IsPhi());
+  DCHECK(!instruction->IsPhi());
+  DCHECK_NE(cursor->GetId(), -1);
+  DCHECK_NE(instruction->GetId(), -1);
+  DCHECK_EQ(cursor->GetBlock(), this);
+  DCHECK_EQ(instruction->GetBlock(), this);
+  DCHECK(!cursor->IsControlFlow());
+  DCHECK(!instruction->IsControlFlow());
+  instructions_.MoveInstructionAfter(instruction, cursor);
+}
+
 void HBasicBlock::InsertPhiAfter(HPhi* phi, HPhi* cursor) {
   DCHECK_EQ(phi->GetId(), -1);
   DCHECK_NE(cursor->GetId(), -1);
@@ -1194,6 +1206,22 @@ void HInstructionList::InsertInstructionAfter(HInstruction* instruction, HInstru
   }
 }
 
+void HInstructionList::MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor) {
+  DCHECK(Contains(instruction));
+  DCHECK(Contains(cursor));
+  if (instruction == first_instruction_) {
+    instruction->next_->previous_ = nullptr;
+    first_instruction_ = instruction->next_;
+  } else if (instruction == last_instruction_) {
+    instruction->previous_->next_ = nullptr;
+    last_instruction_ = instruction->previous_;
+  } else {
+    instruction->previous_->next_ = instruction->next_;
+    instruction->next_->previous_ = instruction->previous_;
+  }
+  InsertInstructionAfter(instruction, cursor);
+}
+
 void HInstructionList::RemoveInstruction(HInstruction* instruction) {
   if (instruction->previous_ != nullptr) {
     instruction->previous_->next_ = instruction->next_;
@@ -1268,6 +1296,39 @@ bool HInstruction::StrictlyDominates(HInstruction* other_instruction) const {
       }
     }
   }
+}
+
+bool HInstruction::InputsAreDefinedBeforeLoop() const {
+  DCHECK(this->IsInLoop());
+  HLoopInformation* info = GetBlock()->GetLoopInformation();
+  for (const HInstruction* input : GetInputs()) {
+    HLoopInformation* input_loop = input->GetBlock()->GetLoopInformation();
+    // We only need to check whether the input is defined in the loop. If it is not
+    // it is defined before the loop.
+    if (input_loop != nullptr && input_loop->IsIn(*info)) {
+      return false;
+    }
+  }
+
+  for (HEnvironment* environment = GetEnvironment();
+       environment != nullptr;
+       environment = environment->GetParent()) {
+    for (size_t i = 0, e = environment->Size(); i < e; ++i) {
+      HInstruction* input = environment->GetInstructionAt(i);
+      if (input != nullptr) {
+        HLoopInformation* input_loop = input->GetBlock()->GetLoopInformation();
+        if (input_loop != nullptr && input_loop->IsIn(*info)) {
+          // We can move an instruction that takes a loop header phi in the environment:
+          // we will just replace that phi with its first input later in `UpdateLoopPhisIn`.
+          bool is_loop_header_phi = input->IsPhiOf(info->GetHeader());
+          if (!is_loop_header_phi) {
+            return false;
+          }
+        }
+      }
+    }
+  }
+  return true;
 }
 
 void HInstruction::RemoveEnvironment() {

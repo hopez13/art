@@ -147,6 +147,9 @@ class HInstructionList : public ValueObject {
   void InsertInstructionBefore(HInstruction* instruction, HInstruction* cursor);
   void InsertInstructionAfter(HInstruction* instruction, HInstruction* cursor);
 
+  // Move existing `instruction` after an existing instruction `cursor`.
+  void MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor);
+
   // Return true if this list contains `instruction`.
   bool Contains(HInstruction* instruction) const;
 
@@ -1195,6 +1198,8 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   // Insert `instruction` before/after an existing instruction `cursor`.
   void InsertInstructionBefore(HInstruction* instruction, HInstruction* cursor);
   void InsertInstructionAfter(HInstruction* instruction, HInstruction* cursor);
+  // Move existing `instruction` after an existing instruction `cursor`.
+  void MoveInstructionAfter(HInstruction* instruction, HInstruction* cursor);
   // Replace phi `initial` with `replacement` within this block.
   void ReplaceAndRemovePhiWith(HPhi* initial, HPhi* replacement);
   // Replace instruction `initial` with `replacement` within this block.
@@ -2008,6 +2013,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   bool IsIrreducibleLoopHeaderPhi() const {
     return IsLoopHeaderPhi() && GetBlock()->GetLoopInformation()->IsIrreducible();
   }
+  bool IsPhiOf(HBasicBlock* block) const { return IsPhi() && block_ == block; }
 
   virtual ArrayRef<HUserRecord<HInstruction*>> GetInputRecords() = 0;
 
@@ -2036,6 +2042,12 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
     }
     return false;
   }
+
+  /**
+   * Returns whether `instruction` has all its inputs and environment defined
+   * before the loop it is in.
+   */
+  bool InputsAreDefinedBeforeLoop() const;
 
   void SetRawInputAt(size_t index, HInstruction* input) {
     SetRawInputRecordAt(index, HUserRecord<HInstruction*>(input));

@@ -20,47 +20,6 @@
 
 namespace art {
 
-static bool IsPhiOf(HInstruction* instruction, HBasicBlock* block) {
-  return instruction->IsPhi() && instruction->GetBlock() == block;
-}
-
-/**
- * Returns whether `instruction` has all its inputs and environment defined
- * before the loop it is in.
- */
-static bool InputsAreDefinedBeforeLoop(HInstruction* instruction) {
-  DCHECK(instruction->IsInLoop());
-  HLoopInformation* info = instruction->GetBlock()->GetLoopInformation();
-  for (const HInstruction* input : instruction->GetInputs()) {
-    HLoopInformation* input_loop = input->GetBlock()->GetLoopInformation();
-    // We only need to check whether the input is defined in the loop. If it is not
-    // it is defined before the loop.
-    if (input_loop != nullptr && input_loop->IsIn(*info)) {
-      return false;
-    }
-  }
-
-  for (HEnvironment* environment = instruction->GetEnvironment();
-       environment != nullptr;
-       environment = environment->GetParent()) {
-    for (size_t i = 0, e = environment->Size(); i < e; ++i) {
-      HInstruction* input = environment->GetInstructionAt(i);
-      if (input != nullptr) {
-        HLoopInformation* input_loop = input->GetBlock()->GetLoopInformation();
-        if (input_loop != nullptr && input_loop->IsIn(*info)) {
-          // We can move an instruction that takes a loop header phi in the environment:
-          // we will just replace that phi with its first input later in `UpdateLoopPhisIn`.
-          bool is_loop_header_phi = IsPhiOf(input, info->GetHeader());
-          if (!is_loop_header_phi) {
-            return false;
-          }
-        }
-      }
-    }
-  }
-  return true;
-}
-
 /**
  * If `environment` has a loop header phi, we replace it with its first input.
  */
@@ -68,7 +27,7 @@ static void UpdateLoopPhisIn(HEnvironment* environment, HLoopInformation* info) 
   for (; environment != nullptr; environment = environment->GetParent()) {
     for (size_t i = 0, e = environment->Size(); i < e; ++i) {
       HInstruction* input = environment->GetInstructionAt(i);
-      if (input != nullptr && IsPhiOf(input, info->GetHeader())) {
+      if (input != nullptr && input->IsPhiOf(info->GetHeader())) {
         environment->RemoveAsUserOfInput(i);
         HInstruction* incoming = input->InputAt(0);
         environment->SetRawEnvAt(i, incoming);
@@ -131,7 +90,7 @@ bool LICM::Run() {
            inst_it.Advance()) {
         HInstruction* instruction = inst_it.Current();
         bool can_move = false;
-        if (instruction->CanBeMoved() && InputsAreDefinedBeforeLoop(instruction)) {
+        if (instruction->CanBeMoved() && instruction->InputsAreDefinedBeforeLoop()) {
           if (instruction->CanThrow()) {
             if (!found_first_non_hoisted_visible_instruction_in_loop) {
               DCHECK(instruction->GetBlock()->IsLoopHeader());

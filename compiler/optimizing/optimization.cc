@@ -46,6 +46,7 @@
 #include "inliner.h"
 #include "instruction_simplifier.h"
 #include "intrinsics.h"
+#include "licg.h"
 #include "licm.h"
 #include "load_store_analysis.h"
 #include "load_store_elimination.h"
@@ -69,6 +70,8 @@ const char* OptimizationPassName(OptimizationPass pass) {
       return LoadStoreAnalysis::kLoadStoreAnalysisPassName;
     case OptimizationPass::kGlobalValueNumbering:
       return GVNOptimization::kGlobalValueNumberingPassName;
+    case OptimizationPass::kInvariantCodeGrouping:
+      return LICG::kLoopInvariantCodeGroupingPassName;
     case OptimizationPass::kInvariantCodeMotion:
       return LICM::kLoopInvariantCodeMotionPassName;
     case OptimizationPass::kLoopOptimization:
@@ -141,6 +144,7 @@ OptimizationPass OptimizationPassByName(const std::string& pass_name) {
   X(OptimizationPass::kInliner);
   X(OptimizationPass::kInstructionSimplifier);
   X(OptimizationPass::kIntrinsicsRecognizer);
+  X(OptimizationPass::kInvariantCodeGrouping);
   X(OptimizationPass::kInvariantCodeMotion);
   X(OptimizationPass::kLoadStoreAnalysis);
   X(OptimizationPass::kLoadStoreElimination);
@@ -216,6 +220,9 @@ ArenaVector<HOptimization*> ConstructOptimizations(
       case OptimizationPass::kGlobalValueNumbering:
         CHECK(most_recent_side_effects != nullptr);
         opt = new (allocator) GVNOptimization(graph, *most_recent_side_effects, pass_name);
+        break;
+      case OptimizationPass::kInvariantCodeGrouping:
+        opt = new (allocator) LICG(graph, stats, pass_name);
         break;
       case OptimizationPass::kInvariantCodeMotion:
         CHECK(most_recent_side_effects != nullptr);
