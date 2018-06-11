@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3a8f088_d01b9b46",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2824,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-11T18:48:18Z",
+      "side": 1,
+      "message": "Why this change? It seems you\u0027re not really saving any calls.",
+      "range": {
+        "startLine": 2824,
+        "startChar": 2,
+        "endLine": 2824,
+        "endChar": 46
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
