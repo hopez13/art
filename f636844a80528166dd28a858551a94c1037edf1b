@@ -22,6 +22,30 @@
       "revId": "f636844a80528166dd28a858551a94c1037edf1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d9863f1_82b8c062",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2644,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T23:28:57Z",
+      "side": 0,
+      "message": "It seems to me that this was introduced to bypass processing non-moving and large allocations during young GCs, which is indeed needed in spirit of ensuring that young GCs are quick. But for this to work correctly we require taking care of allocation stack properly in reclaim phase. Just pointing out for reference when this issue is later revisited.",
+      "parentUuid": "baa9776c_13b60926",
+      "range": {
+        "startLine": 2644,
+        "startChar": 4,
+        "endLine": 2644,
+        "endChar": 21
+      },
+      "revId": "f636844a80528166dd28a858551a94c1037edf1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
