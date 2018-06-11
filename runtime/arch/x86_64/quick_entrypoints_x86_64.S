@@ -1636,16 +1636,21 @@ ONE_ARG_REF_DOWNCALL art_quick_get32_static, artGet32StaticFromCompiledCode, RET
 ONE_ARG_REF_DOWNCALL art_quick_get64_static, artGet64StaticFromCompiledCode, RETURN_OR_DELIVER_PENDING_EXCEPTION
 ONE_ARG_REF_DOWNCALL art_quick_get_obj_static, artGetObjStaticFromCompiledCode, RETURN_OR_DELIVER_PENDING_EXCEPTION
 
-DEFINE_FUNCTION art_quick_proxy_invoke_handler
+MACRO2(GENERATE_PROXY_INVOKE, name, entrypoint)
+DEFINE_FUNCTION VAR(name)
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_RDI
 
     movq %gs:THREAD_SELF_OFFSET, %rdx       // Pass Thread::Current().
     movq %rsp, %rcx                         // Pass SP.
-    call SYMBOL(artQuickProxyInvokeHandler) // (proxy method, receiver, Thread*, SP)
+    call CALLVAR(entrypoint)                // (proxy method, receiver, Thread*, SP)
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     movq %rax, %xmm0                        // Copy return value in case of float returns.
     RETURN_OR_DELIVER_PENDING_EXCEPTION
-END_FUNCTION art_quick_proxy_invoke_handler
+END_FUNCTION VAR(name)
+END_MACRO
+
+GENERATE_PROXY_INVOKE art_quick_proxy_invoke_handler, artQuickProxyInvokeHandler
+GENERATE_PROXY_INVOKE art_instrumentation_proxy_invoke_handler, artInstrumentationProxyInvokeHandler
 
     /*
      * Called to resolve an imt conflict.

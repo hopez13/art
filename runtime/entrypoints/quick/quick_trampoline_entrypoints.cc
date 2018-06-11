@@ -922,8 +922,11 @@ void BuildQuickArgumentVisitor::Visit() {
 // which is responsible for recording callee save registers. We explicitly place into jobjects the
 // incoming reference arguments (so they survive GC). We invoke the invocation handler, which is a
 // field within the proxy object, which will box the primitive arguments and deal with error cases.
-extern "C" uint64_t artQuickProxyInvokeHandler(
-    ArtMethod* proxy_method, mirror::Object* receiver, Thread* self, ArtMethod** sp)
+static uint64_t QuickProxyInvokeHandlerCommon(ArtMethod* proxy_method,
+                                              mirror::Object* receiver,
+                                              Thread* self,
+                                              ArtMethod** sp,
+                                              bool send_instrumentation_events)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(proxy_method->IsProxyMethod()) << proxy_method->PrettyMethod();
   DCHECK(receiver->GetClass()->IsProxyClass()) << proxy_method->PrettyMethod();
@@ -970,9 +973,65 @@ extern "C" uint64_t artQuickProxyInvokeHandler(
   jobject interface_method_jobj = soa.AddLocalReference<jobject>(interface_reflect_method);
 
   // All naked Object*s should now be in jobjects, so its safe to go into the main invoke code
-  // that performs allocations.
+  // that performs allocations or instrumentation events.
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  if (send_instrumentation_events) {
+    if (instr->HasMethodEntryListeners()) {
+      instr->MethodEnterEvent(soa.Self(),
+                              soa.Decode<mirror::Object>(rcvr_jobj).Ptr(),
+                              proxy_method,
+                              0);
+      if (soa.Self()->IsExceptionPending()) {
+        instr->MethodUnwindEvent(self,
+                                 soa.Decode<mirror::Object>(rcvr_jobj).Ptr(),
+                                 proxy_method,
+                                 0);
+        return 0;
+      }
+    }
+  }
   JValue result = InvokeProxyInvocationHandler(soa, shorty, rcvr_jobj, interface_method_jobj, args);
+  if (send_instrumentation_events) {
+    if (soa.Self()->IsExceptionPending()) {
+      if (instr->HasMethodUnwindListeners()) {
+        instr->MethodUnwindEvent(self,
+                                 soa.Decode<mirror::Object>(rcvr_jobj).Ptr(),
+                                 proxy_method,
+                                 0);
+      }
+    } else if (instr->HasMethodExitListeners()) {
+      instr->MethodExitEvent(self,
+                             soa.Decode<mirror::Object>(rcvr_jobj).Ptr(),
+                             proxy_method,
+                             0,
+                             result);
+    }
+  }
   return result.GetJ();
+}
+
+extern "C" uint64_t artQuickProxyInvokeHandler(ArtMethod* proxy_method,
+                                               mirror::Object* receiver,
+                                               Thread* self,
+                                               ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return QuickProxyInvokeHandlerCommon(proxy_method,
+                                       receiver,
+                                       self,
+                                       sp,
+                                       /*send_instrumentation_events*/ true);
+}
+
+extern "C" uint64_t artInstrumentationProxyInvokeHandler(ArtMethod* proxy_method,
+                                                         mirror::Object* receiver,
+                                                         Thread* self,
+                                                         ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return QuickProxyInvokeHandlerCommon(proxy_method,
+                                       receiver,
+                                       self,
+                                       sp,
+                                       /*send_instrumentation_events*/ false);
 }
 
 // Visitor returning a reference argument at a given position in a Quick stack frame.
@@ -1167,6 +1226,11 @@ extern "C" const void* artInstrumentationMethodEntryFromCode(ArtMethod* method,
     // works and is not confused by threads throwing in quick_instrumentation_entry (which leaves it
     // unable to figure out what the actual method being called is).
     result = GetInstrumentationToInterpreterBridge();
+  } else if (result == GetQuickProxyInvokeHandler()) {
+    res.SetFrameIsInterpreter(false);
+    // We want to actually use a slightly different bridge function to avoid a second call of
+    // instrumentation events.
+    result = GetInstrumentationProxyInvokeHandler();
   } else {
     res.SetFrameIsInterpreter(false);
   }

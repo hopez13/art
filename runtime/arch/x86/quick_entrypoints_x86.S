@@ -1772,14 +1772,15 @@ DEFINE_FUNCTION art_quick_set64_instance
     RETURN_IF_EAX_ZERO            // return or deliver exception
 END_FUNCTION art_quick_set64_instance
 
-DEFINE_FUNCTION art_quick_proxy_invoke_handler
+MACRO2(GENERATE_PROXY_INVOKE, name, entrypoint)
+DEFINE_FUNCTION VAR(name)
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_EAX
     PUSH esp                      // pass SP
     pushl %fs:THREAD_SELF_OFFSET  // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH ecx                      // pass receiver
     PUSH eax                      // pass proxy method
-    call SYMBOL(artQuickProxyInvokeHandler) // (proxy method, receiver, Thread*, SP)
+    call CALLVAR(entrypoint)      // (proxy method, receiver, Thread*, SP)
     movd %eax, %xmm0              // place return value also into floating point return value
     movd %edx, %xmm1
     punpckldq %xmm1, %xmm0
@@ -1787,7 +1788,11 @@ DEFINE_FUNCTION art_quick_proxy_invoke_handler
     CFI_ADJUST_CFA_OFFSET(-(16 + FRAME_SIZE_SAVE_REFS_AND_ARGS - FRAME_SIZE_SAVE_REFS_ONLY))
     RESTORE_SAVE_REFS_ONLY_FRAME
     RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
-END_FUNCTION art_quick_proxy_invoke_handler
+END_FUNCTION VAR(name)
+END_MACRO
+
+GENERATE_PROXY_INVOKE art_quick_proxy_invoke_handler, artQuickProxyInvokeHandler
+GENERATE_PROXY_INVOKE art_instrumentation_proxy_invoke_handler, artInstrumentationProxyInvokeHandler
 
     /*
      * Called to resolve an imt conflict.
