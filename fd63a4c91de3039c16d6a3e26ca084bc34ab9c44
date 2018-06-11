@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "383addb8_8a49aa26",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-11T12:32:14Z",
+      "side": 1,
+      "message": "kRunningOnMemoryTool \u0026\u0026 kMemoryToolAddsRedzones\n\n(Avoid the use of \"0\" as bool.)",
+      "range": {
+        "startLine": 385,
+        "startChar": 19,
+        "endLine": 385,
+        "endChar": 69
+      },
+      "revId": "fd63a4c91de3039c16d6a3e26ca084bc34ab9c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
