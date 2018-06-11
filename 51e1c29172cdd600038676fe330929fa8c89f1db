@@ -22,6 +22,30 @@
       "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "712c8837_b137dc3a",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-11T13:36:29Z",
+      "side": 1,
+      "message": "Probably not, given that we are now cleaning up before setting up the device. Thanks for the suggestion!",
+      "parentUuid": "570a4694_d33e5db0",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
