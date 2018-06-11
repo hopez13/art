@@ -67,6 +67,13 @@ static inline const void* GetQuickProxyInvokeHandler() {
   return reinterpret_cast<const void*>(art_quick_proxy_invoke_handler);
 }
 
+// Return the address of quick stub code for handling transitions into the proxy invoke handler from
+// instrumentation trampoline.
+extern "C" void art_instrumentation_proxy_invoke_handler();
+static inline const void* GetInstrumentationProxyInvokeHandler() {
+  return reinterpret_cast<const void*>(art_instrumentation_proxy_invoke_handler);
+}
+
 // Return the address of quick stub code for resolving a method at first call.
 extern "C" void art_quick_resolution_trampoline(ArtMethod*);
 static inline const void* GetQuickResolutionStub() {

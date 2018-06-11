@@ -1567,12 +1567,13 @@ END art_quick_implicit_suspend
      * r0 holds the proxy method and r1 holds the receiver; r2 and r3 may contain arguments. The
      * frame size of the invoked proxy method agrees with a ref and args callee save frame.
      */
-     .extern artQuickProxyInvokeHandler
-ENTRY art_quick_proxy_invoke_handler
+.macro GENERATE_PROXY_INVOKE name, entrypoint
+     .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_R0
     mov     r2, rSELF              @ pass Thread::Current
     mov     r3, sp                 @ pass SP
-    blx     artQuickProxyInvokeHandler  @ (Method* proxy method, receiver, Thread*, SP)
+    blx     \entrypoint @ (Method* proxy method, receiver, Thread*, SP)
     ldr     r2, [rSELF, #THREAD_EXCEPTION_OFFSET]  @ load Thread::Current()->exception_
     // Tear down the callee-save frame. Skip arg registers.
     add     sp, #(FRAME_SIZE_SAVE_REFS_AND_ARGS - FRAME_SIZE_SAVE_REFS_ONLY)
@@ -1584,7 +1585,11 @@ ENTRY art_quick_proxy_invoke_handler
     bx      lr                     @ return on success
 1:
     DELIVER_PENDING_EXCEPTION
-END art_quick_proxy_invoke_handler
+END \name
+.endm
+
+GENERATE_PROXY_INVOKE art_quick_proxy_invoke_handler, artQuickProxyInvokeHandler
+GENERATE_PROXY_INVOKE art_instrumentation_proxy_invoke_handler, artInstrumentationProxyInvokeHandler
 
     /*
      * Called to resolve an imt conflict.

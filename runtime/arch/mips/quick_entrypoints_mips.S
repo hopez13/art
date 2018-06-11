@@ -2111,11 +2111,12 @@ END art_quick_test_suspend
      * Called by managed code that is attempting to call a method on a proxy class. On entry
      * a0 holds the proxy method; a1, a2 and a3 may contain arguments.
      */
-    .extern artQuickProxyInvokeHandler
-ENTRY art_quick_proxy_invoke_handler
+.macro GENERATE_PROXY_INVOKE name, entrypoint
+    .extern \entrypoint
+ENTRY \name
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_A0
     move    $a2, rSELF                  # pass Thread::Current
-    la      $t9, artQuickProxyInvokeHandler
+    la      $t9, \entrypoint
     jalr    $t9                         # (Method* proxy method, receiver, Thread*, SP)
     addiu   $a3, $sp, ARG_SLOT_SIZE     # pass $sp (remove arg slots)
     lw      $t7, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
@@ -2127,7 +2128,11 @@ ENTRY art_quick_proxy_invoke_handler
     nop
 1:
     DELIVER_PENDING_EXCEPTION
-END art_quick_proxy_invoke_handler
+END \name
+.endm
+
+GENERATE_PROXY_INVOKE art_quick_proxy_invoke_handler, artQuickProxyInvokeHandler
+GENERATE_PROXY_INVOKE art_instrumentation_proxy_invoke_handler, artInstrumentationProxyInvokeHandler
 
     /*
      * Called to resolve an imt conflict.
