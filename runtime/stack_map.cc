@@ -25,6 +25,21 @@
 
 namespace art {
 
+uint32_t CodeInfo::BinarySearchNativePc(uint32_t native_pc, InstructionSet isa) const {
+  uint32_t begin = 0;
+  uint32_t end = stack_maps_.NumRows();
+  while (begin < end) {
+    size_t middle = begin + (end - begin) / 2;
+    StackMap sm = GetStackMapAt(middle);
+    if (sm.GetNativePcOffset(isa) < native_pc && sm.GetKind() != StackMap::Kind::Catch) {
+      begin = middle + 1;
+    } else {
+      end = middle;
+    }
+  }
+  return begin;
+}
+
 // Scan backward to determine dex register locations at given stack map.
 // All registers for a stack map are combined - inlined registers are just appended,
 // therefore 'first_dex_register' allows us to select a sub-range to decode.
