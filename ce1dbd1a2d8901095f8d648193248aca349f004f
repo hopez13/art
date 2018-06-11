@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c249590f_d84057b7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-11T13:30:00Z",
+      "side": 1,
+      "message": "GC -\u003e GC thread?\n\nAlso, do we expect those to be a lot more than the ones done by the mutator? Maybe add that as a comment too?",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 42
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
