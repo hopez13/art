@@ -198,6 +198,7 @@ class BitTableBuilder {
 
   T& operator[](size_t row) { return rows_[row]; }
   const T& operator[](size_t row) const { return rows_[row]; }
+  const T& back() const { return rows_.back(); }
   size_t size() const { return rows_.size(); }
 
   // Append given value to the vector without de-duplication.
