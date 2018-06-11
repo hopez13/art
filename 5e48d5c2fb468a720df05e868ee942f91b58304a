@@ -16,6 +16,29 @@
       "revId": "5e48d5c2fb468a720df05e868ee942f91b58304a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd60f69_110225c6",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T23:14:52Z",
+      "side": 1,
+      "message": "REQUIRES_SHARED?",
+      "range": {
+        "startLine": 123,
+        "startChar": 50,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "5e48d5c2fb468a720df05e868ee942f91b58304a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
