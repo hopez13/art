@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c3fb7a6b_6052f276",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-11T18:14:15Z",
+      "side": 1,
+      "message": "Good point, though kFromGCThread \u003d\u003d false is the uncommon case.",
+      "parentUuid": "8e23091c_6af23182",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 60
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e5783f0_03718685",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Done.\n\nMade some quick tests to confirm. The number of objects moved by GC thread are far more than mutators.",
       "parentUuid": "c249590f_d84057b7",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 42
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "813e508c_6a647777",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-11T18:14:15Z",
+      "side": 1,
+      "message": "I also observed the same thing in the past.",
+      "parentUuid": "b43898b5_41e3df85",
       "range": {
         "startLine": 342,
         "startChar": 0,
