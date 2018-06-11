@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "160fe51f_4984205d",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-11T16:43:45Z",
+      "side": 1,
+      "message": "Instead of passing Thread* self, could you maybe use the already present kFromGCThread boolean?",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 60
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e5783f0_03718685",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-11T16:43:45Z",
+      "side": 1,
+      "message": "Line too long, put one arg per line",
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c249590f_d84057b7",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
