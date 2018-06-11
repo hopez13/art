@@ -350,6 +350,16 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
   return nullptr;
 }
 
+void JitCodeCache::ClearAllCompiledDexCode() {
+  MutexLock mu(Thread::Current(), lock_);
+  // Get rid of OSR code waiting to be put on a thread.
+  osr_code_map_.clear();
+  non_osr_code_map_.clear();
+
+  for (ProfilingInfo* p : profiling_infos_) {
+    p->SetSavedEntryPoint(nullptr);
+  }
+}
 
 const void* JitCodeCache::FindCompiledCode(ArtMethod* method) {
   Thread* self = Thread::Current();

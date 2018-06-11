@@ -554,7 +554,9 @@ class Instrumentation {
       REQUIRES(!deoptimized_methods_lock_);
 
   void InstallStubsForMethod(ArtMethod* method)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!deoptimized_methods_lock_,
+               Roles::uninterruptible_);
 
   // Install instrumentation exit stub on every method of the stack of the given thread.
   // This is used by the debugger to cause a deoptimization of the thread's stack after updating

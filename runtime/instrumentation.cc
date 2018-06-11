@@ -176,6 +176,7 @@ void Instrumentation::InstallStubsForClass(mirror::Class* klass) {
   } else if (klass->IsErroneousResolved()) {
     // We can't execute code in a erroneous class: do nothing.
   } else {
+    ScopedAssertNoThreadSuspension sants("InstallStubsForClass");
     for (ArtMethod& method : klass->GetMethods(kRuntimePointerSize)) {
       InstallStubsForMethod(&method);
     }
@@ -219,6 +220,8 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
       new_quick_code = GetQuickToInterpreterBridge();
     } else if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
       if (NeedDebugVersionFor(method)) {
+        // The interpreter bridge will replace the entrypoint with the compiled one when possible.
+        // We cannot do it here due to lock-ordering.
         new_quick_code = GetQuickToInterpreterBridge();
       } else {
         new_quick_code = class_linker->GetQuickOatCodeFor(method);
@@ -235,12 +238,12 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
       // class, all its static methods code will be set to the instrumentation entry point.
       // For more details, see ClassLinker::FixupStaticTrampolines.
       if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
-        if (NeedDebugVersionFor(method)) {
+        if (entry_exit_stubs_installed_) {
+          new_quick_code = GetQuickInstrumentationEntryPoint();
+        } else if (NeedDebugVersionFor(method)) {
           // Oat code should not be used. Don't install instrumentation stub and
           // use interpreter for instrumentation.
           new_quick_code = GetQuickToInterpreterBridge();
-        } else if (entry_exit_stubs_installed_) {
-          new_quick_code = GetQuickInstrumentationEntryPoint();
         } else {
           new_quick_code = class_linker->GetQuickOatCodeFor(method);
         }
@@ -263,7 +266,7 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
         : StackVisitor(thread_in, context, kInstrumentationStackWalk),
           instrumentation_stack_(thread_in->GetInstrumentationStack()),
           instrumentation_exit_pc_(instrumentation_exit_pc),
-          reached_existing_instrumentation_frames_(false), instrumentation_stack_depth_(0),
+          instrumentation_stack_depth_(0),
           last_return_pc_(0) {
     }
 
@@ -309,10 +312,6 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
           }
         }
 
-        // We've reached a frame which has already been installed with instrumentation exit stub.
-        // We should have already installed instrumentation or be interpreter on previous frames.
-        reached_existing_instrumentation_frames_ = true;
-
         const InstrumentationStackFrame& frame =
             instrumentation_stack_->at(instrumentation_stack_depth_);
         CHECK_EQ(m, frame.method_) << "Expected " << ArtMethod::PrettyMethod(m)
@@ -323,23 +322,9 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
         }
       } else {
         CHECK_NE(return_pc, 0U);
-        if (UNLIKELY(reached_existing_instrumentation_frames_ && !m->IsRuntimeMethod())) {
-          // We already saw an existing instrumentation frame so this should be a runtime-method
-          // inserted by the interpreter or runtime.
-          std::string thread_name;
-          GetThread()->GetThreadName(thread_name);
-          uint32_t dex_pc = dex::kDexNoIndex;
-          if (last_return_pc_ != 0 &&
-              GetCurrentOatQuickMethodHeader() != nullptr) {
-            dex_pc = GetCurrentOatQuickMethodHeader()->ToDexPc(m, last_return_pc_);
-          }
-          LOG(FATAL) << "While walking " << thread_name << " found unexpected non-runtime method"
-                     << " without instrumentation exit return or interpreter frame."
-                     << " method is " << GetMethod()->PrettyMethod()
-                     << " return_pc is " << std::hex << return_pc
-                     << " dex pc: " << dex_pc;
-          UNREACHABLE();
-        }
+        // TODO It would be nice to check that we haven't reached existing instrumentation frames
+        // but we cannot since they could end up in unexpected places due to races in the process of
+        // turning on and off instrumentation.
         InstrumentationStackFrame instrumentation_frame(
             m->IsRuntimeMethod() ? nullptr : GetThisObject(),
             m,
@@ -376,7 +361,6 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
     std::vector<InstrumentationStackFrame> shadow_stack_;
     std::vector<uint32_t> dex_pcs_;
     const uintptr_t instrumentation_exit_pc_;
-    bool reached_existing_instrumentation_frames_;
     size_t instrumentation_stack_depth_;
     uintptr_t last_return_pc_;
   };
