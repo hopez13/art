@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9393eb9d_0c9b50d7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-11T23:03:32Z",
+      "side": 1,
+      "message": "isn\u0027t it more idiomatic python to use:\n\noptions_all +\u003d \u0027 \u0027.join(run_test_option)\n\nThough it looks like this code didn\u0027t use that before you got here :-)",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 332,
+        "endChar": 28
+      },
+      "revId": "b1cf692f8f8dcdedc125184a81b1747fb276e335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
