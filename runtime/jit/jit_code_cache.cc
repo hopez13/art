@@ -319,7 +319,13 @@ bool JitCodeCache::ContainsPc(const void* ptr) const {
 bool JitCodeCache::WillExecuteJitCode(ArtMethod* method) {
   ScopedObjectAccess soa(art::Thread::Current());
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
-  return FindCompiledCode(method) != nullptr;
+  if (ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
+    return true;
+  } else if (!GetGarbageCollectCode() &&
+      method->GetEntryPointFromQuickCompiledCode() == GetQuickInstrumentationEntryPoint()) {
+    return FindCompiledCode(method) != nullptr;
+  }
+  return false;
 }
 
 bool JitCodeCache::ContainsMethod(ArtMethod* method) {
@@ -352,6 +358,21 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
     }
   }
   return nullptr;
+}
+
+void JitCodeCache::ClearAllCompiledDexCode() {
+  MutexLock mu(Thread::Current(), lock_);
+  // Get rid of OSR code waiting to be put on a thread.
+  osr_code_map_.clear();
+
+  // We don't clear out or even touch method_code_map_ since that is what we use to go the other
+  // way, move from code currently-running to the method it's from. Getting rid of it would break
+  // the jit-gc, stack-walking and signal handling. Since we never look through it to go the other
+  // way (from method -> code) everything is fine.
+
+  for (ProfilingInfo* p : profiling_infos_) {
+    p->SetSavedEntryPoint(nullptr);
+  }
 }
 
 const void* JitCodeCache::FindCompiledCode(ArtMethod* method) {
