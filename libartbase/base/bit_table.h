@@ -188,7 +188,29 @@ static const char* const* GetBitTableColumnNames() {
 template<typename Accessor>
 class BitTable : public BitTableBase<Accessor::kNumColumns> {
  public:
+  class const_iterator : public std::iterator<std::random_access_iterator_tag,
+                                              /* value_type */ Accessor,
+                                              /* difference_type */ uint32_t,
+                                              /* pointer */ void,
+                                              /* reference */ void> {
+   public:
+    const_iterator(const BitTable* table, uint32_t row) : table_(table), row_(row) {}
+    uint32_t operator-(const const_iterator& other) { return row_ - other.row_; }
+    void operator+=(uint32_t rows) { row_ += rows; }
+    const_iterator operator++() { return const_iterator(table_, ++row_); }
+    const_iterator operator++(int) { return const_iterator(table_, row_++); }
+    bool operator==(const_iterator other) const { return table_ == other.table_ && row_ == other.row_; }
+    bool operator!=(const_iterator other) const { return !(*this == other); }
+    Accessor operator*() { return Accessor(table_, row_); }
+   private:
+    const BitTable* table_;
+    uint32_t row_;
+  };
+
   using BitTableBase<Accessor::kNumColumns>::BitTableBase;  // Constructors.
+
+  ALWAYS_INLINE const_iterator begin() const { return const_iterator(this, 0); }
+  ALWAYS_INLINE const_iterator end() const { return const_iterator(this, this->NumRows()); }
 
   ALWAYS_INLINE Accessor GetRow(uint32_t row) const {
     return Accessor(this, row);
@@ -234,6 +256,7 @@ class BitTableBuilderBase {
 
   Entry& operator[](size_t row) { return rows_[row]; }
   const Entry& operator[](size_t row) const { return rows_[row]; }
+  const Entry& back() const { return rows_.back(); }
   size_t size() const { return rows_.size(); }
 
   // Append given value to the vector without de-duplication.
