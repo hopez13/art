@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "62c8f582_4f0e64d9",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-11T18:41:20Z",
+      "side": 1,
+      "message": "Agreed, but call from read barrier is one of them, which I believe is time-critical for us.\n\nIn fact, if we can pass the thread pointer from the fast path (using thread register), it will be better. The very first condition in MarkFromReadBarrier needs it.",
+      "parentUuid": "c3fb7a6b_6052f276",
+      "range": {
+        "startLine": 113,
+        "startChar": 47,
+        "endLine": 113,
+        "endChar": 60
+      },
+      "revId": "ce1dbd1a2d8901095f8d648193248aca349f004f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e5783f0_03718685",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
