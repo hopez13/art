@@ -70,6 +70,30 @@
       "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ebab8a_f69013f5",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-11T16:01:48Z",
+      "side": 1,
+      "message": "I initially thought we couldn\u0027t do it because of things like /dev, /proc and /sys within the chroot dir, but these should be unmounted when we try to clean up. Changed in PS3.",
+      "parentUuid": "576c48a3_c1421354",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
