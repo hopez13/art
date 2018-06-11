@@ -118,6 +118,30 @@
       "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "274f1d34_47aeac05",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-11T17:50:10Z",
+      "side": 1,
+      "message": "The solution in PS4 should be a bit more robust.",
+      "parentUuid": "8a35994f_532efe89",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "51e1c29172cdd600038676fe330929fa8c89f1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
