@@ -765,13 +765,18 @@ void Jit::WaitForCompilationToFinish(Thread* self) {
 void Jit::Stop() {
   Thread* self = Thread::Current();
   // TODO(ngeoffray): change API to not require calling WaitForCompilationToFinish twice.
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
   WaitForCompilationToFinish(self);
   GetThreadPool()->StopWorkers(self);
   WaitForCompilationToFinish(self);
 }
 
 void Jit::Start() {
-  GetThreadPool()->StartWorkers(Thread::Current());
+  if (GetThreadPool() != nullptr) {
+    GetThreadPool()->StartWorkers(Thread::Current());
+  }
 }
 
 ScopedJitSuspend::ScopedJitSuspend() {
