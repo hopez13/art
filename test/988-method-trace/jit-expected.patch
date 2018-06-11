@@ -1,0 +1,7 @@
+235a236,241
+> ....=> public static java.lang.String java.lang.StringFactory.newEmptyString()
+> .....=> public static java.lang.String java.lang.StringFactory.newStringFromChars(char[],int,int)
+> ......=> static java.lang.String java.lang.StringFactory.newStringFromChars(int,int,char[])
+> ......<= static java.lang.String java.lang.StringFactory.newStringFromChars(int,int,char[]) -> <class java.lang.String: >
+> .....<= public static java.lang.String java.lang.StringFactory.newStringFromChars(char[],int,int) -> <class java.lang.String: >
+> ....<= public static java.lang.String java.lang.StringFactory.newEmptyString() -> <class java.lang.String: >
