@@ -22,6 +22,30 @@
       "revId": "fd63a4c91de3039c16d6a3e26ca084bc34ab9c44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c14a7c71_43c1c862",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-11T13:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383addb8_8a49aa26",
+      "range": {
+        "startLine": 385,
+        "startChar": 19,
+        "endLine": 385,
+        "endChar": 69
+      },
+      "revId": "fd63a4c91de3039c16d6a3e26ca084bc34ab9c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
