@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db749f80_fd9d58cb",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-12T19:30:59Z",
+      "side": 1,
+      "message": "For non-moving space, this will only scan objects on dirty cards for which bits are set in \u0027Live\u0027 bitmap (which becomes \u0027Mark\u0027 bitmap due to binding in IntializePhase()). However, it will not cover the objects which are in the \u0027Live\u0027 stack. This stack contains non-moving and large-object space objects that are allocated since last GC, up to STW pause. They are moved to \u0027Live\u0027 bitmap later in Sweep().\n\nAlso, considering that this loop is for only continuous spaces, don\u0027t we need another loop for large-object space, which is a discontinuous space?",
+      "range": {
+        "startLine": 852,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 5
+      },
+      "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
