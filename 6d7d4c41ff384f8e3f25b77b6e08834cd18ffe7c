@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "3fbbf25e_f6791ece",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-12T23:20:39Z",
+      "side": 1,
+      "message": "Please file a discussion bug. Though apps control their own tracing, we could still turn off JIT GC with that signal.\n\nFor now, I\u0027m fine with this.",
+      "parentUuid": "b4e45c02_0938a24b",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 0
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45501310_7e7003b5",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 2
