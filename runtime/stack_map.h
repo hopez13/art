@@ -450,18 +450,7 @@ class CodeInfo {
     return StackMap();
   }
 
-  StackMap GetStackMapForNativePcOffset(uint32_t pc, InstructionSet isa = kRuntimeISA) const {
-    size_t i = BinarySearchNativePc(pc, isa);
-    size_t e = GetNumberOfStackMaps();
-    for (; i < e && GetStackMapAt(i).GetNativePcOffset(isa) == pc; ++i) {
-      StackMap stack_map = GetStackMapAt(i);
-      StackMap::Kind kind = static_cast<StackMap::Kind>(stack_map.GetKind());
-      if (kind == StackMap::Kind::Default || kind == StackMap::Kind::OSR) {
-        return stack_map;
-      }
-    }
-    return StackMap();
-  }
+  StackMap GetStackMapForNativePcOffset(uint32_t pc, InstructionSet isa = kRuntimeISA) const;
 
   InvokeInfo GetInvokeInfoForNativePcOffset(uint32_t native_pc_offset) {
     for (size_t index = 0; index < invoke_infos_.NumRows(); index++) {
@@ -485,10 +474,6 @@ class CodeInfo {
   void AddSizeStats(/*out*/ Stats* parent) const;
 
  private:
-  // Returns lower bound (fist stack map which has pc greater or equal than the desired one).
-  // It ignores catch stack maps at the end (it is same as if they had maximum pc value).
-  uint32_t BinarySearchNativePc(uint32_t native_pc, InstructionSet isa) const;
-
   // Scan backward to determine dex register locations at given stack map.
   void DecodeDexRegisterMap(uint32_t stack_map_index,
                             uint32_t first_dex_register,

@@ -66,7 +66,11 @@ ALWAYS_INLINE static inline void EncodeVarintBits(Vector* out, size_t* bit_offse
 template<uint32_t kNumColumns>
 class BitTable {
  public:
-  class Accessor {
+  class Accessor : public std::iterator</* iterator_category */ std::random_access_iterator_tag,
+                                        /* value_type */ void,
+                                        /* difference_type */ uint32_t,
+                                        /* pointer */ void,
+                                        /* reference */ void> {
    public:
     static constexpr uint32_t kCount = kNumColumns;
     static constexpr uint32_t kNoValue = std::numeric_limits<uint32_t>::max();
@@ -88,10 +92,15 @@ class BitTable {
       return this->table_ == other.table_ && this->row_ == other.row_;
     }
 
+    uint32_t operator-(const Accessor& other) { return row_ - other.row_; }
+    void operator+=(uint32_t rows) { row_ += rows; }
+
 // Helper macro to create constructors and per-table utilities in derived class.
 #define BIT_TABLE_HEADER()                                                     \
     using BitTable<kCount>::Accessor::Accessor; /* inherit the constructors */ \
     template<int COLUMN, int UNUSED /*needed to compile*/> struct ColumnName;  \
+    auto operator*() { return *this; }                                         \
+    auto operator++() { ++this->row_; return *this; }                          \
 
 // Helper macro to create named column accessors in derived class.
 #define BIT_TABLE_COLUMN(COLUMN, NAME)                                         \

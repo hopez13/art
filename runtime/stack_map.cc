@@ -26,21 +26,27 @@
 
 namespace art {
 
-uint32_t CodeInfo::BinarySearchNativePc(uint32_t native_pc, InstructionSet isa) const {
-  // TODO: Try to rewrite this based on std::lower_bound.
-  uint32_t packed_native_pc = StackMap::PackNativePc(native_pc, isa);
-  uint32_t begin = 0;
-  uint32_t end = stack_maps_.NumRows();
-  while (begin < end) {
-    size_t middle = begin + (end - begin) / 2;
-    StackMap sm = GetStackMapAt(middle);
-    if (sm.GetPackedNativePc() < packed_native_pc && sm.GetKind() != StackMap::Kind::Catch) {
-      begin = middle + 1;
-    } else {
-      end = middle;
+// Returns lower bound (fist stack map which has pc greater or equal than the desired one).
+// It ignores catch stack maps at the end (it is the same as if they had maximum pc value).
+static StackMap BinarySearchNativePc(const CodeInfo* code_info, uint32_t pc, InstructionSet isa) {
+  uint32_t packed_pc = StackMap::PackNativePc(pc, isa);
+  return std::partition_point(
+      code_info->GetStackMapAt(0),
+      code_info->GetStackMapAt(code_info->GetNumberOfStackMaps()),
+      [packed_pc](const StackMap& sm) {
+        return sm.GetPackedNativePc() < packed_pc && sm.GetKind() != StackMap::Kind::Catch;
+      });
+}
+
+StackMap CodeInfo::GetStackMapForNativePcOffset(uint32_t pc, InstructionSet isa) const {
+  StackMap stack_map = BinarySearchNativePc(this, pc, isa);
+  for (; stack_map.IsValid() && stack_map.GetNativePcOffset(isa) == pc; ++stack_map) {
+    StackMap::Kind kind = static_cast<StackMap::Kind>(stack_map.GetKind());
+    if (kind == StackMap::Kind::Default || kind == StackMap::Kind::OSR) {
+      return stack_map;
     }
   }
-  return begin;
+  return StackMap();
 }
 
 // Scan backward to determine dex register locations at given stack map.
