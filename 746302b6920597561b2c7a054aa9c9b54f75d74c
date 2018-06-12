@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af3fe76e_cf6e2178",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-12T14:02:10Z",
+      "side": 1,
+      "message": "It might be useful to have a comment/check that it\u0027s either StringIndexOf or StringIndexOfAfter at the function entry.",
+      "range": {
+        "startLine": 2435,
+        "startChar": 29,
+        "endLine": 2435,
+        "endChar": 82
+      },
+      "revId": "746302b6920597561b2c7a054aa9c9b54f75d74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
