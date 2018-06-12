@@ -328,7 +328,7 @@ def run_tests(tests):
     if gdb_arg:
       options_all += ' --gdb-arg ' + gdb_arg
 
-  options_all += ' '.join(run_test_option)
+  options_all += ' ' + ' '.join(run_test_option)
 
   if runtime_option:
     for opt in runtime_option:
