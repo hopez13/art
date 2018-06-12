@@ -75,6 +75,24 @@
       "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c51ccd93_1b858f99",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-12T14:01:14Z",
+      "side": 1,
+      "message": "I am tempted to give the range based iterators a try (and make use of the in the API where appropriate), however I would like to do that in follow up clean-up CL.",
+      "parentUuid": "61204237_df09e2c6",
+      "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
