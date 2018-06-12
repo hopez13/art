@@ -16,6 +16,24 @@
       "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ba6631_5ea1da10",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-12T12:50:54Z",
+      "side": 1,
+      "message": "I am... I can not just use it directly.  I tried.  It would need a page of code just implement the iterator type for it.  This is shorter.",
+      "parentUuid": "684ec75e_dd0cb528",
+      "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
