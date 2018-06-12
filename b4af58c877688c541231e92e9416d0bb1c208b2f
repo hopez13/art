@@ -22,6 +22,30 @@
       "revId": "b4af58c877688c541231e92e9416d0bb1c208b2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d3637bd_b8024902",
+        "filename": "test/988-method-trace/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:15:53Z",
+      "side": 1,
+      "message": "It works on the RI. (or at least this bit does, the RI fails overall since the test relies on the implementation of a lot of the BCP).\n\nThe only major difference is that the RI doesn\u0027t have an intermediate Proxy.invoke call instead going directly from the proxy method to the invocation handler.",
+      "parentUuid": "1ef9de75_2962248e",
+      "range": {
+        "startLine": 279,
+        "startChar": 21,
+        "endLine": 279,
+        "endChar": 47
+      },
+      "revId": "b4af58c877688c541231e92e9416d0bb1c208b2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
