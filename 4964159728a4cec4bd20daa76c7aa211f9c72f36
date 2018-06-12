@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fb3ad0e7_6faed986",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T12:57:39Z",
+      "side": 1,
+      "message": "I think this would read nicer:\n\nkind \u003d native_debug_info\n   ? Debug\n   : osr ? ... : ...;",
+      "range": {
+        "startLine": 1131,
+        "startChar": 0,
+        "endLine": 1132,
+        "endChar": 58
+      },
+      "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "684ec75e_dd0cb528",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 2
