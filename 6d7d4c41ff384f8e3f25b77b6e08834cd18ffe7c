@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "777926a0_259aa084",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2824,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "removed. At one point I had a second classlinker call here.",
+      "parentUuid": "a3a8f088_d01b9b46",
+      "range": {
+        "startLine": 2824,
+        "startChar": 2,
+        "endLine": 2824,
+        "endChar": 46
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "656de748_eb083262",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e18c4db5_49132869",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2845,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "656de748_eb083262",
+      "range": {
+        "startLine": 2845,
+        "startChar": 50,
+        "endLine": 2845,
+        "endChar": 81
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0eb641d4_d36b7aea",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "For the moment, yes. I\u0027ll add a TODO for now.",
+      "parentUuid": "a7574350_8f78f5d6",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 52
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fb60e0d_1d07ecc6",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ce09d0_5482c754",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "We check for deopt elsewhere.\n\nI agree that it would make somewhat more sense for it to be here but that was pre-existing code.",
+      "parentUuid": "4fb60e0d_1d07ecc6",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1069,
+        "endChar": 48
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dcd8fb66_98f34244",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "I thought I\u0027d put in a comment in instrumentation.cc about why we cannot do this but it seems I forgot to include it (and more importantly forgot to include a change to an \u0027if\u0027 order).\n\nAdded the comment back and added one here as well.",
+      "parentUuid": "a7e2eb8e_0ffce791",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 89
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2a94aa8_eaf90ac6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 2
@@ -137,6 +257,30 @@
       "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02c66288_89d39eee",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a94aa8_eaf90ac6",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 78
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b4e45c02_0938a24b",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "tracing is not limited to debuggable apps I think. At the very least we don\u0027t verify the debuggability in runtime code. If something calls the VMDebug method we will start tracing.",
+      "parentUuid": "57694cd5_c417abae",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 0
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45501310_7e7003b5",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 2
@@ -183,6 +351,30 @@
       "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4858a0a8_770af044",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-12T17:42:39Z",
+      "side": 1,
+      "message": "Done.\n\nI would like to say that not having this means we need to lock the jit-code-cache lock on every interpreter method entry. I don\u0027t think this will be a huge deal but it is something we should be a aware of. Maybe it would be good to change it to RWLock.",
+      "parentUuid": "45501310_7e7003b5",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 28
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
