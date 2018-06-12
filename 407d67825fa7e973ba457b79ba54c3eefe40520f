@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd6ebfa1_be90c5ce",
+        "filename": "tools/teardown-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-12T15:18:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ab9ee29_af214ffe",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "407d67825fa7e973ba457b79ba54c3eefe40520f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7532db91_f8ad5d4d",
         "filename": "tools/teardown-buildbot-device.sh",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "407d67825fa7e973ba457b79ba54c3eefe40520f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d161aacd_8b9bfb3b",
+        "filename": "tools/teardown-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-12T15:18:08Z",
+      "side": 1,
+      "message": "Done. I also changed the command line itself, as I don\u0027t think toybox works the same way as lsof on Linux when it is passed a mount point.",
+      "parentUuid": "7532db91_f8ad5d4d",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "407d67825fa7e973ba457b79ba54c3eefe40520f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
