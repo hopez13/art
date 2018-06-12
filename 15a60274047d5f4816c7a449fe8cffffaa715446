@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94246607_bd906fe8",
+        "filename": "tools/dexanalyze/dexanalyze_experiments.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-06-12T16:54:51Z",
+      "side": 1,
+      "message": "case Instruction::IPUT_SHORT missing",
+      "range": {
+        "startLine": 327,
+        "startChar": 39,
+        "endLine": 327,
+        "endChar": 40
+      },
+      "revId": "15a60274047d5f4816c7a449fe8cffffaa715446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae80e6f7_00e1456c",
+        "filename": "tools/dexanalyze/dexanalyze_experiments.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-06-12T16:54:51Z",
+      "side": 1,
+      "message": "Are array operations using types also of interest here?\n- new-array\n- filled-new-array\n- filled-new-array/range",
+      "revId": "15a60274047d5f4816c7a449fe8cffffaa715446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
