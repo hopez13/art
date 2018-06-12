@@ -144,12 +144,18 @@ class HLoopOptimization : public HOptimization {
   bool OptimizeInnerLoop(LoopNode* node);
 
   // Tries to apply loop unrolling for branch penalty reduction and better instruction scheduling
-  // opportunities. Returns whether transformation happened.
-  bool TryUnrollingForBranchPenaltyReduction(LoopNode* loop_node);
+  // opportunities. Returns whether transformation happened. 'do_opt' determines whether the
+  // optimization should be actually applied.
+  bool TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* analysis_info, bool do_opt = true);
 
   // Tries to apply loop peeling for loop invariant exits elimination. Returns whether
-  // transformation happened.
-  bool TryPeelingForLoopInvariantExitsElimination(LoopNode* loop_node);
+  // transformation happened. 'do_opt' determines whether the optimization should be actually
+  // applied.
+  bool TryPeelingForLoopInvariantExitsElimination(LoopAnalysisInfo* analysis_info,
+                                                  bool do_opt = true);
+
+  // Tries to apply scalar loop peeling and unrolling.
+  bool TryPeelingAndUnrolling(LoopNode* node);
 
   //
   // Vectorization analysis and synthesis.
