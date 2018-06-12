@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cb7cebd_acaefd9e",
+        "filename": "tools/cleanup-buildbot-device.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-12T08:54:18Z",
+      "side": 1,
+      "message": "Would it help if there was a teardown / clean-up step that kills any processes that have been chroot\u0027ed?\n\nOne way of determining this is to look at whether the root directory (/proc/XYZ/root) linked to $ART_TEST_CHROOT. Doing this with a regular find command on host is easy...not so sure on toybox. lsof might be another.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "917c80f148ea8cef57f7c206c8c7954f2f0d13d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
