@@ -57,6 +57,24 @@
       "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61204237_df09e2c6",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-12T13:48:28Z",
+      "side": 1,
+      "message": "Maybe its time to add a few things to BitTable:\n\n  template \u003ctypename T\u003e class ValueIterator { ... };\n\n  template \u003ctypename T\u003e\n  IterationRange\u003cValueIterator\u003cT\u003e\u003e GetValues() { ... }\n\nand then\n\n  auto range \u003d stack_maps_.GetValues();\n  auto lb \u003d std::partition_point(\n      range.begin(),\n      range.end(),\n      [\u003d](const StackMap\u0026 stack_map) {...});\n\nHaving these iterators would also allow an easy assertion that the stack map array std::is_sorted() after building.",
+      "parentUuid": "08ba6631_5ea1da10",
+      "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
