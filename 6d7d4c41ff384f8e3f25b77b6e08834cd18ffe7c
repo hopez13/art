@@ -22,6 +22,167 @@
       "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656de748_eb083262",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2845,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "Add a CHECK that this isn\u0027t GetQuickInstrumentationEntryPoint",
+      "range": {
+        "startLine": 2845,
+        "startChar": 50,
+        "endLine": 2845,
+        "endChar": 81
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7574350_8f78f5d6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "This looks off: JNI code can also be JITted, are we discarding it?",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 52
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb60e0d_1d07ecc6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "Odd again: it could be that the .oat code has deopted and we are now running a JITed code.",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1069,
+        "endChar": 48
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7e2eb8e_0ffce791",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "Why do we want this change? If GetSavedEntryPoint is null, I wouldn\u0027t bother trying other means of finding an entrypoint.",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 89
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2a94aa8_eaf90ac6",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "I don\u0027t follow this comment.",
+      "range": {
+        "startLine": 153,
+        "startChar": 5,
+        "endLine": 153,
+        "endChar": 78
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57694cd5_c417abae",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "Not super thrilled of having another table to maintain just for the purpose of instrumentation, which only happens sometime for debuggable apps.\n\nI think for debuggable apps we disable JIT GC? (if not we could). Then the mapping could be kept up by instrumentation and any GC related issues we wouldn\u0027t have to deal with.",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 0
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45501310_7e7003b5",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-12T13:39:37Z",
+      "side": 1,
+      "message": "As noted in a previous comment, this seems an optimization to me? In such a case I would remove from this change.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 28
+      },
+      "revId": "6d7d4c41ff384f8e3f25b77b6e08834cd18ffe7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
