@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25254b4c_9e025080",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T12:05:54Z",
+      "side": 1,
+      "message": "So, the caller decides whether to store (b, B, s or ns) and interpret the value but the callee decides how to store it. It\u0027s weird.",
+      "revId": "86decb6a3e3ebba8c3c67bfd25c12d9a85794f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
