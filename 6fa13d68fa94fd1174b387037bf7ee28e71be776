@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1afbd6f_cbc891cd",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-13T18:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b67806_d2592cd2",
+      "range": {
+        "startLine": 133,
+        "startChar": 42,
+        "endLine": 133,
+        "endChar": 69
+      },
+      "revId": "6fa13d68fa94fd1174b387037bf7ee28e71be776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75b40cba_0c49d360",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "6fa13d68fa94fd1174b387037bf7ee28e71be776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a03addde_be9db540",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-13T18:12:40Z",
+      "side": 1,
+      "message": "I tried changing to use dchecked_vector everywhere, but unfortunately we use some DexFile APIs that cause casts the compiler is unhappy with.",
+      "parentUuid": "75b40cba_0c49d360",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 13
+      },
+      "revId": "6fa13d68fa94fd1174b387037bf7ee28e71be776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
