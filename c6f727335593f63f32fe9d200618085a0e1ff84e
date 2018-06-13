@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "96e6c3ce_be8eccdc",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:28:52Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1334,
+        "startChar": 0,
+        "endLine": 1334,
+        "endChar": 101
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ff0c9dd_371b8994",
         "filename": "runtime/dex_register_location.h",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 7,
         "endLine": 92,
         "endChar": 13
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "969c8e0e_22da8647",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:28:52Z",
+      "side": 1,
+      "message": "Not a big fan of operator overload (nothing to grep for...).",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 33
       },
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
