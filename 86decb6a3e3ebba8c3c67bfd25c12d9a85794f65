@@ -16,6 +16,24 @@
       "revId": "86decb6a3e3ebba8c3c67bfd25c12d9a85794f65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34b6e151_5dd96868",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T12:14:15Z",
+      "side": 1,
+      "message": "So the class itself is general and stores the value as double - mostly because I think it might be valuable, and there was no need to specialize it for bytes.\n\nThe named helper classes with units are just for my sanity - I didn\u0027t want to accidentally mix units, so it helps me to have the unit spelled out in the method name.",
+      "parentUuid": "25254b4c_9e025080",
+      "revId": "86decb6a3e3ebba8c3c67bfd25c12d9a85794f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
