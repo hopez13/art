@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4053c416_54066f47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-06-13T12:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f34155_5f4ab7c7",
+      "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8087fe6_36c2a741",
         "filename": "test/626-checker-arm64-scratch-register/smali/Main2.smali",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e34a48d_49cb3bb5",
+        "filename": "test/626-checker-arm64-scratch-register/smali/Main2.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-06-13T12:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8087fe6_36c2a741",
+      "range": {
+        "startLine": 123,
+        "startChar": 32,
+        "endLine": 123,
+        "endChar": 33
+      },
+      "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "fdf1f6c7_a1838a80",
+        "filename": "test/626-checker-arm64-scratch-register/smali/Main2.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-06-13T12:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d4fc43a_667a231d",
+      "range": {
+        "startLine": 175,
+        "startChar": 1,
+        "endLine": 175,
+        "endChar": 4
+      },
+      "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32538374_e4b7a69e",
         "filename": "test/626-checker-arm64-scratch-register/smali/Main2.smali",
         "patchSetId": 3
@@ -85,6 +151,30 @@
       "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85cc0756_0699e7a6",
+        "filename": "test/626-checker-arm64-scratch-register/smali/Main2.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1263609
+      },
+      "writtenOn": "2018-06-13T12:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32538374_e4b7a69e",
+      "range": {
+        "startLine": 218,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 4
+      },
+      "revId": "419043f92c3fdb5da8466792a2bd448c219f6ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
