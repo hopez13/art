@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3dc26ed_be58a185",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "using DexRegisterLocation::Kind;",
+      "range": {
+        "startLine": 1297,
+        "startChar": 4,
+        "endLine": 1297,
+        "endChar": 43
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ff0c9dd_371b8994",
+        "filename": "runtime/dex_register_location.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "Why inline?",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 13
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3f55c12_dac8fd94",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "Add const overload.",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bd6a239_9abec6cc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "const",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76087354_08e5eaad",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "std::count_if()",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae35758a_e48c7fe9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 32
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "458a80af_e4b3e92a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "std::any_of()",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58fcd70e_a1c8ae0b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-13T18:04:51Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 103,
+        "startChar": 50,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
