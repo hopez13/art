@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6925890_3c1cf1a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a25325_52ea0ddc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "Please keep the commit\u0027s header/title on a single line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140445d5_bf561082",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "Where is this? This does not seem to be part of the ART source tree.",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce5ce2b4_123963d2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "\u003c\u003c abs_imm;",
+      "range": {
+        "startLine": 3342,
+        "startChar": 31,
+        "endLine": 3342,
+        "endChar": 32
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d94dab7d_b67f84ae",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3425,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "\u003c\u003c imm;",
+      "range": {
+        "startLine": 3425,
+        "startChar": 31,
+        "endLine": 3425,
+        "endChar": 32
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "221cc272_5ef6d593",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3432,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "DCHECK(DataType::IsIntOrLongType(instruction-\u003eGetResultType()) \u003c\u003c instruction-\u003eGetResultType();",
+      "range": {
+        "startLine": 3431,
+        "startChar": 2,
+        "endLine": 3432,
+        "endChar": 68
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "747adfff_1cc51067",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5607,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "\u003c\u003c abs_imm;",
+      "range": {
+        "startLine": 5607,
+        "startChar": 31,
+        "endLine": 5607,
+        "endChar": 32
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d547014b_f6ce3fe0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5616,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "Nit: Enclose comparison in parentheses.",
+      "range": {
+        "startLine": 5616,
+        "startChar": 13,
+        "endLine": 5616,
+        "endChar": 67
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31aca9b1_bf5ed584",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5626,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "\u003c\u003c imm;",
+      "range": {
+        "startLine": 5626,
+        "startChar": 31,
+        "endLine": 5626,
+        "endChar": 32
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb4a846a_a233122d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5654,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-13T14:31:22Z",
+      "side": 1,
+      "message": "DCHECK(DataType::IsIntOrLongType(instruction-\u003eGetResultType()) \u003c\u003c instruction-\u003eGetResultType();",
+      "range": {
+        "startLine": 5653,
+        "startChar": 2,
+        "endLine": 5654,
+        "endChar": 68
+      },
+      "revId": "2af2377b5a59d3966b88d7b0f6f6fc1407169a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
