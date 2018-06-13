@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80b0d8b7_460b152f",
+        "filename": "libartbase/base/stats.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T11:33:18Z",
+      "side": 1,
+      "message": "I intentionally made the structure generic.\n\nI added helper methods for seconds.",
+      "parentUuid": "cb59aa03_132343fe",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 82
+      },
+      "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59a6f536_c2c373c1",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa41e4c5_e9ac00a7",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T11:33:18Z",
+      "side": 1,
+      "message": "I keep forgetting the distinction.  Thanks for the reminder.",
+      "parentUuid": "59a6f536_c2c373c1",
+      "range": {
+        "startLine": 744,
+        "startChar": 31,
+        "endLine": 744,
+        "endChar": 38
+      },
+      "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f5b3744e_8a401fbb",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T11:33:18Z",
+      "side": 1,
+      "message": "I want to format the output as a table (as a profiler would).\n\nI tried it the other way and the output looked ugly.",
+      "parentUuid": "5eb7d4bb_b0fb37fe",
+      "range": {
+        "startLine": 754,
+        "startChar": 23,
+        "endLine": 754,
+        "endChar": 47
+      },
+      "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e42c3cba_bc696dc9",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2f4bc377_6ef2ad57",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T11:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e42c3cba_bc696dc9",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 16
+      },
+      "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd12dd97_27c30e97",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbb0155a_ab5eac91",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-13T11:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd12dd97_27c30e97",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "212c47099dd18e398e65854c34f92c05de88cc14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
