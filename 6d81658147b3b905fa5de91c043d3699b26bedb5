@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "777ceee4_3a80003a",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-13T17:52:29Z",
+      "side": 1,
+      "message": "Line is too long",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 105
+      },
+      "revId": "6d81658147b3b905fa5de91c043d3699b26bedb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dbdd334_a8dc5c33",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-13T17:52:29Z",
+      "side": 1,
+      "message": "Not required?",
+      "revId": "6d81658147b3b905fa5de91c043d3699b26bedb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1e4ff3_f77a31c6",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-13T17:52:29Z",
+      "side": 1,
+      "message": "Alternative is to pass in StackMap and read the kCount enum value through the type in BitTableBuilder? No preference.",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "6d81658147b3b905fa5de91c043d3699b26bedb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8a97572_8e962f18",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-13T17:52:29Z",
+      "side": 1,
+      "message": "Maybe we should add a dchecked_array based on std::array + bound checks.",
+      "revId": "6d81658147b3b905fa5de91c043d3699b26bedb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
