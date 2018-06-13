@@ -73,72 +73,34 @@ class DexRegisterMap {
 
   iterator begin() { return data(); }
   iterator end() { return data() + count_; }
-
   size_t size() const { return count_; }
-
   bool empty() const { return count_ == 0; }
 
-  DexRegisterLocation Get(size_t index) const {
+  DexRegisterLocation& operator[](size_t index) {
     DCHECK_LT(index, count_);
-    return count_ <= kSmallCount ? regs_small_[index] : regs_large_[index];
+    return data()[index];
   }
 
-  DexRegisterLocation::Kind GetLocationKind(uint16_t dex_register_number) const {
-    return Get(dex_register_number).GetKind();
-  }
-
-  // TODO: Remove.
-  DexRegisterLocation::Kind GetLocationInternalKind(uint16_t dex_register_number) const {
-    return Get(dex_register_number).GetKind();
-  }
-
-  DexRegisterLocation GetDexRegisterLocation(uint16_t dex_register_number) const {
-    return Get(dex_register_number);
-  }
-
-  int32_t GetStackOffsetInBytes(uint16_t dex_register_number) const {
-    DexRegisterLocation location = Get(dex_register_number);
-    DCHECK(location.GetKind() == DexRegisterLocation::Kind::kInStack);
-    return location.GetValue();
-  }
-
-  int32_t GetConstant(uint16_t dex_register_number) const {
-    DexRegisterLocation location = Get(dex_register_number);
-    DCHECK(location.GetKind() == DexRegisterLocation::Kind::kConstant);
-    return location.GetValue();
-  }
-
-  int32_t GetMachineRegister(uint16_t dex_register_number) const {
-    DexRegisterLocation location = Get(dex_register_number);
-    DCHECK(location.GetKind() == DexRegisterLocation::Kind::kInRegister ||
-           location.GetKind() == DexRegisterLocation::Kind::kInRegisterHigh ||
-           location.GetKind() == DexRegisterLocation::Kind::kInFpuRegister ||
-           location.GetKind() == DexRegisterLocation::Kind::kInFpuRegisterHigh);
-    return location.GetValue();
-  }
-
-  ALWAYS_INLINE bool IsDexRegisterLive(uint16_t dex_register_number) const {
-    return Get(dex_register_number).IsLive();
-  }
-
-  size_t GetNumberOfLiveDexRegisters() const {
+  size_t GetNumberOfLiveDexRegisters() {
     size_t number_of_live_dex_registers = 0;
-    for (size_t i = 0; i < count_; ++i) {
-      if (IsDexRegisterLive(i)) {
+    for (DexRegisterLocation& reg : *this) {
+      if (reg.IsLive()) {
         ++number_of_live_dex_registers;
       }
     }
     return number_of_live_dex_registers;
   }
 
-  bool HasAnyLiveDexRegisters() const {
-    for (size_t i = 0; i < count_; ++i) {
-      if (IsDexRegisterLive(i)) {
+  bool HasAnyLiveDexRegisters() {
+    for (DexRegisterLocation& reg : *this) {
+      if (reg.IsLive()) {
         return true;
       }
     }
     return false;
   }
+
+  void Dump(VariableIndentationOutputStream* vios);
 
  private:
   // Store the data inline if the number of registers is small to avoid memory allocations.

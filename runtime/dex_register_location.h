@@ -48,9 +48,6 @@ class DexRegisterLocation {
 
   Kind GetKind() const { return kind_; }
 
-  // TODO: Remove.
-  Kind GetInternalKind() const { return kind_; }
-
   int32_t GetValue() const { return value_; }
 
   bool operator==(DexRegisterLocation other) const {
@@ -59,6 +56,24 @@ class DexRegisterLocation {
 
   bool operator!=(DexRegisterLocation other) const {
     return !(*this == other);
+  }
+
+  int32_t GetStackOffsetInBytes() const {
+    DCHECK(kind_ == Kind::kInStack);
+    return value_;
+  }
+
+  int32_t GetConstant() const {
+    DCHECK(kind_ == Kind::kConstant);
+    return value_;
+  }
+
+  int32_t GetMachineRegister() const {
+    DCHECK(kind_ == Kind::kInRegister ||
+           kind_ == Kind::kInRegisterHigh ||
+           kind_ == Kind::kInFpuRegister ||
+           kind_ == Kind::kInFpuRegisterHigh);
+    return value_;
   }
 
  private:
@@ -72,6 +87,31 @@ class DexRegisterLocation {
 
 static inline std::ostream& operator<<(std::ostream& stream, DexRegisterLocation::Kind kind) {
   return stream << "Kind<" <<  static_cast<int32_t>(kind) << ">";
+}
+
+static inline std::ostream& operator<<(std::ostream& stream, const DexRegisterLocation& reg) {
+  using Kind = DexRegisterLocation::Kind;
+  switch (reg.GetKind()) {
+    case Kind::kInvalid:
+      return stream << "Invalid";
+    case Kind::kNone:
+      return stream << "None";
+    case Kind::kInStack:
+      return stream << "sp+" << reg.GetValue();
+    case Kind::kInRegister:
+      return stream << "r" << reg.GetValue();
+    case Kind::kInRegisterHigh:
+      return stream << "r" << reg.GetValue() << "/hi";
+    case Kind::kInFpuRegister:
+      return stream << "f" << reg.GetValue();
+    case Kind::kInFpuRegisterHigh:
+      return stream << "f" << reg.GetValue() << "/hi";
+    case Kind::kConstant:
+      return stream << "#" << reg.GetValue();
+    default:
+      return stream << "DexRegisterLocation(" << static_cast<uint32_t>(reg.GetKind())
+                    << "," << reg.GetValue() << ")";
+  }
 }
 
 }  // namespace art
