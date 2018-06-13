@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ef3f042_438e0e28",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "hold?",
+      "range": {
+        "startLine": 229,
+        "startChar": 18,
+        "endLine": 229,
+        "endChar": 27
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceb9a504_bb31d97e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "checked",
+      "range": {
+        "startLine": 249,
+        "startChar": 29,
+        "endLine": 249,
+        "endChar": 30
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "704332d4_744a054c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "Can you actually copy the same comment as lines 228-229?",
+      "range": {
+        "startLine": 253,
+        "startChar": 9,
+        "endLine": 253,
+        "endChar": 86
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cef49e0_32d25862",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "This could get a bit more comments, like \"In the general case....\". Why would we have code \u003d\u003d GetQuickInstrumentationEntryPoint if instrumentation and interpreter stubs are not installed?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 0,
+        "endLine": 1069,
+        "endChar": 5
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8c00b6e_54f57c22",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "Same for adding comments what the logic is here.",
+      "range": {
+        "startLine": 1077,
+        "startChar": 0,
+        "endLine": 1090,
+        "endChar": 16
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2a3241_25685d8a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-13T21:00:03Z",
+      "side": 1,
+      "message": "You should not do this. The saved entry point is a marker we\u0027re doing GC.",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 65
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
