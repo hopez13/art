@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f5910680_484d02cf",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T09:16:51Z",
+      "side": 1,
+      "message": "I think the notion of \"movable\" instruction is abused in GVN. GVN is not looking for moveable instructions but for those where repeating them yields the same result with no extra side effects.\n\nBoundType is not really moveable, so the correct approach to allow GVN for BoundType is to change GVN to recognize it as a special case rather than adding a special case in the unrelated LICM code.",
+      "range": {
+        "startLine": 134,
+        "startChar": 12,
+        "endLine": 134,
+        "endChar": 37
+      },
+      "revId": "2d60dc1849218a66ca9f831f26632095ebf33e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "58f98e1f_00739316",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
