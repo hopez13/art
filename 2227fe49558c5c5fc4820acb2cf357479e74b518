@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7516df65_5f6c7250",
+        "filename": "test/679-checker-minmax/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T09:52:39Z",
+      "side": 1,
+      "message": "Another interesting case would be 0xabc000, embedded in CMP with shift \u003d LSL #12 but spanning two 16-bit parts and not a logical immediate. There does not seem to be a way to materialize such constant in a single instruction. (ADD immediate does not allow WZR as the input register.)",
+      "range": {
+        "startLine": 271,
+        "startChar": 23,
+        "endLine": 271,
+        "endChar": 28
+      },
+      "revId": "2227fe49558c5c5fc4820acb2cf357479e74b518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
