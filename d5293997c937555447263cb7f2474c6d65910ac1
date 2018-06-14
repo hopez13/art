@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3234dccf_f5d76b42",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T11:19:07Z",
+      "side": 1,
+      "message": "You can keep (*this) if you add the const overload of operator[].",
+      "range": {
+        "startLine": 126,
+        "startChar": 32,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "d5293997c937555447263cb7f2474c6d65910ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d94f6ec_b5faffec",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T11:19:07Z",
+      "side": 1,
+      "message": "Maybe this entire class should be generalized as\n\n  template \u003ctypename T, size_t kSmallNumber\u003e\n  class FindAGoodNameForKnownSizeArrayThatStoresSmallNumberOfElementsDirectly;\n\nNot in this CL, though.",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "d5293997c937555447263cb7f2474c6d65910ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
