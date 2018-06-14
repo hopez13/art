@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "bbaa5af3_9de68221",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T12:52:45Z",
+      "side": 1,
+      "message": "I don\u0027t like this design where you conflate the RowView (that would be much better name than Accessor) with the iterator.",
+      "revId": "199d1264bf7bdf89a3f43a289a06548a0d795f2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8861457_e0e85058",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-14T12:52:45Z",
+      "side": 1,
+      "message": "In this weird design, this could be Accessor but the correct type would be the derived class which you do not know here. This is an unnecessary type erasure.",
+      "range": {
+        "startLine": 70,
+        "startChar": 57,
+        "endLine": 70,
+        "endChar": 61
+      },
+      "revId": "199d1264bf7bdf89a3f43a289a06548a0d795f2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "113158be_1699ecf5",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 1
