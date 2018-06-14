@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b96d2374_df4ec88a",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T11:33:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3234dccf_f5d76b42",
+      "range": {
+        "startLine": 126,
+        "startChar": 32,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "d5293997c937555447263cb7f2474c6d65910ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d94f6ec_b5faffec",
         "filename": "runtime/stack_map.h",
         "patchSetId": 2
