@@ -1,0 +1,602 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29f98b1c_c25c89fe",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "See below. These do not need to be and should not be MemMap members.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5fb34dc_87f295d3",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "should this be fuchsia?",
+      "range": {
+        "startLine": 27,
+        "startChar": 37,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6ac924_2e16e7b7",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "minor nit: We usually declare locals around where they are being used.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 16
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df27f1ad_5eaaaab0",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "This should be done during the MemMap::Init call. Doing it here seems racy.",
+      "range": {
+        "startLine": 39,
+        "startChar": 3,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de9fbc1b_616620ba",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "Use CHECK please.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 5
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a16cf5bd_3d187e71",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "(flags \u0026 MAP_ANONYMOUS) \u003d\u003d 0",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd107add_15618589",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "Use CHECK please.",
+      "range": {
+        "startLine": 72,
+        "startChar": 3,
+        "endLine": 74,
+        "endChar": 5
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26ca186e_b7af00ca",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "art style is ((prot \u0026 PROT_READ) !\u003d 0)\n\nAlso below.",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f1fb944_036bb668",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "Art style is to never use these single line ifs. Put braces please.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 60
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc1962b1_4568e149",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f75b7fc7_fb7e1401",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "no c-style casts please.",
+      "range": {
+        "startLine": 96,
+        "startChar": 23,
+        "endLine": 96,
+        "endChar": 40
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad423a6c_e9959de1",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "c style cast.",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 35
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4cef8f_1cbffa3e",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "Is this even possible? You created the vmo but you cannot get the size? If not please CHECK the success.",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 32
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b78c5ecb_1df4c4f2",
+        "filename": "libartbase/base/fuchsia_mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "no c-style casts please.",
+      "range": {
+        "startLine": 127,
+        "startChar": 19,
+        "endLine": 127,
+        "endChar": 36
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48783312_c420e928",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "See below. Is this actually required? Does ashmem-host not work?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19023861_a721f326",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "I don\u0027t like this.\n\nInstead please make a static \u0027real_mmap\u0027 in MemMap and a unix_mem_map.cc and fuscia_mem_map.cc. that contains the various implementations.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a41d769_3d9f67bf",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "\u0026\u0026 !kIsTargetFuchsia ?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6a6d9cd_1fb78737",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "not needed at all. Remove.",
+      "range": {
+        "startLine": 264,
+        "startChar": 3,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f421f9c_41f893fd",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed. libcutils has a /tmp based ashmem implementation: https://android.googlesource.com/platform/system/core/+/master/libcutils/ashmem-host.cpp\n\nIf it is absolutely needed please factor these out into functions like with mmap above.\n\nIf this is being done because the fake ashmem is too slow please instead modify line 248 to exclude fuchsia as well.",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "560cb49e_c40ca248",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c2733ff_04fe6d4a",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "can you put this in your fuscia_mmap implementation?",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1012,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b67a80_b1d1cf49",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "please keep all of this in fuchsia_mem_map.cc. See below.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa010b04_9a9fecbe",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 0
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58e92894_91bab20e",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "please add a comment and explanation that it\u0027s used in fuscia_mem_map.cc",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 52
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e9a5ffd_35541c77",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "Put these in fuscia_mem_map.cc please.",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 42
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "081c6430_4cb765b0",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T21:11:25Z",
+      "side": 1,
+      "message": "I don\u0027t like this. See below.",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 96
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
