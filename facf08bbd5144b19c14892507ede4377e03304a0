@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0293b99_16a0245d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ef3f042_438e0e28",
+      "range": {
+        "startLine": 229,
+        "startChar": 18,
+        "endLine": 229,
+        "endChar": 27
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9a504_bb31d97e",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0eb78ca_304b8f28",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceb9a504_bb31d97e",
+      "range": {
+        "startLine": 249,
+        "startChar": 29,
+        "endLine": 249,
+        "endChar": 30
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dbd5408d_c004ba2a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "704332d4_744a054c",
+      "range": {
+        "startLine": 253,
+        "startChar": 9,
+        "endLine": 253,
+        "endChar": 86
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cef49e0_32d25862",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 7
@@ -91,6 +163,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c060296f_766c60a1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cef49e0_32d25862",
+      "range": {
+        "startLine": 1063,
+        "startChar": 0,
+        "endLine": 1069,
+        "endChar": 5
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4c66f613_02b5660a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8c00b6e_54f57c22",
+      "range": {
+        "startLine": 1077,
+        "startChar": 0,
+        "endLine": 1090,
+        "endChar": 16
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab2a3241_25685d8a",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 7
@@ -137,6 +257,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86a87f97_b03d2813",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:41Z",
+      "side": 1,
+      "message": "yeah that\u0027s why we look at and use the saved entrypoint first. if it isn\u0027t there we try to get it from the jit directly since we couldn\u0027t do that when the instrumentation code was removed.",
+      "parentUuid": "ab2a3241_25685d8a",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 65
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
