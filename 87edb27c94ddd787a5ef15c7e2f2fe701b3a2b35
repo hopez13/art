@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9f3d696_d662f784",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f643a8_22243ace",
+      "range": {
+        "startLine": 863,
+        "startChar": 0,
+        "endLine": 865,
+        "endChar": 3
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60abe3f9_55c43810",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "fcc02d92_70e6605e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fd4f1eb_8802935b",
+      "range": {
+        "startLine": 1167,
+        "startChar": 61,
+        "endLine": 1167,
+        "endChar": 70
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b71d940_caea62c2",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "34385297_8aa63dd1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b71d940_caea62c2",
+      "range": {
+        "startLine": 1243,
+        "startChar": 15,
+        "endLine": 1243,
+        "endChar": 22
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da4efb2e_df205b7b",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2018-06-12T08:47:06Z",
       "side": 1,
       "message": "Not a big fan of having to send this to the main path of the interpreter. The fact there could be someone that already did the instrumentation work sounds more like unfortunate design. Could we avoid it?",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 43
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "787d552a_5a019613",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-14T16:04:32Z",
+      "side": 1,
+      "message": "Not easily. The problem is that we don\u0027t have any good way to detect duplicate calls and filter them out there. We previously just used whether or not we were jumping to the interpreter to decide if we should send the events in instrumentation method entry but that means we can suspend which could allow the jit-gc to get rid of the code we want to run.\n\nPassing down this information was the least-bad solution I could come up with and the only one that both worked and didn\u0027t require either permanently turning off jit-gc or caused deadlocks.",
+      "parentUuid": "da4efb2e_df205b7b",
       "range": {
         "startLine": 249,
         "startChar": 4,
