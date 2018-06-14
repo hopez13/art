@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "618d1dfd_3d88ad92",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3dc26ed_be58a185",
+      "range": {
+        "startLine": 1297,
+        "startChar": 4,
+        "endLine": 1297,
+        "endChar": 43
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96e6c3ce_be8eccdc",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d009066_a61b9d86",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96e6c3ce_be8eccdc",
+      "range": {
+        "startLine": 1334,
+        "startChar": 0,
+        "endLine": 1334,
+        "endChar": 101
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cf7c7202_f23dbf60",
+        "filename": "runtime/dex_register_location.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "\"static inline\" allows the function to be redefined (as this is header).\n\nI moved it to cpp file.",
+      "parentUuid": "3ff0c9dd_371b8994",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 13
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "969c8e0e_22da8647",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d2bcd173_3d05fc86",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Hmmm.... I understand, however the situation has not really changed here.  The best way to find the use cases was the grep for the helper methods, and that still holds - they still exist.",
+      "parentUuid": "969c8e0e_22da8647",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 33
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3f55c12_dac8fd94",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -108,6 +204,24 @@
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdbf607f_22c41ffc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3f55c12_dac8fd94",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +242,24 @@
     },
     {
       "key": {
+        "uuid": "b5895d66_41bcb88b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bd6a239_9abec6cc",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76087354_08e5eaad",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -142,6 +274,24 @@
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2deef41_5cd0de47",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76087354_08e5eaad",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -168,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "baa83d96_3547f90d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae35758a_e48c7fe9",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 32
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "458a80af_e4b3e92a",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -182,6 +356,24 @@
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbbcc821_deec0bdc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "458a80af_e4b3e92a",
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -205,6 +397,30 @@
       "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8485d01_f7d0a75a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T10:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58fcd70e_a1c8ae0b",
+      "range": {
+        "startLine": 103,
+        "startChar": 50,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "c6f727335593f63f32fe9d200618085a0e1ff84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
