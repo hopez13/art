@@ -45,6 +45,30 @@
       "revId": "d5293997c937555447263cb7f2474c6d65910ac1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77c18134_c12935bc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-14T11:22:38Z",
+      "side": 1,
+      "message": "Agreed. LLVM calls it SmallVector which is a good name I think.\n\nThis CL is in part motivated by the desire to move in that direction.",
+      "parentUuid": "9d94f6ec_b5faffec",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "d5293997c937555447263cb7f2474c6d65910ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
