@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58f98e1f_00739316",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-14T07:53:56Z",
+      "side": 1,
+      "message": "What goes wrong if this happens? Isn\u0027t it ok given the users in the branch will use the bound type, and users else where will keep using the original instruction?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 42
+      },
+      "revId": "2d60dc1849218a66ca9f831f26632095ebf33e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
