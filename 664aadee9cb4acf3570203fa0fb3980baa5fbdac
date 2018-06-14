@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16de36d3_382c5922",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-06-14T14:00:20Z",
+      "side": 1,
+      "message": "This will change the behaviour for the OSR case: now for env-uses of primitive types at SuspendChecks \u0027should_be_live\u0027 is false and they don\u0027t affect the live range. If we move \"(current-\u003eIsSuspendCheck() \u0026\u0026 graph_-\u003eIsCompilingOsr())\" to ShouldBeLiveForEnvironment those uses will be properly registered.",
+      "parentUuid": "a804128e_a969c5ee",
+      "range": {
+        "startLine": 209,
+        "startChar": 32,
+        "endLine": 209,
+        "endChar": 87
+      },
+      "revId": "664aadee9cb4acf3570203fa0fb3980baa5fbdac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3dedb9b8_1e20e798",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 4
