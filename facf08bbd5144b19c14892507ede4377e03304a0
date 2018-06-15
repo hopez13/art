@@ -281,6 +281,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04614801_257d78d8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T13:06:15Z",
+      "side": 1,
+      "message": "I wasn\u0027t clear: you should not do this, as it messes with how GC is done, and it\u0027s a no-go to do this kind of query when a method is entered in the interpreter.",
+      "parentUuid": "86a87f97_b03d2813",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 65
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
