@@ -17,16 +17,17 @@
 # Stop if something fails.
 set -e
 
-mkdir classes
-${JAVAC} -d classes `find src -name '*.java'`
+export ORIGINAL_JAVAC="$JAVAC"
 
-mkdir classes-ex
-${JAVAC} -d classes-ex `find src-ex -name '*.java'`
-rm classes-ex/A.class
+function javac_wrapper {
+  $ORIGINAL_JAVAC "$@"
+  local stat=$?
+  # Remove one A.class from classes-ex/
+  [[ -f classes-ex/A.class ]] && rm classes-ex/A.class
+  return $stat
+}
 
-if [ ${NEED_DEX} = "true" ]; then
-  ${DX} -JXmx256m --debug --dex --output=classes.dex classes
-  zip ${TEST_NAME}.jar classes.dex
-  ${DX} -JXmx256m --debug --dex --output=classes.dex classes-ex
-  zip ${TEST_NAME}-ex.jar classes.dex
-fi
+export -f javac_wrapper
+export JAVAC=javac_wrapper
+
+./default-build "$@"
