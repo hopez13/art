@@ -305,6 +305,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28d450e4_77bba018",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T16:35:07Z",
+      "side": 1,
+      "message": "Can you expand. I don\u0027t see how it messes with the jit gc at all. Find compiled code bails if a jit-gc is in progress and in that cases the saved entrypoint would be there anyway.\n\nWhat is wrong with doing this query? It\u0027s not time we have a map that we use so it should be fairly fast and rare anyway (if no tracing is going on this is never cleared except for jit-gc which sets the \u0027SavedEntryPoint\u0027).",
+      "parentUuid": "04614801_257d78d8",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 65
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
