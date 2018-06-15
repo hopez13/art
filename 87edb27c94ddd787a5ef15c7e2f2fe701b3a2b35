@@ -258,6 +258,30 @@
       "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cebedbd0_abbc63e7",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T16:34:53Z",
+      "side": 1,
+      "message": "Yeah, you don\u0027t want to keep that data around. So looks to me you can remove the need of passing that flag with JIT GC issues discarded?",
+      "parentUuid": "1a46518f_3a193b23",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 43
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
