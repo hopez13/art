@@ -17,21 +17,19 @@
 # Stop if something fails.
 set -e
 
-# All except MirandaInterface
-mkdir classes
-${JAVAC} -d classes `find src -name '*.java'`
-rm classes/MirandaInterface.class
+export ORIGINAL_JAVAC="$JAVAC"
 
-# Only MirandaInterface
-mkdir classes2
-${JAVAC} -d classes2 `find src -name '*.java'`
-rm classes2/Main.class classes2/MirandaAbstract.class classes2/MirandaClass*.class classes2/MirandaInterface2*.class
+function javac_wrapper {
+  $ORIGINAL_JAVAC "$@"
+  local stat=$?
 
-if [ ${NEED_DEX} = "true" ]; then
-  # All except Main
-  ${DX} -JXmx256m --debug --dex --output=classes.dex classes
+  # Move this one class from classes/ to classes2/
+  [ -d classes2 ] && mv classes/MirandaInterface.class classes2
 
-  # Only Main
-  ${DX} -JXmx256m --debug --dex --output=classes2.dex classes2
-  zip $TEST_NAME.jar classes.dex classes2.dex
-fi
+  return $stat
+}
+
+export -f javac_wrapper
+export JAVAC=javac_wrapper
+
+./default-build "$@"

@@ -56,10 +56,10 @@ fi
 
 # If dx was not set by the environment variable, assume it is in the path.
 if [ -z "$DX" ]; then
-  export DX="dx"
+  export DX="d8-compat-dx"
 fi
 
-export DXMERGER="$D8"
+export DEXMERGER="$D8"
 
 # If jasmin was not set by the environment variable, assume it is in the path.
 if [ -z "$JASMIN" ]; then
