@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5d00f64_12e8ccf3",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-06-15T12:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5910680_484d02cf",
+      "range": {
+        "startLine": 134,
+        "startChar": 12,
+        "endLine": 134,
+        "endChar": 37
+      },
+      "revId": "2d60dc1849218a66ca9f831f26632095ebf33e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58f98e1f_00739316",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-14T07:53:56Z",
       "side": 1,
       "message": "What goes wrong if this happens? Isn\u0027t it ok given the users in the branch will use the bound type, and users else where will keep using the original instruction?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 42
+      },
+      "revId": "2d60dc1849218a66ca9f831f26632095ebf33e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac61bd09_f230d90f",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-06-15T12:29:58Z",
+      "side": 1,
+      "message": "I\u0027ve added a regression test for that - \"BoundTypeNoLICM\". Instructions depending on the type being bound might be hoisted together with the BoundType, for instance ArrayLength.",
+      "parentUuid": "58f98e1f_00739316",
       "range": {
         "startLine": 135,
         "startChar": 0,
