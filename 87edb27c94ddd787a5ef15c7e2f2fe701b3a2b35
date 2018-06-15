@@ -210,6 +210,30 @@
       "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9724a4e4_533968e9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T13:25:58Z",
+      "side": 1,
+      "message": "Why would it be a problem for the JIT GC to occur? These are very rare events, and yeah it\u0027d be great to keep the JITted code around while in the trampoline, it\u0027s not the end of the world if we remove it. Kind of like bad timing, just like when the JIT GC removes code just before we enter the method.",
+      "parentUuid": "787d552a_5a019613",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 43
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
