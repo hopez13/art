@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8881d41b_b124ed59",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T16:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ea5a38_2161f539",
+      "range": {
+        "startLine": 292,
+        "startChar": 24,
+        "endLine": 292,
+        "endChar": 59
+      },
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fa11279_7ba75068",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 13
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2ff64087_7dd25eaf",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T16:44:41Z",
+      "side": 1,
+      "message": "Maybe. I don\u0027t think it would make much difference TBH.\n\n\u003e Also, do we have Java implementations for all our intrinsics?\n\nYes.",
+      "parentUuid": "0fa11279_7ba75068",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 1
+      },
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a5121da_2f6779ad",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -62,6 +110,24 @@
       "revId": "f766649f6264406683d32063ac9ab7687442cab0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c1b10a_95769d6f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T16:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a5121da_2f6779ad",
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
