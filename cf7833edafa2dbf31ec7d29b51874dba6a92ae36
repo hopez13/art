@@ -16,6 +16,24 @@
       "revId": "cf7833edafa2dbf31ec7d29b51874dba6a92ae36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c18f9afd_7f6d98cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-15T13:48:38Z",
+      "side": 1,
+      "message": "The main motivation is to implement the stack map binary search using standard library as per Vladimir\u0027s request.  It is really awkward to do without this pre-refactoring.\n\nHaving said this, I still feels like an improvement on its own.",
+      "parentUuid": "dc7805e2_e50ac1a8",
+      "revId": "cf7833edafa2dbf31ec7d29b51874dba6a92ae36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
