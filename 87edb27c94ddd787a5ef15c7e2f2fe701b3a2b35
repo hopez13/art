@@ -234,6 +234,30 @@
       "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a46518f_3a193b23",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T16:30:48Z",
+      "side": 1,
+      "message": "it wouldn\u0027t but it\u0027s hard to figure out a good way to keep that data around. I had a prototype where instead of doing this we would stick the held jit-entrypoint in a list that the jit-gc will keep live. I wasn\u0027t able to get it to work consistently because it kept running into problems with the synchronization we do for the jit-gc (sync via condition variables is always complicated) and deadlocking. I ended up giving up on that and just doing this which was much simpler to verify is correct. You cannot have deadlocks if you never lock anything.",
+      "parentUuid": "9724a4e4_533968e9",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 43
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
