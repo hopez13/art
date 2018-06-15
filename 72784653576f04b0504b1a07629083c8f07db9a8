@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4dac2978_07514397",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-15T14:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c555402_6a10b62f",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 107
+      },
+      "revId": "72784653576f04b0504b1a07629083c8f07db9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "604332ed_41cb06a3",
         "filename": "test/etc/default-build",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "72784653576f04b0504b1a07629083c8f07db9a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39e7c235_f51a2f09",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-15T14:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "604332ed_41cb06a3",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 103
+      },
+      "revId": "72784653576f04b0504b1a07629083c8f07db9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
