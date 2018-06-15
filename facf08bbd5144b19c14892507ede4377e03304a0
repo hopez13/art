@@ -329,6 +329,30 @@
       "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad168b1_f63459a9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T16:40:14Z",
+      "side": 1,
+      "message": "The intent of this code is a contract between JIT and interpreter that whenever the interpreter enters with a saved entry point, we want to update the method\u0027s entrypoint. There is no contract that if the JIT has it in its data structure, then we should update it (examples like deopt could also be a reason why the entrypoint is interpreter and the JIT has a method).\n\nYou\u0027re going to do that query for each method entry of a specific method, at the point it has profiling info, and until it has JITted code. It is not cheap to lock and lookup.",
+      "parentUuid": "28d450e4_77bba018",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 65
+      },
+      "revId": "facf08bbd5144b19c14892507ede4377e03304a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
