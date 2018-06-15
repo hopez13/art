@@ -36,4 +36,4 @@ python3 ./util-src/generate_java.py "${GENERATED_SRC}" ${MANUAL_TESTS}
 export USE_DESUGAR=false
 
 # Invoke default build with increased heap size for dx
-./default-build "$@" --experimental var-handles --dx-vm-option -JXmx384m
+./default-build "$@" --experimental var-handles
