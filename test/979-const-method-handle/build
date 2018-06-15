@@ -49,7 +49,7 @@ done
 
 # Create DEX
 DX_FLAGS="${DX_FLAGS} --min-sdk-version=28 --debug --dump-width=1000"
-${DEXER} -JXmx256m --dex ${DX_FLAGS} --dump-to=${CLASSES}.lst --output=classes.dex ${CLASSES} ${TRANSFORMER_CLASSES}
+${DEXER} -JXmx256m --dex ${DX_FLAGS}  --output=classes.dex ${CLASSES} ${TRANSFORMER_CLASSES}
 
 # Zip DEX to file name expected by test runner
 zip ${TEST_NAME:-classes-dex}.jar classes.dex
