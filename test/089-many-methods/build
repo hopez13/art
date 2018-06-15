@@ -43,8 +43,6 @@ function writeFileMethod(name) {
     printf("}\n") > fileName;
 }'
 
-# The test relies on the error message produced by dx, not jack, so keep building with dx for now
-# (b/19467889).
-mkdir classes
-${JAVAC} -d classes `find src -name '*.java'`
-${DX} -JXmx1024m --dex --no-optimize classes
+# Specify old API level as d8 automagically produces a multidex file
+# when the API level is above 20. Failing the build here is deliberate.
+./default-build --api-level 20 "$@"
