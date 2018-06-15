@@ -330,6 +330,30 @@
       "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e6d677c_0744e8ce",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-15T17:00:20Z",
+      "side": 1,
+      "message": "These instrumentation events lead directly to external apis with long established specs that do not allow multiple notifications of a single event. There are external tools that rely on these events being consistent (AS method tracing, debugger, etc). We even have tests that verify that this doesn\u0027t happen in art (988 \u0026 989 and a few others). I don\u0027t think just breaking them (even with very low probability) is a good idea.",
+      "parentUuid": "65abe066_547f599c",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 43
+      },
+      "revId": "87edb27c94ddd787a5ef15c7e2f2fe701b3a2b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
