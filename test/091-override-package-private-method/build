@@ -17,15 +17,19 @@
 # Stop if something fails.
 set -e
 
-mkdir classes
-${JAVAC} -d classes `find src -name '*.java'`
+export ORIGINAL_JAVAC="$JAVAC"
 
-mkdir classes-ex
-mv classes/OverridePackagePrivateMethodSuper.class classes-ex
+# Custom java compiler wrapper to create test state.
+function javac_wrapper {
+  $ORIGINAL_JAVAC "$@" || return 1
 
-if [ ${NEED_DEX} = "true" ]; then
-  ${DX} -JXmx256m --debug --dex --output=classes.dex classes
-  zip $TEST_NAME.jar classes.dex
-  ${DX} -JXmx256m --debug --dex --output=classes.dex classes-ex
-  zip ${TEST_NAME}-ex.jar classes.dex
-fi
+  mkdir -p classes-ex
+  mv classes/OverridePackagePrivateMethodSuper.class classes-ex
+}
+
+export -f javac_wrapper
+export JAVAC=javac_wrapper
+
+######################################################################
+
+./default-build "$@"
