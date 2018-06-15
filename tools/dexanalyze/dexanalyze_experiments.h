@@ -85,6 +85,7 @@ class AnalyzeDebugInfo  : public Experiment {
 class CountDexIndices : public Experiment {
  public:
   void ProcessDexFile(const DexFile& dex_file);
+  void ProcessDexFiles(const std::vector<std::unique_ptr<const DexFile>>& dex_files);
 
   void Dump(std::ostream& os, uint64_t total_size) const;
 
@@ -100,6 +101,12 @@ class CountDexIndices : public Experiment {
   uint64_t field_index_other_ = 0u;
   uint64_t field_receiver_[16] = {};
   uint64_t field_output_[16] = {};
+
+  // Unique names.
+  uint64_t total_unique_method_names_ = 0u;
+  uint64_t total_unique_field_names_ = 0u;
+  uint64_t total_unique_type_names_ = 0u;
+  uint64_t total_unique_mf_names_ = 0u;
 
   // Other dex ids.
   size_t dex_code_bytes_ = 0;
