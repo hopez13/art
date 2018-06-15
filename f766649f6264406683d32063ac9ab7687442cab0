@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ea5a38_2161f539",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T13:17:42Z",
+      "side": 1,
+      "message": "Why this? A race with the JIT initialization?\n\nI\u0027d move the check to Jit::Start/Jit::Stop. I don\u0027t think deopt_manager should care about whether thread pool is null.",
+      "range": {
+        "startLine": 292,
+        "startChar": 24,
+        "endLine": 292,
+        "endChar": 59
+      },
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa11279_7ba75068",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T13:17:42Z",
+      "side": 1,
+      "message": "I wonder if it would be simpler to have a flag in the JIT that the compiler can query.\n\nAlso, do we have Java implementations for all our intrinsics?",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 1
+      },
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a5121da_2f6779ad",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-15T13:17:42Z",
+      "side": 1,
+      "message": "Maybe add a comment why you keep method_code_map_",
+      "revId": "f766649f6264406683d32063ac9ab7687442cab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
