@@ -17,31 +17,56 @@
 # make us exit on a failure
 set -e
 
-ASM_JAR="${ANDROID_BUILD_TOP}/prebuilts/misc/common/asm/asm-6.0.jar"
-INTERMEDIATE_CLASSES=classes-intermediate
-CLASSES=classes
+export ASM_JAR="${ANDROID_BUILD_TOP}/prebuilts/misc/common/asm/asm-6.0.jar"
 
-# Create directory for intermediate classes
-rm -rf "${INTERMEDIATE_CLASSES}"
-mkdir "${INTERMEDIATE_CLASSES}"
+# Build the transformer to apply to compiled classes.
+mkdir classes
+${JAVAC:-javac} ${JAVAC_ARGS} -cp "${ASM_JAR}" -d classes $(find util-src -name '*.java')
+jar -cf transformer.jar -C classes transformer/ -C classes annotations/
+rm -rf classes
 
-# Generate intermediate classes that will allow transform to be applied to test classes
-JAVAC_ARGS="${JAVAC_ARGS} -source 1.8 -target 1.8 -cp ${ASM_JAR}"
-${JAVAC:-javac} ${JAVAC_ARGS} -d ${INTERMEDIATE_CLASSES} $(find src -name '*.java')
+# Setup a wrapper for javac that applies transforms to class files after compilation.
 
-# Create directory for transformed classes
-rm -rf "${CLASSES}"
-mkdir "${CLASSES}"
+export ORIGINAL_JAVAC="$JAVAC"
 
-# Run transform
-for class in ${INTERMEDIATE_CLASSES}/*.class ; do
-  transformed_class=${CLASSES}/$(basename ${class})
-  ${JAVA:-java} -cp "${ASM_JAR}:${INTERMEDIATE_CLASSES}" transformer.IndyTransformer ${class} ${transformed_class}
-done
+function javac_wrapper {
+  # Update arguments to add transformer and ASM to the compiler classpath.
+  local args=()
+  local classpath="./transformer.jar:$ASM_JAR"
+  while [ $# -ne 0 ] ; do
+    case $1 in
+      -cp|-classpath|--class-path)
+        shift
+        shift
+        args+=(-cp $classpath)
+        ;;
+      *)
+        args+=("$1")
+        shift
+        ;;
+    esac
+  done
 
-# Create DEX
-DX_FLAGS="${DX_FLAGS} --min-sdk-version=26 --debug --dump-width=1000"
-${DX} -JXmx256m --dex ${DX_FLAGS} --output=classes.dex ${CLASSES}
+  # Compile.
+  $ORIGINAL_JAVAC "${args[@]}" || return 1
 
-# Zip DEX to file name expected by test runner
-zip ${TEST_NAME:-classes-dex}.jar classes.dex
+  # Move original classes to intermediate location.
+  mv classes intermediate-classes
+  mkdir classes
+
+  # Transform intermediate classes.
+  local transformer_args="-cp ${ASM_JAR}:transformer.jar transformer.IndyTransformer"
+  for class in intermediate-classes/*.class ; do
+    local transformed_class=classes/$(basename ${class})
+    ${JAVA:-java} ${transformer_args} $PWD/${class} ${transformed_class}
+    if [ $? -ne 0 ]; then
+      return 2
+    fi
+  done
+  return 0
+}
+
+export -f javac_wrapper
+export JAVAC=javac_wrapper
+
+DESUGAR=false ./default-build "$@" --api-level 28
