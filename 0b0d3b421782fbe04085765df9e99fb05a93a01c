@@ -16,6 +16,24 @@
       "revId": "0b0d3b421782fbe04085765df9e99fb05a93a01c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3679d0c_d3760a61",
+        "filename": "runtime/runtime_callbacks_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-15T12:07:12Z",
+      "side": 0,
+      "message": "Note: These lines were added in https://android-review.googlesource.com/c/platform/art/+/388636, with the following comment in the commit message:\n\n  Stacktrace dumping relies on libunwind, which may try to read arbitrary\n  memory. Disable the SigQuit test in runtime_callbacks_test.",
+      "parentUuid": "1f20b1d9_e8dc066b",
+      "revId": "0b0d3b421782fbe04085765df9e99fb05a93a01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
