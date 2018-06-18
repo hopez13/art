@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60fa7054_1857e6d3",
+        "filename": "runtime/mirror/object-readbarrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-18T20:28:06Z",
+      "side": 1,
+      "message": "Is this correct? What if the Set() returns false?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 80
+      },
+      "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
