@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5bf08bd8_5501f431",
+        "filename": "runtime/mirror/object-readbarrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-18T23:07:10Z",
+      "side": 1,
+      "message": "I\u0027ll clean this up in a follow up? Want to remove some of the copy pasted logic.",
+      "parentUuid": "8ef75282_1323c461",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 80
+      },
+      "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "850ccc80_c51af02d",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e2a7f2_ed265ce4",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-18T23:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850ccc80_c51af02d",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
