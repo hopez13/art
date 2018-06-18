@@ -70,6 +70,29 @@
       "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "850ccc80_c51af02d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-06-18T21:14:33Z",
+      "side": 1,
+      "message": "I think this can now be\n\nint32_t hc \u003d hash_code_.load(std::memory_order_relaxed);\nif (hc \u003d\u003d 0) {\n  hash_code_.CompareAndSetStrongRelaxed(0, mirror::Object::GenerateIdentityHashCode());\n  hc \u003d hash_code_.load(std::memory_order_relaxed);\n}\nreturn hc;\n\n(maybe + DCHECK)",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
