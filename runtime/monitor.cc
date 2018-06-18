@@ -135,7 +135,9 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
 
 int32_t Monitor::GetHashCode() {
   while (!HasHashCode()) {
-    if (hash_code_.CompareAndSetWeakRelaxed(0, mirror::Object::GenerateIdentityHashCode())) {
+    // Use a strong CAS to prevent spurious failures since these can make the boot image
+    // non-deterministic.
+    if (hash_code_.CompareAndSetStrongRelaxed(0, mirror::Object::GenerateIdentityHashCode())) {
       break;
     }
   }
