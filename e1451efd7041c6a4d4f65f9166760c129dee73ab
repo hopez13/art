@@ -347,6 +347,30 @@
     },
     {
       "key": {
+        "uuid": "413c3fc0_b5e4c2ed",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003957
+      },
+      "writtenOn": "2018-06-18T21:27:56Z",
+      "side": 1,
+      "message": "It does not work.  Our system does not have /tmp (it can emulate it but it\u0027s less efficient to do so).",
+      "parentUuid": "48783312_c420e928",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19023861_a721f326",
         "filename": "libartbase/base/mem_map.cc",
         "patchSetId": 2
@@ -404,6 +428,30 @@
       "writtenOn": "2018-06-14T21:11:25Z",
       "side": 1,
       "message": "not needed at all. Remove.",
+      "range": {
+        "startLine": 264,
+        "startChar": 3,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2376cea2_f1550a0a",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1003957
+      },
+      "writtenOn": "2018-06-18T21:27:56Z",
+      "side": 1,
+      "message": "Fuchsia doesn\u0027t have ashmem or rlimits.",
+      "parentUuid": "b6a6d9cd_1fb78737",
       "range": {
         "startLine": 264,
         "startChar": 3,
