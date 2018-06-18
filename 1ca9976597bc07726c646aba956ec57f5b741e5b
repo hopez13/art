@@ -46,6 +46,30 @@
       "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef75282_1323c461",
+        "filename": "runtime/mirror/object-readbarrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-18T20:33:18Z",
+      "side": 1,
+      "message": "Sure, but it seems strange to record a value that wasn\u0027t actually written/changed, just for convenience.",
+      "parentUuid": "ae4a0113_c1d9972f",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 80
+      },
+      "revId": "1ca9976597bc07726c646aba956ec57f5b741e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
