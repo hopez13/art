@@ -371,6 +371,30 @@
     },
     {
       "key": {
+        "uuid": "fc5adfdd_571f3001",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-18T22:32:13Z",
+      "side": 1,
+      "message": "Ok.\n\nWe don\u0027t really want this file to filled with a bunch of ifdefs (especially ones that are never exercised in normal configurations) though.\n\nPlease just define static functions \u0026 fake structs for rlimit \u0026 ashmem_create_region that just return failure / LOG(FATAL).\n\nThen just update line 248 below to never use ashmem on fuchsia targets.",
+      "parentUuid": "413c3fc0_b5e4c2ed",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19023861_a721f326",
         "filename": "libartbase/base/mem_map.cc",
         "patchSetId": 2
@@ -452,6 +476,30 @@
       "side": 1,
       "message": "Fuchsia doesn\u0027t have ashmem or rlimits.",
       "parentUuid": "b6a6d9cd_1fb78737",
+      "range": {
+        "startLine": 264,
+        "startChar": 3,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "e1451efd7041c6a4d4f65f9166760c129dee73ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc8cb9f_c0fbd51e",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-18T22:32:13Z",
+      "side": 1,
+      "message": "See above. We would like to avoid making this file a sea of ifdefs.",
+      "parentUuid": "2376cea2_f1550a0a",
       "range": {
         "startLine": 264,
         "startChar": 3,
