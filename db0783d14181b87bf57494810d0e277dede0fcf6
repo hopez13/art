@@ -1,0 +1,487 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a45f43_b9656b81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "You need to mark this as public: http://shortn/_D9dHLlFQSz",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a3bd515_7afe1c48",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "Generally these are put in the \u0027target\u0027 section. Please don\u0027t have both here.\n\nFor now just have mem_map_unix.cc and the other one commented out with a TODO to put them both in appropriate \u0027target\u0027 clauses when soong supports fucshia targets.",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7f94c34_67f3ce21",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: line too long.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8a80955_9bccad33",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: line too long.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "641b39bc_3317503f",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: I\u0027d rather this was in a fuchsia_compat.h header or something just so we can have a central place for all of these types of things to be added as needed.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5a7125b_43f35679",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit:\n  // __Fuchsia__",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 6
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a4b4721_29ae2181",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "This seems unrelated to the rest of the CL. Give it a separate CL.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e676ec_7c958936",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "See comment in mem_map.h",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0f75527_5aec08cf",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: Please keep things lined up.",
+      "range": {
+        "startLine": 644,
+        "startChar": 43,
+        "endLine": 648,
+        "endChar": 43
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12dea5b_a462a268",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 856,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ae7ef9_6ee43bc1",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "Why can\u0027t this be put in mem_map_fucsia.cc?",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 18
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9bff661_3f081fe1",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be used by mem_map_fucsia.cc anymore.\n\nRemove this to avoid unneeded changes.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7002eeaa_5a6face7",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: Art naming style for these please:\n\nTargetMMapInit",
+      "range": {
+        "startLine": 296,
+        "startChar": 14,
+        "endLine": 296,
+        "endChar": 28
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88cd113b_fcdef086",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: TargetMMap",
+      "range": {
+        "startLine": 297,
+        "startChar": 15,
+        "endLine": 297,
+        "endChar": 24
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d04521e_abae5e27",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: TargetMUnmap",
+      "range": {
+        "startLine": 298,
+        "startChar": 13,
+        "endLine": 298,
+        "endChar": 24
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e23637c3_4d281a54",
+        "filename": "libartbase/base/mem_map_fuchsia.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "see comment in mem_map_linux.cc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b621a7c_9ff48502",
+        "filename": "libartbase/base/mem_map_fuchsia.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: put on line above.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 70
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf5a16b2_88264a8d",
+        "filename": "libartbase/base/mem_map_fuchsia.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: put on the line above.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 64
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdcf62fa_1c7d310d",
+        "filename": "libartbase/base/mem_map_fuchsia.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "(flags \u0026 MAP_32BIT) !\u003d 0\n\nor alternatively:\n  bool mmap_lower \u003d (flags \u0026 MAP_32BIT) !\u003d 0;",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 23
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c969a53_645eda1d",
+        "filename": "libartbase/base/mem_map_unix.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "don\u0027t do this. Instead just have only one of them be compiled by soong.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2a3d4c_d8c8e90a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T22:33:15Z",
+      "side": 1,
+      "message": "nit: update comment too.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 0
+      },
+      "revId": "db0783d14181b87bf57494810d0e277dede0fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
