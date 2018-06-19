@@ -59,6 +59,14 @@ public class Main implements Runnable {
 
     public static final boolean DEBUG = false;
 
+    // Helper class to have a thread with slightly larger stack (e.g., for large
+    // interpreter frames for ASAN).
+    private static class LargerStackThread extends Thread {
+        public LargerStackThread(Runnable r, String name) {
+            super(/* group */ null, r, name, 2 * 1024 * 1024);
+        }
+    }
+
     private static abstract class Operation {
         /**
          * Perform the action represented by this operation. Returns true if the thread should
@@ -649,7 +657,7 @@ public class Main implements Runnable {
         Thread[] runners = new Thread[numberOfThreads];
         for (int r = 0; r < runners.length; r++) {
             final Main ts = threadStresses[r];
-            runners[r] = new Thread("Runner thread " + r) {
+            runners[r] = new LargerStackThread(/* target */ null, "Runner thread " + r) {
                 final Main threadStress = ts;
                 public void run() {
                     try {
@@ -661,7 +669,7 @@ public class Main implements Runnable {
                         // Run the stress tasks.
                         while (threadStress.nextOperation < operationsPerThread) {
                             try {
-                                Thread thread = new Thread(ts, "Worker thread " + id);
+                                Thread thread = new LargerStackThread(ts, "Worker thread " + id);
                                 thread.start();
                                 thread.join();
 
@@ -711,7 +719,7 @@ public class Main implements Runnable {
         // Create and start the daemon threads.
         for (int r = 0; r < numberOfDaemons; r++) {
             Main daemon = threadStresses[numberOfThreads + r];
-            Thread t = new Thread(daemon, "Daemon thread " + daemon.id);
+            Thread t = new LargerStackThread(daemon, "Daemon thread " + daemon.id);
             t.setDaemon(true);
             t.start();
         }
