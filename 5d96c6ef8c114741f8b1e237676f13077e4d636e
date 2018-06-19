@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a18d79e7_a656df9f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T21:58:30Z",
+      "side": 1,
+      "message": "This is unrelated to the jit GC. This is just that the lock hierarchy makes it difficult to do the (basically valid) search for the real jit-compiled version of the method at this moment.",
+      "parentUuid": "3ea405de_f03e6a9b",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c6c721f_17b7c954",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 12
@@ -39,6 +63,24 @@
       "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c2a65a5_7b14edf2",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T21:58:30Z",
+      "side": 1,
+      "message": "see above.",
+      "parentUuid": "7c6c721f_17b7c954",
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b60d4c6e_0e1922f7",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T21:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f262d673_581b5c76",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 16
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f43be1c5_de20b014",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 12
@@ -85,6 +151,30 @@
       "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ab71509_6b014362",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-19T21:58:30Z",
+      "side": 1,
+      "message": "I can if you insist but I think it will be much cleaner here. Putting it in instrumentation is just asking for it to be missed when/if jit-gc is modified. It also adds a third place where pointers to jit code can be which seems iffy.\n\nGetting it all to work would also be tricky since we would need to be able to determine why jit code is getting removed. Currently pretty much everything uses UpdateMethodCode so we would need to determine if the code is/was jit, why it\u0027s getting changed and what to do about it.",
+      "parentUuid": "f43be1c5_de20b014",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 71
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
