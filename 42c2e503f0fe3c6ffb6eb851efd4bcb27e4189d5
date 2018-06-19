@@ -22,6 +22,30 @@
       "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19bdb86e_4cdcf1b8",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-19T22:42:37Z",
+      "side": 1,
+      "message": "Then I need to qualify it everywhere:\nAtomic\u003cuint32_t\u003e::kStrong etc..",
+      "parentUuid": "4be7a182_2f4ac924",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
