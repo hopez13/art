@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea405de_f03e6a9b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-19T12:27:57Z",
+      "side": 1,
+      "message": "nit: please reference b/110263880 (as I understand it, without those locks issue, we could make JIT GC work?).",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c6c721f_17b7c954",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-19T12:27:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f262d673_581b5c76",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-19T12:27:57Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 16
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f43be1c5_de20b014",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-19T12:27:57Z",
+      "side": 1,
+      "message": "Can we move this map to instrumentation for now? JIT should call UpdateMethodsCode, so I think you should be able to track updates of the entrypoint.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 71
+      },
+      "revId": "5d96c6ef8c114741f8b1e237676f13077e4d636e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
