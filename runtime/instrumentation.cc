@@ -162,7 +162,7 @@ Instrumentation::Instrumentation()
       have_branch_listeners_(false),
       have_invoke_virtual_or_interface_listeners_(false),
       have_exception_handled_listeners_(false),
-      deoptimized_methods_lock_("deoptimized methods lock", kDeoptimizedMethodsLock),
+      deoptimized_methods_lock_("deoptimized methods lock", kGenericBottomLock),
       deoptimization_enabled_(false),
       interpreter_handler_table_(kMainHandlerTable),
       quick_alloc_entry_points_instrumentation_counter_(0),
@@ -225,14 +225,7 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
     if ((forced_interpret_only_ || IsDeoptimized(method)) && !method->IsNative()) {
       new_quick_code = GetQuickToInterpreterBridge();
     } else if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
-      // It would be great to search the JIT for its implementation here but we cannot due to the
-      // locks we hold. Instead just set to the interpreter bridge and that code will search the JIT
-      // when it gets called and replace the entrypoint then.
-      if (NeedDebugVersionFor(method)) {
-        new_quick_code = GetQuickToInterpreterBridge();
-      } else {
-        new_quick_code = class_linker->GetQuickOatCodeFor(method);
-      }
+      new_quick_code = GetCodeForInvoke(method);
     } else {
       new_quick_code = GetQuickResolutionStub();
     }
@@ -1098,7 +1091,9 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) const {
     result = class_linker->GetQuickOatCodeFor(method);
   }
   // If both those fail try the jit.
-  if (result == GetQuickToInterpreterBridge()) {
+  // If we don't have profiling info don't bother searching/updating code.
+  if (result == GetQuickToInterpreterBridge() &&
+      method->GetProfilingInfo(kRuntimePointerSize) != nullptr) {
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr) {
       const void* res = jit->GetCodeCache()->FindCompiledCode(method);
