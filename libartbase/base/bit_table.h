@@ -82,6 +82,7 @@ class BitTable {
     template<uint32_t Column>
     ALWAYS_INLINE uint32_t Get() const {
       static_assert(Column < kNumColumns, "Column out of bounds");
+      DCHECK(IsValid());
       return table_->Get(row_, Column);
     }
 
@@ -98,9 +99,11 @@ class BitTable {
 #define BIT_TABLE_COLUMN(COLUMN, NAME)                                         \
     static constexpr uint32_t k##NAME = COLUMN;                                \
     ALWAYS_INLINE uint32_t Get##NAME() const {                                 \
+      DCHECK(IsValid());                                                       \
       return table_->Get(row_, COLUMN);                                        \
     }                                                                          \
     ALWAYS_INLINE bool Has##NAME() const {                                     \
+      DCHECK(IsValid());                                                       \
       return table_->Get(row_, COLUMN) != kNoValue;                            \
     }                                                                          \
     template<int UNUSED> struct ColumnName<COLUMN, UNUSED> {                   \
