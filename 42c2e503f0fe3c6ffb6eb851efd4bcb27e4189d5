@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be7a182_2f4ac924",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-19T22:34:25Z",
+      "side": 1,
+      "message": "Is there a reason this isn\u0027t an inner enum to properly scope things instead of \"polluting\" the art namespace?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
