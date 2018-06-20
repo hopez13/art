@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8df16e63_e74c9ee2",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-20T10:43:53Z",
+      "side": 1,
+      "message": "difference_type should be signed.",
+      "range": {
+        "startLine": 193,
+        "startChar": 68,
+        "endLine": 193,
+        "endChar": 76
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5063d2d_5a7415f0",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-20T10:43:53Z",
+      "side": 1,
+      "message": "difference_type",
+      "range": {
+        "startLine": 198,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 12
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c7f16ad_e7cd71d4",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-20T10:43:53Z",
+      "side": 1,
+      "message": "difference_type",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 199,
+        "endChar": 28
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56f98643_d536e40b",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-20T10:43:53Z",
+      "side": 1,
+      "message": "Add missing operators, see http://www.cplusplus.com/reference/iterator/ , some of them at the namespace scope.",
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1da869_3c550764",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-20T10:43:53Z",
+      "side": 1,
+      "message": "I think there should be only one non-Catch native map now (you removed the duplication for OSR), so we do not need a loop here.",
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
