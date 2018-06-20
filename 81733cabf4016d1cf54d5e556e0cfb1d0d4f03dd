@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb19dce5_7d2559ac",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-20T13:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8df16e63_e74c9ee2",
+      "range": {
+        "startLine": 193,
+        "startChar": 68,
+        "endLine": 193,
+        "endChar": 76
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5063d2d_5a7415f0",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1aaabe4e_2f21e93e",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-20T13:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5063d2d_5a7415f0",
+      "range": {
+        "startLine": 198,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 12
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c7f16ad_e7cd71d4",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 5
@@ -68,6 +116,30 @@
       "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff653227_37cce512",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-20T13:40:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c7f16ad_e7cd71d4",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 199,
+        "endChar": 28
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +174,24 @@
       "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34d38cf_ba2e1e2e",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-20T13:40:13Z",
+      "side": 1,
+      "message": "There can still be debug stack map before the runtime stack map.",
+      "parentUuid": "ea1da869_3c550764",
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
