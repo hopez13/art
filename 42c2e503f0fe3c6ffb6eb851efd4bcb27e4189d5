@@ -46,6 +46,23 @@
       "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6351443_862274d9",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-20T15:29:20Z",
+      "side": 1,
+      "message": "b/31023171 favors using std::atomic directly. Can we move in that direct here?",
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
