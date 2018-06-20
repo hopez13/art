@@ -22,13 +22,13 @@ public class Main {
     static long lmin = Long.MIN_VALUE;
     static CA ca;
 
-    public static void expectEquals(long expected, long result) {
+    public static void expectEquals(long result, long expected) {
         if (expected != result) {
             throw new Error("Expected: " + expected + ", found: " + result);
         }
     }
 
-    public static void expectEquals(int expected, int result) {
+    public static void expectEquals(int result, int expected) {
         if (expected != result) {
             throw new Error("Expected: " + expected + ", found: " + result);
         }
@@ -149,6 +149,7 @@ public class Main {
         result = 0;
         obj = ca;
         try {
+            result += 0; // TODO(b/110398163) remove line when fixed (needed to keep 'result' in same reg)
             result = a*c;
             tmp = obj.la;
             result = result + tmp;
