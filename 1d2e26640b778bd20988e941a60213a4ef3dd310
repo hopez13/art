@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4678f84_3188afd0",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-20T16:33:16Z",
+      "side": 1,
+      "message": "Noticed WriteBarrierField doesn\u0027t do a null check. I will add one in a follow up.",
+      "range": {
+        "startLine": 996,
+        "startChar": 35,
+        "endLine": 996,
+        "endChar": 52
+      },
+      "revId": "1d2e26640b778bd20988e941a60213a4ef3dd310",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
