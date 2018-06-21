@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "234371b9_42d62775",
+        "filename": "libartbase/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-21T10:11:56Z",
+      "side": 1,
+      "message": "Appreciate this isn\u0027t new here, but the method could be considered as a member fn of HashSet rather than the iterator here on the basis of that\u0027s where the rest of the index math is done.",
+      "range": {
+        "startLine": 88,
+        "startChar": 9,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "5c9301b227d8b796b4c65f42f5f6070e365a31ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
