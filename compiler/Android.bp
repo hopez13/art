@@ -311,6 +311,9 @@ art_cc_library {
         "libart-runtime-gtest",
         "libbase",
     ],
+    header_libs: [
+        "libnativehelper_header_only",
+    ],
 }
 
 art_cc_test {
