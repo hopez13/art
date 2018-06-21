@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2aec3b1f_76fd6c69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be316d6a_ca6abbd6",
+      "range": {
+        "startLine": 11,
+        "startChar": 41,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94437839_6c462034",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 7
@@ -39,6 +63,24 @@
       "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303e9772_b07801ea",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:15:21Z",
+      "side": 1,
+      "message": "This function has no access to the CompilerOptions. One caller checks it, the other also cannot access CompilerOptions.",
+      "parentUuid": "94437839_6c462034",
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a62c80b3_24f41f5d",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:15:21Z",
+      "side": 1,
+      "message": "I don\u0027t know and I don\u0027t care. We check the consistency here before generating the intrinsic. Whatever happens later is not that important, it can lead to weird results but it should not lead to native crashes anymore.",
+      "parentUuid": "3b4bb386_801b21b5",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

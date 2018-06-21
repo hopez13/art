@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24f65722_b177b3fc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db75bf2f_45e3260d",
+      "range": {
+        "startLine": 2915,
+        "startChar": 34,
+        "endLine": 2915,
+        "endChar": 41
+      },
+      "revId": "5dd4f22b4008edff6c38123a7ff2eb96c1040e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6bccc82_120c7e3b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "5dd4f22b4008edff6c38123a7ff2eb96c1040e30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d017d86f_e376608b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6bccc82_120c7e3b",
+      "range": {
+        "startLine": 2696,
+        "startChar": 40,
+        "endLine": 2696,
+        "endChar": 47
+      },
+      "revId": "5dd4f22b4008edff6c38123a7ff2eb96c1040e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
