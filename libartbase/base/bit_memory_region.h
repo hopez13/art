@@ -178,6 +178,64 @@ class BitMemoryRegion FINAL : public ValueObject {
   size_t bit_size_ = 0;
 };
 
+class BitMemoryReader {
+ public:
+  explicit BitMemoryReader(MemoryRegion region, size_t bit_offset = 0)
+      : region_(region), bit_offset_(bit_offset) { }
+  explicit BitMemoryReader(BitMemoryRegion region, size_t bit_offset = 0)
+      : region_(region), bit_offset_(bit_offset) { }
+
+  size_t GetBitOffset() const { return bit_offset_; }
+
+  ALWAYS_INLINE BitMemoryRegion Skip(size_t bit_length) {
+    BitMemoryRegion result = region_.Subregion(bit_offset_, bit_length);
+    bit_offset_ += bit_length;
+    return result;
+  }
+
+  ALWAYS_INLINE uint32_t ReadBits(size_t bit_length) {
+    uint32_t result = region_.LoadBits(bit_offset_, bit_length);
+    bit_offset_ += bit_length;
+    return result;
+  }
+
+ private:
+  BitMemoryRegion region_;
+  size_t bit_offset_;
+
+  DISALLOW_COPY_AND_ASSIGN(BitMemoryReader);
+};
+
+template<typename Vector>
+class BitMemoryWriter {
+ public:
+  explicit BitMemoryWriter(Vector* out, size_t bit_offset = 0)
+      : out_(out), bit_offset_(bit_offset) { }
+
+  size_t GetBitOffset() const { return bit_offset_; }
+
+  ALWAYS_INLINE BitMemoryRegion Allocate(size_t bit_length) {
+    out_->resize(BitsToBytesRoundUp(bit_offset_ + bit_length));
+    BitMemoryRegion region(MemoryRegion(out_->data(), out_->size()), bit_offset_, bit_length);
+    bit_offset_ += bit_length;
+    return region;
+  }
+
+  ALWAYS_INLINE void WriteBits(uint32_t value, size_t bit_length) {
+    Allocate(bit_length).StoreBits(0, value, bit_length);
+  }
+
+  BitMemoryRegion GetWrittenRegion() const {
+    return BitMemoryRegion(MemoryRegion(out_->data(), out_->size()), 0, bit_offset_);
+  }
+
+ private:
+  Vector* out_;
+  size_t bit_offset_;
+
+  DISALLOW_COPY_AND_ASSIGN(BitMemoryWriter);
+};
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_BIT_MEMORY_REGION_H_
