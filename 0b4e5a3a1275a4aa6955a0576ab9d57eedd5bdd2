@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78eb1975_6f22399a",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:35:31Z",
+      "side": 1,
+      "message": "I didn\u0027t realize this was needed. But the base class is template-argument dependent and this is better than\n\n  using difference_type \u003d typename std::iterator\u003c...\u003e::difference_type;\n\nwhere you\u0027d have to list all the arguments again.",
+      "revId": "0b4e5a3a1275a4aa6955a0576ab9d57eedd5bdd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
