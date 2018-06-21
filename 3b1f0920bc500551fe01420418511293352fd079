@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "32d7c623_a5c89294",
+        "filename": "compiler/optimizing/intrinsic_objects.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T10:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4494d67c_b97d7b6a",
+      "range": {
+        "startLine": 103,
+        "startChar": 82,
+        "endLine": 103,
+        "endChar": 92
+      },
+      "revId": "3b1f0920bc500551fe01420418511293352fd079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37f9aaa4_62ac0b8b",
         "filename": "compiler/optimizing/intrinsic_objects.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-21T09:28:27Z",
       "side": 1,
       "message": "Newlines between (or \u0027using\u0027 for mirror::ObjectArray\u003cmirror::Object\u003e maybe).",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "3b1f0920bc500551fe01420418511293352fd079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85f2a39a_63728c96",
+        "filename": "compiler/optimizing/intrinsic_objects.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T10:13:20Z",
+      "side": 1,
+      "message": "I grouped these together as they relate to Integer.valueOf(). I anticipate groups for Character.valueOf() and Boolean.valueOf() in the future.\n\nI cannot think of a good name for \"mirror::ObjectArray\u003cmirror::Object\u003e\" as the \"ObjectArray\" is already taken. We could make this shorter by making the mirror::Object the default parameter but if we want to forward-declare the ObjectArray\u003c\u003e and avoid re-declaring the default parameter, we would have to introduce \"object_array_fwd.h\". That\u0027s out of scope for this CL.",
+      "parentUuid": "37f9aaa4_62ac0b8b",
       "range": {
         "startLine": 40,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e662c1f0_df94c824",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T10:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ebc640_aa04adbf",
+      "range": {
+        "startLine": 198,
+        "startChar": 20,
+        "endLine": 198,
+        "endChar": 25
+      },
+      "revId": "3b1f0920bc500551fe01420418511293352fd079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a70a4f2c_fd468ac5",
         "filename": "test/717-integer-value-of/src/Main.java",
         "patchSetId": 6
@@ -91,6 +163,30 @@
       "revId": "3b1f0920bc500551fe01420418511293352fd079",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf9296a_0d0ac60c",
+        "filename": "test/717-integer-value-of/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T10:13:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a70a4f2c_fd468ac5",
+      "range": {
+        "startLine": 48,
+        "startChar": 58,
+        "endLine": 48,
+        "endChar": 62
+      },
+      "revId": "3b1f0920bc500551fe01420418511293352fd079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
