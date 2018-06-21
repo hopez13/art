@@ -153,6 +153,24 @@
       "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "064630ab_0b7e7802",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-21T12:52:58Z",
+      "side": 1,
+      "message": "After one week of messing with iterators, I still think that just the 10 line reimplementation of lower_bound was less painful way to go...",
+      "parentUuid": "38743dd5_ee9c1c31",
+      "revId": "4964159728a4cec4bd20daa76c7aa211f9c72f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
