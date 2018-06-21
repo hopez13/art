@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d686bf36_36d6783f",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-21T17:57:57Z",
+      "side": 1,
+      "message": "Constructor seems unnecessary since it should be OK to do BitMemoryReader(BitMemoryRegion(r))? Thoughts?",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 52
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "511c45fb_96d4c543",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-21T17:57:57Z",
+      "side": 1,
+      "message": "Are there any performance problems from potentially resizing each write?",
+      "range": {
+        "startLine": 218,
+        "startChar": 10,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
