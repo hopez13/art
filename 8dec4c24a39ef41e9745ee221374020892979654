@@ -45,6 +45,30 @@
       "revId": "8dec4c24a39ef41e9745ee221374020892979654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d092cb2_76e8ca57",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-21T18:14:19Z",
+      "side": 1,
+      "message": "Good question, I have assumed resize would over-allocate, but now that you mention it, I am not so sure...",
+      "parentUuid": "511c45fb_96d4c543",
+      "range": {
+        "startLine": 218,
+        "startChar": 10,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
