@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "cb7a6057_1b7056dd",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T11:43:46Z",
+      "side": 1,
+      "message": "This should be literally \"difference_type\".",
+      "parentUuid": "1aaabe4e_2f21e93e",
+      "range": {
+        "startLine": 198,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 12
+      },
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c7f16ad_e7cd71d4",
         "filename": "libartbase/base/bit_table.h",
         "patchSetId": 5
@@ -154,6 +178,24 @@
       "writtenOn": "2018-06-20T10:43:53Z",
       "side": 1,
       "message": "Add missing operators, see http://www.cplusplus.com/reference/iterator/ , some of them at the namespace scope.",
+      "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41877be1_6fd65647",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T11:43:46Z",
+      "side": 1,
+      "message": "Still missing the namespace scope operators + and -.",
+      "parentUuid": "56f98643_d536e40b",
       "revId": "81733cabf4016d1cf54d5e556e0cfb1d0d4f03dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

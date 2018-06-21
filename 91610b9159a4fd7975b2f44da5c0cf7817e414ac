@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81031272_49e62eac",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T11:43:46Z",
+      "side": 1,
+      "message": "It\u0027s usually better to implement these at the namespace scope to facilitate implicit conversions of LHS. As you do not have a non-const iterator to convert, it\u0027s OK to have them here.",
+      "revId": "91610b9159a4fd7975b2f44da5c0cf7817e414ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
