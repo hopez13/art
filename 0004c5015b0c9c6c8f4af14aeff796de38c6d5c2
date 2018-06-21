@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faa23f7e_868909ea",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-21T15:40:03Z",
+      "side": 1,
+      "message": "Dereferencing end() looks odd. Add a helper function please and try to construct the Accessor without \"*end()\".",
+      "range": {
+        "startLine": 391,
+        "startChar": 11,
+        "endLine": 391,
+        "endChar": 29
+      },
+      "revId": "0004c5015b0c9c6c8f4af14aeff796de38c6d5c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
