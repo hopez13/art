@@ -388,7 +388,7 @@ class CodeInfo {
         return stack_map;
       }
     }
-    return StackMap();
+    return *stack_maps_.end();
   }
 
   // Searches the stack map list backwards because catch stack maps are stored at the end.
@@ -399,7 +399,7 @@ class CodeInfo {
         return stack_map;
       }
     }
-    return StackMap();
+    return *stack_maps_.end();
   }
 
   StackMap GetOsrStackMapForDexPc(uint32_t dex_pc) const {
@@ -409,7 +409,7 @@ class CodeInfo {
         return stack_map;
       }
     }
-    return StackMap();
+    return *stack_maps_.end();
   }
 
   StackMap GetStackMapForNativePcOffset(uint32_t pc, InstructionSet isa = kRuntimeISA) const;
@@ -421,7 +421,7 @@ class CodeInfo {
         return item;
       }
     }
-    return InvokeInfo();
+    return *invoke_infos_.end();
   }
 
   // Dump this CodeInfo object on `vios`.

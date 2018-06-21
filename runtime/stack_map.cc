@@ -60,7 +60,7 @@ StackMap CodeInfo::GetStackMapForNativePcOffset(uint32_t pc, InstructionSet isa)
       return *it;
     }
   }
-  return StackMap();
+  return *stack_maps_.end();
 }
 
 // Scan backward to determine dex register locations at given stack map.
