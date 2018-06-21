@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be316d6a_ca6abbd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-21T13:13:21Z",
+      "side": 1,
+      "message": "previously",
+      "range": {
+        "startLine": 11,
+        "startChar": 41,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94437839_6c462034",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-21T13:13:21Z",
+      "side": 1,
+      "message": "Would it make sense to have something like\n\n  DCHECK(!GetCompilerOptions().IsBootImage());\n\nhere?",
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b4bb386_801b21b5",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-21T13:13:21Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with sun.misc.VM.getSavedProperty, but it is used to set the value of `IntegerCache.high`. I assume that this cannot be used to change the value of `IntegerCache.high` after it the boot image has been written, right?",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "173236a0034525f6879126a3ba20234eeabce7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

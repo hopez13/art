@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db75bf2f_45e3260d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2915,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-21T13:13:21Z",
+      "side": 1,
+      "message": "Add an assertion that `TIMES_4` matches `sizeof(mirror::HeapReference\u003cmirror::Object\u003e)`?",
+      "range": {
+        "startLine": 2915,
+        "startChar": 34,
+        "endLine": 2915,
+        "endChar": 41
+      },
+      "revId": "5dd4f22b4008edff6c38123a7ff2eb96c1040e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6bccc82_120c7e3b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-21T13:13:21Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 2696,
+        "startChar": 40,
+        "endLine": 2696,
+        "endChar": 47
+      },
+      "revId": "5dd4f22b4008edff6c38123a7ff2eb96c1040e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
