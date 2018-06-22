@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65914ec4_9a091ff7",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-22T12:43:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d686bf36_36d6783f",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 52
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "511c45fb_96d4c543",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
@@ -69,6 +93,30 @@
       "revId": "8dec4c24a39ef41e9745ee221374020892979654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ffb28f_8cb41a07",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-22T12:43:29Z",
+      "side": 1,
+      "message": "The implementation does what you would think:\ncap\u003dmax(2*cap,n)\n\nSo it should be fine",
+      "parentUuid": "8d092cb2_76e8ca57",
+      "range": {
+        "startLine": 218,
+        "startChar": 10,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
