@@ -141,6 +141,30 @@
       "revId": "8dec4c24a39ef41e9745ee221374020892979654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ccf37ed_a5321c16",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-06-22T20:48:37Z",
+      "side": 1,
+      "message": "I have checked the implementation, and I measured the CLs performance\u0026memory delta.  All sane.\n\nHaving said that, I am not sure if the standard guarantees it.  I think you question was justified.",
+      "parentUuid": "f12c5e92_4862c585",
+      "range": {
+        "startLine": 218,
+        "startChar": 10,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
