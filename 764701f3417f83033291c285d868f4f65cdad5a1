@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e75e885_970c1a1c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-22T10:07:03Z",
+      "side": 1,
+      "message": "Opportunity here to clarity that this method is just for testing.",
+      "range": {
+        "startLine": 669,
+        "startChar": 21,
+        "endLine": 669,
+        "endChar": 31
+      },
+      "revId": "764701f3417f83033291c285d868f4f65cdad5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bde8dc61_8d297fcc",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-22T10:07:03Z",
+      "side": 1,
+      "message": "Unused.",
+      "range": {
+        "startLine": 1222,
+        "startChar": 8,
+        "endLine": 1222,
+        "endChar": 25
+      },
+      "revId": "764701f3417f83033291c285d868f4f65cdad5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
