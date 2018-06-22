@@ -117,6 +117,30 @@
       "revId": "8dec4c24a39ef41e9745ee221374020892979654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f12c5e92_4862c585",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-22T16:36:03Z",
+      "side": 1,
+      "message": "You are right, didn\u0027t know that. I thought it was only for growth from operations like push_back or insert.",
+      "parentUuid": "16ffb28f_8cb41a07",
+      "range": {
+        "startLine": 218,
+        "startChar": 10,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "8dec4c24a39ef41e9745ee221374020892979654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
