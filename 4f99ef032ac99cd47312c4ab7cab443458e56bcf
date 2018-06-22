@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5e6e419_6845a248",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-22T16:25:40Z",
+      "side": 1,
+      "message": "The header_only stuff is scoped_local_ref.h. The old ScopedLocalRef requires the complete libnativehelper library.",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "568785bd_86518214",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-22T16:25:40Z",
+      "side": 1,
+      "message": "Could also just do self-\u003eGetJniEnv()-\u003eGetVm()-\u003eAddGlobalRef(self, obj)",
+      "range": {
+        "startLine": 241,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 59
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c9b5899_97634a14",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-22T16:25:40Z",
+      "side": 1,
+      "message": "Curiosity: any reason you didn\u0027t do this in this CL?",
+      "range": {
+        "startLine": 497,
+        "startChar": 11,
+        "endLine": 497,
+        "endChar": 29
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd7c647_79ceed50",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-22T16:25:40Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 498,
+        "startChar": 52,
+        "endLine": 498,
+        "endChar": 83
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1684d65_6ba836a2",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-22T16:25:40Z",
+      "side": 1,
+      "message": "Note: The old comment was more descriptive on why the destructor exists, at all.",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 43
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
