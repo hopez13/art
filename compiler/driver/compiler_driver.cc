@@ -885,7 +885,11 @@ void CompilerDriver::PreCompile(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
                                 TimingLogger* timings) {
   CheckThreadPools();
+
   VLOG(compiler) << "Before precompile " << GetMemoryUsageString(false);
+
+  compiled_classes_.AddDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
+  dex_to_dex_compiler_.SetDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
 
   // Precompile:
   // 1) Load image classes.
@@ -1948,7 +1952,8 @@ void CompilerDriver::Verify(jobject jclass_loader,
     // Create per-thread VerifierDeps to avoid contention on the main one.
     // We will merge them after verification.
     for (ThreadPoolWorker* worker : parallel_thread_pool_->GetWorkers()) {
-      worker->GetThread()->SetVerifierDeps(new verifier::VerifierDeps(dex_files_for_oat_file_));
+      worker->GetThread()->SetVerifierDeps(
+          new verifier::VerifierDeps(GetCompilerOptions().GetDexFilesForOatFile()));
     }
   }
 
@@ -1973,7 +1978,7 @@ void CompilerDriver::Verify(jobject jclass_loader,
     for (ThreadPoolWorker* worker : parallel_thread_pool_->GetWorkers()) {
       verifier::VerifierDeps* thread_deps = worker->GetThread()->GetVerifierDeps();
       worker->GetThread()->SetVerifierDeps(nullptr);
-      verifier_deps->MergeWith(*thread_deps, dex_files_for_oat_file_);
+      verifier_deps->MergeWith(*thread_deps, GetCompilerOptions().GetDexFilesForOatFile());
       delete thread_deps;
     }
     Thread::Current()->SetVerifierDeps(nullptr);
@@ -2846,7 +2851,7 @@ void CompilerDriver::RecordClassStatus(const ClassReference& ref, ClassStatus st
       if (kIsDebugBuild) {
         // Check to make sure it's not a dex file for an oat file we are compiling since these
         // should always succeed. These do not include classes in for used libraries.
-        for (const DexFile* dex_file : GetDexFilesForOatFile()) {
+        for (const DexFile* dex_file : GetCompilerOptions().GetDexFilesForOatFile()) {
           CHECK_NE(ref.dex_file, dex_file) << ref.dex_file->GetLocation();
         }
       }
@@ -2966,12 +2971,6 @@ void CompilerDriver::InitializeThreadPools() {
 void CompilerDriver::FreeThreadPools() {
   parallel_thread_pool_.reset();
   single_thread_pool_.reset();
-}
-
-void CompilerDriver::SetDexFilesForOatFile(const std::vector<const DexFile*>& dex_files) {
-  dex_files_for_oat_file_ = dex_files;
-  compiled_classes_.AddDexFiles(dex_files);
-  dex_to_dex_compiler_.SetDexFiles(dex_files);
 }
 
 void CompilerDriver::SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files) {
