@@ -56,9 +56,47 @@ class DexFileContainer {
   virtual bool IsReadOnly() = 0;
   virtual bool EnableWrite() = 0;
   virtual bool DisableWrite() = 0;
+  virtual const uint8_t* Begin() = 0;
+  virtual size_t Size() = 0;
 
  private:
   DISALLOW_COPY_AND_ASSIGN(DexFileContainer);
+};
+
+class NonOwningDexFileContainer : public DexFileContainer {
+ public:
+  NonOwningDexFileContainer(const uint8_t* begin, size_t size) : begin_(begin), size_(size) { }
+  virtual ~NonOwningDexFileContainer() OVERRIDE { }
+
+  int GetPermissions() OVERRIDE {
+    return 0;
+  }
+
+  bool IsReadOnly() OVERRIDE {
+    return true;
+  }
+
+  bool EnableWrite() OVERRIDE {
+    return false;
+  }
+
+  bool DisableWrite() OVERRIDE {
+    return false;
+  }
+
+  const uint8_t* Begin() OVERRIDE {
+    return begin_;
+  }
+
+  size_t Size() OVERRIDE {
+    return size_;
+  }
+
+ private:
+  const uint8_t* begin_;
+  size_t size_;
+
+  DISALLOW_COPY_AND_ASSIGN(NonOwningDexFileContainer);
 };
 
 // Dex file is the API that exposes native dex files (ordinary dex files) and CompactDex.
