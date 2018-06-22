@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1046e410_8d0b01dc",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-22T12:53:06Z",
+      "side": 1,
+      "message": "Avoid implicit cast. Either add explicit static_cast\u003cuint32_t\u003e or use std::numeric_limits\u003cuint32_t\u003e::max().",
+      "range": {
+        "startLine": 233,
+        "startChar": 26,
+        "endLine": 233,
+        "endChar": 28
+      },
+      "revId": "bb050c8e6c8b5014181ce85b23d21a566dadcfe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
