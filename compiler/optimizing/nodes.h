@@ -1626,6 +1626,18 @@ using HConstInputsRef = TransformArrayRef<const HUserRecord<HInstruction*>, HInp
  * the same, and any reference read depends on any reference read without
  * further regard of its type).
  *
+ * kDependsOnGCBit is defined in a following way: instruction with kDependsOnGCBit must not be
+ * alive across the point where garbage collection might happen. kCanTriggerGCBit must be used for
+ * instructions for which it is true that:
+ *  - GC might happen on this instruction.
+ *  - some IR instruction (from the compiler perspective) might be alive across that GC point.
+ *
+ * Notes:
+ *  - instructions with kCanTriggerGCBit do not depend on each other.
+ *  - instructions which can cause GC only on a fatal slow path do not need kCanTriggerGCBit as
+ *    the execution never returns to the compiled code and all of the IR instructions at the GC
+ *    point are not alive.
+ *
  * The internal representation uses 38-bit and is described in the table below.
  * The first line indicates the side effect, and for field/array accesses the
  * second line indicates the type of the access (in the order of the
@@ -1698,10 +1710,17 @@ class SideEffects : public ValueObject {
     return SideEffects(TypeFlag(type, kArrayReadOffset));
   }
 
+  // Returns whether GC might happen on the instruction and some other instructions might be alive
+  // across it.
+  //
+  // See the SideEffect class comments.
   static SideEffects CanTriggerGC() {
     return SideEffects(1ULL << kCanTriggerGCBit);
   }
 
+  // Returns whether the instruction must not be alive across a GC point.
+  //
+  // See the SideEffect class comments.
   static SideEffects DependsOnGC() {
     return SideEffects(1ULL << kDependsOnGCBit);
   }
@@ -5150,9 +5169,10 @@ class HAbs FINAL : public HUnaryOperation {
 class HDivZeroCheck FINAL : public HExpression<1> {
  public:
   // `HDivZeroCheck` can trigger GC, as it may call the `ArithmeticException`
-  // constructor.
+  // constructor. However it can only do it on a fatal slow path so execution never returns to the
+  // instruction following the current one; thus 'SideEffects::None()' is used.
   HDivZeroCheck(HInstruction* value, uint32_t dex_pc)
-      : HExpression(kDivZeroCheck, value->GetType(), SideEffects::CanTriggerGC(), dex_pc) {
+      : HExpression(kDivZeroCheck, value->GetType(), SideEffects::None(), dex_pc) {
     SetRawInputAt(0, value);
   }
 
@@ -5629,9 +5649,10 @@ static constexpr uint32_t kNoRegNumber = -1;
 class HNullCheck FINAL : public HExpression<1> {
  public:
   // `HNullCheck` can trigger GC, as it may call the `NullPointerException`
-  // constructor.
+  // constructor. However it can only do it on a fatal slow path so execution never returns to the
+  // instruction following the current one; thus 'SideEffects::None()' is used.
   HNullCheck(HInstruction* value, uint32_t dex_pc)
-      : HExpression(kNullCheck, value->GetType(), SideEffects::CanTriggerGC(), dex_pc) {
+      : HExpression(kNullCheck, value->GetType(), SideEffects::None(), dex_pc) {
     SetRawInputAt(0, value);
   }
 
@@ -6058,12 +6079,13 @@ class HArrayLength FINAL : public HExpression<1> {
 class HBoundsCheck FINAL : public HExpression<2> {
  public:
   // `HBoundsCheck` can trigger GC, as it may call the `IndexOutOfBoundsException`
-  // constructor.
+  // constructor. However it can only do it on a fatal slow path so execution never returns to the
+  // instruction following the current one; thus 'SideEffects::None()' is used.
   HBoundsCheck(HInstruction* index,
                HInstruction* length,
                uint32_t dex_pc,
                bool is_string_char_at = false)
-      : HExpression(kBoundsCheck, index->GetType(), SideEffects::CanTriggerGC(), dex_pc) {
+      : HExpression(kBoundsCheck, index->GetType(), SideEffects::None(), dex_pc) {
     DCHECK_EQ(DataType::Type::kInt32, DataType::Kind(index->GetType()));
     SetPackedFlag<kFlagIsStringCharAt>(is_string_char_at);
     SetRawInputAt(0, index);
@@ -6918,8 +6940,13 @@ class HUnresolvedStaticFieldSet FINAL : public HExpression<1> {
 // Implement the move-exception DEX instruction.
 class HLoadException FINAL : public HExpression<0> {
  public:
+  // TODO: Can we assume for the optimized code that each entrance to a catch block starts from
+  // LoadException?
   explicit HLoadException(uint32_t dex_pc = kNoDexPc)
-      : HExpression(kLoadException, DataType::Type::kReference, SideEffects::None(), dex_pc) {
+      : HExpression(kLoadException,
+                    DataType::Type::kReference,
+                    SideEffects::CanTriggerGC(),
+                    dex_pc) {
   }
 
   bool CanBeNull() const OVERRIDE { return false; }
