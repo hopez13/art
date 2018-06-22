@@ -207,8 +207,9 @@ class DexAnalyze {
       }
       std::vector<std::unique_ptr<const DexFile>> dex_files;
       const DexFileLoader dex_file_loader;
-      if (!dex_file_loader.OpenAll(reinterpret_cast<const uint8_t*>(content.data()),
-                                   content.size(),
+      if (!dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(
+                                       reinterpret_cast<const uint8_t*>(content.data()),
+                                       content.size()),
                                    filename.c_str(),
                                    options.run_dex_file_verifier_,
                                    options.verify_checksum_,

@@ -56,7 +56,10 @@ static void FixUpChecksum(uint8_t* dex_file) {
 class DexFileVerifierTest : public testing::Test {
  protected:
   DexFile* GetDexFile(const uint8_t* dex_bytes, size_t length) {
-    return new StandardDexFile(dex_bytes, length, "tmp", 0, nullptr, nullptr);
+    return new StandardDexFile(std::make_unique<NonOwningDexFileContainer>(dex_bytes, length),
+                               "tmp",
+                               0,
+                               nullptr);
   }
 
   void VerifyModification(const char* dex_file_base64_content,
@@ -103,14 +106,14 @@ static std::unique_ptr<const DexFile> OpenDexFileBase64(const char* base64,
   std::vector<std::unique_ptr<const DexFile>> tmp;
   const DexFileLoader dex_file_loader;
   DexFileLoaderErrorCode error_code;
-  bool success = dex_file_loader.OpenAll(dex_bytes.get(),
-                                         length,
-                                         location,
-                                         /* verify */ true,
-                                         /* verify_checksum */ true,
-                                         &error_code,
-                                         error_msg,
-                                         &tmp);
+  bool success =
+      dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(dex_bytes.get(), length),
+                              location,
+                              /* verify */ true,
+                              /* verify_checksum */ true,
+                              &error_code,
+                              error_msg,
+                              &tmp);
   CHECK(success) << *error_msg;
   EXPECT_EQ(1U, tmp.size());
   std::unique_ptr<const DexFile> dex_file = std::move(tmp[0]);

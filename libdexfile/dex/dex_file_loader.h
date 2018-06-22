@@ -22,10 +22,11 @@
 #include <string>
 #include <vector>
 
+#include "dex_file_container.h"
+
 namespace art {
 
 class DexFile;
-class DexFileContainer;
 class MemMap;
 class OatDexFile;
 
@@ -121,8 +122,7 @@ class DexFileLoader {
                                     bool* zip_file_only_contains_uncompress_dex = nullptr) const;
 
   // Opens .dex file, backed by existing memory
-  virtual std::unique_ptr<const DexFile> Open(const uint8_t* base,
-                                              size_t size,
+  virtual std::unique_ptr<const DexFile> Open(std::unique_ptr<DexFileContainer> container,
                                               const std::string& location,
                                               uint32_t location_checksum,
                                               const OatDexFile* oat_dex_file,
@@ -132,10 +132,8 @@ class DexFileLoader {
 
   // Open a dex file with a separate data section.
   virtual std::unique_ptr<const DexFile> OpenWithDataSection(
-      const uint8_t* base,
-      size_t size,
-      const uint8_t* data_base,
-      size_t data_size,
+      std::unique_ptr<DexFileContainer> main_section,
+      std::unique_ptr<DexFileContainer> data_section,
       const std::string& location,
       uint32_t location_checksum,
       const OatDexFile* oat_dex_file,
@@ -146,8 +144,7 @@ class DexFileLoader {
 
   // Opens all .dex files found in the memory map, guessing the container format based on file
   // extension.
-  virtual bool OpenAll(const uint8_t* base,
-                       size_t size,
+  virtual bool OpenAll(std::unique_ptr<DexFileContainer> container,
                        const std::string& location,
                        bool verify,
                        bool verify_checksum,
@@ -162,17 +159,17 @@ class DexFileLoader {
     kVerifyFailed
   };
 
-  static std::unique_ptr<DexFile> OpenCommon(const uint8_t* base,
-                                             size_t size,
-                                             const uint8_t* data_base,
-                                             size_t data_size,
+  // main_section points to the header and fixed-sized objects (ids, etc.)
+  // If not empty (Begin != nullptr) data_section points to the dex file's variable-sized
+  // objects such as strings, class_data_items, etc.
+  static std::unique_ptr<DexFile> OpenCommon(std::unique_ptr<DexFileContainer> main_section,
+                                             std::unique_ptr<DexFileContainer> data_section,
                                              const std::string& location,
                                              uint32_t location_checksum,
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
                                              std::string* error_msg,
-                                             std::unique_ptr<DexFileContainer> container,
                                              VerifyResult* verify_result);
 
  private:
