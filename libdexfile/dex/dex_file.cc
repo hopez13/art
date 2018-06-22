@@ -73,61 +73,69 @@ uint32_t DexFile::ChecksumMemoryRange(const uint8_t* begin, size_t size) {
 }
 
 int DexFile::GetPermissions() const {
-  CHECK(container_.get() != nullptr);
-  return container_->GetPermissions();
+  CHECK(dex_main_.get() != nullptr);
+  return dex_main_->GetPermissions();
 }
 
 bool DexFile::IsReadOnly() const {
-  CHECK(container_.get() != nullptr);
-  return container_->IsReadOnly();
+  CHECK(dex_main_.get() != nullptr);
+  return dex_main_->IsReadOnly();
 }
 
 bool DexFile::EnableWrite() const {
-  CHECK(container_.get() != nullptr);
-  return container_->EnableWrite();
+  CHECK(dex_main_.get() != nullptr);
+  return dex_main_->EnableWrite();
 }
 
 bool DexFile::DisableWrite() const {
-  CHECK(container_.get() != nullptr);
-  return container_->DisableWrite();
+  CHECK(dex_main_.get() != nullptr);
+  return dex_main_->DisableWrite();
 }
 
-DexFile::DexFile(const uint8_t* base,
-                 size_t size,
-                 const uint8_t* data_begin,
-                 size_t data_size,
+DexFile::DexFile(std::unique_ptr<DexFileContainer> dex_main,
+                 std::unique_ptr<DexFileContainer> dex_data,
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
-                 std::unique_ptr<DexFileContainer> container,
                  bool is_compact_dex)
-    : begin_(base),
-      size_(size),
-      data_begin_(data_begin),
-      data_size_(data_size),
+    : DexFile(std::move(dex_main),
+              location,
+              location_checksum,
+              oat_dex_file,
+              is_compact_dex) {
+  dex_data_ = std::move(dex_data);
+}
+
+DexFile::DexFile(std::unique_ptr<DexFileContainer> dex_main,
+                 const std::string& location,
+                 uint32_t location_checksum,
+                 const OatDexFile* oat_dex_file,
+                 bool is_compact_dex)
+    : dex_main_(std::move(dex_main)),
       location_(location),
       location_checksum_(location_checksum),
-      header_(reinterpret_cast<const Header*>(base)),
-      string_ids_(reinterpret_cast<const StringId*>(base + header_->string_ids_off_)),
-      type_ids_(reinterpret_cast<const TypeId*>(base + header_->type_ids_off_)),
-      field_ids_(reinterpret_cast<const FieldId*>(base + header_->field_ids_off_)),
-      method_ids_(reinterpret_cast<const MethodId*>(base + header_->method_ids_off_)),
-      proto_ids_(reinterpret_cast<const ProtoId*>(base + header_->proto_ids_off_)),
-      class_defs_(reinterpret_cast<const ClassDef*>(base + header_->class_defs_off_)),
+      header_(reinterpret_cast<const Header*>(dex_main_->Begin())),
+      string_ids_(reinterpret_cast<const StringId*>(dex_main_->Begin() + header_->string_ids_off_)),
+      type_ids_(reinterpret_cast<const TypeId*>(dex_main_->Begin() + header_->type_ids_off_)),
+      field_ids_(reinterpret_cast<const FieldId*>(dex_main_->Begin() + header_->field_ids_off_)),
+      method_ids_(reinterpret_cast<const MethodId*>(dex_main_->Begin() + header_->method_ids_off_)),
+      proto_ids_(reinterpret_cast<const ProtoId*>(dex_main_->Begin() + header_->proto_ids_off_)),
+      class_defs_(reinterpret_cast<const ClassDef*>(dex_main_->Begin() + header_->class_defs_off_)),
       method_handles_(nullptr),
       num_method_handles_(0),
       call_site_ids_(nullptr),
       num_call_site_ids_(0),
       oat_dex_file_(oat_dex_file),
-      container_(std::move(container)),
       is_compact_dex_(is_compact_dex),
       is_platform_dex_(false) {
-  CHECK(begin_ != nullptr) << GetLocation();
-  CHECK_GT(size_, 0U) << GetLocation();
+  CHECK(dex_main_->Begin() != nullptr) << GetLocation();
+  CHECK_GT(dex_main_->Size(), 0U) << GetLocation();
   // Check base (=header) alignment.
   // Must be 4-byte aligned to avoid undefined behavior when accessing
   // any of the sections via a pointer.
-  CHECK_ALIGNED(begin_, alignof(Header));
+  CHECK_ALIGNED(dex_main_->Begin(), alignof(Header));
+
+  dex_data_ = std::make_unique<NonOwningDexFileContainer>(dex_main_->Begin(), dex_main_->Size());
 
   InitializeSectionsFromMapList();
 }
