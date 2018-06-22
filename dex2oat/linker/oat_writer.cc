@@ -3622,9 +3622,9 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
       return false;
     }
     TimingLogger::ScopedTiming extract("Open", timings_);
-    dex_file = dex_file_loader.Open(location,
+    dex_file = dex_file_loader.Open(std::move(mem_map),
+                                    location,
                                     zip_entry->GetCrc32(),
-                                    std::move(mem_map),
                                     /* verify */ !GetCompilerOptions().IsBootImage(),
                                     /* verify_checksum */ true,
                                     &error_msg);
@@ -3652,8 +3652,8 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
     DCHECK(ValidateDexFileHeader(raw_dex_file, oat_dex_file->GetLocation()));
     const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(raw_dex_file);
     // Since the source may have had its layout changed, or may be quickened, don't verify it.
-    dex_file = dex_file_loader.Open(raw_dex_file,
-                                    header->file_size_,
+    dex_file = dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(raw_dex_file,
+                                                                                header->file_size_),
                                     location,
                                     oat_dex_file->dex_file_location_checksum_,
                                     nullptr,
@@ -3895,14 +3895,15 @@ bool OatWriter::OpenDexFiles(
       maps.emplace_back(map);
       // Now, open the dex file.
       const ArtDexFileLoader dex_file_loader;
-      dex_files.emplace_back(dex_file_loader.Open(map->Begin(),
-                                                  map->Size(),
-                                                  oat_dex_file.GetLocation(),
-                                                  oat_dex_file.dex_file_location_checksum_,
-                                                  /* oat_dex_file */ nullptr,
-                                                  verify,
-                                                  verify,
-                                                  &error_msg));
+      dex_files.emplace_back(
+          dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(map->Begin(),
+                                                                           map->Size()),
+                               oat_dex_file.GetLocation(),
+                               oat_dex_file.dex_file_location_checksum_,
+                               /* oat_dex_file */ nullptr,
+                               verify,
+                               verify,
+                               &error_msg));
       if (dex_files.back() == nullptr) {
         LOG(ERROR) << "Failed to open dex file from oat file. File: " << oat_dex_file.GetLocation()
                    << " Error: " << error_msg;
@@ -3959,14 +3960,17 @@ bool OatWriter::OpenDexFiles(
     }
 
     // Now, open the dex file.
-    dex_files.emplace_back(dex_file_loader.Open(raw_dex_file,
-                                                oat_dex_file.dex_file_size_,
-                                                oat_dex_file.GetLocation(),
-                                                oat_dex_file.dex_file_location_checksum_,
-                                                /* oat_dex_file */ nullptr,
-                                                verify,
-                                                verify,
-                                                &error_msg));
+    dex_files.emplace_back(
+        dex_file_loader.Open(
+            std::make_unique<NonOwningDexFileContainer>(raw_dex_file,
+                                                        oat_dex_file.dex_file_size_,
+                                                        false /* is_read_only */),
+            oat_dex_file.GetLocation(),
+            oat_dex_file.dex_file_location_checksum_,
+            /* oat_dex_file */ nullptr,
+            verify,
+            verify,
+            &error_msg));
     if (dex_files.back() == nullptr) {
       LOG(ERROR) << "Failed to open dex file from oat file. File: " << oat_dex_file.GetLocation()
                  << " Error: " << error_msg;

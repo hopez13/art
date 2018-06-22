@@ -1931,10 +1931,10 @@ bool DexLayout::ProcessDexFile(const char* file_name,
           << main_section->Size() << " " << data_section->Size();
       std::unique_ptr<const DexFile> output_dex_file(
           dex_file_loader.OpenWithDataSection(
-              main_section->Begin(),
-              main_section->Size(),
-              data_section->Begin(),
-              data_section->Size(),
+              std::make_unique<NonOwningDexFileContainer>(main_section->Begin(),
+                                                          main_section->Size()),
+              std::make_unique<NonOwningDexFileContainer>(data_section->Begin(),
+                                                          data_section->Size()),
               location,
               /* checksum */ 0,
               /*oat_dex_file*/ nullptr,

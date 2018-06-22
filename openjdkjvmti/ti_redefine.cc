@@ -456,9 +456,9 @@ jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const ArtClassDefinition
   }
   uint32_t checksum = reinterpret_cast<const art::DexFile::Header*>(map->Begin())->checksum_;
   const art::ArtDexFileLoader dex_file_loader;
-  std::unique_ptr<const art::DexFile> dex_file(dex_file_loader.Open(map->GetName(),
+  std::unique_ptr<const art::DexFile> dex_file(dex_file_loader.Open(std::move(map),
+                                                                    map->GetName(),
                                                                     checksum,
-                                                                    std::move(map),
                                                                     /*verify*/true,
                                                                     /*verify_checksum*/true,
                                                                     error_msg_));

@@ -178,8 +178,9 @@ static int processFile(const char* fileName) {
   DexFileLoaderErrorCode error_code;
   std::string error_msg;
   const DexFileLoader dex_file_loader;
-  if (!dex_file_loader.OpenAll(reinterpret_cast<const uint8_t*>(content.data()),
-                               content.size(),
+  if (!dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(
+                                   reinterpret_cast<const uint8_t*>(content.data()),
+                                   content.size()),
                                fileName,
                                /*verify*/ true,
                                kVerifyChecksum,

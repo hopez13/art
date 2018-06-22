@@ -23,7 +23,8 @@
 #include <vector>
 
 #include "base/macros.h"
-#include "dex/dex_file_loader.h"
+#include "dex_file_container.h"
+#include "dex_file_loader.h"
 
 namespace art {
 
@@ -54,8 +55,7 @@ class ArtDexFileLoader : public DexFileLoader {
                             bool* only_contains_uncompressed_dex = nullptr) const OVERRIDE;
 
   // Opens .dex file, backed by existing memory
-  std::unique_ptr<const DexFile> Open(const uint8_t* base,
-                                      size_t size,
+  std::unique_ptr<const DexFile> Open(std::unique_ptr<DexFileContainer> container,
                                       const std::string& location,
                                       uint32_t location_checksum,
                                       const OatDexFile* oat_dex_file,
@@ -64,9 +64,9 @@ class ArtDexFileLoader : public DexFileLoader {
                                       std::string* error_msg) const OVERRIDE;
 
   // Opens .dex file that has been memory-mapped by the caller.
-  std::unique_ptr<const DexFile> Open(const std::string& location,
+  std::unique_ptr<const DexFile> Open(std::unique_ptr<MemMap> mem_map,
+                                      const std::string& location,
                                       uint32_t location_checkum,
-                                      std::unique_ptr<MemMap> mem_map,
                                       bool verify,
                                       bool verify_checksum,
                                       std::string* error_msg) const;
@@ -121,17 +121,17 @@ class ArtDexFileLoader : public DexFileLoader {
                                                        std::string* error_msg,
                                                        DexFileLoaderErrorCode* error_code) const;
 
-  static std::unique_ptr<DexFile> OpenCommon(const uint8_t* base,
-                                             size_t size,
-                                             const uint8_t* data_base,
-                                             size_t data_size,
+  // main_section points to the header and fixed-sized objects (ids, etc.)
+  // If not empty (Begin != nullptr) data_section points to the dex file's variable-sized
+  // objects such as strings, class_data_items, etc.
+  static std::unique_ptr<DexFile> OpenCommon(std::unique_ptr<DexFileContainer> main_section,
+                                             std::unique_ptr<DexFileContainer> data_section,
                                              const std::string& location,
                                              uint32_t location_checksum,
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
                                              std::string* error_msg,
-                                             std::unique_ptr<DexFileContainer> container,
                                              VerifyResult* verify_result);
 };
 

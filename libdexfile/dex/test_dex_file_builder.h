@@ -234,8 +234,7 @@ class TestDexFileBuilder {
     std::string error_msg;
     const DexFileLoader dex_file_loader;
     std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(
-        &dex_file_data_[0],
-        dex_file_data_.size(),
+        std::make_unique<NonOwningDexFileContainer>(&dex_file_data_[0], dex_file_data_.size()),
         dex_location,
         0u,
         nullptr,
