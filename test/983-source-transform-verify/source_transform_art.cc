@@ -43,14 +43,14 @@ void VerifyClassData(jint class_data_len, const unsigned char* class_data) {
 
   const ArtDexFileLoader dex_file_loader;
   std::string error;
-  std::unique_ptr<const DexFile> dex(dex_file_loader.Open(class_data,
-                                                          class_data_len,
-                                                          "fake_location.dex",
-                                                          /*location_checksum*/ 0,
-                                                          /*oat_dex_file*/ nullptr,
-                                                          /*verify*/ true,
-                                                          /*verify_checksum*/ true,
-                                                          &error));
+  std::unique_ptr<const DexFile> dex(
+      dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(class_data, class_data_len),
+                           "fake_location.dex",
+                           /*location_checksum*/ 0,
+                           /*oat_dex_file*/ nullptr,
+                           /*verify*/ true,
+                           /*verify_checksum*/ true,
+                           &error));
   CHECK(dex.get() != nullptr) << "Failed to verify dex: " << error;
 
   for (ClassAccessor accessor : dex->GetClasses()) {

@@ -148,8 +148,9 @@ std::unique_ptr<FixedUpDexFile> FixedUpDexFile::Create(const art::DexFile& origi
 
   // Open the dex file in the buffer.
   new_dex_file = dex_file_loader.Open(
-      data.data(),
-      data.size(),
+      std::make_unique<art::NonOwningDexFileContainer>(data.data(),
+                                                       data.size(),
+                                                       false /* is_read_only */),
       /*location*/"Unquickening_dexfile.dex",
       /*location_checksum*/0,
       /*oat_dex_file*/nullptr,

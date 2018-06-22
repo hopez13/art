@@ -42,14 +42,14 @@ std::unique_ptr<const DexFile> CreateFakeDex(bool compact_dex, std::vector<uint8
   }
   const DexFileLoader dex_file_loader;
   std::string error_msg;
-  std::unique_ptr<const DexFile> dex(dex_file_loader.Open(data->data(),
-                                                          data->size(),
-                                                          "location",
-                                                          /*location_checksum*/ 123,
-                                                          /*oat_dex_file*/nullptr,
-                                                          /*verify*/false,
-                                                          /*verify_checksum*/false,
-                                                          &error_msg));
+  std::unique_ptr<const DexFile> dex(
+      dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(data->data(), data->size()),
+                           "location",
+                           /*location_checksum*/ 123,
+                           /*oat_dex_file*/nullptr,
+                           /*verify*/false,
+                           /*verify_checksum*/false,
+                           &error_msg));
   CHECK(dex != nullptr) << error_msg;
   return dex;
 }

@@ -210,10 +210,8 @@ bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_
     static constexpr char kVdexLocation[] = "";
     std::string location = DexFileLoader::GetMultiDexLocation(i, kVdexLocation);
     std::unique_ptr<const DexFile> dex(dex_file_loader.OpenWithDataSection(
-        dex_file_start,
-        size,
-        /*data_base*/ nullptr,
-        /*data_size*/ 0u,
+        std::make_unique<NonOwningDexFileContainer>(dex_file_start, size),
+        std::make_unique<EmptyDexFileContainer>(),
         location,
         GetLocationChecksum(i),
         nullptr /*oat_dex_file*/,

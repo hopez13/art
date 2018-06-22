@@ -44,6 +44,7 @@
 #include "compiler_driver-inl.h"
 #include "dex/class_accessor-inl.h"
 #include "dex/descriptors_names.h"
+#include "dex/dex_file_container.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_annotations.h"
 #include "dex/dex_instruction-inl.h"

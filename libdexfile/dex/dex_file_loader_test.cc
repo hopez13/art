@@ -218,14 +218,15 @@ static bool OpenDexFilesBase64(const char* base64,
   static constexpr bool kVerifyChecksum = true;
   std::vector<std::unique_ptr<const DexFile>> tmp;
   const DexFileLoader dex_file_loader;
-  bool success = dex_file_loader.OpenAll(dex_bytes->data(),
-                                         dex_bytes->size(),
-                                         location,
-                                         /* verify */ true,
-                                         kVerifyChecksum,
-                                         error_code,
-                                         error_msg,
-                                         dex_files);
+  bool success =
+      dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(dex_bytes->data(),
+                                                                          dex_bytes->size()),
+                              location,
+                              /* verify */ true,
+                              kVerifyChecksum,
+                              error_code,
+                              error_msg,
+                              dex_files);
   return success;
 }
 
@@ -252,14 +253,15 @@ static std::unique_ptr<const DexFile> OpenDexFileInMemoryBase64(const char* base
 
   std::string error_message;
   const DexFileLoader dex_file_loader;
-  std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(dex_bytes->data(),
-                                                               dex_bytes->size(),
-                                                               location,
-                                                               location_checksum,
-                                                               /* oat_dex_file */ nullptr,
-                                                               /* verify */ true,
-                                                               /* verify_checksum */ true,
-                                                               &error_message));
+  std::unique_ptr<const DexFile> dex_file(
+      dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(dex_bytes->data(),
+                                                                       dex_bytes->size()),
+                           location,
+                           location_checksum,
+                           /* oat_dex_file */ nullptr,
+                           /* verify */ true,
+                           /* verify_checksum */ true,
+                           &error_message));
   if (expect_success) {
     CHECK(dex_file != nullptr) << error_message;
   } else {
@@ -345,14 +347,15 @@ TEST_F(DexFileLoaderTest, Version40Rejected) {
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   const DexFileLoader dex_file_loader;
-  ASSERT_FALSE(dex_file_loader.OpenAll(dex_bytes.data(),
-                                       dex_bytes.size(),
-                                       kLocationString,
-                                       /* verify */ true,
-                                       kVerifyChecksum,
-                                       &error_code,
-                                       &error_msg,
-                                       &dex_files));
+  ASSERT_FALSE(
+      dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(dex_bytes.data(),
+                                                                          dex_bytes.size()),
+                              kLocationString,
+                              /* verify */ true,
+                              kVerifyChecksum,
+                              &error_code,
+                              &error_msg,
+                              &dex_files));
 }
 
 TEST_F(DexFileLoaderTest, Version41Rejected) {
@@ -364,14 +367,15 @@ TEST_F(DexFileLoaderTest, Version41Rejected) {
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   const DexFileLoader dex_file_loader;
-  ASSERT_FALSE(dex_file_loader.OpenAll(dex_bytes.data(),
-                                       dex_bytes.size(),
-                                       kLocationString,
-                                       /* verify */ true,
-                                       kVerifyChecksum,
-                                       &error_code,
-                                       &error_msg,
-                                       &dex_files));
+  ASSERT_FALSE(
+      dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(dex_bytes.data(),
+                                                                          dex_bytes.size()),
+                              kLocationString,
+                              /* verify */ true,
+                              kVerifyChecksum,
+                              &error_code,
+                              &error_msg,
+                              &dex_files));
 }
 
 TEST_F(DexFileLoaderTest, ZeroLengthDexRejected) {
@@ -383,14 +387,15 @@ TEST_F(DexFileLoaderTest, ZeroLengthDexRejected) {
   std::string error_msg;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   const DexFileLoader dex_file_loader;
-  ASSERT_FALSE(dex_file_loader.OpenAll(dex_bytes.data(),
-                                       dex_bytes.size(),
-                                       kLocationString,
-                                       /* verify */ true,
-                                       kVerifyChecksum,
-                                       &error_code,
-                                       &error_msg,
-                                       &dex_files));
+  ASSERT_FALSE(
+      dex_file_loader.OpenAll(std::make_unique<NonOwningDexFileContainer>(dex_bytes.data(),
+                                                                          dex_bytes.size()),
+                              kLocationString,
+                              /* verify */ true,
+                              kVerifyChecksum,
+                              &error_code,
+                              &error_msg,
+                              &dex_files));
 }
 
 TEST_F(DexFileLoaderTest, GetMultiDexClassesDexName) {
