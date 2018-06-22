@@ -1721,8 +1721,8 @@ std::unique_ptr<const DexFile> OatDexFile::OpenDexFile(std::string* error_msg) c
   static constexpr bool kVerify = false;
   static constexpr bool kVerifyChecksum = false;
   const ArtDexFileLoader dex_file_loader;
-  return dex_file_loader.Open(dex_file_pointer_,
-                              FileSize(),
+  return dex_file_loader.Open(std::make_unique<NonOwningDexFileContainer>(dex_file_pointer_,
+                                                                          FileSize()),
                               dex_file_location_,
                               dex_file_location_checksum_,
                               this,

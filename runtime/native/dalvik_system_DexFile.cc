@@ -192,9 +192,9 @@ static const DexFile* CreateDexFile(JNIEnv* env, std::unique_ptr<MemMap> dex_mem
                                       dex_mem_map->End());
   std::string error_message;
   const ArtDexFileLoader dex_file_loader;
-  std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(location,
+  std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(std::move(dex_mem_map),
+                                                               location,
                                                                0,
-                                                               std::move(dex_mem_map),
                                                                /* verify */ true,
                                                                /* verify_location */ true,
                                                                &error_message));

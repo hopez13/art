@@ -18,6 +18,7 @@
 
 #include "base/leb128.h"
 #include "code_item_accessors-inl.h"
+#include "dex_file_container.h"
 #include "dex_file-inl.h"
 
 namespace art {
@@ -84,22 +85,16 @@ uint32_t CompactDexFile::CalculateChecksum() const {
   return CalculateChecksum(Begin(), Size(), DataBegin(), DataSize());
 }
 
-CompactDexFile::CompactDexFile(const uint8_t* base,
-                               size_t size,
-                               const uint8_t* data_begin,
-                               size_t data_size,
+CompactDexFile::CompactDexFile(std::unique_ptr<DexFileContainer> main_section,
+                               std::unique_ptr<DexFileContainer> data_section,
                                const std::string& location,
                                uint32_t location_checksum,
-                               const OatDexFile* oat_dex_file,
-                               std::unique_ptr<DexFileContainer> container)
-    : DexFile(base,
-              size,
-              data_begin,
-              data_size,
+                               const OatDexFile* oat_dex_file)
+    : DexFile(std::move(main_section),
+              std::move(data_section),
               location,
               location_checksum,
               oat_dex_file,
-              std::move(container),
               /*is_compact_dex*/ true),
       debug_info_offsets_(DataBegin() + GetHeader().debug_info_offsets_pos_,
                           GetHeader().debug_info_base_,

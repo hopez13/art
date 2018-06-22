@@ -54,8 +54,17 @@ class VectorContainer : public DexFileContainer {
     return false;
   }
 
+  uint8_t* Begin() OVERRIDE {
+    return vector_.data();
+  }
+
+  size_t Size() OVERRIDE {
+    return vector_.size();
+  }
+
  private:
   std::vector<uint8_t> vector_;
+
   DISALLOW_COPY_AND_ASSIGN(VectorContainer);
 };
 
@@ -216,56 +225,46 @@ bool DexFileLoader::GetMultiDexChecksums(
   return false;
 }
 
-std::unique_ptr<const DexFile> DexFileLoader::Open(const uint8_t* base,
-                                                   size_t size,
+std::unique_ptr<const DexFile> DexFileLoader::Open(std::unique_ptr<DexFileContainer> container,
                                                    const std::string& location,
                                                    uint32_t location_checksum,
                                                    const OatDexFile* oat_dex_file,
                                                    bool verify,
                                                    bool verify_checksum,
                                                    std::string* error_msg) const {
-  return OpenCommon(base,
-                    size,
-                    /*data_base*/ nullptr,
-                    /*data_size*/ 0,
+  return OpenCommon(std::move(container),
+                    std::make_unique<EmptyDexFileContainer>(),
                     location,
                     location_checksum,
                     oat_dex_file,
                     verify,
                     verify_checksum,
                     error_msg,
-                    /*container*/ nullptr,
                     /*verify_result*/ nullptr);
 }
 
 std::unique_ptr<const DexFile> DexFileLoader::OpenWithDataSection(
-    const uint8_t* base,
-    size_t size,
-    const uint8_t* data_base,
-    size_t data_size,
+    std::unique_ptr<DexFileContainer> main_section,
+    std::unique_ptr<DexFileContainer> data_section,
     const std::string& location,
     uint32_t location_checksum,
     const OatDexFile* oat_dex_file,
     bool verify,
     bool verify_checksum,
     std::string* error_msg) const {
-  return OpenCommon(base,
-                    size,
-                    data_base,
-                    data_size,
+  return OpenCommon(std::move(main_section),
+                    std::move(data_section),
                     location,
                     location_checksum,
                     oat_dex_file,
                     verify,
                     verify_checksum,
                     error_msg,
-                    /*container*/ nullptr,
                     /*verify_result*/ nullptr);
 }
 
 bool DexFileLoader::OpenAll(
-    const uint8_t* base,
-    size_t size,
+    std::unique_ptr<DexFileContainer> container,
     const std::string& location,
     bool verify,
     bool verify_checksum,
@@ -273,9 +272,11 @@ bool DexFileLoader::OpenAll(
     std::string* error_msg,
     std::vector<std::unique_ptr<const DexFile>>* dex_files) const {
   DCHECK(dex_files != nullptr) << "DexFile::Open: out-param is nullptr";
-  uint32_t magic = *reinterpret_cast<const uint32_t*>(base);
+  uint32_t magic = *reinterpret_cast<const uint32_t*>(container->Begin());
   if (IsZipMagic(magic)) {
-    std::unique_ptr<DexZipArchive> zip_archive(DexZipArchive::Open(base, size, error_msg));
+    std::unique_ptr<DexZipArchive> zip_archive(DexZipArchive::Open(container->Begin(),
+                                                                   container->Size(),
+                                                                   error_msg));
     if (zip_archive.get() == nullptr) {
       DCHECK(!error_msg->empty());
       return false;
@@ -289,9 +290,9 @@ bool DexFileLoader::OpenAll(
                                   dex_files);
   }
   if (IsMagicValid(magic)) {
-    const DexFile::Header* dex_header = reinterpret_cast<const DexFile::Header*>(base);
-    std::unique_ptr<const DexFile> dex_file(Open(base,
-                                                 size,
+    const DexFile::Header* dex_header =
+        reinterpret_cast<const DexFile::Header*>(container->Begin());
+    std::unique_ptr<const DexFile> dex_file(Open(std::move(container),
                                                  location,
                                                  dex_header->checksum_,
                                                  /*oat_dex_file*/ nullptr,
@@ -309,49 +310,47 @@ bool DexFileLoader::OpenAll(
   return false;
 }
 
-std::unique_ptr<DexFile> DexFileLoader::OpenCommon(const uint8_t* base,
-                                                   size_t size,
-                                                   const uint8_t* data_base,
-                                                   size_t data_size,
+std::unique_ptr<DexFile> DexFileLoader::OpenCommon(std::unique_ptr<DexFileContainer> main_section,
+                                                   std::unique_ptr<DexFileContainer> data_section,
                                                    const std::string& location,
                                                    uint32_t location_checksum,
                                                    const OatDexFile* oat_dex_file,
                                                    bool verify,
                                                    bool verify_checksum,
                                                    std::string* error_msg,
-                                                   std::unique_ptr<DexFileContainer> container,
                                                    VerifyResult* verify_result) {
   if (verify_result != nullptr) {
     *verify_result = VerifyResult::kVerifyNotAttempted;
   }
   std::unique_ptr<DexFile> dex_file;
-  if (size >= sizeof(StandardDexFile::Header) && StandardDexFile::IsMagicValid(base)) {
-    if (data_size != 0) {
-      CHECK_EQ(base, data_base) << "Unsupported for standard dex";
+  if (main_section->Size() >= sizeof(StandardDexFile::Header) &&
+      StandardDexFile::IsMagicValid(main_section->Begin())) {
+    if (data_section->Size() != 0) {
+      CHECK_EQ(main_section->Begin(), data_section->Begin()) << "Unsupported for standard dex";
     }
-    dex_file.reset(new StandardDexFile(base,
-                                       size,
+    CHECK(main_section != nullptr);
+    CHECK(main_section->Begin() != nullptr);
+    dex_file.reset(new StandardDexFile(std::move(main_section),
                                        location,
                                        location_checksum,
-                                       oat_dex_file,
-                                       std::move(container)));
-  } else if (size >= sizeof(CompactDexFile::Header) && CompactDexFile::IsMagicValid(base)) {
-    if (data_base == nullptr) {
+                                       oat_dex_file));
+  } else if (main_section->Size() >= sizeof(CompactDexFile::Header) &&
+             CompactDexFile::IsMagicValid(main_section->Begin())) {
+    if (data_section->Begin() == nullptr) {
       // TODO: Is there a clean way to support both an explicit data section and reading the one
       // from the header.
-      CHECK_EQ(data_size, 0u);
-      const CompactDexFile::Header* const header = CompactDexFile::Header::At(base);
-      data_base = base + header->data_off_;
-      data_size = header->data_size_;
+      CHECK_EQ(data_section->Size(), 0u);
+      const CompactDexFile::Header* const header =
+          CompactDexFile::Header::At(main_section->Begin());
+      data_section =
+          std::make_unique<NonOwningDexFileContainer>(main_section->Begin() + header->data_off_,
+                                                      header->data_size_);
     }
-    dex_file.reset(new CompactDexFile(base,
-                                      size,
-                                      data_base,
-                                      data_size,
+    dex_file.reset(new CompactDexFile(std::move(main_section),
+                                      std::move(data_section),
                                       location,
                                       location_checksum,
-                                      oat_dex_file,
-                                      std::move(container)));
+                                      oat_dex_file));
     // Disable verification for CompactDex input.
     verify = false;
   } else {
@@ -411,20 +410,17 @@ std::unique_ptr<const DexFile> DexFileLoader::OpenOneDexFileFromZip(
     return nullptr;
   }
   VerifyResult verify_result;
-  std::unique_ptr<const DexFile> dex_file = OpenCommon(
-      map.data(),
-      map.size(),
-      /*data_base*/ nullptr,
-      /*data_size*/ 0u,
-      location,
-      zip_entry->GetCrc32(),
-      /*oat_dex_file*/ nullptr,
-      verify,
-      verify_checksum,
-      error_msg,
-      std::make_unique<VectorContainer>(std::move(map)),
-      &verify_result);
-  if (verify_result != VerifyResult::kVerifySucceeded) {
+  std::unique_ptr<const DexFile> dex_file =
+      OpenCommon(std::make_unique<VectorContainer>(std::move(map)),
+                 std::make_unique<EmptyDexFileContainer>(),
+                 location,
+                 zip_entry->GetCrc32(),
+                 /*oat_dex_file*/ nullptr,
+                 verify,
+                 verify_checksum,
+                 error_msg,
+                 &verify_result);
+  if (dex_file == nullptr || verify_result != VerifyResult::kVerifySucceeded) {
     if (verify_result == VerifyResult::kVerifyNotAttempted) {
       *error_code = DexFileLoaderErrorCode::kDexFileError;
     } else {

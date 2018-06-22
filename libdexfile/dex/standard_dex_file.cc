@@ -19,6 +19,7 @@
 #include "base/casts.h"
 #include "base/leb128.h"
 #include "code_item_accessors-inl.h"
+#include "dex_file_container.h"
 #include "dex_file-inl.h"
 
 namespace art {
@@ -35,6 +36,16 @@ const uint8_t StandardDexFile::kDexMagicVersions[StandardDexFile::kNumDexVersion
   // Dex verion 039: Beyond Android "O".
   {'0', '3', '9', '\0'},
 };
+
+StandardDexFile::StandardDexFile(std::unique_ptr<DexFileContainer> container,
+                                 const std::string& location,
+                                 uint32_t location_checksum,
+                                 const OatDexFile* oat_dex_file)
+    : DexFile(std::move(container),
+              location,
+              location_checksum,
+              oat_dex_file,
+              /*is_compact_dex*/ false) {}
 
 void StandardDexFile::WriteMagic(uint8_t* magic) {
   std::copy_n(kDexMagic, kDexMagicSize, magic);

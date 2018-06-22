@@ -818,10 +818,10 @@ TEST_F(DexLayoutTest, ClassFilter) {
     ASSERT_TRUE(result) << "Failed to run dexlayout " << error_msg;
     std::unique_ptr<const DexFile> output_dex_file(
         dex_file_loader.OpenWithDataSection(
-            out->GetMainSection()->Begin(),
-            out->GetMainSection()->Size(),
-            out->GetDataSection()->Begin(),
-            out->GetDataSection()->Size(),
+            std::make_unique<NonOwningDexFileContainer>(out->GetMainSection()->Begin(),
+                                                        out->GetMainSection()->Size()),
+            std::make_unique<NonOwningDexFileContainer>(out->GetDataSection()->Begin(),
+                                                        out->GetDataSection()->Size()),
             dex_file->GetLocation().c_str(),
             /* checksum */ 0,
             /*oat_dex_file*/ nullptr,
