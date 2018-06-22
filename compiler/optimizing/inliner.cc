@@ -731,7 +731,7 @@ HInliner::InlineCacheType HInliner::ExtractClassesFromOfflineProfile(
         offline_profile.dex_references.size());
   for (size_t i = 0; i < offline_profile.dex_references.size(); i++) {
     bool found = false;
-    for (const DexFile* dex_file : compiler_driver_->GetDexFilesForOatFile()) {
+    for (const DexFile* dex_file : codegen_->GetCompilerOptions().GetDexFilesForOatFile()) {
       if (offline_profile.dex_references[i].MatchesDex(dex_file)) {
         dex_profile_index_to_dex_cache[i] =
             caller_compilation_unit_.GetClassLinker()->FindDexCache(self, *dex_file);
