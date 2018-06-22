@@ -1,0 +1,232 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5751b276_b7d4088d",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf02f5c_c6827f23",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78e3ce1_c090134e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd14b58_2732cd5d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be0d0a03_e5685835",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), thread_running_gc_);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89a28dd0_2e47fbe4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "These assertions are presumably run rarely (once per GC cycle IIUC); I think it would be fine to keep them as CHECKs. Mathieu, what do you think?",
+      "range": {
+        "startLine": 1603,
+        "startChar": 0,
+        "endLine": 1605,
+        "endChar": 67
+      },
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1765801_24bb745e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1621,
+        "startChar": 0,
+        "endLine": 1623,
+        "endChar": 67
+      },
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "631f200b_d7dd81b8",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1636,
+        "startChar": 0,
+        "endLine": 1638,
+        "endChar": 67
+      },
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd9879cc_b829173f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d move this assertion at the beginning of the method.",
+      "range": {
+        "startLine": 2124,
+        "startChar": 2,
+        "endLine": 2124,
+        "endChar": 51
+      },
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f85353c_fbd4a0c1",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05892620_93e8e0ef",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2354,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "febc3ca4_17827aff",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2787,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-22T17:28:48Z",
+      "side": 1,
+      "message": "I\u0027d add:\n\n  DCHECK_EQ(Thread::Current(), self);\n\nhere.",
+      "revId": "7a1815414f0f992558de3ee552143e9fc72096a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
