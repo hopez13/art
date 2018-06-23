@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <unistd.h>
 #include <zlib.h>
+#include <iostream>
 
 #include "arch/arm64/instruction_set_features_arm64.h"
 #include "art_method-inl.h"
@@ -27,6 +28,8 @@
 #include "base/enums.h"
 #include "base/file_magic.h"
 #include "base/logging.h"  // For VLOG
+#include "base/malloc_arena_pool.h"
+#include "base/indenter.h"
 #include "base/os.h"
 #include "base/safe_map.h"
 #include "base/stl_util.h"
@@ -62,6 +65,7 @@
 #include "mirror/dex_cache-inl.h"
 #include "mirror/object-inl.h"
 #include "oat_quick_method_header.h"
+#include "optimizing/stack_map_stream.h"
 #include "profile/profile_compilation_info.h"
 #include "quicken_info.h"
 #include "scoped_thread_state_change-inl.h"
@@ -1463,6 +1467,9 @@ class OatWriter::LayoutReserveOffsetCodeMethodVisitor : public OrderedMethodVisi
 
 class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
  public:
+  static constexpr uint32_t kMaxMergeCount = 16;
+  static constexpr uint32_t kMergeSizeHint = 192;
+
   InitMapMethodVisitor(OatWriter* writer, size_t offset)
       : OatDexMethodVisitor(writer, offset) {}
 
@@ -1470,35 +1477,67 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
     OatClass* oat_class = &writer_->oat_classes_[oat_class_index_];
     CompiledMethod* compiled_method = oat_class->GetCompiledMethod(class_def_method_index);
-
-    if (HasCompiledCode(compiled_method)) {
-      DCHECK_LT(method_offsets_index_, oat_class->method_offsets_.size());
-      DCHECK_EQ(oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset(), 0u);
-
-      ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
-      uint32_t map_size = map.size() * sizeof(map[0]);
-      if (map_size != 0u) {
-        size_t offset = dedupe_map_.GetOrCreate(
-            map.data(),
-            [this, map_size]() {
-              uint32_t new_offset = offset_;
-              offset_ += map_size;
-              return new_offset;
-            });
-        // Code offset is not initialized yet, so set the map offset to 0u-offset.
-        DCHECK_EQ(oat_class->method_offsets_[method_offsets_index_].code_offset_, 0u);
-        oat_class->method_headers_[method_offsets_index_].SetVmapTableOffset(0u - offset);
-      }
-      ++method_offsets_index_;
+    if (HasCompiledCode(compiled_method) && compiled_method->GetVmapTable().size() > 0) {
+      code_infos_.push_back(compiled_method->GetVmapTable());
     }
-
     return true;
   }
 
+  void MergeCodeInfos() {
+    std::sort(code_infos_.begin(),
+              code_infos_.end(),
+              [](const auto& lhs, const auto& rhs) {
+                  if (lhs.size() != rhs.size()) {
+                    return lhs.size() < rhs.size();
+                  } else {
+                    return memcmp(lhs.data(), rhs.data(), rhs.size()) < 0;
+                  }
+              });
+
+    size_t total_input_size = 0;
+    size_t total_output_size = 0;
+
+    writer_->merged_code_infos_.clear();
+    writer_->code_info_remap_.clear();
+
+    MallocArenaPool pool;
+    ArenaStack arena_stack(&pool);
+    InstructionSet isa = writer_->GetCompilerOptions().GetInstructionSet();
+    while (!code_infos_.empty()) {
+      ScopedArenaAllocator allocator(&arena_stack);
+      std::unique_ptr<StackMapStream> stack_maps(new StackMapStream(&allocator, isa));
+      size_t count = 0;
+      size_t input_size = 0;
+      for (; !code_infos_.empty(); code_infos_.pop_back()) {
+        const uint8_t* code_info_ptr = code_infos_.back().data();
+        if (writer_->code_info_remap_.count(code_info_ptr) != 0) {
+          continue;  // We have already seen exactly same input. Skip it.
+        }
+        CodeInfo code_info(code_info_ptr);
+        uint32_t subset_index = stack_maps->Merge(code_info);
+        writer_->code_info_remap_[code_info_ptr] = std::make_pair(offset_, subset_index);
+        input_size += code_infos_.back().size();
+        if (++count == kMaxMergeCount || input_size >= kMergeSizeHint) {
+          break;  // We have collected enough data to merge.
+        }
+      }
+      size_t output_size = stack_maps->PrepareForFillIn();
+      std::vector<uint8_t> merged_code_info(output_size);
+      stack_maps->FillInCodeInfo(MemoryRegion(merged_code_info.data(), output_size));
+      writer_->merged_code_infos_.emplace_back(std::move(merged_code_info));
+
+      offset_ += output_size;
+      total_input_size += input_size;
+      total_output_size += output_size;
+    }
+    LOG(WARNING) << "Merged code total: "
+      << " Input: " << total_input_size
+      << " Output: " << total_output_size
+      << " Percent: " << total_output_size * 100 / std::max<size_t>(1u, total_input_size);
+  }
+
  private:
-  // Deduplication is already done on a pointer basis by the compiler driver,
-  // so we can simply compare the pointers to find out if things are duplicated.
-  SafeMap<const uint8_t*, uint32_t> dedupe_map_;
+  std::vector<ArrayRef<const uint8_t>> code_infos_;
 };
 
 class OatWriter::InitMethodInfoVisitor : public OatDexMethodVisitor {
@@ -2073,68 +2112,6 @@ class OatWriter::WriteCodeMethodVisitor : public OrderedMethodVisitor {
   }
 };
 
-class OatWriter::WriteMapMethodVisitor : public OatDexMethodVisitor {
- public:
-  WriteMapMethodVisitor(OatWriter* writer,
-                        OutputStream* out,
-                        const size_t file_offset,
-                        size_t relative_offset)
-      : OatDexMethodVisitor(writer, relative_offset),
-        out_(out),
-        file_offset_(file_offset) {}
-
-  bool VisitMethod(size_t class_def_method_index, const ClassDataItemIterator& it) OVERRIDE {
-    OatClass* oat_class = &writer_->oat_classes_[oat_class_index_];
-    const CompiledMethod* compiled_method = oat_class->GetCompiledMethod(class_def_method_index);
-
-    if (HasCompiledCode(compiled_method)) {
-      size_t file_offset = file_offset_;
-      OutputStream* out = out_;
-
-      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset();
-      uint32_t code_offset = oat_class->method_offsets_[method_offsets_index_].code_offset_;
-      ++method_offsets_index_;
-
-      DCHECK((compiled_method->GetVmapTable().size() == 0u && map_offset == 0u) ||
-             (compiled_method->GetVmapTable().size() != 0u && map_offset != 0u))
-          << compiled_method->GetVmapTable().size() << " " << map_offset << " "
-          << dex_file_->PrettyMethod(it.GetMemberIndex());
-
-      // If vdex is enabled, only emit the map for compiled code. The quickening info
-      // is emitted in the vdex already.
-      if (map_offset != 0u) {
-        // Transform map_offset to actual oat data offset.
-        map_offset = (code_offset - compiled_method->CodeDelta()) - map_offset;
-        DCHECK_NE(map_offset, 0u);
-        DCHECK_LE(map_offset, offset_) << dex_file_->PrettyMethod(it.GetMemberIndex());
-
-        ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
-        size_t map_size = map.size() * sizeof(map[0]);
-        if (map_offset == offset_) {
-          // Write deduplicated map (code info for Optimizing or transformation info for dex2dex).
-          if (UNLIKELY(!out->WriteFully(map.data(), map_size))) {
-            ReportWriteFailure(it);
-            return false;
-          }
-          offset_ += map_size;
-        }
-      }
-      DCHECK_OFFSET_();
-    }
-
-    return true;
-  }
-
- private:
-  OutputStream* const out_;
-  size_t const file_offset_;
-
-  void ReportWriteFailure(const ClassDataItemIterator& it) {
-    PLOG(ERROR) << "Failed to write map for "
-        << dex_file_->PrettyMethod(it.GetMemberIndex()) << " to " << out_->GetLocation();
-  }
-};
-
 class OatWriter::WriteMethodInfoVisitor : public OatDexMethodVisitor {
  public:
   WriteMethodInfoVisitor(OatWriter* writer,
@@ -2281,6 +2258,7 @@ size_t OatWriter::InitOatMaps(size_t offset) {
     InitMapMethodVisitor visitor(this, offset);
     bool success = VisitDexMethods(&visitor);
     DCHECK(success);
+    visitor.MergeCodeInfos();
     offset = visitor.GetOffset();
   }
   {
@@ -3136,11 +3114,12 @@ size_t OatWriter::WriteClasses(OutputStream* out, size_t file_offset, size_t rel
 size_t OatWriter::WriteMaps(OutputStream* out, size_t file_offset, size_t relative_offset) {
   {
     size_t vmap_tables_offset = relative_offset;
-    WriteMapMethodVisitor visitor(this, out, file_offset, relative_offset);
-    if (UNLIKELY(!VisitDexMethods(&visitor))) {
-      return 0;
+    for (auto it : merged_code_infos_) {
+      if (UNLIKELY(!out->WriteFully(it.data(), it.size()))) {
+        return 0;
+      }
+      relative_offset += it.size();
     }
-    relative_offset = visitor.GetOffset();
     size_vmap_table_ = relative_offset - vmap_tables_offset;
   }
   {

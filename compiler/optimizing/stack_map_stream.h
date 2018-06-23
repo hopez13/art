@@ -35,10 +35,12 @@ namespace art {
  * Collects and builds stack maps for a method. All the stack maps
  * for a method are placed in a CodeInfo object.
  */
-class StackMapStream : public ValueObject {
+class StackMapStream {
  public:
   explicit StackMapStream(ScopedArenaAllocator* allocator, InstructionSet instruction_set)
-      : instruction_set_(instruction_set),
+      : allocator_(allocator),
+        instruction_set_(instruction_set),
+        method_headers_(allocator),
         stack_maps_(allocator),
         register_masks_(allocator),
         stack_masks_(allocator),
@@ -99,16 +101,20 @@ class StackMapStream : public ValueObject {
 
   size_t ComputeMethodInfoSize() const;
 
+  uint32_t Merge(const CodeInfo& code_info);
  private:
   static constexpr uint32_t kNoValue = -1;
 
   void CreateDexRegisterMap();
 
+  void BeginInlineInfoEntry(uint32_t dex_pc,
+                            uint32_t num_dex_registers,
+                            ArtMethod* method,
+                            uint32_t method_info_index);
+
+  ScopedArenaAllocator* allocator_;
   const InstructionSet instruction_set_;
-  uint32_t frame_size_in_bytes_ = 0;
-  uint32_t core_spill_mask_ = 0;
-  uint32_t fp_spill_mask_ = 0;
-  uint32_t num_dex_registers_ = 0;
+  BitTableBuilder<MethodHeader> method_headers_;
   BitTableBuilder<StackMap> stack_maps_;
   BitTableBuilder<RegisterMask> register_masks_;
   BitmapTableBuilder stack_masks_;

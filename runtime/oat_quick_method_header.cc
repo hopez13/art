@@ -32,8 +32,9 @@ OatQuickMethodHeader::OatQuickMethodHeader(uint32_t vmap_table_offset,
                                            uint32_t code_size)
     : vmap_table_offset_(vmap_table_offset),
       method_info_offset_(method_info_offset),
-      frame_info_(frame_size_in_bytes, core_spill_mask, fp_spill_mask),
-      code_size_(code_size) {}
+      frame_info_(frame_size_in_bytes, core_spill_mask, fp_spill_mask) {
+  packed_fields_ = PackedCodeSize::Update(code_size, packed_fields_);
+}
 
 uint32_t OatQuickMethodHeader::ToDexPc(ArtMethod* method,
                                        const uintptr_t pc,

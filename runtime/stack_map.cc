@@ -33,11 +33,8 @@ CodeInfo::CodeInfo(const OatQuickMethodHeader* header)
 
 void CodeInfo::Decode(const uint8_t* data) {
   const uint8_t* begin = data;
-  frame_size_in_bytes_ = DecodeUnsignedLeb128(&data);
-  core_spill_mask_ = DecodeUnsignedLeb128(&data);
-  fp_spill_mask_ = DecodeUnsignedLeb128(&data);
-  number_of_dex_registers_ = DecodeUnsignedLeb128(&data);
   BitMemoryReader reader(data, /* bit_offset */ 0);
+  method_headers_.Decode(reader);
   stack_maps_.Decode(reader);
   register_masks_.Decode(reader);
   stack_masks_.Decode(reader);

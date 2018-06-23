@@ -17,9 +17,10 @@
 #ifndef ART_DEX2OAT_LINKER_OAT_WRITER_H_
 #define ART_DEX2OAT_LINKER_OAT_WRITER_H_
 
-#include <stdint.h>
 #include <cstddef>
 #include <memory>
+#include <stdint.h>
+#include <unordered_map>
 #include <vector>
 
 #include "base/array_ref.h"
@@ -383,6 +384,9 @@ class OatWriter {
   std::list<std::string> zipped_dex_file_locations_;
 
   dchecked_vector<debug::MethodDebugInfo> method_info_;
+
+  std::vector<std::vector<uint8_t>> merged_code_infos_;
+  std::unordered_map<const uint8_t*, std::pair<uint32_t, uint8_t>> code_info_remap_;
 
   const CompilerDriver* compiler_driver_;
   const CompilerOptions& compiler_options_;

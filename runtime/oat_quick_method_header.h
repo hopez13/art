@@ -18,6 +18,7 @@
 #define ART_RUNTIME_OAT_QUICK_METHOD_HEADER_H_
 
 #include "arch/instruction_set.h"
+#include "base/bit_field.h"
 #include "base/macros.h"
 #include "base/utils.h"
 #include "method_info.h"
@@ -91,11 +92,11 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
   uint32_t GetCodeSize() const {
-    return code_size_ & kCodeSizeMask;
+    return PackedCodeSize::Decode(packed_fields_);
   }
 
   const uint32_t* GetCodeSizeAddr() const {
-    return &code_size_;
+    return &packed_fields_;
   }
 
   uint32_t GetVmapTableOffset() const {
@@ -169,17 +170,23 @@ class PACKED(4) OatQuickMethodHeader {
   uint32_t ToDexPc(ArtMethod* method, const uintptr_t pc, bool abort_on_failure = true) const;
 
   void SetHasShouldDeoptimizeFlag() {
-    DCHECK_EQ(code_size_ & kShouldDeoptimizeMask, 0u);
-    code_size_ |= kShouldDeoptimizeMask;
+    packed_fields_ = PackedShouldDeoptimize::Update(true, packed_fields_);
   }
 
   bool HasShouldDeoptimizeFlag() const {
-    return (code_size_ & kShouldDeoptimizeMask) != 0;
+    return PackedShouldDeoptimize::Decode(packed_fields_);
   }
 
  private:
-  static constexpr uint32_t kShouldDeoptimizeMask = 0x80000000;
-  static constexpr uint32_t kCodeSizeMask = ~kShouldDeoptimizeMask;
+  static constexpr size_t kFieldCodeSize = 0;
+  static constexpr size_t kFieldCodeSizeSize = 24;
+  static constexpr size_t kFieldCodeInfoSubset = kFieldCodeSize + kFieldCodeSizeSize;
+  static constexpr size_t kFieldCodeInfoSubsetSize = 4;
+  static constexpr size_t kFieldShouldDeoptimize = kFieldCodeInfoSubset + kFieldCodeInfoSubsetSize;
+
+  using PackedCodeSize = BitField<uint32_t, kFieldCodeSize, kFieldCodeSizeSize>;
+  using PackedCodeInfoSubset = BitField<uint32_t, kFieldCodeInfoSubset, kFieldCodeInfoSubsetSize>;
+  using PackedShouldDeoptimize = BitField<bool, kFieldShouldDeoptimize, 1>;
 
   // The offset in bytes from the start of the vmap table to the end of the header.
   uint32_t vmap_table_offset_ = 0u;
@@ -190,9 +197,7 @@ class PACKED(4) OatQuickMethodHeader {
   uint32_t method_info_offset_ = 0u;
   // The stack frame information.
   QuickMethodFrameInfo frame_info_;
-  // The code size in bytes. The highest bit is used to signify if the compiled
-  // code with the method header has should_deoptimize flag.
-  uint32_t code_size_ = 0u;
+  uint32_t packed_fields_ = 0u;
   // The actual code.
   uint8_t code_[0];
 };

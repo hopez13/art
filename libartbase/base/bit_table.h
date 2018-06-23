@@ -316,7 +316,7 @@ class BitTableBuilderBase {
 
   Entry& operator[](size_t row) { return rows_[row]; }
   const Entry& operator[](size_t row) const { return rows_[row]; }
-  const Entry& back() const { return rows_.back(); }
+  Entry& back() { return rows_.back(); }
   size_t size() const { return rows_.size(); }
 
   // Append given value to the vector without de-duplication.

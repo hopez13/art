@@ -113,6 +113,17 @@ class DexRegisterMap {
   dchecked_vector<DexRegisterLocation> regs_large_;
 };
 
+class MethodHeader : public BitTableAccessor<6> {
+ public:
+  BIT_TABLE_HEADER()
+  BIT_TABLE_COLUMN(0, FrameSizeInBytes)
+  BIT_TABLE_COLUMN(1, CoreSpillMask)
+  BIT_TABLE_COLUMN(2, FpSpillMask)
+  BIT_TABLE_COLUMN(3, NumberOfDexRegisters)
+  BIT_TABLE_COLUMN(4, StackMapIndex)  // Subset of stack maps relevant to this method.
+  BIT_TABLE_COLUMN(5, StackMapCount)
+};
+
 /**
  * A Stack Map holds compilation information for a specific PC necessary for:
  * - Mapping it to a dex PC,
@@ -302,6 +313,10 @@ class CodeInfo {
     return stack_maps_;
   }
 
+  ALWAYS_INLINE MethodHeader GetMethodHeaderAt(size_t index) const {
+    return method_headers_.GetRow(index);
+  }
+
   ALWAYS_INLINE StackMap GetStackMapAt(size_t index) const {
     return stack_maps_.GetRow(index);
   }
@@ -344,7 +359,8 @@ class CodeInfo {
 
   ALWAYS_INLINE DexRegisterMap GetDexRegisterMapOf(StackMap stack_map) const {
     if (stack_map.HasDexRegisterMap()) {
-      DexRegisterMap map(number_of_dex_registers_, DexRegisterLocation::Invalid());
+      uint32_t number_of_dex_registers = GetMethodHeaderAt(0).GetNumberOfDexRegisters();
+      DexRegisterMap map(number_of_dex_registers, DexRegisterLocation::Invalid());
       DecodeDexRegisterMap(stack_map.Row(), /* first_dex_register */ 0, &map);
       return map;
     }
@@ -356,11 +372,12 @@ class CodeInfo {
     if (stack_map.HasDexRegisterMap()) {
       DCHECK(stack_map.HasInlineInfoIndex());
       uint32_t depth = inline_info.Row() - stack_map.GetInlineInfoIndex();
+      uint32_t number_of_dex_registers = GetMethodHeaderAt(0).GetNumberOfDexRegisters();
       // The register counts are commutative and include all outer levels.
       // This allows us to determine the range [first, last) in just two lookups.
       // If we are at depth 0 (the first inlinee), the count from the main method is used.
       uint32_t first = (depth == 0)
-          ? number_of_dex_registers_
+          ? number_of_dex_registers
           : inline_infos_.GetRow(inline_info.Row() - 1).GetNumberOfDexRegisters();
       uint32_t last = inline_info.GetNumberOfDexRegisters();
       DexRegisterMap map(last - first, DexRegisterLocation::Invalid());
@@ -434,10 +451,13 @@ class CodeInfo {
   void AddSizeStats(/*out*/ Stats* parent) const;
 
   ALWAYS_INLINE static QuickMethodFrameInfo DecodeFrameInfo(const uint8_t* data) {
+    BitMemoryReader reader(data, /* bit_offset */ 0);
+    BitTable<MethodHeader> table(reader);
+    MethodHeader method_header = table.GetRow(0);
     return QuickMethodFrameInfo(
-        DecodeUnsignedLeb128(&data),
-        DecodeUnsignedLeb128(&data),
-        DecodeUnsignedLeb128(&data));
+      method_header.GetFrameSizeInBytes(),
+      method_header.GetCoreSpillMask(),
+      method_header.GetFpSpillMask());
   }
 
  private:
@@ -452,10 +472,7 @@ class CodeInfo {
 
   void Decode(const uint8_t* data);
 
-  uint32_t frame_size_in_bytes_;
-  uint32_t core_spill_mask_;
-  uint32_t fp_spill_mask_;
-  uint32_t number_of_dex_registers_;
+  BitTable<MethodHeader> method_headers_;
   BitTable<StackMap> stack_maps_;
   BitTable<RegisterMask> register_masks_;
   BitTable<MaskInfo> stack_masks_;
