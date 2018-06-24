@@ -90,12 +90,19 @@ class PACKED(4) OatQuickMethodHeader {
     return code_;
   }
 
-  uint32_t GetCodeSize() const {
-    return code_size_ & kCodeSizeMask;
+  // Round code size up to a value that can be encoded in the header.
+  static uint32_t RoundUpCodeSize(uint32_t size) {
+    uint32_t tailing_bits = std::max<int32_t>(MinimumBitsToStore(size) - kCodeSizeBits, 0);
+    DCHECK_LE(tailing_bits, BitSizeOf<uint32_t>() - kCodeSizeBits);
+    return RoundUp(size, 1 << tailing_bits);
   }
 
-  const uint32_t* GetCodeSizeAddr() const {
-    return &code_size_;
+  uint32_t GetCodeSize() const {
+    return UnpackCodeSize(packed_code_size_);
+  }
+
+  const uint16_t* GetCodeSizeAddr() const {
+    return &packed_code_size_;
   }
 
   uint32_t GetVmapTableOffset() const {
@@ -169,17 +176,32 @@ class PACKED(4) OatQuickMethodHeader {
   uint32_t ToDexPc(ArtMethod* method, const uintptr_t pc, bool abort_on_failure = true) const;
 
   void SetHasShouldDeoptimizeFlag() {
-    DCHECK_EQ(code_size_ & kShouldDeoptimizeMask, 0u);
-    code_size_ |= kShouldDeoptimizeMask;
+    DCHECK_EQ(flags_ & kShouldDeoptimizeFlag, 0u);
+    flags_ |= kShouldDeoptimizeFlag;
   }
 
   bool HasShouldDeoptimizeFlag() const {
-    return (code_size_ & kShouldDeoptimizeMask) != 0;
+    return (flags_ & kShouldDeoptimizeFlag) != 0;
   }
 
  private:
-  static constexpr uint32_t kShouldDeoptimizeMask = 0x80000000;
-  static constexpr uint32_t kCodeSizeMask = ~kShouldDeoptimizeMask;
+  static constexpr uint32_t kShouldDeoptimizeFlag = 1;
+  static constexpr uint32_t kCodeSizeBits = 12;
+
+  // Code size uses floating-point like encoding (4 bit exponent + 12 bit mantissa in words).
+  static uint32_t UnpackCodeSize(uint16_t packed) {
+    uint32_t shift = packed >> kCodeSizeBits;
+    uint32_t value = packed & MaxInt<uint16_t>(kCodeSizeBits);
+    return (value << shift) * sizeof(uint32_t);
+  }
+
+  static uint16_t PackCodeSize(uint32_t size) {
+    uint32_t words = RoundUp(size, sizeof(uint32_t)) / sizeof(uint32_t);
+    uint32_t shift = std::max<int32_t>(MinimumBitsToStore(words) - kCodeSizeBits, 0);
+    uint32_t packed = (shift << kCodeSizeBits) | (words >> shift);
+    DCHECK_EQ(UnpackCodeSize(packed), size);
+    return packed;
+  }
 
   // The offset in bytes from the start of the vmap table to the end of the header.
   uint32_t vmap_table_offset_ = 0u;
@@ -190,9 +212,9 @@ class PACKED(4) OatQuickMethodHeader {
   uint32_t method_info_offset_ = 0u;
   // The stack frame information.
   QuickMethodFrameInfo frame_info_;
-  // The code size in bytes. The highest bit is used to signify if the compiled
-  // code with the method header has should_deoptimize flag.
-  uint32_t code_size_ = 0u;
+  uint16_t flags_ = 0u;
+  // The code size in words, stored as (shift, value) packed tuple.
+  uint16_t packed_code_size_ = 0u;
   // The actual code.
   uint8_t code_[0];
 };
