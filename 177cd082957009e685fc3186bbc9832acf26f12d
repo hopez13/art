@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81048918_a398996f",
+        "filename": "test/003-omnibus-opcodes/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Nit: \"status\" (here and in other occurrences)? (I initially read that as stat(1)…) :)",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "488a7a04_b1548a85",
+        "filename": "test/004-ReferenceMap/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "I think you can also use \":\" (here and in other occurrences).",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adde5ce5_2380d3f7",
+        "filename": "test/004-StackWalk/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f4684d6_25d38a3c",
+        "filename": "test/005-annotations/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Nit: \"not at runtime\"?",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec936298_c3101dcd",
+        "filename": "test/005-annotations/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "What about:\n\n  rm -f classes/android/test/anno/MissingAnnotation.class\n  rm -f \u0027classes/android/test/anno/ClassWithInnerAnnotationClass$MissingInnerAnnotationClass.class\u0027\n\n?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dceada39_158e7e0d",
+        "filename": "test/138-duplicate-classes-check2/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Replace with:\n\n  rm -f classes-ex/A.class\n\n?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3e06ca2_ca87ece3",
+        "filename": "test/1948-obsolete-const-method-handle/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Add a comment to explain the chosen API level?",
+      "range": {
+        "startLine": 23,
+        "startChar": 16,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82fe20b0_329c0146",
+        "filename": "test/303-verification-stress/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Side note: Should we use something else here? Maybe `cc`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91853618_51793c32",
+        "filename": "test/952-invoke-custom/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 49
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d5edd5_7019c6d0",
+        "filename": "test/952-invoke-custom/util-src/transformer/IndyTransformer.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "This part is new; is this addressing a bug?",
+      "range": {
+        "startLine": 167,
+        "startChar": 32,
+        "endLine": 167,
+        "endChar": 44
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d27bcf_5139a263",
+        "filename": "test/979-const-method-handle/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:30:30Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
