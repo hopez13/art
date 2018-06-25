@@ -152,15 +152,7 @@ inline vixl::aarch64::CPURegister InputCPURegisterOrZeroRegAt(HInstruction* inst
 }
 
 inline int64_t Int64ConstantFrom(Location location) {
-  HConstant* instr = location.GetConstant();
-  if (instr->IsIntConstant()) {
-    return instr->AsIntConstant()->GetValue();
-  } else if (instr->IsNullConstant()) {
-    return 0;
-  } else {
-    DCHECK(instr->IsLongConstant()) << instr->DebugName();
-    return instr->AsLongConstant()->GetValue();
-  }
+  return Int64FromConstant(location.GetConstant());
 }
 
 inline vixl::aarch64::Operand OperandFrom(Location location, DataType::Type type) {
