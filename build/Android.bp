@@ -187,4 +187,12 @@ art_debug_defaults {
             cflags: ["-Wno-frame-larger-than="],
         },
     },
+    // Enable clang-tidy on debug modules to catch errors.
+    tidy: true,
+    tidy_checks: ["-*"] + art_clang_tidy_errors,
+    // Because tidy doesn't like our flow checks for compile-time configuration and thinks that
+    // the following code is dead (it is, but not for all configurations), disable unreachable
+    // code detection in Clang for tidy builds. It is still on for regular build steps, so we
+    // will still get the "real" errors.
+    tidy_flags: ["-extra-arg=-Wno-unreachable-code"],
 }
