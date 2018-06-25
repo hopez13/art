@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "93e92883_109f5506",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "I think this should be `CasMode`: the C++ coding style says: \"When abbreviations appear in such names, prefer to capitalize the abbreviations as single words (i.e. StartRpc(), not StartRPC()).\" (https://google.github.io/styleguide/cppguide.html#General_Naming_Rules)",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4be7a182_2f4ac924",
         "filename": "libartbase/base/atomic.h",
         "patchSetId": 1
@@ -60,6 +83,121 @@
       "writtenOn": "2018-06-20T15:29:20Z",
       "side": 1,
       "message": "b/31023171 favors using std::atomic directly. Can we move in that direct here?",
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13d2e9d5_8d5326a1",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "Use a switch on the enumeration values?",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 35
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d13aa82_44f6c3ff",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "/* kTransactionActive */ true",
+      "range": {
+        "startLine": 1858,
+        "startChar": 30,
+        "endLine": 1858,
+        "endChar": 34
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ab4eef_e45710d2",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "/* kTransactionActive */ false",
+      "range": {
+        "startLine": 1864,
+        "startChar": 30,
+        "endLine": 1864,
+        "endChar": 35
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01de4696_eb0c1269",
+        "filename": "runtime/mirror/object-readbarrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "/* kTransactionActive */ false, /* kCheckTransaction */ false",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb61a4c1_597c6203",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-25T15:52:46Z",
+      "side": 1,
+      "message": "/* kTransactionActive */ false",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 38
+      },
       "revId": "42c2e503f0fe3c6ffb6eb851efd4bcb27e4189d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
