@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f703bef_55420f56",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-25T09:55:28Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "e5e6e419_6845a248",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568785bd_86518214",
         "filename": "compiler/common_compiler_test.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27733e6e_8776d108",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-25T09:55:28Z",
+      "side": 1,
+      "message": "Thanks, that shall be much better.",
+      "parentUuid": "568785bd_86518214",
+      "range": {
+        "startLine": 241,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 59
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "de83a334_353252fd",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-25T09:55:28Z",
+      "side": 1,
+      "message": "Because the InitializeThreadPools()/DestroyThreadPools() in CompileAll() are quite difficult to remove and I didn\u0027t want to create and destroy the pools twice.\n\nOnce I remove the CompilerDriver dependency from ImageWriter and OatWriter, we can destroy the CompilerDriver before writing the results and the InitializeThreadPools()/DestroyThreadPools() workload can move to the constructor/destructor.",
+      "parentUuid": "8c9b5899_97634a14",
+      "range": {
+        "startLine": 497,
+        "startChar": 11,
+        "endLine": 497,
+        "endChar": 29
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd7c647_79ceed50",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ca248e96_04a8a364",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-25T09:55:28Z",
+      "side": 1,
+      "message": "To make the API cleaner wrt. the phases when the image_classes_ set can be modified (PreCompile()) and when it should remain constant (CompileAll()).",
+      "parentUuid": "5bd7c647_79ceed50",
+      "range": {
+        "startLine": 498,
+        "startChar": 52,
+        "endLine": 498,
+        "endChar": 83
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1684d65_6ba836a2",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 4
@@ -114,6 +210,30 @@
       "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc3441a_9516ac34",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-25T09:55:28Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "f1684d65_6ba836a2",
+      "range": {
+        "startLine": 71,
+        "startChar": 3,
+        "endLine": 71,
+        "endChar": 43
+      },
+      "revId": "4f99ef032ac99cd47312c4ab7cab443458e56bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
