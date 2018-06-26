@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "afef7d29_d81126d1",
+        "filename": "test/003-omnibus-opcodes/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-26T12:55:19Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "829c5d87_7083d3c8",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "488a7a04_b1548a85",
         "filename": "test/004-ReferenceMap/build",
         "patchSetId": 11
@@ -284,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "e463ec72_4a7490fe",
+        "filename": "test/138-duplicate-classes-check2/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-26T12:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92eda320_e258b6c0",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3e06ca2_ca87ece3",
         "filename": "test/1948-obsolete-const-method-handle/build",
         "patchSetId": 11
@@ -378,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "8ab900b2_6d295ac7",
+        "filename": "test/303-verification-stress/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-26T12:55:19Z",
+      "side": 1,
+      "message": "Yeah, also I thought we might want to use a pre-built compiler here, but I wasn\u0027t sure how to do that cleanly.\n\nAgreed, this can be left for another CL.",
+      "parentUuid": "da95e581_584e0558",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91853618_51793c32",
         "filename": "test/952-invoke-custom/build",
         "patchSetId": 11
@@ -469,6 +541,30 @@
       "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5344cb8d_b376533b",
+        "filename": "test/952-invoke-custom/util-src/transformer/IndyTransformer.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-26T12:55:19Z",
+      "side": 1,
+      "message": "OK, thanks for the explanation.",
+      "parentUuid": "85adf5ba_3dd67f4a",
+      "range": {
+        "startLine": 167,
+        "startChar": 32,
+        "endLine": 167,
+        "endChar": 44
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
