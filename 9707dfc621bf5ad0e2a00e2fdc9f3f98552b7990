@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "673e5682_320d425a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T16:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89a0ac56_1b240db7",
+      "range": {
+        "startLine": 813,
+        "startChar": 10,
+        "endLine": 813,
+        "endChar": 14
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0138bb1_044dc31c",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 15
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "805c926b_87ff5d22",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T16:32:01Z",
+      "side": 1,
+      "message": "The newly jited methods have their entrypoints set in this method.\n\nCommitCodeInternal -\u003e UpdateMethodsCode -\u003e UpdateMethodsCodeImpl",
+      "parentUuid": "a0138bb1_044dc31c",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17a4fb65_516c2520",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 15
@@ -62,6 +110,24 @@
       "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edec4665_f5b1b114",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T16:32:01Z",
+      "side": 1,
+      "message": "yes but it\u0027ll get hit every time if we don\u0027t have this check.",
+      "parentUuid": "17a4fb65_516c2520",
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "f2b99997_76773b51",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T16:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c19de8_eeabbdd5",
+      "range": {
+        "startLine": 865,
+        "startChar": 0,
+        "endLine": 866,
+        "endChar": 22
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f18f69af_e46f1f56",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 15
@@ -108,6 +198,30 @@
       "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfb0061_1f7d7091",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T16:32:01Z",
+      "side": 1,
+      "message": "We still want to clear the method counter since this was jit-ed once it might be again.",
+      "parentUuid": "f18f69af_e46f1f56",
+      "range": {
+        "startLine": 1815,
+        "startChar": 0,
+        "endLine": 1824,
+        "endChar": 56
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
