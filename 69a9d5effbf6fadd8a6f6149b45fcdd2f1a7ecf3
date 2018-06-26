@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b88b09da_ae34d4b3",
+        "filename": "libdexfile/dex/art_dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-26T22:00:51Z",
+      "side": 1,
+      "message": "Take a look at the new version here, in dex_file_loader.h, and in dex_file.h.",
+      "parentUuid": "d8d94009_ee856d8b",
+      "range": {
+        "startLine": 124,
+        "startChar": 79,
+        "endLine": 124,
+        "endChar": 87
+      },
+      "revId": "69a9d5effbf6fadd8a6f6149b45fcdd2f1a7ecf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "983c52ad_65a20dfc",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "45ac4b35_7e612796",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-26T22:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "983c52ad_65a20dfc",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "69a9d5effbf6fadd8a6f6149b45fcdd2f1a7ecf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fca36115_510288c0",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "69a9d5effbf6fadd8a6f6149b45fcdd2f1a7ecf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bbce196_da0ecd41",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-06-26T22:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca36115_510288c0",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 9
+      },
+      "revId": "69a9d5effbf6fadd8a6f6149b45fcdd2f1a7ecf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
