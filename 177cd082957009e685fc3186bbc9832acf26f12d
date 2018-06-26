@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "829c5d87_7083d3c8",
+        "filename": "test/003-omnibus-opcodes/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Yes. A poor excuse, but it aped existing build scripts :-)\n\nIt\u0027s not very good anyway as it doesn\u0027t cover other commands here.\n\nAt the top-level (most of) these build scripts set the error exit option (-e). However, when this function is called it is from tools/javac-helper.sh which didn\u0027t have that option set.\n\nThe quick fix is to \u0027set -e\u0027 in javac-helper.sh before invoking ${JAVAC}, but that\u0027s a bit cryptic so propose setting the option at the start of javac_wrapper.",
+      "parentUuid": "81048918_a398996f",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "488a7a04_b1548a85",
         "filename": "test/004-ReferenceMap/build",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61623780_642d92fa",
+        "filename": "test/004-ReferenceMap/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "488a7a04_b1548a85",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7b9936d2_afc8630a",
+        "filename": "test/004-StackWalk/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adde5ce5_2380d3f7",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f4684d6_25d38a3c",
         "filename": "test/005-annotations/build",
         "patchSetId": 11
@@ -91,6 +163,30 @@
       "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6495e422_51c0cbe9",
+        "filename": "test/005-annotations/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f4684d6_25d38a3c",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7e9c5e77_2be5b448",
+        "filename": "test/005-annotations/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec936298_c3101dcd",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dceada39_158e7e0d",
         "filename": "test/138-duplicate-classes-check2/build",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2018-06-25T15:30:30Z",
       "side": 1,
       "message": "Replace with:\n\n  rm -f classes-ex/A.class\n\n?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92eda320_e258b6c0",
+        "filename": "test/138-duplicate-classes-check2/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Changed to check for classes-ex which only exists on the second invocation.",
+      "parentUuid": "dceada39_158e7e0d",
       "range": {
         "startLine": 26,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d59b4005_ce76c700",
+        "filename": "test/1948-obsolete-const-method-handle/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3e06ca2_ca87ece3",
+      "range": {
+        "startLine": 23,
+        "startChar": 16,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82fe20b0_329c0146",
         "filename": "test/303-verification-stress/build",
         "patchSetId": 11
@@ -174,6 +342,30 @@
       "writtenOn": "2018-06-25T15:30:30Z",
       "side": 1,
       "message": "Side note: Should we use something else here? Maybe `cc`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da95e581_584e0558",
+        "filename": "test/303-verification-stress/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "There are two tests that use a C compiler (this and 023-many-interface).\n\nYes, both might do better to use a compiler prebuilts rather than /usr and/or use a build step from the Android build. \n\nSave for another CL? This currently works and this change is likely to break the bots anyway...",
+      "parentUuid": "82fe20b0_329c0146",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "41f1582d_a85b387a",
+        "filename": "test/952-invoke-custom/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91853618_51793c32",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 49
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5d5edd5_7019c6d0",
         "filename": "test/952-invoke-custom/util-src/transformer/IndyTransformer.java",
         "patchSetId": 11
@@ -220,6 +436,30 @@
       "writtenOn": "2018-06-25T15:30:30Z",
       "side": 1,
       "message": "This part is new; is this addressing a bug?",
+      "range": {
+        "startLine": 167,
+        "startChar": 32,
+        "endLine": 167,
+        "endChar": 44
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85adf5ba_3dd67f4a",
+        "filename": "test/952-invoke-custom/util-src/transformer/IndyTransformer.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "The code was using the path to the class rather than the directory containing the class. The latter is correct, the former worked due to a quirk of the old build steps for this test.",
+      "parentUuid": "e5d5edd5_7019c6d0",
       "range": {
         "startLine": 167,
         "startChar": 32,
@@ -252,6 +492,30 @@
       "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "908705b7_c479f474",
+        "filename": "test/979-const-method-handle/build",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-06-26T12:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5d27bcf_5139a263",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "177cd082957009e685fc3186bbc9832acf26f12d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
