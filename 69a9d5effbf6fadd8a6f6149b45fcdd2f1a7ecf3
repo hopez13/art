@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "978ca653_ca2f5b65",
+        "filename": "libdexfile/dex/art_dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-26T20:56:10Z",
+      "side": 1,
+      "message": "Maybe consider renaming to main_section and data_section.",
+      "parentUuid": "d8d94009_ee856d8b",
+      "range": {
+        "startLine": 124,
+        "startChar": 79,
+        "endLine": 124,
+        "endChar": 87
+      },
+      "revId": "69a9d5effbf6fadd8a6f6149b45fcdd2f1a7ecf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "983c52ad_65a20dfc",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 1
