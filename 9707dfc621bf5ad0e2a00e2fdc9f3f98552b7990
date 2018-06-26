@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89a0ac56_1b240db7",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T12:43:15Z",
+      "side": 1,
+      "message": "ProfilingInfo",
+      "range": {
+        "startLine": 813,
+        "startChar": 10,
+        "endLine": 813,
+        "endChar": 14
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0138bb1_044dc31c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T12:43:15Z",
+      "side": 1,
+      "message": "Do you need to do this for newly JITted methods too, when the exit stubs are installed?",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a4fb65_516c2520",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T12:43:15Z",
+      "side": 1,
+      "message": "Please also add a comment about the instrumentation check. Isn\u0027t the test a no-op with the implementation of UpdateMethodsCodeImpl?",
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c19de8_eeabbdd5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T12:43:15Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 865,
+        "startChar": 0,
+        "endLine": 866,
+        "endChar": 22
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f18f69af_e46f1f56",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T12:43:15Z",
+      "side": 1,
+      "message": "What is this change for? Looks to me you could live without it?",
+      "range": {
+        "startLine": 1815,
+        "startChar": 0,
+        "endLine": 1824,
+        "endChar": 56
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
