@@ -99,6 +99,8 @@ class StackOverflowHandler;
 class SuspensionHandler;
 class ThreadList;
 class Trace;
+// TODO Terrible name.
+class TraceCompiler;
 struct TraceConfig;
 class Transaction;
 
@@ -264,6 +266,10 @@ class Runtime {
 
   gc::Heap* GetHeap() const {
     return heap_;
+  }
+
+  TraceCompiler* GetTraceCompiler() const {
+    return trace_compiler_.get();
   }
 
   InternTable* GetInternTable() const {
@@ -1072,6 +1078,8 @@ class Runtime {
       static_cast<uint32_t>(DeoptimizationKind::kLast) + 1];
 
   std::unique_ptr<MemMap> protected_fault_page_;
+
+  std::unique_ptr<TraceCompiler> trace_compiler_;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };
