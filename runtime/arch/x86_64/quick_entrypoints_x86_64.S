@@ -2349,6 +2349,14 @@ DEFINE_FUNCTION art_quick_read_barrier_for_root_slow
     ret
 END_FUNCTION art_quick_read_barrier_for_root_slow
 
+
+DEFINE_FUNCTION art_quick_ttrace_entrypoint_template
+    // TEST FOR TTRACE entrypoint. Just jump directly to the target.
+    // This is encoded as <2-byte instruction & register target><8 byte little-endian immediate>
+    movabs $0, %rax
+    jmp *%rax
+END_FUNCTION_WITH_TAG art_quick_ttrace_entrypoint_template, art_quick_ttrace_entrypoint_template_end
+
     /*
      * On stack replacement stub.
      * On entry:
