@@ -2363,6 +2363,12 @@ DEFINE_FUNCTION art_quick_read_barrier_for_root_slow
     ret
 END_FUNCTION art_quick_read_barrier_for_root_slow
 
+DEFINE_FUNCTION art_quick_ttrace_entrypoint_template
+    movl $0xf00ff00f, %eax
+    ret
+    .string "TEST TEST TEST - TRACE TEMPLATE"
+END_FUNCTION_WITH_TAG art_quick_ttrace_entrypoint_template, art_quick_ttrace_entrypoint_template_end
+
   /*
      * On stack replacement stub.
      * On entry:
