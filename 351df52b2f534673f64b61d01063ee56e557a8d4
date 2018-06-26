@@ -22,6 +22,30 @@
       "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2d4adc5_ffe433a0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-26T18:42:02Z",
+      "side": 1,
+      "message": "The read barrier state should indeed always be gray or white. Any other value is a sign of heap corruption (or a bug in the collector\u0027s logic).\n\nWhen the read barrier status in the lockword was a tri-state value (white, gray or black), the assertion was checking that the read barrier state was either gray or black, i.e. \"marked\" in the general sense. Now that we only have two states (where white means \"white or black\"; see https://android-review.googlesource.com/c/platform/art/+/219453/3/runtime/gc/collector/concurrent_copying.cc#1916), this assertion looks a bit odd. Maybe we could rewrite this code as a general sanity check on the lockword.\n\nThe motivation for this CL was to improve debugging info in the investigation of b/110812755.\n\nAlso, I plan to rename `WhiteState` as `NonGray`, as the current naming is misleading.",
+      "parentUuid": "6414219f_99718b25",
+      "range": {
+        "startLine": 2618,
+        "startChar": 8,
+        "endLine": 2619,
+        "endChar": 63
+      },
+      "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
