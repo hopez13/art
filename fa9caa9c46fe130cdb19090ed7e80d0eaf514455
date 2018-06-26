@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "093b33d5_b38f5380",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T14:45:00Z",
+      "side": 1,
+      "message": "What\u0027s the reason for this becoming the generic bottom?",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 80
+      },
+      "revId": "fa9caa9c46fe130cdb19090ed7e80d0eaf514455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47f41d92_20ac48c8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T14:45:00Z",
+      "side": 1,
+      "message": "Put that logic in FindCompiledCode?",
+      "range": {
+        "startLine": 1102,
+        "startChar": 0,
+        "endLine": 1104,
+        "endChar": 63
+      },
+      "revId": "fa9caa9c46fe130cdb19090ed7e80d0eaf514455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d2f95a7_2a6d08fc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T14:45:00Z",
+      "side": 1,
+      "message": "String intern table?",
+      "range": {
+        "startLine": 859,
+        "startChar": 9,
+        "endLine": 859,
+        "endChar": 19
+      },
+      "revId": "fa9caa9c46fe130cdb19090ed7e80d0eaf514455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
