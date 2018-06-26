@@ -120,6 +120,12 @@
     .size \name, .-\name
 .endm
 
+// Terminate an ENTRY and generate GOT_PREL references.
+.macro END_WITH_TAG name, end_name
+    END \name
+    UNIMPLEMENTED \end_name
+.endm
+
 // Declare an unimplemented ENTRY that will halt a debugger.
 .macro UNIMPLEMENTED name
     ENTRY \name
