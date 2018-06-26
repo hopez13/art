@@ -210,6 +210,7 @@ libart_cc_defaults {
         "arch/context.cc",
         "arch/instruction_set_features.cc",
         "arch/memcmp16.cc",
+        "arch/trace_compiler.cc",
         "arch/arm/instruction_set_features_arm.cc",
         "arch/arm/registers_arm.cc",
         "arch/arm64/instruction_set_features_arm64.cc",

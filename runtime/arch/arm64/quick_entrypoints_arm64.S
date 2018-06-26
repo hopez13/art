@@ -868,6 +868,12 @@ ENTRY art_quick_invoke_stub
 
 END art_quick_invoke_stub
 
+
+ENTRY art_quick_ttrace_entrypoint_template
+    ret
+    .string "TEST TEST TEST - TRACE TEMPLATE"
+END_WITH_TAG art_quick_ttrace_entrypoint_template, art_quick_ttrace_entrypoint_template_end
+
 /*  extern"C"
  *     void art_quick_invoke_static_stub(ArtMethod *method,   x0
  *                                       uint32_t  *args,     x1

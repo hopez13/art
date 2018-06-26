@@ -44,6 +44,8 @@ DEFINE_RUNTIME_CALLEE_SAVE_OFFSET(SAVE_EVERYTHING, art::CalleeSaveType::kSaveEve
 DEFINE_RUNTIME_CALLEE_SAVE_OFFSET(SAVE_EVERYTHING_FOR_CLINIT, art::CalleeSaveType::kSaveEverythingForClinit)
 // Offset of field Runtime::callee_save_methods_[kSaveEverythingForSuspendCheck]
 DEFINE_RUNTIME_CALLEE_SAVE_OFFSET(SAVE_EVERYTHING_FOR_SUSPEND_CHECK, art::CalleeSaveType::kSaveEverythingForSuspendCheck)
+// Offset of field Runtime::callee_save_methods_[kSaveNothing]
+DEFINE_RUNTIME_CALLEE_SAVE_OFFSET(SAVE_NOTHING, art::CalleeSaveType::kSaveNothing)
 
 #undef DEFINE_RUNTIME_CALLEE_SAVE_OFFSET
 #include "common_undef.def"  // undef DEFINE_OFFSET_EXPR

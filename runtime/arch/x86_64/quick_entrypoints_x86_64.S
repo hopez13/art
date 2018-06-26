@@ -48,6 +48,27 @@ END_MACRO
 
 // For x86, the CFA is esp+4, the address above the pushed return address on the stack.
 
+MACRO0(SETUP_SAVE_NOTHING_FRAME_WITH_RUNTIME_CURRENT_IN_R10)
+#if defined(__APPLE__)
+    int3
+    int3
+#else
+    movq (%r10), %r10
+    // We save NOTHING!
+    // R10 := ArtMethod* for save all callee save frame method.
+    movq RUNTIME_SAVE_NOTHING_METHOD_OFFSET(%r10), %r10
+    // Store ArtMethod*
+    PUSH r10
+    // Store rsp as the top quick frame.
+    movq %rsp, %gs:THREAD_TOP_QUICK_FRAME_OFFSET
+    // Ugly compile-time check, but we only have the preprocessor.
+    // sizeof(ArtMethod*) + sizeof(return_ptr).
+#if (FRAME_SIZE_SAVE_NOTHING != 8 + 8)
+#error "FRAME_SIZE_SAVE_SAVE_NOTHING(X86_64) size not as expected."
+#endif
+#endif  // __APPLE__
+END_MACRO
+
     /*
      * Macro that sets up the callee save frame to conform with
      * Runtime::CreateCalleeSaveMethod(kSaveAllCalleeSaves)
@@ -130,6 +151,15 @@ MACRO0(SETUP_SAVE_REFS_ONLY_FRAME)
 #error "FRAME_SIZE_SAVE_REFS_ONLY(X86_64) size not as expected."
 #endif
 #endif  // __APPLE__
+END_MACRO
+
+MACRO0(RESTORE_SAVE_NOTHING_FRAME)
+    // Pop the method off the stack.
+    // Store ArtMethod* to bottom of stack.
+    /* movq %r10, 0(%rsp) */
+    /* // Store rsp as the stop quick frame. */
+    /* movq %rsp, %gs:THREAD_TOP_QUICK_FRAME_OFFSET */
+    POP r10
 END_MACRO
 
 MACRO0(RESTORE_SAVE_REFS_ONLY_FRAME)
@@ -2350,6 +2380,22 @@ DEFINE_FUNCTION art_quick_read_barrier_for_root_slow
     RESTORE_FP_CALLEE_SAVE_FRAME
     ret
 END_FUNCTION art_quick_read_barrier_for_root_slow
+
+
+DEFINE_FUNCTION art_quick_ttrace_entrypoint_template
+    // Set by trace-compiler to runtime::Current
+    movabs $0, %r10
+    SETUP_SAVE_NOTHING_FRAME_WITH_RUNTIME_CURRENT_IN_R10
+    // TEST FOR TTRACE entrypoint. Just jump directly to the target.
+    // This is encoded as <2-byte instruction & register target><8 byte little-endian immediate>
+    ASM_HIDDEN art_quick_ttrace_x86_64_start_movabs
+    .globl art_quick_ttrace_x86_64_start_movabs
+art_quick_ttrace_x86_64_start_movabs:
+    movabs $0, %r10
+    call *%r10
+    RESTORE_SAVE_NOTHING_FRAME
+    ret
+END_FUNCTION_WITH_TAG art_quick_ttrace_entrypoint_template, art_quick_ttrace_entrypoint_template_end
 
     /*
      * On stack replacement stub.

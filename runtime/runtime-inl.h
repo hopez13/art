@@ -51,6 +51,8 @@ inline QuickMethodFrameInfo Runtime::GetRuntimeMethodFrameInfo(ArtMethod* method
     return RuntimeCalleeSaveFrame::GetMethodFrameInfo(CalleeSaveType::kSaveAllCalleeSaves);
   } else if (method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveRefsOnly)) {
     return RuntimeCalleeSaveFrame::GetMethodFrameInfo(CalleeSaveType::kSaveRefsOnly);
+  } else if (method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveNothing)) {
+    return RuntimeCalleeSaveFrame::GetMethodFrameInfo(CalleeSaveType::kSaveNothing);
   } else {
     DCHECK(method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveEverything) ||
            method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveEverythingForClinit) ||

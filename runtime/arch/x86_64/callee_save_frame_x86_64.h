@@ -59,6 +59,9 @@ static constexpr uint32_t kX86_64CalleeSaveFpEverythingSpills =
 class X86_64CalleeSaveFrame {
  public:
   static constexpr uint32_t GetCoreSpills(CalleeSaveType type) {
+    if (type == CalleeSaveType::kSaveNothing) {
+      return kX86_64CalleeSaveAlwaysSpills;
+    }
     type = GetCanonicalCalleeSaveType(type);
     return kX86_64CalleeSaveAlwaysSpills | kX86_64CalleeSaveRefSpills |
         (type == CalleeSaveType::kSaveRefsAndArgs ? kX86_64CalleeSaveArgSpills : 0) |

@@ -30,6 +30,7 @@ enum class CalleeSaveType : uint32_t {
   kSaveEverything,      // All registers, including both callee-save and caller-save.
   kSaveEverythingForClinit,    // Special kSaveEverything for clinit.
   kSaveEverythingForSuspendCheck,  // Special kSaveEverything for suspend check.
+  kSaveNothing,         // Special frame that needs no saved registers.
   kLastCalleeSaveType   // Value used for iteration.
 };
 std::ostream& operator<<(std::ostream& os, const CalleeSaveType& rhs);

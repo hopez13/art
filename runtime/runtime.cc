@@ -46,6 +46,8 @@
 #include "arch/mips64/registers_mips64.h"
 #include "arch/x86/registers_x86.h"
 #include "arch/x86_64/registers_x86_64.h"
+// TODO Terrible place to put this.
+#include "arch/trace_compiler.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "asm_support.h"
@@ -273,7 +275,8 @@ Runtime::Runtime()
       pruned_dalvik_cache_(false),
       // Initially assume we perceive jank in case the process state is never updated.
       process_state_(kProcessStateJankPerceptible),
-      zygote_no_threads_(false) {
+      zygote_no_threads_(false),
+      trace_compiler_(TraceCompiler::Create()) {
   static_assert(Runtime::kCalleeSaveSize ==
                     static_cast<uint32_t>(CalleeSaveType::kLastCalleeSaveType), "Unexpected size");
 

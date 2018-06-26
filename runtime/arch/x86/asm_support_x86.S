@@ -136,6 +136,13 @@ MACRO1(END_FUNCTION, c_name)
     SIZE(SYMBOL(\c_name))
 END_MACRO
 
+MACRO2(END_FUNCTION_WITH_TAG, c_name, end_name)
+    CFI_ENDPROC
+    SIZE(SYMBOL(\c_name))
+    UNIMPLEMENTED \end_name
+END_MACRO
+
+
 MACRO1(PUSH, reg)
     pushl REG_VAR(reg)
     CFI_ADJUST_CFA_OFFSET(4)
