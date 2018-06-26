@@ -2613,14 +2613,30 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
   if (!is_los && mark_bitmap->Test(ref)) {
     // Already marked.
     if (kUseBakerReadBarrier) {
-      DCHECK(ref->GetReadBarrierState() == ReadBarrier::GrayState() ||
-             ref->GetReadBarrierState() == ReadBarrier::WhiteState());
+      if (kIsDebugBuild) {
+        uint32_t read_barrier_state = ref->GetReadBarrierState();
+        DCHECK(read_barrier_state == ReadBarrier::GrayState() ||
+               read_barrier_state == ReadBarrier::WhiteState())
+            << "Reference already marked in non-moving space with invalid read barrier state:"
+            << " ref = " << ref
+            << " read_barrier_state = " << read_barrier_state
+            << " holder = " << holder
+            << " offset = " << offset;
+      }
     }
   } else if (is_los && los_bitmap->Test(ref)) {
     // Already marked in LOS.
     if (kUseBakerReadBarrier) {
-      DCHECK(ref->GetReadBarrierState() == ReadBarrier::GrayState() ||
-             ref->GetReadBarrierState() == ReadBarrier::WhiteState());
+      if (kIsDebugBuild) {
+        uint32_t read_barrier_state = ref->GetReadBarrierState();
+        DCHECK(read_barrier_state == ReadBarrier::GrayState() ||
+               read_barrier_state == ReadBarrier::WhiteState())
+            << "Reference already marked in large-object space with invalid read barrier state:"
+            << " ref = " << ref
+            << " read_barrier_state = " << read_barrier_state
+            << " holder = " << holder
+            << " offset = " << offset;
+      }
     }
   } else {
     // Not marked.
