@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c9733669_1bc17300",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T21:41:26Z",
+      "side": 1,
+      "message": "I meant the SetSavedEntryPoint. I did not find the place you were doing this for newly JItted methods.",
+      "parentUuid": "805c926b_87ff5d22",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17a4fb65_516c2520",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 15
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "yes but it\u0027ll get hit every time if we don\u0027t have this check.",
       "parentUuid": "17a4fb65_516c2520",
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ced66095_3658beb7",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T21:41:26Z",
+      "side": 1,
+      "message": "WDYM \"you\u0027ll get hit\"? Are you saying this is a fast path, and it\u0027s important to have it?",
+      "parentUuid": "edec4665_f5b1b114",
       "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -213,6 +255,30 @@
       "side": 1,
       "message": "We still want to clear the method counter since this was jit-ed once it might be again.",
       "parentUuid": "f18f69af_e46f1f56",
+      "range": {
+        "startLine": 1815,
+        "startChar": 0,
+        "endLine": 1824,
+        "endChar": 56
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20f7980e_da9810be",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T21:41:26Z",
+      "side": 1,
+      "message": "So you want a check that the entrypoint is the instrumentation stub instead right? I think that check would read better.",
+      "parentUuid": "2cfb0061_1f7d7091",
       "range": {
         "startLine": 1815,
         "startChar": 0,
