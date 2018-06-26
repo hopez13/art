@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f7e1b8a_cf628ed7",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-26T14:12:43Z",
+      "side": 0,
+      "message": "This kind of defeats the test :) Maybe try doing a call to a no-op method, so D8 doesn\u0027t eliminate the load, but ART does?",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 29
+      },
+      "revId": "b1775a8bc48bc1b3d90c34a509285c02e56548da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
