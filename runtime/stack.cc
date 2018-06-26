@@ -19,6 +19,7 @@
 #include "android-base/stringprintf.h"
 
 #include "arch/context.h"
+#include "arch/trace_compiler.h"
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
 #include "base/enums.h"
@@ -757,7 +758,9 @@ void StackVisitor::WalkStack(bool include_transitions) {
           // The generic JNI does not have any method header.
           cur_oat_quick_method_header_ = nullptr;
         } else {
-          const void* existing_entry_point = method->GetEntryPointFromQuickCompiledCode();
+          const void* existing_entry_point =
+              Runtime::Current()->GetTraceCompiler()->GetTrampolineTarget(
+                  method->GetEntryPointFromQuickCompiledCode());
           CHECK(existing_entry_point != nullptr);
           Runtime* runtime = Runtime::Current();
           ClassLinker* class_linker = runtime->GetClassLinker();
