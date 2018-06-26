@@ -1146,6 +1146,11 @@ ENTRY art_quick_set64_static
     DELIVER_PENDING_EXCEPTION
 END art_quick_set64_static
 
+ENTRY art_quick_ttrace_entrypoint_template
+    bx     lr                  @ return
+    .string "TEST TEST TEST - TRACE TEMPLATE"
+END_WITH_TAG art_quick_ttrace_entrypoint_template, art_quick_ttrace_entrypoint_template_end
+
 // Generate the allocation entrypoints for each allocator.
 GENERATE_ALLOC_ENTRYPOINTS_FOR_NON_TLAB_ALLOCATORS
 // Comment out allocators that have arm specific asm.
