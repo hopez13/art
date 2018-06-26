@@ -60,9 +60,36 @@ cc_defaults {
 }
 
 cc_defaults {
+    name: "tracefast-ttrace-defaults",
+    defaults: ["tracefast-defaults"],
+    cflags: ["-DTRACEFAST_TTRACE=1"],
+}
+
+cc_defaults {
     name: "tracefast-trampoline-defaults",
     defaults: ["tracefast-defaults"],
     cflags: ["-DTRACEFAST_TRAMPOLINE=1"],
+}
+
+art_cc_library {
+    name: "libtracefast-ttrace",
+    defaults: ["tracefast-ttrace-defaults"],
+    shared_libs: [
+        "libart",
+        "libartbase",
+    ],
+}
+
+art_cc_library {
+    name: "libtracefast-ttraced",
+    defaults: [
+        "art_debug_defaults",
+        "tracefast-ttrace-defaults",
+    ],
+    shared_libs: [
+        "libartd",
+        "libartbased",
+    ],
 }
 
 art_cc_library {
