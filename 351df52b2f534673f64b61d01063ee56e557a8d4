@@ -46,6 +46,30 @@
       "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6255e772_f11a4391",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2619,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-26T19:13:25Z",
+      "side": 1,
+      "message": "Considering that it\u0027s a 1-bit field, the DCHECK will always succeed. Isn\u0027t it?\n\nI agree on renaming \"WhiteState\" as \"NonGrayState\".",
+      "parentUuid": "e2d4adc5_ffe433a0",
+      "range": {
+        "startLine": 2618,
+        "startChar": 8,
+        "endLine": 2619,
+        "endChar": 63
+      },
+      "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
