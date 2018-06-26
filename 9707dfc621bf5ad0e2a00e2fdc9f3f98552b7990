@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "2a636909_ea58d081",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T22:17:08Z",
+      "side": 1,
+      "message": "yes this method is UpdateMethodsCodeImpl.\n\nWhen jit compiles something it calls CommitCode -\u003e calls CommitCodeInternal -\u003e calls UpdateMethodsCode -\u003e calls UpdateMethodsCodeImpl (this function).",
+      "parentUuid": "c9733669_1bc17300",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17a4fb65_516c2520",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 15
@@ -167,6 +191,24 @@
       "side": 1,
       "message": "WDYM \"you\u0027ll get hit\"? Are you saying this is a fast path, and it\u0027s important to have it?",
       "parentUuid": "edec4665_f5b1b114",
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d4fb183_9288c3cc",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T22:17:08Z",
+      "side": 1,
+      "message": "I more just meant that it makes this clearer. When GetEntryPointFromQuickCompiledCode is the instrumentation entrypoint the SavedEntryPoint has a different purpose and it no longer makes sense to try to set the methods entrypoint to it.",
+      "parentUuid": "ced66095_3658beb7",
       "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -279,6 +321,30 @@
       "side": 1,
       "message": "So you want a check that the entrypoint is the instrumentation stub instead right? I think that check would read better.",
       "parentUuid": "2cfb0061_1f7d7091",
+      "range": {
+        "startLine": 1815,
+        "startChar": 0,
+        "endLine": 1824,
+        "endChar": 56
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d478363d_ac43924e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-26T22:17:08Z",
+      "side": 1,
+      "message": "no because if the code being invalidated isn\u0027t the one the method will call we don\u0027t want to clear the counter.",
+      "parentUuid": "20f7980e_da9810be",
       "range": {
         "startLine": 1815,
         "startChar": 0,
