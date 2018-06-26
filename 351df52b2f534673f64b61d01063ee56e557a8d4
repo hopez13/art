@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6414219f_99718b25",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2619,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-06-26T18:19:21Z",
+      "side": 1,
+      "message": "Can rb_state be anything other than Gray or White?",
+      "range": {
+        "startLine": 2618,
+        "startChar": 8,
+        "endLine": 2619,
+        "endChar": 63
+      },
+      "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
