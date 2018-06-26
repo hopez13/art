@@ -14,8 +14,15 @@
  * limitations under the License.
  */
 
+#include "art_method-inl.h"
+#include "arch/trace_compiler.h"
+#include "class_linker-inl.h"
 #include "gc/scoped_gc_critical_section.h"
+#include "handle.h"
 #include "instrumentation.h"
+#include "jit/jit.h"
+#include "jit/jit_code_cache.h"
+#include "mirror/class-inl.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
@@ -24,23 +31,50 @@
 
 namespace tracefast {
 
+#if 0
 #if ((!defined(TRACEFAST_INTERPRETER) && !defined(TRACEFAST_TRAMPOLINE)) || \
      (defined(TRACEFAST_INTERPRETER) && defined(TRACEFAST_TRAMPOLINE)))
 #error Must set one of TRACEFAST_TRAMPOLINE or TRACEFAST_INTERPRETER during build
 #endif
+#endif
 
+
+enum class TraceType {
+  Interpreter,
+  Trampoline,
+  TTrace,
+};
 
 #ifdef TRACEFAST_INTERPRETER
 static constexpr const char* kTracerInstrumentationKey = "tracefast_INTERPRETER";
 static constexpr bool kNeedsInterpreter = true;
-#else  // defined(TRACEFAST_TRAMPOLINE)
+static constexpr TraceType kTraceType = TraceType::Interpreter;
+#elif defined(TRACEFAST_TRAMPOLINE)
 static constexpr const char* kTracerInstrumentationKey = "tracefast_TRAMPOLINE";
 static constexpr bool kNeedsInterpreter = false;
+static constexpr TraceType kTraceType = TraceType::Trampoline;
+#else  // defined(TRACEFAST_TTRACE)
+static constexpr const char* kTracerInstrumentationKey = "tracefast_TTRACE";
+static constexpr bool kNeedsInterpreter = false;
+static constexpr TraceType kTraceType = TraceType::TTrace;
 #endif  // TRACEFAST_INITERPRETER
 
-class Tracer FINAL : public art::instrumentation::InstrumentationListener {
+class Tracer FINAL : public art::instrumentation::InstrumentationListener,
+                     public art::ClassLoadCallback {
  public:
   Tracer() {}
+
+  void ClassPrepare(art::Handle<art::mirror::Class> tk ATTRIBUTE_UNUSED,
+                    art::Handle<art::mirror::Class> k) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    for (art::ArtMethod& method : k->GetMethods(art::kRuntimePointerSize)) {
+      method.SetEntryPointFromQuickCompiledCode(
+          art::Runtime::Current()->GetTraceCompiler()->GetTrampolineTo(
+              reinterpret_cast<uintptr_t>(method.GetEntryPointFromQuickCompiledCode())));
+    }
+  }
+
+  // Not used, we might not have entrypoints yet!
+  void ClassLoad(art::Handle<art::mirror::Class> k ATTRIBUTE_UNUSED) {}
 
   void MethodEntered(art::Thread* thread ATTRIBUTE_UNUSED,
                      art::Handle<art::mirror::Object> this_object ATTRIBUTE_UNUSED,
@@ -137,11 +171,39 @@ static void StartTracing() REQUIRES(!art::Locks::mutator_lock_,
                                        art::gc::kGcCauseInstrumentation,
                                        art::gc::kCollectorTypeInstrumentation);
   art::ScopedSuspendAll ssa("starting fast tracing");
-  runtime->GetInstrumentation()->AddListener(&gEmptyTracer,
-                                             art::instrumentation::Instrumentation::kMethodEntered |
-                                             art::instrumentation::Instrumentation::kMethodExited |
-                                             art::instrumentation::Instrumentation::kMethodUnwind);
-  runtime->GetInstrumentation()->EnableMethodTracing(kTracerInstrumentationKey, kNeedsInterpreter);
+  switch (kTraceType) {
+    case TraceType::Interpreter:
+    case TraceType::Trampoline:
+      runtime->GetInstrumentation()->AddListener(
+          &gEmptyTracer, (art::instrumentation::Instrumentation::kMethodEntered |
+                          art::instrumentation::Instrumentation::kMethodExited |
+                          art::instrumentation::Instrumentation::kMethodUnwind));
+      runtime->GetInstrumentation()->EnableMethodTracing(kTracerInstrumentationKey,
+                                                         kNeedsInterpreter);
+      break;
+    case TraceType::TTrace: {
+      if (runtime->GetJit() != nullptr) {
+        // Not dealing with that BS
+        runtime->GetJit()->GetCodeCache()->SetGarbageCollectCode(false);
+      }
+      struct ReplaceAllEntrypoints : public art::ClassVisitor {
+       public:
+        bool operator()(art::ObjPtr<art::mirror::Class> klass)
+            OVERRIDE REQUIRES_SHARED(art::Locks::mutator_lock_) {
+          for (art::ArtMethod& method : klass->GetMethods(art::kRuntimePointerSize)) {
+            method.SetEntryPointFromQuickCompiledCode(
+                art::Runtime::Current()->GetTraceCompiler()->GetTrampolineTo(
+                    reinterpret_cast<uintptr_t>(method.GetEntryPointFromQuickCompiledCode())));
+          }
+          return true;
+        }
+      };
+      ReplaceAllEntrypoints visitor;
+      runtime->GetClassLinker()->VisitClasses(&visitor);
+      runtime->GetRuntimeCallbacks()->AddClassLoadCallback(&gEmptyTracer);
+      return;
+    }
+  }
 }
 
 class TraceFastPhaseCB : public art::RuntimePhaseCallback {

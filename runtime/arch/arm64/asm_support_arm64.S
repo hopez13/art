@@ -61,6 +61,12 @@
     END \name
 .endm
 
+// Terminate an ENTRY and generate GOT_PREL references.
+.macro END_WITH_TAG name, end_name
+    END \name
+    UNIMPLEMENTED \end_name
+.endm
+
 // Macro to poison (negate) the reference for heap poisoning.
 .macro POISON_HEAP_REF rRef
 #ifdef USE_HEAP_POISONING
