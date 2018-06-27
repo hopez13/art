@@ -27,12 +27,12 @@
 #include "base/enums.h"
 #include "class_linker.h"
 #include "dex/dex_file.h"
-#include "gc/heap-inl.h"
 #include "gc_root-inl.h"
 #include "mirror/call_site.h"
 #include "mirror/class.h"
 #include "mirror/method_type.h"
 #include "obj_ptr.h"
+#include "object-inl.h"
 #include "runtime.h"
 #include "write_barrier-inl.h"
 
