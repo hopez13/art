@@ -46,6 +46,30 @@
       "revId": "dcfcce4241fc706fd249bb3fec67f8a1dc434af6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce155151_b848940c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-06-27T15:10:21Z",
+      "side": 1,
+      "message": "Instrumented \u003d\u003d false is an optimization optimization by having two sets of entrypoints. Can you clarify what\u0027s broken? If you pass false it is incorrect.",
+      "parentUuid": "7a33de50_f50059e4",
+      "range": {
+        "startLine": 1125,
+        "startChar": 19,
+        "endLine": 1125,
+        "endChar": 45
+      },
+      "revId": "dcfcce4241fc706fd249bb3fec67f8a1dc434af6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
