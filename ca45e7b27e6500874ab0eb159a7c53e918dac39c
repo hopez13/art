@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8d2bea_766f79cd",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:59:11Z",
+      "side": 1,
+      "message": "Can you add a comment why you\u0027re not looking at Gotos or other control flow instructions?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "ca45e7b27e6500874ab0eb159a7c53e918dac39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b866a8e7_a2c9e38b",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:59:11Z",
+      "side": 1,
+      "message": "nit: I would write this as a first thing in the method, as it is invariant of what the method is doing.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 45
+      },
+      "revId": "ca45e7b27e6500874ab0eb159a7c53e918dac39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45e742d0_7beeff39",
+        "filename": "compiler/optimizing/loop_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:59:11Z",
+      "side": 1,
+      "message": "loop ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 15,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "ca45e7b27e6500874ab0eb159a7c53e918dac39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6d2734b_86f430bf",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:59:11Z",
+      "side": 1,
+      "message": "Statically",
+      "range": {
+        "startLine": 799,
+        "startChar": 7,
+        "endLine": 799,
+        "endChar": 15
+      },
+      "revId": "ca45e7b27e6500874ab0eb159a7c53e918dac39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "626d92b5_7fcf8109",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:59:11Z",
+      "side": 1,
+      "message": "I think Aart used \"generate_code\" for naming this?",
+      "range": {
+        "startLine": 147,
+        "startChar": 60,
+        "endLine": 148,
+        "endChar": 45
+      },
+      "revId": "ca45e7b27e6500874ab0eb159a7c53e918dac39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
