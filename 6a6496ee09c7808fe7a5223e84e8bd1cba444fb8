@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65b9cf5c_4552de9f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:49:54Z",
+      "side": 1,
+      "message": "Add a comment ala: \"tracing will look at the saved entry point in the profiling info to know the actual entrypoint, so we store it here\".",
+      "range": {
+        "startLine": 814,
+        "startChar": 9,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "6a6496ee09c7808fe7a5223e84e8bd1cba444fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456042f6_0b30b786",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:49:54Z",
+      "side": 1,
+      "message": "nit: \"We don\u0027t update it for instrumentation as the entrypoint must remain the instrumentation entrypoint\".",
+      "range": {
+        "startLine": 738,
+        "startChar": 40,
+        "endLine": 740,
+        "endChar": 24
+      },
+      "revId": "6a6496ee09c7808fe7a5223e84e8bd1cba444fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

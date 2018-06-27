@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "cb685bf9_f473d468",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:49:54Z",
+      "side": 1,
+      "message": "Oh didn\u0027t realize this was UpdateMethodsCodeImpl. SG.",
+      "parentUuid": "2a636909_ea58d081",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 59
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17a4fb65_516c2520",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 15
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "no because if the code being invalidated isn\u0027t the one the method will call we don\u0027t want to clear the counter.",
       "parentUuid": "20f7980e_da9810be",
+      "range": {
+        "startLine": 1815,
+        "startChar": 0,
+        "endLine": 1824,
+        "endChar": 56
+      },
+      "revId": "9707dfc621bf5ad0e2a00e2fdc9f3f98552b7990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c44297d_798e946a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T08:49:54Z",
+      "side": 1,
+      "message": "Ah right, so how about:\n\nconst void* method_entrypoint \u003d method-\u003eGetEntryPointFromQuickCompiledCode();\n\n  if ((profiling_info !\u003d nullptr) \u0026\u0026\n      (profiling_info-\u003eGetSavedEntryPoint() \u003d\u003d header-\u003eGetEntryPoint())) {\n    // Prevent future uses of the compiled code.\n    profiling_info-\u003eSetSavedEntryPoint(nullptr);\n    // When instrumentation is set, the actual entrypoint is the one in the profiling info.\n    method_entrypoint \u003d profiling_info-\u003eGetSavedEntryPoint();\n  }\n\n   if (method_entrypoint \u003d\u003d header-\u003eGetEntryPoint()) {\n     ...\n   }",
+      "parentUuid": "d478363d_ac43924e",
       "range": {
         "startLine": 1815,
         "startChar": 0,
