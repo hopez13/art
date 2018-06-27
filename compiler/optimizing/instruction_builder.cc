@@ -1075,6 +1075,9 @@ HNewInstance* HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, u
   if (load_class->NeedsAccessCheck() || klass->IsFinalizable() || !klass->IsInstantiable()) {
     entrypoint = kQuickAllocObjectWithChecks;
   }
+  if (klass->IsStringClass()) {
+    entrypoint = kQuickAllocStringObject;
+  }
 
   // Consider classes we haven't resolved as potentially finalizable.
   bool finalizable = (klass == nullptr) || klass->IsFinalizable();
