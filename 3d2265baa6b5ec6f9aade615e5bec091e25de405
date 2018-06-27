@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0832d3_664f83bf",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T12:50:30Z",
+      "side": 1,
+      "message": "I think you can name this mmap_shared, and comment in the caller why write_to_disk maps to it.",
+      "range": {
+        "startLine": 197,
+        "startChar": 68,
+        "endLine": 197,
+        "endChar": 81
+      },
+      "revId": "3d2265baa6b5ec6f9aade615e5bec091e25de405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b2da1d0_c48d8791",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-27T12:50:30Z",
+      "side": 1,
+      "message": "Maybe add a TODO about what other options you plan on adding?",
+      "revId": "3d2265baa6b5ec6f9aade615e5bec091e25de405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
