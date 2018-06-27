@@ -22,6 +22,30 @@
       "revId": "8f2dab5ae93a8a1bb0be0ae3a713fe7251c7b1fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ee54f8_3e21d30e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-27T22:13:07Z",
+      "side": 1,
+      "message": "Should have written this as allocate new strings with newEmptyString (like the compiler does).\n\nAlso looking back in time it seems the interpreter never had this behavior (or at least its from \u003e 3 years ago which is when I stopped looking).",
+      "parentUuid": "fe7485d2_0b86adb3",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "8f2dab5ae93a8a1bb0be0ae3a713fe7251c7b1fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
