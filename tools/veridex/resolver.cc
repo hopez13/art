@@ -103,17 +103,11 @@ VeriClass* VeridexResolver::GetVeriClass(dex::TypeIndex index) {
           // There is no such class, so there is no such array.
           return nullptr;
         } else {
-          // Create the type, and cache it locally and globally.
-          type_infos_[index.index_] = VeriClass(
-              existing->second->GetKind(), last_array + 1, existing->second->GetClassDef());
-          cls = &(type_infos_[index.index_]);
-          type_map_[name] = cls;
+          return existing->second;
         }
       }
     } else {
-      // Cache the found class.
-      cls = existing->second;
-      type_infos_[index.index_] = *cls;
+      return existing->second;
     }
   }
   return cls;
