@@ -22,6 +22,30 @@
       "revId": "dcfcce4241fc706fd249bb3fec67f8a1dc434af6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a33de50_f50059e4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-27T15:07:45Z",
+      "side": 1,
+      "message": "This is for Mathieu to answer. It looks like we never call with kInstrumented\u003dfalse. Given the gcstress failures, kInstrumented\u003dfalse looks generally broken.",
+      "parentUuid": "97a2b0d4_7ea2f1c8",
+      "range": {
+        "startLine": 1125,
+        "startChar": 19,
+        "endLine": 1125,
+        "endChar": 45
+      },
+      "revId": "dcfcce4241fc706fd249bb3fec67f8a1dc434af6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
