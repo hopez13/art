@@ -2879,8 +2879,7 @@ void HInvoke::SetIntrinsic(Intrinsics intrinsic,
 }
 
 bool HNewInstance::IsStringAlloc() const {
-  ScopedObjectAccess soa(Thread::Current());
-  return GetReferenceTypeInfo().IsStringClass();
+  return GetEntrypoint() == kQuickAllocStringObject;
 }
 
 bool HInvoke::NeedsEnvironment() const {
