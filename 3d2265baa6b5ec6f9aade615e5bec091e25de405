@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c580d96f_964af37e",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-27T13:18:44Z",
+      "side": 1,
+      "message": "I got rid of it. Should be always true, now and in the future.",
+      "parentUuid": "0e0832d3_664f83bf",
+      "range": {
+        "startLine": 197,
+        "startChar": 68,
+        "endLine": 197,
+        "endChar": 81
+      },
+      "revId": "3d2265baa6b5ec6f9aade615e5bec091e25de405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b2da1d0_c48d8791",
         "filename": "tools/hiddenapi/hiddenapi.cc",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "3d2265baa6b5ec6f9aade615e5bec091e25de405",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c58a8e_49d9ece9",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-27T13:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b2da1d0_c48d8791",
+      "revId": "3d2265baa6b5ec6f9aade615e5bec091e25de405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
