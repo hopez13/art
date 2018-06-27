@@ -441,12 +441,6 @@ static bool HasAliasInEnvironments(HInstruction* instruction) {
 }
 
 void SsaBuilder::RemoveRedundantUninitializedStrings() {
-  if (graph_->IsDebuggable()) {
-    // Do not perform the optimization for consistency with the interpreter
-    // which always allocates an object for new-instance of String.
-    return;
-  }
-
   for (HNewInstance* new_instance : uninitialized_strings_) {
     DCHECK(new_instance->IsInBlock());
     DCHECK(new_instance->IsStringAlloc());
