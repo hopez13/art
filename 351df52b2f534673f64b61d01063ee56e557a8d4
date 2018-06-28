@@ -94,6 +94,30 @@
       "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59322190_ec33769b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-28T14:42:15Z",
+      "side": 1,
+      "message": "\u003e I\u0027ll remove the assertion in the next patch set, as I think it no longer makes sense.\n\nDone in PS2.",
+      "parentUuid": "96f1c536_691b4165",
+      "range": {
+        "startLine": 2618,
+        "startChar": 8,
+        "endLine": 2619,
+        "endChar": 63
+      },
+      "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
