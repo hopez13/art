@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "380b02a8_c49141d3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-28T08:57:48Z",
+      "side": 1,
+      "message": "Tracing",
+      "range": {
+        "startLine": 814,
+        "startChar": 13,
+        "endLine": 814,
+        "endChar": 20
+      },
+      "revId": "7d119edb6992064c754595358dc1569d0fd20b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd52b6ec_b5329f0e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-28T08:57:48Z",
+      "side": 1,
+      "message": "So this is a fast path? Does it matter if WillExecuteJitCode is for testing only?",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 16
+      },
+      "revId": "7d119edb6992064c754595358dc1569d0fd20b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
