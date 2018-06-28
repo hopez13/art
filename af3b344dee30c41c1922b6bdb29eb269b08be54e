@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d31703cf_0a81bb4e",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T16:07:19Z",
+      "side": 1,
+      "message": "This looks pretty strange, as it\u0027s \"bottom but not bottom.\" Could all of these be aliased to bottom to make things consistent?",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 19
+      },
+      "revId": "af3b344dee30c41c1922b6bdb29eb269b08be54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbde631d_18f21def",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T16:07:19Z",
+      "side": 1,
+      "message": "acquire",
+      "range": {
+        "startLine": 747,
+        "startChar": 20,
+        "endLine": 747,
+        "endChar": 24
+      },
+      "revId": "af3b344dee30c41c1922b6bdb29eb269b08be54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
