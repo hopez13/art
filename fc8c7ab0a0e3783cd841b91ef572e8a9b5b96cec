@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e987e5a8_009d4339",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-06-28T08:12:17Z",
+      "side": 1,
+      "message": "is there a command line parsing library we can use? Doing it manually seems verbose \u0026 error prone.\n\nMaybe this?\nhttps://cs.corp.google.com/android/art/cmdline/README.md",
+      "range": {
+        "startLine": 252,
+        "startChar": 14,
+        "endLine": 252,
+        "endChar": 42
+      },
+      "revId": "fc8c7ab0a0e3783cd841b91ef572e8a9b5b96cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
