@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6026f31e_e2c63212",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-28T21:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f85ba78_a6f00a37",
+      "range": {
+        "startLine": 450,
+        "startChar": 9,
+        "endLine": 450,
+        "endChar": 13
+      },
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d1d486_39e64110",
         "filename": "openjdkjvmti/events.cc",
         "patchSetId": 28
@@ -39,6 +63,24 @@
       "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03fce4d_487b389b",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-28T21:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d1d486_39e64110",
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8829e1cf_14af6552",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-06-28T21:40:19Z",
+      "side": 1,
+      "message": "Ack\n\nfor follow up cl.",
+      "parentUuid": "ef2ba0a4_0cb4331e",
+      "range": {
+        "startLine": 913,
+        "startChar": 4,
+        "endLine": 913,
+        "endChar": 11
+      },
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
