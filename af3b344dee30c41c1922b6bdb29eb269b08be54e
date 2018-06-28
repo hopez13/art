@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a147746b_510390e9",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T21:51:26Z",
+      "side": 1,
+      "message": "Still, since you introduce BOTTOM-ness, at least with the macro, maybe delineate here with a comment line where bottom starts? (The setup of the level being below, but the BOTTOM macro being above, is a bit strange.)",
+      "parentUuid": "632746dd_52d9e2ad",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 19
+      },
+      "revId": "af3b344dee30c41c1922b6bdb29eb269b08be54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bbde631d_18f21def",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 13
