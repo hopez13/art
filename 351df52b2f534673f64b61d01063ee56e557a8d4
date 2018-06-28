@@ -70,6 +70,30 @@
       "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96f1c536_691b4165",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-06-28T14:29:20Z",
+      "side": 1,
+      "message": "\u003e Considering that it\u0027s a 1-bit field, the DCHECK will always succeed. Isn\u0027t it?\n\nYes, I agree this assertion should normally always succeed. Also note that `art::mirror::Object::GetReadBarrierState` includes a check on the validity of the read barrier state:\n\n  inline uint32_t Object::GetReadBarrierState() {\n    if (!kUseBakerReadBarrier) {\n      LOG(FATAL) \u003c\u003c \"Unreachable\";\n      UNREACHABLE();\n    }\n    DCHECK(kUseBakerReadBarrier);\n    LockWord lw(GetField\u003cuint32_t, /*kIsVolatile*/false\u003e(MonitorOffset()));\n    uint32_t rb_state \u003d lw.ReadBarrierState();\n    DCHECK(ReadBarrier::IsValidReadBarrierState(rb_state)) \u003c\u003c rb_state;\n    return rb_state;\n  }\n\nThis makes b/110812755 a bit puzzling.\n\nI wonder if race in the original code was possible, in the case where the read barrier state were to change from white to gray between\n\n  ref-\u003eGetReadBarrierState() \u003d\u003d ReadBarrier::GrayState()\n\nand\n\n  ref-\u003eGetReadBarrierState() \u003d\u003d ReadBarrier::WhiteState()\n\n?\n\nI\u0027ll remove the assertion in the next patch set, as I think it no longer makes sense.\n\n\u003e I agree on renaming \"WhiteState\" as \"NonGrayState\".\n\nDone in https://android-review.googlesource.com/c/platform/art/+/710874.",
+      "parentUuid": "6255e772_f11a4391",
+      "range": {
+        "startLine": 2618,
+        "startChar": 8,
+        "endLine": 2619,
+        "endChar": 63
+      },
+      "revId": "351df52b2f534673f64b61d01063ee56e557a8d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
