@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f85ba78_a6f00a37",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T17:02:43Z",
+      "side": 1,
+      "message": "Should be next line.",
+      "range": {
+        "startLine": 450,
+        "startChar": 9,
+        "endLine": 450,
+        "endChar": 13
+      },
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d1d486_39e64110",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T17:02:43Z",
+      "side": 1,
+      "message": "Separate with line.",
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2ba0a4_0cb4331e",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-28T17:02:43Z",
+      "side": 1,
+      "message": "Nit (maybe a follow-up): It\u0027s preferable not to use default to get switch-case warnings.",
+      "range": {
+        "startLine": 913,
+        "startChar": 4,
+        "endLine": 913,
+        "endChar": 11
+      },
+      "revId": "fa7d7e26e58d703f85cc489574feead45dd63796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
