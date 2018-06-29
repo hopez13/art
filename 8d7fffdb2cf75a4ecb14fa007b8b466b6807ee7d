@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca2ab9fa_644b5e57",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-29T13:10:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea88399b_a877c02b",
+      "range": {
+        "startLine": 328,
+        "startChar": 34,
+        "endLine": 328,
+        "endChar": 39
+      },
+      "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f526b41e_5bc86c02",
         "filename": "tools/hiddenapi/hiddenapi.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-29T12:22:18Z",
       "side": 1,
       "message": "What does that mean? Is that to work with multiple dex files?",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 45
+      },
+      "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30fac83e_0783f672",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-06-29T13:10:49Z",
+      "side": 1,
+      "message": "Yeah, the \u0027list\u0027 command has to run on all boot dex files simultaneously. Some of them have duplicates, like Landroid/hardware/radio/V1_0/CdmaCallWaiting; in both framework.jar and telephony_common.jar.\n\nThis will also be useful for adding the flags to the core image.",
+      "parentUuid": "f526b41e_5bc86c02",
       "range": {
         "startLine": 428,
         "startChar": 2,
