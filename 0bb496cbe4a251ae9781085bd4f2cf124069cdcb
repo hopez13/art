@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27211d8b_34a49df2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-29T08:59:08Z",
+      "side": 1,
+      "message": "Should the comment added below \"If jit-gc is disabled for other reasons this will just be nullptr.\" moved here instead?",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 3
+      },
+      "revId": "0bb496cbe4a251ae9781085bd4f2cf124069cdcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
