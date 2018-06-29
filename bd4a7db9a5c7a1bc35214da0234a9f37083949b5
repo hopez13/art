@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dabe6f7e_a6458650",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-06-29T16:51:05Z",
+      "side": 1,
+      "message": "It\u0027s possible to move this to its own header and forward-declare in a follow-up, if you wanted to.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 2
+      },
+      "revId": "bd4a7db9a5c7a1bc35214da0234a9f37083949b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "740735ba_8428efb5",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 1
