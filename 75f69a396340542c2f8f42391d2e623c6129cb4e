@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f060be99_576068b6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-29T13:11:56Z",
+      "side": 1,
+      "message": "Done (as discussed offline).",
+      "parentUuid": "925a6f79_62c2e662",
+      "range": {
+        "startLine": 605,
+        "startChar": 76,
+        "endLine": 605,
+        "endChar": 98
+      },
+      "revId": "75f69a396340542c2f8f42391d2e623c6129cb4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9248ec6e_89f052c5",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "38102fad_89eb216d",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-29T13:11:56Z",
+      "side": 1,
+      "message": "Done (though that\u0027s implicit for const)",
+      "parentUuid": "9248ec6e_89f052c5",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 39
+      },
+      "revId": "75f69a396340542c2f8f42391d2e623c6129cb4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdd68aaa_8641a231",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "75f69a396340542c2f8f42391d2e623c6129cb4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98f4084f_cfa6653f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-06-29T13:11:56Z",
+      "side": 1,
+      "message": "Added a comment above.",
+      "parentUuid": "fdd68aaa_8641a231",
+      "range": {
+        "startLine": 1898,
+        "startChar": 58,
+        "endLine": 1898,
+        "endChar": 83
+      },
+      "revId": "75f69a396340542c2f8f42391d2e623c6129cb4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
