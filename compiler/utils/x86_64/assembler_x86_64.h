@@ -436,6 +436,12 @@ class X86_64Assembler FINAL : public Assembler {
   void divss(XmmRegister dst, XmmRegister src);
   void divss(XmmRegister dst, const Address& src);
 
+    // Mac Instructions
+  void vfmadd231ps(XmmRegister acc, XmmRegister left, XmmRegister right);
+  void vfmadd231pd(XmmRegister acc, XmmRegister left, XmmRegister right);
+  void vfmsub231ps(XmmRegister acc, XmmRegister left, XmmRegister right);
+  void vfmsub231pd(XmmRegister acc, XmmRegister left, XmmRegister right);
+
   void addps(XmmRegister dst, XmmRegister src);  // no addr variant (for now)
   void subps(XmmRegister dst, XmmRegister src);
   void mulps(XmmRegister dst, XmmRegister src);
@@ -920,6 +926,11 @@ class X86_64Assembler FINAL : public Assembler {
   void EmitLabel(Label* label, int instruction_size);
   void EmitLabelLink(Label* label);
   void EmitLabelLink(NearLabel* label);
+
+  // Emit a 3 byte VEX Prefix.
+  uint8_t EmitVexByteZero(bool is_two_byte);
+  uint8_t EmitVexByte1(bool r, bool x, bool b, int mmmmm);
+  uint8_t EmitVexByte2(bool w , int l , X86_64ManagedRegister operand, int pp);
 
   void EmitGenericShift(bool wide, int rm, CpuRegister reg, const Immediate& imm);
   void EmitGenericShift(bool wide, int rm, CpuRegister operand, CpuRegister shifter);
