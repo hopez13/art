@@ -93,6 +93,30 @@
       "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "785af3e0_c99877d1",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-29T13:33:18Z",
+      "side": 1,
+      "message": "OK - as discussed you can land this, but consider adding a DCHECK that the classes are the same, and please file a bug against framework on why we\u0027re duplicating classes (which is bad for dex size).",
+      "parentUuid": "30fac83e_0783f672",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 45
+      },
+      "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
