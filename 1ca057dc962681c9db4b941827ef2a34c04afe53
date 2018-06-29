@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b5ce27_0046ada2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-06-29T13:39:11Z",
+      "side": 1,
+      "message": "This makes me think you can now change the implementation of IsStringAlloc to check on the entrypoint, and get rid of the DCHECK.",
+      "range": {
+        "startLine": 5483,
+        "startChar": 10,
+        "endLine": 5483,
+        "endChar": 37
+      },
+      "revId": "1ca057dc962681c9db4b941827ef2a34c04afe53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
