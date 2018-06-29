@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83633849_c083e91f",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-06-29T07:44:50Z",
+      "side": 1,
+      "message": "\"push_back\" and then assert it\u0027s at the front? Either this is wrong or I think the c++ APIs are weird :)",
+      "revId": "f66e10c388f8249b9abf8ccdeac432e1f02ca362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a72c3a5_bba4058e",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-06-29T07:44:50Z",
+      "side": 1,
+      "message": "ForEachResolveableMember sounds like it should be similar to ForEachDexClass above, i.e. return void. Better name and/or add a comment saying what the return value means? (same comment for _Impl below and ForEachMatchingMember)",
+      "revId": "f66e10c388f8249b9abf8ccdeac432e1f02ca362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb52499_b775d34e",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-06-29T07:44:50Z",
+      "side": 1,
+      "message": "Document what return value means",
+      "revId": "f66e10c388f8249b9abf8ccdeac432e1f02ca362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
