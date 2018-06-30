@@ -46,8 +46,8 @@ bool VerifyOutputDexFile(dex_ir::Header* orig_header,
   return true;
 }
 
-template<class T> bool VerifyIds(dex_ir::CollectionVector<T>& orig,
-                                 dex_ir::CollectionVector<T>& output,
+template<class T> bool VerifyIds(dex_ir::IndexedCollectionVector<T>& orig,
+                                 dex_ir::IndexedCollectionVector<T>& output,
                                  const char* section_name,
                                  std::string* error_msg) {
   auto orig_iter = orig.begin();
@@ -185,8 +185,8 @@ struct ClassDefCompare {
 
 // The class defs may have a new order due to dexlayout. Use the class's class_idx to uniquely
 // identify them and sort them for comparison.
-bool VerifyClassDefs(dex_ir::CollectionVector<dex_ir::ClassDef>& orig,
-                     dex_ir::CollectionVector<dex_ir::ClassDef>& output,
+bool VerifyClassDefs(dex_ir::IndexedCollectionVector<dex_ir::ClassDef>& orig,
+                     dex_ir::IndexedCollectionVector<dex_ir::ClassDef>& output,
                      std::string* error_msg) {
   // Store the class defs into sets sorted by the class's type index.
   std::set<dex_ir::ClassDef*, ClassDefCompare> orig_set;

@@ -1592,15 +1592,7 @@ void DexLayout::LayoutClassDefsAndClassData(const DexFile* dex_file) {
   if (DexLayout::kChangeClassDefOrder) {
     // This currently produces dex files that violate the spec since the super class class_def is
     // supposed to occur before any subclasses.
-    dex_ir::CollectionVector<dex_ir::ClassDef>& class_defs = header_->ClassDefs();
-    CHECK_EQ(new_class_def_order.size(), class_defs.Size());
-    for (size_t i = 0; i < class_defs.Size(); ++i) {
-      // Overwrite the existing vector with the new ordering, note that the sets of objects are
-      // equivalent, but the order changes. This is why this is not a memory leak.
-      // TODO: Consider cleaning this up with a shared_ptr.
-      class_defs[i].release();
-      class_defs[i].reset(new_class_def_order[i]);
-    }
+    header_->ClassDefs().SortByVectorOrder(new_class_def_order);
   }
 }
 

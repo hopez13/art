@@ -261,7 +261,9 @@ Header* DexIrBuilder(const DexFile& dex_file,
                               dex_file.NumProtoIds(),
                               dex_file.NumFieldIds(),
                               dex_file.NumMethodIds(),
-                              dex_file.NumClassDefs());
+                              dex_file.NumClassDefs(),
+                              dex_file.NumCallSiteIds(),
+                              dex_file.NumMethodHandles());
   BuilderMaps builder_maps(header, eagerly_assign_offsets);
   // Walk the rest of the header fields.
   // StringId table.

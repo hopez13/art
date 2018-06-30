@@ -233,7 +233,7 @@ template<class T> class CollectionVector : public CollectionBase {
     // Preallocate so that assignment does not invalidate pointers into the vector.
     collection_.reserve(size);
   }
-  virtual ~CollectionVector() OVERRIDE { }
+  ~CollectionVector() { }
 
   template<class... Args>
   T* CreateAndAddItem(Args&&... args) {
@@ -277,25 +277,58 @@ template<class T> class CollectionVector : public CollectionBase {
   DISALLOW_COPY_AND_ASSIGN(CollectionVector);
 };
 
-template<class T> class IndexedCollectionVector : public CollectionVector<T> {
+template<class T> class IndexedCollectionVector : public CollectionBase {
  public:
-  using Vector = std::vector<std::unique_ptr<T>>;
+  using ElementType = std::unique_ptr<T>;
   IndexedCollectionVector() = default;
-  explicit IndexedCollectionVector(size_t size) : CollectionVector<T>(size) { }
+  explicit IndexedCollectionVector(size_t size) : collection_(new std::vector<ElementType>) {
+    // Preallocate so that assignment does not invalidate pointers into the vector.
+    collection_->reserve(size);
+    next_index_ = 0;
+    max_index_ = size;
+  }
+  ~IndexedCollectionVector() { }
 
   template <class... Args>
   T* CreateAndAddIndexedItem(uint32_t index, Args&&... args) {
-    T* object = CollectionVector<T>::CreateAndAddItem(std::forward<Args>(args)...);
+    CHECK_LT(next_index_, max_index_);
+    T* object = new T(std::forward<Args>(args)...);
+    collection_->emplace_back(object);
     object->SetIndex(index);
+    ++next_index_;
     return object;
   }
 
+  virtual uint32_t Size() const OVERRIDE { return collection_->size(); }
+
+  Iterator<ElementType> begin() const { return Iterator<ElementType>(*collection_, 0U, Size()); }
+  Iterator<ElementType> end() const { return Iterator<ElementType>(*collection_, Size(), Size()); }
+
   T* operator[](size_t index) const {
-    DCHECK_NE(CollectionVector<T>::collection_[index].get(), static_cast<T*>(nullptr));
-    return CollectionVector<T>::collection_[index].get();
+    DCHECK_NE((*collection_)[index].get(), static_cast<T*>(nullptr)) << Size() << ", " << index;
+    return (*collection_)[index].get();
+  }
+
+  void SortByVectorOrder(const std::vector<T*>& new_order) {
+    CHECK_EQ(new_order.size(), Size());
+    // Allocate a new vector.
+    std::unique_ptr<std::vector<ElementType>> new_collection(new std::vector<ElementType>());
+    new_collection->reserve(Size());
+    // Copy the elements in the new order.
+    for (size_t i = 0; i < Size(); ++i) {
+      // Overwrite the existing vector with the new ordering, note that the sets of objects are
+      // equivalent, but the order changes. This is why this is not a memory leak.
+      new_collection->emplace_back(new_order[i]);
+    }
+    // Use the new vector.
+    collection_ = std::move(new_collection);
   }
 
  private:
+  std::unique_ptr<std::vector<ElementType>> collection_;
+  size_t next_index_;
+  size_t max_index_;
+
   DISALLOW_COPY_AND_ASSIGN(IndexedCollectionVector);
 };
 
@@ -386,7 +419,9 @@ class Header : public Item {
          uint32_t num_proto_ids,
          uint32_t num_field_ids,
          uint32_t num_method_ids,
-         uint32_t num_class_defs)
+         uint32_t num_class_defs,
+         uint32_t num_call_site_ids,
+         uint32_t num_method_handles)
       : Item(0, kHeaderItemSize),
         support_default_methods_(support_default_methods),
         string_ids_(num_string_ids),
@@ -394,7 +429,9 @@ class Header : public Item {
         proto_ids_(num_proto_ids),
         field_ids_(num_field_ids),
         method_ids_(num_method_ids),
-        class_defs_(num_class_defs) {
+        class_defs_(num_class_defs),
+        call_site_ids_(num_call_site_ids),
+        method_handle_items_(num_method_handles) {
     ConstructorHelper(magic,
                       checksum,
                       signature,
@@ -546,13 +583,13 @@ class Header : public Item {
   IndexedCollectionVector<ClassDef> class_defs_;
   IndexedCollectionVector<CallSiteId> call_site_ids_;
   IndexedCollectionVector<MethodHandleItem> method_handle_items_;
-  IndexedCollectionVector<StringData> string_datas_;
-  IndexedCollectionVector<TypeList> type_lists_;
-  IndexedCollectionVector<EncodedArrayItem> encoded_array_items_;
-  IndexedCollectionVector<AnnotationItem> annotation_items_;
-  IndexedCollectionVector<AnnotationSetItem> annotation_set_items_;
-  IndexedCollectionVector<AnnotationSetRefList> annotation_set_ref_lists_;
-  IndexedCollectionVector<AnnotationsDirectoryItem> annotations_directory_items_;
+  CollectionVector<StringData> string_datas_;
+  CollectionVector<TypeList> type_lists_;
+  CollectionVector<EncodedArrayItem> encoded_array_items_;
+  CollectionVector<AnnotationItem> annotation_items_;
+  CollectionVector<AnnotationSetItem> annotation_set_items_;
+  CollectionVector<AnnotationSetRefList> annotation_set_ref_lists_;
+  CollectionVector<AnnotationsDirectoryItem> annotations_directory_items_;
   // The order of the vectors controls the layout of the output file by index order, to change the
   // layout just sort the vector. Note that you may only change the order of the non indexed vectors
   // below. Indexed vectors are accessed by indices in other places, changing the sorting order will
