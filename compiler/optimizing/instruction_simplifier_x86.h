@@ -28,7 +28,7 @@ class InstructionSimplifierX86 : public HOptimization {
  public:
   InstructionSimplifierX86(HGraph* graph, CodeGenerator* codegen, OptimizingCompilerStats* stats)
       : HOptimization(graph, kInstructionSimplifierX86PassName, stats),
-      codegen_(down_cast<CodeGeneratorX86*>(codegen)) {}
+        codegen_(down_cast<CodeGeneratorX86*>(codegen)) {}
 
   static constexpr const char* kInstructionSimplifierX86PassName = "instruction_simplifier_x86";
 

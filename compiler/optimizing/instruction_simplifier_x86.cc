@@ -68,9 +68,8 @@ a = (b * c) + a
 a = (b * c) – a
 */
 bool InstructionSimplifierX86Visitor::TryGenerateVecMultiplyAccumulate(HVecMul* mul) {
-  auto type = mul->GetPackedType();
-  if (!(type == DataType::Type::kFloat32 ||
-        type == DataType::Type::kFloat64)) {
+  if (!(mul->GetPackedType() == DataType::Type::kFloat32 ||
+        mul->GetPackedType() == DataType::Type::kFloat64)) {
      return false;
   }
   ArenaAllocator* allocator = mul->GetBlock()->GetGraph()->GetAllocator();

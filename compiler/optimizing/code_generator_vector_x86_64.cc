@@ -1124,9 +1124,13 @@ void LocationsBuilderX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* 
 void InstructionCodeGeneratorX86_64::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instr) {
   LocationSummary* locations = instr->GetLocations();
   DCHECK(locations->InAt(0).Equals(locations->Out()));
-  XmmRegister accumulator = locations->InAt(HVecMultiplyAccumulate::kInputAccumulatorIndex).AsFpuRegister<XmmRegister>();
-  XmmRegister mul_left = locations->InAt(HVecMultiplyAccumulate::kInputMulLeftIndex).AsFpuRegister<XmmRegister>();
-  XmmRegister mul_right = locations->InAt(HVecMultiplyAccumulate::kInputMulRightIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister accumulator = locations->InAt(
+      HVecMultiplyAccumulate::kInputAccumulatorIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister mul_left = locations->InAt(
+      HVecMultiplyAccumulate::kInputMulLeftIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister mul_right = locations->InAt(
+      HVecMultiplyAccumulate::kInputMulRightIndex).AsFpuRegister<XmmRegister>();
+
   switch (instr->GetPackedType()) {
     case DataType::Type::kFloat32:
       DCHECK_EQ(4u, instr->GetVectorLength());

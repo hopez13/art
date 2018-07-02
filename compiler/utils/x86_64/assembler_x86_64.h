@@ -436,7 +436,11 @@ class X86_64Assembler FINAL : public Assembler {
   void divss(XmmRegister dst, XmmRegister src);
   void divss(XmmRegister dst, const Address& src);
 
-    // Mac Instructions
+  // Mac Instructions
+  // For reference look at the Instruction reference volume 2C.
+  // The below URL is broken down in two lines.
+  // https://www.intel.com/content/www/us/en/architecture-and-technology/
+  // 64-ia-32-architectures-software-developer-vol-2c-manual.html
   void vfmadd231ps(XmmRegister acc, XmmRegister left, XmmRegister right);
   void vfmadd231pd(XmmRegister acc, XmmRegister left, XmmRegister right);
   void vfmsub231ps(XmmRegister acc, XmmRegister left, XmmRegister right);

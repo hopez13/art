@@ -1131,11 +1131,11 @@ void LocationsBuilderX86::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* ins
     case DataType::Type::kFloat32:
     case DataType::Type::kFloat64:
       locations->SetInAt(
-        HVecMultiplyAccumulate::kInputAccumulatorIndex, Location::RequiresFpuRegister());
+          HVecMultiplyAccumulate::kInputAccumulatorIndex, Location::RequiresFpuRegister());
       locations->SetInAt(
-        HVecMultiplyAccumulate::kInputMulLeftIndex, Location::RequiresFpuRegister());
+          HVecMultiplyAccumulate::kInputMulLeftIndex, Location::RequiresFpuRegister());
       locations->SetInAt(
-        HVecMultiplyAccumulate::kInputMulRightIndex, Location::RequiresFpuRegister());
+          HVecMultiplyAccumulate::kInputMulRightIndex, Location::RequiresFpuRegister());
       DCHECK_EQ(HVecMultiplyAccumulate::kInputAccumulatorIndex, 0);
       locations->SetOut(Location::SameAsFirstInput());
   break;
@@ -1150,9 +1150,12 @@ void LocationsBuilderX86::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* ins
 void InstructionCodeGeneratorX86::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instr) {
   LocationSummary* locations = instr->GetLocations();
   DCHECK(locations->InAt(0).Equals(locations->Out()));
-  XmmRegister accumulator = locations->InAt(HVecMultiplyAccumulate::kInputAccumulatorIndex).AsFpuRegister<XmmRegister>();
-  XmmRegister mul_left = locations->InAt(HVecMultiplyAccumulate::kInputMulLeftIndex).AsFpuRegister<XmmRegister>();
-  XmmRegister mul_right = locations->InAt(HVecMultiplyAccumulate::kInputMulRightIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister accumulator = locations->InAt(
+      HVecMultiplyAccumulate::kInputAccumulatorIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister mul_left = locations->InAt(
+      HVecMultiplyAccumulate::kInputMulLeftIndex).AsFpuRegister<XmmRegister>();
+  XmmRegister mul_right = locations->InAt(
+      HVecMultiplyAccumulate::kInputMulRightIndex).AsFpuRegister<XmmRegister>();
   switch (instr->GetPackedType()) {
     case DataType::Type::kFloat32:
       DCHECK_EQ(4u, instr->GetVectorLength());
