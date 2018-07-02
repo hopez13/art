@@ -67,4 +67,15 @@ public enum Reachability {
   public String toString() {
     return name;
   }
+
+  /**
+   * Returns true if this reachability is the same or stronger than the
+   * <code>other</code> reachability.
+   *
+   * @param other the other reachability to compare this against
+   * @return true if this reachability is as strong as <code>other</code>
+   */
+  public boolean isAsStrongAs(Reachability other) {
+    return ordinal() <= other.ordinal();
+  }
 }
