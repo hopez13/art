@@ -206,16 +206,22 @@ bool StackVisitor::GetVRegFromOptimizedCode(ArtMethod* m, uint16_t vreg, VRegKin
   uint16_t number_of_dex_registers = accessor.RegistersSize();
   DCHECK_LT(vreg, number_of_dex_registers);
   const OatQuickMethodHeader* method_header = GetCurrentOatQuickMethodHeader();
-  CodeInfo code_info(method_header);
+  // Decoding of the register map is expensive, so cache the most recent map.
+  if (cached_dex_register_map_pc_ != cur_quick_frame_pc_ ||
+      cached_dex_register_map_inline_depth_ != current_inline_frames_.size()) {
+    cached_dex_register_map_pc_ = cur_quick_frame_pc_;
+    cached_dex_register_map_inline_depth_ = current_inline_frames_.size();
 
-  uint32_t native_pc_offset = method_header->NativeQuickPcOffset(cur_quick_frame_pc_);
-  StackMap stack_map = code_info.GetStackMapForNativePcOffset(native_pc_offset);
-  DCHECK(stack_map.IsValid());
-
-  DexRegisterMap dex_register_map = IsInInlinedFrame()
-      ? code_info.GetInlineDexRegisterMapOf(stack_map, current_inline_frames_.back())
-      : code_info.GetDexRegisterMapOf(stack_map);
-  if (dex_register_map.empty()) {
+    CodeInfo code_info(method_header);
+    uint32_t native_pc_offset = method_header->NativeQuickPcOffset(cur_quick_frame_pc_);
+    StackMap stack_map = code_info.GetStackMapForNativePcOffset(native_pc_offset);
+    DCHECK(stack_map.IsValid());
+    cached_dex_register_map_ = IsInInlinedFrame()
+        ? code_info.GetInlineDexRegisterMapOf(stack_map, current_inline_frames_.back())
+        : code_info.GetDexRegisterMapOf(stack_map);
+  }
+  DexRegisterMap& dex_register_map = cached_dex_register_map_;
+  if (cached_dex_register_map_.empty()) {
     return false;
   }
   DCHECK_EQ(dex_register_map.size(), number_of_dex_registers);

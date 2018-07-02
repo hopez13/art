@@ -70,6 +70,7 @@ class DexRegisterMap {
       regs_large_.resize(count, value);
     }
   }
+  DexRegisterMap() : count_(0), regs_small_{} { }
 
   DexRegisterLocation* data() {
     return count_ <= kSmallCount ? regs_small_.data() : regs_large_.data();
