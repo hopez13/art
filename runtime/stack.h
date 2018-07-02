@@ -313,6 +313,10 @@ class StackVisitor {
   // Current inlined frames of the method we are currently at.
   // We keep poping frames from the end as we visit the frames.
   BitTableRange<InlineInfo> current_inline_frames_;
+  // Preserve the most recently decoded dex register map.
+  mutable DexRegisterMap cached_dex_register_map_;
+  mutable uintptr_t cached_dex_register_map_pc_ = 0;
+  mutable uintptr_t cached_dex_register_map_inline_depth_ = 0;
 
  protected:
   Context* const context_;
