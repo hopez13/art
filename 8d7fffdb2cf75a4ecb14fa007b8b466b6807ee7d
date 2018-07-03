@@ -117,6 +117,30 @@
       "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cfa945e_15426c55",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-07-03T16:24:21Z",
+      "side": 1,
+      "message": "Filed b/111107855 about duplicate linking and b/111116543 to delete a class which has two different implementations (CL aog/712168).\n\nRe DCHECK: DexClass::Equals checks that the descriptor, access flags, superclass and implemented interfaces are the same. I can\u0027t check methods/fields because of the ExponentialBackoff class in the referenced CL. Added a TODO to make the check stricter.",
+      "parentUuid": "785af3e0_c99877d1",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 45
+      },
+      "revId": "8d7fffdb2cf75a4ecb14fa007b8b466b6807ee7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
