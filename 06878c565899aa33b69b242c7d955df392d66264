@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0e01b2d_530c93fa",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-03T10:22:49Z",
+      "side": 1,
+      "message": "No, the verifier rejects this.",
+      "parentUuid": "fae759a5_356a0b4e",
+      "range": {
+        "startLine": 470,
+        "startChar": 10,
+        "endLine": 470,
+        "endChar": 44
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec0871d5_1e37b015",
         "filename": "test/563-checker-fakestring/smali/TestCase.smali",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "06878c565899aa33b69b242c7d955df392d66264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57ef2ec6_47c3172c",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-03T10:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec0871d5_1e37b015",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 213,
+        "endChar": 21
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0d562bf9_a8420289",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-03T10:22:49Z",
+      "side": 1,
+      "message": "Yes (checked by Deoptimize line 247).",
+      "parentUuid": "20a30214_7f4856c3",
+      "range": {
+        "startLine": 269,
+        "startChar": 3,
+        "endLine": 269,
+        "endChar": 53
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18e28b63_dbefa5de",
         "filename": "test/563-checker-fakestring/smali/TestCase.smali",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2018-07-03T09:47:08Z",
       "side": 1,
       "message": "Is this a deliberate explicit null-check on the result of new-instance?",
+      "range": {
+        "startLine": 303,
+        "startChar": 10,
+        "endLine": 303,
+        "endChar": 12
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7834dc19_29bca81b",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-03T10:22:49Z",
+      "side": 1,
+      "message": "Yes, hence the \"...AndTest\" in the method name. I\u0027ll add a comment there too.",
+      "parentUuid": "18e28b63_dbefa5de",
       "range": {
         "startLine": 303,
         "startChar": 10,
