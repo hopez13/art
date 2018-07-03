@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fae759a5_356a0b4e",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-03T09:47:08Z",
+      "side": 1,
+      "message": "Is the following valid bytecode?\n\n    ifeqz v0, :then_label\n    new-instance v1, Ljava/lang/String;\n    goto :merge_label\n  :then_label\n    new-instance v1, Ljava/lang/String;\n  :merge_label\n    invoke-direct {v1, ...} Ljava/lang/String;-\u003e\u003cinit\u003e(...)V",
+      "range": {
+        "startLine": 470,
+        "startChar": 10,
+        "endLine": 470,
+        "endChar": 44
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec0871d5_1e37b015",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-03T09:47:08Z",
+      "side": 1,
+      "message": "xor-int/lit8",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 213,
+        "endChar": 21
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a30214_7f4856c3",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-03T09:47:08Z",
+      "side": 1,
+      "message": "Do we really transform to Deopt if there are only 2 AGETs on the same array outside any loops?",
+      "range": {
+        "startLine": 269,
+        "startChar": 3,
+        "endLine": 269,
+        "endChar": 53
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e28b63_dbefa5de",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-03T09:47:08Z",
+      "side": 1,
+      "message": "Is this a deliberate explicit null-check on the result of new-instance?",
+      "range": {
+        "startLine": 303,
+        "startChar": 10,
+        "endLine": 303,
+        "endChar": 12
+      },
+      "revId": "06878c565899aa33b69b242c7d955df392d66264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
