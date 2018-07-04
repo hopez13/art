@@ -22,6 +22,30 @@
       "revId": "b1775a8bc48bc1b3d90c34a509285c02e56548da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a1548af_87a4fe1e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2018-07-04T13:52:14Z",
+      "side": 0,
+      "message": "Moved the test to smali in https://android-review.googlesource.com/c/platform/art/+/713227.",
+      "parentUuid": "8f7e1b8a_cf628ed7",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 29
+      },
+      "revId": "b1775a8bc48bc1b3d90c34a509285c02e56548da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
