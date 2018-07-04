@@ -22,6 +22,23 @@
       "revId": "bb30d5d917a47d352c209473b3faf332736fa6ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c9b8584_5e75eff1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2810,
+      "author": {
+        "id": 1121591
+      },
+      "writtenOn": "2018-07-04T20:02:50Z",
+      "side": 1,
+      "message": "Why SkipClass is not enough (line 2808)? It looks to be intended to do the same thing. Also it covers more places where skips can be applied. Am I missing something?",
+      "revId": "bb30d5d917a47d352c209473b3faf332736fa6ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
