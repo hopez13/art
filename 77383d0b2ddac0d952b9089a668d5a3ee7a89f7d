@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d2faf99_079f1486",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-05T11:54:54Z",
+      "side": 1,
+      "message": "cannot\n\nBut they do have a CodeInfo now. Isn\u0027t it crashing if you execute the code below for them? Can you explain why?",
+      "range": {
+        "startLine": 818,
+        "startChar": 27,
+        "endLine": 818,
+        "endChar": 34
+      },
+      "revId": "77383d0b2ddac0d952b9089a668d5a3ee7a89f7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
