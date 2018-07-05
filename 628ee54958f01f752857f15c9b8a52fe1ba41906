@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c4c90ab_306a7d97",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-05T11:33:08Z",
+      "side": 1,
+      "message": "Please add a comment why native methods shouldn\u0027t execute code below.",
+      "range": {
+        "startLine": 818,
+        "startChar": 15,
+        "endLine": 818,
+        "endChar": 34
+      },
+      "revId": "628ee54958f01f752857f15c9b8a52fe1ba41906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
