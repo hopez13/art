@@ -550,6 +550,7 @@ class ElfBuilder FINAL {
         build_id_(this, ".note.gnu.build-id", SHT_NOTE, SHF_ALLOC, nullptr, 0, 4, 0),
         current_section_(nullptr),
         started_(false),
+        finished_(false),
         write_program_headers_(false),
         loaded_size_(0u),
         virtual_address_(0) {
@@ -627,8 +628,10 @@ class ElfBuilder FINAL {
     write_program_headers_ = write_program_headers;
   }
 
-  void End() {
+  off_t End() {
     DCHECK(started_);
+    DCHECK(!finished_);
+    finished_ = true;
 
     // Note: loaded_size_ == 0 for tests that don't write .rodata, .text, .bss,
     // .dynstr, dynsym, .hash and .dynamic. These tests should not read loaded_size_.
@@ -662,6 +665,7 @@ class ElfBuilder FINAL {
     Elf_Off section_headers_offset;
     section_headers_offset = AlignFileOffset(sizeof(Elf_Off));
     stream_.WriteFully(shdrs.data(), shdrs.size() * sizeof(shdrs[0]));
+    off_t file_size = stream_.Seek(0, kSeekCurrent);
 
     // Flush everything else before writing the program headers. This should prevent
     // the OS from reordering writes, so that we don't end up with valid headers
@@ -687,6 +691,32 @@ class ElfBuilder FINAL {
     stream_.WriteFully(&elf_header, sizeof(elf_header));
     stream_.WriteFully(phdrs.data(), phdrs.size() * sizeof(phdrs[0]));
     stream_.Flush();
+
+    return file_size;
+  }
+
+  // Remove debugging information from already finished ELF file.
+  // This is equivalent to calling the "strip" command line tool.
+  // It assumes that all debugging sections are at the end.
+  // It returns the ELF file size after stripping (the file needs to be truncated).
+  off_t StripDebugInfo() {
+    DCHECK(finished_);
+    finished_ = false;
+    off_t end_offset = 0;
+    std::vector<Section*> non_debug_sections;
+    for (Section* section : sections_) {
+      if (section == &shstrtab_ || section == &symtab_ || section == &strtab_ || section->name_.find(".debug_") == 0) {
+        shstrtab_.header_.sh_offset = 0;
+        shstrtab_.header_.sh_size = 0;
+      } else {
+        end_offset = std::max<off_t>(end_offset, section->header_.sh_offset + section->header_.sh_size);
+        non_debug_sections.push_back(section);
+      }
+    }
+    // Write the non-debug section headers, program headers, and ELF header again.
+    sections_ = std::move(non_debug_sections);
+    stream_.Seek(end_offset, kSeekSet);
+    return End();
   }
 
   // The running program does not have access to section headers
@@ -1060,6 +1090,7 @@ class ElfBuilder FINAL {
   Section* current_section_;  // The section which is currently being written.
 
   bool started_;
+  bool finished_;
   bool write_program_headers_;
 
   // The size of the memory taken by the ELF file when loaded.
