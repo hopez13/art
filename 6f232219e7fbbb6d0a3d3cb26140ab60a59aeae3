@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81fd0357_025d44e4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-05T14:31:20Z",
+      "side": 1,
+      "message": "That\u0027s not the case if the same method catches the exception. Can you expand the comment to explain why it\u0027s still ok?",
+      "range": {
+        "startLine": 5171,
+        "startChar": 78,
+        "endLine": 5172,
+        "endChar": 20
+      },
+      "revId": "6f232219e7fbbb6d0a3d3cb26140ab60a59aeae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
