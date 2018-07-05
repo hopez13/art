@@ -22,6 +22,30 @@
       "revId": "77383d0b2ddac0d952b9089a668d5a3ee7a89f7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428c3864_ed9fd6d3",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-05T12:03:58Z",
+      "side": 1,
+      "message": "It crashed because of the 0 pc (because 0 is not properly aligned thumb pc - it does not have the lsb set).",
+      "parentUuid": "7d2faf99_079f1486",
+      "range": {
+        "startLine": 818,
+        "startChar": 27,
+        "endLine": 818,
+        "endChar": 34
+      },
+      "revId": "77383d0b2ddac0d952b9089a668d5a3ee7a89f7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
