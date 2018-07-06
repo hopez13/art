@@ -31,11 +31,13 @@
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "base/bit_memory_region.h"
 #include "base/dumpable.h"
 #include "base/file_utils.h"
 #include "base/leb128.h"
 #include "base/logging.h"  // For InitLogging.
 #include "base/mutex.h"
+#include "base/memory_region.h"
 #include "base/memory_tool.h"
 #include "base/os.h"
 #include "base/scoped_flock.h"
@@ -187,10 +189,6 @@ bool PatchOat::GeneratePatch(
             "Original and relocated image sizes differ: %zu vs %zu", original_size, relocated_size);
     return false;
   }
-  if ((original_size % 4) != 0) {
-    *error_msg = StringPrintf("Image size not multiple of 4: %zu", original_size);
-    return false;
-  }
   if (original_size > UINT32_MAX) {
     *error_msg = StringPrintf("Image too large: %zu" , original_size);
     return false;
@@ -206,12 +204,32 @@ bool PatchOat::GeneratePatch(
     return false;
   }
 
+  const ImageHeader* image_header = reinterpret_cast<const ImageHeader*>(original.Begin());
+  if (image_header->GetStorageMode() != ImageHeader::kStorageModeUncompressed) {
+    LOG(FATAL) << "VMARKO: COMPRESSED!";
+  }
+  if (image_header->IsAppImage()) {
+    LOG(FATAL) << "VMARKO: APP IMAGE!";
+  }
+
+  const size_t image_bitmap_offset = RoundUp(sizeof(ImageHeader) + image_header->GetDataSize(),
+                                             kPageSize);
+  const size_t end_of_bitmap = image_bitmap_offset + image_header->GetImageBitmapSection().Size();
+  MemoryRegion relocations_data(original.Begin() + end_of_bitmap,
+                                image_header->GetImageRelocationsSection().Size());
+  uint32_t image_end = image_header->GetClassTableSection().End();
+  DCHECK_ALIGNED(image_end, sizeof(GcRoot<mirror::Object>));
+  size_t num_indexes = image_end / sizeof(GcRoot<mirror::Object>);
+  BitMemoryRegion relocation_bitmap(relocations_data, /* bit_offset */ 0u, num_indexes);
+  uint32_t num_missing_relocations = 0u;
+
   // Output the SHA-256 digest of the original
   output->resize(SHA256_DIGEST_LENGTH);
   const uint8_t* original_bytes = original.Begin();
   SHA256(original_bytes, original_size, output->data());
 
   // Output the list of offsets at which the original and patched images differ
+  size_t num_relocations = 0u;
   size_t last_diff_offset = 0;
   size_t diff_offset_count = 0;
   const uint8_t* relocated_bytes = relocated.Begin();
@@ -220,6 +238,9 @@ bool PatchOat::GeneratePatch(
     uint32_t relocated_value = *reinterpret_cast<const uint32_t*>(relocated_bytes + offset);
     off_t diff = relocated_value - original_value;
     if (diff == 0) {
+      if (offset < image_end) {
+        CHECK(!relocation_bitmap.LoadBit(offset / 4u));
+      }
       continue;
     } else if (diff != expected_diff) {
       *error_msg =
@@ -231,11 +252,20 @@ bool PatchOat::GeneratePatch(
       return false;
     }
 
+    CHECK_LT(offset, image_end);
+    if (!relocation_bitmap.LoadBit(offset / 4u)) {
+      if (num_missing_relocations < 10) {
+        LOG(ERROR) << "VMARKO: Missing relocation at 0x" << std::hex << offset;
+      }
+      ++num_missing_relocations;
+    }
+
     uint32_t offset_diff = offset - last_diff_offset;
     last_diff_offset = offset;
     diff_offset_count++;
 
     EncodeUnsignedLeb128(output, offset_diff);
+    ++num_relocations;
   }
 
   if (diff_offset_count == 0) {
@@ -243,6 +273,9 @@ bool PatchOat::GeneratePatch(
     return false;
   }
 
+  if ((false))
+  LOG(ERROR) << "VMARKO: num_relocations=" << num_relocations << " encoded_size=" << output->size()
+      << " num_missing_relocations=" << num_missing_relocations;
   return true;
 }
 
