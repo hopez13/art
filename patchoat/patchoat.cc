@@ -187,10 +187,6 @@ bool PatchOat::GeneratePatch(
             "Original and relocated image sizes differ: %zu vs %zu", original_size, relocated_size);
     return false;
   }
-  if ((original_size % 4) != 0) {
-    *error_msg = StringPrintf("Image size not multiple of 4: %zu", original_size);
-    return false;
-  }
   if (original_size > UINT32_MAX) {
     *error_msg = StringPrintf("Image too large: %zu" , original_size);
     return false;
@@ -206,12 +202,23 @@ bool PatchOat::GeneratePatch(
     return false;
   }
 
+  const ImageHeader* image_header = reinterpret_cast<const ImageHeader*>(original.Begin());
+  const size_t image_bitmap_offset = RoundUp(sizeof(ImageHeader) + image_header->GetDataSize(),
+                                             kPageSize);
+  const size_t end_of_bitmap = image_bitmap_offset + image_header->GetImageBitmapSection().Size();
+  const uint8_t* relocations_data = original.Begin() + end_of_bitmap;
+  const uint8_t* relocations_data_end =
+      relocations_data + image_header->GetImageRelocationsSection().Size();
+  uint32_t relocations_last_index = 0u;
+  uint32_t num_missing_relocations = 0u;
+
   // Output the SHA-256 digest of the original
   output->resize(SHA256_DIGEST_LENGTH);
   const uint8_t* original_bytes = original.Begin();
   SHA256(original_bytes, original_size, output->data());
 
   // Output the list of offsets at which the original and patched images differ
+  size_t num_relocations = 0u;
   size_t last_diff_offset = 0;
   size_t diff_offset_count = 0;
   const uint8_t* relocated_bytes = relocated.Begin();
@@ -231,11 +238,35 @@ bool PatchOat::GeneratePatch(
       return false;
     }
 
+    bool missing_relocation;
+    if (relocations_data == relocations_data_end) {
+      missing_relocation = true;
+    } else {
+      const uint8_t* temp_data = relocations_data;
+      uint32_t temp_diff = DecodeUnsignedLeb128(&temp_data);
+      CHECK(temp_data <= relocations_data_end);
+      if (relocations_last_index + temp_diff == offset) {
+        missing_relocation = false;
+        relocations_data = temp_data;
+        relocations_last_index += temp_diff;
+      } else {
+        CHECK_GT(relocations_last_index + temp_diff, offset);
+        missing_relocation = true;
+      }
+    }
+    if (missing_relocation) {
+      if (num_missing_relocations < 10) {
+        LOG(ERROR) << "VMARKO: Missing relocation at 0x" << std::hex << offset;
+      }
+      ++num_missing_relocations;
+    }
+
     uint32_t offset_diff = offset - last_diff_offset;
     last_diff_offset = offset;
     diff_offset_count++;
 
     EncodeUnsignedLeb128(output, offset_diff);
+    ++num_relocations;
   }
 
   if (diff_offset_count == 0) {
@@ -243,6 +274,9 @@ bool PatchOat::GeneratePatch(
     return false;
   }
 
+  if ((false))
+  LOG(ERROR) << "VMARKO: num_relocations=" << num_relocations << " encoded_size=" << output->size()
+      << " num_missing_relocations=" << num_missing_relocations;
   return true;
 }
 
