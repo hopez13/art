@@ -369,6 +369,11 @@ class ImageWriter FINAL {
 
     // Class table associated with this image for serialization.
     std::unique_ptr<ClassTable> class_table_;
+
+    // Relocations of references/pointers to the current image being built.
+    std::vector<uint32_t> relocation_offsets_;
+    // Relocations of references/pointers to the boot image from app image.
+    std::vector<uint32_t> boot_image_relocation_offsets_;
   };
 
   // We use the lock word to store the offset of the object in the image.
@@ -700,6 +705,11 @@ class ImageWriter FINAL {
   class RegisterBootClassPathClassesVisitor;
   class VisitReferencesVisitor;
   class PruneObjectReferenceVisitor;
+
+  class RelocationEncoder1;
+  class RelocationEncoder2;
+  class RelocationEncoder3;
+  dchecked_vector<uint8_t> EncodeRelocations(const std::vector<uint32_t>& relocations);
 
   DISALLOW_COPY_AND_ASSIGN(ImageWriter);
 };
