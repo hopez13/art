@@ -86,6 +86,827 @@ using ::art::mirror::String;
 namespace art {
 namespace linker {
 
+class ImageWriter::RelocationEncoder1 {
+ public:
+  RelocationEncoder1()
+      : data_(),
+        base_index_(0u),
+        current_bitmask_(0u) {
+    data_.reserve(64 * KB);
+  }
+
+  void Encode(uint32_t offset) {
+    DCHECK_ALIGNED(offset, kReferenceSize);
+    uint32_t index = offset / kReferenceSize;
+    DCHECK_GT(index, base_index_);
+    if (base_index_ == 0u) {
+      EncodeUnsignedLeb128(&data_, index);
+      base_index_ = index;
+      current_bitmask_ = 0u;
+    } else if (index - base_index_ <= 7u) {
+      DCHECK_LT(current_bitmask_, 1u << (index - base_index_ - 1u));
+      current_bitmask_ |= (1u << (index - base_index_ - 1u));
+    } else if (index - base_index_ <= 14u) {
+      data_.push_back(current_bitmask_ | 0x80u);
+      base_index_ += 7u;
+      current_bitmask_ = (1u << (index - base_index_ - 1u));
+    } else {
+      data_.push_back(current_bitmask_);
+      EncodeUnsignedLeb128(&data_, index - base_index_ - 8u);
+      base_index_ = index;
+      current_bitmask_ = 0u;
+    }
+  }
+
+  const dchecked_vector<uint8_t>& Finish() {
+    if (base_index_ != 0u) {
+      data_.push_back(current_bitmask_);
+    }
+    return data_;
+  }
+
+ private:
+  static constexpr size_t kReferenceSize = sizeof(mirror::HeapReference<mirror::Object>);
+
+  dchecked_vector<uint8_t> data_;
+  uint32_t base_index_;
+  uint8_t current_bitmask_;
+};
+
+class ImageWriter::RelocationEncoder2 {
+ public:
+  RelocationEncoder2()
+      : data_(),
+        base_index_(0u),
+        last_diff_(0u),
+        current_bitmask_(0u) {
+    data_.reserve(64 * KB);
+  }
+
+  void Encode(uint32_t offset) {
+    DCHECK_ALIGNED(offset, kReferenceSize);
+    uint32_t index = offset / kReferenceSize;
+    DCHECK_GT(index, base_index_);
+    if (base_index_ == 0u) {
+      last_diff_ = index;
+      base_index_ = index;
+      current_bitmask_ = 0u;
+    } else if (current_bitmask_ == 0u) {
+      if (index - base_index_ <= 7u) {
+        // Record the remembered entry with a mark bit for the bitmask and update the bitmask.
+        EncodeUnsignedLeb128(&data_, (last_diff_ << 1u) + 1u);
+        current_bitmask_ = (1u << (index - base_index_ - 1u));
+      } else {
+        // Encode the remembered entry individually and remember the new one.
+        EncodeUnsignedLeb128(&data_, last_diff_ << 1u);
+        last_diff_ = index - (base_index_ + 8u);
+        base_index_ = index;
+        DCHECK_EQ(current_bitmask_, 0u);  // Keep the current bitmask clear.
+      }
+    } else if (index - base_index_ <= 7u) {
+      // Update the current bitmask.
+      DCHECK_NE(current_bitmask_, 0u);
+      DCHECK_LT(current_bitmask_, 1u << (index - base_index_ - 1u));
+      current_bitmask_ |= (1u << (index - base_index_ - 1u));
+    } else if (index - base_index_ <= 14u) {
+      // Push the current bitmask with a continuation bit and start a new one.
+      DCHECK_NE(current_bitmask_, 0u);
+      data_.push_back(current_bitmask_ | 0x80u);
+      base_index_ += 7u;
+      current_bitmask_ = (1u << (index - base_index_ - 1u));
+    } else {
+      // Push the current bitmask and remember the new entry.
+      DCHECK_NE(current_bitmask_, 0u);
+      data_.push_back(current_bitmask_);
+      last_diff_ = index - (base_index_ + 15u);
+      base_index_ = index;
+      current_bitmask_ = 0u;
+    }
+  }
+
+  const dchecked_vector<uint8_t>& Finish() {
+    if (base_index_ != 0u) {
+      if (current_bitmask_ == 0u) {
+        // Encode the remembered entry individually.
+        EncodeUnsignedLeb128(&data_, last_diff_ << 1u);
+      } else {
+        // Push the current bitmask.
+        data_.push_back(current_bitmask_);
+      }
+    }
+    return data_;
+  }
+
+ private:
+  static constexpr size_t kReferenceSize = sizeof(mirror::HeapReference<mirror::Object>);
+
+  dchecked_vector<uint8_t> data_;
+  uint32_t base_index_;
+  uint32_t last_diff_;
+  uint8_t current_bitmask_;
+};
+
+class Encoding2Decoder {
+ public:
+  explicit Encoding2Decoder(const dchecked_vector<uint8_t>& encoded_data)
+      : encoded_data_(encoded_data),
+        data_offset_(0u),
+        base_index_(0u),
+        current_bitmask_(0u) {
+    if (!encoded_data.empty()) {
+      base_index_ = ReadDiffAndTag();
+      DCHECK_NE(base_index_, 0u);
+    }
+  }
+
+  bool Finished() const {
+    return base_index_ == 0u;
+  }
+
+  uint32_t CurrentOffset() const {
+    DCHECK(!Finished());
+    uint32_t index = base_index_;
+    if ((current_bitmask_ & 0x7f) != 0u) {
+      index += 1u + CTZ(current_bitmask_);
+    }
+    DCHECK_LT(index, std::numeric_limits<uint32_t>::max() / kReferenceSize);
+    return index * kReferenceSize;
+  }
+
+  void Next() {
+    DCHECK(!Finished());
+    if (current_bitmask_ == 0u) {
+      // This was an individual index, read the next base_index_ if available.
+      if (data_offset_ != encoded_data_.size()) {
+        uint32_t diff = ReadDiffAndTag();
+        // Skip 8 indexes because no encoded bitmask means [base+1, base+7] are clear.
+        base_index_ = base_index_ + 8u + diff;
+      } else {
+        base_index_ = 0u;  // Finished.
+      }
+    } else if ((current_bitmask_ & 0x7f) == 0u) {
+      // We are moving over the base_index_ and need to load the first bitmask.
+      ReadBitmask();
+    } else {
+      // We are moving over the value indicated by the bottom bit, so clear that bit.
+      current_bitmask_ = current_bitmask_ & (current_bitmask_ - 1u);
+      if (current_bitmask_ == 0) {
+        // We're done with this bitmask, read the next base_index_ if available.
+        if (data_offset_ != encoded_data_.size()) {
+          uint32_t diff = ReadDiffAndTag();
+          // Skip 15 indexes because no bitmask continuation means [base+8, base+14] are clear.
+          base_index_ = base_index_ + 15u + diff;
+        } else {
+          base_index_ = 0u;  // Finished.
+        }
+      } else if ((current_bitmask_ & 0x7f) == 0u) {
+        // Read continuation bitmask and adjust base index.
+        ReadBitmask();
+        base_index_ += 7u;
+      }
+    }
+  }
+
+  std::string DumpState() const {
+    static const char hexdigits[] = "0123456789abcdef";
+    std::ostringstream oss;
+    oss << " data_offset_=" << data_offset_ << " parsed_data: ";
+    for (size_t i = std::max<size_t>(16u, data_offset_) - 16u; i != data_offset_; ++i) {
+      oss << hexdigits[encoded_data_[i] >> 4u] << hexdigits[encoded_data_[i] & 0xf];
+    }
+    oss << " base_index_=" << base_index_ << " current_bitmask_=0x" << std::hex << current_bitmask_;
+    return oss.str();
+  }
+
+ private:
+  static constexpr size_t kReferenceSize = sizeof(mirror::HeapReference<mirror::Object>);
+
+  uint32_t ReadDiffAndTag() {
+    DCHECK_LT(data_offset_, encoded_data_.size()) << DumpState();
+    DCHECK((encoded_data_.size() - data_offset_) >= 5u ||
+           std::any_of(encoded_data_.begin() + data_offset_,
+                       encoded_data_.end(),
+                       [](uint8_t value) { return (value & 0x80) == 0u;}));
+    const uint8_t* ptr = encoded_data_.data() + data_offset_;
+    uint32_t diff_and_tag = DecodeUnsignedLeb128(&ptr);
+    data_offset_ = ptr - encoded_data_.data();
+    DCHECK_LE(data_offset_, encoded_data_.size());
+    // Value 0x80 in `current_bitmask_` marks the presence of the bitmask.
+    current_bitmask_ = (diff_and_tag & 1u) << 7u;
+    return diff_and_tag >> 1u;
+  }
+
+  void ReadBitmask() {
+    DCHECK_LT(data_offset_, encoded_data_.size());
+    current_bitmask_ = encoded_data_[data_offset_];
+    DCHECK_NE(current_bitmask_ & 0x7f, 0u);  // At least one bit marking an index.
+    ++data_offset_;
+  }
+
+  const dchecked_vector<uint8_t>& encoded_data_;
+  size_t data_offset_;
+  uint32_t base_index_;
+  uint32_t current_bitmask_;
+};
+
+class Encoding3Decoder {
+ public:
+  enum class Tag : uint32_t {
+    kSingle = 0u,
+    kBitmap = 1u,
+    kRange = 2u,
+    kRangeStride2 = 3u,
+  };
+
+  explicit Encoding3Decoder(const dchecked_vector<uint8_t>& encoded_data)
+      : encoded_data_(encoded_data),
+        data_offset_(0u),
+        current_tag_(Tag::kSingle) {
+    MaybeReadSectionStart(0u);
+  }
+
+  bool Finished() const {
+    return base_index_ == 0u;
+  }
+
+  uint32_t CurrentOffset() const {
+    DCHECK(!Finished());
+    uint32_t index = base_index_;
+    if (current_tag_ == Tag::kBitmap && (current_data_ & 0x7f) != 0u) {
+      index += 1u + CTZ(current_data_);
+    }
+    DCHECK_LT(index, std::numeric_limits<uint32_t>::max() / kReferenceSize);
+    return index * kReferenceSize;
+  }
+
+  void Next() {
+    DCHECK(!Finished());
+    DCHECK_EQ(current_tag_ == Tag::kSingle, current_data_ == 0u);
+    switch (current_tag_) {
+      case Tag::kSingle:
+        MaybeReadSectionStart(base_index_ + 1u);
+        break;
+      case Tag::kBitmap:
+        if ((current_data_ & 0x7fu) == 0u) {
+          ReadBitmask();  // First bitmask byte.
+        } else {
+          // Clear the current bit.
+          current_data_ = current_data_ & (current_data_ - 1u);
+          if (current_data_ == 0u) {
+            MaybeReadSectionStart(base_index_ + 8u);
+          } else if ((current_data_ & 0x7fu) == 0u) {
+            ReadBitmask();
+            base_index_ += 7u;
+          }
+        }
+        break;
+      case Tag::kRangeStride2:
+        DCHECK_NE(current_data_, 0u);
+        current_data_ -= 1u;
+        if (current_data_ == 0u) {
+          MaybeReadSectionStart(base_index_ + 1u);
+        } else {
+          base_index_ += 2u;
+        }
+        break;
+      case Tag::kRange:
+        DCHECK_NE(current_data_, 0u);
+        current_data_ -= 1u;
+        if (current_data_ == 0u) {
+          MaybeReadSectionStart(base_index_ + 2u);
+        } else {
+          base_index_ += 1u;
+        }
+        break;
+    }
+  }
+
+ private:
+  static constexpr size_t kReferenceSize = sizeof(mirror::HeapReference<mirror::Object>);
+
+  void MaybeReadSectionStart(uint32_t base_index) {
+    if (data_offset_ == encoded_data_.size()) {
+      base_index_ = 0u;
+      return;
+    }
+    uint32_t diff_and_tag = ReadUleb128();
+    current_tag_ = static_cast<Tag>(diff_and_tag & 3u);
+    base_index_ = base_index + (diff_and_tag >> 2u);
+    switch (current_tag_) {
+      case Tag::kSingle:
+        current_data_ = 0u;
+        break;
+      case Tag::kBitmap:
+        current_data_ = 0x80;  // Read tags after returning current base_index_.
+        break;
+      case Tag::kRange:
+      case Tag::kRangeStride2:
+        current_data_ = ReadUleb128();
+        DCHECK_NE(current_data_, 0u);
+        break;
+    }
+  }
+
+  uint32_t ReadUleb128() {
+    DCHECK_LT(data_offset_, encoded_data_.size());
+    DCHECK((encoded_data_.size() - data_offset_) >= 5u ||
+           std::any_of(encoded_data_.begin() + data_offset_,
+                       encoded_data_.end(),
+                       [](uint8_t value) { return (value & 0x80) == 0u;}));
+    const uint8_t* ptr = encoded_data_.data() + data_offset_;
+    uint32_t result = DecodeUnsignedLeb128(&ptr);
+    data_offset_ = ptr - encoded_data_.data();
+    DCHECK_LE(data_offset_, encoded_data_.size());
+    return result;
+  }
+
+  void ReadBitmask() {
+    DCHECK_LT(data_offset_, encoded_data_.size());
+    current_data_ = encoded_data_[data_offset_];
+    DCHECK_NE(current_data_ & 0x7f, 0u);  // At least one bit marking an index.
+    ++data_offset_;
+  }
+
+  const dchecked_vector<uint8_t>& encoded_data_;
+  size_t data_offset_;
+  uint32_t base_index_;
+  Tag current_tag_;
+  uint32_t current_data_;
+};
+
+class ImageWriter::RelocationEncoder3 {
+ public:
+  enum class State : uint32_t {
+    kNoData,
+    kSingle,
+    kBitmap,
+    kBitmapContinuation,
+    kRange,
+    kRangeStride2,
+  };
+
+  RelocationEncoder3()
+      : data_(),
+        base_index_(0u),
+        last_diff_(0u),
+        state_(State::kNoData),
+        state_data_(0u) {
+    data_.reserve(64 * KB);
+  }
+
+  // Note: This is just a heuristic.
+  // The optimial encoding can be found using a dynamic programming approach.
+  void Encode(uint32_t offset) {
+    DCHECK_ALIGNED(offset, kReferenceSize);
+    uint32_t index = offset / kReferenceSize;
+    DCHECK_GT(index, base_index_);
+    switch (state_) {
+      case State::kNoData:
+        last_diff_ = index;
+        base_index_ = index;
+        state_ = State::kSingle;
+        state_data_ = 0u;
+        return;
+      case State::kSingle:
+        if (index - base_index_ <= 6u) {
+          state_ = State::kBitmap;
+          state_data_ = 1u << (index - base_index_ - 1u);
+          return;
+        }
+        break;  // Finish current sequence.
+      case State::kBitmap:
+        DCHECK_NE(state_data_ & 0x7fu, 0u);
+        if (index - base_index_ <= 13u) {
+          DCHECK_LE(state_data_, 1u << (index - base_index_ - 1u));
+          state_data_ |= 1u << (index - base_index_ - 1u);
+          if (index - base_index_ >= 8u) {
+            if (state_data_ == 0b11111111) {
+              state_ = State::kRange;
+              state_data_ = 9u;
+            } else if (state_data_ == 0b10101010) {
+              state_ = State::kRangeStride2;
+              state_data_ = 5u;
+            } else {
+              WriteDiffAndTag(Encoding3Decoder::Tag::kBitmap);
+              state_ = State::kBitmapContinuation;
+            }
+          }
+          return;
+        }
+        break;
+      case State::kBitmapContinuation:
+        DCHECK_NE(state_data_ & 0x7fu, 0u);
+        DCHECK_NE(state_data_ & 0x3f80u, 0u);
+        if (index - base_index_ <= (((state_data_ >> 14u) != 0u) ? 27u : 20)) {
+          DCHECK_LE(state_data_, 1u << (index - base_index_ - 1u));
+          state_data_ |= 1u << (index - base_index_ - 1u);
+          if (index - base_index_ >= 16u) {
+            uint32_t continuation_mask = state_data_ >> 7;
+            if (continuation_mask == 0b0111111111 ||
+                continuation_mask == 0b1010101010 ||
+                continuation_mask == 0b0101010101) {
+              state_data_ &= 0x7fu;
+              FinishSequence();
+              last_diff_ = (continuation_mask == 0b1010101010) ? 1u : 0u;
+              base_index_ += last_diff_;
+              state_ = (continuation_mask == 0b0111111111) ? State::kRange : State::kRangeStride2;
+              state_data_ = (continuation_mask == 0b0111111111) ? 9u : 5u;
+            } else {
+              data_.push_back(0x80u | (state_data_ & 0x7fu));
+              state_data_ >>= 7u;
+              base_index_ += 7u;
+            }
+          }
+          return;
+        }
+        break;
+      case State::kRange:
+        if (index - base_index_ == state_data_) {
+          ++state_data_;
+          return;
+        }
+        break;  // Finish current sequence.
+      case State::kRangeStride2:
+        if (index - base_index_ == 2u * state_data_) {
+          ++state_data_;
+          return;
+        }
+        break;  // Finish current sequence.
+    }
+
+    FinishSequence();
+    DCHECK_GE(index, base_index_);
+    last_diff_ = index - base_index_;
+    base_index_ = index;
+    state_ = State::kSingle;
+    state_data_ = 0u;
+  }
+
+  const dchecked_vector<uint8_t>& Finish() {
+    FinishSequence();
+    return data_;
+  }
+
+ private:
+  static constexpr size_t kReferenceSize = sizeof(mirror::HeapReference<mirror::Object>);
+
+  void FinishSequence() {
+    if (state_ == State::kBitmap && (state_data_ >> 7) != 0) {
+      // This takes at least 3 bytes as kBitmap. Check if we can use 2-byte range encoding.
+      if (((state_data_ + 1u) & state_data_) == 0u) {
+        state_ = State::kRange;
+        state_data_ = BitSizeOf(state_data_) - CLZ(state_data_);
+      } else if ((state_data_ & 0x55555555u) == 0u) {
+        uint32_t tmp = state_data_ | (state_data_ >> 1u);
+        if (((tmp + 1u) & tmp) == 0u) {
+          state_ = State::kRangeStride2;
+          state_data_ = (BitSizeOf(state_data_) - CLZ(state_data_)) >> 1u;
+        }
+      }
+    }
+    switch (state_) {
+      case State::kNoData:
+        DCHECK(data_.empty());
+        break;
+      case State::kSingle:
+        WriteDiffAndTag(Encoding3Decoder::Tag::kSingle);
+        base_index_ += 1u;
+        break;
+      case State::kBitmap:
+        WriteDiffAndTag(Encoding3Decoder::Tag::kBitmap);
+        FALLTHROUGH_INTENDED;
+      case State::kBitmapContinuation:
+        while ((state_data_ >> 7u) != 0u) {
+          data_.push_back(0x80u | (state_data_ & 0x7f));
+          base_index_ += 7u;
+          state_data_ >>= 7u;
+        }
+        DCHECK_NE(state_data_, 0u);
+        data_.push_back(state_data_);
+        base_index_ += 8u;
+        break;
+      case State::kRange:
+        WriteDiffAndTag(Encoding3Decoder::Tag::kRange);
+        DCHECK_NE(state_data_, 0u);
+        EncodeUnsignedLeb128(&data_, state_data_);
+        base_index_ += state_data_ + 1u;
+        break;
+      case State::kRangeStride2:
+        WriteDiffAndTag(Encoding3Decoder::Tag::kRangeStride2);
+        DCHECK_NE(state_data_, 0u);
+        EncodeUnsignedLeb128(&data_, state_data_);
+        base_index_ += state_data_ * 2u - 1u;
+        break;
+    }
+  }
+
+  void WriteDiffAndTag(Encoding3Decoder::Tag tag) {
+    EncodeUnsignedLeb128(&data_, (last_diff_ << 2u) + static_cast<uint32_t>(tag));
+  }
+
+  dchecked_vector<uint8_t> data_;
+  uint32_t base_index_;
+  uint32_t last_diff_;
+  State state_;
+  uint32_t state_data_;
+};
+
+class RelocationEncoder4 {
+ public:
+  RelocationEncoder4() {}
+
+  dchecked_vector<uint8_t> Process(const std::vector<uint32_t>& relocations) {
+    dchecked_vector<uint8_t> result;
+    size_t size = relocations.size();
+    if (size == 0u) {
+      return result;
+    }
+    for (auto& b : best_) {
+      b.resize(size, Bad());
+    }
+    uint32_t last_index = relocations[0] / 4u;
+    BestSingle(0u) = {
+        Uleb128Size(last_index << 4u),
+        last_index + 1u,
+        Encoding3Decoder::Tag::kSingle
+    };
+    for (size_t i = 1; i != size; ++i) {
+      uint32_t index = relocations[i] / 4u;
+      const Data& old_single = BestSingle(i - 1u);
+      const Data& old_bitmap = BestBitmap(i - 1u);
+      const Data& old_range = BestRange(i - 1u);
+      const Data& old_range_stride2 = BestRangeStride2(i - 1u);
+      Data& new_single = BestSingle(i);
+      new_single = {
+          old_single.encoding_size + Uleb128Size((index - old_single.next_base_index) << 2u),
+          index + 1u,
+          Encoding3Decoder::Tag::kSingle,
+      };
+      TryImproveSingle(&new_single, index, old_bitmap, Encoding3Decoder::Tag::kBitmap);
+      TryImproveSingle(&new_single, index, old_range, Encoding3Decoder::Tag::kRange);
+      TryImproveSingle(&new_single, index, old_range_stride2, Encoding3Decoder::Tag::kRangeStride2);
+
+      if (index - last_index <= 7u) {
+        BestBitmap(i) = {
+            old_single.encoding_size + 1u,
+            old_single.next_base_index + 7u,
+            Encoding3Decoder::Tag::kSingle
+        };
+      }
+      if (old_bitmap.Valid() && index < old_bitmap.next_base_index + 7u) {
+        bool next_byte = (index >= old_bitmap.next_base_index);
+        BestBitmap(i).UpdateIfBetter({old_bitmap.encoding_size + (next_byte ? 1u : 0u),
+                                      old_bitmap.next_base_index + (next_byte ? 7u : 0u),
+                                      Encoding3Decoder::Tag::kBitmap});
+      }
+
+      if (index == last_index + 1u) {
+        BestRange(i) = {
+            old_single.encoding_size + 1u,
+            index + 2u,
+            Encoding3Decoder::Tag::kSingle
+        };
+        if (old_range.Valid()) {
+          uint32_t extra_length = IncreasesRangeEncodingSize(i, Encoding3Decoder::Tag::kRange) ? 1u : 0u;
+          BestRange(i).UpdateIfBetter({old_range.encoding_size + extra_length,
+                                       index + 2u,
+                                       Encoding3Decoder::Tag::kRange});
+        }
+      }
+
+      if (index == last_index + 2u) {
+        BestRangeStride2(i) = {
+            old_single.encoding_size + 1u,
+            index + 1u,
+            Encoding3Decoder::Tag::kSingle
+        };
+        if (old_range_stride2.Valid()) {
+          uint32_t extra_length =
+              IncreasesRangeEncodingSize(i, Encoding3Decoder::Tag::kRangeStride2) ? 1u : 0u;
+          // Note: In case that the encoding size appears equal to the one set above,
+          // it's better to take the path from `old_single` to delay the addition of the
+          // extra length. The equality is not possible beyond certain small lengths
+          // (kBitmap can race kRangeStride2 for only a few bytes).
+          BestRangeStride2(i).UpdateIfBetter({old_range_stride2.encoding_size + extra_length,
+                                              index + 1u,
+                                              Encoding3Decoder::Tag::kRangeStride2 });
+        }
+      }
+      last_index = index;
+    }
+
+    uint32_t best_encoding_size = static_cast<uint32_t>(-1);
+    size_t best_end_tag = 0;
+    for (size_t i = 0; i != 4; ++i) {
+      if (best_[i].back().encoding_size < best_encoding_size) {
+        best_encoding_size = best_[i].back().encoding_size;
+        best_end_tag = i;
+      }
+    }
+    DCHECK_NE(best_encoding_size, static_cast<uint32_t>(-1));
+    std::vector<uint32_t> tags(best_[0].size());
+    for (size_t i = best_[0].size() - 1u; i != 0; --i) {
+      tags[i] = best_end_tag;
+      best_end_tag = static_cast<uint32_t>(best_[best_end_tag][i].previous_tag);
+    }
+
+    uint32_t next_base_index = 0u;
+    for (size_t i = 0; i != size; ) {
+      DCHECK_EQ(tags[i], static_cast<uint32_t>(Encoding3Decoder::Tag::kSingle));
+      uint32_t index = relocations[i] / 4u;
+      Encoding3Decoder::Tag tag = Encoding3Decoder::Tag::kSingle;
+      uint32_t length =  1u;
+      if (i + 1u != size && tags[i + 1] != static_cast<uint32_t>(Encoding3Decoder::Tag::kSingle)) {
+        tag = static_cast<Encoding3Decoder::Tag>(tags[i + 1]);
+        auto it = std::find_if_not(
+            tags.begin() + i + 2,  // tags[i] == kSingle, tags[i+1] == tag
+            tags.end(),
+            [tag](uint32_t t) { return t == static_cast<uint32_t>(tag); });
+        length = dchecked_integral_cast<uint32_t>(std::distance(tags.begin() + i, it));
+      }
+      EncodeUnsignedLeb128(&result, ((index - next_base_index) << 2u) | static_cast<uint32_t>(tag));
+      switch (tag) {
+        case Encoding3Decoder::Tag::kSingle:
+          next_base_index = index + 1u;
+          break;
+        case Encoding3Decoder::Tag::kBitmap: {
+          next_base_index = index + 1u;
+          uint32_t mask = 0u;
+          for (uint32_t j = 1; j != length; ++j) {
+            uint32_t current_index = relocations[i + j] / 4u;
+            if (current_index - next_base_index >= 7u) {
+              DCHECK_NE(mask, 0u);
+              result.push_back(0x80u | mask);
+              mask = 0u;
+              next_base_index += 7u;
+            }
+            DCHECK_LT(mask, 1u << (current_index - next_base_index));
+            mask |= 1u << (current_index - next_base_index);
+          }
+          DCHECK_NE(mask, 0u);
+          result.push_back(mask);
+          next_base_index += 7u;
+          break;
+        }
+        case Encoding3Decoder::Tag::kRange:
+          EncodeUnsignedLeb128(&result, length);
+          next_base_index = index + length + 1u;
+          break;
+        case Encoding3Decoder::Tag::kRangeStride2:
+          EncodeUnsignedLeb128(&result, length);
+          next_base_index = index + 2u * length - 1u;
+          break;
+      }
+      i += length;
+      DCHECK_EQ(result.size(), best_[static_cast<uint32_t>(tag)][i - 1u].encoding_size);
+    }
+    return result;
+  }
+
+ private:
+  struct Data {
+    bool Valid() const {
+      return encoding_size != static_cast<uint32_t>(-1);
+    }
+    bool AsGoodOrBetterThan(const Data& other) const {
+      return encoding_size < other.encoding_size ||
+             (encoding_size == other.encoding_size && next_base_index <= other.next_base_index);
+    }
+    void UpdateIfBetter(const Data& other) {
+      if (other.encoding_size < encoding_size ||
+          (other.encoding_size == encoding_size && other.next_base_index > next_base_index)) {
+        DCHECK(other.Valid());
+        *this = other;
+      }
+    }
+    uint32_t encoding_size;
+    uint32_t next_base_index;
+    Encoding3Decoder::Tag previous_tag;
+  };
+
+  uint32_t Uleb128Size(uint32_t value) {
+    uint32_t result = 0u;
+    do {
+      result += 1u;
+      value >>= 7u;
+    } while (value != 0u);
+    return result;
+  }
+
+  void TryImproveSingle(Data* new_single,
+                        uint32_t index,
+                        const Data& other_data,
+                        Encoding3Decoder::Tag tag) {
+    if (!other_data.Valid() || other_data.next_base_index > index) {
+      return;
+    }
+    uint32_t other_encoding_size =
+        other_data.encoding_size + Uleb128Size((index - other_data.next_base_index) << 2u);
+    new_single->UpdateIfBetter({other_encoding_size, index + 1u, tag});
+  }
+
+  // FIXME: Very slow; we should remember the length.
+  bool IncreasesRangeEncodingSize(uint32_t i, Encoding3Decoder::Tag tag) {
+    const auto& range_best = (tag == Encoding3Decoder::Tag::kRange) ? best_[2] : best_[3];
+    size_t length = 1u;
+    while (range_best[i - length].previous_tag == tag) {
+      ++length;
+    }
+    DCHECK(range_best[i - length].previous_tag == Encoding3Decoder::Tag::kSingle);
+    // Include elements at indexes i-length-1 and i.
+    length += 2;
+    return IsPowerOfTwo(length) && (CTZ(length) % 7u) == 0;
+  }
+
+  static Data Bad() {
+    return Data { static_cast<uint32_t>(-1), 0u, Encoding3Decoder::Tag::kSingle };
+  }
+
+  Data& BestSingle(size_t i) {
+    return best_[static_cast<size_t>(Encoding3Decoder::Tag::kSingle)][i];
+  }
+  Data& BestBitmap(size_t i) {
+    return best_[static_cast<size_t>(Encoding3Decoder::Tag::kBitmap)][i];
+  }
+  Data& BestRange(size_t i) {
+    return best_[static_cast<size_t>(Encoding3Decoder::Tag::kRange)][i];
+  }
+  Data& BestRangeStride2(size_t i) {
+    return best_[static_cast<size_t>(Encoding3Decoder::Tag::kRangeStride2)][i];
+  }
+
+  dchecked_vector<Data> best_[4];
+};
+
+static size_t lz4_size(ArrayRef<const uint8_t> source) {
+  const size_t compressed_max_size = LZ4_compressBound(source.size());
+  std::unique_ptr<char[]> compressed_data(new char[compressed_max_size]);
+  size_t lz4_data_size = LZ4_compress_default(
+      reinterpret_cast<const char*>(source.data()),
+      &compressed_data[0],
+      source.size(),
+      compressed_max_size);
+  return lz4_data_size;
+}
+
+dchecked_vector<uint8_t> ImageWriter::EncodeRelocations(const std::vector<uint32_t>& relocations) {
+  dchecked_vector<uint8_t> result;
+  uint32_t last_value = 0u;
+  for (uint32_t value : relocations) {
+    DCHECK_GT(value, last_value);
+    uint32_t diff = value - last_value;
+    last_value = value;
+    EncodeUnsignedLeb128(&result, diff);
+  }
+  RelocationEncoder1 encoder1;
+  for (uint32_t value : relocations) {
+    encoder1.Encode(value);
+  }
+  const dchecked_vector<uint8_t>& encoding1 = encoder1.Finish();
+  RelocationEncoder2 encoder2;
+  for (uint32_t value : relocations) {
+    encoder2.Encode(value);
+  }
+  const dchecked_vector<uint8_t>& encoding2 = encoder2.Finish();
+  RelocationEncoder3 encoder3;
+  for (uint32_t value : relocations) {
+    encoder3.Encode(value);
+  }
+  const dchecked_vector<uint8_t>& encoding3 = encoder3.Finish();
+  RelocationEncoder4 encoder4;
+  dchecked_vector<uint8_t> encoding4 = encoder4.Process(relocations);
+  LOG(ERROR) << "VMARKO: relocations.size()= " << relocations.size()
+      << " encoded_size=" << result.size()
+      << " encoding1_size=" << encoding1.size()
+      << " encoding2_size=" << encoding2.size()
+      << " encoding3_size=" << encoding3.size()
+      << " encoding4_size=" << encoding4.size()
+      << " lz4_data_size=" << lz4_size(ArrayRef<const uint8_t>(result))
+      << " lz4_x_data_size=" << lz4_size(ArrayRef<const uint8_t>(encoding4));
+  Encoding2Decoder decoder2(encoding2);
+  for (uint32_t value : relocations) {
+    DCHECK(!decoder2.Finished());
+    DCHECK_EQ(value, decoder2.CurrentOffset()) << decoder2.DumpState();
+    decoder2.Next();
+  }
+  DCHECK(decoder2.Finished());
+  Encoding3Decoder decoder3(encoding3);
+  for (uint32_t value : relocations) {
+    DCHECK(!decoder3.Finished());
+    DCHECK_EQ(value, decoder3.CurrentOffset()) /* << decoder3.DumpState() */;
+    decoder3.Next();
+  }
+  DCHECK(decoder3.Finished());
+  Encoding3Decoder decoder4(encoding4);
+  for (uint32_t value : relocations) {
+    DCHECK(!decoder4.Finished());
+    DCHECK_EQ(value, decoder4.CurrentOffset()) /* << decoder3.DumpState() */;
+    decoder4.Next();
+  }
+  DCHECK(decoder4.Finished());
+  return result;
+}
+
 // Separate objects into multiple bins to optimize dirty memory use.
 static constexpr bool kBinObjects = true;
 
@@ -315,10 +1136,22 @@ bool ImageWriter::Write(int image_fd,
     if (!is_compressed) {
       CHECK_EQ(bitmap_position_in_file, bitmap_section.Offset());
     }
-    if (!image_file->PwriteFully(reinterpret_cast<char*>(image_info.image_bitmap_->Begin()),
+    if (!image_file->PwriteFully(image_info.image_bitmap_->Begin(),
                                  bitmap_section.Size(),
                                  bitmap_position_in_file)) {
-      PLOG(ERROR) << "Failed to write image file " << image_filename;
+      PLOG(ERROR) << "Failed to write image file bitmap " << image_filename;
+      image_file->Erase();
+      return false;
+    }
+    size_t relocations_position_in_file = bitmap_position_in_file + bitmap_section.Size();
+    std::sort(image_info.relocation_offsets_.begin(), image_info.relocation_offsets_.end());
+    dchecked_vector<uint8_t> relocations = EncodeRelocations(image_info.relocation_offsets_);
+    image_header->sections_[ImageHeader::kSectionImageRelocations] =
+        ImageSection(bitmap_section.Offset() + bitmap_section.Size(), relocations.size());
+    if (!image_file->PwriteFully(relocations.data(),
+                                 relocations.size(),
+                                 relocations_position_in_file)) {
+      PLOG(ERROR) << "Failed to write image file relocations " << image_filename;
       image_file->Erase();
       return false;
     }
@@ -342,7 +1175,7 @@ bool ImageWriter::Write(int image_fd,
       return false;
     }
 
-    CHECK_EQ(bitmap_position_in_file + bitmap_section.Size(),
+    CHECK_EQ(relocations_position_in_file + relocations.size(),
              static_cast<size_t>(image_file->GetLength()));
     if (image_file->FlushCloseOrErase() != 0) {
       PLOG(ERROR) << "Failed to flush and close image file " << image_filename;
@@ -2030,7 +2863,7 @@ void ImageWriter::CreateHeader(size_t oat_index) {
 
   // RecordImageRelocation() checks that the relocated value is non-null but we need to patch
   // also the `patch_delta_` with value 0, so add it to the current image offsets directly.
-  // TODO: image_info.relocation_offsets_.push_back(OFFSETOF_MEMBER(ImageHeader, patch_delta_));
+  image_info.relocation_offsets_.push_back(OFFSETOF_MEMBER(ImageHeader, patch_delta_));
 }
 
 ArtMethod* ImageWriter::GetImageMethodAddress(ArtMethod* method) {
@@ -2967,11 +3800,25 @@ ImageWriter::ImageInfo::ImageInfo()
       class_table_(new ClassTable) {}
 
 void ImageWriter::RecordImageRelocation(const void* dest,
-                                        size_t oat_index ATTRIBUTE_UNUSED,
-                                        bool app_to_boot_image ATTRIBUTE_UNUSED /* = false */) {
+                                        size_t oat_index,
+                                        bool app_to_boot_image /* = false */) {
   // Check that we're not recording a relocation for null.
   DCHECK(reinterpret_cast<const uint32_t*>(dest)[0] != 0u);
-  // TODO: Record the relocation.
+  // Calculate the offset within the image.
+  ImageInfo* image_info = &image_infos_[oat_index];
+  DCHECK(image_info->image_->HasAddress(dest))
+      << "MemMap range " << static_cast<const void*>(image_info->image_->Begin())
+      << "-" << static_cast<const void*>(image_info->image_->End())
+      << " does not contain " << dest;
+  uint32_t offset = dchecked_integral_cast<uint32_t>(
+      reinterpret_cast<const uint8_t*>(dest) - image_info->image_->Begin());
+  DCHECK_LT(offset, image_info->image_size_);
+  // Store the relocation offset.
+  DCHECK(compile_app_image_ || !app_to_boot_image);
+  std::vector<uint32_t>* relocations = app_to_boot_image
+      ? &image_info->boot_image_relocation_offsets_
+      : &image_info->relocation_offsets_;
+  relocations->push_back(offset);
 }
 
 template <typename DestType>
