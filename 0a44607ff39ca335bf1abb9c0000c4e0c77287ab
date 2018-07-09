@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a629ebd5_259200bf",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-09T17:00:29Z",
+      "side": 1,
+      "message": "That is what I said (see the messages on the CL itself). But after a bit of thought I am considering the redundancy nonetheless. (as per the \"explicit over implicit\" motto)\n\nFor example, I am not sure if presence of --oat-symbols should require --generate-debug-info.  Or forbid it?  Or imply it?\n\nSo I am thinking:\nCompilation happens normally into --oat-file honoring command line flags. No magic.\nOptionally, --oat-symbols means file-copy at the end (do we want to rename the option?).\nOptionally, --strip is as if command line \"strip\" was run at the very end.\n\nBasically --oat-symbols and --strip become obvious helpers for the two operations we need from the build system, but which it can not easily do.",
+      "parentUuid": "a5acddf7_65a6310e",
+      "range": {
+        "startLine": 2196,
+        "startChar": 4,
+        "endLine": 2196,
+        "endChar": 57
+      },
+      "revId": "0a44607ff39ca335bf1abb9c0000c4e0c77287ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acdce646_bd7f97bf",
         "filename": "dex2oat/linker/elf_writer_quick.cc",
         "patchSetId": 1
