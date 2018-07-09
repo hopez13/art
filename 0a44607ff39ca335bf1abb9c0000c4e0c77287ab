@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "a5acddf7_65a6310e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-09T16:51:47Z",
+      "side": 1,
+      "message": "There already *is* an option, it\u0027s called --oat-symbols\u003d... :-)",
+      "parentUuid": "a346552f_6cca7bcb",
+      "range": {
+        "startLine": 2196,
+        "startChar": 4,
+        "endLine": 2196,
+        "endChar": 57
+      },
+      "revId": "0a44607ff39ca335bf1abb9c0000c4e0c77287ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acdce646_bd7f97bf",
         "filename": "dex2oat/linker/elf_writer_quick.cc",
         "patchSetId": 1
