@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01510a2f_efe33792",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-10T04:21:38Z",
+      "side": 1,
+      "message": "A bit annoying to have that on each instruction, though it currently doesn\u0027t affect anything.",
+      "revId": "8c356b9f52f0d818135d179b49bcdb0a6d643245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54ec586d_630d387f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-10T04:21:38Z",
+      "side": 1,
+      "message": "Happy to move this to another CL. I just need it for triggering the issue.",
+      "revId": "8c356b9f52f0d818135d179b49bcdb0a6d643245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
