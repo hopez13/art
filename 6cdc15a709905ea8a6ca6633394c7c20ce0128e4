@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "e359a4de_75df9201",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-10T21:32:03Z",
+      "side": 1,
+      "message": "Looking at this closer I think we can just remove the JitSuspends since I think they were due to issues with deopt not working right when we are near a runtime method (which could happen if we got an OSR compile during the get-local). This got fixed by mingyao a while ago but these got left in.",
+      "parentUuid": "14dc1ef9_9355dcfc",
+      "range": {
+        "startLine": 1733,
+        "startChar": 0,
+        "endLine": 1734,
+        "endChar": 94
+      },
+      "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03a867d3_100a11d9",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
