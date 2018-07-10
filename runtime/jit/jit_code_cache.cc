@@ -378,7 +378,7 @@ void JitCodeCache::ClearAllCompiledDexCode() {
 }
 
 const void* JitCodeCache::FindCompiledCodeForInstrumentation(ArtMethod* method) {
-  if (LIKELY(!GetGarbageCollectCode())) {
+  if (LIKELY(GetGarbageCollectCode())) {
     return nullptr;
   }
   ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
