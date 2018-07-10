@@ -300,8 +300,8 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
             << ArtMethod::PrettyMethod(method_to_compile)
             << " osr=" << std::boolalpha << osr;
   bool success = jit_compile_method_(jit_compiler_handle_, method_to_compile, self, osr);
-  code_cache_->DoneCompiling(method_to_compile, self, osr);
-  if (!success) {
+  bool commited = code_cache_->DoneCompiling(method_to_compile, self, osr);
+  if (!success || !commited) {
     VLOG(jit) << "Failed to compile method "
               << ArtMethod::PrettyMethod(method_to_compile)
               << " osr=" << std::boolalpha << osr;
@@ -315,7 +315,7 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
                  << exception->Dump();
     }
   }
-  return success;
+  return success && commited;
 }
 
 void Jit::CreateThreadPool() {

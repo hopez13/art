@@ -1727,10 +1727,12 @@ void JitCodeCache::DoneCompilerUse(ArtMethod* method, Thread* self) {
   info->DecrementInlineUse();
 }
 
-void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
+bool JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
   DCHECK_EQ(Thread::Current(), self);
   MutexLock mu(self, lock_);
-  if (UNLIKELY(method->IsNative())) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  bool success = !UNLIKELY(instr->AreAllMethodsDeoptimized() || instr->IsDeoptimized(method));
+  if (UNLIKELY(success && method->IsNative())) {
     auto it = jni_stubs_map_.find(JniStubKey(method));
     DCHECK(it != jni_stubs_map_.end());
     JniStubData* data = &it->second;
@@ -1739,11 +1741,12 @@ void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
       // Failed to compile; the JNI compiler never fails, but the cache may be full.
       jni_stubs_map_.erase(it);  // Remove the entry added in NotifyCompilationOf().
     }  // else CommitCodeInternal() updated entrypoints of all methods in the JniStubData.
-  } else {
+  } else if (!method->IsNative()) {
     ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
     DCHECK(info->IsMethodBeingCompiled(osr));
     info->SetIsMethodBeingCompiled(false, osr);
   }
+  return success;
 }
 
 size_t JitCodeCache::GetMemorySizeOfCodePointer(const void* ptr) {

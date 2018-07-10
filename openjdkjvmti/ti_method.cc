@@ -783,8 +783,6 @@ jvmtiError MethodUtil::GetLocalVariableGeneric(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(ILLEGAL_ARGUMENT);
   }
   art::Thread* self = art::Thread::Current();
-  // Suspend JIT since it can get confused if we deoptimize methods getting jitted.
-  art::jit::ScopedJitSuspend suspend_jit;
   art::ScopedObjectAccess soa(self);
   art::Locks::thread_list_lock_->ExclusiveLock(self);
   art::Thread* target = nullptr;

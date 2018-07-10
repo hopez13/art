@@ -113,7 +113,9 @@ class JitCodeCache {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!lock_);
 
-  void DoneCompiling(ArtMethod* method, Thread* self, bool osr)
+  // Returns true if the method was successfully compiled and the compilation was recorded. False
+  // otherwise.
+  bool DoneCompiling(ArtMethod* method, Thread* self, bool osr)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!lock_);
 
