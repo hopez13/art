@@ -108,6 +108,7 @@ static constexpr bool kIsTargetLinux = false;
 static constexpr bool kIsTargetFuchsia = false;
 # endif
 #endif
+static constexpr bool kIsHostBuild = !kIsTargetBuild;
 
 // Additional statically-linked ART binaries (dex2oats, oatdumps, etc.) are
 // always available on the host

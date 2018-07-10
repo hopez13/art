@@ -4919,9 +4919,6 @@ void LocationsBuilderX86_64::VisitNullCheck(HNullCheck* instruction) {
 }
 
 void CodeGeneratorX86_64::GenerateImplicitNullCheck(HNullCheck* instruction) {
-  if (CanMoveNullCheckToUser(instruction)) {
-    return;
-  }
   LocationSummary* locations = instruction->GetLocations();
   Location obj = locations->InAt(0);
 

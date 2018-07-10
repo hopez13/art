@@ -3929,7 +3929,8 @@ void Heap::CheckGcStressMode(Thread* self, ObjPtr<mirror::Object>* obj) {
         seen_backtraces_.insert(hash);
       }
     }
-    if (new_backtrace) {
+    // Always treat backtrace as new for host-x86 due to b/111174653.
+    if (new_backtrace || (kIsHostBuild && kRuntimeISA == InstructionSet::kX86)) {
       StackHandleScope<1> hs(self);
       auto h = hs.NewHandleWrapper(obj);
       CollectGarbage(/* clear_soft_references */ false);

@@ -1419,42 +1419,6 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment, SlowPathCode* slo
   }
 }
 
-bool CodeGenerator::CanMoveNullCheckToUser(HNullCheck* null_check) {
-  HInstruction* first_next_not_move = null_check->GetNextDisregardingMoves();
-
-  return (first_next_not_move != nullptr)
-      && first_next_not_move->CanDoImplicitNullCheckOn(null_check->InputAt(0));
-}
-
-void CodeGenerator::MaybeRecordImplicitNullCheck(HInstruction* instr) {
-  if (!compiler_options_.GetImplicitNullChecks()) {
-    return;
-  }
-
-  // If we are from a static path don't record the pc as we can't throw NPE.
-  // NB: having the checks here makes the code much less verbose in the arch
-  // specific code generators.
-  if (instr->IsStaticFieldSet() || instr->IsStaticFieldGet()) {
-    return;
-  }
-
-  if (!instr->CanDoImplicitNullCheckOn(instr->InputAt(0))) {
-    return;
-  }
-
-  // Find the first previous instruction which is not a move.
-  HInstruction* first_prev_not_move = instr->GetPreviousDisregardingMoves();
-
-  // If the instruction is a null check it means that `instr` is the first user
-  // and needs to record the pc.
-  if (first_prev_not_move != nullptr && first_prev_not_move->IsNullCheck()) {
-    HNullCheck* null_check = first_prev_not_move->AsNullCheck();
-    // TODO: The parallel moves modify the environment. Their changes need to be
-    // reverted otherwise the stack maps at the throw point will not be correct.
-    RecordPcInfo(null_check, null_check->GetDexPc());
-  }
-}
-
 LocationSummary* CodeGenerator::CreateThrowingSlowPathLocations(HInstruction* instruction,
                                                                 RegisterSet caller_saves) {
   // Note: Using kNoCall allows the method to be treated as leaf (and eliminate the

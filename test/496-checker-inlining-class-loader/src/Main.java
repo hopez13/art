@@ -115,7 +115,6 @@ class LoadedByMyClassLoader {
   /// CHECK:      StaticFieldGet
   // There may be HX86ComputeBaseMethodAddress or MipsComputeBaseMethodAddress here.
   /// CHECK:      LoadString
-  /// CHECK-NEXT: NullCheck
   /// CHECK-NEXT: InvokeVirtual
   public static void bar() {
     FirstSeenByMyClassLoader.$inline$bar();
