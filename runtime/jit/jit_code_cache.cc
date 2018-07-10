@@ -1727,10 +1727,13 @@ void JitCodeCache::DoneCompilerUse(ArtMethod* method, Thread* self) {
   info->DecrementInlineUse();
 }
 
-void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
+bool JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
   DCHECK_EQ(Thread::Current(), self);
   MutexLock mu(self, lock_);
-  if (UNLIKELY(method->IsNative())) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  if (UNLIKELY(instr->AreAllMethodsDeoptimized() || instr->IsDeoptimized(method))) {
+    return false;
+  } else if (UNLIKELY(method->IsNative())) {
     auto it = jni_stubs_map_.find(JniStubKey(method));
     DCHECK(it != jni_stubs_map_.end());
     JniStubData* data = &it->second;
@@ -1744,6 +1747,7 @@ void JitCodeCache::DoneCompiling(ArtMethod* method, Thread* self, bool osr) {
     DCHECK(info->IsMethodBeingCompiled(osr));
     info->SetIsMethodBeingCompiled(false, osr);
   }
+  return true;
 }
 
 size_t JitCodeCache::GetMemorySizeOfCodePointer(const void* ptr) {
