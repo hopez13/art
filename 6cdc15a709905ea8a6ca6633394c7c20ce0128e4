@@ -22,6 +22,30 @@
       "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aa15d46_4e4cffdb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-10T20:59:43Z",
+      "side": 1,
+      "message": "no we still want to clear out the IsMethodBeingCompiled if it is present.",
+      "parentUuid": "c69494c6_2c2b423e",
+      "range": {
+        "startLine": 1733,
+        "startChar": 0,
+        "endLine": 1734,
+        "endChar": 94
+      },
+      "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
