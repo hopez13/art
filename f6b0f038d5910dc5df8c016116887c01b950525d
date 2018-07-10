@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fab91bdc_e14639b0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-10T12:25:35Z",
+      "side": 1,
+      "message": "An alternative approach would be to\n\n  check-\u003eMarkEmittedAtUseSite();\n\nand replace the `next`\u0027s input with the `check`. Though we would have change codegen to hunt for the actual input for instructions that emit the implicit null check.",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
