@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "14dc1ef9_9355dcfc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-10T21:10:05Z",
+      "side": 1,
+      "message": "So now I\u0027m wondering: why arent\u0027t the checks we do in Jit::CompileMethod:\nhttps://cs.corp.google.com/android/art/runtime/jit/jit.cc?type\u003dcs\u0026sq\u003dpackage:%5Eandroid$\u0026g\u003d0\u0026l\u003d277\n\nEnough? I think the idea was that UpdateMethodsCode will do the checks again in case the status of instrumentation has changed.",
+      "parentUuid": "ce06ee61_47cde079",
+      "range": {
+        "startLine": 1733,
+        "startChar": 0,
+        "endLine": 1734,
+        "endChar": 94
+      },
+      "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03a867d3_100a11d9",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
