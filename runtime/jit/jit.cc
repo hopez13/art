@@ -299,7 +299,12 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
   VLOG(jit) << "Compiling method "
             << ArtMethod::PrettyMethod(method_to_compile)
             << " osr=" << std::boolalpha << osr;
-  bool success = jit_compile_method_(jit_compiler_handle_, method_to_compile, self, osr);
+  // NB The checks for the instrumentation must be done after we attempt to compile the method since
+  // that takes time.
+  bool success =
+      jit_compile_method_(jit_compiler_handle_, method_to_compile, self, osr) &&
+      (!instrumentation->AreAllMethodsDeoptimized()) &&
+      (!instrumentation->IsDeoptimized(method));
   code_cache_->DoneCompiling(method_to_compile, self, osr);
   if (!success) {
     VLOG(jit) << "Failed to compile method "
