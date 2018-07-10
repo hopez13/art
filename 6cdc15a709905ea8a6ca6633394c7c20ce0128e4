@@ -46,6 +46,29 @@
       "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03a867d3_100a11d9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1743,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-10T20:59:51Z",
+      "side": 1,
+      "message": "Why is it OK to skip the erasure?",
+      "range": {
+        "startLine": 1736,
+        "startChar": 4,
+        "endLine": 1743,
+        "endChar": 90
+      },
+      "revId": "6cdc15a709905ea8a6ca6633394c7c20ce0128e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
