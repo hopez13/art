@@ -22,6 +22,30 @@
       "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da05b5bd_461360c0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-10T17:02:34Z",
+      "side": 1,
+      "message": "Good point. We would still need to copy the environment, but that will indeed avoid adding the flag in HInstruction. It will also make the CanThrow/NeedsEnvironment more than just boolean check.\n\nDo you have a strong preference for emitted at use site?",
+      "parentUuid": "fab91bdc_e14639b0",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
