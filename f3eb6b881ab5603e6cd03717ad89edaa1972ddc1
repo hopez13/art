@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5683ff5_5d3c01ca",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2018-07-10T16:43:07Z",
+      "side": 1,
+      "message": "Yes, in arm thumb mode, these are out of range.\nGCC assembler expands adrl automatically to these adr and sub, but not clang\u0027s assembler.",
+      "parentUuid": "8d56e9bd_b902cb42",
+      "revId": "f3eb6b881ab5603e6cd03717ad89edaa1972ddc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf49348a_55b2dac1",
         "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "f3eb6b881ab5603e6cd03717ad89edaa1972ddc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8896df69_0af114ea",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2018-07-10T16:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf49348a_55b2dac1",
+      "range": {
+        "startLine": 9,
+        "startChar": 55,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "f3eb6b881ab5603e6cd03717ad89edaa1972ddc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
