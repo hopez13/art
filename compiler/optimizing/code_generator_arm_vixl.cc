@@ -6276,10 +6276,6 @@ void LocationsBuilderARMVIXL::VisitNullCheck(HNullCheck* instruction) {
 }
 
 void CodeGeneratorARMVIXL::GenerateImplicitNullCheck(HNullCheck* instruction) {
-  if (CanMoveNullCheckToUser(instruction)) {
-    return;
-  }
-
   UseScratchRegisterScope temps(GetVIXLAssembler());
   // Ensure the pc position is recorded immediately after the `ldr` instruction.
   ExactAssemblyScope aas(GetVIXLAssembler(),

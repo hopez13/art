@@ -5560,16 +5560,11 @@ void LocationsBuilderARM64::VisitNullCheck(HNullCheck* instruction) {
 }
 
 void CodeGeneratorARM64::GenerateImplicitNullCheck(HNullCheck* instruction) {
-  if (CanMoveNullCheckToUser(instruction)) {
-    return;
-  }
-  {
-    // Ensure that between load and MaybeRecordImplicitNullCheck there are no pools emitted.
-    EmissionCheckScope guard(GetVIXLAssembler(), kMaxMacroInstructionSizeInBytes);
-    Location obj = instruction->GetLocations()->InAt(0);
-    __ Ldr(wzr, HeapOperandFrom(obj, Offset(0)));
-    RecordPcInfo(instruction, instruction->GetDexPc());
-  }
+  // Ensure that between load and RecordPcInfo there are no pools emitted.
+  EmissionCheckScope guard(GetVIXLAssembler(), kMaxMacroInstructionSizeInBytes);
+  Location obj = instruction->GetLocations()->InAt(0);
+  __ Ldr(wzr, HeapOperandFrom(obj, Offset(0)));
+  RecordPcInfo(instruction, instruction->GetDexPc());
 }
 
 void CodeGeneratorARM64::GenerateExplicitNullCheck(HNullCheck* instruction) {

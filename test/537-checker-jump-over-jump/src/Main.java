@@ -27,7 +27,6 @@ public class Main {
   /// CHECK-NEXT:                       jle/ng
   //
   /// CHECK-DAG:   <<Fibs:l\d+>>        StaticFieldGet
-  /// CHECK-DAG:                        NullCheck [<<Fibs>>]
   /// CHECK-NOT:                        jmp
   /// CHECK-DAG:   <<FibsAtZero:i\d+>>  ArrayGet [<<Fibs>>,<<Zero>>]
   /// CHECK-DAG:                        Return [<<FibsAtZero>>]

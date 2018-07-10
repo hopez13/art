@@ -8779,9 +8779,6 @@ void LocationsBuilderMIPS::VisitNullCheck(HNullCheck* instruction) {
 }
 
 void CodeGeneratorMIPS::GenerateImplicitNullCheck(HNullCheck* instruction) {
-  if (CanMoveNullCheckToUser(instruction)) {
-    return;
-  }
   Location obj = instruction->GetLocations()->InAt(0);
 
   __ Lw(ZERO, obj.AsRegister<Register>(), 0);

@@ -2897,7 +2897,7 @@ bool HNewInstance::IsStringAlloc() const {
 }
 
 bool HInvoke::NeedsEnvironment() const {
-  if (!IsIntrinsic()) {
+  if (!IsIntrinsic() || DoNullCheck()) {
     return true;
   }
   IntrinsicOptimizations opt(*this);

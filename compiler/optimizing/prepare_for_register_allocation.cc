@@ -17,6 +17,7 @@
 #include "prepare_for_register_allocation.h"
 
 #include "dex/dex_file_types.h"
+#include "driver/compiler_options.h"
 #include "jni/jni_internal.h"
 #include "optimizing_compiler_stats.h"
 #include "well_known_classes.h"
@@ -50,6 +51,25 @@ void PrepareForRegisterAllocation::VisitInstanceOf(HInstanceOf* instance_of) {
 
 void PrepareForRegisterAllocation::VisitNullCheck(HNullCheck* check) {
   check->ReplaceWith(check->InputAt(0));
+  if (compiler_options_.GetImplicitNullChecks()) {
+    HInstruction* next = check->GetNext();
+    if (next != nullptr && next->CanDoImplicitNullCheckOn(check->InputAt(0))) {
+      if (!next->HasEnvironment()) {
+        // If the instruction doesn't have an environment, move the HNullChec's
+        // environment to it.
+        HEnvironment* environment = check->GetEnvironment();
+        environment->SetHolder(next);
+        next->SetRawEnvironment(environment);
+        check->ClearRawEnvironment();
+      } else if (!check->SharesDexLocation(next)) {
+        // Don't move the null check to the user, we want the correct dex PC to be reported.
+        return;
+      }
+      next->SetDoNullCheck();
+      // We don't need the null check anymore, so we can remove it.
+      check->GetBlock()->RemoveInstruction(check);
+    }
+  }
 }
 
 void PrepareForRegisterAllocation::VisitDivZeroCheck(HDivZeroCheck* check) {
@@ -248,27 +268,8 @@ bool PrepareForRegisterAllocation::CanMoveClinitCheck(HInstruction* input,
   // to HLoadClass (input), or from HClinitCheck (input) to HInvokeStaticOrDirect (user),
   // or from HLoadClass (input) to HNewInstance (user).
 
-  // Start with a quick dex pc check.
-  if (user->GetDexPc() != input->GetDexPc()) {
+  if (!input->SharesDexLocation(user)) {
     return false;
-  }
-
-  // Now do a thorough environment check that this is really coming from the same instruction in
-  // the same inlined graph. Unfortunately, we have to go through the whole environment chain.
-  HEnvironment* user_environment = user->GetEnvironment();
-  HEnvironment* input_environment = input->GetEnvironment();
-  while (user_environment != nullptr || input_environment != nullptr) {
-    if (user_environment == nullptr || input_environment == nullptr) {
-      // Different environment chain length. This happens when a method is called
-      // once directly and once indirectly through another inlined method.
-      return false;
-    }
-    if (user_environment->GetDexPc() != input_environment->GetDexPc() ||
-        user_environment->GetMethod() != input_environment->GetMethod()) {
-      return false;
-    }
-    user_environment = user_environment->GetParent();
-    input_environment = input_environment->GetParent();
   }
 
   // Check for code motion taking the input to a different block.

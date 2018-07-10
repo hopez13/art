@@ -332,8 +332,12 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
                                   uint32_t dex_pc,
                                   SlowPathCode* slow_path = nullptr);
 
-  bool CanMoveNullCheckToUser(HNullCheck* null_check);
-  void MaybeRecordImplicitNullCheck(HInstruction* instruction);
+  void MaybeRecordImplicitNullCheck(HInstruction* instruction) {
+    if (instruction->DoNullCheck()) {
+      RecordPcInfo(instruction, instruction->GetEnvironment()->GetDexPc());
+    }
+  }
+
   LocationSummary* CreateThrowingSlowPathLocations(
       HInstruction* instruction, RegisterSet caller_saves = RegisterSet::Empty());
   void GenerateNullCheck(HNullCheck* null_check);

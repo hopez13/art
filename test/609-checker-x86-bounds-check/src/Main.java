@@ -45,8 +45,8 @@ public class Main {
   /// CHECK-DAG:     <<Array:l\d+>>         ParameterValue
   /// CHECK-DAG:     <<Index:i\d+>>         ParameterValue
   /// CHECK-DAG:     <<Value:i\d+>>         IntConstant 9
-  /// CHECK:         <<CheckedArray:l\d+>>  NullCheck [<<Array>>]
-  /// CHECK-NEXT:    <<Length:i\d+>>        ArrayLength [<<Array>>] is_string_length:false emitted_at_use:true loop:none
+  /// CHECK-NOT:                            NullCheck
+  /// CHECK:         <<Length:i\d+>>        ArrayLength [<<Array>>] is_string_length:false emitted_at_use:true loop:none
   /// CHECK-NEXT:    <<CheckedIndex:i\d+>>  BoundsCheck [<<Index>>,<<Length>>]
   /// CHECK-NEXT:                           cmp [<<BaseReg:\w+>> + 8], <<IndexReg:\w+>>
   /// CHECK:         <<ArraySet:v\d+>>      ArraySet [<<Array>>,<<Index>>,<<Value>>]
@@ -75,8 +75,8 @@ public class Main {
   /// CHECK-DAG:     <<Array:l\d+>>         ParameterValue
   /// CHECK-DAG:     <<Index:i\d+>>         ParameterValue
   /// CHECK-DAG:     <<Value:i\d+>>         IntConstant 9
-  /// CHECK:         <<CheckedArray:l\d+>>  NullCheck [<<Array>>]
-  /// CHECK-NEXT:    <<Length:i\d+>>        ArrayLength [<<Array>>] is_string_length:false emitted_at_use:true loop:none
+  /// CHECK-NOT:                            NullCheck
+  /// CHECK:         <<Length:i\d+>>        ArrayLength [<<Array>>] is_string_length:false emitted_at_use:true loop:none
   /// CHECK-NEXT:    <<CheckedIndex:i\d+>>  BoundsCheck [<<Index>>,<<Length>>]
   /// CHECK-NEXT:                           cmp [<<BaseReg:\w+>> + 8], e<<IndexReg:\w+>>
   /// CHECK:         <<ArraySet:v\d+>>      ArraySet [<<Array>>,<<Index>>,<<Value>>]
