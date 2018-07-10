@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d56e9bd_b902cb42",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-10T08:17:28Z",
+      "side": 1,
+      "message": "Does this require the target to be in range? Wouldn\u0027t\n\n  adr lr, .L_${opcode}\n\nexpand to an appropriate sequence?",
+      "revId": "f3eb6b881ab5603e6cd03717ad89edaa1972ddc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf49348a_55b2dac1",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-10T08:17:28Z",
+      "side": 1,
+      "message": "Align with \u0027@\u0027 at line 7.",
+      "range": {
+        "startLine": 9,
+        "startChar": 55,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "f3eb6b881ab5603e6cd03717ad89edaa1972ddc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
