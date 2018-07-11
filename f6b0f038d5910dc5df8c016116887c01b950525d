@@ -93,6 +93,30 @@
       "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ffb5ed_e40d85f6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T09:48:27Z",
+      "side": 1,
+      "message": "Why would we need to copy the environment? The environment shall still have locations allocated even if the check.IsEmittedAtUseSite() and we can use that environment to emit the stack map for the null check, right?\n\nAnd why would we need to change \"CanThrow/NeedsEnvironment\"? I\u0027d expect these to be unchanged, the check and the next keeping their own properties.\n\nI have a mild preference for the MarkEmittedAtUseSite() approach as I believe it will be cleaner. (If we do need to copy the environment or change CanThrow/NeedsEnvironment, this may not be the case.)",
+      "parentUuid": "f35d8eb2_2a5667c6",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
