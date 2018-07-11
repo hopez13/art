@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddc80ba1_b042e5ff",
+        "filename": "test/174-escaping-instance-of-bad-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-07-11T12:40:39Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1a71e450a6203ac41c0bde33c3216a64fd5b0773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b263c4_ac9f2b52",
+        "filename": "test/174-escaping-instance-of-bad-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-07-11T12:40:39Z",
+      "side": 1,
+      "message": "\"On RI, the NDCFE has no cause. On ART the badClinit is the cause.\"?",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "1a71e450a6203ac41c0bde33c3216a64fd5b0773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
