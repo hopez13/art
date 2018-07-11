@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "214dd028_f5d0d237",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-11T13:32:18Z",
+      "side": 1,
+      "message": "could you add one line here for the superclass case. and what does the clinit check buys you, for example \"the clinit check will ensure we will throw the exception in case the superclass is erroneous\".\n\nAlso, for completeness, can you add a note that we would still try to merge the HClinitCheck with a HInvokeStaticOrDirect.",
+      "range": {
+        "startLine": 1176,
+        "startChar": 66,
+        "endLine": 1176,
+        "endChar": 67
+      },
+      "revId": "4e6e6a515aa7bdccf923f6b5048c2c276b6fe178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
