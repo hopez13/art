@@ -141,6 +141,30 @@
       "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d91d29e_6ca99e1d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T13:39:52Z",
+      "side": 1,
+      "message": "Than it\u0027s the register allocator that needs fixing to respect \"emitted at use site\".",
+      "parentUuid": "3a627fbd_c663cf67",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
