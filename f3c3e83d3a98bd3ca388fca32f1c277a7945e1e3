@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dcfba46_41747fd4",
+        "filename": "tools/dexanalyze/dexanalyze_bytecode.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1250302
+      },
+      "writtenOn": "2018-07-11T20:59:26Z",
+      "side": 0,
+      "message": "These appear in NewRegisterInstructions::Dump() - are they being computed elsewhere?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "f3c3e83d3a98bd3ca388fca32f1c277a7945e1e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
