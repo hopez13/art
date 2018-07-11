@@ -189,6 +189,53 @@
       "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6239bbd6_bbe2e602",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T14:51:19Z",
+      "side": 1,
+      "message": "One reason for doing it is the explicit null check forced by lines 64-66.\n\nLooking at the callers of HInstruction::IsEmittedAtUseSite(), I didn\u0027t find the register allocator. I found only SsaLivenessAnalysis and especially SsaLivenessAnalysis::ComputeLiveRanges(). What if we just changed that one function to accept instructions \"emitted at use site\" with environments (drop a DCHECK())? It could simply pass the \"actual_user\" when creating environment uses.",
+      "parentUuid": "cf68378b_f26fa060",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51f9d283_c5bfb015",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T14:51:19Z",
+      "side": 1,
+      "message": "Why only x86 and not x86-64? (And in the future maybe also arm64 host builds.)",
+      "range": {
+        "startLine": 3933,
+        "startChar": 42,
+        "endLine": 3933,
+        "endChar": 77
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
