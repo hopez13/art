@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa737918_8f37028a",
+        "filename": "test/174-escaping-instance-of-bad-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T12:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddc80ba1_b042e5ff",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1a71e450a6203ac41c0bde33c3216a64fd5b0773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7b263c4_ac9f2b52",
         "filename": "test/174-escaping-instance-of-bad-class/src/Main.java",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "1a71e450a6203ac41c0bde33c3216a64fd5b0773",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bbf2a52_339b64bc",
+        "filename": "test/174-escaping-instance-of-bad-class/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T12:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b263c4_ac9f2b52",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "1a71e450a6203ac41c0bde33c3216a64fd5b0773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
