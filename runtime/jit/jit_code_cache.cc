@@ -28,6 +28,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/time_utils.h"
+#include "base/utils.h"
 #include "cha.h"
 #include "debugger_interface.h"
 #include "dex/dex_file_loader.h"
@@ -53,8 +54,9 @@
 namespace art {
 namespace jit {
 
-static constexpr int kProtData = PROT_READ | PROT_WRITE;
 static constexpr int kProtCode = PROT_READ | PROT_EXEC;
+static constexpr int kProtData = PROT_READ | PROT_WRITE;
+static constexpr int kProtProfile = PROT_READ;
 
 static constexpr size_t kCodeSizeLogThreshold = 50 * KB;
 static constexpr size_t kStackMapSizeLogThreshold = 50 * KB;
@@ -194,7 +196,7 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   //         to profile system server.
   // NOTE 2: We could just not create the code section at all but we will need to
   //         special case too many cases.
-  int memmap_flags_prot_code = used_only_for_profile_data ? (kProtCode & ~PROT_EXEC) : kProtCode;
+  int memmap_flags_prot_code = used_only_for_profile_data ? kProtProfile : kProtCode;
 
   std::string error_str;
   // Map name specific for android_os_Debug.cpp accounting.
@@ -774,6 +776,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
       FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
                             reinterpret_cast<char*>(code_ptr + code_size));
+      FlushInstructionPipeline();
       DCHECK(!Runtime::Current()->IsAotCompiler());
       if (has_should_deoptimize_flag) {
         method_header->SetHasShouldDeoptimizeFlag();
