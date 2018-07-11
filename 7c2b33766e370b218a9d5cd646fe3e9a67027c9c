@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a06fec3f_4f4a4a45",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T16:34:54Z",
+      "side": 1,
+      "message": "Move on a separate line before \"liblog\". (That seems to be the convention in this file.)",
+      "range": {
+        "startLine": 57,
+        "startChar": 27,
+        "endLine": 57,
+        "endChar": 50
+      },
+      "revId": "7c2b33766e370b218a9d5cd646fe3e9a67027c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49073cce_72614816",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T16:34:54Z",
+      "side": 1,
+      "message": "Reorder \"liblog\" before \"libutils\".",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 24
+      },
+      "revId": "7c2b33766e370b218a9d5cd646fe3e9a67027c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92edc55a_0964da25",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-11T16:34:54Z",
+      "side": 1,
+      "message": "Move to a separate line before \"liblog\".",
+      "range": {
+        "startLine": 340,
+        "startChar": 27,
+        "endLine": 340,
+        "endChar": 50
+      },
+      "revId": "7c2b33766e370b218a9d5cd646fe3e9a67027c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
