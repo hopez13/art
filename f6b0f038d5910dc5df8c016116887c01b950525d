@@ -117,6 +117,30 @@
       "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a627fbd_c663cf67",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-11T13:18:54Z",
+      "side": 1,
+      "message": "Even with keeping the HNullCheck in the graph, we still need to copy the environment, as register allocators can insert HParallelMove between the null check and its first user (which is what this CL is fixing).",
+      "parentUuid": "28ffb5ed_e40d85f6",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
