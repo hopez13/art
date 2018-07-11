@@ -216,6 +216,30 @@
     },
     {
       "key": {
+        "uuid": "9bbcc7d0_295110f0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-11T21:05:59Z",
+      "side": 1,
+      "message": "I think this would special case again, which I\u0027m not a big fan of. Ideally those generated at use site instructions shouldn\u0027t need to be in the graph (they are overhead for the register allocator), so I would be tempted to say best way forward is to eventually remove the \"generated at use site\" special case.\n\nThe environment needs to be on the user, to ensure we have the right locations. Note that the TODO from Calin that I removed suggested an alternative solution, which is it analyze the HParallelMove to \"fix\" the stack maps. However, I think it\u0027s just more natural to have the environment used for NPE placed on the instruction that does the NPE check (and we don\u0027t need to emulate the moves in the stack maps).",
+      "parentUuid": "6239bbd6_bbe2e602",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51f9d283_c5bfb015",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -227,6 +251,30 @@
       "writtenOn": "2018-07-11T14:51:19Z",
       "side": 1,
       "message": "Why only x86 and not x86-64? (And in the future maybe also arm64 host builds.)",
+      "range": {
+        "startLine": 3933,
+        "startChar": 42,
+        "endLine": 3933,
+        "endChar": 77
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6accb270_6747bc8b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-11T21:05:59Z",
+      "side": 1,
+      "message": "The bug is only on x86. On x86-64, libunwind code works.",
+      "parentUuid": "51f9d283_c5bfb015",
       "range": {
         "startLine": 3933,
         "startChar": 42,
