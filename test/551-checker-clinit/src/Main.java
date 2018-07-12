@@ -33,15 +33,17 @@ public class Main {
 
 class Sub extends Main {
   /// CHECK-START: void Sub.invokeSuperClass() builder (after)
-  /// CHECK:                        ClinitCheck
+  /// CHECK-NOT:                    ClinitCheck
   public void invokeSuperClass() {
-    int a = Main.foo;  // Class initialization check must be preserved. b/62478025
+    // No Class initialization check as Main.<clinit> is trivial. b/62478025
+    int a = Main.foo;
   }
 
   /// CHECK-START: void Sub.invokeItself() builder (after)
-  /// CHECK:                        ClinitCheck
+  /// CHECK-NOT:                    ClinitCheck
   public void invokeItself() {
-    int a = foo;  // Class initialization check must be preserved. b/62478025
+    // No Class initialization check as Sub.<clinit> and Main.<clinit> are trivial. b/62478025
+    int a = foo;
   }
 
   /// CHECK-START: void Sub.invokeSubClass() builder (after)
