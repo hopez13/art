@@ -46,6 +46,30 @@
       "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "202bcbdf_b5e27f65",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-07-12T02:28:25Z",
+      "side": 1,
+      "message": "\u003e \n\u003e Following recent offline discussion, I have uploaded a follow-up change at https://android-review.googlesource.com/c/platform/art/+/715766 that handles newly allocated objects outside of the region space properly.\n\u003e \n\nI had a look at the CL you mentioned above. Is it complete or a WIP? The reason I ask is that live and mark bitmaps are still bound and the logic in MarkNonMoving() is also unchanged.",
+      "parentUuid": "e066c8c5_d255ea81",
+      "range": {
+        "startLine": 852,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 5
+      },
+      "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
