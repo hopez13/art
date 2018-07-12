@@ -1143,6 +1143,132 @@ void HInstructionBuilder::BuildConstructorFenceForAllocation(HInstruction* alloc
       MethodCompilationStat::kConstructorFenceGeneratedNew);
 }
 
+static bool IsInBootImage(ObjPtr<mirror::Class> cls, const CompilerOptions& compiler_options)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (compiler_options.IsBootImage()) {
+    std::string temp;
+    const char* descriptor = cls->GetDescriptor(&temp);
+    return compiler_options.IsImageClass(descriptor);
+  } else {
+    return Runtime::Current()->GetHeap()->FindSpaceFromObject(cls, false)->IsImageSpace();
+  }
+}
+
+static bool IsSubClass(ObjPtr<mirror::Class> to_test, ObjPtr<mirror::Class> super_class)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return to_test != nullptr && !to_test->IsInterface() && to_test->IsSubClass(super_class);
+}
+
+static bool HasTrivialClinit(ObjPtr<mirror::Class> klass, PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // Check if the class has encoded fields that trigger bytecode execution.
+  // (Encoded fields are just a different representation of <clinit>.)
+  if (klass->NumStaticFields() != 0u) {
+    DCHECK(klass->GetClassDef() != nullptr);
+    EncodedStaticFieldValueIterator it(klass->GetDexFile(), *klass->GetClassDef());
+    for (; it.HasNext(); it.Next()) {
+      switch (it.GetValueType()) {
+        case EncodedArrayValueIterator::ValueType::kBoolean:
+        case EncodedArrayValueIterator::ValueType::kByte:
+        case EncodedArrayValueIterator::ValueType::kShort:
+        case EncodedArrayValueIterator::ValueType::kChar:
+        case EncodedArrayValueIterator::ValueType::kInt:
+        case EncodedArrayValueIterator::ValueType::kLong:
+        case EncodedArrayValueIterator::ValueType::kFloat:
+        case EncodedArrayValueIterator::ValueType::kDouble:
+        case EncodedArrayValueIterator::ValueType::kNull:
+        case EncodedArrayValueIterator::ValueType::kString:
+          // Primitive, null or j.l.String initialization is permitted.
+          break;
+        case EncodedArrayValueIterator::ValueType::kType:
+          // Type initialization can load classes and execute bytecode through a class loader
+          // which can execute arbitrary bytecode. We're not optimizing for known class loaders.
+          return false;
+        default:
+          // Other types in the encoded static field list are rejected by the DexFileVerifier.
+          LOG(FATAL) << "Unexpected type " << it.GetValueType();
+          UNREACHABLE();
+      }
+    }
+  }
+  // Check if the class has <clinit> that executes arbitrary code.
+  // Initialization of static fields of the class itself with constants is allowed.
+  ArtMethod* clinit = klass->FindClassInitializer(pointer_size);
+  if (clinit != nullptr) {
+    const DexFile& dex_file = *clinit->GetDexFile();
+    CodeItemInstructionAccessor accessor(dex_file, clinit->GetCodeItem());
+    for (DexInstructionPcPair it : accessor) {
+      switch (it->Opcode()) {
+        case Instruction::CONST_4:
+        case Instruction::CONST_16:
+        case Instruction::CONST:
+        case Instruction::CONST_HIGH16:
+        case Instruction::CONST_WIDE_16:
+        case Instruction::CONST_WIDE_32:
+        case Instruction::CONST_WIDE:
+        case Instruction::CONST_WIDE_HIGH16:
+        case Instruction::CONST_STRING:
+        case Instruction::CONST_STRING_JUMBO:
+          // Primitive, null or j.l.String initialization is permitted.
+          break;
+        case Instruction::RETURN_VOID:
+        case Instruction::RETURN_VOID_NO_BARRIER:
+          break;
+        case Instruction::SPUT:
+        case Instruction::SPUT_WIDE:
+        case Instruction::SPUT_OBJECT:
+        case Instruction::SPUT_BOOLEAN:
+        case Instruction::SPUT_BYTE:
+        case Instruction::SPUT_CHAR:
+        case Instruction::SPUT_SHORT:
+          // Only initialization of a static field of the same class is permitted.
+          if (dex_file.GetFieldId(it->VRegB_21c()).class_idx_ != klass->GetDexTypeIndex()) {
+            return false;
+          }
+          break;
+        default:
+          return false;
+      }
+    }
+  }
+  return true;
+}
+
+static bool HasTrivialInitialization(ObjPtr<mirror::Class> cls,
+                                     const CompilerOptions& compiler_options)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  Runtime* runtime = Runtime::Current();
+  DCHECK(runtime->IsAotCompiler());
+  PointerSize pointer_size = runtime->GetClassLinker()->GetImagePointerSize();
+
+  // Check the superclass chain.
+  for (ObjPtr<mirror::Class> klass = cls; klass != nullptr; klass = klass->GetSuperClass()) {
+    if (klass->IsInitialized() && IsInBootImage(klass, compiler_options)) {
+      break;  // `klass` and its superclasses are already initialized in the boot image.
+    }
+    if (!HasTrivialClinit(klass, pointer_size)) {
+      return false;
+    }
+  }
+
+  // Also check interfaces with default methods as they need to be initialized as well.
+  ObjPtr<mirror::IfTable> iftable = cls->GetIfTable();
+  DCHECK(iftable != nullptr);
+  for (int32_t i = 0, count = iftable->Count(); i != count; ++i) {
+    ObjPtr<mirror::Class> iface = iftable->GetInterface(i);
+    if (!iface->HasDefaultMethods()) {
+      continue;  // Initializing `cls` does not initialize this interface.
+    }
+    if (iface->IsInitialized() && IsInBootImage(iface, compiler_options)) {
+      continue;  // This interface is already initialized in the boot image.
+    }
+    if (!HasTrivialClinit(iface, pointer_size)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 bool HInstructionBuilder::IsInitialized(Handle<mirror::Class> cls) const {
   if (cls == nullptr) {
     return false;
@@ -1158,33 +1284,47 @@ bool HInstructionBuilder::IsInitialized(Handle<mirror::Class> cls) const {
     }
     // Assume loaded only if klass is in the boot image. App classes cannot be assumed
     // loaded because we don't even know what class loader will be used to load them.
-    const CompilerOptions& compiler_options = compiler_driver_->GetCompilerOptions();
-    if (compiler_options.IsBootImage()) {
-      std::string temp;
-      const char* descriptor = cls->GetDescriptor(&temp);
-      if (compiler_options.IsImageClass(descriptor)) {
-        return true;
-      }
-    } else {
-      if (runtime->GetHeap()->FindSpaceFromObject(cls.Get(), false)->IsImageSpace()) {
-        return true;
-      }
+    if (IsInBootImage(cls.Get(), compiler_driver_->GetCompilerOptions())) {
+      return true;
     }
   }
 
-  // We can avoid the class initialization check for `cls` only in static methods in the
+  // We can avoid the class initialization check for `cls` in static methods in the
   // very same class. Instance methods of the same class can run on an escaped instance
   // of an erroneous class. Even a superclass may need to be checked as the subclass
   // can be completely initialized while the superclass is initializing and the subclass
   // remains initialized when the superclass initializer throws afterwards. b/62478025
   // Note: The HClinitCheck+HInvokeStaticOrDirect merging can still apply.
-  if ((dex_compilation_unit_->GetAccessFlags() & kAccStatic) != 0u &&
-      GetOutermostCompilingClass() == cls.Get()) {
+  ObjPtr<mirror::Class> outermost_cls = GetOutermostCompilingClass();
+  if ((dex_compilation_unit_->GetAccessFlags() & kAccStatic) != 0u && outermost_cls == cls.Get()) {
     return true;
   }
 
-  // Note: We could walk over the inlined methods to avoid allocating excessive
-  // `HClinitCheck`s in inlined static methods but they shall be eliminated by GVN.
+  // Otherwise, we may be able to avoid the check if `cls` is a superclass of a method being
+  // compiled here (anywhere in the inlining chain) as the `cls` must have started initializing
+  // before calling any `cls` or subclass methods. Static methods require a clinit check and
+  // instance methods require an instance which cannot be created before doing a clinit check.
+  // When a subclass of `cls` starts initializing, it starts initializing its superclass
+  // chain up to `cls` without running any bytecode, i.e. without any opportunity for circular
+  // initialization weirdness.
+  //
+  // If the initialization of `cls` is trivial (`cls` and its superclasses and superinterfaces
+  // with default methods initialize only their own static fields using constant values), it must
+  // complete, either successfully or by throwing and marking `cls` erroneous, without allocating
+  // any instances of `cls` or subclasses (or any other class) and without calling any methods.
+  // If it completes by throwing, no instances of `cls` shall be created and no subclass method
+  // bytecode shall execute (see above), therefore the instruction we're building shall be
+  // unreachable. By reaching the instruction, we know that `cls` was initialized successfully.
+  //
+  // TODO: We should walk over the inlined methods, but we don't pass that information
+  // to the builder. (We could also check if we're guaranteed a non-null instance of `cls`
+  // at this location but that's outside the scope of the instruction builder.)
+  bool inlined = (dex_compilation_unit_ != outer_compilation_unit_);
+  bool is_subclass = IsSubClass(outermost_cls, cls.Get()) ||
+                     (inlined && IsSubClass(GetCompilingClass(), cls.Get()));
+  if (is_subclass && HasTrivialInitialization(cls.Get(), compiler_driver_->GetCompilerOptions())) {
+    return true;
+  }
 
   return false;
 }
