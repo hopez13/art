@@ -70,6 +70,30 @@
       "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c38fae_1b031844",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-07-12T06:27:56Z",
+      "side": 1,
+      "message": "Please ignore my previous comment. After rethinking about it I realized it should work as intended.",
+      "parentUuid": "202bcbdf_b5e27f65",
+      "range": {
+        "startLine": 852,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 5
+      },
+      "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
