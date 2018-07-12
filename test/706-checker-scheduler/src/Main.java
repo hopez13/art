@@ -409,11 +409,12 @@ public class Main {
   /// CHECK-DAG:        StaticFieldSet
   /// CHECK-DAG:        StaticFieldSet
   public void accessFields() {
-    static_variable = 0;  // Force ClinitCheck outside the loop. b/62478025
     my_obj = new ExampleObj(1, 2);
     for (int i = 0; i < 10; i++) {
       my_obj.n1++;
       my_obj.n2++;
+      // Note: ClinitCheck(Main) is eliminated because Main initialization does not require
+      // executing bytecode, so no Main instance can escape if initialization fails. b/62478025
       number1++;
       number2++;
     }
