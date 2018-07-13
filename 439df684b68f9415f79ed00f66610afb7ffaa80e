@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7c873fb_6da232b7",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/Dominators.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-07-13T08:02:29Z",
+      "side": 1,
+      "message": "So I guess you can\u0027t use Node here because this is a static inner class which has no access to the generic. Would it make sense to define this as Link\u003cNode\u003e instead to get rid of some of the (Node) casts later on? It\u0027s similar to Java\u0027s Map\u003cK,V\u003e and Map.Entry\u003cK,V\u003e . I\u0027m not sure if this would actually make the code better or not.",
+      "range": {
+        "startLine": 256,
+        "startChar": 17,
+        "endLine": 256,
+        "endChar": 23
+      },
+      "revId": "439df684b68f9415f79ed00f66610afb7ffaa80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
