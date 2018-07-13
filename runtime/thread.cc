@@ -42,6 +42,7 @@
 #include "base/file_utils.h"
 #include "base/memory_tool.h"
 #include "base/mutex.h"
+#include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/timing_logger.h"
 #include "base/to_str.h"
@@ -391,6 +392,35 @@ ShadowFrame* Thread::FindOrCreateDebuggerShadowFrame(size_t frame_id,
   }
   tlsPtr_.frame_id_to_shadow_frame = record;
   return shadow_frame;
+}
+
+TlsData* Thread::GetCustomTLS(const char* key) {
+  MutexLock mu(Thread::Current(), *tls_mutex_);
+  auto it = custom_tls_.find(key);
+  if (it != custom_tls_.end()) {
+    return it->second;
+  } else {
+    return nullptr;
+  }
+}
+
+void Thread::SetCustomTLS(const char* key, TlsData* data) {
+  // Make sure the destructor will not be called under tls_mutex_.
+  LOG(INFO) << *this << " is having tls key " << key << " set to " << data;
+  TlsData* old_data = nullptr;
+  {
+    MutexLock mu(Thread::Current(), *tls_mutex_);
+    if (custom_tls_.find(key) != custom_tls_.end()) {
+      old_data = custom_tls_.Get(key);
+    }
+    custom_tls_.Overwrite(key, data);
+    if (UNLIKELY(data == nullptr)) {
+      custom_tls_.erase(custom_tls_.find(key));
+    }
+  }
+  if (old_data != nullptr) {
+    delete old_data;
+  }
 }
 
 void Thread::RemoveDebuggerShadowFrameMapping(size_t frame_id) {
@@ -2092,7 +2122,7 @@ void Thread::NotifyThreadGroup(ScopedObjectAccessAlreadyRunnable& soa, jobject t
 Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
-      custom_tls_(nullptr),
+      tls_mutex_(new Mutex("generic runtime TLS map mutex", LockLevel::kGenericBottomLock)),
       can_call_into_java_(true) {
   wait_mutex_ = new Mutex("a thread wait mutex");
   wait_cond_ = new ConditionVariable("a thread wait condition variable", *wait_mutex_);
@@ -2283,6 +2313,8 @@ Thread::~Thread() {
   delete tlsPtr_.deps_or_stack_trace_sample.stack_trace_sample;
 
   Runtime::Current()->GetHeap()->AssertThreadLocalBuffersAreRevoked(this);
+
+  STLDeleteValues(&custom_tls_);
 
   TearDownAlternateSignalStack();
 }

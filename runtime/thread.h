@@ -33,6 +33,7 @@
 #include "base/globals.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "base/safe_map.h"
 #include "entrypoints/jni/jni_entrypoints.h"
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "handle_scope.h"
@@ -96,6 +97,14 @@ class StackedShadowFrameRecord;
 class Thread;
 class ThreadList;
 enum VisitRootFlags : uint8_t;
+
+// A piece of data that can be held in the CustomTls. The destructor will be called during thread
+// shutdown. The thread the destructor is called on is not necessarily the same thread it was stored
+// on.
+class TlsData {
+ public:
+  virtual ~TlsData() {}
+};
 
 // Thread priorities. These must match the Thread.MIN_PRIORITY,
 // Thread.NORM_PRIORITY, and Thread.MAX_PRIORITY constants.
@@ -1248,13 +1257,14 @@ class Thread {
     return debug_disallow_read_barrier_;
   }
 
-  void* GetCustomTLS() const REQUIRES(Locks::thread_list_lock_) {
-    return custom_tls_;
-  }
+  // Gets the current TlsData associated with the key or nullptr if there isn't any. Note that users
+  // do not gain ownership of TlsData and must synchronize with SetCustomTls themselves to prevent
+  // it from being deleted.
+  TlsData* GetCustomTLS(const char* key) REQUIRES(!tls_mutex_);
 
-  void SetCustomTLS(void* data) REQUIRES(Locks::thread_list_lock_) {
-    custom_tls_ = data;
-  }
+  // Sets the tls entry at 'key' to data. The thread takes ownership of the TlsData. The destructor
+  // will be run when the thread exits or when SetCustomTLS is called again with the same key.
+  void SetCustomTLS(const char* key, TlsData* data) REQUIRES(!tls_mutex_);
 
   // Returns true if the current thread is the jit sensitive thread.
   bool IsJitSensitiveThread() const {
@@ -1754,9 +1764,12 @@ class Thread {
   // Pending extra checkpoints if checkpoint_function_ is already used.
   std::list<Closure*> checkpoint_overflow_ GUARDED_BY(Locks::thread_suspend_count_lock_);
 
-  // Custom TLS field that can be used by plugins.
-  // TODO: Generalize once we have more plugins.
-  void* custom_tls_;
+  // Mutex used to guard accesses to custom_tls_.
+  Mutex* tls_mutex_ BOTTOM_MUTEX_ACQUIRED_AFTER;
+
+  // Custom TLS field that can be used by plugins or the runtime. Should not be accessed directly by
+  // compiled code or entrypoints.
+  SafeMap<std::string, TlsData*> custom_tls_ GUARDED_BY(tls_mutex_);
 
   // True if the thread is allowed to call back into java (for e.g. during class resolution).
   // By default this is true.
