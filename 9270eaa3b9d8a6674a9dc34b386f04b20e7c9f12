@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39be8631_bba68e98",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-07-13T19:01:18Z",
+      "side": 1,
+      "message": "Java rounding behavior *must be preserved*\n(since you are warning about a possible wrong implementation)",
+      "revId": "9270eaa3b9d8a6674a9dc34b386f04b20e7c9f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "870cc0c0_e537c1ac",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-07-13T19:01:18Z",
+      "side": 1,
+      "message": "perhaps add DCHECK for no fp packed data types to make sure future developers will go here and read your comment?",
+      "revId": "9270eaa3b9d8a6674a9dc34b386f04b20e7c9f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
