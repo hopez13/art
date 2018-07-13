@@ -68,6 +68,30 @@
       "revId": "d78105b2e31f6fcabb87372e61ed32671822bd67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0dba28_a93bb0e0",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-13T21:28:52Z",
+      "side": 1,
+      "message": "(I guess we can\u0027t move to a checkpoint or so to set this :-( )",
+      "parentUuid": "ccf0f1fc_04eab43d",
+      "range": {
+        "startLine": 1767,
+        "startChar": 2,
+        "endLine": 1768,
+        "endChar": 48
+      },
+      "revId": "d78105b2e31f6fcabb87372e61ed32671822bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
