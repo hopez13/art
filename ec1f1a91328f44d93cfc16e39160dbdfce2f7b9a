@@ -22,6 +22,30 @@
       "revId": "ec1f1a91328f44d93cfc16e39160dbdfce2f7b9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23a1c6c_6ed15250",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-13T21:52:57Z",
+      "side": 0,
+      "message": "It\u0027s fine not to have it if you\u0027re accessing this on Thread::Current() though which is what we want for backtrace_helper.cc\n\nI left in the locks in ti_thread.cc for that.",
+      "parentUuid": "9a8dfaab_a23a1260",
+      "range": {
+        "startLine": 1251,
+        "startChar": 29,
+        "endLine": 1251,
+        "endChar": 63
+      },
+      "revId": "ec1f1a91328f44d93cfc16e39160dbdfce2f7b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
