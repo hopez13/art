@@ -22,6 +22,30 @@
       "revId": "439df684b68f9415f79ed00f66610afb7ffaa80e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0c3fe7f_2c3f2d14",
+        "filename": "tools/ahat/src/main/com/android/ahat/dominators/Dominators.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-13T13:04:41Z",
+      "side": 1,
+      "message": "I think it\u0027s marginally better to have Link\u003cNode\u003e, so I made that change.\n\nI want to keep using Object for NodeS.node, however, because that one runs into issues of generic array creation in NodeSet.",
+      "parentUuid": "a7c873fb_6da232b7",
+      "range": {
+        "startLine": 256,
+        "startChar": 17,
+        "endLine": 256,
+        "endChar": 23
+      },
+      "revId": "439df684b68f9415f79ed00f66610afb7ffaa80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
