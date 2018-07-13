@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cb93ad3_b9ba3bad",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-13T21:26:12Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 409,
+        "endChar": 75
+      },
+      "revId": "d78105b2e31f6fcabb87372e61ed32671822bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca8dbe5_21400978",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-13T21:26:12Z",
+      "side": 1,
+      "message": "Please use TLS for consistency.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 9
+      },
+      "revId": "d78105b2e31f6fcabb87372e61ed32671822bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccf0f1fc_04eab43d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-13T21:26:12Z",
+      "side": 1,
+      "message": "Why? Is there a reason to allow cross-thread TLS access? That should be documented.",
+      "range": {
+        "startLine": 1767,
+        "startChar": 2,
+        "endLine": 1768,
+        "endChar": 48
+      },
+      "revId": "d78105b2e31f6fcabb87372e61ed32671822bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
