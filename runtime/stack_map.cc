@@ -31,6 +31,22 @@ CodeInfo::CodeInfo(const OatQuickMethodHeader* header)
   : CodeInfo(header->GetOptimizedCodeInfoPtr()) {
 }
 
+template<typename Accessor>
+ALWAYS_INLINE static void DecodeTable(BitTable<Accessor>& table,
+                                      BitMemoryReader& reader,
+                                      const uint8_t* data) {
+  bool is_deduped = reader.ReadBit();
+  if (is_deduped) {
+    uint32_t current_bit_offset = reader.GetBitOffset();
+    uint32_t bit_offset_backwards = DecodeVarintBits(reader) - current_bit_offset;
+    BitMemoryReader reader2(data - BitsToBytesRoundUp(bit_offset_backwards),
+                            kBitsPerByte - (bit_offset_backwards % kBitsPerByte));
+    table.Decode(reader2);
+  } else {
+    table.Decode(reader);
+  }
+}
+
 void CodeInfo::Decode(const uint8_t* data) {
   const uint8_t* begin = data;
   frame_size_in_bytes_ = DecodeUnsignedLeb128(&data);
@@ -38,13 +54,13 @@ void CodeInfo::Decode(const uint8_t* data) {
   fp_spill_mask_ = DecodeUnsignedLeb128(&data);
   number_of_dex_registers_ = DecodeUnsignedLeb128(&data);
   BitMemoryReader reader(data, /* bit_offset */ 0);
-  stack_maps_.Decode(reader);
-  register_masks_.Decode(reader);
-  stack_masks_.Decode(reader);
-  inline_infos_.Decode(reader);
-  dex_register_masks_.Decode(reader);
-  dex_register_maps_.Decode(reader);
-  dex_register_catalog_.Decode(reader);
+  DecodeTable(stack_maps_, reader, data);
+  DecodeTable(register_masks_, reader, data);
+  DecodeTable(stack_masks_, reader, data);
+  DecodeTable(inline_infos_, reader, data);
+  DecodeTable(dex_register_masks_, reader, data);
+  DecodeTable(dex_register_maps_, reader, data);
+  DecodeTable(dex_register_catalog_, reader, data);
   size_in_bits_ = (data - begin) * kBitsPerByte + reader.GetBitOffset();
 }
 

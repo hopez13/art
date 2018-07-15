@@ -28,6 +28,25 @@ namespace art {
 // abstracting away the bit start offset to avoid needing passing as an argument everywhere.
 class BitMemoryRegion FINAL : public ValueObject {
  public:
+  struct Less {
+    constexpr bool operator()(const BitMemoryRegion& lhs, const BitMemoryRegion& rhs) const {
+      if (lhs.size_in_bits() != rhs.size_in_bits()) {
+        return lhs.size_in_bits() < rhs.size_in_bits();
+      }
+      size_t bit = 0;
+      constexpr size_t kNumBits = BitSizeOf<uint32_t>();
+      for (; bit + kNumBits <= lhs.size_in_bits(); bit += kNumBits) {
+        uint32_t lhs_bits = lhs.LoadBits(bit, kNumBits);
+        uint32_t rhs_bits = rhs.LoadBits(bit, kNumBits);
+        if (lhs_bits != rhs_bits) {
+          return lhs_bits < rhs_bits;
+        }
+      }
+      size_t num_bits = lhs.size_in_bits() - bit;
+      return lhs.LoadBits(bit, num_bits) < rhs.LoadBits(bit, num_bits);
+    }
+  };
+
   BitMemoryRegion() = default;
   ALWAYS_INLINE explicit BitMemoryRegion(MemoryRegion region)
     : data_(reinterpret_cast<uintptr_t*>(AlignDown(region.pointer(), sizeof(uintptr_t)))),
@@ -192,6 +211,12 @@ class BitMemoryReader {
     return finished_region_.Extend(bit_length).LoadBits(0, bit_length);
   }
 
+  ALWAYS_INLINE bool ReadBit() {
+    return finished_region_.Extend(1).LoadBit(0);
+  }
+
+  BitMemoryRegion GetFinishedRegion() const { return finished_region_; }
+
  private:
   // Represents all of the bits which were read so far. There is no upper bound.
   // Therefore, by definition, the "cursor" is always at the end of the region.
@@ -221,6 +246,14 @@ class BitMemoryWriter {
 
   ALWAYS_INLINE void WriteBits(uint32_t value, size_t bit_length) {
     Allocate(bit_length).StoreBits(0, value, bit_length);
+  }
+
+  ALWAYS_INLINE void WriteBit(bool value) {
+    Allocate(1).StoreBit(0, value);
+  }
+
+  ALWAYS_INLINE void WriteRegion(BitMemoryRegion& region) {
+    Allocate(region.size_in_bits()).StoreBits(0, region, region.size_in_bits());
   }
 
  private:

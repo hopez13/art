@@ -75,7 +75,7 @@ class BitTableBase {
     Decode(reader);
   }
 
-  ALWAYS_INLINE void Decode(BitMemoryReader& reader) {
+  ALWAYS_INLINE BitMemoryRegion Decode(BitMemoryReader& reader) {
     // Decode row count and column sizes from the table header.
     size_t initial_bit_offset = reader.GetBitOffset();
     num_rows_ = DecodeVarintBits(reader);
@@ -90,6 +90,8 @@ class BitTableBase {
 
     // Record the region which contains the table data and skip past it.
     table_data_ = reader.Skip(num_rows_ * NumRowBits());
+
+    return reader.GetFinishedRegion().Subregion(initial_bit_offset, BitSize());
   }
 
   ALWAYS_INLINE uint32_t Get(uint32_t row, uint32_t column = 0) const {

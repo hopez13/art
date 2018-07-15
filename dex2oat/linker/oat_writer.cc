@@ -65,6 +65,7 @@
 #include "profile/profile_compilation_info.h"
 #include "quicken_info.h"
 #include "scoped_thread_state_change-inl.h"
+#include "stack_map.h"
 #include "utils/dex_cache_arrays_layout-inl.h"
 #include "vdex_file.h"
 #include "verifier/verifier_deps.h"
@@ -1478,27 +1479,39 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
       ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
       uint32_t map_size = map.size() * sizeof(map[0]);
       if (map_size != 0u) {
-        size_t offset = dedupe_map_.GetOrCreate(
-            map.data(),
-            [this, map_size]() {
-              uint32_t new_offset = offset_;
-              offset_ += map_size;
-              return new_offset;
-            });
+        std::vector<uint8_t>* data = &writer_->code_info_data_;
+        auto it2 = dedupe_code_info_.emplace(map.data(), offset_ + data->size());
+        uint32_t offset = it2.first->second;
+        if (it2.second /* new code info */) {
+          CodeInfo::Dedupe(data, map, [=](BitMemoryWriter<std::vector<uint8_t>>& out,
+                                          BitMemoryRegion bit_table) {
+            uint64_t& table_bit_offset = dedupe_table_[bit_table];  // Find or insert.
+            if (table_bit_offset == 0 /* new bit table */ || bit_table.size_in_bits() < 32) {
+              out.WriteBit(false);
+              table_bit_offset = out.GetBitOffset();
+              out.WriteRegion(bit_table);
+            } else {
+              out.WriteBit(true);
+              EncodeVarintBits(out, out.GetBitOffset() - table_bit_offset);
+            }
+          });
+        }
         // Code offset is not initialized yet, so set the map offset to 0u-offset.
         DCHECK_EQ(oat_class->method_offsets_[method_offsets_index_].code_offset_, 0u);
         oat_class->method_headers_[method_offsets_index_].SetVmapTableOffset(0u - offset);
       }
       ++method_offsets_index_;
     }
-
     return true;
   }
 
  private:
   // Deduplication is already done on a pointer basis by the compiler driver,
   // so we can simply compare the pointers to find out if things are duplicated.
-  SafeMap<const uint8_t*, uint32_t> dedupe_map_;
+  std::map<const uint8_t*, uint32_t> dedupe_code_info_;
+
+  // Map from BitTable's memory region to it's allocated *bit* offset within the file.
+  std::map<BitMemoryRegion, uint64_t, BitMemoryRegion::Less> dedupe_table_;
 };
 
 class OatWriter::InitMethodInfoVisitor : public OatDexMethodVisitor {
@@ -2073,68 +2086,6 @@ class OatWriter::WriteCodeMethodVisitor : public OrderedMethodVisitor {
   }
 };
 
-class OatWriter::WriteMapMethodVisitor : public OatDexMethodVisitor {
- public:
-  WriteMapMethodVisitor(OatWriter* writer,
-                        OutputStream* out,
-                        const size_t file_offset,
-                        size_t relative_offset)
-      : OatDexMethodVisitor(writer, relative_offset),
-        out_(out),
-        file_offset_(file_offset) {}
-
-  bool VisitMethod(size_t class_def_method_index, const ClassDataItemIterator& it) OVERRIDE {
-    OatClass* oat_class = &writer_->oat_classes_[oat_class_index_];
-    const CompiledMethod* compiled_method = oat_class->GetCompiledMethod(class_def_method_index);
-
-    if (HasCompiledCode(compiled_method)) {
-      size_t file_offset = file_offset_;
-      OutputStream* out = out_;
-
-      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset();
-      uint32_t code_offset = oat_class->method_offsets_[method_offsets_index_].code_offset_;
-      ++method_offsets_index_;
-
-      DCHECK((compiled_method->GetVmapTable().size() == 0u && map_offset == 0u) ||
-             (compiled_method->GetVmapTable().size() != 0u && map_offset != 0u))
-          << compiled_method->GetVmapTable().size() << " " << map_offset << " "
-          << dex_file_->PrettyMethod(it.GetMemberIndex());
-
-      // If vdex is enabled, only emit the map for compiled code. The quickening info
-      // is emitted in the vdex already.
-      if (map_offset != 0u) {
-        // Transform map_offset to actual oat data offset.
-        map_offset = (code_offset - compiled_method->CodeDelta()) - map_offset;
-        DCHECK_NE(map_offset, 0u);
-        DCHECK_LE(map_offset, offset_) << dex_file_->PrettyMethod(it.GetMemberIndex());
-
-        ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
-        size_t map_size = map.size() * sizeof(map[0]);
-        if (map_offset == offset_) {
-          // Write deduplicated map (code info for Optimizing or transformation info for dex2dex).
-          if (UNLIKELY(!out->WriteFully(map.data(), map_size))) {
-            ReportWriteFailure(it);
-            return false;
-          }
-          offset_ += map_size;
-        }
-      }
-      DCHECK_OFFSET_();
-    }
-
-    return true;
-  }
-
- private:
-  OutputStream* const out_;
-  size_t const file_offset_;
-
-  void ReportWriteFailure(const ClassDataItemIterator& it) {
-    PLOG(ERROR) << "Failed to write map for "
-        << dex_file_->PrettyMethod(it.GetMemberIndex()) << " to " << out_->GetLocation();
-  }
-};
-
 class OatWriter::WriteMethodInfoVisitor : public OatDexMethodVisitor {
  public:
   WriteMethodInfoVisitor(OatWriter* writer,
@@ -2281,7 +2232,7 @@ size_t OatWriter::InitOatMaps(size_t offset) {
     InitMapMethodVisitor visitor(this, offset);
     bool success = VisitDexMethods(&visitor);
     DCHECK(success);
-    offset = visitor.GetOffset();
+    offset += code_info_data_.size();
   }
   {
     InitMethodInfoVisitor visitor(this, offset);
@@ -3135,13 +3086,11 @@ size_t OatWriter::WriteClasses(OutputStream* out, size_t file_offset, size_t rel
 
 size_t OatWriter::WriteMaps(OutputStream* out, size_t file_offset, size_t relative_offset) {
   {
-    size_t vmap_tables_offset = relative_offset;
-    WriteMapMethodVisitor visitor(this, out, file_offset, relative_offset);
-    if (UNLIKELY(!VisitDexMethods(&visitor))) {
+    if (UNLIKELY(!out->WriteFully(code_info_data_.data(), code_info_data_.size()))) {
       return 0;
     }
-    relative_offset = visitor.GetOffset();
-    size_vmap_table_ = relative_offset - vmap_tables_offset;
+    relative_offset += code_info_data_.size();
+    size_vmap_table_ = code_info_data_.size();
   }
   {
     size_t method_infos_offset = relative_offset;

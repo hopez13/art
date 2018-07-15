@@ -20,6 +20,7 @@
 #include <limits>
 
 #include "arch/instruction_set.h"
+#include "base/array_ref.h"
 #include "base/bit_memory_region.h"
 #include "base/bit_table.h"
 #include "base/bit_utils.h"
@@ -409,6 +410,32 @@ class CodeInfo {
         DecodeUnsignedLeb128(&data),
         DecodeUnsignedLeb128(&data),
         DecodeUnsignedLeb128(&data));
+  }
+
+  template<typename DedupeFn>
+  static void Dedupe(std::vector<uint8_t>* out, ArrayRef<const uint8_t> in, DedupeFn dedupe) {
+    const uint8_t* data = in.data();
+    EncodeUnsignedLeb128(out, DecodeUnsignedLeb128(&data));
+    EncodeUnsignedLeb128(out, DecodeUnsignedLeb128(&data));
+    EncodeUnsignedLeb128(out, DecodeUnsignedLeb128(&data));
+    EncodeUnsignedLeb128(out, DecodeUnsignedLeb128(&data));
+    BitMemoryReader reader(in.data(), /* bit_offset */ (data - in.data()) * kBitsPerByte);
+    BitMemoryWriter<std::vector<uint8_t>> writer(out, /* bit_offset */ out->size() * kBitsPerByte);
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<StackMap>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<RegisterMask>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<MaskInfo>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<InlineInfo>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<MaskInfo>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<DexRegisterMapInfo>().Decode(reader));
+    DCHECK(!reader.ReadBit()) << "Already deduped";
+    dedupe(writer, BitTable<DexRegisterInfo>().Decode(reader));
+    CHECK_EQ(BitsToBytesRoundUp(reader.GetBitOffset()), in.size());
   }
 
  private:
