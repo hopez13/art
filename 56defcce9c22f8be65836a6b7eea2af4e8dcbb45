@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e84f2e14_c6c38482",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-07-16T22:37:32Z",
+      "side": 1,
+      "message": "Use conditional?",
+      "range": {
+        "startLine": 400,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 3
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d03276d7_92114bf6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-07-16T22:37:32Z",
+      "side": 1,
+      "message": "Is this log statement for debugging, or actually intended?",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 75
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a22a10ad_1806d673",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-07-16T22:37:32Z",
+      "side": 1,
+      "message": "Why not make this a global mutex to save RAM? I don\u0027t think its worth being thread local.",
+      "range": {
+        "startLine": 1771,
+        "startChar": 2,
+        "endLine": 1771,
+        "endChar": 19
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba7937e0_4cbb449c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-07-16T22:37:32Z",
+      "side": 1,
+      "message": "Why not use std::unique_ptr?",
+      "range": {
+        "startLine": 1775,
+        "startChar": 23,
+        "endLine": 1775,
+        "endChar": 30
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
