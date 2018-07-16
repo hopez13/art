@@ -461,6 +461,10 @@ bool DexFileLoader::OpenAllDexFilesFromZip(
                                                                 error_msg,
                                                                 &error_code));
   if (dex_file.get() == nullptr) {
+    if (error_code == ZipOpenErrorCode::kEntryNotFound) {
+        LOG(WARNING) << "classes.dex file not found. Not loading any dex files.";
+        return true;
+    }
     return false;
   } else {
     // Had at least classes.dex.

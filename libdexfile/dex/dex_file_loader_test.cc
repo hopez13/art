@@ -425,11 +425,11 @@ TEST_F(DexFileLoaderTest, ZipOpenClassesAbsent) {
   std::vector<uint8_t> dex_bytes;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
   std::string error_msg;
-  ASSERT_FALSE(OpenDexFilesBase64(kRawZipClassesDexAbsent,
-                                  kLocationString,
-                                  &dex_bytes,
-                                  &dex_files,
-                                  &error_msg));
+  ASSERT_TRUE(OpenDexFilesBase64(kRawZipClassesDexAbsent,
+                                 kLocationString,
+                                &dex_bytes,
+                                &dex_files,
+                                &error_msg));
   EXPECT_EQ(dex_files.size(), 0u);
 }
 
