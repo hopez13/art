@@ -87,6 +87,24 @@
       "revId": "9270eaa3b9d8a6674a9dc34b386f04b20e7c9f12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f03b2a_a63418e0",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-16T11:26:45Z",
+      "side": 1,
+      "message": "We do not currently run tests with custom instruction set features, so a simple test would not have caught this.",
+      "parentUuid": "fc11c514_45986e0a",
+      "revId": "9270eaa3b9d8a6674a9dc34b386f04b20e7c9f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
