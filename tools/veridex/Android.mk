@@ -39,6 +39,8 @@ app_compat_lists := \
 .PHONY: appcompat
 appcompat: $(system_stub_dex) $(oahl_stub_dex) $(HOST_OUT_EXECUTABLES)/veridex $(app_compat_lists)
 
+
+
 VERIDEX_FILES_PATH := \
     $(call intermediates-dir-for,PACKAGING,veridex,HOST)/veridex.zip
 
