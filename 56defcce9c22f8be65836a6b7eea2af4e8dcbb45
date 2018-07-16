@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e3f903c_cce510dc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-16T23:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e84f2e14_c6c38482",
+      "range": {
+        "startLine": 400,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 3
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d03276d7_92114bf6",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e090a7e_f5df5758",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-16T23:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d03276d7_92114bf6",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 75
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4eb07f7f_e1b91af3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-16T23:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22a10ad_1806d673",
+      "range": {
+        "startLine": 1771,
+        "startChar": 2,
+        "endLine": 1771,
+        "endChar": 19
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba7937e0_4cbb449c",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e3338f1_f75113d4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-16T23:22:53Z",
+      "side": 1,
+      "message": "Done. Needed to reference-ize a function in SafeMap to do it though.",
+      "parentUuid": "ba7937e0_4cbb449c",
+      "range": {
+        "startLine": 1775,
+        "startChar": 23,
+        "endLine": 1775,
+        "endChar": 30
+      },
+      "revId": "56defcce9c22f8be65836a6b7eea2af4e8dcbb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
