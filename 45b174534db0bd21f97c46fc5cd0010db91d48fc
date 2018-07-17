@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65d20cbf_52fa56d7",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/Reachability.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-07-17T11:01:12Z",
+      "side": 1,
+      "message": "perhaps it\u0027s because I\u0027m not a native English speaker, but does \"as strong as\" not imply equivalence?",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "061631ea_aab72f1a",
+        "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-07-17T11:01:12Z",
+      "side": 1,
+      "message": "If there\u0027s only one that should match, can you break here? If there\u0027s more, overwriting doesn\u0027t seem like the right thing to do.",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 47
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "734f9cf3_aae28293",
+        "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-07-17T11:01:12Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 45
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
