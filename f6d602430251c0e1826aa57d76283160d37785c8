@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bb094ec2_c2c54b8a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-17T16:30:03Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth that comment. I\u0027m not sure if our toolchain ever emits the kType.",
+      "parentUuid": "5194af82_6826854b",
+      "range": {
+        "startLine": 1185,
+        "startChar": 51,
+        "endLine": 1185,
+        "endChar": 60
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b4a6e29_a507da40",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "02d78902_84e53c5d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-17T16:30:03Z",
+      "side": 1,
+      "message": "StackOverflowError does not try to initialize subclasses of `cls` or create instances of `cls` or its subclasses. And that\u0027s all we care about.",
+      "parentUuid": "5b4a6e29_a507da40",
+      "range": {
+        "startLine": 1197,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 26
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f1372e6_e38024b5",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2018-07-12T16:49:14Z",
       "side": 1,
       "message": "Where is that guaranteed from the caller?",
+      "range": {
+        "startLine": 1241,
+        "startChar": 2,
+        "endLine": 1241,
+        "endChar": 35
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "700a2034_cd3405c8",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-17T16:30:03Z",
+      "side": 1,
+      "message": "Removed. (Good catch.)",
+      "parentUuid": "0f1372e6_e38024b5",
       "range": {
         "startLine": 1241,
         "startChar": 2,
