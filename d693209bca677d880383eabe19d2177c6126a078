@@ -16,6 +16,24 @@
       "revId": "d693209bca677d880383eabe19d2177c6126a078",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f38b11_0ed85002",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6944,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-07-17T13:11:02Z",
+      "side": 1,
+      "message": "Yep, thanks for pointing to it, I\u0027ve been already working on finding a better solution - maybe introducing a new \u0027fake\u0027 HInstruction with \"CanTriggerGC\" side effect which represents an entry to the catch block and is removed before codegen.",
+      "parentUuid": "cecc1aba_8ba8dda8",
+      "revId": "d693209bca677d880383eabe19d2177c6126a078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
