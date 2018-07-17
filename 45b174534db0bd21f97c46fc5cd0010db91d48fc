@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c8e483ce_15174b65",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/Reachability.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-17T11:53:54Z",
+      "side": 1,
+      "message": "I also tend to think of \"as strong as\" as implying equivalence, but I wasn\u0027t sure what would be better. How about notWeakerThan? I\u0027m also open to other names.\n\nOne option would be to have: isWeakerThan, and always negate the result. But always negating the result doesn\u0027t sit entirely well with me.",
+      "parentUuid": "65d20cbf_52fa56d7",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "061631ea_aab72f1a",
         "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "75aff70f_e7c3dd62",
+        "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-17T11:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "061631ea_aab72f1a",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 47
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734f9cf3_aae28293",
         "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "628bad42_84598e2b",
+        "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-17T11:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "734f9cf3_aae28293",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 45
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
