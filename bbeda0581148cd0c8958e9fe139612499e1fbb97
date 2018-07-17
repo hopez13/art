@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59e3ed33_a99e8e36",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-17T15:06:49Z",
+      "side": 1,
+      "message": "Can you reformulate this, as it isn\u0027t true as far as I understand it?",
+      "range": {
+        "startLine": 256,
+        "startChar": 83,
+        "endLine": 256,
+        "endChar": 95
+      },
+      "revId": "bbeda0581148cd0c8958e9fe139612499e1fbb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93e2f590_33921cab",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-17T15:06:49Z",
+      "side": 1,
+      "message": "If you don\u0027t take ownership, this should be a plain pointer (or reference).",
+      "range": {
+        "startLine": 2252,
+        "startChar": 28,
+        "endLine": 2252,
+        "endChar": 50
+      },
+      "revId": "bbeda0581148cd0c8958e9fe139612499e1fbb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
