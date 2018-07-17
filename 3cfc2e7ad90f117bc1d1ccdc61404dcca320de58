@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7422d15c_5da67001",
+        "filename": "oatdump/oatdump_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-17T08:33:12Z",
+      "side": 1,
+      "message": "error_buf.insert(error_buf.end(), buf, buf + std::min(len, MB - pos));",
+      "range": {
+        "startLine": 228,
+        "startChar": 10,
+        "endLine": 229,
+        "endChar": 51
+      },
+      "revId": "3cfc2e7ad90f117bc1d1ccdc61404dcca320de58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
