@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ee91ebf9_907aeb3a",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/Reachability.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-07-17T12:00:41Z",
+      "side": 1,
+      "message": "I was thinking isAtLeastAsStrongAs() - but perhaps that is too long. notWeakerThan() also works for me. Agree having to always negate isn\u0027t as nice.",
+      "parentUuid": "c8e483ce_15174b65",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "45b174534db0bd21f97c46fc5cd0010db91d48fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "061631ea_aab72f1a",
         "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
         "patchSetId": 1
