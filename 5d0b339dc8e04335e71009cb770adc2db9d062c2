@@ -22,6 +22,30 @@
       "revId": "5d0b339dc8e04335e71009cb770adc2db9d062c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1293358b_c0308aa6",
+        "filename": "tools/ahat/src/test/com/android/ahat/SiteTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-17T15:31:04Z",
+      "side": 1,
+      "message": "I put a comment in the code to clarify.\n\nThis is one of the down sides of the approach used to test ahat, but I haven\u0027t figured out a better way yet. Ideally the description of the bits of heap being tested was in the same place as the test itself.",
+      "parentUuid": "286ba069_3479ad00",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 16
+      },
+      "revId": "5d0b339dc8e04335e71009cb770adc2db9d062c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
