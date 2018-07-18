@@ -27,6 +27,7 @@
 
 #include <limits>
 
+#include <android-base/file.h>
 #include <android-base/logging.h>
 
 // Includes needed for FdFile::Copy().
@@ -249,14 +250,9 @@ int FdFile::Close() {
 int FdFile::Flush() {
   DCHECK(!read_only_mode_);
 
-#ifdef __linux__
-  int rc = TEMP_FAILURE_RETRY(fdatasync(fd_));
-#else
-  int rc = TEMP_FAILURE_RETRY(fsync(fd_));
-#endif
-
+  bool retval = android::base::SyncFile(fd_);
   moveUp(GuardState::kFlushed, "Flushing closed file.");
-  if (rc == 0) {
+  if (retval) {
     return 0;
   }
 
@@ -265,12 +261,11 @@ int FdFile::Flush() {
 }
 
 int64_t FdFile::Read(char* buf, int64_t byte_count, int64_t offset) const {
-#ifdef __linux__
-  int rc = TEMP_FAILURE_RETRY(pread64(fd_, buf, byte_count, offset));
-#else
-  int rc = TEMP_FAILURE_RETRY(pread(fd_, buf, byte_count, offset));
-#endif
-  return (rc == -1) ? -errno : rc;
+  if (android::base::ReadFullyAtOffset(fd_, buf, byte_count, offset)) {
+    return byte_count;
+  } else {
+    return -errno;
+  }
 }
 
 int FdFile::SetLength(int64_t new_length) {
@@ -292,13 +287,14 @@ int64_t FdFile::GetLength() const {
 
 int64_t FdFile::Write(const char* buf, int64_t byte_count, int64_t offset) {
   DCHECK(!read_only_mode_);
-#ifdef __linux__
-  int rc = TEMP_FAILURE_RETRY(pwrite64(fd_, buf, byte_count, offset));
-#else
-  int rc = TEMP_FAILURE_RETRY(pwrite(fd_, buf, byte_count, offset));
-#endif
+  int64_t retval;
+  if (android::base::WriteFullyAtOffset(fd_, buf, byte_count, offset)) {
+    retval = byte_count;
+  } else {
+    retval = -errno;
+  }
   moveTo(GuardState::kBase, GuardState::kClosed, "Writing into closed file.");
-  return (rc == -1) ? -errno : rc;
+  return retval;
 }
 
 int FdFile::Fd() const {
@@ -315,11 +311,6 @@ bool FdFile::CheckUsage() const {
 
 bool FdFile::IsOpened() const {
   return fd_ >= 0;
-}
-
-static ssize_t ReadIgnoreOffset(int fd, void *buf, size_t count, off_t offset) {
-  DCHECK_EQ(offset, 0);
-  return read(fd, buf, count);
 }
 
 template <ssize_t (*read_func)(int, void*, size_t, off_t)>
@@ -340,39 +331,19 @@ static bool ReadFullyGeneric(int fd, void* buffer, size_t byte_count, size_t off
 }
 
 bool FdFile::ReadFully(void* buffer, size_t byte_count) {
-  return ReadFullyGeneric<ReadIgnoreOffset>(fd_, buffer, byte_count, 0);
+  return android::base::ReadFully(fd_, buffer, byte_count);
 }
 
 bool FdFile::PreadFully(void* buffer, size_t byte_count, size_t offset) {
-  return ReadFullyGeneric<pread>(fd_, buffer, byte_count, offset);
-}
-
-template <bool kUseOffset>
-bool FdFile::WriteFullyGeneric(const void* buffer, size_t byte_count, size_t offset) {
-  DCHECK(!read_only_mode_);
-  moveTo(GuardState::kBase, GuardState::kClosed, "Writing into closed file.");
-  DCHECK(kUseOffset || offset == 0u);
-  const char* ptr = static_cast<const char*>(buffer);
-  while (byte_count > 0) {
-    ssize_t bytes_written = kUseOffset
-        ? TEMP_FAILURE_RETRY(pwrite(fd_, ptr, byte_count, offset))
-        : TEMP_FAILURE_RETRY(write(fd_, ptr, byte_count));
-    if (bytes_written == -1) {
-      return false;
-    }
-    byte_count -= bytes_written;  // Reduce the number of remaining bytes.
-    ptr += bytes_written;  // Move the buffer forward.
-    offset += static_cast<size_t>(bytes_written);
-  }
-  return true;
-}
-
-bool FdFile::PwriteFully(const void* buffer, size_t byte_count, size_t offset) {
-  return WriteFullyGeneric<true>(buffer, byte_count, offset);
+  return android::base::ReadFullyAtOffset(fd_, buffer, byte_count, offset);
 }
 
 bool FdFile::WriteFully(const void* buffer, size_t byte_count) {
-  return WriteFullyGeneric<false>(buffer, byte_count, 0u);
+  return android::base::WriteFully(fd_, buffer, byte_count);
+}
+
+bool FdFile::PwriteFully(const void* buffer, size_t byte_count, size_t offset) {
+  return android::base::WriteFullyAtOffset(fd_, buffer, byte_count, offset);
 }
 
 bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {
