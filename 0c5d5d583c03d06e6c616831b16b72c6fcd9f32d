@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ddc98dde_d75e99ff",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-07-18T10:31:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c67ac132_f16ca812",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 432,
+        "endChar": 5
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d98f8a8c_a250302d",
         "filename": "libdexfile/dex/dex_file_loader.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f034621_eea9c329",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-07-18T10:31:41Z",
+      "side": 1,
+      "message": "Not that I can see (admittedly my original proposal was to break this contract). This case would be a good use case for StatusOr\u003c\u003e[1] but apparently is not common to use that in the Android tree.\n\n[1] https://github.com/google/protobuf/blob/master/src/google/protobuf/stubs/statusor.h (common in google3)",
+      "parentUuid": "d98f8a8c_a250302d",
+      "range": {
+        "startLine": 454,
+        "startChar": 4,
+        "endLine": 454,
+        "endChar": 38
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
