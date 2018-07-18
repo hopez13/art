@@ -569,7 +569,8 @@ void DoAllocateObsoleteMethodsCallback(art::Thread* t, void* vdata) NO_THREAD_SA
 // This creates any ArtMethod* structures needed for obsolete methods and ensures that the stack is
 // updated so they will be run.
 // TODO Rewrite so we can do this only once regardless of how many redefinitions there are.
-void Redefiner::ClassRedefinition::FindAndAllocateObsoleteMethods(art::mirror::Class* art_klass) {
+void Redefiner::ClassRedefinition::FindAndAllocateObsoleteMethods(
+    art::ObjPtr<art::mirror::Class> art_klass) {
   art::ScopedAssertNoThreadSuspension ns("No thread suspension during thread stack walking");
   art::mirror::ClassExt* ext = art_klass->GetExtData();
   CHECK(ext->GetObsoleteMethods() != nullptr);
@@ -1492,10 +1493,10 @@ void Redefiner::ClassRedefinition::UpdateClass(
 // obsolete methods).
 void Redefiner::ClassRedefinition::RestoreObsoleteMethodMapsIfUnneeded(
     const RedefinitionDataIter* cur_data) {
-  art::mirror::Class* klass = GetMirrorClass();
-  art::mirror::ClassExt* ext = klass->GetExtData();
-  art::mirror::PointerArray* methods = ext->GetObsoleteMethods();
-  art::mirror::PointerArray* old_methods = cur_data->GetOldObsoleteMethods();
+  art::ObjPtr<art::mirror::Class> klass = GetMirrorClass();
+  art::ObjPtr<art::mirror::ClassExt> ext = klass->GetExtData();
+  art::ObjPtr<art::mirror::PointerArray> methods = ext->GetObsoleteMethods();
+  art::ObjPtr<art::mirror::PointerArray> old_methods = cur_data->GetOldObsoleteMethods();
   int32_t old_length = old_methods == nullptr ? 0 : old_methods->GetLength();
   int32_t expected_length =
       old_length + klass->NumDirectMethods() + klass->NumDeclaredVirtualMethods();
