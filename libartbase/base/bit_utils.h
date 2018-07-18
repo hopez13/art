@@ -388,9 +388,9 @@ inline static uint64_t ReverseBits64(uint64_t opnd) {
 // +-----------------+------------+
 // msb                           lsb
 template <typename T = size_t>
-inline static constexpr std::make_unsigned_t<T> MaskLeastSignificant(size_t bits) {
+inline static constexpr typename std::make_unsigned<T>::type MaskLeastSignificant(size_t bits) {
   DCHECK_GE(BitSizeOf<T>(), bits) << "Bits out of range for type T";
-  using unsigned_T = std::make_unsigned_t<T>;
+  using unsigned_T = typename std::make_unsigned<T>::type;
   if (bits >= BitSizeOf<T>()) {
     return std::numeric_limits<unsigned_T>::max();
   } else {
@@ -417,7 +417,7 @@ inline static constexpr std::make_unsigned_t<T> MaskLeastSignificant(size_t bits
 template <typename T>
 inline static constexpr T BitFieldClear(T value, size_t lsb, size_t width) {
   DCHECK_GE(BitSizeOf(value), lsb + width) << "Bit field out of range for value";
-  const auto val = static_cast<std::make_unsigned_t<T>>(value);
+  const auto val = static_cast<typename std::make_unsigned<T>::type>(value);
   const auto mask = MaskLeastSignificant<T>(width);
 
   return static_cast<T>(val & ~(mask << lsb));
@@ -481,7 +481,7 @@ inline static constexpr T BitFieldInsert(T value, T2 data, size_t lsb, size_t wi
 template <typename T>
 inline static constexpr T BitFieldExtract(T value, size_t lsb, size_t width) {
   DCHECK_GE(BitSizeOf(value), lsb + width) << "Bit field out of range for value";
-  const auto val = static_cast<std::make_unsigned_t<T>>(value);
+  const auto val = static_cast<typename std::make_unsigned<T>::type>(value);
 
   const T bitfield_unsigned =
       static_cast<T>((val >> lsb) & MaskLeastSignificant<T>(width));

@@ -47,6 +47,9 @@ using android::base::StringPrintf;
       return nullptr;
     }
 
+#ifndef _WIN32
+    // Mingw does not support flock.
+    // TODO: implement file locking for Windows.
     int operation = block ? LOCK_EX : (LOCK_EX | LOCK_NB);
     int flock_result = TEMP_FAILURE_RETRY(flock(file->Fd(), operation));
     if (flock_result == EWOULDBLOCK) {
@@ -57,6 +60,7 @@ using android::base::StringPrintf;
       *error_msg = StringPrintf("Failed to lock file '%s': %s", filename, strerror(errno));
       return nullptr;
     }
+#endif
     struct stat fstat_stat;
     int fstat_result = TEMP_FAILURE_RETRY(fstat(file->Fd(), &fstat_stat));
     if (fstat_result != 0) {
@@ -105,16 +109,19 @@ ScopedFlock LockedFile::DupOf(const int fd, const std::string& path,
                               locked_file->GetPath().c_str(), strerror(errno));
     return nullptr;
   }
+#ifndef _WIN32
   if (0 != TEMP_FAILURE_RETRY(flock(locked_file->Fd(), LOCK_EX))) {
     *error_msg = StringPrintf(
         "Failed to lock file '%s': %s", locked_file->GetPath().c_str(), strerror(errno));
     return nullptr;
   }
+#endif
 
   return locked_file;
 }
 
 void LockedFile::ReleaseLock() {
+#ifndef _WIN32
   if (this->Fd() != -1) {
     int flock_result = TEMP_FAILURE_RETRY(flock(this->Fd(), LOCK_UN));
     if (flock_result != 0) {
@@ -126,6 +133,7 @@ void LockedFile::ReleaseLock() {
       PLOG(WARNING) << "Unable to unlock file " << this->GetPath();
     }
   }
+#endif
 }
 
 }  // namespace art

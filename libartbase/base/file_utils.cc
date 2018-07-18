@@ -19,11 +19,13 @@
 #include <inttypes.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#ifndef _WIN32
 #include <sys/wait.h>
+#endif
 #include <unistd.h>
 
 // We need dladdr.
-#ifndef __APPLE__
+#if !defined(__APPLE__) && !defined(_WIN32)
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
 #define DEFINED_GNU_SOURCE
@@ -94,8 +96,8 @@ std::string GetAndroidRootSafe(std::string* error_msg) {
     return android_dir;
   }
 
-  // Check where libart is from, and derive from there. Only do this for non-Mac.
-#ifndef __APPLE__
+  // Check where libart is from, and derive from there. Only do this for non-Mac, non-Windows.
+#if !defined(__APPLE__) && !defined(_WIN32)
   {
     Dl_info info;
     if (dladdr(reinterpret_cast<const void*>(&GetAndroidRootSafe), /* out */ &info) != 0) {
@@ -195,9 +197,13 @@ void GetDalvikCache(const char* subdir, const bool create_if_absent, std::string
   *dalvik_cache_exists = OS::DirectoryExists(dalvik_cache->c_str());
   *is_global_cache = strcmp(android_data, "/data") == 0;
   if (create_if_absent && !*dalvik_cache_exists && !*is_global_cache) {
+#ifdef _WIN32
+    LOG(FATAL) << "Can't create dalvik_cache on Windows.";
+#else
     // Don't create the system's /data/dalvik-cache/... because it needs special permissions.
     *dalvik_cache_exists = ((mkdir(dalvik_cache_root.c_str(), 0700) == 0 || errno == EEXIST) &&
                             (mkdir(dalvik_cache->c_str(), 0700) == 0 || errno == EEXIST));
+#endif
   }
 }
 
@@ -262,7 +268,12 @@ std::string ReplaceFileExtension(const std::string& filename, const std::string&
 }
 
 bool LocationIsOnSystem(const char* path) {
+#ifdef _WIN32
+  // This doesn't make sense on Windows really.
+  UniqueCPtr<const char[]> full_path(path);
+#else
   UniqueCPtr<const char[]> full_path(realpath(path, nullptr));
+#endif
   return full_path != nullptr &&
       android::base::StartsWith(full_path.get(), GetAndroidRoot().c_str());
 }

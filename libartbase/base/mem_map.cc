@@ -18,9 +18,8 @@
 
 #include <inttypes.h>
 #include <stdlib.h>
-#include <sys/mman.h>  // For the PROT_* and MAP_* constants.
 #if !defined(ANDROID_OS) && !defined(__Fuchsia__)
-#include <sys/resource.h>
+// #include <sys/resource.h>
 #endif
 
 #if defined(__linux__)
@@ -38,6 +37,7 @@
 #include "bit_utils.h"
 #include "globals.h"
 #include "logging.h"  // For VLOG_IS_ON.
+#include "mman.h"  // For the PROT_* and MAP_* constants.
 #include "memory_tool.h"
 #include "utils.h"
 
@@ -811,10 +811,14 @@ void MemMap::MadviseDontNeedAndZero() {
     if (!kMadviseZeroes) {
       memset(base_begin_, 0, base_size_);
     }
+#ifdef _WIN32
+    // It is benign not to madvise away the pages here.
+#else
     int result = madvise(base_begin_, base_size_, MADV_DONTNEED);
     if (result == -1) {
       PLOG(WARNING) << "madvise failed";
     }
+#endif
   }
 }
 
@@ -823,7 +827,12 @@ bool MemMap::Sync() {
   // protection before passing it to msync() when `redzone_size_` was non-null, as Valgrind
   // only accepts page-aligned base address, and excludes the higher-end noaccess protection
   // from the msync range. b/27552451.
+#ifdef _WIN32
+  PLOG(ERROR) << "no msync on Windows.";
+  return false;
+#else
   return msync(BaseBegin(), BaseSize(), MS_SYNC) == 0;
+#endif
 }
 
 bool MemMap::Protect(int prot) {
@@ -832,10 +841,12 @@ bool MemMap::Protect(int prot) {
     return true;
   }
 
+#ifndef _WIN32
   if (mprotect(base_begin_, base_size_, prot) == 0) {
     prot_ = prot;
     return true;
   }
+#endif
 
   PLOG(ERROR) << "mprotect(" << reinterpret_cast<void*>(base_begin_) << ", " << base_size_ << ", "
               << prot << ") failed";
@@ -1206,7 +1217,9 @@ void ZeroAndReleasePages(void* address, size_t length) {
     DCHECK_LE(page_begin, page_end);
     DCHECK_LE(page_end, mem_end);
     std::fill(mem_begin, page_begin, 0);
+#ifndef _WIN32
     CHECK_NE(madvise(page_begin, page_end - page_begin, MADV_DONTNEED), -1) << "madvise failed";
+#endif
     std::fill(page_end, mem_end, 0);
   }
 }
