@@ -240,6 +240,30 @@
     },
     {
       "key": {
+        "uuid": "6ed11ddc_5266f67c",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-18T16:48:27Z",
+      "side": 1,
+      "message": "What I really don\u0027t like about this CL is the lines 64-66 that insert an extra load just because we cannot have 2 environments at the same lifetime position. This happens for every inlined instance method that calls another method on the inner `this` (unless the null check in outer method was eliminated).\n\nI think the \"emitted-at-use-site\" HIR is a neat way to avoid creating tons of fused HIR classes. And they do not add any overhead to the register allocator when you compare it with the theoretical merged HIR: there are the same locations and live ranges to process.",
+      "parentUuid": "9bbcc7d0_295110f0",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 50
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51f9d283_c5bfb015",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
