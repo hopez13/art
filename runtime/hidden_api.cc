@@ -188,7 +188,8 @@ static ALWAYS_INLINE bool CanUpdateMemberAccessFlags(ArtField*) {
   return true;
 }
 
-static ALWAYS_INLINE bool CanUpdateMemberAccessFlags(ArtMethod* method) {
+static ALWAYS_INLINE bool CanUpdateMemberAccessFlags(ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   return !method->IsIntrinsic();
 }
 

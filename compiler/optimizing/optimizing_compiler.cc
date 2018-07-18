@@ -980,8 +980,14 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
                     &pass_observer,
                     compiler_driver->GetCompilerOptions().GetRegisterAllocationStrategy(),
                     compilation_stats_.get());
+
+  auto get_intrinsic = [](ArtMethod* method) REQUIRES(!Locks::mutator_lock_) {
+    ScopedObjectAccess soa(Thread::Current());
+    return method->GetIntrinsic();
+  };
+
   if (!codegen->IsLeafMethod()) {
-    VLOG(compiler) << "Intrinsic method is not leaf: " << method->GetIntrinsic()
+    VLOG(compiler) << "Intrinsic method is not leaf: " << get_intrinsic(method)
         << " " << graph->PrettyMethod();
     return nullptr;
   }
@@ -989,7 +995,7 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
   codegen->Compile(code_allocator);
   pass_observer.DumpDisassembly();
 
-  VLOG(compiler) << "Compiled intrinsic: " << method->GetIntrinsic()
+  VLOG(compiler) << "Compiled intrinsic: " << get_intrinsic(method)
       << " " << graph->PrettyMethod();
   MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kCompiledIntrinsic);
   return codegen.release();
@@ -1032,9 +1038,10 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
       ArtMethod* method = compiler_driver->ResolveMethod(
             soa, dex_cache, jclass_loader, &dex_compilation_unit, method_idx, invoke_type);
       VariableSizedHandleScope handles(soa.Self());
+      bool is_intrinsic = method != nullptr && UNLIKELY(method->IsIntrinsic());
       // Go to native so that we don't block GC during compilation.
       ScopedThreadSuspension sts(soa.Self(), kNative);
-      if (method != nullptr && UNLIKELY(method->IsIntrinsic())) {
+      if (is_intrinsic) {
         DCHECK(compiler_driver->GetCompilerOptions().IsBootImage());
         codegen.reset(
             TryCompileIntrinsic(&allocator,

@@ -51,7 +51,6 @@ uint32_t OatQuickMethodHeader::ToDexPc(ArtMethod* method,
     }
   }
   if (abort_on_failure) {
-    ScopedObjectAccess soa(Thread::Current());
     LOG(FATAL) << "Failed to find Dex offset for PC offset "
            << reinterpret_cast<void*>(sought_offset)
            << "(PC " << reinterpret_cast<void*>(pc) << ", entry_point=" << entry_point
@@ -82,7 +81,6 @@ uintptr_t OatQuickMethodHeader::ToNativeQuickPc(ArtMethod* method,
            stack_map.GetNativePcOffset(kRuntimeISA);
   }
   if (abort_on_failure) {
-    ScopedObjectAccess soa(Thread::Current());
     LOG(FATAL) << "Failed to find native offset for dex pc 0x" << std::hex << dex_pc
                << " in " << method->PrettyMethod();
   }

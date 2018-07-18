@@ -115,6 +115,7 @@ jvmtiError MethodUtil::GetBytecodes(jvmtiEnv* env,
   }
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
 
+  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsNative()) {
     return ERR(NATIVE_METHOD);
   }
@@ -123,7 +124,6 @@ jvmtiError MethodUtil::GetBytecodes(jvmtiEnv* env,
     return ERR(NULL_POINTER);
   }
 
-  art::ScopedObjectAccess soa(art::Thread::Current());
   art::CodeItemInstructionAccessor accessor(art_method->DexInstructions());
   if (!accessor.HasCodeItem()) {
     *size_ptr = 0;
@@ -148,6 +148,7 @@ jvmtiError MethodUtil::GetArgumentsSize(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
 
+  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsNative()) {
     return ERR(NATIVE_METHOD);
   }
@@ -156,7 +157,6 @@ jvmtiError MethodUtil::GetArgumentsSize(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(NULL_POINTER);
   }
 
-  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsProxyMethod() || art_method->IsAbstract()) {
     // Use the shorty.
     art::ArtMethod* base_method = art_method->GetInterfaceMethodIfProxy(art::kRuntimePointerSize);
@@ -183,6 +183,7 @@ jvmtiError MethodUtil::GetLocalVariableTable(jvmtiEnv* env,
   }
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
 
+  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsNative()) {
     return ERR(NATIVE_METHOD);
   }
@@ -190,8 +191,6 @@ jvmtiError MethodUtil::GetLocalVariableTable(jvmtiEnv* env,
   if (entry_count_ptr == nullptr || table_ptr == nullptr) {
     return ERR(NULL_POINTER);
   }
-
-  art::ScopedObjectAccess soa(art::Thread::Current());
 
   const art::DexFile* const dex_file = art_method->GetDexFile();
   if (dex_file == nullptr) {
@@ -286,6 +285,7 @@ jvmtiError MethodUtil::GetMaxLocals(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
 
+  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsNative()) {
     return ERR(NATIVE_METHOD);
   }
@@ -294,7 +294,6 @@ jvmtiError MethodUtil::GetMaxLocals(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(NULL_POINTER);
   }
 
-  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsProxyMethod() || art_method->IsAbstract()) {
     // This isn't specified as an error case, so return 0.
     *max_ptr = 0;
@@ -399,6 +398,7 @@ jvmtiError MethodUtil::GetMethodLocation(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
 
+  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsNative()) {
     return ERR(NATIVE_METHOD);
   }
@@ -407,7 +407,6 @@ jvmtiError MethodUtil::GetMethodLocation(jvmtiEnv* env ATTRIBUTE_UNUSED,
     return ERR(NULL_POINTER);
   }
 
-  art::ScopedObjectAccess soa(art::Thread::Current());
   if (art_method->IsProxyMethod() || art_method->IsAbstract()) {
     // This isn't specified as an error case, so return -1/-1 as the RI does.
     *start_location_ptr = -1;
@@ -430,6 +429,7 @@ jvmtiError MethodUtil::GetMethodModifiers(jvmtiEnv* env ATTRIBUTE_UNUSED,
   }
 
   art::ArtMethod* art_method = art::jni::DecodeArtMethod(method);
+  art::ScopedObjectAccess soa(art::Thread::Current());
   uint32_t modifiers = art_method->GetAccessFlags();
 
   // Note: Keep this code in sync with Executable.fixMethodFlags.
@@ -526,6 +526,7 @@ static jvmtiError IsMethodT(jvmtiEnv* env ATTRIBUTE_UNUSED,
 
 jvmtiError MethodUtil::IsMethodNative(jvmtiEnv* env, jmethodID m, jboolean* is_native_ptr) {
   auto test = [](art::ArtMethod* method) {
+    art::ScopedObjectAccess soa(art::Thread::Current());
     return method->IsNative();
   };
   return IsMethodT(env, m, test, is_native_ptr);
@@ -533,6 +534,7 @@ jvmtiError MethodUtil::IsMethodNative(jvmtiEnv* env, jmethodID m, jboolean* is_n
 
 jvmtiError MethodUtil::IsMethodObsolete(jvmtiEnv* env, jmethodID m, jboolean* is_obsolete_ptr) {
   auto test = [](art::ArtMethod* method) {
+    art::ScopedObjectAccess soa(art::Thread::Current());
     return method->IsObsolete();
   };
   return IsMethodT(env, m, test, is_obsolete_ptr);
@@ -540,6 +542,7 @@ jvmtiError MethodUtil::IsMethodObsolete(jvmtiEnv* env, jmethodID m, jboolean* is
 
 jvmtiError MethodUtil::IsMethodSynthetic(jvmtiEnv* env, jmethodID m, jboolean* is_synthetic_ptr) {
   auto test = [](art::ArtMethod* method) {
+    art::ScopedObjectAccess soa(art::Thread::Current());
     return method->IsSynthetic();
   };
   return IsMethodT(env, m, test, is_synthetic_ptr);

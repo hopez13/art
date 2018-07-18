@@ -19,6 +19,7 @@
 
 #include "arch/instruction_set.h"
 #include "base/macros.h"
+#include "base/mutex.h"
 #include "base/utils.h"
 #include "method_info.h"
 #include "quick/quick_method_frame_info.h"
@@ -170,9 +171,11 @@ class PACKED(4) OatQuickMethodHeader {
   uintptr_t ToNativeQuickPc(ArtMethod* method,
                             const uint32_t dex_pc,
                             bool is_for_catch_handler,
-                            bool abort_on_failure = true) const;
+                            bool abort_on_failure = true) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
-  uint32_t ToDexPc(ArtMethod* method, const uintptr_t pc, bool abort_on_failure = true) const;
+  uint32_t ToDexPc(ArtMethod* method, const uintptr_t pc, bool abort_on_failure = true) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetHasShouldDeoptimizeFlag() {
     DCHECK_EQ(code_size_ & kShouldDeoptimizeMask, 0u);

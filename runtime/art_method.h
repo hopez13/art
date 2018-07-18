@@ -110,7 +110,7 @@ class ArtMethod FINAL {
   // Note: GetAccessFlags acquires the mutator lock in debug mode to check that it is not called for
   // a proxy method.
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  uint32_t GetAccessFlags() {
+  uint32_t GetAccessFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (kCheckDeclaringClassState) {
       GetAccessFlagsDCheck<kReadBarrierOption>();
     }
@@ -120,7 +120,7 @@ class ArtMethod FINAL {
   // This version should only be called when it's certain there is no
   // concurrency so there is no need to guarantee atomicity. For example,
   // before the method is linked.
-  void SetAccessFlags(uint32_t new_access_flags) {
+  void SetAccessFlags(uint32_t new_access_flags) REQUIRES_SHARED(Locks::mutator_lock_) {
     access_flags_.store(new_access_flags, std::memory_order_relaxed);
   }
 
@@ -132,32 +132,32 @@ class ArtMethod FINAL {
   InvokeType GetInvokeType() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if the method is declared public.
-  bool IsPublic() {
+  bool IsPublic() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccPublic) != 0;
   }
 
   // Returns true if the method is declared private.
-  bool IsPrivate() {
+  bool IsPrivate() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccPrivate) != 0;
   }
 
   // Returns true if the method is declared static.
-  bool IsStatic() {
+  bool IsStatic() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccStatic) != 0;
   }
 
   // Returns true if the method is a constructor according to access flags.
-  bool IsConstructor() {
+  bool IsConstructor() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccConstructor) != 0;
   }
 
   // Returns true if the method is a class initializer according to access flags.
-  bool IsClassInitializer() {
+  bool IsClassInitializer() REQUIRES_SHARED(Locks::mutator_lock_) {
     return IsConstructor() && IsStatic();
   }
 
   // Returns true if the method is static, private, or a constructor.
-  bool IsDirect() {
+  bool IsDirect() REQUIRES_SHARED(Locks::mutator_lock_) {
     return IsDirect(GetAccessFlags());
   }
 
@@ -167,24 +167,24 @@ class ArtMethod FINAL {
   }
 
   // Returns true if the method is declared synchronized.
-  bool IsSynchronized() {
+  bool IsSynchronized() REQUIRES_SHARED(Locks::mutator_lock_) {
     constexpr uint32_t synchonized = kAccSynchronized | kAccDeclaredSynchronized;
     return (GetAccessFlags() & synchonized) != 0;
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsFinal() {
+  bool IsFinal() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags<kReadBarrierOption>() & kAccFinal) != 0;
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsIntrinsic() {
+  bool IsIntrinsic() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags<kReadBarrierOption>() & kAccIntrinsic) != 0;
   }
 
   ALWAYS_INLINE void SetIntrinsic(uint32_t intrinsic) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  uint32_t GetIntrinsic() {
+  uint32_t GetIntrinsic() REQUIRES_SHARED(Locks::mutator_lock_) {
     static const int kAccFlagsShift = CTZ(kAccIntrinsicBits);
     static_assert(IsPowerOfTwo((kAccIntrinsicBits >> kAccFlagsShift) + 1),
                   "kAccIntrinsicBits are not continuous");
@@ -196,7 +196,7 @@ class ArtMethod FINAL {
 
   void SetNotIntrinsic() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool IsCopied() {
+  bool IsCopied() REQUIRES_SHARED(Locks::mutator_lock_) {
     static_assert((kAccCopied & (kAccIntrinsic | kAccIntrinsicBits)) == 0,
                   "kAccCopied conflicts with intrinsic modifier");
     const bool copied = (GetAccessFlags() & kAccCopied) != 0;
@@ -206,7 +206,7 @@ class ArtMethod FINAL {
     return copied;
   }
 
-  bool IsMiranda() {
+  bool IsMiranda() REQUIRES_SHARED(Locks::mutator_lock_) {
     // The kAccMiranda flag value is used with a different meaning for native methods,
     // so we need to check the kAccNative flag as well.
     return (GetAccessFlags() & (kAccNative | kAccMiranda)) == kAccMiranda;
@@ -214,11 +214,11 @@ class ArtMethod FINAL {
 
   // Returns true if invoking this method will not throw an AbstractMethodError or
   // IncompatibleClassChangeError.
-  bool IsInvokable() {
+  bool IsInvokable() REQUIRES_SHARED(Locks::mutator_lock_) {
     return !IsAbstract() && !IsDefaultConflicting();
   }
 
-  bool IsCompilable() {
+  bool IsCompilable() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic()) {
       // kAccCompileDontBother overlaps with kAccIntrinsicBits.
       return true;
@@ -226,14 +226,14 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & kAccCompileDontBother) == 0;
   }
 
-  void SetDontCompile() {
+  void SetDontCompile() REQUIRES_SHARED(Locks::mutator_lock_) {
     AddAccessFlags(kAccCompileDontBother);
   }
 
   // A default conflict method is a special sentinel method that stands for a conflict between
   // multiple default methods. It cannot be invoked, throwing an IncompatibleClassChangeError if one
   // attempts to do so.
-  bool IsDefaultConflicting() {
+  bool IsDefaultConflicting() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic()) {
       return false;
     }
@@ -242,28 +242,28 @@ class ArtMethod FINAL {
 
   // This is set by the class linker.
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsDefault() {
+  bool IsDefault() REQUIRES_SHARED(Locks::mutator_lock_) {
     static_assert((kAccDefault & (kAccIntrinsic | kAccIntrinsicBits)) == 0,
                   "kAccDefault conflicts with intrinsic modifier");
     return (GetAccessFlags<kReadBarrierOption>() & kAccDefault) != 0;
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsObsolete() {
+  bool IsObsolete() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags<kReadBarrierOption>() & kAccObsoleteMethod) != 0;
   }
 
-  void SetIsObsolete() {
+  void SetIsObsolete() REQUIRES_SHARED(Locks::mutator_lock_) {
     AddAccessFlags(kAccObsoleteMethod);
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsNative() {
+  bool IsNative() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags<kReadBarrierOption>() & kAccNative) != 0;
   }
 
   // Checks to see if the method was annotated with @dalvik.annotation.optimization.FastNative.
-  bool IsFastNative() {
+  bool IsFastNative() REQUIRES_SHARED(Locks::mutator_lock_) {
     // The presence of the annotation is checked by ClassLinker and recorded in access flags.
     // The kAccFastNative flag value is used with a different meaning for non-native methods,
     // so we need to check the kAccNative flag as well.
@@ -272,7 +272,7 @@ class ArtMethod FINAL {
   }
 
   // Checks to see if the method was annotated with @dalvik.annotation.optimization.CriticalNative.
-  bool IsCriticalNative() {
+  bool IsCriticalNative() REQUIRES_SHARED(Locks::mutator_lock_) {
     // The presence of the annotation is checked by ClassLinker and recorded in access flags.
     // The kAccCriticalNative flag value is used with a different meaning for non-native methods,
     // so we need to check the kAccNative flag as well.
@@ -281,15 +281,15 @@ class ArtMethod FINAL {
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  bool IsAbstract() {
+  bool IsAbstract() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags<kReadBarrierOption>() & kAccAbstract) != 0;
   }
 
-  bool IsSynthetic() {
+  bool IsSynthetic() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccSynthetic) != 0;
   }
 
-  bool IsVarargs() {
+  bool IsVarargs() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccVarargs) != 0;
   }
 
@@ -297,19 +297,19 @@ class ArtMethod FINAL {
 
   bool IsPolymorphicSignature() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool SkipAccessChecks() {
+  bool SkipAccessChecks() REQUIRES_SHARED(Locks::mutator_lock_) {
     // The kAccSkipAccessChecks flag value is used with a different meaning for native methods,
     // so we need to check the kAccNative flag as well.
     return (GetAccessFlags() & (kAccSkipAccessChecks | kAccNative)) == kAccSkipAccessChecks;
   }
 
-  void SetSkipAccessChecks() {
+  void SetSkipAccessChecks() REQUIRES_SHARED(Locks::mutator_lock_) {
     // SkipAccessChecks() is applicable only to non-native methods.
     DCHECK(!IsNative<kWithoutReadBarrier>());
     AddAccessFlags(kAccSkipAccessChecks);
   }
 
-  bool PreviouslyWarm() {
+  bool PreviouslyWarm() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic()) {
       // kAccPreviouslyWarm overlaps with kAccIntrinsicBits.
       return true;
@@ -318,7 +318,7 @@ class ArtMethod FINAL {
   }
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  void SetPreviouslyWarm() {
+  void SetPreviouslyWarm() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic<kReadBarrierOption>()) {
       // kAccPreviouslyWarm overlaps with kAccIntrinsicBits.
       return;
@@ -328,14 +328,14 @@ class ArtMethod FINAL {
 
   // Should this method be run in the interpreter and count locks (e.g., failed structured-
   // locking verification)?
-  bool MustCountLocks() {
+  bool MustCountLocks() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (IsIntrinsic()) {
       return false;
     }
     return (GetAccessFlags() & kAccMustCountLocks) != 0;
   }
 
-  void SetMustCountLocks() {
+  void SetMustCountLocks() REQUIRES_SHARED(Locks::mutator_lock_) {
     AddAccessFlags(kAccMustCountLocks);
   }
 
@@ -498,7 +498,8 @@ class ArtMethod FINAL {
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE bool HasSingleImplementation() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ALWAYS_INLINE void SetHasSingleImplementation(bool single_impl) {
+  ALWAYS_INLINE void SetHasSingleImplementation(bool single_impl)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(!IsIntrinsic()) << "conflict with intrinsic bits";
     if (single_impl) {
       AddAccessFlags(kAccSingleImplementation);
@@ -518,23 +519,25 @@ class ArtMethod FINAL {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE void SetSingleImplementation(ArtMethod* method, PointerSize pointer_size) {
+  ALWAYS_INLINE void SetSingleImplementation(ArtMethod* method, PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(!IsNative<kReadBarrierOption>());
     // Non-abstract method's single implementation is just itself.
     DCHECK(IsAbstract<kReadBarrierOption>());
     SetDataPtrSize(method, pointer_size);
   }
 
-  void* GetEntryPointFromJni() {
+  void* GetEntryPointFromJni() REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(IsNative());
     return GetEntryPointFromJniPtrSize(kRuntimePointerSize);
   }
 
-  ALWAYS_INLINE void* GetEntryPointFromJniPtrSize(PointerSize pointer_size) {
+  ALWAYS_INLINE void* GetEntryPointFromJniPtrSize(PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetDataPtrSize(pointer_size);
   }
 
-  void SetEntryPointFromJni(const void* entrypoint) {
+  void SetEntryPointFromJni(const void* entrypoint) REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(IsNative());
     SetEntryPointFromJniPtrSize(entrypoint, kRuntimePointerSize);
   }
@@ -714,7 +717,8 @@ class ArtMethod FINAL {
 
   // Update entry points by passing them through the visitor.
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier, typename Visitor>
-  ALWAYS_INLINE void UpdateEntrypoints(const Visitor& visitor, PointerSize pointer_size);
+  ALWAYS_INLINE void UpdateEntrypoints(const Visitor& visitor, PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Visit the individual members of an ArtMethod.  Used by imgdiag.
   // As imgdiag does not support mixing instruction sets or pointer sizes (e.g., using imgdiag32
@@ -833,7 +837,8 @@ class ArtMethod FINAL {
     }
   }
 
-  template <ReadBarrierOption kReadBarrierOption> void GetAccessFlagsDCheck();
+  template <ReadBarrierOption kReadBarrierOption> void GetAccessFlagsDCheck()
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   static inline bool IsValidIntrinsicUpdate(uint32_t modifier) {
     return (((modifier & kAccIntrinsic) == kAccIntrinsic) &&
@@ -846,7 +851,7 @@ class ArtMethod FINAL {
 
   // This setter guarantees atomicity.
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  void AddAccessFlags(uint32_t flag) {
+  void AddAccessFlags(uint32_t flag) REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(!IsIntrinsic<kReadBarrierOption>() ||
            !OverlapsIntrinsicBits(flag) ||
            IsValidIntrinsicUpdate(flag));
@@ -859,7 +864,7 @@ class ArtMethod FINAL {
   }
 
   // This setter guarantees atomicity.
-  void ClearAccessFlags(uint32_t flag) {
+  void ClearAccessFlags(uint32_t flag) REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(!IsIntrinsic() || !OverlapsIntrinsicBits(flag) || IsValidIntrinsicUpdate(flag));
     uint32_t old_access_flags;
     uint32_t new_access_flags;

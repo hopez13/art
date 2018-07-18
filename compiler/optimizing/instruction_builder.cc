@@ -406,7 +406,10 @@ bool HInstructionBuilder::Build() {
 
 void HInstructionBuilder::BuildIntrinsic(ArtMethod* method) {
   DCHECK(!code_item_accessor_.HasCodeItem());
-  DCHECK(method->IsIntrinsic());
+  if (kIsDebugBuild) {
+    ScopedObjectAccess soa(Thread::Current());
+    CHECK(method->IsIntrinsic());
+  }
 
   locals_for_.resize(
       graph_->GetBlocks().size(),

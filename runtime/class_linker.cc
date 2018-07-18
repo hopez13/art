@@ -2919,7 +2919,8 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
 
 // Does anything needed to make sure that the compiler will not generate a direct invoke to this
 // method. Should only be called on non-invokable methods.
-inline void EnsureThrowsInvocationError(ClassLinker* class_linker, ArtMethod* method) {
+inline void EnsureThrowsInvocationError(ClassLinker* class_linker, ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(method != nullptr);
   DCHECK(!method->IsInvokable());
   method->SetEntryPointFromQuickCompiledCodePtrSize(

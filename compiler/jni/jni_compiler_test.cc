@@ -2204,6 +2204,7 @@ void JniCompilerTest::NormalNativeImpl() {
   ArtMethod* method = jni::DecodeArtMethod(jmethod_);
   ASSERT_TRUE(method != nullptr);
 
+  ScopedObjectAccess soa(Thread::Current());
   EXPECT_FALSE(method->IsCriticalNative());
   EXPECT_FALSE(method->IsFastNative());
 }
@@ -2226,6 +2227,7 @@ void JniCompilerTest::FastNativeImpl() {
   ArtMethod* method = jni::DecodeArtMethod(jmethod_);
   ASSERT_TRUE(method != nullptr);
 
+  ScopedObjectAccess soa(Thread::Current());
   EXPECT_FALSE(method->IsCriticalNative());
   EXPECT_TRUE(method->IsFastNative());
 }
@@ -2255,8 +2257,11 @@ void JniCompilerTest::CriticalNativeImpl() {
   ArtMethod* method = jni::DecodeArtMethod(jmethod_);
   ASSERT_TRUE(method != nullptr);
 
-  EXPECT_TRUE(method->IsCriticalNative());
-  EXPECT_FALSE(method->IsFastNative());
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    EXPECT_TRUE(method->IsCriticalNative());
+    EXPECT_FALSE(method->IsFastNative());
+  }
 
   EXPECT_EQ(0, gJava_myClassNatives_criticalNative_calls[gCurrentJni]);
   env_->CallStaticVoidMethod(jklass_, jmethod_);

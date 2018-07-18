@@ -757,7 +757,8 @@ void JitCodeCache::CopyInlineCacheInto(const InlineCache& ic,
   }
 }
 
-static void ClearMethodCounter(ArtMethod* method, bool was_warm) {
+static void ClearMethodCounter(ArtMethod* method, bool was_warm)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   if (was_warm) {
     // Don't do any read barrier, as the declaring class of `method` may
     // be in the process of being GC'ed (reading the declaring class is done

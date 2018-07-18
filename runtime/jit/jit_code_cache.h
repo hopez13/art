@@ -159,10 +159,11 @@ class JitCodeCache {
   bool WillExecuteJitCode(ArtMethod* method) REQUIRES(!lock_);
 
   // Return true if the code cache contains this method.
-  bool ContainsMethod(ArtMethod* method) REQUIRES(!lock_);
+  bool ContainsMethod(ArtMethod* method) REQUIRES(!lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Return the code pointer for a JNI-compiled stub if the method is in the cache, null otherwise.
-  const void* GetJniStubCode(ArtMethod* method) REQUIRES(!lock_);
+  const void* GetJniStubCode(ArtMethod* method)
+      REQUIRES(!lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Allocate a region of data that contain `size` bytes, and potentially space
   // for storing `number_of_roots` roots. Returns null if there is no more room.

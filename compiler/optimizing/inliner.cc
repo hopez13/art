@@ -1744,8 +1744,8 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
                                        ReferenceTypeInfo receiver_type,
                                        bool same_dex_file,
                                        HInstruction** return_replacement) {
-  DCHECK(!(resolved_method->IsStatic() && receiver_type.IsValid()));
   ScopedObjectAccess soa(Thread::Current());
+  DCHECK(!(resolved_method->IsStatic() && receiver_type.IsValid()));
   const DexFile::CodeItem* code_item = resolved_method->GetCodeItem();
   const DexFile& callee_dex_file = *resolved_method->GetDexFile();
   uint32_t method_index = resolved_method->GetDexMethodIndex();
