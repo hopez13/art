@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "88134d38_3abe7223",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-07-18T14:48:47Z",
+      "side": 1,
+      "message": "Analysing OpenCommon I see that there are no codepaths in which dex_file is nullptr and VerifyResult is kVerifySucceeded. So we\u0027re good.",
+      "parentUuid": "9881529f_d03f7ed4",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 432,
+        "endChar": 5
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d98f8a8c_a250302d",
         "filename": "libdexfile/dex/dex_file_loader.cc",
         "patchSetId": 4
@@ -141,6 +165,30 @@
       "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "790c4869_73c28501",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-07-18T14:48:47Z",
+      "side": 1,
+      "message": "it looks like you and I are aligned on the style we prefer, but it is arguably already different in other parts of this file and potentially other libraries in art. If you don\u0027t mind I would leave the function like it is now for consistency.",
+      "parentUuid": "0f69a932_b999a6fc",
+      "range": {
+        "startLine": 454,
+        "startChar": 4,
+        "endLine": 454,
+        "endChar": 38
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
