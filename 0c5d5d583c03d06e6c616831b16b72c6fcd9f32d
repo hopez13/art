@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c67ac132_f16ca812",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-07-18T08:37:28Z",
+      "side": 1,
+      "message": "This inherited branch does not add much to readability or perf.\n\ndex_file \u003d\u003d null and VerifySucceeded ought to be orthogonal.",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 432,
+        "endChar": 5
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d98f8a8c_a250302d",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-07-18T08:37:28Z",
+      "side": 1,
+      "message": "Any cases where the return value indicates success and the error_code doesn\u0027t?",
+      "range": {
+        "startLine": 454,
+        "startChar": 4,
+        "endLine": 454,
+        "endChar": 38
+      },
+      "revId": "0c5d5d583c03d06e6c616831b16b72c6fcd9f32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
