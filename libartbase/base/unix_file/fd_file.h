@@ -150,9 +150,6 @@ class FdFile : public RandomAccessFile {
   bool Open(const std::string& file_path, int flags, mode_t mode);
 
  private:
-  template <bool kUseOffset>
-  bool WriteFullyGeneric(const void* buffer, size_t byte_count, size_t offset);
-
   void Destroy();  // For ~FdFile and operator=(&&).
 
   int fd_ = -1;
