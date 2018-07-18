@@ -14,22 +14,30 @@
  * limitations under the License.
  */
 
-#include "mem_map.h"
+#ifndef ART_LIBARTBASE_BASE_MMAN_H_
+#define ART_LIBARTBASE_BASE_MMAN_H_
 
-#include "mman.h"
+#ifdef _WIN32
 
-namespace art {
+// There is no sys/mman.h in mingw.
 
-void MemMap::TargetMMapInit() {
-  // no-op for unix
-}
+#define PROT_READ      0x1
+#define PROT_WRITE     0x2
+#define PROT_EXEC      0x4
+#define PROT_NONE      0x0
 
-void* MemMap::TargetMMap(void* start, size_t len, int prot, int flags, int fd, off_t fd_off) {
-  return mmap(start, len, prot, flags, fd, fd_off);
-}
+#define MAP_SHARED     0x01
+#define MAP_PRIVATE    0x02
 
-int MemMap::TargetMUnmap(void* start, size_t len) {
-  return munmap(start, len);
-}
+#define MAP_FAILED     ((void*) -1)
+#define MAP_FIXED      0x10
+#define MAP_ANONYMOUS  0x20
 
-}  // namespace art
+#else
+
+#include <sys/mman.h>
+
+#endif
+
+
+#endif  // ART_LIBARTBASE_BASE_MMAN_H_
