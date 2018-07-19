@@ -22,6 +22,30 @@
       "revId": "ce75049c31e7064b00104ca7f65fe12faeabc391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2365252a_07450609",
+        "filename": "test/800-smali/jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:30:36Z",
+      "side": 1,
+      "message": "Scrap that comment, I was reading the code wrong.",
+      "parentUuid": "482194c5_22962e43",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "ce75049c31e7064b00104ca7f65fe12faeabc391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
