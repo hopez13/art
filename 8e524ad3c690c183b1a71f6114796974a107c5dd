@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fbf5186_a36cf69b",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T13:35:03Z",
+      "side": 1,
+      "message": "nit: consider rewriting in case the reference to PIC and JIT compilation isn\u0027t obvious?",
+      "range": {
+        "startLine": 241,
+        "startChar": 9,
+        "endLine": 241,
+        "endChar": 95
+      },
+      "revId": "8e524ad3c690c183b1a71f6114796974a107c5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
