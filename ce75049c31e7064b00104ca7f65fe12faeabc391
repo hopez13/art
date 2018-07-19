@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "482194c5_22962e43",
+        "filename": "test/800-smali/jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:29:48Z",
+      "side": 1,
+      "message": "This method checks if the class has the verify status. Isn\u0027t this problematic in case it has been verified at runtime before entering this code?",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "ce75049c31e7064b00104ca7f65fe12faeabc391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
