@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "01ba87e8_4d61b902",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:15:06Z",
+      "side": 1,
+      "message": "OK, but as the reader of the comment, I\u0027m still interested to know why we\u0027re not optimizing for known class loaders :) (Especially, since we are optimizing eg, the lookup path for known class loaders.)",
+      "parentUuid": "bb094ec2_c2c54b8a",
+      "range": {
+        "startLine": 1185,
+        "startChar": 51,
+        "endLine": 1185,
+        "endChar": 60
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b4a6e29_a507da40",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "StackOverflowError does not try to initialize subclasses of `cls` or create instances of `cls` or its subclasses. And that\u0027s all we care about.",
       "parentUuid": "5b4a6e29_a507da40",
+      "range": {
+        "startLine": 1197,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 26
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b4859d_b805aa98",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:15:06Z",
+      "side": 1,
+      "message": "Sorry I meant what if the clinit would have thrown a StackOverflowError?",
+      "parentUuid": "02d78902_84e53c5d",
       "range": {
         "startLine": 1197,
         "startChar": 0,
