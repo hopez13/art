@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6888abe_66aebd9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-19T15:36:16Z",
+      "side": 1,
+      "message": "If we want to prevent ObjPtr\u003c\u003es in suspended state, we can check for Runnable when constructing the ObjPtr\u003c\u003e from a plain mirror pointer, leaving Runnable invalidates the ObjPtr\u003c\u003e. Relying on GetAccessFlags() to invalidate them is weak.",
+      "parentUuid": "326c2b68_7959f38d",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "8c4b8a6aa5b205146c11fc84d670256923b142df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c34bbed_0d6ca785",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "8c4b8a6aa5b205146c11fc84d670256923b142df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39b18b8c_1e978942",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-19T15:36:16Z",
+      "side": 1,
+      "message": "Removed. (Good catch.)",
+      "parentUuid": "1c34bbed_0d6ca785",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "8c4b8a6aa5b205146c11fc84d670256923b142df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
