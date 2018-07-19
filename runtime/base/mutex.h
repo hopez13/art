@@ -94,6 +94,7 @@ enum LockLevel : uint8_t {
   kBumpPointerSpaceBlockLock,
   kArenaPoolLock,
   kInternTableLock,
+  kJitLock,
   kOatFileSecondaryLookupLock,
   kHostDlOpenHandlesLock,
   kVerifierDepsLock,

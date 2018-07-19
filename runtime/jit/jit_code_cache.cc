@@ -357,6 +357,21 @@ const void* JitCodeCache::GetJniStubCode(ArtMethod* method) {
   return nullptr;
 }
 
+void JitCodeCache::ClearAllCompiledDexCode() {
+  MutexLock mu(Thread::Current(), lock_);
+  // Get rid of OSR code waiting to be put on a thread.
+  osr_code_map_.clear();
+
+  // We don't clear out or even touch method_code_map_ since that is what we use to go the other
+  // way, move from code currently-running to the method it's from. Getting rid of it would break
+  // the jit-gc, stack-walking and signal handling. Since we never look through it to go the other
+  // way (from method -> code) everything is fine.
+
+  for (ProfilingInfo* p : profiling_infos_) {
+    p->SetSavedEntryPoint(nullptr);
+  }
+}
+
 const void* JitCodeCache::FindCompiledCodeForInstrumentation(ArtMethod* method) {
   // If jit-gc is still on we use the SavedEntryPoint field for doing that and so cannot use it to
   // find the instrumentation entrypoint.
@@ -403,6 +418,16 @@ class ScopedCodeCacheWrite : ScopedTrace {
   DISALLOW_COPY_AND_ASSIGN(ScopedCodeCacheWrite);
 };
 
+template <typename CLS> struct CommitCodeClosure : public art::Closure {
+  explicit CommitCodeClosure(CLS& cls) : cls_(cls) {}
+
+  void Run(Thread* self ATTRIBUTE_UNUSED) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
+    cls_();
+  }
+
+  CLS& cls_;
+};
+
 uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   ArtMethod* method,
                                   uint8_t* stack_map,
@@ -414,20 +439,18 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   Handle<mirror::ObjectArray<mirror::Object>> roots,
                                   bool has_should_deoptimize_flag,
                                   const ArenaSet<ArtMethod*>& cha_single_implementation_list) {
-  uint8_t* result = CommitCodeInternal(self,
-                                       method,
-                                       stack_map,
-                                       roots_data,
-                                       code,
-                                       code_size,
-                                       data_size,
-                                       osr,
-                                       roots,
-                                       has_should_deoptimize_flag,
-                                       cha_single_implementation_list);
-  if (result == nullptr) {
-    // Retry.
-    GarbageCollectCache(self);
+  // This is dangerous and (theoretically) could lead to livelock but the fact that
+  // CommitCodeInternal needs to be runnable means we need to do this. We make this safe by (1)
+  // making sure that it won't prevent non-jit threads from making progress and (2) only trying a
+  // limited number of times.
+  // TODO Remove the need for CommitCodeInternal to have the mutator_lock_. Then we can do this the
+  // right way by just suspending right here and gaining each of the locks. Bug: 112074977
+  constexpr uint32_t kMaxRetries = 4;
+  Jit* jit = Runtime::Current()->GetJit();
+  uint8_t* result = nullptr;
+  bool performing_collection = false;
+  auto closure = [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
+    ScopedAssertNoThreadSuspension sants("Performing internal commit-code");
     result = CommitCodeInternal(self,
                                 method,
                                 stack_map,
@@ -438,9 +461,40 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                 osr,
                                 roots,
                                 has_should_deoptimize_flag,
-                                cha_single_implementation_list);
+                                cha_single_implementation_list,
+                                /*out*/&performing_collection);
+  };
+  CommitCodeClosure<decltype(closure)> ccc(closure);
+  uint32_t cnt = 0;
+  bool already_did_gc = false;
+  for (; cnt < kMaxRetries; cnt++) {
+    performing_collection = false;
+    {
+      MutexLock mu(self, lock_);
+      WaitForPotentialCollectionToCompleteRunnable(self);
+    }
+    if (!jit->RunCommitCodeStep(self, &ccc)) {
+      // We were canceled.
+      return nullptr;
+    }
+    if (performing_collection) {
+      // Retry after the collection finishes.
+      continue;
+    }
+    if (result == nullptr && !already_did_gc) {
+      // GC then try again. Set cnt back to 0 so we get a few tries after gc as well.
+      cnt = 0;
+      already_did_gc = true;
+      GarbageCollectCache(self);
+      continue;
+    } else {
+      // Got a run that worked (or failed but we already tried gc-ing).
+      return result;
+    }
   }
-  return result;
+  // We failed to get a good commit after kMaxRetries. Just give up. We'll come around again at some
+  // point.
+  return nullptr;
 }
 
 bool JitCodeCache::WaitForPotentialCollectionToComplete(Thread* self) {
@@ -760,7 +814,8 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           Handle<mirror::ObjectArray<mirror::Object>> roots,
                                           bool has_should_deoptimize_flag,
                                           const ArenaSet<ArtMethod*>&
-                                              cha_single_implementation_list) {
+                                              cha_single_implementation_list,
+                                          /*out*/bool* performing_collection) {
   DCHECK(!method->IsNative() || !osr);
 
   if (!method->IsNative()) {
@@ -777,10 +832,15 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   OatQuickMethodHeader* method_header = nullptr;
   uint8_t* code_ptr = nullptr;
   uint8_t* memory = nullptr;
+  // We would need to suspend to wait for the jit-gc to finish but we cannot do that here since we
+  // are in a JitCommitCodeStep. We will wait and retry outside of the closure.
   MutexLock mu(self, lock_);
-  // We need to make sure that there will be no jit-gcs going on and wait for any ongoing one to
-  // finish.
-  WaitForPotentialCollectionToCompleteRunnable(self);
+  if (collection_in_progress_) {
+    *performing_collection = true;
+    return nullptr;
+  } else {
+    *performing_collection = false;
+  }
   {
     ScopedCodeCacheWrite scc(this);
     memory = AllocateCode(total_size);
@@ -1007,7 +1067,6 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
     old_method->SetProfilingInfo(nullptr);
     // Since the JIT should be paused and all threads suspended by the time this is called these
     // checks should always pass.
-    DCHECK(!info->IsInUseByCompiler());
     new_method->SetProfilingInfo(info);
     // Get rid of the old saved entrypoint if it is there.
     info->SetSavedEntryPoint(nullptr);
