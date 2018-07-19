@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "366ea771_c79ac7ac",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T15:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1336fd1b_85f4b7aa",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 0
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc4075b7_1c791c04",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "182bdc5b_710613cc",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T15:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc4075b7_1c791c04",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0aaa25b_bce7fab9",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ceab4ff_ae6666f9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T15:05:54Z",
+      "side": 1,
+      "message": "Must, or else the bit offsets in dedup map make no sense.",
+      "parentUuid": "f0aaa25b_bce7fab9",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 26
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
