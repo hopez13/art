@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1336fd1b_85f4b7aa",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:57:30Z",
+      "side": 1,
+      "message": "Can you actually reference the name of the structure?",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 0
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc4075b7_1c791c04",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:57:30Z",
+      "side": 1,
+      "message": "nit: add comment that this is the offset of the code info, which was the size of the vector before we added the code info. (alternatively, add comment line 88 that you save the size to use it as the offset).",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0aaa25b_bce7fab9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:57:30Z",
+      "side": 1,
+      "message": "can?",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 26
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
