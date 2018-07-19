@@ -150,7 +150,7 @@ class ThreadPool {
   }
 
   const std::string name_;
-  Mutex task_queue_lock_;
+  Mutex task_queue_lock_ BOTTOM_MUTEX_ACQUIRED_AFTER;
   ConditionVariable task_queue_condition_ GUARDED_BY(task_queue_lock_);
   ConditionVariable completion_condition_ GUARDED_BY(task_queue_lock_);
   volatile bool started_ GUARDED_BY(task_queue_lock_);
