@@ -171,7 +171,9 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitOptions* options) : options_(options),
                                 cumulative_timings_("JIT timings"),
                                 memory_use_("Memory used for compilation", 16),
-                                lock_("JIT memory use lock") {}
+                                lock_("JIT lock"),
+                                pause_cond_("Jit pause condition", lock_),
+                                paused_count_(0) {}
 
 Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
   DCHECK(options->UseJitCompilation() || options->GetProfileSaverOptions().IsEnabled());
@@ -260,6 +262,11 @@ bool Jit::LoadCompiler(std::string* error_msg) {
 }
 
 bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
+  // TODO
+  return false;
+}
+
+bool Jit::PerformCompilationTask(ArtMethod* method, Thread* self, bool osr) {
   DCHECK(Runtime::Current()->UseJitCompilation());
   DCHECK(!method->IsRuntimeMethod());
 
@@ -599,9 +606,9 @@ class JitCompileTask FINAL : public Task {
   void Run(Thread* self) OVERRIDE {
     ScopedObjectAccess soa(self);
     if (kind_ == kCompile) {
-      Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ false);
+      Runtime::Current()->GetJit()->PerformCompilationTask(method_, self, /* osr */ false);
     } else if (kind_ == kCompileOsr) {
-      Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ true);
+      Runtime::Current()->GetJit()->PerformCompilationTask(method_, self, /* osr */ true);
     } else {
       DCHECK(kind_ == kAllocateProfile);
       if (ProfilingInfo::Create(self, method_, /* retry_allocation */ true)) {
@@ -768,13 +775,54 @@ void Jit::WaitForCompilationToFinish(Thread* self) {
 void Jit::Stop() {
   Thread* self = Thread::Current();
   // TODO(ngeoffray): change API to not require calling WaitForCompilationToFinish twice.
+  // During shutdown and startup the thread-pool can be null.
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
   WaitForCompilationToFinish(self);
   GetThreadPool()->StopWorkers(self);
   WaitForCompilationToFinish(self);
 }
 
 void Jit::Start() {
-  GetThreadPool()->StartWorkers(Thread::Current());
+  // During shutdown and startup the thread-pool can be null.
+  if (GetThreadPool() != nullptr) {
+    GetThreadPool()->StartWorkers(Thread::Current());
+  }
+}
+
+void Jit::Pause() {
+  Thread* self = Thread::Current();
+  MutexLock mu(self, lock_);
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
+  paused_count_++;
+  if (paused_count_ == 1) {
+    // Only stop workers on the first 'Pause' call.
+    GetThreadPool()->StopWorkers(self);
+  }
+}
+
+void Jit::Resume(bool invalidate_in_progress) {
+  Thread* self = Thread::Current();
+  MutexLock mu(self, lock_);
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
+  if (paused_count_ == 1) {
+    if (invalidate_in_progress) {
+      // Mark all threads as being invalidated. If the thread was stopped by StopWorkers (ie it
+      // wasn't doing any work) then when it gets its next task it will remove itself from this set.
+      // Other threads will remove themselves when they finish their task and discard the data.
+      for (ThreadPoolWorker* t : GetThreadPool()->GetWorkers()) {
+        invalidate_worker_threads_.insert(t->GetThread());
+      }
+    }
+    paused_count_--;
+    pause_cond_.Braodcast(self);
+    GetThreadPool()->StartWorkers(self);
+  }
 }
 
 ScopedJitSuspend::ScopedJitSuspend() {

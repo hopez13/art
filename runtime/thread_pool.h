@@ -92,6 +92,8 @@ class ThreadPool {
     return threads_;
   }
 
+  bool IsWorkerThread(Thread* thr) const;
+
   // Broadcast to the workers and tell them to empty out the work queue.
   void StartWorkers(Thread* self) REQUIRES(!task_queue_lock_);
 
@@ -150,7 +152,7 @@ class ThreadPool {
   }
 
   const std::string name_;
-  Mutex task_queue_lock_;
+  Mutex task_queue_lock_ BOTTOM_MUTEX_ACQUIRED_AFTER;
   ConditionVariable task_queue_condition_ GUARDED_BY(task_queue_lock_);
   ConditionVariable completion_condition_ GUARDED_BY(task_queue_lock_);
   volatile bool started_ GUARDED_BY(task_queue_lock_);
