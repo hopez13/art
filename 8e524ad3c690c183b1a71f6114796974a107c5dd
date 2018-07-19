@@ -22,6 +22,30 @@
       "revId": "8e524ad3c690c183b1a71f6114796974a107c5dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f6b304a_219c946f",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-19T14:22:42Z",
+      "side": 1,
+      "message": "I though about that but I couldn\u0027t come up with a better comment. And I intend to go back to the GetCompilePic() check in a follow-up.",
+      "parentUuid": "0fbf5186_a36cf69b",
+      "range": {
+        "startLine": 241,
+        "startChar": 9,
+        "endLine": 241,
+        "endChar": 95
+      },
+      "revId": "8e524ad3c690c183b1a71f6114796974a107c5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
