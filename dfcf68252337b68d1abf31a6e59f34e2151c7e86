@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2e7eab55_295aacaa",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T14:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6213d1b2_d65a0748",
+      "range": {
+        "startLine": 261,
+        "startChar": 33,
+        "endLine": 261,
+        "endChar": 48
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd85daf_79243a88",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9cd95774_ea78ad93",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T14:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd85daf_79243a88",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 55
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfd2beb5_75eebc50",
         "filename": "runtime/stack_map.h",
         "patchSetId": 2
@@ -91,6 +139,30 @@
       "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d62929aa_009e7f34",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-19T14:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd2beb5_75eebc50",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 92
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
