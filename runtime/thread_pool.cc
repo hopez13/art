@@ -125,9 +125,18 @@ void ThreadPool::RemoveAllTasks(Thread* self) {
   tasks_.clear();
 }
 
+bool ThreadPool::IsWorkerThread(Thread* thr) const {
+  for (ThreadPoolWorker* worker : threads_) {
+    if (worker->GetThread() == thr) {
+      return true;
+    }
+  }
+  return false;
+}
+
 ThreadPool::ThreadPool(const char* name, size_t num_threads, bool create_peers)
   : name_(name),
-    task_queue_lock_("task queue lock"),
+    task_queue_lock_("task queue lock", LockLevel::kGenericBottomLock),
     task_queue_condition_("task queue condition", task_queue_lock_),
     completion_condition_("task completion condition", task_queue_lock_),
     started_(false),

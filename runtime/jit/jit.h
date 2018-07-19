@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_JIT_JIT_H_
 #define ART_RUNTIME_JIT_JIT_H_
 
+#include <unordered_set>
+
 #include "base/histogram-inl.h"
 #include "base/macros.h"
 #include "base/mutex.h"
@@ -158,6 +160,8 @@ class Jit {
 
   virtual ~Jit();
   static Jit* Create(JitOptions* options, std::string* error_msg);
+  // For use with testing code only! NB The actual compilation will occur on a jit thread, this
+  // function will wait for the remote thread to complete compilation.
   bool CompileMethod(ArtMethod* method, Thread* self, bool osr)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CreateThreadPool();
@@ -280,10 +284,38 @@ class Jit {
   // Start JIT threads.
   void Start();
 
+  // Causes new jit-tasks to not be run. Currently executing jit-threads are allowed to finish but
+  // their results are not commited until Resume is called.
+  void Pause();
+
+  // Resumes the jit operation. if invalidate_in_progress == true it discards the results of any
+  // tasks running during the 'Pause' to 'Resume' interval.
+  void Resume(bool invalidate_in_progress);
+
  private:
   explicit Jit(JitOptions* options);
 
   static bool LoadCompiler(std::string* error_msg);
+
+  // Does the actual compilation. Note this MUST only be called on thread-pool worker threads.
+  bool PerformCompilationTask(ArtMethod* method, Thread* self, bool osr)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  class PauseHandler {
+   public:
+    PauseHandler(Thread* self, Jit* jit);
+    ~PauseHandler();
+
+    bool IsPaused();
+    bool IsInvalidated();
+    void WaitForPauseToFinish();
+    void DcheckCommitWasValid();
+
+   private:
+    Thread* self_;
+    Jit* jit_;
+    bool is_jit_lock_held_;
+  };
 
   // JIT compiler
   static void* jit_library_handle_;
@@ -304,7 +336,18 @@ class Jit {
   // Performance monitoring.
   CumulativeLogger cumulative_timings_;
   Histogram<uint64_t> memory_use_ GUARDED_BY(lock_);
+
+  // Sync
   Mutex lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
+
+  // Pause tools.
+  ConditionVariable pause_cond_ GUARDED_BY(lock_);
+  // Number of times the jit has been paused.
+  uint32_t paused_count_ GUARDED_BY(lock_);
+  std::unordered_set<Thread*> invalidated_worker_threads_ GUARDED_BY(lock_);
+
+  // For Access to PauseHandler.
+  friend class JitCodeCache;
 
   DISALLOW_COPY_AND_ASSIGN(Jit);
 };
