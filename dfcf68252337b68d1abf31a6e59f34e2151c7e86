@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c3b4e0d_4c4d7f66",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:06:28Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 1517,
+        "startChar": 42,
+        "endLine": 1517,
+        "endChar": 47
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6213d1b2_d65a0748",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:06:28Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 261,
+        "startChar": 33,
+        "endLine": 261,
+        "endChar": 48
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd85daf_79243a88",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:06:28Z",
+      "side": 1,
+      "message": "Please add comments around why you\u0027re doing this.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 55
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfd2beb5_75eebc50",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-19T14:06:28Z",
+      "side": 1,
+      "message": "Add high-level comment.",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 92
+      },
+      "revId": "dfcf68252337b68d1abf31a6e59f34e2151c7e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
