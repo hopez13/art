@@ -209,6 +209,8 @@ class JitCodeCache {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void ClearAllCompiledDexCode() REQUIRES(!lock_, Locks::mutator_lock_);
+
   void CopyInlineCacheInto(const InlineCache& ic, Handle<mirror::ObjectArray<mirror::Class>> array)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -287,8 +289,7 @@ class JitCodeCache {
                bool garbage_collect_code,
                int memmap_flags_prot_code);
 
-  // Internal version of 'CommitCode' that will not retry if the
-  // allocation fails. Return null if the allocation fails.
+  // Internal version of 'CommitCode' that will not retry if the allocation fails.
   uint8_t* CommitCodeInternal(Thread* self,
                               ArtMethod* method,
                               uint8_t* stack_map,
@@ -299,8 +300,9 @@ class JitCodeCache {
                               bool osr,
                               Handle<mirror::ObjectArray<mirror::Object>> roots,
                               bool has_should_deoptimize_flag,
-                              const ArenaSet<ArtMethod*>& cha_single_implementation_list)
-      REQUIRES(!lock_)
+                              const ArenaSet<ArtMethod*>& cha_single_implementation_list,
+                              /*out*/bool* in_collection)
+      REQUIRES(!lock_, Roles::uninterruptible_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Adds the given roots to the roots_data. Only a member for annotalysis.
