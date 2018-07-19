@@ -171,7 +171,9 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitOptions* options) : options_(options),
                                 cumulative_timings_("JIT timings"),
                                 memory_use_("Memory used for compilation", 16),
-                                lock_("JIT memory use lock") {}
+                                lock_("JIT lock", LockLevel::kJitLock),
+                                pause_cond_("Jit pause condition", lock_),
+                                paused_count_(0) {}
 
 Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
   DCHECK(options->UseJitCompilation() || options->GetProfileSaverOptions().IsEnabled());
@@ -259,7 +261,7 @@ bool Jit::LoadCompiler(std::string* error_msg) {
   return true;
 }
 
-bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
+bool Jit::PerformCompilationTask(ArtMethod* method, Thread* self, bool osr) {
   DCHECK(Runtime::Current()->UseJitCompilation());
   DCHECK(!method->IsRuntimeMethod());
 
@@ -584,7 +586,8 @@ class JitCompileTask FINAL : public Task {
     kCompileOsr
   };
 
-  JitCompileTask(ArtMethod* method, TaskKind kind) : method_(method), kind_(kind) {
+  JitCompileTask(ArtMethod* method, TaskKind kind, Jit* jit)
+      : method_(method), kind_(kind), jit_(jit), succeeded_(false) {
     ScopedObjectAccess soa(Thread::Current());
     // Add a global ref to the class to prevent class unloading until compilation is done.
     klass_ = soa.Vm()->AddGlobalRef(soa.Self(), method_->GetDeclaringClass());
@@ -597,16 +600,43 @@ class JitCompileTask FINAL : public Task {
   }
 
   void Run(Thread* self) OVERRIDE {
+    {
+      ScopedThreadStateChange stsc(self, kSuspended);
+      MutexLock mu(self, jit_->lock_);
+      // Usually we will be caught by the task-processor but doesn't hurt to check.
+      while (UNLIKELY(jit_->paused_count_ != 0)) {
+        jit_->pause_cond_.Wait(self);
+      }
+      // Since we aren't in the compilation_threads_ yet we cannot have been invalidated.
+      DCHECK(
+          jit_->invalidated_worker_threads_.find(self) == jit_->invalidated_worker_threads_.end());
+      // We are doing a compilation now though.
+      jit_->compilation_threads_.insert(self);
+    }
     ScopedObjectAccess soa(self);
     if (kind_ == kCompile) {
-      Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ false);
+      succeeded_ = jit_->PerformCompilationTask(method_, self, /* osr */ false);
     } else if (kind_ == kCompileOsr) {
-      Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ true);
+      succeeded_ = jit_->PerformCompilationTask(method_, self, /* osr */ true);
     } else {
       DCHECK(kind_ == kAllocateProfile);
       if (ProfilingInfo::Create(self, method_, /* retry_allocation */ true)) {
         VLOG(jit) << "Start profiling " << ArtMethod::PrettyMethod(method_);
+        succeeded_ = true;
+      } else {
+        succeeded_ = false;
       }
+    }
+    {
+      MutexLock mu(self, jit_->lock_);
+      auto it = jit_->invalidated_worker_threads_.find(self);
+      if (it != jit_->invalidated_worker_threads_.end()) {
+        // Pause and then resume must have happened between commiting the result and getting here.
+        // Just remove it.
+        jit_->invalidated_worker_threads_.erase(it);
+      }
+      // We are done with compiling stuff.
+      jit_->compilation_threads_.erase(jit_->compilation_threads_.find(self));
     }
     ProfileSaver::NotifyJitActivity();
   }
@@ -615,13 +645,28 @@ class JitCompileTask FINAL : public Task {
     delete this;
   }
 
+  bool Succeeded() const {
+    return succeeded_;
+  }
+
  private:
   ArtMethod* const method_;
   const TaskKind kind_;
+  Jit* jit_;
   jobject klass_;
+  bool succeeded_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(JitCompileTask);
 };
+
+
+bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
+  JitCompileTask compile_task(method,
+                              osr ? JitCompileTask::kCompileOsr: JitCompileTask::kCompile,
+                              this);
+  compile_task.Run(self);
+  return compile_task.Succeeded();
+}
 
 static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   if (method->IsClassInitializer() || !method->IsCompilable()) {
@@ -688,7 +733,8 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
       if (!success) {
         // We failed allocating. Instead of doing the collection on the Java thread, we push
         // an allocation to a compiler thread, that will do the collection.
-        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kAllocateProfile));
+        thread_pool_->AddTask(self,
+                              new JitCompileTask(method, JitCompileTask::kAllocateProfile, this));
       }
     }
     // Avoid jumping more than one state at a time.
@@ -698,7 +744,7 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
       if ((new_count >= HotMethodThreshold()) &&
           !code_cache_->ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
         DCHECK(thread_pool_ != nullptr);
-        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kCompile));
+        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kCompile, this));
       }
       // Avoid jumping more than one state at a time.
       new_count = std::min(new_count, static_cast<uint32_t>(OSRMethodThreshold() - 1));
@@ -710,7 +756,7 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
       DCHECK(!method->IsNative());  // No back edges reported for native methods.
       if ((new_count >= OSRMethodThreshold()) &&  !code_cache_->IsOsrCompiled(method)) {
         DCHECK(thread_pool_ != nullptr);
-        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kCompileOsr));
+        thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kCompileOsr, this));
       }
     }
   }
@@ -727,7 +773,7 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
         // The compiler requires a ProfilingInfo object for non-native methods.
         ProfilingInfo::Create(thread, np_method, /* retry_allocation */ true);
       }
-      JitCompileTask compile_task(method, JitCompileTask::kCompile);
+      JitCompileTask compile_task(method, JitCompileTask::kCompile, this);
       compile_task.Run(thread);
     }
     return;
@@ -768,13 +814,94 @@ void Jit::WaitForCompilationToFinish(Thread* self) {
 void Jit::Stop() {
   Thread* self = Thread::Current();
   // TODO(ngeoffray): change API to not require calling WaitForCompilationToFinish twice.
+  // During shutdown and startup the thread-pool can be null.
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
   WaitForCompilationToFinish(self);
   GetThreadPool()->StopWorkers(self);
   WaitForCompilationToFinish(self);
 }
 
 void Jit::Start() {
-  GetThreadPool()->StartWorkers(Thread::Current());
+  // During shutdown and startup the thread-pool can be null.
+  if (GetThreadPool() != nullptr) {
+    GetThreadPool()->StartWorkers(Thread::Current());
+  }
+}
+
+void Jit::Pause() {
+  Thread* self = Thread::Current();
+  Locks::mutator_lock_->AssertNotHeld(self);
+  MutexLock mu(self, lock_);
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
+  paused_count_++;
+  if (paused_count_ == 1) {
+    // Only stop workers on the first 'Pause' call.
+    GetThreadPool()->StopWorkers(self);
+  }
+}
+
+void Jit::Resume(bool invalidate_in_progress) {
+  Thread* self = Thread::Current();
+  Locks::mutator_lock_->AssertNotHeld(self);
+  MutexLock mu(self, lock_);
+  if (GetThreadPool() == nullptr) {
+    return;
+  }
+  paused_count_--;
+  if (invalidate_in_progress) {
+    // Mark all threads as being invalidated. If the thread was stopped by StopWorkers (ie it
+    // wasn't doing any work) then when it gets its next task it will remove itself from this set.
+    // Other threads will remove themselves when they finish their task and discard the data.
+    for (Thread* t : compilation_threads_) {
+      invalidated_worker_threads_.insert(t);
+    }
+  }
+  if (paused_count_ == 0) {
+    pause_cond_.Broadcast(self);
+    GetThreadPool()->StartWorkers(self);
+  }
+}
+
+bool Jit::RunCommitCodeStep(Thread* self, Closure* closure) {
+  struct NoSuspendClosure : public Closure {
+    explicit NoSuspendClosure(Closure* cls) : closure_(cls) {}
+
+    void Run(Thread* self) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
+      ScopedAssertNoThreadSuspension sants("Jit::RunCommitCodeStep");
+      closure_->Run(self);
+    }
+
+    Closure* closure_;
+  };
+  NoSuspendClosure nsc(closure);
+  auto wait_for_not_paused = [&]() REQUIRES(!Locks::mutator_lock_, lock_) {
+    while (paused_count_ > 0) {
+      pause_cond_.Wait(self);
+    }
+  };
+  MutexLock mu(self, lock_);
+  while (paused_count_ > 0 &&
+         invalidated_worker_threads_.find(self) == invalidated_worker_threads_.end()) {
+    lock_.Unlock(self);
+    {
+      ScopedThreadSuspension sts(self, kSuspended);
+      MutexLock mu2(self, lock_);
+      wait_for_not_paused();
+    }
+    lock_.Lock(self);
+  }
+  if (invalidated_worker_threads_.find(self) != invalidated_worker_threads_.end()) {
+    // We were killed.
+    return false;
+  }
+
+  nsc.Run(self);
+
+  return true;
 }
 
 ScopedJitSuspend::ScopedJitSuspend() {
