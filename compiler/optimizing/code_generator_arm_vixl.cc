@@ -509,29 +509,48 @@ class BoundsCheckSlowPathARMVIXL : public SlowPathCodeARMVIXL {
 
 class LoadClassSlowPathARMVIXL : public SlowPathCodeARMVIXL {
  public:
-  LoadClassSlowPathARMVIXL(HLoadClass* cls, HInstruction* at, uint32_t dex_pc, bool do_clinit)
-      : SlowPathCodeARMVIXL(at), cls_(cls), dex_pc_(dex_pc), do_clinit_(do_clinit) {
+  LoadClassSlowPathARMVIXL(HLoadClass* cls, HInstruction* at)
+      : SlowPathCodeARMVIXL(at), cls_(cls) {
     DCHECK(at->IsLoadClass() || at->IsClinitCheck());
+    DCHECK_EQ(instruction_->IsLoadClass(), cls_ == instruction_);
   }
 
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
     LocationSummary* locations = instruction_->GetLocations();
     Location out = locations->Out();
+    const uint32_t dex_pc = instruction_->GetDexPc();
+    bool must_resolve_type;
+    bool must_do_clinit;
+    if (instruction_->IsLoadClass()) {
+      DCHECK_EQ(instruction_, cls_);
+      must_resolve_type = cls_->GetLoadKind() == HLoadClass::LoadKind::kBssEntry;
+      must_do_clinit = cls_->MustGenerateClinitCheck();
+    } else {
+      DCHECK(instruction_->IsClinitCheck());
+      must_resolve_type = false;
+      must_do_clinit = true;
+    }
 
     CodeGeneratorARMVIXL* arm_codegen = down_cast<CodeGeneratorARMVIXL*>(codegen);
     __ Bind(GetEntryLabel());
     SaveLiveRegisters(codegen, locations);
 
     InvokeRuntimeCallingConventionARMVIXL calling_convention;
-    dex::TypeIndex type_index = cls_->GetTypeIndex();
-    __ Mov(calling_convention.GetRegisterAt(0), type_index.index_);
-    QuickEntrypointEnum entrypoint = do_clinit_ ? kQuickInitializeStaticStorage
-                                                : kQuickInitializeType;
-    arm_codegen->InvokeRuntime(entrypoint, instruction_, dex_pc_, this);
-    if (do_clinit_) {
-      CheckEntrypointTypes<kQuickInitializeStaticStorage, void*, uint32_t>();
+    if (must_resolve_type) {
+      DCHECK(IsSameDexFile(cls_->GetDexFile(), arm_codegen->GetGraph()->GetDexFile()));
+      dex::TypeIndex type_index = cls_->GetTypeIndex();
+      __ Mov(calling_convention.GetRegisterAt(0), type_index.index_);
+      arm_codegen->InvokeRuntime(kQuickResolveType, instruction_, dex_pc, this);
+      CheckEntrypointTypes<kQuickResolveType, void*, uint32_t>();
+      // If we also must_do_clinit, the resolved type is now in the correct register.
     } else {
-      CheckEntrypointTypes<kQuickInitializeType, void*, uint32_t>();
+      DCHECK(must_do_clinit);
+      Location source = instruction_->IsLoadClass() ? out : locations->InAt(0);
+      arm_codegen->Move32(LocationFrom(calling_convention.GetRegisterAt(0)), source);
+    }
+    if (must_do_clinit) {
+      arm_codegen->InvokeRuntime(kQuickInitializeStaticStorage, instruction_, dex_pc, this);
+      CheckEntrypointTypes<kQuickInitializeStaticStorage, void*, mirror::Class*>();
     }
 
     // Move the class to the desired location.
@@ -548,12 +567,6 @@ class LoadClassSlowPathARMVIXL : public SlowPathCodeARMVIXL {
  private:
   // The class this slow path will load.
   HLoadClass* const cls_;
-
-  // The dex PC of `at_`.
-  const uint32_t dex_pc_;
-
-  // Whether to initialize the class.
-  const bool do_clinit_;
 
   DISALLOW_COPY_AND_ASSIGN(LoadClassSlowPathARMVIXL);
 };
@@ -7504,8 +7517,7 @@ void InstructionCodeGeneratorARMVIXL::VisitLoadClass(HLoadClass* cls) NO_THREAD_
   if (generate_null_check || cls->MustGenerateClinitCheck()) {
     DCHECK(cls->CanCallRuntime());
     LoadClassSlowPathARMVIXL* slow_path =
-        new (codegen_->GetScopedAllocator()) LoadClassSlowPathARMVIXL(
-            cls, cls, cls->GetDexPc(), cls->MustGenerateClinitCheck());
+        new (codegen_->GetScopedAllocator()) LoadClassSlowPathARMVIXL(cls, cls);
     codegen_->AddSlowPath(slow_path);
     if (generate_null_check) {
       __ CompareAndBranchIfZero(out, slow_path->GetEntryLabel());
@@ -7551,10 +7563,7 @@ void LocationsBuilderARMVIXL::VisitClinitCheck(HClinitCheck* check) {
 void InstructionCodeGeneratorARMVIXL::VisitClinitCheck(HClinitCheck* check) {
   // We assume the class is not null.
   LoadClassSlowPathARMVIXL* slow_path =
-      new (codegen_->GetScopedAllocator()) LoadClassSlowPathARMVIXL(check->GetLoadClass(),
-                                                                    check,
-                                                                    check->GetDexPc(),
-                                                                    /* do_clinit */ true);
+      new (codegen_->GetScopedAllocator()) LoadClassSlowPathARMVIXL(check->GetLoadClass(), check);
   codegen_->AddSlowPath(slow_path);
   GenerateClassInitializationCheck(slow_path, InputRegisterAt(check, 0));
 }

@@ -179,13 +179,13 @@ class EntrypointsOrderTest : public CommonRuntimeTest {
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pAllocStringFromString, pInstanceofNonTrivial,
                          sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInstanceofNonTrivial, pCheckInstanceOf, sizeof(void*));
-    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pCheckInstanceOf, pInitializeStaticStorage,
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pCheckInstanceOf, pResolveTypeAndVerifyAccess,
                          sizeof(void*));
-    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInitializeStaticStorage, pInitializeTypeAndVerifyAccess,
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pResolveTypeAndVerifyAccess, pResolveType,
                          sizeof(void*));
-    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInitializeTypeAndVerifyAccess, pInitializeType,
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pResolveType, pInitializeStaticStorage, sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInitializeStaticStorage, pResolveMethodHandle,
                          sizeof(void*));
-    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInitializeType, pResolveMethodHandle, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pResolveMethodHandle, pResolveMethodType, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pResolveMethodType, pResolveString, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pResolveString, pSet8Instance, sizeof(void*));
