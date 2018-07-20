@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0847b885_1478032a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-20T15:57:00Z",
+      "side": 1,
+      "message": "just looking at it to fix the issue with the jit deadlock i\u0027ve been fighting for the trampoline cl. I want to make it so we can just invalidate jit-compiles that happen during an interval and that was a good place to put it.\n\nSince we only create a single jit-thread pool worker and AFAICT we only run jit-gc on that thread i\u0027m not sure there is any way to trigger the issue in real code.",
+      "parentUuid": "767aa658_3ed1fbbb",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "106a93ea5350e4155ebd31daa3ec548baccbfdc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f83b1f18_bc427f70",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "106a93ea5350e4155ebd31daa3ec548baccbfdc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3561d643_0db399bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-20T15:57:00Z",
+      "side": 1,
+      "message": "Jit-GC comes along sees no method references the memory and clears it. The compile thread wakes up, sees there is no ongoing jit-gc (since it finished during it\u0027s suspension) and assumes everything is fine. Now a method has uninitialized (or possibly even unmapped) code written to its entrypoint.",
+      "parentUuid": "f83b1f18_bc427f70",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "106a93ea5350e4155ebd31daa3ec548baccbfdc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
