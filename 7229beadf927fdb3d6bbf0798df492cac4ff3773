@@ -140,6 +140,30 @@
       "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309eab12_696a58ce",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-07-20T09:16:01Z",
+      "side": 1,
+      "message": "Maybe emphasize with *must* ?",
+      "parentUuid": "9ceab4ff_ae6666f9",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 26
+      },
+      "revId": "7229beadf927fdb3d6bbf0798df492cac4ff3773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
