@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4f579248_9b3f7a99",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-23T17:41:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ba87e8_4d61b902",
+      "range": {
+        "startLine": 1185,
+        "startChar": 51,
+        "endLine": 1185,
+        "endChar": 60
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b4a6e29_a507da40",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -141,6 +165,30 @@
       "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1268cb5_523415b6",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-23T17:41:49Z",
+      "side": 1,
+      "message": "We would not execute any bytecode before we hitting the SO. The only bytecode that would be executed is the construction of the SOE itself which, as I said before, does not create any weird cases.",
+      "parentUuid": "79b4859d_b805aa98",
+      "range": {
+        "startLine": 1197,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 26
+      },
+      "revId": "f6d602430251c0e1826aa57d76283160d37785c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
