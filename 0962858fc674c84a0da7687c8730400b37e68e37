@@ -22,6 +22,30 @@
       "revId": "0962858fc674c84a0da7687c8730400b37e68e37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46ab2c7_966e24ee",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-23T08:56:57Z",
+      "side": 1,
+      "message": "The only backwards in-compatible API change is that AhatInstance no longer implements DominatorsComputation.Node. That was never intended to be part of the public interface anyway.\n\nI added a note about this, and that there are some new APIs library users can take advantage of.",
+      "parentUuid": "84c66a06_01407a94",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 0
+      },
+      "revId": "0962858fc674c84a0da7687c8730400b37e68e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
