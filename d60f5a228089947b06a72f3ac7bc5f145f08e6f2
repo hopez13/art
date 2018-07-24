@@ -22,6 +22,30 @@
       "revId": "d60f5a228089947b06a72f3ac7bc5f145f08e6f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13d19fd4_0c9f32ab",
+        "filename": "oatdump/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-07-24T22:08:21Z",
+      "side": 1,
+      "message": "Not without other changes, it\u0027s used outside of the ifdef below (line 83). This will just create an empty rule that doesn\u0027t do anything.",
+      "parentUuid": "ce1ca80c_65115d89",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 36
+      },
+      "revId": "d60f5a228089947b06a72f3ac7bc5f145f08e6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
