@@ -25,6 +25,7 @@
 #include <set>
 #include <sstream>
 
+#include "dex/class_accessor-inl.h"
 #include "dex/code_item_accessors-inl.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_exception_helpers.h"
@@ -353,42 +354,8 @@ static void dumpMethodCFGImpl(const DexFile* dex_file,
   os << "}\n";
 }
 
-void DumpMethodCFG(const DexFile* dex_file, uint32_t dex_method_idx, std::ostream& os) {
-  // This is painful, we need to find the code item. That means finding the class, and then
-  // iterating the table.
-  if (dex_method_idx >= dex_file->NumMethodIds()) {
-    os << "Could not find method-idx.";
-    return;
-  }
-  const DexFile::MethodId& method_id = dex_file->GetMethodId(dex_method_idx);
-
-  const DexFile::ClassDef* class_def = dex_file->FindClassDef(method_id.class_idx_);
-  if (class_def == nullptr) {
-    os << "Could not find class-def.";
-    return;
-  }
-
-  const uint8_t* class_data = dex_file->GetClassData(*class_def);
-  if (class_data == nullptr) {
-    os << "No class data.";
-    return;
-  }
-
-  ClassDataItemIterator it(*dex_file, class_data);
-  it.SkipAllFields();
-
-  // Find method, and dump it.
-  while (it.HasNextMethod()) {
-    uint32_t method_idx = it.GetMemberIndex();
-    if (method_idx == dex_method_idx) {
-      dumpMethodCFGImpl(dex_file, dex_method_idx, it.GetMethodCodeItem(), os);
-      return;
-    }
-    it.Next();
-  }
-
-  // Otherwise complain.
-  os << "Something went wrong, didn't find the method in the class data.";
+void DumpMethodCFG(const ClassAccessor::Method& method, std::ostream& os) {
+  dumpMethodCFGImpl(&method.GetDexFile(), method.GetIndex(), method.GetCodeItem(), os);
 }
 
 }  // namespace art
