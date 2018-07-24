@@ -25,6 +25,7 @@
 #include <set>
 #include <sstream>
 
+#include "dex/class_accessor-inl.h"
 #include "dex/code_item_accessors-inl.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_exception_helpers.h"
@@ -368,23 +369,18 @@ void DumpMethodCFG(const DexFile* dex_file, uint32_t dex_method_idx, std::ostrea
     return;
   }
 
-  const uint8_t* class_data = dex_file->GetClassData(*class_def);
-  if (class_data == nullptr) {
+  ClassAccessor accessor(*dex_file, *class_def);
+  if (!accessor.HasClassData()) {
     os << "No class data.";
     return;
   }
-
-  ClassDataItemIterator it(*dex_file, class_data);
-  it.SkipAllFields();
-
   // Find method, and dump it.
-  while (it.HasNextMethod()) {
-    uint32_t method_idx = it.GetMemberIndex();
+  for (const ClassAccessor::Method& method : accessor.GetMethods()) {
+    const uint32_t method_idx = method.GetIndex();
     if (method_idx == dex_method_idx) {
-      dumpMethodCFGImpl(dex_file, dex_method_idx, it.GetMethodCodeItem(), os);
+      dumpMethodCFGImpl(dex_file, dex_method_idx, method.GetCodeItem(), os);
       return;
     }
-    it.Next();
   }
 
   // Otherwise complain.
