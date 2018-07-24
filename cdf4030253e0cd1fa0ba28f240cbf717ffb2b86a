@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11fa07d2_a78ca82a",
+        "filename": "dexdump/dexdump_cfg.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T22:48:47Z",
+      "side": 1,
+      "message": "No. Use your new interface to update the method (take the Method accessor from the caller). That way you fix the comment about \"duplicate work searching.\"",
+      "revId": "cdf4030253e0cd1fa0ba28f240cbf717ffb2b86a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
