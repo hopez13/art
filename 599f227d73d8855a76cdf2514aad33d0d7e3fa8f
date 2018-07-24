@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4b93511_83c3f5e2",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T18:03:05Z",
+      "side": 1,
+      "message": "Why this indirection? You added jit_. (Alternatively, don\u0027t add JIT but cache the result of this call?",
+      "range": {
+        "startLine": 618,
+        "startChar": 19,
+        "endLine": 618,
+        "endChar": 47
+      },
+      "revId": "599f227d73d8855a76cdf2514aad33d0d7e3fa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7668cd5b_4e29060f",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T18:03:05Z",
+      "side": 1,
+      "message": "Please more than one word, and a \".\"",
+      "range": {
+        "startLine": 332,
+        "startChar": 5,
+        "endLine": 332,
+        "endChar": 9
+      },
+      "revId": "599f227d73d8855a76cdf2514aad33d0d7e3fa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "585866c9_04ee554d",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T18:03:05Z",
+      "side": 1,
+      "message": ".",
+      "range": {
+        "startLine": 345,
+        "startChar": 42,
+        "endLine": 345,
+        "endChar": 43
+      },
+      "revId": "599f227d73d8855a76cdf2514aad33d0d7e3fa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
