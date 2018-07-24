@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c577c3d7_e03f9983",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T23:18:57Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1373,
+        "startChar": 18,
+        "endLine": 1375,
+        "endChar": 45
+      },
+      "revId": "056ea079f696c13be468bf85161a98268fc27293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c3dec79_3f4cc630",
+        "filename": "dexdump/dexdump_cfg.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T23:18:57Z",
+      "side": 1,
+      "message": "Remove and overwrite the signature of dumpMethodCFGImpl.",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 87
+      },
+      "revId": "056ea079f696c13be468bf85161a98268fc27293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01030885_d8076343",
+        "filename": "dexdump/dexdump_cfg.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-24T23:18:57Z",
+      "side": 1,
+      "message": "No longer needed?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "056ea079f696c13be468bf85161a98268fc27293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
