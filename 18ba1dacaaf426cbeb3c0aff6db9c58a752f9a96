@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8dcbee99_baa7ffe8",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1176264
+      },
+      "writtenOn": "2018-07-25T05:58:49Z",
+      "side": 1,
+      "message": "Ah, I see that these are just terminal values, you have members to override these. Please ignore.",
+      "parentUuid": "24eed3e5_b0805909",
+      "revId": "18ba1dacaaf426cbeb3c0aff6db9c58a752f9a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61c00566_91ef1537",
         "filename": "compiler/optimizing/loop_analysis.cc",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "18ba1dacaaf426cbeb3c0aff6db9c58a752f9a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7799483_f2645ddd",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1176264
+      },
+      "writtenOn": "2018-07-25T05:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c00566_91ef1537",
+      "revId": "18ba1dacaaf426cbeb3c0aff6db9c58a752f9a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
