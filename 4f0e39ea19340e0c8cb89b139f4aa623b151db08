@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "033a6b71_ad7ad85f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-07-25T13:03:12Z",
+      "side": 1,
+      "message": "This looks to be missing a branch here and mips64 that is present on other architectures? \n\nmust_do_clinit -\u003e InitializeStaticStorage",
+      "revId": "4f0e39ea19340e0c8cb89b139f4aa623b151db08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
