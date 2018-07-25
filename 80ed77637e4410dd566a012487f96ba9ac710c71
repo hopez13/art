@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "359e01be_cef5160d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-07-25T18:09:06Z",
+      "side": 1,
+      "message": "seq_cst",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "80ed77637e4410dd566a012487f96ba9ac710c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01e0bf6_5f8220be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-07-25T18:09:06Z",
+      "side": 1,
+      "message": "Mutexes and ReaderWriterMutexes can lose wakeups due to weak memory ordering. An unlocking thread may overlook waiters.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "80ed77637e4410dd566a012487f96ba9ac710c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ee4a04_4b923608",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-07-25T18:09:06Z",
+      "side": 1,
+      "message": "Reset lock state to unlocked using seq_cst CAS.",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "80ed77637e4410dd566a012487f96ba9ac710c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d12a50e6_e1e7fb06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-07-25T18:09:06Z",
+      "side": 1,
+      "message": "Thread B\u0027s load of num_contenders may be reordered with the store in the preceding CAS (step 0). We can then get the following interleaving:\n\nA.0 (fails: lock held.)\nB.0a (CAS load acquire sees lock as held)\nB.1 (sees num_contenders \u003d 0)\nA.1 num_contenders++;\nA.2 futex starts waiting (state unchanged)\nB.0b (CAS store release sets state to unlocked)\nB.2 (does nothing since num_contenders was 0)\n\nWe observed this hang with state_ \u003d 0, exclusive_owner_ \u003d 0, num_contenders_ \u003d 1\n\nIndeed, the preceding comment strongly suggests that the num_contenders load should not be relaxed.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "80ed77637e4410dd566a012487f96ba9ac710c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
