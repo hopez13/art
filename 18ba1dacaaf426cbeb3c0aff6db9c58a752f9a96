@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24eed3e5_b0805909",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1176264
+      },
+      "writtenOn": "2018-07-25T05:49:00Z",
+      "side": 1,
+      "message": "Conflicts after we have full unrolling as well here. Since for full unrolling we are unrolling by N subject to the new heuristic.",
+      "revId": "18ba1dacaaf426cbeb3c0aff6db9c58a752f9a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c00566_91ef1537",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1176264
+      },
+      "writtenOn": "2018-07-25T05:49:00Z",
+      "side": 1,
+      "message": "How can a target override this and above values if it wants to. Does it need to derive a class from ArchNoOptsLoopHelper?",
+      "revId": "18ba1dacaaf426cbeb3c0aff6db9c58a752f9a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
