@@ -42,6 +42,8 @@
 #include "dex/dex_instruction-inl.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "handle_scope-inl.h"
+#include "interpreter_mterp_impl.h"
+#include "interpreter_switch_impl.h"
 #include "jit/jit.h"
 #include "mirror/call_site.h"
 #include "mirror/class-inl.h"
@@ -51,6 +53,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/string-inl.h"
+#include "mterp/mterp.h"
 #include "obj_ptr.h"
 #include "stack.h"
 #include "thread.h"
@@ -114,6 +117,24 @@ void AbortTransactionV(Thread* self, const char* fmt, va_list args)
 void RecordArrayElementsInTransaction(ObjPtr<mirror::Array> array, int32_t count)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+// Assign register 'src_reg' from shadow_frame to register 'dest_reg' into new_shadow_frame.
+static inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
+                                  size_t dest_reg, size_t src_reg)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // Uint required, so that sign extension does not make this wrong on 64b systems
+  uint32_t src_value = shadow_frame.GetVReg(src_reg);
+  ObjPtr<mirror::Object> o = shadow_frame.GetVRegReference<kVerifyNone>(src_reg);
+
+  // If both register locations contains the same value, the register probably holds a reference.
+  // Note: As an optimization, non-moving collectors leave a stale reference value
+  // in the references array even after the original vreg was overwritten to a non-reference.
+  if (src_value == reinterpret_cast<uintptr_t>(o.Ptr())) {
+    new_shadow_frame->SetVRegReference(dest_reg, o);
+  } else {
+    new_shadow_frame->SetVReg(dest_reg, src_value);
+  }
+}
+
 // Invokes the given method. This is part of the invocation support and is used by DoInvoke,
 // DoFastInvoke and DoInvokeVirtualQuick functions.
 // Returns true on success, otherwise throws an exception and returns false.
@@ -121,16 +142,11 @@ template<bool is_range, bool do_assignability_check>
 bool DoCall(ArtMethod* called_method, Thread* self, ShadowFrame& shadow_frame,
             const Instruction* inst, uint16_t inst_data, JValue* result);
 
-// Handles streamlined non-range invoke static, direct and virtual instructions originating in
-// mterp. Access checks and instrumentation other than jit profiling are not supported, but does
-// support interpreter intrinsics if applicable.
-// Returns true on success, otherwise throws an exception and returns false.
 template<InvokeType type>
-static inline bool DoFastInvoke(Thread* self,
-                                ShadowFrame& shadow_frame,
-                                const Instruction* inst,
-                                uint16_t inst_data,
-                                JValue* result) {
+static ALWAYS_INLINE ArtMethod* ResolveFastInvokeTarget(Thread* self,
+                                                        ShadowFrame& shadow_frame,
+                                                        const Instruction* inst)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   const uint32_t method_idx = inst->VRegB_35c();
   const uint32_t vregC = inst->VRegC_35c();
   ObjPtr<mirror::Object> receiver = (type == kStatic)
@@ -141,25 +157,120 @@ static inline bool DoFastInvoke(Thread* self,
       method_idx, &receiver, sf_method, self);
   // The shadow frame should already be pushed, so we don't need to update it.
   if (UNLIKELY(called_method == nullptr)) {
-    CHECK(self->IsExceptionPending());
-    result->SetJ(0);
-    return false;
+    return nullptr;
   } else if (UNLIKELY(!called_method->IsInvokable())) {
     called_method->ThrowInvocationTimeError();
-    result->SetJ(0);
-    return false;
+    return nullptr;
   } else {
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr && type == kVirtual) {
       jit->InvokeVirtualOrInterface(receiver, sf_method, shadow_frame.GetDexPC(), called_method);
     }
-    if (called_method->IsIntrinsic()) {
-      if (MterpHandleIntrinsic(&shadow_frame, called_method, inst, inst_data,
-                               shadow_frame.GetResultRegister())) {
-        return !self->IsExceptionPending();
+    return called_method;
+  }
+}
+
+template<InvokeType type>
+static ALWAYS_INLINE bool UseInterpreterToInterpreterFastPath(ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  Runtime* runtime = Runtime::Current();
+  if (!runtime->IsStarted()) {
+    return false;
+  }
+  const void* quick_code = method->GetEntryPointFromQuickCompiledCode();
+  if (!runtime->GetClassLinker()->IsQuickToInterpreterBridge(quick_code)) {
+    return false;
+  }
+  if (!method->SkipAccessChecks() || method->IsNative() || method->IsProxyMethod()) {
+    return false;
+  }
+  if (method->GetDeclaringClass()->IsStringClass() && method->IsConstructor()) {
+    return false;
+  }
+  if (type == kStatic && !method->GetDeclaringClass()->IsInitialized()) {
+    return false;
+  }
+  if (runtime->IsActiveTransaction() || runtime->GetInstrumentation()->HasMethodEntryListeners()) {
+    return false;
+  }
+  return true;
+}
+
+// Handles streamlined non-range invoke static, direct and virtual instructions originating in
+// mterp. Access checks and instrumentation other than jit profiling are not supported, but does
+// support interpreter intrinsics if applicable.
+// Returns true on success, otherwise throws an exception and returns false.
+template<InvokeType type>
+static ALWAYS_INLINE bool DoFastInvoke(Thread* self,
+                                       ShadowFrame& shadow_frame,
+                                       const Instruction* inst,
+                                       uint16_t inst_data,
+                                       JValue* result) {
+  ArtMethod* method = ResolveFastInvokeTarget<type>(self, shadow_frame, inst);
+
+  if (method == nullptr) {
+    CHECK(self->IsExceptionPending());
+    result->SetJ(0);
+    return false;
+  }
+
+  if (method->IsIntrinsic()) {
+    if (MterpHandleIntrinsic(&shadow_frame, method, inst, inst_data,
+                             shadow_frame.GetResultRegister())) {
+      return !self->IsExceptionPending();
+    }
+  }
+
+  if (UseInterpreterToInterpreterFastPath<type>(method)) {
+    const uint16_t number_of_inputs = inst->VRegA_35c(inst_data);
+    CodeItemDataAccessor accessor(method->DexInstructionData());
+    uint32_t num_regs = accessor.RegistersSize();
+    DCHECK_EQ(number_of_inputs, accessor.InsSize());
+    DCHECK_GE(num_regs, number_of_inputs);
+    size_t first_dest_reg = num_regs - number_of_inputs;
+
+    // Create shadow frame on the stack.
+    const char* old_cause = self->StartAssertNoThreadSuspension("DoFastInvoke");
+    ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
+        CREATE_SHADOW_FRAME(num_regs, &shadow_frame, method, /* dex pc */ 0);
+    ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
+    uint32_t arg[Instruction::kMaxVarArgRegs];
+    inst->GetVarArgs(arg, inst_data);
+    for (size_t i = 0; i < number_of_inputs; ++i) {
+      AssignRegister(new_shadow_frame, shadow_frame, first_dest_reg + i, arg[i]);
+    }
+    self->EndAssertNoThreadSuspension(old_cause);
+
+    bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
+    if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
+      ThrowStackOverflowError(self);
+      DCHECK(self->IsExceptionPending());
+      return false;
+    }
+
+    self->PushShadowFrame(new_shadow_frame);
+    DCheckStaticState(self, method);
+    while (true) {
+      // Mterp does not support all instrumentation/debugging.
+      if (MterpShouldSwitchInterpreters() != 0) {
+        *result = ExecuteSwitchImpl<false, false>(self, accessor, *new_shadow_frame, *result, false);
+        break;
+      }
+      if (ExecuteMterpImpl(self, accessor.Insns(), new_shadow_frame, result)) {
+        break;
+      } else {
+        // Mterp didn't like that instruction.  Single-step it with the reference interpreter.
+        *result = ExecuteSwitchImpl<false, false>(self, accessor, *new_shadow_frame, *result, true);
+        if (new_shadow_frame->GetDexPC() == dex::kDexNoIndex) {
+          break;  // Single-stepped a return or an exception not handled locally.
+        }
       }
     }
-    return DoCall<false, false>(called_method, self, shadow_frame, inst, inst_data, result);
+    self->PopShadowFrame();
+
+    return !self->IsExceptionPending();
+  } else {
+    return DoCall<false, false>(method, self, shadow_frame, inst, inst_data, result);
   }
 }
 
