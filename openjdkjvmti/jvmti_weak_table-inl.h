@@ -73,7 +73,10 @@ void JvmtiWeakTable<T>::UpdateTableWithReadBarrier() {
     return original_root.Read<art::kWithReadBarrier>();
   };
 
-  UpdateTableWith<decltype(WithReadBarrierUpdater), kIgnoreNull>(WithReadBarrierUpdater);
+  auto ignore_null = [](T) {};
+  UpdateTableWith<decltype(WithReadBarrierUpdater),
+                  /*kRemoveNull*/false,
+                  decltype(ignore_null)>(WithReadBarrierUpdater, ignore_null);
 }
 
 template <typename T>
@@ -178,9 +181,15 @@ bool JvmtiWeakTable<T>::SetLocked(art::Thread* self, art::mirror::Object* obj, T
 template <typename T>
 void JvmtiWeakTable<T>::Sweep(art::IsMarkedVisitor* visitor) {
   if (DoesHandleNullOnSweep()) {
-    SweepImpl<true>(visitor);
+    std::vector<T> nulls_vec;
+    auto handler = [&](T val) { nulls_vec.push_back(val); };
+    SweepImpl<decltype(handler)>(visitor, handler);
+    for (T t : nulls_vec) {
+      HandleNullSweep(t);
+    }
   } else {
-    SweepImpl<false>(visitor);
+    auto handler = [](T) {};
+    SweepImpl<decltype(handler)>(visitor, handler);
   }
 
   // Under concurrent GC, there is a window between moving objects and sweeping of system
@@ -193,8 +202,8 @@ void JvmtiWeakTable<T>::Sweep(art::IsMarkedVisitor* visitor) {
 }
 
 template <typename T>
-template <bool kHandleNull>
-void JvmtiWeakTable<T>::SweepImpl(art::IsMarkedVisitor* visitor) {
+template <typename NullHandler>
+void JvmtiWeakTable<T>::SweepImpl(art::IsMarkedVisitor* visitor, NullHandler& null_handler) {
   art::Thread* self = art::Thread::Current();
   art::MutexLock mu(self, allow_disallow_lock_);
 
@@ -204,12 +213,14 @@ void JvmtiWeakTable<T>::SweepImpl(art::IsMarkedVisitor* visitor) {
   };
 
   UpdateTableWith<decltype(IsMarkedUpdater),
-                  kHandleNull ? kCallHandleNull : kRemoveNull>(IsMarkedUpdater);
+                  /*kRemoveNulls*/ true,
+                  decltype(null_handler)>(IsMarkedUpdater, null_handler);
 }
 
 template <typename T>
-template <typename Updater, typename JvmtiWeakTable<T>::TableUpdateNullTarget kTargetNull>
-ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater) {
+template <typename Updater, bool kRemoveNull, typename NullHandler>
+ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater,
+                                                             NullHandler& handle_null) {
   // We optimistically hope that elements will still be well-distributed when re-inserting them.
   // So play with the map mechanics, and postpone rehashing. This avoids the need of a side
   // vector and two passes.
@@ -223,16 +234,17 @@ ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater) {
     art::mirror::Object* original_obj = it->first.template Read<art::kWithoutReadBarrier>();
     art::mirror::Object* target_obj = updater(it->first, original_obj);
     if (original_obj != target_obj) {
-      if (kTargetNull == kIgnoreNull && target_obj == nullptr) {
+      T tag = it->second;
+      if (!kRemoveNull && target_obj == nullptr) {
         // Ignore null target, don't do anything.
+        handle_null(tag);
       } else {
-        T tag = it->second;
         it = tagged_objects_.erase(it);
         if (target_obj != nullptr) {
           tagged_objects_.emplace(art::GcRoot<art::mirror::Object>(target_obj), tag);
           DCHECK_EQ(original_bucket_count, tagged_objects_.bucket_count());
-        } else if (kTargetNull == kCallHandleNull) {
-          HandleNullSweep(tag);
+        } else {
+          handle_null(tag);
         }
         continue;  // Iterator was implicitly updated by erase.
       }

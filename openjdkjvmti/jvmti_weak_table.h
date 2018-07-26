@@ -128,7 +128,7 @@ class JvmtiWeakTable : public art::gc::SystemWeakHolder {
     return false;
   }
   // If DoesHandleNullOnSweep returns true, this function will be called.
-  virtual void HandleNullSweep(T tag ATTRIBUTE_UNUSED) {}
+  virtual void HandleNullSweep(T tag ATTRIBUTE_UNUSED) REQUIRES(!allow_disallow_lock_) {}
 
  private:
   ALWAYS_INLINE
@@ -176,19 +176,13 @@ class JvmtiWeakTable : public art::gc::SystemWeakHolder {
       REQUIRES_SHARED(art::Locks::mutator_lock_)
       REQUIRES(allow_disallow_lock_);
 
-  template <bool kHandleNull>
-  void SweepImpl(art::IsMarkedVisitor* visitor)
+  template <typename NullHandler>
+  void SweepImpl(art::IsMarkedVisitor* visitor, NullHandler& handler)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
       REQUIRES(!allow_disallow_lock_);
 
-  enum TableUpdateNullTarget {
-    kIgnoreNull,
-    kRemoveNull,
-    kCallHandleNull
-  };
-
-  template <typename Updater, TableUpdateNullTarget kTargetNull>
-  void UpdateTableWith(Updater& updater)
+  template <typename Updater, bool kRemoveNulls, typename NullHandler>
+  void UpdateTableWith(Updater& updater, NullHandler& handle_null)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
       REQUIRES(allow_disallow_lock_);
 
