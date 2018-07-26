@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7f975d8_c1aaa4dc",
+        "filename": "openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-26T17:02:24Z",
+      "side": 1,
+      "message": "Inconsistent?",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 3
+      },
+      "revId": "c2837841a2bef4ab2def821e3b4cdc992ad06779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9d1e7c2_9cc69701",
+        "filename": "openjdkjvmti/ti_monitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-26T17:02:24Z",
+      "side": 1,
+      "message": "Am I missing the implementation of this? (And it doesn\u0027t seem necessary, anyways)",
+      "range": {
+        "startLine": 48,
+        "startChar": 20,
+        "endLine": 48,
+        "endChar": 43
+      },
+      "revId": "c2837841a2bef4ab2def821e3b4cdc992ad06779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
