@@ -146,7 +146,9 @@ class SchedulerTest : public OptimizingUnitTest {
     environment->SetRawEnvAt(1, mul);
     mul->AddEnvUseAt(div_check->GetEnvironment(), 1);
 
-    SchedulingGraph scheduling_graph(scheduler, GetScopedAllocator());
+    SchedulingGraph scheduling_graph(scheduler,
+                                     GetScopedAllocator(),
+                                     /* heap_location_collector */ nullptr);
     // Instructions must be inserted in reverse order into the scheduling graph.
     for (HInstruction* instr : ReverseRange(block_instructions)) {
       scheduling_graph.AddNode(instr);
@@ -276,11 +278,10 @@ class SchedulerTest : public OptimizingUnitTest {
       entry->AddInstruction(instr);
     }
 
-    SchedulingGraph scheduling_graph(scheduler, GetScopedAllocator());
     HeapLocationCollector heap_location_collector(graph_);
     heap_location_collector.VisitBasicBlock(entry);
     heap_location_collector.BuildAliasingMatrix();
-    scheduling_graph.SetHeapLocationCollector(heap_location_collector);
+    SchedulingGraph scheduling_graph(scheduler, GetScopedAllocator(), &heap_location_collector);
 
     for (HInstruction* instr : ReverseRange(block_instructions)) {
       // Build scheduling graph with memory access aliasing information
