@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ecd96ff_593714f6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-07-26T16:24:32Z",
+      "side": 1,
+      "message": "Is this safe? If my understanding is correct, this won\u0027t account for the shadow frame, which is a change from the previous code (assuming not everything is inlined).",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 97
+      },
+      "revId": "acae78497c032b147b6dba29935c103044c14ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
