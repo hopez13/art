@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f233b20f_53f9113b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-27T17:07:57Z",
+      "side": 1,
+      "message": "It did make huge saving at the time.  I am guess it is still paying of overall (i.e. reverting that CL would be bad).\n\nHowever, I certainly willing to reconsider:\n\n1) There are potential tweaks that can be done to improve it.\n\n2) The bittable dedup CL might make them shared enough so that they size is negligible, and thus we might revert to the non-optimal but simple bitmap again.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 31
+      },
+      "revId": "f14f3fae4763ed0bfb7505ede8cf5ac68cdbc3a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
