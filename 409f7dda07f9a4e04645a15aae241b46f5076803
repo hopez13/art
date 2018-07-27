@@ -45,6 +45,30 @@
       "revId": "409f7dda07f9a4e04645a15aae241b46f5076803",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "655d11b3_1f87c019",
+        "filename": "runtime/gc/system_weak.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-07-27T21:21:16Z",
+      "side": 1,
+      "message": "Only so long as everything uses AbstraceSystemWeakHolder.",
+      "parentUuid": "88e4f8c0_e6493ee6",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 9
+      },
+      "revId": "409f7dda07f9a4e04645a15aae241b46f5076803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
