@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b973826_0494ddec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1094349
+      },
+      "writtenOn": "2018-07-27T21:39:40Z",
+      "side": 1,
+      "message": "Huh. I always thought ObjectFree events could occur after the gc function. I remember reading about it somewhere in the spec, but I can\u0027t find the exact snippets anymore. Maybe the spec is just being vague about when the callback can get triggered..",
+      "range": {
+        "startLine": 22,
+        "startChar": 48,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "2d729ec105abd0d53f7863f246b6e9067db91afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
