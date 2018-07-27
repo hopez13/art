@@ -1,0 +1,233 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3683fae_f3efed7b",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "This tests that the tables are _not_ deduped?",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a47c6e_bfbcf55c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "Add a comment that we are deduplicating the inner tables here.",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "223d2deb_1323a483",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "Can we get back to SafeMap\u003c\u003e::GetOrCreate(), please?",
+      "range": {
+        "startLine": 1466,
+        "startChar": 37,
+        "endLine": 1466,
+        "endChar": 44
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8ecc971_025d44b7",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "Update the comment; it is deduplicated as entire StackMap without deduplication of inner tables.",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9202604_9e984b78",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "/* bit_start */",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44eb1cc6_e5b69910",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "/* bit_start */",
+      "range": {
+        "startLine": 202,
+        "startChar": 68,
+        "endLine": 202,
+        "endChar": 69
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aca27128_2be87cfb",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "You do not need to spell out the BitMemoryRegion here.",
+      "range": {
+        "startLine": 202,
+        "startChar": 25,
+        "endLine": 202,
+        "endChar": 40
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ba1ae3c_ace254d5",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "DCHECK_LE(bit_length, std::numeric_limits\u003csize_t\u003e::max() - bit_offset_);",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe96510_4be2b25f",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "What about\n\n  uint32_t bit_offset \u003d current_bit_offset - DecodeVarintBits(reader);\n  BitMemoryReader reader2(data, /* bit_start */ 0, bit_offset);\n\n?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca162701_53eed14d",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "We usually try to avoid the weird semantics of the std::map\u003c\u003e::operator[](). Use SafeMap\u003c\u003e::GetOrCreate() instead.",
+      "range": {
+        "startLine": 79,
+        "startChar": 31,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b70c9651_94df5557",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-27T17:35:18Z",
+      "side": 1,
+      "message": "/*inout*/DedupeMap*",
+      "range": {
+        "startLine": 427,
+        "startChar": 69,
+        "endLine": 427,
+        "endChar": 79
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
