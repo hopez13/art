@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "54bfeb6c_d41702b7",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-27T18:14:06Z",
+      "side": 1,
+      "message": "It tests the size is less the double (i.e. at least some deduping).\n\nLT would be better but I thought expected should be on the left.",
+      "parentUuid": "b3683fae_f3efed7b",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81a47c6e_bfbcf55c",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 6
@@ -185,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "a3b97e4e_3a63c7ba",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-27T18:14:06Z",
+      "side": 1,
+      "message": "In that case bit_offset would be negative.\nI did consider adding support to negative bit_offset as parameters.\nDo you want me to do that?",
+      "parentUuid": "afe96510_4be2b25f",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca162701_53eed14d",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 6
@@ -228,6 +270,30 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a97c4c1_65950b06",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-27T18:14:06Z",
+      "side": 1,
+      "message": "I agree with pointer.\nIt does not feel like \"inout\" though - it does no replace the object.",
+      "parentUuid": "b70c9651_94df5557",
+      "range": {
+        "startLine": 427,
+        "startChar": 69,
+        "endLine": 427,
+        "endChar": 79
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
