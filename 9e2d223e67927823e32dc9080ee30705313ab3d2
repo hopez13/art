@@ -93,6 +93,30 @@
       "revId": "9e2d223e67927823e32dc9080ee30705313ab3d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f3f2216_097ef30b",
+        "filename": "tools/ahat/src/test/com/android/ahat/RiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-30T12:08:16Z",
+      "side": 1,
+      "message": "In theory it\u0027s possible but very unlikely. In practice I expect it to be very unlikely. I rely on similar things for some of the other tests, and I have never seen them fail due to unexpected GC. These tests are run continuously, so I\u0027ll be notified if there are any flakes.",
+      "parentUuid": "22ac6902_cd1b7a20",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 54
+      },
+      "revId": "9e2d223e67927823e32dc9080ee30705313ab3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
