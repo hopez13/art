@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f67fc635_6121fe4a",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-30T14:41:29Z",
+      "side": 1,
+      "message": "ACK. I misread that as ASSERT_EQ.",
+      "parentUuid": "54bfeb6c_d41702b7",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81a47c6e_bfbcf55c",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 6
@@ -227,6 +245,30 @@
     },
     {
       "key": {
+        "uuid": "7be8d058_5564924f",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-30T14:41:29Z",
+      "side": 1,
+      "message": "OK, let\u0027s keep the code as is but add a comment about where the \"data\" points.",
+      "parentUuid": "a3b97e4e_3a63c7ba",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca162701_53eed14d",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 6
@@ -294,6 +336,30 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51dd489_8e022cc0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-07-30T14:41:29Z",
+      "side": 1,
+      "message": "It\u0027s using the dedupe_map for lookup (in) and for storing new mappings (out).",
+      "parentUuid": "8a97c4c1_65950b06",
+      "range": {
+        "startLine": 427,
+        "startChar": 69,
+        "endLine": 427,
+        "endChar": 79
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
