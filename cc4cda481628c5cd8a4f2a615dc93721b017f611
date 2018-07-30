@@ -34,6 +34,24 @@
       "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be141ed6_9ec5b1c5",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-07-30T16:30:30Z",
+      "side": 1,
+      "message": "This CL is changing the behaviour of how side effects are treated in scheduler, however there are no gtests for TriggerGC side effect (of course, we are sorry that they have not been shipped with original scheduler CL).\n\nI am going to take a closer look into the patch on Wednesday, sorry for the delay.",
+      "parentUuid": "7cbb2847_cf095ecb",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
