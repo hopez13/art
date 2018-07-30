@@ -46,6 +46,30 @@
       "revId": "9e2d223e67927823e32dc9080ee30705313ab3d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7588dbde_20cfe23a",
+        "filename": "tools/ahat/src/ri-test-dump/DumpedStuff.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-07-30T10:45:34Z",
+      "side": 1,
+      "message": "I\u0027m copying the class layout used in ahat/src/test-dump/* so I can reuse the TestDump.getDumpedAhatInstance convenience function. In that case, DumpedStuff originally was a nested class of Main, but it got pulled out as part of https://android-review.googlesource.com/c/platform/art/+/530455 to help test proguard deobfuscation (where we want to have classes in different files).\n\nI tried to clarify the documentation. Better now?",
+      "parentUuid": "504f7a95_6423d28f",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 5
+      },
+      "revId": "9e2d223e67927823e32dc9080ee30705313ab3d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
