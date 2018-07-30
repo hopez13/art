@@ -280,6 +280,20 @@ bool SchedulingGraph::HasSideEffectDependency(HInstruction* node,
   return false;
 }
 
+static bool HasMoreLikelyDependencies(HInstruction* lhs, HInstruction* rhs) {
+  if (!lhs->GetSideEffects().Includes(rhs->GetSideEffects())) {
+    // Weaker side effects.
+    return false;
+  }
+  if (rhs->GetSideEffects().Includes(lhs->GetSideEffects())) {
+    // Same side effects, check if `lhs` has stronger `CanThrow()`.
+    return lhs->CanThrow() && !rhs->CanThrow();
+  } else {
+    // Stronger side effects, check if lhs has at least as strong `CanThrow()`.
+    return lhs->CanThrow() || !rhs->CanThrow();
+  }
+}
+
 void SchedulingGraph::AddDependencies(HInstruction* instruction, bool is_scheduling_barrier) {
   SchedulingNode* instruction_node = GetNode(instruction);
 
@@ -331,6 +345,7 @@ void SchedulingGraph::AddDependencies(HInstruction* instruction, bool is_schedul
 
   // Side effect dependencies.
   if (!instruction->GetSideEffects().DoesNothing() || instruction->CanThrow()) {
+    HInstruction* side_effect_dep = nullptr;
     for (HInstruction* other = instruction->GetNext(); other != nullptr; other = other->GetNext()) {
       SchedulingNode* other_node = GetNode(other);
       if (other_node->IsSchedulingBarrier()) {
@@ -340,7 +355,15 @@ void SchedulingGraph::AddDependencies(HInstruction* instruction, bool is_schedul
         break;
       }
       if (HasSideEffectDependency(other, instruction)) {
-        AddOtherDependency(other_node, instruction_node);
+        if (side_effect_dep != nullptr && HasSideEffectDependency(other, side_effect_dep)) {
+          // Skip an explicit dependency to reduce memory usage, rely on the transitive dependency.
+        } else {
+          AddOtherDependency(other_node, instruction_node);
+        }
+        // Keep an instruction with more likely dependencies for transitive dependency detection.
+        if (side_effect_dep == nullptr || HasMoreLikelyDependencies(other, side_effect_dep)) {
+          side_effect_dep = other;
+        }
       }
     }
   }
