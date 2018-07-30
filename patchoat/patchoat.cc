@@ -239,7 +239,7 @@ bool PatchOat::GeneratePatch(
                               BitsToBytesRoundUp(num_indexes));
     return false;
   }
-  BitMemoryRegion relocation_bitmap(relocations_data, /* bit_offset */ 0u, num_indexes);
+  BitMemoryRegion relocation_bitmap(relocations_data.begin(), /* bit_offset */ 0u, num_indexes);
 
   // Output the SHA-256 digest of the original
   output->resize(SHA256_DIGEST_LENGTH);

@@ -483,9 +483,7 @@ class ProfileCompilationInfo {
           bitmap_storage(allocator->Adapter(kArenaAllocProfile)) {
       bitmap_storage.resize(ComputeBitmapStorage(num_method_ids));
       if (!bitmap_storage.empty()) {
-        method_bitmap =
-            BitMemoryRegion(MemoryRegion(
-                &bitmap_storage[0], bitmap_storage.size()), 0, ComputeBitmapBits(num_method_ids));
+        method_bitmap = BitMemoryRegion(&bitmap_storage[0], 0, ComputeBitmapBits(num_method_ids));
       }
     }
 

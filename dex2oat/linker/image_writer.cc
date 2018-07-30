@@ -3027,8 +3027,9 @@ void ImageWriter::RecordImageRelocation(const void* dest,
   }
   // Mark the location in the bitmap.
   DCHECK(compile_app_image_ || !app_to_boot_image);
-  MemoryRegion region(image_info->relocation_bitmap_.data(), image_info->relocation_bitmap_.size());
-  BitMemoryRegion bit_region(region, /* bit_offset */ 0u, compile_app_image_ ? 2u * size : size);
+  BitMemoryRegion bit_region(image_info->relocation_bitmap_.data(),
+                             /* bit_offset */ 0u,
+                             compile_app_image_ ? 2u * size : size);
   DCHECK(!bit_region.LoadBit(index));
   bit_region.StoreBit(index, /* value*/ true);
 }

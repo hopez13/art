@@ -48,7 +48,7 @@ void CodeInfo::Decode(const uint8_t* data, DecodeFlags flags) {
   dex_register_masks_.Decode(reader);
   dex_register_maps_.Decode(reader);
   dex_register_catalog_.Decode(reader);
-  size_in_bits_ = (data - begin) * kBitsPerByte + reader.GetBitOffset();
+  size_in_bits_ = (data - begin) * kBitsPerByte + reader.NumberOfReadBits();
 }
 
 BitTable<StackMap>::const_iterator CodeInfo::BinarySearchNativePc(uint32_t packed_pc) const {

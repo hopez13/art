@@ -40,7 +40,7 @@ TEST(BitMemoryRegion, TestBit) {
       for (uint32_t value = 0; value <= 1; value++) {
         // Check Store and Load with bit_offset set on the region.
         std::fill_n(data, sizeof(data), initial_value * 0xFF);
-        BitMemoryRegion bmr1(MemoryRegion(&data, sizeof(data)), bit_offset, 1);
+        BitMemoryRegion bmr1(data, bit_offset, 1);
         bmr1.StoreBit(0, value);
         EXPECT_EQ(bmr1.LoadBit(0), value);
         CheckBits(data, sizeof(data), initial_value, bit_offset, 1, value);
@@ -64,7 +64,7 @@ TEST(BitMemoryRegion, TestBits) {
       for (uint32_t initial_value = 0; initial_value <= 1; initial_value++) {
         // Check Store and Load with bit_offset set on the region.
         std::fill_n(data, sizeof(data), initial_value * 0xFF);
-        BitMemoryRegion bmr1(MemoryRegion(&data, sizeof(data)), bit_offset, bit_length);
+        BitMemoryRegion bmr1(data, bit_offset, bit_length);
         bmr1.StoreBits(0, value, bit_length);
         EXPECT_EQ(bmr1.LoadBits(0, bit_length), value);
         CheckBits(data, sizeof(data), initial_value, bit_offset, bit_length, value);
