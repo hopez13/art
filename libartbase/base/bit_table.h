@@ -77,7 +77,7 @@ class BitTableBase {
 
   ALWAYS_INLINE void Decode(BitMemoryReader& reader) {
     // Decode row count and column sizes from the table header.
-    size_t initial_bit_offset = reader.GetBitOffset();
+    size_t initial_bit_offset = reader.NumberOfReadBits();
     num_rows_ = DecodeVarintBits(reader);
     if (num_rows_ != 0) {
       column_offset_[0] = 0;
@@ -86,10 +86,10 @@ class BitTableBase {
         column_offset_[i + 1] = dchecked_integral_cast<uint16_t>(column_end);
       }
     }
-    header_bit_size_ = reader.GetBitOffset() - initial_bit_offset;
+    header_bit_size_ = reader.NumberOfReadBits() - initial_bit_offset;
 
     // Record the region which contains the table data and skip past it.
-    table_data_ = reader.Skip(num_rows_ * NumRowBits());
+    table_data_ = reader.ReadRegion(num_rows_ * NumRowBits());
   }
 
   ALWAYS_INLINE uint32_t Get(uint32_t row, uint32_t column = 0) const {
@@ -376,7 +376,7 @@ class BitTableBuilderBase {
   // Encode the stored data into a BitTable.
   template<typename Vector>
   void Encode(BitMemoryWriter<Vector>& out) const {
-    size_t initial_bit_offset = out.GetBitOffset();
+    size_t initial_bit_offset = out.NumberOfWrittenBits();
 
     std::array<uint32_t, kNumColumns> column_bits;
     Measure(&column_bits);
@@ -398,7 +398,7 @@ class BitTableBuilderBase {
     // Verify the written data.
     if (kIsDebugBuild) {
       BitTableBase<kNumColumns> table;
-      BitMemoryReader reader(out.data(), initial_bit_offset);
+      BitMemoryReader reader(out.GetWrittenRegion().Subregion(initial_bit_offset));
       table.Decode(reader);
       DCHECK_EQ(size(), table.NumRows());
       for (uint32_t c = 0; c < kNumColumns; c++) {
@@ -467,7 +467,7 @@ class BitmapTableBuilder {
   // Encode the stored data into a BitTable.
   template<typename Vector>
   void Encode(BitMemoryWriter<Vector>& out) const {
-    size_t initial_bit_offset = out.GetBitOffset();
+    size_t initial_bit_offset = out.NumberOfWrittenBits();
 
     EncodeVarintBits(out, size());
     if (size() != 0) {
@@ -484,7 +484,7 @@ class BitmapTableBuilder {
     // Verify the written data.
     if (kIsDebugBuild) {
       BitTableBase<1> table;
-      BitMemoryReader reader(out.data(), initial_bit_offset);
+      BitMemoryReader reader(out.GetWrittenRegion().Subregion(initial_bit_offset));
       table.Decode(reader);
       DCHECK_EQ(size(), table.NumRows());
       DCHECK_EQ(max_num_bits_, table.NumColumnBits(0));
