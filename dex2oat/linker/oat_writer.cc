@@ -1440,7 +1440,10 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
   static constexpr bool kDebugVerifyDedupedCodeInfo = false;
 
   InitMapMethodVisitor(OatWriter* writer, size_t offset)
-      : OatDexMethodVisitor(writer, offset) {}
+      : OatDexMethodVisitor(writer, offset),
+        code_info_writer_(&writer_->code_info_data_) {
+    DCHECK_EQ(writer_->code_info_data_.size(), 0u);
+  }
 
   bool VisitMethod(size_t class_def_method_index, const ClassDataItemIterator& it ATTRIBUTE_UNUSED)
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1456,7 +1459,9 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
         // Deduplicate the inner bittables within the CodeInfo.
         std::vector<uint8_t>* data = &writer_->code_info_data_;
         size_t offset = dedupe_code_info_.GetOrCreate(map.data(), [=]() {
-          size_t deduped_offset = CodeInfo::Dedupe(data, map.data(), &dedupe_bit_table_);
+          size_t deduped_offset = CodeInfo::Dedupe(code_info_writer_,
+                                                   map.data(),
+                                                   &dedupe_bit_table_);
           if (kDebugVerifyDedupedCodeInfo) {
             InstructionSet isa = writer_->GetCompilerOptions().GetInstructionSet();
             std::stringstream old_code_info;
@@ -1480,6 +1485,8 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
   }
 
  private:
+  BitMemoryWriter<std::vector<uint8_t>> code_info_writer_;
+
   // Deduplicate at CodeInfo level. The value is byte offset within code_info_data_.
   // This deduplicates the whole CodeInfo object without going into the inner tables.
   // The compiler already deduplicated the pointers but it did not dedupe the tables.

@@ -48,26 +48,30 @@ class BitMemoryRegion FINAL : public ValueObject {
   };
 
   BitMemoryRegion() = default;
-  ALWAYS_INLINE BitMemoryRegion(void* data, size_t bit_start, size_t bit_size)
-    : data_(reinterpret_cast<uintptr_t*>(AlignDown(data, sizeof(uintptr_t)))),
-      bit_start_(bit_start + 8 * (reinterpret_cast<uintptr_t>(data) % sizeof(uintptr_t))),
-      bit_size_(bit_size) {
+  ALWAYS_INLINE BitMemoryRegion(uint8_t* data, ssize_t bit_start, size_t bit_size) {
+    // Normalize the data pointer. Note that bit_start may be negative.
+    uint8_t* aligned_data = AlignDown(data + (bit_start >> kBitsPerByteLog2), sizeof(uintptr_t));
+    data_ = reinterpret_cast<uintptr_t*>(aligned_data);
+    bit_start_ = bit_start + kBitsPerByte * (data - aligned_data);
+    bit_size_ = bit_size;
+    DCHECK_LT(bit_start_, static_cast<size_t>(kBitsPerIntPtrT));
   }
   ALWAYS_INLINE explicit BitMemoryRegion(MemoryRegion region)
     : BitMemoryRegion(region.begin(), /* bit_start */ 0, region.size_in_bits()) {
   }
   ALWAYS_INLINE BitMemoryRegion(MemoryRegion region, size_t bit_offset, size_t bit_length)
     : BitMemoryRegion(region) {
-    DCHECK_LE(bit_offset, bit_size_);
-    DCHECK_LE(bit_length, bit_size_ - bit_offset);
-    bit_start_ += bit_offset;
-    bit_size_ = bit_length;
+    *this = Subregion(bit_offset, bit_length);
   }
 
   ALWAYS_INLINE bool IsValid() const { return data_ != nullptr; }
 
   size_t size_in_bits() const {
     return bit_size_;
+  }
+
+  void Resize(size_t bit_size) {
+    bit_size_ = bit_size;
   }
 
   ALWAYS_INLINE BitMemoryRegion Subregion(size_t bit_offset, size_t bit_length) const {
@@ -79,12 +83,11 @@ class BitMemoryRegion FINAL : public ValueObject {
     return result;
   }
 
-  // Increase the size of the region and return the newly added range (starting at the old end).
-  ALWAYS_INLINE BitMemoryRegion Extend(size_t bit_length) {
+  ALWAYS_INLINE BitMemoryRegion Subregion(size_t bit_offset) const {
+    DCHECK_LE(bit_offset, bit_size_);
     BitMemoryRegion result = *this;
-    result.bit_start_ += result.bit_size_;
-    result.bit_size_ = bit_length;
-    bit_size_ += bit_length;
+    result.bit_start_ += bit_offset;
+    result.bit_size_ -= bit_offset;
     return result;
   }
 
@@ -198,28 +201,30 @@ class BitMemoryRegion FINAL : public ValueObject {
 
 class BitMemoryReader {
  public:
-  explicit BitMemoryReader(const uint8_t* data, size_t bit_offset = 0)
-      : finished_region_(const_cast<uint8_t*>(data), /* bit_start */ 0, bit_offset) {
-    DCHECK_EQ(GetBitOffset(), bit_offset);
+  BitMemoryReader(BitMemoryReader&&) = default;
+  explicit BitMemoryReader(BitMemoryRegion data)
+      : finished_region_(data.Subregion(0, 0) /* set the length to zero */ ) {
+  }
+  explicit BitMemoryReader(const uint8_t* data, ssize_t bit_offset = 0)
+      : finished_region_(const_cast<uint8_t*>(data), bit_offset, /* bit_length */ 0) {
   }
 
-  size_t GetBitOffset() const { return finished_region_.size_in_bits(); }
+  BitMemoryRegion GetReadRegion() const { return finished_region_; }
 
-  ALWAYS_INLINE BitMemoryRegion Skip(size_t bit_length) {
-    return finished_region_.Extend(bit_length);
-  }
+  size_t NumberOfReadBits() const { return finished_region_.size_in_bits(); }
 
-  // Get the most recently read bits.
-  ALWAYS_INLINE BitMemoryRegion Tail(size_t bit_length) {
-    return finished_region_.Subregion(finished_region_.size_in_bits() - bit_length, bit_length);
+  ALWAYS_INLINE BitMemoryRegion ReadRegion(size_t bit_length) {
+    size_t bit_offset = finished_region_.size_in_bits();
+    finished_region_.Resize(bit_offset + bit_length);
+    return finished_region_.Subregion(bit_offset, bit_length);
   }
 
   ALWAYS_INLINE uint32_t ReadBits(size_t bit_length) {
-    return finished_region_.Extend(bit_length).LoadBits(0, bit_length);
+    return ReadRegion(bit_length).LoadBits(0, bit_length);
   }
 
   ALWAYS_INLINE bool ReadBit() {
-    return finished_region_.Extend(1).LoadBit(0);
+    return ReadRegion(1).LoadBit(0);
   }
 
  private:
@@ -234,20 +239,26 @@ template<typename Vector>
 class BitMemoryWriter {
  public:
   explicit BitMemoryWriter(Vector* out, size_t bit_offset = 0)
-      : out_(out), bit_offset_(bit_offset) {
-    DCHECK_EQ(GetBitOffset(), bit_offset);
+      : out_(out), bit_start_(bit_offset), bit_offset_(bit_offset) {
+    DCHECK_EQ(NumberOfWrittenBits(), 0u);
   }
 
-  const uint8_t* data() const { return out_->data(); }
+  BitMemoryRegion GetWrittenRegion() const {
+    return BitMemoryRegion(out_->data(), bit_start_, bit_offset_ - bit_start_);
+  }
 
-  size_t GetBitOffset() const { return bit_offset_; }
+  size_t NumberOfWrittenBits() const { return bit_offset_ - bit_start_; }
 
   ALWAYS_INLINE BitMemoryRegion Allocate(size_t bit_length) {
     out_->resize(BitsToBytesRoundUp(bit_offset_ + bit_length));
-    BitMemoryRegion region(MemoryRegion(out_->data(), out_->size()), bit_offset_, bit_length);
+    BitMemoryRegion region(out_->data(), bit_offset_, bit_length);
     DCHECK_LE(bit_length, std::numeric_limits<size_t>::max() - bit_offset_) << "Overflow";
     bit_offset_ += bit_length;
     return region;
+  }
+
+  ALWAYS_INLINE void WriteRegion(const BitMemoryRegion& region) {
+    Allocate(region.size_in_bits()).StoreBits(0, region, region.size_in_bits());
   }
 
   ALWAYS_INLINE void WriteBits(uint32_t value, size_t bit_length) {
@@ -258,12 +269,14 @@ class BitMemoryWriter {
     Allocate(1).StoreBit(0, value);
   }
 
-  ALWAYS_INLINE void WriteRegion(const BitMemoryRegion& region) {
-    Allocate(region.size_in_bits()).StoreBits(0, region, region.size_in_bits());
+  ALWAYS_INLINE void ByteAlign() {
+    size_t end = bit_start_ + bit_offset_;
+    bit_offset_ += RoundUp(end, kBitsPerByte) - end;
   }
 
  private:
   Vector* out_;
+  size_t bit_start_;
   size_t bit_offset_;
 
   DISALLOW_COPY_AND_ASSIGN(BitMemoryWriter);
