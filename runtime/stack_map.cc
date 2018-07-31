@@ -34,15 +34,10 @@ CodeInfo::CodeInfo(const OatQuickMethodHeader* header, DecodeFlags flags)
 template<typename Accessor>
 ALWAYS_INLINE static void DecodeTable(BitTable<Accessor>& table,
                                       BitMemoryReader& reader,
-                                      const uint8_t* data) {
-  bool is_deduped = reader.ReadBit();
-  if (is_deduped) {
-    // 'data' points to the start of the reader's data.
-    uint32_t current_bit_offset = reader.GetBitOffset();
-    uint32_t bit_offset_backwards = DecodeVarintBits(reader) - current_bit_offset;
-    uint32_t byte_offset_backwards = BitsToBytesRoundUp(bit_offset_backwards);
-    BitMemoryReader reader2(data - byte_offset_backwards,
-                            byte_offset_backwards * kBitsPerByte - bit_offset_backwards);
+                                      const uint8_t* reader_data) {
+  if (reader.ReadBit() /* is_deduped */) {
+    ssize_t bit_offset = reader.NumberOfReadBits() - DecodeVarintBits(reader);
+    BitMemoryReader reader2(reader_data, bit_offset);  // The offset is negative.
     table.Decode(reader2);
   } else {
     table.Decode(reader);
@@ -66,7 +61,7 @@ void CodeInfo::Decode(const uint8_t* data, DecodeFlags flags) {
   DecodeTable(dex_register_masks_, reader, data);
   DecodeTable(dex_register_maps_, reader, data);
   DecodeTable(dex_register_catalog_, reader, data);
-  size_in_bits_ = reader.GetBitOffset();
+  size_in_bits_ = reader.NumberOfReadBits();
 }
 
 template<typename Accessor>
@@ -75,23 +70,27 @@ ALWAYS_INLINE static void DedupeTable(BitMemoryWriter<std::vector<uint8_t>>& wri
                                       CodeInfo::DedupeMap* dedupe_map) {
   bool is_deduped = reader.ReadBit();
   DCHECK(!is_deduped);
+  size_t bit_table_start = reader.NumberOfReadBits();
   BitTable<Accessor> bit_table(reader);
-  BitMemoryRegion region = reader.Tail(bit_table.BitSize());
-  auto it = dedupe_map->insert(std::make_pair(region, writer.GetBitOffset() + 1 /* dedupe bit */));
+  BitMemoryRegion region = reader.GetReadRegion().Subregion(bit_table_start);
+  auto it = dedupe_map->insert(std::make_pair(region, 0));
   if (it.second /* new bit table */ || region.size_in_bits() < 32) {
     writer.WriteBit(false);  // Is not deduped.
+    it.first->second = writer.NumberOfWrittenBits();
     writer.WriteRegion(region);
   } else {
     writer.WriteBit(true);  // Is deduped.
-    EncodeVarintBits(writer, writer.GetBitOffset() - it.first->second);
+    size_t bit_offset = writer.NumberOfWrittenBits();
+    EncodeVarintBits(writer, bit_offset - it.first->second);
   }
 }
 
-size_t CodeInfo::Dedupe(std::vector<uint8_t>* out, const uint8_t* in, DedupeMap* dedupe_map) {
-  // Remember the current offset in the output buffer so that we can return it later.
-  const size_t result = out->size();
-  BitMemoryReader reader(in);
-  BitMemoryWriter<std::vector<uint8_t>> writer(out, /* bit_offset */ out->size() * kBitsPerByte);
+size_t CodeInfo::Dedupe(BitMemoryWriter<std::vector<uint8_t>>& writer,
+                        const uint8_t* code_info,
+                        DedupeMap* dedupe_map) {
+  writer.ByteAlign();
+  size_t deduped_offset = writer.NumberOfWrittenBits() / kBitsPerByte;
+  BitMemoryReader reader(code_info);
   EncodeVarintBits(writer, DecodeVarintBits(reader));  // packed_frame_size_.
   EncodeVarintBits(writer, DecodeVarintBits(reader));  // core_spill_mask_.
   EncodeVarintBits(writer, DecodeVarintBits(reader));  // fp_spill_mask_.
@@ -104,7 +103,7 @@ size_t CodeInfo::Dedupe(std::vector<uint8_t>* out, const uint8_t* in, DedupeMap*
   DedupeTable<MaskInfo>(writer, reader, dedupe_map);
   DedupeTable<DexRegisterMapInfo>(writer, reader, dedupe_map);
   DedupeTable<DexRegisterInfo>(writer, reader, dedupe_map);
-  return result;
+  return deduped_offset;
 }
 
 BitTable<StackMap>::const_iterator CodeInfo::BinarySearchNativePc(uint32_t packed_pc) const {
