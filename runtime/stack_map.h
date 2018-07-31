@@ -421,16 +421,6 @@ class CodeInfo {
         DecodeVarintBits(reader));  // fp_spill_mask_.
   }
 
-  typedef std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> DedupeMap;
-
-  // Copy CodeInfo data while de-duplicating the internal bit tables.
-  // The 'out' vector must be reused between Dedupe calls (it does not have to be empty).
-  // The 'dedupe_map' stores the bit offsets of bit tables within the 'out' vector.
-  // It returns the byte offset of the copied CodeInfo within the 'out' vector.
-  static size_t Dedupe(std::vector<uint8_t>* out,
-                       const uint8_t* in,
-                       /*inout*/ DedupeMap* dedupe_map);
-
  private:
   // Returns lower bound (fist stack map which has pc greater or equal than the desired one).
   // It ignores catch stack maps at the end (it is the same as if they had maximum pc value).
@@ -456,6 +446,27 @@ class CodeInfo {
   BitTable<DexRegisterMapInfo> dex_register_maps_;
   BitTable<DexRegisterInfo> dex_register_catalog_;
   uint32_t size_in_bits_ = 0;
+};
+
+class CodeInfoDeduper {
+ public:
+  explicit CodeInfoDeduper(std::vector<uint8_t>* output) : output_(output), writer_(output) {
+    DCHECK_EQ(output->size(), 0u);
+  }
+
+  // Copy CodeInfo into output while de-duplicating the internal bit tables.
+  // It returns the byte offset of the copied CodeInfo within the output.
+  size_t Dedupe(const uint8_t* code_info, InstructionSet isa);
+
+ private:
+  template<typename Accessor>
+  void DedupeTable(BitMemoryReader& reader);
+
+  std::vector<uint8_t>* output_;
+  BitMemoryWriter<std::vector<uint8_t>> writer_;
+
+  // Deduplicate at BitTable level. The value is bit offset within the output.
+  std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> dedupe_map_;
 };
 
 #undef ELEMENT_BYTE_OFFSET_AFTER
