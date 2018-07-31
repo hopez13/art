@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "bd98bc8e_717d3630",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81a47c6e_bfbcf55c",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "223d2deb_1323a483",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 6
@@ -95,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "eee90b5a_556d5821",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "223d2deb_1323a483",
+      "range": {
+        "startLine": 1466,
+        "startChar": 37,
+        "endLine": 1466,
+        "endChar": 44
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8ecc971_025d44b7",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 6
@@ -109,6 +151,24 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f108476a_feeab212",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8ecc971_025d44b7",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -132,6 +192,30 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c561fd_84895c68",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9202604_9e984b78",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -181,6 +265,54 @@
     },
     {
       "key": {
+        "uuid": "396edd65_78fd3bee",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aca27128_2be87cfb",
+      "range": {
+        "startLine": 202,
+        "startChar": 25,
+        "endLine": 202,
+        "endChar": 40
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abe5cb8e_fb46a936",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eb1cc6_e5b69910",
+      "range": {
+        "startLine": 202,
+        "startChar": 68,
+        "endLine": 202,
+        "endChar": 69
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ba1ae3c_ace254d5",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 6
@@ -195,6 +327,24 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed0397d2_6c0fc0e1",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ba1ae3c_ace254d5",
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -269,6 +419,30 @@
     },
     {
       "key": {
+        "uuid": "60c9425a_b5a8997f",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done.\n\nI find this messy, but I will try to do the cleanup in followup CL.",
+      "parentUuid": "a3b97e4e_3a63c7ba",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 89
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca162701_53eed14d",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 6
@@ -289,6 +463,30 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2e5532_8eaf991b",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca162701_53eed14d",
+      "range": {
+        "startLine": 79,
+        "startChar": 31,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -351,6 +549,30 @@
       "side": 1,
       "message": "It\u0027s using the dedupe_map for lookup (in) and for storing new mappings (out).",
       "parentUuid": "8a97c4c1_65950b06",
+      "range": {
+        "startLine": 427,
+        "startChar": 69,
+        "endLine": 427,
+        "endChar": 79
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2a11ae6_6376fee2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-07-31T16:17:59Z",
+      "side": 1,
+      "message": "I would say:\n/* inout */ int* counter - if it both reads and updates the value.\nBut not:\n/* inout */ Runtime* runtime - it both reads some fields, and updates some other state.",
+      "parentUuid": "c51dd489_8e022cc0",
       "range": {
         "startLine": 427,
         "startChar": 69,
