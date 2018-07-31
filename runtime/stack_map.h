@@ -424,11 +424,11 @@ class CodeInfo {
   typedef std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> DedupeMap;
 
   // Copy CodeInfo data while de-duplicating the internal bit tables.
-  // The 'out' vector must be reused between Dedupe calls (it does not have to be empty).
-  // The 'dedupe_map' stores the bit offsets of bit tables within the 'out' vector.
-  // It returns the byte offset of the copied CodeInfo within the 'out' vector.
-  static size_t Dedupe(std::vector<uint8_t>* out,
-                       const uint8_t* in,
+  // The writer must be reused between Dedupe calls and be empty at first call.
+  // The 'dedupe_map' stores the bit offsets of bit tables within the writer.
+  // It returns the byte offset of the copied CodeInfo within the writer.
+  static size_t Dedupe(BitMemoryWriter<std::vector<uint8_t>>& writer,
+                       const uint8_t* code_info,
                        /*inout*/ DedupeMap* dedupe_map);
 
  private:
