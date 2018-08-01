@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2dfb779_47919715",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-01T21:32:48Z",
+      "side": 1,
+      "message": "It\u0027s non-intuitive that this would work before the num_methods \u003d\u003d 0 and Read below, but I guess that\u0027s how your implementation goes.",
+      "range": {
+        "startLine": 1123,
+        "startChar": 27,
+        "endLine": 1123,
+        "endChar": 53
+      },
+      "revId": "c49e8f29ead62e4d832cd7243a7bd9f493faab43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
