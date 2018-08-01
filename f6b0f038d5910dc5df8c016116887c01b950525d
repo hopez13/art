@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "66ccbfed_a477cec3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-01T16:24:47Z",
+      "side": 1,
+      "message": "Locations are initialized at the beginning of register allocation. With this CL, we call CanDoImplicitNullCheckOn() from the PrepareForRegisterAllocation pass, so locations are not yet initialized.\n\nSo, there are more missed optimization opportunities with this CL. Please, quantify.",
+      "parentUuid": "945589b1_ef23707e",
+      "range": {
+        "startLine": 4758,
+        "startChar": 34,
+        "endLine": 4758,
+        "endChar": 48
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b976875_a6b52265",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 2
