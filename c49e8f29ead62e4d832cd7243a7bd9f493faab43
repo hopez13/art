@@ -22,6 +22,30 @@
       "revId": "c49e8f29ead62e4d832cd7243a7bd9f493faab43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "075b461f_eab6530f",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-08-01T22:27:11Z",
+      "side": 1,
+      "message": "True, should have put it below I suppose. No difference though.",
+      "parentUuid": "b2dfb779_47919715",
+      "range": {
+        "startLine": 1123,
+        "startChar": 27,
+        "endLine": 1123,
+        "endChar": 53
+      },
+      "revId": "c49e8f29ead62e4d832cd7243a7bd9f493faab43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
