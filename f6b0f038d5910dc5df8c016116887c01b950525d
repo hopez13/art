@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca7c8890_1f22ac1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-01T16:01:56Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"NeedsEnvironment\"?",
+      "range": {
+        "startLine": 2055,
+        "startChar": 63,
+        "endLine": 2055,
+        "endChar": 71
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2efdc7_85c2ed9d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-01T16:01:56Z",
+      "side": 1,
+      "message": "I think this should be named `DoesNullCheck` (to be uniform with `SharesDexLocation` line 2356).\nLikewise for `SetDoNullCheck` and `kFlagDoNullCheck`.",
+      "range": {
+        "startLine": 2353,
+        "startChar": 7,
+        "endLine": 2353,
+        "endChar": 18
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "945589b1_ef23707e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4758,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-01T16:01:56Z",
+      "side": 1,
+      "message": "This seems to be more conservative than the original code (`!GetLocations()-\u003eIntrinsified()`). Could you explain this change?",
+      "range": {
+        "startLine": 4758,
+        "startChar": 34,
+        "endLine": 4758,
+        "endChar": 48
+      },
+      "revId": "f6b0f038d5910dc5df8c016116887c01b950525d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b976875_a6b52265",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 2
