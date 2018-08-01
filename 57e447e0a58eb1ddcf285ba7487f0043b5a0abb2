@@ -582,6 +582,30 @@
       "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "046f75aa_3c7f049d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-01T09:20:55Z",
+      "side": 1,
+      "message": "I consider a map much closer to `int` than `Runtime`. It holds and owns some values.\n\nBut why don\u0027t we just create a DedupeHelper that holds the map internally and has a member function Dedupe()?",
+      "parentUuid": "f2a11ae6_6376fee2",
+      "range": {
+        "startLine": 427,
+        "startChar": 69,
+        "endLine": 427,
+        "endChar": 79
+      },
+      "revId": "57e447e0a58eb1ddcf285ba7487f0043b5a0abb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

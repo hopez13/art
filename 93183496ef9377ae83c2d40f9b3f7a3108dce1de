@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3d9637d_128906d9",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-01T09:20:55Z",
+      "side": 1,
+      "message": "My point is that the deduplication in CompilerDriver is done with CodeInfos without deduplication of the inner tables. That should really be mentioned here.",
+      "range": {
+        "startLine": 1493,
+        "startChar": 5,
+        "endLine": 1493,
+        "endChar": 76
+      },
+      "revId": "93183496ef9377ae83c2d40f9b3f7a3108dce1de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a09694da_150cb6f6",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-01T09:20:55Z",
+      "side": 1,
+      "message": "As usual, I\u0027m not too fond of the emplace() because it allocates and deallocates a node even if there is already an entry with the same key in the map. What about\n\n  uint32_t new_offset \u003d writer.GetBitOffset() + 1 /* dedupe bit */;\n  uint32_t deduped_offset \u003d writer.GetOrCreate(region, [\u003d]() { return new_offset; });\n  if (deduped_offset \u003d\u003d new_offset /* new bit table */ || region.size_in_bits() \u003c 32) {",
+      "range": {
+        "startLine": 80,
+        "startChar": 24,
+        "endLine": 80,
+        "endChar": 31
+      },
+      "revId": "93183496ef9377ae83c2d40f9b3f7a3108dce1de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
