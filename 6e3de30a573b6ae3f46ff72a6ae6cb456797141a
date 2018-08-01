@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19f6d629_e86b1785",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "Nit: suggest tightening this up \"were and have been\" duplicate. \"several\" unneeded. \"mostly caused by\" unneeded. \"some agent\" what kind of agent?\n\ns/inprogress/in-progress/",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c937109_2064620d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "Ideally we\u0027d have finer grained tests here, but there no infra currently to make that straightforward.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14a5639a_11ed08ec",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "This looks like the only use of Resume(). Is the flexibility of the flag warranted? Seems like there ought to be some simplification if always invalidating.",
+      "range": {
+        "startLine": 1413,
+        "startChar": 17,
+        "endLine": 1413,
+        "endChar": 47
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e255796f_2f19b0a3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "(2)",
+      "range": {
+        "startLine": 453,
+        "startChar": 80,
+        "endLine": 453,
+        "endChar": 81
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "633bb432_a9bc6bdf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "Can you add a bug reference here to follow-up on?",
+      "range": {
+        "startLine": 455,
+        "startChar": 5,
+        "endLine": 456,
+        "endChar": 75
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b77c1aa_dd370672",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-01T13:05:56Z",
+      "side": 1,
+      "message": "s/else if/if/ to be a little more readable.",
+      "range": {
+        "startLine": 489,
+        "startChar": 4,
+        "endLine": 500,
+        "endChar": 15
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
