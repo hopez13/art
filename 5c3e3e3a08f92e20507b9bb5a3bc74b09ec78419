@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dbd0dfe_91778ba4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2018-08-01T21:24:49Z",
+      "side": 1,
+      "message": "class?",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 6
+      },
+      "revId": "5c3e3e3a08f92e20507b9bb5a3bc74b09ec78419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0ff7277_d1d2b9aa",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2018-08-01T21:24:49Z",
+      "side": 1,
+      "message": "private with a struct reads class, no?",
+      "range": {
+        "startLine": 1417,
+        "startChar": 2,
+        "endLine": 1417,
+        "endChar": 8
+      },
+      "revId": "5c3e3e3a08f92e20507b9bb5a3bc74b09ec78419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
