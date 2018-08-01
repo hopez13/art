@@ -38,6 +38,7 @@ class StackMapStream : public ValueObject {
  public:
   explicit StackMapStream(ScopedArenaAllocator* allocator, InstructionSet instruction_set)
       : instruction_set_(instruction_set),
+        header_(allocator),
         stack_maps_(allocator),
         inline_infos_(allocator),
         method_infos_(allocator),
@@ -98,10 +99,7 @@ class StackMapStream : public ValueObject {
   void CreateDexRegisterMap();
 
   const InstructionSet instruction_set_;
-  uint32_t frame_size_in_bytes_ = 0;
-  uint32_t core_spill_mask_ = 0;
-  uint32_t fp_spill_mask_ = 0;
-  uint32_t num_dex_registers_ = 0;
+  BitTableBuilder<CodeInfoHeader> header_;
   BitTableBuilder<StackMap> stack_maps_;
   BitTableBuilder<InlineInfo> inline_infos_;
   BitTableBuilder<MethodInfo> method_infos_;

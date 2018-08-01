@@ -112,6 +112,17 @@ class DexRegisterMap {
   dchecked_vector<DexRegisterLocation> regs_large_;
 };
 
+class CodeInfoHeader : public BitTableAccessor<4> {
+ public:
+  BIT_TABLE_HEADER()
+  BIT_TABLE_COLUMN(0, PackedFrameSize);  // In kStackAlignment units.
+  BIT_TABLE_COLUMN(1, CoreSpillMask);
+  BIT_TABLE_COLUMN(2, FpSpillMask);
+  BIT_TABLE_COLUMN(3, NumberOfDexRegisters);
+
+  size_t GetFrameSizeInBytes() { return GetPackedFrameSize() * kStackAlignment; }
+};
+
 /**
  * A Stack Map holds compilation information for a specific PC necessary for:
  * - Mapping it to a dex PC,
@@ -336,7 +347,8 @@ class CodeInfo {
 
   ALWAYS_INLINE DexRegisterMap GetDexRegisterMapOf(StackMap stack_map) const {
     if (stack_map.HasDexRegisterMap()) {
-      DexRegisterMap map(number_of_dex_registers_, DexRegisterLocation::Invalid());
+      uint32_t number_of_dex_registers = header_.GetRow(0).GetNumberOfDexRegisters();
+      DexRegisterMap map(number_of_dex_registers, DexRegisterLocation::Invalid());
       DecodeDexRegisterMap(stack_map.Row(), /* first_dex_register */ 0, &map);
       return map;
     }
@@ -352,7 +364,7 @@ class CodeInfo {
       // This allows us to determine the range [first, last) in just two lookups.
       // If we are at depth 0 (the first inlinee), the count from the main method is used.
       uint32_t first = (depth == 0)
-          ? number_of_dex_registers_
+          ? header_.GetRow(0).GetNumberOfDexRegisters()
           : inline_infos_.GetRow(inline_info.Row() - 1).GetNumberOfDexRegisters();
       uint32_t last = inline_info.GetNumberOfDexRegisters();
       DexRegisterMap map(last - first, DexRegisterLocation::Invalid());
@@ -415,12 +427,7 @@ class CodeInfo {
   // Accumulate code info size statistics into the given Stats tree.
   void AddSizeStats(/*out*/ Stats* parent) const;
 
-  ALWAYS_INLINE static QuickMethodFrameInfo DecodeFrameInfo(const uint8_t* data) {
-    return QuickMethodFrameInfo(
-        DecodeUnsignedLeb128(&data),
-        DecodeUnsignedLeb128(&data),
-        DecodeUnsignedLeb128(&data));
-  }
+  static QuickMethodFrameInfo DecodeFrameInfo(const uint8_t* code_info);
 
   typedef std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> DedupeMap;
 
@@ -444,10 +451,7 @@ class CodeInfo {
 
   void Decode(const uint8_t* data, DecodeFlags flags);
 
-  uint32_t frame_size_in_bytes_;
-  uint32_t core_spill_mask_;
-  uint32_t fp_spill_mask_;
-  uint32_t number_of_dex_registers_;
+  BitTable<CodeInfoHeader> header_;  // Must have exactly one row.
   BitTable<StackMap> stack_maps_;
   BitTable<InlineInfo> inline_infos_;
   BitTable<MethodInfo> method_infos_;

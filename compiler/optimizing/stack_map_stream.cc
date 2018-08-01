@@ -45,12 +45,15 @@ void StackMapStream::BeginMethod(size_t frame_size_in_bytes,
                                  uint32_t num_dex_registers) {
   DCHECK(!in_method_) << "Mismatched Begin/End calls";
   in_method_ = true;
-  DCHECK_EQ(frame_size_in_bytes_, 0u) << "BeginMethod was already called";
+  DCHECK_EQ(header_.size(), 0u) << "BeginMethod was already called";
 
-  frame_size_in_bytes_ = frame_size_in_bytes;
-  core_spill_mask_ = core_spill_mask;
-  fp_spill_mask_ = fp_spill_mask;
-  num_dex_registers_ = num_dex_registers;
+  auto entry = BitTableBuilder<CodeInfoHeader>::Entry();
+  DCHECK_ALIGNED(frame_size_in_bytes, kStackAlignment);
+  entry[CodeInfoHeader::kPackedFrameSize] = frame_size_in_bytes / kStackAlignment;
+  entry[CodeInfoHeader::kCoreSpillMask] = core_spill_mask;
+  entry[CodeInfoHeader::kFpSpillMask] = fp_spill_mask;
+  entry[CodeInfoHeader::kNumberOfDexRegisters] = num_dex_registers;
+  header_.Add(entry);
 }
 
 void StackMapStream::EndMethod() {
@@ -95,7 +98,7 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
   lazy_stack_masks_.push_back(stack_mask);
   current_inline_infos_.clear();
   current_dex_registers_.clear();
-  expected_num_dex_registers_ = num_dex_registers_;
+  expected_num_dex_registers_ = header_.back()[CodeInfoHeader::kNumberOfDexRegisters];
 
   if (kVerifyStackMaps) {
     size_t stack_map_index = stack_maps_.size();
@@ -292,11 +295,8 @@ size_t StackMapStream::PrepareForFillIn() {
     }
   }
 
-  EncodeUnsignedLeb128(&out_, frame_size_in_bytes_);
-  EncodeUnsignedLeb128(&out_, core_spill_mask_);
-  EncodeUnsignedLeb128(&out_, fp_spill_mask_);
-  EncodeUnsignedLeb128(&out_, num_dex_registers_);
   BitMemoryWriter<ScopedArenaVector<uint8_t>> out(&out_, out_.size() * kBitsPerByte);
+  EncodeTable(out, header_);
   EncodeTable(out, stack_maps_);
   EncodeTable(out, inline_infos_);
   EncodeTable(out, method_infos_);
