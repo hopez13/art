@@ -39,6 +39,98 @@
       "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "199887da_d9590c5e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-01T21:48:15Z",
+      "side": 1,
+      "message": "Intended? Why?",
+      "range": {
+        "startLine": 1386,
+        "startChar": 48,
+        "endLine": 1386,
+        "endChar": 73
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b6c83b_1bcce267",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-01T21:48:15Z",
+      "side": 1,
+      "message": "(Preexisting, we should file a bug if this is a valid concern.)\n\nHow is _checkpoint_function made visible to the other thread? TriggerSuspend is not an atomic operation.",
+      "range": {
+        "startLine": 1408,
+        "startChar": 4,
+        "endLine": 1408,
+        "endChar": 21
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28b37275_6d8bfc09",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-01T21:48:15Z",
+      "side": 1,
+      "message": "Was this supposed to be memory_order_relaxed?",
+      "range": {
+        "startLine": 1416,
+        "startChar": 48,
+        "endLine": 1416,
+        "endChar": 73
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b2069c_43922425",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-01T21:48:15Z",
+      "side": 1,
+      "message": "Intended?",
+      "range": {
+        "startLine": 253,
+        "startChar": 50,
+        "endLine": 253,
+        "endChar": 75
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
