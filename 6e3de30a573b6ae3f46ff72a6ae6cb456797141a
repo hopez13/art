@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "4027eab0_43dc8cc0",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-01T16:08:07Z",
+      "side": 1,
+      "message": "When I initially made this I was going to use it for disabling intrinsics, in which case we would only need to disable it if we did change intrinsics state.\n\nI can remove it if you want but it seemed useful enough to leave in.",
+      "parentUuid": "14a5639a_11ed08ec",
+      "range": {
+        "startLine": 1413,
+        "startChar": 17,
+        "endLine": 1413,
+        "endChar": 47
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e255796f_2f19b0a3",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -91,6 +115,30 @@
       "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5410573_b781aa7a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-01T16:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e255796f_2f19b0a3",
+      "range": {
+        "startLine": 453,
+        "startChar": 80,
+        "endLine": 453,
+        "endChar": 81
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "9861fbe2_e063c17c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-01T16:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633bb432_a9bc6bdf",
+      "range": {
+        "startLine": 455,
+        "startChar": 5,
+        "endLine": 456,
+        "endChar": 75
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b77c1aa_dd370672",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -137,6 +209,30 @@
       "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31dd4fd3_1dd3ccef",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-01T16:08:07Z",
+      "side": 1,
+      "message": "I disagree but done.",
+      "parentUuid": "6b77c1aa_dd370672",
+      "range": {
+        "startLine": 489,
+        "startChar": 4,
+        "endLine": 500,
+        "endChar": 15
+      },
+      "revId": "6e3de30a573b6ae3f46ff72a6ae6cb456797141a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
