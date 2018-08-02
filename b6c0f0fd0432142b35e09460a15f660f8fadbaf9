@@ -22,6 +22,30 @@
       "revId": "b6c0f0fd0432142b35e09460a15f660f8fadbaf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eabe7caa_69511128",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-02T16:38:50Z",
+      "side": 1,
+      "message": "Yes, mostly copy/paste - specifically, the intention is that it is just the slow path inlined, but with only the branches that would be taken under the conditions checked by UseInterpreterToInterpreterFastPath",
+      "parentUuid": "c4b4ef36_06ce67cb",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "b6c0f0fd0432142b35e09460a15f660f8fadbaf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
