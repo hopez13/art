@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "943de21e_ffbd8fe6",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:04:21Z",
+      "side": 1,
+      "message": "Is this getting flagged by some kind of automatic tool?\n\nThe *\u003d0 here is idiomatic C++ using std::enable_if to pick between the different function overloads. You\u0027ll notice there isn\u0027t even a parameter name, and the default value is completely irrelevant.\n\nWe\u0027d use \"type* \u003d _\" if we could but that\u0027s not a valid value.",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78bb454f_e66a4f12",
+        "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:04:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb84152_6acaf64c",
+        "filename": "cmdline/detail/cmdline_parser_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:04:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "291e3183_57c9a865",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:04:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is idiomatic.",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
