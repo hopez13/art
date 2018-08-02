@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30768211_965a8c44",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:11:08Z",
+      "side": 1,
+      "message": "For example at cppreference they have the same style using ptr_type*\u003d0 with enable_if:\n\nhttps://en.cppreference.com/w/cpp/types/enable_if example #3",
+      "parentUuid": "943de21e_ffbd8fe6",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78bb454f_e66a4f12",
         "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
         "patchSetId": 1
@@ -64,6 +82,24 @@
       "writtenOn": "2018-08-02T22:04:21Z",
       "side": 1,
       "message": "I\u0027m not sure this is idiomatic.",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcef7a6b_95dfa9da",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-02T22:11:08Z",
+      "side": 1,
+      "message": "Scroll down to the \"is_class\" example which uses 0\n\nhttps://en.cppreference.com/w/cpp/language/sfinae",
+      "parentUuid": "291e3183_57c9a865",
       "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
