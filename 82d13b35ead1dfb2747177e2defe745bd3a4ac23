@@ -22,6 +22,30 @@
       "revId": "82d13b35ead1dfb2747177e2defe745bd3a4ac23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f9202a9_2ab9b0a9",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-02T14:53:49Z",
+      "side": 1,
+      "message": "The reason is that it was convenient and kept the CL small and simple (no need to rewrite assembly thunks checking for null, for example). That doesn\u0027t sound like something that should be written in code comments.",
+      "parentUuid": "894682a2_107af3e6",
+      "range": {
+        "startLine": 132,
+        "startChar": 11,
+        "endLine": 132,
+        "endChar": 25
+      },
+      "revId": "82d13b35ead1dfb2747177e2defe745bd3a4ac23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
