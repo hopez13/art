@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4b4ef36_06ce67cb",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-02T15:30:46Z",
+      "side": 1,
+      "message": "A lot of the code below is copy/paste right? If only we could construct the shadow frame in mterp itself... :)",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "b6c0f0fd0432142b35e09460a15f660f8fadbaf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
