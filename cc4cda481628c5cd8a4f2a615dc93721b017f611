@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "b70cadac_74e0eb2d",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-08-02T13:34:43Z",
+      "side": 1,
+      "message": "What about the following to better document the purpose of the function:\n// Check if the specified instruction is a better candidate which more likely will have other instructions depending on it.\nstatic bool IsBetterCandidateWithMoreLikelyDependencies(HInstruction* new_candidate, HInstruction* old_candidate)",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbed7a1c_90f68b98",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-08-02T13:34:43Z",
+      "side": 1,
+      "message": "The patch is trying to find a candidate which is a part of a dependency chain and is more likely having other instructions depending on it. \u0027HasMoreLikeDependencies\u0027 is a heuristic to select a candidate. Without this, we would have to check if there is a way from \u0027other\u0027 to \u0027instruction\u0027 in the dependency graph. It\u0027s time-consuming.\n\nWhat if we change this to \u0027dep_chain_candidate\u0027 to make it self-documented? What if we keep two candidates instead of one? Will it help to detect more redundant edges?",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f50c04_df5eb1dc",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-08-02T13:34:43Z",
+      "side": 1,
+      "message": "What about this comment:\n// Check if \u0027other\u0027 is a better candidate which more likely will have other instructions depending on it.",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d83118e_0a9727cb",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 1
@@ -49,6 +100,24 @@
       "side": 1,
       "message": "This CL is changing the behaviour of how side effects are treated in scheduler, however there are no gtests for TriggerGC side effect (of course, we are sorry that they have not been shipped with original scheduler CL).\n\nI am going to take a closer look into the patch on Wednesday, sorry for the delay.",
       "parentUuid": "7cbb2847_cf095ecb",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c50de2d6_571d9f2d",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-08-02T13:34:43Z",
+      "side": 1,
+      "message": "What I see the patch does not change the behaviour. It tries to reduce creation of redundant dependency edges.",
+      "parentUuid": "be141ed6_9ec5b1c5",
       "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
