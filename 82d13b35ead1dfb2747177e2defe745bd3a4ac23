@@ -69,6 +69,30 @@
       "revId": "82d13b35ead1dfb2747177e2defe745bd3a4ac23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1332de0d_c0ea02f0",
+        "filename": "test/683-clinit-inline-static-invoke/info.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-02T16:40:27Z",
+      "side": 1,
+      "message": "At some point, this was a rather long sentence ending with \"leading to a crash\" but the final version should not have the \"a\"; \"crash\" is the verb.",
+      "parentUuid": "8ece5dbb_22271821",
+      "range": {
+        "startLine": 3,
+        "startChar": 48,
+        "endLine": 3,
+        "endChar": 75
+      },
+      "revId": "82d13b35ead1dfb2747177e2defe745bd3a4ac23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
