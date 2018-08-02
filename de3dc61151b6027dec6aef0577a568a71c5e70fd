@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "33026ca0_f77357a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-02T15:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e114e02b_e7c57cc3",
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19697ccd_d694e57c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-02T15:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3901bfc2_fca8295c",
+      "range": {
+        "startLine": 10,
+        "startChar": 43,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "199887da_d9590c5e",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "25663140_bf477324",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-02T15:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199887da_d9590c5e",
+      "range": {
+        "startLine": 1386,
+        "startChar": 48,
+        "endLine": 1386,
+        "endChar": 73
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9b6c83b_1bcce267",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2018-08-01T21:48:15Z",
       "side": 1,
       "message": "(Preexisting, we should file a bug if this is a valid concern.)\n\nHow is _checkpoint_function made visible to the other thread? TriggerSuspend is not an atomic operation.",
+      "range": {
+        "startLine": 1408,
+        "startChar": 4,
+        "endLine": 1408,
+        "endChar": 21
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d72ca127_7a91d634",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-02T15:07:59Z",
+      "side": 1,
+      "message": "Added comment and filed b/112138190 to look more closely.",
+      "parentUuid": "e9b6c83b_1bcce267",
       "range": {
         "startLine": 1408,
         "startChar": 4,
@@ -122,6 +212,30 @@
       "writtenOn": "2018-08-01T21:48:15Z",
       "side": 1,
       "message": "Intended?",
+      "range": {
+        "startLine": 253,
+        "startChar": 50,
+        "endLine": 253,
+        "endChar": 75
+      },
+      "revId": "de3dc61151b6027dec6aef0577a568a71c5e70fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0864dfde_2a92de6c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-02T15:07:59Z",
+      "side": 1,
+      "message": "Good catch. Braino on my part.",
+      "parentUuid": "98b2069c_43922425",
       "range": {
         "startLine": 253,
         "startChar": 50,
