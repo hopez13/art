@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "894682a2_107af3e6",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-02T13:47:07Z",
+      "side": 1,
+      "message": "Put a comment for the signature of the function, i.e., why you\u0027re returning the input and not something like bool (I assume for possible GC impact and simplicity).",
+      "range": {
+        "startLine": 132,
+        "startChar": 11,
+        "endLine": 132,
+        "endChar": 25
+      },
+      "revId": "82d13b35ead1dfb2747177e2defe745bd3a4ac23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
