@@ -1048,5 +1048,11 @@
         "tests": ["566-polymorphic-inlining"],
         "variant": "jit & debuggable",
         "description": ["We do not inline with debuggable."]
+    },
+    {
+        "tests": ["1946-list-descriptors"],
+        "env_vars": {"SANITIZE_HOST": "address"},
+        "variant": "interp-ac",
+        "description": ["Test timeout with ASan in interpreter access-checks mode"]
     }
 ]
