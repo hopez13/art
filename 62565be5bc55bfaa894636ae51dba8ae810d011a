@@ -22,6 +22,30 @@
       "revId": "62565be5bc55bfaa894636ae51dba8ae810d011a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14909c9_42ad5fe8",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-03T11:29:16Z",
+      "side": 1,
+      "message": "I don\u0027t need to, but that would obviously make all the other paths slower.\n\nIt is a trade off - might be worth it though....",
+      "parentUuid": "08383e6d_62895b33",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "62565be5bc55bfaa894636ae51dba8ae810d011a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
