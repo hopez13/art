@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b370cbf_627db808",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-03T17:05:25Z",
+      "side": 1,
+      "message": "I\u0027m confused about the design intent here. SetStateUnsafe and SetState can be called concurrently in any combination? Neither one is currently atomic, in that they don\u0027t necessarily return the last previous state. Which seems fishy ...\n\nIt looks to me like performance here is probably not critical, but SetState may be.\n\nI don\u0027t see why we need SequentiallyConsistent now when we didn\u0027t need it before. But I\u0027m increasingly suspicious we did need it before. I never looked at this code because it didn\u0027t use atomics. SequentiallyConsistent doesn\u0027t seem to add that much cost to a RMW, though the RMW is clearly much more expensive than a plain store.",
+      "range": {
+        "startLine": 1357,
+        "startChar": 6,
+        "endLine": 1357,
+        "endChar": 69
+      },
+      "revId": "becf33030d2fe8fae7414119cf92b37969ab612e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
