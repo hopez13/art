@@ -16,6 +16,24 @@
       "revId": "a9f303c089aa2b2fc82d97201352945678ef54ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea3fa40f_89c03734",
+        "filename": "test/683-clinit-inline-static-invoke/multidex.jpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-03T10:14:05Z",
+      "side": 1,
+      "message": "OK, I\u0027ve prepared a CL with \"git rm test/*/multidex.jpp\": https://android-review.googlesource.com/725666 .",
+      "parentUuid": "74f72cf9_bc2e59ec",
+      "revId": "a9f303c089aa2b2fc82d97201352945678ef54ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
