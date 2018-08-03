@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08383e6d_62895b33",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T10:33:11Z",
+      "side": 1,
+      "message": "Do you need to decode inline_infos_a dn method_infos_ for getting register/stacks masks? If not, I would put them first.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "62565be5bc55bfaa894636ae51dba8ae810d011a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
