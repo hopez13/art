@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7b280be1_36a2df43",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:38:39Z",
+      "side": 1,
+      "message": "Should you drop this part? (it\u0027s stated line 1409).",
+      "range": {
+        "startLine": 1380,
+        "startChar": 19,
+        "endLine": 1380,
+        "endChar": 65
+      },
+      "revId": "575ff2fc4800540b53611427c2c3f2fd1be754f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb47fb03_6fd0b511",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 5
