@@ -22,6 +22,30 @@
       "revId": "5798195d03eb6928bac3aa7d991ffed5af84278f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e771d543_77e77f58",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-03T14:23:56Z",
+      "side": 1,
+      "message": "That\u0027s a good question. On my local testing device, you don\u0027t need to be root to read/write in /data/local/tmp. That\u0027s something we could check on our continuous testing devices.\n\nThe current testing set-up expects to run as root at the moment anyway, so I made the assumption that the chroot dir had to be \"somewhere under /data\" when I started working on chroot-based testing (we currently use /data/local/art-test-chroot as ART_TEST_CHROOT). This is something we could revisit when we start trying to run our tests as a non-root user (b/38000545).",
+      "parentUuid": "e8c58436_271658c6",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 22
+      },
+      "revId": "5798195d03eb6928bac3aa7d991ffed5af84278f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
