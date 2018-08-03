@@ -274,6 +274,8 @@ class CodeInfo {
     // Limits the decoding only to the main stack map table and inline info table.
     // This is sufficient for many use cases and makes the header decoding faster.
     InlineInfoOnly = 1,
+    // Limits the decoding only to the data needed by GC.
+    GcMasksOnly = 2,
   };
 
   explicit CodeInfo(const uint8_t* data, DecodeFlags flags = DecodeFlags::Default) {

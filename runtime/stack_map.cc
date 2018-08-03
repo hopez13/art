@@ -63,6 +63,9 @@ void CodeInfo::Decode(const uint8_t* data, DecodeFlags flags) {
   }
   DecodeTable(register_masks_, reader, data);
   DecodeTable(stack_masks_, reader, data);
+  if (flags & DecodeFlags::GcMasksOnly) {
+    return;
+  }
   DecodeTable(dex_register_masks_, reader, data);
   DecodeTable(dex_register_maps_, reader, data);
   DecodeTable(dex_register_catalog_, reader, data);
