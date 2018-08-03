@@ -1038,6 +1038,12 @@
         "description": ["Test timing out under gcstress possibly due to slower unwinding by libbacktrace"]
     },
     {
+        "tests": ["712-varhandle-invocations"],
+        "variant": "jit | debuggable & gcstress & debug & target",
+        "bug": "b/111630237",
+        "description": ["Test timing out under gcstress possibly due to slower unwinding by libbacktrace"]
+    },
+    {
         "tests": ["712-varhandle-invocations", "624-checker-stringops"],
         "variant": "optimizing & gcstress | speed-profile & gcstress",
         "bug": "b/111545159",
