@@ -22,6 +22,30 @@
       "revId": "becf33030d2fe8fae7414119cf92b37969ab612e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef240830_ce77d77b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-03T18:07:23Z",
+      "side": 1,
+      "message": "Yes, I hit the wall here today on what the right memory order should be and on time. This definitely looks dubious as-is.",
+      "parentUuid": "9b370cbf_627db808",
+      "range": {
+        "startLine": 1357,
+        "startChar": 6,
+        "endLine": 1357,
+        "endChar": 69
+      },
+      "revId": "becf33030d2fe8fae7414119cf92b37969ab612e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
