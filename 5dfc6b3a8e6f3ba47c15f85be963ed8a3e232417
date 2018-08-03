@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9e560e_b50881a0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:55:03Z",
+      "side": 1,
+      "message": "stack_map_allocator",
+      "range": {
+        "startLine": 1158,
+        "startChar": 23,
+        "endLine": 1158,
+        "endChar": 33
+      },
+      "revId": "5dfc6b3a8e6f3ba47c15f85be963ed8a3e232417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22793449_bbf3a3df",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:55:03Z",
+      "side": 1,
+      "message": "stack_map_allocator",
+      "range": {
+        "startLine": 1226,
+        "startChar": 25,
+        "endLine": 1226,
+        "endChar": 35
+      },
+      "revId": "5dfc6b3a8e6f3ba47c15f85be963ed8a3e232417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9322f683_cc25a7fe",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:55:03Z",
+      "side": 1,
+      "message": "Can you comment who calls this with its own arena allocator?",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 69
+      },
+      "revId": "5dfc6b3a8e6f3ba47c15f85be963ed8a3e232417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18cecae0_c29b67a4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:55:03Z",
+      "side": 0,
+      "message": "So IIRC, the intent of the API was to avoid the memcpy. I think your refactoring (not in this CL) now makes it that we create the memory, discard it, and then write again?",
+      "range": {
+        "startLine": 1360,
+        "startChar": 11,
+        "endLine": 1360,
+        "endChar": 25
+      },
+      "revId": "eeac119a22b09496eb66109c906df6a5243eac36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
