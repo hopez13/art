@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6308d7da_3067ff27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-03T10:48:18Z",
+      "side": 1,
+      "message": "Maybe mention that the duplicate entry (libcore.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndNoTimeout) was both in art/tools/libcore_gcstress_failures.txt and art/tools/libcore_gcstress_debug_failures.txt, and that the entry in the second file was superfluous?",
+      "revId": "07d70fa386b402af1ae10b035ff9f0a52250a505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
