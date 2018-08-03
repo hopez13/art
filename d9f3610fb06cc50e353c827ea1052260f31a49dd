@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "447d136c_9ab925e9",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-03T11:54:59Z",
+      "side": 1,
+      "message": "Maybe we just disable 712 completely for gcstress?\n\nFor instance, here 624 was crashing and 712 was timing out (mis-filed).",
+      "range": {
+        "startLine": 1047,
+        "startChar": 18,
+        "endLine": 1049,
+        "endChar": 29
+      },
+      "revId": "d9f3610fb06cc50e353c827ea1052260f31a49dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
