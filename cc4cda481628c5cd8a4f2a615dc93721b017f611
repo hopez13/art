@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "275e407c_ca645fa0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-03T08:43:43Z",
+      "side": 1,
+      "message": "Does that mean we\u0027re trading CPU for memory?",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b70cadac_74e0eb2d",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 1
