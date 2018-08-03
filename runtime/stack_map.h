@@ -414,9 +414,9 @@ class CodeInfo {
   ALWAYS_INLINE static QuickMethodFrameInfo DecodeFrameInfo(const uint8_t* data) {
     BitMemoryReader reader(data);
     return QuickMethodFrameInfo(
-        DecodeVarintBits(reader) * kStackAlignment,  // Decode packed_frame_size_ and unpack.
-        DecodeVarintBits(reader),  // core_spill_mask_.
-        DecodeVarintBits(reader));  // fp_spill_mask_.
+        reader.ReadVarint() * kStackAlignment,  // Decode packed_frame_size_ and unpack.
+        reader.ReadVarint(),  // core_spill_mask_.
+        reader.ReadVarint());  // fp_spill_mask_.
   }
 
   typedef std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> DedupeMap;

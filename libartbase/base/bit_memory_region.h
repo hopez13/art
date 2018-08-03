@@ -199,6 +199,9 @@ class BitMemoryRegion FINAL : public ValueObject {
   size_t bit_size_ = 0;
 };
 
+constexpr uint32_t kVarintHeaderBits = 4;
+constexpr uint32_t kVarintSmallValue = 11;  // Maximum value which is stored as-is.
+
 class BitMemoryReader {
  public:
   BitMemoryReader(BitMemoryReader&&) = default;
@@ -225,6 +228,18 @@ class BitMemoryReader {
 
   ALWAYS_INLINE bool ReadBit() {
     return ReadRegion(1).LoadBit(0);
+  }
+
+  // Read variable-length bit-packed integer.
+  // The first four bits determine the variable length of the encoded integer:
+  //   Values 0..11 represent the result as-is, with no further following bits.
+  //   Values 12..15 mean the result is in the next 8/16/24/32-bits respectively.
+  ALWAYS_INLINE uint32_t ReadVarint() {
+    uint32_t x = ReadBits(kVarintHeaderBits);
+    if (x > kVarintSmallValue) {
+      x = ReadBits((x - kVarintSmallValue) * kBitsPerByte);
+    }
+    return x;
   }
 
  private:
@@ -267,6 +282,18 @@ class BitMemoryWriter {
 
   ALWAYS_INLINE void WriteBit(bool value) {
     Allocate(1).StoreBit(0, value);
+  }
+
+  // Write variable-length bit-packed integer.
+  ALWAYS_INLINE void WriteVarint(uint32_t value) {
+    if (value <= kVarintSmallValue) {
+      WriteBits(value, kVarintHeaderBits);
+    } else {
+      uint32_t num_bits = RoundUp(MinimumBitsToStore(value), kBitsPerByte);
+      uint32_t header = kVarintSmallValue + num_bits / kBitsPerByte;
+      WriteBits(header, kVarintHeaderBits);
+      WriteBits(value, num_bits);
+    }
   }
 
   ALWAYS_INLINE void ByteAlign() {
