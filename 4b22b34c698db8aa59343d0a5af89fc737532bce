@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b5f4473d_9979d1a8",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-08-06T23:53:33Z",
+      "side": 1,
+      "message": "The code might do what you want, but I wouldn\u0027t say that use of 0 instead of nullptr should be idiomatic these days. Clang\u0027s developers participate heavily in the C++ standardization process, and this warning exists to make code more clear. I think that the use of 0 is basically just out-of-date on the website, which doesn\u0027t run these sample snippets regularly through a modern compiler.",
+      "parentUuid": "8a7f5065_a53c8468",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78bb454f_e66a4f12",
         "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
         "patchSetId": 1
