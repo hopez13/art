@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8a7f5065_a53c8468",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-06T20:45:19Z",
+      "side": 1,
+      "message": "So we\u0027re ok with clang emitting warnings for correct, idiomatic C++ code?",
+      "parentUuid": "765e997c_0c1f92a3",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78bb454f_e66a4f12",
         "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
         "patchSetId": 1
