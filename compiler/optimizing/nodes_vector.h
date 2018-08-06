@@ -1021,6 +1021,49 @@ class HVecSADAccumulate FINAL : public HVecOperation {
   DEFAULT_COPY_CONSTRUCTOR(VecSADAccumulate);
 };
 
+// Performs dot product of two vectors and adds the result to wider precision components in the
+// accumulator.
+//
+// viz. DOT_PRODUCT([ a1, .. , am], [ x1, .. , xn ], [ y1, .. , yn ]) =
+//                  [ a1 + sum(xi * yi), .. , am + sum(xj * yj) ],
+//      for m <= n, non-overlapping sums,
+//      for either both signed or both unsigned operands x, y.
+class HVecDotProd FINAL : public HVecOperation {
+ public:
+  HVecDotProd(ArenaAllocator* allocator,
+              HInstruction* accumulator,
+              HInstruction* left,
+              HInstruction* right,
+              DataType::Type packed_type,
+              size_t vector_length,
+              uint32_t dex_pc)
+    : HVecOperation(kVecDotProd,
+                    allocator,
+                    packed_type,
+                    SideEffects::None(),
+                    /* number_of_inputs */ 3,
+                    vector_length,
+                    dex_pc) {
+    // packed_type reflects the type of sum reduction.
+    DCHECK(HasConsistentPackedTypes(accumulator, packed_type));
+    DCHECK(DataType::IsIntegralType(packed_type));
+    DCHECK(left->IsVecOperation());
+    DCHECK(right->IsVecOperation());
+    DCHECK_EQ(ToSignedType(left->AsVecOperation()->GetPackedType()),
+              ToSignedType(right->AsVecOperation()->GetPackedType()));
+    SetRawInputAt(0, accumulator);
+    SetRawInputAt(1, left);
+    SetRawInputAt(2, right);
+  }
+
+  bool CanBeMoved() const OVERRIDE { return true; }
+
+  DECLARE_INSTRUCTION(VecDotProd);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(VecDotProd);
+};
+
 // Loads a vector from memory, viz. load(mem, 1)
 // yield the vector [ mem(1), .. , mem(n) ].
 class HVecLoad FINAL : public HVecMemoryOperation {
