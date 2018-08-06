@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "765e997c_0c1f92a3",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-08-06T18:06:31Z",
+      "side": 1,
+      "message": "Clang itself will warn on use of 0 instead of nullptr for pointer types. That\u0027s what Yi is trying to clean up. If ART doesn\u0027t want that warning enabled, let\u0027s just suppress it in your top-level Android.bp defaults. We would prefer to fix issues like this, as it does improve clarity.",
+      "parentUuid": "30768211_965a8c44",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78bb454f_e66a4f12",
         "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
         "patchSetId": 1
