@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6513e7ba_b3515dfc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T15:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd8caaf_dec85921",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 9
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbf4456_594d379f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0fa174bc_d7b4d5b4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T15:33:07Z",
+      "side": 1,
+      "message": "The LDAR instruction does not allow any offset. The caller of this thunk has to adjust the address before starting the ExactAssemblyScope, rather than allowing the macro assembler to use a multi-instruction sequence.",
+      "parentUuid": "abbf4456_594d379f",
+      "range": {
+        "startLine": 6845,
+        "startChar": 8,
+        "endLine": 6845,
+        "endChar": 47
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5755da6e_42f8df82",
         "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d746865f_7b0d8212",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T15:33:07Z",
+      "side": 1,
+      "message": "When we do explicit adjustments on references, we use w-registers. When we leave it to the macro assembler, it\u0027s done on the MemOperand referencing an x-register. Unless we change that policy, this test needs to deal with both, w-registers for Barker RB, x-register for CMS.",
+      "parentUuid": "5755da6e_42f8df82",
+      "range": {
+        "startLine": 258,
+        "startChar": 40,
+        "endLine": 258,
+        "endChar": 43
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
