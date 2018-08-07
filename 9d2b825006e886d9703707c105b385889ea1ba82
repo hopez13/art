@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd6eb09d_4c4587f5",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T12:34:51Z",
+      "side": 1,
+      "message": "Maybe \"BitTable\u003c\u003es\"?",
+      "range": {
+        "startLine": 1459,
+        "startChar": 35,
+        "endLine": 1459,
+        "endChar": 44
+      },
+      "revId": "9d2b825006e886d9703707c105b385889ea1ba82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd3bf31f_fcdd11b4",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T12:34:51Z",
+      "side": 1,
+      "message": "/* bit_offset */",
+      "range": {
+        "startLine": 261,
+        "startChar": 46,
+        "endLine": 261,
+        "endChar": 47
+      },
+      "revId": "9d2b825006e886d9703707c105b385889ea1ba82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "208e68b8_7c6fa458",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T12:34:51Z",
+      "side": 1,
+      "message": "/* placeholder */",
+      "range": {
+        "startLine": 77,
+        "startChar": 53,
+        "endLine": 77,
+        "endChar": 54
+      },
+      "revId": "9d2b825006e886d9703707c105b385889ea1ba82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0268698d_ef5207d8",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T12:34:51Z",
+      "side": 1,
+      "message": "Use `writer_` and drop the `output_` member.",
+      "range": {
+        "startLine": 113,
+        "startChar": 13,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "9d2b825006e886d9703707c105b385889ea1ba82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
