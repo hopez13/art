@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "a5327c06_30129bfa",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-08-07T00:24:54Z",
+      "side": 1,
+      "message": "Looks like cppreference and the idiomatic C++ wiki are both out of date.\n\nAccording to this blog post, https://www.fluentcpp.com/2018/05/18/make-sfinae-pretty-2-hidden-beauty-sfinae/ nowadays using\n\n  std::enable_if_t\u003c...\u003e* \u003d nullptr\n\nis the preferred idiom. The old idiom had predated C++11 prior to the \u0027nullptr\u0027 keyword.\n\nSo sure, lets go ahead and make these changes.",
+      "parentUuid": "b5f4473d_9979d1a8",
+      "revId": "4b22b34c698db8aa59343d0a5af89fc737532bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78bb454f_e66a4f12",
         "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
         "patchSetId": 1
