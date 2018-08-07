@@ -17,6 +17,7 @@
 #include "prepare_for_register_allocation.h"
 
 #include "dex/dex_file_types.h"
+#include "driver/compiler_options.h"
 #include "jni/jni_internal.h"
 #include "optimizing_compiler_stats.h"
 #include "well_known_classes.h"
@@ -50,6 +51,16 @@ void PrepareForRegisterAllocation::VisitInstanceOf(HInstanceOf* instance_of) {
 
 void PrepareForRegisterAllocation::VisitNullCheck(HNullCheck* check) {
   check->ReplaceWith(check->InputAt(0));
+  if (compiler_options_.GetImplicitNullChecks()) {
+    HInstruction* next = check->GetNext();
+    while (next->IsBoundType()) {
+      next = next->GetNext();
+    }
+    if (next->CanDoImplicitNullCheckOn(check->InputAt(0))) {
+      check->MarkEmittedAtUseSite();
+      DCHECK(check->IsEmittedAtUseSite());
+    }
+  }
 }
 
 void PrepareForRegisterAllocation::VisitDivZeroCheck(HDivZeroCheck* check) {
