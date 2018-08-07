@@ -602,8 +602,8 @@ EXPLICIT_FIND_METHOD_FROM_CODE_TYPED_TEMPLATE_DECL(kInterface);
 #undef EXPLICIT_FIND_METHOD_FROM_CODE_TEMPLATE_DECL
 
 // Fast path field resolution that can't initialize classes or throw exceptions.
-inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFieldType type,
-                               size_t expected_size) {
+ALWAYS_INLINE ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFieldType type,
+                                      size_t expected_size) {
   ScopedAssertNoThreadSuspension ants(__FUNCTION__);
   ArtField* resolved_field =
       referrer->GetDexCache()->GetResolvedField(field_idx, kRuntimePointerSize);
@@ -639,16 +639,17 @@ inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFiel
       return nullptr;
     }
   }
-  ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-  if (UNLIKELY(!referring_class->CanAccess(fields_class) ||
-               !referring_class->CanAccessMember(fields_class, resolved_field->GetAccessFlags()) ||
-               (is_set && resolved_field->IsFinal() && (fields_class != referring_class)))) {
-    // Illegal access.
-    return nullptr;
-  }
-  if (UNLIKELY(resolved_field->IsPrimitiveType() != is_primitive ||
-               resolved_field->FieldSize() != expected_size)) {
-    return nullptr;
+  if (kIsDebugBuild) {
+    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
+    if (UNLIKELY(!referring_class->CanAccess(fields_class) ||
+                 !referring_class->CanAccessMember(fields_class, resolved_field->GetAccessFlags()) ||
+                 (is_set && resolved_field->IsFinal() && (fields_class != referring_class)))) {
+      LOG(FATAL) << "Illegal field access";
+    }
+    if (UNLIKELY(resolved_field->IsPrimitiveType() != is_primitive ||
+                 resolved_field->FieldSize() != expected_size)) {
+      LOG(FATAL) << "Invalid field access";
+    }
   }
   return resolved_field;
 }
