@@ -239,7 +239,7 @@ public class Test988 {
         }
     }
 
-    private static List<Printable> results = new ArrayList<>();
+    private static List<Printable> results = new ArrayList<>(10000);
     // Starts with => enableMethodTracing
     //             .=> enableTracing
     private static int cnt = 2;
@@ -380,7 +380,7 @@ public class Test988 {
     public static void printResults() {
         for (Printable p : results) {
             p.Print();
-        }
+        } System.out.println("sizeof results: " + results.size());
     }
 
     public static void doFibTest(int x, IntUnaryOperator op) {

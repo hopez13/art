@@ -4600,6 +4600,36 @@ void LocationsBuilderARM64::VisitLoadClass(HLoadClass* cls) {
   }
 }
 
+void InstructionCodeGeneratorARM64::VisitMethodExited(
+    HMethodExited* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+}
+
+void LocationsBuilderARM64::VisitMethodExited(HMethodExited* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainAndSlowPath);
+}
+
+void InstructionCodeGeneratorARM64::VisitMethodEntered(
+    HMethodEntered* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+}
+
+void LocationsBuilderARM64::VisitMethodEntered(HMethodEntered* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainAndSlowPath);
+}
+
 // NO_THREAD_SAFETY_ANALYSIS as we manipulate handles whose internal object we know does not
 // move.
 void InstructionCodeGeneratorARM64::VisitLoadClass(HLoadClass* cls) NO_THREAD_SAFETY_ANALYSIS {

@@ -42,6 +42,7 @@
 #include "events-inl.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
+#include "intrinsics_list.h"
 #include "jit/jit.h"
 #include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
@@ -87,6 +88,7 @@ DeoptManager::DeoptManager()
     performing_deoptimization_(false),
     global_deopt_count_(0),
     deopter_count_(0),
+    intrinsics_disabled_(false),
     breakpoint_status_lock_("JVMTI_BreakpointStatusLock",
                             static_cast<art::LockLevel>(art::LockLevel::kAbortLock + 1)),
     inspection_callback_(this),
@@ -353,6 +355,45 @@ void DeoptManager::PerformGlobalUndeoptimization(art::Thread* self) {
       kDeoptManagerInstrumentationKey);
 }
 
+namespace {
+static void RemoveSingleIntrinsic(art::Thread* self,
+                                  const char* declaring_class,
+                                  const char* method_name,
+                                  const char* method_desc) REQUIRES(art::Locks::mutator_lock_) {
+  UNUSED(declaring_class, method_name);
+  art::ClassLinker* cl = art::Runtime::Current()->GetClassLinker();
+  art::ObjPtr<art::mirror::Class> klass = cl->LookupClass(self, declaring_class, nullptr);
+  CHECK(!klass.IsNull());
+  CHECK(!klass->IsProxyClass());
+  art::ArtMethod* method =
+      klass->FindClassMethod(method_name, method_desc, art::kRuntimePointerSize);
+  CHECK(method != nullptr)
+      << "Unable to find expected intrinsic method " << declaring_class << "->" << method_name;
+  method->SetNotIntrinsic();
+}
+
+static void RemoveIntrinsics() REQUIRES(art::Locks::mutator_lock_) {
+  art::Thread* self = art::Thread::Current();
+#define REMOVE_SINGLE_INTRINSIC(a, b, c, d, e, declaring_class, method_name, method_desc) \
+  RemoveSingleIntrinsic(self, declaring_class, method_name, method_desc);
+  INTRINSICS_LIST(REMOVE_SINGLE_INTRINSIC);
+#undef REMOVE_SINGLE_INTRINSIC
+  // TODO Get them out of compiled code!
+}
+}  // namespace
+
+void DeoptManager::DisableIntrinsics() {
+  art::Thread* self = art::Thread::Current();
+  art::ScopedThreadSuspension sts(self, art::kSuspended);
+  deoptimization_status_lock_.ExclusiveLock(self);
+  if (intrinsics_disabled_) {
+    WaitForDeoptimizationToFinish(self);
+  } else {
+    intrinsics_disabled_ = true;
+    ScopedDeoptimizationContext sdc(self, this);
+    RemoveIntrinsics();
+  }
+}
 
 void DeoptManager::RemoveDeoptimizationRequester() {
   art::Thread* self = art::Thread::Current();

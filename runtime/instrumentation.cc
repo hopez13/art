@@ -49,7 +49,7 @@
 namespace art {
 namespace instrumentation {
 
-constexpr bool kVerboseInstrumentation = false;
+constexpr bool kVerboseInstrumentation = true;
 
 void InstrumentationListener::MethodExited(Thread* thread,
                                            Handle<mirror::Object> this_object,
@@ -117,7 +117,7 @@ bool InstrumentationStackPopper::PopFramesTo(uint32_t desired_pops,
     return true;
   }
   if (kVerboseInstrumentation) {
-    LOG(INFO) << "Popping frames for exception " << exception->Dump();
+    LOG(INFO) << "Popping " << desired_pops << " frames for exception " << exception->Dump();
   }
   // The instrumentation events expect the exception to be set.
   self_->SetException(exception.Get());

@@ -1391,6 +1391,8 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(LongConstant, Constant)                                             \
   M(Max, Instruction)                                                   \
   M(MemoryBarrier, Instruction)                                         \
+  M(MethodEntered, Instruction)                                         \
+  M(MethodExited, Instruction)                                          \
   M(Min, BinaryOperation)                                               \
   M(MonitorOperation, Instruction)                                      \
   M(Mul, BinaryOperation)                                               \
@@ -3307,6 +3309,58 @@ class HCurrentMethod FINAL : public HExpression<0> {
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(CurrentMethod);
+};
+
+class HMethodEntered FINAL : public HExpression<2> {
+ public:
+  explicit HMethodEntered(HCurrentMethod* method, HInstruction* thiz, uint32_t dex_pc = kNoDexPc)
+      : HExpression<2>(kMethodEntered, SideEffects::AllExceptGCDependency(), dex_pc) {
+    SetRawInputAt(0, method);
+    SetRawInputAt(1, thiz);
+  }
+
+  bool NeedsEnvironment() const OVERRIDE { return true; }
+
+  bool CanThrow() const OVERRIDE { return true; }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  DECLARE_INSTRUCTION(MethodEntered);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(MethodEntered);
+};
+
+// Arguments are 'meth', 'this', return-value (64-bit), 'null-ptr'. The null is used to fill the
+// remaining 32-bits of space for the 64-bit return-value on archs with smaller words.
+class HMethodExited FINAL : public HExpression<4> {
+ public:
+  explicit HMethodExited(HCurrentMethod* method,
+                         HInstruction* thiz,
+                         DataType::Type type,
+                         HNullConstant* null_const,
+                         uint32_t dex_pc = kNoDexPc)
+      : HExpression<4>(kMethodExited, SideEffects::AllExceptGCDependency(), dex_pc), type_(type) {
+    SetRawInputAt(0, method);
+    SetRawInputAt(1, thiz);
+    SetRawInputAt(3, null_const);
+  }
+
+  bool NeedsEnvironment() const OVERRIDE { return true; }
+
+  bool CanThrow() const OVERRIDE { return true; }
+
+  bool IsClonable() const OVERRIDE { return true; }
+
+  DataType::Type GetExitType() const { return type_; }
+
+  DECLARE_INSTRUCTION(MethodExited);
+
+ private:
+  DataType::Type type_;
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(MethodExited);
 };
 
 // Fetches an ArtMethod from the virtual table or the interface method table

@@ -1248,6 +1248,12 @@ ENTRY art_quick_unlock_object_no_inline
     RETURN_IF_W0_IS_ZERO_OR_DELIVER
 END art_quick_unlock_object_no_inline
 
+ENTRY art_quick_method_entered
+    ret
+END art_quick_methoed_entered
+ENTRY art_quick_method_exited
+    ret
+END art_quick_methoed_exited
     /*
      * Entry from managed code that calls artInstanceOfFromCode and on failure calls
      * artThrowClassCastExceptionForObject.

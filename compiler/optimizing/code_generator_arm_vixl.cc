@@ -2434,6 +2434,36 @@ void InstructionCodeGeneratorARMVIXL::HandleGoto(HInstruction* got, HBasicBlock*
   }
 }
 
+void InstructionCodeGeneratorARMVIXL::VisitMethodExited(
+    HMethodExited* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+}
+
+void LocationsBuilderARMVIXL::VisitMethodExited(HMethodExited* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMethodEntered(
+    HMethodEntered* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+  __ nop();
+}
+
+void LocationsBuilderARMVIXL::VisitMethodEntered(HMethodEntered* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
 void LocationsBuilderARMVIXL::VisitGoto(HGoto* got) {
   got->SetLocations(nullptr);
 }
