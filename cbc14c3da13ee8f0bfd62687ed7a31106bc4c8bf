@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fd8caaf_dec85921",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-07T14:29:09Z",
+      "side": 1,
+      "message": "Maybe factor some of this code with the previous case (BakerReadBarrierKind::kField)?",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 9
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abbf4456_594d379f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-07T14:29:09Z",
+      "side": 1,
+      "message": "Maybe add a comment/reminder that in the case of a LoadAcquire reference field-get, we always precompute the address of the field to load in `base_reg`, meaning that the offset of the MemOperand is always null?",
+      "range": {
+        "startLine": 6845,
+        "startChar": 8,
+        "endLine": 6845,
+        "endChar": 47
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5755da6e_42f8df82",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-07T14:29:09Z",
+      "side": 1,
+      "message": "Don\u0027t we know the width of register used by the ARM64 code generator for that case?",
+      "range": {
+        "startLine": 258,
+        "startChar": 40,
+        "endLine": 258,
+        "endChar": 43
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
