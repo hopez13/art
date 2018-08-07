@@ -1170,6 +1170,8 @@ jvmtiError StackUtil::PopFrame(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread thread) {
     // Tell the shadow-frame to return immediately and skip all exit events.
     called_shadow_frame->SetForcePopFrame(true);
     calling_shadow_frame->SetForceRetryInstruction(true);
+    VLOG(deopt)  << "force-pop-frame on " << called_shadow_frame->GetMethod()->PrettyMethod();
+    VLOG(deopt)  << "retry-instruction on " << calling_shadow_frame->GetMethod()->PrettyMethod();
 
     // Make sure can we will go to the interpreter and use the shadow frames. The early return for
     // the final frame will force everything to the interpreter so we only need to instrument if it

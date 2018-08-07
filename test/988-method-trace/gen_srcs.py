@@ -80,6 +80,10 @@ OUTPUT_TPL = Template("""
 
 package art;
 
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
+
 class Test988Intrinsics {
   // Pre-initialize *all* instance variables used so that their constructors are not in the trace.
 $static_fields
@@ -90,6 +94,11 @@ $static_fields
 $initialize_classes
   }
 
+  static List<Executable> getIntrinsicMethods() throws Exception {
+    return Arrays.asList(new Method[] {
+$intrinsics_list
+    });
+  }
   static void test() {
     // Call each intrinsic from art/runtime/intrinsics_list.h to make sure they are traced.
 $test_body
@@ -257,6 +266,35 @@ def format_receiver_name(method_info):
     receiver = "instance_" + method_info.klass.replace(".", "_")
   return receiver
 
+def format_get_class(klass):
+  if klass == 'int':
+    return 'java.lang.Integer.TYPE'
+  elif klass == 'boolean':
+    return 'java.lang.Boolean.TYPE'
+  elif klass == 'byte':
+    return 'java.lang.Byte.TYPE'
+  elif klass == 'char':
+    return 'java.lang.Character.TYPE'
+  elif klass == 'short':
+    return 'java.lang.Short.TYPE'
+  elif klass == 'long':
+    return 'java.lang.Long.TYPE'
+  elif klass == 'float':
+    return 'java.lang.Float.TYPE'
+  elif klass == 'double':
+    return 'java.lang.Double.TYPE'
+  else:
+    return klass + '.class'
+
+
+def format_get_method(method_info):
+  types = ", ".join(map(format_get_class, method_info.parameters))
+  return '{klass}.class.getDeclaredMethod("{name}"{param_sep}{params}),'.format(
+      klass = method_info.klass,
+      name = method_info.method_name,
+      param_sep = ', ' if method_info.parameters else '',
+      params = types)
+
 # Format a dummy call with dummy method parameters to the requested method.
 def format_call_to(method_info):
   dummy_args = ", ".join(method_info.dummy_parameters())
@@ -272,7 +310,7 @@ def format_instance_variable(method_info):
   return "static %s %s = %s;" %(method_info.klass, format_receiver_name(method_info), method_info.dummy_instance_value())
 
 def format_initialize_klass(method_info):
-  return "%s.class.toString();" %(method_info.klass)
+  return "%s.toString();" %(format_get_class(method_info.klass))
 
 def indent_list(lst, indent):
   return [' ' * indent + i for i in lst]
@@ -291,6 +329,8 @@ def main():
   call_str_list = []
   instance_variable_dict = collections.OrderedDict()
   initialize_klass_dict = collections.OrderedDict()
+  intrinsics_list = []
+
   for i in parse_all_method_infos():
     debug_print(i)
     if i.is_blacklisted():
@@ -308,14 +348,17 @@ def main():
       instance_variable_dict[i.klass] = instance_variable
 
     initialize_klass_dict[i.klass] = format_initialize_klass(i)
+    intrinsics_list.append(format_get_method(i))
 
   static_fields = indent_list([ value for (key, value) in instance_variable_dict.items() ], 2)
   test_body = indent_list(call_str_list, 4)
   initialize_classes = indent_list([ value for (key, value) in initialize_klass_dict.items() ], 4)
+  intrinsics_methods = indent_list(intrinsics_list, 6)
 
   print(OUTPUT_TPL.substitute(static_fields="\n".join(static_fields),
                               test_body="\n".join(test_body),
-                              initialize_classes="\n".join(initialize_classes)).
+                              initialize_classes="\n".join(initialize_classes),
+                              intrinsics_list="\n".join(intrinsics_methods)).
                    strip("\n"), \
         file=args.output_file)
 

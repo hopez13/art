@@ -1881,6 +1881,53 @@ void CodeGeneratorX86::GenerateNop() {
   __ nop();
 }
 
+void InstructionCodeGeneratorX86::VisitMethodExited(HMethodExited* instruction) {
+  if (DataType::IsFloatingPointType(instruction->GetExitType())) {
+    codegen_->InvokeRuntime(kQuickMethodExitedFloating, instruction, instruction->GetDexPc());
+    CheckEntrypointTypes<kQuickMethodExitedFloating, void, ArtMethod*, mirror::Object*, double>();
+  } else {
+    codegen_->InvokeRuntime(kQuickMethodExited, instruction, instruction->GetDexPc());
+    CheckEntrypointTypes<kQuickMethodExited, void, ArtMethod*, mirror::Object*, uint64_t>();
+  }
+}
+
+void LocationsBuilderX86::VisitMethodExited(HMethodExited* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+  InvokeRuntimeCallingConvention calling_convention;
+  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  locations->SetInAt(1, Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+  if (DataType::Is64BitType(instruction->GetExitType())) {
+    if (DataType::IsFloatingPointType(instruction->GetExitType())) {
+      locations->SetInAt(2, Location::FpuRegisterLocation(calling_convention.GetFpuRegisterAt(0)));
+    } else {
+      locations->SetInAt(2, Location::RegisterPairLocation(calling_convention.GetRegisterAt(2),
+                                                           calling_convention.GetRegisterAt(3)));
+    }
+  } else {
+    if (DataType::IsFloatingPointType(instruction->GetExitType())) {
+      locations->SetInAt(2, Location::FpuRegisterLocation(calling_convention.GetFpuRegisterAt(0)));
+    } else {
+      locations->SetInAt(2, Location::RegisterLocation(calling_convention.GetRegisterAt(2)));
+      locations->SetInAt(3, Location::RegisterLocation(calling_convention.GetRegisterAt(3)));
+    }
+  }
+}
+
+void InstructionCodeGeneratorX86::VisitMethodEntered(HMethodEntered* instruction) {
+  // TODO
+  codegen_->InvokeRuntime(kQuickMethodEntered, instruction, instruction->GetDexPc());
+  CheckEntrypointTypes<kQuickMethodEntered, void, ArtMethod*, mirror::Object*>();
+}
+
+void LocationsBuilderX86::VisitMethodEntered(HMethodEntered* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+  InvokeRuntimeCallingConvention calling_convention;
+  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  locations->SetInAt(1, Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+}
+
 void LocationsBuilderX86::HandleCondition(HCondition* cond) {
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(cond, LocationSummary::kNoCall);

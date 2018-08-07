@@ -141,6 +141,13 @@
 \
   V(TestSuspend, void, void) \
 \
+  V(MethodEntered, void, ArtMethod*, mirror::Object*) \
+  /* V(MethodExitedVoid, void, ArtMethod*, mirror::Object*) */ \
+  V(MethodExited, void, ArtMethod*, mirror::Object*, uint64_t) \
+  V(MethodExitedFloating, void, ArtMethod*, mirror::Object*, double) \
+  /* V(MethodExited32bit, void, ArtMethod*, mirror::Object*, uint32_t) */ \
+  /* V(MethodExitedObject, void, ArtMethod*, mirror::Object*, mirror::Object*) */ \
+\
   V(DeliverException, void, mirror::Object*) \
   V(ThrowArrayBounds, void, int32_t, int32_t) \
   V(ThrowDivZero, void, void) \

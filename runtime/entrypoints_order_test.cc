@@ -294,7 +294,13 @@ class EntrypointsOrderTest : public CommonRuntimeTest {
                          pInvokePolymorphic, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInvokePolymorphic, pInvokeCustom, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pInvokeCustom, pTestSuspend, sizeof(void*));
-    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pTestSuspend, pDeliverException, sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pTestSuspend, pMethodEntered, sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodEntered, pMethodExited, sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodExited, pMethodExitedFloating, sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodExitedFloating, pDeliverException, sizeof(void*));
+    // EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodExited64bit, pMethodExited32bit, sizeof(void*));
+    // EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodExited32bit, pMethodExitedObject, sizeof(void*));
+    // EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pMethodExitedObject, pDeliverException, sizeof(void*));
 
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pDeliverException, pThrowArrayBounds, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pThrowArrayBounds, pThrowDivZero, sizeof(void*));

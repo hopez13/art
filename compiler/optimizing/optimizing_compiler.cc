@@ -1273,6 +1273,10 @@ bool OptimizingCompiler::JitCompile(Thread* self,
 
   if (UNLIKELY(method->IsNative())) {
     const CompilerOptions& compiler_options = GetCompilerDriver()->GetCompilerOptions();
+    if (compiler_options.GetDebuggable()) {
+      // TODO Ignore for now. We might want to give a different bound here.
+      return false;
+    }
     JniCompiledMethod jni_compiled_method = ArtQuickJniCompileMethod(
         compiler_options, access_flags, method_idx, *dex_file);
     std::vector<Handle<mirror::Object>> roots;

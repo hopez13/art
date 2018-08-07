@@ -325,6 +325,8 @@ bool HInstructionBuilder::Build() {
   if (native_debuggable) {
     native_debug_info_locations = FindNativeDebugInfoLocations();
   }
+  bool debuggable = compiler_driver_ != nullptr &&
+      compiler_driver_->GetCompilerOptions().GetDebuggable();
 
   for (HBasicBlock* block : graph_->GetReversePostOrder()) {
     current_block_ = block;
@@ -334,6 +336,12 @@ bool HInstructionBuilder::Build() {
 
     if (current_block_->IsEntryBlock()) {
       InitializeParameters();
+      if (debuggable) {
+        // TODO Maybe only do this if it's requested.
+        AppendInstruction(new (allocator_) HMethodEntered(graph_->GetCurrentMethod(),
+                                                          GetThisParameter(),
+                                                          0u));
+      }
       AppendInstruction(new (allocator_) HSuspendCheck(0u));
       AppendInstruction(new (allocator_) HGoto(0u));
       continue;
@@ -402,6 +410,14 @@ bool HInstructionBuilder::Build() {
   SetLoopHeaderPhiInputs();
 
   return true;
+}
+
+HInstruction* HInstructionBuilder::GetThisParameter() {
+  if (dex_compilation_unit_->IsStatic()) {
+    return graph_->GetNullConstant();
+  } else {
+    return ValueOfLocalAt(graph_->GetEntryBlock(), graph_->GetNumberOfLocalVRegs());
+  }
 }
 
 void HInstructionBuilder::BuildIntrinsic(ArtMethod* method) {
@@ -764,10 +780,25 @@ void HInstructionBuilder::BuildSwitch(const Instruction& instruction, uint32_t d
 void HInstructionBuilder::BuildReturn(const Instruction& instruction,
                                       DataType::Type type,
                                       uint32_t dex_pc) {
+  HMethodExited* method_exited = nullptr;
+  bool debuggable =
+      compiler_driver_ != nullptr && compiler_driver_->GetCompilerOptions().GetDebuggable();
+  // TODO Different reqs then 'debuggable'.
+  if (debuggable) {
+    method_exited = new (allocator_) HMethodExited(graph_->GetCurrentMethod(),
+                                                   GetThisParameter(),
+                                                   type,
+                                                   graph_->GetNullConstant(dex_pc),
+                                                   dex_pc);
+  }
   if (type == DataType::Type::kVoid) {
     // Only <init> (which is a return-void) could possibly have a constructor fence.
     // This may insert additional redundant constructor fences from the super constructors.
     // TODO: remove redundant constructor fences (b/36656456).
+    if (debuggable) {
+      method_exited->SetRawInputAt(2, graph_->GetNullConstant());
+      AppendInstruction(method_exited);
+    }
     if (RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_)) {
       // Compiling instance constructor.
       DCHECK_STREQ("<init>", graph_->GetMethodName());
@@ -784,6 +815,11 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
   } else {
     DCHECK(!RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_));
     HInstruction* value = LoadLocal(instruction.VRegA(), type);
+    if (method_exited != nullptr) {
+      DCHECK(debuggable);
+      method_exited->SetRawInputAt(2, value);
+      AppendInstruction(method_exited);
+    }
     AppendInstruction(new (allocator_) HReturn(value, dex_pc));
   }
   current_block_ = nullptr;

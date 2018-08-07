@@ -1409,6 +1409,53 @@ DEFINE_FUNCTION art_quick_unlock_object_no_inline
     RETURN_IF_EAX_ZERO
 END_FUNCTION art_quick_unlock_object_no_inline
 
+    /*
+     * Macro for resolution and initialization of indexed DEX file
+     * constants such as classes and strings.
+     */
+MACRO3(ONE_ARG_PTR_SAVE_EVERYTHING_DOWNCALL, c_name, cxx_name, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET)
+    DEFINE_FUNCTION VAR(c_name)
+    SETUP_SAVE_EVERYTHING_FRAME \runtime_method_offset  // save everything for GC
+    movq %gs:THREAD_SELF_OFFSET, %rsi             // pass Thread::Current()
+    call CALLVAR(cxx_name)                        // cxx_name(arg0, Thread*)
+    testl %eax, %eax                              // If result is null, deliver the OOME.
+    jz 1f
+    CFI_REMEMBER_STATE
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_RAX        // restore frame up to return address
+    ret
+    CFI_RESTORE_STATE
+    CFI_DEF_CFA(rsp, FRAME_SIZE_SAVE_EVERYTHING)  // workaround for clang bug: 31975598
+1:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+    END_FUNCTION VAR(c_name)
+END_MACRO
+
+// TODO Probably don't need to save everything
+DEFINE_FUNCTION art_quick_method_entered
+    SETUP_SAVE_EVERYTHING_FRAME                   // save everything for GC
+    movq %gs:THREAD_SELF_OFFSET, %rdx             // pass Thread::Current()
+    call SYMBOL(artMethodEntered)                 // artMethodEntered(ArtMethod*, thiz, Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_method_entered
+
+DEFINE_FUNCTION art_quick_method_exited_floating
+    SETUP_SAVE_EVERYTHING_FRAME                   // save everything for GC
+    movq %gs:THREAD_SELF_OFFSET, %rcx             // pass Thread::Current()
+    movq %xmm0, %rdx                              // pass ret-val.
+    call SYMBOL(artMethodExited)                  // artMethodExited(ArtMethod*, thiz, ret-val, Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_method_exited_floating
+
+DEFINE_FUNCTION art_quick_method_exited
+    SETUP_SAVE_EVERYTHING_FRAME                   // save everything for GC
+    movq %gs:THREAD_SELF_OFFSET, %rcx             // pass Thread::Current()
+    call SYMBOL(artMethodExited)                  // artMethodExited(ArtMethod*, thiz, ret-val, Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_method_exited
+
 DEFINE_FUNCTION art_quick_check_instance_of
     // Type check using the bit string passes null as the target class. In that case just throw.
     testl %esi, %esi

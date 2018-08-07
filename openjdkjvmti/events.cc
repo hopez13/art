@@ -877,16 +877,16 @@ static bool EventNeedsFullDeopt(ArtJvmtiEvent event) {
   switch (event) {
     case ArtJvmtiEvent::kBreakpoint:
     case ArtJvmtiEvent::kException:
+    case ArtJvmtiEvent::kMethodEntry:
+    case ArtJvmtiEvent::kMethodExit:
+    case ArtJvmtiEvent::kFramePop:
       return false;
     // TODO We should support more of these or at least do something to make them discriminate by
     // thread.
-    case ArtJvmtiEvent::kMethodEntry:
     case ArtJvmtiEvent::kExceptionCatch:
-    case ArtJvmtiEvent::kMethodExit:
     case ArtJvmtiEvent::kFieldModification:
     case ArtJvmtiEvent::kFieldAccess:
     case ArtJvmtiEvent::kSingleStep:
-    case ArtJvmtiEvent::kFramePop:
       return true;
     default:
       LOG(FATAL) << "Unexpected event type!";
@@ -906,6 +906,9 @@ void EventHandler::SetupTraceListener(JvmtiMethodTraceListener* listener,
       deopt_manager->AddDeoptimizationRequester();
       if (needs_full_deopt) {
         deopt_manager->AddDeoptimizeAllMethods();
+      }
+      if (event == ArtJvmtiEvent::kMethodEntry || event == ArtJvmtiEvent::kMethodExit) {
+        deopt_manager->DisableIntrinsics();
       }
     } else {
       if (needs_full_deopt) {

@@ -98,6 +98,8 @@ class HInstructionBuilder : public ValueObject {
 
   void InitializeParameters();
 
+  HInstruction* GetThisParameter();
+
   template<typename T>
   void Unop_12x(const Instruction& instruction, DataType::Type type, uint32_t dex_pc);
 

@@ -22,6 +22,10 @@
 
 package art;
 
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
+
 class Test988Intrinsics {
   // Pre-initialize *all* instance variables used so that their constructors are not in the trace.
   static java.lang.String instance_java_lang_String = "some large string";
@@ -41,8 +45,101 @@ class Test988Intrinsics {
     java.lang.String.class.toString();
     java.lang.StringBuffer.class.toString();
     java.lang.StringBuilder.class.toString();
+    java.lang.ref.Reference.class.toString();
   }
 
+  static List<Executable> getIntrinsicMethods() throws Exception {
+    return Arrays.asList(new Method[] {
+      java.lang.Double.class.getDeclaredMethod("doubleToRawLongBits", java.lang.Double.TYPE),
+      java.lang.Double.class.getDeclaredMethod("doubleToLongBits", java.lang.Double.TYPE),
+      java.lang.Double.class.getDeclaredMethod("isInfinite", java.lang.Double.TYPE),
+      java.lang.Double.class.getDeclaredMethod("isNaN", java.lang.Double.TYPE),
+      java.lang.Double.class.getDeclaredMethod("longBitsToDouble", java.lang.Long.TYPE),
+      java.lang.Float.class.getDeclaredMethod("floatToRawIntBits", java.lang.Float.TYPE),
+      java.lang.Float.class.getDeclaredMethod("floatToIntBits", java.lang.Float.TYPE),
+      java.lang.Float.class.getDeclaredMethod("isInfinite", java.lang.Float.TYPE),
+      java.lang.Float.class.getDeclaredMethod("isNaN", java.lang.Float.TYPE),
+      java.lang.Float.class.getDeclaredMethod("intBitsToFloat", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("reverse", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("reverseBytes", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("bitCount", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("compare", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("highestOneBit", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("lowestOneBit", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("numberOfLeadingZeros", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("numberOfTrailingZeros", java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("rotateRight", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("rotateLeft", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.Integer.class.getDeclaredMethod("signum", java.lang.Integer.TYPE),
+      java.lang.Long.class.getDeclaredMethod("reverse", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("reverseBytes", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("bitCount", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("compare", java.lang.Long.TYPE, java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("highestOneBit", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("lowestOneBit", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("numberOfLeadingZeros", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("numberOfTrailingZeros", java.lang.Long.TYPE),
+      java.lang.Long.class.getDeclaredMethod("rotateRight", java.lang.Long.TYPE, java.lang.Integer.TYPE),
+      java.lang.Long.class.getDeclaredMethod("rotateLeft", java.lang.Long.TYPE, java.lang.Integer.TYPE),
+      java.lang.Long.class.getDeclaredMethod("signum", java.lang.Long.TYPE),
+      java.lang.Short.class.getDeclaredMethod("reverseBytes", java.lang.Short.TYPE),
+      java.lang.Math.class.getDeclaredMethod("abs", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("abs", java.lang.Float.TYPE),
+      java.lang.Math.class.getDeclaredMethod("abs", java.lang.Long.TYPE),
+      java.lang.Math.class.getDeclaredMethod("abs", java.lang.Integer.TYPE),
+      java.lang.Math.class.getDeclaredMethod("min", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("min", java.lang.Float.TYPE, java.lang.Float.TYPE),
+      java.lang.Math.class.getDeclaredMethod("min", java.lang.Long.TYPE, java.lang.Long.TYPE),
+      java.lang.Math.class.getDeclaredMethod("min", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.Math.class.getDeclaredMethod("max", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("max", java.lang.Float.TYPE, java.lang.Float.TYPE),
+      java.lang.Math.class.getDeclaredMethod("max", java.lang.Long.TYPE, java.lang.Long.TYPE),
+      java.lang.Math.class.getDeclaredMethod("max", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.Math.class.getDeclaredMethod("cos", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("sin", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("acos", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("asin", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("atan", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("atan2", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("pow", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("cbrt", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("cosh", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("exp", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("expm1", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("hypot", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("log", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("log10", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("nextAfter", java.lang.Double.TYPE, java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("sinh", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("tan", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("tanh", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("sqrt", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("ceil", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("floor", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("rint", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("round", java.lang.Double.TYPE),
+      java.lang.Math.class.getDeclaredMethod("round", java.lang.Float.TYPE),
+      java.lang.Thread.class.getDeclaredMethod("currentThread"),
+      java.lang.String.class.getDeclaredMethod("charAt", java.lang.Integer.TYPE),
+      java.lang.String.class.getDeclaredMethod("compareTo", java.lang.String.class),
+      java.lang.String.class.getDeclaredMethod("equals", java.lang.Object.class),
+      java.lang.String.class.getDeclaredMethod("indexOf", java.lang.Integer.TYPE),
+      java.lang.String.class.getDeclaredMethod("indexOf", java.lang.Integer.TYPE, java.lang.Integer.TYPE),
+      java.lang.String.class.getDeclaredMethod("indexOf", java.lang.String.class),
+      java.lang.String.class.getDeclaredMethod("indexOf", java.lang.String.class, java.lang.Integer.TYPE),
+      java.lang.String.class.getDeclaredMethod("isEmpty"),
+      java.lang.String.class.getDeclaredMethod("length"),
+      java.lang.StringBuffer.class.getDeclaredMethod("append", java.lang.String.class),
+      java.lang.StringBuffer.class.getDeclaredMethod("length"),
+      java.lang.StringBuffer.class.getDeclaredMethod("toString"),
+      java.lang.StringBuilder.class.getDeclaredMethod("append", java.lang.String.class),
+      java.lang.StringBuilder.class.getDeclaredMethod("length"),
+      java.lang.StringBuilder.class.getDeclaredMethod("toString"),
+      java.lang.Integer.class.getDeclaredMethod("valueOf", java.lang.Integer.TYPE),
+      java.lang.Thread.class.getDeclaredMethod("interrupted"),
+      java.lang.ref.Reference.class.getDeclaredMethod("reachabilityFence", java.lang.Object.class),
+    });
+  }
   static void test() {
     // Call each intrinsic from art/runtime/intrinsics_list.h to make sure they are traced.
     java.lang.Double.doubleToRawLongBits(0.0);
@@ -96,6 +193,7 @@ class Test988Intrinsics {
     java.lang.Math.asin(0.0);
     java.lang.Math.atan(0.0);
     java.lang.Math.atan2(0.0, 0.0);
+    java.lang.Math.pow(0.0, 0.0);
     java.lang.Math.cbrt(0.0);
     java.lang.Math.cosh(0.0);
     java.lang.Math.exp(0.0);
@@ -131,5 +229,6 @@ class Test988Intrinsics {
     instance_java_lang_StringBuilder.toString();
     java.lang.Integer.valueOf(0);
     java.lang.Thread.interrupted();
+    java.lang.ref.Reference.reachabilityFence((java.lang.Object)null);
   }
 }

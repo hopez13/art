@@ -18,6 +18,8 @@
 #include "common_throws.h"
 #include "mirror/object-inl.h"
 
+#include "well_known_classes.h"
+
 namespace art {
 
 extern "C" int artLockObjectFromCode(mirror::Object* obj, Thread* self)
@@ -46,6 +48,52 @@ extern "C" int artLockObjectFromCode(mirror::Object* obj, Thread* self)
       return 0;  // Success.
     }
   }
+}
+
+#if 0
+// TODO Put these in their own file.
+extern "C" void artMethodExitedVoid(ArtMethod* method,
+                                mirror::Object* thiz,
+                                Thread* self)
+    REQUIRES(!Roles::uninterruptible_)
+    REQUIRES_SHARED(Locks::mutator_lock_) /* UNLOCK_FUNCTION(Monitor::monitor_lock_) */ {
+  ScopedQuickEntrypointChecks sqec(self);
+  JValue return_val;
+  LOG(WARNING) << "exited method " << method->PrettyMethod();
+  Runtime::Current()->GetInstrumentation()->MethodExitEvent(self, thiz, method, dex::kDexNoIndex,
+                                                            return_val);
+}
+#endif
+
+// TODO Put these in their own file.
+extern "C" void artMethodExited(ArtMethod* method,
+                                mirror::Object* thiz,
+                                uint64_t return_value,
+                                Thread* self)
+    REQUIRES(!Roles::uninterruptible_)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  JValue return_val;
+  return_val.SetJ(return_value);
+  // LOG(WARNING) << "exited method " << method->PrettyMethod() << " with " << return_value
+  //              << " (low) " << (return_value & std::numeric_limits<uint32_t>::max())
+  //              << " (high) " << ((return_value >> 32) & std::numeric_limits<uint32_t>::max());
+  Runtime::Current()->GetInstrumentation()->MethodExitEvent(self, thiz, method, dex::kDexNoIndex,
+                                                            return_val);
+}
+
+extern "C" void artMethodEntered(ArtMethod* method, mirror::Object* thiz, Thread* self)
+    REQUIRES(!Roles::uninterruptible_)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  // std::string objstr;
+  // if (thiz == nullptr) {
+  //   objstr = "<NULL>";
+  // } else {
+  //   objstr = mirror::Object::PrettyTypeOf(thiz);
+  // }
+  // LOG(WARNING) << "Entered method " << method->PrettyMethod() << " obj is " << objstr;
+  Runtime::Current()->GetInstrumentation()->MethodEnterEvent(self, thiz, method, dex::kDexNoIndex);
 }
 
 extern "C" int artUnlockObjectFromCode(mirror::Object* obj, Thread* self)

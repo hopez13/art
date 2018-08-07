@@ -3285,6 +3285,12 @@ void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {
   QUICK_ENTRY_POINT_INFO(pInvokeVirtualTrampolineWithAccessCheck)
   QUICK_ENTRY_POINT_INFO(pInvokePolymorphic)
   QUICK_ENTRY_POINT_INFO(pTestSuspend)
+  QUICK_ENTRY_POINT_INFO(pMethodEntered)
+  QUICK_ENTRY_POINT_INFO(pMethodExited)
+  QUICK_ENTRY_POINT_INFO(pMethodExitedFloating)
+  // QUICK_ENTRY_POINT_INFO(pMethodExited64bit)
+  // QUICK_ENTRY_POINT_INFO(pMethodExited32bit)
+  // QUICK_ENTRY_POINT_INFO(pMethodExitedObject)
   QUICK_ENTRY_POINT_INFO(pDeliverException)
   QUICK_ENTRY_POINT_INFO(pThrowArrayBounds)
   QUICK_ENTRY_POINT_INFO(pThrowDivZero)
@@ -3404,7 +3410,14 @@ void Thread::QuickDeliverException() {
     }
     force_deopt = force_frame_pop || force_retry_instr;
   }
-  if (Dbg::IsForcedInterpreterNeededForException(this) || force_deopt) {
+  if (Dbg::IsForcedInterpreterNeededForException(this) || force_deopt || true) {
+  // // Does instrumentation need to deoptimize the stack?
+  // // Note: we do this *after* reporting the exception to instrumentation in case it
+  // // now requires deoptimization. It may happen if a debugger is attached and requests
+  // // new events (single-step, breakpoint, ...) when the exception is reported.
+  // // TODO Want this for accurate stack traces.
+  // if (Dbg::IsForcedInterpreterNeededForException(this) || true) {
+    DumpJavaStack(LOG_STREAM(INFO) << "deoptimizing for exception handing! ", false, false);
     NthCallerVisitor visitor(this, 0, false);
     visitor.WalkStack();
     if (Runtime::Current()->IsAsyncDeoptimizeable(visitor.caller_pc)) {
@@ -3433,6 +3446,18 @@ void Thread::QuickDeliverException() {
                    << visitor.caller->PrettyMethod();
     }
   }
+
+  // TODO Not sure why i put this in
+#if 0
+  // This is a real exception: let the instrumentation know about it.
+  if (instrumentation->HasExceptionThrownListeners() &&
+      IsExceptionThrownByCurrentMethod(exception)) {
+    // Instrumentation may cause GC so keep the exception object safe.
+    StackHandleScope<1> hs(this);
+    HandleWrapperObjPtr<mirror::Throwable> h_exception(hs.NewHandleWrapper(&exception));
+    instrumentation->ExceptionThrownEvent(this, exception.Ptr());
+  }
+#endif
 
   // Don't leave exception visible while we try to find the handler, which may cause class
   // resolution.
