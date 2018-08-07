@@ -1861,6 +1861,37 @@ void CodeGeneratorMIPS64::GenerateInvokeRuntime(int32_t entry_point_offset) {
   __ Nop();
 }
 
+
+void InstructionCodeGeneratorMIPS64::VisitMethodExited(
+    HMethodExited* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+}
+
+void LocationsBuilderMIPS64::VisitMethodExited(HMethodExited* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorMIPS64::VisitMethodEntered(
+    HMethodEntered* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+}
+
+void LocationsBuilderMIPS64::VisitMethodEntered(HMethodEntered* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
 void InstructionCodeGeneratorMIPS64::GenerateClassInitializationCheck(SlowPathCodeMIPS64* slow_path,
                                                                       GpuRegister class_reg) {
   constexpr size_t status_lsb_position = SubtypeCheckBits::BitStructSizeOf();

@@ -253,22 +253,8 @@ static inline JValue Execute(
       CHECK_EQ(shadow_frame.GetDexPC(), 0u);
       self->AssertNoPendingException();
     }
-    instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-    ArtMethod *method = shadow_frame.GetMethod();
 
-    if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
-      instrumentation->MethodEnterEvent(self,
-                                        shadow_frame.GetThisObject(accessor.InsSize()),
-                                        method,
-                                        0);
-      if (UNLIKELY(self->IsExceptionPending())) {
-        instrumentation->MethodUnwindEvent(self,
-                                           shadow_frame.GetThisObject(accessor.InsSize()),
-                                           method,
-                                           0);
-        return JValue();
-      }
-    }
+    ArtMethod *method = shadow_frame.GetMethod();
 
     if (!stay_in_interpreter) {
       jit::Jit* jit = Runtime::Current()->GetJit();
@@ -289,6 +275,21 @@ static inline JValue Execute(
 
           return result;
         }
+      }
+    }
+
+    instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
+    if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
+      instrumentation->MethodEnterEvent(self,
+                                        shadow_frame.GetThisObject(accessor.InsSize()),
+                                        method,
+                                        0);
+      if (UNLIKELY(self->IsExceptionPending())) {
+        instrumentation->MethodUnwindEvent(self,
+                                           shadow_frame.GetThisObject(accessor.InsSize()),
+                                           method,
+                                           0);
+        return JValue();
       }
     }
   }
@@ -506,11 +507,8 @@ void EnterInterpreterFromDeoptimize(Thread* self,
     const uint32_t dex_pc = shadow_frame->GetDexPC();
     uint32_t new_dex_pc = dex_pc;
     if (UNLIKELY(self->IsExceptionPending())) {
-      // If we deoptimize from the QuickExceptionHandler, we already reported the exception to
-      // the instrumentation. To prevent from reporting it a second time, we simply pass a
-      // null Instrumentation*.
       const instrumentation::Instrumentation* const instrumentation =
-          first ? nullptr : Runtime::Current()->GetInstrumentation();
+          Runtime::Current()->GetInstrumentation();
       new_dex_pc = MoveToExceptionHandler(
           self, *shadow_frame, instrumentation) ? shadow_frame->GetDexPC() : dex::kDexNoIndex;
     } else if (!from_code) {

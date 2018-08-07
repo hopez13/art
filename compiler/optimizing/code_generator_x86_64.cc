@@ -6145,6 +6145,35 @@ void InstructionCodeGeneratorX86_64::VisitThrow(HThrow* instruction) {
   CheckEntrypointTypes<kQuickDeliverException, void, mirror::Object*>();
 }
 
+void InstructionCodeGeneratorX86_64::VisitMethodExited(HMethodExited* instruction) {
+  codegen_->InvokeRuntime(kQuickMethodExited, instruction, instruction->GetDexPc());
+  CheckEntrypointTypes<kQuickMethodExited, void, ArtMethod*, mirror::Object*, uint64_t>();
+}
+
+void LocationsBuilderX86_64::VisitMethodExited(HMethodExited* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+  InvokeRuntimeCallingConvention calling_convention;
+  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  locations->SetInAt(1, Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+  locations->SetInAt(2, Location::RegisterLocation(calling_convention.GetRegisterAt(2)));
+}
+
+void InstructionCodeGeneratorX86_64::VisitMethodEntered(
+    HMethodEntered* instruction) {
+  // TODO
+  codegen_->InvokeRuntime(kQuickMethodEntered, instruction, instruction->GetDexPc());
+  CheckEntrypointTypes<kQuickMethodEntered, void, ArtMethod*, mirror::Object*>();
+}
+
+void LocationsBuilderX86_64::VisitMethodEntered(HMethodEntered* instruction) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+  InvokeRuntimeCallingConvention calling_convention;
+  locations->SetInAt(0, Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  locations->SetInAt(1, Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+}
+
 // Temp is used for read barrier.
 static size_t NumberOfInstanceOfTemps(TypeCheckKind type_check_kind) {
   if (kEmitCompilerReadBarrier &&

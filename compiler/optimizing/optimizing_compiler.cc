@@ -1219,6 +1219,10 @@ bool OptimizingCompiler::JitCompile(Thread* self,
     const CompilerOptions& compiler_options = GetCompilerDriver()->GetCompilerOptions();
     JniCompiledMethod jni_compiled_method = ArtQuickJniCompileMethod(
         compiler_options, access_flags, method_idx, *dex_file);
+    if (compiler_options.GetDebuggable()) {
+      // TODO Ignore for now
+      return false;
+    }
     ScopedNullHandle<mirror::ObjectArray<mirror::Object>> roots;
     ArenaSet<ArtMethod*, std::less<ArtMethod*>> cha_single_implementation_list(
         allocator.Adapter(kArenaAllocCHA));
