@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c3ebce46_40f39981",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-07T17:17:56Z",
+      "side": 1,
+      "message": "I see; I forgot that LDAR did not take any offset.",
+      "parentUuid": "0fa174bc_d7b4d5b4",
+      "range": {
+        "startLine": 6845,
+        "startChar": 8,
+        "endLine": 6845,
+        "endChar": 47
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5755da6e_42f8df82",
         "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "When we do explicit adjustments on references, we use w-registers. When we leave it to the macro assembler, it\u0027s done on the MemOperand referencing an x-register. Unless we change that policy, this test needs to deal with both, w-registers for Barker RB, x-register for CMS.",
       "parentUuid": "5755da6e_42f8df82",
+      "range": {
+        "startLine": 258,
+        "startChar": 40,
+        "endLine": 258,
+        "endChar": 43
+      },
+      "revId": "cbc14c3da13ee8f0bfd62687ed7a31106bc4c8bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "532bd6fa_3de89f23",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-07T17:17:56Z",
+      "side": 1,
+      "message": "Thanks for the explanation.",
+      "parentUuid": "d746865f_7b0d8212",
       "range": {
         "startLine": 258,
         "startChar": 40,
