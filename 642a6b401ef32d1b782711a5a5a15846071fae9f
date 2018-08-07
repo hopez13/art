@@ -22,6 +22,30 @@
       "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61912989_c93ff951",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-07T13:09:33Z",
+      "side": 1,
+      "message": "I feel like check which is never executed serves little purpose.",
+      "parentUuid": "176e12cd_8998ed04",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 68
+      },
+      "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
