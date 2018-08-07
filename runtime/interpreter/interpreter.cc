@@ -253,22 +253,8 @@ static inline JValue Execute(
       CHECK_EQ(shadow_frame.GetDexPC(), 0u);
       self->AssertNoPendingException();
     }
-    instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-    ArtMethod *method = shadow_frame.GetMethod();
 
-    if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
-      instrumentation->MethodEnterEvent(self,
-                                        shadow_frame.GetThisObject(accessor.InsSize()),
-                                        method,
-                                        0);
-      if (UNLIKELY(self->IsExceptionPending())) {
-        instrumentation->MethodUnwindEvent(self,
-                                           shadow_frame.GetThisObject(accessor.InsSize()),
-                                           method,
-                                           0);
-        return JValue();
-      }
-    }
+    ArtMethod *method = shadow_frame.GetMethod();
 
     if (!stay_in_interpreter) {
       jit::Jit* jit = Runtime::Current()->GetJit();
@@ -289,6 +275,21 @@ static inline JValue Execute(
 
           return result;
         }
+      }
+    }
+
+    instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
+    if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
+      instrumentation->MethodEnterEvent(self,
+                                        shadow_frame.GetThisObject(accessor.InsSize()),
+                                        method,
+                                        0);
+      if (UNLIKELY(self->IsExceptionPending())) {
+        instrumentation->MethodUnwindEvent(self,
+                                           shadow_frame.GetThisObject(accessor.InsSize()),
+                                           method,
+                                           0);
+        return JValue();
       }
     }
   }
