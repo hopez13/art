@@ -37,6 +37,7 @@ public class Test988 {
     static Set<Method> NON_DETERMINISTIC_OUTPUT_METHODS = new HashSet<>();
     static Set<Method> NON_DETERMINISTIC_OUTPUT_TYPE_METHODS = new HashSet<>();
     static List<Class<?>> NON_DETERMINISTIC_TYPE_NAMES = new ArrayList<>();
+    static Set<Method> NON_DETERMINISTIC_IMPLEMENTATION_METHODS = new HashSet<>();
 
     static {
       try {
@@ -50,6 +51,7 @@ public class Test988 {
       try {
         NON_DETERMINISTIC_TYPE_NAMES.add(
             Proxy.getProxyClass(Test988.class.getClassLoader(), new Class[] { Runnable.class }));
+        NON_DETERMINISTIC_IMPLEMENTATION_METHODS.addAll(Test988Intrinsics.getIntrinsicMethods());
       } catch (Exception e) {}
     }
 
@@ -239,7 +241,7 @@ public class Test988 {
         }
     }
 
-    private static List<Printable> results = new ArrayList<>();
+    private static List<Printable> results = new ArrayList<>(10000);
     // Starts with => enableMethodTracing
     //             .=> enableTracing
     private static int cnt = 2;
@@ -380,7 +382,7 @@ public class Test988 {
     public static void printResults() {
         for (Printable p : results) {
             p.Print();
-        }
+        } System.out.println("sizeof results: " + results.size());
     }
 
     public static void doFibTest(int x, IntUnaryOperator op) {

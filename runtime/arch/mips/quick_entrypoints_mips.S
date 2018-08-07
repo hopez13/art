@@ -1293,6 +1293,20 @@ ENTRY art_quick_handle_fill_data
     RETURN_IF_ZERO
 END art_quick_handle_fill_data
 
+
+ENTRY art_quick_method_entered
+    jalr   $zero, $ra                    # return on success
+    nop
+END art_quick_method_entered
+ENTRY art_quick_method_exited_floating
+    jalr   $zero, $ra                    # return on success
+    nop
+END art_quick_method_exited_floating
+ENTRY art_quick_method_exited
+    jalr   $zero, $ra                    # return on success
+    nop
+END art_quick_method_exited
+
     /*
      * Entry from managed code that calls artLockObjectFromCode, may block for GC.
      */

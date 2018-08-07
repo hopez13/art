@@ -700,75 +700,75 @@ public class Test1953 {
   public void runTests() throws Exception {
     setupTest();
 
-    final Method calledFunction = StandardTestObject.class.getDeclaredMethod("calledFunction");
-    final Method doNothingMethod = Test1953.class.getDeclaredMethod("doNothing");
-    // Add a breakpoint on the second line after the start of the function
-    final int line = Breakpoint.locationToLine(calledFunction, 0) + 2;
-    final long loc = Breakpoint.lineToLocation(calledFunction, line);
-    System.out.println("Test stopped using breakpoint");
-    runTestOn(new StandardTestObject(),
-        (thr) -> setupSuspendBreakpointFor(calledFunction, loc, thr),
-        Test1953::clearSuspendBreakpointFor);
+    // final Method calledFunction = StandardTestObject.class.getDeclaredMethod("calledFunction");
+    // final Method doNothingMethod = Test1953.class.getDeclaredMethod("doNothing");
+    // // Add a breakpoint on the second line after the start of the function
+    // final int line = Breakpoint.locationToLine(calledFunction, 0) + 2;
+    // final long loc = Breakpoint.lineToLocation(calledFunction, line);
+    // System.out.println("Test stopped using breakpoint");
+    // runTestOn(new StandardTestObject(),
+    //     (thr) -> setupSuspendBreakpointFor(calledFunction, loc, thr),
+    //     Test1953::clearSuspendBreakpointFor);
 
-    final Method syncFunctionCalledFunction =
-        SynchronizedFunctionTestObject.class.getDeclaredMethod("calledFunction");
-    // Add a breakpoint on the second line after the start of the function
-    // Annoyingly r8 generally has the first instruction (a monitor enter) not be marked as being
-    // on any line but javac has it marked as being on the first line of the function. Just use the
-    // second entry on the line-number table to get the breakpoint. This should be good for both.
-    final long syncFunctionLoc =
-        Breakpoint.getLineNumberTable(syncFunctionCalledFunction)[1].location;
-    System.out.println("Test stopped using breakpoint with declared synchronized function");
-    runTestOn(new SynchronizedFunctionTestObject(),
-        (thr) -> setupSuspendBreakpointFor(syncFunctionCalledFunction, syncFunctionLoc, thr),
-        Test1953::clearSuspendBreakpointFor);
+    // final Method syncFunctionCalledFunction =
+    //     SynchronizedFunctionTestObject.class.getDeclaredMethod("calledFunction");
+    // // Add a breakpoint on the second line after the start of the function
+    // // Annoyingly r8 generally has the first instruction (a monitor enter) not be marked as being
+    // // on any line but javac has it marked as being on the first line of the function. Just use the
+    // // second entry on the line-number table to get the breakpoint. This should be good for both.
+    // final long syncFunctionLoc =
+    //     Breakpoint.getLineNumberTable(syncFunctionCalledFunction)[1].location;
+    // System.out.println("Test stopped using breakpoint with declared synchronized function");
+    // runTestOn(new SynchronizedFunctionTestObject(),
+    //     (thr) -> setupSuspendBreakpointFor(syncFunctionCalledFunction, syncFunctionLoc, thr),
+    //     Test1953::clearSuspendBreakpointFor);
 
-    final Method syncCalledFunction =
-        SynchronizedTestObject.class.getDeclaredMethod("calledFunction");
-    // Add a breakpoint on the second line after the start of the function
-    final int syncLine = Breakpoint.locationToLine(syncCalledFunction, 0) + 3;
-    final long syncLoc = Breakpoint.lineToLocation(syncCalledFunction, syncLine);
-    System.out.println("Test stopped using breakpoint with synchronized block");
-    runTestOn(new SynchronizedTestObject(),
-        (thr) -> setupSuspendBreakpointFor(syncCalledFunction, syncLoc, thr),
-        Test1953::clearSuspendBreakpointFor);
+    // final Method syncCalledFunction =
+    //     SynchronizedTestObject.class.getDeclaredMethod("calledFunction");
+    // // Add a breakpoint on the second line after the start of the function
+    // final int syncLine = Breakpoint.locationToLine(syncCalledFunction, 0) + 3;
+    // final long syncLoc = Breakpoint.lineToLocation(syncCalledFunction, syncLine);
+    // System.out.println("Test stopped using breakpoint with synchronized block");
+    // runTestOn(new SynchronizedTestObject(),
+    //     (thr) -> setupSuspendBreakpointFor(syncCalledFunction, syncLoc, thr),
+    //     Test1953::clearSuspendBreakpointFor);
 
-    System.out.println("Test stopped on single step");
-    runTestOn(new StandardTestObject(),
-        (thr) -> setupSuspendSingleStepAt(calledFunction, loc, thr),
-        Test1953::clearSuspendSingleStepFor);
+    // System.out.println("Test stopped on single step");
+    // runTestOn(new StandardTestObject(),
+    //     (thr) -> setupSuspendSingleStepAt(calledFunction, loc, thr),
+    //     Test1953::clearSuspendSingleStepFor);
 
-    final Field target_field = FieldBasedTestObject.class.getDeclaredField("TARGET_FIELD");
-    System.out.println("Test stopped on field access");
-    runTestOn(new FieldBasedTestObject(),
-        (thr) -> setupFieldSuspendFor(FieldBasedTestObject.class, target_field, true, thr),
-        Test1953::clearFieldSuspendFor);
+    // final Field target_field = FieldBasedTestObject.class.getDeclaredField("TARGET_FIELD");
+    // System.out.println("Test stopped on field access");
+    // runTestOn(new FieldBasedTestObject(),
+    //     (thr) -> setupFieldSuspendFor(FieldBasedTestObject.class, target_field, true, thr),
+    //     Test1953::clearFieldSuspendFor);
 
-    System.out.println("Test stopped on field modification");
-    runTestOn(new FieldBasedTestObject(),
-        (thr) -> setupFieldSuspendFor(FieldBasedTestObject.class, target_field, false, thr),
-        Test1953::clearFieldSuspendFor);
+    // System.out.println("Test stopped on field modification");
+    // runTestOn(new FieldBasedTestObject(),
+    //     (thr) -> setupFieldSuspendFor(FieldBasedTestObject.class, target_field, false, thr),
+    //     Test1953::clearFieldSuspendFor);
 
-    System.out.println("Test stopped during Method Exit of doNothing");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendMethodEvent(doNothingMethod, /*enter*/ false, thr),
-        Test1953::clearSuspendMethodEvent);
+    // System.out.println("Test stopped during Method Exit of doNothing");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendMethodEvent(doNothingMethod, /*enter*/ false, thr),
+    //     Test1953::clearSuspendMethodEvent);
 
-    // NB We need another test to make sure the MethodEntered event is triggered twice.
-    System.out.println("Test stopped during Method Enter of doNothing");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendMethodEvent(doNothingMethod, /*enter*/ true, thr),
-        Test1953::clearSuspendMethodEvent);
+    // // NB We need another test to make sure the MethodEntered event is triggered twice.
+    // System.out.println("Test stopped during Method Enter of doNothing");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendMethodEvent(doNothingMethod, /*enter*/ true, thr),
+    //     Test1953::clearSuspendMethodEvent);
 
-    System.out.println("Test stopped during Method Exit of calledFunction");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendMethodEvent(calledFunction, /*enter*/ false, thr),
-        Test1953::clearSuspendMethodEvent);
+    // System.out.println("Test stopped during Method Exit of calledFunction");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendMethodEvent(calledFunction, /*enter*/ false, thr),
+    //     Test1953::clearSuspendMethodEvent);
 
-    System.out.println("Test stopped during Method Enter of calledFunction");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendMethodEvent(calledFunction, /*enter*/ true, thr),
-        Test1953::clearSuspendMethodEvent);
+    // System.out.println("Test stopped during Method Enter of calledFunction");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendMethodEvent(calledFunction, /*enter*/ true, thr),
+    //     Test1953::clearSuspendMethodEvent);
 
     final Method exceptionOnceCalledMethod =
         ExceptionOnceObject.class.getDeclaredMethod("calledFunction");
@@ -777,136 +777,136 @@ public class Test1953 {
         (thr) -> setupSuspendMethodEvent(exceptionOnceCalledMethod, /*enter*/ false, thr),
         Test1953::clearSuspendMethodEvent);
 
-    System.out.println("Test stopped during Method Exit due to exception thrown in subroutine");
-    runTestOn(new ExceptionOnceObject(/*throwInSub*/ true),
-        (thr) -> setupSuspendMethodEvent(exceptionOnceCalledMethod, /*enter*/ false, thr),
-        Test1953::clearSuspendMethodEvent);
+    // System.out.println("Test stopped during Method Exit due to exception thrown in subroutine");
+    // runTestOn(new ExceptionOnceObject(/*throwInSub*/ true),
+    //     (thr) -> setupSuspendMethodEvent(exceptionOnceCalledMethod, /*enter*/ false, thr),
+    //     Test1953::clearSuspendMethodEvent);
 
-    System.out.println("Test stopped during notifyFramePop without exception on pop of calledFunction");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendPopFrameEvent(1, doNothingMethod, thr),
-        Test1953::clearSuspendPopFrameEvent);
+    // System.out.println("Test stopped during notifyFramePop without exception on pop of calledFunction");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendPopFrameEvent(1, doNothingMethod, thr),
+    //     Test1953::clearSuspendPopFrameEvent);
 
-    System.out.println("Test stopped during notifyFramePop without exception on pop of doNothing");
-    runTestOn(new StandardTestObject(false),
-        (thr) -> setupSuspendPopFrameEvent(0, doNothingMethod, thr),
-        Test1953::clearSuspendPopFrameEvent);
+    // System.out.println("Test stopped during notifyFramePop without exception on pop of doNothing");
+    // runTestOn(new StandardTestObject(false),
+    //     (thr) -> setupSuspendPopFrameEvent(0, doNothingMethod, thr),
+    //     Test1953::clearSuspendPopFrameEvent);
 
-    final Method exceptionThrowCalledMethod =
-        ExceptionThrowTestObject.class.getDeclaredMethod("calledFunction");
-    System.out.println("Test stopped during notifyFramePop with exception on pop of calledFunction");
-    runTestOn(new ExceptionThrowTestObject(false),
-        (thr) -> setupSuspendPopFrameEvent(0, exceptionThrowCalledMethod, thr),
-        Test1953::clearSuspendPopFrameEvent);
+    // final Method exceptionThrowCalledMethod =
+    //     ExceptionThrowTestObject.class.getDeclaredMethod("calledFunction");
+    // System.out.println("Test stopped during notifyFramePop with exception on pop of calledFunction");
+    // runTestOn(new ExceptionThrowTestObject(false),
+    //     (thr) -> setupSuspendPopFrameEvent(0, exceptionThrowCalledMethod, thr),
+    //     Test1953::clearSuspendPopFrameEvent);
 
-    final Method exceptionCatchThrowMethod =
-        ExceptionCatchTestObject.class.getDeclaredMethod("doThrow");
-    System.out.println("Test stopped during notifyFramePop with exception on pop of doThrow");
-    runTestOn(new ExceptionCatchTestObject(),
-        (thr) -> setupSuspendPopFrameEvent(0, exceptionCatchThrowMethod, thr),
-        Test1953::clearSuspendPopFrameEvent);
+    // final Method exceptionCatchThrowMethod =
+    //     ExceptionCatchTestObject.class.getDeclaredMethod("doThrow");
+    // System.out.println("Test stopped during notifyFramePop with exception on pop of doThrow");
+    // runTestOn(new ExceptionCatchTestObject(),
+    //     (thr) -> setupSuspendPopFrameEvent(0, exceptionCatchThrowMethod, thr),
+    //     Test1953::clearSuspendPopFrameEvent);
 
-    System.out.println("Test stopped during ExceptionCatch event of calledFunction " +
-        "(catch in called function, throw in called function)");
-    runTestOn(new ExceptionThrowTestObject(true),
-        (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ true, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // System.out.println("Test stopped during ExceptionCatch event of calledFunction " +
+    //     "(catch in called function, throw in called function)");
+    // runTestOn(new ExceptionThrowTestObject(true),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ true, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    final Method exceptionCatchCalledMethod =
-        ExceptionCatchTestObject.class.getDeclaredMethod("calledFunction");
-    System.out.println("Test stopped during ExceptionCatch event of calledFunction " +
-        "(catch in called function, throw in subroutine)");
-    runTestOn(new ExceptionCatchTestObject(),
-        (thr) -> setupSuspendExceptionEvent(exceptionCatchCalledMethod, /*catch*/ true, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // final Method exceptionCatchCalledMethod =
+    //     ExceptionCatchTestObject.class.getDeclaredMethod("calledFunction");
+    // System.out.println("Test stopped during ExceptionCatch event of calledFunction " +
+    //     "(catch in called function, throw in subroutine)");
+    // runTestOn(new ExceptionCatchTestObject(),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionCatchCalledMethod, /*catch*/ true, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    System.out.println("Test stopped during Exception event of calledFunction " +
-        "(catch in calling function)");
-    runTestOn(new ExceptionThrowTestObject(false),
-        (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ false, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // System.out.println("Test stopped during Exception event of calledFunction " +
+    //     "(catch in calling function)");
+    // runTestOn(new ExceptionThrowTestObject(false),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ false, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    System.out.println("Test stopped during Exception event of calledFunction " +
-        "(catch in called function)");
-    runTestOn(new ExceptionThrowTestObject(true),
-        (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ false, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // System.out.println("Test stopped during Exception event of calledFunction " +
+    //     "(catch in called function)");
+    // runTestOn(new ExceptionThrowTestObject(true),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionThrowCalledMethod, /*catch*/ false, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    final Method exceptionThrowFarCalledMethod =
-        ExceptionThrowFarTestObject.class.getDeclaredMethod("calledFunction");
-    System.out.println("Test stopped during Exception event of calledFunction " +
-        "(catch in parent of calling function)");
-    runTestOn(new ExceptionThrowFarTestObject(false),
-        (thr) -> setupSuspendExceptionEvent(exceptionThrowFarCalledMethod, /*catch*/ false, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // final Method exceptionThrowFarCalledMethod =
+    //     ExceptionThrowFarTestObject.class.getDeclaredMethod("calledFunction");
+    // System.out.println("Test stopped during Exception event of calledFunction " +
+    //     "(catch in parent of calling function)");
+    // runTestOn(new ExceptionThrowFarTestObject(false),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionThrowFarCalledMethod, /*catch*/ false, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    System.out.println("Test stopped during Exception event of calledFunction " +
-        "(catch in called function)");
-    runTestOn(new ExceptionThrowFarTestObject(true),
-        (thr) -> setupSuspendExceptionEvent(exceptionThrowFarCalledMethod, /*catch*/ false, thr),
-        Test1953::clearSuspendExceptionEvent);
+    // System.out.println("Test stopped during Exception event of calledFunction " +
+    //     "(catch in called function)");
+    // runTestOn(new ExceptionThrowFarTestObject(true),
+    //     (thr) -> setupSuspendExceptionEvent(exceptionThrowFarCalledMethod, /*catch*/ false, thr),
+    //     Test1953::clearSuspendExceptionEvent);
 
-    // These tests are disabled for either the RI (b/116003018) or for jvmti-stress. For the
-    // later it is due to the additional agent causing classes to be loaded earlier as it forces
-    // deeper verification during class redefinition, causing failures.
-    // NB the agent is prevented from popping frames in either of these events in ART. See
-    // b/117615146 for more information about this restriction.
-    if (canRunClassLoadTests && CanRunClassLoadingTests()) {
-      // This test doesn't work on RI since the RI disallows use of PopFrame during a ClassLoad
-      // event. See b/116003018 for more information.
-      System.out.println("Test stopped during a ClassLoad event.");
-      runTestOn(new ClassLoadObject(),
-          (thr) -> setupSuspendClassEvent(EVENT_TYPE_CLASS_LOAD, ClassLoadObject.CLASS_NAMES, thr),
-          Test1953::clearSuspendClassEvent);
+    // // These tests are disabled for either the RI (b/116003018) or for jvmti-stress. For the
+    // // later it is due to the additional agent causing classes to be loaded earlier as it forces
+    // // deeper verification during class redefinition, causing failures.
+    // // NB the agent is prevented from popping frames in either of these events in ART. See
+    // // b/117615146 for more information about this restriction.
+    // if (canRunClassLoadTests && CanRunClassLoadingTests()) {
+    //   // This test doesn't work on RI since the RI disallows use of PopFrame during a ClassLoad
+    //   // event. See b/116003018 for more information.
+    //   System.out.println("Test stopped during a ClassLoad event.");
+    //   runTestOn(new ClassLoadObject(),
+    //       (thr) -> setupSuspendClassEvent(EVENT_TYPE_CLASS_LOAD, ClassLoadObject.CLASS_NAMES, thr),
+    //       Test1953::clearSuspendClassEvent);
 
-      // The RI handles a PopFrame during a ClassPrepare event incorrectly. See b/116003018 for
-      // more information.
-      System.out.println("Test stopped during a ClassPrepare event.");
-      runTestOn(new ClassLoadObject(),
-          (thr) -> setupSuspendClassEvent(EVENT_TYPE_CLASS_PREPARE,
-                                          ClassLoadObject.CLASS_NAMES,
-                                          thr),
-          Test1953::clearSuspendClassEvent);
-    }
-    System.out.println("Test stopped during random Suspend.");
-    final SuspendSuddenlyObject sso = new SuspendSuddenlyObject();
-    runTestOn(
-        sso,
-        new TestSuspender() {
-          public void setup(Thread thr) { }
-          public void waitForSuspend(Thread thr) {
-            while (!sso.is_spinning) {}
-            Suspension.suspend(thr);
-          }
-          public void cleanup(Thread thr) {
-            sso.stop_spinning = true;
-          }
-        });
+    //   // The RI handles a PopFrame during a ClassPrepare event incorrectly. See b/116003018 for
+    //   // more information.
+    //   System.out.println("Test stopped during a ClassPrepare event.");
+    //   runTestOn(new ClassLoadObject(),
+    //       (thr) -> setupSuspendClassEvent(EVENT_TYPE_CLASS_PREPARE,
+    //                                       ClassLoadObject.CLASS_NAMES,
+    //                                       thr),
+    //       Test1953::clearSuspendClassEvent);
+    // }
+    // System.out.println("Test stopped during random Suspend.");
+    // final SuspendSuddenlyObject sso = new SuspendSuddenlyObject();
+    // runTestOn(
+    //     sso,
+    //     new TestSuspender() {
+    //       public void setup(Thread thr) { }
+    //       public void waitForSuspend(Thread thr) {
+    //         while (!sso.is_spinning) {}
+    //         Suspension.suspend(thr);
+    //       }
+    //       public void cleanup(Thread thr) {
+    //         sso.stop_spinning = true;
+    //       }
+    //     });
 
-    final Method redefineCalledFunction =
-       RedefineTestObject.class.getDeclaredMethod("calledFunction");
-    final int redefLine = Breakpoint.locationToLine(redefineCalledFunction, 0) + 2;
-    final long redefLoc = Breakpoint.lineToLocation(redefineCalledFunction, redefLine);
-    System.out.println("Test redefining frame being popped.");
-    runTestOn(new RedefineTestObject(),
-        (thr) -> setupSuspendBreakpointFor(redefineCalledFunction, redefLoc, thr),
-        (thr) -> {
-          clearSuspendBreakpointFor(thr);
-          Redefinition.doCommonClassRedefinition(RedefineTestObject.class,
-                                                 RedefineTestObject.CLASS_BYTES,
-                                                 RedefineTestObject.DEX_BYTES);
-        });
+    // final Method redefineCalledFunction =
+    //    RedefineTestObject.class.getDeclaredMethod("calledFunction");
+    // final int redefLine = Breakpoint.locationToLine(redefineCalledFunction, 0) + 2;
+    // final long redefLoc = Breakpoint.lineToLocation(redefineCalledFunction, redefLine);
+    // System.out.println("Test redefining frame being popped.");
+    // runTestOn(new RedefineTestObject(),
+    //     (thr) -> setupSuspendBreakpointFor(redefineCalledFunction, redefLoc, thr),
+    //     (thr) -> {
+    //       clearSuspendBreakpointFor(thr);
+    //       Redefinition.doCommonClassRedefinition(RedefineTestObject.class,
+    //                                              RedefineTestObject.CLASS_BYTES,
+    //                                              RedefineTestObject.DEX_BYTES);
+    //     });
 
-    System.out.println("Test stopped during a native method fails");
-    runTestOn(new NativeCalledObject(),
-        Test1953::setupWaitForNativeCall,
-        Test1953::clearWaitForNativeCall);
+    // System.out.println("Test stopped during a native method fails");
+    // runTestOn(new NativeCalledObject(),
+    //     Test1953::setupWaitForNativeCall,
+    //     Test1953::clearWaitForNativeCall);
 
-    System.out.println("Test stopped in a method called by native fails");
-    final Method nativeCallerMethod = NativeCallerObject.class.getDeclaredMethod("calledFunction");
-    runTestOn(new NativeCallerObject(),
-        (thr) -> setupSuspendMethodEvent(nativeCallerMethod, /*enter*/ false, thr),
-        Test1953::clearSuspendMethodEvent);
+    // System.out.println("Test stopped in a method called by native fails");
+    // final Method nativeCallerMethod = NativeCallerObject.class.getDeclaredMethod("calledFunction");
+    // runTestOn(new NativeCallerObject(),
+    //     (thr) -> setupSuspendMethodEvent(nativeCallerMethod, /*enter*/ false, thr),
+    //     Test1953::clearSuspendMethodEvent);
   }
 
   // Volatile is to prevent any future optimizations that could invalidate this test by doing

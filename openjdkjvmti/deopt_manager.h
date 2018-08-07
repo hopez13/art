@@ -102,6 +102,11 @@ class DeoptManager {
       REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
 
+  // TODO allow one to enable these maybe
+  void DisableIntrinsics()
+      REQUIRES(!deoptimization_status_lock_, !art::Roles::uninterruptible_)
+      REQUIRES_SHARED(art::Locks::mutator_lock_);
+
   void DeoptimizeThread(art::Thread* target) REQUIRES_SHARED(art::Locks::mutator_lock_);
   void DeoptimizeAllThreads() REQUIRES_SHARED(art::Locks::mutator_lock_);
 
@@ -167,6 +172,8 @@ class DeoptManager {
 
   // Number of users of deoptimization there currently are.
   uint32_t deopter_count_ GUARDED_BY(deoptimization_status_lock_);
+
+  bool intrinsics_disabled_ GUARDED_BY(deoptimization_status_lock_);
 
   // A mutex that just protects the breakpoint-status map. This mutex should always be at the
   // bottom of the lock hierarchy. Nothing more should be locked if we hold this.

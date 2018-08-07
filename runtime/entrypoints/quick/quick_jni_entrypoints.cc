@@ -20,6 +20,7 @@
 #include "base/casts.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "indirect_reference_table.h"
+#include "jvalue-inl.h"
 #include "mirror/object-inl.h"
 #include "thread-inl.h"
 #include "verify_object.h"
@@ -192,7 +193,7 @@ extern mirror::Object* JniMethodEndWithReferenceSynchronized(jobject result,
 extern uint64_t GenericJniMethodEnd(Thread* self,
                                     uint32_t saved_local_ref_cookie,
                                     jvalue result,
-                                    uint64_t result_f,
+                                    uint64_t result_f,  // WTF is this encoding.
                                     ArtMethod* called,
                                     HandleScope* handle_scope)
     // TODO: NO_THREAD_SAFETY_ANALYSIS as GoToRunnable() is NO_THREAD_SAFETY_ANALYSIS
@@ -205,10 +206,61 @@ extern uint64_t GenericJniMethodEnd(Thread* self,
   if (LIKELY(normal_native)) {
     GoToRunnable(self);
   }
+  char return_shorty_char = called->GetShorty()[0];
+  // TODO Put this crap in JniMethodEndWith... methods
+  auto instr = Runtime::Current()->GetInstrumentation();
+  if (UNLIKELY(instr->HasMethodExitListeners() ||
+               instr->HasMethodUnwindListeners() ||
+               instr->HasExceptionThrownListeners())) {
+    // NB We don't get the 'this' object earlier since the events can all suspend so we'd need
+    // handles. By delaying until after the earlier ExceptionThrown event we don't need to bother
+    // setting one up.
+    auto get_this = [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
+      return called->IsStatic() ? nullptr : handle_scope->GetHandle(0).Get();
+    };
+    if (self->IsExceptionPending()) {
+      // We want to actually deoptimize in order to catch all of the events this causes. Send the
+      // initial events then replace the exception with a Deoptimization exception.
+      if (self->IsExceptionThrownByCurrentMethod(self->GetException())) {
+        instr->ExceptionThrownEvent(self, self->GetException());
+      }
+      instr->MethodUnwindEvent(self, get_this(), called, /* dex-pc */ 0);
+      // Setup deopt context.
+      self->PushDeoptimizationContext(/* return_value */ JValue(),
+                                      /* is_reference */ false,
+                                      /* exception */    self->GetException(),
+                                      /* from_code */    false,
+                                      /* method_type */  DeoptimizationMethodType::kDefault);
+      // Change exception to deoptimize exception.
+      self->SetException(Thread::GetDeoptimizationException());
+    } else {
+      JValue ret;
+      switch (return_shorty_char) {
+        // case 'F': {
+        //   // Convert back the result to float.
+        //   ret.SetF(
+        //       bit_cast<uint32_t, float>(static_cast<float>(bit_cast<double, uint64_t>(result_f))));
+        //   break;
+        // }
+        case 'F':
+        case 'D':
+          ret.SetJ(result_f);
+          break;
+        case 'L':
+          ret.SetL(self->DecodeJObject(result.l));
+          break;
+        case 'V':
+          break;
+        default:
+          ret.SetJ(result.j);
+          break;
+      }
+      instr->MethodExitEvent(self, get_this(), called, /* dex-pc */ 0, /* ret-value */ ret);
+    }
+  }
   // We need the mutator lock (i.e., calling GoToRunnable()) before accessing the shorty or the
   // locked object.
   jobject locked = called->IsSynchronized() ? handle_scope->GetHandle(0).ToJObject() : nullptr;
-  char return_shorty_char = called->GetShorty()[0];
   if (return_shorty_char == 'L') {
     if (locked != nullptr) {
       DCHECK(normal_native) << " @FastNative and synchronize is not supported";

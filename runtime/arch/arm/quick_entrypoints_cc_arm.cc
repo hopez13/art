@@ -19,6 +19,17 @@
 
 namespace art {
 
+// TODO REDO THIS.
+extern "C" void art_quick_method_entered() {
+  return;
+}
+extern "C" void art_quick_method_exited_floating() {
+  return;
+}
+extern "C" void art_quick_method_exited() {
+  return;
+}
+
 // Assembly stub that does the final part of the up-call into Java.
 extern "C" void art_quick_invoke_stub_internal(ArtMethod*, uint32_t*, uint32_t,
                                                Thread* self, JValue* result, uint32_t, uint32_t*,

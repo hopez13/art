@@ -1438,6 +1438,63 @@ DEFINE_FUNCTION art_quick_instance_of
     ret
 END_FUNCTION art_quick_instance_of
 
+// TODO Probably don't need to save everything
+DEFINE_FUNCTION art_quick_method_entered
+    SETUP_SAVE_EVERYTHING_FRAME ebx, ebx          // save everything for GC
+    subl LITERAL(4), %esp                      // push padding
+    CFI_ADJUST_CFA_OFFSET(4)
+    pushl %fs:THREAD_SELF_OFFSET                      // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    PUSH ecx
+    PUSH eax
+    call SYMBOL(artMethodEntered)                 // artMethodEntered(ArtMethod*, thiz, Thread*)
+    addl LITERAL(16), %esp                      // pop arguments
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_method_entered
+
+DEFINE_FUNCTION art_quick_method_exited_floating
+    // TODO
+    SETUP_SAVE_EVERYTHING_FRAME ebx, ebx              // save everything for GC
+    // Restore ebx from the save-everything-frame
+    movl (FRAME_SIZE_SAVE_EVERYTHING - 5 * __SIZEOF_POINTER__)(%esp), %ebx
+    subl MACRO_LITERAL(12), %esp                      // push padding
+    CFI_ADJUST_CFA_OFFSET(12)
+    pushl %fs:THREAD_SELF_OFFSET                      // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    subl LITERAL(8), %esp                             // resever stack-slots
+    CFI_ADJUST_CFA_OFFSET(8)
+    movsd %xmm0, (%esp)                               // return-value
+    PUSH ecx                                          // this
+    PUSH eax                                          // method
+    call SYMBOL(artMethodExited)                      // artMethodExited(ArtMethod*, thiz, ret-val, Thread*)
+    addl LITERAL(32), %esp                            // pop arguments
+    CFI_ADJUST_CFA_OFFSET(-32)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+    ret
+END_FUNCTION art_quick_method_exited_floating
+
+DEFINE_FUNCTION art_quick_method_exited
+    SETUP_SAVE_EVERYTHING_FRAME ebx, ebx              // save everything for GC
+    // Restore ebx from the save-everything-frame
+    movl (FRAME_SIZE_SAVE_EVERYTHING - 5 * __SIZEOF_POINTER__)(%esp), %ebx
+    subl MACRO_LITERAL(12), %esp                      // push padding
+    CFI_ADJUST_CFA_OFFSET(12)
+    pushl %fs:THREAD_SELF_OFFSET                      // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    PUSH ebx                                          // return-value.high
+    PUSH edx                                          // return-value.low
+    PUSH ecx                                          // this
+    PUSH eax                                          // method
+    call SYMBOL(artMethodExited)                      // artMethodExited(ArtMethod*, thiz, ret-val, Thread*)
+    addl LITERAL(32), %esp                            // pop arguments
+    CFI_ADJUST_CFA_OFFSET(-32)
+    RESTORE_SAVE_EVERYTHING_FRAME                 // restore frame
+    RETURN_OR_DELIVER_PENDING_EXCEPTION
+END_FUNCTION art_quick_method_entered
+
 DEFINE_FUNCTION art_quick_check_instance_of
     // Type check using the bit string passes null as the target class. In that case just throw.
     testl %ecx, %ecx

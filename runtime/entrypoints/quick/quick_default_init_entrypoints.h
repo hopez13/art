@@ -121,6 +121,11 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qp
 
   // Deoptimize
   qpoints->pDeoptimize = art_quick_deoptimize_from_compiled_code;
+
+  // Tracing
+  qpoints->pMethodEntered = art_quick_method_entered;
+  qpoints->pMethodExited = art_quick_method_exited;
+  qpoints->pMethodExitedFloating = art_quick_method_exited_floating;
 }
 
 }  // namespace art

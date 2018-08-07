@@ -2100,6 +2100,36 @@ InstructionCodeGeneratorMIPS::InstructionCodeGeneratorMIPS(HGraph* graph,
         assembler_(codegen->GetAssembler()),
         codegen_(codegen) {}
 
+void InstructionCodeGeneratorMIPS::VisitMethodExited(
+    HMethodExited* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+}
+
+void LocationsBuilderMIPS::VisitMethodExited(HMethodExited* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorMIPS::VisitMethodEntered(
+    HMethodEntered* instruction ATTRIBUTE_UNUSED) {
+  // TODO
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+  __ Nop();
+}
+
+void LocationsBuilderMIPS::VisitMethodEntered(HMethodEntered* instruction) {
+  new (GetGraph()->GetAllocator()) LocationSummary(
+      instruction, LocationSummary::kCallOnMainOnly);
+}
+
 void LocationsBuilderMIPS::HandleBinaryOp(HBinaryOperation* instruction) {
   DCHECK_EQ(instruction->InputCount(), 2U);
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);

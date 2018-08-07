@@ -2375,6 +2375,24 @@ extern "C" TwoWordReturn artQuickGenericJniTrampoline(Thread* self, ArtMethod** 
     jit->MethodEntered(self, called);
   }
 
+  // TODO All the precompiling of entrypoints makes this absurdly difficult. Just figure out some
+  // other way to get around this.
+  // TODO Get a new entrypoint or something...
+  auto instr = runtime->GetInstrumentation();
+  if (instr->HasMethodEntryListeners()) {
+    instr->MethodEnterEvent(self,
+                            (called->IsStatic()
+                             ?  nullptr
+                             : self->DecodeJObject(visitor.GetFirstHandleScopeJObject()).Ptr()),
+                            called,
+                            0);
+    if (self->IsExceptionPending()) {
+      self->PopHandleScope();
+      // A negative value denotes an error.
+      return GetTwoWordFailureValue();
+    }
+  }
+
   uint32_t cookie;
   uint32_t* sp32;
   // Skip calling JniMethodStart for @CriticalNative.
