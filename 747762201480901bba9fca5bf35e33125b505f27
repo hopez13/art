@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b62929fd_50ad1164",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-07T10:21:29Z",
+      "side": 1,
+      "message": "This would be much cleaner as\n\n  class DedupeHelper {\n   public:\n    explicit DedupeHelper(BitMemoryWriter\u003cstd::vector\u003cuint8_t\u003e\u003e* writer);\n    size_t Dedupe(const uint8_t* code_info);\n   private:\n    BitMemoryWriter\u003cstd::vector\u003cuint8_t\u003e\u003e* const writer_;\n    DedupeMap dedupe_map_;\n  };\n\nYou would not need to describe that the writer and dedupe_map must be reused for all calls.",
+      "revId": "747762201480901bba9fca5bf35e33125b505f27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
