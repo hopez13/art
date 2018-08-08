@@ -70,6 +70,30 @@
       "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5356c6dd_9ee928af",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-08T13:15:55Z",
+      "side": 1,
+      "message": "Yeah, but that if fair amount of extra code just to support a DCHECK.\n\nI am mostly deterred by yet another function which iterates of all the tables in stack map.\n\nI was thinking of adding something like code_info.ForEachBitTable(\u003clambda\u003e) but that does not work due to BitTableBase being templated on the number of columns.  I have not found a neat solution.  Thoughts?",
+      "parentUuid": "ff8b165c_e007a5a0",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 68
+      },
+      "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
