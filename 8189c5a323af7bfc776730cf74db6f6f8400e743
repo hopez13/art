@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5831c0d0_bcf618d0",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-08T17:36:53Z",
+      "side": 1,
+      "message": "don\u0027t want to do this in a separate CL? i\u0027m fine with this, it\u0027s really just if we decide to revert this one for some reason...",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 51
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e76797cf_adae2dcf",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-08T17:36:53Z",
+      "side": 1,
+      "message": "two spaces",
+      "range": {
+        "startLine": 90,
+        "startChar": 52,
+        "endLine": 90,
+        "endChar": 53
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c359027e_d6bc2c83",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-08T17:36:53Z",
+      "side": 1,
+      "message": "nit: no need to allocate until line 112",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 0
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ef84fbb_a813fd3a",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-08T17:36:53Z",
+      "side": 1,
+      "message": "I wouldn\u0027t pass this around as lambda. It\u0027s part of the processing logic - why not put it in AnnotationVisitor? It doesn\u0027t need to be configurable, does it?",
+      "range": {
+        "startLine": 107,
+        "startChar": 24,
+        "endLine": 107,
+        "endChar": 89
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
