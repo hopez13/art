@@ -27,6 +27,7 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 
 import java.util.Locale;
+import java.util.function.Predicate;
 
 /**
  * Visits a JavaClass instance and pulls out all members annotated with a
@@ -44,13 +45,16 @@ public class AnnotationVisitor extends EmptyVisitor {
 
     private final JavaClass mClass;
     private final String mAnnotationType;
+    private final Predicate<Member> mGreylistFilter;
     private final Status mStatus;
     private final DescendingVisitor mDescendingVisitor;
 
-    public AnnotationVisitor(JavaClass clazz, String annotation, Status d) {
+    public AnnotationVisitor(
+            JavaClass clazz, String annotation, Predicate<Member> greylistFilter, Status s) {
         mClass = clazz;
         mAnnotationType = annotation;
-        mStatus = d;
+        mGreylistFilter = greylistFilter;
+        mStatus = s;
         mDescendingVisitor = new DescendingVisitor(clazz, this);
     }
 
@@ -82,12 +86,15 @@ public class AnnotationVisitor extends EmptyVisitor {
         for (AnnotationEntry a : member.getAnnotationEntries()) {
             if (mAnnotationType.equals(a.getAnnotationType())) {
                 mStatus.debug("Member has annotation %s", mAnnotationType);
-                boolean bridge = (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
+                // For fields, the same access flag means volatile, so only check for methods.
+                boolean bridge = (member instanceof  Method)
+                        && (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
                 if (bridge) {
                     mStatus.debug("Member is a bridge", mAnnotationType);
                 }
                 String signature = String.format(Locale.US, signatureFormatString,
                         getClassDescriptor(definingClass), member.getName(), member.getSignature());
+                Member m = new Member(signature, bridge);
                 for (ElementValuePair property : a.getElementValuePairs()) {
                     switch (property.getNameString()) {
                         case EXPECTED_SIGNATURE:
@@ -102,7 +109,9 @@ public class AnnotationVisitor extends EmptyVisitor {
                             break;
                     }
                 }
-                mStatus.greylistEntry(signature);
+                if (mGreylistFilter.test(m)) {
+                    mStatus.greylistEntry(m.signature);
+                }
             }
         }
     }
