@@ -27,6 +27,7 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 
 import java.util.Locale;
+import java.util.function.Predicate;
 
 /**
  * Visits a JavaClass instance and pulls out all members annotated with a
@@ -44,13 +45,16 @@ public class AnnotationVisitor extends EmptyVisitor {
 
     private final JavaClass mClass;
     private final String mAnnotationType;
+    private final Predicate<Member> mGreylistFilter;
     private final Status mStatus;
     private final DescendingVisitor mDescendingVisitor;
 
-    public AnnotationVisitor(JavaClass clazz, String annotation, Status d) {
+    public AnnotationVisitor(
+            JavaClass clazz, String annotation, Predicate<Member> greylistFilter, Status s) {
         mClass = clazz;
         mAnnotationType = annotation;
-        mStatus = d;
+        mGreylistFilter = greylistFilter;
+        mStatus = s;
         mDescendingVisitor = new DescendingVisitor(clazz, this);
     }
 
@@ -88,6 +92,7 @@ public class AnnotationVisitor extends EmptyVisitor {
                 }
                 String signature = String.format(Locale.US, signatureFormatString,
                         getClassDescriptor(definingClass), member.getName(), member.getSignature());
+                Member m = new Member(signature, bridge);
                 for (ElementValuePair property : a.getElementValuePairs()) {
                     switch (property.getNameString()) {
                         case EXPECTED_SIGNATURE:
@@ -102,7 +107,9 @@ public class AnnotationVisitor extends EmptyVisitor {
                             break;
                     }
                 }
-                mStatus.greylistEntry(signature);
+                if (mGreylistFilter.test(m)) {
+                    mStatus.greylistEntry(m.signature);
+                }
             }
         }
     }
