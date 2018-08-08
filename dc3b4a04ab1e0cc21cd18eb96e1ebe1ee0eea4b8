@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "40f001f4_a3ffc70d",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-08T16:04:55Z",
+      "side": 1,
+      "message": "Good catch, thanks. Done in PS4.",
+      "parentUuid": "c28bba5c_0419d5d1",
+      "range": {
+        "startLine": 420,
+        "startChar": 53,
+        "endLine": 420,
+        "endChar": 61
+      },
+      "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f4d7501_ca976482",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 1
@@ -69,6 +93,30 @@
       "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "609b4c35_3962c4a6",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-08T16:04:55Z",
+      "side": 1,
+      "message": "Yes. However, the approach taken here also makes sure the range in the region bitmap corresponding to a large region has exactly one bit set (corresponding to a single large object).\n\nNote that this code is only run in debug mode.",
+      "parentUuid": "0f4d7501_ca976482",
+      "range": {
+        "startLine": 422,
+        "startChar": 1,
+        "endLine": 429,
+        "endChar": 49
+      },
+      "revId": "dc3b4a04ab1e0cc21cd18eb96e1ebe1ee0eea4b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
