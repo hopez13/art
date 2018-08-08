@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3e3d3ace_12b40773",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-08T17:06:21Z",
+      "side": 1,
+      "message": "Thanks for the tip! Done in PS6.",
+      "parentUuid": "75fda52e_77a56ca0",
+      "revId": "5e48d5c2fb468a720df05e868ee942f91b58304a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ccd60f69_110225c6",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2018-06-11T23:14:52Z",
       "side": 1,
       "message": "REQUIRES_SHARED?",
+      "range": {
+        "startLine": 123,
+        "startChar": 50,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "5e48d5c2fb468a720df05e868ee942f91b58304a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c556a874_c6e38409",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-08T17:06:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure. As I understand it, the region lock is meant to be held exclusively. Mathieu, what do you think?",
+      "parentUuid": "ccd60f69_110225c6",
       "range": {
         "startLine": 123,
         "startChar": 50,
