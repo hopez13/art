@@ -46,6 +46,30 @@
       "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff8b165c_e007a5a0",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-08T11:56:31Z",
+      "side": 1,
+      "message": "Then maybe rewrite this to be less expensive than dumping into stringstreams. What about CodeInfo::Equals(), BitTable::Equals(), BitMemoryRegion::Equals()?",
+      "parentUuid": "61912989_c93ff951",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 68
+      },
+      "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
