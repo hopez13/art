@@ -29,6 +29,8 @@ import com.android.class2greylist.AnnotationVisitor;
 import com.android.class2greylist.Status;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -37,6 +39,9 @@ import org.junit.rules.TestName;
 import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class AnnotationVisitorTest {
 
@@ -81,7 +86,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -101,7 +106,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -121,7 +126,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -141,7 +146,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -161,7 +166,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         verify(mStatus, times(1)).error(any(String.class));
@@ -180,7 +185,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class$Inner"), ANNOTATION,
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class$Inner"), ANNOTATION, x -> true,
                 mStatus).visit();
 
         assertNoErrors();
@@ -198,7 +203,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -216,7 +221,7 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -243,9 +248,9 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), ANNOTATION, x -> true, mStatus)
                 .visit();
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -275,9 +280,9 @@ public class AnnotationVisitorTest {
                 "}"));
         assertThat(mJavac.compile()).isTrue();
 
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), ANNOTATION, x -> true, mStatus)
                 .visit();
-        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus)
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus)
                 .visit();
 
         assertNoErrors();
@@ -312,11 +317,11 @@ public class AnnotationVisitorTest {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(
-                mJavac.getCompiledClass("a.b.Interface"), ANNOTATION, mStatus).visit();
+                mJavac.getCompiledClass("a.b.Interface"), ANNOTATION, x -> true, mStatus).visit();
         new AnnotationVisitor(
-                mJavac.getCompiledClass("a.b.Base"), ANNOTATION, mStatus).visit();
+                mJavac.getCompiledClass("a.b.Base"), ANNOTATION, x -> true, mStatus).visit();
         new AnnotationVisitor(
-                mJavac.getCompiledClass("a.b.Class"), ANNOTATION, mStatus).visit();
+                mJavac.getCompiledClass("a.b.Class"), ANNOTATION, x -> true, mStatus).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
@@ -325,5 +330,38 @@ public class AnnotationVisitorTest {
         assertThat(greylist.getAllValues()).containsExactly(
                 "La/b/Class;->method(Ljava/lang/Object;)V",
                 "La/b/Base;->method(Ljava/lang/Object;)V");
+    }
+
+    @Test
+    public void testPublicBridgeExcluded() throws IOException {
+        mJavac.addSource("a.b.Base", Joiner.on('\n').join(
+                "package a.b;",
+                "public abstract class Base<T> {",
+                "  public void method(T arg) {}",
+                "}"));
+
+        mJavac.addSource("a.b.Class", Joiner.on('\n').join(
+                "package a.b;",
+                "import annotation.Anno;",
+                "public class Class<T extends String> extends Base<T> {",
+                "  @Override",
+                "  @Anno",
+                "  public void method(T arg) {}",
+                "}"));
+        assertThat(mJavac.compile()).isTrue();
+
+        Set<String> publicApis = Sets.newHashSet(
+                "La/b/Base;->method(Ljava/lang/Object;)V",
+                "La/b/Class;->method(Ljava/lang/Object;)V");
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), ANNOTATION, publicApis,
+                mStatus).visit();
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), ANNOTATION, publicApis,
+                mStatus).visit();
+
+        assertNoErrors();
+        ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
+        // The bridge method generated for the above, is a public API so should be excluded
+        verify(mStatus, times(1)).greylistEntry(greylist.capture());
+        assertThat(greylist.getValue()).isEqualTo("La/b/Class;->method(Ljava/lang/String;)V");
     }
 }
