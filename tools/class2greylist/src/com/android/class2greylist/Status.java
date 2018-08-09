@@ -16,6 +16,8 @@
 
 package com.android.class2greylist;
 
+import com.google.common.base.Optional;
+
 import java.util.Locale;
 
 public class Status {
@@ -42,14 +44,10 @@ public class Status {
         mHasErrors = true;
     }
 
-    public void error(String message) {
+    public void error(String message, Object... args) {
         System.err.print(ERROR);
-        System.err.println(message);
+        System.err.println(String.format(Locale.US, message, args));
         mHasErrors = true;
-    }
-
-    public void greylistEntry(String signature) {
-        System.out.println(signature);
     }
 
     public boolean ok() {
