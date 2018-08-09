@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c452effd_efcaa3bd",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-09T12:35:39Z",
+      "side": 1,
+      "message": "nit: unused",
+      "range": {
+        "startLine": 756,
+        "startChar": 9,
+        "endLine": 756,
+        "endChar": 15
+      },
+      "revId": "1824a9700168bd5bb25438ad3d823e62c4a1d112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ce912a_dbcc6484",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-09T12:35:39Z",
+      "side": 1,
+      "message": "Another gc?",
+      "range": {
+        "startLine": 788,
+        "startChar": 37,
+        "endLine": 788,
+        "endChar": 70
+      },
+      "revId": "1824a9700168bd5bb25438ad3d823e62c4a1d112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0fb46dc_fa314b81",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-09T12:35:39Z",
+      "side": 1,
+      "message": "Did the code for this comment get moved to WaitForPotentialCollectionToCompleteRunnable?",
+      "range": {
+        "startLine": 787,
+        "startChar": 57,
+        "endLine": 788,
+        "endChar": 18
+      },
+      "revId": "1824a9700168bd5bb25438ad3d823e62c4a1d112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a8f458f_faae7284",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-09T12:35:39Z",
+      "side": 1,
+      "message": "Nit: Suggest changing to \"This method\" and moving 1 sentence earlier to avoid confusing \"This\" with \"The non-mutator lock\".",
+      "range": {
+        "startLine": 319,
+        "startChar": 14,
+        "endLine": 319,
+        "endChar": 20
+      },
+      "revId": "1824a9700168bd5bb25438ad3d823e62c4a1d112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
