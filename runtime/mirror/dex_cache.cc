@@ -148,10 +148,10 @@ void DexCache::InitializeDexCache(Thread* self,
     mirror::TypeDexCachePair::Initialize(types);
   }
   if (fields != nullptr) {
-    mirror::FieldDexCachePair::Initialize(fields, image_pointer_size);
+    mirror::FieldDexCacheType::Initialize(fields, image_pointer_size);
   }
   if (methods != nullptr) {
-    mirror::MethodDexCachePair::Initialize(methods, image_pointer_size);
+    mirror::MethodDexCacheType::Initialize(methods, image_pointer_size);
   }
   if (method_types != nullptr) {
     mirror::MethodTypeDexCachePair::Initialize(method_types);
@@ -214,24 +214,6 @@ void DexCache::Init(const DexFile* dex_file,
 void DexCache::SetLocation(ObjPtr<mirror::String> location) {
   SetFieldObject<false>(OFFSET_OF_OBJECT_MEMBER(DexCache, location_), location);
 }
-
-#if !defined(__aarch64__) && !defined(__x86_64__) && !defined(__mips__)
-static pthread_mutex_t dex_cache_slow_atomic_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-DexCache::ConversionPair64 DexCache::AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  DexCache::ConversionPair64 value = *reinterpret_cast<ConversionPair64*>(target);
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-  return value;
-}
-
-void DexCache::AtomicStoreRelease16B(std::atomic<ConversionPair64>* target,
-                                     ConversionPair64 value) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  *reinterpret_cast<ConversionPair64*>(target) = value;
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-}
-#endif
 
 }  // namespace mirror
 }  // namespace art
