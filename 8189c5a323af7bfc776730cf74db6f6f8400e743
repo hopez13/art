@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "ac998a88_1352da96",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-09T10:44:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c359027e_d6bc2c83",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 0
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ef84fbb_a813fd3a",
         "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
         "patchSetId": 4
@@ -91,6 +115,30 @@
       "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "319bc3ac_c8a246d9",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-09T10:44:20Z",
+      "side": 1,
+      "message": "I did it to make testing easier (see testVolatileField). But moved the predicate into AnnotationVisitor so it\u0027s an implementation detail, which does seem cleaner.",
+      "parentUuid": "5ef84fbb_a813fd3a",
+      "range": {
+        "startLine": 107,
+        "startChar": 24,
+        "endLine": 107,
+        "endChar": 89
+      },
+      "revId": "8189c5a323af7bfc776730cf74db6f6f8400e743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
