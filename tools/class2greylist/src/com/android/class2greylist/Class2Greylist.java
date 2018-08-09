@@ -31,6 +31,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -41,6 +43,11 @@ public class Class2Greylist {
 
     private static final String ANNOTATION_TYPE = "Landroid/annotation/UnsupportedAppUsage;";
 
+    private final Status mStatus;
+    private final String mPublicApiListFile;
+    private final String[] mPerSdkOutputFiles;
+    private final String[] mJarFiles;
+
     public static void main(String[] args) {
         Options options = new Options();
         options.addOption(OptionBuilder
@@ -48,6 +55,15 @@ public class Class2Greylist {
                 .hasArgs(1)
                 .withDescription("Public API list file. Used to de-dupe bridge methods.")
                 .create("p"));
+        options.addOption(OptionBuilder
+                .withLongOpt("write-greylist")
+                .hasArgs()
+                .withDescription(
+                        "Specify file to write greylist to. Can be specified multiple times. " +
+                        "Format is either just a filename, or \"int:filename\". If an integer is " +
+                        "given, members with a matching maxTargetSdk are written to the file; if " +
+                        "no integer is given, members with no maxTargetSdk are written.")
+                .create("w"));
         options.addOption(OptionBuilder
                 .withLongOpt("debug")
                 .hasArgs(0)
@@ -72,7 +88,7 @@ public class Class2Greylist {
         if (cmd.hasOption('h')) {
             help(options);
         }
-        String publicApiFilename = cmd.getOptionValue('p', null);
+
 
         String[] jarFiles = cmd.getArgs();
         if (jarFiles.length == 0) {
@@ -81,38 +97,87 @@ public class Class2Greylist {
         }
 
         Status status = new Status(cmd.hasOption('d'));
-
-        Set<String> publicApis;
-        if (publicApiFilename != null) {
-            try {
-                publicApis = Sets.newHashSet(
-                        Files.readLines(new File(publicApiFilename), Charset.forName("UTF-8")));
-            } catch (IOException e) {
-                status.error(e);
-                System.exit(1);
-                return;
-            }
-        } else {
-            publicApis = Collections.emptySet();
+        Class2Greylist c2gl = new Class2Greylist(
+                status, cmd.getOptionValue('p', null), cmd.getOptionValues('w'), jarFiles);
+        try {
+            c2gl.main();
+        } catch (IOException e) {
+            status.error(e);
         }
 
-        for (String jarFile : jarFiles) {
-            status.debug("Processing jar file %s", jarFile);
-            try {
-                JarReader reader = new JarReader(status, jarFile);
-                reader.stream().forEach(clazz -> new AnnotationVisitor(clazz, ANNOTATION_TYPE,
-                        publicApis, status).visit());
-                reader.close();
-            } catch (IOException e) {
-                status.error(e);
-            }
-        }
         if (status.ok()) {
             System.exit(0);
         } else {
             System.exit(1);
         }
 
+    }
+
+    private Class2Greylist(Status status, String publicApiListFile, String[] perSdkLevelOutputFiles, String[] jarFiles) {
+        mStatus = status;
+        mPublicApiListFile = publicApiListFile;
+        mPerSdkOutputFiles = perSdkLevelOutputFiles;
+        mJarFiles = jarFiles;
+    }
+
+    private void main() throws IOException {
+        Map<Integer, String> outputFiles = readGreylistMap(mPerSdkOutputFiles);
+
+        FileWritingGreylistConsumer output = new FileWritingGreylistConsumer(mStatus, outputFiles);
+
+        Set<String> publicApis;
+        if (mPublicApiListFile != null) {
+            publicApis = Sets.newHashSet(
+                    Files.readLines(new File(mPublicApiListFile), Charset.forName("UTF-8")));
+        } else {
+            publicApis = Collections.emptySet();
+        }
+        FileWritingGreylistConsumer consumer = new FileWritingGreylistConsumer(
+                mStatus, outputFiles);
+
+        for (String jarFile : mJarFiles) {
+            mStatus.debug("Processing jar file %s", jarFile);
+            try {
+                JarReader reader = new JarReader(mStatus, jarFile);
+                reader.stream().forEach(clazz -> new AnnotationVisitor(clazz, ANNOTATION_TYPE,
+                        publicApis, outputFiles.keySet(), consumer, mStatus).visit());
+                reader.close();
+            } catch (IOException e) {
+                mStatus.error(e);
+            }
+        }
+    }
+
+
+    private Map<Integer, String> readGreylistMap(String[] argValues) {
+        Map<Integer, String> map = new HashMap<>();
+        for (String sdkFile : argValues) {
+            Integer maxTargetSdk = null;
+            String filename;
+            int colonPos = sdkFile.indexOf(':');
+            if (colonPos != -1) {
+                try {
+                    maxTargetSdk = Integer.valueOf(sdkFile.substring(0, colonPos));
+                } catch (NumberFormatException nfe) {
+                    mStatus.error("Not a valid integer: %s from argument value '%s'",
+                            sdkFile.substring(0, colonPos), sdkFile);
+                }
+                filename = sdkFile.substring(colonPos + 1);
+                if (filename.length() == 0) {
+                    mStatus.error("Not a valid file name: %s from argument value '%s'",
+                            filename, sdkFile);
+                }
+            } else {
+                maxTargetSdk =null;
+                filename = sdkFile;
+            }
+            if (map.containsKey(maxTargetSdk)) {
+                mStatus.error("Multiple output files for maxTargetSdk %s", maxTargetSdk);
+            } else {
+                map.put(maxTargetSdk, filename);
+            }
+        }
+        return map;
     }
 
     private static void help(Options options) {
