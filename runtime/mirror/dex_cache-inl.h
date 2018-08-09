@@ -42,11 +42,9 @@ namespace art {
 namespace mirror {
 
 template <typename T>
-inline void NativeDexCachePair<T>::Initialize(std::atomic<NativeDexCachePair<T>>* dex_cache,
+inline void NativeDexCacheLine<T>::Initialize(NativeDexCacheLine<T>* dex_cache,
                                               PointerSize pointer_size) {
-  NativeDexCachePair<T> first_elem;
-  first_elem.object = nullptr;
-  first_elem.index = InvalidIndexForSlot(0);
+  NativeDexCachePair<T> first_elem(nullptr, NativeDexCachePair<T>::InvalidIndexForSlot(0));
   DexCache::SetNativePairPtrSize(dex_cache, 0, first_elem, pointer_size);
 }
 
@@ -246,35 +244,31 @@ inline void DexCache::ClearResolvedMethod(uint32_t method_idx, PointerSize ptr_s
 }
 
 template <typename T>
-NativeDexCachePair<T> DexCache::GetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+NativeDexCachePair<T> DexCache::GetNativePairPtrSize(NativeDexCacheLine<T>* pair_array,
                                                      size_t idx,
                                                      PointerSize ptr_size) {
   if (ptr_size == PointerSize::k64) {
-    auto* array = reinterpret_cast<std::atomic<ConversionPair64>*>(pair_array);
-    ConversionPair64 value = AtomicLoadRelaxed16B(&array[idx]);
-    return NativeDexCachePair<T>(reinterpret_cast64<T*>(value.first),
-                                 dchecked_integral_cast<size_t>(value.second));
+    auto value = reinterpret_cast<NativeDexCacheLine<uint64_t>*>(pair_array)[idx].Load();
+    return NativeDexCachePair<T>(reinterpret_cast64<T>(value.object), value.index);
   } else {
-    auto* array = reinterpret_cast<std::atomic<ConversionPair32>*>(pair_array);
-    ConversionPair32 value = array[idx].load(std::memory_order_relaxed);
-    return NativeDexCachePair<T>(reinterpret_cast32<T*>(value.first), value.second);
+    auto value = reinterpret_cast<NativeDexCacheLine<uint32_t>*>(pair_array)[idx].Load();
+    return NativeDexCachePair<T>(reinterpret_cast32<T>(value.object), value.index);
   }
 }
 
 template <typename T>
-void DexCache::SetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+void DexCache::SetNativePairPtrSize(NativeDexCacheLine<T>* pair_array,
                                     size_t idx,
                                     NativeDexCachePair<T> pair,
                                     PointerSize ptr_size) {
   if (ptr_size == PointerSize::k64) {
-    auto* array = reinterpret_cast<std::atomic<ConversionPair64>*>(pair_array);
-    ConversionPair64 v(reinterpret_cast64<uint64_t>(pair.object), pair.index);
-    AtomicStoreRelease16B(&array[idx], v);
+    auto* array = reinterpret_cast<NativeDexCacheLine<uint64_t>*>(pair_array);
+    NativeDexCachePair<uint64_t> value(reinterpret_cast64<uint64_t>(pair.object), pair.index);
+    array[idx].Store(value);
   } else {
-    auto* array = reinterpret_cast<std::atomic<ConversionPair32>*>(pair_array);
-    ConversionPair32 v(reinterpret_cast32<uint32_t>(pair.object),
-                       dchecked_integral_cast<uint32_t>(pair.index));
-    array[idx].store(v, std::memory_order_release);
+    auto* array = reinterpret_cast<NativeDexCacheLine<uint32_t>*>(pair_array);
+    NativeDexCachePair<uint32_t> value(reinterpret_cast32<uint32_t>(pair.object), pair.index);
+    array[idx].Store(value);
   }
 }
 

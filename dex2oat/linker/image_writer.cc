@@ -2555,33 +2555,33 @@ void ImageWriter::FixupDexCacheArrayEntry(std::atomic<mirror::DexCachePair<T>>* 
 }
 
 template <typename T>
-void ImageWriter::FixupDexCacheArrayEntry(std::atomic<mirror::NativeDexCachePair<T>>* orig_array,
-                                          std::atomic<mirror::NativeDexCachePair<T>>* new_array,
+void ImageWriter::FixupDexCacheArrayEntry(mirror::NativeDexCacheLine<T>* orig_array,
+                                          mirror::NativeDexCacheLine<T>* new_array,
                                           uint32_t array_index,
                                           size_t oat_index) {
   static_assert(
       sizeof(std::atomic<mirror::NativeDexCachePair<T>>) == sizeof(mirror::NativeDexCachePair<T>),
       "Size check for removing std::atomic<>.");
   if (target_ptr_size_ == PointerSize::k64) {
-    DexCache::ConversionPair64* orig_pair =
-        reinterpret_cast<DexCache::ConversionPair64*>(orig_array) + array_index;
-    DexCache::ConversionPair64* new_pair =
-        reinterpret_cast<DexCache::ConversionPair64*>(new_array) + array_index;
-    *new_pair = *orig_pair;  // Copy original value and index.
-    if (orig_pair->first != 0u) {
-      CopyAndFixupPointer(reinterpret_cast<void**>(&new_pair->first),
-                          reinterpret_cast64<void*>(orig_pair->first),
+    mirror::NativeDexCacheLine<uint64_t>* orig_pair
+      = reinterpret_cast<mirror::NativeDexCacheLine<uint64_t>*>(orig_array) + array_index;
+    mirror::NativeDexCacheLine<uint64_t>* new_pair
+      = reinterpret_cast<mirror::NativeDexCacheLine<uint64_t>*>(new_array) + array_index;
+    new_pair->Store(orig_pair->Load());  // Copy original value and index.
+    if (orig_pair->object_ != 0u) {
+      CopyAndFixupPointer(reinterpret_cast<void**>(&new_pair->object_),
+                          reinterpret_cast64<void*>(orig_pair->object_),
                           oat_index);
     }
   } else {
-    DexCache::ConversionPair32* orig_pair =
-        reinterpret_cast<DexCache::ConversionPair32*>(orig_array) + array_index;
-    DexCache::ConversionPair32* new_pair =
-        reinterpret_cast<DexCache::ConversionPair32*>(new_array) + array_index;
-    *new_pair = *orig_pair;  // Copy original value and index.
-    if (orig_pair->first != 0u) {
-      CopyAndFixupPointer(reinterpret_cast<void**>(&new_pair->first),
-                          reinterpret_cast32<void*>(orig_pair->first),
+    mirror::NativeDexCacheLine<uint32_t>* orig_pair
+      = reinterpret_cast<mirror::NativeDexCacheLine<uint32_t>*>(orig_array) + array_index;
+    mirror::NativeDexCacheLine<uint32_t>* new_pair
+      = reinterpret_cast<mirror::NativeDexCacheLine<uint32_t>*>(new_array) + array_index;
+    new_pair->Store(orig_pair->Load());  // Copy original value and index.
+    if (orig_pair->object_ != 0u) {
+      CopyAndFixupPointer(reinterpret_cast<void**>(&new_pair->object_),
+                          reinterpret_cast32<void*>(orig_pair->object_),
                           oat_index);
     }
   }

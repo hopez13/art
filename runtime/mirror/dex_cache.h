@@ -96,19 +96,11 @@ template <typename T> struct PACKED(8) DexCachePair {
   }
 };
 
-template <typename T> struct PACKED(2 * __SIZEOF_POINTER__) NativeDexCachePair {
-  T* object;
-  size_t index;
-  // This is similar to DexCachePair except that we're storing a native pointer
-  // instead of a GC root. See DexCachePair for the details.
-  NativeDexCachePair(T* object, uint32_t index)
-      : object(object),
-        index(index) {}
-  NativeDexCachePair() : object(nullptr), index(0u) { }
-  NativeDexCachePair(const NativeDexCachePair<T>&) = default;
-  NativeDexCachePair& operator=(const NativeDexCachePair<T>&) = default;
+template <typename T> struct NativeDexCachePair {
+  T object;
+  uint32_t index;
 
-  static void Initialize(std::atomic<NativeDexCachePair<T>>* dex_cache, PointerSize pointer_size);
+  NativeDexCachePair(T obj, uint32_t idx) : object(obj), index(idx) { }
 
   static uint32_t InvalidIndexForSlot(uint32_t slot) {
     // Since the cache size is a power of two, 0 will always map to slot 0.
@@ -116,14 +108,41 @@ template <typename T> struct PACKED(2 * __SIZEOF_POINTER__) NativeDexCachePair {
     return (slot == 0) ? 1u : 0u;
   }
 
-  T* GetObjectForIndex(uint32_t idx) REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (idx != index) {
-      return nullptr;
-    }
-    DCHECK(object != nullptr);
-    return object;
+  ALWAYS_INLINE T GetObjectForIndex(uint32_t idx) {
+    return index == idx ? object : nullptr;
   }
 };
+
+template <typename T>
+class PACKED(2 * sizeof(T)) NativeDexCacheLine {
+ public:
+  static void Initialize(NativeDexCacheLine<T>* dex_cache, PointerSize pointer_size);
+
+  ALWAYS_INLINE NativeDexCachePair<T> Load() {
+    uint32_t index = index_.load(std::memory_order_relaxed);
+    while (!index_.compare_exchange_weak(index, ~0u, std::memory_order_acquire)) { }  // Lock.
+    T object = object_;
+    index_.store(index, std::memory_order_release);  // Unlock.
+    return NativeDexCachePair<T>(object, index);
+  }
+
+  ALWAYS_INLINE void Store(NativeDexCachePair<T> pair) {
+    uint32_t index = index_.load(std::memory_order_relaxed);
+    while (!index_.compare_exchange_weak(index, ~0u, std::memory_order_acquire)) { }  // Lock.
+    object_ = pair.object;
+    index_.store(pair.index, std::memory_order_release);  // Unlock.
+  }
+
+ private:
+  std::atomic<uint32_t> index_;  // ~0u if the data is locked for modification.
+  T object_;
+
+  friend class linker::ImageWriter;
+};
+
+static_assert(sizeof(NativeDexCacheLine<void*>) == 2 * sizeof(void*), "Unexpected size");
+static_assert(sizeof(NativeDexCacheLine<uint32_t>) == 2 * sizeof(uint32_t), "Unexpected size");
+static_assert(sizeof(NativeDexCacheLine<uint64_t>) == 2 * sizeof(uint64_t), "Unexpected size");
 
 using TypeDexCachePair = DexCachePair<Class>;
 using TypeDexCacheType = std::atomic<TypeDexCachePair>;
@@ -131,11 +150,11 @@ using TypeDexCacheType = std::atomic<TypeDexCachePair>;
 using StringDexCachePair = DexCachePair<String>;
 using StringDexCacheType = std::atomic<StringDexCachePair>;
 
-using FieldDexCachePair = NativeDexCachePair<ArtField>;
-using FieldDexCacheType = std::atomic<FieldDexCachePair>;
+using FieldDexCachePair = NativeDexCachePair<ArtField*>;
+using FieldDexCacheType = NativeDexCacheLine<ArtField*>;
 
-using MethodDexCachePair = NativeDexCachePair<ArtMethod>;
-using MethodDexCacheType = std::atomic<MethodDexCachePair>;
+using MethodDexCachePair = NativeDexCachePair<ArtMethod*>;
+using MethodDexCacheType = NativeDexCacheLine<ArtMethod*>;
 
 using MethodTypeDexCachePair = DexCachePair<MethodType>;
 using MethodTypeDexCacheType = std::atomic<MethodTypeDexCachePair>;
@@ -422,12 +441,12 @@ class MANAGED DexCache final : public Object {
   void SetLocation(ObjPtr<String> location) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <typename T>
-  static NativeDexCachePair<T> GetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+  static NativeDexCachePair<T> GetNativePairPtrSize(NativeDexCacheLine<T>* pair_array,
                                                     size_t idx,
                                                     PointerSize ptr_size);
 
   template <typename T>
-  static void SetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+  static void SetNativePairPtrSize(NativeDexCacheLine<T>* pair_array,
                                    size_t idx,
                                    NativeDexCachePair<T> pair,
                                    PointerSize ptr_size);
@@ -455,19 +474,6 @@ class MANAGED DexCache final : public Object {
             uint32_t num_resolved_call_sites)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // std::pair<> is not trivially copyable and as such it is unsuitable for atomic operations,
-  // so we use a custom pair class for loading and storing the NativeDexCachePair<>.
-  template <typename IntType>
-  struct PACKED(2 * sizeof(IntType)) ConversionPair {
-    ConversionPair(IntType f, IntType s) : first(f), second(s) { }
-    ConversionPair(const ConversionPair&) = default;
-    ConversionPair& operator=(const ConversionPair&) = default;
-    IntType first;
-    IntType second;
-  };
-  using ConversionPair32 = ConversionPair<uint32_t>;
-  using ConversionPair64 = ConversionPair<uint64_t>;
-
   // Visit instance fields of the dex cache as well as its associated arrays.
   template <bool kVisitNativeRoots,
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
@@ -475,48 +481,6 @@ class MANAGED DexCache final : public Object {
             typename Visitor>
   void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
-
-  // Due to lack of 16-byte atomics support, we use hand-crafted routines.
-#if defined(__aarch64__) || defined(__mips__)
-  // 16-byte atomics are supported on aarch64, mips and mips64.
-  ALWAYS_INLINE static ConversionPair64 AtomicLoadRelaxed16B(
-      std::atomic<ConversionPair64>* target) {
-    return target->load(std::memory_order_relaxed);
-  }
-
-  ALWAYS_INLINE static void AtomicStoreRelease16B(
-      std::atomic<ConversionPair64>* target, ConversionPair64 value) {
-    target->store(value, std::memory_order_release);
-  }
-#elif defined(__x86_64__)
-  ALWAYS_INLINE static ConversionPair64 AtomicLoadRelaxed16B(
-      std::atomic<ConversionPair64>* target) {
-    uint64_t first, second;
-    __asm__ __volatile__(
-        "lock cmpxchg16b (%2)"
-        : "=&a"(first), "=&d"(second)
-        : "r"(target), "a"(0), "d"(0), "b"(0), "c"(0)
-        : "cc");
-    return ConversionPair64(first, second);
-  }
-
-  ALWAYS_INLINE static void AtomicStoreRelease16B(
-      std::atomic<ConversionPair64>* target, ConversionPair64 value) {
-    uint64_t first, second;
-    __asm__ __volatile__ (
-        "movq (%2), %%rax\n\t"
-        "movq 8(%2), %%rdx\n\t"
-        "1:\n\t"
-        "lock cmpxchg16b (%2)\n\t"
-        "jnz 1b"
-        : "=&a"(first), "=&d"(second)
-        : "r"(target), "b"(value.first), "c"(value.second)
-        : "cc");
-  }
-#else
-  static ConversionPair64 AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target);
-  static void AtomicStoreRelease16B(std::atomic<ConversionPair64>* target, ConversionPair64 value);
-#endif
 
   HeapReference<String> location_;
   // Number of elements in the call_sites_ array. Note that this appears here

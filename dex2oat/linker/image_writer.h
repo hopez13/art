@@ -487,8 +487,8 @@ class ImageWriter final {
                                size_t oat_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
   template <typename T>
-  void FixupDexCacheArrayEntry(std::atomic<mirror::NativeDexCachePair<T>>* orig_array,
-                               std::atomic<mirror::NativeDexCachePair<T>>* new_array,
+  void FixupDexCacheArrayEntry(mirror::NativeDexCacheLine<T>* orig_array,
+                               mirror::NativeDexCacheLine<T>* new_array,
                                uint32_t array_index,
                                size_t oat_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
