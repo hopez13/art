@@ -94,6 +94,30 @@
       "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669164f4_b8db71cd",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-09T13:14:20Z",
+      "side": 1,
+      "message": "Any suggestions on how to neatly solve it?\n\nI can also just delete this code block :-)",
+      "parentUuid": "5356c6dd_9ee928af",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 68
+      },
+      "revId": "642a6b401ef32d1b782711a5a5a15846071fae9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
