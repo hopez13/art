@@ -118,6 +118,30 @@
       "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5393b68c_ec242edd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-10T17:07:30Z",
+      "side": 1,
+      "message": "Lokesh and I did some more review, and we believe this approach should be fine.",
+      "parentUuid": "319d7628_cdd7195e",
+      "range": {
+        "startLine": 852,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 5
+      },
+      "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
