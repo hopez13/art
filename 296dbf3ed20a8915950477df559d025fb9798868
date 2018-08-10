@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d933c73_2626bbf0",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-10T15:20:47Z",
+      "side": 1,
+      "message": "Hans, can you verify my reasoning? And also that reordering the \"DMB ISH\" before going to the slow path would not change the conclusion?\n\n(If we could rely on the forwarding address to be visible when a thread already holds a corresponding to-space reference, this call could be removed.)",
+      "revId": "296dbf3ed20a8915950477df559d025fb9798868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
