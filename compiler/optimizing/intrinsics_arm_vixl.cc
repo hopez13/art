@@ -936,9 +936,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLongVolatile(HInvoke* invoke) 
                codegen_);
 }
 
-static void CreateIntIntIntIntIntToIntPlusTemps(ArenaAllocator* allocator,
-                                                HInvoke* invoke,
-                                                DataType::Type type) {
+static void CreateIntIntIntIntIntToIntPlusTemps(ArenaAllocator* allocator, HInvoke* invoke) {
   bool can_call = kEmitCompilerReadBarrier &&
       kUseBakerReadBarrier &&
       (invoke->GetIntrinsic() == Intrinsics::kUnsafeCASObject);
@@ -948,20 +946,16 @@ static void CreateIntIntIntIntIntToIntPlusTemps(ArenaAllocator* allocator,
                                           ? LocationSummary::kCallOnSlowPath
                                           : LocationSummary::kNoCall,
                                       kIntrinsified);
+  if (can_call) {
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
+  }
   locations->SetInAt(0, Location::NoLocation());        // Unused receiver.
   locations->SetInAt(1, Location::RequiresRegister());
   locations->SetInAt(2, Location::RequiresRegister());
   locations->SetInAt(3, Location::RequiresRegister());
   locations->SetInAt(4, Location::RequiresRegister());
 
-  // If heap poisoning is enabled, we don't want the unpoisoning
-  // operations to potentially clobber the output. Likewise when
-  // emitting a (Baker) read barrier, which may call.
-  Location::OutputOverlap overlaps =
-      ((kPoisonHeapReferences && type == DataType::Type::kReference) || can_call)
-      ? Location::kOutputOverlap
-      : Location::kNoOutputOverlap;
-  locations->SetOut(Location::RequiresRegister(), overlaps);
+  locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
 
   // Temporary registers used in CAS. In the object case
   // (UnsafeCASObject intrinsic), these are also used for
@@ -970,24 +964,134 @@ static void CreateIntIntIntIntIntToIntPlusTemps(ArenaAllocator* allocator,
   locations->AddTemp(Location::RequiresRegister());  // Temp 1.
 }
 
+class BakerReadBarrierCasSlowPathARMVIXL : public SlowPathCodeARMVIXL {
+ public:
+  explicit BakerReadBarrierCasSlowPathARMVIXL(HInvoke* invoke)
+      : SlowPathCodeARMVIXL(invoke),
+        loop_exit_() {}
+
+  const char* GetDescription() const OVERRIDE { return "BakerCasSlowPathARM64"; }
+
+  vixl32::Label* GetLoopExit() { return &loop_exit_; }
+
+  void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    CodeGeneratorARMVIXL* arm_codegen = down_cast<CodeGeneratorARMVIXL*>(codegen);
+    ArmVIXLAssembler* assembler = arm_codegen->GetAssembler();
+    __ Bind(GetEntryLabel());
+
+    LocationSummary* locations = instruction_->GetLocations();
+    vixl32::Register base = InputRegisterAt(instruction_, 1);           // Object pointer.
+    vixl32::Register offset = LowRegisterFrom(locations->InAt(2));      // Offset (discard high 4B).
+    vixl32::Register expected = InputRegisterAt(instruction_, 3);       // Expected.
+    vixl32::Register value = InputRegisterAt(instruction_, 4);          // Value.
+
+    vixl32::Register old_value = RegisterFrom(locations->GetTemp(0));   // The old value.
+    // Note: the `tmp` here must be the same as the `tmp` in the main path for result calculation.
+    vixl32::Register tmp = RegisterFrom(locations->GetTemp(1));         // Value in memory.
+
+    // Load the old value without any synchronization. Other threads cannot replace it with
+    // the from-space reference to the `expected` object, they can store only to-space values.
+    __ Ldr(old_value, MemOperand(base, offset));
+    assembler->MaybeUnpoisonHeapReference(old_value);
+
+    // If the old value is null, go back to main path.
+    __ Cmp(old_value, 0);
+    __ B(eq, GetExitLabel());
+
+    // Load the lock word.
+    __ Ldr(tmp, MemOperand(old_value, mirror::Object::MonitorOffset().Int32Value()));
+
+    // If the object is marked, go back to the main path.
+    __ Tst(tmp, LockWord::kMarkBitStateMaskShifted);
+    __ B(ne, GetExitLabel());
+
+    // Check if we have a forwarding address.
+    vixl32::Label no_forwarding_address;
+    static_assert(LockWord::kStateSize == 2u, "Check state size.");
+    static_assert(LockWord::kStateForwardingAddressShifted == 0xc0000000,
+                  "Check that forwarding address state is suitable for checking with TST+BPL/BMI");
+    __ Tst(tmp, Operand(tmp, LSL, 1u));
+    __ B(pl, &no_forwarding_address);
+
+    // Check if the forwarding address is the `expected`. If not, go back to the main path.
+    __ Cmp(expected, Operand(tmp, LSL, LockWord::kForwardingAddressShift));
+    __ B(ne, GetExitLabel());
+
+    {
+      // The `old_value` is a from-space reference to the same object as `expected. Do the
+      // same CAS loop as the main path but check for both `expected` and `old_value`,
+      // representing the to-space and from-space references for the same object.
+      UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+      vixl32::Register tmp_ptr = temps.Acquire();
+
+      __ Dmb(vixl32::ISH);
+      __ Add(tmp_ptr, base, offset);
+
+      // Adjust the old value for comparison with `[tmp_ptr] - expected`.
+      __ Sub(old_value, old_value, expected);
+
+      // do {
+      //   tmp = [r_ptr] - expected;
+      // } while ((tmp == 0 || tmp == adjusted_old_value) && failure([r_ptr] <- r_new_value));
+      // result = (tmp == 0 || tmp == adjusted_old_value);
+
+      vixl32::Label loop_head;
+      __ Bind(&loop_head);
+      __ Ldrex(tmp, MemOperand(tmp_ptr));  // This can now load null stored by another thread.
+      assembler->MaybeUnpoisonHeapReference(tmp);
+      __ Subs(tmp, tmp, expected);         // Use SUBS to get non-zero value if both compares fail.
+      {
+        // If the newly loaded value did not match `expected`, compare with adjusted `old_value`.
+        ExactAssemblyScope aas(assembler->GetVIXLAssembler(), 2 * k16BitT32InstructionSizeInBytes);
+        __ it(ne);
+        __ cmp(ne, tmp, old_value);
+      }
+      __ B(ne, GetLoopExit());
+      assembler->MaybePoisonHeapReference(value);
+      __ Strex(tmp, value, MemOperand(tmp_ptr));
+      assembler->MaybeUnpoisonHeapReference(value);
+      __ Cmp(tmp, 0);
+      __ B(ne, &loop_head, /* far_target */ false);
+      __ B(GetLoopExit());
+    }
+
+    // It is possible that, despite seeing the to-space reference `expected`, this thread
+    // does not see the forwarding address in the from-space because the thread that marked
+    // the object stored the forwarding address with a relaxed atomic operation and the
+    // `expected` may have been passed between threads without any synchronization. So, mark
+    // the old value, forcing the forwarding address to be visible in this thread, and retry.
+    __ Bind(&no_forwarding_address);
+    __ Add(tmp, base, offset);
+    Location ref = Location::RegisterLocation(tmp.GetCode());
+    arm_codegen->GenerateFieldLoadWithBakerReadBarrier(
+        instruction_, ref, base, MemOperand(tmp), /* needs_null_check */ false);
+    arm_codegen->MaybeGenerateMarkingRegisterCheck(/* code */ 128);
+    __ B(GetEntryLabel());
+  }
+
+ private:
+  // Bound in the main path but needs to live until slow path code is emitted.
+  vixl32::Label loop_exit_;
+};
+
 static void GenCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMVIXL* codegen) {
   DCHECK_NE(type, DataType::Type::kInt64);
 
   ArmVIXLAssembler* assembler = codegen->GetAssembler();
   LocationSummary* locations = invoke->GetLocations();
 
-  Location out_loc = locations->Out();
   vixl32::Register out = OutputRegister(invoke);                      // Boolean result.
 
   vixl32::Register base = InputRegisterAt(invoke, 1);                 // Object pointer.
-  Location offset_loc = locations->InAt(2);
-  vixl32::Register offset = LowRegisterFrom(offset_loc);              // Offset (discard high 4B).
+  vixl32::Register offset = LowRegisterFrom(locations->InAt(2));      // Offset (discard high 4B).
   vixl32::Register expected = InputRegisterAt(invoke, 3);             // Expected.
   vixl32::Register value = InputRegisterAt(invoke, 4);                // Value.
 
-  Location tmp_ptr_loc = locations->GetTemp(0);
-  vixl32::Register tmp_ptr = RegisterFrom(tmp_ptr_loc);               // Pointer to actual memory.
+  vixl32::Register tmp_ptr = RegisterFrom(locations->GetTemp(0));     // Pointer to actual memory.
   vixl32::Register tmp = RegisterFrom(locations->GetTemp(1));         // Value in memory.
+
+  vixl32::Label loop_exit_label;
+  vixl32::Label* loop_exit = &loop_exit_label;
 
   if (type == DataType::Type::kReference) {
     // The only read barrier implementation supporting the
@@ -1000,16 +1104,15 @@ static void GenCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMVIXL* c
     codegen->MarkGCCard(tmp_ptr, tmp, base, value, value_can_be_null);
 
     if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-      // Need to make sure the reference stored in the field is a to-space
-      // one before attempting the CAS or the CAS could fail incorrectly.
-      codegen->UpdateReferenceFieldWithBakerReadBarrier(
-          invoke,
-          out_loc,  // Unused, used only as a "temporary" within the read barrier.
-          base,
-          /* field_offset */ offset_loc,
-          tmp_ptr_loc,
-          /* needs_null_check */ false,
-          tmp);
+      // Check if the stored reference a from-space reference to the same object
+      // as the to-space reference `expected`. If so, perform a custom CAS loop.
+      BakerReadBarrierCasSlowPathARMVIXL* slow_path =
+          new (codegen->GetScopedAllocator()) BakerReadBarrierCasSlowPathARMVIXL(invoke);
+      codegen->AddSlowPath(slow_path);
+      loop_exit = slow_path->GetLoopExit();
+      __ Cmp(mr, 0);
+      __ B(ne, slow_path->GetEntryLabel());
+      __ Bind(slow_path->GetExitLabel());
     }
   }
 
@@ -1021,66 +1124,43 @@ static void GenCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMVIXL* c
 
   __ Add(tmp_ptr, base, offset);
 
-  if (kPoisonHeapReferences && type == DataType::Type::kReference) {
-    codegen->GetAssembler()->PoisonHeapReference(expected);
-    if (value.Is(expected)) {
-      // Do not poison `value`, as it is the same register as
-      // `expected`, which has just been poisoned.
-    } else {
-      codegen->GetAssembler()->PoisonHeapReference(value);
-    }
-  }
-
   // do {
   //   tmp = [r_ptr] - expected;
   // } while (tmp == 0 && failure([r_ptr] <- r_new_value));
-  // result = tmp != 0;
+  // result = tmp == 0;
 
   vixl32::Label loop_head;
   __ Bind(&loop_head);
-
   __ Ldrex(tmp, MemOperand(tmp_ptr));
-
-  __ Subs(tmp, tmp, expected);
-
-  {
-    ExactAssemblyScope aas(assembler->GetVIXLAssembler(),
-                           3 * kMaxInstructionSizeInBytes,
-                           CodeBufferCheckScope::kMaximumSize);
-
-    __ itt(eq);
-    __ strex(eq, tmp, value, MemOperand(tmp_ptr));
-    __ cmp(eq, tmp, 1);
+  if (type == DataType::Type::kReference) {
+    assembler->MaybeUnpoisonHeapReference(tmp);
   }
+  __ Subs(tmp, tmp, expected);
+  __ B(ne, loop_exit, /* far_target */ false);
+  if (type == DataType::Type::kReference) {
+    assembler->MaybePoisonHeapReference(value);
+  }
+  __ Strex(tmp, value, MemOperand(tmp_ptr));
+  if (type == DataType::Type::kReference) {
+    assembler->MaybeUnpoisonHeapReference(value);
+  }
+  __ Cmp(tmp, 0);
+  __ B(ne, &loop_head, /* far_target */ false);
 
-  __ B(eq, &loop_head, /* far_target */ false);
+  __ Bind(loop_exit);
 
   __ Dmb(vixl32::ISH);
 
-  __ Rsbs(out, tmp, 1);
+  __ Clz(out, tmp);
+  __ Lsr(out, out, WhichPowerOf2(out.GetSizeInBits()));
 
-  {
-    ExactAssemblyScope aas(assembler->GetVIXLAssembler(),
-                           2 * kMaxInstructionSizeInBytes,
-                           CodeBufferCheckScope::kMaximumSize);
-
-    __ it(cc);
-    __ mov(cc, out, 0);
-  }
-
-  if (kPoisonHeapReferences && type == DataType::Type::kReference) {
-    codegen->GetAssembler()->UnpoisonHeapReference(expected);
-    if (value.Is(expected)) {
-      // Do not unpoison `value`, as it is the same register as
-      // `expected`, which has just been unpoisoned.
-    } else {
-      codegen->GetAssembler()->UnpoisonHeapReference(value);
-    }
+  if (type == DataType::Type::kReference) {
+    codegen->MaybeGenerateMarkingRegisterCheck(/* code */ 129);
   }
 }
 
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASInt(HInvoke* invoke) {
-  CreateIntIntIntIntIntToIntPlusTemps(allocator_, invoke, DataType::Type::kInt32);
+  CreateIntIntIntIntIntToIntPlusTemps(allocator_, invoke);
 }
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASObject(HInvoke* invoke) {
   // The only read barrier implementation supporting the
@@ -1089,7 +1169,7 @@ void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASObject(HInvoke* invoke) {
     return;
   }
 
-  CreateIntIntIntIntIntToIntPlusTemps(allocator_, invoke, DataType::Type::kReference);
+  CreateIntIntIntIntIntToIntPlusTemps(allocator_, invoke);
 }
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeCASInt(HInvoke* invoke) {
   GenCas(invoke, DataType::Type::kInt32, codegen_);
