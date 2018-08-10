@@ -41,13 +41,12 @@
 namespace art {
 namespace mirror {
 
-template <typename T>
-inline void NativeDexCachePair<T>::Initialize(std::atomic<NativeDexCachePair<T>>* dex_cache,
-                                              PointerSize pointer_size) {
-  NativeDexCachePair<T> first_elem;
-  first_elem.object = nullptr;
-  first_elem.index = InvalidIndexForSlot(0);
-  DexCache::SetNativePairPtrSize(dex_cache, 0, first_elem, pointer_size);
+ALWAYS_INLINE static uint32_t GetSlotForIndex(uint32_t index, uint32_t size) {
+  // Fibonacci-inspired hash with fixed-point arithmetic to map result in range.
+  uint16_t hash = index * 0x9e37;  // Fractional bits of (index / golden_ratio).
+  uint32_t slot = (static_cast<uint32_t>(hash) * size) >> 16;  // [0..1) * size.
+  DCHECK_LT(slot, size);
+  return slot;
 }
 
 inline uint32_t DexCache::ClassSize(PointerSize pointer_size) {
@@ -57,9 +56,7 @@ inline uint32_t DexCache::ClassSize(PointerSize pointer_size) {
 
 inline uint32_t DexCache::StringSlotIndex(dex::StringIndex string_idx) {
   DCHECK_LT(string_idx.index_, GetDexFile()->NumStringIds());
-  const uint32_t slot_idx = string_idx.index_ % kDexCacheStringCacheSize;
-  DCHECK_LT(slot_idx, NumStrings());
-  return slot_idx;
+  return GetSlotForIndex(string_idx.index_, NumStrings());
 }
 
 inline String* DexCache::GetResolvedString(dex::StringIndex string_idx) {
@@ -86,16 +83,14 @@ inline void DexCache::ClearString(dex::StringIndex string_idx) {
   StringDexCacheType* slot = &GetStrings()[slot_idx];
   // This is racy but should only be called from the transactional interpreter.
   if (slot->load(std::memory_order_relaxed).index == string_idx.index_) {
-    StringDexCachePair cleared(nullptr, StringDexCachePair::InvalidIndexForSlot(slot_idx));
+    StringDexCachePair cleared(nullptr, 0);
     slot->store(cleared, std::memory_order_relaxed);
   }
 }
 
 inline uint32_t DexCache::TypeSlotIndex(dex::TypeIndex type_idx) {
   DCHECK_LT(type_idx.index_, GetDexFile()->NumTypeIds());
-  const uint32_t slot_idx = type_idx.index_ % kDexCacheTypeCacheSize;
-  DCHECK_LT(slot_idx, NumResolvedTypes());
-  return slot_idx;
+  return GetSlotForIndex(type_idx.index_, NumResolvedTypes());
 }
 
 inline Class* DexCache::GetResolvedType(dex::TypeIndex type_idx) {
@@ -123,7 +118,7 @@ inline void DexCache::ClearResolvedType(dex::TypeIndex type_idx) {
   TypeDexCacheType* slot = &GetResolvedTypes()[slot_idx];
   // This is racy but should only be called from the single-threaded ImageWriter and tests.
   if (slot->load(std::memory_order_relaxed).index == type_idx.index_) {
-    TypeDexCachePair cleared(nullptr, TypeDexCachePair::InvalidIndexForSlot(slot_idx));
+    TypeDexCachePair cleared(nullptr, 0);
     slot->store(cleared, std::memory_order_relaxed);
   }
 }
@@ -131,9 +126,7 @@ inline void DexCache::ClearResolvedType(dex::TypeIndex type_idx) {
 inline uint32_t DexCache::MethodTypeSlotIndex(dex::ProtoIndex proto_idx) {
   DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
   DCHECK_LT(proto_idx.index_, GetDexFile()->NumProtoIds());
-  const uint32_t slot_idx = proto_idx.index_ % kDexCacheMethodTypeCacheSize;
-  DCHECK_LT(slot_idx, NumResolvedMethodTypes());
-  return slot_idx;
+  return GetSlotForIndex(proto_idx.index_, NumResolvedMethodTypes());
 }
 
 inline MethodType* DexCache::GetResolvedMethodType(dex::ProtoIndex proto_idx) {
@@ -181,9 +174,7 @@ inline ObjPtr<CallSite> DexCache::SetResolvedCallSite(uint32_t call_site_idx,
 
 inline uint32_t DexCache::FieldSlotIndex(uint32_t field_idx) {
   DCHECK_LT(field_idx, GetDexFile()->NumFieldIds());
-  const uint32_t slot_idx = field_idx % kDexCacheFieldCacheSize;
-  DCHECK_LT(slot_idx, NumResolvedFields());
-  return slot_idx;
+  return GetSlotForIndex(field_idx, NumResolvedFields());
 }
 
 inline ArtField* DexCache::GetResolvedField(uint32_t field_idx, PointerSize ptr_size) {
@@ -206,16 +197,14 @@ inline void DexCache::ClearResolvedField(uint32_t field_idx, PointerSize ptr_siz
   // This is racy but should only be called from the single-threaded ImageWriter.
   DCHECK(Runtime::Current()->IsAotCompiler());
   if (GetNativePairPtrSize(resolved_fields, slot_idx, ptr_size).index == field_idx) {
-    FieldDexCachePair cleared(nullptr, FieldDexCachePair::InvalidIndexForSlot(slot_idx));
+    FieldDexCachePair cleared(nullptr, 0);
     SetNativePairPtrSize(resolved_fields, slot_idx, cleared, ptr_size);
   }
 }
 
 inline uint32_t DexCache::MethodSlotIndex(uint32_t method_idx) {
   DCHECK_LT(method_idx, GetDexFile()->NumMethodIds());
-  const uint32_t slot_idx = method_idx % kDexCacheMethodCacheSize;
-  DCHECK_LT(slot_idx, NumResolvedMethods());
-  return slot_idx;
+  return GetSlotForIndex(method_idx, NumResolvedMethods());
 }
 
 inline ArtMethod* DexCache::GetResolvedMethod(uint32_t method_idx, PointerSize ptr_size) {
@@ -240,7 +229,7 @@ inline void DexCache::ClearResolvedMethod(uint32_t method_idx, PointerSize ptr_s
   // This is racy but should only be called from the single-threaded ImageWriter.
   DCHECK(Runtime::Current()->IsAotCompiler());
   if (GetNativePairPtrSize(resolved_methods, slot_idx, ptr_size).index == method_idx) {
-    MethodDexCachePair cleared(nullptr, MethodDexCachePair::InvalidIndexForSlot(slot_idx));
+    MethodDexCachePair cleared(nullptr, 0);
     SetNativePairPtrSize(resolved_methods, slot_idx, cleared, ptr_size);
   }
 }

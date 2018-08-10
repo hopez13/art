@@ -141,21 +141,6 @@ void DexCache::InitializeDexCache(Thread* self,
       CHECK(call_sites[i].IsNull());
     }
   }
-  if (strings != nullptr) {
-    mirror::StringDexCachePair::Initialize(strings);
-  }
-  if (types != nullptr) {
-    mirror::TypeDexCachePair::Initialize(types);
-  }
-  if (fields != nullptr) {
-    mirror::FieldDexCachePair::Initialize(fields, image_pointer_size);
-  }
-  if (methods != nullptr) {
-    mirror::MethodDexCachePair::Initialize(methods, image_pointer_size);
-  }
-  if (method_types != nullptr) {
-    mirror::MethodTypeDexCachePair::Initialize(method_types);
-  }
   dex_cache->Init(dex_file,
                   location,
                   strings,

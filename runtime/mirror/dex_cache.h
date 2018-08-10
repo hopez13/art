@@ -50,23 +50,8 @@ template <typename T> struct PACKED(8) DexCachePair {
   GcRoot<T> object;
   uint32_t index;
   // The array is initially [ {0,0}, {0,0}, {0,0} ... ]
-  // We maintain the invariant that once a dex cache entry is populated,
-  // the pointer is always non-0
-  // Any given entry would thus be:
-  // {non-0, non-0} OR {0,0}
-  //
-  // It's generally sufficiently enough then to check if the
-  // lookup index matches the stored index (for a >0 lookup index)
-  // because if it's true the pointer is also non-null.
-  //
-  // For the 0th entry which is a special case, the value is either
-  // {0,0} (initial state) or {non-0, 0} which indicates
-  // that a valid object is stored at that index for a dex section id of 0.
-  //
-  // As an optimization, we want to avoid branching on the object pointer since
-  // it's always non-null if the id branch succeeds (except for the 0th id).
-  // Set the initial state for the 0th entry to be {0,1} which is guaranteed to fail
-  // the lookup id == stored id branch.
+  // Cache entry is populated if the pointer is non-zero.
+  // If the entry is not populated, the index is ignored.
   DexCachePair(ObjPtr<T> object, uint32_t index)
       : object(object),
         index(index) {}
@@ -74,25 +59,8 @@ template <typename T> struct PACKED(8) DexCachePair {
   DexCachePair(const DexCachePair<T>&) = default;
   DexCachePair& operator=(const DexCachePair<T>&) = default;
 
-  static void Initialize(std::atomic<DexCachePair<T>>* dex_cache) {
-    DexCachePair<T> first_elem;
-    first_elem.object = GcRoot<T>(nullptr);
-    first_elem.index = InvalidIndexForSlot(0);
-    dex_cache[0].store(first_elem, std::memory_order_relaxed);
-  }
-
-  static uint32_t InvalidIndexForSlot(uint32_t slot) {
-    // Since the cache size is a power of two, 0 will always map to slot 0.
-    // Use 1 for slot 0 and 0 for all other slots.
-    return (slot == 0) ? 1u : 0u;
-  }
-
   T* GetObjectForIndex(uint32_t idx) REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (idx != index) {
-      return nullptr;
-    }
-    DCHECK(!object.IsNull());
-    return object.Read();
+    return (idx == index) ? object.Read() : nullptr;
   }
 };
 
@@ -108,20 +76,8 @@ template <typename T> struct PACKED(2 * __SIZEOF_POINTER__) NativeDexCachePair {
   NativeDexCachePair(const NativeDexCachePair<T>&) = default;
   NativeDexCachePair& operator=(const NativeDexCachePair<T>&) = default;
 
-  static void Initialize(std::atomic<NativeDexCachePair<T>>* dex_cache, PointerSize pointer_size);
-
-  static uint32_t InvalidIndexForSlot(uint32_t slot) {
-    // Since the cache size is a power of two, 0 will always map to slot 0.
-    // Use 1 for slot 0 and 0 for all other slots.
-    return (slot == 0) ? 1u : 0u;
-  }
-
   T* GetObjectForIndex(uint32_t idx) REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (idx != index) {
-      return nullptr;
-    }
-    DCHECK(object != nullptr);
-    return object;
+    return (idx == index) ? object : nullptr;
   }
 };
 
