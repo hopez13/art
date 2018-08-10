@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cddd6575_04c8097f",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-10T13:49:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc9e8ef3_89207244",
+      "range": {
+        "startLine": 86,
+        "startChar": 87,
+        "endLine": 86,
+        "endChar": 88
+      },
+      "revId": "71b6bed5a2d5da32f781479132e021e26b3aff32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e33082ec_7110149f",
         "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "71b6bed5a2d5da32f781479132e021e26b3aff32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "323febe1_726257d6",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-10T13:49:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e33082ec_7110149f",
+      "range": {
+        "startLine": 49,
+        "startChar": 50,
+        "endLine": 49,
+        "endChar": 54
+      },
+      "revId": "71b6bed5a2d5da32f781479132e021e26b3aff32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
