@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d214ba3f_792d980b",
+        "filename": "libartbase/base/bit_memory_region_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-10T10:46:59Z",
+      "side": 1,
+      "message": "Add 1u \u003c\u003c 16, 1u \u003c\u003c 24.\n\nI don\u0027t see \"(1u \u003c\u003c N) - 1; N \u003d 8, 16, 24\" as very useful if you\u0027re not explicitly checking the encoding length. Maybe add an array with expected bit lengths?",
+      "range": {
+        "startLine": 38,
+        "startChar": 57,
+        "endLine": 38,
+        "endChar": 58
+      },
+      "revId": "4a44595d4a0cb594b421e33f63382efa1c0e1aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
