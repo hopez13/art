@@ -63,6 +63,24 @@
       "revId": "296dbf3ed20a8915950477df559d025fb9798868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92a9396_fc812f6e",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-13T21:03:32Z",
+      "side": 1,
+      "message": "Sounds right to me, as does the new approach.",
+      "parentUuid": "3d933c73_2626bbf0",
+      "revId": "296dbf3ed20a8915950477df559d025fb9798868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
