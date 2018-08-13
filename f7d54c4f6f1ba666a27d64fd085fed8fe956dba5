@@ -22,6 +22,30 @@
       "revId": "f7d54c4f6f1ba666a27d64fd085fed8fe956dba5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26cf91b5_8039b2f5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-13T15:54:12Z",
+      "side": 1,
+      "message": "No, fixed.",
+      "parentUuid": "eb3fcf82_96860724",
+      "range": {
+        "startLine": 1093,
+        "startChar": 20,
+        "endLine": 1093,
+        "endChar": 42
+      },
+      "revId": "f7d54c4f6f1ba666a27d64fd085fed8fe956dba5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
