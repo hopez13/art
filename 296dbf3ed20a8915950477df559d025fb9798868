@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "727a67a1_5846afcb",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-13T14:33:54Z",
+      "side": 1,
+      "message": "This is moot with the approach taken in PS5.",
+      "parentUuid": "18e20e8e_cbcdcc2b",
+      "range": {
+        "startLine": 1005,
+        "startChar": 4,
+        "endLine": 1005,
+        "endChar": 52
+      },
+      "revId": "296dbf3ed20a8915950477df559d025fb9798868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d933c73_2626bbf0",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
