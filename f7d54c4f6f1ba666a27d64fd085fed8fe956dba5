@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3fcf82_96860724",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "Can we be sure this will always be a near target, in the case of a reference CAS?",
+      "range": {
+        "startLine": 1093,
+        "startChar": 20,
+        "endLine": 1093,
+        "endChar": 42
+      },
+      "revId": "f7d54c4f6f1ba666a27d64fd085fed8fe956dba5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

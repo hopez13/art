@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eac3df0a_4fc5ae21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "barriers",
+      "range": {
+        "startLine": 14,
+        "startChar": 40,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ffd0d97_726fb7d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "compares it with",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c681de25_18248fed",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 8432,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "\"unpoison?\" (to match the comment on line 8434)",
+      "range": {
+        "startLine": 8432,
+        "startChar": 15,
+        "endLine": 8432,
+        "endChar": 23
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64defcc5_1aab6dfb",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "BakerReadBarrierCasSlowPathARMVIXL?",
+      "range": {
+        "startLine": 972,
+        "startChar": 56,
+        "endLine": 972,
+        "endChar": 77
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8938651_bdca54c4",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "\"The old value value we read (before the read barrier in GenerateUnsafeCasOldValueAddWithBakerReadBarrier)\"",
+      "range": {
+        "startLine": 995,
+        "startChar": 7,
+        "endLine": 995,
+        "endChar": 33
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c837b5f_6da8ec80",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "\"`expected` (which is always a to-space reference)\"",
+      "range": {
+        "startLine": 995,
+        "startChar": 82,
+        "endLine": 995,
+        "endChar": 92
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3602fca2_9842fdc7",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "\"For saved  `tmp` from main path.\"",
+      "range": {
+        "startLine": 1000,
+        "startChar": 71,
+        "endLine": 1000,
+        "endChar": 98
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9b8c4b_113858f8",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "`adjusted_old_value` (i.e. IP)",
+      "range": {
+        "startLine": 1002,
+        "startChar": 85,
+        "endLine": 1002,
+        "endChar": 89
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2abc6b0e_fef50c48",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "STREX",
+      "range": {
+        "startLine": 1075,
+        "startChar": 59,
+        "endLine": 1075,
+        "endChar": 63
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28934d4d_807319b3",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-13T15:20:20Z",
+      "side": 1,
+      "message": "Are we sure this will always be a near target, in the case of a reference CAS?",
+      "range": {
+        "startLine": 1093,
+        "startChar": 20,
+        "endLine": 1093,
+        "endChar": 42
+      },
+      "revId": "39ccbba61451490a8abacb6e6b018870f2fd093c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
