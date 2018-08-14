@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8865de1_7b9044a0",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-14T20:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67418389_9e147d9f",
+      "revId": "825f10f21dd9102fae86ec0b6989c432136cb086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c8d081d_c792582c",
         "filename": "runtime/gc/scoped_gc_critical_section.h",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "825f10f21dd9102fae86ec0b6989c432136cb086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab2ba9a_b85b505f",
+        "filename": "runtime/gc/scoped_gc_critical_section.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-14T20:25:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c8d081d_c792582c",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "825f10f21dd9102fae86ec0b6989c432136cb086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
