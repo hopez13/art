@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dca03027_e72faf8b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2001,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-14T12:28:52Z",
+      "side": 1,
+      "message": "The introspection entrypoint would read the register number from the wrong bits. Reverting.",
+      "range": {
+        "startLine": 2001,
+        "startChar": 60,
+        "endLine": 2001,
+        "endChar": 75
+      },
+      "revId": "1bf0b7ad2fc6ba0cc51d0df2890f9f2d0b05b32b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
