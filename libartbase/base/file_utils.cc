@@ -77,6 +77,9 @@ bool ReadFileToString(const std::string& file_name, std::string* result) {
       return false;
     }
     if (n == 0) {
+      if (result->size() == 0) {
+        return false;
+      }
       return true;
     }
     result->append(&buf[0], n);
