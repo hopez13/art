@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d75d794_3044794e",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_boolean.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-14T12:22:21Z",
+      "side": 1,
+      "message": "I find the number of single-line files here somewhat inconvenient - I will probably try to refactor the generator at some point.",
+      "range": {
+        "startLine": 1,
+        "startChar": 37,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfbfd564_3573213b",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-14T12:22:21Z",
+      "side": 1,
+      "message": "I am not large fan of marcos.  I copied this almost verbatim from the field entrypoints (which can be probably removed, so it technically a code move).",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 32
+      },
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
