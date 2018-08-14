@@ -22,6 +22,30 @@
       "revId": "8645c1dde09d017fee41426afc6e6a4e65abd303",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8763413d_c14dc61a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-14T16:42:30Z",
+      "side": 1,
+      "message": "Done in PS4 (the upload raced my comment).",
+      "parentUuid": "2089baef_9910574c",
+      "range": {
+        "startLine": 830,
+        "startChar": 54,
+        "endLine": 831,
+        "endChar": 24
+      },
+      "revId": "8645c1dde09d017fee41426afc6e6a4e65abd303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
