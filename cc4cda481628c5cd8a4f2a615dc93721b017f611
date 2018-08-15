@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1343b6d4_bc7bac61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T16:08:28Z",
+      "side": 1,
+      "message": "Not necessarily, processing those dependencies also takes time. And even in cases where we do not avoid any dependencies, the extra work is proportional to the work we already do.",
+      "parentUuid": "275e407c_ca645fa0",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b70cadac_74e0eb2d",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6a73344_3db73c25",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T16:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b70cadac_74e0eb2d",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "ba884979_6a55f146",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T16:08:28Z",
+      "side": 1,
+      "message": "Renamed.\n\nI previously tried to keep the first and the last found dependency to do the checking but for the particular memory hungry method it was exactly as good as just the first. The HasMoreLikelyDependencies() works better.",
+      "parentUuid": "dbed7a1c_90f68b98",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40f50c04_df5eb1dc",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 1
@@ -73,6 +133,24 @@
       "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a7c16c_e11147a2",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T16:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f50c04_df5eb1dc",
+      "revId": "cc4cda481628c5cd8a4f2a615dc93721b017f611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
