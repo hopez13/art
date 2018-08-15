@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "0db1c307_99ad6753",
+        "filename": "runtime/interpreter/mterp/arm64/op_sget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T09:43:30Z",
+      "side": 1,
+      "message": "This is SGET_WIDE.",
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5eb90ad_5f917a5d",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 2
@@ -36,6 +53,30 @@
       "writtenOn": "2018-08-14T18:02:10Z",
       "side": 1,
       "message": "Maybe can make this faster by avoiding the HandleScope unless required?",
+      "range": {
+        "startLine": 697,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 91
+      },
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c980d0_d08da2f7",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T09:43:30Z",
+      "side": 1,
+      "message": "The DexCache path is the fast path where we\u0027re trying to avoid extra cost. Once we get here we actually expect to do field resolution, so the HandleScope\u003c\u003e cost should be negligible.",
+      "parentUuid": "d5eb90ad_5f917a5d",
       "range": {
         "startLine": 697,
         "startChar": 0,
@@ -71,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "865337e2_11c8a320",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T09:43:30Z",
+      "side": 1,
+      "message": "I think they are still used for HUnresolvedInstanceField{Get,Set}.",
+      "parentUuid": "bfbfd564_3573213b",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 32
+      },
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b3c3ce5_e617b172",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 2
@@ -87,6 +152,29 @@
         "startChar": 54,
         "endLine": 708,
         "endChar": 73
+      },
+      "revId": "034518d344ca4778f14e320934fc537149f52271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d50d03d_c87c2f91",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-15T09:43:30Z",
+      "side": 1,
+      "message": "This can invalidate `obj`. Either drop the DCHECK() or create a Handle inside `if (kIsDebugBuild) { ... }`.",
+      "range": {
+        "startLine": 717,
+        "startChar": 24,
+        "endLine": 717,
+        "endChar": 88
       },
       "revId": "034518d344ca4778f14e320934fc537149f52271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
