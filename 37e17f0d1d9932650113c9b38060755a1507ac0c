@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "647b6fd2_0db0ae8a",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-15T15:26:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3090011a_9e6ffcd8",
+      "range": {
+        "startLine": 123,
+        "startChar": 51,
+        "endLine": 123,
+        "endChar": 53
+      },
+      "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4948a3e2_4e3b2f8c",
         "filename": "tools/class2greylist/test/src/com/android/javac/AnnotationVisitorTest.java",
         "patchSetId": 6
@@ -93,6 +117,30 @@
       "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf3deb7_da909d4b",
+        "filename": "tools/class2greylist/test/src/com/android/javac/AnnotationVisitorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-15T15:26:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74492215_03406521",
+      "range": {
+        "startLine": 377,
+        "startChar": 16,
+        "endLine": 377,
+        "endChar": 40
+      },
+      "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
