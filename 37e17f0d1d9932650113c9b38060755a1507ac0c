@@ -69,6 +69,30 @@
       "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74492215_03406521",
+        "filename": "tools/class2greylist/test/src/com/android/javac/AnnotationVisitorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-15T14:49:44Z",
+      "side": 1,
+      "message": "Ah, I see you have a special constructor for this. Ok, that\u0027s fine then.",
+      "parentUuid": "66e68f78_e0671f89",
+      "range": {
+        "startLine": 377,
+        "startChar": 16,
+        "endLine": 377,
+        "endChar": 40
+      },
+      "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
