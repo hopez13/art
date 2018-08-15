@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18dd39ca_6d44ac78",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "I think the code is actually fine. The card aging performed in ConcurrentCopying::BindBitmaps (lines 280–284 in PS14) will turn dirty cards into aged cards, and aged cards into clean cards.",
+      "parentUuid": "d82d604f_cc10ea0e",
+      "range": {
+        "startLine": 628,
+        "startChar": 8,
+        "endLine": 628,
+        "endChar": 84
+      },
+      "revId": "f482c9ef80cb0ea33f7c9731c0f47dd78b707269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16f436c0_113b7ed8",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 14
@@ -59,6 +83,30 @@
       "writtenOn": "2018-01-21T21:58:20Z",
       "side": 1,
       "message": "This seems odd to consider a reference to a non-region-space always marked… Wouldn\u0027t this mess up the reference processing, which relies on ConcurrentCopying::IsMarked / ConcurrentCopying::IsNullOrMarkedHeapReference ?",
+      "range": {
+        "startLine": 2557,
+        "startChar": 0,
+        "endLine": 2560,
+        "endChar": 5
+      },
+      "revId": "f482c9ef80cb0ea33f7c9731c0f47dd78b707269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b02a0f7_22164410",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Removed in https://android-review.googlesource.com/c/platform/art/+/602754.",
+      "parentUuid": "f54441ca_774b3911",
       "range": {
         "startLine": 2557,
         "startChar": 0,

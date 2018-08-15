@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e86542f_d0c0b54f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Please ignore, the original comment was right.",
+      "parentUuid": "eaf17647_524cd527",
+      "range": {
+        "startLine": 278,
+        "startChar": 73,
+        "endLine": 278,
+        "endChar": 77
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6188f905_949b5966",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-11T18:51:36Z",
       "side": 1,
       "message": "It seem strange to do this concurrently with mutator threads running. What if a card (covering a non-evac) is dirtied again after being visited? It looks like we will miss it?\nIf so, should we revisit card again in a pause?\n\nOr maybe this does not matter, as newly allocated objects will be in a to-space, and therefore preserved from being swept/cleared by the GC?\n\nBut what about newly allocated objects in other spaces (e.g. the non-moving space) that would be referenced from an object located in the region space on an already visited dirty card? Maybe they are tracked in an alloc stack (or some other tracking data structure)?",
+      "range": {
+        "startLine": 852,
+        "startChar": 37,
+        "endLine": 852,
+        "endChar": 64
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43fa9f2c_873e5a3e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Scrap my comment, there is no issue with this approach as:\n- new allocations in the region space happening during GC after the pause are always in a to-space regions, so that\u0027s fine;\n- new allocations in the non-moving space happening during GC after the pause are tracked with the alloc stack, which will be come the live stack at the next GC (see the discussion in b/65386697 as well as https://android-review.googlesource.com/c/platform/art/+/715766).",
+      "parentUuid": "6188f905_949b5966",
       "range": {
         "startLine": 852,
         "startChar": 37,
@@ -237,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "56710c80_2368a8c4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/c/platform/art/+/732585.",
+      "parentUuid": "49a07004_9f8cfbb2",
+      "range": {
+        "startLine": 2610,
+        "startChar": 8,
+        "endLine": 2610,
+        "endChar": 23
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b39ad1d_4f3ed220",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 10
@@ -284,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "45f316d3_12d948fb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3459,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/c/platform/art/+/732593.",
+      "parentUuid": "ebcafd71_c93a14dd",
+      "range": {
+        "startLine": 3459,
+        "startChar": 53,
+        "endLine": 3459,
+        "endChar": 56
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d871da7f_60708209",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 10
@@ -319,6 +415,30 @@
       "side": 1,
       "message": "I think I now understand what this optimization is about: when we know that all allocated bytes in a region are live, we don\u0027t really need to set the corresponding live bits in the region space bitmap, as the \"liveness\" information about a region\u0027s objects can be reconstructed without the bitmap (using `Region::Begin()`, `Region::Top()`, and `RegionSpace::GetNextObject()`).\n\nThis logic is used when visiting the region space, in `RegionSpace::WalkInternal`, where the bitmap is only needed if there are potential \"gaps\" in a visited region.\n\nThis makes the region space bitmap\u0027s behavior tightly linked to the region space, as the former cannot be used without information from the latter (at least before this Generational CC CL, where we actually keep the \"superfluous\" bits for a young generation collection). I\u0027ll update the documentation to make this easier to find.",
       "parentUuid": "d871da7f_60708209",
+      "range": {
+        "startLine": 322,
+        "startChar": 10,
+        "endLine": 322,
+        "endChar": 39
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35ad8076_35f59dd9",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Documentation added in https://android-review.googlesource.com/c/platform/art/+/602836/.",
+      "parentUuid": "b71dacd1_10f80968",
       "range": {
         "startLine": 322,
         "startChar": 10,
@@ -375,6 +495,30 @@
       "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dccd6c7c_6ea2da40",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/c/platform/art/+/602836/ and https://android-review.googlesource.com/c/platform/art/+/257901/20..21.",
+      "parentUuid": "293a01ca_59456358",
+      "range": {
+        "startLine": 346,
+        "startChar": 12,
+        "endLine": 346,
+        "endChar": 19
+      },
+      "revId": "c29c789128a27b37bb5efd3544bf0e49dccd027d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

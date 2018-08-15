@@ -142,6 +142,30 @@
       "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fafe78b8_21abe744",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-15T18:28:17Z",
+      "side": 1,
+      "message": "I added a comment about the large-object space in https://android-review.googlesource.com/c/platform/art/+/732595.",
+      "parentUuid": "5393b68c_ec242edd",
+      "range": {
+        "startLine": 852,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 5
+      },
+      "revId": "1eade9b0fb5433cda351ea28ea1f4471789e0d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
