@@ -45,6 +45,30 @@
       "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66e68f78_e0671f89",
+        "filename": "tools/class2greylist/test/src/com/android/javac/AnnotationVisitorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-08-15T12:16:12Z",
+      "side": 1,
+      "message": "Which bit of it is hacky? The predicate?\n\nIf I move it out of the constructor, it can no longer be final, which seems worse?",
+      "parentUuid": "4948a3e2_4e3b2f8c",
+      "range": {
+        "startLine": 377,
+        "startChar": 16,
+        "endLine": 377,
+        "endChar": 40
+      },
+      "revId": "37e17f0d1d9932650113c9b38060755a1507ac0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
