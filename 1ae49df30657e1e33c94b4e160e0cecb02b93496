@@ -22,6 +22,30 @@
       "revId": "1ae49df30657e1e33c94b4e160e0cecb02b93496",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa4ab5d_19e7ff90",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-16T14:56:02Z",
+      "side": 1,
+      "message": "I like the fact that the current logic is similar to RegionSpace::FreeLarge (and maybe that there\u0027s opportunity for future refactoring), and that the loop does little work in non-debug mode.",
+      "parentUuid": "47f30b06_11e1ab95",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 74
+      },
+      "revId": "1ae49df30657e1e33c94b4e160e0cecb02b93496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
