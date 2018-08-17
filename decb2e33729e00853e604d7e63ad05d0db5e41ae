@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc3ef36d_51d5ef36",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-17T16:55:52Z",
+      "side": 1,
+      "message": "This was probably OK as it was. I presume there is enough other synchronization in place to ensure that no other GC activities are concurrent with this. Not that it matters much either way.",
+      "range": {
+        "startLine": 370,
+        "startChar": 50,
+        "endLine": 370,
+        "endChar": 57
+      },
+      "revId": "decb2e33729e00853e604d7e63ad05d0db5e41ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
