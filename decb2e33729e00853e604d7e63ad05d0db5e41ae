@@ -46,6 +46,30 @@
       "revId": "decb2e33729e00853e604d7e63ad05d0db5e41ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e17edce_dbf08d67",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-08-17T17:24:17Z",
+      "side": 1,
+      "message": "My usual convention is to use \"relaxed\" for uses that don\u0027t race with other accesses, at least if a memory_order_ is specified at all. But I\u0027m fine with either way here.",
+      "parentUuid": "6631153b_8a19fd6e",
+      "range": {
+        "startLine": 370,
+        "startChar": 50,
+        "endLine": 370,
+        "endChar": 57
+      },
+      "revId": "decb2e33729e00853e604d7e63ad05d0db5e41ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
