@@ -22,6 +22,30 @@
       "revId": "3782c870e9c563bef11981ab61aee6c112c329b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ba4969_6b102a4f",
+        "filename": "tools/dexanalyze/dexanalyze_bytecode.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-08-18T00:17:17Z",
+      "side": 1,
+      "message": "Good idea, will fix in follow up.",
+      "parentUuid": "9070d30e_785756ea",
+      "range": {
+        "startLine": 341,
+        "startChar": 14,
+        "endLine": 341,
+        "endChar": 44
+      },
+      "revId": "3782c870e9c563bef11981ab61aee6c112c329b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
