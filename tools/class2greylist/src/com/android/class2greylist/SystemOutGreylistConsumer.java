@@ -7,6 +7,11 @@ public class SystemOutGreylistConsumer implements GreylistConsumer {
     }
 
     @Override
+    public void whitelistEntry(String signature) {
+        // ignore.
+    }
+
+    @Override
     public void close() {
     }
 }

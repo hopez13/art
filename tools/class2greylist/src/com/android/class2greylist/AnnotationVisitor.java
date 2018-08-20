@@ -18,9 +18,12 @@ package com.android.class2greylist;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
 
 import org.apache.bcel.Const;
+import org.apache.bcel.classfile.AnnotationElementValue;
 import org.apache.bcel.classfile.AnnotationEntry;
+import org.apache.bcel.classfile.ArrayElementValue;
 import org.apache.bcel.classfile.DescendingVisitor;
 import org.apache.bcel.classfile.ElementValue;
 import org.apache.bcel.classfile.ElementValuePair;
@@ -47,12 +50,17 @@ import java.util.function.Predicate;
  */
 public class AnnotationVisitor extends EmptyVisitor {
 
+    // properties of greylist annotations:
     private static final String EXPECTED_SIGNATURE = "expectedSignature";
     private static final String MAX_TARGET_SDK = "maxTargetSdk";
 
+    // properties of whitelist annotations:
+    private static final String RETURN_TYPE = "returnType";
+
     private final JavaClass mClass;
-    private final String mAnnotationType;
-    private final Predicate<Member> mMemberFilter;
+    private final String mGreylistAnnotationType;
+    private final Set<String> mWhitelistAnnotations;
+    private final Predicate<GreylistMember> mGreylistFilter;
     private final Set<Integer> mValidMaxTargetSdkValues;
     private final GreylistConsumer mConsumer;
     private final Status mStatus;
@@ -62,7 +70,7 @@ public class AnnotationVisitor extends EmptyVisitor {
      * Represents a member of a class file (a field or method).
      */
     @VisibleForTesting
-    public static class Member {
+    public static class GreylistMember {
 
         /**
          * Signature of this member.
@@ -82,18 +90,20 @@ public class AnnotationVisitor extends EmptyVisitor {
          */
         public final Integer maxTargetSdk;
 
-        public Member(String signature, boolean bridge, Integer maxTargetSdk) {
+        public GreylistMember(String signature, boolean bridge, Integer maxTargetSdk) {
             this.signature = signature;
             this.bridge = bridge;
             this.maxTargetSdk = maxTargetSdk;
         }
     }
 
-    public AnnotationVisitor(JavaClass clazz, String annotation, Set<String> publicApis,
+    public AnnotationVisitor(JavaClass clazz, String greylistAnnotation,
+            Set<String> whitelistAnnotations, Set<String> publicApis,
             Set<Integer> validMaxTargetSdkValues, GreylistConsumer consumer,
             Status status) {
         this(clazz,
-                annotation,
+                greylistAnnotation,
+                whitelistAnnotations,
                 member -> !(member.bridge && publicApis.contains(member.signature)),
                 validMaxTargetSdkValues,
                 consumer,
@@ -101,16 +111,19 @@ public class AnnotationVisitor extends EmptyVisitor {
     }
 
     @VisibleForTesting
-    public AnnotationVisitor(JavaClass clazz, String annotation, Predicate<Member> memberFilter,
-            Set<Integer> validMaxTargetSdkValues, GreylistConsumer consumer,
-            Status status) {
+    public AnnotationVisitor(JavaClass clazz, String greylistAnnotation,
+            Set<String> whitelistAnnotations, Predicate<GreylistMember> memberFilter,
+            Set<Integer> validMaxTargetSdkValues,
+            GreylistConsumer consumer, Status status) {
         mClass = clazz;
-        mAnnotationType = annotation;
-        mMemberFilter = memberFilter;
+        mGreylistAnnotationType = greylistAnnotation;
+        mWhitelistAnnotations = whitelistAnnotations;
+        mGreylistFilter = memberFilter;
         mValidMaxTargetSdkValues = validMaxTargetSdkValues;
         mConsumer = consumer;
         mStatus = status;
         mDescendingVisitor = new DescendingVisitor(clazz, this);
+        Preconditions.checkState(!mWhitelistAnnotations.contains(greylistAnnotation));
     }
 
     public void visit() {
@@ -136,38 +149,99 @@ public class AnnotationVisitor extends EmptyVisitor {
     }
 
     private void visitMember(FieldOrMethod member, String signatureFormatString) {
-        JavaClass definingClass = (JavaClass) mDescendingVisitor.predecessor();
         mStatus.debug("Visit member %s : %s", member.getName(), member.getSignature());
         for (AnnotationEntry a : member.getAnnotationEntries()) {
-            if (mAnnotationType.equals(a.getAnnotationType())) {
-                mStatus.debug("Member has annotation %s", mAnnotationType);
-                // For fields, the same access flag means volatile, so only check for methods.
-                boolean bridge = (member instanceof Method)
-                        && (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
-                if (bridge) {
-                    mStatus.debug("Member is a bridge", mAnnotationType);
-                }
-                String signature = String.format(Locale.US, signatureFormatString,
-                        getClassDescriptor(definingClass), member.getName(), member.getSignature());
-                Integer maxTargetSdk = null;
-                for (ElementValuePair property : a.getElementValuePairs()) {
-                    switch (property.getNameString()) {
-                        case EXPECTED_SIGNATURE:
-                            verifyExpectedSignature(
-                                    property, signature, definingClass, member, bridge);
-                            break;
-                        case MAX_TARGET_SDK:
-                            maxTargetSdk = verifyAndGetMaxTargetSdk(
-                                    property, definingClass, member);
-                            break;
-                    }
-                }
-                if (mMemberFilter.test(new Member(signature, bridge, maxTargetSdk))) {
-                    mConsumer.greylistEntry(signature, maxTargetSdk);
-                }
+            if (mGreylistAnnotationType.equals(a.getAnnotationType())) {
+                mStatus.debug("Member has annotation %s", mGreylistAnnotationType);
+                handleGreylistEntry(member, signatureFormatString, a);
+            }
+            if (mWhitelistAnnotations.contains(a.getAnnotationType())) {
+                mStatus.debug("Member annotation %s is for whitelist", a.getAnnotationType());
+                handleWhitelistEntry(member, signatureFormatString, a);
             }
         }
     }
+
+    private void handleGreylistEntry(FieldOrMethod member, String signatureFormatString,
+            AnnotationEntry a) {
+        JavaClass definingClass = (JavaClass) mDescendingVisitor.predecessor();
+        // For fields, the same access flag means volatile, so only check for methods.
+        boolean bridge = (member instanceof Method)
+                && (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
+        if (bridge) {
+            mStatus.debug("Member is a bridge", mGreylistAnnotationType);
+        }
+        String signature = String.format(Locale.US, signatureFormatString,
+                getClassDescriptor(definingClass), member.getName(), member.getSignature());
+        Integer maxTargetSdk = null;
+        for (ElementValuePair property : a.getElementValuePairs()) {
+            switch (property.getNameString()) {
+                case EXPECTED_SIGNATURE:
+                    verifyExpectedSignature(
+                            property, signature, definingClass, member, bridge);
+                    break;
+                case MAX_TARGET_SDK:
+                    maxTargetSdk = verifyAndGetMaxTargetSdk(
+                            property, definingClass, member);
+                    break;
+            }
+        }
+        if (mGreylistFilter.test(new GreylistMember(signature, bridge, maxTargetSdk))) {
+            mConsumer.greylistEntry(signature, maxTargetSdk);
+        }
+    }
+
+    private void handleWhitelistEntry(FieldOrMethod member, String signatureFormatString,
+            AnnotationEntry a) {
+        JavaClass definingClass = (JavaClass) mDescendingVisitor.predecessor();
+        String returnType = null;
+        for (ElementValuePair property : a.getElementValuePairs()) {
+            switch (property.getNameString()) {
+            case RETURN_TYPE:
+                returnType = property.getValue().stringifyValue();
+                break;
+            case "value":
+                mStatus.debug("Annotation specifies value");
+                boolean handled = false;
+                if (property.getValue() instanceof ArrayElementValue) {
+                    mStatus.debug("Value is an array");
+                    ArrayElementValue array = (ArrayElementValue) property.getValue();
+                    for (ElementValue v : array.getElementValuesArray()) {
+                        if (v instanceof AnnotationElementValue) {
+                            mStatus.debug("Array entry is an annotation; recursing");
+                            AnnotationElementValue aev = (AnnotationElementValue) v;
+                            handleWhitelistEntry(
+                                    member, signatureFormatString, aev.getAnnotationEntry());
+                            handled = true;
+                        }
+                    }
+                }
+                if (handled) {
+                    return;
+                }
+                break;
+            }
+        }
+        String typeSignature = member.getSignature();
+        if (returnType != null) {
+            mStatus.debug("Member specifies own return type: %s", returnType);
+            if (!(member instanceof Method)) {
+                error(definingClass, member, "Cannot specify %s on a field", RETURN_TYPE);
+                return;
+            }
+            int closingBrace = typeSignature.indexOf(')');
+            Preconditions.checkState(closingBrace != -1);
+            typeSignature = new StringBuilder()
+                    .append(typeSignature.substring(0, closingBrace + 1))
+                    .append(returnType)
+                    .toString();
+        }
+        // TODO verify that the member is not already a public API
+        String signature = String.format(Locale.US, signatureFormatString,
+                getClassDescriptor(definingClass), member.getName(), typeSignature);
+        mConsumer.whitelistEntry(signature);
+    }
+
 
     private void verifyExpectedSignature(ElementValuePair property, String signature,
             JavaClass definingClass, FieldOrMethod member, boolean isBridge) {

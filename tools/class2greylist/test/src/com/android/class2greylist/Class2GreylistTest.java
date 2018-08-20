@@ -33,7 +33,7 @@ public class Class2GreylistTest {
 
     @Test
     public void testReadGreylistMap() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
+        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null, null);
         Map<Integer, String> map = c2gl.readGreylistMap(
                 new String[]{"noApi", "1:apiOne", "3:apiThree"});
         verifyZeroInteractions(mStatus);
@@ -42,7 +42,7 @@ public class Class2GreylistTest {
 
     @Test
     public void testReadGreylistMapDuplicate() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
+        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null, null);
         Map<Integer, String> map = c2gl.readGreylistMap(
                 new String[]{"noApi", "1:apiOne", "1:anotherOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
@@ -50,7 +50,7 @@ public class Class2GreylistTest {
 
     @Test
     public void testReadGreylistMapDuplicateNoApi() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
+        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null, null);
         Map<Integer, String> map = c2gl.readGreylistMap(
                 new String[]{"noApi", "anotherNoApi", "1:apiOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
@@ -58,14 +58,14 @@ public class Class2GreylistTest {
 
     @Test
     public void testReadGreylistMapInvalidInt() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
+        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null, null);
         Map<Integer, String> map = c2gl.readGreylistMap(new String[]{"noApi", "a:apiOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }
 
     @Test
     public void testReadGreylistMapNoFilename() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
+        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null, null);
         Map<Integer, String> map = c2gl.readGreylistMap(new String[]{"noApi", "1:"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }

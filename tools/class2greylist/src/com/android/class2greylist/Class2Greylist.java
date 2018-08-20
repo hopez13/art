@@ -17,6 +17,7 @@
 package com.android.class2greylist;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
@@ -44,11 +45,13 @@ import java.util.Set;
  */
 public class Class2Greylist {
 
-    private static final String ANNOTATION_TYPE = "Landroid/annotation/UnsupportedAppUsage;";
+    private static final String GREYLIST_ANNOTATION = "Landroid/annotation/UnsupportedAppUsage;";
+    private static final Set<String> WHITELIST_ANNOTATIONS = ImmutableSet.of();
 
     private final Status mStatus;
     private final String mPublicApiListFile;
     private final String[] mPerSdkOutputFiles;
+    private final String mWhitelistFile;
     private final String[] mJarFiles;
 
     public static void main(String[] args) {
@@ -67,6 +70,11 @@ public class Class2Greylist {
                         "given, members with a matching maxTargetSdk are written to the file; if " +
                         "no integer is given, members with no maxTargetSdk are written.")
                 .create("g"));
+        options.addOption(OptionBuilder
+                .withLongOpt("write-whitelist")
+                .hasArgs(1)
+                .withDescription("Specify file to write whitelist to.")
+                .create('w'));
         options.addOption(OptionBuilder
                 .withLongOpt("debug")
                 .hasArgs(0)
@@ -101,7 +109,11 @@ public class Class2Greylist {
 
         Status status = new Status(cmd.hasOption('d'));
         Class2Greylist c2gl = new Class2Greylist(
-                status, cmd.getOptionValue('p', null), cmd.getOptionValues('g'), jarFiles);
+                status,
+                cmd.getOptionValue('p', null),
+                cmd.getOptionValues('g'),
+                cmd.getOptionValue('w', null),
+                jarFiles);
         try {
             c2gl.main();
         } catch (IOException e) {
@@ -118,10 +130,11 @@ public class Class2Greylist {
 
     @VisibleForTesting
     Class2Greylist(Status status, String publicApiListFile, String[] perSdkLevelOutputFiles,
-            String[] jarFiles) {
+            String whitelistOutputFile, String[] jarFiles) {
         mStatus = status;
         mPublicApiListFile = publicApiListFile;
         mPerSdkOutputFiles = perSdkLevelOutputFiles;
+        mWhitelistFile = whitelistOutputFile;
         mJarFiles = jarFiles;
     }
 
@@ -130,7 +143,7 @@ public class Class2Greylist {
         Set<Integer> allowedSdkVersions;
         if (mPerSdkOutputFiles != null) {
             Map<Integer, String> outputFiles = readGreylistMap(mPerSdkOutputFiles);
-            output = new FileWritingGreylistConsumer(mStatus, outputFiles);
+            output = new FileWritingGreylistConsumer(mStatus, outputFiles, mWhitelistFile);
             allowedSdkVersions = outputFiles.keySet();
         } else {
             // TODO remove this once per-SDK greylist support integrated into the build.
@@ -152,8 +165,9 @@ public class Class2Greylist {
             mStatus.debug("Processing jar file %s", jarFile);
             try {
                 JarReader reader = new JarReader(mStatus, jarFile);
-                reader.stream().forEach(clazz -> new AnnotationVisitor(clazz, ANNOTATION_TYPE,
-                        publicApis, allowedSdkVersions, output, mStatus).visit());
+                reader.stream().forEach(clazz -> new AnnotationVisitor(clazz, GREYLIST_ANNOTATION,
+                        WHITELIST_ANNOTATIONS, publicApis, allowedSdkVersions, output, mStatus
+                ).visit());
                 reader.close();
             } catch (IOException e) {
                 mStatus.error(e);
