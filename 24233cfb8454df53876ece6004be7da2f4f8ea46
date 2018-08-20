@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95bf0aa8_b8b08388",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-20T16:19:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef04c9d_b520bd23",
+      "range": {
+        "startLine": 5561,
+        "startChar": 36,
+        "endLine": 5561,
+        "endChar": 64
+      },
+      "revId": "24233cfb8454df53876ece6004be7da2f4f8ea46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51d8aafc_b6f9138c",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 5
