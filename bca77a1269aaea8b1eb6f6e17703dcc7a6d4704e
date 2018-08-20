@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57570bdc_d34170d6",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationVisitor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-20T09:58:56Z",
+      "side": 1,
+      "message": "I\u0027m confused. Isn\u0027t it set to MAX_INT by default in the annotation? The annotation field is a primitive int, line 185 of this file also reads a primitive int... So how does it end up null?",
+      "range": {
+        "startLine": 76,
+        "startChar": 51,
+        "endLine": 76,
+        "endChar": 64
+      },
+      "revId": "bca77a1269aaea8b1eb6f6e17703dcc7a6d4704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec2f8fa1_eb0db7ee",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-20T09:58:56Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 185,
+        "startChar": 30,
+        "endLine": 185,
+        "endChar": 34
+      },
+      "revId": "bca77a1269aaea8b1eb6f6e17703dcc7a6d4704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
