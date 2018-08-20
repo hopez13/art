@@ -32,41 +32,36 @@ public class Class2GreylistTest {
     }
 
     @Test
-    public void testReadGreylistMap() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
-        Map<Integer, String> map = c2gl.readGreylistMap(
+    public void testReadGreylistMap() throws IOException {
+        Map<Integer, String> map = Class2Greylist.readGreylistMap(mStatus,
                 new String[]{"noApi", "1:apiOne", "3:apiThree"});
         verifyZeroInteractions(mStatus);
         assertThat(map).containsExactly(null, "noApi", 1, "apiOne", 3, "apiThree");
     }
 
     @Test
-    public void testReadGreylistMapDuplicate() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
-        Map<Integer, String> map = c2gl.readGreylistMap(
+    public void testReadGreylistMapDuplicate() throws IOException {
+        Class2Greylist.readGreylistMap(mStatus,
                 new String[]{"noApi", "1:apiOne", "1:anotherOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }
 
     @Test
     public void testReadGreylistMapDuplicateNoApi() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
-        Map<Integer, String> map = c2gl.readGreylistMap(
+        Class2Greylist.readGreylistMap(mStatus,
                 new String[]{"noApi", "anotherNoApi", "1:apiOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }
 
     @Test
-    public void testReadGreylistMapInvalidInt() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
-        Map<Integer, String> map = c2gl.readGreylistMap(new String[]{"noApi", "a:apiOne"});
+    public void testReadGreylistMapInvalidInt() throws IOException {
+        Class2Greylist.readGreylistMap(mStatus, new String[]{"noApi", "a:apiOne"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }
 
     @Test
-    public void testReadGreylistMapNoFilename() {
-        Class2Greylist c2gl = new Class2Greylist(mStatus, null, null, null);
-        Map<Integer, String> map = c2gl.readGreylistMap(new String[]{"noApi", "1:"});
+    public void testReadGreylistMapNoFilename() throws IOException {
+        Class2Greylist.readGreylistMap(mStatus, new String[]{"noApi", "1:"});
         verify(mStatus, atLeastOnce()).error(any(), any());
     }
 }
