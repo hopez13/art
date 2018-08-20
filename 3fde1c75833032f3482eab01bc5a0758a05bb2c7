@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5920824_5ce59d2b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "Currently only the intermediate address and array accesses that depend on it have this bit set. If we allow mid-object references, this shall be obsolete as the GC shall be able to properly update these values, right?",
+      "range": {
+        "startLine": 1629,
+        "startChar": 3,
+        "endLine": 1629,
+        "endChar": 18
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "041e3f6a_2b15a8fa",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "Add inputs?",
+      "range": {
+        "startLine": 567,
+        "startChar": 36,
+        "endLine": 567,
+        "endChar": 47
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecb69141_195d66a7",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 572,
+        "startChar": 36,
+        "endLine": 572,
+        "endChar": 47
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11632504_b60b6c86",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "These checks are a bit weak because they check only what\u0027s after the last matched CHECK-DAG. Maybe this should be replaced with 4 separate check sections, each counting if there is an appropriate number of instructions of a given kind.",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 44
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b47bba_8df9a14e",
+        "filename": "test/510-checker-try-catch/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "main() should exercise this function.",
+      "range": {
+        "startLine": 121,
+        "startChar": 21,
+        "endLine": 121,
+        "endChar": 44
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc796ad4_d0975b8a",
+        "filename": "test/510-checker-try-catch/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "Why +1?",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 11
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45acf99_7405c089",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "If this is the only thing you want to check, you should remove most the CHECK-DAG statements below. Keep only the IntermediateAddress statements to count how many are present.",
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5a1122e_b16c791d",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-20T14:11:34Z",
+      "side": 1,
+      "message": "main() should exercise this method.",
+      "range": {
+        "startLine": 605,
+        "startChar": 27,
+        "endLine": 605,
+        "endChar": 49
+      },
+      "revId": "3fde1c75833032f3482eab01bc5a0758a05bb2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
