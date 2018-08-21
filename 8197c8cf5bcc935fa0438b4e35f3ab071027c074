@@ -22,6 +22,30 @@
       "revId": "8197c8cf5bcc935fa0438b4e35f3ab071027c074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b09d1323_1b80d7b2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-21T18:23:20Z",
+      "side": 1,
+      "message": "Right, there\u0027s indeed a race in my check attempt. I removed it in PS10.",
+      "parentUuid": "e5b12a6b_59a89b3b",
+      "range": {
+        "startLine": 2902,
+        "startChar": 1,
+        "endLine": 2909,
+        "endChar": 9
+      },
+      "revId": "8197c8cf5bcc935fa0438b4e35f3ab071027c074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
