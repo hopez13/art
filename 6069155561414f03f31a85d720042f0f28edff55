@@ -22,6 +22,30 @@
       "revId": "6069155561414f03f31a85d720042f0f28edff55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "297788f6_cad76853",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-21T15:09:50Z",
+      "side": 1,
+      "message": "Done, without the \"(and clobber IP)\" as it would just repeat what\u0027s written above and spill over to the next line.",
+      "parentUuid": "f2b9e625_208ddda0",
+      "range": {
+        "startLine": 668,
+        "startChar": 28,
+        "endLine": 668,
+        "endChar": 38
+      },
+      "revId": "6069155561414f03f31a85d720042f0f28edff55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
