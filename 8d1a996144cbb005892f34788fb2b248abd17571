@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f628195a_036d9098",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T16:44:09Z",
+      "side": 1,
+      "message": "Got it. Thanks.",
+      "parentUuid": "2358598e_247a84bd",
+      "range": {
+        "startLine": 865,
+        "startChar": 6,
+        "endLine": 867,
+        "endChar": 24
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34390811_be4ce544",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 23
