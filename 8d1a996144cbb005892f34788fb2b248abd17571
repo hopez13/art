@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2358598e_247a84bd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-21T14:41:13Z",
+      "side": 1,
+      "message": "The idea was that in debug mode, we would hold the GC thread a bit to exercise the code in read barriers that executes while `ConcurrentCopying::done_scanning_` is `false`. Maybe we could revise this debugging feature (or make it conditional).",
+      "parentUuid": "c96df06d_c147f142",
+      "range": {
+        "startLine": 865,
+        "startChar": 6,
+        "endLine": 867,
+        "endChar": 24
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34390811_be4ce544",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 23
