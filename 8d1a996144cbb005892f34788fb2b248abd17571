@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c45be13d_a5fe2c08",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2198,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T06:11:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34390811_be4ce544",
+      "range": {
+        "startLine": 2196,
+        "startChar": 1,
+        "endLine": 2198,
+        "endChar": 77
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "029ae88f_ac6d967e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 23
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "14035ff8_58ec15bd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T06:11:17Z",
+      "side": 1,
+      "message": "This one is also taken care in one of the next CLs :)",
+      "parentUuid": "029ae88f_ac6d967e",
+      "range": {
+        "startLine": 2557,
+        "startChar": 5,
+        "endLine": 2559,
+        "endChar": 7
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cba7714_0eef2abe",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 23
@@ -91,6 +139,30 @@
       "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fb48ba6_a2ff2175",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 3468,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T06:11:17Z",
+      "side": 1,
+      "message": "This is also taken care of in later CL.",
+      "parentUuid": "3cba7714_0eef2abe",
+      "range": {
+        "startLine": 3468,
+        "startChar": 29,
+        "endLine": 3468,
+        "endChar": 91
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
