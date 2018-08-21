@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "642c47cc_4e10860c",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CovariantReturnTypeHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "\u003cp\u003e",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d58cbe6f_37269f6c",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CovariantReturnTypeHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "validated",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b292b112_556d9f5b",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CovariantReturnTypeHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "\u003cp\u003e",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09e37480_7c2da647",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CovariantReturnTypeMultiHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "\u003cp\u003e",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b60bdc0f_eb6ff4d1",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CovariantReturnTypeMultiHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "Amnn -\u003e Ann",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 51
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67e3dc8b_f0ac75e8",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/CovariantReturnTypeHandlerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "OOI - is there a reason you can\u0027t use eq(\"La/b/...) here and have to use a captor?",
+      "range": {
+        "startLine": 74,
+        "startChar": 51,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "633d709e_fa318ea3",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/CovariantReturnTypeMultiHandlerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-21T14:04:33Z",
+      "side": 1,
+      "message": "A comment might have helped me here.\n\ne.g.\n\n// For simplicity, we don\u0027t test @CovariantReturnTypeMulti, we use the following repeatable \n// annotation @annotation.Annotation.Multi and @annotation.Annotation instead. The repeatable\n// annotation doesn\u0027t have to match @CovariantReturnType exactly; it just needs to have the\n// same returnType() attribute the CovariantReturnTypeHandler expects.",
+      "range": {
+        "startLine": 44,
+        "startChar": 37,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
