@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c96df06d_c147f142",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T02:29:39Z",
+      "side": 1,
+      "message": "I didn\u0027t get why the sleep is needed here.",
+      "range": {
+        "startLine": 865,
+        "startChar": 6,
+        "endLine": 867,
+        "endChar": 24
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34390811_be4ce544",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2198,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T02:29:39Z",
+      "side": 1,
+      "message": "Is this comment related to the bug relating to non-moving space that we identified sometime back?",
+      "range": {
+        "startLine": 2196,
+        "startChar": 1,
+        "endLine": 2198,
+        "endChar": 77
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "029ae88f_ac6d967e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T02:29:39Z",
+      "side": 1,
+      "message": "Why is this not needed in Generational CC?",
+      "range": {
+        "startLine": 2557,
+        "startChar": 5,
+        "endLine": 2559,
+        "endChar": 7
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cba7714_0eef2abe",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 3468,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T02:29:39Z",
+      "side": 1,
+      "message": "Why 3.0?",
+      "range": {
+        "startLine": 3468,
+        "startChar": 29,
+        "endLine": 3468,
+        "endChar": 91
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcdb2806_212ecaae",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T02:29:39Z",
+      "side": 1,
+      "message": "Found the reason for this:\nAt large object allocation we leave live_bytes\u003d-1 and set top\u003dbegin for large tail regions. Eventually, during a young GC, we pass clear_live_bytes\u003dfalse to SetFromSpace(). Therefore, live_bytes for large tail regions remain -1. After GC, at this location the condition at line 373 is true (/*live_bytes*/ -1 !\u003d 0 /*top (\u003dbegin in case of large tail regions) - begin*/) for large tail regions.",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 6
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
