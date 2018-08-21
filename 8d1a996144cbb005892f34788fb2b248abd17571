@@ -114,6 +114,30 @@
       "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f886820_d3c18aba",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T05:43:41Z",
+      "side": 1,
+      "message": "Never mind. I realized after replying that this has been addressed in the next CL :)",
+      "parentUuid": "bcdb2806_212ecaae",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 6
+      },
+      "revId": "8d1a996144cbb005892f34788fb2b248abd17571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
