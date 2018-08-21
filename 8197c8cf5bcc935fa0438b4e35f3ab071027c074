@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5b12a6b_59a89b3b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-08-21T06:03:27Z",
+      "side": 1,
+      "message": "This isn\u0027t necessarily true. Another thread which successfully changed rb_state to grey may get scheduled out before marking the corresponding bit in the bitmap. In this case this thread may not find the bit set. Isn\u0027t it?",
+      "range": {
+        "startLine": 2902,
+        "startChar": 1,
+        "endLine": 2909,
+        "endChar": 9
+      },
+      "revId": "8197c8cf5bcc935fa0438b4e35f3ab071027c074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
