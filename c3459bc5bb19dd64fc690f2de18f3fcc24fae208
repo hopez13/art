@@ -140,6 +140,23 @@
     },
     {
       "key": {
+        "uuid": "9168d321_c03bf884",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/CovariantReturnTypeHandlerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-08-21T14:21:52Z",
+      "side": 1,
+      "message": "Could add tests for annotation on field and when it generates an existing method signature. Up to you.",
+      "revId": "c3459bc5bb19dd64fc690f2de18f3fcc24fae208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "633d709e_fa318ea3",
         "filename": "tools/class2greylist/test/src/com/android/class2greylist/CovariantReturnTypeMultiHandlerTest.java",
         "patchSetId": 3
