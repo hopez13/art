@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5529b18d_c21f37c2",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-22T15:49:36Z",
+      "side": 1,
+      "message": "Yes we do. We need to have some way to let threads know they are paused. This is especially true since we need the \"don\u0027t throw out results\" behavior for the removal of intrinsics when we add method-entry/exits into jit code. If we removed the whole paused thing and just had a discard results we wouldn\u0027t be able to do that.",
+      "parentUuid": "83ae0d9b_c7155f5d",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c99b_4c10fa39",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2105a5b1_8f42efe4",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-22T15:49:36Z",
+      "side": 1,
+      "message": "no it needs to be read/written atomically with paused_count_.",
+      "parentUuid": "1ca7c99b_4c10fa39",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 44
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4749948d_b58b58c5",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
@@ -68,6 +116,30 @@
       "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9143425d_f1875b9e",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-22T15:49:36Z",
+      "side": 1,
+      "message": "We could but (1) I cannot think of any good field, (2) overloading a field like that is not good practice and this isn\u0027t perf critical, and (3) you asked me not to add things in art::Thread when we talked in person.",
+      "parentUuid": "4749948d_b58b58c5",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
