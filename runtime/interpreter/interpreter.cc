@@ -506,11 +506,8 @@ void EnterInterpreterFromDeoptimize(Thread* self,
     const uint32_t dex_pc = shadow_frame->GetDexPC();
     uint32_t new_dex_pc = dex_pc;
     if (UNLIKELY(self->IsExceptionPending())) {
-      // If we deoptimize from the QuickExceptionHandler, we already reported the exception to
-      // the instrumentation. To prevent from reporting it a second time, we simply pass a
-      // null Instrumentation*.
       const instrumentation::Instrumentation* const instrumentation =
-          first ? nullptr : Runtime::Current()->GetInstrumentation();
+          Runtime::Current()->GetInstrumentation();
       new_dex_pc = MoveToExceptionHandler(
           self, *shadow_frame, instrumentation) ? shadow_frame->GetDexPC() : dex::kDexNoIndex;
     } else if (!from_code) {

@@ -3384,16 +3384,6 @@ void Thread::QuickDeliverException() {
   }
 
   ReadBarrier::MaybeAssertToSpaceInvariant(exception.Ptr());
-
-  // This is a real exception: let the instrumentation know about it.
-  instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
-  if (instrumentation->HasExceptionThrownListeners() &&
-      IsExceptionThrownByCurrentMethod(exception)) {
-    // Instrumentation may cause GC so keep the exception object safe.
-    StackHandleScope<1> hs(this);
-    HandleWrapperObjPtr<mirror::Throwable> h_exception(hs.NewHandleWrapper(&exception));
-    instrumentation->ExceptionThrownEvent(this, exception.Ptr());
-  }
   // Does instrumentation need to deoptimize the stack?
   // Note: we do this *after* reporting the exception to instrumentation in case it
   // now requires deoptimization. It may happen if a debugger is attached and requests
@@ -3418,6 +3408,16 @@ void Thread::QuickDeliverException() {
       LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                    << visitor.caller->PrettyMethod();
     }
+  }
+
+  // This is a real exception: let the instrumentation know about it.
+  instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
+  if (instrumentation->HasExceptionThrownListeners() &&
+      IsExceptionThrownByCurrentMethod(exception)) {
+    // Instrumentation may cause GC so keep the exception object safe.
+    StackHandleScope<1> hs(this);
+    HandleWrapperObjPtr<mirror::Throwable> h_exception(hs.NewHandleWrapper(&exception));
+    instrumentation->ExceptionThrownEvent(this, exception.Ptr());
   }
 
   // Don't leave exception visible while we try to find the handler, which may cause class
