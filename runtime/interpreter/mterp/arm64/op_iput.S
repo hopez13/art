@@ -1,4 +1,4 @@
-%default { "is_object":"0", "handler":"artSet32InstanceFromMterp" }
+%default { "is_object":"0", "handler":"MterpIPutU32" }
     /*
      * General 32-bit instance field put.
      *

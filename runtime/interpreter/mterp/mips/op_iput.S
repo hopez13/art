@@ -1,4 +1,4 @@
-%default { "handler":"artSet32InstanceFromMterp" }
+%default { "handler":"MterpIPutU32" }
     /*
      * General 32-bit instance field put.
      *
