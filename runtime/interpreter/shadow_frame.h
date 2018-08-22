@@ -173,18 +173,12 @@ class ShadowFrame {
   }
 
   // Look up the reference given its virtual register number.
-  // If this returns non-null then this does not mean the vreg is currently a reference
-  // on non-moving collectors. Check that the raw reg with GetVReg is equal to this if not certain.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   mirror::Object* GetVRegReference(size_t i) const REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK_LT(i, NumberOfVRegs());
-    mirror::Object* ref;
-    if (HasReferenceArray()) {
-      ref = References()[i].AsMirrorPtr();
-    } else {
-      const uint32_t* vreg_ptr = &vregs_[i];
-      ref = reinterpret_cast<const StackReference<mirror::Object>*>(vreg_ptr)->AsMirrorPtr();
-    }
+    mirror::Object* ref =
+        reinterpret_cast<const StackReference<mirror::Object>*>(&vregs_[i])->AsMirrorPtr();
+    DCHECK_EQ(ref, References()[i].AsMirrorPtr()) << "vreg " << i << " is not an object";
     ReadBarrier::MaybeAssertToSpaceInvariant(ref);
     if (kVerifyFlags & kVerifyReads) {
       VerifyObject(ref);
