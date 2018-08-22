@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83ae0d9b_c7155f5d",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-22T09:36:47Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this now - \"Pausing\" should just be a matter of updating the jit_generation_ timestamp (so \"Pause\" may not be the right wording, maybe we can just say UpdateTimestamp).\n\nAnd then CommitCode needs one check that the thread local start_generation_ matches the jit_generation_.",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ca7c99b_4c10fa39",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-22T09:36:47Z",
+      "side": 1,
+      "message": "Can this just be atomic?",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 44
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4749948d_b58b58c5",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-22T09:36:47Z",
+      "side": 1,
+      "message": "Given we inherit TLS from art::Thread, can you re-use a field there? Note that JIT threads never call into Java.",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
