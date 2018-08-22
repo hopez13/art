@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71650f71_552e8ff9",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-08-22T11:42:40Z",
+      "side": 1,
+      "message": "Mix of acquire in Load() and seq_cst in Store()? hboehm@ wrote slides that may be of interest:\n\nhttp://safari.ece.cmu.edu/MSPC2012/slides_posters/boehm-slides.pdf",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 3
+      },
+      "revId": "914a99bc588450360f4e119ada408e2aee63248f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
