@@ -356,6 +356,30 @@
       "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1e0c53_fe2abcd4",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-23T22:20:29Z",
+      "side": 1,
+      "message": "According to hboehm we don\u0027t need to really worry too much. It will take up a pthread_{get,set}specific slot but won\u0027t be initialized until/unless it is used.",
+      "parentUuid": "ba0f7bba_45cfc93c",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
