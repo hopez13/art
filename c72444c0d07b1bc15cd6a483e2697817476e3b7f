@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "32795dec_435ee8b0",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-23T16:08:50Z",
+      "side": 1,
+      "message": "You mean with Thread::Suspend? The fact that it will actually stop in the right place every time. Suspension can pause the thread in a large number of places and large parts at the end of compilation have no suspension points in them.\n\nOr if you mean with the current ScopedSuspendJit that will wait for all current work to actually finish before allowing the owning thread to proceed, which can cause deadlocks.",
+      "parentUuid": "86dfcfcd_f377b232",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c99b_4c10fa39",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
