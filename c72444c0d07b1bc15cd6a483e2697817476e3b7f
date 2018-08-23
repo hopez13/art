@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5c306cc5_6854f406",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-23T16:02:09Z",
+      "side": 1,
+      "message": "The behavior of allowing the compilations to continue to completion after pausing them for a time. This CL is about allowing one to force in-progress compiles to wait for some other task to complete before modifying global state (or possibly to abort instead of modifying the global state.",
+      "parentUuid": "345fa54e_490ca027",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c99b_4c10fa39",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
@@ -188,6 +212,30 @@
       "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e5ceb74_7161b097",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-23T16:02:09Z",
+      "side": 1,
+      "message": "I\u0027ll look into this some. My impression was that threads pay no real cost for having constructor-less and destructor-less thread_locals that they never touch.\n\nIf there is a cost I\u0027ll just use Thread::SetCustomTLS.",
+      "parentUuid": "5abec23c_20ff8cd2",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
