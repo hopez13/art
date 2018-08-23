@@ -48,8 +48,7 @@ class ElfFileImpl {
                            bool writable,
                            bool program_header_only,
                            bool low_4gb,
-                           std::string* error_msg,
-                           uint8_t* requested_base = nullptr);
+                           std::string* error_msg);
   static ElfFileImpl* Open(File* file,
                            int mmap_prot,
                            int mmap_flags,
@@ -111,11 +110,17 @@ class ElfFileImpl {
   Elf_Rela& GetRela(Elf_Shdr&, Elf_Word) const;
 
   // Retrieves the expected size when the file is loaded at runtime. Returns true if successful.
-  bool GetLoadedSize(size_t* size, std::string* error_msg) const;
+  bool GetLoadedAddressRange(/*out*/uint8_t** vaddr_begin,
+                             /*out*/size_t* vaddr_size,
+                             /*out*/std::string* error_msg) const;
 
   // Load segments into memory based on PT_LOAD program headers.
   // executable is true at run time, false at compile time.
-  bool Load(File* file, bool executable, bool low_4gb, std::string* error_msg);
+  bool Load(File* file,
+            bool executable,
+            bool low_4gb,
+            MemMap* reservation,
+            std::string* error_msg);
 
   bool Fixup(Elf_Addr base_address);
   bool FixupDynamic(Elf_Addr base_address);
@@ -131,7 +136,7 @@ class ElfFileImpl {
   bool Strip(File* file, std::string* error_msg);
 
  private:
-  ElfFileImpl(File* file, bool writable, bool program_header_only, uint8_t* requested_base);
+  ElfFileImpl(File* file, bool writable, bool program_header_only);
 
   bool Setup(File* file, int prot, int flags, bool low_4gb, std::string* error_msg);
 
@@ -216,9 +221,6 @@ class ElfFileImpl {
 
   SymbolTable* symtab_symbol_table_;
   SymbolTable* dynsym_symbol_table_;
-
-  // Override the 'base' p_vaddr in the first LOAD segment with this value (if non-null).
-  uint8_t* requested_base_;
 
   DISALLOW_COPY_AND_ASSIGN(ElfFileImpl);
 };

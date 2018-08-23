@@ -26,6 +26,9 @@
 #include "./elf.h"
 
 namespace art {
+
+class MemMap;
+
 template <typename ElfTypes>
 class ElfFileImpl;
 
@@ -42,8 +45,7 @@ class ElfFile {
                        bool writable,
                        bool program_header_only,
                        bool low_4gb,
-                       std::string* error_msg,
-                       uint8_t* requested_base = nullptr);  // TODO: move arg to before error_msg.
+                       std::string* error_msg);
   // Open with specific mmap flags, Always maps in the whole file, not just the
   // program header sections.
   static ElfFile* Open(File* file,
@@ -53,7 +55,11 @@ class ElfFile {
   ~ElfFile();
 
   // Load segments into memory based on PT_LOAD program headers
-  bool Load(File* file, bool executable, bool low_4gb, std::string* error_msg);
+  bool Load(File* file,
+            bool executable,
+            bool low_4gb,
+            /*inout*/ MemMap* reservation,
+            /*out*/ std::string* error_msg);
 
   const uint8_t* FindDynamicSymbolAddress(const std::string& symbol_name) const;
 
@@ -75,7 +81,9 @@ class ElfFile {
                              const std::string& symbol_name,
                              bool build_map);
 
-  bool GetLoadedSize(size_t* size, std::string* error_msg) const;
+  bool GetLoadedAddressRange(/*out*/uint8_t** vaddr_begin,
+                             /*out*/size_t* vaddr_size,
+                             /*out*/std::string* error_msg) const;
 
   // Strip an ELF file of unneeded debugging information.
   // Returns true on success, false on failure.

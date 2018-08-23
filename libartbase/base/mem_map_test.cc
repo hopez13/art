@@ -540,6 +540,7 @@ TEST_F(MemMapTest, MapAnonymousReuse) {
                                     PROT_READ | PROT_WRITE,
                                     /* low_4gb */ false,
                                     /* reuse */ false,
+                                    /* reservation */ nullptr,
                                     &error_msg);
   ASSERT_TRUE(map.IsValid());
   ASSERT_TRUE(error_msg.empty());
@@ -549,6 +550,7 @@ TEST_F(MemMapTest, MapAnonymousReuse) {
                                      PROT_READ | PROT_WRITE,
                                      /* low_4gb */ false,
                                      /* reuse */ true,
+                                     /* reservation */ nullptr,
                                      &error_msg);
   ASSERT_TRUE(map2.IsValid());
   ASSERT_TRUE(error_msg.empty());
