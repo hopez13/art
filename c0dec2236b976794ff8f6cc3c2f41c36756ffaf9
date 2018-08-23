@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06c79997_24634e39",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 0,
+      "message": "In release mode SetBoolean() and SetByte() are the same code, so it made sense to have both types in a single function as the compiler can merge the two branches. The new MterpIPutU8() and MterpIPutI8() shall have identical code in release mode.",
+      "range": {
+        "startLine": 769,
+        "startChar": 4,
+        "endLine": 774,
+        "endChar": 5
+      },
+      "revId": "c0dec2236b976794ff8f6cc3c2f41c36756ffaf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7f89a82_91167ecd",
+        "filename": "runtime/interpreter/mterp/arm/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare .extern $helper?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fca1709d_51f2e1ed",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare .extern MterpIGet64?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf66d832_fd2fa1f7",
+        "filename": "runtime/interpreter/mterp/arm/op_iput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3fcd8e6_d54215e7",
+        "filename": "runtime/interpreter/mterp/arm/op_sput.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc21df57_429f61ec",
+        "filename": "runtime/interpreter/mterp/arm/op_sput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3904c005_40bf118f",
+        "filename": "runtime/interpreter/mterp/arm64/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f4fc653_1fe392bf",
+        "filename": "runtime/interpreter/mterp/arm64/op_iget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c40f18_a789cd71",
+        "filename": "runtime/interpreter/mterp/arm64/op_iput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2904b414_d9441dd3",
+        "filename": "runtime/interpreter/mterp/arm64/op_sget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "MterpSGetU64",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec88639_e5addf3f",
+        "filename": "runtime/interpreter/mterp/arm64/op_sput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ff403c9_37191f8d",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Suffix?",
+      "range": {
+        "startLine": 737,
+        "startChar": 33,
+        "endLine": 737,
+        "endChar": 39
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e521649_0e6c7505",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "DCHECK() the field\u0027s primitive type?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2f08c2f_4948eb35",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "DCHECK() int or float?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da7f8e2_cac30d88",
+        "filename": "runtime/interpreter/mterp/x86/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "246e5fca_b0e4782c",
+        "filename": "runtime/interpreter/mterp/x86/op_iget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b72777c_f9559d6c",
+        "filename": "runtime/interpreter/mterp/x86/op_iput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feeb2501_4d73dc60",
+        "filename": "runtime/interpreter/mterp/x86/op_sput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e987bc1_9eb27e4a",
+        "filename": "runtime/interpreter/mterp/x86_64/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d33c5ca_787c92f7",
+        "filename": "runtime/interpreter/mterp/x86_64/op_iput.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Is this correct? Or should it read SYMBOL($helper)?",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed632aa_743fb36e",
+        "filename": "runtime/interpreter/mterp/x86_64/op_iput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "988f54b6_b6010715",
+        "filename": "runtime/interpreter/mterp/x86_64/op_sput_object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T10:50:51Z",
+      "side": 1,
+      "message": "Declare extern?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
