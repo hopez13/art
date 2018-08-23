@@ -41,7 +41,8 @@ void ElfWriter::GetOatElfInformation(File* file,
                                                   &error_msg));
   CHECK(elf_file.get() != nullptr) << error_msg;
 
-  bool success = elf_file->GetLoadedSize(oat_loaded_size, &error_msg);
+  uint8_t* vaddr_begin;
+  bool success = elf_file->GetLoadedAddressRange(&vaddr_begin, oat_loaded_size, &error_msg);
   CHECK(success) << error_msg;
   CHECK_NE(0U, *oat_loaded_size);
   *oat_data_offset = GetOatDataAddress(elf_file.get());

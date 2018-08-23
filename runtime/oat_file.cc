@@ -102,11 +102,11 @@ class OatFileBase : public OatFile {
                                   const std::string& elf_filename,
                                   const std::string& location,
                                   uint8_t* requested_base,
-                                  uint8_t* oat_file_begin,
                                   bool writable,
                                   bool executable,
                                   bool low_4gb,
                                   const char* abs_dex_location,
+                                  /*inout*/MemMap* reservation,  // Where to load if not null.
                                   std::string* error_msg);
 
   template <typename kOatFileBaseSubType>
@@ -116,11 +116,11 @@ class OatFileBase : public OatFile {
                                   const std::string& vdex_filename,
                                   const std::string& oat_filename,
                                   uint8_t* requested_base,
-                                  uint8_t* oat_file_begin,
                                   bool writable,
                                   bool executable,
                                   bool low_4gb,
                                   const char* abs_dex_location,
+                                  /*inout*/MemMap* reservation,  // Where to load if not null.
                                   std::string* error_msg);
 
  protected:
@@ -143,17 +143,17 @@ class OatFileBase : public OatFile {
                 std::string* error_msg);
 
   virtual bool Load(const std::string& elf_filename,
-                    uint8_t* oat_file_begin,
                     bool writable,
                     bool executable,
                     bool low_4gb,
+                    /*inout*/MemMap* reservation,  // Where to load if not null.
                     std::string* error_msg) = 0;
 
   virtual bool Load(int oat_fd,
-                    uint8_t* oat_file_begin,
                     bool writable,
                     bool executable,
                     bool low_4gb,
+                    /*inout*/MemMap* reservation,  // Where to load if not null.
                     std::string* error_msg) = 0;
 
   bool ComputeFields(uint8_t* requested_base,
@@ -188,21 +188,21 @@ OatFileBase* OatFileBase::OpenOatFile(int zip_fd,
                                       const std::string& elf_filename,
                                       const std::string& location,
                                       uint8_t* requested_base,
-                                      uint8_t* oat_file_begin,
                                       bool writable,
                                       bool executable,
                                       bool low_4gb,
                                       const char* abs_dex_location,
+                                      /*inout*/MemMap* reservation,
                                       std::string* error_msg) {
   std::unique_ptr<OatFileBase> ret(new kOatFileBaseSubType(location, executable));
 
   ret->PreLoad();
 
   if (!ret->Load(elf_filename,
-                 oat_file_begin,
                  writable,
                  executable,
                  low_4gb,
+                 reservation,
                  error_msg)) {
     return nullptr;
   }
@@ -231,19 +231,19 @@ OatFileBase* OatFileBase::OpenOatFile(int zip_fd,
                                       const std::string& vdex_location,
                                       const std::string& oat_location,
                                       uint8_t* requested_base,
-                                      uint8_t* oat_file_begin,
                                       bool writable,
                                       bool executable,
                                       bool low_4gb,
                                       const char* abs_dex_location,
+                                      /*inout*/MemMap* reservation,  // Where to load if not null.
                                       std::string* error_msg) {
   std::unique_ptr<OatFileBase> ret(new kOatFileBaseSubType(oat_location, executable));
 
   if (!ret->Load(oat_fd,
-                 oat_file_begin,
                  writable,
                  executable,
                  low_4gb,
+                 reservation,
                  error_msg)) {
     return nullptr;
   }
@@ -923,13 +923,13 @@ class DlOpenOatFile FINAL : public OatFileBase {
   void PreLoad() OVERRIDE;
 
   bool Load(const std::string& elf_filename,
-            uint8_t* oat_file_begin,
             bool writable,
             bool executable,
             bool low_4gb,
+            /*inout*/MemMap* reservation,  // Where to load if not null.
             std::string* error_msg) OVERRIDE;
 
-  bool Load(int, uint8_t*, bool, bool, bool, std::string*) {
+  bool Load(int, bool, bool, bool, MemMap*, std::string*) {
     return false;
   }
 
@@ -938,8 +938,8 @@ class DlOpenOatFile FINAL : public OatFileBase {
 
  private:
   bool Dlopen(const std::string& elf_filename,
-              uint8_t* oat_file_begin,
-              std::string* error_msg);
+              /*inout*/MemMap* reservation,  // Where to load if not null.
+              /*out*/std::string* error_msg);
 
   // On the host, if the same library is loaded again with dlopen the same
   // file handle is returned. This differs from the behavior of dlopen on the
@@ -990,10 +990,10 @@ void DlOpenOatFile::PreLoad() {
 }
 
 bool DlOpenOatFile::Load(const std::string& elf_filename,
-                         uint8_t* oat_file_begin,
                          bool writable,
                          bool executable,
                          bool low_4gb,
+                         /*inout*/MemMap* reservation,  // Where to load if not null.
                          std::string* error_msg) {
   // Use dlopen only when flagged to do so, and when it's OK to load things executable.
   // TODO: Also try when not executable? The issue here could be re-mapping as writable (as
@@ -1027,15 +1027,15 @@ bool DlOpenOatFile::Load(const std::string& elf_filename,
     }
   }
 
-  bool success = Dlopen(elf_filename, oat_file_begin, error_msg);
+  bool success = Dlopen(elf_filename, reservation, error_msg);
   DCHECK(dlopen_handle_ != nullptr || !success);
 
   return success;
 }
 
 bool DlOpenOatFile::Dlopen(const std::string& elf_filename,
-                           uint8_t* oat_file_begin,
-                           std::string* error_msg) {
+                           /*inout*/MemMap* reservation,
+                           /*out*/std::string* error_msg) {
 #ifdef __APPLE__
   // The dl_iterate_phdr syscall is missing.  There is similar API on OSX,
   // but let's fallback to the custom loading code for the time being.
@@ -1056,15 +1056,24 @@ bool DlOpenOatFile::Dlopen(const std::string& elf_filename,
                                                                 //    times).
                     ANDROID_DLEXT_FORCE_FIXED_VADDR;            // Take a non-zero vaddr as absolute
                                                                 //   (non-pic boot image).
-    if (oat_file_begin != nullptr) {                            //
-      extinfo.flags |= ANDROID_DLEXT_LOAD_AT_FIXED_ADDRESS;     // Use the requested addr if
-      extinfo.reserved_addr = oat_file_begin;                   // vaddr = 0.
-    }                                                           //   (pic boot image).
+    if (reservation != nullptr) {
+      if (!reservation->IsValid()) {
+        *error_msg = StringPrintf("Invalid reservation for %s", elf_filename.c_str());
+        return false;
+      }
+      extinfo.flags |= ANDROID_DLEXT_RESERVED_ADDRESS;          // Use the reserved memory range.
+      extinfo.reserved_addr = reservation->Begin();
+      extinfo.reserved_size = reservation->Size();
+    }
     dlopen_handle_ = android_dlopen_ext(absolute_path.get(), RTLD_NOW, &extinfo);
 #else
-    UNUSED(oat_file_begin);
     static_assert(!kIsTargetBuild || kIsTargetLinux || kIsTargetFuchsia,
                   "host_dlopen_handles_ will leak handles");
+    if (reservation != nullptr) {
+      *error_msg = StringPrintf("dlopen() into reserved memory is unsupported on host for '%s'.",
+                                elf_filename.c_str());
+      return false;
+    }
     MutexLock mu(Thread::Current(), *Locks::host_dlopen_handles_lock_);
     dlopen_handle_ = dlopen(absolute_path.get(), RTLD_NOW);
     if (dlopen_handle_ != nullptr) {
@@ -1163,13 +1172,12 @@ class ElfOatFile FINAL : public OatFileBase {
   static ElfOatFile* OpenElfFile(int zip_fd,
                                  File* file,
                                  const std::string& location,
-                                 uint8_t* requested_base,
-                                 uint8_t* oat_file_begin,  // Override base if not null
                                  bool writable,
                                  bool executable,
                                  bool low_4gb,
                                  const char* abs_dex_location,
-                                 std::string* error_msg);
+                                 /*inout*/MemMap* reservation,  // Where to load if not null.
+                                 /*out*/std::string* error_msg);
 
   bool InitializeFromElfFile(int zip_fd,
                              ElfFile* elf_file,
@@ -1191,17 +1199,17 @@ class ElfOatFile FINAL : public OatFileBase {
   }
 
   bool Load(const std::string& elf_filename,
-            uint8_t* oat_file_begin,  // Override where the file is loaded to if not null
             bool writable,
             bool executable,
             bool low_4gb,
+            /*inout*/MemMap* reservation,  // Where to load if not null.
             std::string* error_msg) OVERRIDE;
 
   bool Load(int oat_fd,
-            uint8_t* oat_file_begin,  // Override where the file is loaded to if not null
             bool writable,
             bool executable,
             bool low_4gb,
+            /*inout*/MemMap* reservation,  // Where to load if not null.
             std::string* error_msg) OVERRIDE;
 
   void PreSetup(const std::string& elf_filename ATTRIBUTE_UNUSED) OVERRIDE {
@@ -1209,11 +1217,11 @@ class ElfOatFile FINAL : public OatFileBase {
 
  private:
   bool ElfFileOpen(File* file,
-                   uint8_t* oat_file_begin,  // Override where the file is loaded to if not null
                    bool writable,
                    bool executable,
                    bool low_4gb,
-                   std::string* error_msg);
+                   /*inout*/MemMap* reservation,  // Where to load if not null.
+                   /*out*/std::string* error_msg);
 
  private:
   // Backing memory map for oat file during cross compilation.
@@ -1225,20 +1233,20 @@ class ElfOatFile FINAL : public OatFileBase {
 ElfOatFile* ElfOatFile::OpenElfFile(int zip_fd,
                                     File* file,
                                     const std::string& location,
-                                    uint8_t* requested_base,
-                                    uint8_t* oat_file_begin,  // Override base if not null
                                     bool writable,
                                     bool executable,
                                     bool low_4gb,
                                     const char* abs_dex_location,
-                                    std::string* error_msg) {
+                                    /*inout*/MemMap* reservation,  // Where to load if not null.
+                                    /*out*/std::string* error_msg) {
   ScopedTrace trace("Open elf file " + location);
+  uint8_t* requested_base = (reservation != nullptr) ? reservation->Begin() : nullptr;
   std::unique_ptr<ElfOatFile> oat_file(new ElfOatFile(location, executable));
   bool success = oat_file->ElfFileOpen(file,
-                                       oat_file_begin,
                                        writable,
                                        low_4gb,
                                        executable,
+                                       reservation,
                                        error_msg);
   if (!success) {
     CHECK(!error_msg->empty());
@@ -1279,10 +1287,10 @@ bool ElfOatFile::InitializeFromElfFile(int zip_fd,
 }
 
 bool ElfOatFile::Load(const std::string& elf_filename,
-                      uint8_t* oat_file_begin,  // Override where the file is loaded to if not null
                       bool writable,
                       bool executable,
                       bool low_4gb,
+                      /*inout*/MemMap* reservation,
                       std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   std::unique_ptr<File> file(OS::OpenFileForReading(elf_filename.c_str()));
@@ -1291,18 +1299,18 @@ bool ElfOatFile::Load(const std::string& elf_filename,
     return false;
   }
   return ElfOatFile::ElfFileOpen(file.get(),
-                                 oat_file_begin,
                                  writable,
                                  executable,
                                  low_4gb,
+                                 reservation,
                                  error_msg);
 }
 
 bool ElfOatFile::Load(int oat_fd,
-                      uint8_t* oat_file_begin,  // Override where the file is loaded to if not null
                       bool writable,
                       bool executable,
                       bool low_4gb,
+                      /*inout*/MemMap* reservation,
                       std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   if (oat_fd != -1) {
@@ -1314,34 +1322,33 @@ bool ElfOatFile::Load(int oat_fd,
       return false;
     }
     return ElfOatFile::ElfFileOpen(file.get(),
-                                   oat_file_begin,
                                    writable,
                                    executable,
                                    low_4gb,
+                                   reservation,
                                    error_msg);
   }
   return false;
 }
 
 bool ElfOatFile::ElfFileOpen(File* file,
-                             uint8_t* oat_file_begin,
                              bool writable,
                              bool executable,
                              bool low_4gb,
-                             std::string* error_msg) {
+                             /*inout*/MemMap* reservation,
+                             /*out*/std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   // TODO: rename requested_base to oat_data_begin
   elf_file_.reset(ElfFile::Open(file,
                                 writable,
                                 /*program_header_only*/true,
                                 low_4gb,
-                                error_msg,
-                                oat_file_begin));
+                                error_msg));
   if (elf_file_ == nullptr) {
     DCHECK(!error_msg->empty());
     return false;
   }
-  bool loaded = elf_file_->Load(file, executable, low_4gb, error_msg);
+  bool loaded = elf_file_->Load(file, executable, low_4gb, reservation, error_msg);
   DCHECK(loaded || !error_msg->empty());
   return loaded;
 }
@@ -1392,10 +1399,10 @@ OatFile* OatFile::Open(int zip_fd,
                        const std::string& oat_filename,
                        const std::string& oat_location,
                        uint8_t* requested_base,
-                       uint8_t* oat_file_begin,
                        bool executable,
                        bool low_4gb,
                        const char* abs_dex_location,
+                       /*inout*/MemMap* reservation,
                        std::string* error_msg) {
   ScopedTrace trace("Open oat file " + oat_location);
   CHECK(!oat_filename.empty()) << oat_location;
@@ -1419,11 +1426,11 @@ OatFile* OatFile::Open(int zip_fd,
                                                                  oat_filename,
                                                                  oat_location,
                                                                  requested_base,
-                                                                 oat_file_begin,
                                                                  false /* writable */,
                                                                  executable,
                                                                  low_4gb,
                                                                  abs_dex_location,
+                                                                 reservation,
                                                                  error_msg);
   if (with_dlopen != nullptr) {
     return with_dlopen;
@@ -1449,11 +1456,11 @@ OatFile* OatFile::Open(int zip_fd,
                                                                 oat_filename,
                                                                 oat_location,
                                                                 requested_base,
-                                                                oat_file_begin,
                                                                 false /* writable */,
                                                                 executable,
                                                                 low_4gb,
                                                                 abs_dex_location,
+                                                                reservation,
                                                                 error_msg);
   return with_internal;
 }
@@ -1463,10 +1470,10 @@ OatFile* OatFile::Open(int zip_fd,
                        int oat_fd,
                        const std::string& oat_location,
                        uint8_t* requested_base,
-                       uint8_t* oat_file_begin,
                        bool executable,
                        bool low_4gb,
                        const char* abs_dex_location,
+                       /*inout*/MemMap* reservation,
                        std::string* error_msg) {
   CHECK(!oat_location.empty()) << oat_location;
 
@@ -1478,11 +1485,11 @@ OatFile* OatFile::Open(int zip_fd,
                                                                 vdex_location,
                                                                 oat_location,
                                                                 requested_base,
-                                                                oat_file_begin,
                                                                 false /* writable */,
                                                                 executable,
                                                                 low_4gb,
                                                                 abs_dex_location,
+                                                                reservation,
                                                                 error_msg);
   return with_internal;
 }
@@ -1496,12 +1503,11 @@ OatFile* OatFile::OpenWritable(int zip_fd,
   return ElfOatFile::OpenElfFile(zip_fd,
                                  file,
                                  location,
-                                 nullptr,
-                                 nullptr,
-                                 true,
-                                 false,
+                                 /* writable */ true,
+                                 /* executable */ false,
                                  /*low_4gb*/false,
                                  abs_dex_location,
+                                 /* reservation */ nullptr,
                                  error_msg);
 }
 
@@ -1514,12 +1520,11 @@ OatFile* OatFile::OpenReadable(int zip_fd,
   return ElfOatFile::OpenElfFile(zip_fd,
                                  file,
                                  location,
-                                 nullptr,
-                                 nullptr,
-                                 false,
-                                 false,
+                                 /* writable */ false,
+                                 /* executable */ false,
                                  /*low_4gb*/false,
                                  abs_dex_location,
+                                 /* reservation */ nullptr,
                                  error_msg);
 }
 

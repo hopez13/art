@@ -540,6 +540,7 @@ TEST_F(MemMapTest, MapAnonymousReuse) {
                                     PROT_READ | PROT_WRITE,
                                     /* low_4gb */ false,
                                     /* reuse */ false,
+                                    /* reservation */ nullptr,
                                     &error_msg);
   ASSERT_TRUE(map.IsValid());
   ASSERT_TRUE(error_msg.empty());
@@ -549,6 +550,7 @@ TEST_F(MemMapTest, MapAnonymousReuse) {
                                      PROT_READ | PROT_WRITE,
                                      /* low_4gb */ false,
                                      /* reuse */ true,
+                                     /* reservation */ nullptr,
                                      &error_msg);
   ASSERT_TRUE(map2.IsValid());
   ASSERT_TRUE(error_msg.empty());
@@ -718,6 +720,88 @@ TEST_F(MemMapTest, AlignBy) {
     EXPECT_EQ(m3.Begin(), base3 + page_size);
     EXPECT_EQ(m3.Begin() + m3.Size(), end3 - page_size);
   }
+}
+
+TEST_F(MemMapTest, Reservation) {
+  CommonInit();
+  std::string error_msg;
+  ScratchFile scratch_file;
+  constexpr size_t kMapSize = 4 * kPageSize;
+  std::unique_ptr<uint8_t[]> data(new uint8_t[kMapSize]());
+  ASSERT_TRUE(scratch_file.GetFile()->WriteFully(&data[0], kMapSize));
+
+  MemMap reservation = MemMap::MapAnonymous("Test reservation",
+                                            /* addr */ nullptr,
+                                            kMapSize,
+                                            PROT_NONE,
+                                            /* low_4gb */ false,
+                                            &error_msg);
+  ASSERT_TRUE(reservation.IsValid());
+  ASSERT_TRUE(error_msg.empty());
+
+  // Map first part of the reservation.
+  constexpr size_t kChunk1Size = kPageSize - 1u;
+  static_assert(kChunk1Size < kMapSize, "We want to split the reservation.");
+  uint8_t* addr1 = reservation.Begin();
+  MemMap map1 = MemMap::MapFileAtAddress(addr1,
+                                         /* byte_count */ kChunk1Size,
+                                         PROT_READ,
+                                         MAP_PRIVATE,
+                                         scratch_file.GetFd(),
+                                         /* start */ 0,
+                                         /* low_4gb */ false,
+                                         scratch_file.GetFilename().c_str(),
+                                         /* reuse */ false,
+                                         &reservation,
+                                         &error_msg);
+  ASSERT_TRUE(map1.IsValid()) << error_msg;
+  ASSERT_TRUE(error_msg.empty());
+  ASSERT_EQ(map1.Size(), kChunk1Size);
+  ASSERT_EQ(addr1, map1.Begin());
+  ASSERT_TRUE(reservation.IsValid());
+  // Entire pages are taken from the `reservation`.
+  ASSERT_LT(map1.End(), map1.BaseEnd());
+  ASSERT_EQ(map1.BaseEnd(), reservation.Begin());
+
+  // Map second part as an anonymous mapping.
+  constexpr size_t kChunk2Size = kPageSize - 1u;
+  uint8_t* addr2 =  reservation.Begin();
+  MemMap map2 = MemMap::MapAnonymous("MiddleChunk",
+                                     addr2,
+                                     /* byte_count */ kChunk2Size,
+                                     PROT_READ,
+                                     /* low_4gb */ false,
+                                     /* reuse */ false,
+                                     &reservation,
+                                     &error_msg);
+  ASSERT_TRUE(map2.IsValid()) << error_msg;
+  ASSERT_TRUE(error_msg.empty());
+  ASSERT_EQ(map2.Size(), kChunk2Size);
+  ASSERT_EQ(addr2, map2.Begin());
+  // Entire pages are taken from the `reservation`.
+  ASSERT_LT(map2.End(), map2.BaseEnd());
+  ASSERT_EQ(map2.BaseEnd(), reservation.Begin());
+
+  // Map the rest of the reservation except the last byte.
+  size_t kChunk3Size = reservation.Size() - 1u;
+  uint8_t* addr3 =  reservation.Begin();
+  MemMap map3 = MemMap::MapFileAtAddress(addr3,
+                                         /* byte_count */ kChunk3Size,
+                                         PROT_READ,
+                                         MAP_PRIVATE,
+                                         scratch_file.GetFd(),
+                                         /* start */ dchecked_integral_cast<size_t>(addr3 - addr1),
+                                         /* low_4gb */ false,
+                                         scratch_file.GetFilename().c_str(),
+                                         /* reuse */ false,
+                                         &reservation,
+                                         &error_msg);
+  ASSERT_TRUE(map3.IsValid()) << error_msg;
+  ASSERT_TRUE(error_msg.empty());
+  ASSERT_EQ(map3.Size(), kChunk3Size);
+  ASSERT_EQ(addr3, map3.Begin());
+  // Entire pages are taken from the `reservation`, so it's now exhausted.
+  ASSERT_FALSE(reservation.IsValid());
 }
 
 }  // namespace art
