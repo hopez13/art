@@ -46,6 +46,30 @@
       "revId": "c0dec2236b976794ff8f6cc3c2f41c36756ffaf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a694dd9_f839fee3",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T13:15:17Z",
+      "side": 0,
+      "message": "The compiler does merge those branches in the old code, you can check that with objdump (arch-specific versions from prebuilts). Did you check if the linker merges your new functions?\n\n(OTOH, we may prefer 2 functions in source code for clarity anyway.)",
+      "parentUuid": "897ba3b8_bd0b37bc",
+      "range": {
+        "startLine": 769,
+        "startChar": 4,
+        "endLine": 774,
+        "endChar": 5
+      },
+      "revId": "c0dec2236b976794ff8f6cc3c2f41c36756ffaf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

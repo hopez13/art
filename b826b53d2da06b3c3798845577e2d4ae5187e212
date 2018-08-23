@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "fa2471f3_abc5002d",
+        "filename": "runtime/interpreter/mterp/arm/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-23T13:15:17Z",
+      "side": 1,
+      "message": "OK, let\u0027s add the missing externs, or remove the existing ones, in another CL.",
+      "parentUuid": "222da7a0_deb4f765",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fca1709d_51f2e1ed",
         "filename": "runtime/interpreter/mterp/arm/op_iget_wide.S",
         "patchSetId": 2
