@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "86dfcfcd_f377b232",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-23T16:05:45Z",
+      "side": 1,
+      "message": "I\u0027m confused, how is that different than suspending the thread?",
+      "parentUuid": "5c306cc5_6854f406",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c99b_4c10fa39",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "I\u0027ll look into this some. My impression was that threads pay no real cost for having constructor-less and destructor-less thread_locals that they never touch.\n\nIf there is a cost I\u0027ll just use Thread::SetCustomTLS.",
       "parentUuid": "5abec23c_20ff8cd2",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba0f7bba_45cfc93c",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-23T16:05:45Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "7e5ceb74_7161b097",
       "range": {
         "startLine": 344,
         "startChar": 9,
