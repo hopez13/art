@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "222da7a0_deb4f765",
+        "filename": "runtime/interpreter/mterp/arm/op_iget.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-23T12:58:22Z",
+      "side": 1,
+      "message": "Yeah, I noticed - it seems the .externs are not really needed?\nWell, they were not there before, and they are not there now...\nBut, I agree, I will fix it in follow up CL.",
+      "parentUuid": "b7f89a82_91167ecd",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fca1709d_51f2e1ed",
         "filename": "runtime/interpreter/mterp/arm/op_iget_wide.S",
         "patchSetId": 2
@@ -161,6 +179,30 @@
     },
     {
       "key": {
+        "uuid": "6c6763ef_5a252ad8",
+        "filename": "runtime/interpreter/mterp/arm64/op_sget_wide.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-23T12:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2904b414_d9441dd3",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ec88639_e5addf3f",
         "filename": "runtime/interpreter/mterp/arm64/op_sput_object.S",
         "patchSetId": 2
@@ -201,6 +243,30 @@
     },
     {
       "key": {
+        "uuid": "cfb49636_04bd20d8",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-23T12:58:22Z",
+      "side": 1,
+      "message": "Ups! Thanks",
+      "parentUuid": "5ff403c9_37191f8d",
+      "range": {
+        "startLine": 737,
+        "startChar": 33,
+        "endLine": 737,
+        "endChar": 39
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e521649_0e6c7505",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 2
@@ -212,6 +278,24 @@
       "writtenOn": "2018-08-23T10:50:51Z",
       "side": 1,
       "message": "DCHECK() the field\u0027s primitive type?",
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14337a54_c93eb627",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-23T12:58:22Z",
+      "side": 1,
+      "message": "Will do in follow up CL (all these function will die).\nartGetInstanceFromMterpFast already does the check implicitly and I want to reuse that code.",
+      "parentUuid": "2e521649_0e6c7505",
       "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -331,6 +415,30 @@
       "writtenOn": "2018-08-23T10:50:51Z",
       "side": 1,
       "message": "Is this correct? Or should it read SYMBOL($helper)?",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "b826b53d2da06b3c3798845577e2d4ae5187e212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53429a71_0f5d6dd7",
+        "filename": "runtime/interpreter/mterp/x86_64/op_iput.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-23T12:58:22Z",
+      "side": 1,
+      "message": "I think it is correct.  It is consistent with other uses in mterp.",
+      "parentUuid": "2d33c5ca_787c92f7",
       "range": {
         "startLine": 8,
         "startChar": 12,
