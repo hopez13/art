@@ -129,15 +129,23 @@ class MemMap {
                              int prot,
                              bool low_4gb,
                              bool reuse,
-                             std::string* error_msg,
+                             /*inout*/MemMap* reservation,
+                             /*out*/std::string* error_msg,
                              bool use_ashmem = true);
   static MemMap MapAnonymous(const char* name,
                              uint8_t* addr,
                              size_t byte_count,
                              int prot,
                              bool low_4gb,
-                             std::string* error_msg) {
-    return MapAnonymous(name, addr, byte_count, prot, low_4gb, /* reuse */ false, error_msg);
+                             /*out*/std::string* error_msg) {
+    return MapAnonymous(name,
+                        addr,
+                        byte_count,
+                        prot,
+                        low_4gb,
+                        /* reuse */ false,
+                        /* reservation */ nullptr,
+                        error_msg);
   }
 
   // Create placeholder for a region allocated by direct call to mmap.
@@ -164,9 +172,10 @@ class MemMap {
                             flags,
                             fd,
                             start,
-                            /*low_4gb*/low_4gb,
-                            /*reuse*/false,
+                            /* low_4gb */ low_4gb,
                             filename,
+                            /* reuse */ false,
+                            /* reservation */ nullptr,
                             error_msg);
   }
 
@@ -185,9 +194,10 @@ class MemMap {
                                  int fd,
                                  off_t start,
                                  bool low_4gb,
-                                 bool reuse,
                                  const char* filename,
-                                 std::string* error_msg);
+                                 bool reuse,
+                                 /*inout*/MemMap* reservation,
+                                 /*out*/std::string* error_msg);
 
   const std::string& GetName() const {
     return name_;
@@ -240,6 +250,14 @@ class MemMap {
                     int tail_prot,
                     std::string* error_msg,
                     bool use_ashmem = true);
+
+  // Take ownership of pages at the beginning of the mapping. The mapping must be an
+  // anonymous reservation mapping, owning entire pages. The `byte_count` must not
+  // exceed the size of this reservation.
+  //
+  // Returns a mapping owning `byte_count` bytes rounded up to entire pages
+  // with size set to the passed `byte_count`.
+  MemMap TakeReservedMemory(size_t byte_count);
 
   static bool CheckNoGaps(MemMap& begin_map, MemMap& end_map)
       REQUIRES(!MemMap::mem_maps_lock_);
@@ -304,11 +322,20 @@ class MemMap {
                                              off_t offset)
       REQUIRES(!MemMap::mem_maps_lock_);
 
+  // Release memory owned by a reservation mapping.
+  void ReleaseReservedMemory(size_t byte_count);
+
   // member function to access real_munmap
   static bool CheckMapRequest(uint8_t* expected_ptr,
                               void* actual_ptr,
                               size_t byte_count,
                               std::string* error_msg);
+
+  static bool CheckReservation(uint8_t* expected_ptr,
+                               size_t byte_count,
+                               const char* name,
+                               const MemMap& reservation,
+                               /*out*/std::string* error_msg);
 
   std::string name_;
   uint8_t* begin_ = nullptr;    // Start of data. May be changed by AlignBy.

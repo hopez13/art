@@ -86,10 +86,10 @@ class OatFile {
                        const std::string& filename,
                        const std::string& location,
                        uint8_t* requested_base,
-                       uint8_t* oat_file_begin,
                        bool executable,
                        bool low_4gb,
                        const char* abs_dex_location,
+                       /*inout*/MemMap* reservation,  // Where to load if not null.
                        std::string* error_msg);
 
   // Similar to OatFile::Open(const std::string...), but accepts input vdex and
@@ -100,10 +100,10 @@ class OatFile {
                        int oat_fd,
                        const std::string& oat_location,
                        uint8_t* requested_base,
-                       uint8_t* oat_file_begin,
                        bool executable,
                        bool low_4gb,
                        const char* abs_dex_location,
+                       /*inout*/MemMap* reservation,  // Where to load if not null.
                        std::string* error_msg);
 
   // Open an oat file from an already opened File.
