@@ -380,6 +380,30 @@
       "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "876ce5c9_bcce5c17",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2018-08-23T22:38:19Z",
+      "side": 1,
+      "message": "We\u0027re still using emutls, right? If so, we won\u0027t even occupy another pthread_[get,set}specific slot. Emutls uses one slot to hold a big array of object addresses, one (I think) per DSO.",
+      "parentUuid": "ff1e0c53_fe2abcd4",
+      "range": {
+        "startLine": 344,
+        "startChar": 9,
+        "endLine": 344,
+        "endChar": 21
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
