@@ -22,6 +22,30 @@
       "revId": "f0ac871e10b0246fc42099d616d5f3a0c77ff117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5e5ce46_9113c3b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-23T17:06:16Z",
+      "side": 1,
+      "message": "I was working on the jit entry-exit I noticed this since it was causing missing MethodUnwind events.\n\nGetting a test is not really possible since only jvmti uses the combination of events that can observe the difference and that isn\u0027t used yet since jit-entry-exit isn\u0027t finished.",
+      "parentUuid": "a3872cfa_3d3e003d",
+      "range": {
+        "startLine": 13,
+        "startChar": 14,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "f0ac871e10b0246fc42099d616d5f3a0c77ff117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
