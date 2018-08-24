@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd35e1d5_6f89d0a4",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-08-24T17:51:43Z",
+      "side": 0,
+      "message": "So this test, and a few below still have a some value because they test we can actually load the oat files under different tests. Should we just replace OatFileAssistant::Dex2Oat with DexoptTest::Dex2Oat? (or extend GenerateOdexForTest method)",
+      "range": {
+        "startLine": 590,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 58
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
