@@ -1,0 +1,15 @@
+/*
+ * This file contains expectations for ART's buildbot when running against the host.
+ */
+
+[
+{
+  description: "fdsan doesn't exist on the host",
+  result: EXEC_FAILED,
+  bug: 113177877,
+  names: ["libcore.libcore.io.FdsanTest#testFileInputStream",
+          "libcore.libcore.io.FdsanTest#testFileOutputStream",
+          "libcore.libcore.io.FdsanTest#testRandomAccessFile",
+          "libcore.libcore.io.FdsanTest#testParcelFileDescriptor"]
+}
+]
