@@ -117,6 +117,7 @@ while true; do
     # giving an existing image on host does not work because of
     # classpath/resources differences when compiling the boot image.
     vogar_args="$vogar_args --vm-arg -Ximage:/non/existent/vogar.art"
+    expectations="$expectations --expectations art/tools/libcore_host_failures.txt"
     shift
   elif [[ "$1" == "--no-jit" ]]; then
     # Remove the --no-jit from the arguments.
