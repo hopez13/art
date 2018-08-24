@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "f40c3b2a_9dd28fce",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-24T11:34:06Z",
+      "side": 1,
+      "message": "OK, so from what I understand of your requirements, what I think you want is:\n\n\n\nScopedJitPause {\n  ScopedJitPause() {\n    GetJit()-\u003eGetThreadPool()-\u003eStopWorkers(Thread::Current());\n    // No thread can pick up a new task now.\n  }\n\n  ~ScopedJitPause() {\n    GetJit()-\u003eGetThreadPool()-\u003eStartWorkers(Thread::Current());\n  }\n}\n\nRedefiner::Run() {\n   ...\n   ScopedJitPause pause;\n   ScopedSuspendAll ssa;\n   // All threads are suspended, including the JIT threads. We don\u0027t want the JIT threads to resume their work and commit obsolete code, so we update the JIT timestamp to ensure they\u0027ll discard their compilation at CommitCode.\n   jit_timestamp_++;\n}\n\nbool CommitCode() {\n  if (!timestampesMatch()) {\n    return false;\n  }\n}\n\nvoid ThreadPool::StartWorkers(Thread* self) {\n  MutexLock mu(self, task_queue_lock_);\n  stop_count_--\n  if (stop_count_ \u003d\u003d 0) {\n    started_ \u003d true;\n    task_queue_condition_.Broadcast(self);\n    start_time_ \u003d NanoTime();\n    total_wait_time_ \u003d 0;\n  }\n}\n\nvoid ThreadPool::StopWorkers(Thread* self) {\n  MutexLock mu(self, task_queue_lock_);\n  started_ \u003d false;\n  stop_count_++;\n}\n\nvoid ThreadPool::IsStopped() {\n  MutexLock mu(self, task_queue_lock_);\n  return stop_count_ !\u003d 0;\n}",
+      "parentUuid": "6efd6cc9_24654fe5",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 70
+      },
+      "revId": "c72444c0d07b1bc15cd6a483e2697817476e3b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c99b_4c10fa39",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 15
