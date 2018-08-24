@@ -292,7 +292,7 @@ class DebugFrameOpCodeWriterForAssembler final
   };
 
   // This method is called the by the opcode writers.
-  void ImplicitlyAdvancePC() override final;
+  void ImplicitlyAdvancePC() override;
 
   explicit DebugFrameOpCodeWriterForAssembler(Assembler* buffer)
       : dwarf::DebugFrameOpCodeWriter<>(false /* enabled */),
