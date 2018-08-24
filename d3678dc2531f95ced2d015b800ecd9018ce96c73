@@ -46,6 +46,98 @@
       "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5d9329c_3a88a99f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-08-24T18:18:51Z",
+      "side": 0,
+      "message": "This will be good to adapt.\n\nWe will compile offline and the app can start/run while we are doing so. It\u0027s good to test that we can race.",
+      "range": {
+        "startLine": 1160,
+        "startChar": 6,
+        "endLine": 1160,
+        "endChar": 22
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa6e4e81_b3709069",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-08-24T18:18:51Z",
+      "side": 0,
+      "message": "This one should be revived. It tests that OatFileAssistant evaluates the context.",
+      "range": {
+        "startLine": 1392,
+        "startChar": 29,
+        "endLine": 1392,
+        "endChar": 52
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85def44d_57d25c5f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-08-24T18:18:51Z",
+      "side": 0,
+      "message": "this part is optional, since the assistant will not be able to influence it.",
+      "range": {
+        "startLine": 1415,
+        "startChar": 2,
+        "endLine": 1416,
+        "endChar": 77
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a88f411_f765fda3",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-08-24T18:18:51Z",
+      "side": 0,
+      "message": "this one.",
+      "range": {
+        "startLine": 1490,
+        "startChar": 29,
+        "endLine": 1490,
+        "endChar": 71
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
