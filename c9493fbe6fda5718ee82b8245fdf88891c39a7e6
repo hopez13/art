@@ -22,6 +22,30 @@
       "revId": "c9493fbe6fda5718ee82b8245fdf88891c39a7e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5daea4_d81002a3",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-24T18:52:56Z",
+      "side": 1,
+      "message": "Addressed in https://android-review.googlesource.com/c/platform/art/+/737558.",
+      "parentUuid": "1738ef48_f7b12399",
+      "range": {
+        "startLine": 295,
+        "startChar": 38,
+        "endLine": 295,
+        "endChar": 43
+      },
+      "revId": "c9493fbe6fda5718ee82b8245fdf88891c39a7e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
