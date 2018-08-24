@@ -613,6 +613,8 @@ if [ "$JIT" = "y" ]; then
       COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=assume-verified"
       DEX_VERIFY="${DEX_VERIFY} -Xverify:none"
     fi
+else
+    INT_OPTS="-Xusejit:false"
 fi
 
 JNI_OPTS="-Xjnigreflimit:512 -Xcheck:jni"
