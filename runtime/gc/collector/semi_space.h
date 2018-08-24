@@ -63,7 +63,7 @@ class SemiSpace : public GarbageCollector {
 
   ~SemiSpace() {}
 
-  virtual void RunPhases() override NO_THREAD_SAFETY_ANALYSIS;
+  void RunPhases() override NO_THREAD_SAFETY_ANALYSIS;
   virtual void InitializePhase();
   virtual void MarkingPhase() REQUIRES(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
@@ -72,10 +72,10 @@ class SemiSpace : public GarbageCollector {
   virtual void FinishPhase() REQUIRES(Locks::mutator_lock_);
   void MarkReachableObjects()
       REQUIRES(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
-  virtual GcType GetGcType() const override {
+  GcType GetGcType() const override {
     return kGcTypePartial;
   }
-  virtual CollectorType GetCollectorType() const override {
+  CollectorType GetCollectorType() const override {
     return generational_ ? kCollectorTypeGSS : kCollectorTypeSS;
   }
 
@@ -106,7 +106,7 @@ class SemiSpace : public GarbageCollector {
   void MarkObjectIfNotInToSpace(CompressedReferenceType* obj_ptr)
       REQUIRES(Locks::heap_bitmap_lock_, Locks::mutator_lock_);
 
-  virtual mirror::Object* MarkObject(mirror::Object* root) override
+  mirror::Object* MarkObject(mirror::Object* root) override
       REQUIRES(Locks::heap_bitmap_lock_, Locks::mutator_lock_);
 
   virtual void MarkHeapReference(mirror::HeapReference<mirror::Object>* obj_ptr,
@@ -145,7 +145,7 @@ class SemiSpace : public GarbageCollector {
   void SweepSystemWeaks()
       REQUIRES_SHARED(Locks::heap_bitmap_lock_, Locks::mutator_lock_);
 
-  virtual void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info) override
+  void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info) override
       REQUIRES(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
 
   virtual void VisitRoots(mirror::CompressedReference<mirror::Object>** roots, size_t count,
@@ -162,7 +162,7 @@ class SemiSpace : public GarbageCollector {
  protected:
   // Returns null if the object is not marked, otherwise returns the forwarding address (same as
   // object for non movable things).
-  virtual mirror::Object* IsMarked(mirror::Object* object) override
+  mirror::Object* IsMarked(mirror::Object* object) override
       REQUIRES(Locks::mutator_lock_)
       REQUIRES_SHARED(Locks::heap_bitmap_lock_);
 

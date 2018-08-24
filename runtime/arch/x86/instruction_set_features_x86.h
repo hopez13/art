@@ -53,7 +53,7 @@ class X86InstructionSetFeatures : public InstructionSetFeatures {
 
   bool HasAtLeast(const InstructionSetFeatures* other) const override;
 
-  virtual InstructionSet GetInstructionSet() const override {
+  InstructionSet GetInstructionSet() const override {
     return InstructionSet::kX86;
   }
 

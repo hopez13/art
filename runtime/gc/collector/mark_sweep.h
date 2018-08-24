@@ -57,7 +57,7 @@ class MarkSweep : public GarbageCollector {
 
   ~MarkSweep() {}
 
-  virtual void RunPhases() override REQUIRES(!mark_stack_lock_);
+  void RunPhases() override REQUIRES(!mark_stack_lock_);
   void InitializePhase();
   void MarkingPhase() REQUIRES(!mark_stack_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
   void PausePhase() REQUIRES(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
@@ -72,11 +72,11 @@ class MarkSweep : public GarbageCollector {
     return is_concurrent_;
   }
 
-  virtual GcType GetGcType() const override {
+  GcType GetGcType() const override {
     return kGcTypeFull;
   }
 
-  virtual CollectorType GetCollectorType() const override {
+  CollectorType GetCollectorType() const override {
     return is_concurrent_ ? kCollectorTypeCMS : kCollectorTypeMS;
   }
 
@@ -192,7 +192,7 @@ class MarkSweep : public GarbageCollector {
       REQUIRES(Locks::heap_bitmap_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  virtual void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info) override
+  void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info) override
       REQUIRES(Locks::heap_bitmap_lock_)
       REQUIRES(!mark_stack_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -205,7 +205,7 @@ class MarkSweep : public GarbageCollector {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Marks an object.
-  virtual mirror::Object* MarkObject(mirror::Object* obj) override
+  mirror::Object* MarkObject(mirror::Object* obj) override
       REQUIRES(Locks::heap_bitmap_lock_)
       REQUIRES(!mark_stack_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -231,7 +231,7 @@ class MarkSweep : public GarbageCollector {
 
  protected:
   // Returns object if the object is marked in the heap bitmap, otherwise null.
-  virtual mirror::Object* IsMarked(mirror::Object* object) override
+  mirror::Object* IsMarked(mirror::Object* object) override
       REQUIRES_SHARED(Locks::heap_bitmap_lock_, Locks::mutator_lock_);
 
   void MarkObjectNonNull(mirror::Object* obj,

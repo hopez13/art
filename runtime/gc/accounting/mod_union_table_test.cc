@@ -103,7 +103,7 @@ class CollectVisitedVisitor : public MarkObjectVisitor {
     DCHECK(ref != nullptr);
     MarkObject(ref->AsMirrorPtr());
   }
-  virtual mirror::Object* MarkObject(mirror::Object* obj) override
+  mirror::Object* MarkObject(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(obj != nullptr);
     out_->insert(obj);

@@ -119,7 +119,7 @@ struct MethodVerifierArgs : public CmdlineArgs {
     return kParseOk;
   }
 
-  virtual ParseStatus ParseChecks(std::string* error_msg) override {
+  ParseStatus ParseChecks(std::string* error_msg) override {
     // Perform the parent checks.
     ParseStatus parent_checks = Base::ParseChecks(error_msg);
     if (parent_checks != kParseOk) {

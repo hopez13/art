@@ -1161,7 +1161,7 @@ class MarkSweep::CheckpointMarkThreadRoots : public Closure, public RootVisitor 
     }
   }
 
-  virtual void Run(Thread* thread) override NO_THREAD_SAFETY_ANALYSIS {
+  void Run(Thread* thread) override NO_THREAD_SAFETY_ANALYSIS {
     ScopedTrace trace("Marking thread roots");
     // Note: self is not necessarily equal to thread since thread may be suspended.
     Thread* const self = Thread::Current();
