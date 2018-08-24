@@ -22,6 +22,30 @@
       "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73a466d0_1b984fff",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-24T17:55:48Z",
+      "side": 0,
+      "message": "Only this one uses OatFileAssistant::Dex2Oat. Which other ones below you think I should revive?",
+      "parentUuid": "fd35e1d5_6f89d0a4",
+      "range": {
+        "startLine": 590,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 58
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
