@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1f4756c2_d53d49d4",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-25T18:51:52Z",
+      "side": 0,
+      "message": "Yeah, though that\u0027s not an oat_file_assistant test anymore, as it doesn\u0027t generate anything. Doesn\u0027t installd test this?",
+      "parentUuid": "e5d9329c_3a88a99f",
+      "range": {
+        "startLine": 1160,
+        "startChar": 6,
+        "endLine": 1160,
+        "endChar": 22
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa6e4e81_b3709069",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
@@ -92,6 +116,30 @@
       "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a53515a6_a636efe8",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-25T18:51:52Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "fa6e4e81_b3709069",
+      "range": {
+        "startLine": 1392,
+        "startChar": 29,
+        "endLine": 1392,
+        "endChar": 52
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7a4df1de_ac209954",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-25T18:51:52Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "85def44d_57d25c5f",
+      "range": {
+        "startLine": 1415,
+        "startChar": 2,
+        "endLine": 1416,
+        "endChar": 77
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a88f411_f765fda3",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
@@ -138,6 +210,30 @@
       "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5952ade3_b4b4a04b",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-25T18:51:52Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2a88f411_f765fda3",
+      "range": {
+        "startLine": 1490,
+        "startChar": 29,
+        "endLine": 1490,
+        "endChar": 71
+      },
+      "revId": "d3678dc2531f95ced2d015b800ecd9018ce96c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
