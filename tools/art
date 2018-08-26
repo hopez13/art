@@ -206,6 +206,7 @@ function run_dex2oat() {
           --runtime-arg -Xnorelocate                          \
           --boot-image=$DEX2OAT_BOOT_IMAGE                    \
           --instruction-set=$ISA                              \
+          --instruction-set-features=default                  \
           --class-loader-context="PCL[$CLASS_LOADER_CONTEXT]" \
           "${DEX2OAT_FLAGS[@]}"                               \
           --dex-file=$dex_file                                \

@@ -218,7 +218,7 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::AddFeature
   // logically, we check "default -> features.empty."
   DCHECK(!use_default || features.empty());
 
-  return AddFeaturesFromSplitString(features, error_msg);
+  return use_default ? FromCppDefines() : AddFeaturesFromSplitString(features, error_msg);
 }
 
 const ArmInstructionSetFeatures* InstructionSetFeatures::AsArmInstructionSetFeatures() const {
