@@ -3619,6 +3619,9 @@ class ReferenceMapVisitor : public StackVisitor {
           StackReference<mirror::Object>* ref_addr = vreg_base + i;
           mirror::Object* ref = ref_addr->AsMirrorPtr();
           if (ref != nullptr) {
+            if (((uintptr_t)ref) == 1) {
+              LOG(FATAL) << "WHAT STACK" << i << " " << m->PrettyMethod();
+            }
             mirror::Object* new_ref = ref;
             vreg_info.VisitStack(&new_ref, i, this);
             if (ref != new_ref) {
@@ -3641,6 +3644,9 @@ class ReferenceMapVisitor : public StackVisitor {
                        << "set in register_mask=" << register_mask << " at " << DescribeLocation();
           }
           if (*ref_addr != nullptr) {
+            if (((uintptr_t)(*ref_addr)) == 1) {
+              LOG(FATAL) << "WHAT REG" << i << " " << m->PrettyMethod();
+            }
             vreg_info.VisitRegister(ref_addr, i, this);
           }
         }
