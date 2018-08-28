@@ -22,6 +22,30 @@
       "revId": "8788df6a1f19d65183464cc24d68f7444b4b8dd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2071080c_19ed7af1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2018-08-28T20:05:32Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure it is equivalent, but I can\u0027t remember the reason for this \u0026, so removed.",
+      "parentUuid": "5f2aaa01_dc32e8a5",
+      "range": {
+        "startLine": 633,
+        "startChar": 72,
+        "endLine": 633,
+        "endChar": 73
+      },
+      "revId": "8788df6a1f19d65183464cc24d68f7444b4b8dd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
