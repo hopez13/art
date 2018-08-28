@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44aaa803_32268be5",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-28T21:34:21Z",
+      "side": 1,
+      "message": "Isn\u0027t that illegal? Use bit_cast or so.",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf00dae_08df4c9e",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-28T21:34:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 26
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
