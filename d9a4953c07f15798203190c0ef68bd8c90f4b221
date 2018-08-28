@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "48e06ec6_68a8134d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1dcd592_167d4310",
+      "range": {
+        "startLine": 1629,
+        "startChar": 33,
+        "endLine": 1629,
+        "endChar": 34
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78b124d9_76a83ddf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57ebc74_e32c4c4b",
+      "range": {
+        "startLine": 1629,
+        "startChar": 50,
+        "endLine": 1629,
+        "endChar": 61
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8040e6bf_bec656a1",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a86182ba_912cb601",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8040e6bf_bec656a1",
+      "range": {
+        "startLine": 1631,
+        "startChar": 26,
+        "endLine": 1631,
+        "endChar": 43
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "951469d5_efbcd744",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2018-08-28T08:56:17Z",
       "side": 1,
       "message": "How is that represented?",
+      "range": {
+        "startLine": 1633,
+        "startChar": 4,
+        "endLine": 1633,
+        "endChar": 94
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e44d49c_a3d53fbf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "This was an generic logical definition without regard to the current TryCatch implementation. I\u0027ve replaced the definition with a constructive and more clear one.",
+      "parentUuid": "951469d5_efbcd744",
       "range": {
         "startLine": 1633,
         "startChar": 4,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "28c700d0_a59900db",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1409bc09_6277753f",
+      "range": {
+        "startLine": 1640,
+        "startChar": 18,
+        "endLine": 1640,
+        "endChar": 19
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "070b2e5a_4c6e8575",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c35b720_40e8ced5",
+      "range": {
+        "startLine": 1640,
+        "startChar": 31,
+        "endLine": 1640,
+        "endChar": 43
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e1fa919_cc1c6fd2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bdb8a71c_f154cac9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e1fa919_cc1c6fd2",
+      "range": {
+        "startLine": 1714,
+        "startChar": 56,
+        "endLine": 1715,
+        "endChar": 15
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64bb5b3d_b64563b5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -183,6 +351,30 @@
       "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48476993_ae20558c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3149,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-28T17:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64bb5b3d_b64563b5",
+      "range": {
+        "startLine": 3149,
+        "startChar": 34,
+        "endLine": 3149,
+        "endChar": 61
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
