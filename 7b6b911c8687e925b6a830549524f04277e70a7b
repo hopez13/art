@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "58a8fd6b_efeff12a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-28T10:04:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27519488_fb60298b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7c17e4_0862a72f",
         "filename": "test/718-zipfile-finalizer/src/Main.java",
         "patchSetId": 1
