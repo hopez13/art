@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2860b7b_f79f28e8",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "Nit: You can shorten this with an initializer list (here and in other locations below):\n\n  std::vector\u003cstd::string\u003e args \u003d {\n    \"--dex-file\u003d\" + dex_location,\n    \"--dex-location\u003d\" + std::string(\"RelativeEncodedDexLocation.jar\"),\n    \"--oat-file\u003d\" + odex_location,\n    \"--compiler-filter\u003dspeed\"\n  };",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 44
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b525256_20f3b516",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "Nit: Align macro argument with previous argument.",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6865a2a_22f7ad57",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* profile_changed */ false",
+      "range": {
+        "startLine": 191,
+        "startChar": 56,
+        "endLine": 191,
+        "endChar": 61
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86538004_828c563d",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* downgrade */ false",
+      "range": {
+        "startLine": 191,
+        "startChar": 63,
+        "endLine": 191,
+        "endChar": 68
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0bdc6b_a3fc62bf",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 1167,
+        "startChar": 2,
+        "endLine": 1167,
+        "endChar": 4
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cdea69b_9f3e7bb9",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 1222,
+        "startChar": 8,
+        "endLine": 1222,
+        "endChar": 11
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2dceb73_8d051fad",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 1226,
+        "startChar": 7,
+        "endLine": 1226,
+        "endChar": 10
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b0d14e4_836b683d",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* do_work */ true",
+      "range": {
+        "startLine": 1232,
+        "startChar": 25,
+        "endLine": 1232,
+        "endChar": 29
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92c5a5e9_19a1ea18",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* may_hold_locks */ false",
+      "range": {
+        "startLine": 1232,
+        "startChar": 31,
+        "endLine": 1232,
+        "endChar": 36
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd1159ab_8e936eb9",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* downgrade */ false",
+      "range": {
+        "startLine": 1356,
+        "startChar": 58,
+        "endLine": 1356,
+        "endChar": 63
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2526350a_45846e2b",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-28T10:47:06Z",
+      "side": 1,
+      "message": "/* profile_changed */ false",
+      "range": {
+        "startLine": 1356,
+        "startChar": 65,
+        "endLine": 1356,
+        "endChar": 70
+      },
+      "revId": "9ddc1a68050f8c1abe9e5dc60d5fb8841bc5365d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
