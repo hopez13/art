@@ -24,18 +24,16 @@
 namespace art {
 
 template<VerifyObjectFlags kVerifyFlags /*= kDefaultVerifyFlags*/>
-inline void ShadowFrame::SetVRegReference(size_t i, ObjPtr<mirror::Object> val)
+inline void ShadowFrame::SetVRegReference(size_t i, ObjPtr<mirror::Object> obj)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_LT(i, NumberOfVRegs());
   if (kVerifyFlags & kVerifyWrites) {
-    VerifyObject(val);
+    VerifyObject(obj);
   }
-  ReadBarrier::MaybeAssertToSpaceInvariant(val.Ptr());
-  uint32_t* vreg = &vregs_[i];
-  reinterpret_cast<StackReference<mirror::Object>*>(vreg)->Assign(val);
-  if (HasReferenceArray()) {
-    References()[i].Assign(val);
-  }
+  ReadBarrier::MaybeAssertToSpaceInvariant(obj.Ptr());
+  uint32_t value = StackReference<mirror::Object>::FromMirrorPtr(obj.Ptr()).AsVRegValue();
+  vregs_[i].value = value;
+  vregs_[i].object = value;
 }
 
 }  // namespace art

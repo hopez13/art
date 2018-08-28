@@ -1,7 +1,7 @@
 %default {"result":"%eax"}
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
- * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
+ * specifies an instruction that performs "result = eax op VREG_ADDRESS(%ecx)".
  * This could be an x86 instruction or a function call.  (If the result
  * comes back in a register other than eax, you can override "result".)
  *
@@ -12,6 +12,6 @@
     movzbl  2(rPC), %eax                    # eax <- BB
     movzbl  3(rPC), %ecx                    # ecx <- CC
     GET_VREG %eax, %eax                     # eax <- vBB
-    $instr                                  # ex: addl    (rFP,%ecx,4),%eax
+    $instr                                  # ex: addl    VREG_ADDRESS(%ecx),%eax
     SET_VREG $result, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2

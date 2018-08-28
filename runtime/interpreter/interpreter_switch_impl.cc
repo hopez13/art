@@ -203,11 +203,6 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
   JValue result_register = ctx->result_register;
   bool interpret_one_instruction = ctx->interpret_one_instruction;
   constexpr bool do_assignability_check = do_access_check;
-  if (UNLIKELY(!shadow_frame.HasReferenceArray())) {
-    LOG(FATAL) << "Invalid shadow frame for interpreter use";
-    ctx->result = JValue();
-    return;
-  }
   self->VerifyStack();
 
   uint32_t dex_pc = shadow_frame.GetDexPC();

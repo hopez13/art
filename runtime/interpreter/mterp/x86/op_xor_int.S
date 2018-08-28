@@ -1,1 +1,1 @@
-%include "x86/binop.S" {"instr":"xorl    (rFP,%ecx,4), %eax"}
+%include "x86/binop.S" {"instr":"xorl    VREG_ADDRESS(%ecx), %eax"}

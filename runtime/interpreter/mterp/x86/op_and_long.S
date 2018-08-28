@@ -1,1 +1,1 @@
-%include "x86/binopWide.S" {"instr1":"andl    (rFP,%ecx,4), rIBASE", "instr2":"andl    4(rFP,%ecx,4), %eax"}
+%include "x86/binopWide.S" {"instr1":"andl    VREG_ADDRESS(%ecx), rIBASE", "instr2":"andl    4VREG_ADDRESS(%ecx), %eax"}

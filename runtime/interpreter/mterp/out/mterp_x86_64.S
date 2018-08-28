@@ -259,51 +259,25 @@ unspecified registers or condition codes.
 /*
  * Get/set the 32-bit value from a Dalvik register.
  */
-#define VREG_ADDRESS(_vreg) (rFP,_vreg,4)
-#define VREG_REF_ADDRESS(_vreg) (rREFS,_vreg,4)
+#define VREG_ADDRESS(_vreg) (rFP,_vreg,8)
+#define VREG_REF_ADDRESS(_vreg) (rREFS,_vreg,8)
 
 .macro GET_VREG _reg _vreg
-    movl    (rFP,\_vreg,4), \_reg
-.endm
-
-/* Read wide value. */
-.macro GET_WIDE_VREG _reg _vreg
-    movq    (rFP,\_vreg,4), \_reg
+    movl    VREG_ADDRESS(\_vreg), \_reg
 .endm
 
 .macro SET_VREG _reg _vreg
-    movl    \_reg, (rFP,\_vreg,4)
-    movl    MACRO_LITERAL(0), (rREFS,\_vreg,4)
-.endm
-
-/* Write wide value. reg is clobbered. */
-.macro SET_WIDE_VREG _reg _vreg
-    movq    \_reg, (rFP,\_vreg,4)
-    xorq    \_reg, \_reg
-    movq    \_reg, (rREFS,\_vreg,4)
+    movl    \_reg, VREG_ADDRESS(\_vreg)
+    movl    MACRO_LITERAL(0), VREG_REF_ADDRESS(\_vreg)
 .endm
 
 .macro SET_VREG_OBJECT _reg _vreg
-    movl    \_reg, (rFP,\_vreg,4)
-    movl    \_reg, (rREFS,\_vreg,4)
-.endm
-
-.macro GET_VREG_HIGH _reg _vreg
-    movl    4(rFP,\_vreg,4), \_reg
-.endm
-
-.macro SET_VREG_HIGH _reg _vreg
-    movl    \_reg, 4(rFP,\_vreg,4)
-    movl    MACRO_LITERAL(0), 4(rREFS,\_vreg,4)
+    movl    \_reg, VREG_ADDRESS(\_vreg)
+    movl    \_reg, VREG_REF_ADDRESS(\_vreg)
 .endm
 
 .macro CLEAR_REF _vreg
-    movl    MACRO_LITERAL(0),  (rREFS,\_vreg,4)
-.endm
-
-.macro CLEAR_WIDE_REF _vreg
-    movl    MACRO_LITERAL(0),  (rREFS,\_vreg,4)
-    movl    MACRO_LITERAL(0), 4(rREFS,\_vreg,4)
+    movl    MACRO_LITERAL(0), VREG_REF_ADDRESS(\_vreg)
 .endm
 
 /* File: x86_64/entry.S */
@@ -365,7 +339,7 @@ SYMBOL(ExecuteMterpImpl):
     /* set up "named" registers */
     movl    SHADOWFRAME_NUMBER_OF_VREGS_OFFSET(IN_ARG2), %eax
     leaq    SHADOWFRAME_VREGS_OFFSET(IN_ARG2), rFP
-    leaq    (rFP, %rax, 4), rREFS
+    leaq    4(rFP), rREFS
     movl    SHADOWFRAME_DEX_PC_OFFSET(IN_ARG2), %eax
     leaq    (IN_ARG1, %rax, 2), rPC
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)
@@ -450,38 +424,23 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide: /* 0x04 */
-/* File: x86_64/op_move_wide.S */
-    /* move-wide vA, vB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    movl    rINST, %ecx                     # ecx <- BA
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rdx, rINSTq              # rdx <- v[B]
-    SET_WIDE_VREG %rdx, %rcx                # v[A] <- rdx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_from16: /* 0x05 */
-/* File: x86_64/op_move_wide_from16.S */
-    /* move-wide/from16 vAA, vBBBB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    movzwl  2(rPC), %ecx                    # ecx <- BBBB
-    GET_WIDE_VREG %rdx, %rcx                # rdx <- v[B]
-    SET_WIDE_VREG %rdx, rINSTq              # v[A] <- rdx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_16: /* 0x06 */
-/* File: x86_64/op_move_wide_16.S */
-    /* move-wide/16 vAAAA, vBBBB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    movzwq  4(rPC), %rcx                    # ecx<- BBBB
-    movzwq  2(rPC), %rax                    # eax<- AAAA
-    GET_WIDE_VREG %rdx, %rcx                # rdx <- v[B]
-    SET_WIDE_VREG %rdx, %rax                # v[A] <- rdx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 3
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -555,12 +514,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_wide: /* 0x0b */
-/* File: x86_64/op_move_result_wide.S */
-    /* move-result-wide vAA */
-    movq    OFF_FP_RESULT_REGISTER(rFP), %rax    # get pointer to result JType.
-    movq    (%rax), %rdx                         # Get wide
-    SET_WIDE_VREG %rdx, rINSTq                   # v[AA] <- rdx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -627,20 +583,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_wide: /* 0x10 */
-/* File: x86_64/op_return_wide.S */
-/*
- * Return a 64-bit value.
- */
-    /* return-wide vAA */
-    .extern MterpThreadFenceForConstructor
-    call    SYMBOL(MterpThreadFenceForConstructor)
-    movq    rSELF, OUT_ARG0
-    testl   $(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), THREAD_FLAGS_OFFSET(OUT_ARG0)
-    jz      1f
-    call    SYMBOL(MterpSuspendCheck)
-1:
-    GET_WIDE_VREG %rax, rINSTq              # eax <- v[AA]
-    jmp     MterpReturn
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -707,39 +652,30 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_16: /* 0x16 */
-/* File: x86_64/op_const_wide_16.S */
-    /* const-wide/16 vAA, #+BBBB */
-    movswq  2(rPC), %rax                    # rax <- ssssBBBB
-    SET_WIDE_VREG %rax, rINSTq              # store
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_32: /* 0x17 */
-/* File: x86_64/op_const_wide_32.S */
-    /* const-wide/32 vAA, #+BBBBbbbb */
-    movslq   2(rPC), %rax                   # eax <- ssssssssBBBBbbbb
-    SET_WIDE_VREG %rax, rINSTq              # store
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 3
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide: /* 0x18 */
-/* File: x86_64/op_const_wide.S */
-    /* const-wide vAA, #+HHHHhhhhBBBBbbbb */
-    movq    2(rPC), %rax                    # rax <- HHHHhhhhBBBBbbbb
-    SET_WIDE_VREG %rax, rINSTq
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 5
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_high16: /* 0x19 */
-/* File: x86_64/op_const_wide_high16.S */
-    /* const-wide/high16 vAA, #+BBBB000000000000 */
-    movzwq  2(rPC), %rax                    # eax <- 0000BBBB
-    salq    $48, %rax                      # eax <- BBBB0000
-    SET_WIDE_VREG %rax, rINSTq              # v[AA+0] <- eax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -1190,106 +1126,23 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_double: /* 0x2f */
-/* File: x86_64/op_cmpl_double.S */
-/* File: x86_64/fpcmp.S */
-/*
- * Compare two floating-point values.  Puts 0, 1, or -1 into the
- * destination register based on the results of the comparison.
- *
- * int compare(x, y) {
- *     if (x == y) {
- *         return 0;
- *     } else if (x < y) {
- *         return -1;
- *     } else if (x > y) {
- *         return 1;
- *     } else {
- *         return nanval ? 1 : -1;
- *     }
- * }
- */
-    /* op vAA, vBB, vCC */
-    movzbq  3(rPC), %rcx                    # ecx<- CC
-    movzbq  2(rPC), %rax                    # eax<- BB
-    movsd VREG_ADDRESS(%rax), %xmm0
-    xor     %eax, %eax
-    ucomisd VREG_ADDRESS(%rcx), %xmm0
-    jp      .Lop_cmpl_double_nan_is_neg
-    je      .Lop_cmpl_double_finish
-    jb      .Lop_cmpl_double_less
-.Lop_cmpl_double_nan_is_pos:
-    addb    $1, %al
-    jmp     .Lop_cmpl_double_finish
-.Lop_cmpl_double_nan_is_neg:
-.Lop_cmpl_double_less:
-    movl    $-1, %eax
-.Lop_cmpl_double_finish:
-    SET_VREG %eax, rINSTq
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_double: /* 0x30 */
-/* File: x86_64/op_cmpg_double.S */
-/* File: x86_64/fpcmp.S */
-/*
- * Compare two floating-point values.  Puts 0, 1, or -1 into the
- * destination register based on the results of the comparison.
- *
- * int compare(x, y) {
- *     if (x == y) {
- *         return 0;
- *     } else if (x < y) {
- *         return -1;
- *     } else if (x > y) {
- *         return 1;
- *     } else {
- *         return nanval ? 1 : -1;
- *     }
- * }
- */
-    /* op vAA, vBB, vCC */
-    movzbq  3(rPC), %rcx                    # ecx<- CC
-    movzbq  2(rPC), %rax                    # eax<- BB
-    movsd VREG_ADDRESS(%rax), %xmm0
-    xor     %eax, %eax
-    ucomisd VREG_ADDRESS(%rcx), %xmm0
-    jp      .Lop_cmpg_double_nan_is_pos
-    je      .Lop_cmpg_double_finish
-    jb      .Lop_cmpg_double_less
-.Lop_cmpg_double_nan_is_pos:
-    addb    $1, %al
-    jmp     .Lop_cmpg_double_finish
-.Lop_cmpg_double_nan_is_neg:
-.Lop_cmpg_double_less:
-    movl    $-1, %eax
-.Lop_cmpg_double_finish:
-    SET_VREG %eax, rINSTq
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_cmp_long: /* 0x31 */
-/* File: x86_64/op_cmp_long.S */
-/*
- * Compare two 64-bit values.  Puts 0, 1, or -1 into the destination
- * register based on the results of the comparison.
- */
-    /* cmp-long vAA, vBB, vCC */
-    movzbq  2(rPC), %rdx                    # edx <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rdx, %rdx                # rdx <- v[BB]
-    xorl    %eax, %eax
-    xorl    %edi, %edi
-    addb    $1, %al
-    movl    $-1, %esi
-    cmpq    VREG_ADDRESS(%rcx), %rdx
-    cmovl   %esi, %edi
-    cmovg   %eax, %edi
-    SET_VREG %edi, rINSTq
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -1700,31 +1553,8 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_wide: /* 0x45 */
-/* File: x86_64/op_aget_wide.S */
-/* File: x86_64/op_aget.S */
-/*
- * Array get, 32 bits or less.  vAA <- vBB[vCC].
- *
- * for: aget, aget-boolean, aget-byte, aget-char, aget-short, aget-wide
- *
- */
-    /* op vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_VREG %eax, %rax                     # eax <- vBB (array object)
-    GET_VREG %ecx, %rcx                     # ecx <- vCC (requested index)
-    testl   %eax, %eax                      # null array object?
-    je      common_errNullObject            # bail if so
-    cmpl    MIRROR_ARRAY_LENGTH_OFFSET(%eax), %ecx
-    jae     common_errArrayIndex            # index >= length, bail.
-    .if 1
-    movq    MIRROR_WIDE_ARRAY_DATA_OFFSET(%rax,%rcx,8), %rax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    movq   MIRROR_WIDE_ARRAY_DATA_OFFSET(%rax,%rcx,8), %eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -1899,30 +1729,8 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_wide: /* 0x4c */
-/* File: x86_64/op_aput_wide.S */
-/* File: x86_64/op_aput.S */
-/*
- * Array put, 32 bits or less.  vBB[vCC] <- vAA.
- *
- * for: aput, aput-boolean, aput-byte, aput-char, aput-short, aput-wide
- *
- */
-    /* op vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # rax <- BB
-    movzbq  3(rPC), %rcx                    # rcx <- CC
-    GET_VREG %eax, %rax                     # eax <- vBB (array object)
-    GET_VREG %ecx, %rcx                     # ecx <- vCC (requested index)
-    testl   %eax, %eax                      # null array object?
-    je      common_errNullObject            # bail if so
-    cmpl    MIRROR_ARRAY_LENGTH_OFFSET(%eax), %ecx
-    jae     common_errArrayIndex            # index >= length, bail.
-    .if 1
-    GET_WIDE_VREG rINSTq, rINSTq
-    .else
-    GET_VREG rINST, rINSTq
-    .endif
-    movq    rINSTq, MIRROR_WIDE_ARRAY_DATA_OFFSET(%rax,%rcx,8)
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -2094,35 +1902,8 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide: /* 0x53 */
-/* File: x86_64/op_iget_wide.S */
-/* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
-    call    SYMBOL(MterpIGetU64)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 1
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -2322,21 +2103,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide: /* 0x5a */
-/* File: x86_64/op_iput_wide.S */
-    /* iput-wide vA, vB, field@CCCC */
-    .extern MterpIPutU64
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST <- A
-    leaq    VREG_ADDRESS(rINSTq), OUT_ARG2  # &fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
-    call    SYMBOL(MterpIPutU64)
-    testb   %al, %al
-    jnz     MterpPossibleException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -2490,33 +2259,8 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sget_wide: /* 0x61 */
-/* File: x86_64/op_sget_wide.S */
-/* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetU64
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
-    call    SYMBOL(MterpSGetU64)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 1
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -2703,22 +2447,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sput_wide: /* 0x68 */
-/* File: x86_64/op_sput_wide.S */
-/*
- * SPUT_WIDE handler wrapper.
- *
- */
-    /* sput-wide vAA, field@BBBB */
-    .extern MterpSPutU64
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    leaq    VREG_ADDRESS(rINSTq), OUT_ARG1  # &fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
-    call    SYMBOL(MterpSPutU64)
-    testb   %al, %al
-    jnz     MterpException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -3222,57 +2953,15 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_neg_long: /* 0x7d */
-/* File: x86_64/op_neg_long.S */
-/* File: x86_64/unop.S */
-/*
- * Generic 32/64-bit unary operation.  Provide an "instr" line that
- * specifies an instruction that performs "result = op eax".
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4,rINST                       # rINST <- B
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vB
-    .endif
-    andb    $0xf,%cl                       # ecx <- A
-
-    negq    %rax
-    .if 1
-    SET_WIDE_VREG %rax, %rcx
-    .else
-    SET_VREG %eax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_not_long: /* 0x7e */
-/* File: x86_64/op_not_long.S */
-/* File: x86_64/unop.S */
-/*
- * Generic 32/64-bit unary operation.  Provide an "instr" line that
- * specifies an instruction that performs "result = op eax".
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4,rINST                       # rINST <- B
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vB
-    .endif
-    andb    $0xf,%cl                       # ecx <- A
-
-    notq    %rax
-    .if 1
-    SET_WIDE_VREG %rax, %rcx
-    .else
-    SET_VREG %eax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -3306,42 +2995,15 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_neg_double: /* 0x80 */
-/* File: x86_64/op_neg_double.S */
-/* File: x86_64/unop.S */
-/*
- * Generic 32/64-bit unary operation.  Provide an "instr" line that
- * specifies an instruction that performs "result = op eax".
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4,rINST                       # rINST <- B
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vB
-    .endif
-    andb    $0xf,%cl                       # ecx <- A
-    movq    $0x8000000000000000, %rsi
-    xorq    %rsi, %rax
-    .if 1
-    SET_WIDE_VREG %rax, %rcx
-    .else
-    SET_VREG %eax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_long: /* 0x81 */
-/* File: x86_64/op_int_to_long.S */
-    /* int to long vA, vB */
-    movzbq  rINSTbl, %rax                   # rax <- +A
-    sarl    $4, %eax                       # eax <- B
-    andb    $0xf, rINSTbl                  # rINST <- A
-    movslq  VREG_ADDRESS(%rax), %rax
-    SET_WIDE_VREG %rax, rINSTq              # v[A] <- %rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -3370,90 +3032,29 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_double: /* 0x83 */
-/* File: x86_64/op_int_to_double.S */
-/* File: x86_64/fpcvt.S */
-/*
- * Generic 32-bit FP conversion operation.
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    cvtsi2sdl    VREG_ADDRESS(rINSTq), %xmm0
-    .if 1
-    movsd   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
-    .else
-    movss   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_REF %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_int: /* 0x84 */
-/* File: x86_64/op_long_to_int.S */
-/* we ignore the high word, making this equivalent to a 32-bit reg move */
-/* File: x86_64/op_move.S */
-    /* for move, move-object, long-to-int */
-    /* op vA, vB */
-    movl    rINST, %eax                     # eax <- BA
-    andb    $0xf, %al                      # eax <- A
-    shrl    $4, rINST                      # rINST <- B
-    GET_VREG %edx, rINSTq
-    .if 0
-    SET_VREG_OBJECT %edx, %rax              # fp[A] <- fp[B]
-    .else
-    SET_VREG %edx, %rax                     # fp[A] <- fp[B]
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_float: /* 0x85 */
-/* File: x86_64/op_long_to_float.S */
-/* File: x86_64/fpcvt.S */
-/*
- * Generic 32-bit FP conversion operation.
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    cvtsi2ssq    VREG_ADDRESS(rINSTq), %xmm0
-    .if 0
-    movsd   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
-    .else
-    movss   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_REF %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_double: /* 0x86 */
-/* File: x86_64/op_long_to_double.S */
-/* File: x86_64/fpcvt.S */
-/*
- * Generic 32-bit FP conversion operation.
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    cvtsi2sdq    VREG_ADDRESS(rINSTq), %xmm0
-    .if 1
-    movsd   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
-    .else
-    movss   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_REF %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -3492,146 +3093,36 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_long: /* 0x88 */
-/* File: x86_64/op_float_to_long.S */
-/* File: x86_64/cvtfp_int.S */
-/* On fp to int conversions, Java requires that
- * if the result > maxint, it should be clamped to maxint.  If it is less
- * than minint, it should be clamped to minint.  If it is a nan, the result
- * should be zero.  Further, the rounding mode is to truncate.
- */
-    /* float/double to int/long vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    movss   VREG_ADDRESS(rINSTq), %xmm0
-    movq  $0x7fffffffffffffff, %rax
-    cvtsi2ssq %rax, %xmm1
-    comiss    %xmm1, %xmm0
-    jae     1f
-    jp      2f
-    cvttss2siq  %xmm0, %rax
-    jmp     1f
-2:
-    xorq    %rax, %rax
-1:
-    .if 1
-    SET_WIDE_VREG %rax, %rcx
-    .else
-    SET_VREG %rax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_double: /* 0x89 */
-/* File: x86_64/op_float_to_double.S */
-/* File: x86_64/fpcvt.S */
-/*
- * Generic 32-bit FP conversion operation.
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    cvtss2sd    VREG_ADDRESS(rINSTq), %xmm0
-    .if 1
-    movsd   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
-    .else
-    movss   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_REF %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_int: /* 0x8a */
-/* File: x86_64/op_double_to_int.S */
-/* File: x86_64/cvtfp_int.S */
-/* On fp to int conversions, Java requires that
- * if the result > maxint, it should be clamped to maxint.  If it is less
- * than minint, it should be clamped to minint.  If it is a nan, the result
- * should be zero.  Further, the rounding mode is to truncate.
- */
-    /* float/double to int/long vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    movsd   VREG_ADDRESS(rINSTq), %xmm0
-    movl  $0x7fffffff, %eax
-    cvtsi2sdl %eax, %xmm1
-    comisd    %xmm1, %xmm0
-    jae     1f
-    jp      2f
-    cvttsd2sil  %xmm0, %eax
-    jmp     1f
-2:
-    xorl    %eax, %eax
-1:
-    .if 0
-    SET_WIDE_VREG %eax, %rcx
-    .else
-    SET_VREG %eax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_long: /* 0x8b */
-/* File: x86_64/op_double_to_long.S */
-/* File: x86_64/cvtfp_int.S */
-/* On fp to int conversions, Java requires that
- * if the result > maxint, it should be clamped to maxint.  If it is less
- * than minint, it should be clamped to minint.  If it is a nan, the result
- * should be zero.  Further, the rounding mode is to truncate.
- */
-    /* float/double to int/long vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    movsd   VREG_ADDRESS(rINSTq), %xmm0
-    movq  $0x7fffffffffffffff, %rax
-    cvtsi2sdq %rax, %xmm1
-    comisd    %xmm1, %xmm0
-    jae     1f
-    jp      2f
-    cvttsd2siq  %xmm0, %rax
-    jmp     1f
-2:
-    xorq    %rax, %rax
-1:
-    .if 1
-    SET_WIDE_VREG %rax, %rcx
-    .else
-    SET_VREG %rax, %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_float: /* 0x8c */
-/* File: x86_64/op_double_to_float.S */
-/* File: x86_64/fpcvt.S */
-/*
- * Generic 32-bit FP conversion operation.
- */
-    /* unop vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    cvtsd2ss    VREG_ADDRESS(rINSTq), %xmm0
-    .if 0
-    movsd   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
-    .else
-    movss   %xmm0, VREG_ADDRESS(%rcx)
-    CLEAR_REF %rcx
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -4014,258 +3505,78 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_add_long: /* 0x9b */
-/* File: x86_64/op_add_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    addq    (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long: /* 0x9c */
-/* File: x86_64/op_sub_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    subq    (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long: /* 0x9d */
-/* File: x86_64/op_mul_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    imulq   (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_long: /* 0x9e */
-/* File: x86_64/op_div_long.S */
-/* File: x86_64/bindiv.S */
-/*
- * 32-bit binary div/rem operation.  Handles special case of op1=-1.
- */
-    /* div/rem vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # rax <- BB
-    movzbq  3(rPC), %rcx                    # rcx <- CC
-    .if 1
-    GET_WIDE_VREG %rax, %rax                # eax <- vBB
-    GET_WIDE_VREG %rcx, %rcx             # ecx <- vCC
-    .else
-    GET_VREG %eax, %rax                     # eax <- vBB
-    GET_VREG %rcx, %rcx                  # ecx <- vCC
-    .endif
-    testq   %rcx, %rcx
-    jz      common_errDivideByZero
-    cmpq  $-1, %rcx
-    je      2f
-    cqo                                    # rdx:rax <- sign-extended of rax
-    idivq   %rcx
-1:
-    .if 1
-    SET_WIDE_VREG %rax, rINSTq           # eax <- vBB
-    .else
-    SET_VREG %rax, rINSTq                # eax <- vBB
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-2:
-    .if 0
-    xorq %rax, %rax
-    .else
-    negq %rax
-    .endif
-    jmp     1b
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long: /* 0x9f */
-/* File: x86_64/op_rem_long.S */
-/* File: x86_64/bindiv.S */
-/*
- * 32-bit binary div/rem operation.  Handles special case of op1=-1.
- */
-    /* div/rem vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # rax <- BB
-    movzbq  3(rPC), %rcx                    # rcx <- CC
-    .if 1
-    GET_WIDE_VREG %rax, %rax                # eax <- vBB
-    GET_WIDE_VREG %rcx, %rcx             # ecx <- vCC
-    .else
-    GET_VREG %eax, %rax                     # eax <- vBB
-    GET_VREG %rcx, %rcx                  # ecx <- vCC
-    .endif
-    testq   %rcx, %rcx
-    jz      common_errDivideByZero
-    cmpq  $-1, %rcx
-    je      2f
-    cqo                                    # rdx:rax <- sign-extended of rax
-    idivq   %rcx
-1:
-    .if 1
-    SET_WIDE_VREG %rdx, rINSTq           # eax <- vBB
-    .else
-    SET_VREG %rdx, rINSTq                # eax <- vBB
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-2:
-    .if 1
-    xorq %rdx, %rdx
-    .else
-    negq %rdx
-    .endif
-    jmp     1b
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_and_long: /* 0xa0 */
-/* File: x86_64/op_and_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    andq    (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_or_long: /* 0xa1 */
-/* File: x86_64/op_or_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    orq     (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long: /* 0xa2 */
-/* File: x86_64/op_xor_long.S */
-/* File: x86_64/binopWide.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    xorq    (rFP,%rcx,4), %rax                                  # ex: addq   (rFP,%rcx,4),%rax
-    SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long: /* 0xa3 */
-/* File: x86_64/op_shl_long.S */
-/* File: x86_64/binop1.S */
-/*
- * Generic 32-bit binary operation in which both operands loaded to
- * registers (op0 in eax, op1 in ecx).
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_VREG %ecx, %rcx                     # eax <- vCC
-    .if 1
-    GET_WIDE_VREG %rax, %rax                # rax <- vBB
-    salq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, %rax                     # eax <- vBB
-    salq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long: /* 0xa4 */
-/* File: x86_64/op_shr_long.S */
-/* File: x86_64/binop1.S */
-/*
- * Generic 32-bit binary operation in which both operands loaded to
- * registers (op0 in eax, op1 in ecx).
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_VREG %ecx, %rcx                     # eax <- vCC
-    .if 1
-    GET_WIDE_VREG %rax, %rax                # rax <- vBB
-    sarq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, %rax                     # eax <- vBB
-    sarq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long: /* 0xa5 */
-/* File: x86_64/op_ushr_long.S */
-/* File: x86_64/binop1.S */
-/*
- * Generic 32-bit binary operation in which both operands loaded to
- * registers (op0 in eax, op1 in ecx).
- */
-    /* binop vAA, vBB, vCC */
-    movzbq  2(rPC), %rax                    # eax <- BB
-    movzbq  3(rPC), %rcx                    # ecx <- CC
-    GET_VREG %ecx, %rcx                     # eax <- vCC
-    .if 1
-    GET_WIDE_VREG %rax, %rax                # rax <- vBB
-    shrq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, %rax                     # eax <- vBB
-    shrq    %cl, %rax                                  # ex: addl    %ecx,%eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -4350,81 +3661,37 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_add_double: /* 0xab */
-/* File: x86_64/op_add_double.S */
-/* File: x86_64/sseBinop.S */
-    movzbq  2(rPC), %rcx                    # ecx <- BB
-    movzbq  3(rPC), %rax                    # eax <- CC
-    movsd   VREG_ADDRESS(%rcx), %xmm0       # %xmm0 <- 1st src
-    addsd VREG_ADDRESS(%rax), %xmm0
-    movsd   %xmm0, VREG_ADDRESS(rINSTq)     # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd   %xmm0, VREG_REF_ADDRESS(rINSTq) # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double: /* 0xac */
-/* File: x86_64/op_sub_double.S */
-/* File: x86_64/sseBinop.S */
-    movzbq  2(rPC), %rcx                    # ecx <- BB
-    movzbq  3(rPC), %rax                    # eax <- CC
-    movsd   VREG_ADDRESS(%rcx), %xmm0       # %xmm0 <- 1st src
-    subsd VREG_ADDRESS(%rax), %xmm0
-    movsd   %xmm0, VREG_ADDRESS(rINSTq)     # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd   %xmm0, VREG_REF_ADDRESS(rINSTq) # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double: /* 0xad */
-/* File: x86_64/op_mul_double.S */
-/* File: x86_64/sseBinop.S */
-    movzbq  2(rPC), %rcx                    # ecx <- BB
-    movzbq  3(rPC), %rax                    # eax <- CC
-    movsd   VREG_ADDRESS(%rcx), %xmm0       # %xmm0 <- 1st src
-    mulsd VREG_ADDRESS(%rax), %xmm0
-    movsd   %xmm0, VREG_ADDRESS(rINSTq)     # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd   %xmm0, VREG_REF_ADDRESS(rINSTq) # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_double: /* 0xae */
-/* File: x86_64/op_div_double.S */
-/* File: x86_64/sseBinop.S */
-    movzbq  2(rPC), %rcx                    # ecx <- BB
-    movzbq  3(rPC), %rax                    # eax <- CC
-    movsd   VREG_ADDRESS(%rcx), %xmm0       # %xmm0 <- 1st src
-    divsd VREG_ADDRESS(%rax), %xmm0
-    movsd   %xmm0, VREG_ADDRESS(rINSTq)     # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd   %xmm0, VREG_REF_ADDRESS(rINSTq) # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double: /* 0xaf */
-/* File: x86_64/op_rem_double.S */
-    /* rem_double vAA, vBB, vCC */
-    movzbq  3(rPC), %rcx                    # ecx <- BB
-    movzbq  2(rPC), %rax                    # eax <- CC
-    fldl    VREG_ADDRESS(%rcx)              # %st1 <- fp[vBB]
-    fldl    VREG_ADDRESS(%rax)              # %st0 <- fp[vCC]
-1:
-    fprem
-    fstsw   %ax
-    sahf
-    jp      1b
-    fstp    %st(1)
-    fstpl   VREG_ADDRESS(rINSTq)            # fp[vAA] <- %st
-    CLEAR_WIDE_REF rINSTq
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -4724,261 +3991,78 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_add_long_2addr: /* 0xbb */
-/* File: x86_64/op_add_long_2addr.S */
-/* File: x86_64/binopWide2addr.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    addq    %rax, (rFP,%rcx,4)                                  # for ex: addq   %rax,(rFP,%rcx,4)
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long_2addr: /* 0xbc */
-/* File: x86_64/op_sub_long_2addr.S */
-/* File: x86_64/binopWide2addr.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    subq    %rax, (rFP,%rcx,4)                                  # for ex: addq   %rax,(rFP,%rcx,4)
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long_2addr: /* 0xbd */
-/* File: x86_64/op_mul_long_2addr.S */
-    /* mul vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, %rcx                # rax <- vA
-    imulq   (rFP,rINSTq,4), %rax
-    SET_WIDE_VREG %rax, %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_long_2addr: /* 0xbe */
-/* File: x86_64/op_div_long_2addr.S */
-/* File: x86_64/bindiv2addr.S */
-/*
- * 32-bit binary div/rem operation.  Handles special case of op1=-1.
- */
-    /* div/rem/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- BA
-    sarl    $4, %ecx                       # rcx <- B
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # eax <- vA
-    GET_WIDE_VREG %rcx, %rcx             # ecx <- vB
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vA
-    GET_VREG %rcx, %rcx                  # ecx <- vB
-    .endif
-    testq   %rcx, %rcx
-    jz      common_errDivideByZero
-    cmpq  $-1, %rcx
-    je      2f
-    cqo                                    # rdx:rax <- sign-extended of rax
-    idivq   %rcx
-1:
-    .if 1
-    SET_WIDE_VREG %rax, rINSTq           # vA <- result
-    .else
-    SET_VREG %rax, rINSTq                # vA <- result
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
-2:
-    .if 0
-    xorq %rax, %rax
-    .else
-    negq %rax
-    .endif
-    jmp     1b
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long_2addr: /* 0xbf */
-/* File: x86_64/op_rem_long_2addr.S */
-/* File: x86_64/bindiv2addr.S */
-/*
- * 32-bit binary div/rem operation.  Handles special case of op1=-1.
- */
-    /* div/rem/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- BA
-    sarl    $4, %ecx                       # rcx <- B
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # eax <- vA
-    GET_WIDE_VREG %rcx, %rcx             # ecx <- vB
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vA
-    GET_VREG %rcx, %rcx                  # ecx <- vB
-    .endif
-    testq   %rcx, %rcx
-    jz      common_errDivideByZero
-    cmpq  $-1, %rcx
-    je      2f
-    cqo                                    # rdx:rax <- sign-extended of rax
-    idivq   %rcx
-1:
-    .if 1
-    SET_WIDE_VREG %rdx, rINSTq           # vA <- result
-    .else
-    SET_VREG %rdx, rINSTq                # vA <- result
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
-2:
-    .if 1
-    xorq %rdx, %rdx
-    .else
-    negq %rdx
-    .endif
-    jmp     1b
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_and_long_2addr: /* 0xc0 */
-/* File: x86_64/op_and_long_2addr.S */
-/* File: x86_64/binopWide2addr.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    andq    %rax, (rFP,%rcx,4)                                  # for ex: addq   %rax,(rFP,%rcx,4)
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_or_long_2addr: /* 0xc1 */
-/* File: x86_64/op_or_long_2addr.S */
-/* File: x86_64/binopWide2addr.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    orq     %rax, (rFP,%rcx,4)                                  # for ex: addq   %rax,(rFP,%rcx,4)
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long_2addr: /* 0xc2 */
-/* File: x86_64/op_xor_long_2addr.S */
-/* File: x86_64/binopWide2addr.S */
-/*
- * Generic 64-bit binary operation.
- */
-    /* binop/2addr vA, vB */
-    movl    rINST, %ecx                     # rcx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    andb    $0xf, %cl                      # ecx <- A
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    xorq    %rax, (rFP,%rcx,4)                                  # for ex: addq   %rax,(rFP,%rcx,4)
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long_2addr: /* 0xc3 */
-/* File: x86_64/op_shl_long_2addr.S */
-/* File: x86_64/shop2addr.S */
-/*
- * Generic 32-bit "shift/2addr" operation.
- */
-    /* shift/2addr vA, vB */
-    movl    rINST, %ecx                     # ecx <- BA
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG %ecx, %rcx                     # ecx <- vBB
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vAA
-    salq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vAA
-    salq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long_2addr: /* 0xc4 */
-/* File: x86_64/op_shr_long_2addr.S */
-/* File: x86_64/shop2addr.S */
-/*
- * Generic 32-bit "shift/2addr" operation.
- */
-    /* shift/2addr vA, vB */
-    movl    rINST, %ecx                     # ecx <- BA
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG %ecx, %rcx                     # ecx <- vBB
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vAA
-    sarq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vAA
-    sarq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long_2addr: /* 0xc5 */
-/* File: x86_64/op_ushr_long_2addr.S */
-/* File: x86_64/shop2addr.S */
-/*
- * Generic 32-bit "shift/2addr" operation.
- */
-    /* shift/2addr vA, vB */
-    movl    rINST, %ecx                     # ecx <- BA
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG %ecx, %rcx                     # ecx <- vBB
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    GET_WIDE_VREG %rax, rINSTq              # rax <- vAA
-    shrq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_WIDE_VREG %rax, rINSTq
-    .else
-    GET_VREG %eax, rINSTq                   # eax <- vAA
-    shrq    %cl, %rax                                  # ex: sarl %cl, %eax
-    SET_VREG %eax, rINSTq
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -5068,86 +4152,37 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_add_double_2addr: /* 0xcb */
-/* File: x86_64/op_add_double_2addr.S */
-/* File: x86_64/sseBinop2Addr.S */
-    movl    rINST, %ecx                     # ecx <- A+
-    andl    $0xf, %ecx                     # ecx <- A
-    movsd VREG_ADDRESS(%rcx), %xmm0        # %xmm0 <- 1st src
-    sarl    $4, rINST                      # rINST<- B
-    addsd VREG_ADDRESS(rINSTq), %xmm0
-    movsd %xmm0, VREG_ADDRESS(%rcx)   # vAA<- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd %xmm0, VREG_REF_ADDRESS(rINSTq)  # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double_2addr: /* 0xcc */
-/* File: x86_64/op_sub_double_2addr.S */
-/* File: x86_64/sseBinop2Addr.S */
-    movl    rINST, %ecx                     # ecx <- A+
-    andl    $0xf, %ecx                     # ecx <- A
-    movsd VREG_ADDRESS(%rcx), %xmm0        # %xmm0 <- 1st src
-    sarl    $4, rINST                      # rINST<- B
-    subsd VREG_ADDRESS(rINSTq), %xmm0
-    movsd %xmm0, VREG_ADDRESS(%rcx)   # vAA<- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd %xmm0, VREG_REF_ADDRESS(rINSTq)  # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double_2addr: /* 0xcd */
-/* File: x86_64/op_mul_double_2addr.S */
-/* File: x86_64/sseBinop2Addr.S */
-    movl    rINST, %ecx                     # ecx <- A+
-    andl    $0xf, %ecx                     # ecx <- A
-    movsd VREG_ADDRESS(%rcx), %xmm0        # %xmm0 <- 1st src
-    sarl    $4, rINST                      # rINST<- B
-    mulsd VREG_ADDRESS(rINSTq), %xmm0
-    movsd %xmm0, VREG_ADDRESS(%rcx)   # vAA<- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd %xmm0, VREG_REF_ADDRESS(rINSTq)  # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_double_2addr: /* 0xce */
-/* File: x86_64/op_div_double_2addr.S */
-/* File: x86_64/sseBinop2Addr.S */
-    movl    rINST, %ecx                     # ecx <- A+
-    andl    $0xf, %ecx                     # ecx <- A
-    movsd VREG_ADDRESS(%rcx), %xmm0        # %xmm0 <- 1st src
-    sarl    $4, rINST                      # rINST<- B
-    divsd VREG_ADDRESS(rINSTq), %xmm0
-    movsd %xmm0, VREG_ADDRESS(%rcx)   # vAA<- %xmm0
-    pxor    %xmm0, %xmm0
-    movsd %xmm0, VREG_REF_ADDRESS(rINSTq)  # clear ref
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double_2addr: /* 0xcf */
-/* File: x86_64/op_rem_double_2addr.S */
-    /* rem_double/2addr vA, vB */
-    movzbq  rINSTbl, %rcx                   # ecx <- A+
-    sarl    $4, rINST                      # rINST <- B
-    fldl    VREG_ADDRESS(rINSTq)            # vB to fp stack
-    andb    $0xf, %cl                      # ecx <- A
-    fldl    VREG_ADDRESS(%rcx)              # vA to fp stack
-1:
-    fprem
-    fstsw   %ax
-    sahf
-    jp      1b
-    fstp    %st(1)
-    fstpl   VREG_ADDRESS(%rcx)              # %st to vA
-    CLEAR_WIDE_REF %rcx
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -5669,25 +4704,8 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide_quick: /* 0xe4 */
-/* File: x86_64/op_iget_wide_quick.S */
-/* File: x86_64/op_iget_quick.S */
-    /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick, iget-wide-quick */
-    /* op vA, vB, offset@CCCC */
-    movl    rINST, %ecx                     # rcx <- BA
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG %ecx, %rcx                     # vB (object we're operating on)
-    movzwq  2(rPC), %rax                    # eax <- field byte offset
-    testl   %ecx, %ecx                      # is object null?
-    je      common_errNullObject
-    andb    $0xf,rINSTbl                   # rINST <- A
-    .if 1
-    movq (%rcx,%rax,1), %rax
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    movswl (%rcx,%rax,1), %eax
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
 
 
 /* ------------------------------ */
@@ -5730,19 +4748,9 @@ movswl %ax, %eax
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide_quick: /* 0xe7 */
-/* File: x86_64/op_iput_wide_quick.S */
-    /* iput-wide-quick vA, vB, offset@CCCC */
-    movzbq    rINSTbl, %rcx                 # rcx<- BA
-    sarl      $4, %ecx                     # ecx<- B
-    GET_VREG  %ecx, %rcx                    # vB (object we're operating on)
-    testl     %ecx, %ecx                    # is object null?
-    je        common_errNullObject
-    movzwq    2(rPC), %rax                  # rax<- field byte offset
-    leaq      (%rcx,%rax,1), %rcx           # ecx<- Address of 64-bit target
-    andb      $0xf, rINSTbl                # rINST<- A
-    GET_WIDE_VREG %rax, rINSTq              # rax<- fp[A]/fp[A+1]
-    movq      %rax, (%rcx)                  # obj.field<- r0/r1
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+/* Transfer stub to alternate interpreter */
+    jmp     MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
