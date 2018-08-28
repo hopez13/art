@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b327aa0_3a10aa1f",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-28T21:45:29Z",
+      "side": 1,
+      "message": "I believe this is the best we can do - i.e. still pushing the spec, but in practice all compilers support it specifically for this use case.  Definitely better than the old version of the code, no?\n\nIsn\u0027t std::bit_cast C+20 only?",
+      "parentUuid": "44aaa803_32268be5",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cf00dae_08df4c9e",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 1
