@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc9fc55e_cafff7fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-28T08:42:27Z",
+      "side": 1,
+      "message": "Is there an issue in the bug tracker for this? It could be useful to have context.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7c17e4_0862a72f",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-28T08:42:27Z",
+      "side": 1,
+      "message": "This seems like it should be a libcore test case (as well, if not solely). I\u0027ll create a bug to follow up.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
