@@ -16,7 +16,7 @@
     mov     rFP, LOCAL1(%esp)               # save FP
     mov     rIBASE, LOCAL2(%esp)            # save rIBASE
     leal    (rFP,%eax,4), %esi              # esi <- &v[B]
-    leal    (rFP,%ecx,4), rFP               # rFP <- &v[C]
+    leal    VREG_ADDRESS(%ecx), rFP         # rFP <- &v[C]
     movl    4(%esi), %ecx                   # ecx <- Bmsw
     imull   (rFP), %ecx                     # ecx <- (Bmsw*Clsw)
     movl    4(rFP), %eax                    # eax <- Cmsw

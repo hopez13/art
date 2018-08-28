@@ -3,6 +3,6 @@
     sarl    $$4, rINST                      # rINST <- B
     andb    $$0xf, %cl                      # ecx <- A
     GET_VREG %eax, %rcx                     # eax <- vA
-    imull   (rFP,rINSTq,4), %eax
+    imull   VREG_ADDRESS(rINSTq), %eax
     SET_VREG %eax, %rcx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1

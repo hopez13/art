@@ -248,45 +248,24 @@ codes.
  * Get/set the 32-bit value from a Dalvik register.
  */
 .macro GET_VREG reg, vreg
-    ldr     \reg, [xFP, \vreg, uxtw #2]
-.endm
-.macro SET_VREG reg, vreg
-    str     \reg, [xFP, \vreg, uxtw #2]
-    str     wzr, [xREFS, \vreg, uxtw #2]
-.endm
-.macro SET_VREG_OBJECT reg, vreg, tmpreg
-    str     \reg, [xFP, \vreg, uxtw #2]
-    str     \reg, [xREFS, \vreg, uxtw #2]
-.endm
-
-/*
- * Get/set the 64-bit value from a Dalvik register.
- * TUNING: can we do better here?
- */
-.macro GET_VREG_WIDE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
+    add     ip2, xFP, \vreg, lsl #3
     ldr     \reg, [ip2]
 .endm
-.macro SET_VREG_WIDE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
+.macro SET_VREG reg, vreg
+    add     ip2, xFP, \vreg, lsl #3
     str     \reg, [ip2]
-    add     ip2, xREFS, \vreg, lsl #2
-    str     xzr, [ip2]
+    str     wzr, [ip2, 4]
 .endm
-
-/*
- * Get the 32-bit value from a Dalvik register and sign-extend to 64-bit.
- * Used to avoid an extra instruction in int-to-long.
- */
-.macro GET_VREG_S reg, vreg
-    ldrsw   \reg, [xFP, \vreg, uxtw #2]
+.macro SET_VREG_OBJECT reg, vreg
+    add     ip2, xFP, \vreg, lsl #3
+    stp     \reg, \reg, [ip2]
 .endm
 
 /*
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, xFP, \vreg, lsl #2   /* WARNING: handle shadow frame vreg zero if store */
+    add     \reg, xFP, \vreg, lsl #3   /* WARNING: handle shadow frame vreg zero if store */
 .endm
 
 /*

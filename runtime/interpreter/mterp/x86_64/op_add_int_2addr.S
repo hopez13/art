@@ -1,1 +1,1 @@
-%include "x86_64/binop2addr.S" {"instr":"addl    %eax, (rFP,%rcx,4)"}
+%include "x86_64/binop2addr.S" {"instr":"addl    %eax, VREG_ADDRESS(%rcx)"}

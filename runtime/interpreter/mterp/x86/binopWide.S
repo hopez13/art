@@ -7,8 +7,8 @@
     movl    rIBASE, LOCAL0(%esp)            # save rIBASE
     GET_VREG rIBASE, %eax                   # rIBASE <- v[BB+0]
     GET_VREG_HIGH %eax, %eax                # eax <- v[BB+1]
-    $instr1                                 # ex: addl   (rFP,%ecx,4),rIBASE
-    $instr2                                 # ex: adcl   4(rFP,%ecx,4),%eax
+    $instr1                                 # ex: addl   VREG_ADDRESS(%ecx),rIBASE
+    $instr2                                 # ex: adcl   VREG_ADDRESS_HIGH(%ecx),%eax
     SET_VREG rIBASE, rINST                  # v[AA+0] <- rIBASE
     movl    LOCAL0(%esp), rIBASE            # restore rIBASE
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax

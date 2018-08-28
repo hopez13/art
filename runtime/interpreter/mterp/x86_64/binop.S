@@ -12,6 +12,6 @@
     movzbq  2(rPC), %rax                    # rax <- BB
     movzbq  3(rPC), %rcx                    # rcx <- CC
     GET_VREG %eax, %rax                     # eax <- vBB
-    $instr                                  # ex: addl    (rFP,%rcx,4),%eax
+    $instr                                  # ex: addl    VREG_ADDRESS(%rcx),%eax
     SET_VREG $result, rINSTq
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2

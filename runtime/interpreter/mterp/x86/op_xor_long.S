@@ -1,1 +1,1 @@
-%include "x86/binopWide.S" {"instr1":"xorl    (rFP,%ecx,4), rIBASE", "instr2":"xorl    4(rFP,%ecx,4), %eax"}
+%include "x86/binopWide.S" {"instr1":"xorl    VREG_ADDRESS(%ecx), rIBASE", "instr2":"xorl    VREG_ADDRESS_HIGH(%ecx), %eax"}

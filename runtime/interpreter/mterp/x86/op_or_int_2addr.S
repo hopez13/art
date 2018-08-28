@@ -1,1 +1,1 @@
-%include "x86/binop2addr.S" {"instr":"orl     %eax, (rFP,%ecx,4)"}
+%include "x86/binop2addr.S" {"instr":"orl     %eax, VREG_ADDRESS(%ecx)"}

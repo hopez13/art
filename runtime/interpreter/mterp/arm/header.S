@@ -251,36 +251,23 @@ unspecified registers or condition codes.
  * Get/set the 32-bit value from a Dalvik register.
  */
 .macro GET_VREG reg, vreg
-    ldr     \reg, [rFP, \vreg, lsl #2]
+    ldr     \reg, [rFP, \vreg, lsl #3]
 .endm
 .macro SET_VREG reg, vreg
-    str     \reg, [rFP, \vreg, lsl #2]
+    str     \reg, [rFP, \vreg, lsl #3]
     mov     \reg, #0
-    str     \reg, [rREFS, \vreg, lsl #2]
+    str     \reg, [rREFS, \vreg, lsl #3]
 .endm
 .macro SET_VREG_OBJECT reg, vreg, tmpreg
-    str     \reg, [rFP, \vreg, lsl #2]
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-.macro SET_VREG_SHADOW reg, vreg
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-
-/*
- * Clear the corresponding shadow regs for a vreg pair
- */
-.macro CLEAR_SHADOW_PAIR vreg, tmp1, tmp2
-    mov     \tmp1, #0
-    add     \tmp2, \vreg, #1
-    SET_VREG_SHADOW \tmp1, \vreg
-    SET_VREG_SHADOW \tmp1, \tmp2
+    str     \reg, [rFP, \vreg, lsl #3]
+    str     \reg, [rREFS, \vreg, lsl #3]
 .endm
 
 /*
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, rFP, \vreg, lsl #2   /* WARNING/FIXME: handle shadow frame vreg zero if store */
+    add     \reg, rFP, \vreg, lsl #3   /* WARNING/FIXME: handle shadow frame vreg zero if store */
 .endm
 
 /*

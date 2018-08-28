@@ -56,7 +56,7 @@ SYMBOL(ExecuteMterpImpl):
     /* set up "named" registers */
     movl    SHADOWFRAME_NUMBER_OF_VREGS_OFFSET(IN_ARG2), %eax
     leaq    SHADOWFRAME_VREGS_OFFSET(IN_ARG2), rFP
-    leaq    (rFP, %rax, 4), rREFS
+    leaq    4(rFP), rREFS
     movl    SHADOWFRAME_DEX_PC_OFFSET(IN_ARG2), %eax
     leaq    (IN_ARG1, %rax, 2), rPC
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)

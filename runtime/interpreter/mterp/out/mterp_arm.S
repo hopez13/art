@@ -258,36 +258,23 @@ unspecified registers or condition codes.
  * Get/set the 32-bit value from a Dalvik register.
  */
 .macro GET_VREG reg, vreg
-    ldr     \reg, [rFP, \vreg, lsl #2]
+    ldr     \reg, [rFP, \vreg, lsl #3]
 .endm
 .macro SET_VREG reg, vreg
-    str     \reg, [rFP, \vreg, lsl #2]
+    str     \reg, [rFP, \vreg, lsl #3]
     mov     \reg, #0
-    str     \reg, [rREFS, \vreg, lsl #2]
+    str     \reg, [rREFS, \vreg, lsl #3]
 .endm
 .macro SET_VREG_OBJECT reg, vreg, tmpreg
-    str     \reg, [rFP, \vreg, lsl #2]
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-.macro SET_VREG_SHADOW reg, vreg
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-
-/*
- * Clear the corresponding shadow regs for a vreg pair
- */
-.macro CLEAR_SHADOW_PAIR vreg, tmp1, tmp2
-    mov     \tmp1, #0
-    add     \tmp2, \vreg, #1
-    SET_VREG_SHADOW \tmp1, \vreg
-    SET_VREG_SHADOW \tmp1, \tmp2
+    str     \reg, [rFP, \vreg, lsl #3]
+    str     \reg, [rREFS, \vreg, lsl #3]
 .endm
 
 /*
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, rFP, \vreg, lsl #2   /* WARNING/FIXME: handle shadow frame vreg zero if store */
+    add     \reg, rFP, \vreg, lsl #3   /* WARNING/FIXME: handle shadow frame vreg zero if store */
 .endm
 
 /*
@@ -372,9 +359,8 @@ ENTRY ExecuteMterpImpl
 
     /* set up "named" registers */
     mov     rSELF, r0
-    ldr     r0, [r2, #SHADOWFRAME_NUMBER_OF_VREGS_OFFSET]
     add     rFP, r2, #SHADOWFRAME_VREGS_OFFSET     @ point to vregs.
-    VREG_INDEX_TO_ADDR rREFS, r0                   @ point to reference array in shadow frame
+    add     rREFS, rFP, 4                          @ point to reference array in shadow frame
     ldr     r0, [r2, #SHADOWFRAME_DEX_PC_OFFSET]   @ Get starting dex_pc.
     add     rPC, r1, r0, lsl #1                    @ Create direct pointer to 1st dex opcode
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)
@@ -469,53 +455,23 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide: /* 0x04 */
-/* File: arm/op_move_wide.S */
-    /* move-wide vA, vB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r2, rINST        @ r2<- &fp[A]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- fp[B]
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r2, {r0-r1}                 @ fp[A]<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_from16: /* 0x05 */
-/* File: arm/op_move_wide_from16.S */
-    /* move-wide/from16 vAA, vBBBB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    FETCH r3, 1                         @ r3<- BBBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BBBB]
-    VREG_INDEX_TO_ADDR r2, rINST        @ r2<- &fp[AA]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- fp[BBBB]
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r2, {r0-r1}                 @ fp[AA]<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_16: /* 0x06 */
-/* File: arm/op_move_wide_16.S */
-    /* move-wide/16 vAAAA, vBBBB */
-    /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
-    FETCH r3, 2                         @ r3<- BBBB
-    FETCH r2, 1                         @ r2<- AAAA
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BBBB]
-    VREG_INDEX_TO_ADDR lr, r2           @ r2<- &fp[AAAA]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- fp[BBBB]
-    FETCH_ADVANCE_INST 3                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r2, r3, ip        @ Zero out the shadow regs
-    stmia   lr, {r0-r1}                 @ fp[AAAA]<- r0/r1
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -598,17 +554,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_wide: /* 0x0b */
-/* File: arm/op_move_result_wide.S */
-    /* move-result-wide vAA */
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    ldr     r3, [rFP, #OFF_FP_RESULT_REGISTER]
-    VREG_INDEX_TO_ADDR r2, rINST        @ r2<- &fp[AA]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- retval.j
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    stmia   r2, {r0-r1}                 @ fp[AA]<- r0/r1
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -682,21 +630,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_wide: /* 0x10 */
-/* File: arm/op_return_wide.S */
-    /*
-     * Return a 64-bit value.
-     */
-    /* return-wide vAA */
-    .extern MterpThreadFenceForConstructor
-    bl      MterpThreadFenceForConstructor
-    ldr     lr, [rSELF, #THREAD_FLAGS_OFFSET]
-    mov     r0, rSELF
-    ands    lr, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    blne    MterpSuspendCheck                       @ (self)
-    mov     r2, rINST, lsr #8           @ r2<- AA
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[AA]
-    ldmia   r2, {r0-r1}                 @ r0/r1 <- vAA/vAA+1
-    b       MterpReturn
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -775,69 +711,30 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_16: /* 0x16 */
-/* File: arm/op_const_wide_16.S */
-    /* const-wide/16 vAA, #+BBBB */
-    FETCH_S r0, 1                       @ r0<- ssssBBBB (sign-extended)
-    mov     r3, rINST, lsr #8           @ r3<- AA
-    mov     r1, r0, asr #31             @ r1<- ssssssss
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r3, r2, lr        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[AA]
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r3, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_32: /* 0x17 */
-/* File: arm/op_const_wide_32.S */
-    /* const-wide/32 vAA, #+BBBBbbbb */
-    FETCH r0, 1                         @ r0<- 0000bbbb (low)
-    mov     r3, rINST, lsr #8           @ r3<- AA
-    FETCH_S r2, 2                       @ r2<- ssssBBBB (high)
-    FETCH_ADVANCE_INST 3                @ advance rPC, load rINST
-    orr     r0, r0, r2, lsl #16         @ r0<- BBBBbbbb
-    CLEAR_SHADOW_PAIR r3, r2, lr        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[AA]
-    mov     r1, r0, asr #31             @ r1<- ssssssss
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r3, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide: /* 0x18 */
-/* File: arm/op_const_wide.S */
-    /* const-wide vAA, #+HHHHhhhhBBBBbbbb */
-    FETCH r0, 1                         @ r0<- bbbb (low)
-    FETCH r1, 2                         @ r1<- BBBB (low middle)
-    FETCH r2, 3                         @ r2<- hhhh (high middle)
-    orr     r0, r0, r1, lsl #16         @ r0<- BBBBbbbb (low word)
-    FETCH r3, 4                         @ r3<- HHHH (high)
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    orr     r1, r2, r3, lsl #16         @ r1<- HHHHhhhh (high word)
-    CLEAR_SHADOW_PAIR r9, r2, r3        @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 5                @ advance rPC, load rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_high16: /* 0x19 */
-/* File: arm/op_const_wide_high16.S */
-    /* const-wide/high16 vAA, #+BBBB000000000000 */
-    FETCH r1, 1                         @ r1<- 0000BBBB (zero-extended)
-    mov     r3, rINST, lsr #8           @ r3<- AA
-    mov     r0, #0                      @ r0<- 00000000
-    mov     r1, r1, lsl #16             @ r1<- BBBB0000
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r3, r0, r2        @ Zero shadow regs
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[AA]
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r3, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -1323,108 +1220,23 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_double: /* 0x2f */
-/* File: arm/op_cmpl_double.S */
-    /*
-     * Compare two floating-point values.  Puts 0, 1, or -1 into the
-     * destination register based on the results of the comparison.
-     *
-     * int compare(x, y) {
-     *     if (x == y) {
-     *         return 0;
-     *     } else if (x > y) {
-     *         return 1;
-     *     } else if (x < y) {
-     *         return -1;
-     *     } else {
-     *         return -1;
-     *     }
-     * }
-     */
-    /* op vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    vcmpe.f64 d0, d1                    @ compare (vBB, vCC)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    mvn     r0, #0                      @ r0<- -1 (default)
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fmstat                              @ export status flags
-    movgt   r0, #1                      @ (greater than) r1<- 1
-    moveq   r0, #0                      @ (equal) r1<- 0
-    SET_VREG r0, r9                     @ vAA<- r0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_double: /* 0x30 */
-/* File: arm/op_cmpg_double.S */
-    /*
-     * Compare two floating-point values.  Puts 0, 1, or -1 into the
-     * destination register based on the results of the comparison.
-     *
-     * int compare(x, y) {
-     *     if (x == y) {
-     *         return 0;
-     *     } else if (x < y) {
-     *         return -1;
-     *     } else if (x > y) {
-     *         return 1;
-     *     } else {
-     *         return 1;
-     *     }
-     * }
-     */
-    /* op vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    vcmpe.f64 d0, d1                    @ compare (vBB, vCC)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    mov     r0, #1                      @ r0<- 1 (default)
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fmstat                              @ export status flags
-    mvnmi   r0, #0                      @ (less than) r1<- -1
-    moveq   r0, #0                      @ (equal) r1<- 0
-    SET_VREG r0, r9                     @ vAA<- r0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_cmp_long: /* 0x31 */
-/* File: arm/op_cmp_long.S */
-    /*
-     * Compare two 64-bit values.  Puts 0, 1, or -1 into the destination
-     * register based on the results of the comparison.
-     */
-    /* cmp-long vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    cmp     r0, r2
-    sbcs    ip, r1, r3                  @ Sets correct CCs for checking LT (but not EQ/NE)
-    mov     ip, #0
-    mvnlt   ip, #0                      @ -1
-    cmpeq   r0, r2                      @ For correct EQ/NE, we may need to repeat the first CMP
-    orrne   ip, #1
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    SET_VREG ip, r9                     @ vAA<- ip
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -1828,32 +1640,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_wide: /* 0x45 */
-/* File: arm/op_aget_wide.S */
-    /*
-     * Array get, 64 bits.  vAA <- vBB[vCC].
-     *
-     * Arrays of long/double are 64-bit aligned, so it's okay to use LDRD.
-     */
-    /* aget-wide vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    GET_VREG r0, r2                     @ r0<- vBB (array object)
-    GET_VREG r1, r3                     @ r1<- vCC (requested index)
-    cmp     r0, #0                      @ null array object?
-    beq     common_errNullObject        @ yes, bail
-    ldr     r3, [r0, #MIRROR_ARRAY_LENGTH_OFFSET]    @ r3<- arrayObj->length
-    add     r0, r0, r1, lsl #3          @ r0<- arrayObj + index*width
-    cmp     r1, r3                      @ compare unsigned index, length
-    bcs     common_errArrayIndex        @ index >= length, bail
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    ldrd    r2, [r0, #MIRROR_WIDE_ARRAY_DATA_OFFSET]  @ r2/r3<- vBB[vCC]
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r2-r3}                 @ vAA/vAA+1<- r2/r3
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -2057,31 +1846,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_wide: /* 0x4c */
-/* File: arm/op_aput_wide.S */
-    /*
-     * Array put, 64 bits.  vBB[vCC] <- vAA.
-     *
-     * Arrays of long/double are 64-bit aligned, so it's okay to use STRD.
-     */
-    /* aput-wide vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    GET_VREG r0, r2                     @ r0<- vBB (array object)
-    GET_VREG r1, r3                     @ r1<- vCC (requested index)
-    cmp     r0, #0                      @ null array object?
-    beq     common_errNullObject        @ yes, bail
-    ldr     r3, [r0, #MIRROR_ARRAY_LENGTH_OFFSET]    @ r3<- arrayObj->length
-    add     r0, r0, r1, lsl #3          @ r0<- arrayObj + index*width
-    cmp     r1, r3                      @ compare unsigned index, length
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    bcs     common_errArrayIndex        @ index >= length, bail
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    ldmia   r9, {r2-r3}                 @ r2/r3<- vAA/vAA+1
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    strd    r2, [r0, #MIRROR_WIDE_ARRAY_DATA_OFFSET]  @ r2/r3<- vBB[vCC]
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -2275,30 +2042,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide: /* 0x53 */
-/* File: arm/op_iget_wide.S */
-    /*
-     * 64-bit instance field get.
-     *
-     * for: iget-wide
-     */
-    EXPORT_PC
-    FETCH    r0, 1                         @ r0<- field ref CCCC
-    mov      r1, rINST, lsr #12            @ r1<- B
-    GET_VREG r1, r1                        @ r1<- fp[B], the object pointer
-    ldr      r2, [rFP, #OFF_FP_METHOD]     @ r2<- referrer
-    mov      r3, rSELF                     @ r3<- self
-    bl       MterpIGetU64
-    ldr      r3, [rSELF, #THREAD_EXCEPTION_OFFSET]
-    ubfx     r2, rINST, #8, #4             @ r2<- A
-    PREFETCH_INST 2
-    cmp      r3, #0
-    bne      MterpException                @ bail out
-    CLEAR_SHADOW_PAIR r2, ip, lr           @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r3, r2              @ r3<- &fp[A]
-    stmia    r3, {r0-r1}                   @ fp[A]<- r0/r1
-    ADVANCE 2
-    GET_INST_OPCODE ip                     @ extract opcode from rINST
-    GOTO_OPCODE ip                         @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -2489,23 +2235,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide: /* 0x5a */
-/* File: arm/op_iput_wide.S */
-    /* iput-wide vA, vB, field@CCCC */
-    .extern MterpIPutU64
-    EXPORT_PC
-    FETCH    r0, 1                      @ r0<- field ref CCCC
-    mov      r1, rINST, lsr #12         @ r1<- B
-    GET_VREG r1, r1                     @ r1<- fp[B], the object pointer
-    ubfx     r2, rINST, #8, #4          @ r2<- A
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[A]
-    ldr      r3, [rFP, #OFF_FP_METHOD]  @ r3<- referrer
-    PREFETCH_INST 2
-    bl       MterpIPutU64
-    cmp      r0, #0
-    bne      MterpPossibleException
-    ADVANCE  2                          @ advance rPC
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -2669,29 +2401,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sget_wide: /* 0x61 */
-/* File: arm/op_sget_wide.S */
-    /*
-     * SGET_WIDE handler wrapper.
-     *
-     */
-    /* sget-wide vAA, field@BBBB */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
-    .extern MterpSGetU64
-    EXPORT_PC
-    FETCH r0, 1                         @ r0<- field ref BBBB
-    ldr   r1, [rFP, #OFF_FP_METHOD]
-    mov   r2, rSELF
-    bl    MterpSGetU64
-    ldr   r3, [rSELF, #THREAD_EXCEPTION_OFFSET]
-    mov   r9, rINST, lsr #8             @ r9<- AA
-    VREG_INDEX_TO_ADDR lr, r9           @ r9<- &fp[AA]
-    cmp   r3, #0                        @ Fail to resolve?
-    bne   MterpException                @ bail out
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r9, r2, ip        @ Zero out the shadow regs
-    stmia lr, {r0-r1}                   @ vAA/vAA+1<- r0/r1
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
 
 /* ------------------------------ */
     .balign 128
@@ -2885,26 +2597,9 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sput_wide: /* 0x68 */
-/* File: arm/op_sput_wide.S */
-    /*
-     * SPUT_WIDE handler wrapper.
-     *
-     */
-    /* sput-wide vAA, field@BBBB */
-    .extern MterpSPutU64
-    EXPORT_PC
-    FETCH   r0, 1                       @ r0<- field ref BBBB
-    mov     r1, rINST, lsr #8           @ r1<- AA
-    VREG_INDEX_TO_ADDR r1, r1
-    ldr     r2, [rFP, #OFF_FP_METHOD]
-    mov     r3, rSELF
-    PREFETCH_INST 2                     @ Get next inst, but don't advance rPC
-    bl      MterpSPutU64
-    cmp     r0, #0                      @ 0 on success, -1 on failure
-    bne     MterpException
-    ADVANCE 2                           @ Past exception point - now advance rPC
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -3417,57 +3112,15 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_neg_long: /* 0x7d */
-/* File: arm/op_neg_long.S */
-/* File: arm/unopWide.S */
-    /*
-     * Generic 64-bit unary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = op r0/r1".
-     * This could be an ARM instruction or a function call.
-     *
-     * For: neg-long, not-long, neg-double, long-to-double, double-to-long
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vAA
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    rsbs    r0, r0, #0                           @ optional op; may set condition codes
-    rsc     r1, r1, #0                              @ r0/r1<- op, r2-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 10-11 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_not_long: /* 0x7e */
-/* File: arm/op_not_long.S */
-/* File: arm/unopWide.S */
-    /*
-     * Generic 64-bit unary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = op r0/r1".
-     * This could be an ARM instruction or a function call.
-     *
-     * For: neg-long, not-long, neg-double, long-to-double, double-to-long
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vAA
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    mvn     r0, r0                           @ optional op; may set condition codes
-    mvn     r1, r1                              @ r0/r1<- op, r2-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 10-11 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -3499,56 +3152,15 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_neg_double: /* 0x80 */
-/* File: arm/op_neg_double.S */
-/* File: arm/unopWide.S */
-    /*
-     * Generic 64-bit unary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = op r0/r1".
-     * This could be an ARM instruction or a function call.
-     *
-     * For: neg-long, not-long, neg-double, long-to-double, double-to-long
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vAA
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    add     r1, r1, #0x80000000                              @ r0/r1<- op, r2-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 10-11 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_long: /* 0x81 */
-/* File: arm/op_int_to_long.S */
-/* File: arm/unopWider.S */
-    /*
-     * Generic 32bit-to-64bit unary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = op r0", where
-     * "result" is a 64-bit quantity in r0/r1.
-     *
-     * For: int-to-long, int-to-double, float-to-long, float-to-double
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    GET_VREG r0, r3                     @ r0<- vB
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-                               @ optional op; may set condition codes
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    mov     r1, r0, asr #31                              @ r0<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vA/vA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 9-10 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -3578,108 +3190,30 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_double: /* 0x83 */
-/* File: arm/op_int_to_double.S */
-/* File: arm/funopWider.S */
-    /*
-     * Generic 32bit-to-64bit floating point unary operation.  Provide an
-     * "instr" line that specifies an instruction that performs "d0 = op s0".
-     *
-     * For: int-to-double, float-to-double
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    flds    s0, [r3]                    @ s0<- vB
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    fsitod  d0, s0                              @ d0<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    fstd    d0, [r9]                    @ vA<- d0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_int: /* 0x84 */
-/* File: arm/op_long_to_int.S */
-/* we ignore the high word, making this equivalent to a 32-bit reg move */
-/* File: arm/op_move.S */
-    /* for move, move-object, long-to-int */
-    /* op vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B from 15:12
-    ubfx    r0, rINST, #8, #4           @ r0<- A from 11:8
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    GET_VREG r2, r1                     @ r2<- fp[B]
-    GET_INST_OPCODE ip                  @ ip<- opcode from rINST
-    .if 0
-    SET_VREG_OBJECT r2, r0              @ fp[A]<- r2
-    .else
-    SET_VREG r2, r0                     @ fp[A]<- r2
-    .endif
-    GOTO_OPCODE ip                      @ execute next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_float: /* 0x85 */
-/* File: arm/op_long_to_float.S */
-/* File: arm/unopNarrower.S */
-    /*
-     * Generic 64bit-to-32bit unary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = op r0/r1", where
-     * "result" is a 32-bit quantity in r0.
-     *
-     * For: long-to-float, double-to-int, double-to-float
-     *
-     * (This would work for long-to-int, but that instruction is actually
-     * an exact match for op_move.)
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vB/vB+1
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      __aeabi_l2f                              @ r0<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    SET_VREG r0, r9                     @ vA<- r0
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 9-10 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_double: /* 0x86 */
-/* File: arm/op_long_to_double.S */
-    /*
-     * Specialised 64-bit floating point operation.
-     *
-     * Note: The result will be returned in d2.
-     *
-     * For: long-to-double
-     */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
-    vldr    d0, [r3]                    @ d0<- vAA
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
-    vcvt.f64.s32    d1, s1              @ d1<- (double)(vAAh)
-    vcvt.f64.u32    d2, s0              @ d2<- (double)(vAAl)
-    vldr            d3, constvalop_long_to_double
-    vmla.f64        d2, d1, d3          @ d2<- vAAh*2^32 + vAAl
-
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    vstr.64 d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
-
-    /* literal pool helper */
-constvalop_long_to_double:
-    .8byte          0x41f0000000000000
 
 /* ------------------------------ */
     .balign 128
@@ -3708,131 +3242,36 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_long: /* 0x88 */
-/* File: arm/op_float_to_long.S */
-/* File: arm/unopWider.S */
-    /*
-     * Generic 32bit-to-64bit unary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = op r0", where
-     * "result" is a 64-bit quantity in r0/r1.
-     *
-     * For: int-to-long, int-to-double, float-to-long, float-to-double
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    GET_VREG r0, r3                     @ r0<- vB
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-                               @ optional op; may set condition codes
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    bl      f2l_doconv                              @ r0<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vA/vA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 9-10 instructions */
-
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_double: /* 0x89 */
-/* File: arm/op_float_to_double.S */
-/* File: arm/funopWider.S */
-    /*
-     * Generic 32bit-to-64bit floating point unary operation.  Provide an
-     * "instr" line that specifies an instruction that performs "d0 = op s0".
-     *
-     * For: int-to-double, float-to-double
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    flds    s0, [r3]                    @ s0<- vB
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    vcvt.f64.f32  d0, s0                              @ d0<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    fstd    d0, [r9]                    @ vA<- d0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_int: /* 0x8a */
-/* File: arm/op_double_to_int.S */
-/* File: arm/funopNarrower.S */
-    /*
-     * Generic 64bit-to-32bit unary floating point operation.  Provide an
-     * "instr" line that specifies an instruction that performs "s0 = op d0".
-     *
-     * For: double-to-int, double-to-float
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    fldd    d0, [r3]                    @ d0<- vB
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    ftosizd  s0, d0                              @ s0<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    fsts    s0, [r9]                    @ vA<- s0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_long: /* 0x8b */
-/* File: arm/op_double_to_long.S */
-/* File: arm/unopWide.S */
-    /*
-     * Generic 64-bit unary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = op r0/r1".
-     * This could be an ARM instruction or a function call.
-     *
-     * For: neg-long, not-long, neg-double, long-to-double, double-to-long
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vAA
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      d2l_doconv                              @ r0/r1<- op, r2-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 10-11 instructions */
-
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_float: /* 0x8c */
-/* File: arm/op_double_to_float.S */
-/* File: arm/funopNarrower.S */
-    /*
-     * Generic 64bit-to-32bit unary floating point operation.  Provide an
-     * "instr" line that specifies an instruction that performs "s0 = op d0".
-     *
-     * For: double-to-int, double-to-float
-     */
-    /* unop vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    fldd    d0, [r3]                    @ d0<- vB
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    vcvt.f32.f64  s0, d0                              @ s0<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    fsts    s0, [r9]                    @ vA<- s0
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -4357,449 +3796,79 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_add_long: /* 0x9b */
-/* File: arm/op_add_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    adds    r0, r0, r2                           @ optional op; may set condition codes
-    adc     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long: /* 0x9c */
-/* File: arm/op_sub_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    subs    r0, r0, r2                           @ optional op; may set condition codes
-    sbc     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long: /* 0x9d */
-/* File: arm/op_mul_long.S */
-    /*
-     * Signed 64-bit integer multiply.
-     *
-     * Consider WXxYZ (r1r0 x r3r2) with a long multiply:
-     *        WX
-     *      x YZ
-     *  --------
-     *     ZW ZX
-     *  YW YX
-     *
-     * The low word of the result holds ZX, the high word holds
-     * (ZW+YX) + (the high overflow from ZX).  YW doesn't matter because
-     * it doesn't fit in the low 64 bits.
-     *
-     * Unlike most ARM math operations, multiply instructions have
-     * restrictions on using the same register more than once (Rd and Rm
-     * cannot be the same).
-     */
-    /* mul-long vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    mul     ip, r2, r1                  @ ip<- ZxW
-    umull   r1, lr, r2, r0              @ r1/lr <- ZxX
-    mla     r2, r0, r3, ip              @ r2<- YxX + (ZxW)
-    mov     r0, rINST, lsr #8           @ r0<- AA
-    add     r2, r2, lr                  @ r2<- lr + low(ZxW + (YxX))
-    CLEAR_SHADOW_PAIR r0, lr, ip        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r0, r0           @ r0<- &fp[AA]
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r0, {r1-r2 }                @ vAA/vAA+1<- r1/r2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_long: /* 0x9e */
-/* File: arm/op_div_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 1
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      __aeabi_ldivmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long: /* 0x9f */
-/* File: arm/op_rem_long.S */
-/* ldivmod returns quotient in r0/r1 and remainder in r2/r3 */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 1
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      __aeabi_ldivmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r2,r3}     @ vAA/vAA+1<- r2/r3
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_and_long: /* 0xa0 */
-/* File: arm/op_and_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    and     r0, r0, r2                           @ optional op; may set condition codes
-    and     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_or_long: /* 0xa1 */
-/* File: arm/op_or_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    orr     r0, r0, r2                           @ optional op; may set condition codes
-    orr     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long: /* 0xa2 */
-/* File: arm/op_xor_long.S */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    eor     r0, r0, r2                           @ optional op; may set condition codes
-    eor     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long: /* 0xa3 */
-/* File: arm/op_shl_long.S */
-    /*
-     * Long integer shift.  This is different from the generic 32/64-bit
-     * binary operations because vAA/vBB are 64-bit but vCC (the shift
-     * distance) is 32-bit.  Also, Dalvik requires us to mask off the low
-     * 6 bits of the shift distance.
-     */
-    /* shl-long vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r3, r0, #255                @ r3<- BB
-    mov     r0, r0, lsr #8              @ r0<- CC
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
-    GET_VREG r2, r0                     @ r2<- vCC
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    and     r2, r2, #63                 @ r2<- r2 & 0x3f
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    mov     r1, r1, asl r2              @ r1<- r1 << r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r1, r1, r0, lsr r3          @ r1<- r1 | (r0 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    movpl   r1, r0, asl ip              @ if r2 >= 32, r1<- r0 << (r2-32)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    mov     r0, r0, asl r2              @ r0<- r0 << r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long: /* 0xa4 */
-/* File: arm/op_shr_long.S */
-    /*
-     * Long integer shift.  This is different from the generic 32/64-bit
-     * binary operations because vAA/vBB are 64-bit but vCC (the shift
-     * distance) is 32-bit.  Also, Dalvik requires us to mask off the low
-     * 6 bits of the shift distance.
-     */
-    /* shr-long vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r3, r0, #255                @ r3<- BB
-    mov     r0, r0, lsr #8              @ r0<- CC
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
-    GET_VREG r2, r0                     @ r2<- vCC
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    and     r2, r2, #63                 @ r0<- r0 & 0x3f
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    mov     r0, r0, lsr r2              @ r0<- r2 >> r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r0, r0, r1, asl r3          @ r0<- r0 | (r1 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    movpl   r0, r1, asr ip              @ if r2 >= 32, r0<-r1 >> (r2-32)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    mov     r1, r1, asr r2              @ r1<- r1 >> r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long: /* 0xa5 */
-/* File: arm/op_ushr_long.S */
-    /*
-     * Long integer shift.  This is different from the generic 32/64-bit
-     * binary operations because vAA/vBB are 64-bit but vCC (the shift
-     * distance) is 32-bit.  Also, Dalvik requires us to mask off the low
-     * 6 bits of the shift distance.
-     */
-    /* ushr-long vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    and     r3, r0, #255                @ r3<- BB
-    mov     r0, r0, lsr #8              @ r0<- CC
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
-    GET_VREG r2, r0                     @ r2<- vCC
-    ldmia   r3, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    and     r2, r2, #63                 @ r0<- r0 & 0x3f
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
-    mov     r0, r0, lsr r2              @ r0<- r2 >> r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r0, r0, r1, asl r3          @ r0<- r0 | (r1 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    movpl   r0, r1, lsr ip              @ if r2 >= 32, r0<-r1 >>> (r2-32)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    mov     r1, r1, lsr r2              @ r1<- r1 >>> r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -4966,166 +4035,36 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_add_double: /* 0xab */
-/* File: arm/op_add_double.S */
-/* File: arm/fbinopWide.S */
-    /*
-     * Generic 64-bit double-precision floating point binary operation.
-     * Provide an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * for: add-double, sub-double, mul-double, div-double
-     */
-    /* doubleop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    mov     r3, r0, lsr #8              @ r3<- CC
-    and     r2, r0, #255                @ r2<- BB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    faddd   d2, d0, d1                              @ s2<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vAA
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double: /* 0xac */
-/* File: arm/op_sub_double.S */
-/* File: arm/fbinopWide.S */
-    /*
-     * Generic 64-bit double-precision floating point binary operation.
-     * Provide an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * for: add-double, sub-double, mul-double, div-double
-     */
-    /* doubleop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    mov     r3, r0, lsr #8              @ r3<- CC
-    and     r2, r0, #255                @ r2<- BB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    fsubd   d2, d0, d1                              @ s2<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vAA
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double: /* 0xad */
-/* File: arm/op_mul_double.S */
-/* File: arm/fbinopWide.S */
-    /*
-     * Generic 64-bit double-precision floating point binary operation.
-     * Provide an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * for: add-double, sub-double, mul-double, div-double
-     */
-    /* doubleop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    mov     r3, r0, lsr #8              @ r3<- CC
-    and     r2, r0, #255                @ r2<- BB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    fmuld   d2, d0, d1                              @ s2<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vAA
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_double: /* 0xae */
-/* File: arm/op_div_double.S */
-/* File: arm/fbinopWide.S */
-    /*
-     * Generic 64-bit double-precision floating point binary operation.
-     * Provide an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * for: add-double, sub-double, mul-double, div-double
-     */
-    /* doubleop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     r9, rINST, lsr #8           @ r9<- AA
-    mov     r3, r0, lsr #8              @ r3<- CC
-    and     r2, r0, #255                @ r2<- BB
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vCC
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &vBB
-    fldd    d1, [r3]                    @ d1<- vCC
-    fldd    d0, [r2]                    @ d0<- vBB
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    fdivd   d2, d0, d1                              @ s2<- op
-    CLEAR_SHADOW_PAIR r9, ip, lr        @ Zero shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vAA
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double: /* 0xaf */
-/* File: arm/op_rem_double.S */
-/* EABI doesn't define a double remainder function, but libm does */
-/* File: arm/binopWide.S */
-    /*
-     * Generic 64-bit binary operation.  Provide an "instr" line that
-     * specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * for: add-long, sub-long, div-long, rem-long, and-long, or-long,
-     *      xor-long, add-double, sub-double, mul-double, div-double,
-     *      rem-double
-     *
-     * IMPORTANT: you may specify "chkzero" or "preinstr" but not both.
-     */
-    /* binop vAA, vBB, vCC */
-    FETCH r0, 1                         @ r0<- CCBB
-    mov     rINST, rINST, lsr #8        @ rINST<- AA
-    and     r2, r0, #255                @ r2<- BB
-    mov     r3, r0, lsr #8              @ r3<- CC
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[AA]
-    VREG_INDEX_TO_ADDR r2, r2           @ r2<- &fp[BB]
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[CC]
-    ldmia   r2, {r0-r1}                 @ r0/r1<- vBB/vBB+1
-    ldmia   r3, {r2-r3}                 @ r2/r3<- vCC/vCC+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      fmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 14-17 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -5543,393 +4482,79 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_add_long_2addr: /* 0xbb */
-/* File: arm/op_add_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    adds    r0, r0, r2                           @ optional op; may set condition codes
-    adc     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long_2addr: /* 0xbc */
-/* File: arm/op_sub_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    subs    r0, r0, r2                           @ optional op; may set condition codes
-    sbc     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long_2addr: /* 0xbd */
-/* File: arm/op_mul_long_2addr.S */
-    /*
-     * Signed 64-bit integer multiply, "/2addr" version.
-     *
-     * See op_mul_long for an explanation.
-     *
-     * We get a little tight on registers, so to avoid looking up &fp[A]
-     * again we stuff it into rINST.
-     */
-    /* mul-long/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR rINST, r9        @ rINST<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   rINST, {r0-r1}              @ r0/r1<- vAA/vAA+1
-    mul     ip, r2, r1                  @ ip<- ZxW
-    umull   r1, lr, r2, r0              @ r1/lr <- ZxX
-    mla     r2, r0, r3, ip              @ r2<- YxX + (ZxW)
-    mov     r0, rINST                   @ r0<- &fp[A] (free up rINST)
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    add     r2, r2, lr                  @ r2<- r2 + low(ZxW + (YxX))
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r0, {r1-r2}                 @ vAA/vAA+1<- r1/r2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_long_2addr: /* 0xbe */
-/* File: arm/op_div_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 1
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      __aeabi_ldivmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long_2addr: /* 0xbf */
-/* File: arm/op_rem_long_2addr.S */
-/* ldivmod returns quotient in r0/r1 and remainder in r2/r3 */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 1
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      __aeabi_ldivmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r2,r3}     @ vAA/vAA+1<- r2/r3
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_and_long_2addr: /* 0xc0 */
-/* File: arm/op_and_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    and     r0, r0, r2                           @ optional op; may set condition codes
-    and     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_or_long_2addr: /* 0xc1 */
-/* File: arm/op_or_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    orr     r0, r0, r2                           @ optional op; may set condition codes
-    orr     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long_2addr: /* 0xc2 */
-/* File: arm/op_xor_long_2addr.S */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    eor     r0, r0, r2                           @ optional op; may set condition codes
-    eor     r1, r1, r3                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long_2addr: /* 0xc3 */
-/* File: arm/op_shl_long_2addr.S */
-    /*
-     * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
-     * 32-bit shift distance.
-     */
-    /* shl-long/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
-    and     r2, r2, #63                 @ r2<- r2 & 0x3f
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    mov     r1, r1, asl r2              @ r1<- r1 << r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r1, r1, r0, lsr r3          @ r1<- r1 | (r0 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    movpl   r1, r0, asl ip              @ if r2 >= 32, r1<- r0 << (r2-32)
-    mov     r0, r0, asl r2              @ r0<- r0 << r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long_2addr: /* 0xc4 */
-/* File: arm/op_shr_long_2addr.S */
-    /*
-     * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
-     * 32-bit shift distance.
-     */
-    /* shr-long/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
-    and     r2, r2, #63                 @ r2<- r2 & 0x3f
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    mov     r0, r0, lsr r2              @ r0<- r2 >> r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r0, r0, r1, asl r3          @ r0<- r0 | (r1 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    movpl   r0, r1, asr ip              @ if r2 >= 32, r0<-r1 >> (r2-32)
-    mov     r1, r1, asr r2              @ r1<- r1 >> r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long_2addr: /* 0xc5 */
-/* File: arm/op_ushr_long_2addr.S */
-    /*
-     * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
-     * 32-bit shift distance.
-     */
-    /* ushr-long/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
-    and     r2, r2, #63                 @ r2<- r2 & 0x3f
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    mov     r0, r0, lsr r2              @ r0<- r2 >> r2
-    rsb     r3, r2, #32                 @ r3<- 32 - r2
-    orr     r0, r0, r1, asl r3          @ r0<- r0 | (r1 << (32-r2))
-    subs    ip, r2, #32                 @ ip<- r2 - 32
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    movpl   r0, r1, lsr ip              @ if r2 >= 32, r0<-r1 >>> (r2-32)
-    mov     r1, r1, lsr r2              @ r1<- r1 >>> r2
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0-r1}                 @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -6077,154 +4702,36 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_add_double_2addr: /* 0xcb */
-/* File: arm/op_add_double_2addr.S */
-/* File: arm/fbinopWide2addr.S */
-    /*
-     * Generic 64-bit floating point "/2addr" binary operation.  Provide
-     * an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * For: add-double/2addr, sub-double/2addr, mul-double/2addr,
-     *      div-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    CLEAR_SHADOW_PAIR r9, ip, r0        @ Zero out shadow regs
-    fldd    d1, [r3]                    @ d1<- vB
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    fldd    d0, [r9]                    @ d0<- vA
-    faddd   d2, d0, d1                              @ d2<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double_2addr: /* 0xcc */
-/* File: arm/op_sub_double_2addr.S */
-/* File: arm/fbinopWide2addr.S */
-    /*
-     * Generic 64-bit floating point "/2addr" binary operation.  Provide
-     * an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * For: add-double/2addr, sub-double/2addr, mul-double/2addr,
-     *      div-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    CLEAR_SHADOW_PAIR r9, ip, r0        @ Zero out shadow regs
-    fldd    d1, [r3]                    @ d1<- vB
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    fldd    d0, [r9]                    @ d0<- vA
-    fsubd   d2, d0, d1                              @ d2<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double_2addr: /* 0xcd */
-/* File: arm/op_mul_double_2addr.S */
-/* File: arm/fbinopWide2addr.S */
-    /*
-     * Generic 64-bit floating point "/2addr" binary operation.  Provide
-     * an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * For: add-double/2addr, sub-double/2addr, mul-double/2addr,
-     *      div-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    CLEAR_SHADOW_PAIR r9, ip, r0        @ Zero out shadow regs
-    fldd    d1, [r3]                    @ d1<- vB
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    fldd    d0, [r9]                    @ d0<- vA
-    fmuld   d2, d0, d1                              @ d2<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_div_double_2addr: /* 0xce */
-/* File: arm/op_div_double_2addr.S */
-/* File: arm/fbinopWide2addr.S */
-    /*
-     * Generic 64-bit floating point "/2addr" binary operation.  Provide
-     * an "instr" line that specifies an instruction that performs
-     * "d2 = d0 op d1".
-     *
-     * For: add-double/2addr, sub-double/2addr, mul-double/2addr,
-     *      div-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r3, rINST, lsr #12          @ r3<- B
-    ubfx    r9, rINST, #8, #4           @ r9<- A
-    VREG_INDEX_TO_ADDR r3, r3           @ r3<- &vB
-    CLEAR_SHADOW_PAIR r9, ip, r0        @ Zero out shadow regs
-    fldd    d1, [r3]                    @ d1<- vB
-    VREG_INDEX_TO_ADDR r9, r9           @ r9<- &vA
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-    fldd    d0, [r9]                    @ d0<- vA
-    fdivd   d2, d0, d1                              @ d2<- op
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    fstd    d2, [r9]                    @ vAA<- d2
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double_2addr: /* 0xcf */
-/* File: arm/op_rem_double_2addr.S */
-/* EABI doesn't define a double remainder function, but libm does */
-/* File: arm/binopWide2addr.S */
-    /*
-     * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
-     * that specifies an instruction that performs "result = r0-r1 op r2-r3".
-     * This could be an ARM instruction or a function call.  (If the result
-     * comes back in a register other than r0, you can override "result".)
-     *
-     * If "chkzero" is set to 1, we perform a divide-by-zero check on
-     * vCC (r1).  Useful for integer division and modulus.
-     *
-     * For: add-long/2addr, sub-long/2addr, div-long/2addr, rem-long/2addr,
-     *      and-long/2addr, or-long/2addr, xor-long/2addr, add-double/2addr,
-     *      sub-double/2addr, mul-double/2addr, div-double/2addr,
-     *      rem-double/2addr
-     */
-    /* binop/2addr vA, vB */
-    mov     r1, rINST, lsr #12          @ r1<- B
-    ubfx    rINST, rINST, #8, #4        @ rINST<- A
-    VREG_INDEX_TO_ADDR r1, r1           @ r1<- &fp[B]
-    VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
-    ldmia   r1, {r2-r3}                 @ r2/r3<- vBB/vBB+1
-    ldmia   r9, {r0-r1}                 @ r0/r1<- vAA/vAA+1
-    .if 0
-    orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
-    beq     common_errDivideByZero
-    .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
-    FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
-                               @ optional op; may set condition codes
-    bl      fmod                              @ result<- op, r0-r3 changed
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r9, {r0,r1}     @ vAA/vAA+1<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
-    /* 12-15 instructions */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -6966,21 +5473,9 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide_quick: /* 0xe4 */
-/* File: arm/op_iget_wide_quick.S */
-    /* iget-wide-quick vA, vB, offset@CCCC */
-    mov     r2, rINST, lsr #12          @ r2<- B
-    FETCH ip, 1                         @ ip<- field byte offset
-    GET_VREG r3, r2                     @ r3<- object we're operating on
-    ubfx    r2, rINST, #8, #4           @ r2<- A
-    cmp     r3, #0                      @ check object for null
-    beq     common_errNullObject        @ object was null
-    ldrd    r0, [r3, ip]                @ r0<- obj.field (64 bits, aligned)
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    VREG_INDEX_TO_ADDR r3, r2           @ r3<- &fp[A]
-    CLEAR_SHADOW_PAIR r2, ip, lr        @ Zero out the shadow regs
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    stmia   r3, {r0-r1}                 @ fp[A]<- r0/r1
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -7024,20 +5519,9 @@ constvalop_long_to_double:
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide_quick: /* 0xe7 */
-/* File: arm/op_iput_wide_quick.S */
-    /* iput-wide-quick vA, vB, offset@CCCC */
-    mov     r2, rINST, lsr #12          @ r2<- B
-    FETCH r3, 1                         @ r3<- field byte offset
-    GET_VREG r2, r2                     @ r2<- fp[B], the object pointer
-    ubfx    r0, rINST, #8, #4           @ r0<- A
-    cmp     r2, #0                      @ check object for null
-    beq     common_errNullObject        @ object was null
-    VREG_INDEX_TO_ADDR r0, r0           @ r0<- &fp[A]
-    ldmia   r0, {r0-r1}                 @ r0/r1<- fp[A]/fp[A+1]
-    FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    strd    r0, [r2, r3]                @ obj.field<- r0/r1
-    GET_INST_OPCODE ip                  @ extract opcode from rINST
-    GOTO_OPCODE ip                      @ jump to next instruction
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
+
 
 /* ------------------------------ */
     .balign 128
@@ -7535,68 +6019,6 @@ artMterpAsmInstructionEnd:
     .balign 4
 artMterpAsmSisterStart:
 
-
-/* continuation for op_float_to_long */
-/*
- * Convert the float in r0 to a long in r0/r1.
- *
- * We have to clip values to long min/max per the specification.  The
- * expected common case is a "reasonable" value that converts directly
- * to modest integer.  The EABI convert function isn't doing this for us.
- */
-f2l_doconv:
-    ubfx    r2, r0, #23, #8             @ grab the exponent
-    cmp     r2, #0xbe                   @ MININT < x > MAXINT?
-    bhs     f2l_special_cases
-    b       __aeabi_f2lz                @ tail call to convert float to long
-f2l_special_cases:
-    cmp     r2, #0xff                   @ NaN or infinity?
-    beq     f2l_maybeNaN
-f2l_notNaN:
-    adds    r0, r0, r0                  @ sign bit to carry
-    mov     r0, #0xffffffff             @ assume maxlong for lsw
-    mov     r1, #0x7fffffff             @ assume maxlong for msw
-    adc     r0, r0, #0
-    adc     r1, r1, #0                  @ convert maxlong to minlong if exp negative
-    bx      lr                          @ return
-f2l_maybeNaN:
-    lsls    r3, r0, #9
-    beq     f2l_notNaN                  @ if fraction is non-zero, it's a NaN
-    mov     r0, #0
-    mov     r1, #0
-    bx      lr                          @ return 0 for NaN
-
-/* continuation for op_double_to_long */
-/*
- * Convert the double in r0/r1 to a long in r0/r1.
- *
- * We have to clip values to long min/max per the specification.  The
- * expected common case is a "reasonable" value that converts directly
- * to modest integer.  The EABI convert function isn't doing this for us.
- */
-d2l_doconv:
-    ubfx    r2, r1, #20, #11            @ grab the exponent
-    movw    r3, #0x43e
-    cmp     r2, r3                      @ MINLONG < x > MAXLONG?
-    bhs     d2l_special_cases
-    b       __aeabi_d2lz                @ tail call to convert double to long
-d2l_special_cases:
-    movw    r3, #0x7ff
-    cmp     r2, r3
-    beq     d2l_maybeNaN                @ NaN?
-d2l_notNaN:
-    adds    r1, r1, r1                  @ sign bit to carry
-    mov     r0, #0xffffffff             @ assume maxlong for lsw
-    mov     r1, #0x7fffffff             @ assume maxlong for msw
-    adc     r0, r0, #0
-    adc     r1, r1, #0                  @ convert maxlong to minlong if exp negative
-    bx      lr                          @ return
-d2l_maybeNaN:
-    orrs    r3, r0, r1, lsl #12
-    beq     d2l_notNaN                  @ if fraction is non-zero, it's a NaN
-    mov     r0, #0
-    mov     r1, #0
-    bx      lr                          @ return 0 for NaN
 /* File: arm/instruction_end_sister.S */
 
     .type artMterpAsmSisterEnd, #object

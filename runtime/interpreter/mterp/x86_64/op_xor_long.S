@@ -1,1 +1,1 @@
-%include "x86_64/binopWide.S" {"instr":"xorq    (rFP,%rcx,4), %rax"}
+%include "x86_64/binopWide.S" {"instr":"xorq    VREG_ADDRESS(%rcx), %rax"}

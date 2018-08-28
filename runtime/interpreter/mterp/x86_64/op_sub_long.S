@@ -1,1 +1,1 @@
-%include "x86_64/binopWide.S" {"instr":"subq    (rFP,%rcx,4), %rax"}
+%include "x86_64/binopWide.S" {"instr":"subq    VREG_ADDRESS(%rcx), %rax"}
