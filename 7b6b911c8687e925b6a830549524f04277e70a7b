@@ -117,6 +117,30 @@
       "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2020815_69ffb1db",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-08-28T09:25:23Z",
+      "side": 1,
+      "message": "Yes - you\u0027re probably right. All the things I can think of are rather nasty / more complicated.",
+      "parentUuid": "c9cbc770_c34b2439",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
