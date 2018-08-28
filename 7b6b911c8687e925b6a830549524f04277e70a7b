@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79e9e2c2_710ef1a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-28T08:44:45Z",
+      "side": 1,
+      "message": "I just saw the finalizer stack trace on an ART benchmark. Would you like that information mentioned somewhere?",
+      "parentUuid": "fc9fc55e_cafff7fe",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be7c17e4_0862a72f",
         "filename": "test/718-zipfile-finalizer/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-08-28T08:42:27Z",
       "side": 1,
       "message": "This seems like it should be a libcore test case (as well, if not solely). I\u0027ll create a bug to follow up.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "7b6b911c8687e925b6a830549524f04277e70a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9cbc770_c34b2439",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-28T08:44:45Z",
+      "side": 1,
+      "message": "I initially started with a libcore test, but as finalizer exceptions are swallowed, I couldn\u0027t find a way.\n\nART tests have golden files which make this sort of test possible to implement.",
+      "parentUuid": "be7c17e4_0862a72f",
       "range": {
         "startLine": 19,
         "startChar": 13,
