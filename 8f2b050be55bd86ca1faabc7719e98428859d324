@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0a65c4b6_d4145517",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-28T21:49:39Z",
+      "side": 1,
+      "message": "We have our own bitcast based on memcpy (which compilers supposedly recognize).",
+      "parentUuid": "0b327aa0_3a10aa1f",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cf00dae_08df4c9e",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 1
