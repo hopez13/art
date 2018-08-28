@@ -2602,7 +2602,7 @@ artMterpAsmInstructionStart = .L_op_nop
      */
     /* sget-wide vAA, field//BBBB */
 
-    .extern MterpGet64StaticFromCode
+    .extern MterpSGetU64
     EXPORT_PC
     FETCH w0, 1                         // w0<- field ref BBBB
     ldr   x1, [xFP, #OFF_FP_METHOD]

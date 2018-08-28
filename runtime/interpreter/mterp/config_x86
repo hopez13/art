@@ -44,28 +44,28 @@ op-start x86
     # op op_move FALLBACK
     # op op_move_from16 FALLBACK
     # op op_move_16 FALLBACK
-    # op op_move_wide FALLBACK
-    # op op_move_wide_from16 FALLBACK
-    # op op_move_wide_16 FALLBACK
+    op op_move_wide FALLBACK
+    op op_move_wide_from16 FALLBACK
+    op op_move_wide_16 FALLBACK
     # op op_move_object FALLBACK
     # op op_move_object_from16 FALLBACK
     # op op_move_object_16 FALLBACK
     # op op_move_result FALLBACK
-    # op op_move_result_wide FALLBACK
+    op op_move_result_wide FALLBACK
     # op op_move_result_object FALLBACK
     # op op_move_exception FALLBACK
     # op op_return_void FALLBACK
     # op op_return FALLBACK
-    # op op_return_wide FALLBACK
+    op op_return_wide FALLBACK
     # op op_return_object FALLBACK
     # op op_const_4 FALLBACK
     # op op_const_16 FALLBACK
     # op op_const FALLBACK
     # op op_const_high16 FALLBACK
-    # op op_const_wide_16 FALLBACK
-    # op op_const_wide_32 FALLBACK
-    # op op_const_wide FALLBACK
-    # op op_const_wide_high16 FALLBACK
+    op op_const_wide_16 FALLBACK
+    op op_const_wide_32 FALLBACK
+    op op_const_wide FALLBACK
+    op op_const_wide_high16 FALLBACK
     # op op_const_string FALLBACK
     # op op_const_string_jumbo FALLBACK
     # op op_const_class FALLBACK
@@ -87,8 +87,8 @@ op-start x86
     # op op_sparse_switch FALLBACK
     # op op_cmpl_float FALLBACK
     # op op_cmpg_float FALLBACK
-    # op op_cmpl_double FALLBACK
-    # op op_cmpg_double FALLBACK
+    op op_cmpl_double FALLBACK
+    op op_cmpg_double FALLBACK
     # op op_cmp_long FALLBACK
     # op op_if_eq FALLBACK
     # op op_if_ne FALLBACK
@@ -109,42 +109,42 @@ op-start x86
     # op op_unused_42 FALLBACK
     # op op_unused_43 FALLBACK
     # op op_aget FALLBACK
-    # op op_aget_wide FALLBACK
+    op op_aget_wide FALLBACK
     # op op_aget_object FALLBACK
     # op op_aget_boolean FALLBACK
     # op op_aget_byte FALLBACK
     # op op_aget_char FALLBACK
     # op op_aget_short FALLBACK
     # op op_aput FALLBACK
-    # op op_aput_wide FALLBACK
+    op op_aput_wide FALLBACK
     # op op_aput_object FALLBACK
     # op op_aput_boolean FALLBACK
     # op op_aput_byte FALLBACK
     # op op_aput_char FALLBACK
     # op op_aput_short FALLBACK
     # op op_iget FALLBACK
-    # op op_iget_wide FALLBACK
+    op op_iget_wide FALLBACK
     # op op_iget_object FALLBACK
     # op op_iget_boolean FALLBACK
     # op op_iget_byte FALLBACK
     # op op_iget_char FALLBACK
     # op op_iget_short FALLBACK
     # op op_iput FALLBACK
-    # op op_iput_wide FALLBACK
+    op op_iput_wide FALLBACK
     # op op_iput_object FALLBACK
     # op op_iput_boolean FALLBACK
     # op op_iput_byte FALLBACK
     # op op_iput_char FALLBACK
     # op op_iput_short FALLBACK
     # op op_sget FALLBACK
-    # op op_sget_wide FALLBACK
+    op op_sget_wide FALLBACK
     # op op_sget_object FALLBACK
     # op op_sget_boolean FALLBACK
     # op op_sget_byte FALLBACK
     # op op_sget_char FALLBACK
     # op op_sget_short FALLBACK
     # op op_sput FALLBACK
-    # op op_sput_wide FALLBACK
+    op op_sput_wide FALLBACK
     # op op_sput_object FALLBACK
     # op op_sput_boolean FALLBACK
     # op op_sput_byte FALLBACK
@@ -168,19 +168,19 @@ op-start x86
     # op op_neg_long FALLBACK
     # op op_not_long FALLBACK
     # op op_neg_float FALLBACK
-    # op op_neg_double FALLBACK
+    op op_neg_double FALLBACK
     # op op_int_to_long FALLBACK
     # op op_int_to_float FALLBACK
-    # op op_int_to_double FALLBACK
+    op op_int_to_double FALLBACK
     # op op_long_to_int FALLBACK
     # op op_long_to_float FALLBACK
-    # op op_long_to_double FALLBACK
+    op op_long_to_double FALLBACK
     # op op_float_to_int FALLBACK
     # op op_float_to_long FALLBACK
-    # op op_float_to_double FALLBACK
-    # op op_double_to_int FALLBACK
-    # op op_double_to_long FALLBACK
-    # op op_double_to_float FALLBACK
+    op op_float_to_double FALLBACK
+    op op_double_to_int FALLBACK
+    op op_double_to_long FALLBACK
+    op op_double_to_float FALLBACK
     # op op_int_to_byte FALLBACK
     # op op_int_to_char FALLBACK
     # op op_int_to_short FALLBACK
@@ -211,11 +211,11 @@ op-start x86
     # op op_mul_float FALLBACK
     # op op_div_float FALLBACK
     # op op_rem_float FALLBACK
-    # op op_add_double FALLBACK
-    # op op_sub_double FALLBACK
-    # op op_mul_double FALLBACK
-    # op op_div_double FALLBACK
-    # op op_rem_double FALLBACK
+    op op_add_double FALLBACK
+    op op_sub_double FALLBACK
+    op op_mul_double FALLBACK
+    op op_div_double FALLBACK
+    op op_rem_double FALLBACK
     # op op_add_int_2addr FALLBACK
     # op op_sub_int_2addr FALLBACK
     # op op_mul_int_2addr FALLBACK
@@ -243,11 +243,11 @@ op-start x86
     # op op_mul_float_2addr FALLBACK
     # op op_div_float_2addr FALLBACK
     # op op_rem_float_2addr FALLBACK
-    # op op_add_double_2addr FALLBACK
-    # op op_sub_double_2addr FALLBACK
-    # op op_mul_double_2addr FALLBACK
-    # op op_div_double_2addr FALLBACK
-    # op op_rem_double_2addr FALLBACK
+    op op_add_double_2addr FALLBACK
+    op op_sub_double_2addr FALLBACK
+    op op_mul_double_2addr FALLBACK
+    op op_div_double_2addr FALLBACK
+    op op_rem_double_2addr FALLBACK
     # op op_add_int_lit16 FALLBACK
     # op op_rsub_int FALLBACK
     # op op_mul_int_lit16 FALLBACK
@@ -268,10 +268,10 @@ op-start x86
     # op op_shr_int_lit8 FALLBACK
     # op op_ushr_int_lit8 FALLBACK
     # op op_iget_quick FALLBACK
-    # op op_iget_wide_quick FALLBACK
+    op op_iget_wide_quick FALLBACK
     # op op_iget_object_quick FALLBACK
     # op op_iput_quick FALLBACK
-    # op op_iput_wide_quick FALLBACK
+    op op_iput_wide_quick FALLBACK
     # op op_iput_object_quick FALLBACK
     # op op_invoke_virtual_quick FALLBACK
     # op op_invoke_virtual_range_quick FALLBACK

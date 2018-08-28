@@ -3531,7 +3531,7 @@ class ReferenceMapVisitor : public StackVisitor {
     VisitDeclaringClass(m);
     DCHECK(m != nullptr);
     size_t num_regs = shadow_frame->NumberOfVRegs();
-    DCHECK(m->IsNative() || shadow_frame->HasReferenceArray());
+    DCHECK(m->IsNative());
     // handle scope for JNI or References for interpreter.
     for (size_t reg = 0; reg < num_regs; ++reg) {
       mirror::Object* ref = shadow_frame->GetVRegReference(reg);
