@@ -34,6 +34,24 @@
       "revId": "09bb51019d432dd8b31cf3ae928a3c723342da27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f60a33_28e03aba",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-08-29T15:02:57Z",
+      "side": 1,
+      "message": "As per offline discussion I have created b/113453572 to track the issue with GC calling finalize() on objects that are not finalizable (as defined by 12.6.1 of JLS).",
+      "parentUuid": "4f0c1bcd_f23c30f0",
+      "revId": "09bb51019d432dd8b31cf3ae928a3c723342da27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
