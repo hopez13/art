@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf5c83bf_602f316b",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-08-29T11:53:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this will end up with an uninitialized ZipFile instance. The throwException() will throw before calling new ZipFile(...) so no instance will be created at all - unless there is some runtime subtlety going on here. I think that simply passing in 0 as the second parameter will be sufficient.",
+      "revId": "09bb51019d432dd8b31cf3ae928a3c723342da27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
