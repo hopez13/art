@@ -183,9 +183,6 @@ target_config = {
     'art-relocate-no-patchoat' : {
         'run-test' : ['--relocate-npatchoat']
     },
-    'art-no-dex2oat' : {
-        'run-test' : ['--no-dex2oat']
-    },
     'art-heap-poisoning' : {
         'run-test' : ['--interpreter',
                       '--optimizing',
