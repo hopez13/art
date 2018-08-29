@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "75dcead6_7c165c40",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "Is this copy necessary? Or should we have an ArtMethod::Invoke() overload that thakes a `ShadowVreg*`?",
+      "range": {
+        "startLine": 569,
+        "startChar": 2,
+        "endLine": 569,
+        "endChar": 56
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d5c0d20_d3796211",
+        "filename": "runtime/interpreter/mterp/x86/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "These are presumably unnecessary now and we should store 32-bit values using movq instead of movl.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 0
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da1a9cb5_67f86dd2",
+        "filename": "runtime/interpreter/mterp/x86/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "VREG_ADDRESS(\\_vreg)\n\nSince you\u0027re touching this, please use the macros defined above.",
+      "range": {
+        "startLine": 284,
+        "startChar": 19,
+        "endLine": 284,
+        "endChar": 33
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79a586f0_9ead62a2",
+        "filename": "runtime/interpreter/mterp/x86/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "Drop this and change the movl above to movq. Though this requires changing the 32-bit register names to 64-bit names in many places.",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 46
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf2dde8e_8db7cfac",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "If you want to keep this as separate fields, the class should `alignas(uint64_t)`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44aaa803_32268be5",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 1
@@ -73,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "776462fb_a8007196",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "#include \"base/casts.h\"",
+      "parentUuid": "0a65c4b6_d4145517",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2cf00dae_08df4c9e",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 1
@@ -89,6 +228,29 @@
         "startChar": 4,
         "endLine": 218,
         "endChar": 26
+      },
+      "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b9d585f_19e7d7e9",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T08:12:33Z",
+      "side": 1,
+      "message": "Maybe it\u0027s time to get rid of the \"[0]\" here and stick to basic C++.",
+      "range": {
+        "startLine": 353,
+        "startChar": 19,
+        "endLine": 353,
+        "endChar": 22
       },
       "revId": "8f2b050be55bd86ca1faabc7719e98428859d324",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
