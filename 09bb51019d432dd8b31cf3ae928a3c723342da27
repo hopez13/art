@@ -16,6 +16,24 @@
       "revId": "09bb51019d432dd8b31cf3ae928a3c723342da27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f0c1bcd_f23c30f0",
+        "filename": "test/718-zipfile-finalizer/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-29T11:59:18Z",
+      "side": 1,
+      "message": "The dex code will look like this:\n\nnew-instance ZipFile\nconst v0, #0\ninvoke throwException\nmove-result v1\nconst v2, #0\ninvoke ZipFile.\u003cinit\u003e\n\nGiven throwException will throw, we will never invoke the ZipFile constructor. That\u0027s what I refer when saying \"uninitialized\" ZipFile: it\u0027s constructed, but its constructor hasn\u0027t been invoked. The GC does reclaim those uninitialized objects and calls finalize on them.",
+      "parentUuid": "cf5c83bf_602f316b",
+      "revId": "09bb51019d432dd8b31cf3ae928a3c723342da27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
