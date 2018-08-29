@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "822622c9_d8ffaafd",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-29T12:01:20Z",
+      "side": 1,
+      "message": "This is a bit weak if you rely on a-\u003eGetPackedType() below. Instead, I think, it should be marked explicitly in the HVecDotProd whether to treat inputs as signed or unsigned.",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1303,
+        "endChar": 61
+      },
+      "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d0a3706_95db487d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
