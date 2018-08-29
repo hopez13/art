@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "623feaca_e1d5ebeb",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-08-29T10:57:44Z",
+      "side": 1,
+      "message": "to be consistent:\n\n// for either both signed or both unsigned operands x, y (reflected in packed_type).\n\nand don\u0027t use L1047 comment",
+      "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
