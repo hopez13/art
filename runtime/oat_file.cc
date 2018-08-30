@@ -1306,7 +1306,7 @@ bool ElfOatFile::Load(int oat_fd,
                       std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   if (oat_fd != -1) {
-    int duped_fd = fcntl(oat_fd, F_DUPFD_CLOEXEC, 0);
+    int duped_fd = DupCloexec(oat_fd);
     std::unique_ptr<File> file = std::make_unique<File>(duped_fd, false);
     if (file == nullptr) {
       *error_msg = StringPrintf("Failed to open oat filename for reading: %s",
