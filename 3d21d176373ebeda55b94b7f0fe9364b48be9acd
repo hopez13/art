@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e4a1e3f_3626e7cc",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-30T20:14:43Z",
+      "side": 1,
+      "message": "Not easily - a lot of opcodes store float here and \"s0\" and \"wzr\" don\u0027t mix.\nI am considering adding SET_VREG_FLOAT for that purpose.",
+      "parentUuid": "f7cf6c68_c89b8b0a",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 25
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d61736d_41b8311e",
         "filename": "runtime/interpreter/mterp/x86/op_mul_int.S",
         "patchSetId": 2
