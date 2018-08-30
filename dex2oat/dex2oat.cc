@@ -1348,12 +1348,17 @@ class Dex2Oat final {
         }
       }
     } else {
-      std::unique_ptr<File> oat_file(new File(oat_fd_, oat_location_, /* check_usage */ true));
+      int duped_oat_fd = dup(oat_fd_);
+      if (duped_oat_fd == -1) {
+        PLOG(ERROR) << "Failed to dup oat file fd";
+        return false;
+      }
+      std::unique_ptr<File> oat_file(
+          new File(duped_oat_fd, oat_location_, /* check_usage */ true));
       if (oat_file == nullptr) {
         PLOG(ERROR) << "Failed to create oat file: " << oat_location_;
         return false;
       }
-      oat_file->DisableAutoClose();
       if (oat_file->SetLength(0) != 0) {
         PLOG(WARNING) << "Truncating oat file " << oat_location_ << " failed.";
         oat_file->Erase();
@@ -1385,12 +1390,13 @@ class Dex2Oat final {
 
       DCHECK_NE(output_vdex_fd_, -1);
       std::string vdex_location = ReplaceFileExtension(oat_location_, "vdex");
-      std::unique_ptr<File> vdex_file(new File(output_vdex_fd_, vdex_location, /* check_usage */ true));
+      int duped_vdex_fd = dup(output_vdex_fd_);
+      std::unique_ptr<File> vdex_file(
+          new File(duped_vdex_fd, vdex_location, /* check_usage */ true));
       if (vdex_file == nullptr) {
         PLOG(ERROR) << "Failed to create vdex file: " << vdex_location;
         return false;
       }
-      vdex_file->DisableAutoClose();
       if (input_vdex_file_ != nullptr && output_vdex_fd_ == input_vdex_fd_) {
         update_input_vdex_ = true;
       } else {
@@ -1472,10 +1478,7 @@ class Dex2Oat final {
         PLOG(ERROR) << "Failed to create swap file: " << swap_file_name_;
         return false;
       }
-      swap_fd_ = swap_file->Fd();
-      swap_file->MarkUnchecked();     // We don't we to track this, it will be unlinked immediately.
-      swap_file->DisableAutoClose();  // We'll handle it ourselves, the File object will be
-                                      // released immediately.
+      swap_fd_ = swap_file->Release();
       unlink(swap_file_name_.c_str());
     }
 
