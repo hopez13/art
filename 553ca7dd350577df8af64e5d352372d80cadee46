@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04bdb3b7_fec45431",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-30T08:32:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8ff96e_7c6792fb",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 381,
+        "endChar": 51
+      },
+      "revId": "553ca7dd350577df8af64e5d352372d80cadee46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "416b57e1_1708ced5",
         "filename": "libartbase/base/mem_map.cc",
         "patchSetId": 6
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "a6df6b90_c947150f",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-30T08:32:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "416b57e1_1708ced5",
+      "revId": "553ca7dd350577df8af64e5d352372d80cadee46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5a76ac2_d71ea0ee",
         "filename": "libartbase/base/mem_map.cc",
         "patchSetId": 6
@@ -53,6 +95,30 @@
       "writtenOn": "2018-08-29T19:31:24Z",
       "side": 1,
       "message": "Can you add comment what\u0027s happening here, especially around the gMaps manipulations?",
+      "range": {
+        "startLine": 788,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 38
+      },
+      "revId": "553ca7dd350577df8af64e5d352372d80cadee46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dc9f1e5_e83ce677",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-30T08:32:59Z",
+      "side": 1,
+      "message": "When you consider that GetGMapsEntry(map) uses map.BaseBegin() for the lookup, the code should be very obvious. It\u0027s written so that we remove the old entry for `*this`, modify *this, and store the new entry for *this.",
+      "parentUuid": "b5a76ac2_d71ea0ee",
       "range": {
         "startLine": 788,
         "startChar": 0,
@@ -85,6 +151,30 @@
       "revId": "553ca7dd350577df8af64e5d352372d80cadee46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8056edd4_11aedcf3",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-30T08:32:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8193ded6_bb8bbe9c",
+      "range": {
+        "startLine": 132,
+        "startChar": 46,
+        "endLine": 132,
+        "endChar": 57
+      },
+      "revId": "553ca7dd350577df8af64e5d352372d80cadee46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
