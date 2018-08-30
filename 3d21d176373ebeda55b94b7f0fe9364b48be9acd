@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7cf6c68_c89b8b0a",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-30T18:11:13Z",
+      "side": 1,
+      "message": "Would\n\n  stp     \\reg, wzr, [ip2]\n\nwork here?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 25
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d61736d_41b8311e",
+        "filename": "runtime/interpreter/mterp/x86/op_mul_int.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-30T18:11:13Z",
+      "side": 1,
+      "message": "Nit: Align with previous comments.",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b3c5fe3_55b323ff",
+        "filename": "runtime/interpreter/mterp/x86/op_mul_int_2addr.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-30T18:11:13Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 7,
+        "startChar": 44,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da80d1f0_0e0ca4f9",
+        "filename": "runtime/interpreter/mterp/x86/op_mul_long.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-30T18:11:13Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 19,
+        "startChar": 44,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
