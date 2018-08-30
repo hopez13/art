@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaade1f8_e3b5af05",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-30T08:39:57Z",
+      "side": 1,
+      "message": "If I move this line to where LOCAL_MODULE :\u003d ahat instead of ahat-tests, would that mean I could run \u0027atest ahat\u0027 to run the tests? Is there any reason to prefer putting this with the ahat-tests module instead of the ahat module?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 35
+      },
+      "revId": "42034d7c7c358be52677479b0a780760c865ed90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
