@@ -62,6 +62,29 @@
       "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25bbffd4_f6a610f4",
+        "filename": "test/665-checker-simd-dotprod-byte/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-30T09:26:41Z",
+      "side": 1,
+      "message": "Can we merge all the new tests into a single new one? Preferably with a new number, say 684-checker-simd-dotprod. And rename the `Main`s to ByteTest, ShortTest, CharTest.",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
