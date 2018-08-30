@@ -46,6 +46,30 @@
       "revId": "42034d7c7c358be52677479b0a780760c865ed90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0ca6e27_d96e83e3",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2018-08-30T09:52:12Z",
+      "side": 1,
+      "message": "Actually, I tested it before.\nIf you want to do that, you have to add two lines for it.\n\nLOCAL_TEST_CONFIG :\u003d ahat-tests.xml\nand\nLOCAL_COMPATIBILITY_SUITE :\u003d general-tests\n\n 66 include $(CLEAR_VARS)\n 67 LOCAL_IS_HOST_MODULE :\u003d true\n 68 LOCAL_MODULE_CLASS :\u003d EXECUTABLES\n 69 LOCAL_MODULE :\u003d ahat\n 70 LOCAL_SRC_FILES :\u003d ahat\n 71 LOCAL_TEST_CONFIG :\u003d ahat-tests.xml\n 72 LOCAL_COMPATIBILITY_SUITE :\u003d general-tests\n 73 include $(BUILD_PREBUILT)\n\nAnd you have to use -m to regenerate module-info.json again.\n\n$ atest -m ahat\n$ atest art/tools/ahat/src/test/com/android/ahat/SiteHandlerTest.java  \n$ atest art/tools/ahat/src/test/com/android/ahat/RootedHandlerTest.java\n$ atest art/tools/ahat/src/test/com/android/ahat/QueryTest.java\n$ atest art/tools/ahat/src/test/com/android/ahat/\netc ...",
+      "parentUuid": "c424e714_e2b09597",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 35
+      },
+      "revId": "42034d7c7c358be52677479b0a780760c865ed90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
