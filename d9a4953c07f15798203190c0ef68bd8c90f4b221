@@ -399,6 +399,30 @@
       "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b382b2c6_64bc9c25",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3149,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-30T17:06:44Z",
+      "side": 1,
+      "message": "Yep, good optimization for my non-optimal by design patch :)",
+      "parentUuid": "4f04ea4f_c53f5389",
+      "range": {
+        "startLine": 3149,
+        "startChar": 34,
+        "endLine": 3149,
+        "endChar": 61
+      },
+      "revId": "d9a4953c07f15798203190c0ef68bd8c90f4b221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
