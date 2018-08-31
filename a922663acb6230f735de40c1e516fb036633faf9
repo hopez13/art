@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd1d723d_1572fba5",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:27:24Z",
+      "side": 1,
+      "message": "Done (I blindly assumed that you had a clang-format file...)",
+      "parentUuid": "352ed2fc_ea986ed3",
+      "range": {
+        "startLine": 99,
+        "startChar": 35,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "a922663acb6230f735de40c1e516fb036633faf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d2393af_43e27dc1",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f66e53e4_456c6a93",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d2393af_43e27dc1",
+      "range": {
+        "startLine": 121,
+        "startChar": 35,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "a922663acb6230f735de40c1e516fb036633faf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11ea7251_960a9924",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "a922663acb6230f735de40c1e516fb036633faf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8449129c_c4587009",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:27:24Z",
+      "side": 1,
+      "message": "Moved into the \u0027Remove FdFile::DisableAutoClose.\u0027 change instead.",
+      "parentUuid": "11ea7251_960a9924",
+      "range": {
+        "startLine": 1309,
+        "startChar": 4,
+        "endLine": 1309,
+        "endChar": 38
+      },
+      "revId": "a922663acb6230f735de40c1e516fb036633faf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
