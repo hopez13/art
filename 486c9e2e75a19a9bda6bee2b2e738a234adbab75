@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7be150f5_ef8773f1",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T09:00:56Z",
+      "side": 1,
+      "message": "Can we have a direct reference to adb? Or $(ADB_EXECUTABLE)?\n\nI think the $(ADB) should contain extra parameters if needed, such as -s, that can be forwarded from the environment.",
+      "range": {
+        "startLine": 95,
+        "startChar": 29,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "486c9e2e75a19a9bda6bee2b2e738a234adbab75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
