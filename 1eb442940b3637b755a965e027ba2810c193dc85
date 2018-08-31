@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9eee5ec_99c68ed8",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-31T08:11:45Z",
+      "side": 1,
+      "message": "Is this is an improvement because clang can trivially statically evaluate this, unlike the previous version?",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 52
+      },
+      "revId": "1eb442940b3637b755a965e027ba2810c193dc85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f71fbff_88089b65",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-31T08:11:45Z",
+      "side": 1,
+      "message": "Add high-level comment.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "1eb442940b3637b755a965e027ba2810c193dc85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
