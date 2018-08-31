@@ -22,6 +22,30 @@
       "revId": "bbbcb535a9116b87c73f9fbdb74d6cfd74d8c026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86faeafc_4481371e",
+        "filename": "test/906-iterate-heap/src/art/Test906.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-08-31T16:08:53Z",
+      "side": 1,
+      "message": "no iterate over instances is only different than iterateThroughHeap in that the klass filter accepts subclasses as well. This tests that behavior.",
+      "parentUuid": "47309f27_406b0fa8",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "bbbcb535a9116b87c73f9fbdb74d6cfd74d8c026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
