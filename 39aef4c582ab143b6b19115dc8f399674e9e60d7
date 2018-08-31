@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "5542746a_81fbba81",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2018-08-31T09:08:52Z",
+      "side": 1,
+      "message": "I see. And it is always DataType::Type::kInt32, right? Then it is indeed a bit different from the convention so far, where the packed type always correctly reflected how the operands should be interpreted. I think your comment is okay then, but perhaps mention the use of operand type explicitly and the fact that we have (current) restrictions on the packed types supported.",
+      "parentUuid": "1bd7874b_34f1755a",
+      "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25bbffd4_f6a610f4",
         "filename": "test/665-checker-simd-dotprod-byte/src/Main.java",
         "patchSetId": 1
