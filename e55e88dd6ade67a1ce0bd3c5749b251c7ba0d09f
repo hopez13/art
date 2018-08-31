@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1eab06e_585c7cd2",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-08-31T00:58:20Z",
+      "side": 1,
+      "message": "Wouldn\u0027t need to Dup if you disabled auto-close.",
+      "range": {
+        "startLine": 98,
+        "startChar": 17,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "e55e88dd6ade67a1ce0bd3c5749b251c7ba0d09f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
