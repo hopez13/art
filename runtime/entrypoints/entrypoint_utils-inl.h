@@ -317,20 +317,9 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
                                    ArtMethod* referrer,
                                    Thread* self,
                                    size_t expected_size) {
-  bool is_primitive;
-  bool is_set;
-  bool is_static;
-  switch (type) {
-    case InstanceObjectRead:     is_primitive = false; is_set = false; is_static = false; break;
-    case InstanceObjectWrite:    is_primitive = false; is_set = true;  is_static = false; break;
-    case InstancePrimitiveRead:  is_primitive = true;  is_set = false; is_static = false; break;
-    case InstancePrimitiveWrite: is_primitive = true;  is_set = true;  is_static = false; break;
-    case StaticObjectRead:       is_primitive = false; is_set = false; is_static = true;  break;
-    case StaticObjectWrite:      is_primitive = false; is_set = true;  is_static = true;  break;
-    case StaticPrimitiveRead:    is_primitive = true;  is_set = false; is_static = true;  break;
-    case StaticPrimitiveWrite:   // Keep GCC happy by having a default handler, fall-through.
-    default:                     is_primitive = true;  is_set = true;  is_static = true;  break;
-  }
+  bool is_primitive = type & FindFieldFlags::PrimitiveBit;
+  bool is_set = type & FindFieldFlags::WriteBit;
+  bool is_static = type & FindFieldFlags::StaticBit;
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
 
   ArtField* resolved_field;
@@ -611,22 +600,9 @@ inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFiel
     return nullptr;
   }
   // Check for incompatible class change.
-  bool is_primitive;
-  bool is_set;
-  bool is_static;
-  switch (type) {
-    case InstanceObjectRead:     is_primitive = false; is_set = false; is_static = false; break;
-    case InstanceObjectWrite:    is_primitive = false; is_set = true;  is_static = false; break;
-    case InstancePrimitiveRead:  is_primitive = true;  is_set = false; is_static = false; break;
-    case InstancePrimitiveWrite: is_primitive = true;  is_set = true;  is_static = false; break;
-    case StaticObjectRead:       is_primitive = false; is_set = false; is_static = true;  break;
-    case StaticObjectWrite:      is_primitive = false; is_set = true;  is_static = true;  break;
-    case StaticPrimitiveRead:    is_primitive = true;  is_set = false; is_static = true;  break;
-    case StaticPrimitiveWrite:   is_primitive = true;  is_set = true;  is_static = true;  break;
-    default:
-      LOG(FATAL) << "UNREACHABLE";
-      UNREACHABLE();
-  }
+  bool is_primitive = type & FindFieldFlags::PrimitiveBit;
+  bool is_set = type & FindFieldFlags::WriteBit;
+  bool is_static = type & FindFieldFlags::StaticBit;
   if (UNLIKELY(resolved_field->IsStatic() != is_static)) {
     // Incompatible class change.
     return nullptr;

@@ -27,6 +27,7 @@
 #include "lock_count_data.h"
 #include "read_barrier.h"
 #include "stack_reference.h"
+#include "thread.h"
 #include "verify_object.h"
 
 namespace art {
@@ -81,6 +82,13 @@ class ShadowFrame {
     })
 
   ~ShadowFrame() {}
+
+  ALWAYS_INLINE static ShadowFrame* Current(uint32_t* current_vregs) {
+    uintptr_t ptr = reinterpret_cast<uintptr_t>(current_vregs) - offsetof(ShadowFrame, vregs_);
+    ShadowFrame* shadow_frame = reinterpret_cast<ShadowFrame*>(ptr);
+    DCHECK_EQ(shadow_frame, Thread::Current()->GetManagedStack()->GetTopShadowFrame());
+    return shadow_frame;
+  }
 
   // TODO(iam): Clean references array up since they're always there,
   // we don't need to do conditionals.
