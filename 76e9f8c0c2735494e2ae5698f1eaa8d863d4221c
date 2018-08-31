@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "731fbd7f_91250c5a",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-31T15:35:20Z",
+      "side": 1,
+      "message": "This seems inefficient in the case where the line number range is large, both in terms of runtime and memory. Is there a way to avoid duplicating FrameData entries? Maybe the key \u003d obfuscatedMethodName + clearSignature maps to a FrameData entry that has a list of ranges to resolve the line number separately?",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 9
+      },
+      "revId": "76e9f8c0c2735494e2ae5698f1eaa8d863d4221c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a78fb66_d227abb9",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-31T15:35:20Z",
+      "side": 1,
+      "message": "If this branch isn\u0027t taken, should obfuscatedLineEnd be set to obfuscatedLine instead of 0?",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 11
+      },
+      "revId": "76e9f8c0c2735494e2ae5698f1eaa8d863d4221c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b894245_0f94e397",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-31T15:35:20Z",
+      "side": 1,
+      "message": "Can you add a test to show the case where there are two different range mappings for the same name method?",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 51,
+        "endChar": 55
+      },
+      "revId": "76e9f8c0c2735494e2ae5698f1eaa8d863d4221c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

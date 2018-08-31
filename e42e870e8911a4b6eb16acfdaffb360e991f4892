@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe8857e7_781ebf17",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-31T15:35:20Z",
+      "side": 0,
+      "message": "So a proguard map entry of the form \"90:94:void foo():9 -\u003e p\" means that obfuscated lines 90 through 94 map to clear lines 9 through 13? Can you add a comment somewhere to this code explaining that?\n\nI wonder if \"90:void foo():9 -\u003e p\" is the same as \"90:90:...\" or more like \"90:infinity:...\".",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 58
+      },
+      "revId": "e42e870e8911a4b6eb16acfdaffb360e991f4892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
