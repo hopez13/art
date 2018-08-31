@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5414a848_803a6433",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-08-31T15:40:49Z",
+      "side": 1,
+      "message": "As of a day or so ago, I think this should be \u0027atest ahat-tests\u0027 instead.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "76e9f8c0c2735494e2ae5698f1eaa8d863d4221c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "731fbd7f_91250c5a",
         "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
         "patchSetId": 1
