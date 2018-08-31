@@ -1171,7 +1171,8 @@ ProfileCompilationInfo::ProfileLoadStatus ProfileCompilationInfo::OpenSource(
     source->reset(ProfileSource::Create(fd));
     return kProfileLoadSuccess;
   } else {
-    std::unique_ptr<ZipArchive> zip_archive(ZipArchive::OpenFromFd(fd, "profile", error));
+    std::unique_ptr<ZipArchive> zip_archive(
+        ZipArchive::OpenFromFd(DupCloexec(fd), "profile", error));
     if (zip_archive.get() == nullptr) {
       *error = "Could not open the profile zip archive";
       return kProfileLoadBadData;
