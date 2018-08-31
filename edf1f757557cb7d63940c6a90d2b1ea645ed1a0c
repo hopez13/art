@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "621527ec_b9f97cf0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "879a9957_0a19363c",
+      "range": {
+        "startLine": 1358,
+        "startChar": 6,
+        "endLine": 1358,
+        "endChar": 30
+      },
+      "revId": "edf1f757557cb7d63940c6a90d2b1ea645ed1a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dd38d54_bba853a2",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-08-31T01:12:33Z",
       "side": 1,
       "message": "You put a check at line 1352, why not here?",
+      "range": {
+        "startLine": 1393,
+        "startChar": 6,
+        "endLine": 1393,
+        "endChar": 47
+      },
+      "revId": "edf1f757557cb7d63940c6a90d2b1ea645ed1a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0031dd3a_cb958997",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:28:28Z",
+      "side": 1,
+      "message": "Changed the code to match above.",
+      "parentUuid": "7dd38d54_bba853a2",
       "range": {
         "startLine": 1393,
         "startChar": 6,
