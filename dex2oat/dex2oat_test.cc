@@ -1705,7 +1705,7 @@ TEST_F(Dex2oatTest, CompactDexGenerationFailureMultiDex) {
   // Create a multidex file with only one dex that gets rejected for cdex conversion.
   ScratchFile apk_file;
   {
-    FILE* file = fdopen(apk_file.GetFd(), "w+b");
+    FILE* file = fdopen(dup(apk_file.GetFd()), "w+b");
     ZipWriter writer(file);
     // Add vdex to zip.
     writer.StartEntry("classes.dex", ZipWriter::kCompress);
@@ -1847,7 +1847,7 @@ TEST_F(Dex2oatTest, DontExtract) {
     std::unique_ptr<File> vdex_file(OS::OpenFileForReading(vdex_location.c_str()));
     ASSERT_TRUE(vdex_file != nullptr);
     ASSERT_GT(vdex_file->GetLength(), 0u);
-    FILE* file = fdopen(dm_file.GetFd(), "w+b");
+    FILE* file = fdopen(dup(dm_file.GetFd()), "w+b");
     ZipWriter writer(file);
     auto write_all_bytes = [&](File* file) {
       std::unique_ptr<uint8_t[]> bytes(new uint8_t[file->GetLength()]);
