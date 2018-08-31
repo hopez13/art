@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "2371603c_bab44f06",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-08-31T12:11:34Z",
+      "side": 1,
+      "message": "I\u0027ve updated the comments.\n\nRegarding the packed type - I actually used the same approach as in SADAccumulate, where packed type corresponds to the type of reduction (and accumulator type).",
+      "parentUuid": "5542746a_81fbba81",
+      "revId": "39aef4c582ab143b6b19115dc8f399674e9e60d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25bbffd4_f6a610f4",
         "filename": "test/665-checker-simd-dotprod-byte/src/Main.java",
         "patchSetId": 1
