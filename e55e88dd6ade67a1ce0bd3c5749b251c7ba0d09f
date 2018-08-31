@@ -22,6 +22,30 @@
       "revId": "e55e88dd6ade67a1ce0bd3c5749b251c7ba0d09f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d964fa0_b5a3aebe",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2018-08-31T01:01:27Z",
+      "side": 1,
+      "message": "I deleted DisableAutoClose, because it makes it much harder to reason about FD ownership, and unless it happens in the constructor, it makes it impossible to use fdsan.",
+      "parentUuid": "b1eab06e_585c7cd2",
+      "range": {
+        "startLine": 98,
+        "startChar": 17,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "e55e88dd6ade67a1ce0bd3c5749b251c7ba0d09f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
