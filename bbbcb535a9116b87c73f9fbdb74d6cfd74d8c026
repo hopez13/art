@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47309f27_406b0fa8",
+        "filename": "test/906-iterate-heap/src/art/Test906.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-31T08:55:39Z",
+      "side": 1,
+      "message": "Not too familiar with jvmti, but is that testing the \"tag\" code that iterateOverInstances filter on?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "bbbcb535a9116b87c73f9fbdb74d6cfd74d8c026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
