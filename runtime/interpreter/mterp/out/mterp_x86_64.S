@@ -2067,33 +2067,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .balign 128
 .L_op_iget: /* 0x52 */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 82                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetU32)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 /* ------------------------------ */
     .balign 128
@@ -2134,33 +2121,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iget_object: /* 0x54 */
 /* File: x86_64/op_iget_object.S */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 84                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetObj)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 1
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2168,33 +2142,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iget_boolean: /* 0x55 */
 /* File: x86_64/op_iget_boolean.S */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 85                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetU8)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2202,33 +2163,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iget_byte: /* 0x56 */
 /* File: x86_64/op_iget_byte.S */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 86                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetI8)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2236,33 +2184,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iget_char: /* 0x57 */
 /* File: x86_64/op_iget_char.S */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 87                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetU16)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2270,58 +2205,40 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iget_short: /* 0x58 */
 /* File: x86_64/op_iget_short.S */
 /* File: x86_64/op_iget.S */
-/*
- * General instance field get.
- *
- * for: iget, iget-object, iget-boolean, iget-byte, iget-char, iget-short, iget-wide
- */
-    EXPORT_PC
-    movzbq  rINSTbl, %rcx                   # rcx <- BA
-    movzwl  2(rPC), OUT_32_ARG0             # eax <- field ref CCCC
-    sarl    $4, %ecx                       # ecx <- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 88                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIGetI16)
-    movq    rSELF, %rcx
-    cmpq    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException                  # bail out
-    andb    $0xf, rINSTbl                  # rINST <- A
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <-value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <-value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <-value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput: /* 0x59 */
 /* File: x86_64/op_iput.S */
-/*
- * General 32-bit instance field put.
- *
- * for: iput, iput-object, iput-boolean, iput-byte, iput-char, iput-short
- */
-    /* op vA, vB, field@CCCC */
-    .extern MterpIPutU32
-    EXPORT_PC
-    movzwl  2(rPC), OUT_32_ARG0             # field ref <- 0000CCCC
-    movzbq  rINSTbl, %rcx                   # rcx<- BA
-    sarl    $4, %ecx                       # ecx<- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST<- A
-    GET_VREG OUT_32_ARG2, rINSTq            # fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 89                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutU32)
-    testb   %al, %al
-    jnz     MterpPossibleException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 /* ------------------------------ */
     .balign 128
@@ -2346,41 +2263,42 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .balign 128
 .L_op_iput_object: /* 0x5b */
 /* File: x86_64/op_iput_object.S */
-    EXPORT_PC
-    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG0
-    movq    rPC, OUT_ARG1
-    REFRESH_INST 91
-    movl    rINST, OUT_32_ARG2
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/op_iput.S */
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 91                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutObj)
-    testb   %al, %al
-    jz      MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_boolean: /* 0x5c */
 /* File: x86_64/op_iput_boolean.S */
 /* File: x86_64/op_iput.S */
-/*
- * General 32-bit instance field put.
- *
- * for: iput, iput-object, iput-boolean, iput-byte, iput-char, iput-short
- */
-    /* op vA, vB, field@CCCC */
-    .extern MterpIPutU8
-    EXPORT_PC
-    movzwl  2(rPC), OUT_32_ARG0             # field ref <- 0000CCCC
-    movzbq  rINSTbl, %rcx                   # rcx<- BA
-    sarl    $4, %ecx                       # ecx<- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST<- A
-    GET_VREG OUT_32_ARG2, rINSTq            # fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 92                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutU8)
-    testb   %al, %al
-    jnz     MterpPossibleException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2388,25 +2306,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iput_byte: /* 0x5d */
 /* File: x86_64/op_iput_byte.S */
 /* File: x86_64/op_iput.S */
-/*
- * General 32-bit instance field put.
- *
- * for: iput, iput-object, iput-boolean, iput-byte, iput-char, iput-short
- */
-    /* op vA, vB, field@CCCC */
-    .extern MterpIPutI8
-    EXPORT_PC
-    movzwl  2(rPC), OUT_32_ARG0             # field ref <- 0000CCCC
-    movzbq  rINSTbl, %rcx                   # rcx<- BA
-    sarl    $4, %ecx                       # ecx<- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST<- A
-    GET_VREG OUT_32_ARG2, rINSTq            # fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 93                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutI8)
-    testb   %al, %al
-    jnz     MterpPossibleException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2414,25 +2327,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iput_char: /* 0x5e */
 /* File: x86_64/op_iput_char.S */
 /* File: x86_64/op_iput.S */
-/*
- * General 32-bit instance field put.
- *
- * for: iput, iput-object, iput-boolean, iput-byte, iput-char, iput-short
- */
-    /* op vA, vB, field@CCCC */
-    .extern MterpIPutU16
-    EXPORT_PC
-    movzwl  2(rPC), OUT_32_ARG0             # field ref <- 0000CCCC
-    movzbq  rINSTbl, %rcx                   # rcx<- BA
-    sarl    $4, %ecx                       # ecx<- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST<- A
-    GET_VREG OUT_32_ARG2, rINSTq            # fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 94                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutU16)
-    testb   %al, %al
-    jnz     MterpPossibleException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2440,56 +2348,40 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_iput_short: /* 0x5f */
 /* File: x86_64/op_iput_short.S */
 /* File: x86_64/op_iput.S */
-/*
- * General 32-bit instance field put.
- *
- * for: iput, iput-object, iput-boolean, iput-byte, iput-char, iput-short
- */
-    /* op vA, vB, field@CCCC */
-    .extern MterpIPutI16
-    EXPORT_PC
-    movzwl  2(rPC), OUT_32_ARG0             # field ref <- 0000CCCC
-    movzbq  rINSTbl, %rcx                   # rcx<- BA
-    sarl    $4, %ecx                       # ecx<- B
-    GET_VREG OUT_32_ARG1, %rcx              # the object pointer
-    andb    $0xf, rINSTbl                  # rINST<- A
-    GET_VREG OUT_32_ARG2, rINSTq            # fp[A]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG3    # referrer
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 95                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpIPutI16)
-    testb   %al, %al
-    jnz     MterpPossibleException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget: /* 0x60 */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetU32
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 96                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetU32)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 /* ------------------------------ */
     .balign 128
@@ -2528,31 +2420,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sget_object: /* 0x62 */
 /* File: x86_64/op_sget_object.S */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetObj
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 98                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetObj)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 1
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2560,31 +2441,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sget_boolean: /* 0x63 */
 /* File: x86_64/op_sget_boolean.S */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetU8
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 99                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetU8)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2592,31 +2462,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sget_byte: /* 0x64 */
 /* File: x86_64/op_sget_byte.S */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetI8
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 100                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetI8)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2624,31 +2483,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sget_char: /* 0x65 */
 /* File: x86_64/op_sget_char.S */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetU16
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 101                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetU16)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2656,53 +2504,40 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sget_short: /* 0x66 */
 /* File: x86_64/op_sget_short.S */
 /* File: x86_64/op_sget.S */
-/*
- * General SGET handler wrapper.
- *
- * for: sget, sget-object, sget-boolean, sget-byte, sget-char, sget-short, sget-wide
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSGetI16
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref CCCC
-    movq    OFF_FP_METHOD(rFP), OUT_ARG1    # referrer
-    movq    rSELF, OUT_ARG2                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 102                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSGetI16)
-    movq    rSELF, %rcx
-    cmpl    $0, THREAD_EXCEPTION_OFFSET(%rcx)
-    jnz     MterpException
-    .if 0
-    SET_VREG_OBJECT %eax, rINSTq            # fp[A] <- value
-    .else
-    .if 0
-    SET_WIDE_VREG %rax, rINSTq              # fp[A] <- value
-    .else
-    SET_VREG %eax, rINSTq                   # fp[A] <- value
-    .endif
-    .endif
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput: /* 0x67 */
 /* File: x86_64/op_sput.S */
-/*
- * General SPUT handler wrapper.
- *
- * for: sput, sput-boolean, sput-byte, sput-char, sput-short
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSPutU32
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    GET_VREG OUT_32_ARG1, rINSTq            # fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 103                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutU32)
-    testb   %al, %al
-    jnz     MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 /* ------------------------------ */
     .balign 128
@@ -2728,38 +2563,42 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .balign 128
 .L_op_sput_object: /* 0x69 */
 /* File: x86_64/op_sput_object.S */
-    EXPORT_PC
-    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG0
-    movq    rPC, OUT_ARG1
-    REFRESH_INST 105
-    movq    rINSTq, OUT_ARG2
-    movq    rSELF, OUT_ARG3
+/* File: x86_64/op_sput.S */
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 105                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutObj)
-    testb   %al, %al
-    jz      MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
+
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_boolean: /* 0x6a */
 /* File: x86_64/op_sput_boolean.S */
 /* File: x86_64/op_sput.S */
-/*
- * General SPUT handler wrapper.
- *
- * for: sput, sput-boolean, sput-byte, sput-char, sput-short
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSPutU8
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    GET_VREG OUT_32_ARG1, rINSTq            # fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 106                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutU8)
-    testb   %al, %al
-    jnz     MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2767,22 +2606,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sput_byte: /* 0x6b */
 /* File: x86_64/op_sput_byte.S */
 /* File: x86_64/op_sput.S */
-/*
- * General SPUT handler wrapper.
- *
- * for: sput, sput-boolean, sput-byte, sput-char, sput-short
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSPutI8
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    GET_VREG OUT_32_ARG1, rINSTq            # fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 107                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutI8)
-    testb   %al, %al
-    jnz     MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2790,22 +2627,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sput_char: /* 0x6c */
 /* File: x86_64/op_sput_char.S */
 /* File: x86_64/op_sput.S */
-/*
- * General SPUT handler wrapper.
- *
- * for: sput, sput-boolean, sput-byte, sput-char, sput-short
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSPutU16
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    GET_VREG OUT_32_ARG1, rINSTq            # fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 108                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutU16)
-    testb   %al, %al
-    jnz     MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */
@@ -2813,22 +2648,20 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 .L_op_sput_short: /* 0x6d */
 /* File: x86_64/op_sput_short.S */
 /* File: x86_64/op_sput.S */
-/*
- * General SPUT handler wrapper.
- *
- * for: sput, sput-boolean, sput-byte, sput-char, sput-short
- */
-    /* op vAA, field@BBBB */
-    .extern MterpSPutI16
-    EXPORT_PC
-    movzwq  2(rPC), OUT_ARG0                # field ref BBBB
-    GET_VREG OUT_32_ARG1, rINSTq            # fp[AA]
-    movq    OFF_FP_METHOD(rFP), OUT_ARG2    # referrer
-    movq    rSELF, OUT_ARG3                 # self
+/* File: x86_64/field.S */
+    /*
+     * General field read / write (iget-* iput-*).
+     */
+    REFRESH_INST 109                      # fix rINST to include opcode
+    movq    rPC, OUT_ARG0                      # arg0: Instruction* inst
+    movl    rINST, OUT_32_ARG1                 # arg1: uint16_t inst_data
+    leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG2  # arg2: ShadowFrame* sf
+    movq    rSELF, OUT_ARG3                    # arg3: Thread* self
     call    SYMBOL(MterpSPutI16)
-    testb   %al, %al
-    jnz     MterpException
+    testq   %rax, %rax
+    jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+
 
 
 /* ------------------------------ */

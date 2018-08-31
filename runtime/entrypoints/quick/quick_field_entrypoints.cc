@@ -29,10 +29,7 @@
 namespace art {
 
 inline constexpr bool FindFieldTypeIsRead(FindFieldType type) {
-  return type == InstanceObjectRead ||
-         type == InstancePrimitiveRead ||
-         type == StaticObjectRead ||
-         type == StaticPrimitiveRead;
+  return type & FindFieldFlags::ReadBit;
 }
 
 // Helper function to do a null check after trying to resolve the field. Not for statics since obj
