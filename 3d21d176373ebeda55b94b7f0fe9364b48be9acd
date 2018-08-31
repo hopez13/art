@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6dee5c84_578deb86",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T15:47:48Z",
+      "side": 1,
+      "message": "We could provide an alternative macro that would load the entire value into an X/D register with a single instruction and use it for non-object cases. Similar for SET_VREG as the high bits of the X register are cleared for 32-bit operations but I\u0027m not sure about D registers.",
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7cf6c68_c89b8b0a",
         "filename": "runtime/interpreter/mterp/arm64/header.S",
         "patchSetId": 2
@@ -112,6 +129,92 @@
         "endLine": 19,
         "endChar": 50
       },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65504895_4fe015b7",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T15:47:48Z",
+      "side": 1,
+      "message": "sizeof() is unnecessary, alignas(T) is the same as alignas(sizeof(T)).",
+      "range": {
+        "startLine": 54,
+        "startChar": 14,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8e87fca_0b0caeed",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T15:47:48Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "range": {
+        "startLine": 62,
+        "startChar": 42,
+        "endLine": 62,
+        "endChar": 75
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0413e1d_9aa7965d",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T15:47:48Z",
+      "side": 1,
+      "message": "This line is doing too much. I\u0027d prefer\n\n  for (; first_idx \u003c last_idx; ++dst, ++first_idx) {\n    *dst \u003d GetVReg(first_idx);\n  }",
+      "range": {
+        "startLine": 145,
+        "startChar": 6,
+        "endLine": 145,
+        "endChar": 38
+      },
+      "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b97b8efb_8496255e",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-08-31T15:47:48Z",
+      "side": 1,
+      "message": "You should static_assert(sizeof(StackReference\u003cmirror::Object\u003e) \u003d\u003d sizeof(vregs_[i].object), .)",
       "revId": "3d21d176373ebeda55b94b7f0fe9364b48be9acd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
