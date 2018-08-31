@@ -159,7 +159,7 @@ class ShadowFrame {
   }
 
   int64_t GetVRegLong(size_t i) const {
-    DCHECK_LT(i, NumberOfVRegs());
+    DCHECK_LT(i + 1, NumberOfVRegs());
     const uint32_t* vreg = &vregs_[i];
     typedef const int64_t unaligned_int64 __attribute__ ((aligned (4)));
     return *reinterpret_cast<unaligned_int64*>(vreg);
