@@ -22,6 +22,30 @@
       "revId": "486c9e2e75a19a9bda6bee2b2e738a234adbab75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87597661_f43f5d7c",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-08-31T09:14:51Z",
+      "side": 1,
+      "message": "I\u0027ve added ADB_EXECUTABLE, and as discussed made ADB currently equal to ADB_EXECUTABLE.",
+      "parentUuid": "7be150f5_ef8773f1",
+      "range": {
+        "startLine": 95,
+        "startChar": 29,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "486c9e2e75a19a9bda6bee2b2e738a234adbab75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
