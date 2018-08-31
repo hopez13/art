@@ -48,7 +48,7 @@ public class ProguardMapTest {
     + "    59:61:void methodWithObfObjArg(class.with.only.Fields) -> m\n"
     + "    64:66:class.with.only.Fields methodWithObfRes() -> n\n"
     + "    80:80:void lineObfuscatedMethod():8:8 -> o\n"
-    + "    90:90:void lineObfuscatedMethod2():9 -> p\n"
+    + "    90:94:void lineObfuscatedMethod2():9 -> p\n"
     ;
 
   @Test

@@ -77,18 +77,17 @@ public class ProguardMap {
       return clearField == null ? obfuscatedName : clearField;
     }
 
-    // TODO: Does this properly interpret the meaning of line numbers? Is
-    // it possible to have multiple frame entries for the same method
-    // name and signature that differ only by line ranges?
     public void addFrame(String obfuscatedMethodName, String clearMethodName,
-        String clearSignature, int obfuscatedLine, int clearLine) {
-      String key = obfuscatedMethodName + clearSignature;
-      mFrames.put(key, new FrameData(clearMethodName, obfuscatedLine - clearLine));
+            String clearSignature, int obfuscatedLine, int obfuscatedLineEnd, int clearLine) {
+        for (int i = obfuscatedLine; i <= obfuscatedLineEnd; i++) {
+            String key = obfuscatedMethodName + clearSignature + i;
+            mFrames.put(key, new FrameData(clearMethodName, obfuscatedLine - clearLine));
+        }
     }
 
     public Frame getFrame(String clearClassName, String obfuscatedMethodName,
         String clearSignature, String obfuscatedFilename, int obfuscatedLine) {
-      String key = obfuscatedMethodName + clearSignature;
+      String key = obfuscatedMethodName + clearSignature + obfuscatedLine;
       FrameData frame = mFrames.get(key);
       if (frame == null) {
         frame = new FrameData(obfuscatedMethodName, 0);
@@ -225,6 +224,7 @@ public class ProguardMap {
         } else {
           // For methods, the type is of the form: [#:[#:]]<returnType>
           int obfuscatedLine = 0;
+          int obfuscatedLineEnd = 0;
           int colon = type.indexOf(':');
           if (colon != -1) {
             obfuscatedLine = Integer.parseInt(type.substring(0, colon));
@@ -232,6 +232,7 @@ public class ProguardMap {
           }
           colon = type.indexOf(':');
           if (colon != -1) {
+            obfuscatedLineEnd = Integer.parseInt(type.substring(0, colon));
             type = type.substring(colon + 1);
           }
 
@@ -261,7 +262,7 @@ public class ProguardMap {
 
           String clearSig = fromProguardSignature(sig + type);
           classData.addFrame(obfuscatedName, clearName, clearSig,
-              obfuscatedLine, clearLine);
+                  obfuscatedLine, obfuscatedLineEnd, clearLine);
         }
 
         line = reader.readLine();
