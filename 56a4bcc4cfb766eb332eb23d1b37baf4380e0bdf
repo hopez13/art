@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "add8131d_8d98b9bb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "Add names to these arguments (with \"ATTRIBUTE_UNUSED\"), even if they are not used?",
+      "range": {
+        "startLine": 932,
+        "startChar": 12,
+        "endLine": 932,
+        "endChar": 56
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e6da3e_6440927e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "void* data",
+      "range": {
+        "startLine": 1073,
+        "startChar": 74,
+        "endLine": 1073,
+        "endChar": 84
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eb3960a_2c059faf",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "dl_phdr_info* info",
+      "range": {
+        "startLine": 1073,
+        "startChar": 35,
+        "endLine": 1073,
+        "endChar": 53
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a038147_bcdcf4b9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 1073,
+        "startChar": 28,
+        "endLine": 1073,
+        "endChar": 34
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1c797a6_6c29815f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "size_t size ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 1073,
+        "startChar": 55,
+        "endLine": 1073,
+        "endChar": 72
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fc8c2d_3611451d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "Use `ElfW(Half)` here to match the type of `info-\u003edlpi_phnum`?",
+      "range": {
+        "startLine": 1079,
+        "startChar": 15,
+        "endLine": 1079,
+        "endChar": 18
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f560377_adc71b12",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-08-31T09:38:00Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1097,
+        "startChar": 17,
+        "endLine": 1097,
+        "endChar": 20
+      },
+      "revId": "56a4bcc4cfb766eb332eb23d1b37baf4380e0bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
