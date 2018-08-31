@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc954088_a15fe366",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-08-31T09:47:32Z",
+      "side": 1,
+      "message": "This version is templated, so I am sure it does not matter.  Just code simplicity.\nThe version below is dynamic, so it does matter there.\nHowever, the main motivation is that I needed this switch in my code as well many times, so I wanted to make it easier.",
+      "parentUuid": "c9eee5ec_99c68ed8",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 52
+      },
+      "revId": "1eb442940b3637b755a965e027ba2810c193dc85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f71fbff_88089b65",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 1
