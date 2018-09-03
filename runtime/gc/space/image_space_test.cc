@@ -142,7 +142,7 @@ TEST_F(ImageSpaceDex2oatTest, Test) {
 
 using ImageSpaceNoDex2oatNoPatchoatTest = ImageSpaceLoadingTest<true, true, false, false>;
 TEST_F(ImageSpaceNoDex2oatNoPatchoatTest, Test) {
-  EXPECT_TRUE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
+  EXPECT_FALSE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
 }
 
 using ImageSpaceNoRelocateNoDex2oatNoPatchoatTest = ImageSpaceLoadingTest<true, false, false, false>;

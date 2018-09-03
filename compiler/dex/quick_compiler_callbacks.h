@@ -40,6 +40,7 @@ class QuickCompilerCallbacks final : public CompilerCallbacks {
 
   // We are running in an environment where we can call patchoat safely so we should.
   bool IsRelocationPossible() override {
+    // FIXME: Should not relocate when compiling?
     return true;
   }
 
