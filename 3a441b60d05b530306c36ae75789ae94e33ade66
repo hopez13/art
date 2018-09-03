@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1ff540f9_116da067",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-03T11:55:24Z",
+      "side": 1,
+      "message": "It\u0027s very strange to me that the Java language allows these to be accessed in ProguardMap.java outside of the declaration of LineNumber when they are marked private.",
+      "parentUuid": "3acea5db_305d793d",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "3a441b60d05b530306c36ae75789ae94e33ade66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88429f4f_fd33bc56",
         "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
         "patchSetId": 2
