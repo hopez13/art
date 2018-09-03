@@ -88,9 +88,6 @@ class PatchOat {
       ERROR_FIRST = ERROR_OAT_FILE,
   };
 
-  // Was the .oat image at oat_in made with --compile-pic ?
-  static MaybePic IsOatPic(const ElfFile* oat_in);
-
   static bool CreateVdexAndOatSymlinks(const std::string& input_image_filename,
                                        const std::string& output_image_filename);
 

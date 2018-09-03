@@ -91,13 +91,12 @@ bool DexoptTest::Dex2Oat(const std::vector<std::string>& args, std::string* erro
 void DexoptTest::GenerateOatForTest(const std::string& dex_location,
                                     const std::string& oat_location_in,
                                     CompilerFilter::Filter filter,
-                                    bool relocate,
-                                    bool pic,
                                     bool with_alternate_image,
                                     const char* compilation_reason) {
   std::string dalvik_cache = GetDalvikCache(GetInstructionSetString(kRuntimeISA));
   std::string dalvik_cache_tmp = dalvik_cache + ".redirected";
   std::string oat_location = oat_location_in;
+#if 0  // FIXME
   if (!relocate) {
     // Temporarily redirect the dalvik cache so dex2oat doesn't find the
     // relocated image file.
@@ -108,6 +107,7 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
         oat_location = oat_location.replace(pos, dalvik_cache.length(), dalvik_cache_tmp);
     }
   }
+#endif
 
   std::vector<std::string> args;
   args.push_back("--dex-file=" + dex_location);
@@ -125,10 +125,6 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
     args.push_back("--profile-file=" + profile_file.GetFilename());
   }
 
-  if (pic) {
-    args.push_back("--compile-pic");
-  }
-
   std::string image_location = GetImageLocation();
   if (with_alternate_image) {
     args.push_back("--boot-image=" + GetImageLocation2());
@@ -141,11 +137,13 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
   std::string error_msg;
   ASSERT_TRUE(Dex2Oat(args, &error_msg)) << error_msg;
 
+#if 0  // FIXME
   if (!relocate) {
     // Restore the dalvik cache if needed.
     ASSERT_EQ(0, rename(dalvik_cache_tmp.c_str(), dalvik_cache.c_str())) << strerror(errno);
     oat_location = oat_location_in;
   }
+#endif
 
   // Verify the odex file was generated as expected.
   std::unique_ptr<OatFile> odex_file(OatFile::Open(/* zip_fd */ -1,
@@ -158,7 +156,6 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
                                                    /* reservation */ nullptr,
                                                    &error_msg));
   ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
-  EXPECT_EQ(pic, odex_file->IsPic());
   EXPECT_EQ(filter, odex_file->GetCompilerFilter());
 
   std::unique_ptr<ImageHeader> image_header(
@@ -176,51 +173,22 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
       EXPECT_EQ(combined_checksum, oat_header.GetImageFileLocationOatChecksum());
     }
   }
-
-  if (!with_alternate_image) {
-    if (CompilerFilter::IsAotCompilationEnabled(filter)) {
-      if (relocate) {
-        EXPECT_EQ(reinterpret_cast<uintptr_t>(image_header->GetOatDataBegin()),
-            oat_header.GetImageFileLocationOatDataBegin());
-        EXPECT_EQ(image_header->GetPatchDelta(), oat_header.GetImagePatchDelta());
-      } else {
-        EXPECT_NE(reinterpret_cast<uintptr_t>(image_header->GetOatDataBegin()),
-            oat_header.GetImageFileLocationOatDataBegin());
-        EXPECT_NE(image_header->GetPatchDelta(), oat_header.GetImagePatchDelta());
-      }
-    }
-  }
 }
 
 void DexoptTest::GenerateOdexForTest(const std::string& dex_location,
-                         const std::string& odex_location,
-                         CompilerFilter::Filter filter) {
+                                     const std::string& odex_location,
+                                     CompilerFilter::Filter filter,
+                                     const char* compilation_reason) {
   GenerateOatForTest(dex_location,
                      odex_location,
                      filter,
-                     /*relocate*/false,
-                     /*pic*/false,
-                     /*with_alternate_image*/false);
-}
-
-void DexoptTest::GeneratePicOdexForTest(const std::string& dex_location,
-                            const std::string& odex_location,
-                            CompilerFilter::Filter filter,
-                            const char* compilation_reason) {
-  GenerateOatForTest(dex_location,
-                     odex_location,
-                     filter,
-                     /*relocate*/false,
-                     /*pic*/true,
                      /*with_alternate_image*/false,
                      compilation_reason);
 }
 
 void DexoptTest::GenerateOatForTest(const char* dex_location,
-                        CompilerFilter::Filter filter,
-                        bool relocate,
-                        bool pic,
-                        bool with_alternate_image) {
+                                    CompilerFilter::Filter filter,
+                                    bool with_alternate_image) {
   std::string oat_location;
   std::string error_msg;
   ASSERT_TRUE(OatFileAssistant::DexLocationToOatFilename(
@@ -228,17 +196,11 @@ void DexoptTest::GenerateOatForTest(const char* dex_location,
   GenerateOatForTest(dex_location,
                      oat_location,
                      filter,
-                     relocate,
-                     pic,
                      with_alternate_image);
 }
 
 void DexoptTest::GenerateOatForTest(const char* dex_location, CompilerFilter::Filter filter) {
-  GenerateOatForTest(dex_location,
-                     filter,
-                     /*relocate*/true,
-                     /*pic*/false,
-                     /*with_alternate_image*/false);
+  GenerateOatForTest(dex_location, filter, /*with_alternate_image*/false);
 }
 
 bool DexoptTest::PreRelocateImage(const std::string& image_location, std::string* error_msg) {
@@ -247,7 +209,7 @@ bool DexoptTest::PreRelocateImage(const std::string& image_location, std::string
   bool dalvik_cache_exists;
   bool is_global_cache;
   GetDalvikCache(GetInstructionSetString(kRuntimeISA),
-                 true,
+                 /* create_if_absent */ true,
                  &dalvik_cache,
                  &have_android_data,
                  &dalvik_cache_exists,
