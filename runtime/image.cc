@@ -77,7 +77,7 @@ ImageHeader::ImageHeader(uint32_t image_begin,
   std::copy_n(sections, kSectionCount, sections_);
 }
 
-void ImageHeader::RelocateImage(off_t delta) {
+void ImageHeader::RelocateImage(int64_t delta) {
   CHECK_ALIGNED(delta, kPageSize) << " patch delta must be page aligned";
   oat_file_begin_ += delta;
   oat_data_begin_ += delta;
@@ -88,12 +88,12 @@ void ImageHeader::RelocateImage(off_t delta) {
   RelocateImageMethods(delta);
 }
 
-void ImageHeader::RelocateImageObjects(off_t delta) {
+void ImageHeader::RelocateImageObjects(int64_t delta) {
   image_begin_ += delta;
   image_roots_ += delta;
 }
 
-void ImageHeader::RelocateImageMethods(off_t delta) {
+void ImageHeader::RelocateImageMethods(int64_t delta) {
   for (size_t i = 0; i < kImageMethodsCount; ++i) {
     image_methods_[i] += delta;
   }
