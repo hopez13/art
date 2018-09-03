@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3acea5db_305d793d",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2018-09-03T11:42:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71f48460_a98c7388",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "3a441b60d05b530306c36ae75789ae94e33ade66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88429f4f_fd33bc56",
         "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
         "patchSetId": 2
