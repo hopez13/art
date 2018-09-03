@@ -24,6 +24,8 @@
 
 namespace art {
 
+class BitMemoryRegion;  // TODO: Remove.
+
 class OatFile;
 
 namespace gc {
@@ -57,9 +59,9 @@ class ImageSpace : public MemMapSpace {
   // Reads the image header from the specified image location for the
   // instruction set image_isa. Returns null on failure, with
   // reason in error_msg.
-  static ImageHeader* ReadImageHeader(const char* image_location,
-                                      InstructionSet image_isa,
-                                      std::string* error_msg);
+  static std::unique_ptr<ImageHeader> ReadImageHeader(const char* image_location,
+                                                      InstructionSet image_isa,
+                                                      std::string* error_msg);
 
   // Give access to the OatFile.
   const OatFile* GetOatFile() const;
@@ -203,6 +205,10 @@ class ImageSpace : public MemMapSpace {
  private:
   class Loader;
   class BootImageLoader;
+
+  static void PatchBootImageHeader(uint32_t diff, /*inout*/ImageHeader* image_header,
+                                   uint32_t* locations,
+                                   BitMemoryRegion& relocations_region);
 
   DISALLOW_COPY_AND_ASSIGN(ImageSpace);
 };

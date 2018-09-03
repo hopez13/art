@@ -29,6 +29,12 @@ class ArtField;
 class ArtMethod;
 template <class MirrorType> class ObjPtr;
 
+namespace gc {
+namespace space {
+class ImageSpace;
+}  // namespace space
+}  // namespace gc
+
 namespace linker {
 class ImageWriter;
 }  // namespace linker
@@ -448,6 +454,7 @@ class PACKED(4) ImageHeader {
   // is the compressed size in the file.
   uint32_t data_size_;
 
+  friend class gc::space::ImageSpace;
   friend class linker::ImageWriter;
 };
 
