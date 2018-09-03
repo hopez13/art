@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88429f4f_fd33bc56",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-03T08:47:57Z",
+      "side": 1,
+      "message": "Test 103 maps to 53 instead, so there is test coverage for both ranges of numbers?",
+      "range": {
+        "startLine": 161,
+        "startChar": 78,
+        "endLine": 161,
+        "endChar": 80
+      },
+      "revId": "3a441b60d05b530306c36ae75789ae94e33ade66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

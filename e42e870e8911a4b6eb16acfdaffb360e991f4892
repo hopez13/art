@@ -46,6 +46,29 @@
       "revId": "e42e870e8911a4b6eb16acfdaffb360e991f4892",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e86893c_50eec707",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-03T08:47:57Z",
+      "side": 0,
+      "message": "I must have made this sample mapping file based on observed proguard map files where I saw methods ending in :#:#. Can you leave an example of that in the file to make sure ahat can parse it (even though I don\u0027t know what that second number is used for)?",
+      "range": {
+        "startLine": 50,
+        "startChar": 46,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "e42e870e8911a4b6eb16acfdaffb360e991f4892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
