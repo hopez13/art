@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "163703c8_1c98eccb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-04T15:59:16Z",
+      "side": 1,
+      "message": "Added TODO - the intent is that we\u0027ll vlog it and continue when this is not WIP.\n\nTBH this was just for testing whether this fails on the bots. Being lazy as today interrupted with meetings, interview, and writing feedback.",
+      "parentUuid": "f0af6e17_36f9f473",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 12
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "000e6874_ea2a1d1a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "46004069_653805d7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-04T15:59:16Z",
+      "side": 1,
+      "message": "bionic does not support shm_open (bionic/docs/status.md).\n\nAndroid\u0027s glibc is not up to date enough for memfd_create.",
+      "parentUuid": "000e6874_ea2a1d1a",
+      "range": {
+        "startLine": 208,
+        "startChar": 1,
+        "endLine": 208,
+        "endChar": 5
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c3b6212_b3abe196",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15bd1302_c647deee",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-04T15:59:16Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "7c3b6212_b3abe196",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 12
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
