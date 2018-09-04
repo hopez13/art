@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90095a8b_c6188781",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-04T19:28:43Z",
+      "side": 1,
+      "message": "I would be fine with unconditionally putting the primitive classes there, not sure the flag is worth the complexity.",
+      "range": {
+        "startLine": 149,
+        "startChar": 22,
+        "endLine": 149,
+        "endChar": 55
+      },
+      "revId": "8ad3a5ffa667f44629c28878fb67e36ce381ff89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
