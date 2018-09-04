@@ -23,6 +23,7 @@
 #include "base/enums.h"
 #include "base/histogram-inl.h"
 #include "base/logging.h"  // For VLOG.
+#include "base/membarrier.h"
 #include "base/mem_map.h"
 #include "base/quasi_atomic.h"
 #include "base/stl_util.h"
@@ -187,6 +188,14 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
     return nullptr;
   }
 
+  // Register for membarrier expedited sync core if JIT will be generating code.
+  bool use_sync_core = false;
+  if (!used_only_for_profile_data) {
+    if (art::membarrier(art::MembarrierCommand::kRegisterPrivateExpeditedSyncCore) == 0) {
+      use_sync_core = true;
+    }
+  }
+
   // Decide how we should map the code and data sections.
   // If we use the code cache just for profiling we do not need to map the code section as
   // executable.
@@ -248,6 +257,7 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
       data_size,
       max_capacity,
       garbage_collect_code,
+      use_sync_core,
       memmap_flags_prot_code);
 }
 
@@ -257,6 +267,7 @@ JitCodeCache::JitCodeCache(MemMap&& code_map,
                            size_t initial_data_capacity,
                            size_t max_capacity,
                            bool garbage_collect_code,
+                           bool use_sync_core,
                            int memmap_flags_prot_code)
     : lock_("Jit code cache", kJitCodeCacheLock),
       lock_cond_("Jit code cache condition variable", lock_),
@@ -269,6 +280,7 @@ JitCodeCache::JitCodeCache(MemMap&& code_map,
       data_end_(initial_data_capacity),
       last_collection_increased_code_cache_(false),
       garbage_collect_code_(garbage_collect_code),
+      use_sync_core_(use_sync_core),
       used_memory_for_data_(0),
       used_memory_for_code_(0),
       number_of_compilations_(0),
@@ -809,9 +821,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // shootdown (incidentally invalidating the CPU pipelines by sending an IPI to all cores to
     // notify them of the TLB invalidation). Some architectures, notably ARM and ARM64, have
     // hardware support that broadcasts TLB invalidations and so their kernels have no software
-    // based TLB shootdown. FlushInstructionPipeline() is a wrapper around the Linux
-    // membarrier(MEMBARRIER_CMD_PRIVATE_EXPEDITED) syscall which does the appropriate flushing.
-    FlushInstructionPipeline();
+    // based TLB shootdown.
+    if (use_sync_core_) {
+      art::membarrier(art::MembarrierCommand::kPrivateExpeditedSyncCore);
+    }
 
     DCHECK(!Runtime::Current()->IsAotCompiler());
     if (has_should_deoptimize_flag) {
