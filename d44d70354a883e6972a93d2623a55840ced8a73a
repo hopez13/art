@@ -16,6 +16,24 @@
       "revId": "d44d70354a883e6972a93d2623a55840ced8a73a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dee35c2_8c2717b2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-04T13:37:03Z",
+      "side": 1,
+      "message": "std::move() does not destroy this object, it just creates an r-value reference; if we fail to create the DlMallocSpace, the object shall not be modified. I agree that it\u0027s dodgy to rely on the internal behavior of a called function this way and it should be cleaned up. Also, using operator\u003c\u003c with \"uint8_t*\" is broken as it interprets the pointer as a plain C string and tries to read the data rather than print the pointer\u0027s value.\n\nYes, the CHECK() should come before the SetFootPrintLimit().",
+      "parentUuid": "3c861f08_7a56bd2b",
+      "revId": "d44d70354a883e6972a93d2623a55840ced8a73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
