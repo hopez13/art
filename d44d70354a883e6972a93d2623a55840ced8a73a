@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c861f08_7a56bd2b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2018-09-04T13:19:00Z",
+      "side": 1,
+      "message": "We called std::move(non_moving_space_mem_map) on line 453.  So I don\u0027t think it\u0027s safe to call this read-method on the object.\n\nAlso, not due to this CL, but shouldn\u0027t our CHECK happen before we dereference non_moving_space_ to call SetFootprintLimit()?",
+      "revId": "d44d70354a883e6972a93d2623a55840ced8a73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
