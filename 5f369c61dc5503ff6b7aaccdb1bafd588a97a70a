@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0cfcdbb_e3b3d826",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-04T09:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15a2b6f4_e3df25fa",
+      "range": {
+        "startLine": 916,
+        "startChar": 3,
+        "endLine": 916,
+        "endChar": 9
+      },
+      "revId": "5f369c61dc5503ff6b7aaccdb1bafd588a97a70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a22762cb_546287af",
         "filename": "test/117-nopatchoat/src/Main.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "5f369c61dc5503ff6b7aaccdb1bafd588a97a70a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3244d203_693b59bd",
+        "filename": "test/117-nopatchoat/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-04T09:46:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22762cb_546287af",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 62
+      },
+      "revId": "5f369c61dc5503ff6b7aaccdb1bafd588a97a70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
