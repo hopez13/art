@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0af6e17_36f9f473",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-04T15:08:50Z",
+      "side": 1,
+      "message": "Why abort()? Why not LOG(FATAL), why is that above a VLOG? And why is that not recoverable, like when you return nullptr below.",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 12
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "000e6874_ea2a1d1a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-04T15:08:50Z",
+      "side": 1,
+      "message": "Why isn\u0027t this chained so that shm is a fallback for memfd?",
+      "range": {
+        "startLine": 208,
+        "startChar": 1,
+        "endLine": 208,
+        "endChar": 5
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3b6212_b3abe196",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-04T15:08:50Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 12
+      },
+      "revId": "be99a06e14fcfadbb713ab5299f953bda4592861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
