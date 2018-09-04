@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fd3a616_5f54f75e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3680,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-04T18:28:31Z",
+      "side": 1,
+      "message": "Add a constant for the API level instead of a magic number everywhere?",
+      "range": {
+        "startLine": 3680,
+        "startChar": 21,
+        "endLine": 3680,
+        "endChar": 24
+      },
+      "revId": "dc39d32cc0c72af00b58c58077fb2cad6774df03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
