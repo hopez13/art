@@ -16,7 +16,15 @@
 
 #include "jit_code_cache.h"
 
+#include <fcntl.h>
 #include <sstream>
+#include <sys/stat.h>
+
+#if defined __BIONIC__
+#include <sys/syscall.h>
+#endif  // defined __BIONIC__
+
+#include "android-base/unique_fd.h"
 
 #include "arch/context.h"
 #include "art_method-inl.h"
@@ -49,6 +57,8 @@
 #include "stack.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
+
+using android::base::unique_fd;
 
 namespace art {
 namespace jit {
@@ -185,6 +195,30 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
     return nullptr;
   }
 
+  // File descriptor enabling dual-view mapping of code section.
+  unique_fd mem_fd;
+
+#if defined __BIONIC__
+  // Bionic supports definition for memfd_create. The call may fail on older kernels.
+  mem_fd = unique_fd(syscall(__NR_memfd_create, "/jit-cache", /* flags */ 0));
+  if (mem_fd.get() < 0) {
+    VLOG(jit) << "Failed to create memory file descriptor: " << strerror(errno);
+  }
+#elif defined __linux__
+  // Android's glibc supports shm_open, but not memfd_create.
+  mem_fd = unique_fd(shm_open("/jit-cache", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR));
+  if (mem_fd.get() < 0) {
+    VLOG(jit) << "Failed to create memory file descriptor: " << strerror(errno);
+  }
+#endif
+
+  if (mem_fd.get() >= 0 && ftruncate(mem_fd, max_capacity) != 0) {
+    std::ostringstream oss;
+    oss << "Failed to initialize memory file: " << strerror(errno);
+    *error_msg = oss.str();
+    return nullptr;
+  }
+
   // Decide how we should map the code and data sections.
   // If we use the code cache just for profiling we do not need to map the code section as
   // executable.
@@ -200,15 +234,29 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   // We could do PC-relative addressing to avoid this problem, but that
   // would require reserving code and data area before submitting, which
   // means more windows for the code memory to be RWX.
-  MemMap data_map = MemMap::MapAnonymous(
-      "data-code-cache",
-      /* addr */ nullptr,
-      max_capacity,
-      kProtData,
-      /* low_4gb */ true,
-      /* reuse */ false,
-      /* reservation */ nullptr,
-      &error_str);
+  MemMap data_map;
+  if (mem_fd.get() >= 0) {
+    data_map = MemMap::MapFile(
+        max_capacity,
+        kProtData,
+        MAP_PRIVATE,
+        mem_fd,
+        /* start */ 0,
+        /* low_4gb */ true,
+        "data-code-cache",
+        &error_str);
+  } else {
+    data_map = MemMap::MapAnonymous(
+        "data-code-cache",
+        /* addr */ nullptr,
+        max_capacity,
+        kProtData,
+        /* low_4gb */ true,
+        /* reuse */ false,
+        /* reservation */ nullptr,
+        &error_str);
+  }
+
   if (!data_map.IsValid()) {
     std::ostringstream oss;
     oss << "Failed to create read write cache: " << error_str << " size=" << max_capacity;
