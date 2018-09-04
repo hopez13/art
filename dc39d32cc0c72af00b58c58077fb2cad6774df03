@@ -22,6 +22,30 @@
       "revId": "dc39d32cc0c72af00b58c58077fb2cad6774df03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad0bde5e_8d81e289",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3680,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-04T20:03:51Z",
+      "side": 1,
+      "message": "It\u0027s not a magic number. It\u0027s an SDK level, which are numerical.",
+      "parentUuid": "2fd3a616_5f54f75e",
+      "range": {
+        "startLine": 3680,
+        "startChar": 21,
+        "endLine": 3680,
+        "endChar": 24
+      },
+      "revId": "dc39d32cc0c72af00b58c58077fb2cad6774df03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
