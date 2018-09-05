@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46df9a99_0fe959b1",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-05T17:14:15Z",
+      "side": 1,
+      "message": "Add () to clarify order?",
+      "range": {
+        "startLine": 2359,
+        "startChar": 12,
+        "endLine": 2394,
+        "endChar": 83
+      },
+      "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
