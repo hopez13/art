@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1a8b20f_77bc0fb5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-05T15:03:55Z",
+      "side": 1,
+      "message": "I think I messed up the control flow here; I\u0027ll upload a new patch set to fix that.",
+      "range": {
+        "startLine": 2384,
+        "startChar": 6,
+        "endLine": 2384,
+        "endChar": 12
+      },
+      "revId": "9e3080f2768e47e9e8ddc717e7b31964f7fbcd3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
