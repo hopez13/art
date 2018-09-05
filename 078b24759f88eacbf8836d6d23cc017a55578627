@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "576bfe06_30e18abc",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-05T06:56:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7732d903_3ef6b085",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 4
+      },
+      "revId": "078b24759f88eacbf8836d6d23cc017a55578627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "312a0afe_9b47c6d1",
         "filename": "runtime/entrypoints/entrypoint_utils.h",
         "patchSetId": 4
@@ -234,6 +258,30 @@
       "revId": "078b24759f88eacbf8836d6d23cc017a55578627",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95f07fcc_ee2a296a",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-05T06:56:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "128f5894_bc3500ad",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 4
+      },
+      "revId": "078b24759f88eacbf8836d6d23cc017a55578627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -378,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "6ca8178a_e0ae152f",
+        "filename": "runtime/interpreter/mterp/arm/op_iget.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-05T06:56:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6bbc690a_66473b7f",
+      "range": {
+        "startLine": 1,
+        "startChar": 11,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "078b24759f88eacbf8836d6d23cc017a55578627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab527ad9_659bcc67",
         "filename": "runtime/interpreter/mterp/arm/op_iget_wide.S",
         "patchSetId": 4
@@ -413,6 +485,30 @@
       "side": 1,
       "message": "I plan further clean up, but not in this CL.",
       "parentUuid": "ab527ad9_659bcc67",
+      "range": {
+        "startLine": 1,
+        "startChar": 10,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "078b24759f88eacbf8836d6d23cc017a55578627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f444e7a6_8d565bfc",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_wide.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-05T06:56:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "783c4005_4aa037cf",
       "range": {
         "startLine": 1,
         "startChar": 10,
