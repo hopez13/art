@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fef5ac84_b0e1672b",
+        "filename": "tools/ahat/src/main/com/android/ahat/ObjectsHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-09-06T12:27:34Z",
+      "side": 1,
+      "message": "I usually prefer adding another function instead of encoding state like this in a boolean. In this case it made the test a bit harder to read, not a big deal of course. Also, I\u0027m struggling to come up with a good name for such a function :-)",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "cccf839832a211e39d01d54a891214b092ddd18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
