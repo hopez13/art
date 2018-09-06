@@ -4,7 +4,6 @@
  * ===========================================================================
  */
 
-
 /*
  * We've detected a condition that will result in an exception, but the exception
  * has not yet been thrown.  Just bail out to the reference interpreter to deal with it.
@@ -206,7 +205,6 @@ MterpCommonTakenBranchNoFlags:
     FETCH_ADVANCE_INST 2
     GET_INST_OPCODE ip                  // extract opcode from wINST
     GOTO_OPCODE ip                      // jump to next instruction
-
 
 /*
  * Check for suspend check request.  Assumes wINST already loaded, xPC advanced and

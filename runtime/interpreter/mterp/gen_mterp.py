@@ -421,7 +421,6 @@ def emitAsmStub(outfp, dict):
 # This may modify "dict".
 #
 def appendSourceFile(source, dict, outfp, sister_list):
-    outfp.write("/* File: %s */\n" % source)
     infp = open(source, "r")
     in_sister = False
     for line in infp:
@@ -528,7 +527,7 @@ except:
 # Open and prepare output files.
 #
 try:
-    asm_fp = open("%s/mterp_%s.S" % (output_dir, target_arch), "w")
+    asm_fp = open("%s/mterp_%s.S" % (output_dir, target_arch), "w+")
 except:
     print "Unable to open output files"
     print "Make sure directory '%s' exists and existing files are writable" \
@@ -613,6 +612,11 @@ config_fp.close()
 # Done!
 #
 if asm_fp:
+    asm_fp.seek(0)
+    text = asm_fp.read()
+    asm_fp.seek(0)
+    asm_fp.write(re.compile(r"\n\s*\n\s*\n", re.DOTALL).sub("\n\n", text))
+    asm_fp.truncate()
     asm_fp.close()
 
 sys.exit(failed)

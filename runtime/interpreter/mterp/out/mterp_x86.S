@@ -4,7 +4,6 @@
  * --> DO NOT EDIT <--
  */
 
-/* File: x86/header.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -322,7 +321,6 @@ unspecified registers or condition codes.
     movl    MACRO_LITERAL(0), 4(rREFS,\_vreg,4)
 .endm
 
-/* File: x86/entry.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -407,8 +405,6 @@ SYMBOL(ExecuteMterpImpl):
     GOTO_NEXT
     /* NOTE: no fallthrough */
 
-/* File: x86/instruction_start.S */
-
     OBJECT_TYPE(artMterpAsmInstructionStart)
     ASM_HIDDEN SYMBOL(artMterpAsmInstructionStart)
     .global SYMBOL(artMterpAsmInstructionStart)
@@ -418,13 +414,11 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_nop: /* 0x00 */
-/* File: x86/op_nop.S */
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
 /* ------------------------------ */
     .balign 128
 .L_op_move: /* 0x01 */
-/* File: x86/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     movzbl  rINSTbl, %eax                   # eax <- BA
@@ -441,7 +435,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_from16: /* 0x02 */
-/* File: x86/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
     movzx   rINSTbl, %eax                   # eax <- AA
@@ -457,7 +450,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_16: /* 0x03 */
-/* File: x86/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
     movzwl  4(rPC), %ecx                    # ecx <- BBBB
@@ -473,7 +465,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide: /* 0x04 */
-/* File: x86/op_move_wide.S */
     /* move-wide vA, vB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -486,7 +477,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_from16: /* 0x05 */
-/* File: x86/op_move_wide_from16.S */
     /* move-wide/from16 vAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
     movzwl  2(rPC), %ecx                    # ecx <- BBBB
@@ -498,7 +488,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_16: /* 0x06 */
-/* File: x86/op_move_wide_16.S */
     /* move-wide/16 vAAAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6,v7" or "move v7,v6" */
     movzwl  4(rPC), %ecx                    # ecx<- BBBB
@@ -510,8 +499,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_object: /* 0x07 */
-/* File: x86/op_move_object.S */
-/* File: x86/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     movzbl  rINSTbl, %eax                   # eax <- BA
@@ -525,12 +512,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_object_from16: /* 0x08 */
-/* File: x86/op_move_object_from16.S */
-/* File: x86/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
     movzx   rINSTbl, %eax                   # eax <- AA
@@ -543,12 +527,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_object_16: /* 0x09 */
-/* File: x86/op_move_object_16.S */
-/* File: x86/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
     movzwl  4(rPC), %ecx                    # ecx <- BBBB
@@ -561,11 +542,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 3
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_result: /* 0x0a */
-/* File: x86/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
     movl    OFF_FP_RESULT_REGISTER(rFP), %eax    # get pointer to result JType.
@@ -580,7 +559,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_wide: /* 0x0b */
-/* File: x86/op_move_result_wide.S */
     /* move-result-wide vAA */
     movl    OFF_FP_RESULT_REGISTER(rFP), %eax    # get pointer to result JType.
     movl    4(%eax), %ecx                   # Get high
@@ -592,8 +570,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_object: /* 0x0c */
-/* File: x86/op_move_result_object.S */
-/* File: x86/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
     movl    OFF_FP_RESULT_REGISTER(rFP), %eax    # get pointer to result JType.
@@ -605,11 +581,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_exception: /* 0x0d */
-/* File: x86/op_move_exception.S */
     /* move-exception vAA */
     movl    rSELF, %ecx
     movl    THREAD_EXCEPTION_OFFSET(%ecx), %eax
@@ -620,7 +594,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_void: /* 0x0e */
-/* File: x86/op_return_void.S */
     .extern MterpThreadFenceForConstructor
     call    SYMBOL(MterpThreadFenceForConstructor)
     movl    rSELF, %eax
@@ -636,7 +609,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return: /* 0x0f */
-/* File: x86/op_return.S */
 /*
  * Return a 32-bit value.
  *
@@ -658,7 +630,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_wide: /* 0x10 */
-/* File: x86/op_return_wide.S */
 /*
  * Return a 64-bit value.
  */
@@ -678,8 +649,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_object: /* 0x11 */
-/* File: x86/op_return_object.S */
-/* File: x86/op_return.S */
 /*
  * Return a 32-bit value.
  *
@@ -698,11 +667,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     xorl    %ecx, %ecx
     jmp     MterpReturn
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_4: /* 0x12 */
-/* File: x86/op_const_4.S */
     /* const/4 vA, #+B */
     movsx   rINSTbl, %eax                   # eax <-ssssssBx
     movl    $0xf, rINST
@@ -714,7 +681,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_16: /* 0x13 */
-/* File: x86/op_const_16.S */
     /* const/16 vAA, #+BBBB */
     movswl  2(rPC), %ecx                    # ecx <- ssssBBBB
     SET_VREG %ecx, rINST                    # vAA <- ssssBBBB
@@ -723,7 +689,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const: /* 0x14 */
-/* File: x86/op_const.S */
     /* const vAA, #+BBBBbbbb */
     movl    2(rPC), %eax                    # grab all 32 bits at once
     SET_VREG %eax, rINST                    # vAA<- eax
@@ -732,7 +697,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_high16: /* 0x15 */
-/* File: x86/op_const_high16.S */
     /* const/high16 vAA, #+BBBB0000 */
     movzwl  2(rPC), %eax                    # eax <- 0000BBBB
     sall    $16, %eax                      # eax <- BBBB0000
@@ -742,7 +706,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_16: /* 0x16 */
-/* File: x86/op_const_wide_16.S */
     /* const-wide/16 vAA, #+BBBB */
     movswl  2(rPC), %eax                    # eax <- ssssBBBB
     movl    rIBASE, %ecx                    # preserve rIBASE (cltd trashes it)
@@ -755,7 +718,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_32: /* 0x17 */
-/* File: x86/op_const_wide_32.S */
     /* const-wide/32 vAA, #+BBBBbbbb */
     movl    2(rPC), %eax                    # eax <- BBBBbbbb
     movl    rIBASE, %ecx                    # preserve rIBASE (cltd trashes it)
@@ -768,7 +730,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide: /* 0x18 */
-/* File: x86/op_const_wide.S */
     /* const-wide vAA, #+HHHHhhhhBBBBbbbb */
     movl    2(rPC), %eax                    # eax <- lsw
     movzbl  rINSTbl, %ecx                   # ecx <- AA
@@ -780,7 +741,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_high16: /* 0x19 */
-/* File: x86/op_const_wide_high16.S */
     /* const-wide/high16 vAA, #+BBBB000000000000 */
     movzwl  2(rPC), %eax                    # eax <- 0000BBBB
     sall    $16, %eax                      # eax <- BBBB0000
@@ -792,8 +752,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_string: /* 0x1a */
-/* File: x86/op_const_string.S */
-/* File: x86/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -813,11 +771,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     jnz     MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_string_jumbo: /* 0x1b */
-/* File: x86/op_const_string_jumbo.S */
     /* const/string vAA, String@BBBBBBBB */
     EXPORT_PC
     movl    2(rPC), %eax                    # eax <- BBBB
@@ -836,8 +792,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_class: /* 0x1c */
-/* File: x86/op_const_class.S */
-/* File: x86/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -857,11 +811,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     jnz     MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_monitor_enter: /* 0x1d */
-/* File: x86/op_monitor_enter.S */
 /*
  * Synchronize on an object.
  */
@@ -880,7 +832,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_monitor_exit: /* 0x1e */
-/* File: x86/op_monitor_exit.S */
 /*
  * Unlock an object.
  *
@@ -903,7 +854,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_check_cast: /* 0x1f */
-/* File: x86/op_check_cast.S */
 /*
  * Check to see if a cast from one class to another is allowed.
  */
@@ -926,7 +876,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_instance_of: /* 0x20 */
-/* File: x86/op_instance_of.S */
 /*
  * Check to see if an object reference is an instance of a class.
  *
@@ -957,7 +906,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_array_length: /* 0x21 */
-/* File: x86/op_array_length.S */
 /*
  * Return the length of an array.
  */
@@ -974,7 +922,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_new_instance: /* 0x22 */
-/* File: x86/op_new_instance.S */
 /*
  * Create a new instance of a class.
  */
@@ -995,7 +942,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_new_array: /* 0x23 */
-/* File: x86/op_new_array.S */
 /*
  * Allocate an array of objects, specified with the array class
  * and a count.
@@ -1021,7 +967,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_filled_new_array: /* 0x24 */
-/* File: x86/op_filled_new_array.S */
 /*
  * Create a new array with elements filled from registers.
  *
@@ -1045,8 +990,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_filled_new_array_range: /* 0x25 */
-/* File: x86/op_filled_new_array_range.S */
-/* File: x86/op_filled_new_array.S */
 /*
  * Create a new array with elements filled from registers.
  *
@@ -1067,11 +1010,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     jz      MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 3
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_fill_array_data: /* 0x26 */
-/* File: x86/op_fill_array_data.S */
     /* fill-array-data vAA, +BBBBBBBB */
     EXPORT_PC
     movl    2(rPC), %ecx                    # ecx <- BBBBbbbb
@@ -1088,7 +1029,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_throw: /* 0x27 */
-/* File: x86/op_throw.S */
 /*
  * Throw an exception object in the current thread.
  */
@@ -1104,7 +1044,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto: /* 0x28 */
-/* File: x86/op_goto.S */
 /*
  * Unconditional branch, 8-bit offset.
  *
@@ -1119,7 +1058,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto_16: /* 0x29 */
-/* File: x86/op_goto_16.S */
 /*
  * Unconditional branch, 16-bit offset.
  *
@@ -1134,7 +1072,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto_32: /* 0x2a */
-/* File: x86/op_goto_32.S */
 /*
  * Unconditional branch, 32-bit offset.
  *
@@ -1154,7 +1091,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_packed_switch: /* 0x2b */
-/* File: x86/op_packed_switch.S */
 /*
  * Handle a packed-switch or sparse-switch instruction.  In both cases
  * we decode it and hand it off to a helper function.
@@ -1179,8 +1115,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sparse_switch: /* 0x2c */
-/* File: x86/op_sparse_switch.S */
-/* File: x86/op_packed_switch.S */
 /*
  * Handle a packed-switch or sparse-switch instruction.  In both cases
  * we decode it and hand it off to a helper function.
@@ -1202,12 +1136,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movl    %eax, rINST
     jmp     MterpCommonTakenBranch
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_float: /* 0x2d */
-/* File: x86/op_cmpl_float.S */
-/* File: x86/fpcmp.S */
 /*
  * Compare two floating-point values.  Puts 0, 1, or -1 into the
  * destination register based on the results of the comparison.
@@ -1243,12 +1174,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_float: /* 0x2e */
-/* File: x86/op_cmpg_float.S */
-/* File: x86/fpcmp.S */
 /*
  * Compare two floating-point values.  Puts 0, 1, or -1 into the
  * destination register based on the results of the comparison.
@@ -1284,12 +1212,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_double: /* 0x2f */
-/* File: x86/op_cmpl_double.S */
-/* File: x86/fpcmp.S */
 /*
  * Compare two floating-point values.  Puts 0, 1, or -1 into the
  * destination register based on the results of the comparison.
@@ -1325,12 +1250,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_double: /* 0x30 */
-/* File: x86/op_cmpg_double.S */
-/* File: x86/fpcmp.S */
 /*
  * Compare two floating-point values.  Puts 0, 1, or -1 into the
  * destination register based on the results of the comparison.
@@ -1366,11 +1288,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmp_long: /* 0x31 */
-/* File: x86/op_cmp_long.S */
 /*
  * Compare two 64-bit values.  Puts 0, 1, or -1 into the destination
  * register based on the results of the comparison.
@@ -1402,8 +1322,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_if_eq: /* 0x32 */
-/* File: x86/op_if_eq.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1425,13 +1343,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     cmpw    $JIT_CHECK_OSR, rPROFILE
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_if_ne: /* 0x33 */
-/* File: x86/op_if_ne.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1454,12 +1369,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_lt: /* 0x34 */
-/* File: x86/op_if_lt.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1482,12 +1394,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_ge: /* 0x35 */
-/* File: x86/op_if_ge.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1510,12 +1419,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gt: /* 0x36 */
-/* File: x86/op_if_gt.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1538,12 +1444,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_le: /* 0x37 */
-/* File: x86/op_if_le.S */
-/* File: x86/bincmp.S */
 /*
  * Generic two-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1566,12 +1469,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_eqz: /* 0x38 */
-/* File: x86/op_if_eqz.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1590,12 +1490,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_nez: /* 0x39 */
-/* File: x86/op_if_nez.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1614,12 +1511,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_ltz: /* 0x3a */
-/* File: x86/op_if_ltz.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1638,12 +1532,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gez: /* 0x3b */
-/* File: x86/op_if_gez.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1662,12 +1553,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gtz: /* 0x3c */
-/* File: x86/op_if_gtz.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1686,12 +1574,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_lez: /* 0x3d */
-/* File: x86/op_if_lez.S */
-/* File: x86/zcmp.S */
 /*
  * Generic one-operand compare-and-branch operation.  Provide a "revcmp"
  * fragment that specifies the *reverse* comparison to perform, e.g.
@@ -1710,77 +1595,57 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     je      .L_check_not_taken_osr
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_3e: /* 0x3e */
-/* File: x86/op_unused_3e.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_3f: /* 0x3f */
-/* File: x86/op_unused_3f.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_40: /* 0x40 */
-/* File: x86/op_unused_40.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_41: /* 0x41 */
-/* File: x86/op_unused_41.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_42: /* 0x42 */
-/* File: x86/op_unused_42.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_43: /* 0x43 */
-/* File: x86/op_unused_43.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget: /* 0x44 */
-/* File: x86/op_aget.S */
 /*
  * Array get, 32 bits or less.  vAA <- vBB[vCC].
  *
@@ -1803,7 +1668,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_wide: /* 0x45 */
-/* File: x86/op_aget_wide.S */
 /*
  * Array get, 64 bits.  vAA <- vBB[vCC].
  */
@@ -1824,7 +1688,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_object: /* 0x46 */
-/* File: x86/op_aget_object.S */
 /*
  * Array object get.  vAA <- vBB[vCC].
  *
@@ -1849,8 +1712,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_boolean: /* 0x47 */
-/* File: x86/op_aget_boolean.S */
-/* File: x86/op_aget.S */
 /*
  * Array get, 32 bits or less.  vAA <- vBB[vCC].
  *
@@ -1870,12 +1731,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_byte: /* 0x48 */
-/* File: x86/op_aget_byte.S */
-/* File: x86/op_aget.S */
 /*
  * Array get, 32 bits or less.  vAA <- vBB[vCC].
  *
@@ -1895,12 +1753,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_char: /* 0x49 */
-/* File: x86/op_aget_char.S */
-/* File: x86/op_aget.S */
 /*
  * Array get, 32 bits or less.  vAA <- vBB[vCC].
  *
@@ -1920,12 +1775,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_short: /* 0x4a */
-/* File: x86/op_aget_short.S */
-/* File: x86/op_aget.S */
 /*
  * Array get, 32 bits or less.  vAA <- vBB[vCC].
  *
@@ -1945,11 +1797,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput: /* 0x4b */
-/* File: x86/op_aput.S */
 /*
  * Array put, 32 bits or less.  vBB[vCC] <- vAA.
  *
@@ -1973,7 +1823,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_wide: /* 0x4c */
-/* File: x86/op_aput_wide.S */
 /*
  * Array put, 64 bits.  vBB[vCC] <- vAA.
  *
@@ -1995,7 +1844,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_object: /* 0x4d */
-/* File: x86/op_aput_object.S */
 /*
  * Store an object into an array.  vBB[vCC] <- vAA.
  */
@@ -2015,8 +1863,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_boolean: /* 0x4e */
-/* File: x86/op_aput_boolean.S */
-/* File: x86/op_aput.S */
 /*
  * Array put, 32 bits or less.  vBB[vCC] <- vAA.
  *
@@ -2037,12 +1883,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movb  rINSTbl, (%eax)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_byte: /* 0x4f */
-/* File: x86/op_aput_byte.S */
-/* File: x86/op_aput.S */
 /*
  * Array put, 32 bits or less.  vBB[vCC] <- vAA.
  *
@@ -2063,12 +1906,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movb  rINSTbl, (%eax)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_char: /* 0x50 */
-/* File: x86/op_aput_char.S */
-/* File: x86/op_aput.S */
 /*
  * Array put, 32 bits or less.  vBB[vCC] <- vAA.
  *
@@ -2089,12 +1929,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movw  rINSTw, (%eax)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_short: /* 0x51 */
-/* File: x86/op_aput_short.S */
-/* File: x86/op_aput.S */
 /*
  * Array put, 32 bits or less.  vBB[vCC] <- vAA.
  *
@@ -2115,12 +1952,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movw  rINSTw, (%eax)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget: /* 0x52 */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2138,13 +1972,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide: /* 0x53 */
-/* File: x86/op_iget_wide.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2162,14 +1992,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object: /* 0x54 */
-/* File: x86/op_iget_object.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2187,14 +2012,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_boolean: /* 0x55 */
-/* File: x86/op_iget_boolean.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2212,14 +2032,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_byte: /* 0x56 */
-/* File: x86/op_iget_byte.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2237,14 +2052,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_char: /* 0x57 */
-/* File: x86/op_iget_char.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2262,14 +2072,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_short: /* 0x58 */
-/* File: x86/op_iget_short.S */
-/* File: x86/op_iget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2287,13 +2092,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput: /* 0x59 */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2311,13 +2112,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide: /* 0x5a */
-/* File: x86/op_iput_wide.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2335,14 +2132,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_object: /* 0x5b */
-/* File: x86/op_iput_object.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2360,14 +2152,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_boolean: /* 0x5c */
-/* File: x86/op_iput_boolean.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2385,14 +2172,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_byte: /* 0x5d */
-/* File: x86/op_iput_byte.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2410,14 +2192,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_char: /* 0x5e */
-/* File: x86/op_iput_char.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2435,14 +2212,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_short: /* 0x5f */
-/* File: x86/op_iput_short.S */
-/* File: x86/op_iput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2460,13 +2232,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget: /* 0x60 */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2484,13 +2252,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_wide: /* 0x61 */
-/* File: x86/op_sget_wide.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2508,14 +2272,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_object: /* 0x62 */
-/* File: x86/op_sget_object.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2533,14 +2292,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_boolean: /* 0x63 */
-/* File: x86/op_sget_boolean.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2558,14 +2312,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_byte: /* 0x64 */
-/* File: x86/op_sget_byte.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2583,14 +2332,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_char: /* 0x65 */
-/* File: x86/op_sget_char.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2608,14 +2352,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sget_short: /* 0x66 */
-/* File: x86/op_sget_short.S */
-/* File: x86/op_sget.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2633,13 +2372,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput: /* 0x67 */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2657,13 +2392,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_wide: /* 0x68 */
-/* File: x86/op_sput_wide.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2681,14 +2412,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_object: /* 0x69 */
-/* File: x86/op_sput_object.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2706,14 +2432,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_boolean: /* 0x6a */
-/* File: x86/op_sput_boolean.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2731,14 +2452,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_byte: /* 0x6b */
-/* File: x86/op_sput_byte.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2756,14 +2472,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_char: /* 0x6c */
-/* File: x86/op_sput_char.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2781,14 +2492,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_sput_short: /* 0x6d */
-/* File: x86/op_sput_short.S */
-/* File: x86/op_sput.S */
-/* File: x86/field.S */
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2806,13 +2512,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     RESTORE_IBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual: /* 0x6e */
-/* File: x86/op_invoke_virtual.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -2849,8 +2551,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_super: /* 0x6f */
-/* File: x86/op_invoke_super.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -2887,8 +2587,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_direct: /* 0x70 */
-/* File: x86/op_invoke_direct.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -2914,12 +2612,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_static: /* 0x71 */
-/* File: x86/op_invoke_static.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -2945,13 +2640,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_interface: /* 0x72 */
-/* File: x86/op_invoke_interface.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -2988,7 +2679,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_void_no_barrier: /* 0x73 */
-/* File: x86/op_return_void_no_barrier.S */
     movl    rSELF, %eax
     testl   $(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST), THREAD_FLAGS_OFFSET(%eax)
     jz      1f
@@ -3002,8 +2692,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_range: /* 0x74 */
-/* File: x86/op_invoke_virtual_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -3029,12 +2717,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_super_range: /* 0x75 */
-/* File: x86/op_invoke_super_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -3060,12 +2745,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_direct_range: /* 0x76 */
-/* File: x86/op_invoke_direct_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -3091,12 +2773,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_static_range: /* 0x77 */
-/* File: x86/op_invoke_static_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -3122,12 +2801,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_interface_range: /* 0x78 */
-/* File: x86/op_invoke_interface_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -3153,34 +2829,25 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_79: /* 0x79 */
-/* File: x86/op_unused_79.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_7a: /* 0x7a */
-/* File: x86/op_unused_7a.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_int: /* 0x7b */
-/* File: x86/op_neg_int.S */
-/* File: x86/unop.S */
 /*
  * Generic 32-bit unary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = op eax".
@@ -3194,12 +2861,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_not_int: /* 0x7c */
-/* File: x86/op_not_int.S */
-/* File: x86/unop.S */
 /*
  * Generic 32-bit unary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = op eax".
@@ -3213,11 +2877,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_long: /* 0x7d */
-/* File: x86/op_neg_long.S */
     /* unop vA, vB */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
     sarl    $4, %ecx                       # ecx <- B
@@ -3231,11 +2893,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %ecx, rINST               # v[A+1] <- ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_not_long: /* 0x7e */
-/* File: x86/op_not_long.S */
     /* unop vA, vB */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
     sarl    $4, %ecx                       # ecx <- B
@@ -3251,8 +2911,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_neg_float: /* 0x7f */
-/* File: x86/op_neg_float.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3270,12 +2928,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_double: /* 0x80 */
-/* File: x86/op_neg_double.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3293,11 +2948,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_long: /* 0x81 */
-/* File: x86/op_int_to_long.S */
     /* int to long vA, vB */
     movzbl  rINSTbl, %eax                   # eax <- +A
     sarl    $4, %eax                       # eax <- B
@@ -3310,12 +2963,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movl    %ecx, rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_float: /* 0x82 */
-/* File: x86/op_int_to_float.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3333,12 +2983,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_double: /* 0x83 */
-/* File: x86/op_int_to_double.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3356,13 +3003,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_int: /* 0x84 */
-/* File: x86/op_long_to_int.S */
 /* we ignore the high word, making this equivalent to a 32-bit reg move */
-/* File: x86/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     movzbl  rINSTbl, %eax                   # eax <- BA
@@ -3376,12 +3020,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_float: /* 0x85 */
-/* File: x86/op_long_to_float.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3399,12 +3040,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_double: /* 0x86 */
-/* File: x86/op_long_to_double.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3422,12 +3060,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_int: /* 0x87 */
-/* File: x86/op_float_to_int.S */
-/* File: x86/cvtfp_int.S */
 /* On fp to int conversions, Java requires that
  * if the result > maxint, it should be clamped to maxint.  If it is less
  * than minint, it should be clamped to minint.  If it is a nan, the result
@@ -3489,12 +3124,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     jmp     .Lop_float_to_int_finish
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_long: /* 0x88 */
-/* File: x86/op_float_to_long.S */
-/* File: x86/cvtfp_int.S */
 /* On fp to int conversions, Java requires that
  * if the result > maxint, it should be clamped to maxint.  If it is less
  * than minint, it should be clamped to minint.  If it is a nan, the result
@@ -3556,12 +3188,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     jmp     .Lop_float_to_long_finish
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_double: /* 0x89 */
-/* File: x86/op_float_to_double.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3579,12 +3208,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_int: /* 0x8a */
-/* File: x86/op_double_to_int.S */
-/* File: x86/cvtfp_int.S */
 /* On fp to int conversions, Java requires that
  * if the result > maxint, it should be clamped to maxint.  If it is less
  * than minint, it should be clamped to minint.  If it is a nan, the result
@@ -3646,12 +3272,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     jmp     .Lop_double_to_int_finish
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_long: /* 0x8b */
-/* File: x86/op_double_to_long.S */
-/* File: x86/cvtfp_int.S */
 /* On fp to int conversions, Java requires that
  * if the result > maxint, it should be clamped to maxint.  If it is less
  * than minint, it should be clamped to minint.  If it is a nan, the result
@@ -3713,12 +3336,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     jmp     .Lop_double_to_long_finish
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_float: /* 0x8c */
-/* File: x86/op_double_to_float.S */
-/* File: x86/fpcvt.S */
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -3736,12 +3356,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_byte: /* 0x8d */
-/* File: x86/op_int_to_byte.S */
-/* File: x86/unop.S */
 /*
  * Generic 32-bit unary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = op eax".
@@ -3755,12 +3372,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_char: /* 0x8e */
-/* File: x86/op_int_to_char.S */
-/* File: x86/unop.S */
 /*
  * Generic 32-bit unary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = op eax".
@@ -3774,12 +3388,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_short: /* 0x8f */
-/* File: x86/op_int_to_short.S */
-/* File: x86/unop.S */
 /*
  * Generic 32-bit unary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = op eax".
@@ -3793,12 +3404,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int: /* 0x90 */
-/* File: x86/op_add_int.S */
-/* File: x86/binop.S */
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
@@ -3816,12 +3424,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_int: /* 0x91 */
-/* File: x86/op_sub_int.S */
-/* File: x86/binop.S */
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
@@ -3839,11 +3444,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int: /* 0x92 */
-/* File: x86/op_mul_int.S */
     /*
      * 32-bit binary multiplication.
      */
@@ -3860,8 +3463,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_int: /* 0x93 */
-/* File: x86/op_div_int.S */
-/* File: x86/bindiv.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -3910,12 +3511,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int: /* 0x94 */
-/* File: x86/op_rem_int.S */
-/* File: x86/bindiv.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -3964,12 +3562,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_int: /* 0x95 */
-/* File: x86/op_and_int.S */
-/* File: x86/binop.S */
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
@@ -3987,12 +3582,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int: /* 0x96 */
-/* File: x86/op_or_int.S */
-/* File: x86/binop.S */
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
@@ -4010,12 +3602,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int: /* 0x97 */
-/* File: x86/op_xor_int.S */
-/* File: x86/binop.S */
 /*
  * Generic 32-bit binary operation.  Provide an "instr" line that
  * specifies an instruction that performs "result = eax op (rFP,%ecx,4)".
@@ -4033,12 +3622,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int: /* 0x98 */
-/* File: x86/op_shl_int.S */
-/* File: x86/binop1.S */
 /*
  * Generic 32-bit binary operation in which both operands loaded to
  * registers (op0 in eax, op1 in ecx).
@@ -4052,12 +3638,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int: /* 0x99 */
-/* File: x86/op_shr_int.S */
-/* File: x86/binop1.S */
 /*
  * Generic 32-bit binary operation in which both operands loaded to
  * registers (op0 in eax, op1 in ecx).
@@ -4071,12 +3654,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int: /* 0x9a */
-/* File: x86/op_ushr_int.S */
-/* File: x86/binop1.S */
 /*
  * Generic 32-bit binary operation in which both operands loaded to
  * registers (op0 in eax, op1 in ecx).
@@ -4090,12 +3670,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_long: /* 0x9b */
-/* File: x86/op_add_long.S */
-/* File: x86/binopWide.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4112,12 +3689,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long: /* 0x9c */
-/* File: x86/op_sub_long.S */
-/* File: x86/binopWide.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4134,11 +3708,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long: /* 0x9d */
-/* File: x86/op_mul_long.S */
 /*
  * Signed 64-bit integer multiply.
  *
@@ -4176,7 +3748,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_long: /* 0x9e */
-/* File: x86/op_div_long.S */
 /* art_quick_* methods has quick abi,
  *   so use eax, ecx, edx, ebx for args
  */
@@ -4203,8 +3774,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long: /* 0x9f */
-/* File: x86/op_rem_long.S */
-/* File: x86/op_div_long.S */
 /* art_quick_* methods has quick abi,
  *   so use eax, ecx, edx, ebx for args
  */
@@ -4228,12 +3797,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE            # restore rIBASE/%edx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_long: /* 0xa0 */
-/* File: x86/op_and_long.S */
-/* File: x86/binopWide.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4250,12 +3816,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_long: /* 0xa1 */
-/* File: x86/op_or_long.S */
-/* File: x86/binopWide.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4272,12 +3835,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long: /* 0xa2 */
-/* File: x86/op_xor_long.S */
-/* File: x86/binopWide.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4294,11 +3854,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG_HIGH %eax, rINST               # v[AA+1] <- eax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long: /* 0xa3 */
-/* File: x86/op_shl_long.S */
 /*
  * Long integer shift.  This is different from the generic 32/64-bit
  * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4332,7 +3890,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long: /* 0xa4 */
-/* File: x86/op_shr_long.S */
 /*
  * Long integer shift.  This is different from the generic 32/64-bit
  * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4366,7 +3923,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long: /* 0xa5 */
-/* File: x86/op_ushr_long.S */
 /*
  * Long integer shift.  This is different from the generic 32/64-bit
  * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4400,8 +3956,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_float: /* 0xa6 */
-/* File: x86/op_add_float.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movss   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4411,12 +3965,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_float: /* 0xa7 */
-/* File: x86/op_sub_float.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movss   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4426,12 +3977,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_float: /* 0xa8 */
-/* File: x86/op_mul_float.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movss   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4441,12 +3989,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_float: /* 0xa9 */
-/* File: x86/op_div_float.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movss   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4456,11 +4001,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_float: /* 0xaa */
-/* File: x86/op_rem_float.S */
     /* rem_float vAA, vBB, vCC */
     movzbl  3(rPC), %ecx                    # ecx <- BB
     movzbl  2(rPC), %eax                    # eax <- CC
@@ -4479,8 +4022,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_double: /* 0xab */
-/* File: x86/op_add_double.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movsd   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4490,12 +4031,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double: /* 0xac */
-/* File: x86/op_sub_double.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movsd   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4505,12 +4043,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double: /* 0xad */
-/* File: x86/op_mul_double.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movsd   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4520,12 +4055,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_double: /* 0xae */
-/* File: x86/op_div_double.S */
-/* File: x86/sseBinop.S */
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     movsd   VREG_ADDRESS(%ecx), %xmm0  # %xmm0 <- 1st src
@@ -4535,11 +4067,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double: /* 0xaf */
-/* File: x86/op_rem_double.S */
     /* rem_double vAA, vBB, vCC */
     movzbl  3(rPC), %ecx                    # ecx <- BB
     movzbl  2(rPC), %eax                    # eax <- CC
@@ -4558,8 +4088,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_2addr: /* 0xb0 */
-/* File: x86/op_add_int_2addr.S */
-/* File: x86/binop2addr.S */
 /*
  * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = r0 op r1".
@@ -4579,12 +4107,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_REF %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_int_2addr: /* 0xb1 */
-/* File: x86/op_sub_int_2addr.S */
-/* File: x86/binop2addr.S */
 /*
  * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = r0 op r1".
@@ -4604,11 +4129,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_REF %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_2addr: /* 0xb2 */
-/* File: x86/op_mul_int_2addr.S */
     /* mul vA, vB */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     sarl    $4, rINST                      # rINST <- B
@@ -4623,8 +4146,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_2addr: /* 0xb3 */
-/* File: x86/op_div_int_2addr.S */
-/* File: x86/bindiv2addr.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -4654,12 +4175,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_2addr: /* 0xb4 */
-/* File: x86/op_rem_int_2addr.S */
-/* File: x86/bindiv2addr.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -4689,12 +4207,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_2addr: /* 0xb5 */
-/* File: x86/op_and_int_2addr.S */
-/* File: x86/binop2addr.S */
 /*
  * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = r0 op r1".
@@ -4714,12 +4229,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_REF %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_2addr: /* 0xb6 */
-/* File: x86/op_or_int_2addr.S */
-/* File: x86/binop2addr.S */
 /*
  * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = r0 op r1".
@@ -4739,12 +4251,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_REF %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_2addr: /* 0xb7 */
-/* File: x86/op_xor_int_2addr.S */
-/* File: x86/binop2addr.S */
 /*
  * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = r0 op r1".
@@ -4764,12 +4273,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_REF %ecx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int_2addr: /* 0xb8 */
-/* File: x86/op_shl_int_2addr.S */
-/* File: x86/shop2addr.S */
 /*
  * Generic 32-bit "shift/2addr" operation.
  */
@@ -4783,12 +4289,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int_2addr: /* 0xb9 */
-/* File: x86/op_shr_int_2addr.S */
-/* File: x86/shop2addr.S */
 /*
  * Generic 32-bit "shift/2addr" operation.
  */
@@ -4802,12 +4305,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int_2addr: /* 0xba */
-/* File: x86/op_ushr_int_2addr.S */
-/* File: x86/shop2addr.S */
 /*
  * Generic 32-bit "shift/2addr" operation.
  */
@@ -4821,12 +4321,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_long_2addr: /* 0xbb */
-/* File: x86/op_add_long_2addr.S */
-/* File: x86/binopWide2addr.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4841,12 +4338,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_WIDE_REF rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long_2addr: /* 0xbc */
-/* File: x86/op_sub_long_2addr.S */
-/* File: x86/binopWide2addr.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4861,11 +4355,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_WIDE_REF rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long_2addr: /* 0xbd */
-/* File: x86/op_mul_long_2addr.S */
 /*
  * Signed 64-bit integer multiply, 2-addr version
  *
@@ -4905,7 +4397,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_long_2addr: /* 0xbe */
-/* File: x86/op_div_long_2addr.S */
 /* art_quick_* methods has quick abi,
  *   so use eax, ecx, edx, ebx for args
  */
@@ -4934,8 +4425,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long_2addr: /* 0xbf */
-/* File: x86/op_rem_long_2addr.S */
-/* File: x86/op_div_long_2addr.S */
 /* art_quick_* methods has quick abi,
  *   so use eax, ecx, edx, ebx for args
  */
@@ -4961,12 +4450,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE            # restore rIBASE/%edx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_long_2addr: /* 0xc0 */
-/* File: x86/op_and_long_2addr.S */
-/* File: x86/binopWide2addr.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -4981,12 +4467,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_WIDE_REF rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_long_2addr: /* 0xc1 */
-/* File: x86/op_or_long_2addr.S */
-/* File: x86/binopWide2addr.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -5001,12 +4484,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_WIDE_REF rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long_2addr: /* 0xc2 */
-/* File: x86/op_xor_long_2addr.S */
-/* File: x86/binopWide2addr.S */
 /*
  * Generic 64-bit binary operation.
  */
@@ -5021,11 +4501,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     CLEAR_WIDE_REF rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long_2addr: /* 0xc3 */
-/* File: x86/op_shl_long_2addr.S */
 /*
  * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
  * 32-bit shift distance.
@@ -5056,7 +4534,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long_2addr: /* 0xc4 */
-/* File: x86/op_shr_long_2addr.S */
 /*
  * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
  * 32-bit shift distance.
@@ -5087,7 +4564,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long_2addr: /* 0xc5 */
-/* File: x86/op_ushr_long_2addr.S */
 /*
  * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
  * 32-bit shift distance.
@@ -5118,8 +4594,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_float_2addr: /* 0xc6 */
-/* File: x86/op_add_float_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movss VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5130,12 +4604,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_float_2addr: /* 0xc7 */
-/* File: x86/op_sub_float_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movss VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5146,12 +4617,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_float_2addr: /* 0xc8 */
-/* File: x86/op_mul_float_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movss VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5162,12 +4630,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_float_2addr: /* 0xc9 */
-/* File: x86/op_div_float_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movss VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5178,11 +4643,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movss %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_float_2addr: /* 0xca */
-/* File: x86/op_rem_float_2addr.S */
     /* rem_float/2addr vA, vB */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     sarl    $4, rINST                      # rINST <- B
@@ -5202,8 +4665,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_double_2addr: /* 0xcb */
-/* File: x86/op_add_double_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movsd VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5214,12 +4675,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double_2addr: /* 0xcc */
-/* File: x86/op_sub_double_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movsd VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5230,12 +4688,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double_2addr: /* 0xcd */
-/* File: x86/op_mul_double_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movsd VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5246,12 +4701,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_double_2addr: /* 0xce */
-/* File: x86/op_div_double_2addr.S */
-/* File: x86/sseBinop2Addr.S */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     andl    $0xf, %ecx                     # ecx <- A
     movsd VREG_ADDRESS(%ecx), %xmm0      # %xmm0 <- 1st src
@@ -5262,11 +4714,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movsd %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double_2addr: /* 0xcf */
-/* File: x86/op_rem_double_2addr.S */
     /* rem_double/2addr vA, vB */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     sarl    $4, rINST                      # rINST <- B
@@ -5286,8 +4736,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_lit16: /* 0xd0 */
-/* File: x86/op_add_int_lit16.S */
-/* File: x86/binopLit16.S */
 /*
  * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5307,13 +4755,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rsub_int: /* 0xd1 */
-/* File: x86/op_rsub_int.S */
 /* this op is "rsub-int", but can be thought of as "rsub-int/lit16" */
-/* File: x86/binopLit16.S */
 /*
  * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5333,11 +4778,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %ecx, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_lit16: /* 0xd2 */
-/* File: x86/op_mul_int_lit16.S */
     /* mul/lit16 vA, vB, #+CCCC */
     /* Need A in rINST, ssssCCCC in ecx, vB in eax */
     movzbl  rINSTbl, %eax                   # eax <- 000000BA
@@ -5354,8 +4797,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_lit16: /* 0xd3 */
-/* File: x86/op_div_int_lit16.S */
-/* File: x86/bindivLit16.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -5385,12 +4826,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_lit16: /* 0xd4 */
-/* File: x86/op_rem_int_lit16.S */
-/* File: x86/bindivLit16.S */
 /*
  * 32-bit binary div/rem operation.  Handles special case of op0=minint and
  * op1=-1.
@@ -5420,12 +4858,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_lit16: /* 0xd5 */
-/* File: x86/op_and_int_lit16.S */
-/* File: x86/binopLit16.S */
 /*
  * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5445,12 +4880,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_lit16: /* 0xd6 */
-/* File: x86/op_or_int_lit16.S */
-/* File: x86/binopLit16.S */
 /*
  * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5470,12 +4902,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_lit16: /* 0xd7 */
-/* File: x86/op_xor_int_lit16.S */
-/* File: x86/binopLit16.S */
 /*
  * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5495,12 +4924,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_lit8: /* 0xd8 */
-/* File: x86/op_add_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5519,12 +4945,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rsub_int_lit8: /* 0xd9 */
-/* File: x86/op_rsub_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5543,11 +4966,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %ecx, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_lit8: /* 0xda */
-/* File: x86/op_mul_int_lit8.S */
     /* mul/lit8 vAA, vBB, #+CC */
     movzbl  2(rPC), %eax                    # eax <- BB
     movl    rIBASE, %ecx
@@ -5561,8 +4982,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_lit8: /* 0xdb */
-/* File: x86/op_div_int_lit8.S */
-/* File: x86/bindivLit8.S */
 /*
  * 32-bit div/rem "lit8" binary operation.  Handles special case of
  * op0=minint & op1=-1
@@ -5589,12 +5008,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_lit8: /* 0xdc */
-/* File: x86/op_rem_int_lit8.S */
-/* File: x86/bindivLit8.S */
 /*
  * 32-bit div/rem "lit8" binary operation.  Handles special case of
  * op0=minint & op1=-1
@@ -5621,12 +5037,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     mov     LOCAL0(%esp), rIBASE
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_lit8: /* 0xdd */
-/* File: x86/op_and_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5645,12 +5058,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_lit8: /* 0xde */
-/* File: x86/op_or_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5669,12 +5079,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_lit8: /* 0xdf */
-/* File: x86/op_xor_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5693,12 +5100,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int_lit8: /* 0xe0 */
-/* File: x86/op_shl_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5717,12 +5121,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int_lit8: /* 0xe1 */
-/* File: x86/op_shr_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5741,12 +5142,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int_lit8: /* 0xe2 */
-/* File: x86/op_ushr_int_lit8.S */
-/* File: x86/binopLit8.S */
 /*
  * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
  * that specifies an instruction that performs "result = eax op ecx".
@@ -5765,11 +5163,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_quick: /* 0xe3 */
-/* File: x86/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5786,7 +5182,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide_quick: /* 0xe4 */
-/* File: x86/op_iget_wide_quick.S */
     /* iget-wide-quick vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
     sarl    $4, %ecx                       # ecx <- B
@@ -5802,7 +5197,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object_quick: /* 0xe5 */
-/* File: x86/op_iget_object_quick.S */
     /* For: iget-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5824,7 +5218,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iput_quick: /* 0xe6 */
-/* File: x86/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5841,7 +5234,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide_quick: /* 0xe7 */
-/* File: x86/op_iput_wide_quick.S */
     /* iput-wide-quick vA, vB, offset@CCCC */
     movzbl    rINSTbl, %ecx                 # ecx<- BA
     sarl      $4, %ecx                     # ecx<- B
@@ -5858,7 +5250,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iput_object_quick: /* 0xe8 */
-/* File: x86/op_iput_object_quick.S */
     EXPORT_PC
     leal    OFF_FP_SHADOWFRAME(rFP), %eax
     movl    %eax, OUT_ARG0(%esp)
@@ -5874,8 +5265,6 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_quick: /* 0xe9 */
-/* File: x86/op_invoke_virtual_quick.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -5901,12 +5290,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_range_quick: /* 0xea */
-/* File: x86/op_invoke_virtual_range_quick.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -5932,12 +5318,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_boolean_quick: /* 0xeb */
-/* File: x86/op_iput_boolean_quick.S */
-/* File: x86/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5950,13 +5333,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movzwl  2(rPC), %eax                    # eax <- field byte offset
     movb    rINSTbl, (%ecx,%eax,1)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_byte_quick: /* 0xec */
-/* File: x86/op_iput_byte_quick.S */
-/* File: x86/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5970,12 +5350,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movb    rINSTbl, (%ecx,%eax,1)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_char_quick: /* 0xed */
-/* File: x86/op_iput_char_quick.S */
-/* File: x86/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -5988,13 +5365,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movzwl  2(rPC), %eax                    # eax <- field byte offset
     movw    rINSTw, (%ecx,%eax,1)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_short_quick: /* 0xee */
-/* File: x86/op_iput_short_quick.S */
-/* File: x86/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -6008,12 +5382,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     movw    rINSTw, (%ecx,%eax,1)
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_boolean_quick: /* 0xef */
-/* File: x86/op_iget_boolean_quick.S */
-/* File: x86/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -6026,13 +5397,10 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     andb    $0xf,rINSTbl                   # rINST <- A
     SET_VREG %eax, rINST                    # fp[A] <- value
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_byte_quick: /* 0xf0 */
-/* File: x86/op_iget_byte_quick.S */
-/* File: x86/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -6046,12 +5414,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST                    # fp[A] <- value
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_char_quick: /* 0xf1 */
-/* File: x86/op_iget_char_quick.S */
-/* File: x86/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -6065,12 +5430,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST                    # fp[A] <- value
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_short_quick: /* 0xf2 */
-/* File: x86/op_iget_short_quick.S */
-/* File: x86/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     movzbl  rINSTbl, %ecx                   # ecx <- BA
@@ -6084,89 +5446,65 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     SET_VREG %eax, rINST                    # fp[A] <- value
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f3: /* 0xf3 */
-/* File: x86/op_unused_f3.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f4: /* 0xf4 */
-/* File: x86/op_unused_f4.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f5: /* 0xf5 */
-/* File: x86/op_unused_f5.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f6: /* 0xf6 */
-/* File: x86/op_unused_f6.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f7: /* 0xf7 */
-/* File: x86/op_unused_f7.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f8: /* 0xf8 */
-/* File: x86/op_unused_f8.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f9: /* 0xf9 */
-/* File: x86/op_unused_f9.S */
-/* File: x86/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
     jmp     MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic: /* 0xfa */
-/* File: x86/op_invoke_polymorphic.S */
-/* File: x86/invoke_polymorphic.S */
     /*
      * invoke-polymorphic handler wrapper.
      */
@@ -6192,12 +5530,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic_range: /* 0xfb */
-/* File: x86/op_invoke_polymorphic_range.S */
-/* File: x86/invoke_polymorphic.S */
     /*
      * invoke-polymorphic handler wrapper.
      */
@@ -6223,12 +5558,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom: /* 0xfc */
-/* File: x86/op_invoke_custom.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -6254,12 +5586,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom_range: /* 0xfd */
-/* File: x86/op_invoke_custom_range.S */
-/* File: x86/invoke.S */
 /*
  * Generic invoke handler wrapper.
  */
@@ -6285,12 +5614,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     FETCH_INST
     GOTO_NEXT
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_method_handle: /* 0xfe */
-/* File: x86/op_const_method_handle.S */
-/* File: x86/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -6310,12 +5636,9 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     jnz     MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_method_type: /* 0xff */
-/* File: x86/op_const_method_type.S */
-/* File: x86/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -6335,22 +5658,18 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     jnz     MterpPossibleException
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
-
     .balign 128
-/* File: x86/instruction_end.S */
 
     OBJECT_TYPE(artMterpAsmInstructionEnd)
     ASM_HIDDEN SYMBOL(artMterpAsmInstructionEnd)
     .global SYMBOL(artMterpAsmInstructionEnd)
 SYMBOL(artMterpAsmInstructionEnd):
 
-
 /*
  * ===========================================================================
  *  Sister implementations
  * ===========================================================================
  */
-/* File: x86/instruction_start_sister.S */
 
     OBJECT_TYPE(artMterpAsmSisterStart)
     ASM_HIDDEN SYMBOL(artMterpAsmSisterStart)
@@ -6359,14 +5678,10 @@ SYMBOL(artMterpAsmInstructionEnd):
     .balign 4
 SYMBOL(artMterpAsmSisterStart):
 
-/* File: x86/instruction_end_sister.S */
-
     OBJECT_TYPE(artMterpAsmSisterEnd)
     ASM_HIDDEN SYMBOL(artMterpAsmSisterEnd)
     .global SYMBOL(artMterpAsmSisterEnd)
 SYMBOL(artMterpAsmSisterEnd):
-
-/* File: x86/instruction_start_alt.S */
 
     OBJECT_TYPE(artMterpAsmAltInstructionStart)
     ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionStart)
@@ -6377,7 +5692,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_nop: /* 0x00 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6401,7 +5715,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move: /* 0x01 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6425,7 +5738,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_from16: /* 0x02 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6449,7 +5761,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_16: /* 0x03 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6473,7 +5784,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide: /* 0x04 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6497,7 +5807,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide_from16: /* 0x05 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6521,7 +5830,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide_16: /* 0x06 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6545,7 +5853,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object: /* 0x07 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6569,7 +5876,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object_from16: /* 0x08 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6593,7 +5899,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object_16: /* 0x09 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6617,7 +5922,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result: /* 0x0a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6641,7 +5945,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result_wide: /* 0x0b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6665,7 +5968,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result_object: /* 0x0c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6689,7 +5991,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_exception: /* 0x0d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6713,7 +6014,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_void: /* 0x0e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6737,7 +6037,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return: /* 0x0f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6761,7 +6060,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_wide: /* 0x10 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6785,7 +6083,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_object: /* 0x11 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6809,7 +6106,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_4: /* 0x12 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6833,7 +6129,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_16: /* 0x13 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6857,7 +6152,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const: /* 0x14 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6881,7 +6175,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_high16: /* 0x15 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6905,7 +6198,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_16: /* 0x16 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6929,7 +6221,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_32: /* 0x17 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6953,7 +6244,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide: /* 0x18 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -6977,7 +6267,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_high16: /* 0x19 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7001,7 +6290,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_string: /* 0x1a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7025,7 +6313,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_string_jumbo: /* 0x1b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7049,7 +6336,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_class: /* 0x1c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7073,7 +6359,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_monitor_enter: /* 0x1d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7097,7 +6382,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_monitor_exit: /* 0x1e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7121,7 +6405,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_check_cast: /* 0x1f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7145,7 +6428,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_instance_of: /* 0x20 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7169,7 +6451,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_array_length: /* 0x21 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7193,7 +6474,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_new_instance: /* 0x22 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7217,7 +6497,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_new_array: /* 0x23 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7241,7 +6520,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_filled_new_array: /* 0x24 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7265,7 +6543,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_filled_new_array_range: /* 0x25 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7289,7 +6566,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_fill_array_data: /* 0x26 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7313,7 +6589,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_throw: /* 0x27 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7337,7 +6612,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto: /* 0x28 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7361,7 +6635,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto_16: /* 0x29 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7385,7 +6658,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto_32: /* 0x2a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7409,7 +6681,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_packed_switch: /* 0x2b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7433,7 +6704,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sparse_switch: /* 0x2c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7457,7 +6727,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpl_float: /* 0x2d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7481,7 +6750,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpg_float: /* 0x2e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7505,7 +6773,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpl_double: /* 0x2f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7529,7 +6796,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpg_double: /* 0x30 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7553,7 +6819,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmp_long: /* 0x31 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7577,7 +6842,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_eq: /* 0x32 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7601,7 +6865,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ne: /* 0x33 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7625,7 +6888,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_lt: /* 0x34 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7649,7 +6911,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ge: /* 0x35 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7673,7 +6934,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gt: /* 0x36 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7697,7 +6957,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_le: /* 0x37 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7721,7 +6980,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_eqz: /* 0x38 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7745,7 +7003,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_nez: /* 0x39 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7769,7 +7026,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ltz: /* 0x3a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7793,7 +7049,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gez: /* 0x3b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7817,7 +7072,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gtz: /* 0x3c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7841,7 +7095,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_lez: /* 0x3d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7865,7 +7118,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_3e: /* 0x3e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7889,7 +7141,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_3f: /* 0x3f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7913,7 +7164,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_40: /* 0x40 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7937,7 +7187,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_41: /* 0x41 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7961,7 +7210,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_42: /* 0x42 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7985,7 +7233,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_43: /* 0x43 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8009,7 +7256,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget: /* 0x44 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8033,7 +7279,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_wide: /* 0x45 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8057,7 +7302,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_object: /* 0x46 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8081,7 +7325,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_boolean: /* 0x47 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8105,7 +7348,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_byte: /* 0x48 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8129,7 +7371,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_char: /* 0x49 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8153,7 +7394,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_short: /* 0x4a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8177,7 +7417,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput: /* 0x4b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8201,7 +7440,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_wide: /* 0x4c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8225,7 +7463,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_object: /* 0x4d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8249,7 +7486,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_boolean: /* 0x4e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8273,7 +7509,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_byte: /* 0x4f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8297,7 +7532,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_char: /* 0x50 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8321,7 +7555,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_short: /* 0x51 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8345,7 +7578,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget: /* 0x52 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8369,7 +7601,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_wide: /* 0x53 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8393,7 +7624,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_object: /* 0x54 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8417,7 +7647,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_boolean: /* 0x55 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8441,7 +7670,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_byte: /* 0x56 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8465,7 +7693,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_char: /* 0x57 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8489,7 +7716,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_short: /* 0x58 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8513,7 +7739,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput: /* 0x59 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8537,7 +7762,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_wide: /* 0x5a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8561,7 +7785,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_object: /* 0x5b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8585,7 +7808,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_boolean: /* 0x5c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8609,7 +7831,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_byte: /* 0x5d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8633,7 +7854,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_char: /* 0x5e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8657,7 +7877,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_short: /* 0x5f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8681,7 +7900,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget: /* 0x60 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8705,7 +7923,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_wide: /* 0x61 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8729,7 +7946,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_object: /* 0x62 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8753,7 +7969,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_boolean: /* 0x63 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8777,7 +7992,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_byte: /* 0x64 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8801,7 +8015,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_char: /* 0x65 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8825,7 +8038,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_short: /* 0x66 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8849,7 +8061,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput: /* 0x67 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8873,7 +8084,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_wide: /* 0x68 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8897,7 +8107,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_object: /* 0x69 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8921,7 +8130,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_boolean: /* 0x6a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8945,7 +8153,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_byte: /* 0x6b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8969,7 +8176,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_char: /* 0x6c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8993,7 +8199,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_short: /* 0x6d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9017,7 +8222,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual: /* 0x6e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9041,7 +8245,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_super: /* 0x6f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9065,7 +8268,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_direct: /* 0x70 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9089,7 +8291,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_static: /* 0x71 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9113,7 +8314,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_interface: /* 0x72 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9137,7 +8337,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_void_no_barrier: /* 0x73 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9161,7 +8360,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_range: /* 0x74 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9185,7 +8383,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_super_range: /* 0x75 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9209,7 +8406,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_direct_range: /* 0x76 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9233,7 +8429,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_static_range: /* 0x77 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9257,7 +8452,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_interface_range: /* 0x78 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9281,7 +8475,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_79: /* 0x79 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9305,7 +8498,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_7a: /* 0x7a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9329,7 +8521,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_int: /* 0x7b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9353,7 +8544,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_not_int: /* 0x7c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9377,7 +8567,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_long: /* 0x7d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9401,7 +8590,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_not_long: /* 0x7e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9425,7 +8613,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_float: /* 0x7f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9449,7 +8636,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_double: /* 0x80 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9473,7 +8659,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_long: /* 0x81 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9497,7 +8682,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_float: /* 0x82 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9521,7 +8705,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_double: /* 0x83 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9545,7 +8728,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_int: /* 0x84 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9569,7 +8751,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_float: /* 0x85 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9593,7 +8774,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_double: /* 0x86 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9617,7 +8797,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_int: /* 0x87 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9641,7 +8820,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_long: /* 0x88 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9665,7 +8843,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_double: /* 0x89 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9689,7 +8866,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_int: /* 0x8a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9713,7 +8889,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_long: /* 0x8b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9737,7 +8912,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_float: /* 0x8c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9761,7 +8935,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_byte: /* 0x8d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9785,7 +8958,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_char: /* 0x8e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9809,7 +8981,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_short: /* 0x8f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9833,7 +9004,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int: /* 0x90 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9857,7 +9027,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_int: /* 0x91 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9881,7 +9050,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int: /* 0x92 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9905,7 +9073,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int: /* 0x93 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9929,7 +9096,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int: /* 0x94 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9953,7 +9119,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int: /* 0x95 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9977,7 +9142,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int: /* 0x96 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10001,7 +9165,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int: /* 0x97 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10025,7 +9188,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int: /* 0x98 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10049,7 +9211,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int: /* 0x99 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10073,7 +9234,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int: /* 0x9a */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10097,7 +9257,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_long: /* 0x9b */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10121,7 +9280,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_long: /* 0x9c */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10145,7 +9303,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_long: /* 0x9d */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10169,7 +9326,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_long: /* 0x9e */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10193,7 +9349,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_long: /* 0x9f */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10217,7 +9372,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_long: /* 0xa0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10241,7 +9395,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_long: /* 0xa1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10265,7 +9418,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_long: /* 0xa2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10289,7 +9441,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_long: /* 0xa3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10313,7 +9464,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_long: /* 0xa4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10337,7 +9487,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_long: /* 0xa5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10361,7 +9510,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_float: /* 0xa6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10385,7 +9533,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_float: /* 0xa7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10409,7 +9556,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_float: /* 0xa8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10433,7 +9579,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_float: /* 0xa9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10457,7 +9602,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_float: /* 0xaa */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10481,7 +9625,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_double: /* 0xab */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10505,7 +9648,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_double: /* 0xac */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10529,7 +9671,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_double: /* 0xad */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10553,7 +9694,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_double: /* 0xae */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10577,7 +9717,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_double: /* 0xaf */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10601,7 +9740,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_2addr: /* 0xb0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10625,7 +9763,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_int_2addr: /* 0xb1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10649,7 +9786,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_2addr: /* 0xb2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10673,7 +9809,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_2addr: /* 0xb3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10697,7 +9832,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_2addr: /* 0xb4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10721,7 +9855,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_2addr: /* 0xb5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10745,7 +9878,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_2addr: /* 0xb6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10769,7 +9901,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_2addr: /* 0xb7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10793,7 +9924,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int_2addr: /* 0xb8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10817,7 +9947,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int_2addr: /* 0xb9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10841,7 +9970,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int_2addr: /* 0xba */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10865,7 +9993,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_long_2addr: /* 0xbb */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10889,7 +10016,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_long_2addr: /* 0xbc */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10913,7 +10039,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_long_2addr: /* 0xbd */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10937,7 +10062,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_long_2addr: /* 0xbe */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10961,7 +10085,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_long_2addr: /* 0xbf */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10985,7 +10108,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_long_2addr: /* 0xc0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11009,7 +10131,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_long_2addr: /* 0xc1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11033,7 +10154,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_long_2addr: /* 0xc2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11057,7 +10177,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_long_2addr: /* 0xc3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11081,7 +10200,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_long_2addr: /* 0xc4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11105,7 +10223,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_long_2addr: /* 0xc5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11129,7 +10246,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_float_2addr: /* 0xc6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11153,7 +10269,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_float_2addr: /* 0xc7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11177,7 +10292,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_float_2addr: /* 0xc8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11201,7 +10315,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_float_2addr: /* 0xc9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11225,7 +10338,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_float_2addr: /* 0xca */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11249,7 +10361,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_double_2addr: /* 0xcb */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11273,7 +10384,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_double_2addr: /* 0xcc */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11297,7 +10407,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_double_2addr: /* 0xcd */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11321,7 +10430,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_double_2addr: /* 0xce */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11345,7 +10453,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_double_2addr: /* 0xcf */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11369,7 +10476,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_lit16: /* 0xd0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11393,7 +10499,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rsub_int: /* 0xd1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11417,7 +10522,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_lit16: /* 0xd2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11441,7 +10545,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_lit16: /* 0xd3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11465,7 +10568,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_lit16: /* 0xd4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11489,7 +10591,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_lit16: /* 0xd5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11513,7 +10614,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_lit16: /* 0xd6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11537,7 +10637,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_lit16: /* 0xd7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11561,7 +10660,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_lit8: /* 0xd8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11585,7 +10683,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rsub_int_lit8: /* 0xd9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11609,7 +10706,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_lit8: /* 0xda */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11633,7 +10729,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_lit8: /* 0xdb */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11657,7 +10752,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_lit8: /* 0xdc */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11681,7 +10775,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_lit8: /* 0xdd */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11705,7 +10798,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_lit8: /* 0xde */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11729,7 +10821,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_lit8: /* 0xdf */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11753,7 +10844,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int_lit8: /* 0xe0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11777,7 +10867,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int_lit8: /* 0xe1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11801,7 +10890,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int_lit8: /* 0xe2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11825,7 +10913,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_quick: /* 0xe3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11849,7 +10936,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_wide_quick: /* 0xe4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11873,7 +10959,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_object_quick: /* 0xe5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11897,7 +10982,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_quick: /* 0xe6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11921,7 +11005,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_wide_quick: /* 0xe7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11945,7 +11028,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_object_quick: /* 0xe8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11969,7 +11051,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_quick: /* 0xe9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11993,7 +11074,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_range_quick: /* 0xea */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12017,7 +11097,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_boolean_quick: /* 0xeb */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12041,7 +11120,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_byte_quick: /* 0xec */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12065,7 +11143,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_char_quick: /* 0xed */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12089,7 +11166,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_short_quick: /* 0xee */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12113,7 +11189,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_boolean_quick: /* 0xef */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12137,7 +11212,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_byte_quick: /* 0xf0 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12161,7 +11235,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_char_quick: /* 0xf1 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12185,7 +11258,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_short_quick: /* 0xf2 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12209,7 +11281,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f3: /* 0xf3 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12233,7 +11304,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f4: /* 0xf4 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12257,7 +11327,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f5: /* 0xf5 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12281,7 +11350,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f6: /* 0xf6 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12305,7 +11373,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f7: /* 0xf7 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12329,7 +11396,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f8: /* 0xf8 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12353,7 +11419,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f9: /* 0xf9 */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12377,7 +11442,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_polymorphic: /* 0xfa */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12401,7 +11465,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_polymorphic_range: /* 0xfb */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12425,7 +11488,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_custom: /* 0xfc */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12449,7 +11511,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_custom_range: /* 0xfd */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12473,7 +11534,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_method_handle: /* 0xfe */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12497,7 +11557,6 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_method_type: /* 0xff */
-/* File: x86/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12519,14 +11578,12 @@ SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
     jmp     .L_op_nop+(255*128)
 
     .balign 128
-/* File: x86/instruction_end_alt.S */
 
     OBJECT_TYPE(artMterpAsmAltInstructionEnd)
     ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionEnd)
     .global SYMBOL(artMterpAsmAltInstructionEnd)
 SYMBOL(artMterpAsmAltInstructionEnd):
 
-/* File: x86/footer.S */
 /*
  * ===========================================================================
  *  Common subroutines and data

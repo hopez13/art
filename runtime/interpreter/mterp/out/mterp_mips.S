@@ -4,7 +4,6 @@
  * --> DO NOT EDIT <--
  */
 
-/* File: mips/header.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -670,7 +669,6 @@
 #define STORE64_F(rlo, rhi, rbase) STORE64_off_F(rlo, rhi, rbase, 0)
 #define LOAD64_F(rlo, rhi, rbase) LOAD64_off_F(rlo, rhi, rbase, 0)
 
-
 #define LOAD_base_offMirrorArray_length(rd, rbase) LOAD_RB_OFF(rd, rbase, MIRROR_ARRAY_LENGTH_OFFSET)
 
 #define STACK_STORE(rd, off) sw rd, off(sp)
@@ -733,7 +731,6 @@
 #define LONG_MIN_AS_FLOAT       0xDF000000
 #define LONG_MIN_AS_DOUBLE_HIGH 0xC3E00000
 
-/* File: mips/entry.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -810,8 +807,6 @@ ExecuteMterpImpl:
     GOTO_OPCODE(t0)                        # jump to next instruction
     /* NOTE: no fallthrough */
 
-/* File: mips/instruction_start.S */
-
     .global artMterpAsmInstructionStart
 artMterpAsmInstructionStart = .L_op_nop
     .text
@@ -819,7 +814,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_nop: /* 0x00 */
-/* File: mips/op_nop.S */
     FETCH_ADVANCE_INST(1)                  #  advance rPC, load rINST
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
@@ -827,7 +821,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move: /* 0x01 */
-/* File: mips/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     GET_OPB(a1)                            #  a1 <- B from 15:12
@@ -844,7 +837,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_from16: /* 0x02 */
-/* File: mips/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
     FETCH(a1, 1)                           #  a1 <- BBBB
@@ -861,7 +853,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_16: /* 0x03 */
-/* File: mips/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
     FETCH(a1, 2)                           #  a1 <- BBBB
@@ -878,7 +869,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide: /* 0x04 */
-/* File: mips/op_move_wide.S */
     /* move-wide vA, vB */
     /* NOTE: regs can overlap, e.g. "move v6, v7" or "move v7, v6" */
     GET_OPA4(a2)                           #  a2 <- A(+)
@@ -892,7 +882,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_from16: /* 0x05 */
-/* File: mips/op_move_wide_from16.S */
     /* move-wide/from16 vAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6, v7" or "move v7, v6" */
     FETCH(a3, 1)                           #  a3 <- BBBB
@@ -906,7 +895,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_wide_16: /* 0x06 */
-/* File: mips/op_move_wide_16.S */
     /* move-wide/16 vAAAA, vBBBB */
     /* NOTE: regs can overlap, e.g. "move v6, v7" or "move v7, v6" */
     FETCH(a3, 2)                           #  a3 <- BBBB
@@ -920,8 +908,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_object: /* 0x07 */
-/* File: mips/op_move_object.S */
-/* File: mips/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     GET_OPB(a1)                            #  a1 <- B from 15:12
@@ -935,12 +921,9 @@ artMterpAsmInstructionStart = .L_op_nop
     SET_VREG_GOTO(a2, a0, t0)              #  fp[A] <- a2
     .endif
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_object_from16: /* 0x08 */
-/* File: mips/op_move_object_from16.S */
-/* File: mips/op_move_from16.S */
     /* for: move/from16, move-object/from16 */
     /* op vAA, vBBBB */
     FETCH(a1, 1)                           #  a1 <- BBBB
@@ -954,12 +937,9 @@ artMterpAsmInstructionStart = .L_op_nop
     SET_VREG_GOTO(a2, a0, t0)              #  fp[AA] <- a2
     .endif
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_object_16: /* 0x09 */
-/* File: mips/op_move_object_16.S */
-/* File: mips/op_move_16.S */
     /* for: move/16, move-object/16 */
     /* op vAAAA, vBBBB */
     FETCH(a1, 2)                           #  a1 <- BBBB
@@ -973,11 +953,9 @@ artMterpAsmInstructionStart = .L_op_nop
     SET_VREG_GOTO(a2, a0, t0)              #  fp[AAAA] <- a2
     .endif
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_result: /* 0x0a */
-/* File: mips/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
     GET_OPA(a2)                            #  a2 <- AA
@@ -994,7 +972,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_wide: /* 0x0b */
-/* File: mips/op_move_result_wide.S */
     /* move-result-wide vAA */
     GET_OPA(a2)                            #  a2 <- AA
     lw    a3, OFF_FP_RESULT_REGISTER(rFP)  #  get pointer to result JType
@@ -1006,8 +983,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_move_result_object: /* 0x0c */
-/* File: mips/op_move_result_object.S */
-/* File: mips/op_move_result.S */
     /* for: move-result, move-result-object */
     /* op vAA */
     GET_OPA(a2)                            #  a2 <- AA
@@ -1021,11 +996,9 @@ artMterpAsmInstructionStart = .L_op_nop
     SET_VREG_GOTO(a0, a2, t0)              #  fp[AA] <- a0
     .endif
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_move_exception: /* 0x0d */
-/* File: mips/op_move_exception.S */
     /* move-exception vAA */
     GET_OPA(a2)                                 #  a2 <- AA
     lw    a3, THREAD_EXCEPTION_OFFSET(rSELF)    #  get exception obj
@@ -1039,7 +1012,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_void: /* 0x0e */
-/* File: mips/op_return_void.S */
     .extern MterpThreadFenceForConstructor
     JAL(MterpThreadFenceForConstructor)
     lw        ra, THREAD_FLAGS_OFFSET(rSELF)
@@ -1055,7 +1027,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return: /* 0x0f */
-/* File: mips/op_return.S */
     /*
      * Return a 32-bit value.
      *
@@ -1078,7 +1049,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_wide: /* 0x10 */
-/* File: mips/op_return_wide.S */
     /*
      * Return a 64-bit value.
      */
@@ -1099,8 +1069,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_return_object: /* 0x11 */
-/* File: mips/op_return_object.S */
-/* File: mips/op_return.S */
     /*
      * Return a 32-bit value.
      *
@@ -1120,11 +1088,9 @@ artMterpAsmInstructionStart = .L_op_nop
     move      v1, zero
     b         MterpReturn
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_4: /* 0x12 */
-/* File: mips/op_const_4.S */
     /* const/4 vA, +B */
     sll       a1, rINST, 16                #  a1 <- Bxxx0000
     GET_OPA(a0)                            #  a0 <- A+
@@ -1137,7 +1103,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_16: /* 0x13 */
-/* File: mips/op_const_16.S */
     /* const/16 vAA, +BBBB */
     FETCH_S(a0, 1)                         #  a0 <- ssssBBBB (sign-extended)
     GET_OPA(a3)                            #  a3 <- AA
@@ -1148,7 +1113,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const: /* 0x14 */
-/* File: mips/op_const.S */
     /* const vAA, +BBBBbbbb */
     GET_OPA(a3)                            #  a3 <- AA
     FETCH(a0, 1)                           #  a0 <- bbbb (low)
@@ -1161,7 +1125,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_high16: /* 0x15 */
-/* File: mips/op_const_high16.S */
     /* const/high16 vAA, +BBBB0000 */
     FETCH(a0, 1)                           #  a0 <- 0000BBBB (zero-extended)
     GET_OPA(a3)                            #  a3 <- AA
@@ -1173,7 +1136,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_16: /* 0x16 */
-/* File: mips/op_const_wide_16.S */
     /* const-wide/16 vAA, +BBBB */
     FETCH_S(a0, 1)                         #  a0 <- ssssBBBB (sign-extended)
     GET_OPA(a3)                            #  a3 <- AA
@@ -1185,7 +1147,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_32: /* 0x17 */
-/* File: mips/op_const_wide_32.S */
     /* const-wide/32 vAA, +BBBBbbbb */
     FETCH(a0, 1)                           #  a0 <- 0000bbbb (low)
     GET_OPA(a3)                            #  a3 <- AA
@@ -1199,7 +1160,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide: /* 0x18 */
-/* File: mips/op_const_wide.S */
     /* const-wide vAA, +HHHHhhhhBBBBbbbb */
     FETCH(a0, 1)                           #  a0 <- bbbb (low)
     FETCH(a1, 2)                           #  a1 <- BBBB (low middle)
@@ -1215,7 +1175,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_wide_high16: /* 0x19 */
-/* File: mips/op_const_wide_high16.S */
     /* const-wide/high16 vAA, +BBBB000000000000 */
     FETCH(a1, 1)                           #  a1 <- 0000BBBB (zero-extended)
     GET_OPA(a3)                            #  a3 <- AA
@@ -1228,8 +1187,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_string: /* 0x1a */
-/* File: mips/op_const_string.S */
-/* File: mips/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -1247,11 +1204,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                 # extract opcode from rINST
     GOTO_OPCODE(t0)                     # jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_string_jumbo: /* 0x1b */
-/* File: mips/op_const_string_jumbo.S */
     /* const/string vAA, string@BBBBBBBB */
     EXPORT_PC()
     FETCH(a0, 1)                        # a0 <- bbbb (low)
@@ -1270,8 +1225,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_const_class: /* 0x1c */
-/* File: mips/op_const_class.S */
-/* File: mips/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -1289,11 +1242,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                 # extract opcode from rINST
     GOTO_OPCODE(t0)                     # jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_monitor_enter: /* 0x1d */
-/* File: mips/op_monitor_enter.S */
     /*
      * Synchronize on an object.
      */
@@ -1311,7 +1262,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_monitor_exit: /* 0x1e */
-/* File: mips/op_monitor_exit.S */
     /*
      * Unlock an object.
      *
@@ -1333,7 +1283,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_check_cast: /* 0x1f */
-/* File: mips/op_check_cast.S */
     /*
      * Check to see if a cast from one class to another is allowed.
      */
@@ -1354,7 +1303,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_instance_of: /* 0x20 */
-/* File: mips/op_instance_of.S */
     /*
      * Check to see if an object reference is an instance of a class.
      *
@@ -1380,7 +1328,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_array_length: /* 0x21 */
-/* File: mips/op_array_length.S */
     /*
      * Return the length of an array.
      */
@@ -1398,7 +1345,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_new_instance: /* 0x22 */
-/* File: mips/op_new_instance.S */
     /*
      * Create a new instance of a class.
      */
@@ -1416,7 +1362,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_new_array: /* 0x23 */
-/* File: mips/op_new_array.S */
     /*
      * Allocate an array of objects, specified with the array class
      * and a count.
@@ -1439,7 +1384,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_filled_new_array: /* 0x24 */
-/* File: mips/op_filled_new_array.S */
     /*
      * Create a new array with elements filled from registers.
      *
@@ -1461,8 +1405,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_filled_new_array_range: /* 0x25 */
-/* File: mips/op_filled_new_array_range.S */
-/* File: mips/op_filled_new_array.S */
     /*
      * Create a new array with elements filled from registers.
      *
@@ -1481,11 +1423,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_fill_array_data: /* 0x26 */
-/* File: mips/op_fill_array_data.S */
     /* fill-array-data vAA, +BBBBBBBB */
     EXPORT_PC()
     FETCH(a1, 1)                           #  a1 <- bbbb (lo)
@@ -1503,7 +1443,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_throw: /* 0x27 */
-/* File: mips/op_throw.S */
     /*
      * Throw an exception object in the current thread.
      */
@@ -1519,7 +1458,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto: /* 0x28 */
-/* File: mips/op_goto.S */
     /*
      * Unconditional branch, 8-bit offset.
      *
@@ -1534,7 +1472,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto_16: /* 0x29 */
-/* File: mips/op_goto_16.S */
     /*
      * Unconditional branch, 16-bit offset.
      *
@@ -1548,7 +1485,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_goto_32: /* 0x2a */
-/* File: mips/op_goto_32.S */
     /*
      * Unconditional branch, 32-bit offset.
      *
@@ -1567,7 +1503,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_packed_switch: /* 0x2b */
-/* File: mips/op_packed_switch.S */
     /*
      * Handle a packed-switch or sparse-switch instruction.  In both cases
      * we decode it and hand it off to a helper function.
@@ -1591,8 +1526,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_sparse_switch: /* 0x2c */
-/* File: mips/op_sparse_switch.S */
-/* File: mips/op_packed_switch.S */
     /*
      * Handle a packed-switch or sparse-switch instruction.  In both cases
      * we decode it and hand it off to a helper function.
@@ -1613,11 +1546,9 @@ artMterpAsmInstructionStart = .L_op_nop
     move      rINST, v0
     b         MterpCommonTakenBranchNoFlags
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_float: /* 0x2d */
-/* File: mips/op_cmpl_float.S */
     /*
      * Compare two floating-point values. Puts 0(==), 1(>), or -1(<)
      * into the destination register based on the comparison results.
@@ -1671,8 +1602,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_float: /* 0x2e */
-/* File: mips/op_cmpg_float.S */
-/* File: mips/op_cmpl_float.S */
     /*
      * Compare two floating-point values. Puts 0(==), 1(>), or -1(<)
      * into the destination register based on the comparison results.
@@ -1723,11 +1652,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(rTEMP, rOBJ, t0)         #  vAA <- rTEMP
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmpl_double: /* 0x2f */
-/* File: mips/op_cmpl_double.S */
     /*
      * Compare two floating-point values. Puts 0(==), 1(>), or -1(<)
      * into the destination register based on the comparison results.
@@ -1783,8 +1710,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_cmpg_double: /* 0x30 */
-/* File: mips/op_cmpg_double.S */
-/* File: mips/op_cmpl_double.S */
     /*
      * Compare two floating-point values. Puts 0(==), 1(>), or -1(<)
      * into the destination register based on the comparison results.
@@ -1837,11 +1762,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(rTEMP, rOBJ, t0)         #  vAA <- rTEMP
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_cmp_long: /* 0x31 */
-/* File: mips/op_cmp_long.S */
     /*
      * Compare two 64-bit values
      *    x = y     return  0
@@ -1880,8 +1803,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_if_eq: /* 0x32 */
-/* File: mips/op_if_eq.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -1901,12 +1822,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_ne: /* 0x33 */
-/* File: mips/op_if_ne.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -1926,12 +1844,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_lt: /* 0x34 */
-/* File: mips/op_if_lt.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -1951,12 +1866,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_ge: /* 0x35 */
-/* File: mips/op_if_ge.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -1976,12 +1888,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gt: /* 0x36 */
-/* File: mips/op_if_gt.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2001,12 +1910,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_le: /* 0x37 */
-/* File: mips/op_if_le.S */
-/* File: mips/bincmp.S */
     /*
      * Generic two-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2026,12 +1932,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_eqz: /* 0x38 */
-/* File: mips/op_if_eqz.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2049,12 +1952,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_nez: /* 0x39 */
-/* File: mips/op_if_nez.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2072,12 +1972,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_ltz: /* 0x3a */
-/* File: mips/op_if_ltz.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2095,12 +1992,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gez: /* 0x3b */
-/* File: mips/op_if_gez.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2118,12 +2012,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_gtz: /* 0x3c */
-/* File: mips/op_if_gtz.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2141,12 +2032,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_if_lez: /* 0x3d */
-/* File: mips/op_if_lez.S */
-/* File: mips/zcmp.S */
     /*
      * Generic one-operand compare-and-branch operation.  Provide a "condition"
      * fragment that specifies the comparison to perform.
@@ -2164,77 +2052,57 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     GOTO_OPCODE(t0)                        #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_3e: /* 0x3e */
-/* File: mips/op_unused_3e.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_3f: /* 0x3f */
-/* File: mips/op_unused_3f.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_40: /* 0x40 */
-/* File: mips/op_unused_40.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_41: /* 0x41 */
-/* File: mips/op_unused_41.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_42: /* 0x42 */
-/* File: mips/op_unused_42.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_43: /* 0x43 */
-/* File: mips/op_unused_43.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget: /* 0x44 */
-/* File: mips/op_aget.S */
     /*
      * Array get, 32 bits or less.  vAA <- vBB[vCC].
      *
@@ -2266,7 +2134,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_wide: /* 0x45 */
-/* File: mips/op_aget_wide.S */
     /*
      * Array get, 64 bits.  vAA <- vBB[vCC].
      *
@@ -2293,7 +2160,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_object: /* 0x46 */
-/* File: mips/op_aget_object.S */
     /*
      * Array object get.  vAA <- vBB[vCC].
      *
@@ -2317,8 +2183,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aget_boolean: /* 0x47 */
-/* File: mips/op_aget_boolean.S */
-/* File: mips/op_aget.S */
     /*
      * Array get, 32 bits or less.  vAA <- vBB[vCC].
      *
@@ -2347,12 +2211,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a2, rOBJ, t0)            #  vAA <- a2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_byte: /* 0x48 */
-/* File: mips/op_aget_byte.S */
-/* File: mips/op_aget.S */
     /*
      * Array get, 32 bits or less.  vAA <- vBB[vCC].
      *
@@ -2381,12 +2242,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a2, rOBJ, t0)            #  vAA <- a2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_char: /* 0x49 */
-/* File: mips/op_aget_char.S */
-/* File: mips/op_aget.S */
     /*
      * Array get, 32 bits or less.  vAA <- vBB[vCC].
      *
@@ -2415,12 +2273,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a2, rOBJ, t0)            #  vAA <- a2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aget_short: /* 0x4a */
-/* File: mips/op_aget_short.S */
-/* File: mips/op_aget.S */
     /*
      * Array get, 32 bits or less.  vAA <- vBB[vCC].
      *
@@ -2449,11 +2304,9 @@ artMterpAsmInstructionStart = .L_op_nop
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a2, rOBJ, t0)            #  vAA <- a2
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput: /* 0x4b */
-/* File: mips/op_aput.S */
 
     /*
      * Array put, 32 bits or less.  vBB[vCC] <- vAA.
@@ -2484,7 +2337,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_wide: /* 0x4c */
-/* File: mips/op_aput_wide.S */
     /*
      * Array put, 64 bits.  vBB[vCC] <- vAA.
      */
@@ -2513,7 +2365,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_object: /* 0x4d */
-/* File: mips/op_aput_object.S */
     /*
      * Store an object into an array.  vBB[vCC] <- vAA.
      *
@@ -2532,8 +2383,6 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_aput_boolean: /* 0x4e */
-/* File: mips/op_aput_boolean.S */
-/* File: mips/op_aput.S */
 
     /*
      * Array put, 32 bits or less.  vBB[vCC] <- vAA.
@@ -2561,12 +2410,9 @@ artMterpAsmInstructionStart = .L_op_nop
     sb a2, MIRROR_BOOLEAN_ARRAY_DATA_OFFSET(a0)            #  vBB[vCC] <- a2
     JR(t0)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_byte: /* 0x4f */
-/* File: mips/op_aput_byte.S */
-/* File: mips/op_aput.S */
 
     /*
      * Array put, 32 bits or less.  vBB[vCC] <- vAA.
@@ -2594,12 +2440,9 @@ artMterpAsmInstructionStart = .L_op_nop
     sb a2, MIRROR_BYTE_ARRAY_DATA_OFFSET(a0)            #  vBB[vCC] <- a2
     JR(t0)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_char: /* 0x50 */
-/* File: mips/op_aput_char.S */
-/* File: mips/op_aput.S */
 
     /*
      * Array put, 32 bits or less.  vBB[vCC] <- vAA.
@@ -2627,12 +2470,9 @@ artMterpAsmInstructionStart = .L_op_nop
     sh a2, MIRROR_CHAR_ARRAY_DATA_OFFSET(a0)            #  vBB[vCC] <- a2
     JR(t0)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_aput_short: /* 0x51 */
-/* File: mips/op_aput_short.S */
-/* File: mips/op_aput.S */
 
     /*
      * Array put, 32 bits or less.  vBB[vCC] <- vAA.
@@ -2660,284 +2500,149 @@ artMterpAsmInstructionStart = .L_op_nop
     sh a2, MIRROR_SHORT_ARRAY_DATA_OFFSET(a0)            #  vBB[vCC] <- a2
     JR(t0)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget: /* 0x52 */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide: /* 0x53 */
-/* File: mips/op_iget_wide.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object: /* 0x54 */
-/* File: mips/op_iget_object.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_boolean: /* 0x55 */
-/* File: mips/op_iget_boolean.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_byte: /* 0x56 */
-/* File: mips/op_iget_byte.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_char: /* 0x57 */
-/* File: mips/op_iget_char.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_short: /* 0x58 */
-/* File: mips/op_iget_short.S */
-/* File: mips/op_iget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput: /* 0x59 */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide: /* 0x5a */
-/* File: mips/op_iput_wide.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_object: /* 0x5b */
-/* File: mips/op_iput_object.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_boolean: /* 0x5c */
-/* File: mips/op_iput_boolean.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_byte: /* 0x5d */
-/* File: mips/op_iput_byte.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_char: /* 0x5e */
-/* File: mips/op_iput_char.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_short: /* 0x5f */
-/* File: mips/op_iput_short.S */
-/* File: mips/op_iput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget: /* 0x60 */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_wide: /* 0x61 */
-/* File: mips/op_sget_wide.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_object: /* 0x62 */
-/* File: mips/op_sget_object.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_boolean: /* 0x63 */
-/* File: mips/op_sget_boolean.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_byte: /* 0x64 */
-/* File: mips/op_sget_byte.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_char: /* 0x65 */
-/* File: mips/op_sget_char.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sget_short: /* 0x66 */
-/* File: mips/op_sget_short.S */
-/* File: mips/op_sget.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput: /* 0x67 */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_wide: /* 0x68 */
-/* File: mips/op_sput_wide.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_object: /* 0x69 */
-/* File: mips/op_sput_object.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_boolean: /* 0x6a */
-/* File: mips/op_sput_boolean.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_byte: /* 0x6b */
-/* File: mips/op_sput_byte.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_char: /* 0x6c */
-/* File: mips/op_sput_char.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_sput_short: /* 0x6d */
-/* File: mips/op_sput_short.S */
-/* File: mips/op_sput.S */
-/* File: mips/field.S */
 TODO
-
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual: /* 0x6e */
-/* File: mips/op_invoke_virtual.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -2957,12 +2662,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_super: /* 0x6f */
-/* File: mips/op_invoke_super.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -2982,12 +2684,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_direct: /* 0x70 */
-/* File: mips/op_invoke_direct.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3007,12 +2706,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_static: /* 0x71 */
-/* File: mips/op_invoke_static.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3032,12 +2728,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_interface: /* 0x72 */
-/* File: mips/op_invoke_interface.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3057,11 +2750,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_return_void_no_barrier: /* 0x73 */
-/* File: mips/op_return_void_no_barrier.S */
     lw     ra, THREAD_FLAGS_OFFSET(rSELF)
     move   a0, rSELF
     and    ra, THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
@@ -3075,8 +2766,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_range: /* 0x74 */
-/* File: mips/op_invoke_virtual_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3096,12 +2785,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_super_range: /* 0x75 */
-/* File: mips/op_invoke_super_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3121,12 +2807,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_direct_range: /* 0x76 */
-/* File: mips/op_invoke_direct_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3146,12 +2829,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_static_range: /* 0x77 */
-/* File: mips/op_invoke_static_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3171,12 +2851,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_interface_range: /* 0x78 */
-/* File: mips/op_invoke_interface_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -3196,34 +2873,25 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_79: /* 0x79 */
-/* File: mips/op_unused_79.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_7a: /* 0x7a */
-/* File: mips/op_unused_7a.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_int: /* 0x7b */
-/* File: mips/op_neg_int.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3242,12 +2910,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_not_int: /* 0x7c */
-/* File: mips/op_not_int.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3266,12 +2931,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_long: /* 0x7d */
-/* File: mips/op_neg_long.S */
-/* File: mips/unopWide.S */
     /*
      * Generic 64-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0/result1 = op a0/a1".
@@ -3290,12 +2952,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_not_long: /* 0x7e */
-/* File: mips/op_not_long.S */
-/* File: mips/unopWide.S */
     /*
      * Generic 64-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0/result1 = op a0/a1".
@@ -3314,12 +2973,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_float: /* 0x7f */
-/* File: mips/op_neg_float.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3338,12 +2994,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_neg_double: /* 0x80 */
-/* File: mips/op_neg_double.S */
-/* File: mips/unopWide.S */
     /*
      * Generic 64-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0/result1 = op a0/a1".
@@ -3362,12 +3015,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_long: /* 0x81 */
-/* File: mips/op_int_to_long.S */
-/* File: mips/unopWider.S */
     /*
      * Generic 32bit-to-64bit unary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result0/result1 = op a0".
@@ -3384,12 +3034,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_float: /* 0x82 */
-/* File: mips/op_int_to_float.S */
-/* File: mips/funop.S */
     /*
      * Generic 32-bit floating-point unary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = op fa0".
@@ -3406,12 +3053,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t1)         #  vA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_double: /* 0x83 */
-/* File: mips/op_int_to_double.S */
-/* File: mips/funopWider.S */
     /*
      * Generic 32bit-to-64bit floating-point unary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = op fa0".
@@ -3427,13 +3071,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0) #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_int: /* 0x84 */
-/* File: mips/op_long_to_int.S */
 /* we ignore the high word, making this equivalent to a 32-bit reg move */
-/* File: mips/op_move.S */
     /* for move, move-object, long-to-int */
     /* op vA, vB */
     GET_OPB(a1)                            #  a1 <- B from 15:12
@@ -3447,11 +3088,9 @@ TODO
     SET_VREG_GOTO(a2, a0, t0)              #  fp[A] <- a2
     .endif
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_float: /* 0x85 */
-/* File: mips/op_long_to_float.S */
     /*
      * long-to-float
      */
@@ -3476,7 +3115,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_long_to_double: /* 0x86 */
-/* File: mips/op_long_to_double.S */
     /*
      * long-to-double
      */
@@ -3501,7 +3139,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_int: /* 0x87 */
-/* File: mips/op_float_to_int.S */
     /*
      * float-to-int
      *
@@ -3535,7 +3172,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_long: /* 0x88 */
-/* File: mips/op_float_to_long.S */
     /*
      * float-to-long
      *
@@ -3580,8 +3216,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_float_to_double: /* 0x89 */
-/* File: mips/op_float_to_double.S */
-/* File: mips/funopWider.S */
     /*
      * Generic 32bit-to-64bit floating-point unary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = op fa0".
@@ -3597,11 +3231,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0) #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_int: /* 0x8a */
-/* File: mips/op_double_to_int.S */
     /*
      * double-to-int
      *
@@ -3637,7 +3269,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_long: /* 0x8b */
-/* File: mips/op_double_to_long.S */
     /*
      * double-to-long
      *
@@ -3684,8 +3315,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_double_to_float: /* 0x8c */
-/* File: mips/op_double_to_float.S */
-/* File: mips/unopNarrower.S */
     /*
      * Generic 64bit-to-32bit floating-point unary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = op fa0".
@@ -3702,12 +3331,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_byte: /* 0x8d */
-/* File: mips/op_int_to_byte.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3726,12 +3352,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_char: /* 0x8e */
-/* File: mips/op_int_to_char.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3750,12 +3373,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_int_to_short: /* 0x8f */
-/* File: mips/op_int_to_short.S */
-/* File: mips/unop.S */
     /*
      * Generic 32-bit unary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result0 = op a0".
@@ -3774,12 +3394,9 @@ TODO
     GET_INST_OPCODE(t1)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, t0, t1)        #  vA <- result0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int: /* 0x90 */
-/* File: mips/op_add_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -3812,12 +3429,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_int: /* 0x91 */
-/* File: mips/op_sub_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -3850,12 +3464,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int: /* 0x92 */
-/* File: mips/op_mul_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -3888,13 +3499,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_int: /* 0x93 */
-/* File: mips/op_div_int.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -3928,7 +3536,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
 #else
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -3966,9 +3573,7 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int: /* 0x94 */
-/* File: mips/op_rem_int.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4002,7 +3607,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
 #else
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4040,8 +3644,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_and_int: /* 0x95 */
-/* File: mips/op_and_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4074,12 +3676,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int: /* 0x96 */
-/* File: mips/op_or_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4112,12 +3711,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int: /* 0x97 */
-/* File: mips/op_xor_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4150,12 +3746,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int: /* 0x98 */
-/* File: mips/op_shl_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4188,12 +3781,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int: /* 0x99 */
-/* File: mips/op_shr_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4226,12 +3816,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int: /* 0x9a */
-/* File: mips/op_ushr_int.S */
-/* File: mips/binop.S */
     /*
      * Generic 32-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0 op a1".
@@ -4264,11 +3851,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_long: /* 0x9b */
-/* File: mips/op_add_long.S */
 /*
  *  The compiler generates the following sequence for
  *  [v1 v0] =  [a1 a0] + [a3 a2];
@@ -4277,7 +3862,6 @@ TODO
  *    sltu v1,v0,a2
  *    addu v1,v1,a1
  */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4312,11 +3896,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vAA/vAA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long: /* 0x9c */
-/* File: mips/op_sub_long.S */
 /*
  * For little endian the code sequence looks as follows:
  *    subu    v0,a0,a2
@@ -4324,7 +3906,6 @@ TODO
  *    sltu    a0,a0,v0
  *    subu    v1,v1,a0
  */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4359,11 +3940,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vAA/vAA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long: /* 0x9d */
-/* File: mips/op_mul_long.S */
     /*
      * Signed 64-bit integer multiply.
      *         a1   a0
@@ -4405,8 +3984,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_div_long: /* 0x9e */
-/* File: mips/op_div_long.S */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4441,12 +4018,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vAA/vAA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long: /* 0x9f */
-/* File: mips/op_rem_long.S */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4481,12 +4055,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vAA/vAA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_long: /* 0xa0 */
-/* File: mips/op_and_long.S */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4521,12 +4092,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vAA/vAA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_long: /* 0xa1 */
-/* File: mips/op_or_long.S */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4561,12 +4129,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vAA/vAA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long: /* 0xa2 */
-/* File: mips/op_xor_long.S */
-/* File: mips/binopWide.S */
     /*
      * Generic 64-bit binary operation.  Provide an "instr" line that
      * specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -4601,11 +4166,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vAA/vAA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long: /* 0xa3 */
-/* File: mips/op_shl_long.S */
     /*
      * Long integer shift.  This is different from the generic 32/64-bit
      * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4637,7 +4200,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long: /* 0xa4 */
-/* File: mips/op_shr_long.S */
     /*
      * Long integer shift.  This is different from the generic 32/64-bit
      * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4668,7 +4230,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long: /* 0xa5 */
-/* File: mips/op_ushr_long.S */
     /*
      * Long integer shift.  This is different from the generic 32/64-bit
      * binary operations because vAA/vBB are 64-bit but vCC (the shift
@@ -4700,8 +4261,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_add_float: /* 0xa6 */
-/* File: mips/op_add_float.S */
-/* File: mips/fbinop.S */
     /*
      * Generic 32-bit binary float operation.
      *
@@ -4721,12 +4280,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vAA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_float: /* 0xa7 */
-/* File: mips/op_sub_float.S */
-/* File: mips/fbinop.S */
     /*
      * Generic 32-bit binary float operation.
      *
@@ -4746,12 +4302,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vAA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_float: /* 0xa8 */
-/* File: mips/op_mul_float.S */
-/* File: mips/fbinop.S */
     /*
      * Generic 32-bit binary float operation.
      *
@@ -4771,12 +4324,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vAA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_float: /* 0xa9 */
-/* File: mips/op_div_float.S */
-/* File: mips/fbinop.S */
     /*
      * Generic 32-bit binary float operation.
      *
@@ -4796,12 +4346,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vAA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_float: /* 0xaa */
-/* File: mips/op_rem_float.S */
-/* File: mips/fbinop.S */
     /*
      * Generic 32-bit binary float operation.
      *
@@ -4821,12 +4368,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vAA <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_double: /* 0xab */
-/* File: mips/op_add_double.S */
-/* File: mips/fbinopWide.S */
     /*
      * Generic 64-bit floating-point binary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -4851,12 +4395,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vAA/vAA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double: /* 0xac */
-/* File: mips/op_sub_double.S */
-/* File: mips/fbinopWide.S */
     /*
      * Generic 64-bit floating-point binary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -4881,12 +4422,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vAA/vAA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double: /* 0xad */
-/* File: mips/op_mul_double.S */
-/* File: mips/fbinopWide.S */
     /*
      * Generic 64-bit floating-point binary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -4911,12 +4449,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vAA/vAA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_double: /* 0xae */
-/* File: mips/op_div_double.S */
-/* File: mips/fbinopWide.S */
     /*
      * Generic 64-bit floating-point binary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -4941,12 +4476,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vAA/vAA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double: /* 0xaf */
-/* File: mips/op_rem_double.S */
-/* File: mips/fbinopWide.S */
     /*
      * Generic 64-bit floating-point binary operation.  Provide an "instr"
      * line that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -4971,12 +4503,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vAA/vAA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_2addr: /* 0xb0 */
-/* File: mips/op_add_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5005,12 +4534,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_int_2addr: /* 0xb1 */
-/* File: mips/op_sub_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5039,12 +4565,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_2addr: /* 0xb2 */
-/* File: mips/op_mul_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5073,13 +4596,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_2addr: /* 0xb3 */
-/* File: mips/op_div_int_2addr.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5109,7 +4629,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
 #else
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5143,9 +4662,7 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_2addr: /* 0xb4 */
-/* File: mips/op_rem_int_2addr.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5175,7 +4692,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
 #else
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5209,8 +4725,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_2addr: /* 0xb5 */
-/* File: mips/op_and_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5239,12 +4753,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_2addr: /* 0xb6 */
-/* File: mips/op_or_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5273,12 +4784,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_2addr: /* 0xb7 */
-/* File: mips/op_xor_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5307,12 +4815,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int_2addr: /* 0xb8 */
-/* File: mips/op_shl_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5341,12 +4846,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int_2addr: /* 0xb9 */
-/* File: mips/op_shr_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5375,12 +4877,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int_2addr: /* 0xba */
-/* File: mips/op_ushr_int_2addr.S */
-/* File: mips/binop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -5409,15 +4908,12 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_long_2addr: /* 0xbb */
-/* File: mips/op_add_long_2addr.S */
 /*
  * See op_add_long.S for details
  */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5448,15 +4944,12 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vA/vA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_long_2addr: /* 0xbc */
-/* File: mips/op_sub_long_2addr.S */
 /*
  * See op_sub_long.S for more details
  */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5487,11 +4980,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vA/vA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_long_2addr: /* 0xbd */
-/* File: mips/op_mul_long_2addr.S */
     /*
      * See op_mul_long.S for more details
      */
@@ -5525,8 +5016,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_div_long_2addr: /* 0xbe */
-/* File: mips/op_div_long_2addr.S */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5557,12 +5046,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vA/vA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_long_2addr: /* 0xbf */
-/* File: mips/op_rem_long_2addr.S */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5593,12 +5079,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(v0, v1, rOBJ, t0)   #  vA/vA+1 <- v0/v1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_and_long_2addr: /* 0xc0 */
-/* File: mips/op_and_long_2addr.S */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5629,12 +5112,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_long_2addr: /* 0xc1 */
-/* File: mips/op_or_long_2addr.S */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5665,12 +5145,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_long_2addr: /* 0xc2 */
-/* File: mips/op_xor_long_2addr.S */
-/* File: mips/binopWide2addr.S */
     /*
      * Generic 64-bit "/2addr" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0-a1 op a2-a3".
@@ -5701,11 +5178,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_GOTO(a0, a1, rOBJ, t0)   #  vA/vA+1 <- a0/a1
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_long_2addr: /* 0xc3 */
-/* File: mips/op_shl_long_2addr.S */
     /*
      * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
      * 32-bit shift distance.
@@ -5733,7 +5208,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_shr_long_2addr: /* 0xc4 */
-/* File: mips/op_shr_long_2addr.S */
     /*
      * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
      * 32-bit shift distance.
@@ -5760,7 +5234,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_long_2addr: /* 0xc5 */
-/* File: mips/op_ushr_long_2addr.S */
     /*
      * Long integer shift, 2addr version.  vA is 64-bit value/result, vB is
      * 32-bit shift distance.
@@ -5788,8 +5261,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_add_float_2addr: /* 0xc6 */
-/* File: mips/op_add_float_2addr.S */
-/* File: mips/fbinop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr"
      * that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -5809,12 +5280,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- result
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_float_2addr: /* 0xc7 */
-/* File: mips/op_sub_float_2addr.S */
-/* File: mips/fbinop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr"
      * that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -5834,12 +5302,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- result
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_float_2addr: /* 0xc8 */
-/* File: mips/op_mul_float_2addr.S */
-/* File: mips/fbinop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr"
      * that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -5859,12 +5324,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- result
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_float_2addr: /* 0xc9 */
-/* File: mips/op_div_float_2addr.S */
-/* File: mips/fbinop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr"
      * that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -5884,12 +5346,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- result
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_float_2addr: /* 0xca */
-/* File: mips/op_rem_float_2addr.S */
-/* File: mips/fbinop2addr.S */
     /*
      * Generic 32-bit "/2addr" binary operation.  Provide an "instr"
      * that specifies an instruction that performs "fv0 = fa0 op fa1".
@@ -5909,12 +5368,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_F_GOTO(fv0, rOBJ, t0)         #  vA <- result
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_double_2addr: /* 0xcb */
-/* File: mips/op_add_double_2addr.S */
-/* File: mips/fbinopWide2addr.S */
     /*
      * Generic 64-bit floating-point "/2addr" binary operation.
      * Provide an "instr" line that specifies an instruction that
@@ -5937,12 +5393,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_sub_double_2addr: /* 0xcc */
-/* File: mips/op_sub_double_2addr.S */
-/* File: mips/fbinopWide2addr.S */
     /*
      * Generic 64-bit floating-point "/2addr" binary operation.
      * Provide an "instr" line that specifies an instruction that
@@ -5965,12 +5418,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_double_2addr: /* 0xcd */
-/* File: mips/op_mul_double_2addr.S */
-/* File: mips/fbinopWide2addr.S */
     /*
      * Generic 64-bit floating-point "/2addr" binary operation.
      * Provide an "instr" line that specifies an instruction that
@@ -5993,12 +5443,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_double_2addr: /* 0xce */
-/* File: mips/op_div_double_2addr.S */
-/* File: mips/fbinopWide2addr.S */
     /*
      * Generic 64-bit floating-point "/2addr" binary operation.
      * Provide an "instr" line that specifies an instruction that
@@ -6021,12 +5468,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rem_double_2addr: /* 0xcf */
-/* File: mips/op_rem_double_2addr.S */
-/* File: mips/fbinopWide2addr.S */
     /*
      * Generic 64-bit floating-point "/2addr" binary operation.
      * Provide an "instr" line that specifies an instruction that
@@ -6049,12 +5493,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG64_F_GOTO(fv0, fv0f, rOBJ, t0)  #  vA/vA+1 <- fv0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_lit16: /* 0xd0 */
-/* File: mips/op_add_int_lit16.S */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6083,13 +5524,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rsub_int: /* 0xd1 */
-/* File: mips/op_rsub_int.S */
 /* this op is "rsub-int", but can be thought of as "rsub-int/lit16" */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6118,12 +5556,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_lit16: /* 0xd2 */
-/* File: mips/op_mul_int_lit16.S */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6152,13 +5587,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_lit16: /* 0xd3 */
-/* File: mips/op_div_int_lit16.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6188,7 +5620,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
 #else
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6222,9 +5653,7 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_lit16: /* 0xd4 */
-/* File: mips/op_rem_int_lit16.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6254,7 +5683,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
 #else
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6288,8 +5716,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_lit16: /* 0xd5 */
-/* File: mips/op_and_int_lit16.S */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6318,12 +5744,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_lit16: /* 0xd6 */
-/* File: mips/op_or_int_lit16.S */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6352,12 +5775,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_lit16: /* 0xd7 */
-/* File: mips/op_xor_int_lit16.S */
-/* File: mips/binopLit16.S */
     /*
      * Generic 32-bit "lit16" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6386,12 +5806,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_add_int_lit8: /* 0xd8 */
-/* File: mips/op_add_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6422,12 +5839,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_rsub_int_lit8: /* 0xd9 */
-/* File: mips/op_rsub_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6458,12 +5872,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_mul_int_lit8: /* 0xda */
-/* File: mips/op_mul_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6494,13 +5905,10 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_div_int_lit8: /* 0xdb */
-/* File: mips/op_div_int_lit8.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6532,7 +5940,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
 #else
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6568,9 +5975,7 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_rem_int_lit8: /* 0xdc */
-/* File: mips/op_rem_int_lit8.S */
 #ifdef MIPS32REVGE6
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6602,7 +6007,6 @@ TODO
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
 #else
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6638,8 +6042,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_and_int_lit8: /* 0xdd */
-/* File: mips/op_and_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6670,12 +6072,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_or_int_lit8: /* 0xde */
-/* File: mips/op_or_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6706,12 +6105,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_xor_int_lit8: /* 0xdf */
-/* File: mips/op_xor_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6742,12 +6138,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shl_int_lit8: /* 0xe0 */
-/* File: mips/op_shl_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6778,12 +6171,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_shr_int_lit8: /* 0xe1 */
-/* File: mips/op_shr_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6814,12 +6204,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_ushr_int_lit8: /* 0xe2 */
-/* File: mips/op_ushr_int_lit8.S */
-/* File: mips/binopLit8.S */
     /*
      * Generic 32-bit "lit8" binary operation.  Provide an "instr" line
      * that specifies an instruction that performs "result = a0 op a1".
@@ -6850,11 +6237,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, rOBJ, t0)       #  vAA <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_quick: /* 0xe3 */
-/* File: mips/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -6872,7 +6257,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_iget_wide_quick: /* 0xe4 */
-/* File: mips/op_iget_wide_quick.S */
     /* iget-wide-quick vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
     GET_VREG(a3, a2)                       #  a3 <- object we're operating on
@@ -6889,7 +6273,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object_quick: /* 0xe5 */
-/* File: mips/op_iget_object_quick.S */
     /* For: iget-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -6908,7 +6291,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_iput_quick: /* 0xe6 */
-/* File: mips/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -6927,7 +6309,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_iput_wide_quick: /* 0xe7 */
-/* File: mips/op_iput_wide_quick.S */
     /* iput-wide-quick vA, vB, offset@CCCC */
     GET_OPA4(a0)                           #  a0 <- A(+)
     GET_OPB(a1)                            #  a1 <- B
@@ -6947,7 +6328,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_iput_object_quick: /* 0xe8 */
-/* File: mips/op_iput_object_quick.S */
     /* For: iput-object-quick */
     /* op vA, vB, offset@CCCC */
     EXPORT_PC()
@@ -6963,8 +6343,6 @@ TODO
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_quick: /* 0xe9 */
-/* File: mips/op_invoke_virtual_quick.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -6984,12 +6362,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_virtual_range_quick: /* 0xea */
-/* File: mips/op_invoke_virtual_range_quick.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -7009,12 +6384,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_boolean_quick: /* 0xeb */
-/* File: mips/op_iput_boolean_quick.S */
-/* File: mips/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7029,13 +6401,10 @@ TODO
     GET_OPCODE_TARGET(t1)
     sb    a0, 0(t0)                    #  obj.field (8/16/32 bits) <- a0
     JR(t1)                                 #  jump to next instruction
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_byte_quick: /* 0xec */
-/* File: mips/op_iput_byte_quick.S */
-/* File: mips/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7051,12 +6420,9 @@ TODO
     sb    a0, 0(t0)                    #  obj.field (8/16/32 bits) <- a0
     JR(t1)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iput_char_quick: /* 0xed */
-/* File: mips/op_iput_char_quick.S */
-/* File: mips/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7071,13 +6437,10 @@ TODO
     GET_OPCODE_TARGET(t1)
     sh    a0, 0(t0)                    #  obj.field (8/16/32 bits) <- a0
     JR(t1)                                 #  jump to next instruction
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_iput_short_quick: /* 0xee */
-/* File: mips/op_iput_short_quick.S */
-/* File: mips/op_iput_quick.S */
     /* For: iput-quick, iput-object-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7093,12 +6456,9 @@ TODO
     sh    a0, 0(t0)                    #  obj.field (8/16/32 bits) <- a0
     JR(t1)                                 #  jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_boolean_quick: /* 0xef */
-/* File: mips/op_iget_boolean_quick.S */
-/* File: mips/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7113,12 +6473,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, a2, t0)              #  fp[A] <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_byte_quick: /* 0xf0 */
-/* File: mips/op_iget_byte_quick.S */
-/* File: mips/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7133,12 +6490,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, a2, t0)              #  fp[A] <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_char_quick: /* 0xf1 */
-/* File: mips/op_iget_char_quick.S */
-/* File: mips/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7153,12 +6507,9 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, a2, t0)              #  fp[A] <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_iget_short_quick: /* 0xf2 */
-/* File: mips/op_iget_short_quick.S */
-/* File: mips/op_iget_quick.S */
     /* For: iget-quick, iget-boolean-quick, iget-byte-quick, iget-char-quick, iget-short-quick */
     /* op vA, vB, offset@CCCC */
     GET_OPB(a2)                            #  a2 <- B
@@ -7173,89 +6524,65 @@ TODO
     GET_INST_OPCODE(t0)                    #  extract opcode from rINST
     SET_VREG_GOTO(a0, a2, t0)              #  fp[A] <- a0
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f3: /* 0xf3 */
-/* File: mips/op_unused_f3.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f4: /* 0xf4 */
-/* File: mips/op_unused_f4.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f5: /* 0xf5 */
-/* File: mips/op_unused_f5.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f6: /* 0xf6 */
-/* File: mips/op_unused_f6.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f7: /* 0xf7 */
-/* File: mips/op_unused_f7.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f8: /* 0xf8 */
-/* File: mips/op_unused_f8.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
-
 
 /* ------------------------------ */
     .balign 128
 .L_op_unused_f9: /* 0xf9 */
-/* File: mips/op_unused_f9.S */
-/* File: mips/unused.S */
 /*
  * Bail to reference interpreter to throw.
  */
   b MterpFallback
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic: /* 0xfa */
-/* File: mips/op_invoke_polymorphic.S */
-/* File: mips/invoke_polymorphic.S */
     /*
      * invoke-polymorphic handler wrapper.
      */
@@ -7275,12 +6602,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_polymorphic_range: /* 0xfb */
-/* File: mips/op_invoke_polymorphic_range.S */
-/* File: mips/invoke_polymorphic.S */
     /*
      * invoke-polymorphic handler wrapper.
      */
@@ -7300,12 +6624,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom: /* 0xfc */
-/* File: mips/op_invoke_custom.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -7325,12 +6646,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_invoke_custom_range: /* 0xfd */
-/* File: mips/op_invoke_custom_range.S */
-/* File: mips/invoke.S */
     /*
      * Generic invoke handler wrapper.
      */
@@ -7350,12 +6668,9 @@ TODO
     GET_INST_OPCODE(t0)
     GOTO_OPCODE(t0)
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_method_handle: /* 0xfe */
-/* File: mips/op_const_method_handle.S */
-/* File: mips/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -7373,12 +6688,9 @@ TODO
     GET_INST_OPCODE(t0)                 # extract opcode from rINST
     GOTO_OPCODE(t0)                     # jump to next instruction
 
-
 /* ------------------------------ */
     .balign 128
 .L_op_const_method_type: /* 0xff */
-/* File: mips/op_const_method_type.S */
-/* File: mips/const.S */
     /* const/class vAA, type@BBBB */
     /* const/method-handle vAA, method_handle@BBBB */
     /* const/method-type vAA, proto@BBBB */
@@ -7396,26 +6708,21 @@ TODO
     GET_INST_OPCODE(t0)                 # extract opcode from rINST
     GOTO_OPCODE(t0)                     # jump to next instruction
 
-
     .balign 128
-/* File: mips/instruction_end.S */
 
     .global artMterpAsmInstructionEnd
 artMterpAsmInstructionEnd:
-
 
 /*
  * ===========================================================================
  *  Sister implementations
  * ===========================================================================
  */
-/* File: mips/instruction_start_sister.S */
 
     .global artMterpAsmSisterStart
     .text
     .balign 4
 artMterpAsmSisterStart:
-
 
 /* continuation for op_float_to_long */
 
@@ -7472,12 +6779,9 @@ artMterpAsmSisterStart:
 
 .Lop_ushr_long_2addr_finish:
     SET_VREG64_GOTO(v1, zero, t3, t0)      #  vA/vA+1 <- rlo/rhi
-/* File: mips/instruction_end_sister.S */
 
     .global artMterpAsmSisterEnd
 artMterpAsmSisterEnd:
-
-/* File: mips/instruction_start_alt.S */
 
     .global artMterpAsmAltInstructionStart
 artMterpAsmAltInstructionStart = .L_ALT_op_nop
@@ -7486,7 +6790,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_nop: /* 0x00 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7504,7 +6807,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move: /* 0x01 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7522,7 +6824,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_from16: /* 0x02 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7540,7 +6841,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_16: /* 0x03 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7558,7 +6858,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide: /* 0x04 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7576,7 +6875,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide_from16: /* 0x05 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7594,7 +6892,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_wide_16: /* 0x06 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7612,7 +6909,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object: /* 0x07 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7630,7 +6926,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object_from16: /* 0x08 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7648,7 +6943,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_object_16: /* 0x09 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7666,7 +6960,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result: /* 0x0a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7684,7 +6977,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result_wide: /* 0x0b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7702,7 +6994,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_result_object: /* 0x0c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7720,7 +7011,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_move_exception: /* 0x0d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7738,7 +7028,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_void: /* 0x0e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7756,7 +7045,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return: /* 0x0f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7774,7 +7062,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_wide: /* 0x10 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7792,7 +7079,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_object: /* 0x11 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7810,7 +7096,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_4: /* 0x12 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7828,7 +7113,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_16: /* 0x13 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7846,7 +7130,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const: /* 0x14 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7864,7 +7147,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_high16: /* 0x15 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7882,7 +7164,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_16: /* 0x16 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7900,7 +7181,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_32: /* 0x17 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7918,7 +7198,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide: /* 0x18 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7936,7 +7215,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_wide_high16: /* 0x19 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7954,7 +7232,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_string: /* 0x1a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7972,7 +7249,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_string_jumbo: /* 0x1b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -7990,7 +7266,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_class: /* 0x1c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8008,7 +7283,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_monitor_enter: /* 0x1d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8026,7 +7300,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_monitor_exit: /* 0x1e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8044,7 +7317,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_check_cast: /* 0x1f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8062,7 +7334,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_instance_of: /* 0x20 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8080,7 +7351,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_array_length: /* 0x21 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8098,7 +7368,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_new_instance: /* 0x22 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8116,7 +7385,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_new_array: /* 0x23 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8134,7 +7402,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_filled_new_array: /* 0x24 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8152,7 +7419,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_filled_new_array_range: /* 0x25 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8170,7 +7436,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_fill_array_data: /* 0x26 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8188,7 +7453,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_throw: /* 0x27 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8206,7 +7470,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto: /* 0x28 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8224,7 +7487,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto_16: /* 0x29 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8242,7 +7504,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_goto_32: /* 0x2a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8260,7 +7521,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_packed_switch: /* 0x2b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8278,7 +7538,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sparse_switch: /* 0x2c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8296,7 +7555,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpl_float: /* 0x2d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8314,7 +7572,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpg_float: /* 0x2e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8332,7 +7589,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpl_double: /* 0x2f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8350,7 +7606,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmpg_double: /* 0x30 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8368,7 +7623,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_cmp_long: /* 0x31 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8386,7 +7640,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_eq: /* 0x32 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8404,7 +7657,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ne: /* 0x33 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8422,7 +7674,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_lt: /* 0x34 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8440,7 +7691,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ge: /* 0x35 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8458,7 +7708,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gt: /* 0x36 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8476,7 +7725,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_le: /* 0x37 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8494,7 +7742,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_eqz: /* 0x38 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8512,7 +7759,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_nez: /* 0x39 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8530,7 +7776,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_ltz: /* 0x3a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8548,7 +7793,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gez: /* 0x3b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8566,7 +7810,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_gtz: /* 0x3c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8584,7 +7827,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_if_lez: /* 0x3d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8602,7 +7844,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_3e: /* 0x3e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8620,7 +7861,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_3f: /* 0x3f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8638,7 +7878,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_40: /* 0x40 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8656,7 +7895,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_41: /* 0x41 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8674,7 +7912,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_42: /* 0x42 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8692,7 +7929,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_43: /* 0x43 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8710,7 +7946,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget: /* 0x44 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8728,7 +7963,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_wide: /* 0x45 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8746,7 +7980,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_object: /* 0x46 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8764,7 +7997,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_boolean: /* 0x47 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8782,7 +8014,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_byte: /* 0x48 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8800,7 +8031,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_char: /* 0x49 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8818,7 +8048,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aget_short: /* 0x4a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8836,7 +8065,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput: /* 0x4b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8854,7 +8082,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_wide: /* 0x4c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8872,7 +8099,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_object: /* 0x4d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8890,7 +8116,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_boolean: /* 0x4e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8908,7 +8133,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_byte: /* 0x4f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8926,7 +8150,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_char: /* 0x50 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8944,7 +8167,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_aput_short: /* 0x51 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8962,7 +8184,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget: /* 0x52 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8980,7 +8201,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_wide: /* 0x53 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -8998,7 +8218,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_object: /* 0x54 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9016,7 +8235,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_boolean: /* 0x55 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9034,7 +8252,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_byte: /* 0x56 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9052,7 +8269,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_char: /* 0x57 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9070,7 +8286,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_short: /* 0x58 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9088,7 +8303,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput: /* 0x59 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9106,7 +8320,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_wide: /* 0x5a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9124,7 +8337,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_object: /* 0x5b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9142,7 +8354,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_boolean: /* 0x5c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9160,7 +8371,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_byte: /* 0x5d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9178,7 +8388,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_char: /* 0x5e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9196,7 +8405,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_short: /* 0x5f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9214,7 +8422,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget: /* 0x60 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9232,7 +8439,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_wide: /* 0x61 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9250,7 +8456,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_object: /* 0x62 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9268,7 +8473,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_boolean: /* 0x63 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9286,7 +8490,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_byte: /* 0x64 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9304,7 +8507,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_char: /* 0x65 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9322,7 +8524,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sget_short: /* 0x66 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9340,7 +8541,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput: /* 0x67 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9358,7 +8558,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_wide: /* 0x68 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9376,7 +8575,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_object: /* 0x69 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9394,7 +8592,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_boolean: /* 0x6a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9412,7 +8609,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_byte: /* 0x6b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9430,7 +8626,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_char: /* 0x6c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9448,7 +8643,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sput_short: /* 0x6d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9466,7 +8660,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual: /* 0x6e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9484,7 +8677,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_super: /* 0x6f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9502,7 +8694,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_direct: /* 0x70 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9520,7 +8711,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_static: /* 0x71 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9538,7 +8728,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_interface: /* 0x72 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9556,7 +8745,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_return_void_no_barrier: /* 0x73 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9574,7 +8762,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_range: /* 0x74 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9592,7 +8779,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_super_range: /* 0x75 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9610,7 +8796,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_direct_range: /* 0x76 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9628,7 +8813,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_static_range: /* 0x77 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9646,7 +8830,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_interface_range: /* 0x78 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9664,7 +8847,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_79: /* 0x79 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9682,7 +8864,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_7a: /* 0x7a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9700,7 +8881,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_int: /* 0x7b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9718,7 +8898,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_not_int: /* 0x7c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9736,7 +8915,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_long: /* 0x7d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9754,7 +8932,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_not_long: /* 0x7e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9772,7 +8949,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_float: /* 0x7f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9790,7 +8966,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_neg_double: /* 0x80 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9808,7 +8983,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_long: /* 0x81 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9826,7 +9000,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_float: /* 0x82 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9844,7 +9017,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_double: /* 0x83 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9862,7 +9034,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_int: /* 0x84 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9880,7 +9051,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_float: /* 0x85 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9898,7 +9068,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_long_to_double: /* 0x86 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9916,7 +9085,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_int: /* 0x87 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9934,7 +9102,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_long: /* 0x88 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9952,7 +9119,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_float_to_double: /* 0x89 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9970,7 +9136,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_int: /* 0x8a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -9988,7 +9153,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_long: /* 0x8b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10006,7 +9170,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_double_to_float: /* 0x8c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10024,7 +9187,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_byte: /* 0x8d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10042,7 +9204,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_char: /* 0x8e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10060,7 +9221,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_int_to_short: /* 0x8f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10078,7 +9238,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int: /* 0x90 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10096,7 +9255,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_int: /* 0x91 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10114,7 +9272,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int: /* 0x92 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10132,7 +9289,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int: /* 0x93 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10150,7 +9306,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int: /* 0x94 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10168,7 +9323,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int: /* 0x95 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10186,7 +9340,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int: /* 0x96 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10204,7 +9357,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int: /* 0x97 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10222,7 +9374,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int: /* 0x98 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10240,7 +9391,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int: /* 0x99 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10258,7 +9408,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int: /* 0x9a */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10276,7 +9425,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_long: /* 0x9b */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10294,7 +9442,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_long: /* 0x9c */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10312,7 +9459,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_long: /* 0x9d */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10330,7 +9476,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_long: /* 0x9e */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10348,7 +9493,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_long: /* 0x9f */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10366,7 +9510,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_long: /* 0xa0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10384,7 +9527,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_long: /* 0xa1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10402,7 +9544,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_long: /* 0xa2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10420,7 +9561,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_long: /* 0xa3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10438,7 +9578,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_long: /* 0xa4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10456,7 +9595,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_long: /* 0xa5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10474,7 +9612,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_float: /* 0xa6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10492,7 +9629,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_float: /* 0xa7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10510,7 +9646,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_float: /* 0xa8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10528,7 +9663,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_float: /* 0xa9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10546,7 +9680,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_float: /* 0xaa */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10564,7 +9697,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_double: /* 0xab */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10582,7 +9714,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_double: /* 0xac */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10600,7 +9731,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_double: /* 0xad */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10618,7 +9748,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_double: /* 0xae */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10636,7 +9765,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_double: /* 0xaf */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10654,7 +9782,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_2addr: /* 0xb0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10672,7 +9799,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_int_2addr: /* 0xb1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10690,7 +9816,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_2addr: /* 0xb2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10708,7 +9833,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_2addr: /* 0xb3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10726,7 +9850,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_2addr: /* 0xb4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10744,7 +9867,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_2addr: /* 0xb5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10762,7 +9884,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_2addr: /* 0xb6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10780,7 +9901,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_2addr: /* 0xb7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10798,7 +9918,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int_2addr: /* 0xb8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10816,7 +9935,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int_2addr: /* 0xb9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10834,7 +9952,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int_2addr: /* 0xba */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10852,7 +9969,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_long_2addr: /* 0xbb */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10870,7 +9986,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_long_2addr: /* 0xbc */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10888,7 +10003,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_long_2addr: /* 0xbd */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10906,7 +10020,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_long_2addr: /* 0xbe */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10924,7 +10037,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_long_2addr: /* 0xbf */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10942,7 +10054,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_long_2addr: /* 0xc0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10960,7 +10071,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_long_2addr: /* 0xc1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10978,7 +10088,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_long_2addr: /* 0xc2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -10996,7 +10105,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_long_2addr: /* 0xc3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11014,7 +10122,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_long_2addr: /* 0xc4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11032,7 +10139,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_long_2addr: /* 0xc5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11050,7 +10156,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_float_2addr: /* 0xc6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11068,7 +10173,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_float_2addr: /* 0xc7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11086,7 +10190,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_float_2addr: /* 0xc8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11104,7 +10207,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_float_2addr: /* 0xc9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11122,7 +10224,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_float_2addr: /* 0xca */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11140,7 +10241,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_double_2addr: /* 0xcb */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11158,7 +10258,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_sub_double_2addr: /* 0xcc */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11176,7 +10275,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_double_2addr: /* 0xcd */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11194,7 +10292,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_double_2addr: /* 0xce */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11212,7 +10309,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_double_2addr: /* 0xcf */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11230,7 +10326,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_lit16: /* 0xd0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11248,7 +10343,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rsub_int: /* 0xd1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11266,7 +10360,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_lit16: /* 0xd2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11284,7 +10377,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_lit16: /* 0xd3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11302,7 +10394,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_lit16: /* 0xd4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11320,7 +10411,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_lit16: /* 0xd5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11338,7 +10428,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_lit16: /* 0xd6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11356,7 +10445,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_lit16: /* 0xd7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11374,7 +10462,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_add_int_lit8: /* 0xd8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11392,7 +10479,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rsub_int_lit8: /* 0xd9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11410,7 +10496,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_mul_int_lit8: /* 0xda */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11428,7 +10513,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_div_int_lit8: /* 0xdb */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11446,7 +10530,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_rem_int_lit8: /* 0xdc */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11464,7 +10547,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_and_int_lit8: /* 0xdd */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11482,7 +10564,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_or_int_lit8: /* 0xde */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11500,7 +10581,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_xor_int_lit8: /* 0xdf */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11518,7 +10598,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shl_int_lit8: /* 0xe0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11536,7 +10615,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_shr_int_lit8: /* 0xe1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11554,7 +10632,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_ushr_int_lit8: /* 0xe2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11572,7 +10649,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_quick: /* 0xe3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11590,7 +10666,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_wide_quick: /* 0xe4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11608,7 +10683,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_object_quick: /* 0xe5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11626,7 +10700,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_quick: /* 0xe6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11644,7 +10717,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_wide_quick: /* 0xe7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11662,7 +10734,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_object_quick: /* 0xe8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11680,7 +10751,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_quick: /* 0xe9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11698,7 +10768,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_virtual_range_quick: /* 0xea */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11716,7 +10785,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_boolean_quick: /* 0xeb */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11734,7 +10802,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_byte_quick: /* 0xec */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11752,7 +10819,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_char_quick: /* 0xed */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11770,7 +10836,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iput_short_quick: /* 0xee */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11788,7 +10853,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_boolean_quick: /* 0xef */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11806,7 +10870,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_byte_quick: /* 0xf0 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11824,7 +10887,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_char_quick: /* 0xf1 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11842,7 +10904,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_iget_short_quick: /* 0xf2 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11860,7 +10921,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f3: /* 0xf3 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11878,7 +10938,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f4: /* 0xf4 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11896,7 +10955,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f5: /* 0xf5 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11914,7 +10972,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f6: /* 0xf6 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11932,7 +10989,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f7: /* 0xf7 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11950,7 +11006,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f8: /* 0xf8 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11968,7 +11023,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_unused_f9: /* 0xf9 */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -11986,7 +11040,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_polymorphic: /* 0xfa */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12004,7 +11057,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_polymorphic_range: /* 0xfb */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12022,7 +11074,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_custom: /* 0xfc */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12040,7 +11091,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_invoke_custom_range: /* 0xfd */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12058,7 +11108,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_method_handle: /* 0xfe */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12076,7 +11125,6 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 /* ------------------------------ */
     .balign 128
 .L_ALT_op_const_method_type: /* 0xff */
-/* File: mips/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -12092,12 +11140,10 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
     jalr   zero, t9                     # Tail call to Mterp(self, shadow_frame, dex_pc_ptr)
 
     .balign 128
-/* File: mips/instruction_end_alt.S */
 
     .global artMterpAsmAltInstructionEnd
 artMterpAsmAltInstructionEnd:
 
-/* File: mips/footer.S */
 /*
  * ===========================================================================
  *  Common subroutines and data
