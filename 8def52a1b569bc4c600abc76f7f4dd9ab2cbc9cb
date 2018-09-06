@@ -22,6 +22,29 @@
       "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9e49de2_671996d3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-09-06T02:27:26Z",
+      "side": 1,
+      "message": "A bit far fetched but isn\u0027t it possible that after this CL is merged, extending the situation you described in the comment:\n\n1) Thread B gets preempted after checking that done_scanning_ is false but before checking that the ref\u0027s rb_state is gray.\n2) GC thread finishes card scanning, and sets done_scanning_ to true,\n3) GC thread starts processing marking stack and changes ref\u0027s rb_state_ to non-gray\n4) Thread B resumes and finds that rb_state_ is non-gray.\n\nIf you read ref\u0027s rb_state_ before checking done_scanning_, then this can be resolved?",
+      "range": {
+        "startLine": 2359,
+        "startChar": 12,
+        "endLine": 2394,
+        "endChar": 83
+      },
+      "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
