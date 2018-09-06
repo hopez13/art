@@ -22,6 +22,30 @@
       "revId": "cccf839832a211e39d01d54a891214b092ddd18a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d4c6cd8_cbdd5404",
+        "filename": "tools/ahat/src/main/com/android/ahat/ObjectsHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-06T13:35:34Z",
+      "side": 1,
+      "message": "I added comments to try and make the test case easier to read. One of the main reasons I introduced this function (rather than inlining the logic) was so I could test that the handler has right logic for choosing whether subclass is enabled or not. It wouldn\u0027t work for testing if I split getObjects into two separate functions.",
+      "parentUuid": "fef5ac84_b0e1672b",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "cccf839832a211e39d01d54a891214b092ddd18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
