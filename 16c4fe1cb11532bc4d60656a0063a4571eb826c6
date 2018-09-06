@@ -16,6 +16,24 @@
       "revId": "16c4fe1cb11532bc4d60656a0063a4571eb826c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6ecb854_0f66d86f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-06T11:45:13Z",
+      "side": 1,
+      "message": "It\u0027s this crash here:\nhttps://build.chromium.org/p/client.art/builders/host-x86-gcstress-debug/builds/2037\n\nIt got unnotified, no no sheriff has filed a bug for it.",
+      "parentUuid": "c55c57a2_317c3f01",
+      "revId": "16c4fe1cb11532bc4d60656a0063a4571eb826c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
