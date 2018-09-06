@@ -45,6 +45,54 @@
       "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb4d705_a01deaa5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-06T13:52:50Z",
+      "side": 1,
+      "message": "Yes, this could happen in theory (but this is unlikely in practice, I think); thanks for pointing out this case.\n\nI\u0027m going to merge this CL now to address the current build failures in our continuous testing;  I\u0027ll upload another CL to address the issue you raised.",
+      "parentUuid": "f9e49de2_671996d3",
+      "range": {
+        "startLine": 2359,
+        "startChar": 12,
+        "endLine": 2394,
+        "endChar": 83
+      },
+      "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c0822c7_33004985",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-06T13:52:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure where you would like to add parentheses here. Did you mean around the whole right-hand side of this assignment?",
+      "parentUuid": "46df9a99_0fe959b1",
+      "range": {
+        "startLine": 2359,
+        "startChar": 12,
+        "endLine": 2394,
+        "endChar": 83
+      },
+      "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
