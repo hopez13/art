@@ -8548,6 +8548,27 @@ void ClassLinker::DumpForSigQuit(std::ostream& os) {
   ReaderMutexLock mu(soa.Self(), *Locks::classlinker_classes_lock_);
   os << "Zygote loaded classes=" << NumZygoteClasses() << " post zygote classes="
      << NumNonZygoteClasses() << "\n";
+  ReaderMutexLock mu2(soa.Self(), *Locks::dex_lock_);
+  os << "Dumping class loaders\n";
+  for (const ClassLoaderData& class_loader : class_loaders_) {
+    ObjPtr<mirror::ClassLoader> loader =
+        ObjPtr<mirror::ClassLoader>::DownCast(soa.Self()->DecodeJObject(class_loader.weak_root));
+    if (loader != nullptr) {
+      os << loader->GetClass()->PrettyDescriptor() << ": ";
+      bool saw_one_dex_file = false;
+      for (const DexCacheData& dex_cache : dex_caches_) {
+        if (dex_cache.IsValid() && dex_cache.class_table == class_loader.class_table) {
+          if (saw_one_dex_file) {
+            os << ":";
+          }
+          saw_one_dex_file = true;
+          os << dex_cache.dex_file->GetLocation();
+        }
+      }
+      os << "\n";
+    }
+  }
+  os << "Done dumping class loaders\n";
 }
 
 class CountClassesVisitor : public ClassLoaderVisitor {
