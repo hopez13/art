@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "449bb671_e17b46a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-07T13:59:42Z",
+      "side": 1,
+      "message": "Wrong bug number, sorry. This should have been bug 113577534.",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "8def52a1b569bc4c600abc76f7f4dd9ab2cbc9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46df9a99_0fe959b1",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
