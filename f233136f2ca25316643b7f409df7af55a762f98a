@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8deb7b7a_df2aa906",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-09-07T16:39:48Z",
+      "side": 1,
+      "message": "I think this would be cleaner, and officially thread-safe, if the computation of have_sync_core were moved into a separate function, called on the right side of the have_sync_core initialization. Have_probed can then be dropped.\n\nAn alternative would be to document this as not thread-safe. But I don\u0027t see a good reason to do that.\n\nI suspect this is not actually called concurrently yet, so not pressing ...",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 240,
+        "endChar": 3
+      },
+      "revId": "f233136f2ca25316643b7f409df7af55a762f98a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
