@@ -799,8 +799,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     //
     // For reference, this behavior is caused by this commit:
     // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
-    FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
-                          reinterpret_cast<char*>(code_ptr + code_size));
+    FlushInstructionCache(code_ptr, code_ptr + code_size);
     DCHECK(!Runtime::Current()->IsAotCompiler());
     if (has_should_deoptimize_flag) {
       method_header->SetHasShouldDeoptimizeFlag();
@@ -858,8 +857,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       FillRootTable(roots_data, roots);
       {
         // Flush data cache, as compiled code references literals in it.
-        FlushDataCache(reinterpret_cast<char*>(roots_data),
-                       reinterpret_cast<char*>(roots_data + data_size));
+        FlushDataCache(roots_data, roots_data + data_size);
       }
       method_code_map_.Put(code_ptr, method);
       if (osr) {
