@@ -720,6 +720,9 @@ void ArtMethod::CopyFrom(ArtMethod* src, PointerSize image_pointer_size) {
   if (!src->IsNative()) {
     SetProfilingInfoPtrSize(nullptr, image_pointer_size);
   }
+  // Clear any single implementation information. CHA will do the analysis
+  // of whether the copied version also has a single implementation.
+  SetHasSingleImplementation(false);
   // Clear hotness to let the JIT properly decide when to compile this method.
   hotness_count_ = 0;
 }

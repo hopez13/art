@@ -543,7 +543,10 @@ void ClassHierarchyAnalysis::InitSingleImplementationFlag(Handle<mirror::Class> 
       method->SetHasSingleImplementation(true);
       DCHECK(method->GetSingleImplementation(pointer_size) == nullptr);
     }
-  } else {
+  // Non-invokable or default methods cannot be treated with single implementations,
+  // as we need to call them (and not inline them) in case of ICCE.
+  // See class_linker.cc:EnsureThrowsInvocationError.
+  } else if (method->IsInvokable() && !method->IsDefault()) {
     method->SetHasSingleImplementation(true);
     // Single implementation of non-abstract method is itself.
     DCHECK_EQ(method->GetSingleImplementation(pointer_size), method);
