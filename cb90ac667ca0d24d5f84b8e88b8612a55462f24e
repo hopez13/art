@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ecf13eb_3b020cfb",
+        "filename": "runtime/interpreter/mterp/.gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T10:16:18Z",
+      "side": 1,
+      "message": "I don\u0027t like checking in .gitignore. We should try to generate the temporary file somewhere else. Can it be done in memory?",
+      "revId": "cb90ac667ca0d24d5f84b8e88b8612a55462f24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
