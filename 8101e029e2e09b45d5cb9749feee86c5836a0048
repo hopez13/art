@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b0122a9_6be9011d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8559,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T15:33:14Z",
+      "side": 1,
+      "message": "Note that dex caches are only created when the first class is loaded out of a dex file, so you may be missing \"unused\" data.",
+      "range": {
+        "startLine": 8559,
+        "startChar": 43,
+        "endLine": 8559,
+        "endChar": 54
+      },
+      "revId": "8101e029e2e09b45d5cb9749feee86c5836a0048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
