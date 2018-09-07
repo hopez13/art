@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "712306ec_5c4684e6",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-07T07:57:41Z",
+      "side": 1,
+      "message": "odd whitespace? (Is that what the \u0027\u003e\u003e\u0027 in gerrit means?)",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bce5d62b_ad7c4213",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-07T07:57:41Z",
+      "side": 1,
+      "message": "Can you give a more detailed description in the comments for what this is blocked on? Or remove the commented out block entirely.",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
