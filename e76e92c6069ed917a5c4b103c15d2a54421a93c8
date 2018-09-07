@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c68e870_4a5c364c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "SAD is using `HVecOperation::ToProperType(reduction_type, is_unsigned)`. But maybe this is not actually used. As I said previously, the handling of signed/unsigned is a bit dodgy, so I\u0027ll take some more time to think about it.",
+      "range": {
+        "startLine": 2201,
+        "startChar": 12,
+        "endLine": 2201,
+        "endChar": 26
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89499ab4_b5159067",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Why do we start with 1?",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "442379d5_ca54c2f4",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove (and maybe move the \"x\" parameter before \"b\").",
+      "range": {
+        "startLine": 271,
+        "startChar": 49,
+        "endLine": 271,
+        "endChar": 59
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c06d02c_46d00022",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 282,
+        "startChar": 51,
+        "endLine": 282,
+        "endChar": 61
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb0adae9_1470e01b",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 295,
+        "startChar": 46,
+        "endLine": 295,
+        "endChar": 56
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc60ef8b_d34b2edb",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "This really compiles without an explicit conversion? I guess \"+\u003d\" is special. But it shows a missed opportunity where \"(int)((long)x+(long)y)\" could be simplified to \"x+y\" and allow recognition of HVecDotProd.",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 15
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed215f5_91237ca6",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 271,
+        "startChar": 49,
+        "endLine": 271,
+        "endChar": 60
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44557582_3966f244",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 282,
+        "startChar": 51,
+        "endLine": 282,
+        "endChar": 61
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed270fc_92b784db",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 293,
+        "startChar": 46,
+        "endLine": 293,
+        "endChar": 57
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6d9a750_14ba5fe7",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 50,
+        "startChar": 48,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0c9a2c_cf2ae6f2",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 85,
+        "startChar": 47,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a615cb4_51450134",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-07T13:41:02Z",
+      "side": 1,
+      "message": "Did you mean \"b\"?",
+      "range": {
+        "startLine": 131,
+        "startChar": 17,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
