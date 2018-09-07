@@ -137,12 +137,14 @@ inline bool Object::InstanceOf(ObjPtr<Class> klass) {
   return klass->IsAssignableFrom(GetClass<kVerifyFlags>());
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline bool Object::IsClass() {
   constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  Class* java_lang_Class = GetClass<kVerifyFlags, kReadBarrierOption>()->
-      template GetClass<kVerifyFlags, kReadBarrierOption>();
-  return GetClass<kNewFlags, kReadBarrierOption>() == java_lang_Class;
+  // OK to look at from-space copies since java.lang.Class.class is not movable.
+  // See b/114413743
+  ObjPtr<Class> klass = GetClass<kVerifyFlags>();
+  ObjPtr<Class> java_lang_Class = klass->template GetClass<kVerifyFlags>();
+  return klass == java_lang_Class;
 }
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
