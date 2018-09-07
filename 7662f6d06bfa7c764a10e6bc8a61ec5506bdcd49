@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4d8b4769_c67c84e5",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-07T11:49:33Z",
+      "side": 1,
+      "message": "I think it has to do with the linker namespaces change in Android N, which changes behavior for native libraries depending on sdk version (see go/linker-namespaces for more info).",
+      "parentUuid": "b60f5880_3b8ee380",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bce5d62b_ad7c4213",
         "filename": "tools/amm/Android.bp",
         "patchSetId": 1
