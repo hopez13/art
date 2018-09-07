@@ -101,16 +101,8 @@ public class Main {
       }
     }
 
-    // There should be a deoptimization here right after Main3 is linked by
-    // calling Dummy.createMain3(), even though sMain1 didn't change.
-    // The behavior here would be different if inline-cache is used, which
-    // doesn't deoptimize since sMain1 still hits the type cache.
     if (sMain1.foo(getValue(sMain1.getClass())) != 11) {
       System.out.println("11 expected.");
-    }
-    if ((createMain3 || wait) && sHasJIT && !sIsOptimizing) {
-      // This method should be deoptimized right after Main3 is created.
-      assertIsInterpreted();
     }
 
     if (sMain3 != null) {
@@ -140,8 +132,8 @@ public class Main {
     testImplement(false, false, true);
 
     if (sHasJIT && !sIsOptimizing) {
-      assertSingleImplementation(Base.class, "foo", true);
-      assertSingleImplementation(Main1.class, "foo", true);
+      assertSingleImplementation(Base.class, "foo", false);
+      assertSingleImplementation(Main1.class, "foo", false);
     } else {
       // Main3 is verified ahead-of-time so it's linked in already.
     }
@@ -157,7 +149,7 @@ public class Main {
     // This will create Main3 instance in the middle of testImplement().
     testImplement(true, false, false);
     assertSingleImplementation(Base.class, "foo", false);
-    assertSingleImplementation(Main1.class, "foo", true);
+    assertSingleImplementation(Main1.class, "foo", false);
     assertSingleImplementation(sMain3.getClass(), "foo", true);
   }
 
