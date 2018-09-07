@@ -191,8 +191,9 @@ class MANAGED Class final : public Object {
   }
 
   // Returns true if the class is an interface.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsInterface() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return (GetAccessFlags() & kAccInterface) != 0;
+    return (GetAccessFlags<kVerifyFlags>() & kAccInterface) != 0;
   }
 
   // Returns true if the class is declared public.
@@ -235,16 +236,18 @@ class MANAGED Class final : public Object {
     SetAccessFlags(flags | kAccClassIsFinalizable);
   }
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsStringClass() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return (GetClassFlags() & kClassFlagString) != 0;
+    return (GetClassFlags<kVerifyFlags>() & kClassFlagString) != 0;
   }
 
   ALWAYS_INLINE void SetStringClass() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetClassFlags(kClassFlagString | kClassFlagNoReferenceFields);
   }
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsClassLoaderClass() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetClassFlags() == kClassFlagClassLoader;
+    return GetClassFlags<kVerifyFlags>() == kClassFlagClassLoader;
   }
 
   ALWAYS_INLINE void SetClassLoaderClass() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -260,8 +263,9 @@ class MANAGED Class final : public Object {
   }
 
   // Returns true if the class is abstract.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsAbstract() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return (GetAccessFlags() & kAccAbstract) != 0;
+    return (GetAccessFlags<kVerifyFlags>() & kAccAbstract) != 0;
   }
 
   // Returns true if the class is an annotation.
@@ -324,11 +328,12 @@ class MANAGED Class final : public Object {
 
   // Returns true if this class is the placeholder and should retire and
   // be replaced with a class with the right size for embedded imt/vtable.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsTemp() REQUIRES_SHARED(Locks::mutator_lock_) {
-    ClassStatus s = GetStatus();
+    ClassStatus s = GetStatus<kVerifyFlags>();
     return s < ClassStatus::kResolving &&
            s != ClassStatus::kErrorResolved &&
-           ShouldHaveEmbeddedVTable();
+           ShouldHaveEmbeddedVTable<kVerifyFlags>();
   }
 
   String* GetName() REQUIRES_SHARED(Locks::mutator_lock_);  // Returns the cached name.
@@ -426,8 +431,7 @@ class MANAGED Class final : public Object {
   // Depth of class from java.lang.Object
   uint32_t Depth() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsArrayClass() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -468,15 +472,15 @@ class MANAGED Class final : public Object {
     return !IsPrimitive() && !IsInterface() && !IsAbstract() && !IsArrayClass();
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsInstantiable() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return (!IsPrimitive() && !IsInterface() && !IsAbstract()) ||
-        (IsAbstract() && IsArrayClass<kVerifyFlags, kReadBarrierOption>());
+    return (!IsPrimitive<kVerifyFlags>() &&
+            !IsInterface<kVerifyFlags>() &&
+            !IsAbstract<kVerifyFlags>()) ||
+        (IsAbstract<kVerifyFlags>() && IsArrayClass<kVerifyFlags>());
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsObjectArrayClass() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -503,8 +507,7 @@ class MANAGED Class final : public Object {
   ObjPtr<Object> AllocNonMovableObject(Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsVariableSize() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
@@ -543,8 +546,7 @@ class MANAGED Class final : public Object {
     return ComputeClassSize(false, 0, 0, 0, 0, 0, 0, pointer_size);
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   uint32_t GetObjectSize() REQUIRES_SHARED(Locks::mutator_lock_);
   static MemberOffset ObjectSizeOffset() {
     return OFFSET_OF_OBJECT_MEMBER(Class, object_size_);
@@ -557,8 +559,7 @@ class MANAGED Class final : public Object {
 
   void SetObjectSizeAllocFastPath(uint32_t new_object_size) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   uint32_t GetObjectSizeAllocFastPath() REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetObjectSizeWithoutChecks(uint32_t new_object_size)
@@ -796,16 +797,14 @@ class MANAGED Class final : public Object {
                 static_cast<size_t>(pointer_size)));
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool ShouldHaveImt() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return ShouldHaveEmbeddedVTable<kVerifyFlags, kReadBarrierOption>();
+    return ShouldHaveEmbeddedVTable<kVerifyFlags>();
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool ShouldHaveEmbeddedVTable() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return IsInstantiable<kVerifyFlags, kReadBarrierOption>();
+    return IsInstantiable<kVerifyFlags>();
   }
 
   bool HasVTable() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -976,9 +975,10 @@ class MANAGED Class final : public Object {
 
   // Returns the number of instance fields containing reference types. Does not count fields in any
   // super classes.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   uint32_t NumReferenceInstanceFields() REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK(IsResolved());
-    return GetField32(OFFSET_OF_OBJECT_MEMBER(Class, num_reference_instance_fields_));
+    DCHECK(IsResolved<kVerifyFlags>());
+    return GetField32<kVerifyFlags>(OFFSET_OF_OBJECT_MEMBER(Class, num_reference_instance_fields_));
   }
 
   uint32_t NumReferenceInstanceFieldsDuringLinking() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1004,9 +1004,10 @@ class MANAGED Class final : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns the number of static fields containing reference types.
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   uint32_t NumReferenceStaticFields() REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK(IsResolved());
-    return GetField32(OFFSET_OF_OBJECT_MEMBER(Class, num_reference_static_fields_));
+    DCHECK(IsResolved<kVerifyFlags>());
+    return GetField32<kVerifyFlags>(OFFSET_OF_OBJECT_MEMBER(Class, num_reference_static_fields_));
   }
 
   uint32_t NumReferenceStaticFieldsDuringLinking() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1020,8 +1021,7 @@ class MANAGED Class final : public Object {
   }
 
   // Get the offset of the first reference static field. Other reference static fields follow.
-  template <VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  template <VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   MemberOffset GetFirstReferenceStaticFieldOffset(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
