@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "b60f5880_3b8ee380",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-09-07T09:23:19Z",
+      "side": 1,
+      "message": "Out of curiosity (and unrelated to your change), why do we need to set sdk_version for a native lib?",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bce5d62b_ad7c4213",
         "filename": "tools/amm/Android.bp",
         "patchSetId": 1
