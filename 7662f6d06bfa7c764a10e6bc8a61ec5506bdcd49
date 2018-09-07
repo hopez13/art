@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "278cc976_2943e85e",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T16:15:03Z",
+      "side": 1,
+      "message": "This was substantially derived from the Android.mk, so I left the original date, as usual.",
+      "parentUuid": "0988b71d_787315c2",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "712306ec_5c4684e6",
         "filename": "tools/amm/Android.bp",
         "patchSetId": 1
@@ -95,6 +119,54 @@
     },
     {
       "key": {
+        "uuid": "98a23419_7b9afa12",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T16:15:03Z",
+      "side": 1,
+      "message": "Docs are \"Minimum sdk version supported when compiling against the ndk.\" So I think this also switches to using NDK instead of platform.",
+      "parentUuid": "4d8b4769_c67c84e5",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "895f4285_8a52b0d8",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T16:15:03Z",
+      "side": 1,
+      "message": "That\u0027s a tab that sneaked in. Will fix.",
+      "parentUuid": "712306ec_5c4684e6",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bce5d62b_ad7c4213",
         "filename": "tools/amm/Android.bp",
         "patchSetId": 1
@@ -115,6 +187,30 @@
       "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ac92872_b63a489a",
+        "filename": "tools/amm/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T16:15:03Z",
+      "side": 1,
+      "message": "I\u0027ll remove the block. I had just written it before finding out that you can\u0027t add JNI libraries to android_app, yet (b/b/80095087), and thought I\u0027ll leave it for the next person.",
+      "parentUuid": "bce5d62b_ad7c4213",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "7662f6d06bfa7c764a10e6bc8a61ec5506bdcd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
