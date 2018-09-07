@@ -304,7 +304,7 @@ inline bool Class::HasVTable() {
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline int32_t Class::GetVTableLength() {
-  if (ShouldHaveEmbeddedVTable<kVerifyFlags, kReadBarrierOption>()) {
+  if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
     return GetEmbeddedVTableLength();
   }
   return GetVTable<kVerifyFlags, kReadBarrierOption>() != nullptr ?
@@ -313,7 +313,7 @@ inline int32_t Class::GetVTableLength() {
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline ArtMethod* Class::GetVTableEntry(uint32_t i, PointerSize pointer_size) {
-  if (ShouldHaveEmbeddedVTable<kVerifyFlags, kReadBarrierOption>()) {
+  if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
     return GetEmbeddedVTableEntry(i, pointer_size);
   }
   auto* vtable = GetVTable<kVerifyFlags, kReadBarrierOption>();
@@ -379,7 +379,7 @@ inline bool Class::IsVariableSize() {
   // Classes, arrays, and strings vary in size, and so the object_size_ field cannot
   // be used to Get their instance size
   return IsClassClass<kVerifyFlags, kReadBarrierOption>() ||
-         IsArrayClass<kVerifyFlags, kReadBarrierOption>() ||
+         IsArrayClass<kVerifyFlags>() ||
          IsStringClass();
 }
 
@@ -652,11 +652,11 @@ inline MemberOffset Class::GetFirstReferenceInstanceFieldOffset() {
       : ClassOffset();
 }
 
-template <VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template <VerifyObjectFlags kVerifyFlags>
 inline MemberOffset Class::GetFirstReferenceStaticFieldOffset(PointerSize pointer_size) {
-  DCHECK(IsResolved());
+  DCHECK(IsResolved<kVerifyFlags>());
   uint32_t base = sizeof(Class);  // Static fields come after the class.
-  if (ShouldHaveEmbeddedVTable<kVerifyFlags, kReadBarrierOption>()) {
+  if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
     // Static fields come after the embedded tables.
     base = Class::ComputeClassSize(
         true, GetEmbeddedVTableLength(), 0, 0, 0, 0, 0, pointer_size);
@@ -855,9 +855,8 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline bool Class::IsClassClass() {
-  ObjPtr<Class> java_lang_Class = GetClass<kVerifyFlags, kReadBarrierOption>()->
-      template GetClass<kVerifyFlags, kReadBarrierOption>();
-  return this == java_lang_Class;
+  // Compare whether the class fields points to itself. This happens only for j.l.Class.class .
+  return this == GetClass<kVerifyFlags, kReadBarrierOption>();
 }
 
 inline const DexFile& Class::GetDexFile() {
@@ -1003,7 +1002,6 @@ inline IterationRange<StrideIterator<ArtField>> Class::GetSFieldsUnchecked() {
 }
 
 inline MemberOffset Class::EmbeddedVTableOffset(PointerSize pointer_size) {
-  CheckPointerSize(pointer_size);
   return MemberOffset(ImtPtrOffset(pointer_size).Uint32Value() + static_cast<size_t>(pointer_size));
 }
 
@@ -1016,15 +1014,18 @@ inline Class* Class::GetComponentType() {
   return GetFieldObject<Class, kVerifyFlags, kReadBarrierOption>(ComponentTypeOffset());
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline bool Class::IsArrayClass() {
-  return GetComponentType<kVerifyFlags, kReadBarrierOption>() != nullptr;
+  // We do not need a read barrier for comparing with null.
+  return GetComponentType<kVerifyFlags, kWithoutReadBarrier>() != nullptr;
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline bool Class::IsObjectArrayClass() {
-  ObjPtr<Class> const component_type = GetComponentType<kVerifyFlags, kReadBarrierOption>();
-  return component_type != nullptr && !component_type->IsPrimitive();
+  // We do not need a read barrier here as the primitive type is constant,
+  // both from-space and to-space component type classes shall yield the same result.
+  ObjPtr<Class> const component_type = GetComponentType<kVerifyFlags, kWithoutReadBarrier>();
+  return component_type != nullptr && !component_type->IsPrimitive<kVerifyFlags>();
 }
 
 inline bool Class::IsAssignableFrom(ObjPtr<Class> src) {
@@ -1094,7 +1095,7 @@ inline void Class::FixupNativePointers(Class* dest,
     dest->SetMethodsPtrInternal(new_methods);
   }
   // Fix up embedded tables.
-  if (!IsTemp() && ShouldHaveEmbeddedVTable<kVerifyNone, kReadBarrierOption>()) {
+  if (!IsTemp<kVerifyNone>() && ShouldHaveEmbeddedVTable<kVerifyNone>()) {
     for (int32_t i = 0, count = GetEmbeddedVTableLength(); i < count; ++i) {
       ArtMethod* method = GetEmbeddedVTableEntry(i, pointer_size);
       void** method_dest_addr = dest_address_fn(EmbeddedVTableEntryOffset(i, pointer_size));
@@ -1104,7 +1105,7 @@ inline void Class::FixupNativePointers(Class* dest,
       }
     }
   }
-  if (!IsTemp() && ShouldHaveImt<kVerifyNone, kReadBarrierOption>()) {
+  if (!IsTemp<kVerifyNone>() && ShouldHaveImt<kVerifyNone>()) {
     ImTable* imt = GetImt(pointer_size);
     void** imt_dest_addr = dest_address_fn(ImtPtrOffset(pointer_size));
     ImTable* new_imt = visitor(imt, imt_dest_addr);
