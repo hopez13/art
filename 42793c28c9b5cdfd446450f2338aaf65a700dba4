@@ -46,6 +46,30 @@
       "revId": "42793c28c9b5cdfd446450f2338aaf65a700dba4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be56ac80_0a2761b8",
+        "filename": "tools/field-null-percent/check-null-fields.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-07T20:19:40Z",
+      "side": 1,
+      "message": "json does this almost as well, and is easier to read...",
+      "parentUuid": "45674237_27537257",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "42793c28c9b5cdfd446450f2338aaf65a700dba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
