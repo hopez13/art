@@ -2157,7 +2157,8 @@ Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
       can_call_into_java_(true),
-      can_be_suspended_by_user_code_(true) {
+      can_be_suspended_by_user_code_(true),
+      interpreter_cache_(this) {
   wait_mutex_ = new Mutex("a thread wait mutex");
   wait_cond_ = new ConditionVariable("a thread wait condition variable", *wait_mutex_);
   tlsPtr_.instrumentation_stack = new std::deque<instrumentation::InstrumentationStackFrame>;
@@ -4074,6 +4075,15 @@ mirror::Object* Thread::GetPeerFromOtherThread() const {
 void Thread::SetReadBarrierEntrypoints() {
   // Make sure entrypoints aren't null.
   UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_active*/ true);
+}
+
+void Thread::ClearAllInterpreterCaches() {
+  static struct ClearInterpreterCacheClosure : Closure {
+    virtual void Run(Thread* self) {
+      self->GetInterpreterCache()->Clear();
+    }
+  } closure;
+  Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);
 }
 
 }  // namespace art
