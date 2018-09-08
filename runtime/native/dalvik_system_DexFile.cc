@@ -323,6 +323,7 @@ static jboolean DexFile_closeDexFile(JNIEnv* env, jclass, jobject cookie) {
   }
   Runtime* const runtime = Runtime::Current();
   bool all_deleted = true;
+  Thread::ClearAllInterpreterCaches();
   {
     ScopedObjectAccess soa(env);
     ObjPtr<mirror::Object> dex_files_object = soa.Decode<mirror::Object>(cookie);

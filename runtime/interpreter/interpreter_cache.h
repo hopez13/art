@@ -1,0 +1,79 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifndef ART_RUNTIME_INTERPRETER_INTERPRETER_CACHE_H_
+#define ART_RUNTIME_INTERPRETER_INTERPRETER_CACHE_H_
+
+#include <array>
+#include <atomic>
+
+#include "base/bit_utils.h"
+#include "base/macros.h"
+
+namespace art {
+
+class Instruction;
+
+// Small fast thread-local cache for the interpreter.
+// The key for the cache is the dex instruction pointer.
+// The interpretation of the value depends on the opcode.
+// Presence of entry might imply some performance pre-conditions.
+// All operations must be done from the owning thread.
+class InterpreterCache {
+  typedef std::pair<const Instruction*, size_t> Entry ALIGNED(2 * sizeof(size_t));
+  static constexpr size_t kSize = kPageSize / sizeof(Entry);
+
+ public:
+  InterpreterCache() {
+    std::fill_n(data_.data(), data_.size(), Entry{});
+  }
+
+  ALWAYS_INLINE void Clear() {
+    DCHECK(IsCalledFromOwningThread());
+    std::fill_n(data_.data(), data_.size(), Entry{});
+  }
+
+  ALWAYS_INLINE bool Get(const Instruction* key, /* out */ size_t* value) {
+    DCHECK(IsCalledFromOwningThread());
+    Entry& entry = data_[IndexOf(key)];
+    if (LIKELY(entry.first == key)) {
+      *value = entry.second;
+      return true;
+    }
+    return false;
+  }
+
+  ALWAYS_INLINE void Set(const Instruction* key, size_t value) {
+    DCHECK(IsCalledFromOwningThread());
+    data_[IndexOf(key)] = Entry{key, value};
+  }
+
+ private:
+  bool IsCalledFromOwningThread();
+
+  static ALWAYS_INLINE size_t IndexOf(const Instruction* key) {
+    static_assert(IsPowerOfTwo(kSize), "Size must be power of two");
+    size_t index = (reinterpret_cast<uintptr_t>(key) >> 2) & (kSize - 1);
+    DCHECK_LT(index, kSize);
+    return index;
+  }
+
+  std::array<Entry, kSize> data_;
+};
+
+}  // namespace art
+
+#endif  // ART_RUNTIME_INTERPRETER_INTERPRETER_CACHE_H_

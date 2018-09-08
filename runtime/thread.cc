@@ -4076,4 +4076,13 @@ void Thread::SetReadBarrierEntrypoints() {
   UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_active*/ true);
 }
 
+void Thread::ClearAllInterpreterCaches() {
+  static struct ClearInterpreterCacheClosure : Closure {
+    virtual void Run(Thread* self) {
+      self->GetInterpreterCache()->Clear();
+    }
+  } closure;
+  Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);
+}
+
 }  // namespace art
