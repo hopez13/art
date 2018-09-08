@@ -34,6 +34,11 @@ class Thread;
 // Presence of entry might imply some performance pre-conditions.
 // All operations must be done from the owning thread,
 // or at a point when the owning thread is suspended.
+//
+// The values stored for opcodes in the cache currently are:
+//   iget/iput: The field offset. The field must be non-volatile.
+//   sget/sput: The ArtField* pointer. The field must be non-volitile.
+//
 class ALIGNED(16) InterpreterCache {
   typedef std::pair<const Instruction*, size_t> Entry ALIGNED(2 * sizeof(size_t));
 
