@@ -1,4 +1,29 @@
 %def field(helper=""):
+%   if opcode == "op_iget" or opcode == "op_iget_object":
+      @ Fast-path which gets the field offset from thread-local cache.
+      @ TODO: Remove hard-coded offset
+      ldr      r0, [rSELF, #1388]            @ cache address
+%     if opcode == "op_iget_object":
+        ldr    r1, [rSELF, #THREAD_IS_GC_MARKING_OFFSET]
+        cmp    r1, #0
+        bne    ${opcode}_slow_path           @ GC is active
+%     #endif
+      ubfx     ip, rPC, #2, #9               @ hash based on the dex PC
+      add      r0, r0, ip, lsl #3            @ entry within the cache
+      ldr      r1, [r0]                      @ entry key (Instruction*)
+      ldr      r2, [r0, #4]                  @ entry value (field offset)
+      mov      r3, rINST, lsr #12            @ B
+      GET_VREG r3, r3                        @ object we're operating on
+      cmp      r1, rPC
+      bne      ${opcode}_slow_path           @ cache miss
+      cmp      r3, #0
+      beq      ${opcode}_slow_path           @ null object
+      ldr      r0, [r3, r2]                  @ r0<- obj.field
+      ubfx     r1, rINST, #8, #4             @ A
+      SET_VREG r0, r1                        @ fp[A]<- r0
+      b        ${opcode}_epilogue
+${opcode}_slow_path:
+%   #endif
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -7,11 +32,11 @@
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       $helper
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+${opcode}_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 

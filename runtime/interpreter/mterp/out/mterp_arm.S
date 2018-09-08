@@ -2084,6 +2084,24 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget: /* 0x52 */
+      @ Fast-path which gets the field offset from thread-local cache.
+      @ TODO: Remove hard-coded offset
+      ldr      r0, [rSELF, #1388]            @ cache address
+      ubfx     ip, rPC, #2, #9               @ hash based on the dex PC
+      add      r0, r0, ip, lsl #3            @ entry within the cache
+      ldr      r1, [r0]                      @ entry key (Instruction*)
+      ldr      r2, [r0, #4]                  @ entry value (field offset)
+      mov      r3, rINST, lsr #12            @ B
+      GET_VREG r3, r3                        @ object we're operating on
+      cmp      r1, rPC
+      bne      op_iget_slow_path           @ cache miss
+      cmp      r3, #0
+      beq      op_iget_slow_path           @ null object
+      ldr      r0, [r3, r2]                  @ r0<- obj.field
+      ubfx     r1, rINST, #8, #4             @ A
+      SET_VREG r0, r1                        @ fp[A]<- r0
+      b        op_iget_epilogue
+op_iget_slow_path:
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2092,11 +2110,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetU32
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2111,17 +2129,38 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetU64
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_wide_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object: /* 0x54 */
+      @ Fast-path which gets the field offset from thread-local cache.
+      @ TODO: Remove hard-coded offset
+      ldr      r0, [rSELF, #1388]            @ cache address
+        ldr    r1, [rSELF, #THREAD_IS_GC_MARKING_OFFSET]
+        cmp    r1, #0
+        bne    op_iget_object_slow_path           @ GC is active
+      ubfx     ip, rPC, #2, #9               @ hash based on the dex PC
+      add      r0, r0, ip, lsl #3            @ entry within the cache
+      ldr      r1, [r0]                      @ entry key (Instruction*)
+      ldr      r2, [r0, #4]                  @ entry value (field offset)
+      mov      r3, rINST, lsr #12            @ B
+      GET_VREG r3, r3                        @ object we're operating on
+      cmp      r1, rPC
+      bne      op_iget_object_slow_path           @ cache miss
+      cmp      r3, #0
+      beq      op_iget_object_slow_path           @ null object
+      ldr      r0, [r3, r2]                  @ r0<- obj.field
+      ubfx     r1, rINST, #8, #4             @ A
+      SET_VREG r0, r1                        @ fp[A]<- r0
+      b        op_iget_object_epilogue
+op_iget_object_slow_path:
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2130,11 +2169,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetObj
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_object_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2149,11 +2188,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetU8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_boolean_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2168,11 +2207,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetI8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_byte_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2187,11 +2226,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetU16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_char_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2206,11 +2245,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIGetI16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iget_short_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2225,11 +2264,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutU32
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2244,11 +2283,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutU64
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_wide_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2263,11 +2302,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutObj
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_object_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2282,11 +2321,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutU8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_boolean_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2301,11 +2340,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutI8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_byte_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2320,11 +2359,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutU16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_char_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2339,11 +2378,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpIPutI16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_iput_short_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2358,11 +2397,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetU32
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2377,11 +2416,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetU64
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_wide_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2396,11 +2435,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetObj
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_object_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2415,11 +2454,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetU8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_boolean_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2434,11 +2473,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetI8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_byte_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2453,11 +2492,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetU16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_char_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2472,11 +2511,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSGetI16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sget_short_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2491,11 +2530,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutU32
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2510,11 +2549,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutU64
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_wide_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2529,11 +2568,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutObj
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_object_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2548,11 +2587,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutU8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_boolean_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2567,11 +2606,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutI8
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_byte_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2586,11 +2625,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutU16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_char_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 
@@ -2605,11 +2644,11 @@ artMterpAsmInstructionStart = .L_op_nop
     mov      r1, rINST                     @ arg1: uint16_t inst_data
     add      r2, rFP, #OFF_FP_SHADOWFRAME  @ arg2: ShadowFrame* sf
     mov      r3, rSELF                     @ arg3: Thread* self
-    PREFETCH_INST 2                        @ prefetch next opcode
     bl       MterpSPutI16
     cmp      r0, #0
     beq      MterpPossibleException
-    ADVANCE 2
+op_sput_short_epilogue:
+    FETCH_ADVANCE_INST 2                   @ advance rPC, load rINST
     GET_INST_OPCODE ip                     @ extract opcode from rINST
     GOTO_OPCODE ip                         @ jump to next instruction
 

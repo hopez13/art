@@ -2013,6 +2013,24 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget: /* 0x52 */
+      // Fast-path which gets the field offset from thread-local cache.
+      // TODO: Remove hard-coded offset
+      ldr      x0, [xSELF, #2640]            // cache address
+      ubfx     ip, xPC, #2, #8               // hash based on the dex PC
+      add      x0, x0, ip, lsl #4            // entry within the cache
+      ldp      x1, x2, [x0]                  // entry key (pc) and value (offset)
+      lsr      w3, wINST, #12                // B
+      GET_VREG w3, w3                        // object we're operating on
+      cmp      x1, xPC
+      b.ne     op_iget_slow_path           // cache miss
+      cbz      w3, op_iget_slow_path       // null object
+      ldr      w0, [x3, x2]                   // w0<- obj.field
+      ubfx     w1, wINST, #8, #4              // w1<- A
+      FETCH_ADVANCE_INST 2                   // advance rPC, load rINST
+      SET_VREG w0, w1                        // fp[A]<- w0
+      GET_INST_OPCODE ip                     // extract opcode from rINST
+      GOTO_OPCODE ip                         // jump to next instruction
+op_iget_slow_path:
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */
@@ -2049,6 +2067,26 @@ artMterpAsmInstructionStart = .L_op_nop
 /* ------------------------------ */
     .balign 128
 .L_op_iget_object: /* 0x54 */
+      // Fast-path which gets the field offset from thread-local cache.
+      // TODO: Remove hard-coded offset
+      ldr      x0, [xSELF, #2640]            // cache address
+        ldr    w1, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
+        cbnz   w1, op_iget_object_slow_path       // GC is active.
+      ubfx     ip, xPC, #2, #8               // hash based on the dex PC
+      add      x0, x0, ip, lsl #4            // entry within the cache
+      ldp      x1, x2, [x0]                  // entry key (pc) and value (offset)
+      lsr      w3, wINST, #12                // B
+      GET_VREG w3, w3                        // object we're operating on
+      cmp      x1, xPC
+      b.ne     op_iget_object_slow_path           // cache miss
+      cbz      w3, op_iget_object_slow_path       // null object
+      ldr      w0, [x3, x2]                   // w0<- obj.field
+      ubfx     w1, wINST, #8, #4              // w1<- A
+      FETCH_ADVANCE_INST 2                   // advance rPC, load rINST
+      SET_VREG w0, w1                        // fp[A]<- w0
+      GET_INST_OPCODE ip                     // extract opcode from rINST
+      GOTO_OPCODE ip                         // jump to next instruction
+op_iget_object_slow_path:
     /*
      * General field read / write (iget-* iput-* sget-* sput-*).
      */

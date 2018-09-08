@@ -40,6 +40,7 @@ class InterpreterCache {
   // This is the only method that is safe to call form different thread.
   // Release the memory only if the owning thread can not be using the cache at this point.
   ALWAYS_INLINE void Clear(bool release_memory = false) {
+    // TODO: Call this method when dex file might be released.
     data_.store(shared_empty_data_);
     if (release_memory) {
       local_data_.release();
