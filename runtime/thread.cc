@@ -4076,4 +4076,10 @@ void Thread::SetReadBarrierEntrypoints() {
   UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_active*/ true);
 }
 
+void Thread::ClearAllInterpreterCaches() {
+  Runtime::Current()->GetThreadList()->ForEach([](Thread* thread, void* ctx ATTRIBUTE_UNUSED) {
+      thread->GetInterpreterCache()->Clear();
+  }, nullptr);
+}
+
 }  // namespace art
