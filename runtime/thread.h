@@ -38,6 +38,7 @@
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "handle_scope.h"
 #include "instrumentation.h"
+#include "interpreter/interpreter_cache.h"
 #include "jvalue.h"
 #include "managed_stack.h"
 #include "offsets.h"
@@ -1299,6 +1300,10 @@ class Thread {
                                        jobject thread_group)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  InterpreterCache* GetInterpreterCache() {
+    return &interpreter_cache_;
+  }
+
  private:
   explicit Thread(bool daemon);
   ~Thread() REQUIRES(!Locks::mutator_lock_, !Locks::thread_suspend_count_lock_);
@@ -1787,6 +1792,8 @@ class Thread {
   // True if the thread is subject to user-code suspension. By default this is true. This can only
   // be false for threads where '!can_call_into_java_'.
   bool can_be_suspended_by_user_code_;
+
+  InterpreterCache interpreter_cache_;
 
   friend class Dbg;  // For SetStateUnsafe.
   friend class gc::collector::SemiSpace;  // For getting stack traces.

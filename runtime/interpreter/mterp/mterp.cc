@@ -726,6 +726,9 @@ NO_INLINE bool MterpFieldAccessSlow(Instruction* inst,
   constexpr bool kIsStatic = (kAccessType & FindFieldFlags::StaticBit) != 0;
   constexpr bool kIsRead = (kAccessType & FindFieldFlags::ReadBit) != 0;
 
+  // We might have bailed to slow path because the thread local cache is not initialized.
+  self->GetInterpreterCache()->EnsureInitialized();
+
   // Update the dex pc in shadow frame, just in case anything throws.
   shadow_frame->SetDexPCPtr(reinterpret_cast<uint16_t*>(inst));
   ArtMethod* referrer = shadow_frame->GetMethod();
@@ -756,10 +759,22 @@ ALWAYS_INLINE bool MterpFieldAccessFast(Instruction* inst,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   constexpr bool kIsStatic = (kAccessType & FindFieldFlags::StaticBit) != 0;
 
+  // Try to find the field in small thread-local cache first.
+  InterpreterCache* tls_cache = self->GetInterpreterCache();
+  size_t offset;
+  if (LIKELY(!kIsStatic && tls_cache->Get(inst, &offset))) {
+    mirror::Object* obj = shadow_frame->GetVRegReference(inst->VRegB_22c(inst_data));
+    if (LIKELY(obj != nullptr)) {
+      MterpFieldAccess<PrimType, kAccessType>(
+          inst, inst_data, shadow_frame, obj, MemberOffset(offset), /* is_volatile */ false);
+      return true;
+    }
+  }
+
   // This effectively inlines the fast path from ArtMethod::GetDexCache.
   // It avoids non-inlined call which in turn allows elimination of the prologue and epilogue.
   ArtMethod* referrer = shadow_frame->GetMethod();
-  if (LIKELY(!referrer->IsObsolete())) {
+  if (LIKELY(!referrer->IsObsolete() && tls_cache->IsInitialized())) {
     // Avoid read barriers, since we need only the pointer to the native (non-movable)
     // DexCache field array which we can get even through from-space objects.
     ObjPtr<mirror::Class> klass = referrer->GetDeclaringClass<kWithoutReadBarrier>();
@@ -777,6 +792,10 @@ ALWAYS_INLINE bool MterpFieldAccessFast(Instruction* inst,
             ? field->GetDeclaringClass().Ptr()
             : shadow_frame->GetVRegReference(inst->VRegB_22c(inst_data));
         if (LIKELY(kIsStatic || obj != nullptr)) {
+          // Only non-volatile instance fields are allowed in the thread-local cache.
+          if (LIKELY(!field->IsVolatile() && !kIsStatic)) {
+            tls_cache->Set(inst, field->GetOffset().SizeValue());
+          }
           MterpFieldAccess<PrimType, kAccessType>(
               inst, inst_data, shadow_frame, obj, field->GetOffset(), field->IsVolatile());
           return true;
