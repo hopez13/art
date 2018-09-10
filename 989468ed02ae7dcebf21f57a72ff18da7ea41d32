@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "565ec6a1_6f43f282",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2018-09-10T19:35:02Z",
+      "side": 1,
+      "message": "In case of a multi-dex file I don\u0027t believe it is expected to have only some of them exported. Issue has been noticed on a macOS env. when run out of disk space while running some tests against a large pool of files. I can remove the break if you believe it is desired to continue processing files despite of at least one failed. At any case the returned error code is a strong enough signal, just thought that partial exports is a bit unexpected.",
+      "parentUuid": "f315f139_506c7c84",
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f9e55b9_4bc315e0",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -53,6 +71,30 @@
       "writtenOn": "2018-09-10T17:39:48Z",
       "side": 1,
       "message": "And here",
+      "range": {
+        "startLine": 692,
+        "startChar": 12,
+        "endLine": 692,
+        "endChar": 17
+      },
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "681c8159_edee27fa",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2018-09-10T19:35:02Z",
+      "side": 1,
+      "message": "Same as before.",
+      "parentUuid": "5f9e55b9_4bc315e0",
       "range": {
         "startLine": 692,
         "startChar": 12,
