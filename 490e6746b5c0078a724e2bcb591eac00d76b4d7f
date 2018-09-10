@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf3db12c_6cf7bd60",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-10T13:44:17Z",
+      "side": 1,
+      "message": "Copyright and comment on what\u0027s in this \u0027Utility routines for...\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 14
+      },
+      "revId": "490e6746b5c0078a724e2bcb591eac00d76b4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151bb380_28bf3e4d",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-10T13:44:17Z",
+      "side": 1,
+      "message": "https://engdoc.corp.google.com/eng/doc/devguide/py/style/index.md?cl\u003dhead#s3.16-naming\n\nINTERP_DEFS_FILE_ \u003d ...",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "490e6746b5c0078a724e2bcb591eac00d76b4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e96f31_ec651fb6",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-10T13:44:17Z",
+      "side": 1,
+      "message": "Make an argument of generate_arch().\n\nMinor resource leak here suggest using \u0027with\u0027 statement.\n\nUseful for others to have a constant for \"common/gen_setup.py\" at top of this file together with a comment indicating purpose.",
+      "range": {
+        "startLine": 59,
+        "startChar": 15,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "490e6746b5c0078a724e2bcb591eac00d76b4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ff6ba73_e85f0375",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-10T13:44:17Z",
+      "side": 1,
+      "message": "Nit: this would breaks were there is any trailing whitespace and line.rstrip below is a bit awkward. line \u003d line.rstrip() after reading above to simplify.",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "490e6746b5c0078a724e2bcb591eac00d76b4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
