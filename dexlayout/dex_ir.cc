@@ -172,5 +172,16 @@ std::vector<dex_ir::DexFileSection> GetSortedDexFileSections(dex_ir::Header* hea
   return sorted_sections;
 }
 
+const HiddenapiItem* Header::GetHiddenapiItem(const ClassDef* class_def) const {
+  DCHECK(class_def != nullptr);
+  if (HiddenapiItems().Empty()) {
+    return nullptr;
+  }
+
+  const HiddenapiItem* item = HiddenapiItems()[class_def->GetIndex()];
+  DCHECK(item->GetClassDef() == class_def);
+  return item;
+}
+
 }  // namespace dex_ir
 }  // namespace art

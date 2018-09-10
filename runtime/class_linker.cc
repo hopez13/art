@@ -3194,6 +3194,11 @@ LinearAlloc* ClassLinker::GetOrCreateAllocatorForClassLoader(ObjPtr<mirror::Clas
   return allocator;
 }
 
+static HiddenApiAccessFlags::ApiList ParseHiddenApiAccessFlags(const uint8_t** ptr) {
+  uint32_t flags = (*ptr == nullptr) ? 0u : DecodeUnsignedLeb128(ptr);
+  return static_cast<HiddenApiAccessFlags::ApiList>(flags);
+}
+
 void ClassLinker::LoadClass(Thread* self,
                             const DexFile& dex_file,
                             const DexFile::ClassDef& dex_class_def,
@@ -3236,6 +3241,9 @@ void ClassLinker::LoadClass(Thread* self,
     uint32_t last_dex_method_index = dex::kDexNoIndex;
     size_t last_class_def_method_index = 0;
 
+    const uint8_t* hiddenapi_flags = klass->IsBootStrapClassLoaded()
+        ? dex_file.GetHiddenapiAccessFlagsStream(dex_class_def) : nullptr;
+
     // Use the visitor since the ranged based loops are bit slower from seeking. Seeking to the
     // methods needs to decode all of the fields.
     accessor.VisitFieldsAndMethods([&](
@@ -3243,7 +3251,10 @@ void ClassLinker::LoadClass(Thread* self,
           uint32_t field_idx = field.GetIndex();
           DCHECK_GE(field_idx, last_static_field_idx);  // Ordering enforced by DexFileVerifier.
           if (num_sfields == 0 || LIKELY(field_idx > last_static_field_idx)) {
-            LoadField(field, klass, &sfields->At(num_sfields));
+            LoadField(field,
+                      klass,
+                      &sfields->At(num_sfields),
+                      ParseHiddenApiAccessFlags(&hiddenapi_flags));
             ++num_sfields;
             last_static_field_idx = field_idx;
           }
@@ -3251,14 +3262,21 @@ void ClassLinker::LoadClass(Thread* self,
           uint32_t field_idx = field.GetIndex();
           DCHECK_GE(field_idx, last_instance_field_idx);  // Ordering enforced by DexFileVerifier.
           if (num_ifields == 0 || LIKELY(field_idx > last_instance_field_idx)) {
-            LoadField(field, klass, &ifields->At(num_ifields));
+            LoadField(field,
+                      klass,
+                      &ifields->At(num_ifields),
+                      ParseHiddenApiAccessFlags(&hiddenapi_flags));
             ++num_ifields;
             last_instance_field_idx = field_idx;
           }
         }, [&](const ClassAccessor::Method& method) REQUIRES_SHARED(Locks::mutator_lock_) {
           ArtMethod* art_method = klass->GetDirectMethodUnchecked(class_def_method_index,
               image_pointer_size_);
-          LoadMethod(dex_file, method, klass, art_method);
+          LoadMethod(dex_file,
+                     method,
+                     klass,
+                     art_method,
+                     ParseHiddenApiAccessFlags(&hiddenapi_flags));
           LinkCode(this, art_method, oat_class_ptr, class_def_method_index);
           uint32_t it_method_index = method.GetIndex();
           if (last_dex_method_index == it_method_index) {
@@ -3274,7 +3292,11 @@ void ClassLinker::LoadClass(Thread* self,
           ArtMethod* art_method = klass->GetVirtualMethodUnchecked(
               class_def_method_index - accessor.NumDirectMethods(),
               image_pointer_size_);
-          LoadMethod(dex_file, method, klass, art_method);
+          LoadMethod(dex_file,
+                     method,
+                     klass,
+                     art_method,
+                     ParseHiddenApiAccessFlags(&hiddenapi_flags));
           LinkCode(this, art_method, oat_class_ptr, class_def_method_index);
           ++class_def_method_index;
         });
@@ -3305,25 +3327,25 @@ void ClassLinker::LoadClass(Thread* self,
 
 void ClassLinker::LoadField(const ClassAccessor::Field& field,
                             Handle<mirror::Class> klass,
-                            ArtField* dst) {
+                            ArtField* dst,
+                            HiddenApiAccessFlags::ApiList hiddenapi_list) {
   const uint32_t field_idx = field.GetIndex();
   dst->SetDexFieldIndex(field_idx);
   dst->SetDeclaringClass(klass.Get());
 
   // Get access flags from the DexFile. If this is a boot class path class,
   // also set its runtime hidden API access flags.
-  uint32_t access_flags = field.GetAccessFlags();
-  if (klass->IsBootStrapClassLoaded()) {
-    access_flags =
-        HiddenApiAccessFlags::EncodeForRuntime(access_flags, field.DecodeHiddenAccessFlags());
-  }
+  DCHECK(klass->IsBootStrapClassLoaded() || hiddenapi_list == HiddenApiAccessFlags::kWhitelist);
+  uint32_t access_flags = HiddenApiAccessFlags::EncodeForRuntime(
+      field.GetAccessFlags(), hiddenapi_list);
   dst->SetAccessFlags(access_flags);
 }
 
 void ClassLinker::LoadMethod(const DexFile& dex_file,
                              const ClassAccessor::Method& method,
                              Handle<mirror::Class> klass,
-                             ArtMethod* dst) {
+                             ArtMethod* dst,
+                             HiddenApiAccessFlags::ApiList hiddenapi_list) {
   const uint32_t dex_method_idx = method.GetIndex();
   const DexFile::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
   const char* method_name = dex_file.StringDataByIdx(method_id.name_idx_);
@@ -3335,12 +3357,9 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
 
   // Get access flags from the DexFile. If this is a boot class path class,
   // also set its runtime hidden API access flags.
-  uint32_t access_flags = method.GetAccessFlags();
-
-  if (klass->IsBootStrapClassLoaded()) {
-    access_flags =
-        HiddenApiAccessFlags::EncodeForRuntime(access_flags, method.DecodeHiddenAccessFlags());
-  }
+  DCHECK(klass->IsBootStrapClassLoaded() || hiddenapi_list == HiddenApiAccessFlags::kWhitelist);
+  uint32_t access_flags = HiddenApiAccessFlags::EncodeForRuntime(
+      method.GetAccessFlags(), hiddenapi_list);
 
   if (UNLIKELY(strcmp("finalize", method_name) == 0)) {
     // Set finalizable flag on declaring class.

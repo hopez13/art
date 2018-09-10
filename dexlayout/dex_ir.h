@@ -50,6 +50,7 @@ class EncodedValue;
 class FieldId;
 class FieldItem;
 class Header;
+class HiddenapiItem;
 class MapList;
 class MapItem;
 class MethodHandleItem;
@@ -101,6 +102,7 @@ class AbstractDispatcher {
   virtual void Dispatch(AnnotationSetItem* annotation_set_item) = 0;
   virtual void Dispatch(AnnotationSetRefList* annotation_set_ref_list) = 0;
   virtual void Dispatch(AnnotationsDirectoryItem* annotations_directory_item) = 0;
+  virtual void Dispatch(HiddenapiItem* hiddenapi_item) = 0;
   virtual void Dispatch(MapList* map_list) = 0;
   virtual void Dispatch(MapItem* map_item) = 0;
 
@@ -216,6 +218,7 @@ class CollectionBase {
   uint32_t GetOffset() const { return offset_; }
   void SetOffset(uint32_t new_offset) { offset_ = new_offset; }
   virtual uint32_t Size() const = 0;
+  bool Empty() const { return Size() == 0u; }
 
  private:
   // Start out unassigned.
@@ -476,6 +479,12 @@ class Header : public Item {
   const CollectionVector<AnnotationsDirectoryItem>& AnnotationsDirectoryItems() const {
     return annotations_directory_items_;
   }
+  IndexedCollectionVector<HiddenapiItem>& HiddenapiItems() {
+    return hiddenapi_items_;
+  }
+  const IndexedCollectionVector<HiddenapiItem>& HiddenapiItems() const {
+    return hiddenapi_items_;
+  }
   CollectionVector<DebugInfoItem>& DebugInfoItems() { return debug_info_items_; }
   const CollectionVector<DebugInfoItem>& DebugInfoItems() const { return debug_info_items_; }
   CollectionVector<CodeItem>& CodeItems() { return code_items_; }
@@ -489,6 +498,8 @@ class Header : public Item {
   TypeId* GetTypeIdOrNullPtr(uint16_t index) {
     return index == DexFile::kDexNoIndex16 ? nullptr : TypeIds()[index];
   }
+
+  const HiddenapiItem* GetHiddenapiItem(const ClassDef* class_def) const;
 
   uint32_t MapListOffset() const { return map_list_offset_; }
   void SetMapListOffset(uint32_t new_offset) { map_list_offset_ = new_offset; }
@@ -553,6 +564,7 @@ class Header : public Item {
   IndexedCollectionVector<AnnotationSetItem> annotation_set_items_;
   IndexedCollectionVector<AnnotationSetRefList> annotation_set_ref_lists_;
   IndexedCollectionVector<AnnotationsDirectoryItem> annotations_directory_items_;
+  IndexedCollectionVector<HiddenapiItem> hiddenapi_items_;
   // The order of the vectors controls the layout of the output file by index order, to change the
   // layout just sort the vector. Note that you may only change the order of the non indexed vectors
   // below. Indexed vectors are accessed by indices in other places, changing the sorting order will
@@ -1262,6 +1274,49 @@ class MethodHandleItem : public IndexedItem {
   IndexedItem* field_or_method_id_;
 
   DISALLOW_COPY_AND_ASSIGN(MethodHandleItem);
+};
+
+using HiddenapiMemberFlagsMap = std::map<const Item*, uint32_t>;
+
+class HiddenapiItem : public IndexedItem {
+ public:
+  HiddenapiItem(const ClassDef* class_def, HiddenapiMemberFlagsMap* members)
+      : class_def_(class_def), members_(members) { }
+  ~HiddenapiItem() override { }
+
+  bool HasData() const { return members_ != nullptr; }
+
+  const ClassDef* GetClassDef() const { return class_def_; }
+
+  uint32_t GetFlags(const Item* field_or_method_item) const {
+    if (!HasData()) {
+      return kNoFlags;
+    }
+
+    auto it = members_->find(field_or_method_item);
+    CHECK(it != members_->end());
+    return it->second;
+  }
+
+  uint32_t ItemSize() const {
+    uint32_t size = 0u;
+    if (members_ != nullptr) {
+      for (const auto& entry : *members_) {
+        size += UnsignedLeb128Size(entry.second);
+      }
+    }
+    return size;
+  }
+
+  void Accept(AbstractDispatcher* dispatch) { dispatch->Dispatch(this); }
+
+  static constexpr uint32_t kNoFlags = static_cast<uint32_t>(-1);
+
+ private:
+  const ClassDef* class_def_;
+  std::unique_ptr<HiddenapiMemberFlagsMap> members_;
+
+  DISALLOW_COPY_AND_ASSIGN(HiddenapiItem);
 };
 
 // TODO(sehr): implement MapList.

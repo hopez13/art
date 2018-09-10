@@ -170,6 +170,7 @@ class BuilderMaps {
   void AddAnnotationsFromMapListSection(const DexFile& dex_file,
                                         uint32_t start_offset,
                                         uint32_t count);
+  void AddHiddenapiMetadataFromMapListSection(const DexFile& dex_file, uint32_t offset);
 
   void CheckAndSetRemainingOffsets(const DexFile& dex_file, const Options& options);
 
@@ -408,6 +409,10 @@ void BuilderMaps::CheckAndSetRemainingOffsets(const DexFile& dex_file, const Opt
       case DexFile::kDexTypeAnnotationsDirectoryItem:
         header_->AnnotationsDirectoryItems().SetOffset(item->offset_);
         break;
+      case DexFile::kDexTypeHiddenapiMetadata:
+        header_->HiddenapiItems().SetOffset(item->offset_);
+        AddHiddenapiMetadataFromMapListSection(dex_file, item->offset_);
+        break;
       default:
         LOG(ERROR) << "Unknown map list item type.";
     }
@@ -621,6 +626,45 @@ void BuilderMaps::AddAnnotationsFromMapListSection(const DexFile& dex_file,
     AnnotationItem* annotation_item = CreateAnnotationItem(dex_file, annotation);
     DCHECK(annotation_item != nullptr);
     current_offset += annotation_item->GetSize();
+  }
+}
+
+void BuilderMaps::AddHiddenapiMetadataFromMapListSection(const DexFile& dex_file, uint32_t offset) {
+  const DexFile::HiddenapiMetadata* metadata = dex_file.GetHiddenapiMetadataAtOffset(offset);
+
+  size_t num_class_defs = header_->ClassDefs().Size();
+  const uint8_t* base = reinterpret_cast<const uint8_t*>(metadata);
+  const uint32_t* off_dir = &metadata->flags_off_[0];
+  uint32_t dir_size = sizeof(uint32_t) * num_class_defs;
+
+  const uint8_t* ptr = base + dir_size;
+  for (size_t i = 0; i < num_class_defs; ++i) {
+    ClassDef* class_def = header_->ClassDefs()[i];
+    HiddenapiMemberFlagsMap* members = nullptr;
+
+    ClassData* class_data = class_def->GetClassData();
+    if (class_data != nullptr) {
+      members = new HiddenapiMemberFlagsMap();
+      for (const dex_ir::FieldItem& field : *class_data->StaticFields()) {
+        members->emplace(&field, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::FieldItem& field : *class_data->InstanceFields()) {
+        members->emplace(&field, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->DirectMethods()) {
+        members->emplace(&method, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->VirtualMethods()) {
+        members->emplace(&method, DecodeUnsignedLeb128(&ptr));
+      }
+    }
+
+    DCHECK_EQ(ptr, base + off_dir[i]);
+    CreateAndAddIndexedItem(header_->HiddenapiItems(),
+                            offset + off_dir[i],
+                            i,
+                            class_def,
+                            members);
   }
 }
 
@@ -1181,6 +1225,7 @@ MethodItem BuilderMaps::GenerateMethodItem(const DexFile& dex_file,
                                            const ClassAccessor::Method& method) {
   MethodId* method_id = header_->MethodIds()[method.GetIndex()];
   uint32_t access_flags = method.GetRawAccessFlags();
+
   const DexFile::CodeItem* disk_code_item = method.GetCodeItem();
   // Temporary hack to prevent incorrectly deduping code items if they have the same offset since
   // they may have different debug info streams.

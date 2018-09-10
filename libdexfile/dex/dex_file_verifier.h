@@ -65,6 +65,12 @@ class DexFileVerifier {
 
   bool CheckShortyDescriptorMatch(char shorty_char, const char* descriptor, bool is_return_type);
   bool CheckListSize(const void* start, size_t count, size_t element_size, const char* label);
+  bool CheckListSizeInRegion(const void* start,
+                             size_t count,
+                             size_t element_size,
+                             const void* region_start,
+                             size_t region_size,
+                             const char* label);
   // Check a list. The head is assumed to be at *ptr, and elements to be of size element_size. If
   // successful, the ptr will be moved forward the amount covered by the list.
   bool CheckList(size_t element_size, const char* label, const uint8_t* *ptr);
@@ -126,6 +132,7 @@ class DexFileVerifier {
   bool CheckIntraDebugInfoItem();
   bool CheckIntraAnnotationItem();
   bool CheckIntraAnnotationsDirectoryItem();
+  bool CheckIntraHiddenapiMetadata();
 
   template <DexFile::MapItemType kType>
   bool CheckIntraSectionIterate(size_t offset, uint32_t count);
