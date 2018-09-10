@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48bbf614_0d8b9ffa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8585,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-10T17:08:41Z",
+      "side": 1,
+      "message": "That isn\u0027t really true. You\u0027re skipping all non-standard loaders everywhere (and I think from skimming the code any standard classloader that hasn\u0027t loaded classes?).",
+      "range": {
+        "startLine": 8585,
+        "startChar": 17,
+        "endLine": 8585,
+        "endChar": 26
+      },
+      "revId": "f9c83b0dcfa347d9fedcac1f4fc039e1f9493b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
