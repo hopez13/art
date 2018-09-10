@@ -65,27 +65,6 @@ class HiddenApiAccessFlags {
     kNoList,
   };
 
-  static ALWAYS_INLINE ApiList DecodeFromDex(uint32_t dex_access_flags) {
-    DexHiddenAccessFlags flags(dex_access_flags);
-    uint32_t int_value = (flags.IsFirstBitSet() ? 1 : 0) + (flags.IsSecondBitSet() ? 2 : 0);
-    return static_cast<ApiList>(int_value);
-  }
-
-  static ALWAYS_INLINE uint32_t RemoveFromDex(uint32_t dex_access_flags) {
-    DexHiddenAccessFlags flags(dex_access_flags);
-    flags.SetFirstBit(false);
-    flags.SetSecondBit(false);
-    return flags.GetEncoding();
-  }
-
-  static ALWAYS_INLINE uint32_t EncodeForDex(uint32_t dex_access_flags, ApiList value) {
-    DexHiddenAccessFlags flags(RemoveFromDex(dex_access_flags));
-    uint32_t int_value = static_cast<uint32_t>(value);
-    flags.SetFirstBit((int_value & 1) != 0);
-    flags.SetSecondBit((int_value & 2) != 0);
-    return flags.GetEncoding();
-  }
-
   static ALWAYS_INLINE ApiList DecodeFromRuntime(uint32_t runtime_access_flags) {
     // This is used in the fast path, only DCHECK here.
     DCHECK_EQ(runtime_access_flags & kAccIntrinsic, 0u);
@@ -103,47 +82,14 @@ class HiddenApiAccessFlags {
     return runtime_access_flags | hidden_api_flags;
   }
 
+  static ALWAYS_INLINE bool AreValidFlags(uint32_t flags) {
+    return flags <= static_cast<uint32_t>(kBlacklist);
+  }
+
  private:
   static const int kAccFlagsShift = CTZ(kAccHiddenApiBits);
   static_assert(IsPowerOfTwo((kAccHiddenApiBits >> kAccFlagsShift) + 1),
                 "kAccHiddenApiBits are not continuous");
-
-  struct DexHiddenAccessFlags {
-    explicit DexHiddenAccessFlags(uint32_t access_flags) : access_flags_(access_flags) {}
-
-    ALWAYS_INLINE uint32_t GetSecondFlag() {
-      return ((access_flags_ & kAccNative) != 0) ? kAccDexHiddenBitNative : kAccDexHiddenBit;
-    }
-
-    ALWAYS_INLINE bool IsFirstBitSet() {
-      static_assert(IsPowerOfTwo(0u), "Following statement checks if *at most* one bit is set");
-      return !IsPowerOfTwo(access_flags_ & kAccVisibilityFlags);
-    }
-
-    ALWAYS_INLINE void SetFirstBit(bool value) {
-      if (IsFirstBitSet() != value) {
-        access_flags_ ^= kAccVisibilityFlags;
-      }
-    }
-
-    ALWAYS_INLINE bool IsSecondBitSet() {
-      return (access_flags_ & GetSecondFlag()) != 0;
-    }
-
-    ALWAYS_INLINE void SetSecondBit(bool value) {
-      if (value) {
-        access_flags_ |= GetSecondFlag();
-      } else {
-        access_flags_ &= ~GetSecondFlag();
-      }
-    }
-
-    ALWAYS_INLINE uint32_t GetEncoding() const {
-      return access_flags_;
-    }
-
-    uint32_t access_flags_;
-  };
 };
 
 inline std::ostream& operator<<(std::ostream& os, HiddenApiAccessFlags::ApiList value) {
