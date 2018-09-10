@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39722169_98094838",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-10T09:59:32Z",
+      "side": 1,
+      "message": "Can we make it so? - it would sound odd that the fast path needs to check whether it\u0027s initialized.",
+      "range": {
+        "startLine": 729,
+        "startChar": 51,
+        "endLine": 729,
+        "endChar": 89
+      },
+      "revId": "2ee1691c768739c7493947cc16fe9e4f6c99e53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
