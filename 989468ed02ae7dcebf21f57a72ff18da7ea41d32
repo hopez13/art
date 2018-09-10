@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d7385d8_d3bd074b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-10T17:39:48Z",
+      "side": 1,
+      "message": "Could move UnhideApis to DexFile to remove duplicated code here.",
+      "range": {
+        "startLine": 631,
+        "startChar": 8,
+        "endLine": 639,
+        "endChar": 9
+      },
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f315f139_506c7c84",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-10T17:39:48Z",
+      "side": 1,
+      "message": "Why was this logic changed to early exit?",
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f9e55b9_4bc315e0",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-10T17:39:48Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 692,
+        "startChar": 12,
+        "endLine": 692,
+        "endChar": 17
+      },
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcc68101_2eefeeca",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-10T17:39:48Z",
+      "side": 1,
+      "message": "Why is this required if update_checksum_ is true in the dexlayout options?",
+      "range": {
+        "startLine": 998,
+        "startChar": 8,
+        "endLine": 999,
+        "endChar": 42
+      },
+      "revId": "989468ed02ae7dcebf21f57a72ff18da7ea41d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
