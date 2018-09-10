@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d60eb65_b3be928e",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-10T14:33:56Z",
+      "side": 1,
+      "message": "Lack of clarity in my last comment - this can be hoisted from the loop so it\u0027s only read once.",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 55
+      },
+      "revId": "fbc7bfd58ab38399796f26aba1026c7a0b054d66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
