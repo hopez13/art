@@ -147,30 +147,6 @@ class DexMember {
 
   inline const DexClass& GetDeclaringClass() const { return klass_; }
 
-  // Sets hidden bits in access flags and writes them back into the DEX in memory.
-  // Note that this will not update the cached data of the class accessor
-  // until it iterates over this item again and therefore will fail a CHECK if
-  // it is called multiple times on the same DexMember.
-  void SetHidden(HiddenApiAccessFlags::ApiList value) const {
-    const uint32_t old_flags = item_.GetRawAccessFlags();
-    const uint32_t new_flags = HiddenApiAccessFlags::EncodeForDex(old_flags, value);
-    CHECK_EQ(UnsignedLeb128Size(new_flags), UnsignedLeb128Size(old_flags));
-
-    // Locate the LEB128-encoded access flags in class data.
-    // `ptr` initially points to the next ClassData item. We iterate backwards
-    // until we hit the terminating byte of the previous Leb128 value.
-    const uint8_t* ptr = item_.GetDataPointer();
-    if (IsMethod()) {
-      ptr = ReverseSearchUnsignedLeb128(ptr);
-      DCHECK_EQ(DecodeUnsignedLeb128WithoutMovingCursor(ptr), GetMethod().GetCodeItemOffset());
-    }
-    ptr = ReverseSearchUnsignedLeb128(ptr);
-    DCHECK_EQ(DecodeUnsignedLeb128WithoutMovingCursor(ptr), old_flags);
-
-    // Overwrite the access flags.
-    UpdateUnsignedLeb128(const_cast<uint8_t*>(ptr), new_flags);
-  }
-
   inline bool IsMethod() const { return is_method_; }
   inline bool IsVirtualMethod() const { return IsMethod() && !GetMethod().IsStaticOrDirect(); }
   inline bool IsConstructor() const { return IsMethod() && HasAccessFlags(kAccConstructor); }
@@ -200,6 +176,8 @@ class DexMember {
 
     return equals;
   }
+
+  size_t GetIndex() const { return item_.GetIndex(); }
 
  private:
   inline uint32_t GetAccessFlags() const { return item_.GetAccessFlags(); }
@@ -242,17 +220,24 @@ class ClassPath final {
   }
 
   template<typename Fn>
-  void ForEachDexClass(Fn fn) {
+  void ForEachDexFile(Fn fn) {
     for (auto& dex_file : dex_files_) {
-      for (ClassAccessor accessor : dex_file->GetClasses()) {
-        fn(DexClass(accessor));
-      }
+      fn(*dex_file);
     }
   }
 
   template<typename Fn>
+  void ForEachDexClass(Fn fn) {
+    ForEachDexFile([fn](const DexFile& dex_file) {
+      for (ClassAccessor accessor : dex_file.GetClasses()) {
+        fn(DexClass(accessor));
+      }
+    });
+  }
+
+  template<typename Fn>
   void ForEachDexMember(Fn fn) {
-    ForEachDexClass([&fn](const DexClass& klass) {
+    ForEachDexClass([fn](const DexClass& klass) {
       for (const ClassAccessor::Field& field : klass.GetFields()) {
         fn(DexMember(klass, field));
       }
@@ -260,6 +245,15 @@ class ClassPath final {
         fn(DexMember(klass, method));
       }
     });
+  }
+
+  std::vector<const DexFile*> GetDexFiles() const {
+    std::vector<const DexFile*> result;
+    result.reserve(dex_files_.size());
+    for (auto& dex_file_ptr : dex_files_) {
+      result.push_back(dex_file_ptr.get());
+    }
+    return result;
   }
 
   void UpdateDexChecksums() {
@@ -559,6 +553,220 @@ class Hierarchy final {
   std::map<std::string, HierarchyClass> classes_;
 };
 
+class HiddenapiClassDataBuilder final {
+ public:
+  explicit HiddenapiClassDataBuilder(const DexFile& dex_file)
+      : num_classdefs_(dex_file.NumClassDefs()),
+        next_class_def_idx_(0u),
+        data_(sizeof(uint32_t) * (num_classdefs_ + 1), 0u) {
+    *GetSizeField() = GetCurrentDataSize();
+  }
+
+  void BeginClassDef(uint32_t idx, const uint8_t* class_data) {
+    CHECK_EQ(next_class_def_idx_, idx);
+    CHECK_LT(idx, num_classdefs_);
+    GetOffsetArray()[idx] = class_data == nullptr ? 0u : GetCurrentDataSize();
+  }
+
+  void EndClassDef(uint32_t idx) {
+    CHECK_EQ(next_class_def_idx_++, idx);
+    CHECK_LT(idx, num_classdefs_);
+    if (idx == num_classdefs_ - 1) {
+      *GetSizeField() = GetCurrentDataSize();
+    }
+  }
+
+  void WriteFlags(uint32_t value) {
+    EncodeUnsignedLeb128(&data_, value);
+  }
+
+  const std::vector<uint8_t>& GetData() const {
+    CHECK_EQ(next_class_def_idx_, num_classdefs_) << "Incomplete data";
+    return data_;
+  }
+
+ private:
+  uint32_t* GetSizeField() { return reinterpret_cast<uint32_t*>(data_.data()); }
+  uint32_t* GetOffsetArray() { return &GetSizeField()[1]; }
+  uint32_t GetCurrentDataSize() const { return data_.size(); }
+
+  const uint32_t num_classdefs_;
+  uint32_t next_class_def_idx_;
+  std::vector<uint8_t> data_;
+};
+
+class DexFileEditor final {
+ public:
+  DexFileEditor(const DexFile& old_dex, const std::vector<uint8_t>& hiddenapi_class_data)
+      : old_dex_(old_dex),
+        hiddenapi_class_data_(hiddenapi_class_data),
+        loaded_dex_header_(nullptr),
+        loaded_dex_maplist_(nullptr) {}
+
+  void Encode() {
+    CHECK(old_dex_.IsStandardDexFile());
+
+    // Count the number of MapList elements.
+    const DexFile::MapList* old_map = old_dex_.GetMapList();
+    CHECK_LT(old_map->size_, std::numeric_limits<uint32_t>::max());
+
+    // Allocate data for the new dex file, copy the old file to the beginning of the buffer.
+    size_t size_delta =
+        RoundUp(hiddenapi_class_data_.size(), kMapListAlignment) + sizeof(DexFile::MapItem);
+    size_t new_size = old_dex_.Size() + size_delta;
+    AllocateMemory(new_size);
+    Append(old_dex_.Begin(), old_dex_.Size(), /* update_header */ false);
+    ReloadDex(/* verify */ false);
+
+    RemoveOldMapList();
+    size_t payload_offset = AppendHiddenapiClassData();
+    CreateMapListWithNewItem(payload_offset);
+
+    CHECK_EQ(offset_, new_size);
+    UpdateChecksum();
+
+    ReloadDex(/*verify*/ true);
+  }
+
+  void WriteTo(const std::string& path) {
+    std::ofstream ofs(path.c_str(), std::ofstream::out | std::ofstream::binary);
+    ofs.write(reinterpret_cast<const char*>(data_.data()), data_.size());
+    ofs.flush();
+    CHECK(ofs.good());
+    ofs.close();
+  }
+
+ private:
+  static constexpr size_t kMapListAlignment = 4u;
+
+  void ReloadDex(bool verify) {
+    std::string error_msg;
+    DexFileLoader loader;
+    loaded_dex_ = loader.Open(
+        data_.data(),
+        data_.size(),
+        "test_location",
+        old_dex_.GetLocationChecksum(),
+        /* oat_file */ nullptr,
+        /* verify */ verify,
+        /* verify_checksum */ verify,
+        &error_msg);
+    if (loaded_dex_.get() == nullptr) {
+      LOG(FATAL) << "Failed to load edited dex file: " << error_msg;
+      UNREACHABLE();
+    }
+
+    // Load the location of header and map list before we start editing the file.
+    loaded_dex_header_ = const_cast<DexFile::Header*>(&loaded_dex_->GetHeader());
+    loaded_dex_maplist_ = const_cast<DexFile::MapList*>(loaded_dex_->GetMapList());
+  }
+
+  DexFile::Header& GetHeader() {
+    CHECK(loaded_dex_header_ != nullptr);
+    return *loaded_dex_header_;
+  }
+
+  DexFile::MapList& GetMapList() {
+    CHECK(loaded_dex_maplist_ != nullptr);
+    return *loaded_dex_maplist_;
+  }
+
+  void AllocateMemory(size_t total_size) {
+    data_.clear();
+    data_.resize(total_size);
+    offset_ = 0;
+  }
+
+  uint8_t* GetCurrentDataPtr() {
+    return data_.data() + offset_;
+  }
+
+  void UpdateDataSize(off_t delta, bool update_header) {
+    offset_ += delta;
+    if (update_header) {
+      DexFile::Header& header = GetHeader();
+      header.file_size_ += delta;
+      header.data_size_ += delta;
+    }
+  }
+
+  template<typename T>
+  T* Append(const T* src, size_t len, bool update_header = true) {
+    CHECK_LE(offset_ + len, data_.size());
+    uint8_t* dst = GetCurrentDataPtr();
+    memcpy(dst, reinterpret_cast<const uint8_t*>(src), len);
+    UpdateDataSize(len, update_header);
+    return reinterpret_cast<T*>(dst);
+  }
+
+  void InsertPadding(size_t alignment) {
+    size_t len = RoundUp(offset_, alignment) - offset_;
+    std::vector<uint8_t> padding(len, 0);
+    Append(padding.data(), padding.size());
+  }
+
+  void RemoveOldMapList() {
+    size_t map_size = GetMapList().Size();
+    uint8_t* map_start = reinterpret_cast<uint8_t*>(&GetMapList());
+    CHECK_EQ(map_start + map_size, GetCurrentDataPtr()) << "MapList not at the end of dex file";
+    UpdateDataSize(-static_cast<off_t>(map_size), /*update_header*/ true);
+    CHECK_EQ(map_start, GetCurrentDataPtr());
+    loaded_dex_maplist_ = nullptr;  // do not use this map list any more
+  }
+
+  void CreateMapListWithNewItem(size_t payload_offset) {
+    InsertPadding(/* alignment */ kMapListAlignment);
+
+    size_t new_map_offset = offset_;
+    DexFile::MapList* map = Append(old_dex_.GetMapList(), old_dex_.GetMapList()->Size());
+
+    // Check last map entry is a pointer to itself.
+    DexFile::MapItem& old_item = map->list_[map->size_ - 1];
+    CHECK(old_item.type_ == DexFile::kDexTypeMapList);
+    CHECK_EQ(old_item.size_, 1u);
+    CHECK_EQ(old_item.offset_, GetHeader().map_off_);
+
+    // Create a new MapItem entry with new MapList details.
+    DexFile::MapItem new_item;
+    new_item.type_ = old_item.type_;
+    new_item.size_ = old_item.size_;
+    new_item.offset_ = new_map_offset;
+
+    // Update pointer in the header.
+    GetHeader().map_off_ = new_map_offset;
+
+    // Append a new MapItem and return its pointer.
+    map->size_++;
+    Append(&new_item, sizeof(DexFile::MapItem));
+
+    // Change penultimate entry to point to metadata.
+    old_item.type_ = DexFile::kDexTypeHiddenapiClassData;
+    old_item.size_ = 1u;  // there is only one section
+    old_item.offset_ = payload_offset;
+  }
+
+  size_t AppendHiddenapiClassData() {
+    size_t payload_offset = offset_;
+    Append(hiddenapi_class_data_.data(), hiddenapi_class_data_.size());
+    return payload_offset;
+  }
+
+  void UpdateChecksum() {
+    ReloadDex(/* verify */ false);
+    GetHeader().checksum_ = loaded_dex_->CalculateChecksum();
+  }
+
+  const DexFile& old_dex_;
+  const std::vector<uint8_t>& hiddenapi_class_data_;
+
+  std::vector<uint8_t> data_;
+  size_t offset_;
+
+  std::unique_ptr<const DexFile> loaded_dex_;
+  DexFile::Header* loaded_dex_header_;
+  DexFile::MapList* loaded_dex_maplist_;
+};
+
 class HiddenApi final {
  public:
   HiddenApi() {}
@@ -590,8 +798,10 @@ class HiddenApi final {
       if (command == "encode") {
         for (int i = 1; i < argc; ++i) {
           const StringPiece option(argv[i]);
-          if (option.starts_with("--dex=")) {
-            boot_dex_paths_.push_back(option.substr(strlen("--dex=")).ToString());
+          if (option.starts_with("--input-dex=")) {
+            boot_dex_paths_.push_back(option.substr(strlen("--input-dex=")).ToString());
+          } else if (option.starts_with("--output-dex=")) {
+            output_dex_paths_.push_back(option.substr(strlen("--output-dex=")).ToString());
           } else if (option.starts_with("--light-greylist=")) {
             light_greylist_path_ = option.substr(strlen("--light-greylist=")).ToString();
           } else if (option.starts_with("--dark-greylist=")) {
@@ -630,7 +840,9 @@ class HiddenApi final {
 
   void EncodeAccessFlags() {
     if (boot_dex_paths_.empty()) {
-      Usage("No boot DEX files specified");
+      Usage("No input DEX files specified");
+    } else if (output_dex_paths_.size() != boot_dex_paths_.size()) {
+      Usage("Number of input DEX files does not match number of output DEX files");
     }
 
     // Load dex signatures.
@@ -639,16 +851,41 @@ class HiddenApi final {
     OpenApiFile(dark_greylist_path_, api_list, HiddenApiAccessFlags::kDarkGreylist);
     OpenApiFile(blacklist_path_, api_list, HiddenApiAccessFlags::kBlacklist);
 
-    // Open all dex files.
-    ClassPath boot_classpath(boot_dex_paths_, /* open_writable= */ true);
+    // TODO
+    for (size_t i = 0; i < boot_dex_paths_.size(); ++i) {
+      const std::string& input_path = boot_dex_paths_[i];
+      const std::string& output_path = output_dex_paths_[i];
 
-    // Set access flags of all members.
-    boot_classpath.ForEachDexMember([&api_list](const DexMember& boot_member) {
-      auto it = api_list.find(boot_member.GetApiEntry());
-      boot_member.SetHidden(it == api_list.end() ? HiddenApiAccessFlags::kWhitelist : it->second);
-    });
+      ClassPath boot_classpath({ input_path }, /* open_writable= */ false);
+      std::vector<const DexFile*> input_dex_files = boot_classpath.GetDexFiles();
+      CHECK_EQ(input_dex_files.size(), 1u);
+      const DexFile& input_dex = *input_dex_files[0];
 
-    boot_classpath.UpdateDexChecksums();
+      HiddenapiClassDataBuilder builder(input_dex);
+      boot_classpath.ForEachDexClass([&api_list, &builder](const DexClass& boot_class) {
+        builder.BeginClassDef(boot_class.GetClassDefIndex(), boot_class.GetData());
+        if (boot_class.GetData() != nullptr) {
+          auto fn_shared = [&](const DexMember& boot_member) {
+            // TODO: Load whitelist and CHECK that entry was found.
+            auto it = api_list.find(boot_member.GetApiEntry());
+            builder.WriteFlags(
+                (it == api_list.end()) ? HiddenApiAccessFlags::kWhitelist : it->second);
+          };
+          auto fn_field = [&](const ClassAccessor::Field& boot_field) {
+            fn_shared(DexMember(boot_class, boot_field));
+          };
+          auto fn_method = [&](const ClassAccessor::Method& boot_method) {
+            fn_shared(DexMember(boot_class, boot_method));
+          };
+          boot_class.VisitFieldsAndMethods(fn_field, fn_field, fn_method, fn_method);
+        }
+        builder.EndClassDef(boot_class.GetClassDefIndex());
+      });
+
+      DexFileEditor dex_editor(input_dex, builder.GetData());
+      dex_editor.Encode();
+      dex_editor.WriteTo(output_path);
+    }
   }
 
   void OpenApiFile(const std::string& path,
@@ -748,6 +985,8 @@ class HiddenApi final {
   // Paths to DEX files which should be processed.
   std::vector<std::string> boot_dex_paths_;
 
+  std::vector<std::string> output_dex_paths_;
+
   // Set of public API stub classpaths. Each classpath is formed by a list
   // of DEX/APK files in the order they appear on the classpath.
   std::vector<std::vector<std::string>> stub_classpaths_;
@@ -765,6 +1004,8 @@ class HiddenApi final {
 }  // namespace art
 
 int main(int argc, char** argv) {
+  art::original_argc = argc;
+  art::original_argv = argv;
   android::base::InitLogging(argv);
   art::MemMap::Init();
   art::HiddenApi().Run(argc, argv);
