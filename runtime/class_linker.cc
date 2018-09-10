@@ -3314,8 +3314,8 @@ void ClassLinker::LoadField(const ClassAccessor::Field& field,
   // also set its runtime hidden API access flags.
   uint32_t access_flags = field.GetAccessFlags();
   if (klass->IsBootStrapClassLoaded()) {
-    access_flags =
-        HiddenApiAccessFlags::EncodeForRuntime(access_flags, field.DecodeHiddenAccessFlags());
+    access_flags = HiddenApiAccessFlags::EncodeForRuntime(
+        access_flags, static_cast<HiddenApiAccessFlags::ApiList>(field.GetHiddenapiFlags()));
   }
   dst->SetAccessFlags(access_flags);
 }
@@ -3336,10 +3336,9 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   // Get access flags from the DexFile. If this is a boot class path class,
   // also set its runtime hidden API access flags.
   uint32_t access_flags = method.GetAccessFlags();
-
   if (klass->IsBootStrapClassLoaded()) {
-    access_flags =
-        HiddenApiAccessFlags::EncodeForRuntime(access_flags, method.DecodeHiddenAccessFlags());
+    access_flags = HiddenApiAccessFlags::EncodeForRuntime(
+        access_flags, static_cast<HiddenApiAccessFlags::ApiList>(method.GetHiddenapiFlags()));
   }
 
   if (UNLIKELY(strcmp("finalize", method_name) == 0)) {

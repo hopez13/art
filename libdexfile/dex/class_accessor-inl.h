@@ -42,20 +42,34 @@ inline ClassAccessor::ClassAccessor(const DexFile& dex_file,
     : dex_file_(dex_file),
       class_def_index_(class_def_index),
       ptr_pos_(class_data),
+      hiddenapi_ptr_pos_(nullptr),
       num_static_fields_(ptr_pos_ != nullptr ? DecodeUnsignedLeb128(&ptr_pos_) : 0u),
       num_instance_fields_(ptr_pos_ != nullptr ? DecodeUnsignedLeb128(&ptr_pos_) : 0u),
       num_direct_methods_(ptr_pos_ != nullptr ? DecodeUnsignedLeb128(&ptr_pos_) : 0u),
-      num_virtual_methods_(ptr_pos_ != nullptr ? DecodeUnsignedLeb128(&ptr_pos_) : 0u) {}
+      num_virtual_methods_(ptr_pos_ != nullptr ? DecodeUnsignedLeb128(&ptr_pos_) : 0u) {
+  if (class_data != nullptr && class_def_index != DexFile::kDexNoIndex32) {
+    const DexFile::HiddenapiMetadata* metadata = dex_file.GetHiddenapiMetadata();
+    if (metadata != nullptr) {
+      hiddenapi_ptr_pos_ = metadata->GetFlagsStream(class_def_index, dex_file);
+    }
+  }
+}
 
 inline void ClassAccessor::Method::Read() {
   index_ += DecodeUnsignedLeb128(&ptr_pos_);
   access_flags_ = DecodeUnsignedLeb128(&ptr_pos_);
   code_off_ = DecodeUnsignedLeb128(&ptr_pos_);
+  if (hiddenapi_ptr_pos_ != nullptr) {
+    hiddenapi_flags_ = DecodeUnsignedLeb128(&hiddenapi_ptr_pos_);
+  }
 }
 
 inline void ClassAccessor::Field::Read() {
   index_ += DecodeUnsignedLeb128(&ptr_pos_);
   access_flags_ = DecodeUnsignedLeb128(&ptr_pos_);
+  if (hiddenapi_ptr_pos_ != nullptr) {
+    hiddenapi_flags_ = DecodeUnsignedLeb128(&hiddenapi_ptr_pos_);
+  }
 }
 
 template <typename DataType, typename Visitor>
@@ -78,12 +92,12 @@ inline void ClassAccessor::VisitFieldsAndMethods(
     const InstanceFieldVisitor& instance_field_visitor,
     const DirectMethodVisitor& direct_method_visitor,
     const VirtualMethodVisitor& virtual_method_visitor) const {
-  Field field(dex_file_, ptr_pos_);
+  Field field(dex_file_, ptr_pos_, hiddenapi_ptr_pos_);
   VisitMembers(num_static_fields_, static_field_visitor, &field);
   field.NextSection();
   VisitMembers(num_instance_fields_, instance_field_visitor, &field);
 
-  Method method(dex_file_, field.ptr_pos_, /*is_static_or_direct*/ true);
+  Method method(dex_file_, field.ptr_pos_, field.hiddenapi_ptr_pos_, /*is_static_or_direct*/ true);
   VisitMembers(num_direct_methods_, direct_method_visitor, &method);
   method.NextSection();
   VisitMembers(num_virtual_methods_, virtual_method_visitor, &method);
@@ -131,19 +145,41 @@ inline const DexFile::CodeItem* ClassAccessor::Method::GetCodeItem() const {
 
 inline IterationRange<ClassAccessor::DataIterator<ClassAccessor::Field>>
     ClassAccessor::GetFieldsInternal(size_t count) const {
-  return { DataIterator<Field>(dex_file_, 0u, num_static_fields_, count, ptr_pos_),
-           DataIterator<Field>(dex_file_, count, num_static_fields_, count, ptr_pos_) };
+  return {
+      DataIterator<Field>(dex_file_,
+                          0u,
+                          num_static_fields_,
+                          count,
+                          ptr_pos_,
+                          hiddenapi_ptr_pos_),
+      DataIterator<Field>(dex_file_,
+                          count,
+                          num_static_fields_,
+                          count,
+                          ptr_pos_,
+                          hiddenapi_ptr_pos_) };
 }
 
 // Return an iteration range for the first <count> methods.
 inline IterationRange<ClassAccessor::DataIterator<ClassAccessor::Method>>
     ClassAccessor::GetMethodsInternal(size_t count) const {
   // Skip over the fields.
-  Field field(dex_file_, ptr_pos_);
+  Field field(dex_file_, ptr_pos_, hiddenapi_ptr_pos_);
   VisitMembers(NumFields(), VoidFunctor(), &field);
   // Return the iterator pair.
-  return { DataIterator<Method>(dex_file_, 0u, num_direct_methods_, count, field.ptr_pos_),
-           DataIterator<Method>(dex_file_, count, num_direct_methods_, count, field.ptr_pos_) };
+  return {
+      DataIterator<Method>(dex_file_,
+                           0u,
+                           num_direct_methods_,
+                           count,
+                           field.ptr_pos_,
+                           field.hiddenapi_ptr_pos_),
+      DataIterator<Method>(dex_file_,
+                           count,
+                           num_direct_methods_,
+                           count,
+                           field.ptr_pos_,
+                           field.hiddenapi_ptr_pos_) };
 }
 
 inline IterationRange<ClassAccessor::DataIterator<ClassAccessor::Field>> ClassAccessor::GetFields()
@@ -179,14 +215,6 @@ inline IterationRange<ClassAccessor::DataIterator<ClassAccessor::Method>>
   IterationRange<DataIterator<Method>> methods = GetMethods();
   // Skip the direct fields.
   return { std::next(methods.begin(), NumDirectMethods()), methods.end() };
-}
-
-inline void ClassAccessor::Field::UnHideAccessFlags() const {
-  DexFile::UnHideAccessFlags(const_cast<uint8_t*>(ptr_pos_), GetAccessFlags(), /*is_method*/ false);
-}
-
-inline void ClassAccessor::Method::UnHideAccessFlags() const {
-  DexFile::UnHideAccessFlags(const_cast<uint8_t*>(ptr_pos_), GetAccessFlags(), /*is_method*/ true);
 }
 
 inline dex::TypeIndex ClassAccessor::GetClassIdx() const {

@@ -20,7 +20,6 @@
 #include "base/utils.h"
 #include "code_item_accessors.h"
 #include "dex_file.h"
-#include "hidden_api_access_flags.h"
 #include "invoke_type.h"
 #include "method_reference.h"
 #include "modifiers.h"
@@ -35,22 +34,20 @@ class ClassAccessor {
   class BaseItem {
    public:
     explicit BaseItem(const DexFile& dex_file,
-                      const uint8_t* ptr_pos) : dex_file_(dex_file), ptr_pos_(ptr_pos) {}
+                      const uint8_t* ptr_pos,
+                      const uint8_t* hiddenapi_ptr_pos)
+        : dex_file_(dex_file), ptr_pos_(ptr_pos), hiddenapi_ptr_pos_(hiddenapi_ptr_pos) {}
 
     uint32_t GetIndex() const {
       return index_;
     }
 
-    uint32_t GetRawAccessFlags() const {
+    uint32_t GetAccessFlags() const {
       return access_flags_;
     }
 
-    uint32_t GetAccessFlags() const {
-      return HiddenApiAccessFlags::RemoveFromDex(access_flags_);
-    }
-
-    HiddenApiAccessFlags::ApiList DecodeHiddenAccessFlags() const {
-      return HiddenApiAccessFlags::DecodeFromDex(access_flags_);
+    uint32_t GetHiddenapiFlags() const {
+      return hiddenapi_flags_;
     }
 
     bool IsFinal() const {
@@ -66,19 +63,21 @@ class ClassAccessor {
     }
 
     bool MemberIsNative() const {
-      return GetRawAccessFlags() & kAccNative;
+      return GetAccessFlags() & kAccNative;
     }
 
     bool MemberIsFinal() const {
-      return GetRawAccessFlags() & kAccFinal;
+      return GetAccessFlags() & kAccFinal;
     }
 
    protected:
     // Internal data pointer for reading.
     const DexFile& dex_file_;
     const uint8_t* ptr_pos_ = nullptr;
+    const uint8_t* hiddenapi_ptr_pos_ = nullptr;
     uint32_t index_ = 0u;
     uint32_t access_flags_ = 0u;
+    uint32_t hiddenapi_flags_ = 0u;
   };
 
   // A decoded version of the method of a class_data_item.
@@ -107,14 +106,13 @@ class ClassAccessor {
       return is_static_or_direct_;
     }
 
-    // Unhide the hidden API access flags at the iterator position. TODO: Deprecate.
-    void UnHideAccessFlags() const;
-
    private:
-    explicit Method(const DexFile& dex_file,
-                    const uint8_t* ptr_pos,
-                    bool is_static_or_direct = true)
-        : BaseItem(dex_file, ptr_pos), is_static_or_direct_(is_static_or_direct) {}
+    Method(const DexFile& dex_file,
+           const uint8_t* ptr_pos,
+           const uint8_t* hiddenapi_ptr_pos,
+           bool is_static_or_direct = true)
+        : BaseItem(dex_file, ptr_pos, hiddenapi_ptr_pos),
+          is_static_or_direct_(is_static_or_direct) {}
 
     void Read();
 
@@ -150,15 +148,12 @@ class ClassAccessor {
   // A decoded version of the field of a class_data_item.
   class Field : public BaseItem {
    public:
-    explicit Field(const DexFile& dex_file,
-                   const uint8_t* ptr_pos) : BaseItem(dex_file, ptr_pos) {}
+    Field(const DexFile& dex_file, const uint8_t* ptr_pos, const uint8_t* hiddenapi_ptr_pos)
+        : BaseItem(dex_file, ptr_pos, hiddenapi_ptr_pos) {}
 
     bool IsStatic() const {
      return is_static_;
     }
-
-    // Unhide the hidden API access flags at the iterator position. TODO: Deprecate.
-    void UnHideAccessFlags() const;
 
    private:
     void Read();
@@ -185,8 +180,9 @@ class ClassAccessor {
                  uint32_t position,
                  uint32_t partition_pos,
                  uint32_t iterator_end,
-                 const uint8_t* ptr_pos)
-        : data_(dex_file, ptr_pos),
+                 const uint8_t* ptr_pos,
+                 const uint8_t* hiddenapi_ptr_pos)
+        : data_(dex_file, ptr_pos, hiddenapi_ptr_pos),
           position_(position),
           partition_pos_(partition_pos),
           iterator_end_(iterator_end) {
@@ -353,6 +349,10 @@ class ClassAccessor {
     return ptr_pos_ != nullptr;
   }
 
+  bool HasHiddenapiMetadata() const {
+    return hiddenapi_ptr_pos_ != nullptr;
+  }
+
   uint32_t GetClassDefIndex() const {
     return class_def_index_;
   }
@@ -377,6 +377,7 @@ class ClassAccessor {
   const DexFile& dex_file_;
   const uint32_t class_def_index_;
   const uint8_t* ptr_pos_ = nullptr;  // Pointer into stream of class_data_item.
+  const uint8_t* hiddenapi_ptr_pos_ = nullptr;  // Pointer into stream of hiddenapi_metadata.
   const uint32_t num_static_fields_ = 0u;
   const uint32_t num_instance_fields_ = 0u;
   const uint32_t num_direct_methods_ = 0u;
