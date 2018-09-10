@@ -46,6 +46,30 @@
       "revId": "f9c83b0dcfa347d9fedcac1f4fc039e1f9493b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce7f9372_06552af7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8585,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-10T21:30:47Z",
+      "side": 1,
+      "message": "It prints loaders that are registered in loaders_. That only happens when a dex file is registered. \"Other\" classloaders can\u0027t register dex files. We also seem to be registering dex files late (on first class load), but I may be missing a callsite.",
+      "parentUuid": "45ac1fb9_b8e97f5d",
+      "range": {
+        "startLine": 8585,
+        "startChar": 17,
+        "endLine": 8585,
+        "endChar": 26
+      },
+      "revId": "f9c83b0dcfa347d9fedcac1f4fc039e1f9493b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
