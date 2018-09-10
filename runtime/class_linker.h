@@ -850,13 +850,17 @@ class ClassLinker {
                  Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void LoadField(const ClassAccessor::Field& field, Handle<mirror::Class> klass, ArtField* dst)
+  void LoadField(const ClassAccessor::Field& field,
+                 Handle<mirror::Class> klass,
+                 ArtField* dst,
+                 HiddenApiAccessFlags::ApiList hiddenapi_list)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void LoadMethod(const DexFile& dex_file,
                   const ClassAccessor::Method& method,
                   Handle<mirror::Class> klass,
-                  ArtMethod* dst)
+                  ArtMethod* dst,
+                  HiddenApiAccessFlags::ApiList hiddenapi_list)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void FixupStaticTrampolines(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);

@@ -462,6 +462,46 @@ void DexWriter::WriteAnnotationsDirectories(Stream* stream) {
   }
 }
 
+void DexWriter::WriteHiddenapiMetadata(Stream* stream) {
+  if (header_->HiddenapiItems().Empty()) {
+    return;
+  }
+
+  const uint32_t start = stream->Tell();
+
+  uint32_t cur_end_off[1];
+  cur_end_off[0] = header_->HiddenapiItems().Size() * sizeof(uint32_t);
+  for (auto& class_def : header_->ClassDefs()) {
+    const dex_ir::HiddenapiItem* item = header_->HiddenapiItems()[class_def->GetIndex()];
+    DCHECK(item->GetClassDef() == class_def.get());
+    DCHECK_EQ(class_def->GetClassData() != nullptr, item->HasData());
+    cur_end_off[0] += item->ItemSize();
+    stream->Write(cur_end_off, sizeof(uint32_t));
+  }
+  for (auto& class_def : header_->ClassDefs()) {
+    dex_ir::ClassData* class_data = class_def->GetClassData();
+    if (class_data != nullptr) {
+      const dex_ir::HiddenapiItem* item = header_->HiddenapiItems()[class_def->GetIndex()];
+      for (const dex_ir::FieldItem& field : *class_data->StaticFields()) {
+        stream->WriteUleb128(item->GetFlags(&field));
+      }
+      for (const dex_ir::FieldItem& field : *class_data->InstanceFields()) {
+        stream->WriteUleb128(item->GetFlags(&field));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->DirectMethods()) {
+        stream->WriteUleb128(item->GetFlags(&method));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->VirtualMethods()) {
+        stream->WriteUleb128(item->GetFlags(&method));
+      }
+    }
+  }
+  DCHECK_EQ(stream->Tell() - start, cur_end_off[0]);
+  if (compute_offsets_ && start != stream->Tell()) {
+    header_->HiddenapiItems().SetOffset(start);
+  }
+}
+
 void DexWriter::WriteDebugInfoItem(Stream* stream, dex_ir::DebugInfoItem* debug_info) {
   stream->AlignTo(SectionAlignment(DexFile::kDexTypeDebugInfoItem));
   ProcessOffset(stream, debug_info);
@@ -730,6 +770,9 @@ void DexWriter::GenerateAndWriteMapItems(Stream* stream) {
   queue.AddIfNotEmpty(MapItem(DexFile::kDexTypeAnnotationsDirectoryItem,
                               header_->AnnotationsDirectoryItems().Size(),
                               header_->AnnotationsDirectoryItems().GetOffset()));
+  queue.AddIfNotEmpty(MapItem(DexFile::kDexTypeHiddenapiMetadata,
+                              header_->HiddenapiItems().Empty() ? 0u : 1u,
+                              header_->HiddenapiItems().GetOffset()));
   WriteMapItems(stream, &queue);
 }
 
@@ -829,6 +872,7 @@ bool DexWriter::Write(DexContainer* output, std::string* error_msg) {
   WriteTypeLists(stream);
   WriteClassDatas(stream);
   WriteStringDatas(stream);
+  WriteHiddenapiMetadata(stream);
 
   // Write delayed id sections that depend on data sections.
   {
