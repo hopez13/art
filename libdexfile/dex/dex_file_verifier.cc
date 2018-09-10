@@ -67,6 +67,7 @@ static uint32_t MapTypeToBitMask(DexFile::MapItemType map_item_type) {
     case DexFile::kDexTypeAnnotationItem:           return 1 << 17;
     case DexFile::kDexTypeEncodedArrayItem:         return 1 << 18;
     case DexFile::kDexTypeAnnotationsDirectoryItem: return 1 << 19;
+    case DexFile::kDexTypeHiddenapiMetadata:        return 1 << 20;
   }
   return 0;
 }
@@ -94,6 +95,7 @@ static bool IsDataSectionType(DexFile::MapItemType map_item_type) {
     case DexFile::kDexTypeAnnotationItem:
     case DexFile::kDexTypeEncodedArrayItem:
     case DexFile::kDexTypeAnnotationsDirectoryItem:
+    case DexFile::kDexTypeHiddenapiMetadata:
       return true;
   }
   return true;
@@ -1554,6 +1556,56 @@ bool DexFileVerifier::CheckIntraAnnotationItem() {
   return true;
 }
 
+bool DexFileVerifier::CheckIntraHiddenapiMetadata() {
+  const DexFile::HiddenapiMetadata* item =
+      reinterpret_cast<const DexFile::HiddenapiMetadata*>(ptr_);
+
+  // Check the total section size.
+  uint32_t class_def_dir_size = dex_file_->NumClassDefs() * sizeof(uint32_t);
+  if (!CheckListSize(item, class_def_dir_size, 1u, "hiddenapi_metadata directory")) {
+    return false;
+  }
+
+  ptr_ += class_def_dir_size;
+  for (uint32_t i = 0; i < dex_file_->NumClassDefs(); ++i) {
+    const DexFile::ClassDef& class_def = dex_file_->GetClassDef(i);
+    const uint8_t* class_data = dex_file_->GetClassData(class_def);
+
+    const uint8_t* def_end = reinterpret_cast<const uint8_t*>(item) + item->flags_off_[i];
+    if (ptr_ > def_end) {
+      ErrorStringPrintf("Negative hiddenapi class def size");
+      return false;
+    } else if (class_data == nullptr && ptr_ != def_end) {
+      ErrorStringPrintf("Hiddenapi metadata for empty class def(%u)", i);
+      return false;
+    }
+
+    bool failure = false;
+    auto fn = [&](const ClassAccessor::BaseItem&) {
+      if (!failure) {
+        uint32_t decoded_flags;
+        if (!DecodeUnsignedLeb128Checked(&ptr_, def_end, &decoded_flags)) {
+          ErrorStringPrintf("Hiddenapi metadata overflow");
+          failure = true;
+          return;
+        }
+      }
+    };
+    ClassAccessor accessor(*dex_file_, class_def);
+    accessor.VisitFieldsAndMethods(fn, fn, fn, fn);
+    if (failure) {
+      return false;
+    }
+
+    if (ptr_ != def_end) {
+      ErrorStringPrintf("Hiddenapi metadata underflow %p != %p", ptr_, def_end);
+      return false;
+    }
+  }
+
+  return true;
+}
+
 bool DexFileVerifier::CheckIntraAnnotationsDirectoryItem() {
   const DexFile::AnnotationsDirectoryItem* item =
       reinterpret_cast<const DexFile::AnnotationsDirectoryItem*>(ptr_);
@@ -1768,6 +1820,12 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
         }
         break;
       }
+      case DexFile::kDexTypeHiddenapiMetadata: {
+        if (!CheckIntraHiddenapiMetadata()) {
+          return false;
+        }
+        break;
+      }
       case DexFile::kDexTypeHeaderItem:
       case DexFile::kDexTypeMapList:
         break;
@@ -1972,6 +2030,7 @@ bool DexFileVerifier::CheckIntraSection() {
       CHECK_INTRA_DATA_SECTION_CASE(DexFile::kDexTypeAnnotationItem)
       CHECK_INTRA_DATA_SECTION_CASE(DexFile::kDexTypeEncodedArrayItem)
       CHECK_INTRA_DATA_SECTION_CASE(DexFile::kDexTypeAnnotationsDirectoryItem)
+      CHECK_INTRA_DATA_SECTION_CASE(DexFile::kDexTypeHiddenapiMetadata)
 #undef CHECK_INTRA_DATA_SECTION_CASE
     }
 
@@ -2735,6 +2794,7 @@ bool DexFileVerifier::CheckInterSectionIterate(size_t offset,
       case DexFile::kDexTypeDebugInfoItem:
       case DexFile::kDexTypeAnnotationItem:
       case DexFile::kDexTypeEncodedArrayItem:
+      case DexFile::kDexTypeHiddenapiMetadata:
         break;
       case DexFile::kDexTypeStringIdItem: {
         if (!CheckInterStringIdItem()) {
@@ -2867,7 +2927,8 @@ bool DexFileVerifier::CheckInterSection() {
       case DexFile::kDexTypeAnnotationSetRefList:
       case DexFile::kDexTypeAnnotationSetItem:
       case DexFile::kDexTypeClassDataItem:
-      case DexFile::kDexTypeAnnotationsDirectoryItem: {
+      case DexFile::kDexTypeAnnotationsDirectoryItem:
+      case DexFile::kDexTypeHiddenapiMetadata: {
         if (!CheckInterSectionIterate(section_offset, section_count, type)) {
           return false;
         }

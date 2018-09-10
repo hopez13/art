@@ -126,6 +126,7 @@ class DexFileVerifier {
   bool CheckIntraDebugInfoItem();
   bool CheckIntraAnnotationItem();
   bool CheckIntraAnnotationsDirectoryItem();
+  bool CheckIntraHiddenapiMetadata();
 
   template <DexFile::MapItemType kType>
   bool CheckIntraSectionIterate(size_t offset, uint32_t count);

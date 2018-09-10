@@ -92,7 +92,7 @@ class DexFile {
     uint32_t endian_tag_ = 0;
     uint32_t link_size_ = 0;  // unused
     uint32_t link_off_ = 0;  // unused
-    uint32_t map_off_ = 0;  // unused
+    uint32_t map_off_ = 0;  // map list offset from data_off_
     uint32_t string_ids_size_ = 0;  // number of StringIds
     uint32_t string_ids_off_ = 0;  // file offset of StringIds array
     uint32_t type_ids_size_ = 0;  // number of TypeIds, we don't support more than 65535
@@ -134,6 +134,7 @@ class DexFile {
     kDexTypeAnnotationItem           = 0x2004,
     kDexTypeEncodedArrayItem         = 0x2005,
     kDexTypeAnnotationsDirectoryItem = 0x2006,
+    kDexTypeHiddenapiMetadata        = 0x3000,
   };
 
   struct MapItem {
@@ -146,6 +147,10 @@ class DexFile {
   struct MapList {
     uint32_t size_;
     MapItem list_[1];
+
+    size_t Size() const {
+      return sizeof(MapList) + (size_ - 1) * sizeof(MapItem);
+    }
 
    private:
     DISALLOW_COPY_AND_ASSIGN(MapList);
@@ -417,6 +422,27 @@ class DexFile {
 
    private:
     DISALLOW_COPY_AND_ASSIGN(AnnotationItem);
+  };
+
+  struct HiddenapiMetadata {
+    uint32_t flags_off_[1];  // offset of flags for each ClassDef item. zero if empty
+
+    const uint8_t* GetFlagsStream(uint32_t class_def_idx, const DexFile& dex_file) const {
+      DCHECK_LT(class_def_idx, dex_file.NumClassDefs());
+      uint32_t off = (class_def_idx == 0) ? sizeof(uint32_t) * dex_file.NumClassDefs()
+                                          : flags_off_[class_def_idx - 1];
+      return reinterpret_cast<const uint8_t*>(&flags_off_[0]) + off;
+    }
+
+   private:
+    DISALLOW_COPY_AND_ASSIGN(HiddenapiMetadata);
+  };
+
+  struct HiddenapiClassDefMemberFlags {
+    uint8_t flags_[1];  // uleb128-encoded access flags
+
+   private:
+    DISALLOW_COPY_AND_ASSIGN(HiddenapiClassDefMemberFlags);
   };
 
   enum AnnotationResultStyle {  // private
@@ -837,6 +863,14 @@ class DexFile {
     return DataPointer<AnnotationItem>(offset);
   }
 
+  ALWAYS_INLINE const HiddenapiMetadata* GetHiddenapiMetadataAtOffset(uint32_t offset) const {
+    return DataPointer<HiddenapiMetadata>(offset);
+  }
+
+  ALWAYS_INLINE const HiddenapiMetadata* GetHiddenapiMetadata() const {
+    return hiddenapi_metadata_;
+  }
+
   const AnnotationItem* GetAnnotationItem(const AnnotationSetItem* set_item, uint32_t index) const {
     DCHECK_LE(index, set_item->size_);
     return GetAnnotationItemAtOffset(set_item->entries_[index]);
@@ -1079,6 +1113,9 @@ class DexFile {
 
   // Number of elements in the call sites list.
   size_t num_call_site_ids_;
+
+  // Points to the base of the hiddenapi metadata.
+  const HiddenapiMetadata* hiddenapi_metadata_;
 
   // If this dex file was loaded from an oat file, oat_dex_file_ contains a
   // pointer to the OatDexFile it was loaded from. Otherwise oat_dex_file_ is

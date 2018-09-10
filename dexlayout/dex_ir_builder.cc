@@ -170,6 +170,7 @@ class BuilderMaps {
   void AddAnnotationsFromMapListSection(const DexFile& dex_file,
                                         uint32_t start_offset,
                                         uint32_t count);
+  void AddHiddenapiMetadataFromMapListSection(const DexFile& dex_file, uint32_t offset);
 
   void CheckAndSetRemainingOffsets(const DexFile& dex_file, const Options& options);
 
@@ -408,6 +409,10 @@ void BuilderMaps::CheckAndSetRemainingOffsets(const DexFile& dex_file, const Opt
       case DexFile::kDexTypeAnnotationsDirectoryItem:
         header_->AnnotationsDirectoryItems().SetOffset(item->offset_);
         break;
+      case DexFile::kDexTypeHiddenapiMetadata:
+        header_->HiddenapiItems().SetOffset(item->offset_);
+        AddHiddenapiMetadataFromMapListSection(dex_file, item->offset_);
+        break;
       default:
         LOG(ERROR) << "Unknown map list item type.";
     }
@@ -621,6 +626,42 @@ void BuilderMaps::AddAnnotationsFromMapListSection(const DexFile& dex_file,
     AnnotationItem* annotation_item = CreateAnnotationItem(dex_file, annotation);
     DCHECK(annotation_item != nullptr);
     current_offset += annotation_item->GetSize();
+  }
+}
+
+void BuilderMaps::AddHiddenapiMetadataFromMapListSection(const DexFile& dex_file, uint32_t offset) {
+  const DexFile::HiddenapiMetadata* metadata = dex_file.GetHiddenapiMetadataAtOffset(offset);
+  DCHECK(metadata == dex_file.GetHiddenapiMetadata());
+
+  for (size_t i = 0; i < dex_file.NumClassDefs(); ++i) {
+    const uint8_t* ptr = metadata->GetFlagsStream(i, dex_file);
+    uint32_t item_offset = ptr - reinterpret_cast<const uint8_t*>(metadata);
+
+    HiddenapiMemberFlagsMap* members = nullptr;
+    ClassDef* class_def = header_->ClassDefs()[i];
+    ClassData* class_data = class_def->GetClassData();
+
+    if (class_data != nullptr) {
+      members = new HiddenapiMemberFlagsMap();
+      for (const dex_ir::FieldItem& field : *class_data->StaticFields()) {
+        members->emplace(&field, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::FieldItem& field : *class_data->InstanceFields()) {
+        members->emplace(&field, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->DirectMethods()) {
+        members->emplace(&method, DecodeUnsignedLeb128(&ptr));
+      }
+      for (const dex_ir::MethodItem& method : *class_data->VirtualMethods()) {
+        members->emplace(&method, DecodeUnsignedLeb128(&ptr));
+      }
+    }
+
+    CreateAndAddIndexedItem(header_->HiddenapiItems(),
+                            header_->HiddenapiItems().GetOffset() + item_offset,
+                            i,
+                            class_def,
+                            members);
   }
 }
 
