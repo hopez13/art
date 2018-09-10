@@ -92,7 +92,7 @@ class DexFile {
     uint32_t endian_tag_ = 0;
     uint32_t link_size_ = 0;  // unused
     uint32_t link_off_ = 0;  // unused
-    uint32_t map_off_ = 0;  // unused
+    uint32_t map_off_ = 0;  // map list offset from data_off_
     uint32_t string_ids_size_ = 0;  // number of StringIds
     uint32_t string_ids_off_ = 0;  // file offset of StringIds array
     uint32_t type_ids_size_ = 0;  // number of TypeIds, we don't support more than 65535
@@ -134,6 +134,7 @@ class DexFile {
     kDexTypeAnnotationItem           = 0x2004,
     kDexTypeEncodedArrayItem         = 0x2005,
     kDexTypeAnnotationsDirectoryItem = 0x2006,
+    kDexTypeHiddenapiClassData       = 0xF000,
   };
 
   struct MapItem {
@@ -146,6 +147,10 @@ class DexFile {
   struct MapList {
     uint32_t size_;
     MapItem list_[1];
+
+    size_t Size() const {
+      return sizeof(MapList) + (size_ - 1) * sizeof(MapItem);
+    }
 
    private:
     DISALLOW_COPY_AND_ASSIGN(MapList);
@@ -417,6 +422,18 @@ class DexFile {
 
    private:
     DISALLOW_COPY_AND_ASSIGN(AnnotationItem);
+  };
+
+  struct HiddenapiClassData {
+    uint32_t size_;
+    uint32_t flags_offset_[1];
+
+    const uint8_t* GetFlags(uint32_t class_def_idx) const {
+      return reinterpret_cast<const uint8_t*>(this) + flags_offset_[class_def_idx];
+    }
+
+   private:
+    DISALLOW_COPY_AND_ASSIGN(HiddenapiClassData);
   };
 
   enum AnnotationResultStyle {  // private
@@ -837,6 +854,14 @@ class DexFile {
     return DataPointer<AnnotationItem>(offset);
   }
 
+  ALWAYS_INLINE const HiddenapiClassData* GetHiddenapiClassDataAtOffset(uint32_t offset) const {
+    return DataPointer<HiddenapiClassData>(offset);
+  }
+
+  ALWAYS_INLINE const HiddenapiClassData* GetHiddenapiClassData() const {
+    return hiddenapi_class_data_;
+  }
+
   const AnnotationItem* GetAnnotationItem(const AnnotationSetItem* set_item, uint32_t index) const {
     DCHECK_LE(index, set_item->size_);
     return GetAnnotationItemAtOffset(set_item->entries_[index]);
@@ -992,12 +1017,6 @@ class DexFile {
     return container_.get();
   }
 
-  // Changes the dex class data pointed to by data_ptr it to not have any hiddenapi flags.
-  static void UnHideAccessFlags(uint8_t* data_ptr, uint32_t new_access_flags, bool is_method);
-
-  // Iterate dex classes and remove hiddenapi flags in fields and methods.
-  void UnhideApis() const;
-
   IterationRange<ClassIterator> GetClasses() const;
 
   template <typename Visitor>
@@ -1079,6 +1098,9 @@ class DexFile {
 
   // Number of elements in the call sites list.
   size_t num_call_site_ids_;
+
+  // Points to the base of the hiddenapi metadata.
+  const HiddenapiClassData* hiddenapi_class_data_;
 
   // If this dex file was loaded from an oat file, oat_dex_file_ contains a
   // pointer to the OatDexFile it was loaded from. Otherwise oat_dex_file_ is
