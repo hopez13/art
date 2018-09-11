@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daa202b4_9f8ce876",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-11T13:36:47Z",
+      "side": 1,
+      "message": "We could also check the read barrier state of `obj` (virtual register \"B\") before going to the slow path, and maybe perform other checks as well (mark bit check, forwarding state check) before going to the slow path (I guess this could be done in a follow-up CL though).",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "0e8415036c063235a032b044b13c509adc71b069",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f86de20_d3f7569e",
+        "filename": "runtime/interpreter/mterp/arm64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-11T13:36:47Z",
+      "side": 1,
+      "message": "Nit: Align with previous comments.",
+      "range": {
+        "startLine": 18,
+        "startChar": 46,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "0e8415036c063235a032b044b13c509adc71b069",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0f98d2_5c3006dd",
+        "filename": "runtime/interpreter/mterp/arm64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-11T13:36:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 19,
+        "startChar": 46,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "0e8415036c063235a032b044b13c509adc71b069",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
