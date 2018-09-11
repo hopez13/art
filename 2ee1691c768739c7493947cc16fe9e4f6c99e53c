@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7b2e7d83_a3ce208f",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-11T13:22:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you also delete the released array (allocated in EnsureInitialized):\n\n  delete[] local_data_.release();\n\n?",
+      "range": {
+        "startLine": 45,
+        "startChar": 6,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "2ee1691c768739c7493947cc16fe9e4f6c99e53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39722169_98094838",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 1
