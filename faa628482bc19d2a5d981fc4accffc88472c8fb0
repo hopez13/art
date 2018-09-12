@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec7093cf_511577f0",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-12T11:13:38Z",
+      "side": 1,
+      "message": "I think python folks would precede this with \"def main():\"\nand use __main__ check here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 1,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "faa628482bc19d2a5d981fc4accffc88472c8fb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
