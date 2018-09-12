@@ -22,6 +22,30 @@
       "revId": "faa628482bc19d2a5d981fc4accffc88472c8fb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2891898_05790da3",
+        "filename": "runtime/interpreter/mterp/gen_mterp.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-12T12:01:04Z",
+      "side": 1,
+      "message": "I tried.  There is something about the magic exec command that makes it work only if it is called like this.  I think calling from within method prevents it from using global variables.",
+      "parentUuid": "ec7093cf_511577f0",
+      "range": {
+        "startLine": 87,
+        "startChar": 1,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "faa628482bc19d2a5d981fc4accffc88472c8fb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
