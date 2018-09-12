@@ -585,7 +585,6 @@ struct ClassOffsets : public CheckOffsets<mirror::Class> {
     addOffset(OFFSETOF_MEMBER(mirror::Class, ifields_), "iFields");
     addOffset(OFFSETOF_MEMBER(mirror::Class, iftable_), "ifTable");
     addOffset(OFFSETOF_MEMBER(mirror::Class, methods_), "methods");
-    addOffset(OFFSETOF_MEMBER(mirror::Class, name_), "name");
     addOffset(OFFSETOF_MEMBER(mirror::Class, num_reference_instance_fields_),
               "numReferenceInstanceFields");
     addOffset(OFFSETOF_MEMBER(mirror::Class, num_reference_static_fields_),
@@ -606,6 +605,7 @@ struct ClassOffsets : public CheckOffsets<mirror::Class> {
 
 struct ClassExtOffsets : public CheckOffsets<mirror::ClassExt> {
   ClassExtOffsets() : CheckOffsets<mirror::ClassExt>(false, "Ldalvik/system/ClassExt;") {
+    addOffset(OFFSETOF_MEMBER(mirror::ClassExt, name_), "name");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, obsolete_dex_caches_), "obsoleteDexCaches");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, obsolete_methods_), "obsoleteMethods");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, original_dex_file_), "originalDexFile");

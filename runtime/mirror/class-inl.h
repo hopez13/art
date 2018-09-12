@@ -24,6 +24,7 @@
 #include "base/array_slice.h"
 #include "base/length_prefixed_array.h"
 #include "base/utils.h"
+#include "class_ext.h"
 #include "class_linker.h"
 #include "class_loader.h"
 #include "common_throws.h"
@@ -727,11 +728,11 @@ inline void Class::SetClinitThreadId(pid_t new_clinit_thread_id) {
 }
 
 inline String* Class::GetName() {
-  return GetFieldObject<String>(OFFSET_OF_OBJECT_MEMBER(Class, name_));
-}
-
-inline void Class::SetName(ObjPtr<String> name) {
-  SetFieldObjectTransaction(OFFSET_OF_OBJECT_MEMBER(Class, name_), name);
+  ObjPtr<ClassExt> ext(GetExtData());
+  if (ext.IsNull()) {
+    return nullptr;
+  }
+  return ext->GetName();
 }
 
 template<VerifyObjectFlags kVerifyFlags>

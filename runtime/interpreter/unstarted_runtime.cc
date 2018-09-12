@@ -1751,6 +1751,15 @@ void UnstartedRuntime::UnstartedJNIAtomicLongVMSupportsCS8(
                    : 1);
 }
 
+void UnstartedRuntime::UnstartedJNIClassEnsureExtDataPresent(
+    Thread* self, ArtMethod* method ATTRIBUTE_UNUSED, mirror::Object* receiver,
+    uint32_t* args ATTRIBUTE_UNUSED, JValue* result) {
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Class> klass(hs.NewHandle(receiver->AsClass()));
+  klass->EnsureExtDataPresent(self);
+  result->SetL(nullptr);
+}
+
 void UnstartedRuntime::UnstartedJNIClassGetNameNative(
     Thread* self, ArtMethod* method ATTRIBUTE_UNUSED, mirror::Object* receiver,
     uint32_t* args ATTRIBUTE_UNUSED, JValue* result) {

@@ -332,7 +332,11 @@ class MANAGED Class final : public Object {
   }
 
   String* GetName() REQUIRES_SHARED(Locks::mutator_lock_);  // Returns the cached name.
-  void SetName(ObjPtr<String> name) REQUIRES_SHARED(Locks::mutator_lock_);  // Sets the cached name.
+
+  // Sets the cached name.
+  void SetName(Thread* self, ObjPtr<String> name)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
   // Computes the name, then sets the cached value.
   static String* ComputeName(Handle<Class> h_this) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
@@ -1366,9 +1370,6 @@ class MANAGED Class final : public Object {
   // methods for the methods in the interface.
   HeapReference<IfTable> iftable_;
 
-  // Descriptor for the class such as "java.lang.Class" or "[C". Lazily initialized by ComputeName
-  HeapReference<String> name_;
-
   // The superclass, or null if this is java.lang.Object or a primitive type.
   //
   // Note that interfaces have java.lang.Object as their
@@ -1382,6 +1383,9 @@ class MANAGED Class final : public Object {
   // appended. For abstract classes, methods may be created in the vtable that aren't in
   // virtual_ methods_ for miranda methods.
   HeapReference<PointerArray> vtable_;
+
+  // Access flags; low 16 bits are defined by VM spec.
+  uint32_t access_flags_;
 
   // instance fields
   //
@@ -1413,9 +1417,6 @@ class MANAGED Class final : public Object {
 
   // Static fields length-prefixed array.
   uint64_t sfields_;
-
-  // Access flags; low 16 bits are defined by VM spec.
-  uint32_t access_flags_;
 
   // Class flags to help speed up visiting object references.
   uint32_t class_flags_;

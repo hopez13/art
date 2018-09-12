@@ -88,6 +88,7 @@
   V(MathExp, "double java.lang.Math.exp(double)") \
   V(AtomicLongVMSupportsCS8, "boolean java.util.concurrent.atomic.AtomicLong.VMSupportsCS8()") \
   V(ClassGetNameNative, "java.lang.String java.lang.Class.getNameNative()") \
+  V(ClassEnsureExtDataPresent, "void java.lang.Class.ensureExtDataPresent()") \
   V(DoubleLongBitsToDouble, "double java.lang.Double.longBitsToDouble(long)") \
   V(FloatFloatToRawIntBits, "int java.lang.Float.floatToRawIntBits(float)") \
   V(FloatIntBitsToFloat, "float java.lang.Float.intBitsToFloat(int)") \

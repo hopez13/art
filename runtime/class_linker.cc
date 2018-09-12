@@ -4301,7 +4301,7 @@ ObjPtr<mirror::Class> ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRun
   temp_klass->SetAccessFlags(kAccClassIsProxy | kAccPublic | kAccFinal | kAccVerificationAttempted);
   temp_klass->SetClassLoader(soa.Decode<mirror::ClassLoader>(loader));
   DCHECK_EQ(temp_klass->GetPrimitiveType(), Primitive::kPrimNot);
-  temp_klass->SetName(soa.Decode<mirror::String>(name));
+  temp_klass->SetName(self, soa.Decode<mirror::String>(name));
   temp_klass->SetDexCache(GetClassRoot<mirror::Proxy>(this)->GetDexCache());
   // Object has an empty iftable, copy it for that reason.
   temp_klass->SetIfTable(GetClassRoot<mirror::Object>(this)->GetIfTable());

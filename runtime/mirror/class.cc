@@ -276,8 +276,19 @@ String* Class::ComputeName(Handle<Class> h_this) {
     // components.
     name = String::AllocFromModifiedUtf8(self, DescriptorToDot(descriptor).c_str());
   }
-  h_this->SetName(name);
+  h_this->SetName(self, name);
   return name;
+}
+
+void Class::SetName(Thread* self, ObjPtr<String> name) {
+  StackHandleScope<1> hs(self);
+  Handle<String> h_name(hs.NewHandle(name));
+  ObjPtr<ClassExt> ext(EnsureExtDataPresent(self));
+  if (ext.IsNull()) {
+    self->AssertPendingOOMException();
+    return;
+  }
+  ext->SetName(h_name.Get());
 }
 
 void Class::DumpClass(std::ostream& os, int flags) {

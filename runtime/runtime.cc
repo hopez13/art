@@ -752,16 +752,20 @@ bool Runtime::Start() {
 
   if (!IsImageDex2OatEnabled() || !GetHeap()->HasBootImageSpace()) {
     ScopedObjectAccess soa(self);
-    StackHandleScope<2> hs(soa.Self());
+    StackHandleScope<3> hs(soa.Self());
 
     ObjPtr<mirror::ObjectArray<mirror::Class>> class_roots = GetClassLinker()->GetClassRoots();
     auto class_class(hs.NewHandle<mirror::Class>(GetClassRoot<mirror::Class>(class_roots)));
+    auto class_ext_class(hs.NewHandle<mirror::Class>(GetClassRoot<mirror::ClassExt>(class_roots)));
     auto field_class(hs.NewHandle<mirror::Class>(GetClassRoot<mirror::Field>(class_roots)));
 
     class_linker_->EnsureInitialized(soa.Self(), class_class, true, true);
     self->AssertNoPendingException();
     // Field class is needed for register_java_net_InetAddress in libcore, b/28153851.
     class_linker_->EnsureInitialized(soa.Self(), field_class, true, true);
+    // ClassExt class is needed for call to Class.getName caused by register_java_net_InetAddress in
+    // libcore, b/28153851.
+    class_linker_->EnsureInitialized(soa.Self(), class_ext_class, true, true);
     self->AssertNoPendingException();
   }
 

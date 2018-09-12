@@ -40,6 +40,12 @@ class MANAGED ClassExt : public Object {
     return sizeof(ClassExt);
   }
 
+  void SetName(ObjPtr<String> obj) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  String* GetName() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldObject<String>(OFFSET_OF_OBJECT_MEMBER(ClassExt, name_));
+  }
+
   void SetVerifyError(ObjPtr<Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
 
   Object* GetVerifyError() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -79,6 +85,8 @@ class MANAGED ClassExt : public Object {
 
  private:
   // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
+  HeapReference<String> name_;
+
   HeapReference<ObjectArray<DexCache>> obsolete_dex_caches_;
 
   HeapReference<PointerArray> obsolete_methods_;

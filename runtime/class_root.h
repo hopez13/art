@@ -51,9 +51,14 @@ class Throwable;
 class VarHandle;
 }  // namespace mirror
 
+// The order of these is (slightly) important. We need to make sure that any class allocated and
+// used by a clinit in present in the list before the class that uses it. For example a ClassExt is
+// allocated and accessed by the Proxy clinit (through calling getName on a Class object) so
+// ClassExt must be placed before Proxy. If the order is incorrect image-creation will fail.
 #define CLASS_ROOT_LIST(M)                                                                                                                          \
   M(kJavaLangClass,                         "Ljava/lang/Class;",                          mirror::Class)                                            \
   M(kJavaLangObject,                        "Ljava/lang/Object;",                         mirror::Object)                                           \
+  M(kDalvikSystemClassExt,                  "Ldalvik/system/ClassExt;",                   mirror::ClassExt)                                         \
   M(kClassArrayClass,                       "[Ljava/lang/Class;",                         mirror::ObjectArray<mirror::Class>)                       \
   M(kObjectArrayClass,                      "[Ljava/lang/Object;",                        mirror::ObjectArray<mirror::Object>)                      \
   M(kJavaLangString,                        "Ljava/lang/String;",                         mirror::String)                                           \
@@ -99,8 +104,7 @@ class VarHandle;
   M(kIntArrayClass,                         "[I",                                         mirror::PrimitiveArray<int32_t>)                          \
   M(kLongArrayClass,                        "[J",                                         mirror::PrimitiveArray<int64_t>)                          \
   M(kShortArrayClass,                       "[S",                                         mirror::PrimitiveArray<int16_t>)                          \
-  M(kJavaLangStackTraceElementArrayClass,   "[Ljava/lang/StackTraceElement;",             mirror::ObjectArray<mirror::StackTraceElement>)           \
-  M(kDalvikSystemClassExt,                  "Ldalvik/system/ClassExt;",                   mirror::ClassExt)
+  M(kJavaLangStackTraceElementArrayClass,   "[Ljava/lang/StackTraceElement;",             mirror::ObjectArray<mirror::StackTraceElement>)
 
 // Well known mirror::Class roots accessed via ClassLinker::GetClassRoots().
 enum class ClassRoot : uint32_t {

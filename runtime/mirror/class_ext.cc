@@ -104,6 +104,14 @@ ClassExt* ClassExt::Alloc(Thread* self) {
   return down_cast<ClassExt*>(GetClassRoot<ClassExt>()->AllocObject(self).Ptr());
 }
 
+void ClassExt::SetName(ObjPtr<String> name) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    SetFieldObject<true>(OFFSET_OF_OBJECT_MEMBER(ClassExt, name_), name);
+  } else {
+    SetFieldObject<false>(OFFSET_OF_OBJECT_MEMBER(ClassExt, name_), name);
+  }
+}
+
 void ClassExt::SetVerifyError(ObjPtr<Object> err) {
   if (Runtime::Current()->IsActiveTransaction()) {
     SetFieldObject<true>(OFFSET_OF_OBJECT_MEMBER(ClassExt, verify_error_), err);
