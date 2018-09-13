@@ -3157,6 +3157,7 @@ void Thread::ThrowOutOfMemoryError(const char* msg) {
     Dump(LOG_STREAM(WARNING));  // The pre-allocated OOME has no stack, so help out and log one.
     SetException(Runtime::Current()->GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME());
   }
+  LOG(WARNING) << "Throwing OutOfMemoryError (VmSize %s)", GetProcessStatus("VmSize").c_str();
 }
 
 Thread* Thread::CurrentFromGdb() {
