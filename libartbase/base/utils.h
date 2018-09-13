@@ -219,6 +219,9 @@ static inline void CheckedCall(const Func& function, const char* what, Args... a
   }
 }
 
+// Lookup and return /proc/self/status value by the given status key.
+std::string GetPorcessStatus(const char* key);
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_UTILS_H_
