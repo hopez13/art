@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "ce4c12b6_05bdbf13",
+        "filename": "libdexfile/dex/hidden_api_access_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-13T14:57:08Z",
+      "side": 1,
+      "message": "just curious, what goes here? all within-app calls?",
+      "revId": "acc1bb4692317471209a82fe26127fca95c9eb68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ae24514_0001cac0",
+        "filename": "tools/veridex/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-13T14:57:08Z",
+      "side": 1,
+      "message": "missing a 0",
+      "revId": "acc1bb4692317471209a82fe26127fca95c9eb68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae6ecda3_7ff7f3e8",
         "filename": "tools/veridex/veridex.cc",
         "patchSetId": 1
@@ -34,6 +68,24 @@
       "revId": "acc1bb4692317471209a82fe26127fca95c9eb68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0e5d5be_75c56104",
+        "filename": "tools/veridex/veridex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-13T14:57:08Z",
+      "side": 1,
+      "message": "k. I guess not passing --whitelist would be another problem. Using veridex without appcompat.sh requires some mad skillz",
+      "parentUuid": "9541a38f_8e6b61fe",
+      "revId": "acc1bb4692317471209a82fe26127fca95c9eb68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
