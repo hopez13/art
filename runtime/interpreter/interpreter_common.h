@@ -133,33 +133,72 @@ static inline bool DoFastInvoke(Thread* self,
                                 JValue* result) {
   const uint32_t method_idx = inst->VRegB_35c();
   const uint32_t vregC = inst->VRegC_35c();
+  ArtMethod* sf_method = shadow_frame.GetMethod();
+  ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+
+  // Try to find the method in small thread-local cache first.
+  InterpreterCache* tls_cache = self->GetInterpreterCache();
+  size_t tls_value;
+  ArtMethod* method;
+  if (LIKELY(tls_cache->Get(inst, &tls_value))) {
+    method = reinterpret_cast<ArtMethod*>(tls_value);
+  } else {
+    constexpr ClassLinker::ResolveMode kResolveMode = ClassLinker::ResolveMode::kNoChecks;
+    method = class_linker->ResolveMethod<kResolveMode>(self, method_idx, sf_method, type);
+    if (UNLIKELY(method == nullptr)) {
+      DCHECK(self->IsExceptionPending());  // Throw exception and unwind.
+      result->SetJ(0);
+      return false;  // Failure.
+    }
+    tls_cache->Set(inst, reinterpret_cast<size_t>(method));
+  }
+
+  // Null pointer check.
   ObjPtr<mirror::Object> receiver = (type == kStatic)
       ? nullptr
       : shadow_frame.GetVRegReference(vregC);
-  ArtMethod* sf_method = shadow_frame.GetMethod();
-  ArtMethod* const called_method = FindMethodFromCode<type, false>(
-      method_idx, &receiver, sf_method, self);
+  if (UNLIKELY(receiver == nullptr && type != kStatic)) {
+    if (UNLIKELY(method->GetDeclaringClass()->IsStringClass() && method->IsConstructor())) {
+      // Hack for String init. See FindMethodFromCode.
+    } else {
+      ThrowNullPointerExceptionForMethodAccess(method_idx, type);
+      result->SetJ(0);
+      return false;  // Failure.
+    }
+  }
+
+  // Resolve virtual method.
+  static_assert(type == kStatic || type == kDirect || type == kVirtual, "Invoke type");
+  if (type == kVirtual) {
+    ObjPtr<mirror::Class> klass = receiver->GetClass();
+    DCHECK(klass->HasVTable()) << klass->PrettyClass();
+    method = klass->GetVTableEntry(method->GetMethodIndex(), class_linker->GetImagePointerSize());
+  }
+
+  DCHECK(method == (FindMethodFromCode<type, /* do_access_check */ false>(
+      method_idx, &receiver, sf_method, self)));
+
   // The shadow frame should already be pushed, so we don't need to update it.
-  if (UNLIKELY(called_method == nullptr)) {
+  if (UNLIKELY(method == nullptr)) {
     CHECK(self->IsExceptionPending());
     result->SetJ(0);
     return false;
-  } else if (UNLIKELY(!called_method->IsInvokable())) {
-    called_method->ThrowInvocationTimeError();
+  } else if (UNLIKELY(!method->IsInvokable())) {
+    method->ThrowInvocationTimeError();
     result->SetJ(0);
     return false;
   } else {
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr && type == kVirtual) {
-      jit->InvokeVirtualOrInterface(receiver, sf_method, shadow_frame.GetDexPC(), called_method);
+      jit->InvokeVirtualOrInterface(receiver, sf_method, shadow_frame.GetDexPC(), method);
     }
-    if (called_method->IsIntrinsic()) {
-      if (MterpHandleIntrinsic(&shadow_frame, called_method, inst, inst_data,
+    if (method->IsIntrinsic()) {
+      if (MterpHandleIntrinsic(&shadow_frame, method, inst, inst_data,
                                shadow_frame.GetResultRegister())) {
         return !self->IsExceptionPending();
       }
     }
-    return DoCall<false, false>(called_method, self, shadow_frame, inst, inst_data, result);
+    return DoCall<false, false>(method, self, shadow_frame, inst, inst_data, result);
   }
 }
 
