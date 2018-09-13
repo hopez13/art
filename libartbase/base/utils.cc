@@ -213,4 +213,24 @@ void SleepForever() {
   }
 }
 
+std::string GetProcessStatus(const char* key) {
+  std::string status;
+
+  if (!ReadFileToString("/proc/self/status", &status)) {
+    return "<unknown>";
+  }
+
+  std::string keyword(key);
+  keyword.push_back(':');
+  std::string::size_type pos1 = status.find(keyword);
+  if ((pos1 = status.find(keyword)) != std::string::npos) {
+    std::string::size_type pos2 = status.find_first_of('\t', pos1);
+    std::string::size_type pos3 = status.find_first_of('\n', pos2);
+    std::string value = status.substr(pos2+1, pos3-pos2-1);
+    return value;
+  }
+
+  return "<unknown>";
+}
+
 }  // namespace art
