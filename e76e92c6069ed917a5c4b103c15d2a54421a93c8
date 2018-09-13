@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ebb054ef_6beed3d9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "This is used for reduction type not for knowing how to treat operands. And for both only signed types are currently supported.\n\nI am adding IsZeroExtending() field to VecDotProd to denote how to extend the operands, this seems to be the simpler solution now to avoid the confusion around signed and unsigned types.",
+      "parentUuid": "0c68e870_4a5c364c",
+      "range": {
+        "startLine": 2201,
+        "startChar": 12,
+        "endLine": 2201,
+        "endChar": 26
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89499ab4_b5159067",
         "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c92bfe3_995a80e6",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Just to avoid ambiguous phis (loop counter vs reduction). I thought this would not hurt.",
+      "parentUuid": "89499ab4_b5159067",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0f4bf180_c633e719",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "442379d5_ca54c2f4",
+      "range": {
+        "startLine": 271,
+        "startChar": 49,
+        "endLine": 271,
+        "endChar": 59
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c06d02c_46d00022",
         "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "062abf35_22a94285",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c06d02c_46d00022",
+      "range": {
+        "startLine": 282,
+        "startChar": 51,
+        "endLine": 282,
+        "endChar": 61
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8c7d3045_bde71c42",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb0adae9_1470e01b",
+      "range": {
+        "startLine": 295,
+        "startChar": 46,
+        "endLine": 295,
+        "endChar": 56
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc60ef8b_d34b2edb",
         "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d63afcbf_ec14afd5",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestByte.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "1. Yep, +\u003d has a special parser rule apparently.\n2. Missed opportunity: What would be your suggestion here? this is not currently recognised as a reduction idiom (HLoopOptimization::reductions_).",
+      "parentUuid": "fc60ef8b_d34b2edb",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 15
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "266aa811_886da523",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed215f5_91237ca6",
+      "range": {
+        "startLine": 271,
+        "startChar": 49,
+        "endLine": 271,
+        "endChar": 60
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44557582_3966f244",
         "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
         "patchSetId": 5
@@ -183,6 +351,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35e0ab24_2dc733fc",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44557582_3966f244",
+      "range": {
+        "startLine": 282,
+        "startChar": 51,
+        "endLine": 282,
+        "endChar": 61
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d1dc0347_4e3fad68",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestCharShort.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed270fc_92b784db",
+      "range": {
+        "startLine": 293,
+        "startChar": 46,
+        "endLine": 293,
+        "endChar": 57
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6d9a750_14ba5fe7",
         "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
         "patchSetId": 5
@@ -229,6 +445,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5243000_44f8d993",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6d9a750_14ba5fe7",
+      "range": {
+        "startLine": 50,
+        "startChar": 48,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "e306d191_a763975b",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c0c9a2c_cf2ae6f2",
+      "range": {
+        "startLine": 85,
+        "startChar": 47,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a615cb4_51450134",
         "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
         "patchSetId": 5
@@ -275,6 +539,30 @@
       "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bc6cf84_2aceaa96",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-13T15:58:18Z",
+      "side": 1,
+      "message": "it doesn\u0027t really matter I guess, switched to b",
+      "parentUuid": "0a615cb4_51450134",
+      "range": {
+        "startLine": 131,
+        "startChar": 17,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "e76e92c6069ed917a5c4b103c15d2a54421a93c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
