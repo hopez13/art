@@ -126,4 +126,10 @@ TEST_F(UtilsTest, BoundsCheckedCast) {
   EXPECT_EQ(BoundsCheckedCast<const uint64_t*>(buffer + 57, buffer, buffer_end), nullptr);
 }
 
+TEST_F(UtilsTest, GetPorcessStatus) {
+  EXPECT_EQ("utils_test", GetPorcessStatus("Name"));
+  EXPECT_EQ("R (running)", GetPorcessStatus("State"));
+  EXPECT_EQ("<unknown>", GetPorcessStatus("Group"));
+}
+
 }  // namespace art

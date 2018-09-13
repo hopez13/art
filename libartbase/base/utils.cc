@@ -251,4 +251,23 @@ bool FlushInstructionPipeline() {
   return false;
 }
 
+std::string GetPorcessStatus(const char* key) {
+  std::string keyword(key);
+  std::string status, value;
+  std::string::size_type pos1, pos2, pos3;
+
+  if (!ReadFileToString("/proc/self/status", &status))
+    return "<unknown>";
+
+  keyword.insert(keyword.size(), 1, ':');
+  if ((pos1 = status.find(keyword)) != std::string::npos) {
+    pos2 = status.find_first_of('\t', pos1);
+    pos3 = status.find_first_of('\n', pos2);
+    value = status.substr(pos2+1, pos3-pos2-1);
+    return value;
+  }
+
+  return "<unknown>";
+}
+
 }  // namespace art
