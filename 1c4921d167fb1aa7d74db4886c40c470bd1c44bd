@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e328594_4f4299aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-14T13:16:03Z",
+      "side": 1,
+      "message": "Maybe mention new option here?",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "1c4921d167fb1aa7d74db4886c40c470bd1c44bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb733ae_2401b2ca",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-14T13:16:03Z",
+      "side": 1,
+      "message": "Given the way `$TOYBOX` is used, shouldn\u0027t this be `--toybox-path`?",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 14
+      },
+      "revId": "1c4921d167fb1aa7d74db4886c40c470bd1c44bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
