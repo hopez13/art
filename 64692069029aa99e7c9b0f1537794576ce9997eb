@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f78bd4c_e4e18911",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "ART style prefers point of use declaration / definition.",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 42
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7411807b_d671c51c",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "Please use braces for the conditional path {\n...\n}",
+      "range": {
+        "startLine": 259,
+        "startChar": 54,
+        "endLine": 260,
+        "endChar": 23
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98052126_733f5ca6",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "push_back(\u0027:\u0027)",
+      "range": {
+        "startLine": 262,
+        "startChar": 10,
+        "endLine": 262,
+        "endChar": 41
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e6f27f5_57d50a45",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "Process",
+      "range": {
+        "startLine": 223,
+        "startChar": 16,
+        "endLine": 223,
+        "endChar": 18
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47378895_a53b1c53",
+        "filename": "libartbase/base/utils_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "s/Porcess/Process/g",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 52
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b662f9f1_0a08a07b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3151,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-14T12:18:57Z",
+      "side": 1,
+      "message": "ART style would put this on newline.\n\nConsider updating this to just use operator\u003c\u003c rather than StringPrintf.\n\nIt might be better to put the VmSize at the end as it\u0027s extra information, like the recursive case message.\n\n\"Throwing OutOfMemoryError (VmSize 128 kB)\"\n\"Throwing OutOfMemoryError (VmSize 128 kB, recursive case)\"",
+      "range": {
+        "startLine": 3151,
+        "startChar": 41,
+        "endLine": 3151,
+        "endChar": 46
+      },
+      "revId": "64692069029aa99e7c9b0f1537794576ce9997eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
