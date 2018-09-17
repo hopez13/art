@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ab861699_7b9b0cf2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-17T15:07:01Z",
+      "side": 1,
+      "message": "Improving",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71162952_0d1268ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-17T15:07:01Z",
+      "side": 1,
+      "message": "VmSize",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65aaba57_2b79b81a",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-17T15:07:01Z",
+      "side": 1,
+      "message": "Marked done, but missing in PS4.",
+      "range": {
+        "startLine": 257,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 23
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f708dfe5_7bcc8b13",
         "filename": "runtime/thread.cc",
         "patchSetId": 4
@@ -13,6 +82,30 @@
       "writtenOn": "2018-09-17T12:05:22Z",
       "side": 1,
       "message": "Let me know if my understanding is off:)",
+      "range": {
+        "startLine": 3160,
+        "startChar": 2,
+        "endLine": 3160,
+        "endChar": 94
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d195156_56582aec",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3160,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-17T15:07:01Z",
+      "side": 1,
+      "message": "Thanks. Could we combine this into the first log message? One log message along the lines of:\n\nLOG(WARNING) \u003c\u003c \"Throwing OutOfMemoryError \" \u003c\u003c std::quoted(msg)\n             \u003c\u003c \" (VmSize \" \u003c\u003c GetProcessStatus(\"VmSize\")\n             \u003c\u003c (tls32_.throwing_OutOfMemoryError ? \", recursive case)\" : \")\");",
+      "parentUuid": "f708dfe5_7bcc8b13",
       "range": {
         "startLine": 3160,
         "startChar": 2,
