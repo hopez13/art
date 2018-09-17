@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f604828_de7d93bf",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-17T08:32:35Z",
+      "side": 1,
+      "message": "Unnecessary qualifier. I\u0027ll remove that in https://android-review.googlesource.com/750672 .",
+      "range": {
+        "startLine": 145,
+        "startChar": 41,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "d7a7f2f0bf62d6ff564dd34aa41a19f016583a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
