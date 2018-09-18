@@ -285,8 +285,7 @@ class JitCodeCache {
                size_t initial_data_capacity,
                size_t initial_exec_capacity,
                size_t max_capacity,
-               bool garbage_collect_code,
-               bool use_sync_core);
+               bool garbage_collect_code);
 
   // Internal version of 'CommitCode' that will not retry if the
   // allocation fails. Return null if the allocation fails.
@@ -435,20 +434,16 @@ class JitCodeCache {
   size_t current_capacity_ GUARDED_BY(lock_);
 
   // The current footprint in bytes of the data portion of the code cache.
-  size_t data_end_ GUARDED_BY(lock_);
+  size_t data_size_ GUARDED_BY(lock_);
 
   // The current footprint in bytes of the code portion of the code cache.
-  size_t exec_end_ GUARDED_BY(lock_);
+  size_t exec_size_ GUARDED_BY(lock_);
 
   // Whether the last collection round increased the code cache.
   bool last_collection_increased_code_cache_ GUARDED_BY(lock_);
 
   // Whether we can do garbage collection. Not 'const' as tests may override this.
   bool garbage_collect_code_;
-
-  // Whether the system supports membarrier private expedited sync core to flush instruction
-  // pipelines.
-  const bool use_sync_core_;
 
   // The size in bytes of used memory for the data portion of the code cache.
   size_t used_memory_for_data_ GUARDED_BY(lock_);

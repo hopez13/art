@@ -208,11 +208,8 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   }
 
   // Register for membarrier expedited sync core if JIT will be generating code.
-  bool use_sync_core = false;
   if (!used_only_for_profile_data) {
-    if (art::membarrier(art::MembarrierCommand::kRegisterPrivateExpeditedSyncCore) == 0) {
-      use_sync_core = true;
-    }
+    art::membarrier(art::MembarrierCommand::kRegisterPrivateExpeditedSyncCore);
   }
 
   // File descriptor enabling dual-view mapping of code section.
@@ -372,8 +369,7 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
       initial_data_capacity,
       initial_exec_capacity,
       max_capacity,
-      garbage_collect_code,
-      use_sync_core);
+      garbage_collect_code);
 }
 
 JitCodeCache::JitCodeCache(MemMap&& data_pages,
@@ -382,8 +378,7 @@ JitCodeCache::JitCodeCache(MemMap&& data_pages,
                            size_t initial_data_capacity,
                            size_t initial_exec_capacity,
                            size_t max_capacity,
-                           bool garbage_collect_code,
-                           bool use_sync_core)
+                           bool garbage_collect_code)
     : lock_("Jit code cache", kJitCodeCacheLock),
       lock_cond_("Jit code cache condition variable", lock_),
       collection_in_progress_(false),
@@ -392,11 +387,10 @@ JitCodeCache::JitCodeCache(MemMap&& data_pages,
       non_exec_pages_(std::move(non_exec_pages)),
       max_capacity_(max_capacity),
       current_capacity_(initial_exec_capacity + initial_data_capacity),
-      data_end_(initial_data_capacity),
-      exec_end_(initial_exec_capacity),
+      data_size_(initial_data_capacity),
+      exec_size_(initial_exec_capacity),
       last_collection_increased_code_cache_(false),
       garbage_collect_code_(garbage_collect_code),
-      use_sync_core_(use_sync_core),
       used_memory_for_data_(0),
       used_memory_for_code_(0),
       number_of_compilations_(0),
@@ -410,38 +404,24 @@ JitCodeCache::JitCodeCache(MemMap&& data_pages,
 
   DCHECK_GE(max_capacity, initial_exec_capacity + initial_data_capacity);
 
-  data_mspace_ = create_mspace_with_base(data_pages_.Begin(), data_end_, false /*locked*/);
+  data_mspace_ = create_mspace_with_base(data_pages_.Begin(), data_size_, false /*locked*/);
   CHECK(data_mspace_ != nullptr) << "create_mspace_with_base (data) failed";
 
+  uint8_t* exec_base = nullptr;
   if (non_exec_pages_.IsValid()) {
-    // Dual-view JIT. Initialize the memory allocator for the code region. The initialization
-    // writes heap metadata in the region so the region is toggled to writable.
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                non_exec_pages_.Begin(),
-                non_exec_pages_.Size(),
-                kProtRW);
-    exec_mspace_ = create_mspace_with_base(non_exec_pages_.Begin(), exec_end_, false /*locked*/);
-    SetFootprintLimit(current_capacity_);
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                non_exec_pages_.Begin(),
-                non_exec_pages_.Size(),
-                kProtR);
+    // Dual-view JIT use non-executable view of code pages.
+    exec_base = non_exec_pages_.Begin();
   } else if (exec_pages_.IsValid()) {
-    // Single-view JIT. Initialize the memory allocator for the code region. The initialization
-    // writes heap metadata in the region so the region is toggled to writable.
-    CheckedCall(mprotect, "mprotect jit code cache",
-                exec_pages_.Begin(),
-                exec_pages_.Size(),
-                kProtRWX);
-    exec_mspace_ = create_mspace_with_base(exec_pages_.Begin(), exec_end_, false /*locked*/);
-    CHECK(exec_mspace_ != nullptr) << "create_mspace_with_base (exec) failed";
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                exec_pages_.Begin(),
-                exec_pages_.Size(),
-                kProtRX);
+    // Single-view JIT use executable view of code pages.
+    exec_base = exec_pages_.Begin();
+  }
+
+  if (exec_base != nullptr) {
+    CheckedCall(mprotect, "mprotect jit code cache", exec_base, exec_size_, PROT_READ | PROT_WRITE);
+    exec_mspace_ = create_mspace_with_base(exec_base, exec_size_, false /*locked*/);
+    CHECK(exec_mspace_ != nullptr) << "create_mspace_with_base (" << exec_base << ") failed";
+    SetFootprintLimit(current_capacity_);
+    CheckedCall(mprotect, "mprotect jit code cache", exec_base, exec_size_, PROT_READ);
   } else {
     // Profiling only. No memory for code required.
     exec_mspace_ = nullptr;
@@ -526,8 +506,9 @@ class ScopedCodeCacheWrite : ScopedTrace {
     ScopedTrace trace("mprotect all");
     const MemMap* const updatable_pages = code_cache_->GetUpdatableCodeMapping();
     if (updatable_pages != nullptr) {
+      size_t length = RoundUp(code_cache_->exec_size_, kPageSize);
       int prot = code_cache_->HasDualCodeMapping() ? kProtRW : kProtRWX;
-      CheckedCall(mprotect, "Cache +W", updatable_pages->Begin(), updatable_pages->Size(), prot);
+      CheckedCall(mprotect, "Cache +W", updatable_pages->Begin(), length, prot);
     }
   }
 
@@ -535,8 +516,9 @@ class ScopedCodeCacheWrite : ScopedTrace {
     ScopedTrace trace("mprotect code");
     const MemMap* const updatable_pages = code_cache_->GetUpdatableCodeMapping();
     if (updatable_pages != nullptr) {
+      size_t length = RoundUp(code_cache_->exec_size_, kPageSize);
       int prot = code_cache_->HasDualCodeMapping() ? kProtR : kProtRX;
-      CheckedCall(mprotect, "Cache -W", updatable_pages->Begin(), updatable_pages->Size(), prot);
+      CheckedCall(mprotect, "Cache -W", updatable_pages->Begin(), length, prot);
     }
   }
 
@@ -990,9 +972,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // notify them of the TLB invalidation). Some architectures, notably ARM and ARM64, have
     // hardware support that broadcasts TLB invalidations and so their kernels have no software
     // based TLB shootdown.
-    if (use_sync_core_) {
-      art::membarrier(art::MembarrierCommand::kPrivateExpeditedSyncCore);
-    }
+    art::membarrier(art::MembarrierCommand::kPrivateExpeditedSyncCore);
 
     number_of_compilations_++;
   }
@@ -1788,17 +1768,22 @@ ProfilingInfo* JitCodeCache::AddProfilingInfoInternal(Thread* self ATTRIBUTE_UNU
 // NO_THREAD_SAFETY_ANALYSIS as this is called from mspace code, at which point the lock
 // is already held.
 void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) NO_THREAD_SAFETY_ANALYSIS {
+  DCHECK_EQ(0, increment % kPageSize);
   if (mspace == exec_mspace_) {
     DCHECK(exec_mspace_ != nullptr);
     const MemMap* const code_pages = GetUpdatableCodeMapping();
-    size_t result = exec_end_;
-    exec_end_ += increment;
-    return reinterpret_cast<void*>(result + code_pages->Begin());
+    void* old_limit = reinterpret_cast<void*>(code_pages->Begin() + exec_size_);
+    // JIT code cache pages are initially allocated without write permission. This method is
+    // called in the midst of allocating memory for new JIT code. The old footprint is made
+    // writable before the allocation starts. The new pages being added also need to be writable.
+    CheckedCall(mprotect, "new code pages", old_limit, increment, PROT_READ | PROT_WRITE);
+    exec_size_ += increment;
+    return reinterpret_cast<void*>(old_limit);;
   } else {
     DCHECK_EQ(data_mspace_, mspace);
-    size_t result = data_end_;
-    data_end_ += increment;
-    return reinterpret_cast<void*>(result + data_pages_.Begin());
+    void* old_limit = reinterpret_cast<void*>(data_pages_.Begin() + data_size_);
+    data_size_ += increment;
+    return reinterpret_cast<void*>(old_limit);
   }
 }
 
