@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "942b2319_44eb7c18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-09-18T01:59:04Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "ab861699_7b9b0cf2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71162952_0d1268ec",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9769ace1_1ea6d3a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-09-18T01:59:04Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "71162952_0d1268ec",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65aaba57_2b79b81a",
         "filename": "libartbase/base/utils.cc",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53d4b4c8_88b31b5a",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-09-18T01:59:04Z",
+      "side": 1,
+      "message": "done, sorry for forgetting to change it:)",
+      "parentUuid": "65aaba57_2b79b81a",
+      "range": {
+        "startLine": 257,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 23
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -115,6 +187,30 @@
       "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba96b224_2b035685",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3160,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-09-18T01:59:04Z",
+      "side": 1,
+      "message": "Thanks for Orion, because std::quoted was defined in header \u003ciomanip\u003e, we need to add it into file of thread.cc :)",
+      "parentUuid": "0d195156_56582aec",
+      "range": {
+        "startLine": 3160,
+        "startChar": 2,
+        "endLine": 3160,
+        "endChar": 94
+      },
+      "revId": "1ee31a74f0d7e55e24b97e0e4a405606228b94fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
