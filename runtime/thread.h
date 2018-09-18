@@ -989,17 +989,6 @@ class Thread {
     --tls32_.disable_thread_flip_count;
   }
 
-  // Returns true if the thread is subject to user_code_suspensions.
-  bool CanBeSuspendedByUserCode() const {
-    return can_be_suspended_by_user_code_;
-  }
-
-  // Sets CanBeSuspenededByUserCode and adjusts the suspend-count as needed. This may only be called
-  // when running on the current thread. It is **absolutely required** that this be called only on
-  // the Thread::Current() thread.
-  void SetCanBeSuspendedByUserCode(bool can_be_suspended_by_user_code)
-      REQUIRES(!Locks::thread_suspend_count_lock_, !Locks::user_code_suspension_lock_);
-
   // Returns true if the thread is allowed to load java classes.
   bool CanLoadClasses() const {
     return can_load_classes_;
@@ -1572,9 +1561,8 @@ class Thread {
     // critical section enter.
     uint32_t disable_thread_flip_count;
 
-    // If CanBeSuspendedByUserCode, how much of 'suspend_count_' is by request of user code, used to
-    // distinguish threads suspended by the runtime from those suspended by user code. Otherwise
-    // this is just a count of how many user-code suspends have been attempted (but were ignored).
+    // How much of 'suspend_count_' is by request of user code, used to distinguish threads
+    // suspended by the runtime from those suspended by user code.
     // This should have GUARDED_BY(Locks::user_code_suspension_lock_) but auto analysis cannot be
     // told that AssertHeld should be good enough.
     int user_code_suspend_count GUARDED_BY(Locks::thread_suspend_count_lock_);
@@ -1795,10 +1783,6 @@ class Thread {
 
   // True if the thread is allowed to load java classes. By default this is true.
   bool can_load_classes_;
-
-  // True if the thread is subject to user-code suspension. By default this is true. This can only
-  // be false for threads where '!can_call_into_java_'.
-  bool can_be_suspended_by_user_code_;
 
   friend class Dbg;  // For SetStateUnsafe.
   friend class gc::collector::SemiSpace;  // For getting stack traces.
