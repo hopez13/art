@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb77b9f0_b708bf12",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "ni: add comment.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2785c3ca_eff03a81",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "Can you also add that to the logs?",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 214,
+        "endChar": 49
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c3a0474_48672e44",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "nit: add comments",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 3
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdfc800_8ee5627f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "nit: Add an else with a comment why you don\u0027t need to do anything.",
+      "range": {
+        "startLine": 310,
+        "startChar": 5,
+        "endLine": 310,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51b4eb1_4dc53fbc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "That\u0027s ok if non_exec_pages is null?",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea85bbff_8f0b13a0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "Add a comment that you\u0027re toggling write because create_mspace will write there. Also add a comment that we\u0027re trying to limit the window where the mapping is writable.",
+      "range": {
+        "startLine": 368,
+        "startChar": 16,
+        "endLine": 368,
+        "endChar": 40
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea0f976_481b3874",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "PROT_EXEC?",
+      "range": {
+        "startLine": 389,
+        "startChar": 26,
+        "endLine": 389,
+        "endChar": 27
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed138a0_2a28af67",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "nit: add comment",
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f7129d8_0413afaa",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "Add a helper: IsDualView",
+      "range": {
+        "startLine": 471,
+        "startChar": 8,
+        "endLine": 471,
+        "endChar": 46
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e2b9b7_36f63181",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "Helper: IsGeneratingCode ?",
+      "range": {
+        "startLine": 473,
+        "startChar": 15,
+        "endLine": 473,
+        "endChar": 49
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "603d1fd1_0bb861ef",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "IsDualView",
+      "range": {
+        "startLine": 694,
+        "startChar": 5,
+        "endLine": 694,
+        "endChar": 31
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9ea9518_f0b890cf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "helper: GetActualExecPages",
+      "range": {
+        "startLine": 1729,
+        "startChar": 26,
+        "endLine": 1729,
+        "endChar": 83
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "951c9352_77460fa9",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-18T10:52:05Z",
+      "side": 1,
+      "message": "For simplicity, should we just have if (mspace \u003d\u003d null) return false ?",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
