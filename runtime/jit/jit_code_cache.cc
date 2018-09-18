@@ -339,8 +339,8 @@ JitCodeCache::JitCodeCache(MemMap&& data_pages,
       non_exec_pages_(std::move(non_exec_pages)),
       max_capacity_(max_capacity),
       current_capacity_(initial_exec_capacity + initial_data_capacity),
-      data_end_(initial_data_capacity),
-      exec_end_(initial_exec_capacity),
+      data_size_(initial_data_capacity),
+      exec_size_(initial_exec_capacity),
       last_collection_increased_code_cache_(false),
       garbage_collect_code_(garbage_collect_code),
       used_memory_for_data_(0),
@@ -356,37 +356,24 @@ JitCodeCache::JitCodeCache(MemMap&& data_pages,
 
   DCHECK_GE(max_capacity, initial_exec_capacity + initial_data_capacity);
 
-  data_mspace_ = create_mspace_with_base(data_pages_.Begin(), data_end_, false /*locked*/);
+  data_mspace_ = create_mspace_with_base(data_pages_.Begin(), data_size_, false /*locked*/);
   CHECK(data_mspace_ != nullptr) << "create_mspace_with_base (data) failed";
 
+  uint8_t* exec_base = nullptr;
   if (non_exec_pages_.IsValid()) {
-    // Dual-view JIT
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                non_exec_pages_.Begin(),
-                non_exec_pages_.Size(),
-                PROT_READ | PROT_WRITE);
-    exec_mspace_ = create_mspace_with_base(non_exec_pages_.Begin(), exec_end_, false /*locked*/);
-    SetFootprintLimit(current_capacity_);
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                non_exec_pages_.Begin(),
-                non_exec_pages_.Size(),
-                PROT_READ);
+    // Dual-view JIT use non-executable view of code pages.
+    exec_base = non_exec_pages_.Begin();
   } else if (exec_pages_.IsValid()) {
-    // Single-view JIT.
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                exec_pages_.Begin(),
-                exec_pages_.Size(),
-                PROT_READ | PROT_WRITE | PROT_EXEC);
-    exec_mspace_ = create_mspace_with_base(exec_pages_.Begin(), exec_end_, false /*locked*/);
-    CHECK(exec_mspace_ != nullptr) << "create_mspace_with_base (exec) failed";
-    CheckedCall(mprotect,
-                "mprotect jit code cache",
-                exec_pages_.Begin(),
-                exec_pages_.Size(),
-                PROT_READ);
+    // Single-view JIT use executable view of code pages.
+    exec_base = exec_pages_.Begin();
+  }
+
+  if (exec_base != nullptr) {
+    CheckedCall(mprotect, "mprotect jit code cache", exec_base, exec_size_, PROT_READ | PROT_WRITE);
+    exec_mspace_ = create_mspace_with_base(exec_base, exec_size_, false /*locked*/);
+    CHECK(exec_mspace_ != nullptr) << "create_mspace_with_base (" << exec_base << ") failed";
+    SetFootprintLimit(current_capacity_);
+    CheckedCall(mprotect, "mprotect jit code cache", exec_base, exec_size_, PROT_READ);
   } else {
     exec_mspace_ = nullptr;
   }
@@ -468,24 +455,30 @@ class ScopedCodeCacheWrite : ScopedTrace {
       : ScopedTrace("ScopedCodeCacheWrite"),
         code_cache_(code_cache) {
     ScopedTrace trace("mprotect all");
+    size_t length = RoundUp(code_cache_->exec_size_, kPageSize);
     if (code_cache_->non_exec_pages_.IsValid()) {
-      SetCacheProtection(code_cache_->non_exec_pages_, PROT_READ | PROT_WRITE, "Cache RW");
+      uint8_t* const addr = code_cache_->non_exec_pages_.Begin();
+      SetCacheProtection(addr, length, PROT_READ | PROT_WRITE, "Cache +W");
     } else if (code_cache_->exec_pages_.IsValid()) {
-      SetCacheProtection(code_cache_->exec_pages_, PROT_READ | PROT_WRITE | PROT_EXEC, "Cache RWX");
+      uint8_t* const addr = code_cache_->exec_pages_.Begin();
+      SetCacheProtection(addr, length, PROT_READ | PROT_WRITE | PROT_EXEC, "Cache +W");
     }
   }
 
   ~ScopedCodeCacheWrite() {
     ScopedTrace trace("mprotect code");
+    size_t length = RoundUp(code_cache_->exec_size_, kPageSize);
     if (code_cache_->non_exec_pages_.IsValid()) {
-      SetCacheProtection(code_cache_->non_exec_pages_, PROT_READ, "Cache R");
+      uint8_t* const addr = code_cache_->non_exec_pages_.Begin();
+      SetCacheProtection(addr, length, PROT_READ, "Cache -W");
     } else if (code_cache_->exec_pages_.IsValid()) {
-      SetCacheProtection(code_cache_->exec_pages_, PROT_READ | PROT_EXEC, "Cache RX");
+      uint8_t* const addr = code_cache_->exec_pages_.Begin();
+      SetCacheProtection(addr, length, PROT_READ | PROT_EXEC, "Cache -W");
     }
   }
 
-  static void SetCacheProtection(const MemMap& cache_pages, int prot, const char* description) {
-    CheckedCall(mprotect, description, cache_pages.Begin(), cache_pages.Size(), prot);
+  static void SetCacheProtection(uint8_t* addr, size_t length, int prot, const char* description) {
+    CheckedCall(mprotect, description, addr, length, prot);
   }
 
  private:
@@ -1724,17 +1717,21 @@ ProfilingInfo* JitCodeCache::AddProfilingInfoInternal(Thread* self ATTRIBUTE_UNU
 // NO_THREAD_SAFETY_ANALYSIS as this is called from mspace code, at which point the lock
 // is already held.
 void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) NO_THREAD_SAFETY_ANALYSIS {
+  DCHECK_EQ(0, increment % kPageSize);
   if (mspace == exec_mspace_) {
     DCHECK(exec_mspace_ != nullptr);
     MemMap& code_pages = non_exec_pages_.IsValid() ? non_exec_pages_ : exec_pages_;
-    size_t result = exec_end_;
-    exec_end_ += increment;
-    return reinterpret_cast<void*>(result + code_pages.Begin());
+    void* old_limit = reinterpret_cast<void*>(code_pages.Begin() + exec_size_);
+    // JIT code pages are initialized with write permission. If core is for heap metadata,
+    // it needs to be writable.
+    CheckedCall(mprotect, "new code pages", old_limit, increment, PROT_READ | PROT_WRITE);
+    exec_size_ += increment;
+    return old_limit;
   } else {
     DCHECK_EQ(data_mspace_, mspace);
-    size_t result = data_end_;
-    data_end_ += increment;
-    return reinterpret_cast<void*>(result + data_pages_.Begin());
+    void* old_limit = reinterpret_cast<void*>(data_pages_.Begin() + data_size_);
+    data_size_ += increment;
+    return reinterpret_cast<void*>(old_limit);
   }
 }
 
