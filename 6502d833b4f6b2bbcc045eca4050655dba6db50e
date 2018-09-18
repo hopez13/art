@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "787d21d3_3fe8b8f0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb77b9f0_b708bf12",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2785c3ca_eff03a81",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a11cda_dc04d043",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2785c3ca_eff03a81",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 214,
+        "endChar": 49
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ba8f2ae3_90dd762b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c3a0474_48672e44",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 3
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fdfc800_8ee5627f",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -91,6 +163,30 @@
       "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41a1b212_322f8b84",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fdfc800_8ee5627f",
+      "range": {
+        "startLine": 310,
+        "startChar": 5,
+        "endLine": 310,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c50de851_b5623314",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Yes, then non_exec_pages.IsValid() \u003d\u003d false because the region size is 0.",
+      "parentUuid": "d51b4eb1_4dc53fbc",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea85bbff_8f0b13a0",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -137,6 +257,30 @@
       "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb5a03a7_96b88ee2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea85bbff_8f0b13a0",
+      "range": {
+        "startLine": 368,
+        "startChar": 16,
+        "endLine": 368,
+        "endChar": 40
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c0a17848_7af82391",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done. It\u0027s not strictly necessary until there\u0027s code in the cache, but agree it\u0027s clearer if it\u0027s there.",
+      "parentUuid": "eea0f976_481b3874",
+      "range": {
+        "startLine": 389,
+        "startChar": 26,
+        "endLine": 389,
+        "endChar": 27
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ed138a0_2a28af67",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -180,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "5f01b35e_417b19e0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ed138a0_2a28af67",
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f7129d8_0413afaa",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -191,6 +377,30 @@
       "writtenOn": "2018-09-18T10:52:05Z",
       "side": 1,
       "message": "Add a helper: IsDualView",
+      "range": {
+        "startLine": 471,
+        "startChar": 8,
+        "endLine": 471,
+        "endChar": 46
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f7fdb4_abb2844d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Updated touse GetUpdatableCodeMapping() and HasDualCodeMapping(). PTAL.",
+      "parentUuid": "6f7129d8_0413afaa",
       "range": {
         "startLine": 471,
         "startChar": 8,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "a254b070_d41cf54f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Revised, PTAL.",
+      "parentUuid": "99e2b9b7_36f63181",
+      "range": {
+        "startLine": 473,
+        "startChar": 15,
+        "endLine": 473,
+        "endChar": 49
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "603d1fd1_0bb861ef",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -246,6 +480,30 @@
       "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f71ef6_8dd4895b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "603d1fd1_0bb861ef",
+      "range": {
+        "startLine": 694,
+        "startChar": 5,
+        "endLine": 694,
+        "endChar": 31
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "efe7a681_dccff28a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9ea9518_f0b890cf",
+      "range": {
+        "startLine": 1729,
+        "startChar": 26,
+        "endLine": 1729,
+        "endChar": 83
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "951c9352_77460fa9",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 6
@@ -292,6 +574,30 @@
       "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fdbd5f7_030c4f3a",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-18T16:08:10Z",
+      "side": 1,
+      "message": "Removed. It\u0027s called from within the MoreCore() path where NULL wouldn\u0027t be a valid mspace argument.",
+      "parentUuid": "951c9352_77460fa9",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 0
+      },
+      "revId": "6502d833b4f6b2bbcc045eca4050655dba6db50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
