@@ -65,6 +65,8 @@ VeriMethod VeriClass::getClass_ = nullptr;
 VeriMethod VeriClass::loadClass_ = nullptr;
 VeriField VeriClass::sdkInt_ = nullptr;
 
+static const char* kDexFileOption = "--dex-file=";
+
 struct VeridexOptions {
   const char* dex_file = nullptr;
   const char* core_stubs = nullptr;
@@ -90,7 +92,6 @@ static void ParseArgs(VeridexOptions* options, int argc, char** argv) {
   argv++;
   argc--;
 
-  static const char* kDexFileOption = "--dex-file=";
   static const char* kStubsOption = "--core-stubs=";
   static const char* kWhitelistOption = "--whitelist=";
   static const char* kBlacklistOption = "--blacklist=";
@@ -138,6 +139,12 @@ class Veridex {
   static int Run(int argc, char** argv) {
     VeridexOptions options;
     ParseArgs(&options, argc, argv);
+
+    if (!options.dex_file) {
+      LOG(ERROR) << "Required argument '" << kDexFileOption << "' not provided.";
+      return 1;
+    }
+
     gTargetSdkVersion = options.target_sdk_version;
 
     std::vector<std::string> boot_content;
@@ -335,4 +342,3 @@ class Veridex {
 int main(int argc, char** argv) {
   return art::Veridex::Run(argc, argv);
 }
-
