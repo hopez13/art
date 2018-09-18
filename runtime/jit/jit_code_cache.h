@@ -435,10 +435,10 @@ class JitCodeCache {
   size_t current_capacity_ GUARDED_BY(lock_);
 
   // The current footprint in bytes of the data portion of the code cache.
-  size_t data_end_ GUARDED_BY(lock_);
+  size_t data_size_ GUARDED_BY(lock_);
 
   // The current footprint in bytes of the code portion of the code cache.
-  size_t exec_end_ GUARDED_BY(lock_);
+  size_t exec_size_ GUARDED_BY(lock_);
 
   // Whether the last collection round increased the code cache.
   bool last_collection_increased_code_cache_ GUARDED_BY(lock_);
