@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1e3f363b_a339ae79",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-18T15:43:26Z",
+      "side": 1,
+      "message": "The \"?\" in the regex makes this parameter optional.",
+      "parentUuid": "516d3505_13adf0e5",
+      "range": {
+        "startLine": 29,
+        "startChar": 65,
+        "endLine": 29,
+        "endChar": 66
+      },
+      "revId": "1c95a093bcf6362bfbc023ee9c96a19bdcf09a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "abc45af2_a8bf4ab2",
         "filename": "test/565-checker-rotate/smali/Main2.smali",
         "patchSetId": 2
