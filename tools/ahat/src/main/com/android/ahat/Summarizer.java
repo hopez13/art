@@ -112,6 +112,13 @@ class Summarizer {
       formatted.append(" overhead for ");
       formatted.append(summarize(cls));
     }
+
+    // Annotate BinderProxy with it's interface.
+    String binderInterface = inst.getBinderProxyInterface();
+    if (binderInterface != null) {
+        formatted.appendFormat(" for %s", binderInterface);
+    }
+
     return formatted;
   }
 

@@ -549,4 +549,18 @@ public class InstanceTest {
     // Other kinds of objects should not have associated classes for overhead.
     assertNull(cls.getAssociatedClassForOverhead());
   }
+
+  @Test
+  public void binderProxy() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+
+    AhatInstance correctObj = dump.getDumpedAhatInstance("correctBinderProxy");
+    assertEquals("DumpedStuff$IDumpedManager", correctObj.getBinderProxyInterface());
+
+    AhatInstance imposedObj = dump.getDumpedAhatInstance("imposedBinderProxy");
+    assertNull(imposedObj.getBinderProxyInterface());
+
+    AhatInstance carriedObj = dump.getDumpedAhatInstance("carriedBinderProxy");
+    assertNull(carriedObj.getBinderProxyInterface());
+  }
 }
