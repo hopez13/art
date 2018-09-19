@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "6d7bb7cf_c7cbcc80",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-19T11:52:27Z",
+      "side": 1,
+      "message": "I think\n\n  std::string keyword(std::string(key) + \u0027:\u0027);\n\nwould me more natural here.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 25
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef5f0331_7f6973c6",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-19T11:52:27Z",
+      "side": 1,
+      "message": "Also add:\n\n  Return \"\u003cunknown\u003e\" if the key cannot be found or if /proc/self/status cannot be read.",
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2515c9fa_fa8715a0",
+        "filename": "libartbase/base/utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-19T11:52:27Z",
+      "side": 1,
+      "message": "Maybe replace this with an explicitly unexpected key, like \"Dummy\"? (There\u0027s a \"Groups\" key, which makes this a bit confusing IMO).",
+      "range": {
+        "startLine": 132,
+        "startChar": 43,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d1cf05d_662be06c",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -46,6 +109,30 @@
       "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ede0c546_293be84b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-19T11:52:27Z",
+      "side": 1,
+      "message": "Yes, please keep the list of #include\u0027s sorted.",
+      "parentUuid": "a90a7125_2a35bf14",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
