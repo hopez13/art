@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "e7b8b158_84fcff8d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9096f9f5_7bbba222",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92ff6d66_b04eea38",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909157bb_44d762ce",
+      "range": {
+        "startLine": 74,
+        "startChar": 46,
+        "endLine": 74,
+        "endChar": 52
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3c55336_c556cfc4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 11
@@ -68,6 +116,30 @@
       "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77096c87_eb246863",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3c55336_c556cfc4",
+      "range": {
+        "startLine": 255,
+        "startChar": 81,
+        "endLine": 255,
+        "endChar": 83
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f26df38c_dedb625d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "770c2d4f_a628a044",
+      "range": {
+        "startLine": 287,
+        "startChar": 83,
+        "endLine": 287,
+        "endChar": 85
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d8800e7_6b462f94",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 11
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "86980b8e_f0c42787",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d8800e7_6b462f94",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 35
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc883bd9_bc0ad056",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 11
@@ -137,6 +257,30 @@
       "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47ad9951_30ee161b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T14:43:50Z",
+      "side": 1,
+      "message": "Done\n\nThe two code paths here (non_exec vs exec) are merged into one in the next CL.",
+      "parentUuid": "dc883bd9_bc0ad056",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 418,
+        "endChar": 79
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
