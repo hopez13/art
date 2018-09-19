@@ -70,6 +70,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c34ec7a4_4545b129",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:36:27Z",
+      "side": 1,
+      "message": "Given final fields can be updated (and they are in production), is it ok to have r8 assume they won\u0027t?",
+      "parentUuid": "bd1390d8_c5aa5131",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
