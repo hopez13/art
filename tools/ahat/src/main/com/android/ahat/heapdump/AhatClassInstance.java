@@ -145,6 +145,15 @@ public class AhatClassInstance extends AhatInstance {
     return null;
   }
 
+  @Override public String getBinderInterface() {
+    for (AhatInstance inst : getReverseReferences()) {
+        if (inst.toString().contains("$Stub$Proxy")) {
+            return inst.toString().split("\\$Stub\\$Proxy")[0];
+        }
+    }
+    return null;
+  }
+
   @Override public AhatInstance getAssociatedBitmapInstance() {
     return getBitmapInfo() == null ? null : this;
   }

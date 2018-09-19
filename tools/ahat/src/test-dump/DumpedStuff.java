@@ -124,6 +124,21 @@ public class DumpedStuff extends SuperDumpedStuff {
     }
   }
 
+  private static interface IBinder {}
+
+  private static class BinderProxy implements IBinder {}
+
+  private static class IDumpedManager {
+    public static class Stub {
+      public static class Proxy {
+        IBinder mRemote;
+        Proxy(IBinder binderProxy) {
+          mRemote = binderProxy;
+        }
+      }
+    }
+  }
+
   public String basicString = "hello, world";
   public String nonAscii = "Sigma (Ʃ) is not ASCII";
   public String embeddedZero = "embedded\0...";  // Non-ASCII for string compression purposes.
@@ -158,6 +173,8 @@ public class DumpedStuff extends SuperDumpedStuff {
   public int[] modifiedArray;
   public Object objectAllocatedAtKnownSite;
   public Object objectAllocatedAtKnownSubSite;
+  public IBinder binderProxy = new BinderProxy();
+  public Object binderObject = new IDumpedManager.Stub.Proxy(binderProxy);
 
   // Allocate those objects that we need to not be GC'd before taking the heap
   // dump.
