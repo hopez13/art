@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9096f9f5_7bbba222",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "virtual",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "909157bb_44d762ce",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "physical",
+      "range": {
+        "startLine": 74,
+        "startChar": 46,
+        "endLine": 74,
+        "endChar": 52
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3c55336_c556cfc4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 255,
+        "startChar": 81,
+        "endLine": 255,
+        "endChar": 83
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "770c2d4f_a628a044",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 287,
+        "startChar": 83,
+        "endLine": 287,
+        "endChar": 85
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d8800e7_6b462f94",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "generalize this to \"processes that cannot map WX pages\" ?",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 35
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc883bd9_bc0ad056",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:50:48Z",
+      "side": 1,
+      "message": "Expand the comment on why the mapping is not RW for its lifetime?",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 418,
+        "endChar": 79
+      },
+      "revId": "93640ce50a924d690ac13909dc8d4f529ce59ab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
