@@ -46,6 +46,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd1390d8_c5aa5131",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2018-09-19T10:01:52Z",
+      "side": 1,
+      "message": "Right now this optimization is done unconditionally in both d8 and r8. Maybe we should consider turning it off in debug mode, as stepping into String.length() should work there.",
+      "parentUuid": "f702e966_9ececcd8",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
