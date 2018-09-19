@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7dfff23_e0ce64d3",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T13:38:09Z",
+      "side": 1,
+      "message": "Covered here:\n\nhttps://android-review.googlesource.com/c/platform/bionic/+/741761",
+      "parentUuid": "723da9ba_4c3f92b0",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 68
+      },
+      "revId": "650148527c3174b5b69a0023709de6d81f4640d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d848df_1a98ff09",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "650148527c3174b5b69a0023709de6d81f4640d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6f6f5fd_4d678b71",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-19T13:38:09Z",
+      "side": 1,
+      "message": "Move into initialization check in membarrier.cc with comment.",
+      "parentUuid": "63d848df_1a98ff09",
+      "revId": "650148527c3174b5b69a0023709de6d81f4640d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
