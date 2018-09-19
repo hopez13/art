@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9529d030_a4c0117c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-09-19T17:17:44Z",
+      "side": 1,
+      "message": "Should we at least log failure? Silent failure here and below seems inappropriate in the long run.",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 79
+      },
+      "revId": "563ada2e5570d947ee2b96e3651ded3692be33be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
