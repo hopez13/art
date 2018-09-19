@@ -94,6 +94,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d0517ef_52e21a48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2018-09-19T16:34:42Z",
+      "side": 1,
+      "message": "We compute String#length if and only if the flown string is constant, like \"ABC\".length()\n\nfinal int x;\n...\n...() {\n  x \u003d \"ABC\".length(); // -\u003e x \u003d 3;\n}\n\nI\u0027m not sure what could go wrong here, or what you meant `final fields can be updated`.",
+      "parentUuid": "c34ec7a4_4545b129",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
