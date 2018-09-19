@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "d74b7a8c_098396c2",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-19T15:20:20Z",
+      "side": 1,
+      "message": "Amusingly, clang-tidy would disagree with you and tell you that you\u0027re doing string concatenation suboptimally :-) (not that I agree).",
+      "parentUuid": "6d7bb7cf_c7cbcc80",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 25
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e3b1f32_e85d7eee",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-19T15:20:20Z",
+      "side": 1,
+      "message": "That check isn\u0027t precise. It will match entries suffixed with the key, also.",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 56
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef5f0331_7f6973c6",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 5
