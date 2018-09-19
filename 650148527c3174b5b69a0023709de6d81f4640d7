@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "723da9ba_4c3f92b0",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:40:42Z",
+      "side": 1,
+      "message": "Add a CTS test that on Q it works?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 68
+      },
+      "revId": "650148527c3174b5b69a0023709de6d81f4640d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d848df_1a98ff09",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T12:40:42Z",
+      "side": 1,
+      "message": "Add a comment that we cache it for performance reasons?",
+      "revId": "650148527c3174b5b69a0023709de6d81f4640d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
