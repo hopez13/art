@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0524582c_3f6bfec0",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2018-09-19T18:31:49Z",
+      "side": 1,
+      "message": "Changed the name to getBinderProxyInterfaceName for now. Will leave further improvements to you in b/114365505 :)",
+      "parentUuid": "d02ce0a7_ce78d41e",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 44
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac37cd0e_005c5938",
         "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
         "patchSetId": 1
