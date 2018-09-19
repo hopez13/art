@@ -190,6 +190,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee47e25b_72492a93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2018-09-19T16:51:12Z",
+      "side": 1,
+      "message": "I didn\u0027t: I only replace length() with the const number load. But, that load string could be removed by the following other optimizations, e.g., live range analysis and dead code elimination.",
+      "parentUuid": "df82abba_e6b44fde",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
