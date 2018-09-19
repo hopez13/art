@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0b45219_34fabe9f",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-19T12:03:54Z",
+      "side": 1,
+      "message": "There\u0027s another bug (b/114365505) to annotate Binder instances with their descriptors. We should pick a name here that can be easily distinguished from whatever method is added for b/114365505. Maybe \"getBinderProxyInterface\" instead, to make it clear this targets instance of BinderProxy?\n\nMartijn, is \"Interface\" an appropriate word to use, or is there some other word that better captures the relationship here between BinderProxy and the class with $Stub$Proxy?",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 44
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac37cd0e_005c5938",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-19T12:03:54Z",
+      "side": 1,
+      "message": "Use getClassName(), which has a more stable interface than toString().",
+      "range": {
+        "startLine": 150,
+        "startChar": 17,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e224f9d_ce2c7aec",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-19T12:03:54Z",
+      "side": 1,
+      "message": "I think you need more strict checks here, otherwise this will match any instance that the $Stub$Proxy instance has a reference to.\n\nConsider checking that this is an instance of BinderProxy (depending on how that works with unit testing), and adding another check that this is specifically the \"mRemote\" field of the $Stub$Proxy instance.\n\nIt\u0027s probably worth expanding the unit test to confirm this doesn\u0027t return a match to any random object referenced by the $Stub$Proxy class.",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
