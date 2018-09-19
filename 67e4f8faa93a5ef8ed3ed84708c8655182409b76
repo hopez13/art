@@ -118,6 +118,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e5a56dc_5004acad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-19T16:40:22Z",
+      "side": 1,
+      "message": "In the test, It\u0027s ABC, not \"ABC\", but I guess what you\u0027re saying is that javac already inlines the string in the bytecode?",
+      "parentUuid": "9d0517ef_52e21a48",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
