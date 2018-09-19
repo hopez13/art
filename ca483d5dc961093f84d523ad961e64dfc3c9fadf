@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28896f01_5e292825",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "nit: you can just write \"jvmtiThreadInfo info_{};\" on L158 to get zero-initialization\n\nalso free_name_ \u003d false instead of putting it on the constructor",
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b76bdfc8_6916f67e",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "nit: prefer initialization where field is declared over constructor member initializer list",
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e171c10_dd57c8f6",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "nit: prefer initialization where field is declared over constructor member initializer list",
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64228353_f7b7d8e3",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "nit: GetAllAvailableEvents (typo)",
+      "range": {
+        "startLine": 615,
+        "startChar": 31,
+        "endLine": 615,
+        "endChar": 52
+      },
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1da5b290_3a1c94bc",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "This isn\u0027t legal, this breaks strict aliasing, you\u0027d also have to wrap the bytes in a struct or just use memcpy\n\n  // option 1: use C++ 9.5.1 trickery.\n union caps_bin {\n   jvmtiCapabilities caps;\n   struct jvmtiCapabilitiesBytes {\n     uint8_t bytes[sizeof(jvmtiCapabilities)];\n   } bytes;\n };\n\n  // option 2\n  jvmtiCapabilities caps;\n  uint8_t bytes[sizeof(jvmtiCapabilities)];\n  memcpy(\u0026bytes, \u0026caps, sizeof(caps));\n\nI think #2 is more straightforward fwiw.",
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e1a6d96_88180f04",
+        "filename": "tools/ti-fast/tifast.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-19T22:28:11Z",
+      "side": 1,
+      "message": "size_t for looping over sizeof",
+      "range": {
+        "startLine": 627,
+        "startChar": 9,
+        "endLine": 627,
+        "endChar": 17
+      },
+      "revId": "ca483d5dc961093f84d523ad961e64dfc3c9fadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
