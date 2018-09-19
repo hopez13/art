@@ -85,6 +85,9 @@ events either require the use of other functions in order to be called
 (`FramePop`, `ObjectFree`, etc) or are only called once (`VMInit`, `VMDeath`,
 etc).
 
+To listen to all events the runtime has the ability and availible capabilities
+to listen to one can put 'all' instead of a list of events.
+
 #### ART
 >    `art -Xplugin:$ANDROID_HOST_OUT/lib64/libopenjdkjvmti.so '-agentpath:libtifast.so=MethodEntry' -cp tmp/java/helloworld.dex -Xint helloworld`
 
