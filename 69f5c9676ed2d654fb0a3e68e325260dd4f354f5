@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d02ce0a7_ce78d41e",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-09-19T17:58:01Z",
+      "side": 1,
+      "message": "I think getBinderProxyInterfaceName() would be a descriptive name (hopefully not too long).\n\nAnother way to do it could be to have a method like\n\nisBinderObject() / getBinderInterfaceName() which could deal with both proxies and stubs, but I can also do that on b/114365505, which is assigned to me, and I\u0027ll try to take a stab at tomorrow.",
+      "parentUuid": "d0b45219_34fabe9f",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 44
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac37cd0e_005c5938",
         "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
         "patchSetId": 1
