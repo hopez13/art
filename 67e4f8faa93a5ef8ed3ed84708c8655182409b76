@@ -142,6 +142,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c8489de_824b7867",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2018-09-19T16:41:51Z",
+      "side": 1,
+      "message": "Ah, right, all uses of var ABC are replaced with constant \"ABC\" after javac.",
+      "parentUuid": "0e5a56dc_5004acad",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
