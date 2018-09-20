@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6796c07_61351900",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-20T10:55:39Z",
+      "side": 1,
+      "message": "Could you use\n\n  roots-\u003eemplace_back(reinterpret_cast\u003cStackReference\u003cmirror::Object\u003e*\u003e(address));\n\nhere?",
+      "range": {
+        "startLine": 242,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 92
+      },
+      "revId": "4a203d3826fa53e6294166658383fd7850d4c8c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8925948c_e57cc926",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-20T10:55:39Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 257,
+        "endChar": 92
+      },
+      "revId": "4a203d3826fa53e6294166658383fd7850d4c8c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
