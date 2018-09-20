@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "06b7ce84_f034ca32",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-20T10:33:49Z",
+      "side": 1,
+      "message": "I like getBinderProxyInterfaceName. I doesn\u0027t bother me if it is a long name, given how special purpose the method is. It also doesn\u0027t bother me to have two different versions of this method, one for Binder and another for BinderProxy.",
+      "parentUuid": "0524582c_3f6bfec0",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 44
+      },
+      "revId": "69f5c9676ed2d654fb0a3e68e325260dd4f354f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac37cd0e_005c5938",
         "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
         "patchSetId": 1

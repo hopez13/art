@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09f1ca5_afd5399f",
+        "filename": "tools/ahat/src/main/com/android/ahat/Summarizer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-20T10:33:49Z",
+      "side": 1,
+      "message": "nit: no apostrophe here.",
+      "range": {
+        "startLine": 116,
+        "startChar": 33,
+        "endLine": 116,
+        "endChar": 37
+      },
+      "revId": "3c2660e6c235daf09d40329ad1dc546ebffbd89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80fcc790_cc1cb2d3",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-20T10:33:49Z",
+      "side": 1,
+      "message": "endsWith instead?",
+      "range": {
+        "startLine": 151,
+        "startChar": 32,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "3c2660e6c235daf09d40329ad1dc546ebffbd89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d470e6_0cab6fb5",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatClassInstance.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-20T10:33:49Z",
+      "side": 1,
+      "message": "I generally prefer to avoid use of regular expressions, given how heavy weight they are. This could be done using String.substring almost as easily if we know $Stub$Proxy shows up at the end of the string.",
+      "range": {
+        "startLine": 154,
+        "startChar": 39,
+        "endLine": 154,
+        "endChar": 66
+      },
+      "revId": "3c2660e6c235daf09d40329ad1dc546ebffbd89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e015a124_0cadaef0",
+        "filename": "tools/ahat/src/test-dump/android/os/BinderProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-20T10:33:49Z",
+      "side": 1,
+      "message": "This means the tests won\u0027t compile for Android, because there will be duplicate definitions for android.os.BinderProxy?\n\nI\u0027m okay with that for now. If someone wants to compile the tests to run on Android at some point in the future, I\u0027m sure they\u0027ll figure out a decent way of doing so. The tests already won\u0027t run on Android because they reference some other classes that don\u0027t exist there anyway.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "3c2660e6c235daf09d40329ad1dc546ebffbd89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
