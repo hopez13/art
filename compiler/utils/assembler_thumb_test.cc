@@ -58,8 +58,8 @@ void SetAndroidData() {
 
 int CompareIgnoringSpace(const char* s1, const char* s2) {
   while (*s1 != '\0') {
-    while (isspace(*s1)) ++s1;
-    while (isspace(*s2)) ++s2;
+    while (isspace(*s1) != 0) ++s1;
+    while (isspace(*s2) != 0) ++s2;
     if (*s1 == '\0' || *s1 != *s2) {
       break;
     }
@@ -143,7 +143,7 @@ void DumpAndCheck(std::vector<uint8_t>& code, const char* testname, const char* 
 
     uint32_t lineindex = 0;
 
-    while (!feof(fp)) {
+    while (feof(fp) == 0) {
       char testline[256];
       char *s = fgets(testline, sizeof(testline), fp);
       if (s == nullptr) {

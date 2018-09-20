@@ -206,21 +206,21 @@ extern "C" JNIEXPORT void JNICALL Java_art_Redefinition_addCommonTransformationR
   env->ReleaseStringUTFChars(class_name, name_chrs);
   CommonTransformationResult trans(env->GetArrayLength(class_array),
                                    env->GetArrayLength(dex_array));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   env->GetByteArrayRegion(class_array,
                           0,
                           env->GetArrayLength(class_array),
                           reinterpret_cast<jbyte*>(trans.class_bytes.data()));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   env->GetByteArrayRegion(dex_array,
                           0,
                           env->GetArrayLength(dex_array),
                           reinterpret_cast<jbyte*>(trans.dex_bytes.data()));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   if (gTransformations.find(name_str) == gTransformations.end()) {

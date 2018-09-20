@@ -2657,7 +2657,7 @@ class Dex2Oat final {
           return false;
         }
 
-        if (oat_file->FlushCloseOrErase()) {
+        if (oat_file->FlushCloseOrErase() != 0) {
           PLOG(ERROR) << "Failed to flush and close fixed ELF file " << oat_file->GetPath();
           return false;
         }

@@ -915,7 +915,7 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
               return utf.c_str();
             }
           }
-          if (env->ExceptionCheck()) {
+          if (env->ExceptionCheck() == JNI_TRUE) {
             // We can't do much better logging, really. So leave it with a Describe.
             env->ExceptionDescribe();
             env->ExceptionClear();
@@ -1133,7 +1133,8 @@ jstring JavaVMExt::GetLibrarySearchPath(JNIEnv* env, jobject class_loader) {
   if (class_loader == nullptr) {
     return nullptr;
   }
-  if (!env->IsInstanceOf(class_loader, WellKnownClasses::dalvik_system_BaseDexClassLoader)) {
+  if (env->IsInstanceOf(class_loader,
+                        WellKnownClasses::dalvik_system_BaseDexClassLoader) == JNI_FALSE) {
     return nullptr;
   }
   return reinterpret_cast<jstring>(env->CallObjectMethod(
@@ -1155,7 +1156,7 @@ extern "C" jint JNI_CreateJavaVM(JavaVM** p_vm, JNIEnv** p_env, void* vm_args) {
     JavaVMOption* option = &args->options[i];
     options.push_back(std::make_pair(std::string(option->optionString), option->extraInfo));
   }
-  bool ignore_unrecognized = args->ignoreUnrecognized;
+  bool ignore_unrecognized = args->ignoreUnrecognized == JNI_TRUE;
   if (!Runtime::Create(options, ignore_unrecognized)) {
     return JNI_ERR;
   }

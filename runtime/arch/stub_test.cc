@@ -1240,7 +1240,7 @@ static void GetSetBooleanInstance(Handle<mirror::Object>* obj, ArtField* f, Thre
     REQUIRES_SHARED(Locks::mutator_lock_) {
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || defined(__mips__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
-  uint8_t values[] = { 0, true, 2, 128, 0xFF };
+  uint8_t values[] = { 0, 1u, 2, 128, 0xFF };
 
   for (size_t i = 0; i < arraysize(values); ++i) {
     test->Invoke3WithReferrer(static_cast<size_t>(f->GetDexFieldIndex()),

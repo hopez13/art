@@ -211,7 +211,7 @@ bool RewriteBreakLoopBody(HLoopInformation* loop,
     }
   }
   // Deal with other statements in header.
-  for (HInstruction* m = cond->GetPrevious(), *p = nullptr; m && !m->IsSuspendCheck(); m = p) {
+  for (HInstruction* m = cond->GetPrevious(), *p = nullptr; (m != nullptr) && !m->IsSuspendCheck(); m = p) {
     p = m->GetPrevious();
     if (rewrite) {
       m->MoveBefore(body->GetFirstInstruction(), false);

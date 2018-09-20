@@ -94,7 +94,8 @@ class VarHandleTest : public CommonRuntimeTest {
     Handle<Class> index_type = hs.NewHandle(class_linker->FindPrimitiveClass('I'));
     Handle<Class> byte_array_class(hs.NewHandle(GetClassRoot<mirror::ByteArray>()));
     InitializeVarHandle(bvh.Get(), var_type, byte_array_class, index_type, access_modes_bit_mask);
-    bvh->SetFieldBoolean<false>(ByteArrayViewVarHandle::NativeByteOrderOffset(), native_byte_order);
+    bvh->SetFieldBoolean<false>(ByteArrayViewVarHandle::NativeByteOrderOffset(),
+                                native_byte_order ? 1 : 0);
     return bvh.Get();
   }
 
@@ -116,7 +117,7 @@ class VarHandleTest : public CommonRuntimeTest {
         class_linker->FindSystemClass(self, "Ljava/nio/ByteBuffer;"));
     InitializeVarHandle(bvh.Get(), var_type, byte_buffer_class, index_type, access_modes_bit_mask);
     bvh->SetFieldBoolean<false>(ByteBufferViewVarHandle::NativeByteOrderOffset(),
-                                native_byte_order);
+                                native_byte_order ? 1 : 0);
     return bvh.Get();
   }
 

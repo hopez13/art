@@ -431,7 +431,7 @@ class JniCallNonvirtualVoidMethodTest {
  private:
   jclass GetClass(const char* class_name) {
     jclass c = env_->FindClass(class_name);
-    if (env_->ExceptionCheck()) {
+    if (env_->ExceptionCheck() == JNI_TRUE) {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
@@ -444,7 +444,7 @@ class JniCallNonvirtualVoidMethodTest {
     jmethodID m = ((nonstatic) ?
                    env_->GetMethodID(c, method_name, "()V") :
                    env_->GetStaticMethodID(c, method_name, "()V"));
-    if (env_->ExceptionCheck()) {
+    if (env_->ExceptionCheck() == JNI_TRUE) {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
@@ -454,7 +454,7 @@ class JniCallNonvirtualVoidMethodTest {
 
   jobject CallConstructor(jclass c, jmethodID m) {
     jobject o = env_->NewObject(c, m);
-    if (env_->ExceptionCheck()) {
+    if (env_->ExceptionCheck() == JNI_TRUE) {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
@@ -465,7 +465,7 @@ class JniCallNonvirtualVoidMethodTest {
   void CallMethod(jobject o, jclass c, jmethodID m, bool nonstatic, const char* test_case) {
     printf("RUNNING %s\n", test_case);
     env_->CallNonvirtualVoidMethod(o, c, m);
-    bool exception_check = env_->ExceptionCheck();
+    bool exception_check = env_->ExceptionCheck() == JNI_TRUE;
     if (c == nullptr || !nonstatic) {
       if (!exception_check) {
         printf("FAILED %s due to missing exception\n", test_case);
@@ -482,7 +482,7 @@ class JniCallNonvirtualVoidMethodTest {
 
   jfieldID GetFieldID(jclass c, const char* field_name) {
     jfieldID m = env_->GetFieldID(c, field_name, "Z");
-    if (env_->ExceptionCheck()) {
+    if (env_->ExceptionCheck() == JNI_TRUE) {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
@@ -492,7 +492,7 @@ class JniCallNonvirtualVoidMethodTest {
 
   jboolean GetBooleanField(jobject o, jfieldID f) {
     jboolean b = env_->GetBooleanField(o, f);
-    if (env_->ExceptionCheck()) {
+    if (env_->ExceptionCheck() == JNI_TRUE) {
       env_->ExceptionDescribe();
       env_->FatalError(__FUNCTION__);
     }
@@ -717,7 +717,7 @@ class JniCallDefaultMethodsTest {
       CHECK(!env_->ExceptionCheck());
       printf("Calling method %s->%s on object of type ConcreteClass\n", declaring_class, method);
       env_->CallVoidMethod(obj, method_id);
-      if (env_->ExceptionCheck()) {
+      if (env_->ExceptionCheck() == JNI_TRUE) {
         jthrowable thrown = env_->ExceptionOccurred();
         env_->ExceptionClear();
         jmethodID to_string = env_->GetMethodID(
@@ -790,7 +790,7 @@ extern "C" JNIEXPORT jobject JNICALL Java_Main_lookupClinit(JNIEnv* env, jclass,
   jmethodID clinit_id = env->GetStaticMethodID(kls, "<clinit>", "()V");
 
   if (clinit_id != nullptr) {
-    jobject obj = env->ToReflectedMethod(kls, clinit_id, /*isStatic*/ true);
+    jobject obj = env->ToReflectedMethod(kls, clinit_id, /*isStatic*/ JNI_TRUE);
     CHECK(obj != nullptr);
     return obj;
   } else {

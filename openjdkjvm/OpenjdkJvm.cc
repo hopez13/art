@@ -72,7 +72,7 @@ JNIEXPORT jint JVM_Open(const char* fname, jint flags, jint mode) {
      * file open fails due to O_EXCL.
      */
     // Don't use JVM_O_DELETE, it's problematic with FUSE, see b/28901232.
-    if (flags & JVM_O_DELETE) {
+    if ((flags & JVM_O_DELETE) != 0) {
         LOG(FATAL) << "JVM_O_DELETE option is not supported (while opening: '"
                    << fname << "')";
     }
@@ -379,13 +379,13 @@ JNIEXPORT void JVM_Interrupt(JNIEnv* env, jobject jthread) {
 }
 
 JNIEXPORT jboolean JVM_IsInterrupted(JNIEnv* env, jobject jthread, jboolean clearInterrupted) {
-  if (clearInterrupted) {
+  if (clearInterrupted == JNI_TRUE) {
     return static_cast<art::JNIEnvExt*>(env)->GetSelf()->Interrupted() ? JNI_TRUE : JNI_FALSE;
   } else {
     art::ScopedFastNativeObjectAccess soa(env);
     art::MutexLock mu(soa.Self(), *art::Locks::thread_list_lock_);
     art::Thread* thread = art::Thread::FromManagedThread(soa, jthread);
-    return (thread != nullptr) ? thread->IsInterrupted() : JNI_FALSE;
+    return (thread != nullptr) ? (thread->IsInterrupted() ? JNI_TRUE : JNI_FALSE) : JNI_FALSE;
   }
 }
 
@@ -396,7 +396,7 @@ JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED, jo
     art::ThrowNullPointerException("object == null");
     return JNI_FALSE;
   }
-  return soa.Self()->HoldsLock(object);
+  return soa.Self()->HoldsLock(object) ? JNI_TRUE : JNI_FALSE;
 }
 
 JNIEXPORT void JVM_SetNativeThreadName(JNIEnv* env, jobject jthread, jstring java_name) {
@@ -471,5 +471,5 @@ JNIEXPORT __attribute__((noreturn))  void JVM_Halt(jint code) {
 }
 
 JNIEXPORT jboolean JVM_IsNaN(jdouble d) {
-  return isnan(d);
+  return isnan(d) ? JNI_TRUE : JNI_FALSE;
 }

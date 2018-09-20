@@ -256,9 +256,9 @@ int dexlistDriver(int argc, char** argv) {
   }
 
   // Open alternative output file.
-  if (gOptions.outputFileName) {
+  if (gOptions.outputFileName != nullptr) {
     gOutFile = fopen(gOptions.outputFileName, "w");
-    if (!gOutFile) {
+    if (gOutFile == nullptr) {
       PLOG(ERROR) << "Can't open " << gOptions.outputFileName;
       free(gOptions.argCopy);
       return 1;
@@ -273,7 +273,7 @@ int dexlistDriver(int argc, char** argv) {
   }  // while
 
   free(gOptions.argCopy);
-  return result != 0;
+  return result;
 }
 
 }  // namespace art

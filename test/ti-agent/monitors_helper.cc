@@ -37,14 +37,14 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Monitors_getCurrentContendedMonito
 extern "C" JNIEXPORT jobject JNICALL Java_art_Monitors_getObjectMonitorUsage(
     JNIEnv* env, jclass, jobject obj) {
   ScopedLocalRef<jclass> klass(env, env->FindClass("art/Monitors$MonitorUsage"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jmethodID constructor = env->GetMethodID(
       klass.get(),
       "<init>",
       "(Ljava/lang/Object;Ljava/lang/Thread;I[Ljava/lang/Thread;[Ljava/lang/Thread;)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jvmtiMonitorUsage usage;
@@ -53,14 +53,14 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Monitors_getObjectMonitorUsage(
   }
   jobjectArray wait = CreateObjectArray(env, usage.waiter_count, "java/lang/Thread",
                                         [&](jint i) { return usage.waiters[i]; });
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(usage.waiters));
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(usage.notify_waiters));
     return nullptr;
   }
   jobjectArray notify_wait = CreateObjectArray(env, usage.notify_waiter_count, "java/lang/Thread",
                                                [&](jint i) { return usage.notify_waiters[i]; });
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(usage.waiters));
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(usage.notify_waiters));
     return nullptr;

@@ -1166,7 +1166,7 @@ TEST_F(ClassLinkerTest, StaticFields) {
   ArtField* s0 = mirror::Class::FindStaticField(soa.Self(), statics.Get(), "s0", "Z");
   EXPECT_EQ(s0->GetTypeAsPrimitiveType(), Primitive::kPrimBoolean);
   EXPECT_EQ(true, s0->GetBoolean(statics.Get()));
-  s0->SetBoolean<false>(statics.Get(), false);
+  s0->SetBoolean<false>(statics.Get(), 0u);
 
   ArtField* s1 = mirror::Class::FindStaticField(soa.Self(), statics.Get(), "s1", "B");
   EXPECT_EQ(s1->GetTypeAsPrimitiveType(), Primitive::kPrimByte);

@@ -45,7 +45,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1932_doNativeLockPrint(JNIEnv* en
   // jmethodID atomic_set = env->GetMethodID(atomic_klass.get(), "set", "(z)V");
   jmethodID print_state = env->GetStaticMethodID(
       klass, "printLockState", "(Lart/Monitors$NamedLock;Ljava/lang/Object;I)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jint res = env->MonitorEnter(lock);

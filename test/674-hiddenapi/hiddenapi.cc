@@ -72,8 +72,8 @@ static jobject NewInstance(JNIEnv* env, jclass klass) {
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canDiscoverField(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jfieldID field = is_static ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
-                             : env->GetFieldID(klass, utf_name.c_str(), "I");
+  jfieldID field = is_static == JNI_TRUE ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
+                                         : env->GetFieldID(klass, utf_name.c_str(), "I");
   if (field == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
@@ -85,13 +85,13 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canDiscoverField(
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canGetField(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jfieldID field = is_static ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
-                             : env->GetFieldID(klass, utf_name.c_str(), "I");
+  jfieldID field = is_static == JNI_TRUE ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
+                                         : env->GetFieldID(klass, utf_name.c_str(), "I");
   if (field == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
   }
-  if (is_static) {
+  if (is_static == JNI_TRUE) {
     env->GetStaticIntField(klass, field);
   } else {
     jobject obj = NewInstance(env, klass);
@@ -103,7 +103,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canGetField(
     env->GetIntField(obj, field);
   }
 
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -115,13 +115,13 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canGetField(
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canSetField(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jfieldID field = is_static ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
-                             : env->GetFieldID(klass, utf_name.c_str(), "I");
+  jfieldID field = is_static == JNI_TRUE ? env->GetStaticFieldID(klass, utf_name.c_str(), "I")
+                                         : env->GetFieldID(klass, utf_name.c_str(), "I");
   if (field == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
   }
-  if (is_static) {
+  if (is_static == JNI_TRUE) {
     env->SetStaticIntField(klass, field, 42);
   } else {
     jobject obj = NewInstance(env, klass);
@@ -133,7 +133,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canSetField(
     env->SetIntField(obj, field, 42);
   }
 
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -145,8 +145,8 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canSetField(
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canDiscoverMethod(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jmethodID method = is_static ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
-                               : env->GetMethodID(klass, utf_name.c_str(), "()I");
+  jmethodID method = is_static == JNI_TRUE ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
+                                           : env->GetMethodID(klass, utf_name.c_str(), "()I");
   if (method == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
@@ -158,14 +158,14 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canDiscoverMethod(
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeMethodA(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jmethodID method = is_static ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
-                               : env->GetMethodID(klass, utf_name.c_str(), "()I");
+  jmethodID method = is_static == JNI_TRUE ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
+                                           : env->GetMethodID(klass, utf_name.c_str(), "()I");
   if (method == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
   }
 
-  if (is_static) {
+  if (is_static == JNI_TRUE) {
     env->CallStaticIntMethodA(klass, method, nullptr);
   } else {
     jobject obj = NewInstance(env, klass);
@@ -177,7 +177,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeMethodA(
     env->CallIntMethodA(obj, method, nullptr);
   }
 
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -189,14 +189,14 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeMethodA(
 extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeMethodV(
     JNIEnv* env, jclass, jclass klass, jstring name, jboolean is_static) {
   ScopedUtfChars utf_name(env, name);
-  jmethodID method = is_static ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
-                               : env->GetMethodID(klass, utf_name.c_str(), "()I");
+  jmethodID method = is_static == JNI_TRUE ? env->GetStaticMethodID(klass, utf_name.c_str(), "()I")
+                                           : env->GetMethodID(klass, utf_name.c_str(), "()I");
   if (method == nullptr) {
     env->ExceptionClear();
     return JNI_FALSE;
   }
 
-  if (is_static) {
+  if (is_static == JNI_TRUE) {
     env->CallStaticIntMethod(klass, method);
   } else {
     jobject obj = NewInstance(env, klass);
@@ -208,7 +208,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeMethodV(
     env->CallIntMethod(obj, method);
   }
 
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -248,7 +248,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeConstructorA(
   memset(initargs, 0, initargs_size);
 
   env->NewObjectA(klass, constructor, initargs);
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -274,7 +274,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_JNI_canInvokeConstructorV(
 
   static_assert(kNumConstructorArgs == 2, "Change the varargs below if you change the constant");
   env->NewObject(klass, constructor, initargs[0], initargs[1]);
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     env->ExceptionDescribe();
     env->ExceptionClear();
     return JNI_FALSE;
@@ -288,7 +288,7 @@ extern "C" JNIEXPORT jint JNICALL Java_Reflection_getHiddenApiAccessFlags(JNIEnv
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_ChildClass_hasPendingWarning(JNIEnv*, jclass) {
-  return Runtime::Current()->HasPendingHiddenApiWarning();
+  return Runtime::Current()->HasPendingHiddenApiWarning() ? JNI_TRUE : JNI_FALSE
 }
 
 extern "C" JNIEXPORT void JNICALL Java_ChildClass_clearWarning(JNIEnv*, jclass) {

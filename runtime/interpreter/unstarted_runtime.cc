@@ -94,7 +94,7 @@ static void CharacterLowerUpper(Thread* self,
   uint32_t int_value = static_cast<uint32_t>(shadow_frame->GetVReg(arg_offset));
 
   // Only ASCII (7-bit).
-  if (!isascii(int_value)) {
+  if (isascii(int_value) == 0) {
     AbortTransactionOrFail(self,
                            "Only support ASCII characters for toLowerCase/toUpperCase: %u",
                            int_value);
@@ -506,15 +506,15 @@ void UnstartedRuntime::UnstartedClassIsAnonymousClass(
   Handle<mirror::Class> klass(hs.NewHandle(
       reinterpret_cast<mirror::Class*>(shadow_frame->GetVRegReference(arg_offset))));
   if (klass->IsProxyClass() || klass->GetDexCache() == nullptr) {
-    result->SetZ(false);
+    result->SetZ(0u);
     return;
   }
   ObjPtr<mirror::String> class_name = nullptr;
   if (!annotations::GetInnerClass(klass, &class_name)) {
-    result->SetZ(false);
+    result->SetZ(0u);
     return;
   }
-  result->SetZ(class_name == nullptr);
+  result->SetZ(class_name == nullptr ? 1 : 0);
 }
 
 static MemMap FindAndExtractEntry(const std::string& jar_file,

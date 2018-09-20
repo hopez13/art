@@ -702,7 +702,7 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
   void WatchedFramePop(art::Thread* self, const art::ShadowFrame& frame)
       REQUIRES_SHARED(art::Locks::mutator_lock_) override {
       art::JNIEnvExt* jnienv = self->GetJniEnv();
-    jboolean is_exception_pending = self->IsExceptionPending();
+    jboolean is_exception_pending = self->IsExceptionPending() ? JNI_TRUE : JNI_FALSE;
     RunEventCallback<ArtJvmtiEvent::kFramePop>(
         event_handler_,
         self,

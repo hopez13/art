@@ -164,7 +164,7 @@ static void Drain(size_t expected,
       return;
     }
 
-    if (!(read_fd.revents & POLLIN)) {
+    if ((read_fd.revents & POLLIN) == 0) {
       // addr2line call exited.
       pipe->reset();
       return;
@@ -264,7 +264,7 @@ static void Addr2line(const std::string& map_src,
 
 static bool RunCommand(const std::string& cmd) {
   FILE* stream = popen(cmd.c_str(), "r");
-  if (stream) {
+  if (stream != nullptr) {
     pclose(stream);
     return true;
   } else {

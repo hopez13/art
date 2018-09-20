@@ -271,8 +271,8 @@ jvmtiError SearchUtil::AddToSystemClassLoaderSearch(jvmtiEnv* jvmti_env ATTRIBUT
 
   art::Thread* self = art::Thread::Current();
   JNIEnv* env = self->GetJniEnv();
-  if (!env->IsInstanceOf(sys_class_loader,
-                         art::WellKnownClasses::dalvik_system_BaseDexClassLoader)) {
+  if (env->IsInstanceOf(sys_class_loader,
+                        art::WellKnownClasses::dalvik_system_BaseDexClassLoader) == JNI_FALSE) {
     return ERR(INTERNAL);
   }
 
@@ -290,7 +290,7 @@ jvmtiError SearchUtil::AddToSystemClassLoaderSearch(jvmtiEnv* jvmti_env ATTRIBUT
   }
   env->CallVoidMethod(sys_class_loader, add_dex_path_id, dex_path.get());
 
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     env->ExceptionClear();
     return ERR(ILLEGAL_ARGUMENT);
   }

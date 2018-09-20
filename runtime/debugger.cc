@@ -2687,7 +2687,7 @@ JDWP::JdwpError Dbg::GetLocalValue(const StackVisitor& visitor, ScopedObjectAcce
         return FailGetLocalValue(visitor, vreg, tag);
       }
       VLOG(jdwp) << "get boolean local " << vreg << " = " << intVal;
-      JDWP::Set1(buf + 1, intVal != 0);
+      JDWP::Set1(buf + 1, intVal != 0 ? 1 : 0);
       break;
     }
     case JDWP::JT_BYTE: {
@@ -4306,7 +4306,7 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
           WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer,
           WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_dispatch,
           type, dataArray.get(), 0, data.size()));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     Thread* self = Thread::Current();
     ScopedObjectAccess soa(self);
     LOG(INFO) << StringPrintf("Exception thrown by dispatcher for 0x%08x", type) << std::endl
@@ -4354,7 +4354,7 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
                           length,
                           reinterpret_cast<jbyte*>(out_data->data()));
 
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     Thread* self = Thread::Current();
     ScopedObjectAccess soa(self);
     LOG(INFO) << StringPrintf("Exception thrown when reading response data from dispatcher 0x%08x",
@@ -4426,7 +4426,7 @@ void Dbg::DdmBroadcast(bool connect) {
   env->CallStaticVoidMethod(WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer,
                             WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_broadcast,
                             event);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     LOG(ERROR) << "DdmServer.broadcast " << event << " failed";
     env->ExceptionDescribe();
     env->ExceptionClear();
@@ -4526,16 +4526,16 @@ JDWP::JdwpState* Dbg::GetJdwpState() {
 int Dbg::DdmHandleHpifChunk(HpifWhen when) {
   if (when == HPIF_WHEN_NOW) {
     DdmSendHeapInfo(when);
-    return true;
+    return 1;
   }
 
   if (when != HPIF_WHEN_NEVER && when != HPIF_WHEN_NEXT_GC && when != HPIF_WHEN_EVERY_GC) {
     LOG(ERROR) << "invalid HpifWhen value: " << static_cast<int>(when);
-    return false;
+    return 0;
   }
 
   gDdmHpifWhen = when;
-  return true;
+  return 1;
 }
 
 bool Dbg::DdmHandleHpsgNhsgChunk(Dbg::HpsgWhen when, Dbg::HpsgWhat what, bool native) {

@@ -532,8 +532,8 @@ static bool ModsMatch(JdwpEvent* pEvent, const ModBasket& basket)
           !Dbg::MatchType(basket.exceptionClass.Get(), pMod->exceptionOnly.refTypeId)) {
         return false;
       }
-      if ((basket.caught && !pMod->exceptionOnly.caught) ||
-          (!basket.caught && !pMod->exceptionOnly.uncaught)) {
+      if ((basket.caught && (pMod->exceptionOnly.caught == 0u)) ||
+          (!basket.caught && (pMod->exceptionOnly.uncaught == 0u))) {
         return false;
       }
       break;

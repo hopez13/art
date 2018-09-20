@@ -73,7 +73,7 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv ATTRIBUTE_UNUSED,
       klass.get(),
       "doNativeMethodBind",
       "(Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/String;");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   ScopedLocalRef<jstring> new_symbol(env,

@@ -150,7 +150,7 @@ extern "C" size_t MterpShouldSwitchInterpreters()
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Runtime* const runtime = Runtime::Current();
   const instrumentation::Instrumentation* const instrumentation = runtime->GetInstrumentation();
-  return instrumentation->NonJitProfilingActive() ||
+  return (instrumentation->NonJitProfilingActive() ||
       Dbg::IsDebuggerActive() ||
       // An async exception has been thrown. We need to go to the switch interpreter. MTerp doesn't
       // know how to deal with these so we could end up never dealing with it if we are in an
@@ -161,7 +161,7 @@ extern "C" size_t MterpShouldSwitchInterpreters()
       // synchronization on the runtime flag since it is only set in a checkpoint which will either
       // take place on the current thread or act as a synchronization point.
       (UNLIKELY(runtime->AreAsyncExceptionsThrown()) &&
-       Thread::Current()->IsAsyncExceptionPending());
+       Thread::Current()->IsAsyncExceptionPending())) ? 1 : 0;
 }
 
 
@@ -173,7 +173,7 @@ extern "C" size_t MterpInvokeVirtual(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoFastInvoke<kVirtual>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeSuper(Thread* self,
@@ -184,7 +184,7 @@ extern "C" size_t MterpInvokeSuper(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kSuper, false, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeInterface(Thread* self,
@@ -195,7 +195,7 @@ extern "C" size_t MterpInvokeInterface(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kInterface, false, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeDirect(Thread* self,
@@ -206,7 +206,7 @@ extern "C" size_t MterpInvokeDirect(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoFastInvoke<kDirect>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeStatic(Thread* self,
@@ -217,7 +217,7 @@ extern "C" size_t MterpInvokeStatic(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoFastInvoke<kStatic>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeCustom(Thread* self,
@@ -228,7 +228,7 @@ extern "C" size_t MterpInvokeCustom(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvokeCustom<false /* is_range */>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokePolymorphic(Thread* self,
@@ -239,7 +239,7 @@ extern "C" size_t MterpInvokePolymorphic(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvokePolymorphic<false /* is_range */>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeVirtualRange(Thread* self,
@@ -250,7 +250,7 @@ extern "C" size_t MterpInvokeVirtualRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kVirtual, true, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeSuperRange(Thread* self,
@@ -261,7 +261,7 @@ extern "C" size_t MterpInvokeSuperRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kSuper, true, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeInterfaceRange(Thread* self,
@@ -272,7 +272,7 @@ extern "C" size_t MterpInvokeInterfaceRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kInterface, true, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeDirectRange(Thread* self,
@@ -283,7 +283,7 @@ extern "C" size_t MterpInvokeDirectRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kDirect, true, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeStaticRange(Thread* self,
@@ -294,7 +294,7 @@ extern "C" size_t MterpInvokeStaticRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvoke<kStatic, true, false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeCustomRange(Thread* self,
@@ -304,7 +304,8 @@ extern "C" size_t MterpInvokeCustomRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvokeCustom<true /* is_range */>(self, *shadow_frame, inst, inst_data, result_register);
+  return DoInvokeCustom<true /* is_range */>(
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokePolymorphicRange(Thread* self,
@@ -315,7 +316,7 @@ extern "C" size_t MterpInvokePolymorphicRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvokePolymorphic<true /* is_range */>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeVirtualQuick(Thread* self,
@@ -338,12 +339,12 @@ extern "C" size_t MterpInvokeVirtualQuick(Thread* self,
           jit->InvokeVirtualOrInterface(
               receiver, shadow_frame->GetMethod(), shadow_frame->GetDexPC(), called_method);
         }
-        return !self->IsExceptionPending();
+        return self->IsExceptionPending() ? 0 : 1;
       }
     }
   }
   return DoInvokeVirtualQuick<false>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" size_t MterpInvokeVirtualQuickRange(Thread* self,
@@ -354,7 +355,7 @@ extern "C" size_t MterpInvokeVirtualQuickRange(Thread* self,
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoInvokeVirtualQuick<true>(
-      self, *shadow_frame, inst, inst_data, result_register);
+      self, *shadow_frame, inst, inst_data, result_register) ? 1 : 0;
 }
 
 extern "C" void MterpThreadFenceForConstructor() {
@@ -368,10 +369,10 @@ extern "C" size_t MterpConstString(uint32_t index,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::String> s = ResolveString(self, *shadow_frame, dex::StringIndex(index));
   if (UNLIKELY(s == nullptr)) {
-    return true;
+    return 1u;
   }
   shadow_frame->SetVRegReference(tgt_vreg, s);
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpConstClass(uint32_t index,
@@ -385,10 +386,10 @@ extern "C" size_t MterpConstClass(uint32_t index,
                                                    /* can_run_clinit */ false,
                                                    /* verify_access */ false);
   if (UNLIKELY(c == nullptr)) {
-    return true;
+    return 1u;
   }
   shadow_frame->SetVRegReference(tgt_vreg, c);
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpConstMethodHandle(uint32_t index,
@@ -398,10 +399,10 @@ extern "C" size_t MterpConstMethodHandle(uint32_t index,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::MethodHandle> mh = ResolveMethodHandle(self, index, shadow_frame->GetMethod());
   if (UNLIKELY(mh == nullptr)) {
-    return true;
+    return 1u;
   }
   shadow_frame->SetVRegReference(tgt_vreg, mh);
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpConstMethodType(uint32_t index,
@@ -412,10 +413,10 @@ extern "C" size_t MterpConstMethodType(uint32_t index,
   ObjPtr<mirror::MethodType> mt =
       ResolveMethodType(self, dex::ProtoIndex(index), shadow_frame->GetMethod());
   if (UNLIKELY(mt == nullptr)) {
-    return true;
+    return 1u;
   }
   shadow_frame->SetVRegReference(tgt_vreg, mt);
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpCheckCast(uint32_t index,
@@ -429,15 +430,15 @@ extern "C" size_t MterpCheckCast(uint32_t index,
                                                    false,
                                                    false);
   if (UNLIKELY(c == nullptr)) {
-    return true;
+    return 1u;
   }
   // Must load obj from vreg following ResolveVerifyAndClinit due to moving gc.
   mirror::Object* obj = vreg_addr->AsMirrorPtr();
   if (UNLIKELY(obj != nullptr && !obj->InstanceOf(c))) {
     ThrowClassCastException(c, obj->GetClass());
-    return true;
+    return 1u;
   }
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpInstanceOf(uint32_t index,
@@ -451,16 +452,16 @@ extern "C" size_t MterpInstanceOf(uint32_t index,
                                                    false,
                                                    false);
   if (UNLIKELY(c == nullptr)) {
-    return false;  // Caller will check for pending exception.  Return value unimportant.
+    return 0u;  // Caller will check for pending exception.  Return value unimportant.
   }
   // Must load obj from vreg following ResolveVerifyAndClinit due to moving gc.
   mirror::Object* obj = vreg_addr->AsMirrorPtr();
-  return (obj != nullptr) && obj->InstanceOf(c);
+  return ((obj != nullptr) && obj->InstanceOf(c)) ? 1 : 0;
 }
 
 extern "C" size_t MterpFillArrayData(mirror::Object* obj, const Instruction::ArrayDataPayload* payload)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  return FillArrayData(obj, payload);
+  return FillArrayData(obj, payload) ? 1 : 0;
 }
 
 extern "C" size_t MterpNewInstance(ShadowFrame* shadow_frame, Thread* self, uint32_t inst_data)
@@ -483,11 +484,11 @@ extern "C" size_t MterpNewInstance(ShadowFrame* shadow_frame, Thread* self, uint
     }
   }
   if (UNLIKELY(obj == nullptr)) {
-    return false;
+    return 0u;
   }
   obj->GetClass()->AssertInitializedOrInitializingInThread(self);
   shadow_frame->SetVRegReference(inst->VRegA_21c(inst_data), obj);
-  return true;
+  return 1u;
 }
 
 extern "C" size_t MterpIputObjectQuick(ShadowFrame* shadow_frame,
@@ -495,7 +496,7 @@ extern "C" size_t MterpIputObjectQuick(ShadowFrame* shadow_frame,
                                        uint32_t inst_data)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoIPutQuick<Primitive::kPrimNot, false>(*shadow_frame, inst, inst_data);
+  return DoIPutQuick<Primitive::kPrimNot, false>(*shadow_frame, inst, inst_data) ? 1 : 0;
 }
 
 extern "C" size_t MterpAputObject(ShadowFrame* shadow_frame,
@@ -505,16 +506,16 @@ extern "C" size_t MterpAputObject(ShadowFrame* shadow_frame,
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   mirror::Object* a = shadow_frame->GetVRegReference(inst->VRegB_23x());
   if (UNLIKELY(a == nullptr)) {
-    return false;
+    return 0u;
   }
   int32_t index = shadow_frame->GetVReg(inst->VRegC_23x());
   mirror::Object* val = shadow_frame->GetVRegReference(inst->VRegA_23x(inst_data));
   mirror::ObjectArray<mirror::Object>* array = a->AsObjectArray<mirror::Object>();
   if (array->CheckIsValidIndex(index) && array->CheckAssignable(val)) {
     array->SetWithoutChecks<false>(index, val);
-    return true;
+    return 1u;
   }
-  return false;
+  return 0u;
 }
 
 extern "C" size_t MterpFilledNewArray(ShadowFrame* shadow_frame,
@@ -523,7 +524,7 @@ extern "C" size_t MterpFilledNewArray(ShadowFrame* shadow_frame,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoFilledNewArray<false, false, false>(inst, *shadow_frame, self,
-                                               shadow_frame->GetResultRegister());
+                                               shadow_frame->GetResultRegister()) ? 1 : 0;
 }
 
 extern "C" size_t MterpFilledNewArrayRange(ShadowFrame* shadow_frame,
@@ -532,7 +533,7 @@ extern "C" size_t MterpFilledNewArrayRange(ShadowFrame* shadow_frame,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   return DoFilledNewArray<true, false, false>(inst, *shadow_frame, self,
-                                              shadow_frame->GetResultRegister());
+                                              shadow_frame->GetResultRegister()) ? 1 : 0;
 }
 
 extern "C" size_t MterpNewArray(ShadowFrame* shadow_frame,
@@ -545,10 +546,10 @@ extern "C" size_t MterpNewArray(ShadowFrame* shadow_frame,
       dex::TypeIndex(inst->VRegC_22c()), length, shadow_frame->GetMethod(), self,
       Runtime::Current()->GetHeap()->GetCurrentAllocator());
   if (UNLIKELY(obj == nullptr)) {
-      return false;
+      return 0u;
   }
   shadow_frame->SetVRegReference(inst->VRegA_22c(inst_data), obj);
-  return true;
+  return 1u;
 }
 
 extern "C" size_t MterpHandleException(Thread* self, ShadowFrame* shadow_frame)
@@ -556,7 +557,7 @@ extern "C" size_t MterpHandleException(Thread* self, ShadowFrame* shadow_frame)
   DCHECK(self->IsExceptionPending());
   const instrumentation::Instrumentation* const instrumentation =
       Runtime::Current()->GetInstrumentation();
-  return MoveToExceptionHandler(self, *shadow_frame, instrumentation);
+  return MoveToExceptionHandler(self, *shadow_frame, instrumentation) ? 1 : 0;
 }
 
 extern "C" void MterpCheckBefore(Thread* self, ShadowFrame* shadow_frame, uint16_t* dex_pc_ptr)
@@ -648,11 +649,11 @@ extern "C" void MterpLogSuspendFallback(Thread* self, ShadowFrame* shadow_frame,
   UNUSED(self);
   const Instruction* inst = Instruction::At(shadow_frame->GetDexPCPtr());
   uint16_t inst_data = inst->Fetch16(0);
-  if (flags & kCheckpointRequest) {
+  if ((flags & kCheckpointRequest) != 0u) {
     LOG(INFO) << "Checkpoint fallback: " << inst->Opcode(inst_data);
-  } else if (flags & kSuspendRequest) {
+  } else if ((flags & kSuspendRequest) != 0u) {
     LOG(INFO) << "Suspend fallback: " << inst->Opcode(inst_data);
-  } else if (flags & kEmptyCheckpointRequest) {
+  } else if ((flags & kEmptyCheckpointRequest) != 0u) {
     LOG(INFO) << "Empty checkpoint fallback: " << inst->Opcode(inst_data);
   }
 }
@@ -925,7 +926,7 @@ extern "C" size_t MterpMaybeDoOnStackReplacement(Thread* self,
     did_osr = jit::Jit::MaybeDoOnStackReplacement(self, method, dex_pc, offset, result);
   }
   shadow_frame->SetCachedHotnessCountdown(osr_countdown);
-  return did_osr;
+  return did_osr ? 1 : 0;
 }
 
 }  // namespace interpreter

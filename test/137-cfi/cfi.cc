@@ -85,7 +85,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_sigstop(JNIEnv*, jclass) {
 #if __linux__
   raise(SIGSTOP);
 #endif
-  return true;  // Prevent the compiler from tail-call optimizing this method away.
+  return JNI_TRUE;  // Prevent the compiler from tail-call optimizing this method away.
 }
 
 // Helper to look for a sequence in the stack trace.
@@ -206,7 +206,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_unwindOtherProcess(JNIEnv*, jcla
   pid_t pid = static_cast<pid_t>(pid_int);
 
   // SEIZE is like ATTACH, but it does not stop the process (we let it stop itself).
-  if (ptrace(PTRACE_SEIZE, pid, 0, 0)) {
+  if (ptrace(PTRACE_SEIZE, pid, 0, 0) != 0) {
     // Were not able to attach, bad.
     printf("Failed to attach to other process.\n");
     PLOG(ERROR) << "Failed to attach.";

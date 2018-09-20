@@ -422,7 +422,7 @@ bool MarkSweep::IsNullOrMarkedHeapReference(mirror::HeapReference<mirror::Object
   if (obj == nullptr) {
     return true;
   }
-  return IsMarked(obj);
+  return IsMarked(obj) != nullptr;
 }
 
 class MarkSweep::MarkObjectSlowPath {

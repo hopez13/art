@@ -165,7 +165,7 @@ static jobject CreateAdbConnectionThread(art::Thread* thr) {
                         thr_group.get(),
                         thr_name.get(),
                         /*Priority*/ 0,
-                        /*Daemon*/ true);
+                        /*Daemon*/ JNI_TRUE);
 }
 
 struct CallbackData {
@@ -521,7 +521,7 @@ bool AdbConnectionState::SetupAdbConnection() {
 #endif
       if (!trusted) {
         LOG(ERROR) << "adb socket is not trusted. Aborting connection.";
-        if (sock >= 0 && shutdown(sock, SHUT_RDWR)) {
+        if (sock >= 0 && (shutdown(sock, SHUT_RDWR) != 0)) {
           PLOG(ERROR) << "trouble shutting down socket";
         }
         return false;

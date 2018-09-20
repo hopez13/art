@@ -763,9 +763,9 @@ bool ImageWriter::IsBootClassLoaderNonImageClass(mirror::Class* klass) {
 class ImageWriter::PruneObjectReferenceVisitor {
  public:
   PruneObjectReferenceVisitor(ImageWriter* image_writer,
-                        bool* early_exit,
-                        std::unordered_set<mirror::Object*>* visited,
-                        bool* result)
+                              bool* early_exit,
+                              std::unordered_set<mirror::Object*>* visited,
+                              bool* result)
       : image_writer_(image_writer), early_exit_(early_exit), visited_(visited), result_(result) {}
 
   ALWAYS_INLINE void VisitRootIfNonNull(
@@ -813,10 +813,6 @@ class ImageWriter::PruneObjectReferenceVisitor {
                                  ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     operator()(ref, mirror::Reference::ReferentOffset(), /* is_static */ false);
-  }
-
-  ALWAYS_INLINE bool GetResult() const {
-    return result_;
   }
 
  private:

@@ -72,7 +72,7 @@ class DexZipEntry {
       return map;
     }
     const int32_t error = ExtractToMemory(handle_, zip_entry_, map.data(), map.size());
-    if (error) {
+    if (error != 0) {
       *error_msg = std::string(ErrorCodeString(error));
     }
     return map;
@@ -111,7 +111,7 @@ class DexZipArchive {
     ZipArchiveHandle handle;
     uint8_t* nonconst_base = const_cast<uint8_t*>(base);
     const int32_t error = OpenArchiveFromMemory(nonconst_base, size, "ZipArchiveMemory", &handle);
-    if (error) {
+    if (error != 0) {
       *error_msg = std::string(ErrorCodeString(error));
       CloseArchive(handle);
       return nullptr;
@@ -124,7 +124,7 @@ class DexZipArchive {
     // Resist the urge to delete the space. <: is a bigraph sequence.
     std::unique_ptr< ::ZipEntry> zip_entry(new ::ZipEntry);
     const int32_t error = FindEntry(handle_, ZipString(name), zip_entry.get());
-    if (error) {
+    if (error != 0) {
       *error_msg = std::string(ErrorCodeString(error));
       return nullptr;
     }

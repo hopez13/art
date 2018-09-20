@@ -25,11 +25,11 @@ namespace art {
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isMethodDeoptimized(JNIEnv*, jclass, jobject m) {
   ScopedObjectAccess soa(art::Thread::Current());
   ArtMethod* art_method = ArtMethod::FromReflectedMethod(soa, m);
-  return Runtime::Current()->GetInstrumentation()->IsDeoptimized(art_method);
+  return Runtime::Current()->GetInstrumentation()->IsDeoptimized(art_method) ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInterpretOnly(JNIEnv*, jclass) {
-  return Runtime::Current()->GetInstrumentation()->IsForcedInterpretOnly();
+  return Runtime::Current()->GetInstrumentation()->IsForcedInterpretOnly() ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace art

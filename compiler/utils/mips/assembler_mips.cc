@@ -2833,7 +2833,7 @@ void MipsAssembler::LoadConst32(Register rd, int32_t value) {
     Addiu(rd, ZERO, value);
   } else {
     Lui(rd, High16Bits(value));
-    if (value & 0xFFFF)
+    if ((value & 0xFFFF) != 0)
       Ori(rd, rd, Low16Bits(value));
   }
 }
@@ -3610,7 +3610,7 @@ void MipsAssembler::FinalizeLabeledBranch(MipsLabel* label) {
     label->LinkTo(branch_id);
   }
   // Reserve space for the branch.
-  while (length--) {
+  while ((length--) != 0u) {
     Nop();
   }
 }
@@ -3905,7 +3905,7 @@ void MipsAssembler::PromoteBranches() {
       uint32_t delta = branch.PromoteIfNeeded(base);
       // If this branch has been promoted and needs to expand in size,
       // relocate all branches by the expansion size.
-      if (delta) {
+      if (delta != 0u) {
         changed = true;
         uint32_t expand_location = branch.GetLocation();
         for (auto& branch2 : branches_) {

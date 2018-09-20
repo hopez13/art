@@ -2832,7 +2832,7 @@ void Mips64Assembler::Bind(Mips64Label* label) {
   // Now make the label object contain its own location (relative to the end of the preceding
   // branch, if any; it will be used by the branches referring to and following this label).
   label->prev_branch_id_plus_one_ = branches_.size();
-  if (label->prev_branch_id_plus_one_) {
+  if (label->prev_branch_id_plus_one_ != 0u) {
     uint32_t branch_id = label->prev_branch_id_plus_one_ - 1;
     const Branch* branch = GetBranch(branch_id);
     bound_pc -= branch->GetEndLocation();
@@ -2843,7 +2843,7 @@ void Mips64Assembler::Bind(Mips64Label* label) {
 uint32_t Mips64Assembler::GetLabelLocation(const Mips64Label* label) const {
   CHECK(label->IsBound());
   uint32_t target = label->Position();
-  if (label->prev_branch_id_plus_one_) {
+  if (label->prev_branch_id_plus_one_ != 0u) {
     // Get label location based on the branch preceding it.
     uint32_t branch_id = label->prev_branch_id_plus_one_ - 1;
     const Branch* branch = GetBranch(branch_id);
@@ -2889,7 +2889,7 @@ void Mips64Assembler::FinalizeLabeledBranch(Mips64Label* label) {
     label->LinkTo(branch_id);
   }
   // Reserve space for the branch.
-  while (length--) {
+  while ((length--) != 0u) {
     Nop();
   }
 }
@@ -3067,7 +3067,7 @@ void Mips64Assembler::PromoteBranches() {
       uint32_t delta = branch.PromoteIfNeeded();
       // If this branch has been promoted and needs to expand in size,
       // relocate all branches by the expansion size.
-      if (delta) {
+      if (delta != 0u) {
         changed = true;
         uint32_t expand_location = branch.GetLocation();
         for (auto& branch2 : branches_) {

@@ -1577,7 +1577,7 @@ bool HInliner::TryPatternSubstitution(HInvoke* invoke_instruction,
       break;
     case kInlineOpIGet: {
       const InlineIGetIPutData& data = inline_method.d.ifield_data;
-      if (data.method_is_static || data.object_arg != 0u) {
+      if ((data.method_is_static != 0u) || data.object_arg != 0u) {
         // TODO: Needs null check.
         return false;
       }
@@ -1591,7 +1591,7 @@ bool HInliner::TryPatternSubstitution(HInvoke* invoke_instruction,
     }
     case kInlineOpIPut: {
       const InlineIGetIPutData& data = inline_method.d.ifield_data;
-      if (data.method_is_static || data.object_arg != 0u) {
+      if ((data.method_is_static != 0u) || data.object_arg != 0u) {
         // TODO: Needs null check.
         return false;
       }

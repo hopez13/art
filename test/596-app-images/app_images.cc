@@ -68,7 +68,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkAppImageContains(JNIEnv*, j
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkInitialized(JNIEnv*, jclass, jclass c) {
   ScopedObjectAccess soa(Thread::Current());
   ObjPtr<mirror::Class> klass_ptr = soa.Decode<mirror::Class>(c);
-  return klass_ptr->IsInitialized();
+  return klass_ptr->IsInitialized() ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace

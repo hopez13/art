@@ -71,14 +71,14 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test1946_getClassloaderDescri
   ScopedLocalRef<jobjectArray> arr(env, env->NewObjectArray(cnt,
                                                             env->FindClass("java/lang/String"),
                                                             nullptr));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     Cleanup(classes, cnt);
     return nullptr;
   }
 
   for (jint i = 0; i < cnt; i++) {
     env->SetObjectArrayElement(arr.get(), i, env->NewStringUTF(classes[i]));
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       Cleanup(classes, cnt);
       return nullptr;
     }

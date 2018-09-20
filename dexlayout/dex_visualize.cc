@@ -277,22 +277,22 @@ void VisualizeDexLayout(dex_ir::Header* header,
     dex_ir::ClassData* class_data = class_def->GetClassData();
     if (class_data != nullptr) {
       dumper->DumpAddressRange(class_data, class_index);
-      if (class_data->StaticFields()) {
+      if (class_data->StaticFields() != nullptr) {
         for (auto& field_item : *class_data->StaticFields()) {
           dumper->DumpFieldItem(&field_item, class_index);
         }
       }
-      if (class_data->InstanceFields()) {
+      if (class_data->InstanceFields() != nullptr) {
         for (auto& field_item : *class_data->InstanceFields()) {
           dumper->DumpFieldItem(&field_item, class_index);
         }
       }
-      if (class_data->DirectMethods()) {
+      if (class_data->DirectMethods() != nullptr) {
         for (auto& method_item : *class_data->DirectMethods()) {
           dumper->DumpMethodItem(&method_item, dex_file, class_index, profile_info);
         }
       }
-      if (class_data->VirtualMethods()) {
+      if (class_data->VirtualMethods() != nullptr) {
         for (auto& method_item : *class_data->VirtualMethods()) {
           dumper->DumpMethodItem(&method_item, dex_file, class_index, profile_info);
         }

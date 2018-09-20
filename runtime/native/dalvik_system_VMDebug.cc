@@ -251,7 +251,7 @@ static void VMDebug_dumpHprofData(JNIEnv* env, jclass, jstring javaFilename, jin
   std::string filename;
   if (javaFilename != nullptr) {
     ScopedUtfChars chars(env, javaFilename);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       return;
     }
     filename = chars.c_str();
@@ -579,7 +579,7 @@ static void VMDebug_nativeAttachAgent(JNIEnv* env, jclass, jstring agent, jobjec
   std::string filename;
   {
     ScopedUtfChars chars(env, agent);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       return;
     }
     filename = chars.c_str();

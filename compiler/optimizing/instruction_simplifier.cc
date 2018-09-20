@@ -693,7 +693,7 @@ void InstructionSimplifierVisitor::VisitInstanceOf(HInstanceOf* instruction) {
       instruction->ReplaceWith(test);
     } else {
       // We've statically determined the result of the instanceof.
-      instruction->ReplaceWith(graph->GetIntConstant(outcome));
+      instruction->ReplaceWith(graph->GetIntConstant(outcome ? 1 : 0));
     }
     RecordSimplification();
     instruction->GetBlock()->RemoveInstruction(instruction);
@@ -1317,7 +1317,7 @@ void InstructionSimplifierVisitor::VisitAdd(HAdd* instruction) {
   }
 
   HNeg* neg = left_is_neg ? left->AsNeg() : right->AsNeg();
-  if ((left_is_neg ^ right_is_neg) && neg->HasOnlyOneNonEnvironmentUse()) {
+  if (left_is_neg != right_is_neg && neg->HasOnlyOneNonEnvironmentUse()) {
     // Replace code looking like
     //    NEG tmp, b
     //    ADD dst, a, tmp

@@ -35,19 +35,19 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test991_doNativeReadWrite(
   CHECK(testclass != nullptr);
   ScopedLocalRef<jclass> testclass_klass(env, env->GetObjectClass(testclass));
   jmethodID notifyMethod = env->GetStaticMethodID(klass, "doPrintNativeNotification", "(I)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jfieldID xyz_field = env->GetFieldID(testclass_klass.get(), "xyz", "I");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jint val = env->GetIntField(testclass, xyz_field);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   env->CallStaticVoidMethod(klass, notifyMethod, val);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   val += 1;

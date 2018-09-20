@@ -112,8 +112,8 @@ static JdwpError RequestInvoke(JdwpState*, Request* request,
 
   uint32_t options = request->ReadUnsigned32("InvokeOptions bit flags");
   VLOG(jdwp) << StringPrintf("        options=0x%04x%s%s", options,
-                             (options & INVOKE_SINGLE_THREADED) ? " (SINGLE_THREADED)" : "",
-                             (options & INVOKE_NONVIRTUAL) ? " (NONVIRTUAL)" : "");
+                             (options & INVOKE_SINGLE_THREADED) != 0u ? " (SINGLE_THREADED)" : "",
+                             (options & INVOKE_NONVIRTUAL) != 0u ? " (NONVIRTUAL)" : "");
 
   JDWP::JdwpError error =  Dbg::PrepareInvokeMethod(request->GetId(), thread_id, object_id,
                                                     class_id, method_id, arg_count,
@@ -315,13 +315,13 @@ static JdwpError VM_DisposeObjects(JdwpState*, Request* request, ExpandBuf*)
 
 static JdwpError VM_Capabilities(JdwpState*, Request*, ExpandBuf* reply)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  expandBufAdd1(reply, true);    // canWatchFieldModification
-  expandBufAdd1(reply, true);    // canWatchFieldAccess
-  expandBufAdd1(reply, true);    // canGetBytecodes
-  expandBufAdd1(reply, true);    // canGetSyntheticAttribute
-  expandBufAdd1(reply, true);    // canGetOwnedMonitorInfo
-  expandBufAdd1(reply, true);    // canGetCurrentContendedMonitor
-  expandBufAdd1(reply, true);    // canGetMonitorInfo
+  expandBufAdd1(reply, 1u);    // canWatchFieldModification
+  expandBufAdd1(reply, 1u);    // canWatchFieldAccess
+  expandBufAdd1(reply, 1u);    // canGetBytecodes
+  expandBufAdd1(reply, 1u);    // canGetSyntheticAttribute
+  expandBufAdd1(reply, 1u);    // canGetOwnedMonitorInfo
+  expandBufAdd1(reply, 1u);    // canGetCurrentContendedMonitor
+  expandBufAdd1(reply, 1u);    // canGetMonitorInfo
   return ERR_NONE;
 }
 
@@ -330,24 +330,24 @@ static JdwpError VM_CapabilitiesNew(JdwpState*, Request* request, ExpandBuf* rep
   // The first few capabilities are the same as those reported by the older call.
   VM_Capabilities(nullptr, request, reply);
 
-  expandBufAdd1(reply, false);   // canRedefineClasses
-  expandBufAdd1(reply, false);   // canAddMethod
-  expandBufAdd1(reply, false);   // canUnrestrictedlyRedefineClasses
-  expandBufAdd1(reply, false);   // canPopFrames
-  expandBufAdd1(reply, true);    // canUseInstanceFilters
-  expandBufAdd1(reply, true);    // canGetSourceDebugExtension
-  expandBufAdd1(reply, false);   // canRequestVMDeathEvent
-  expandBufAdd1(reply, false);   // canSetDefaultStratum
-  expandBufAdd1(reply, true);    // 1.6: canGetInstanceInfo
-  expandBufAdd1(reply, false);   // 1.6: canRequestMonitorEvents
-  expandBufAdd1(reply, true);    // 1.6: canGetMonitorFrameInfo
-  expandBufAdd1(reply, false);   // 1.6: canUseSourceNameFilters
-  expandBufAdd1(reply, false);   // 1.6: canGetConstantPool
-  expandBufAdd1(reply, false);   // 1.6: canForceEarlyReturn
+  expandBufAdd1(reply, 0u);   // canRedefineClasses
+  expandBufAdd1(reply, 0u);   // canAddMethod
+  expandBufAdd1(reply, 0u);   // canUnrestrictedlyRedefineClasses
+  expandBufAdd1(reply, 0u);   // canPopFrames
+  expandBufAdd1(reply, 1u);    // canUseInstanceFilters
+  expandBufAdd1(reply, 1u);    // canGetSourceDebugExtension
+  expandBufAdd1(reply, 0u);   // canRequestVMDeathEvent
+  expandBufAdd1(reply, 0u);   // canSetDefaultStratum
+  expandBufAdd1(reply, 1u);    // 1.6: canGetInstanceInfo
+  expandBufAdd1(reply, 0u);   // 1.6: canRequestMonitorEvents
+  expandBufAdd1(reply, 1u);    // 1.6: canGetMonitorFrameInfo
+  expandBufAdd1(reply, 0u);   // 1.6: canUseSourceNameFilters
+  expandBufAdd1(reply, 0u);   // 1.6: canGetConstantPool
+  expandBufAdd1(reply, 0u);   // 1.6: canForceEarlyReturn
 
   // Fill in reserved22 through reserved32; note count started at 1.
   for (size_t i = 22; i <= 32; ++i) {
-    expandBufAdd1(reply, false);
+    expandBufAdd1(reply, 0u);
   }
   return ERR_NONE;
 }
@@ -770,7 +770,7 @@ static JdwpError M_IsObsolete(JdwpState*, Request* request, ExpandBuf* reply)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   request->ReadRefTypeId();  // unused reference type ID
   MethodId id = request->ReadMethodId();
-  expandBufAdd1(reply, Dbg::IsMethodObsolete(id));
+  expandBufAdd1(reply, Dbg::IsMethodObsolete(id) ? 1 : 0);
   return ERR_NONE;
 }
 

@@ -218,7 +218,7 @@ static void fieldModificationCB(jvmtiEnv* jvmti,
   jobject method_arg = GetJavaMethod(jvmti, jnienv, method);
   jobject field_arg = GetJavaField(jvmti, jnienv, field_klass, field);
   jobject value = GetJavaValueByType(jnienv, type_char, new_value);
-  if (jnienv->ExceptionCheck()) {
+  if (jnienv->ExceptionCheck() == JNI_TRUE) {
     jnienv->DeleteLocalRef(method_arg);
     jnienv->DeleteLocalRef(field_arg);
     return;
@@ -261,7 +261,7 @@ static void methodExitCB(jvmtiEnv* jvmti,
   jobject method_arg = GetJavaMethod(jvmti, jnienv, method);
   jobject result =
       was_popped_by_exception ? nullptr : GetJavaValue(jvmti, jnienv, method, return_value);
-  if (jnienv->ExceptionCheck()) {
+  if (jnienv->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jnienv->CallStaticVoidMethod(klass.get(),
@@ -294,7 +294,7 @@ static void methodEntryCB(jvmtiEnv* jvmti,
   }
   ScopedCallbackState st(jnienv, jvmti, thr);
   jobject method_arg = GetJavaMethod(jvmti, jnienv, method);
-  if (jnienv->ExceptionCheck()) {
+  if (jnienv->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jnienv->CallStaticVoidMethod(klass.get(), data->enter_method, method_arg);
@@ -416,21 +416,21 @@ static bool GetFieldAndClass(JNIEnv* env,
                              jclass* out_klass,
                              jfieldID* out_field) {
   *out_field = env->FromReflectedField(ref_field);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return false;
   }
   jclass field_klass = env->FindClass("java/lang/reflect/Field");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return false;
   }
   jmethodID get_declaring_class_method =
       env->GetMethodID(field_klass, "getDeclaringClass", "()Ljava/lang/Class;");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     env->DeleteLocalRef(field_klass);
     return false;
   }
   *out_klass = static_cast<jclass>(env->CallObjectMethod(ref_field, get_declaring_class_method));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     *out_klass = nullptr;
     env->DeleteLocalRef(field_klass);
     return false;

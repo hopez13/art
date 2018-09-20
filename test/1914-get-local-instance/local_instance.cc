@@ -36,30 +36,30 @@ namespace Test1914LocalInstance {
 extern "C" JNIEXPORT void Java_art_Test1914_00024TargetClass_NativeInstanceMethod(
     JNIEnv* env, jobject thiz, jobject run) {
   ScopedLocalRef<jclass> runnable(env, env->FindClass("java/lang/Runnable"));
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   jmethodID method = env->GetMethodID(runnable.get(), "run", "()V");
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   env->CallVoidMethod(run, method);
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   ScopedLocalRef<jclass> Test1914(env, env->FindClass("art/Test1914"));
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   jmethodID report = env->GetStaticMethodID(Test1914.get(), "reportValue", "(Ljava/lang/Object;)V");
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   env->CallStaticVoidMethod(Test1914.get(), report, thiz);
 }
 
 extern "C" JNIEXPORT void Java_art_Test1914_NativeStaticMethod(
     JNIEnv* env, jclass, jobject run) {
   ScopedLocalRef<jclass> runnable(env, env->FindClass("java/lang/Runnable"));
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   jmethodID method = env->GetMethodID(runnable.get(), "run", "()V");
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   env->CallVoidMethod(run, method);
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   ScopedLocalRef<jclass> Test1914(env, env->FindClass("art/Test1914"));
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   jmethodID report = env->GetStaticMethodID(Test1914.get(), "reportValue", "(Ljava/lang/Object;)V");
-  if (env->ExceptionCheck()) { return; }
+  if (env->ExceptionCheck() == JNI_TRUE) { return; }
   env->CallStaticVoidMethod(Test1914.get(), report, nullptr);
 }
 

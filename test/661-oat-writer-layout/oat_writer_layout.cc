@@ -60,18 +60,18 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasOatCompiledCode(JNIEnv* env,
                                                       /* out */ &found);
 
   if (!found) {
-    return false;
+    return JNI_FALSE;
   }
 
   OatClassType type = oat_class.GetType();
   switch (type) {
     case kOatClassAllCompiled:
     case kOatClassSomeCompiled:
-      return true;
+      return JNI_TRUE;
 
     case kOatClassNoneCompiled:
     case kOatClassMax:
-      return false;
+      return JNI_FALSE;
   }
 
   LOG(FATAL) << "unhandled switch statement";

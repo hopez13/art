@@ -63,7 +63,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Breakpoint_getLineNumberTable
     jclass k ATTRIBUTE_UNUSED,
     jobject target) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jint nlines;
@@ -73,22 +73,22 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Breakpoint_getLineNumberTable
     return nullptr;
   }
   jintArray lines_array = env->NewIntArray(nlines);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(lines));
     return nullptr;
   }
   jlongArray locs_array = env->NewLongArray(nlines);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(lines));
     return nullptr;
   }
   ScopedLocalRef<jclass> object_class(env, env->FindClass("java/lang/Object"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(lines));
     return nullptr;
   }
   jobjectArray ret = env->NewObjectArray(2, object_class.get(), nullptr);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(lines));
     return nullptr;
   }
@@ -110,7 +110,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_art_Breakpoint_getStartLocation(JNIEnv* 
                                                                         jclass k ATTRIBUTE_UNUSED,
                                                                         jobject target) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return 0;
   }
   jlong start = 0;
@@ -124,7 +124,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Breakpoint_clearBreakpoint(JNIEnv* en
                                                                       jobject target,
                                                                       jlocation location) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   JvmtiErrorToException(env, jvmti_env, jvmti_env->ClearBreakpoint(method, location));
@@ -135,7 +135,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Breakpoint_setBreakpoint(JNIEnv* env,
                                                                     jobject target,
                                                                     jlocation location) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   JvmtiErrorToException(env, jvmti_env, jvmti_env->SetBreakpoint(method, location));

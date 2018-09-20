@@ -63,7 +63,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1921_nativeSpin(JNIEnv* env, jcla
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_art_Test1921_isNativeThreadSpinning(JNIEnv*, jclass) {
-  return started.load();
+  return started.load() ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1921_pause(JNIEnv*, jclass) {

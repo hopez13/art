@@ -133,7 +133,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test931_testAgentThread(
                                 thread_name.get(),
                                 0,
                                 JNI_FALSE);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
 

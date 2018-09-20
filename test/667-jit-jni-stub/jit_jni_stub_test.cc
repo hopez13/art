@@ -57,7 +57,7 @@ void Java_Main_jitGc(JNIEnv*, jclass) {
 extern "C" JNIEXPORT
 jboolean Java_Main_isNextJitGcFull(JNIEnv*, jclass) {
   ScopedObjectAccess soa(Thread::Current());
-  return JitJniStubTestHelper::isNextJitGcFull(soa.Self());
+  return JitJniStubTestHelper::isNextJitGcFull(soa.Self()) ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace art

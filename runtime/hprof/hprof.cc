@@ -320,7 +320,7 @@ class EndianOutputBuffered : public EndianOutput {
   void HandleU1AsU2List(const uint8_t* values, size_t count) override {
     DCHECK_EQ(length_, buffer_.size());
     // All 8-bits are grouped in 2 to make 16-bit block like Java Char
-    if (count & 1) {
+    if ((count & 1) != 0u) {
       buffer_.push_back(0);
     }
     for (size_t i = 0; i < count; ++i) {

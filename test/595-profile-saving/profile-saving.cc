@@ -60,7 +60,9 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_presentInProfile(JNIEnv* env,
   return ProfileSaver::HasSeenMethod(std::string(filename_chars.c_str()),
                                      /*hot*/ true,
                                      MethodReference(art_method->GetDexFile(),
-                                                     art_method->GetDexMethodIndex()));
+                                                     art_method->GetDexMethodIndex()))
+             ? JNI_TRUE
+             : JNI_FALSE;
 }
 
 }  // namespace

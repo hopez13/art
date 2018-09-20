@@ -36,9 +36,10 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1941_setTracingOn(JNIEnv* env,
                                                                  jboolean enable) {
   JvmtiErrorToException(env,
                         jvmti_env,
-                        jvmti_env->SetEventNotificationMode(enable ? JVMTI_ENABLE : JVMTI_DISABLE,
-                                                            JVMTI_EVENT_SINGLE_STEP,
-                                                            thr));
+                        jvmti_env->SetEventNotificationMode(
+                            enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
+                            JVMTI_EVENT_SINGLE_STEP,
+                            thr));
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test1941_AllocEnv(JNIEnv* env, jclass) {

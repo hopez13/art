@@ -56,7 +56,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1942_nativeRun(JNIEnv* env, jclas
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_art_Test1942_isLocked(JNIEnv*, jclass) {
-  return locked.load();
+  return locked.load() ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1942_waitForPause(JNIEnv*, jclass) {

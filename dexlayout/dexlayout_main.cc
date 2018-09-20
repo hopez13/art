@@ -179,9 +179,9 @@ int DexlayoutDriver(int argc, char** argv) {
 
   // Open alternative output file.
   FILE* out_file = stdout;
-  if (options.output_file_name_) {
+  if (options.output_file_name_ != nullptr) {
     out_file = fopen(options.output_file_name_, "w");
-    if (!out_file) {
+    if (out_file == nullptr) {
       PLOG(ERROR) << "Can't open " << options.output_file_name_;
       return 1;
     }
@@ -189,7 +189,7 @@ int DexlayoutDriver(int argc, char** argv) {
 
   // Open profile file.
   std::unique_ptr<ProfileCompilationInfo> profile_info;
-  if (options.profile_file_name_) {
+  if (options.profile_file_name_ != nullptr) {
     int profile_fd = open(options.profile_file_name_, O_RDONLY);
     if (profile_fd < 0) {
       PLOG(ERROR) << "Can't open " << options.profile_file_name_;
@@ -211,12 +211,12 @@ int DexlayoutDriver(int argc, char** argv) {
     result |= dex_layout.ProcessFile(argv[optind++]);
   }  // while
 
-  if (options.output_file_name_) {
+  if (options.output_file_name_ != nullptr) {
     CHECK(out_file != nullptr && out_file != stdout);
     fclose(out_file);
   }
 
-  return result != 0;
+  return result;
 }
 
 }  // namespace art

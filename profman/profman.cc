@@ -1179,11 +1179,13 @@ class ProfMan final {
   }
 
   int32_t CopyAndUpdateProfileKey() {
-    // Validate that at least one profile file was passed, as well as a reference profile.
-    if (!(profile_files_.size() == 1 ^ profile_files_fd_.size() == 1)) {
+    // Validate that one profile file was passed, as well as a reference profile.
+    if (profile_files_.size() + profile_files_fd_.size() != 1) {
       Usage("Only one profile file should be specified.");
     }
-    if (reference_profile_file_.empty() && !FdIsValid(reference_profile_file_fd_)) {
+    const bool use_fds = profile_files_fd_.size() == 1;
+    if ((!use_fds && reference_profile_file_.empty()) ||
+        (use_fds && !FdIsValid(reference_profile_file_fd_))) {
       Usage("No reference profile file specified.");
     }
 
@@ -1194,8 +1196,6 @@ class ProfMan final {
     static constexpr int32_t kErrorFailedToUpdateProfile = -1;
     static constexpr int32_t kErrorFailedToSaveProfile = -2;
     static constexpr int32_t kErrorFailedToLoadProfile = -3;
-
-    bool use_fds = profile_files_fd_.size() == 1;
 
     ProfileCompilationInfo profile;
     // Do not clear if invalid. The input might be an archive.

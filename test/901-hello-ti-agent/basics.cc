@@ -134,7 +134,7 @@ jint OnLoad(JavaVM* vm,
   CHECK_CALL_SUCCESS(env2->DisposeEnvironment());
 #undef CHECK_CALL_SUCCESS
 
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0) != JNI_OK) {
     printf("Unable to get jvmti env!\n");
     return 1;
   }
@@ -184,7 +184,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_art_Test901_checkUnattached(
   jvmtiError res = JVMTI_ERROR_NONE;
   std::thread t1(CallJvmtiFunction, jvmti_env, Main_klass, &res);
   t1.join();
-  return res == JVMTI_ERROR_UNATTACHED_THREAD;
+  return res == JVMTI_ERROR_UNATTACHED_THREAD ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_art_Test901_getErrorName(

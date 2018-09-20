@@ -58,12 +58,12 @@ static int64_t IntPow(int64_t b, int64_t e, /*out*/ bool* overflow) {
   DCHECK_LT(0, b);
   DCHECK_LT(0, e);
   int64_t pow = 1;
-  while (e) {
-    if (e & 1) {
+  while (e != 0) {
+    if ((e & 1) != 0) {
       pow = SafeMul(pow, b, overflow);
     }
     e >>= 1;
-    if (e) {
+    if (e != 0) {
       b = SafeMul(b, b, overflow);
     }
   }
@@ -1052,7 +1052,7 @@ bool InductionVarRange::GenerateLastValuePolynomial(HInductionVarAnalysis::Induc
     // Evaluate bounds on sum_i=0^m-1(a * i + b) + c for known
     // maximum index value m as a * (m * (m-1)) / 2 + b * m + c.
     HInstruction* c = nullptr;
-    if (GenerateCode(info->op_b, nullptr, graph, block, graph ? &c : nullptr, false, false)) {
+    if (GenerateCode(info->op_b, nullptr, graph, block, graph != nullptr ? &c : nullptr, false, false)) {
       if (graph != nullptr) {
         DataType::Type type = info->type;
         int64_t sum = a * ((m * (m - 1)) / 2) + b * m;
@@ -1186,9 +1186,9 @@ bool InductionVarRange::GenerateLastValuePeriodic(HInductionVarAnalysis::Inducti
   HInstruction* y = nullptr;
   HInstruction* t = nullptr;
   if (period == 2 &&
-      GenerateCode(info->op_a, nullptr, graph, block, graph ? &x : nullptr, false, false) &&
-      GenerateCode(info->op_b, nullptr, graph, block, graph ? &y : nullptr, false, false) &&
-      GenerateCode(trip->op_a, nullptr, graph, block, graph ? &t : nullptr, false, false)) {
+      GenerateCode(info->op_a, nullptr, graph, block, graph != nullptr ? &x : nullptr, false, false) &&
+      GenerateCode(info->op_b, nullptr, graph, block, graph != nullptr ? &y : nullptr, false, false) &&
+      GenerateCode(trip->op_a, nullptr, graph, block, graph != nullptr ? &t : nullptr, false, false)) {
     // During actual code generation (graph != nullptr), generate is_even ? x : y.
     if (graph != nullptr) {
       DataType::Type type = trip->type;
@@ -1202,7 +1202,7 @@ bool InductionVarRange::GenerateLastValuePeriodic(HInductionVarAnalysis::Inducti
     // Guard select with taken test if needed.
     if (*needs_taken_test) {
       HInstruction* is_taken = nullptr;
-      if (GenerateCode(trip->op_b, nullptr, graph, block, graph ? &is_taken : nullptr, false, false)) {
+      if (GenerateCode(trip->op_b, nullptr, graph, block, graph != nullptr ? &is_taken : nullptr, false, false)) {
         if (graph != nullptr) {
           ArenaAllocator* allocator = graph->GetAllocator();
           *result = Insert(block, new (allocator) HSelect(is_taken, *result, x, kNoDexPc));

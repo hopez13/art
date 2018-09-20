@@ -171,7 +171,7 @@ static void DumpUnattachedThread(std::ostream& os, pid_t tid, bool dump_native_s
 
 void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack) {
   DIR* d = opendir("/proc/self/task");
-  if (!d) {
+  if (d == nullptr) {
     return;
   }
 
@@ -180,7 +180,7 @@ void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack)
   while ((e = readdir(d)) != nullptr) {
     char* end;
     pid_t tid = strtol(e->d_name, &end, 10);
-    if (!*end) {
+    if (*end == 0u) {
       bool contains;
       {
         MutexLock mu(self, *Locks::thread_list_lock_);

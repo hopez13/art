@@ -56,7 +56,7 @@ void CodeSimulatorArm64::RunFrom(intptr_t code_buffer) {
 
 bool CodeSimulatorArm64::GetCReturnBool() const {
   DCHECK(kCanSimulate);
-  return simulator_->ReadWRegister(0);
+  return simulator_->ReadWRegister(0) != 0;
 }
 
 int32_t CodeSimulatorArm64::GetCReturnInt32() const {

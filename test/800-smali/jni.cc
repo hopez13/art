@@ -34,7 +34,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isAotVerified(JNIEnv* env, jclas
   const DexFile& dex_file = *klass->GetDexCache()->GetDexFile();
   ClassStatus oat_file_class_status(ClassStatus::kNotReady);
   bool ret = rt->GetClassLinker()->VerifyClassUsingOatFile(dex_file, klass, oat_file_class_status);
-  return ret;
+  return ret ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace

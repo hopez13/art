@@ -34,7 +34,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_testCompiled(JNIEnv* env,
   ScopedObjectAccess soa(env);
   ObjPtr<mirror::Executable> exec = soa.Decode<mirror::Executable>(method);
   ArtMethod* art_method = exec->GetArtMethod();
-  return art_method->HasAnyCompiledCode();
+  return art_method->HasAnyCompiledCode() ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace

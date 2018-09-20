@@ -131,9 +131,9 @@ int dexdumpDriver(int argc, char** argv) {
   }
 
   // Open alternative output file.
-  if (gOptions.outputFileName) {
+  if (gOptions.outputFileName != nullptr) {
     gOutFile = fopen(gOptions.outputFileName, "w");
-    if (!gOutFile) {
+    if (gOutFile == nullptr) {
       PLOG(ERROR) << "Can't open " << gOptions.outputFileName;
       return 1;
     }
@@ -144,7 +144,7 @@ int dexdumpDriver(int argc, char** argv) {
   while (optind < argc) {
     result |= processFile(argv[optind++]);
   }  // while
-  return result != 0;
+  return result;
 }
 
 }  // namespace art

@@ -122,11 +122,11 @@ extern "C" JNIEXPORT void Java_art_Test1934_nativeDoInterleaved(JNIEnv* env,
 
   // Call closure.
   ScopedLocalRef<jclass> runnable_klass(env, env->FindClass("java/lang/Runnable"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jmethodID doRun = env->GetMethodID(runnable_klass.get(), "run", "()V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   env->CallVoidMethod(closure, doRun);

@@ -921,17 +921,17 @@ jvmtiError ClassUtil::GetClassLoaderClassDescriptors(jvmtiEnv* env,
   }
   art::JNIEnvExt* jnienv = self->GetJniEnv();
   if (loader == nullptr ||
-      jnienv->IsInstanceOf(loader, art::WellKnownClasses::java_lang_BootClassLoader)) {
+      jnienv->IsInstanceOf(loader, art::WellKnownClasses::java_lang_BootClassLoader) == JNI_TRUE) {
     // We can just get the dex files directly for the boot class path.
     return CopyClassDescriptors(env,
                                 art::Runtime::Current()->GetClassLinker()->GetBootClassPath(),
                                 count_ptr,
                                 classes);
   }
-  if (!jnienv->IsInstanceOf(loader, art::WellKnownClasses::java_lang_ClassLoader)) {
+  if (jnienv->IsInstanceOf(loader, art::WellKnownClasses::java_lang_ClassLoader) == JNI_FALSE) {
     return ERR(ILLEGAL_ARGUMENT);
-  } else if (!jnienv->IsInstanceOf(loader,
-                                   art::WellKnownClasses::dalvik_system_BaseDexClassLoader)) {
+  } else if (jnienv->IsInstanceOf(loader, art::WellKnownClasses::dalvik_system_BaseDexClassLoader)
+                 == JNI_FALSE) {
     LOG(ERROR) << "GetClassLoaderClassDescriptors is only implemented for BootClassPath and "
                << "dalvik.system.BaseDexClassLoader class loaders";
     // TODO Possibly return OK With no classes would  be better since these ones cannot have any
@@ -965,12 +965,13 @@ jvmtiError ClassUtil::GetClassLoaderClasses(jvmtiEnv* env,
     return ERR(NULL_POINTER);
   }
   art::Thread* self = art::Thread::Current();
-  if (!self->GetJniEnv()->IsInstanceOf(initiating_loader,
-                                       art::WellKnownClasses::java_lang_ClassLoader)) {
+  if (self->GetJniEnv()->IsInstanceOf(initiating_loader,
+                                      art::WellKnownClasses::java_lang_ClassLoader) == JNI_FALSE) {
     return ERR(ILLEGAL_ARGUMENT);
   }
-  if (self->GetJniEnv()->IsInstanceOf(initiating_loader,
-                                      art::WellKnownClasses::java_lang_BootClassLoader)) {
+  if (self->GetJniEnv()->
+          IsInstanceOf(initiating_loader, art::WellKnownClasses::java_lang_BootClassLoader)
+              != JNI_TRUE) {
     // Need to use null for the BootClassLoader.
     initiating_loader = nullptr;
   }
