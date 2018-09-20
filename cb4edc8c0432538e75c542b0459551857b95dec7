@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71640a5f_a9905944",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4080,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-20T15:46:16Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the right thing to call. You want to post this *on* the thread, so you want to run a (synchronous) checkpoint.",
+      "range": {
+        "startLine": 4080,
+        "startChar": 39,
+        "endLine": 4080,
+        "endChar": 46
+      },
+      "revId": "cb4edc8c0432538e75c542b0459551857b95dec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
