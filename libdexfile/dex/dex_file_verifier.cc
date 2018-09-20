@@ -3212,10 +3212,11 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
   bool is_direct = ((method_access_flags & (kAccStatic | kAccPrivate)) != 0) ||
                    is_constructor_by_name;
   if (is_direct != expect_direct) {
-    *error_msg = StringPrintf("Direct/virtual method %" PRIu32 "(%s) not in expected list %d",
+    *error_msg = StringPrintf("%s method %" PRIu32 "(%s) not in expected list %s",
+                              is_direct ? "Direct" : "Virtual",
                               method_index,
                               GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-                              expect_direct);
+                              expect_direct ? "direct" : "virtual");
     return false;
   }
 

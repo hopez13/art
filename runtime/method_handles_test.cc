@@ -162,7 +162,7 @@ TEST_F(MethodHandlesTest, UnsupportedPrimitiveWideningZI) {
   Handle<mirror::Class> from = hs.NewHandle(cl->FindPrimitiveClass('Z'));
   Handle<mirror::Class> to = hs.NewHandle(cl->FindPrimitiveClass('I'));
   JValue value;
-  value.SetZ(true);
+  value.SetZ(1u);
   ASSERT_FALSE(TryConversion(soa.Self(), from, to, &value));
   ASSERT_TRUE(soa.Self()->IsExceptionPending());
   ASSERT_TRUE(IsWrongMethodTypeException(soa.Self()->GetException()));

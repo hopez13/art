@@ -696,10 +696,10 @@ bool VerifyEncodedValue(dex_ir::EncodedValue* orig,
     case DexFile::kDexAnnotationBoolean:
       if (orig->GetBoolean() != output->GetBoolean()) {
         *error_msg = StringPrintf(
-            "Mismatched encoded boolean for annotation at offset %x: %d vs %d.",
+            "Mismatched encoded boolean for annotation at offset %x: %s vs %s.",
             orig_offset,
-            orig->GetBoolean(),
-            output->GetBoolean());
+            orig->GetBoolean() ? "true" : "false",
+            output->GetBoolean() ? "true" : "false");
         return false;
       }
       break;

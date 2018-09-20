@@ -506,15 +506,15 @@ void UnstartedRuntime::UnstartedClassIsAnonymousClass(
   Handle<mirror::Class> klass(hs.NewHandle(
       reinterpret_cast<mirror::Class*>(shadow_frame->GetVRegReference(arg_offset))));
   if (klass->IsProxyClass() || klass->GetDexCache() == nullptr) {
-    result->SetZ(false);
+    result->SetZ(0u);
     return;
   }
   ObjPtr<mirror::String> class_name = nullptr;
   if (!annotations::GetInnerClass(klass, &class_name)) {
-    result->SetZ(false);
+    result->SetZ(0u);
     return;
   }
-  result->SetZ(class_name == nullptr);
+  result->SetZ(class_name == nullptr ? 1u : 0u);
 }
 
 static MemMap FindAndExtractEntry(const std::string& jar_file,

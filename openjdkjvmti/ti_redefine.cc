@@ -414,8 +414,8 @@ jvmtiError Redefiner::RedefineClassesDirect(ArtJvmTiEnv* env,
 
 jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const ArtClassDefinition& def) {
   std::string original_dex_location;
-  jvmtiError ret = OK;
-  if ((ret = GetClassLocation(env, def.GetClass(), &original_dex_location))) {
+  jvmtiError ret;
+  if ((ret = GetClassLocation(env, def.GetClass(), &original_dex_location)) != OK) {
     *error_msg_ = "Unable to get original dex file location!";
     return ret;
   }

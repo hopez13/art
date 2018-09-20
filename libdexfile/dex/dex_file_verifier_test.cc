@@ -728,7 +728,7 @@ TEST_F(DexFileVerifierTest, MethodAccessFlagsInterfaces) {
 
         OrMaskToMethodFlags(dex_file, "foo", kAccStatic);
       },
-      "Direct/virtual method 1(LInterfaceMethodFlags;.foo) not in expected list 0");
+      "Direct method 1(LInterfaceMethodFlags;.foo) not in expected list virtual");
   VerifyModification(
       kMethodFlagsInterface,
       "method_flags_interface_private",
@@ -738,7 +738,7 @@ TEST_F(DexFileVerifierTest, MethodAccessFlagsInterfaces) {
         ApplyMaskToMethodFlags(dex_file, "foo", ~kAccPublic);
         OrMaskToMethodFlags(dex_file, "foo", kAccPrivate);
       },
-      "Direct/virtual method 1(LInterfaceMethodFlags;.foo) not in expected list 0");
+      "Direct method 1(LInterfaceMethodFlags;.foo) not in expected list virtual");
 
   VerifyModification(
       kMethodFlagsInterface,

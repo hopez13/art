@@ -1656,13 +1656,13 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
     const bool a_is_hot = from_hot_method[a->GetIndex()];
     const bool b_is_hot = from_hot_method[b->GetIndex()];
     if (a_is_hot != b_is_hot) {
-      return a_is_hot < b_is_hot;
+      return b_is_hot;  // ~= a_is_hot "<" b_is_hot.
     }
     // After hot methods are partitioned, subpartition shorties.
     const bool a_is_shorty = is_shorty[a->GetIndex()];
     const bool b_is_shorty = is_shorty[b->GetIndex()];
     if (a_is_shorty != b_is_shorty) {
-      return a_is_shorty < b_is_shorty;
+      return b_is_shorty;  // ~= a_is_shorty "<" b_is_shorty.
     }
     // Order by index by default.
     return a->GetIndex() < b->GetIndex();
