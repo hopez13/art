@@ -1,0 +1,458 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb8a0587_c18f158a",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Line too long. We want to achieve empty output of\n\n    git log -n1 -p | grep -E \u0027^\\+.{101}\u0027",
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c611ea_9edf4827",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Brackets for consistency? (Or remove those around \"data.method_is_static !\u003d 0u\".)",
+      "range": {
+        "startLine": 1580,
+        "startChar": 43,
+        "endLine": 1580,
+        "endChar": 64
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08ede0a8_88f6c6d4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1594,
+        "startChar": 43,
+        "endLine": 1594,
+        "endChar": 64
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a24dc55_4fa1b6fe",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we return a non-zero failure code here?",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 14
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b176ec_455235f6",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "If the variable is not used in the loop body, I\u0027d use\n\n  for (; len !\u003d 0u; --len)",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 23
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8af39370_0ed821e2",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; len !\u003d 0u; --len)",
+      "range": {
+        "startLine": 250,
+        "startChar": 2,
+        "endLine": 250,
+        "endChar": 23
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feef5ec8_725aafc8",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; size !\u003d 0u; --size)",
+      "range": {
+        "startLine": 869,
+        "startChar": 2,
+        "endLine": 869,
+        "endChar": 24
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5510c026_310e806a",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; try_items_size !\u003d 0u; --try_items_size)",
+      "range": {
+        "startLine": 1307,
+        "startChar": 2,
+        "endLine": 1307,
+        "endChar": 34
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "832e3b28_3792e0cd",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; count !\u003d 0u; --count)",
+      "range": {
+        "startLine": 1887,
+        "startChar": 2,
+        "endLine": 1887,
+        "endChar": 25
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22f30c20_3710217f",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2557,
+        "startChar": 2,
+        "endLine": 2557,
+        "endChar": 25
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "229bb016_5ad543ff",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2842,
+        "startChar": 2,
+        "endLine": 2842,
+        "endChar": 25
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c916ff8_495e80ee",
+        "filename": "libdexfile/dex/utf.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; char_count !\u003d 0u; --char_count)",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00921e65_f4bd45c7",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; char_count !\u003d 0u; --char_count)",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 30
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e111a22a_6b2bb5f1",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 30
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "429babcd_75eb5aac",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Add local variable \"jnienv\" (see line 922). That shall allow these two \"if\"s to use the same style.",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 23
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5116c08_d729bccf",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "for (; size !\u003d 0u; --size)",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 28
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ef9a682_fe0c31a6",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 28
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11f0dc45_a1c9c010",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Remove (unused; performs implicit conversion).",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 0
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "744855fc_a5e7b60f",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "/* checkUsage\u003d */",
+      "range": {
+        "startLine": 353,
+        "startChar": 60,
+        "endLine": 353,
+        "endChar": 61
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29872961_9be65711",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T10:30:21Z",
+      "side": 1,
+      "message": "result !\u003d nullptr",
+      "range": {
+        "startLine": 140,
+        "startChar": 9,
+        "endLine": 140,
+        "endChar": 50
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
