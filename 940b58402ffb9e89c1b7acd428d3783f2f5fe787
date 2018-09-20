@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd3b2c5_7a95f744",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-20T13:10:54Z",
+      "side": 1,
+      "message": "Maybe use\n\n  const Handle\u003cmirror::Object\u003e\u0026\n\nhere?",
+      "range": {
+        "startLine": 1341,
+        "startChar": 32,
+        "endLine": 1341,
+        "endChar": 54
+      },
+      "revId": "940b58402ffb9e89c1b7acd428d3783f2f5fe787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
