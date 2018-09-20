@@ -60,8 +60,8 @@ ImageHeader::ImageHeader(uint32_t image_begin,
     patch_delta_(0),
     image_roots_(image_roots),
     pointer_size_(pointer_size),
-    compile_pic_(compile_pic),
-    is_pic_(is_pic),
+    compile_pic_(compile_pic ? 1 : 0),
+    is_pic_(is_pic ? 1 : 0),
     storage_mode_(storage_mode),
     data_size_(data_size) {
   CHECK_EQ(image_begin, RoundUp(image_begin, kPageSize));
