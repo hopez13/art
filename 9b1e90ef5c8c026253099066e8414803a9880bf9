@@ -46,6 +46,30 @@
       "revId": "9b1e90ef5c8c026253099066e8414803a9880bf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3659a45_deefb567",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-20T11:41:35Z",
+      "side": 0,
+      "message": "Ah right. Could you point that out when creating the vector? It\u0027s still good to know there might be suspension, and the handles being owned by the VariableSizedAndleScope make sure the pointers are updated.",
+      "parentUuid": "3cb99d19_2fa50da4",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 40
+      },
+      "revId": "9b1e90ef5c8c026253099066e8414803a9880bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
