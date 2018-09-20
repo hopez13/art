@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3e95d75_5e9b919e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T15:39:40Z",
+      "side": 1,
+      "message": "Looks up to date to me, see line 245.",
+      "parentUuid": "af101d65_530b8532",
+      "range": {
+        "startLine": 239,
+        "startChar": 43,
+        "endLine": 240,
+        "endChar": 40
+      },
+      "revId": "ac3ac681a1d1d5d5d4662b7e4d3cf8e0b4d53d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "396acd5a_d28a64d8",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "ac3ac681a1d1d5d5d4662b7e4d3cf8e0b4d53d27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d595b28_90ef6df9",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T15:39:40Z",
+      "side": 1,
+      "message": "Ditto, see line 258.",
+      "parentUuid": "396acd5a_d28a64d8",
+      "range": {
+        "startLine": 252,
+        "startChar": 42,
+        "endLine": 253,
+        "endChar": 40
+      },
+      "revId": "ac3ac681a1d1d5d5d4662b7e4d3cf8e0b4d53d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
