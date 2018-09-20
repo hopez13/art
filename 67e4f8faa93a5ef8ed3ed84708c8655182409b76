@@ -262,6 +262,30 @@
       "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5647886_f9dfd944",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2018-09-20T06:49:30Z",
+      "side": 1,
+      "message": "As jsjeon@ mention, we do allow removal of unused const-string instructions for both D8 and R8 (independent of this change). The only difference should be an OOM afaik, and that will most likely not be consistently observable.",
+      "parentUuid": "250c95f1_566f98f8",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "67e4f8faa93a5ef8ed3ed84708c8655182409b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
