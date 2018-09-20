@@ -70,6 +70,30 @@
       "revId": "9b1e90ef5c8c026253099066e8414803a9880bf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5473ad30_467c2af6",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T13:08:04Z",
+      "side": 0,
+      "message": "Done (added a comment and a DCHECK()).",
+      "parentUuid": "c3659a45_deefb567",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 40
+      },
+      "revId": "9b1e90ef5c8c026253099066e8414803a9880bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
