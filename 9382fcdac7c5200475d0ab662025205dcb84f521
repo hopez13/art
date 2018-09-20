@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e50a4ba5_6154bc96",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-20T10:38:43Z",
+      "side": 1,
+      "message": "Good catch.\n\nI think using regexp matching would be simpler and shorter here.",
+      "parentUuid": "1e3b1f32_e85d7eee",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 56
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef5f0331_7f6973c6",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 5
