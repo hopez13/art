@@ -152,6 +152,30 @@
     },
     {
       "key": {
+        "uuid": "3b3ef4e6_d49e71cc",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-20T22:40:50Z",
+      "side": 1,
+      "message": "Not-treating ints like bools is in our style guide for better or for worse, the discussion really deserves to go there.\n\nhttp://go/art-style-guide#heading\u003dh.acdoxjd315ox\n\nIts literally the 2nd example",
+      "parentUuid": "8aa5cba3_9181feae",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5d647a1_301cbf22",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
