@@ -45,7 +45,7 @@ namespace art {
 static bool HasWhitespace(const char* str) {
   DCHECK(str != nullptr);
   while (str[0] != 0) {
-    if (isspace(str[0])) {
+    if (isspace(str[0]) != 0) {
       return true;
     }
     str++;

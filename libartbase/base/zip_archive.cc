@@ -60,7 +60,7 @@ ZipEntry::~ZipEntry() {
 
 bool ZipEntry::ExtractToFile(File& file, std::string* error_msg) {
   const int32_t error = ExtractEntryToFile(handle_, zip_entry_, file.Fd());
-  if (error) {
+  if (error != 0) {
     *error_msg = std::string(ErrorCodeString(error));
     return false;
   }
@@ -86,7 +86,7 @@ MemMap ZipEntry::ExtractToMemMap(const char* zip_filename,
   }
 
   const int32_t error = ExtractToMemory(handle_, zip_entry_, map.Begin(), map.Size());
-  if (error) {
+  if (error != 0) {
     *error_msg = std::string(ErrorCodeString(error));
     return MemMap::Invalid();
   }
@@ -221,7 +221,7 @@ ZipArchive* ZipArchive::Open(const char* filename, std::string* error_msg) {
 
   ZipArchiveHandle handle;
   const int32_t error = OpenArchive(filename, &handle);
-  if (error) {
+  if (error != 0) {
     *error_msg = std::string(ErrorCodeString(error));
     CloseArchive(handle);
     return nullptr;
@@ -237,7 +237,7 @@ ZipArchive* ZipArchive::OpenFromFd(int fd, const char* filename, std::string* er
 
   ZipArchiveHandle handle;
   const int32_t error = OpenArchiveFd(fd, filename, &handle);
-  if (error) {
+  if (error != 0) {
     *error_msg = std::string(ErrorCodeString(error));
     CloseArchive(handle);
     return nullptr;
@@ -253,7 +253,7 @@ ZipEntry* ZipArchive::Find(const char* name, std::string* error_msg) const {
   // Resist the urge to delete the space. <: is a bigraph sequence.
   std::unique_ptr< ::ZipEntry> zip_entry(new ::ZipEntry);
   const int32_t error = FindEntry(handle_, ZipString(name), zip_entry.get());
-  if (error) {
+  if (error != 0) {
     *error_msg = std::string(ErrorCodeString(error));
     return nullptr;
   }

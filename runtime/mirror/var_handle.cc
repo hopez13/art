@@ -1824,7 +1824,7 @@ bool ArrayElementVarHandle::Access(AccessMode access_mode,
 }
 
 bool ByteArrayViewVarHandle::GetNativeByteOrder() {
-  return GetFieldBoolean(NativeByteOrderOffset());
+  return GetFieldBoolean(NativeByteOrderOffset()) != 0u;
 }
 
 bool ByteArrayViewVarHandle::Access(AccessMode access_mode,
@@ -1912,7 +1912,7 @@ bool ByteArrayViewVarHandle::Access(AccessMode access_mode,
 }
 
 bool ByteBufferViewVarHandle::GetNativeByteOrder() {
-  return GetFieldBoolean(NativeByteOrderOffset());
+  return GetFieldBoolean(NativeByteOrderOffset()) != 0u;
 }
 
 bool ByteBufferViewVarHandle::Access(AccessMode access_mode,
@@ -1934,7 +1934,7 @@ bool ByteBufferViewVarHandle::Access(AccessMode access_mode,
 
   // Check access_mode is compatible with ByteBuffer's read-only property.
   bool is_read_only = byte_buffer->GetFieldBoolean(
-      GetMemberOffset(WellKnownClasses::java_nio_ByteBuffer_isReadOnly));
+      GetMemberOffset(WellKnownClasses::java_nio_ByteBuffer_isReadOnly)) != 0u;
   if (is_read_only && !IsReadOnlyAccessMode(access_mode)) {
     ThrowReadOnlyBufferException();
     return false;

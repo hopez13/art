@@ -72,7 +72,7 @@ JNIEXPORT jint JVM_Open(const char* fname, jint flags, jint mode) {
      * file open fails due to O_EXCL.
      */
     // Don't use JVM_O_DELETE, it's problematic with FUSE, see b/28901232.
-    if (flags & JVM_O_DELETE) {
+    if ((flags & JVM_O_DELETE) != 0) {
         LOG(FATAL) << "JVM_O_DELETE option is not supported (while opening: '"
                    << fname << "')";
     }

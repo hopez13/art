@@ -709,7 +709,7 @@ bool MethodVerifier::Verify() {
         if (IsInstanceConstructor()) {
           Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "interfaces may not have non-static constructor";
           return false;
-        } else if (method_access_flags_ & kAccFinal) {
+        } else if ((method_access_flags_ & kAccFinal) != 0u) {
           Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "interfaces may not have final methods";
           return false;
         } else {
@@ -717,7 +717,7 @@ bool MethodVerifier::Verify() {
           if (dex_file_->SupportsDefaultMethods()) {
             access_flag_options |= kAccPrivate;
           }
-          if (!(method_access_flags_ & access_flag_options)) {
+          if ((method_access_flags_ & access_flag_options) == 0u) {
             Fail(VERIFY_ERROR_BAD_CLASS_HARD)
                 << "interfaces may not have protected or package-private members";
             return false;

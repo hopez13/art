@@ -112,8 +112,8 @@ static JdwpError RequestInvoke(JdwpState*, Request* request,
 
   uint32_t options = request->ReadUnsigned32("InvokeOptions bit flags");
   VLOG(jdwp) << StringPrintf("        options=0x%04x%s%s", options,
-                             (options & INVOKE_SINGLE_THREADED) ? " (SINGLE_THREADED)" : "",
-                             (options & INVOKE_NONVIRTUAL) ? " (NONVIRTUAL)" : "");
+                             (options & INVOKE_SINGLE_THREADED) != 0u ? " (SINGLE_THREADED)" : "",
+                             (options & INVOKE_NONVIRTUAL) != 0u ? " (NONVIRTUAL)" : "");
 
   JDWP::JdwpError error =  Dbg::PrepareInvokeMethod(request->GetId(), thread_id, object_id,
                                                     class_id, method_id, arg_count,

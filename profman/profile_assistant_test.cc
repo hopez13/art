@@ -228,7 +228,7 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     argv_str.push_back(profman_cmd);
     argv_str.push_back("--generate-test-profile=" + filename);
     std::string error;
-    return ExecAndReturnCode(argv_str, &error);
+    return ExecAndReturnCode(argv_str, &error) == 0;
   }
 
   bool GenerateTestProfileWithInputDex(const std::string& filename) {
@@ -240,7 +240,7 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     argv_str.push_back("--apk=" + GetLibCoreDexFileNames()[0]);
     argv_str.push_back("--dex-location=" + GetLibCoreDexFileNames()[0]);
     std::string error;
-    return ExecAndReturnCode(argv_str, &error);
+    return ExecAndReturnCode(argv_str, &error) == 0;
   }
 
   bool CreateProfile(const std::string& profile_file_contents,

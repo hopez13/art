@@ -521,7 +521,7 @@ bool AdbConnectionState::SetupAdbConnection() {
 #endif
       if (!trusted) {
         LOG(ERROR) << "adb socket is not trusted. Aborting connection.";
-        if (sock >= 0 && shutdown(sock, SHUT_RDWR)) {
+        if (sock >= 0 && (shutdown(sock, SHUT_RDWR) != 0)) {
           PLOG(ERROR) << "trouble shutting down socket";
         }
         return false;

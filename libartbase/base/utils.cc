@@ -122,7 +122,7 @@ void SetThreadName(const char* thread_name) {
   bool hasAt = false;
   bool hasDot = false;
   const char* s = thread_name;
-  while (*s) {
+  while (*s != 0u) {
     if (*s == '.') {
       hasDot = true;
     } else if (*s == '@') {

@@ -209,11 +209,11 @@ static const char* quotedBool(bool val) {
  * Returns a quoted string representing the access flags.
  */
 static const char* quotedVisibility(u4 accessFlags) {
-  if (accessFlags & kAccPublic) {
+  if ((accessFlags & kAccPublic) != 0u) {
     return "\"public\"";
-  } else if (accessFlags & kAccProtected) {
+  } else if ((accessFlags & kAccProtected) != 0u) {
     return "\"protected\"";
-  } else if (accessFlags & kAccPrivate) {
+  } else if ((accessFlags & kAccPrivate) != 0u) {
     return "\"private\"";
   } else {
     return "\"package\"";
@@ -307,7 +307,7 @@ static char* createAccessFlagStr(u4 flags, AccessFor forWhat) {
   cp = str = reinterpret_cast<char*>(malloc(count * (kLongest + 1) + 1));
 
   for (int i = 0; i < kNumFlags; i++) {
-    if (flags & 0x01) {
+    if ((flags & 0x01) != 0u) {
       const char* accessStr = kAccessStrings[forWhat][i];
       const int len = strlen(accessStr);
       if (cp != str) {
@@ -362,7 +362,7 @@ static void asciify(char* out, const unsigned char* data, size_t len) {
  */
 static void dumpEscapedString(const char* p) {
   fputs("\"", gOutFile);
-  for (; *p; p++) {
+  for (; *p != 0u; p++) {
     switch (*p) {
       case '\\':
         fputs("\\\\", gOutFile);
@@ -390,7 +390,7 @@ static void dumpEscapedString(const char* p) {
  * Dumps a string as an XML attribute value.
  */
 static void dumpXmlAttribute(const char* p) {
-  for (; *p; p++) {
+  for (; *p != 0u; p++) {
     switch (*p) {
       case '&':
         fputs("&amp;", gOutFile);
@@ -531,7 +531,7 @@ static void dumpEncodedValue(const DexFile* pDexFile, const u1** data, u1 type, 
       fputs("null", gOutFile);
       break;
     case DexFile::kDexAnnotationBoolean:
-      fputs(strBool(arg), gOutFile);
+      fputs(strBool(arg != 0u), gOutFile);
       break;
     default:
       fputs("????", gOutFile);
@@ -1752,7 +1752,7 @@ static void dumpCallSite(const DexFile* pDexFile, u4 idx) {
         break;
       case EncodedArrayValueIterator::ValueType::kBoolean:
         type = "boolean";
-        value = it.GetJavaValue().z ? "true" : "false";
+        value = it.GetJavaValue().z != 0u ? "true" : "false";
         break;
     }
 

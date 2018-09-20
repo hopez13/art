@@ -600,7 +600,7 @@ class OatDumper {
       }
     }
 
-    if (options_.export_dex_location_) {
+    if (options_.export_dex_location_ != nullptr) {
       std::string error_msg;
       std::string vdex_filename = GetVdexFilename(oat_file_.GetLocation());
       if (!OS::FileExists(vdex_filename.c_str())) {
@@ -2073,7 +2073,7 @@ class ImageDumper {
         os << StringPrintf("%d (0x%x)\n", field->GetShort(obj), field->GetShort(obj));
         break;
       case Primitive::kPrimBoolean:
-        os << StringPrintf("%s (0x%x)\n", field->GetBoolean(obj) ? "true" : "false",
+        os << StringPrintf("%s (0x%x)\n", field->GetBoolean(obj) != 0u ? "true" : "false",
             field->GetBoolean(obj));
         break;
       case Primitive::kPrimByte:

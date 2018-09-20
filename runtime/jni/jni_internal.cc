@@ -586,7 +586,7 @@ class JNI {
     ScopedObjectAccess soa(env);
 
     // If we have no exception to describe, pass through.
-    if (!soa.Self()->GetException()) {
+    if (soa.Self()->GetException() == nullptr) {
       return;
     }
 

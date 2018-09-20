@@ -59,13 +59,13 @@ TEST(BitMemoryRegion, TestBit) {
         // Check Store and Load with bit_offset set on the region.
         std::fill_n(data, sizeof(data), initial_value * 0xFF);
         BitMemoryRegion bmr1(MemoryRegion(&data, sizeof(data)), bit_offset, 1);
-        bmr1.StoreBit(0, value);
+        bmr1.StoreBit(0, value != 0u);
         EXPECT_EQ(bmr1.LoadBit(0), value);
         CheckBits(data, sizeof(data), initial_value, bit_offset, 1, value);
         // Check Store and Load with bit_offset set on the methods.
         std::fill_n(data, sizeof(data), initial_value * 0xFF);
         BitMemoryRegion bmr2(MemoryRegion(&data, sizeof(data)));
-        bmr2.StoreBit(bit_offset, value);
+        bmr2.StoreBit(bit_offset, value != 0u);
         EXPECT_EQ(bmr2.LoadBit(bit_offset), value);
         CheckBits(data, sizeof(data), initial_value, bit_offset, 1, value);
       }

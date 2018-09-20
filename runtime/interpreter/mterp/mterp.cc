@@ -649,11 +649,11 @@ extern "C" void MterpLogSuspendFallback(Thread* self, ShadowFrame* shadow_frame,
   UNUSED(self);
   const Instruction* inst = Instruction::At(shadow_frame->GetDexPCPtr());
   uint16_t inst_data = inst->Fetch16(0);
-  if (flags & kCheckpointRequest) {
+  if ((flags & kCheckpointRequest) != 0u) {
     LOG(INFO) << "Checkpoint fallback: " << inst->Opcode(inst_data);
-  } else if (flags & kSuspendRequest) {
+  } else if ((flags & kSuspendRequest) != 0u) {
     LOG(INFO) << "Suspend fallback: " << inst->Opcode(inst_data);
-  } else if (flags & kEmptyCheckpointRequest) {
+  } else if ((flags & kEmptyCheckpointRequest) != 0u) {
     LOG(INFO) << "Empty checkpoint fallback: " << inst->Opcode(inst_data);
   }
 }

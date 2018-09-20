@@ -4652,7 +4652,7 @@ void InstructionCodeGeneratorARMVIXL::HandleIntegerRotate(HRor* ror) {
     // so map all rotations to a +ve. equivalent in that range.
     // (e.g. left *or* right by -2 bits == 30 bits in the same direction.)
     uint32_t rot = CodeGenerator::GetInt32ValueOf(rhs.GetConstant()) & 0x1F;
-    if (rot) {
+    if (rot != 0u) {
       // Rotate, mapping left rotations to right equivalents if necessary.
       // (e.g. left by 2 bits == right by 30.)
       __ Ror(out, in, rot);

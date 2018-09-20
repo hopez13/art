@@ -262,11 +262,11 @@ bool JdwpAdbState::Accept() {
        * the debuggable flag set.
        */
       int ret = connect(ControlSock(), &control_addr_.controlAddrPlain, control_addr_len_);
-      if (!ret) {
+      if (ret == 0) {
         int control_sock = ControlSock();
 #ifdef ART_TARGET_ANDROID
         if (control_sock < 0 || !socket_peer_is_trusted(control_sock)) {
-          if (control_sock >= 0 && shutdown(control_sock, SHUT_RDWR)) {
+          if (control_sock >= 0 && (shutdown(control_sock, SHUT_RDWR) != 0)) {
             PLOG(ERROR) << "trouble shutting down socket";
           }
           return false;

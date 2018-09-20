@@ -647,11 +647,11 @@ void DumpBB(HGraph* graph) {
       std::cout << succ->GetBlockId()  << " ";
     }
 
-    if (bb->GetDominator()) {
+    if (bb->GetDominator() != nullptr) {
       std::cout << " dom " << bb->GetDominator()->GetBlockId();
     }
 
-    if (bb->GetLoopInformation()) {
+    if (bb->GetLoopInformation() != nullptr) {
       std::cout <<  "\tloop: " << bb->GetLoopInformation()->GetHeader()->GetBlockId();
     }
 
