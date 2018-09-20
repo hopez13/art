@@ -135,7 +135,7 @@ static void ThreadStatsGetterCallback(Thread* t, void* context) {
   JDWP::Append4BE(bytes, t->GetTid());
   JDWP::Append4BE(bytes, utime);
   JDWP::Append4BE(bytes, stime);
-  JDWP::Append1BE(bytes, t->IsDaemon());
+  JDWP::Append1BE(bytes, t->IsDaemon() ? 1u : 0u);
 }
 
 static jbyteArray DdmVmInternal_getThreadStats(JNIEnv* env, jclass) {

@@ -230,7 +230,7 @@ TEST_F(TransactionTest, StaticFieldsTest) {
 
   // Modify fields inside transaction then rollback changes.
   Runtime::Current()->EnterTransactionMode();
-  booleanField->SetBoolean<true>(h_klass.Get(), true);
+  booleanField->SetBoolean<true>(h_klass.Get(), 1u);
   byteField->SetByte<true>(h_klass.Get(), 1);
   charField->SetChar<true>(h_klass.Get(), 1u);
   shortField->SetShort<true>(h_klass.Get(), 1);
@@ -330,7 +330,7 @@ TEST_F(TransactionTest, InstanceFieldsTest) {
 
   // Modify fields inside transaction then rollback changes.
   Runtime::Current()->EnterTransactionMode();
-  booleanField->SetBoolean<true>(h_instance.Get(), true);
+  booleanField->SetBoolean<true>(h_instance.Get(), 1u);
   byteField->SetByte<true>(h_instance.Get(), 1);
   charField->SetChar<true>(h_instance.Get(), 1u);
   shortField->SetShort<true>(h_instance.Get(), 1);
@@ -445,7 +445,7 @@ TEST_F(TransactionTest, StaticArrayFieldsTest) {
 
   // Modify fields inside transaction then rollback changes.
   Runtime::Current()->EnterTransactionMode();
-  booleanArray->SetWithoutChecks<true>(0, true);
+  booleanArray->SetWithoutChecks<true>(0, 1u);
   byteArray->SetWithoutChecks<true>(0, 1);
   charArray->SetWithoutChecks<true>(0, 1u);
   shortArray->SetWithoutChecks<true>(0, 1);

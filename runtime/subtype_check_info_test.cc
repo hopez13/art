@@ -109,7 +109,7 @@ struct SubtypeCheckInfoTest : public ::testing::Test {
     // and its children will also go through all state transitions.
     SubtypeCheckBits iod;
     iod.bitstring_ = bs;
-    iod.overflow_ = overflow;
+    iod.overflow_ = overflow ? 1u : 0u;
     return SubtypeCheckInfo::Create(iod, depth);
   }
 

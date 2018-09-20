@@ -693,7 +693,7 @@ void InstructionSimplifierVisitor::VisitInstanceOf(HInstanceOf* instruction) {
       instruction->ReplaceWith(test);
     } else {
       // We've statically determined the result of the instanceof.
-      instruction->ReplaceWith(graph->GetIntConstant(outcome));
+      instruction->ReplaceWith(graph->GetIntConstant(outcome ? 1 : 0));
     }
     RecordSimplification();
     instruction->GetBlock()->RemoveInstruction(instruction);

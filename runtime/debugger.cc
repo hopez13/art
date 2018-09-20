@@ -2687,7 +2687,7 @@ JDWP::JdwpError Dbg::GetLocalValue(const StackVisitor& visitor, ScopedObjectAcce
         return FailGetLocalValue(visitor, vreg, tag);
       }
       VLOG(jdwp) << "get boolean local " << vreg << " = " << intVal;
-      JDWP::Set1(buf + 1, intVal != 0);
+      JDWP::Set1(buf + 1, (intVal != 0) ? 1 : 0);
       break;
     }
     case JDWP::JT_BYTE: {

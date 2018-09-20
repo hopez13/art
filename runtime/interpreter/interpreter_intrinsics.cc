@@ -319,7 +319,7 @@ static ALWAYS_INLINE bool MterpStringEquals(ShadowFrame* shadow_frame,
       res = (memcmp(bytes1, bytes2, len) == 0);
     }
   }
-  result_register->SetZ(res);
+  result_register->SetZ(res ? 1 : 0);
   return true;
 }
 
