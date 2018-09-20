@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7517d54f_5e940d38",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-20T13:42:26Z",
+      "side": 1,
+      "message": "The code is also assigning pos1 twice which we\u0027ve all overlooked.\n\nChanging the check to (pos1 \u003d\u003d 0 || status[pos1 - 1] \u003d\u003d \u0027\\n\u0027) ought to suffice.\n\nOtherwise, switch to using an ifstream, read one line at a time, match start of line against key, then check for \u0027:\u0027, then skip ws, then done.",
+      "parentUuid": "e50a4ba5_6154bc96",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 56
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef5f0331_7f6973c6",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 5
