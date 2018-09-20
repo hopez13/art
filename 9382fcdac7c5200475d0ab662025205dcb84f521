@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "8a1f59ff_d224fa3c",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-20T15:18:20Z",
+      "side": 1,
+      "message": "I agree with Roland: just use a regex and capture the value. :-)",
+      "parentUuid": "7517d54f_5e940d38",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 56
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef5f0331_7f6973c6",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 5
