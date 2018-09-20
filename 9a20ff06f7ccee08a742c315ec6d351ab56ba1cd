@@ -22,6 +22,30 @@
       "revId": "9a20ff06f7ccee08a742c315ec6d351ab56ba1cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e93fd13_50145b3c",
+        "filename": "patchoat/patchoat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-20T12:19:48Z",
+      "side": 0,
+      "message": "Adding \" !\u003d 0\" went over the 100 character limit, so Andreas removed unnecessary parens rather than splitting the line.",
+      "parentUuid": "0ce89a07_a014ed11",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 99
+      },
+      "revId": "9a20ff06f7ccee08a742c315ec6d351ab56ba1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
