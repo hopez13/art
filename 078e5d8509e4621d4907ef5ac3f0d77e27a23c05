@@ -105,6 +105,29 @@
     },
     {
       "key": {
+        "uuid": "1e0547ad_7ecc9e54",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-09-20T21:02:00Z",
+      "side": 1,
+      "message": "Is there a specific coding guideline you\u0027re following?\n\nParticularly in cases like this, this looks really weird to me. Clearly isspace() logically returns a bool. It\u0027s just that it\u0027s a C function, so it uses C\u0027s traditional equivalent of bool instead. And C++ was designed to be compatible with such use. Adding an explicit conversion looks a lot like noise to me.\n\nI also think that this is one of a number of places in which we\u0027re diverging from the C++ committee\u0027s idea of what C++ code should look like. Operator bool() still seems to be a thing, even in new proposals. Such divergence isn\u0027t always bad, but it has serious costs.",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5d647a1_301cbf22",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
