@@ -22,6 +22,30 @@
       "revId": "a525de7e6cfba5cd145d9bdf92f9ff199def76c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d0d452b_d4f09ca1",
+        "filename": "tools/veridex/appcompat.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-09-20T16:17:16Z",
+      "side": 1,
+      "message": "Addressed in Ic68161bcde2d6b7895e2b86af322d14513dcc81d",
+      "parentUuid": "d4ddbeae_95ecb944",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 36
+      },
+      "revId": "a525de7e6cfba5cd145d9bdf92f9ff199def76c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
