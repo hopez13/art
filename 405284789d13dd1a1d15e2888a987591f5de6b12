@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b3682eb8_1888aeea",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5e20846_f8a09171",
+      "range": {
+        "startLine": 128,
+        "startChar": 19,
+        "endLine": 128,
+        "endChar": 44
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c5c5dad_7cb0f2be",
         "filename": "runtime/openjdkjvmti/fixed_up_dex_file.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-30T09:05:03Z",
       "side": 1,
       "message": "Not sure if that would be the right place, but could you also mention dexlayout? It kind of falls into the same category of \"internal optimization\" we do, even if it might be ok to return a dexlayout\u0027ed dex file.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c9044ef_1ff1c713",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:07:47Z",
+      "side": 1,
+      "message": "Done.\n\nDexlayout actually doesn\u0027t cause any problems beyond having an incorrect checksum.",
+      "parentUuid": "6c5c5dad_7cb0f2be",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "02cb4dd4_4c7411f6",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99ed543_fa79461f",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77c180e9_3f5e0ad5",
         "filename": "test/932-transform-saves/src/Transform.java",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c3674f3d_6ffd7d55",
+        "filename": "test/932-transform-saves/src/Transform.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77c180e9_3f5e0ad5",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4e920ee_2d79e6d6",
         "filename": "test/983-source-transform-verify/source_transform.cc",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-30T09:05:03Z",
       "side": 1,
       "message": "Add a comment what this is for?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 39
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae23d60a_03b0281a",
+        "filename": "test/983-source-transform-verify/source_transform.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e920ee_2d79e6d6",
       "range": {
         "startLine": 46,
         "startChar": 0,
