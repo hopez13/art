@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88571917_3ed88c00",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-20T10:01:37Z",
+      "side": 1,
+      "message": "I intentionally want to keep this simple.  The slow path isn\u0027t that slow - it will start with C++ doing all of those checks.\n\nMore importantly, this helper is almost at the boundary of allowed handler size, so there no room for extra instructions anyway.",
+      "parentUuid": "daa202b4_9f8ce876",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "0e8415036c063235a032b044b13c509adc71b069",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f86de20_d3f7569e",
         "filename": "runtime/interpreter/mterp/arm64/object.S",
         "patchSetId": 1
