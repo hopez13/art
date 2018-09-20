@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "587a33a6_1f3e7b17",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2018-09-20T17:10:02Z",
+      "side": 1,
+      "message": "FYI, explicit makes sense even with multi-parameter constructors:\nhttps://g3doc.corp.google.com/devtools/library_club/g3doc/totw/142.md?cl\u003dhead",
+      "parentUuid": "02cb4dd4_4c7411f6",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "405284789d13dd1a1d15e2888a987591f5de6b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77c180e9_3f5e0ad5",
         "filename": "test/932-transform-saves/src/Transform.java",
         "patchSetId": 4
