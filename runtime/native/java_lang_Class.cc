@@ -410,7 +410,7 @@ static mirror::Field* GetPublicFieldRecursive(
   // We search the current class, its direct interfaces then its superclass.
   while (h_clazz != nullptr) {
     mirror::Field* result = GetDeclaredField(self, h_clazz.Get(), h_name.Get());
-    if ((result != nullptr) && (result->GetAccessFlags() & kAccPublic)) {
+    if ((result != nullptr) && ((result->GetAccessFlags() & kAccPublic) != 0u)) {
       return result;
     } else if (UNLIKELY(self->IsExceptionPending())) {
       // Something went wrong. Bail out.

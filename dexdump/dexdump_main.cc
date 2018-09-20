@@ -131,9 +131,9 @@ int dexdumpDriver(int argc, char** argv) {
   }
 
   // Open alternative output file.
-  if (gOptions.outputFileName) {
+  if (gOptions.outputFileName != nullptr) {
     gOutFile = fopen(gOptions.outputFileName, "w");
-    if (!gOutFile) {
+    if (gOutFile == nullptr) {
       PLOG(ERROR) << "Can't open " << gOptions.outputFileName;
       return 1;
     }

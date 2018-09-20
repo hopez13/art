@@ -94,7 +94,7 @@ static void CharacterLowerUpper(Thread* self,
   uint32_t int_value = static_cast<uint32_t>(shadow_frame->GetVReg(arg_offset));
 
   // Only ASCII (7-bit).
-  if (!isascii(int_value)) {
+  if (isascii(int_value) == 0) {
     AbortTransactionOrFail(self,
                            "Only support ASCII characters for toLowerCase/toUpperCase: %u",
                            int_value);

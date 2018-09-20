@@ -72,7 +72,7 @@ void HexDump::Dump(std::ostream& os) const {
     // CHECK_NE(count, 0U);
     // CHECK_LE(count + gap, 16U);
 
-    if (gap) {
+    if (gap != 0u) {
       /* only on first line */
       hex += gap * 3;
       asc += gap;

@@ -535,7 +535,7 @@ size_t DisassemblerMips::Dump(std::ostream& os, const uint8_t* instr_ptr) {
   for (size_t i = 0; i < arraysize(gMipsInstructions); ++i) {
     if (gMipsInstructions[i].Matches(instruction)) {
       opcode = gMipsInstructions[i].name;
-      for (const char* args_fmt = gMipsInstructions[i].args_fmt; *args_fmt; ++args_fmt) {
+      for (const char* args_fmt = gMipsInstructions[i].args_fmt; *args_fmt != 0u; ++args_fmt) {
         switch (*args_fmt) {
           case 'A':  // sa (shift amount or [d]ins/[d]ext position).
             args << sa;
@@ -802,7 +802,7 @@ size_t DisassemblerMips::Dump(std::ostream& os, const uint8_t* instr_ptr) {
             }
           case 'y': args << RegName(sa); break;
         }
-        if (*(args_fmt + 1)) {
+        if (*(args_fmt + 1) != 0u) {
           args << ", ";
         }
       }
@@ -818,7 +818,7 @@ size_t DisassemblerMips::Dump(std::ostream& os, const uint8_t* instr_ptr) {
   //     auipc  reg, imm
   //     jialc  reg, imm
   if (((op == 0x36 || op == 0x3E) && rs == 0 && rt != 0) &&  // ji[al]c
-      last_ptr_ && (intptr_t)instr_ptr - (intptr_t)last_ptr_ == 4 &&
+      (last_ptr_ != nullptr) && (intptr_t)instr_ptr - (intptr_t)last_ptr_ == 4 &&
       (last_instr_ & 0xFC1F0000) == 0xEC1E0000 &&  // auipc
       ((last_instr_ >> 21) & 0x1F) == rt) {
     uint32_t offset = (last_instr_ << 16) | (instruction & 0xFFFF);

@@ -137,7 +137,7 @@ static pthread_key_t GetHandlingSignalKey() {
 
 static bool GetHandlingSignal() {
   void* result = pthread_getspecific(GetHandlingSignalKey());
-  return reinterpret_cast<uintptr_t>(result);
+  return reinterpret_cast<uintptr_t>(result) != 0u;
 }
 
 static void SetHandlingSignal(bool value) {
@@ -283,7 +283,7 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
       // The native bridge signal handler might not return.
       // Avoid setting the thread local flag in this case, since we'll never
       // get a chance to restore it.
-      bool handler_noreturn = (handler.sc_flags & SIGCHAIN_ALLOW_NORETURN);
+      bool handler_noreturn = (handler.sc_flags & SIGCHAIN_ALLOW_NORETURN) != 0u;
       sigset_t previous_mask;
       linked_sigprocmask(SIG_SETMASK, &handler.sc_mask, &previous_mask);
 
@@ -310,7 +310,7 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   sigset_t mask;
   sigorset(&mask, &ucontext->uc_sigmask, &chains[signo].action_.sa_mask);
 #endif
-  if (!(handler_flags & SA_NODEFER)) {
+  if ((handler_flags & SA_NODEFER) == 0) {
     sigaddset(&mask, signo);
   }
 
@@ -320,7 +320,7 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   linked_sigprocmask(SIG_SETMASK, &mask, nullptr);
 #endif
 
-  if ((handler_flags & SA_SIGINFO)) {
+  if ((handler_flags & SA_SIGINFO) != 0) {
     chains[signo].action_.sa_sigaction(signo, siginfo, ucontext_raw);
   } else {
     auto handler = chains[signo].action_.sa_handler;

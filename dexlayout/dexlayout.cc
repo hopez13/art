@@ -109,11 +109,11 @@ static const char* QuotedBool(bool val) {
  * Returns a quoted string representing the access flags.
  */
 static const char* QuotedVisibility(uint32_t access_flags) {
-  if (access_flags & kAccPublic) {
+  if ((access_flags & kAccPublic) != 0u) {
     return "\"public\"";
-  } else if (access_flags & kAccProtected) {
+  } else if ((access_flags & kAccProtected) != 0u) {
     return "\"protected\"";
-  } else if (access_flags & kAccPrivate) {
+  } else if ((access_flags & kAccPrivate) != 0u) {
     return "\"private\"";
   } else {
     return "\"package\"";
@@ -206,7 +206,7 @@ static char* CreateAccessFlagStr(uint32_t flags, AccessFor for_what) {
   cp = str = reinterpret_cast<char*>(malloc(count * (kLongest + 1) + 1));
 
   for (int i = 0; i < kNumFlags; i++) {
-    if (flags & 0x01) {
+    if ((flags & 0x01) != 0u) {
       const char* accessStr = kAccessStrings[for_what][i];
       const int len = strlen(accessStr);
       if (cp != str) {
@@ -278,7 +278,7 @@ static void Asciify(char* out, const unsigned char* data, size_t len) {
  */
 static void DumpEscapedString(const char* p, FILE* out_file) {
   fputs("\"", out_file);
-  for (; *p; p++) {
+  for (; *p != 0u; p++) {
     switch (*p) {
       case '\\':
         fputs("\\\\", out_file);
@@ -306,7 +306,7 @@ static void DumpEscapedString(const char* p, FILE* out_file) {
  * Dumps a string as an XML attribute value.
  */
 static void DumpXmlAttribute(const char* p, FILE* out_file) {
-  for (; *p; p++) {
+  for (; *p != 0u; p++) {
     switch (*p) {
       case '&':
         fputs("&amp;", out_file);

@@ -76,7 +76,7 @@ void ReferenceProcessor::DisableSlowPath(Thread* self) {
 bool ReferenceProcessor::SlowPathEnabled() {
   ObjPtr<mirror::Class> reference_class = GetClassRoot<mirror::Reference>();
   MemberOffset slow_path_offset = GetSlowPathFlagOffset(reference_class);
-  return reference_class->GetFieldBoolean(slow_path_offset);
+  return reference_class->GetFieldBoolean(slow_path_offset) != 0u;
 }
 
 void ReferenceProcessor::BroadcastForSlowPath(Thread* self) {

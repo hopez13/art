@@ -557,7 +557,7 @@ void FreeListSpace::Dump(std::ostream& os) const {
     }
     cur_info = cur_info->GetNextInfo();
   }
-  if (free_end_) {
+  if (free_end_ != 0u) {
     os << "Free block at address: " << reinterpret_cast<const void*>(free_end_start)
        << " of length " << free_end_ << " bytes\n";
   }

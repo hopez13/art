@@ -1377,7 +1377,7 @@ bool RosAlloc::Trim() {
       }
       CHECK_EQ(madvise(madvise_begin, madvise_size, MADV_DONTNEED), 0);
     }
-    if (madvise_begin - zero_begin) {
+    if (madvise_begin != zero_begin) {
       memset(zero_begin, 0, madvise_begin - zero_begin);
     }
     page_map_size_ = new_num_of_pages;

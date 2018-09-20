@@ -55,7 +55,8 @@ class PatchoatTest : public DexoptTest {
         continue;
       }
       size_t name_len = strlen(e->d_name);
-      if ((name_len < suffix_len) || (strcmp(&e->d_name[name_len - suffix_len], suffix.c_str()))) {
+      if ((name_len < suffix_len) ||
+          (strcmp(&e->d_name[name_len - suffix_len], suffix.c_str()) != 0)) {
         continue;
       }
       std::string basename(e->d_name);

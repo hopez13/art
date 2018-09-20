@@ -92,7 +92,7 @@ bool Instruction::CanFlowThrough() const {
   const uint16_t* insns = reinterpret_cast<const uint16_t*>(this);
   uint16_t insn = *insns;
   Code opcode = static_cast<Code>(insn & 0xFF);
-  return  FlagsOf(opcode) & Instruction::kContinue;
+  return (FlagsOf(opcode) & Instruction::kContinue) != 0;
 }
 
 size_t Instruction::SizeInCodeUnitsComplexOpcode() const {

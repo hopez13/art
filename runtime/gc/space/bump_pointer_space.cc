@@ -150,7 +150,7 @@ void BumpPointerSpace::UpdateMainBlock() {
 // Returns the start of the storage.
 uint8_t* BumpPointerSpace::AllocBlock(size_t bytes) {
   bytes = RoundUp(bytes, kAlignment);
-  if (!num_blocks_) {
+  if (num_blocks_ == 0u) {
     UpdateMainBlock();
   }
   uint8_t* storage = reinterpret_cast<uint8_t*>(

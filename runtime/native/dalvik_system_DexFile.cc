@@ -135,7 +135,7 @@ class NullableScopedUtfChars {
   }
 
   ~NullableScopedUtfChars() {
-    if (mUtfChars) {
+    if (mUtfChars != nullptr) {
       mEnv->ReleaseStringUTFChars(mString, mUtfChars);
     }
   }
@@ -808,8 +808,8 @@ static jlong DexFile_getStaticSizeOfDexFile(JNIEnv* env, jclass, jobject cookie)
   }
 
   uint64_t file_size = 0;
-  for (auto& dex_file : dex_files) {
-    if (dex_file) {
+  for (auto dex_file : dex_files) {
+    if (dex_file != nullptr) {
       file_size += dex_file->GetHeader().file_size_;
     }
   }

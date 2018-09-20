@@ -69,7 +69,7 @@ TEST_F(SpaceBitmapTest, ScanRange) {
   for (size_t j = 0; j < kBitsPerIntPtrT * 3; ++j) {
     const mirror::Object* obj =
         reinterpret_cast<mirror::Object*>(heap_begin + j * kObjectAlignment);
-    if (reinterpret_cast<uintptr_t>(obj) & 0xF) {
+    if ((reinterpret_cast<uintptr_t>(obj) & 0xF) != 0u) {
       space_bitmap->Set(obj);
     }
   }

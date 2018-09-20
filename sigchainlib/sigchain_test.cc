@@ -65,7 +65,7 @@ class SigchainTest : public ::testing::Test {
 
   art::SigchainAction action = {
       .sc_sigaction = [](int, siginfo_t* info, void*) -> bool {
-        return info->si_value.sival_ptr;
+        return info->si_value.sival_ptr != nullptr;
       },
       .sc_mask = {},
       .sc_flags = 0,
