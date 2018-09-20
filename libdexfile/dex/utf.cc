@@ -133,7 +133,7 @@ void ConvertUtf16ToModifiedUtf8(char* utf8_out, size_t byte_count,
   }
 
   // String contains non-ASCII characters.
-  while (char_count--) {
+  for (; char_count != 0u; --char_count) {
     const uint16_t ch = *utf16_in++;
     if (ch > 0 && ch <= 0x7f) {
       *utf8_out++ = ch;

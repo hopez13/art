@@ -229,7 +229,7 @@ size_t CountModifiedUtf8Chars_reference(const char* utf8) {
 
 static size_t CountUtf8Bytes_reference(const uint16_t* chars, size_t char_count) {
   size_t result = 0;
-  while (char_count--) {
+  for (; char_count != 0u; --char_count) {
     const uint16_t ch = *chars++;
     if (ch > 0 && ch <= 0x7f) {
       ++result;
@@ -263,7 +263,7 @@ static size_t CountUtf8Bytes_reference(const uint16_t* chars, size_t char_count)
 
 static void ConvertUtf16ToModifiedUtf8_reference(char* utf8_out, const uint16_t* utf16_in,
                                                  size_t char_count) {
-  while (char_count--) {
+  for (; char_count != 0u; --char_count) {
     const uint16_t ch = *utf16_in++;
     if (ch > 0 && ch <= 0x7f) {
       *utf8_out++ = ch;
