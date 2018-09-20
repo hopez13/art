@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ce0799d_e72041a2",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-20T14:49:01Z",
+      "side": 1,
+      "message": "According to https://en.cppreference.com/w/cpp/language/type_alias (and given the crash in https://build.chromium.org/p/client.art/builders/angler-armv7-ndebug/builds/2240/steps/test%20gtest%3A%20adb%20logcat/logs/stdio) it seem the syntax here (and in other places) should be:\n\n  using unaligned_short __attribute__ ((aligned (1))) \u003d int16_t;\n\nNot super intuitive, I know…",
+      "range": {
+        "startLine": 1195,
+        "startChar": 6,
+        "endLine": 1195,
+        "endChar": 67
+      },
+      "revId": "9a20ff06f7ccee08a742c315ec6d351ab56ba1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
