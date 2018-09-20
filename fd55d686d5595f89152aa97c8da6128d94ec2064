@@ -70,6 +70,30 @@
       "revId": "fd55d686d5595f89152aa97c8da6128d94ec2064",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbd0ff6_9922ddc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-20T00:02:35Z",
+      "side": 1,
+      "message": "It now says:  in not waiting for the jit to finish at all. This is done by the next CL.",
+      "parentUuid": "d4b8f941_17377479",
+      "range": {
+        "startLine": 15,
+        "startChar": 20,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "fd55d686d5595f89152aa97c8da6128d94ec2064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
