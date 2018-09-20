@@ -214,7 +214,7 @@ bool ProfileCompilationInfo::Load(const std::string& filename, bool clear_if_inv
   std::string error;
 
   if (!IsEmpty()) {
-    return kProfileLoadWouldOverwiteData;
+    return false;
   }
 
   int flags = O_RDWR | O_NOFOLLOW | O_CLOEXEC;
@@ -813,7 +813,7 @@ bool ProfileCompilationInfo::ReadMethods(SafeBuffer& buffer,
   uint32_t unread_bytes_before_operation = buffer.CountUnreadBytes();
   if (unread_bytes_before_operation < line_header.method_region_size_bytes) {
     *error += "Profile EOF reached prematurely for ReadMethod";
-    return kProfileLoadBadData;
+    return false;
   }
   size_t expected_unread_bytes_after_operation = buffer.CountUnreadBytes()
       - line_header.method_region_size_bytes;
@@ -852,7 +852,7 @@ bool ProfileCompilationInfo::ReadClasses(SafeBuffer& buffer,
   size_t unread_bytes_before_op = buffer.CountUnreadBytes();
   if (unread_bytes_before_op < line_header.class_set_size) {
     *error += "Profile EOF reached prematurely for ReadClasses";
-    return kProfileLoadBadData;
+    return false;
   }
 
   uint16_t last_class_index = 0;

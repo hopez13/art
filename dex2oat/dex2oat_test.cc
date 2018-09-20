@@ -183,7 +183,7 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
         runtime->GetHeap()->GetBootImageSpaces();
     if (image_spaces.empty()) {
       *error_msg = "No image location found for Dex2Oat.";
-      return false;
+      return -1;
     }
     std::string image_location = image_spaces[0]->GetImageLocation();
 

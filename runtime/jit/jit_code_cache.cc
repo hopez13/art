@@ -288,8 +288,8 @@ JitCodeCache::JitCodeCache(MemMap&& code_map,
       memmap_flags_prot_code_(memmap_flags_prot_code) {
 
   DCHECK_GE(max_capacity, initial_code_capacity + initial_data_capacity);
-  code_mspace_ = create_mspace_with_base(code_map_.Begin(), code_end_, false /*locked*/);
-  data_mspace_ = create_mspace_with_base(data_map_.Begin(), data_end_, false /*locked*/);
+  code_mspace_ = create_mspace_with_base(code_map_.Begin(), code_end_, 0 /*locked*/);
+  data_mspace_ = create_mspace_with_base(data_map_.Begin(), data_end_, 0 /*locked*/);
 
   if (code_mspace_ == nullptr || data_mspace_ == nullptr) {
     PLOG(FATAL) << "create_mspace_with_base failed";
