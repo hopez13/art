@@ -128,6 +128,30 @@
     },
     {
       "key": {
+        "uuid": "8aa5cba3_9181feae",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-09-20T21:24:41Z",
+      "side": 1,
+      "message": "Sorry; I somehow managed not to see the other comments.\n\nI personally still think this is definitely overkill here. I also have mixed feelings about prohibiting some of the traditional C idioms, like checking for a null character without an explicit comparison. But I feel less strongly about those than explicitly converting results from C \"boolean\" functions.",
+      "parentUuid": "1e0547ad_7ecc9e54",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "078e5d8509e4621d4907ef5ac3f0d77e27a23c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5d647a1_301cbf22",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
