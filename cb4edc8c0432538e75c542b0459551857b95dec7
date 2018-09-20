@@ -22,6 +22,30 @@
       "revId": "cb4edc8c0432538e75c542b0459551857b95dec7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb790b64_85c5c711",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4080,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-20T15:56:25Z",
+      "side": 1,
+      "message": "I wanted to avoid synchronization, so the Clear method is indented to be called asynchronously.",
+      "parentUuid": "71640a5f_a9905944",
+      "range": {
+        "startLine": 4080,
+        "startChar": 39,
+        "endLine": 4080,
+        "endChar": 46
+      },
+      "revId": "cb4edc8c0432538e75c542b0459551857b95dec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
