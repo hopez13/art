@@ -219,3 +219,75 @@ art_debug_defaults {
         },
     },
 }
+
+
+// ART APEX module.
+
+// Modules listed in LOCAL_REQUIRED_MODULES for module art-runtime in art/Android.mk.
+// - Base requirements.
+art_runtime_base_executable_modules = [
+    "dalvikvm",
+    "dex2oat",
+    "dexoptanalyzer",
+    "profman",
+]
+art_runtime_base_native_shared_lib_modules = [
+    "libart",
+    "libart-compiler",
+    "libopenjdkjvm",
+    "libopenjdkjvmti",
+    "libadbconnection",
+]
+// - Fake library that avoids namespace issues and gives some warnings for nosy apps.
+art_runtime_fake_native_shared_lib_modules = [
+     // FIXME: Does not work as-is, because `libart_fake` is defined in libart_fake/Android.mk,
+     // and because a module defined in a Blueprint file cannot depend on a module defined in a
+     // Makefile. To support `libart_fake` as a dependency of this APEX module, we can either
+     // (probably in that order of preference):
+     // a. translate that logic into Blueprint; or
+     // b. write the whole ART APEX generation logic in Android.mk; or
+     // c. introduce an `art_apex` module type extending the `apex` module type and write the
+     //    corresponding Go logic to handle this extra dependency.
+     //"libart_fake",
+]
+// - Debug variants.
+//   FIXME: These modules are optional (the built product can decide to include them or not).
+//   Should they be moved to another APEX file?
+art_runtime_debug_executable_modules = [
+    "dex2oatd",
+    "dexoptanalyzerd",
+    "profmand",
+]
+art_runtime_debug_native_shared_lib_modules = [
+    "libartd",
+    "libartd-compiler",
+    "libopenjdkd",
+    "libopenjdkjvmd",
+    "libopenjdkjvmtid",
+    "libadbconnectiond",
+]
+
+// Modules listed in LOCAL_REQUIRED_MODULES for module art-tools in art/Android.mk.
+art_tools_executable_modules = [
+    // FIXME: Does not work as-is, because `ahat` is defined in tools/ahat/Android.mk
+    // (same issue as for `libart_fake` above).
+    //"ahat",
+    "dexdiag",
+    "dexdump",
+    "dexlist",
+    "hprof-conv",
+    "oatdump",
+]
+
+apex {
+    // TODO: Or name it "com.android.runtime"? (If so, don't forget to also update the manifest.)
+    name: "com.android.art",
+    manifest: "manifest.json",
+    file_contexts: "file_contexts",
+    executable_modules: art_runtime_base_executable_modules
+        + art_runtime_debug_executable_modules
+        + art_tools_executable_modules,
+    native_shared_lib_modules: art_runtime_base_native_shared_lib_modules
+        + art_runtime_fake_native_shared_lib_modules
+        + art_runtime_debug_native_shared_lib_modules,
+}
