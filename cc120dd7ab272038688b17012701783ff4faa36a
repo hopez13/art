@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "445e2e43_a7065111",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T09:10:43Z",
+      "side": 1,
+      "message": "I\u0027m wondering if you\u0027re preserving a pre-existing bug here.",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "cc120dd7ab272038688b17012701783ff4faa36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce1a9a05_9633c789",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T09:10:43Z",
+      "side": 1,
+      "message": "Explicitly instantiating inline template functions feels wrong.",
+      "revId": "cc120dd7ab272038688b17012701783ff4faa36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "473e1291_4e233bbf",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T09:10:43Z",
+      "side": 1,
+      "message": "Parameter names, please.",
+      "range": {
+        "startLine": 175,
+        "startChar": 27,
+        "endLine": 175,
+        "endChar": 46
+      },
+      "revId": "cc120dd7ab272038688b17012701783ff4faa36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
