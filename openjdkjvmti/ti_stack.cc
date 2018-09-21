@@ -539,7 +539,8 @@ jvmtiError StackUtil::GetThreadListStackTraces(jvmtiEnv* env,
     if (thread_list[i] == nullptr) {
       return ERR(INVALID_THREAD);
     }
-    if (!soa.Env()->IsInstanceOf(thread_list[i], art::WellKnownClasses::java_lang_Thread)) {
+    if (soa.Env()->IsInstanceOf(thread_list[i], art::WellKnownClasses::java_lang_Thread)
+            == JNI_FALSE) {
       return ERR(INVALID_THREAD);
     }
     data.handles.push_back(hs.NewHandle(soa.Decode<art::mirror::Object>(thread_list[i])));

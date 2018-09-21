@@ -55,14 +55,14 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test908_enableGcTracking(JNIEnv* env,
                                                                     jclass klass ATTRIBUTE_UNUSED,
                                                                     jboolean enable) {
   jvmtiError ret = jvmti_env->SetEventNotificationMode(
-      enable ? JVMTI_ENABLE : JVMTI_DISABLE,
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
       JVMTI_EVENT_GARBAGE_COLLECTION_START,
       nullptr);
   if (JvmtiErrorToException(env, jvmti_env, ret)) {
     return;
   }
   ret = jvmti_env->SetEventNotificationMode(
-      enable ? JVMTI_ENABLE : JVMTI_DISABLE,
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
       JVMTI_EVENT_GARBAGE_COLLECTION_FINISH,
       nullptr);
   if (JvmtiErrorToException(env, jvmti_env, ret)) {

@@ -122,7 +122,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_art_Test912Art_isLoadedClass(
 
   CheckJvmtiError(jvmti_env, jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(classes)));
 
-  return found;
+  return found ? JNI_TRUE : JNI_FALSE;
 }
 
 // We use the implementations from runtime_state.cc.

@@ -50,12 +50,12 @@ static jmethodID GetFirstObsoleteMethod(JNIEnv* env, jvmtiEnv* jvmti_env) {
     return nullptr;
   }
   for (jint i = 0; i < frame_count; i++) {
-    jboolean is_obsolete = false;
+    jboolean is_obsolete = JNI_FALSE;
     if (JvmtiErrorToException(env, jvmti_env,
                               jvmti_env->IsMethodObsolete(frames[i].method, &is_obsolete))) {
       return nullptr;
     }
-    if (is_obsolete) {
+    if (is_obsolete == JNI_TRUE) {
       return frames[i].method;
     }
   }

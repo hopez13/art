@@ -18,6 +18,7 @@
 
 #include "art_method-inl.h"
 #include "dex/method_reference.h"
+#include "jni/jni_internal.h"
 #include "jni.h"
 #include "mirror/class-inl.h"
 #include "mirror/executable.h"
@@ -34,7 +35,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_testCompiled(JNIEnv* env,
   ScopedObjectAccess soa(env);
   ObjPtr<mirror::Executable> exec = soa.Decode<mirror::Executable>(method);
   ArtMethod* art_method = exec->GetArtMethod();
-  return art_method->HasAnyCompiledCode();
+  return BoolToJBool(art_method->HasAnyCompiledCode());
 }
 
 }  // namespace

@@ -48,7 +48,7 @@ static void exceptionCB(jvmtiEnv* jvmti,
     return;
   }
   DCHECK(throwable != nullptr);
-  if (!jnienv->IsInstanceOf(throwable, data->exception_klass)) {
+  if (jnienv->IsInstanceOf(throwable, data->exception_klass) == JNI_FALSE) {
     return;
   }
   jthrowable e = jnienv->ExceptionOccurred();
@@ -86,7 +86,7 @@ static void exceptionCatchCB(jvmtiEnv* jvmti,
                             jvmti->GetEnvironmentLocalStorage(reinterpret_cast<void**>(&data)))) {
     return;
   }
-  if (!jnienv->IsSameObject(data->exception_klass, jnienv->GetObjectClass(throwable))) {
+  if (jnienv->IsSameObject(data->exception_klass, jnienv->GetObjectClass(throwable)) == JNI_FALSE) {
     return;
   }
   jthrowable e = jnienv->ExceptionOccurred();

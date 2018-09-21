@@ -69,14 +69,14 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test905_setupObjectFreeCallback(
 extern "C" JNIEXPORT void JNICALL Java_art_Test905_enableFreeTracking(
     JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jboolean enable) {
   jvmtiError ret = jvmti_env->SetEventNotificationMode(
-      enable ? JVMTI_ENABLE : JVMTI_DISABLE,
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
       JVMTI_EVENT_OBJECT_FREE,
       nullptr);
   if (JvmtiErrorToException(env, jvmti_env, ret)) {
     return;
   }
   ret = jvmti_env2->SetEventNotificationMode(
-      enable ? JVMTI_ENABLE : JVMTI_DISABLE,
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
       JVMTI_EVENT_OBJECT_FREE,
       nullptr);
   JvmtiErrorToException(env, jvmti_env, ret);

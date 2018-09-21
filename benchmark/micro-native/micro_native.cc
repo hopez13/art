@@ -137,7 +137,7 @@ void register_micro_native_methods(JNIEnv* env) {
     // Only register them explicitly if the annotation is present.
     jniRegisterNativeMethods(env, CLASS_NAME, gMethods_Critical, NELEM(gMethods_Critical));
   } else {
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       // It will throw NoClassDefFoundError
       env->ExceptionClear();
     }

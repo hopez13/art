@@ -224,7 +224,7 @@ jvmtiError ThreadGroupUtil::GetThreadGroupChildren(jvmtiEnv* env,
 
   art::ScopedObjectAccess soa(art::Thread::Current());
 
-  if (!soa.Env()->IsInstanceOf(group, art::WellKnownClasses::java_lang_ThreadGroup)) {
+  if (soa.Env()->IsInstanceOf(group, art::WellKnownClasses::java_lang_ThreadGroup) == JNI_FALSE) {
     return ERR(INVALID_THREAD_GROUP);
   }
 

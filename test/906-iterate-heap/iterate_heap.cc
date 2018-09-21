@@ -413,9 +413,9 @@ extern "C" JNIEXPORT jboolean JNICALL Java_art_Test906_checkInitialized(
   jint status;
   jvmtiError error = jvmti_env->GetClassStatus(c, &status);
   if (JvmtiErrorToException(env, jvmti_env, error)) {
-    return false;
+    return JNI_FALSE;
   }
-  return (status & JVMTI_CLASS_STATUS_INITIALIZED) != 0;
+  return ((status & JVMTI_CLASS_STATUS_INITIALIZED) != 0) ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT jint JNICALL Java_art_Test906_iterateOverInstancesCount(

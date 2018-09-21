@@ -151,11 +151,11 @@ extern "C" JNIEXPORT jobjectArray Java_art_Locals_GetLocalVariableTable(JNIEnv* 
                                                                         jclass,
                                                                         jobject m) {
   jmethodID method = env->FromReflectedMethod(m);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   ScopedLocalRef<jclass> klass(env, env->FindClass("art/Locals$VariableDescription"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jint nvars;
@@ -165,7 +165,7 @@ extern "C" JNIEXPORT jobjectArray Java_art_Locals_GetLocalVariableTable(JNIEnv* 
     return nullptr;
   }
   jobjectArray vars_array = env->NewObjectArray(nvars, klass.get(), nullptr);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     DeallocateContents(vars, nvars);
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(vars));
     return nullptr;
@@ -173,7 +173,7 @@ extern "C" JNIEXPORT jobjectArray Java_art_Locals_GetLocalVariableTable(JNIEnv* 
 
   jmethodID constructor = env->GetMethodID(
       klass.get(), "<init>", "(JILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   for (jint i = 0; i < nvars; i++) {
@@ -188,13 +188,13 @@ extern "C" JNIEXPORT jobjectArray Java_art_Locals_GetLocalVariableTable(JNIEnv* 
                                      sig_string.get(),
                                      generic_sig_string.get(),
                                      vars[i].slot);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       DeallocateContents(vars, nvars);
       jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(vars));
       return nullptr;
     }
     env->SetObjectArrayElement(vars_array, i, var_obj);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       DeallocateContents(vars, nvars);
       jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(vars));
       return nullptr;

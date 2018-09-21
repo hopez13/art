@@ -149,8 +149,8 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       "Retrieve the heap id of the the object tagged with the given argument. An "
           "arbitrary object is chosen if multiple objects exist with the same tag.",
       {
-          { "tag", JVMTI_KIND_IN, JVMTI_TYPE_JLONG, false},
-          { "heap_id", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false}
+          { "tag", JVMTI_KIND_IN, JVMTI_TYPE_JLONG, JNI_FALSE},
+          { "heap_id", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, JNI_FALSE}
       },
       { JVMTI_ERROR_NOT_FOUND });
   if (error != ERR(NONE)) {
@@ -162,8 +162,8 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       "com.android.art.heap.get_heap_name",
       "Retrieve the name of the heap with the given id.",
       {
-          { "heap_id", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false},
-          { "heap_name", JVMTI_KIND_ALLOC_BUF, JVMTI_TYPE_CCHAR, false}
+          { "heap_id", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE},
+          { "heap_name", JVMTI_KIND_ALLOC_BUF, JVMTI_TYPE_CCHAR, JNI_FALSE}
       },
       { JVMTI_ERROR_ILLEGAL_ARGUMENT });
   if (error != ERR(NONE)) {
@@ -178,10 +178,10 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       " structure is reused, with the callbacks field overloaded to a signature of "
       "jint (*)(jlong, jlong, jlong*, jint length, void*, jint).",
       {
-          { "heap_filter", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false},
-          { "klass", JVMTI_KIND_IN, JVMTI_TYPE_JCLASS, true},
-          { "callbacks", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, false},
-          { "user_data", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, true}
+          { "heap_filter", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE},
+          { "klass", JVMTI_KIND_IN, JVMTI_TYPE_JCLASS, JNI_TRUE},
+          { "callbacks", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, JNI_FALSE},
+          { "user_data", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, JNI_TRUE}
       },
       {
           ERR(MUST_POSSESS_CAPABILITY),
@@ -200,7 +200,7 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       " through the 'Deallocate' function. This number is approximate and might not correspond"
       " exactly to the sum of the sizes of all not freed allocations.",
       {
-          { "currently_allocated", JVMTI_KIND_OUT, JVMTI_TYPE_JLONG, false},
+          { "currently_allocated", JVMTI_KIND_OUT, JVMTI_TYPE_JLONG, JNI_FALSE},
       },
       { ERR(NULL_POINTER) });
   if (error != ERR(NONE)) {
@@ -216,12 +216,12 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       " reasons only. Agents should avoid making use of this extension when possible and instead"
       " use the other JVMTI entrypoints explicitly.",
       {
-        { "type_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
-        { "length_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
-        { "data_in", JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, true },
-        { "type_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
-        { "data_len_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
-        { "data_out", JVMTI_KIND_ALLOC_BUF, JVMTI_TYPE_JBYTE, false }
+        { "type_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "length_in", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data_in", JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, JNI_TRUE },
+        { "type_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data_len_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data_out", JVMTI_KIND_ALLOC_BUF, JVMTI_TYPE_JBYTE, JNI_FALSE }
       },
       { ERR(NULL_POINTER), ERR(ILLEGAL_ARGUMENT), ERR(OUT_OF_MEMORY) });
   if (error != ERR(NONE)) {
@@ -240,9 +240,9 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       " dalvik.system.BaseDexClassLoader or a derived type. The data_out list and all elements"
       " must be deallocated by the caller.",
       {
-        { "class_loader", JVMTI_KIND_IN, JVMTI_TYPE_JOBJECT, true },
-        { "class_descriptor_count_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, false },
-        { "data_out", JVMTI_KIND_ALLOC_ALLOC_BUF, JVMTI_TYPE_CCHAR, false },
+        { "class_loader", JVMTI_KIND_IN, JVMTI_TYPE_JOBJECT, JNI_TRUE },
+        { "class_descriptor_count_out", JVMTI_KIND_OUT, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data_out", JVMTI_KIND_ALLOC_ALLOC_BUF, JVMTI_TYPE_CCHAR, JNI_FALSE },
       },
       {
         ERR(NULL_POINTER),
@@ -263,7 +263,7 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
       " even if the thread is suspended. Note that using rawMonitorWait will wait until the"
       " thread is not suspended again on wakeup and so should be avoided.",
       {
-          { "raw_monitor", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, false },
+          { "raw_monitor", JVMTI_KIND_IN_PTR, JVMTI_TYPE_CVOID, JNI_FALSE },
       },
       {
         ERR(NULL_POINTER),
@@ -369,10 +369,10 @@ jvmtiError ExtensionUtil::GetExtensionEvents(jvmtiEnv* env,
       " provided for backwards-compatibility support only. Agents should prefer to use relevant"
       " JVMTI events and functions above listening for this event.",
       {
-        { "jni_env", JVMTI_KIND_IN_PTR, JVMTI_TYPE_JNIENV, false },
-        { "type", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
-        { "data_size", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
-        { "data",  JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, false },
+        { "jni_env", JVMTI_KIND_IN_PTR, JVMTI_TYPE_JNIENV, JNI_FALSE },
+        { "type", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data_size", JVMTI_KIND_IN, JVMTI_TYPE_JINT, JNI_FALSE },
+        { "data",  JVMTI_KIND_IN_BUF, JVMTI_TYPE_JBYTE, JNI_FALSE },
       });
   if (error != OK) {
     return error;

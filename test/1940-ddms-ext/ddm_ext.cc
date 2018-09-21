@@ -62,7 +62,7 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Test1940_processChunk(JNIEnv* env,
   CHECK(data != nullptr);
   CHECK(data->send_ddm_chunk != nullptr);
   ScopedLocalRef<jclass> chunk_class(env, env->FindClass("org/apache/harmony/dalvik/ddmc/Chunk"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jfieldID type_field_id = env->GetFieldID(chunk_class.get(), "type", "I");
@@ -74,7 +74,7 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Test1940_processChunk(JNIEnv* env,
   jint len = env->GetIntField(chunk, length_field_id);
   ScopedLocalRef<jbyteArray> chunk_buf(
       env, reinterpret_cast<jbyteArray>(env->GetObjectField(chunk, data_field_id)));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   ScopedByteArrayRO byte_data(env, chunk_buf.get());
@@ -144,7 +144,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1940_initializeTest(JNIEnv* env,
   memset(data, 0, sizeof(DdmsTrackingData));
   data->test_klass = reinterpret_cast<jclass>(env->NewGlobalRef(method_klass));
   data->publish_method = env->FromReflectedMethod(publish_method);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   // Get the extensions.

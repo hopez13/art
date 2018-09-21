@@ -18,6 +18,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profiling_info.h"
+#include "jni/jni_internal.h"
 #include "nativehelper/ScopedUtfChars.h"
 #include "oat_quick_method_header.h"
 #include "scoped_thread_state_change-inl.h"
@@ -70,7 +71,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInOsrCode(JNIEnv* env,
   ScopedObjectAccess soa(Thread::Current());
   OsrVisitor visitor(soa.Self(), chars.c_str());
   visitor.WalkStack();
-  return visitor.in_osr_method_;
+  return BoolToJBool(visitor.in_osr_method_);
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInInterpreter(JNIEnv* env,
@@ -78,14 +79,14 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInInterpreter(JNIEnv* env,
                                                                 jstring method_name) {
   if (!Runtime::Current()->UseJitCompilation()) {
     // The return value is irrelevant if we're not using JIT.
-    return false;
+    return JNI_FALSE;
   }
   ScopedUtfChars chars(env, method_name);
   CHECK(chars.c_str() != nullptr);
   ScopedObjectAccess soa(Thread::Current());
   OsrVisitor visitor(soa.Self(), chars.c_str());
   visitor.WalkStack();
-  return visitor.in_interpreter_;
+  return BoolToJBool(visitor.in_interpreter_);
 }
 
 class ProfilingInfoVisitor : public StackVisitor {

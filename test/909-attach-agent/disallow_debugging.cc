@@ -20,7 +20,7 @@ namespace art {
 namespace Test909AttachAgent {
 
 extern "C" JNIEXPORT void JNICALL Java_Main_setDebuggingAllowed(JNIEnv*, jclass, jboolean val) {
-  Dbg::SetJdwpAllowed(val);
+  Dbg::SetJdwpAllowed(val == JNI_TRUE);
 }
 
 }  // namespace Test909AttachAgent

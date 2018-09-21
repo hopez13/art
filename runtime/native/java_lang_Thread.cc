@@ -37,14 +37,14 @@ static jobject Thread_currentThread(JNIEnv* env, jclass) {
 }
 
 static jboolean Thread_interrupted(JNIEnv* env, jclass) {
-  return static_cast<JNIEnvExt*>(env)->GetSelf()->Interrupted() ? JNI_TRUE : JNI_FALSE;
+  return BoolToJBool(static_cast<JNIEnvExt*>(env)->GetSelf()->Interrupted());
 }
 
 static jboolean Thread_isInterrupted(JNIEnv* env, jobject java_thread) {
   ScopedFastNativeObjectAccess soa(env);
   MutexLock mu(soa.Self(), *Locks::thread_list_lock_);
   Thread* thread = Thread::FromManagedThread(soa, java_thread);
-  return (thread != nullptr) ? thread->IsInterrupted() : JNI_FALSE;
+  return BoolToJBool((thread != nullptr) ? thread->IsInterrupted() : false);
 }
 
 static void Thread_nativeCreate(JNIEnv* env, jclass, jobject java_thread, jlong stack_size,
@@ -71,7 +71,7 @@ static jint Thread_nativeGetStatus(JNIEnv* env, jobject java_thread, jboolean ha
   const jint kJavaTerminated = 5;
 
   ScopedObjectAccess soa(env);
-  ThreadState internal_thread_state = (has_been_started ? kTerminated : kStarting);
+  ThreadState internal_thread_state = (has_been_started == JNI_TRUE ? kTerminated : kStarting);
   MutexLock mu(soa.Self(), *Locks::thread_list_lock_);
   Thread* thread = Thread::FromManagedThread(soa, java_thread);
   if (thread != nullptr) {
@@ -119,7 +119,7 @@ static jboolean Thread_holdsLock(JNIEnv* env, jclass, jobject java_object) {
     return JNI_FALSE;
   }
   Thread* thread = soa.Self();
-  return thread->HoldsLock(object);
+  return BoolToJBool(thread->HoldsLock(object));
 }
 
 static void Thread_interrupt0(JNIEnv* env, jobject java_thread) {

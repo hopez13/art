@@ -628,7 +628,7 @@ jdwpTransportError FdForwardTransport::WritePacket(const jdwpPacket* pkt) {
 }
 
 jboolean FdForwardTransport::IsOpen() {
-  return state_ == TransportState::kOpen;
+  return (state_ == TransportState::kOpen) ? JNI_TRUE : JNI_FALSE;
 }
 
 void* FdForwardTransport::Alloc(size_t s) {

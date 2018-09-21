@@ -378,14 +378,14 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   // Clear the hidden API warning flag, in case it was set.
   Runtime::Current()->SetPendingHiddenApiWarning(false);
 
-  if (is_zygote) {
+  if (is_zygote == JNI_TRUE) {
     // If creating a child-zygote, do not call into the runtime's post-fork logic.
     // Doing so would spin up threads for Binder and JDWP. Instead, the Java side
     // of the child process will call a static main in a class specified by the parent.
     return;
   }
 
-  if (instruction_set != nullptr && !is_system_server) {
+  if (instruction_set != nullptr && is_system_server == JNI_FALSE) {
     ScopedUtfChars isa_string(env, instruction_set);
     InstructionSet isa = GetInstructionSetFromString(isa_string.c_str());
     Runtime::NativeBridgeAction action = Runtime::NativeBridgeAction::kUnload;
@@ -393,11 +393,11 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
       action = Runtime::NativeBridgeAction::kInitialize;
     }
     Runtime::Current()->InitNonZygoteOrPostFork(
-        env, is_system_server, action, isa_string.c_str());
+        env, /* is_system_server= */ false, action, isa_string.c_str());
   } else {
     Runtime::Current()->InitNonZygoteOrPostFork(
         env,
-        is_system_server,
+        is_system_server == JNI_TRUE,
         Runtime::NativeBridgeAction::kUnload,
         /*isa*/ nullptr,
         profile_system_server);

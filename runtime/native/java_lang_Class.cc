@@ -196,7 +196,7 @@ static jclass Class_classForName(JNIEnv* env, jclass, jstring javaName, jboolean
     }
     return nullptr;
   }
-  if (initialize) {
+  if (initialize == JNI_TRUE) {
     class_linker->EnsureInitialized(soa.Self(), c, true, true);
   }
   return soa.AddLocalReference<jclass>(c.Get());
@@ -755,13 +755,13 @@ static jboolean Class_isAnonymousClass(JNIEnv* env, jobject javaThis) {
   StackHandleScope<1> hs(soa.Self());
   Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(soa, javaThis)));
   if (klass->IsProxyClass() || klass->GetDexCache() == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   ObjPtr<mirror::String> class_name = nullptr;
   if (!annotations::GetInnerClass(klass, &class_name)) {
-    return false;
+    return JNI_FALSE;
   }
-  return class_name == nullptr;
+  return BoolToJBool(class_name == nullptr);
 }
 
 static jboolean Class_isDeclaredAnnotationPresent(JNIEnv* env, jobject javaThis,
@@ -770,10 +770,10 @@ static jboolean Class_isDeclaredAnnotationPresent(JNIEnv* env, jobject javaThis,
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(soa, javaThis)));
   if (klass->IsProxyClass() || klass->GetDexCache() == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   Handle<mirror::Class> annotation_class(hs.NewHandle(soa.Decode<mirror::Class>(annotationType)));
-  return annotations::IsClassAnnotationPresent(klass, annotation_class);
+  return BoolToJBool(annotations::IsClassAnnotationPresent(klass, annotation_class));
 }
 
 static jclass Class_getDeclaringClass(JNIEnv* env, jobject javaThis) {
@@ -784,7 +784,7 @@ static jclass Class_getDeclaringClass(JNIEnv* env, jobject javaThis) {
     return nullptr;
   }
   // Return null for anonymous classes.
-  if (Class_isAnonymousClass(env, javaThis)) {
+  if (Class_isAnonymousClass(env, javaThis) == JNI_TRUE) {
     return nullptr;
   }
   return soa.AddLocalReference<jclass>(annotations::GetDeclaringClass(klass));

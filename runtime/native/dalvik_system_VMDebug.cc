@@ -87,11 +87,17 @@ static void VMDebug_resetAllocCount(JNIEnv*, jclass, jint kinds) {
   Runtime::Current()->ResetStats(kinds);
 }
 
+static inline Trace::TraceMode GetTraceMode(jboolean samplingEnabled) {
+  return samplingEnabled == JNI_TRUE
+      ? Trace::TraceMode::kSampling
+      : Trace::TraceMode::kMethodTracing;
+}
+
 static void VMDebug_startMethodTracingDdmsImpl(JNIEnv*, jclass, jint bufferSize, jint flags,
                                                jboolean samplingEnabled, jint intervalUs) {
   Trace::StartDDMS(bufferSize,
                    flags,
-                   samplingEnabled ? Trace::TraceMode::kSampling : Trace::TraceMode::kMethodTracing,
+                   GetTraceMode(samplingEnabled),
                    intervalUs);
 }
 
@@ -124,14 +130,14 @@ static void VMDebug_startMethodTracingFd(JNIEnv* env,
   }
 
   // Ignore the traceFilename.
-  Trace::TraceOutputMode outputMode = streamingOutput
+  Trace::TraceOutputMode outputMode = streamingOutput == JNI_TRUE
                                           ? Trace::TraceOutputMode::kStreaming
                                           : Trace::TraceOutputMode::kFile;
   Trace::Start(fd,
                bufferSize,
                flags,
                outputMode,
-               samplingEnabled ? Trace::TraceMode::kSampling : Trace::TraceMode::kMethodTracing,
+               GetTraceMode(samplingEnabled),
                intervalUs);
 }
 
@@ -146,7 +152,7 @@ static void VMDebug_startMethodTracingFilename(JNIEnv* env, jclass, jstring java
                bufferSize,
                flags,
                Trace::TraceOutputMode::kFile,
-               samplingEnabled ? Trace::TraceMode::kSampling : Trace::TraceMode::kMethodTracing,
+               GetTraceMode(samplingEnabled),
                intervalUs);
 }
 
@@ -169,12 +175,12 @@ static void VMDebug_stopEmulatorTracing(JNIEnv*, jclass) {
 }
 
 static jboolean VMDebug_isDebuggerConnected(JNIEnv*, jclass) {
-  return Dbg::IsDebuggerActive();
+  return BoolToJBool(Dbg::IsDebuggerActive());
 }
 
 static jboolean VMDebug_isDebuggingEnabled(JNIEnv* env, jclass) {
   ScopedObjectAccess soa(env);
-  return Runtime::Current()->GetRuntimeCallbacks()->IsDebuggerConfigured();
+  return BoolToJBool(Runtime::Current()->GetRuntimeCallbacks()->IsDebuggerConfigured());
 }
 
 static jlong VMDebug_lastDebuggerActivity(JNIEnv*, jclass) {
@@ -251,7 +257,7 @@ static void VMDebug_dumpHprofData(JNIEnv* env, jclass, jstring javaFilename, jin
   std::string filename;
   if (javaFilename != nullptr) {
     ScopedUtfChars chars(env, javaFilename);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       return;
     }
     filename = chars.c_str();
@@ -300,7 +306,7 @@ static jlong VMDebug_countInstancesOfClass(JNIEnv* env,
   VariableSizedHandleScope hs(soa.Self());
   std::vector<Handle<mirror::Class>> classes {hs.NewHandle(c)};
   uint64_t count = 0;
-  heap->CountInstances(classes, countAssignable, &count);
+  heap->CountInstances(classes, countAssignable == JNI_TRUE, &count);
   return count;
 }
 
@@ -323,7 +329,7 @@ static jlongArray VMDebug_countInstancesOfClasses(JNIEnv* env,
   }
   std::vector<uint64_t> counts(classes.size(), 0u);
   // Heap::CountInstances can handle null and will put 0 for these classes.
-  heap->CountInstances(classes, countAssignable, &counts[0]);
+  heap->CountInstances(classes, countAssignable == JNI_TRUE, &counts[0]);
   ObjPtr<mirror::LongArray> long_counts = mirror::LongArray::Alloc(soa.Self(), counts.size());
   if (long_counts == nullptr) {
     soa.Self()->AssertPendingOOMException();
@@ -366,7 +372,11 @@ static jobjectArray VMDebug_getInstancesOfClasses(JNIEnv* env,
 
     VariableSizedHandleScope hs2(soa.Self());
     std::vector<Handle<mirror::Object>> raw_instances;
-    heap->GetInstances(hs2, h_class, includeAssignable, /* max_count */ 0, raw_instances);
+    heap->GetInstances(hs2,
+                       h_class,
+                       includeAssignable == JNI_TRUE,
+                       /* max_count= */ 0,
+                       raw_instances);
     jobjectArray array = env->NewObjectArray(raw_instances.size(),
                                              WellKnownClasses::java_lang_Object,
                                              nullptr);
@@ -579,7 +589,7 @@ static void VMDebug_nativeAttachAgent(JNIEnv* env, jclass, jstring agent, jobjec
   std::string filename;
   {
     ScopedUtfChars chars(env, agent);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       return;
     }
     filename = chars.c_str();

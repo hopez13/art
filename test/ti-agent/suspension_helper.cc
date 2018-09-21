@@ -29,9 +29,9 @@ extern "C" JNIEXPORT jboolean JNICALL Java_art_Suspension_isSuspended(
     JNIEnv* env, jclass, jthread thr) {
   jint state;
   if (JvmtiErrorToException(env, jvmti_env, jvmti_env->GetThreadState(thr, &state))) {
-    return false;
+    return JNI_FALSE;
   }
-  return (state & JVMTI_THREAD_STATE_SUSPENDED) != 0;
+  return ((state & JVMTI_THREAD_STATE_SUSPENDED) != 0) ? JNI_TRUE : JNI_FALSE;
 }
 
 static std::vector<jthread> CopyToVector(JNIEnv* env, jobjectArray thrs) {
@@ -48,11 +48,11 @@ extern "C" JNIEXPORT jintArray JNICALL Java_art_Suspension_resumeList(JNIEnv* en
                                                                       jobjectArray thr) {
   static_assert(sizeof(jvmtiError) == sizeof(jint), "cannot use jintArray as jvmtiError array");
   std::vector<jthread> threads(CopyToVector(env, thr));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jintArray ret = env->NewIntArray(threads.size());
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jint* elems = env->GetIntArrayElements(ret, nullptr);
@@ -69,11 +69,11 @@ extern "C" JNIEXPORT jintArray JNICALL Java_art_Suspension_suspendList(JNIEnv* e
                                                                        jobjectArray thrs) {
   static_assert(sizeof(jvmtiError) == sizeof(jint), "cannot use jintArray as jvmtiError array");
   std::vector<jthread> threads(CopyToVector(env, thrs));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jintArray ret = env->NewIntArray(threads.size());
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jint* elems = env->GetIntArrayElements(ret, nullptr);

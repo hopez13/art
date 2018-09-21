@@ -497,10 +497,10 @@ static jboolean Field_isAnnotationPresentNative(JNIEnv* env,
   StackHandleScope<1> hs(soa.Self());
   ArtField* field = soa.Decode<mirror::Field>(javaField)->GetArtField();
   if (field->GetDeclaringClass()->IsProxyClass()) {
-    return false;
+    return JNI_FALSE;
   }
   Handle<mirror::Class> klass(hs.NewHandle(soa.Decode<mirror::Class>(annotationType)));
-  return annotations::IsFieldAnnotationPresent(field, klass);
+  return BoolToJBool(annotations::IsFieldAnnotationPresent(field, klass));
 }
 
 static JNINativeMethod gMethods[] = {

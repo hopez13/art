@@ -46,7 +46,7 @@ extern "C" JNIEXPORT jobject Java_art_Test1939_GetFrameMethod(JNIEnv* env,
   if (JvmtiErrorToException(env, jvmti_env, jvmti_env->GetMethodDeclaringClass(m, &klass))) {
     return nullptr;
   }
-  jobject res = env->ToReflectedMethod(klass, m, false);
+  jobject res = env->ToReflectedMethod(klass, m, JNI_FALSE);
   env->DeleteLocalRef(klass);
   return res;
 }

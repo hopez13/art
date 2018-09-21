@@ -70,7 +70,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_FramePop_enableFramePopEvent(
   memset(data, 0, sizeof(FramePopData));
   data->test_klass = reinterpret_cast<jclass>(env->NewGlobalRef(klass));
   data->pop_method = env->FromReflectedMethod(notify_method);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   void* old_data = nullptr;

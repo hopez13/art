@@ -39,21 +39,21 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1930_executeLockedNative(JNIEnv* 
                                                                         jobject run,
                                                                         jobject l) {
   ScopedLocalRef<jclass> runnable(env, env->FindClass("java/lang/Runnable"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jmethodID method = env->GetMethodID(runnable.get(), "run", "()V");
 
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   jmethodID printMethod = env->GetStaticMethodID(klass, "printPreLock", "(Ljava/lang/Object;)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
 
   env->CallStaticVoidMethod(klass, printMethod, l);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   if (env->MonitorEnter(l) != 0) {

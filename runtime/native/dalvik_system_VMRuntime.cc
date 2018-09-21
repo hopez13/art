@@ -179,15 +179,15 @@ static void VMRuntime_clampGrowthLimit(JNIEnv*, jobject) {
 }
 
 static jboolean VMRuntime_isDebuggerActive(JNIEnv*, jobject) {
-  return Dbg::IsDebuggerActive();
+  return BoolToJBool(Dbg::IsDebuggerActive());
 }
 
 static jboolean VMRuntime_isNativeDebuggable(JNIEnv*, jobject) {
-  return Runtime::Current()->IsNativeDebuggable();
+  return BoolToJBool(Runtime::Current()->IsNativeDebuggable());
 }
 
 static jboolean VMRuntime_isJavaDebuggable(JNIEnv*, jobject) {
-  return Runtime::Current()->IsJavaDebuggable();
+  return BoolToJBool(Runtime::Current()->IsJavaDebuggable());
 }
 
 static jobjectArray VMRuntime_properties(JNIEnv* env, jobject) {
@@ -640,7 +640,7 @@ static jboolean VMRuntime_isBootClassPathOnDisk(JNIEnv* env, jclass, jstring jav
   std::string error_msg;
   std::unique_ptr<ImageHeader> image_header(gc::space::ImageSpace::ReadImageHeader(
       Runtime::Current()->GetImageLocation().c_str(), isa, &error_msg));
-  return image_header.get() != nullptr;
+  return BoolToJBool(image_header.get() != nullptr);
 }
 
 static jstring VMRuntime_getCurrentInstructionSet(JNIEnv* env, jclass) {
@@ -672,7 +672,7 @@ static void VMRuntime_setSystemDaemonThreadPriority(JNIEnv* env ATTRIBUTE_UNUSED
 static void VMRuntime_setDedupeHiddenApiWarnings(JNIEnv* env ATTRIBUTE_UNUSED,
                                                  jclass klass ATTRIBUTE_UNUSED,
                                                  jboolean dedupe) {
-  Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe);
+  Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe == JNI_TRUE);
 }
 
 static void VMRuntime_setProcessPackageName(JNIEnv* env,

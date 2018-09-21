@@ -247,7 +247,8 @@ bool ObjectRegistry::IsCollected(JDWP::ObjectId id) {
   ObjectRegistryEntry& entry = *it->second;
   if (entry.jni_reference_type == JNIWeakGlobalRefType) {
     JNIEnv* env = self->GetJniEnv();
-    return env->IsSameObject(entry.jni_reference, nullptr);  // Has the jweak been collected?
+    // Has the jweak been collected?
+    return env->IsSameObject(entry.jni_reference, nullptr) == JNI_TRUE;
   } else {
     return false;  // We hold a strong reference, so we know this is live.
   }

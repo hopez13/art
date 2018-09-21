@@ -56,7 +56,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_setupClassLoadHook(
     JNIEnv* env, jclass main, jthread thr) {
   kMainClass = reinterpret_cast<jclass>(env->NewGlobalRef(main));
   kPrepareFunc = env->GetStaticMethodID(main, "doClassLoad", "(Ljava/lang/Class;)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   current_callbacks.ClassLoad = ClassLoadCallback;

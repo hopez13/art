@@ -19,6 +19,7 @@
 #include "art_method-inl.h"
 #include "dex/method_reference.h"
 #include "jit/profile_saver.h"
+#include "jni/jni_internal.h"
 #include "jni.h"
 #include "mirror/class-inl.h"
 #include "mirror/executable.h"
@@ -57,10 +58,10 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_presentInProfile(JNIEnv* env,
   ScopedObjectAccess soa(env);
   ObjPtr<mirror::Executable> exec = soa.Decode<mirror::Executable>(method);
   ArtMethod* art_method = exec->GetArtMethod();
-  return ProfileSaver::HasSeenMethod(std::string(filename_chars.c_str()),
-                                     /*hot*/ true,
-                                     MethodReference(art_method->GetDexFile(),
-                                                     art_method->GetDexMethodIndex()));
+  return BoolToJBool(ProfileSaver::HasSeenMethod(std::string(filename_chars.c_str()),
+                                                 /*hot*/ true,
+                                                 MethodReference(art_method->GetDexFile(),
+                                                                 art_method->GetDexMethodIndex())));
 }
 
 }  // namespace

@@ -497,7 +497,7 @@ static std::string PrintJValue(jvmtiEnv* jvmtienv, JNIEnv* env, char type, jvalu
       break;
     }
     case 'Z': {
-      if (new_value.z) {
+      if (new_value.z == JNI_TRUE) {
         oss << "true";
       } else {
         oss << "false";
@@ -561,10 +561,12 @@ void JNICALL MethodExitHook(jvmtiEnv* jvmtienv,
   }
   std::string type(method_info.GetSignature());
   type = type.substr(type.find(')') + 1);
-  std::string out_val(was_popped_by_exception ? "" : GetValOf(jvmtienv, env, type, val));
+  std::string out_val(was_popped_by_exception == JNI_TRUE
+                          ? ""
+                          : GetValOf(jvmtienv, env, type, val));
   LOG(INFO) << "Leaving method \"" << method_info << "\". Thread is \"" << info.GetName() << "\"."
             << std::endl
-            << "    Cause: " << (was_popped_by_exception ? "exception" : "return ")
+            << "    Cause: " << ((was_popped_by_exception == JNI_TRUE) ? "exception" : "return ")
             << out_val << ".";
 }
 
@@ -740,7 +742,7 @@ static bool WatchAllFields(JavaVM* vm, jvmtiEnv* jvmti) {
     return true;
   }
   JNIEnv* jni = nullptr;
-  if (vm->GetEnv(reinterpret_cast<void**>(&jni), JNI_VERSION_1_6)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jni), JNI_VERSION_1_6) != JNI_OK) {
     LOG(ERROR) << "Unable to get jni env. Ignoring and potentially leaking jobjects.";
     return false;
   }
@@ -777,7 +779,7 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
                                                char* options,
                                                void* reserved ATTRIBUTE_UNUSED) {
   jvmtiEnv* jvmti = nullptr;
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti), JVMTI_VERSION_1_0) != JNI_OK) {
     LOG(ERROR) << "Unable to get jvmti env.";
     return 1;
   }
