@@ -356,6 +356,24 @@
     },
     {
       "key": {
+        "uuid": "3c80e83b_dfeb1afc",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T13:02:52Z",
+      "side": 1,
+      "message": "When do we need to clear the data?\n\nIf there are plain references, we need to do clear the cache when we start the GC and that\u0027s easily done from the same checkpoint function that walks the stack to mark references. Native pointers or offsets do not need clearing, except when we unload a dex file. But to unload a dex file, we first start a GC and clear the cache; if we execute any code from the dex file during that GC, the dex file is live and cannot be unloaded.",
+      "parentUuid": "4776a85e_35a5cbbd",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "832076fe_94128c20",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
