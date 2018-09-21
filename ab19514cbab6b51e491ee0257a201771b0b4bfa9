@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "88a72698_225eaa15",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "Then add all of that rationale here please.",
+      "parentUuid": "218c2814_096cfbce",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d89ddf7_903255a8",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "cc928643_10194342",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "I meant, how is that shared table made read-only?",
+      "parentUuid": "fe988107_30a3b237",
+      "range": {
+        "startLine": 73,
+        "startChar": 44,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c3accbb_6202cce1",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
@@ -266,6 +314,24 @@
       "side": 1,
       "message": "Not easily.  At least I can not think of simple way.  Since this has good performance benefit as-is, I would rather keep the CL as-is, and experiment with any other tweaks later.\n\nPerformance wish, I was thinking I might be able to cache the value of this field in register in mterp maybe.",
       "parentUuid": "9c3accbb_6202cce1",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25150bf4_aa702233",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "Why not easily? Can you expand? Maybe we can discuss once you\u0027re back.",
+      "parentUuid": "fb65b198_b2c6465b",
       "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -354,6 +420,30 @@
       "side": 1,
       "message": "Well, it needs to be called when DexFile gets freed from memory.\n\nThis seems like ok location to me (I was going based on the RemoveNativeDebugInfoForDex below - I recall finding a place for with was tricky and we eventually settled on this method).  I am open to better suggestions.",
       "parentUuid": "c64154e6_ff19493b",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460b974f_fa0e0bc4",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "I think a DexFileManager is in need :)",
+      "parentUuid": "71f7b0e3_7cd07aff",
       "range": {
         "startLine": 326,
         "startChar": 0,

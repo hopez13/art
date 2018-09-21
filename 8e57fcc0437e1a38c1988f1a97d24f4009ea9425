@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa3da07b_73f53c40",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "a non-owning ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 55,
+        "endLine": 42,
+        "endChar": 64
+      },
+      "revId": "8e57fcc0437e1a38c1988f1a97d24f4009ea9425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f13a14d_4e688afb",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:29:43Z",
+      "side": 1,
+      "message": "But we only need this when unregistering dex file, which almost never happen?",
+      "range": {
+        "startLine": 98,
+        "startChar": 52,
+        "endLine": 98,
+        "endChar": 70
+      },
+      "revId": "8e57fcc0437e1a38c1988f1a97d24f4009ea9425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
