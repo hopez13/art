@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b8e3b6d_60fc1587",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:36:25Z",
+      "side": 1,
+      "message": "I see this is done in https://android-review.googlesource.com/c/platform/art/+/763846/2/libartbase/base/utils.cc .",
+      "parentUuid": "403815bf_efc6ef5d",
+      "range": {
+        "startLine": 125,
+        "startChar": 9,
+        "endLine": 125,
+        "endChar": 11
+      },
+      "revId": "b2d359de10ff5585e14d838e6f075efc3b500695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7724aae8_b6e90fb6",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 2
