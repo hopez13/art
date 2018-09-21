@@ -345,6 +345,10 @@ LOCAL_REQUIRED_MODULES := \
     profman \
     libadbconnection \
 
+# ART APEX module.
+# TODO: Enable this line to generate the ART APEX module as part of any system image build.
+#LOCAL_REQUIRED_MODULES := com.android.art
+
 # For nosy apps, we provide a fake library that avoids namespace issues and gives some warnings.
 LOCAL_REQUIRED_MODULES += libart_fake
 
