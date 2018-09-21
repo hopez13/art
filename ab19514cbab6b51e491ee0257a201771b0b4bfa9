@@ -374,6 +374,24 @@
     },
     {
       "key": {
+        "uuid": "e921df46_3d23090b",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-21T16:09:25Z",
+      "side": 1,
+      "message": "I agree with Vladimir (as you might have guessed from my other point). Use a checkpoint, make it easy on yourself.\n\n\"But to unload a dex file, we first start a GC\" is a formulation I would not have used, though, as it is somewhat ambiguous wrt/ order of things, and ignores some corner cases (mainly through DexFile being public API).",
+      "parentUuid": "3c80e83b_dfeb1afc",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "832076fe_94128c20",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
