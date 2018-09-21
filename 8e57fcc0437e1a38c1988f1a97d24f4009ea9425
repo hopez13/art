@@ -69,6 +69,30 @@
       "revId": "8e57fcc0437e1a38c1988f1a97d24f4009ea9425",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b0bd13f_fb3c7dd2",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:50:56Z",
+      "side": 1,
+      "message": "Actually I think you should just do the clearing on the owning thread, or if that guy is stuck in native, have someone else do it. The Suspend infrastructure we have is just handling all of this for you.",
+      "parentUuid": "03db7b21_f3ea26db",
+      "range": {
+        "startLine": 98,
+        "startChar": 52,
+        "endLine": 98,
+        "endChar": 70
+      },
+      "revId": "8e57fcc0437e1a38c1988f1a97d24f4009ea9425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
