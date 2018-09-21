@@ -26,7 +26,11 @@ cc_defaults {
 
     target: {
         android: {
-            compile_multilib: "prefer32",
+            // Use the 32-bit version of profman on devices.
+            /* FIXME: Temporarily disabled as the APEX module build
+               logic does not support the inclusion of single-arch
+               variant modules yet (b/115717630). */
+            // compile_multilib: "prefer32",
         },
     },
 
