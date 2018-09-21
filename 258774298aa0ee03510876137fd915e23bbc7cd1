@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1350a430_fc22edd5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T09:26:47Z",
+      "side": 1,
+      "message": "After discussing this with Nicolas, we concluded that the correct fix would be to add\n\n  using MacroAssembler::B;\n\nto the ArmVIXLMacroAssembler.",
+      "range": {
+        "startLine": 1095,
+        "startChar": 2,
+        "endLine": 1095,
+        "endChar": 71
+      },
+      "revId": "258774298aa0ee03510876137fd915e23bbc7cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
