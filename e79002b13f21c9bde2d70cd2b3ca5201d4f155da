@@ -22,6 +22,30 @@
       "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c141ae_a93c9059",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-21T09:48:08Z",
+      "side": 1,
+      "message": "It was needed before - the explicit template instantiations added it.",
+      "parentUuid": "1f2eec91_6470a279",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 41
+      },
+      "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
