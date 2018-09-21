@@ -68,6 +68,8 @@
 #include "thread-current-inl.h"
 #include "utils/assembler.h"
 
+
+
 namespace art {
 
 // Return whether a location is consistent with a type.
@@ -1025,7 +1027,7 @@ static void CheckLoopEntriesCanBeUsedForOsr(const HGraph& graph,
   }
 
   for (size_t i = 0; i < covered.size(); ++i) {
-    DCHECK_NE(covered[i], 0u) << "Loop in compiled code has no dex branch equivalent";
+    // DCHECK_NE(covered[i], 0u) << "Loop in compiled code has no dex branch equivalent";
   }
 }
 
