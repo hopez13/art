@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28719481_9961aecb",
+        "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T22:47:51Z",
+      "side": 1,
+      "message": "This seems a bit magical to me.. are you saying the compiler is smart enough to do NRVO even though it\u0027s performing object slice?\n\nThe function return type is CmdlineResult.\nThe local being returned is CmdlineParseResult (which has CmdlineResult as a base).\n\nThis doesn\u0027t fit under the copy elision rules of C++14 standard 12.8/32\n\n\u003e in a return statement in a function with a class return type, when the expression is the name of a non-volatile automatic object (other than a function or catch-clause parameter) with the same cvunqualified type as the function return type, the copy/move operation can be omitted by constructing the automatic object directly into the function’s return value\n\nIn particular note that the types are not the same.",
+      "revId": "1a727b090e7d2a19b62410e1908e46e115b9dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
