@@ -117,6 +117,23 @@
     },
     {
       "key": {
+        "uuid": "9c3accbb_6202cce1",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T11:40:10Z",
+      "side": 1,
+      "message": "Just discussed this with vmarko, realizing the indirection. As this is for performance, can we avoid it?",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "832076fe_94128c20",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
