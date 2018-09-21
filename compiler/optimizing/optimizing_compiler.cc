@@ -623,7 +623,6 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
 
   OptimizationDef optimizations[] = {
     // Initial optimizations.
-    OptDef(OptimizationPass::kIntrinsicsRecognizer),
     OptDef(OptimizationPass::kSharpening),
     OptDef(OptimizationPass::kConstantFolding),
     OptDef(OptimizationPass::kInstructionSimplifier),
@@ -945,9 +944,8 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
   }
 
   OptimizationDef optimizations[] = {
-    OptDef(OptimizationPass::kIntrinsicsRecognizer),
-    // Some intrinsics are converted to HIR by the simplifier and the codegen also
-    // has a few assumptions that only the instruction simplifier can satisfy.
+    // The codegen has a few assumptions that only the instruction simplifier
+    // can satisfy.
     OptDef(OptimizationPass::kInstructionSimplifier),
   };
   RunOptimizations(graph,

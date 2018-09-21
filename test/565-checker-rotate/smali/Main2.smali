@@ -15,7 +15,7 @@
 .class public LMain2;
 .super Ljava/lang/Object;
 
-## CHECK-START: int Main2.rotateLeftBoolean(boolean, int) intrinsics_recognition (after)
+## CHECK-START: int Main2.rotateLeftBoolean(boolean, int) builder (after)
 ## CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
 ## CHECK:         <<ArgVal:z\d+>>  ParameterValue
 ## CHECK:         <<ArgDist:i\d+>> ParameterValue
@@ -91,7 +91,7 @@
     goto :goto_3
 .end method
 
-## CHECK-START: int Main2.rotateRightBoolean(boolean, int) intrinsics_recognition (after)
+## CHECK-START: int Main2.rotateRightBoolean(boolean, int) builder (after)
 ## CHECK-DAG:     <<Method:[ij]\d+>> CurrentMethod
 ## CHECK:         <<ArgVal:z\d+>>  ParameterValue
 ## CHECK:         <<ArgDist:i\d+>> ParameterValue
