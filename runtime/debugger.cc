@@ -4306,7 +4306,7 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
           WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer,
           WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_dispatch,
           type, dataArray.get(), 0, data.size()));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     Thread* self = Thread::Current();
     ScopedObjectAccess soa(self);
     LOG(INFO) << StringPrintf("Exception thrown by dispatcher for 0x%08x", type) << std::endl
@@ -4354,7 +4354,7 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
                           length,
                           reinterpret_cast<jbyte*>(out_data->data()));
 
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     Thread* self = Thread::Current();
     ScopedObjectAccess soa(self);
     LOG(INFO) << StringPrintf("Exception thrown when reading response data from dispatcher 0x%08x",
@@ -4426,7 +4426,7 @@ void Dbg::DdmBroadcast(bool connect) {
   env->CallStaticVoidMethod(WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer,
                             WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_broadcast,
                             event);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     LOG(ERROR) << "DdmServer.broadcast " << event << " failed";
     env->ExceptionDescribe();
     env->ExceptionClear();

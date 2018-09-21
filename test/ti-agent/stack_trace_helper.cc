@@ -39,12 +39,12 @@ extern "C" JNIEXPORT jobjectArray Java_art_StackTrace_nativeGetStackTrace(JNIEnv
                                                                           jthread thr) {
   jint depth;
   ScopedLocalRef<jclass> klass(env, env->FindClass("art/StackTrace$StackFrameData"));
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   jmethodID constructor = env->GetMethodID(
       klass.get(), "<init>", "(Ljava/lang/Thread;Ljava/lang/reflect/Executable;JI)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   if (JvmtiErrorToException(env, jvmti_env, jvmti_env->GetFrameCount(thr, &depth))) {
@@ -65,13 +65,13 @@ extern "C" JNIEXPORT jobjectArray Java_art_StackTrace_nativeGetStackTrace(JNIEnv
     return nullptr;
   }
   jobjectArray frames_array = env->NewObjectArray(nframes, klass.get(), nullptr);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(frames));
     return nullptr;
   }
   for (jint i = 0; i < nframes; i++) {
     jobject jmethod = GetJavaMethod(jvmti_env, env, frames[i].method);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(frames));
       return nullptr;
     }
@@ -81,12 +81,12 @@ extern "C" JNIEXPORT jobjectArray Java_art_StackTrace_nativeGetStackTrace(JNIEnv
                                        jmethod,
                                        frames[i].location,
                                        i);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(frames));
       return nullptr;
     }
     env->SetObjectArrayElement(frames_array, i, frame_obj);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(frames));
       return nullptr;
     }

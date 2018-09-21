@@ -38,7 +38,7 @@ extern "C" JNIEXPORT jbyteArray JNICALL Java_art_Test1901_getBytecodes(JNIEnv* e
                                                                        jclass,
                                                                        jobject jmethod) {
   jmethodID method = env->FromReflectedMethod(jmethod);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   unsigned char* bytecodes = nullptr;
@@ -49,7 +49,7 @@ extern "C" JNIEXPORT jbyteArray JNICALL Java_art_Test1901_getBytecodes(JNIEnv* e
     return nullptr;
   }
   jbyteArray out = env->NewByteArray(bytecodes_size);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   } else if (bytecodes_size == 0) {
     return out;

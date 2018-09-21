@@ -34,7 +34,7 @@ jobject GetJavaField(jvmtiEnv* jvmti, JNIEnv* env, jclass field_klass, jfieldID 
   }
 
   bool is_static = (mods & kAccStatic) != 0;
-  return env->ToReflectedField(field_klass, f, is_static);
+  return env->ToReflectedField(field_klass, f, is_static ? JNI_TRUE : JNI_FALSE);
 }
 
 jobject GetJavaMethod(jvmtiEnv* jvmti, JNIEnv* env, jmethodID m) {
@@ -48,7 +48,7 @@ jobject GetJavaMethod(jvmtiEnv* jvmti, JNIEnv* env, jmethodID m) {
   if (JvmtiErrorToException(env, jvmti, jvmti->GetMethodDeclaringClass(m, &method_klass))) {
     return nullptr;
   }
-  jobject res = env->ToReflectedMethod(method_klass, m, is_static);
+  jobject res = env->ToReflectedMethod(method_klass, m, is_static ? JNI_TRUE : JNI_FALSE);
   env->DeleteLocalRef(method_klass);
   return res;
 }

@@ -281,7 +281,7 @@ static void WrapExceptionInInitializer(Handle<mirror::Class> klass)
   }
 
   env->ExceptionClear();
-  bool is_error = env->IsInstanceOf(cause.get(), WellKnownClasses::java_lang_Error);
+  bool is_error = (env->IsInstanceOf(cause.get(), WellKnownClasses::java_lang_Error) == JNI_TRUE);
   env->Throw(cause.get());
 
   // We only wrap non-Error exceptions; an Error can just be used as-is.

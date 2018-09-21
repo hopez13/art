@@ -97,7 +97,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1951_otherThreadResume(JNIEnv*, j
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_art_Test1951_otherThreadProgressed(JNIEnv*, jclass) {
-  return progress;
+  return progress ? JNI_TRUE : JNI_FALSE;
 }
 
 }  // namespace Test1951MonitorEnterNoSuspend

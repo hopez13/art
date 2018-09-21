@@ -32,6 +32,13 @@ const JNINativeInterface* GetRuntimeShutdownNativeInterface();
 
 int ThrowNewException(JNIEnv* env, jclass exception_class, const char* msg, jobject cause);
 
+ALWAYS_INLINE inline bool JBoolToBool(jboolean in) {
+  return in == JNI_TRUE;
+}
+ALWAYS_INLINE inline jboolean BoolToJBool(bool in) {
+  return in ? JNI_TRUE : JNI_FALSE;
+}
+
 namespace jni {
 
 ALWAYS_INLINE

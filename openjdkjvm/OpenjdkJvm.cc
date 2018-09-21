@@ -379,13 +379,13 @@ JNIEXPORT void JVM_Interrupt(JNIEnv* env, jobject jthread) {
 }
 
 JNIEXPORT jboolean JVM_IsInterrupted(JNIEnv* env, jobject jthread, jboolean clearInterrupted) {
-  if (clearInterrupted) {
-    return static_cast<art::JNIEnvExt*>(env)->GetSelf()->Interrupted() ? JNI_TRUE : JNI_FALSE;
+  if (clearInterrupted == JNI_TRUE) {
+    return art::BoolToJBool(static_cast<art::JNIEnvExt*>(env)->GetSelf()->Interrupted());
   } else {
     art::ScopedFastNativeObjectAccess soa(env);
     art::MutexLock mu(soa.Self(), *art::Locks::thread_list_lock_);
     art::Thread* thread = art::Thread::FromManagedThread(soa, jthread);
-    return (thread != nullptr) ? thread->IsInterrupted() : JNI_FALSE;
+    return art::BoolToJBool((thread != nullptr) ? thread->IsInterrupted() : false);
   }
 }
 
@@ -396,7 +396,7 @@ JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED, jo
     art::ThrowNullPointerException("object == null");
     return JNI_FALSE;
   }
-  return soa.Self()->HoldsLock(object);
+  return art::BoolToJBool(soa.Self()->HoldsLock(object));
 }
 
 JNIEXPORT void JVM_SetNativeThreadName(JNIEnv* env, jobject jthread, jstring java_name) {
@@ -471,5 +471,5 @@ JNIEXPORT __attribute__((noreturn))  void JVM_Halt(jint code) {
 }
 
 JNIEXPORT jboolean JVM_IsNaN(jdouble d) {
-  return isnan(d);
+  return art::BoolToJBool(isnan(d));
 }

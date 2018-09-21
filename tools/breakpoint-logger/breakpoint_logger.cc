@@ -44,16 +44,16 @@ static void VMInitCB(jvmtiEnv* jvmti, JNIEnv* env, jthread thr ATTRIBUTE_UNUSED)
   }
   for (const SingleBreakpointTarget& target : all_targets->bps) {
     jclass k = env->FindClass(target.class_name.c_str());
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       env->ExceptionDescribe();
       env->FatalError("Could not find class!");
       return;
     }
     jmethodID m = env->GetMethodID(k, target.method_name.c_str(), target.method_sig.c_str());
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       env->ExceptionClear();
       m = env->GetStaticMethodID(k, target.method_name.c_str(), target.method_sig.c_str());
-      if (env->ExceptionCheck()) {
+      if (env->ExceptionCheck() == JNI_TRUE) {
         env->ExceptionDescribe();
         env->FatalError("Could not find method!");
         return;

@@ -31,7 +31,8 @@ namespace art {
 static jboolean FinalizerReference_makeCircularListIfUnenqueued(JNIEnv* env, jobject javaThis) {
   ScopedFastNativeObjectAccess soa(env);
   ObjPtr<mirror::FinalizerReference> ref = soa.Decode<mirror::FinalizerReference>(javaThis);
-  return Runtime::Current()->GetHeap()->GetReferenceProcessor()->MakeCircularListIfUnenqueued(ref);
+  return BoolToJBool(
+      Runtime::Current()->GetHeap()->GetReferenceProcessor()->MakeCircularListIfUnenqueued(ref));
 }
 
 static jobject FinalizerReference_getReferent(JNIEnv* env, jobject javaThis) {

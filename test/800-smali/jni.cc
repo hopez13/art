@@ -18,6 +18,7 @@
 
 #include "class_linker-inl.h"
 #include "dex/dex_file-inl.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
 #include "runtime.h"
@@ -33,8 +34,8 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isAotVerified(JNIEnv* env, jclas
   ObjPtr<mirror::Class> klass = soa.Decode<mirror::Class>(cls);
   const DexFile& dex_file = *klass->GetDexCache()->GetDexFile();
   ClassStatus oat_file_class_status(ClassStatus::kNotReady);
-  bool ret = rt->GetClassLinker()->VerifyClassUsingOatFile(dex_file, klass, oat_file_class_status);
-  return ret;
+  return BoolToJBool(
+      rt->GetClassLinker()->VerifyClassUsingOatFile(dex_file, klass, oat_file_class_status));
 }
 
 }  // namespace

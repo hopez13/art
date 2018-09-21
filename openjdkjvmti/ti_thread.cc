@@ -175,7 +175,8 @@ bool ThreadUtil::GetNativeThread(jthread thread,
   if (thread == nullptr) {
     *thr = art::Thread::Current();
     return true;
-  } else if (!soa.Env()->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread)) {
+  } else if (soa.Env()->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread)
+                 == JNI_FALSE) {
     *err = ERR(INVALID_THREAD);
     return false;
   } else {
@@ -230,7 +231,7 @@ jvmtiError ThreadUtil::GetThreadInfo(jvmtiEnv* env, jthread thread, jvmtiThreadI
 
     info_ptr->priority = target->GetNativePriority();
 
-    info_ptr->is_daemon = target->IsDaemon();
+    info_ptr->is_daemon = art::BoolToJBool(target->IsDaemon());
 
     art::ObjPtr<art::mirror::Object> peer = target->GetPeerFromOtherThread();
 
@@ -760,7 +761,8 @@ jvmtiError ThreadUtil::RunAgentThread(jvmtiEnv* jvmti_env,
     return ERR(INVALID_PRIORITY);
   }
   JNIEnv* env = art::Thread::Current()->GetJniEnv();
-  if (thread == nullptr || !env->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread)) {
+  if (thread == nullptr ||
+      env->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread) == JNI_FALSE) {
     return ERR(INVALID_THREAD);
   }
   if (proc == nullptr) {
@@ -979,7 +981,8 @@ jvmtiError ThreadUtil::ResumeThread(jvmtiEnv* env ATTRIBUTE_UNUSED,
     if (thread == nullptr) {
       // The thread is the current thread.
       return ERR(THREAD_NOT_SUSPENDED);
-    } else if (!soa.Env()->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread)) {
+    } else if (soa.Env()->IsInstanceOf(thread, art::WellKnownClasses::java_lang_Thread)
+                   == JNI_FALSE) {
       // Not a thread object.
       return ERR(INVALID_THREAD);
     } else if (self->GetPeer() == soa.Decode<art::mirror::Object>(thread)) {

@@ -18,6 +18,7 @@
 #include "dex/dex_file-inl.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "oat_file.h"
 #include "runtime.h"
@@ -49,11 +50,11 @@ class NoPatchoatTest {
 };
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isRelocationDeltaZero(JNIEnv*, jclass) {
-  return NoPatchoatTest::isRelocationDeltaZero();
+  return BoolToJBool(NoPatchoatTest::isRelocationDeltaZero());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasExecutableOat(JNIEnv*, jclass cls) {
-  return NoPatchoatTest::hasExecutableOat(cls);
+  return BoolToJBool(NoPatchoatTest::hasExecutableOat(cls));
 }
 
 }  // namespace art

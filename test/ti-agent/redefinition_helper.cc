@@ -171,7 +171,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Redefinition_doCommonMultiClassRedefi
 jint OnLoad(JavaVM* vm,
             char* options ATTRIBUTE_UNUSED,
             void* reserved ATTRIBUTE_UNUSED) {
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0) != JNI_OK) {
     printf("Unable to get jvmti env!\n");
     return 1;
   }
@@ -206,21 +206,21 @@ extern "C" JNIEXPORT void JNICALL Java_art_Redefinition_addCommonTransformationR
   env->ReleaseStringUTFChars(class_name, name_chrs);
   CommonTransformationResult trans(env->GetArrayLength(class_array),
                                    env->GetArrayLength(dex_array));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   env->GetByteArrayRegion(class_array,
                           0,
                           env->GetArrayLength(class_array),
                           reinterpret_cast<jbyte*>(trans.class_bytes.data()));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   env->GetByteArrayRegion(dex_array,
                           0,
                           env->GetArrayLength(dex_array),
                           reinterpret_cast<jbyte*>(trans.dex_bytes.data()));
-  if (env->ExceptionOccurred()) {
+  if (env->ExceptionOccurred() != nullptr) {
     return;
   }
   if (gTransformations.find(name_str) == gTransformations.end()) {
@@ -260,7 +260,7 @@ void JNICALL CommonClassFileLoadHookRetransformable(jvmtiEnv* jvmti_env,
 extern "C" JNIEXPORT void Java_art_Redefinition_setPopRetransformations(JNIEnv*,
                                                                         jclass,
                                                                         jboolean enable) {
-  gPopTransformations = enable;
+  gPopTransformations = (enable == JNI_TRUE);
 }
 
 extern "C" JNIEXPORT void Java_art_Redefinition_popTransformationFor(JNIEnv* env,
@@ -283,9 +283,8 @@ extern "C" JNIEXPORT void Java_art_Redefinition_popTransformationFor(JNIEnv* env
 extern "C" JNIEXPORT void Java_art_Redefinition_enableCommonRetransformation(JNIEnv* env,
                                                                                  jclass,
                                                                                  jboolean enable) {
-  jvmtiError res = jvmti_env->SetEventNotificationMode(enable ? JVMTI_ENABLE : JVMTI_DISABLE,
-                                                       JVMTI_EVENT_CLASS_FILE_LOAD_HOOK,
-                                                       nullptr);
+  jvmtiError res = jvmti_env->SetEventNotificationMode(
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE, JVMTI_EVENT_CLASS_FILE_LOAD_HOOK, nullptr);
   if (res != JVMTI_ERROR_NONE) {
     JvmtiErrorToException(env, jvmti_env, res);
   }
@@ -346,7 +345,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Redefinition_doCommonClassRetransform
 jint OnLoad(JavaVM* vm,
             char* options ATTRIBUTE_UNUSED,
             void* reserved ATTRIBUTE_UNUSED) {
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0) != JNI_OK) {
     printf("Unable to get jvmti env!\n");
     return 1;
   }
@@ -362,7 +361,7 @@ namespace common_transform {
 jint OnLoad(JavaVM* vm,
             char* options ATTRIBUTE_UNUSED,
             void* reserved ATTRIBUTE_UNUSED) {
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0) != JNI_OK) {
     printf("Unable to get jvmti env!\n");
     return 1;
   }

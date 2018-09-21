@@ -26,6 +26,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profiling_info.h"
+#include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "nativehelper/ScopedUtfChars.h"
 #include "oat_file.h"
@@ -50,7 +51,7 @@ static jit::Jit* GetJitIfEnabled() {
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJit(JNIEnv*, jclass) {
-  return GetJitIfEnabled() != nullptr;
+  return BoolToJBool(GetJitIfEnabled() != nullptr);
 }
 
 // public static native boolean hasOatFile();
@@ -68,21 +69,21 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasOatFile(JNIEnv* env, jclass c
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_runtimeIsSoftFail(JNIEnv* env ATTRIBUTE_UNUSED,
                                                                   jclass cls ATTRIBUTE_UNUSED) {
-  return Runtime::Current()->IsVerificationSoftFail() ? JNI_TRUE : JNI_FALSE;
+  return BoolToJBool(Runtime::Current()->IsVerificationSoftFail());
 }
 
 // public static native boolean hasImage();
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasImage(JNIEnv* env ATTRIBUTE_UNUSED,
                                                          jclass cls ATTRIBUTE_UNUSED) {
-  return Runtime::Current()->GetHeap()->HasBootImageSpace();
+  return BoolToJBool(Runtime::Current()->GetHeap()->HasBootImageSpace());
 }
 
 // public static native boolean isImageDex2OatEnabled();
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isImageDex2OatEnabled(JNIEnv* env ATTRIBUTE_UNUSED,
                                                                       jclass cls ATTRIBUTE_UNUSED) {
-  return Runtime::Current()->IsImageDex2OatEnabled();
+  return BoolToJBool(Runtime::Current()->IsImageDex2OatEnabled());
 }
 
 // public static native boolean compiledWithOptimizing();
@@ -151,12 +152,12 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isAotCompiled(JNIEnv* env,
         chars.c_str(), kRuntimePointerSize);
   const void* oat_code = method->GetOatMethodQuickCode(kRuntimePointerSize);
   if (oat_code == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   const void* actual_code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
   bool interpreter =
       Runtime::Current()->GetClassLinker()->ShouldUseInterpreterEntrypoint(method, actual_code);
-  return !interpreter;
+  return BoolToJBool(!interpreter);
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledEntrypoint(JNIEnv* env,
@@ -165,7 +166,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledEntrypoint(JNIEnv*
                                                                          jstring method_name) {
   jit::Jit* jit = GetJitIfEnabled();
   if (jit == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   Thread* self = Thread::Current();
   ScopedObjectAccess soa(self);
@@ -174,8 +175,8 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledEntrypoint(JNIEnv*
   ArtMethod* method = soa.Decode<mirror::Class>(cls)->FindDeclaredDirectMethodByName(
         chars.c_str(), kRuntimePointerSize);
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
-  return jit->GetCodeCache()->ContainsPc(
-      Runtime::Current()->GetInstrumentation()->GetCodeForInvoke(method));
+  return BoolToJBool(jit->GetCodeCache()->ContainsPc(
+      Runtime::Current()->GetInstrumentation()->GetCodeForInvoke(method)));
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledCode(JNIEnv* env,
@@ -184,7 +185,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledCode(JNIEnv* env,
                                                                    jstring method_name) {
   jit::Jit* jit = GetJitIfEnabled();
   if (jit == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   Thread* self = Thread::Current();
   ScopedObjectAccess soa(self);
@@ -192,7 +193,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJitCompiledCode(JNIEnv* env,
   CHECK(chars.c_str() != nullptr);
   ArtMethod* method = soa.Decode<mirror::Class>(cls)->FindDeclaredDirectMethodByName(
         chars.c_str(), kRuntimePointerSize);
-  return jit->GetCodeCache()->ContainsMethod(method);
+  return BoolToJBool(jit->GetCodeCache()->ContainsMethod(method));
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_ensureJitCompiled(JNIEnv* env,
@@ -249,7 +250,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasSingleImplementation(JNIEnv* 
   CHECK(chars.c_str() != nullptr);
   method = soa.Decode<mirror::Class>(cls)->FindDeclaredVirtualMethodByName(
       chars.c_str(), kRuntimePointerSize);
-  return method->HasSingleImplementation();
+  return BoolToJBool(method->HasSingleImplementation());
 }
 
 extern "C" JNIEXPORT int JNICALL Java_Main_getHotnessCounter(JNIEnv* env,

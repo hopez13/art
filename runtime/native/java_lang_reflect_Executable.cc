@@ -256,11 +256,11 @@ static jboolean Executable_isAnnotationPresentNative(JNIEnv* env,
   ScopedFastNativeObjectAccess soa(env);
   ArtMethod* method = ArtMethod::FromReflectedMethod(soa, javaMethod);
   if (method->GetDeclaringClass()->IsProxyClass()) {
-    return false;
+    return JNI_FALSE;
   }
   StackHandleScope<1> hs(soa.Self());
   Handle<mirror::Class> klass(hs.NewHandle(soa.Decode<mirror::Class>(annotationType)));
-  return annotations::IsMethodAnnotationPresent(method, klass);
+  return BoolToJBool(annotations::IsMethodAnnotationPresent(method, klass));
 }
 
 static jint Executable_compareMethodParametersInternal(JNIEnv* env,

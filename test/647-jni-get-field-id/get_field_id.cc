@@ -27,17 +27,17 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_getFieldId(JNIEnv* env,
                                                            jstring signature) {
   ScopedUtfChars name_chars(env, name);
   if (name_chars.c_str() == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   ScopedUtfChars signature_chars(env, signature);
   if (signature_chars.c_str() == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
   jfieldID field_id = env->GetFieldID(cls, name_chars.c_str(), signature_chars.c_str());
   if (field_id == nullptr) {
-    return false;
+    return JNI_FALSE;
   }
-  return true;
+  return JNI_TRUE;
 }
 
 }  // namespace art

@@ -36,7 +36,7 @@ namespace Test936SearchOnload {
 jint OnLoad(JavaVM* vm,
             char* options ATTRIBUTE_UNUSED,
             void* reserved ATTRIBUTE_UNUSED) {
-  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0)) {
+  if (vm->GetEnv(reinterpret_cast<void**>(&jvmti_env), JVMTI_VERSION_1_0) != JNI_OK) {
     printf("Unable to get jvmti env!\n");
     return 1;
   }

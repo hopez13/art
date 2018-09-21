@@ -26,6 +26,7 @@
 #include "gc/space/image_space.h"
 #include "gc/space/space-inl.h"
 #include "image.h"
+#include "jni/jni_internal.h"
 #include "mirror/class.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
@@ -68,7 +69,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkAppImageContains(JNIEnv*, j
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_checkInitialized(JNIEnv*, jclass, jclass c) {
   ScopedObjectAccess soa(Thread::Current());
   ObjPtr<mirror::Class> klass_ptr = soa.Decode<mirror::Class>(c);
-  return klass_ptr->IsInitialized();
+  return BoolToJBool(klass_ptr->IsInitialized());
 }
 
 }  // namespace

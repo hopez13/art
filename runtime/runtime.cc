@@ -951,7 +951,7 @@ void Runtime::StartDaemonThreads() {
   JNIEnv* env = self->GetJniEnv();
   env->CallStaticVoidMethod(WellKnownClasses::java_lang_Daemons,
                             WellKnownClasses::java_lang_Daemons_start);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     env->ExceptionDescribe();
     LOG(FATAL) << "Error starting java.lang.Daemons";
   }

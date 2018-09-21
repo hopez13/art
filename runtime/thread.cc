@@ -148,7 +148,7 @@ void UpdateReadBarrierEntrypoints(QuickEntryPoints* qpoints, bool is_active);
 
 void Thread::SetIsGcMarkingAndUpdateEntrypoints(bool is_marking) {
   CHECK(kUseReadBarrier);
-  tls32_.is_gc_marking = is_marking;
+  tls32_.is_gc_marking = static_cast<art::Thread::tls_32bit_sized_values::bool32_t>(is_marking);
   UpdateReadBarrierEntrypoints(&tlsPtr_.quick_entrypoints, /* is_active */ is_marking);
   ResetQuickAllocEntryPointsForThread(is_marking);
 }
@@ -928,7 +928,7 @@ void Thread::CreatePeer(const char* name, bool as_daemon, jobject thread_group) 
     return;
   }
   jint thread_priority = GetNativePriority();
-  jboolean thread_is_daemon = as_daemon;
+  jboolean thread_is_daemon = BoolToJBool(as_daemon);
 
   ScopedLocalRef<jobject> peer(env, env->AllocObject(WellKnownClasses::java_lang_Thread));
   if (peer.get() == nullptr) {
@@ -1000,7 +1000,7 @@ jobject Thread::CreateCompileTimePeer(JNIEnv* env,
     return nullptr;
   }
   jint thread_priority = GetNativePriority();
-  jboolean thread_is_daemon = as_daemon;
+  jboolean thread_is_daemon = BoolToJBool(as_daemon);
 
   ScopedLocalRef<jobject> peer(env, env->AllocObject(WellKnownClasses::java_lang_Thread));
   if (peer.get() == nullptr) {
@@ -1699,8 +1699,8 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
     ScopedObjectAccessUnchecked soa(self);
     priority = jni::DecodeArtField(WellKnownClasses::java_lang_Thread_priority)
         ->GetInt(thread->tlsPtr_.opeer);
-    is_daemon = jni::DecodeArtField(WellKnownClasses::java_lang_Thread_daemon)
-        ->GetBoolean(thread->tlsPtr_.opeer);
+    is_daemon = (jni::DecodeArtField(WellKnownClasses::java_lang_Thread_daemon)
+        ->GetBoolean(thread->tlsPtr_.opeer) != 0u);
 
     ObjPtr<mirror::Object> thread_group =
         jni::DecodeArtField(WellKnownClasses::java_lang_Thread_group)
@@ -2021,7 +2021,7 @@ void Thread::DumpJavaStack(std::ostream& os, bool check_suspended, bool dump_loc
 
   std::unique_ptr<Context> context(Context::Create());
   StackDumpVisitor dumper(os, const_cast<Thread*>(this), context.get(),
-                          !tls32_.throwing_OutOfMemoryError, check_suspended, dump_locks);
+                          tls32_.throwing_OutOfMemoryError == 0u, check_suspended, dump_locks);
   dumper.WalkStack();
 
   if (have_exception) {
@@ -2167,7 +2167,7 @@ Thread::Thread(bool daemon)
                 "art::Thread has a size which is not a multiple of 4.");
   tls32_.state_and_flags.as_struct.flags = 0;
   tls32_.state_and_flags.as_struct.state = kNative;
-  tls32_.interrupted.store(false, std::memory_order_relaxed);
+  tls32_.interrupted.store(0u, std::memory_order_relaxed);
   memset(&tlsPtr_.held_mutexes[0], 0, sizeof(tlsPtr_.held_mutexes));
   std::fill(tlsPtr_.rosalloc_runs,
             tlsPtr_.rosalloc_runs + kNumRosAllocThreadLocalSizeBracketsInThread,
@@ -2178,7 +2178,7 @@ Thread::Thread(bool daemon)
   }
   tlsPtr_.flip_function = nullptr;
   tlsPtr_.thread_local_mark_stack = nullptr;
-  tls32_.is_transitioning_to_runnable = false;
+  tls32_.is_transitioning_to_runnable = 0u;
 }
 
 bool Thread::IsStillStarting() const {
@@ -2401,7 +2401,7 @@ bool Thread::HandleScopeContains(jobject obj) const {
 void Thread::HandleScopeVisitRoots(RootVisitor* visitor, pid_t thread_id) {
   BufferedRootVisitor<kDefaultBufferedRootCount> buffered_visitor(
       visitor, RootInfo(kRootNativeStack, thread_id));
-  for (BaseHandleScope* cur = tlsPtr_.top_handle_scope; cur; cur = cur->GetLink()) {
+  for (BaseHandleScope* cur = tlsPtr_.top_handle_scope; cur != nullptr; cur = cur->GetLink()) {
     cur->VisitRoots(buffered_visitor);
   }
 }
@@ -2462,24 +2462,24 @@ bool Thread::IsJWeakCleared(jweak obj) const {
 bool Thread::Interrupted() {
   DCHECK_EQ(Thread::Current(), this);
   // No other thread can concurrently reset the interrupted flag.
-  bool interrupted = tls32_.interrupted.load(std::memory_order_seq_cst);
+  bool interrupted = tls32_.interrupted.load(std::memory_order_seq_cst) != 0u;
   if (interrupted) {
-    tls32_.interrupted.store(false, std::memory_order_seq_cst);
+    tls32_.interrupted.store(0u, std::memory_order_seq_cst);
   }
   return interrupted;
 }
 
 // Implements java.lang.Thread.isInterrupted.
 bool Thread::IsInterrupted() {
-  return tls32_.interrupted.load(std::memory_order_seq_cst);
+  return tls32_.interrupted.load(std::memory_order_seq_cst) != 0u;
 }
 
 void Thread::Interrupt(Thread* self) {
   MutexLock mu(self, *wait_mutex_);
-  if (tls32_.interrupted.load(std::memory_order_seq_cst)) {
+  if (tls32_.interrupted.load(std::memory_order_seq_cst) != 0u) {
     return;
   }
-  tls32_.interrupted.store(true, std::memory_order_seq_cst);
+  tls32_.interrupted.store(1u, std::memory_order_seq_cst);
   NotifyLocked(self);
 }
 
@@ -3148,11 +3148,11 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
 
 void Thread::ThrowOutOfMemoryError(const char* msg) {
   LOG(WARNING) << StringPrintf("Throwing OutOfMemoryError \"%s\"%s",
-      msg, (tls32_.throwing_OutOfMemoryError ? " (recursive case)" : ""));
-  if (!tls32_.throwing_OutOfMemoryError) {
-    tls32_.throwing_OutOfMemoryError = true;
+      msg, (tls32_.throwing_OutOfMemoryError != 0u ? " (recursive case)" : ""));
+  if (tls32_.throwing_OutOfMemoryError == 0u) {
+    tls32_.throwing_OutOfMemoryError = 1u;
     ThrowNewException("Ljava/lang/OutOfMemoryError;", msg);
-    tls32_.throwing_OutOfMemoryError = false;
+    tls32_.throwing_OutOfMemoryError = 0u;
   } else {
     Dump(LOG_STREAM(WARNING));  // The pre-allocated OOME has no stack, so help out and log one.
     SetException(Runtime::Current()->GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME());

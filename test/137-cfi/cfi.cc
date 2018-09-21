@@ -85,7 +85,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_sigstop(JNIEnv*, jclass) {
 #if __linux__
   raise(SIGSTOP);
 #endif
-  return true;  // Prevent the compiler from tail-call optimizing this method away.
+  return JNI_TRUE;  // Prevent the compiler from tail-call optimizing this method away.
 }
 
 // Helper to look for a sequence in the stack trace.

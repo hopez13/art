@@ -124,7 +124,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInterpretedFunction(
   {
     ScopedObjectAccess soa(env);
     ArtMethod* goal = jni::DecodeArtMethod(id);
-    MethodIsInterpretedVisitor v(soa.Self(), goal, require_deoptimizable);
+    MethodIsInterpretedVisitor v(soa.Self(), goal, require_deoptimizable == JNI_TRUE);
     v.WalkStack();
     bool enters_interpreter = Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(
         goal->GetEntryPointFromQuickCompiledCode());
@@ -135,7 +135,7 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isInterpretedFunction(
     env->ThrowNew(env->FindClass("java/lang/Error"), "Unable to find given method in stack!");
     return JNI_FALSE;
   }
-  return result;
+  return BoolToJBool(result);
 }
 
 // public static native void assertIsInterpreted();

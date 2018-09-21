@@ -165,7 +165,7 @@ static jobject CreateAdbConnectionThread(art::Thread* thr) {
                         thr_group.get(),
                         thr_name.get(),
                         /*Priority*/ 0,
-                        /*Daemon*/ true);
+                        /*Daemon*/ JNI_TRUE);
 }
 
 struct CallbackData {

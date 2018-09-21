@@ -42,7 +42,7 @@ jobject JNICALL Java_art_Test993_constructNative(JNIEnv* env,
                                                  jobject target,
                                                  jclass clazz) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   return env->NewObject(clazz, method);
@@ -55,7 +55,7 @@ void JNICALL Java_art_Test993_invokeNativeObject(JNIEnv* env,
                                                  jclass clazz,
                                                  jobject thizz) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   if (thizz == nullptr) {
@@ -72,7 +72,7 @@ void JNICALL Java_art_Test993_invokeNativeBool(JNIEnv* env,
                                                jclass clazz,
                                                jobject thizz) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   if (thizz == nullptr) {
@@ -89,7 +89,7 @@ void JNICALL Java_art_Test993_invokeNativeLong(JNIEnv* env,
                                                jclass clazz,
                                                jobject thizz) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   if (thizz == nullptr) {
@@ -106,7 +106,7 @@ void JNICALL Java_art_Test993_invokeNative(JNIEnv* env,
                                            jclass clazz,
                                            jobject thizz) {
   jmethodID method = env->FromReflectedMethod(target);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   if (thizz == nullptr) {

@@ -47,11 +47,11 @@ static bool doCallRunnable(JNIEnv* env, jobject next) {
     return true;
   }
   jmethodID run = env->GetMethodID(run_class.get(), "run", "()V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return true;
   }
   env->CallVoidMethod(next, run);
-  return env->ExceptionCheck();
+  return env->ExceptionCheck() == JNI_TRUE;
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1922_00024Target_lockThisNative(
@@ -102,7 +102,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test1922_getOwnedMonitorStack
     return nullptr;
   }
   jmethodID constructor = env->GetMethodID(ret_class.get(), "<init>", "(ILjava/lang/Object;)V");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
   return CreateObjectArray(env, len, "art/Test1922$MonitorStackDepthInfo",
@@ -133,7 +133,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test1922_getOwnedMonitors(JNI
   }
   for (jint i = 0; i < len; i++) {
     env->SetObjectArrayElement(ret, i, arr[i]);
-    if (env->ExceptionCheck()) {
+    if (env->ExceptionCheck() == JNI_TRUE) {
       return nullptr;
     }
   }

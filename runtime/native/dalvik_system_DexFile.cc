@@ -528,12 +528,12 @@ static jstring DexFile_getDexFileStatus(JNIEnv* env,
                                         jstring javaFilename,
                                         jstring javaInstructionSet) {
   ScopedUtfChars filename(env, javaFilename);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
   ScopedUtfChars instruction_set(env, javaInstructionSet);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
@@ -558,12 +558,12 @@ static jobjectArray DexFile_getDexFileOptimizationStatus(JNIEnv* env,
                                                          jstring javaFilename,
                                                          jstring javaInstructionSet) {
   ScopedUtfChars filename(env, javaFilename);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
   ScopedUtfChars instruction_set(env, javaInstructionSet);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
@@ -609,22 +609,22 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
                                     jboolean newProfile,
                                     jboolean downgrade) {
   ScopedUtfChars filename(env, javaFilename);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
   ScopedUtfChars instruction_set(env, javaInstructionSet);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
   ScopedUtfChars target_compiler_filter(env, javaTargetCompilerFilter);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
   NullableScopedUtfChars class_loader_context(env, javaClassLoaderContext);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
@@ -640,7 +640,7 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
 // public API
 static jboolean DexFile_isDexOptNeeded(JNIEnv* env, jclass, jstring javaFilename) {
   ScopedUtfChars filename_utf(env, javaFilename);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return JNI_FALSE;
   }
 
@@ -661,7 +661,7 @@ static jboolean DexFile_isValidCompilerFilter(JNIEnv* env,
                                             jclass javeDexFileClass ATTRIBUTE_UNUSED,
                                             jstring javaCompilerFilter) {
   ScopedUtfChars compiler_filter(env, javaCompilerFilter);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
@@ -674,7 +674,7 @@ static jboolean DexFile_isProfileGuidedCompilerFilter(JNIEnv* env,
                                                       jclass javeDexFileClass ATTRIBUTE_UNUSED,
                                                       jstring javaCompilerFilter) {
   ScopedUtfChars compiler_filter(env, javaCompilerFilter);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return -1;
   }
 
@@ -689,7 +689,7 @@ static jstring DexFile_getNonProfileGuidedCompilerFilter(JNIEnv* env,
                                                          jclass javeDexFileClass ATTRIBUTE_UNUSED,
                                                          jstring javaCompilerFilter) {
   ScopedUtfChars compiler_filter(env, javaCompilerFilter);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
@@ -714,7 +714,7 @@ static jstring DexFile_getSafeModeCompilerFilter(JNIEnv* env,
                                                  jclass javeDexFileClass ATTRIBUTE_UNUSED,
                                                  jstring javaCompilerFilter) {
   ScopedUtfChars compiler_filter(env, javaCompilerFilter);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
@@ -740,9 +740,9 @@ static jboolean DexFile_isBackedByOatFile(JNIEnv* env, jclass, jobject cookie) {
   std::vector<const DexFile*> dex_files;
   if (!ConvertJavaArrayToDexFiles(env, cookie, /*out */ dex_files, /* out */ oat_file)) {
     DCHECK(env->ExceptionCheck());
-    return false;
+    return JNI_FALSE;
   }
-  return oat_file != nullptr;
+  return BoolToJBool(oat_file != nullptr);
 }
 
 static jobjectArray DexFile_getDexFileOutputPaths(JNIEnv* env,
@@ -750,12 +750,12 @@ static jobjectArray DexFile_getDexFileOutputPaths(JNIEnv* env,
                                             jstring javaFilename,
                                             jstring javaInstructionSet) {
   ScopedUtfChars filename(env, javaFilename);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 
   ScopedUtfChars instruction_set(env, javaInstructionSet);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return nullptr;
   }
 

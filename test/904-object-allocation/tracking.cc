@@ -105,7 +105,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test904_setupObjectAllocCallback(
   env->GetJavaVM(&vm);
   jvmtiEventCallbacks callbacks;
   memset(&callbacks, 0, sizeof(jvmtiEventCallbacks));
-  callbacks.VMObjectAlloc = enable ? ObjectAllocated : nullptr;
+  callbacks.VMObjectAlloc = enable == JNI_TRUE ? ObjectAllocated : nullptr;
 
   jvmtiError ret = jvmti_env->SetEventCallbacks(&callbacks, sizeof(callbacks));
   JvmtiErrorToException(env, jvmti_env, ret);
@@ -114,7 +114,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test904_setupObjectAllocCallback(
 extern "C" JNIEXPORT void JNICALL Java_art_Test904_enableAllocationTracking(
     JNIEnv* env, jclass, jthread thread, jboolean enable) {
   jvmtiError ret = jvmti_env->SetEventNotificationMode(
-      enable ? JVMTI_ENABLE : JVMTI_DISABLE,
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE,
       JVMTI_EVENT_VM_OBJECT_ALLOC,
       thread);
   JvmtiErrorToException(env, jvmti_env, ret);
@@ -134,7 +134,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test904_getTrackingEventMessa
     for (const EventLog& ev : gEvents) {
       ScopedLocalRef<jthread> thr(env, ev.thr_.Get(env));
       for (jthread req_thread : thread_lst) {
-        if (env->IsSameObject(req_thread, thr.get())) {
+        if (env->IsSameObject(req_thread, thr.get()) == JNI_TRUE) {
           real_events.push_back(ev.msg_);
           break;
         }

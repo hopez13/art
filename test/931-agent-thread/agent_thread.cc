@@ -77,7 +77,7 @@ static void AgentMain(jvmtiEnv* jenv, JNIEnv* env, void* arg) {
   CheckJvmtiError(jenv, threads_result);
   bool found = false;
   for (jint i = 0; i != thread_count; ++i) {
-    if (env->IsSameObject(threads[i], this_thread)) {
+    if (env->IsSameObject(threads[i], this_thread) == JNI_TRUE) {
       found = true;
       break;
     }
@@ -133,7 +133,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test931_testAgentThread(
                                 thread_name.get(),
                                 0,
                                 JNI_FALSE);
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
 

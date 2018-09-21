@@ -18,6 +18,7 @@
 
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
+#include "jni/jni_internal.h"
 #include "mirror/class.h"
 #include "mirror/string.h"
 #include "runtime.h"
@@ -57,7 +58,7 @@ void Java_Main_jitGc(JNIEnv*, jclass) {
 extern "C" JNIEXPORT
 jboolean Java_Main_isNextJitGcFull(JNIEnv*, jclass) {
   ScopedObjectAccess soa(Thread::Current());
-  return JitJniStubTestHelper::isNextJitGcFull(soa.Self());
+  return BoolToJBool(JitJniStubTestHelper::isNextJitGcFull(soa.Self()));
 }
 
 }  // namespace art

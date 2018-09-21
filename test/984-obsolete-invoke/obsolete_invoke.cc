@@ -50,12 +50,12 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Test984_getFirstObsoleteMethod984(
   }
   for (jint i = 0; i < frame_count; i++) {
     jmethodID method = frames[i].method;
-    jboolean is_obsolete = false;
+    jboolean is_obsolete = JNI_FALSE;
     if (JvmtiErrorToException(env, jvmti_env, jvmti_env->IsMethodObsolete(method, &is_obsolete))) {
       // ERROR
       return nullptr;
     }
-    if (is_obsolete) {
+    if (is_obsolete == JNI_TRUE) {
       return env->ToReflectedMethod(env->FindClass("java/lang/reflect/Method"),
                                     method,
                                     JNI_TRUE);

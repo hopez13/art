@@ -60,7 +60,7 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv ATTRIBUTE_UNUSED,
                               void* address,
                               /*out*/void** out_address) {
   ScopedLocalRef<jclass> method_class(env, env->FindClass("java/lang/reflect/Method"));
-  ScopedLocalRef<jobject> method_obj(env, env->ToReflectedMethod(method_class.get(), m, false));
+  ScopedLocalRef<jobject> method_obj(env, env->ToReflectedMethod(method_class.get(), m, JNI_FALSE));
   Dl_info addr_info;
   if (dladdr(address, &addr_info) == 0 || addr_info.dli_sname == nullptr) {
     ScopedLocalRef<jclass> exception_class(env, env->FindClass("java/lang/Exception"));
@@ -73,7 +73,7 @@ static void doJvmtiMethodBind(jvmtiEnv* jvmtienv ATTRIBUTE_UNUSED,
       klass.get(),
       "doNativeMethodBind",
       "(Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/String;");
-  if (env->ExceptionCheck()) {
+  if (env->ExceptionCheck() == JNI_TRUE) {
     return;
   }
   ScopedLocalRef<jstring> new_symbol(env,
@@ -104,9 +104,8 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test986_setupNativeBindNotify(
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test986_setNativeBindNotify(
     JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jboolean enable) {
-  jvmtiError res = jvmti_env->SetEventNotificationMode(enable ? JVMTI_ENABLE : JVMTI_DISABLE,
-                                                       JVMTI_EVENT_NATIVE_METHOD_BIND,
-                                                       nullptr);
+  jvmtiError res = jvmti_env->SetEventNotificationMode(
+      enable == JNI_TRUE ? JVMTI_ENABLE : JVMTI_DISABLE, JVMTI_EVENT_NATIVE_METHOD_BIND, nullptr);
   if (res != JVMTI_ERROR_NONE) {
     JvmtiErrorToException(env, jvmti_env, res);
   }
