@@ -172,7 +172,7 @@ extern "C" size_t MterpInvokeVirtual(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoFastInvoke<kVirtual>(
+  return DoInvoke<kVirtual, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -205,7 +205,7 @@ extern "C" size_t MterpInvokeDirect(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoFastInvoke<kDirect>(
+  return DoInvoke<kDirect, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -216,7 +216,7 @@ extern "C" size_t MterpInvokeStatic(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoFastInvoke<kStatic>(
+  return DoInvoke<kStatic, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
