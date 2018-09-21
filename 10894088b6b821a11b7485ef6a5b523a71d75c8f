@@ -45,6 +45,29 @@
       "revId": "10894088b6b821a11b7485ef6a5b523a71d75c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bad2a80_819abf4a",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-21T16:09:17Z",
+      "side": 1,
+      "message": "Hm. This is the \"fast\" path. Can you please put a comment why this has to be here? (I can think of OOME while loading the referenced class, but otherwise I can\u0027t think of a reason right now.)",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 5
+      },
+      "revId": "10894088b6b821a11b7485ef6a5b523a71d75c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
