@@ -55,6 +55,7 @@
 #include "select_generator.h"
 #include "sharpening.h"
 #include "side_effects_analysis.h"
+#include "tail_recursion_elimination.h"
 
 // Decide between default or alternative pass name.
 
@@ -96,6 +97,8 @@ const char* OptimizationPassName(OptimizationPass pass) {
       return ConstructorFenceRedundancyElimination::kCFREPassName;
     case OptimizationPass::kScheduling:
       return HInstructionScheduling::kInstructionSchedulingPassName;
+    case OptimizationPass::kTailRecursionElimination:
+      return TailRecursionElimination::kTailRecursionEliminationPassName;
 #ifdef ART_ENABLE_CODEGEN_arm
     case OptimizationPass::kInstructionSimplifierArm:
       return arm::InstructionSimplifierArm::kInstructionSimplifierArmPassName;
@@ -144,6 +147,7 @@ OptimizationPass OptimizationPassByName(const std::string& pass_name) {
   X(OptimizationPass::kScheduling);
   X(OptimizationPass::kSelectGenerator);
   X(OptimizationPass::kSideEffectsAnalysis);
+  X(OptimizationPass::kTailRecursionElimination);
 #ifdef ART_ENABLE_CODEGEN_arm
   X(OptimizationPass::kInstructionSimplifierArm);
 #endif
@@ -276,6 +280,9 @@ ArenaVector<HOptimization*> ConstructOptimizations(
       case OptimizationPass::kScheduling:
         opt = new (allocator) HInstructionScheduling(
             graph, codegen->GetCompilerOptions().GetInstructionSet(), codegen, pass_name);
+        break;
+      case OptimizationPass::kTailRecursionElimination:
+        opt =  new (allocator) TailRecursionElimination(graph, pass_name);
         break;
       //
       // Arch-specific passes.
