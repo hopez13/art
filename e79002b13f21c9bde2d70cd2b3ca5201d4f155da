@@ -123,6 +123,24 @@
       "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec6a9f84_e5f7cbe3",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-21T11:54:19Z",
+      "side": 1,
+      "message": "Well, that is true as well.  But the other TODO says the instrumentation should be removable, so I would like to look into that as well.\n\nBut the crash I get if I remove the condition for intrinsic leads me to believe that the intrinsic entrypoints were not set up.",
+      "parentUuid": "cc133539_baa5f7ce",
+      "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
