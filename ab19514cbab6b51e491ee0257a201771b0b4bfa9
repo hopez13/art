@@ -338,6 +338,24 @@
     },
     {
       "key": {
+        "uuid": "4776a85e_35a5cbbd",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-21T12:46:46Z",
+      "side": 1,
+      "message": "It would be difficult to do the cheap clears.",
+      "parentUuid": "25150bf4_aa702233",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "832076fe_94128c20",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
@@ -444,6 +462,30 @@
       "side": 1,
       "message": "I think a DexFileManager is in need :)",
       "parentUuid": "71f7b0e3_7cd07aff",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e2c5b5_8476ae3b",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-21T12:46:46Z",
+      "side": 1,
+      "message": "In need indeed.",
+      "parentUuid": "460b974f_fa0e0bc4",
       "range": {
         "startLine": 326,
         "startChar": 0,
