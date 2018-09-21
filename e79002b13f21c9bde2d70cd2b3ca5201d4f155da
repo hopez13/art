@@ -70,6 +70,23 @@
       "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7242dd5e_b7e9610c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:40:57Z",
+      "side": 1,
+      "message": "Why do we want to handle intrinsic only during in fast-invoke? Please add a comment.",
+      "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
