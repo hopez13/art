@@ -87,6 +87,24 @@
       "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c4891da_b1b48a04",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-21T11:39:05Z",
+      "side": 1,
+      "message": "Done. I have added comment. I am not completely sure what the reason is, I have mostly just tried to preserve the semantics of the two paths.\n\nThe non-fast version is used by the switch interpreter, which presumably can be used in cases where we can not us intrinsics?  Unstarted runtime maybe?\n\nI would still like to remove the condition, but that is problem for another day.",
+      "parentUuid": "7242dd5e_b7e9610c",
+      "revId": "e79002b13f21c9bde2d70cd2b3ca5201d4f155da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
