@@ -22,6 +22,29 @@
       "revId": "10894088b6b821a11b7485ef6a5b523a71d75c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7a1755b_ee0eceb3",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T12:23:44Z",
+      "side": 1,
+      "message": "So looks like you\u0027re not calling FindMethodFromCode as that deals with kVirtual? Please add a fat comment around these, it\u0027s very subtle.",
+      "range": {
+        "startLine": 147,
+        "startChar": 12,
+        "endLine": 147,
+        "endChar": 41
+      },
+      "revId": "10894088b6b821a11b7485ef6a5b523a71d75c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
