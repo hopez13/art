@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "a353627d_a1acd520",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: inconsistent use of (). either put them around both subexpressions or neither.",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b29d607_65fee1a6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: the parentheses really seem to hurt readability here",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 21
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94fe6fc6_6253a868",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 1061,
+        "startChar": 24,
+        "endLine": 1061,
+        "endChar": 30
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bf17c39_ceac1044",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 2
@@ -13,6 +76,121 @@
       "writtenOn": "2018-09-21T08:35:28Z",
       "side": 1,
       "message": "3 lines too long, one more below. (And do you want to add the parameter names?)",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d31c890_13644835",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "Can you also add the parameter names while you\u0027re at it?",
+      "parentUuid": "5bf17c39_ceac1044",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44bb595e_756c23f8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "IMHO I would just fix it to be \u0027bool method_is_static : 1\u0027 in the definition. This is *obviously* a boolean.",
+      "range": {
+        "startLine": 1580,
+        "startChar": 15,
+        "endLine": 1580,
+        "endChar": 31
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "199a41b1_6ade3b91",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: \u0027\\0\u0027 for char comparisons\n\nhttps://google.github.io/styleguide/cppguide.html#0_and_nullptr/NULL",
+      "range": {
+        "startLine": 365,
+        "startChar": 15,
+        "endLine": 365,
+        "endChar": 17
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd7adee_0490e212",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: \u0027\\0\u0027 for char comparisons",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28611b7_603f2bab",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: \u0027\\0\u0027 for char comparisons",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd942f2_aaaed760",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: \u0027\\0\u0027 for char comparisons",
       "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -82,6 +260,23 @@
         "endLine": 266,
         "endChar": 32
       },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b8fe22f_0ded1a46",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-21T15:36:38Z",
+      "side": 1,
+      "message": "nit: \u0027\\0\u0027 for char comparisons",
       "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
