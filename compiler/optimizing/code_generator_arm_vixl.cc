@@ -2677,6 +2677,18 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
   const Location first = locations->InAt(0);
   const Location out = locations->Out();
   const Location second = locations->InAt(1);
+
+  // In the unlucky case the output of this instruction overlaps
+  // with an input of a "emitted-at-use-site" condition, and
+  // the output of this instruction is not one of its inputs, we'll
+  // need to fallback to branches instead of conditional ARM instructions.
+  bool output_overlaps_with_condition_inputs =
+      condition->IsCondition() &&
+      !IsBooleanValueOrMaterializedCondition(condition) &&
+      !out.Equals(first) &&
+      !out.Equals(second) &&
+      (condition->GetLocations()->InAt(0).Equals(out) ||
+       condition->GetLocations()->InAt(1).Equals(out));
   Location src;
 
   if (condition->IsIntConstant()) {
@@ -2710,7 +2722,7 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
     }
 
     if (CanGenerateConditionalMove(out, src)) {
-      if (!out.Equals(first) && !out.Equals(second)) {
+      if (!output_overlaps_with_condition_inputs && !out.Equals(first) && !out.Equals(second)) {
         codegen_->MoveLocation(out, src.Equals(first) ? second : first, type);
       }
 
@@ -2723,38 +2735,47 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
         cond = GenerateTest(condition->AsCondition(), invert, codegen_);
       }
 
-      const size_t instr_count = out.IsRegisterPair() ? 4 : 2;
-      // We use the scope because of the IT block that follows.
-      ExactAssemblyScope guard(GetVIXLAssembler(),
-                               instr_count * vixl32::k16BitT32InstructionSizeInBytes,
-                               CodeBufferCheckScope::kExactSize);
-
-      if (out.IsRegister()) {
-        __ it(cond.first);
-        __ mov(cond.first, RegisterFrom(out), OperandFrom(src, type));
+      if (output_overlaps_with_condition_inputs) {
+        vixl32::Label other_case, done;
+        __ B(cond.first, &other_case, /* far_label */ false);
+        codegen_->MoveLocation(out, second, type);
+        __ B(&done);
+        __ Bind(&other_case);
+        codegen_->MoveLocation(out, first, type);
+        __ Bind(&done);
       } else {
-        DCHECK(out.IsRegisterPair());
+        const size_t instr_count = out.IsRegisterPair() ? 4 : 2;
+        // We use the scope because of the IT block that follows.
+        ExactAssemblyScope guard(GetVIXLAssembler(),
+                                 instr_count * vixl32::k16BitT32InstructionSizeInBytes,
+                                 CodeBufferCheckScope::kExactSize);
 
-        Operand operand_high(0);
-        Operand operand_low(0);
-
-        if (src.IsConstant()) {
-          const int64_t value = Int64ConstantFrom(src);
-
-          operand_high = High32Bits(value);
-          operand_low = Low32Bits(value);
+        if (out.IsRegister()) {
+          __ it(cond.first);
+          __ mov(cond.first, RegisterFrom(out), OperandFrom(src, type));
         } else {
-          DCHECK(src.IsRegisterPair());
-          operand_high = HighRegisterFrom(src);
-          operand_low = LowRegisterFrom(src);
+          DCHECK(out.IsRegisterPair());
+
+          Operand operand_high(0);
+          Operand operand_low(0);
+
+          if (src.IsConstant()) {
+            const int64_t value = Int64ConstantFrom(src);
+
+            operand_high = High32Bits(value);
+            operand_low = Low32Bits(value);
+          } else {
+            DCHECK(src.IsRegisterPair());
+            operand_high = HighRegisterFrom(src);
+            operand_low = LowRegisterFrom(src);
+          }
+
+          __ it(cond.first);
+          __ mov(cond.first, LowRegisterFrom(out), operand_low);
+          __ it(cond.first);
+          __ mov(cond.first, HighRegisterFrom(out), operand_high);
         }
-
-        __ it(cond.first);
-        __ mov(cond.first, LowRegisterFrom(out), operand_low);
-        __ it(cond.first);
-        __ mov(cond.first, HighRegisterFrom(out), operand_high);
       }
-
       return;
     }
   }
@@ -2762,6 +2783,7 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
   vixl32::Label* false_target = nullptr;
   vixl32::Label* true_target = nullptr;
   vixl32::Label select_end;
+  vixl32::Label other_case;
   vixl32::Label* const target = codegen_->GetFinalLabel(select, &select_end);
 
   if (out.Equals(second)) {
@@ -2772,12 +2794,23 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
     src = second;
 
     if (!out.Equals(first)) {
-      codegen_->MoveLocation(out, first, type);
+      if (output_overlaps_with_condition_inputs) {
+        false_target = &other_case;
+      } else {
+        codegen_->MoveLocation(out, first, type);
+      }
     }
   }
 
   GenerateTestAndBranch(select, 2, true_target, false_target, /* far_target */ false);
-  codegen_->MoveLocation(out, src, type);
+  if (output_overlaps_with_condition_inputs) {
+    codegen_->MoveLocation(out, second, type);
+    __ B(&select_end);
+    __ Bind(&other_case);
+    codegen_->MoveLocation(out, first, type);
+  } else {
+    codegen_->MoveLocation(out, src, type);
+  }
 
   if (select_end.IsReferenced()) {
     __ Bind(&select_end);
