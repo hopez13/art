@@ -392,6 +392,24 @@
     },
     {
       "key": {
+        "uuid": "a006ac49_71112941",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T16:13:14Z",
+      "side": 1,
+      "message": "I should have used \"dex file that we interpreted\" as dex files need to be registered with their class loader before we can execute their bytecode.",
+      "parentUuid": "e921df46_3d23090b",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "832076fe_94128c20",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 4
