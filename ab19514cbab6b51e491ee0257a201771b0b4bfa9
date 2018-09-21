@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b7365d6_c3e1e004",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "nit: mention for which instructions",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36897e76_58a8e0e4",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "All but \"Clear\" must be ...",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 65
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "510ad6ce_e0147f97",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "Add a comment why a page size is a good size.",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d89ddf7_903255a8",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 41,
+        "startChar": 63,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c6319e_6d39e8fa",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "how is it made read only?",
+      "range": {
+        "startLine": 73,
+        "startChar": 44,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "832076fe_94128c20",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "Why do we want a thread safe clear? Please add comments.",
+      "range": {
+        "startLine": 98,
+        "startChar": 69,
+        "endLine": 98,
+        "endChar": 86
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c64154e6_ff19493b",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "Having this here looks odd and makes me think this code should really be in runtime/class_linker or something.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fef54f2_3c925338",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-21T10:52:09Z",
+      "side": 1,
+      "message": "Add high level comment why this method is needed.",
+      "revId": "ab19514cbab6b51e491ee0257a201771b0b4bfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
