@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bf17c39_ceac1044",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:35:28Z",
+      "side": 1,
+      "message": "3 lines too long, one more below. (And do you want to add the parameter names?)",
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f26b572_1abcfc85",
+        "filename": "libdexfile/dex/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:35:28Z",
+      "side": 1,
+      "message": "Since \"for (; char_count !\u003d 0u; --char_count)\" would require adjustment in the loop body, I\u0027d prefer\n\n  while (char_count !\u003d 0u) {\n    --char_count;\n    [...]\n  }",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "789157c9_2e607c86",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:35:28Z",
+      "side": 1,
+      "message": "Move decrement into loop body?",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 32
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a27a9760_679cbb0b",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:35:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 32
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0ce465e_e0d41088",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T08:35:28Z",
+      "side": 1,
+      "message": "result !\u003d nullptr",
+      "range": {
+        "startLine": 140,
+        "startChar": 9,
+        "endLine": 140,
+        "endChar": 50
+      },
+      "revId": "23834310e52d9444b61714e7a06052717aa4e89a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
