@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4ff6066_fdc9fe21",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T14:09:16Z",
+      "side": 1,
+      "message": "This can be relaxed now.",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1302,
+        "endChar": 52
+      },
+      "revId": "0d8ab393631c95b907c381b30149093b2d936ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a7cb54b_29482f2e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T14:09:16Z",
+      "side": 1,
+      "message": "is_unsigned",
+      "range": {
+        "startLine": 2202,
+        "startChar": 12,
+        "endLine": 2202,
+        "endChar": 45
+      },
+      "revId": "0d8ab393631c95b907c381b30149093b2d936ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96c0e95_ff26f6e2",
+        "filename": "test/684-checker-simd-dotprod/src/other/TestVarious.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-21T14:09:16Z",
+      "side": 1,
+      "message": "I think this test is unnecessary, it just reorders the two lines from the previous one. OTOH, it would be interesting to see\n\n    for (int i \u003d 0; i \u003c b.length; i++) {\n      byte a_val \u003d a[i];\n      byte b_val \u003d b[i];\n      s2 +\u003d (a_val \u0026 0xff) * (b_val \u0026 0xff);\n      s1 +\u003d a_val * 42;  // Constant.\n    }\n\nwhere the a_val \u003d ArrayGet/Int8 but b_val is merged with the \u00260xff into ArrayGet/Uint8. I\u0027d expect to hit the DCHECK() in the codegen which I commented on.",
+      "revId": "0d8ab393631c95b907c381b30149093b2d936ee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
