@@ -219,3 +219,58 @@ art_debug_defaults {
         },
     },
 }
+
+// TODO: Use variables to define `executable_modules` and
+// `native_shared_lib_modules` in the apex rule module below (see
+// https://android.googlesource.com/platform/build/soong/+/master/README.md#variables).
+apex {
+    // TODO: Or name it "com.android.runtime" (if so, don't forget to update the manifest too).
+    name: "com.android.art",
+    manifest: "manifest.json",
+    // TODO: Check if `file_contexts` is really needed (see go/android-apex-build and
+    // system/apex/build/apex.go).
+    //file_contexts: "file_contexts",
+    executable_modules: [
+      // Modules listed in LOCAL_REQUIRED_MODULES for module art-runtime in art/Android.mk.
+      // - Base requirements.
+      "dalvikvm",
+      "dex2oat",
+      "dexoptanalyzer",
+      "patchoat",
+      "profman",
+      // - Debug variants.
+      //   FIXME: Should these be moved to another APEX file?
+      "dex2oatd",
+      "dexoptanalyzerd",
+      "patchoatd",
+      "profmand",
+      // Modules listed in LOCAL_REQUIRED_MODULES for module art-runtime in art/Android.mk.
+      // FIXME: Does not work as-is:
+      //        "error: [...] "com.android.art" depends on undefined module "ahat""
+      //"ahat",
+      "dexdiag",
+      "dexdump",
+      "dexlist",
+      "hprof-conv",
+      "oatdump"],
+    native_shared_lib_modules: [
+      // Modules listed in LOCAL_REQUIRED_MODULES for module art-tools in art/Android.mk.
+      // - Base requirements.
+      "libart",
+      "libart-compiler",
+      "libopenjdkjvm",
+      "libopenjdkjvmti",
+      "libadbconnection",
+      // - Fake library that avoids namespace issues and gives some warnings for nosy apps.
+      // FIXME: Does not work as-is:
+      //        "error: [...] "com.android.art" depends on undefined module "libart_fake""
+      //"libart_fake",
+      // - Debug variants.
+      //   FIXME: Should these be moved to another APEX file?
+      "libartd",
+      "libartd-compiler",
+      "libopenjdkd",
+      "libopenjdkjvmd",
+      "libopenjdkjvmtid",
+      "libadbconnectiond"],
+}
