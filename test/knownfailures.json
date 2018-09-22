@@ -1079,6 +1079,18 @@
         "description": ["Stack too big."]
     },
     {
+      "tests": ["1952-bad-jit-suspend"],
+      "variant": "ndebug",
+      "description": ["Running this test with ndebug causes the main threads shadow-frames to become corrupt for unknown reasons."],
+      "bug": "b/116517081"
+    },
+    {
+      "tests": ["1952-bad-jit-suspend"],
+      "variant": "jit | jvm",
+      "description": ["This test demonstrates a possible deadlock between the jit and JVMTI"],
+      "bug": "b/112074977 & b/70838465"
+    },
+    {
         "tests": ["566-polymorphic-inlining"],
         "variant": "jit & debuggable",
         "description": ["We do not inline with debuggable."]
