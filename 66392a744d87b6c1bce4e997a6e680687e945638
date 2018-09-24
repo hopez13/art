@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57bce361_79920542",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2018-09-24T10:48:08Z",
+      "side": 1,
+      "message": "During TRE pass execution, I add new loop inside compiled method and i add new SuspendCheck inside loop header. I tried to set Dex PC in many ways with creation of SuspendCheck, but this check always fails. Somehow, i am not able to set correct Dex PC. Please check and guide me how to set correct Dex PC for SuspendCheck.",
+      "revId": "66392a744d87b6c1bce4e997a6e680687e945638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
