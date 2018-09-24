@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "304083b0_032d7ff6",
+        "filename": "tools/ahat/src/main/com/android/ahat/Summarizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-24T09:32:06Z",
+      "side": 1,
+      "message": "What do you want to print in the case of a binder token with description provided? Is \"binder service for myBinderTokenDescription\" okay, or should it be \u0027binder token for myBinderTokenDescription\"?\n\nMaybe you could change getBinderStubInterfaceName to return something like \"(token)\" if it has no description. Then you get \"binder service for (token)\"?",
+      "range": {
+        "startLine": 126,
+        "startChar": 33,
+        "endLine": 126,
+        "endChar": 45
+      },
+      "revId": "2cf0ad0ebf50936e103eef4f6d034d44f24023ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b047587_0896c344",
         "filename": "tools/ahat/src/test-dump/DumpedStuff.java",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 29,
         "endLine": 143,
         "endChar": 80
+      },
+      "revId": "2cf0ad0ebf50936e103eef4f6d034d44f24023ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b73fef5d_769a6431",
+        "filename": "tools/ahat/src/test-dump/DumpedStuff.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-24T09:32:06Z",
+      "side": 1,
+      "message": "Add test for binder token with descriptor provided?",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 47
       },
       "revId": "2cf0ad0ebf50936e103eef4f6d034d44f24023ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
