@@ -563,4 +563,30 @@ public class InstanceTest {
     AhatInstance carriedObj = dump.getDumpedAhatInstance("carriedBinderProxy");
     assertNull(carriedObj.getBinderProxyInterfaceName());
   }
+
+  @Test
+  public void binderStub() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+
+    // Regular binder service returns the interface name
+    AhatInstance binderService = dump.getDumpedAhatInstance("binderService");
+    assertEquals("binder service (IDumpedManager)", binderService.getBinderStubInterfaceName());
+
+    // Binder tokens return "binder token"
+    AhatInstance binderToken = dump.getDumpedAhatInstance("binderToken");
+    assertEquals("binder token", binderToken.getBinderStubInterfaceName());
+
+    // Named binder tokens include their descriptor
+    AhatInstance namedBinderToken = dump.getDumpedAhatInstance("namedBinderToken");
+    assertEquals("binder token (awesomeToken)", namedBinderToken.getBinderStubInterfaceName());
+
+    // Fake service returns null
+    AhatInstance fakeService = dump.getDumpedAhatInstance("fakeBinderService");
+    assertNull(fakeService.getBinderStubInterfaceName());
+
+    // Random non-binder object returns null
+    AhatInstance nonBinderObject = dump.getDumpedAhatInstance("anObject");
+    assertNull(nonBinderObject.getBinderStubInterfaceName());
+
+  }
 }
