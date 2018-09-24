@@ -598,6 +598,7 @@ class JitCompileTask final : public Task {
 
   void Run(Thread* self) override {
     ScopedObjectAccess soa(self);
+    // Turn off class loading during this compile if we are java-debuggable.
     if (kind_ == kCompile) {
       Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ false);
     } else if (kind_ == kCompileOsr) {
