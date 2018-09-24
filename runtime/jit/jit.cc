@@ -576,6 +576,24 @@ void Jit::AddMemoryUsage(ArtMethod* method, size_t bytes) {
   memory_use_.AddValue(bytes);
 }
 
+class ScopedSetCanLoadClasses {
+ public:
+  ScopedSetCanLoadClasses(Thread* self, bool new_setting)
+      : self_(self), old_setting_(self_->CanLoadClasses()) {
+    DCHECK_EQ(self_, Thread::Current());
+    self_->SetCanLoadClasses(new_setting);
+  }
+
+  ~ScopedSetCanLoadClasses() {
+    DCHECK_EQ(self_, Thread::Current());
+    self_->SetCanLoadClasses(old_setting_);
+  }
+
+ private:
+  Thread* self_;
+  bool old_setting_;
+};
+
 class JitCompileTask final : public Task {
  public:
   enum TaskKind {
@@ -598,6 +616,8 @@ class JitCompileTask final : public Task {
 
   void Run(Thread* self) override {
     ScopedObjectAccess soa(self);
+    // Turn off class loading during this compile if we are java-debuggable.
+    ScopedSetCanLoadClasses ssclc(self, !Runtime::Current()->IsJavaDebuggable());
     if (kind_ == kCompile) {
       Runtime::Current()->GetJit()->CompileMethod(method_, self, /* osr */ false);
     } else if (kind_ == kCompileOsr) {
