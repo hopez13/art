@@ -29,6 +29,7 @@ ANDROID_FLAGS=""
 GDB=""
 GDB_ARGS=""
 GDB_SERVER="gdbserver"
+GDB_INSTRUCTIONS="true"
 HAVE_IMAGE="y"
 HOST="n"
 INTERPRETER="n"
@@ -988,6 +989,7 @@ else
 
     if [ "$USE_GDB" = "y" ]; then
       # When running under gdb, we cannot do piping and grepping...
+      echo "Run 'gdbclient.py -p <pid printed below>' to debug."
       $cmdline "$@"
     else
       if [ "$TIME_OUT" != "gdb" ]; then
