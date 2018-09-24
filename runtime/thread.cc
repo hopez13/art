@@ -2156,8 +2156,8 @@ void Thread::NotifyThreadGroup(ScopedObjectAccessAlreadyRunnable& soa, jobject t
 Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
-      can_call_into_java_(true),
-      can_be_suspended_by_user_code_(true) {
+      can_be_suspended_by_user_code_(true),
+      is_runtime_thread_(false) {
   wait_mutex_ = new Mutex("a thread wait mutex");
   wait_cond_ = new ConditionVariable("a thread wait condition variable", *wait_mutex_);
   tlsPtr_.instrumentation_stack = new std::deque<instrumentation::InstrumentationStackFrame>;
@@ -2179,6 +2179,10 @@ Thread::Thread(bool daemon)
   tlsPtr_.flip_function = nullptr;
   tlsPtr_.thread_local_mark_stack = nullptr;
   tls32_.is_transitioning_to_runnable = false;
+}
+
+bool Thread::CanLoadClasses() const {
+  return !IsRuntimeThread() || !Runtime::Current()->IsJavaDebuggable();
 }
 
 bool Thread::IsStillStarting() const {
