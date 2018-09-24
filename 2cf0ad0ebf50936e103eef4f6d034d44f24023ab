@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b047587_0896c344",
+        "filename": "tools/ahat/src/test-dump/DumpedStuff.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2018-09-24T09:21:18Z",
+      "side": 1,
+      "message": "Maybe remove so it\u0027s still an impostor and have: \nFakeBinderService extends IBinderInterfaceImpostor.Stub {}; \nObject fbs \u003d new FakeBinderService(); \n// verify fbs doesn\u0027t return a descriptor ?",
+      "range": {
+        "startLine": 143,
+        "startChar": 29,
+        "endLine": 143,
+        "endChar": 80
+      },
+      "revId": "2cf0ad0ebf50936e103eef4f6d034d44f24023ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
