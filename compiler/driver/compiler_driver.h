@@ -226,13 +226,13 @@ class CompilerDriver {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Resolve a method. Returns null on failure, including incompatible class change.
-  ArtMethod* ResolveMethod(
-      ScopedObjectAccess& soa,
-      Handle<mirror::DexCache> dex_cache,
-      Handle<mirror::ClassLoader> class_loader,
-      const DexCompilationUnit* mUnit,
-      uint32_t method_idx,
-      InvokeType invoke_type)
+  ArtMethod* ResolveMethod(ScopedObjectAccess& soa,
+                           Handle<mirror::DexCache> dex_cache,
+                           Handle<mirror::ClassLoader> class_loader,
+                           const DexCompilationUnit* mUnit,
+                           uint32_t method_idx,
+                           InvokeType invoke_type,
+                           ArtMethod* referrer = nullptr)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void ProcessedInstanceField(bool resolved);

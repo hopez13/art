@@ -820,13 +820,13 @@ ArtMethod* HInstructionBuilder::ResolveMethod(uint16_t method_idx, InvokeType in
   ClassLinker* class_linker = dex_compilation_unit_->GetClassLinker();
   Handle<mirror::ClassLoader> class_loader = dex_compilation_unit_->GetClassLoader();
 
-  ArtMethod* resolved_method =
-      class_linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
-          method_idx,
-          dex_compilation_unit_->GetDexCache(),
-          class_loader,
-          graph_->GetArtMethod(),
-          invoke_type);
+  ArtMethod* resolved_method = compiler_driver_->ResolveMethod(soa,
+                                                               dex_compilation_unit_->GetDexCache(),
+                                                               class_loader,
+                                                               dex_compilation_unit_,
+                                                               method_idx,
+                                                               invoke_type,
+                                                               graph_->GetArtMethod());
 
   if (UNLIKELY(resolved_method == nullptr)) {
     // Clean up any exception left by type resolution.
@@ -1662,14 +1662,14 @@ ArtField* HInstructionBuilder::ResolveField(uint16_t field_idx, bool is_static, 
   ScopedObjectAccess soa(Thread::Current());
   StackHandleScope<2> hs(soa.Self());
 
-  ClassLinker* class_linker = dex_compilation_unit_->GetClassLinker();
   Handle<mirror::ClassLoader> class_loader = dex_compilation_unit_->GetClassLoader();
   Handle<mirror::Class> compiling_class(hs.NewHandle(ResolveCompilingClass(soa)));
 
-  ArtField* resolved_field = class_linker->ResolveField(field_idx,
-                                                        dex_compilation_unit_->GetDexCache(),
-                                                        class_loader,
-                                                        is_static);
+  ArtField* resolved_field = compiler_driver_->ResolveField(soa,
+                                                            dex_compilation_unit_->GetDexCache(),
+                                                            class_loader,
+                                                            field_idx,
+                                                            is_static);
   if (UNLIKELY(resolved_field == nullptr)) {
     // Clean up any exception left by type resolution.
     soa.Self()->ClearException();

@@ -270,8 +270,9 @@ class ClassLinker {
   // Determine whether a dex cache result should be trusted, or an IncompatibleClassChangeError
   // check and IllegalAccessError check should be performed even after a hit.
   enum class ResolveMode {  // private.
-    kNoChecks,
-    kCheckICCEAndIAE
+    kNoChecks = 0,
+    kCheckICCEAndIAE = 1,
+    kCheckResolvedICCEAndIAE = 2
   };
 
   // Look up a previously resolved method with the given index.
@@ -349,6 +350,16 @@ class ClassLinker {
                             Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+  // Find a field with a given ID from the DexFile associated with the given DexCache
+  // and ClassLoader, storing the result in DexCache. The `is_static` argument is used
+  // to determine if we are resolving a static or non-static field. The version with an
+  // already resolved klass should be used when possible.
+  ArtField* FindResolvedField(ObjPtr<mirror::DexCache> dex_cache,
+                              ObjPtr<mirror::ClassLoader> class_loader,
+                              uint32_t field_idx,
+                              bool is_static)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Find a field with a given ID from the DexFile associated with the given DexCache
   // and ClassLoader, storing the result in DexCache. The declaring class is assumed

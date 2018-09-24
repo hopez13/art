@@ -7923,6 +7923,10 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
   Thread::PoisonObjectPointersIfDebug();
   DCHECK(resolved == nullptr || !resolved->IsRuntimeMethod());
   bool valid_dex_cache_method = resolved != nullptr;
+  if (resolved == nullptr && kResolveMode == ResolveMode::kCheckResolvedICCEAndIAE) {
+    // No resolved method so return.
+    return nullptr;
+  }
   if (kResolveMode == ResolveMode::kNoChecks && valid_dex_cache_method) {
     // We have a valid method from the DexCache and no checks to perform.
     DCHECK(resolved->GetDeclaringClassUnchecked() != nullptr) << resolved->GetDexMethodIndex();
@@ -7950,7 +7954,7 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
   }
 
   // Check if the invoke type matches the class type.
-  if (kResolveMode == ResolveMode::kCheckICCEAndIAE &&
+  if (kResolveMode >= ResolveMode::kCheckICCEAndIAE &&
       CheckInvokeClassMismatch</* kThrow */ true>(
           dex_cache.Get(), type, [klass]() { return klass; })) {
     DCHECK(Thread::Current()->IsExceptionPending());
@@ -7962,7 +7966,7 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
   }
 
   // Note: We can check for IllegalAccessError only if we have a referrer.
-  if (kResolveMode == ResolveMode::kCheckICCEAndIAE && resolved != nullptr && referrer != nullptr) {
+  if (kResolveMode >= ResolveMode::kCheckICCEAndIAE && resolved != nullptr && referrer != nullptr) {
     ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
     ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
     if (!referring_class->CheckResolvedMethodAccess(methods_class,
@@ -7977,7 +7981,7 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
 
   // If we found a method, check for incompatible class changes.
   if (LIKELY(resolved != nullptr) &&
-      LIKELY(kResolveMode == ResolveMode::kNoChecks ||
+      LIKELY(kResolveMode >= ResolveMode::kNoChecks ||
              !resolved->CheckIncompatibleClassChange(type))) {
     return resolved;
   } else {
@@ -8099,6 +8103,23 @@ ArtField* ClassLinker::ResolveFieldJLS(uint32_t field_idx,
     ThrowNoSuchFieldError("", klass, type, name);
   }
   return resolved;
+}
+
+ArtField* ClassLinker::FindResolvedField(ObjPtr<mirror::DexCache> dex_cache,
+                                         ObjPtr<mirror::ClassLoader> class_loader,
+                                         uint32_t field_idx,
+                                         bool is_static) {
+  const DexFile& dex_file = *dex_cache->GetDexFile();
+
+  const DexFile::FieldId& field_id = dex_file.GetFieldId(field_idx);
+  ObjPtr<mirror::Class> klass = LookupResolvedType(field_id.class_idx_,
+                                                   dex_cache,
+                                                   class_loader);
+  if (klass.IsNull()) {
+    return nullptr;
+  }
+
+  return FindResolvedField(klass, dex_cache, class_loader, field_idx, is_static);
 }
 
 ArtField* ClassLinker::FindResolvedField(ObjPtr<mirror::Class> klass,
@@ -9045,6 +9066,12 @@ ObjPtr<mirror::IfTable> ClassLinker::AllocIfTable(Thread* self, size_t ifcount) 
 }
 
 // Instantiate ClassLinker::ResolveMethod.
+template ArtMethod* ClassLinker::ResolveMethod<ClassLinker::ResolveMode::kCheckResolvedICCEAndIAE>(
+    uint32_t method_idx,
+    Handle<mirror::DexCache> dex_cache,
+    Handle<mirror::ClassLoader> class_loader,
+    ArtMethod* referrer,
+    InvokeType type);
 template ArtMethod* ClassLinker::ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
     uint32_t method_idx,
     Handle<mirror::DexCache> dex_cache,

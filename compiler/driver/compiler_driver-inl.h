@@ -23,6 +23,7 @@
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "class_linker-inl.h"
+#include "compiler_options.h"
 #include "dex_compilation_unit.h"
 #include "handle_scope-inl.h"
 #include "mirror/class_loader.h"
@@ -40,9 +41,17 @@ inline ObjPtr<mirror::Class> CompilerDriver::ResolveClass(
     const DexCompilationUnit* mUnit) {
   DCHECK_EQ(dex_cache->GetDexFile(), mUnit->GetDexFile());
   DCHECK_EQ(class_loader.Get(), mUnit->GetClassLoader().Get());
-  ObjPtr<mirror::Class> cls =
-      mUnit->GetClassLinker()->ResolveType(cls_index, dex_cache, class_loader);
-  DCHECK_EQ(cls == nullptr, soa.Self()->IsExceptionPending());
+  ObjPtr<mirror::Class> cls;
+  if (UNLIKELY(GetCompilerOptions().GetDebuggable())) {
+    // In debuggable mode the timing of class loads and prepares are potentially visible and tools
+    // such as debuggers might rely on them.
+    cls = mUnit->GetClassLinker()->LookupResolvedType(cls_index,
+                                                      dex_cache.Get(),
+                                                      class_loader.Get());
+  } else {
+    cls = mUnit->GetClassLinker()->ResolveType(cls_index, dex_cache, class_loader);
+    DCHECK_EQ(cls == nullptr, soa.Self()->IsExceptionPending());
+  }
   if (UNLIKELY(cls == nullptr)) {
     // Clean up any exception left by type resolution.
     soa.Self()->ClearException();
@@ -67,9 +76,21 @@ inline ArtField* CompilerDriver::ResolveField(const ScopedObjectAccess& soa,
                                               Handle<mirror::ClassLoader> class_loader,
                                               uint32_t field_idx,
                                               bool is_static) {
-  ArtField* resolved_field = Runtime::Current()->GetClassLinker()->ResolveField(
-      field_idx, dex_cache, class_loader, is_static);
-  DCHECK_EQ(resolved_field == nullptr, soa.Self()->IsExceptionPending());
+  ArtField* resolved_field;
+  if (UNLIKELY(GetCompilerOptions().GetDebuggable())) {
+    // In debuggable mode the timing of class loads and prepares are potentially visible and tools
+    // such as debuggers might rely on them.
+    resolved_field = Runtime::Current()->GetClassLinker()->FindResolvedField(dex_cache.Get(),
+                                                                             class_loader.Get(),
+                                                                             field_idx,
+                                                                             is_static);
+  } else {
+    resolved_field = Runtime::Current()->GetClassLinker()->ResolveField(field_idx,
+                                                                        dex_cache,
+                                                                        class_loader,
+                                                                        is_static);
+    DCHECK_EQ(resolved_field == nullptr, soa.Self()->IsExceptionPending());
+  }
   if (UNLIKELY(resolved_field == nullptr)) {
     // Clean up any exception left by type resolution.
     soa.Self()->ClearException();
@@ -105,13 +126,23 @@ inline ArtMethod* CompilerDriver::ResolveMethod(
     Handle<mirror::ClassLoader> class_loader,
     const DexCompilationUnit* mUnit,
     uint32_t method_idx,
-    InvokeType invoke_type) {
+    InvokeType invoke_type,
+    ArtMethod* referrer) {
   DCHECK_EQ(class_loader.Get(), mUnit->GetClassLoader().Get());
-  ArtMethod* resolved_method =
-      mUnit->GetClassLinker()->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
-          method_idx, dex_cache, class_loader, /* referrer */ nullptr, invoke_type);
+  ArtMethod* resolved_method;
+  if (GetCompilerOptions().GetDebuggable()) {
+    resolved_method =
+        mUnit->GetClassLinker()->ResolveMethod<ClassLinker::ResolveMode::kCheckResolvedICCEAndIAE>(
+            method_idx, dex_cache, class_loader, referrer, invoke_type);
+  } else {
+    resolved_method =
+        mUnit->GetClassLinker()->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
+            method_idx, dex_cache, class_loader, referrer, invoke_type);
+    if (resolved_method == nullptr) {
+      DCHECK(soa.Self()->IsExceptionPending());
+    }
+  }
   if (UNLIKELY(resolved_method == nullptr)) {
-    DCHECK(soa.Self()->IsExceptionPending());
     // Clean up any exception left by type resolution.
     soa.Self()->ClearException();
   }
