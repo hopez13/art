@@ -22,6 +22,30 @@
       "revId": "7efcddaa57c02979c9b5b15314221e8ddf01470a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1546f51f_99fdb9fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-24T23:47:05Z",
+      "side": 1,
+      "message": "It\u0027s not optional, we\u0027ll just bail to the interpreter with the return false.",
+      "parentUuid": "5d26579e_fa0468a9",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "7efcddaa57c02979c9b5b15314221e8ddf01470a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
