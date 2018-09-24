@@ -22,6 +22,30 @@
       "revId": "20d3f99874899b214a758c724cfb9434a7d8a2f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebeb9a94_644f5a99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-09-24T14:30:26Z",
+      "side": 1,
+      "message": "No, I did not. I did not know about it.\nThank you for the command. I think it should work.\nI tried: pkill -9 -U logd logd. It works.\nIs logd always run under the user logd? Or it can be run under the user root?",
+      "parentUuid": "86dc07f4_3e5c52db",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "20d3f99874899b214a758c724cfb9434a7d8a2f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
