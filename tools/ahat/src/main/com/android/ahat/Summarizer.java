@@ -114,9 +114,19 @@ class Summarizer {
     }
 
     // Annotate BinderProxy with its interface name.
-    String binderInterface = inst.getBinderProxyInterfaceName();
-    if (binderInterface != null) {
-        formatted.appendFormat(" for %s", binderInterface);
+    String binderProxyInterface = inst.getBinderProxyInterfaceName();
+    if (binderProxyInterface != null) {
+      formatted.appendFormat(" for %s", binderProxyInterface);
+    }
+
+    // Annotate Binder services with their interface name.
+    String binderStubInterface = inst.getBinderStubInterfaceName();
+    if (binderStubInterface != null) {
+      if (binderStubInterface.equals("")) {
+        formatted.appendFormat(" binder token");
+      } else {
+        formatted.appendFormat(" binder service for %s", binderStubInterface);
+      }
     }
 
     return formatted;

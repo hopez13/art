@@ -160,6 +160,21 @@ public class AhatClassInstance extends AhatInstance {
     return null;
   }
 
+  @Override public String getBinderStubInterfaceName() {
+    if (isInstanceOfClass("android.os.Binder")) {
+      Value value = getField("mDescriptor");
+      if (value != null) {
+        AhatInstance inst = value.asAhatInstance();
+
+        return inst.asString();
+      } else {
+        return ""; // Probably a binder token
+      }
+    } else {
+      return null;
+    }
+  }
+
   @Override public AhatInstance getAssociatedBitmapInstance() {
     return getBitmapInfo() == null ? null : this;
   }

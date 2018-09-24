@@ -501,6 +501,20 @@ public abstract class AhatInstance implements Diffable<AhatInstance> {
   }
 
   /**
+   * Returns the name of the Binder stub interface associated with this object.
+   * Only applies to instances of android.os.Binder. If this is an instance of
+   * android.os.Binder, returns the fully qualified binder interface name. If
+   * the instance doesn't have a descriptor (which is common with binder
+   * tokens), returns an empty string. If this isn't an android.os.Binder
+   * object, returns null.
+   *
+   * @return the name of the binder interface associated with this object
+   */
+  public String getBinderStubInterfaceName() {
+    return null;
+  }
+
+  /**
    * Returns the android.graphics.Bitmap instance associated with this object.
    * Instances of android.graphics.Bitmap return themselves. If this is a
    * byte[] array containing pixel data for an instance of
