@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2f783ba_98219ccc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-25T14:09:54Z",
+      "side": 1,
+      "message": "With LookupResolvedType(), this should be just DCHECK(receiver_class !\u003d nullptr).",
+      "range": {
+        "startLine": 8495,
+        "startChar": 4,
+        "endLine": 8498,
+        "endChar": 5
+      },
+      "revId": "567f63a82a8a01428abbed65ea8a6b088d5a50b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
