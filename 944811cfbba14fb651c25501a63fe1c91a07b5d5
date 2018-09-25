@@ -22,6 +22,218 @@
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3e1e44d_40aa4adb",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "Sounds like you should rename the method :)",
+      "range": {
+        "startLine": 23,
+        "startChar": 47,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0579c9e1_5cb088bc",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "Add a comment about this.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec269f1_00b3d311",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 38,
+        "startChar": 54,
+        "endLine": 38,
+        "endChar": 81
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8bfe0f3_78e17bb3",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 41,
+        "startChar": 34,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed2e570_8a1dbcee",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "Clear ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5440e38_a91160e0",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "You don\u0027t need this field, you can just compute it with the offset of data_ within a Thread object.",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16d6718d_c18708d9",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 8
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd7078f_2d33f7b1",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65efbc8f_89b785bb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4086,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "easy peasy :)",
+      "range": {
+        "startLine": 4081,
+        "startChar": 0,
+        "endLine": 4086,
+        "endChar": 63
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf58b9e2_82311eed",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:02:39Z",
+      "side": 1,
+      "message": "Add comments.",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
