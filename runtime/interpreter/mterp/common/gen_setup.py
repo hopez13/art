@@ -42,7 +42,9 @@ def write_opcode(num, name, write_method, is_alt):
   if is_alt:
     alt_stub()
   else:
+    opcode_start()
     write_method()
+    opcode_end()
   write_line("")
   opnum, opcode = None, None
 

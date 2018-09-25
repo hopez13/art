@@ -382,6 +382,7 @@ SYMBOL(ExecuteMterpImpl):
     FETCH_INST
     GOTO_NEXT
     /* NOTE: no fallthrough */
+    SIZE(ExecuteMterpImpl,ExecuteMterpImpl)
 
 %def alt_stub():
 /*
@@ -408,7 +409,9 @@ SYMBOL(ExecuteMterpImpl):
 
 
 %def helpers():
-%  pass
+    ASM_HIDDEN SYMBOL(MterpHelpers)
+    FUNCTION_TYPE(MterpHelpers)
+    SYMBOL(MterpHelpers):
 
 %def footer():
 /*
@@ -707,7 +710,7 @@ MRestoreFrame:
     POP %rbx
     ret
     .cfi_endproc
-    SIZE(ExecuteMterpImpl,ExecuteMterpImpl)
+    SIZE(MterpHelpers,MterpHelpers)
 
 %def instruction_end():
 
@@ -738,3 +741,11 @@ SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .global SYMBOL(artMterpAsmAltInstructionStart)
     .text
 SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
+
+%def opcode_start():
+    ASM_HIDDEN SYMBOL(Mterp_${opcode})
+    FUNCTION_TYPE(Mterp_${opcode})
+    SYMBOL(Mterp_${opcode}):
+
+%def opcode_end():
+    SIZE(Mterp_${opcode},Mterp_${opcode})
