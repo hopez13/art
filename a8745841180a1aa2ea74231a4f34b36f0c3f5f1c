@@ -34,6 +34,24 @@
       "revId": "a8745841180a1aa2ea74231a4f34b36f0c3f5f1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1cf3a9a_dee26333",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T16:24:56Z",
+      "side": 1,
+      "message": "What I\u0027m saying is that there\u0027s already a check in the class linker on whether we can load a class. That check right now is about whether we\u0027re able to call into Java or not, which only applies to the JIT really.\n\nThe place we check that flag is the central piece of where class is being loaded. There\u0027s no other code that do class loading, so if someone adds a new helper in compiler driver, it will be caught there. One of the reasons we do the CanCallIntoJava there and not in the compiler driver (Calin can share memories on how we tried to initially do the way you are doing).\n\nSo if you change the code to be:\n\nif (thread-\u003eCanLoadClasses()) {\n  if (knownClassLoader) {\n    loadItManually();\n  } else if (thread-\u003eCanCallIntoJava()) {\n    callClassLoaderLoadClass();\n  }\n}\n\nAnd then:\n\nThread::CanLoadClasses() {\n  return !IsJitThread() || !IsDebuggable();\n}\n\nThread::CanCallIntoJava() {\n  return !IsJitThread();\n}",
+      "parentUuid": "f47416ef_fb67409a",
+      "revId": "a8745841180a1aa2ea74231a4f34b36f0c3f5f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
