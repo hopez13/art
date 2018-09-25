@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9d750df_1ea546a5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:14:25Z",
+      "side": 1,
+      "message": "I guess we need that one for no preopt? What\u0027s the difference with LoadFromSystem?",
+      "range": {
+        "startLine": 1391,
+        "startChar": 7,
+        "endLine": 1391,
+        "endChar": 26
+      },
+      "revId": "ec6817b5f227caa3d85e561cad2a3c530941265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bf93efe_ea9743b8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T23:14:25Z",
+      "side": 1,
+      "message": "Aren\u0027t those out of date and should be removed?",
+      "range": {
+        "startLine": 1392,
+        "startChar": 0,
+        "endLine": 1393,
+        "endChar": 29
+      },
+      "revId": "ec6817b5f227caa3d85e561cad2a3c530941265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
