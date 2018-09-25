@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bf339ce8_bcb3391d",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-25T05:38:59Z",
+      "side": 1,
+      "message": "Added comments to function, which should make this clearer.",
+      "parentUuid": "d74b7a8c_098396c2",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 25
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3b1f32_e85d7eee",
         "filename": "libartbase/base/utils.cc",
         "patchSetId": 5
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "e0347b4a_d7e61425",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-25T05:38:59Z",
+      "side": 1,
+      "message": "Changed implementation, but not using regex as not used elsewhere aside from testing. Seems a bit heavyweight.",
+      "parentUuid": "8a1f59ff_d224fa3c",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 56
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef5f0331_7f6973c6",
         "filename": "libartbase/base/utils.h",
         "patchSetId": 5
@@ -158,6 +206,24 @@
       "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd07874e_d29ce80b",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-25T05:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef5f0331_7f6973c6",
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -181,6 +247,30 @@
       "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c446f1d1_0b94466e",
+        "filename": "libartbase/base/utils_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-25T05:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2515c9fa_fa8715a0",
+      "range": {
+        "startLine": 132,
+        "startChar": 43,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -252,6 +342,30 @@
       "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "411a4bc4_eb9c6c26",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-25T05:38:59Z",
+      "side": 1,
+      "message": "No longer present. Changed back to use quote characters rather than std::quote.",
+      "parentUuid": "ede0c546_293be84b",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "9382fcdac7c5200475d0ab662025205dcb84f521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
