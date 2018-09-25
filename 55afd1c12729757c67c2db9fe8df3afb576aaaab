@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de8eae4c_271e95e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-25T13:57:18Z",
+      "side": 1,
+      "message": "LookupResolvedType() should be enough. We must have resolved the type before successfully resolving the method.",
+      "range": {
+        "startLine": 8494,
+        "startChar": 43,
+        "endLine": 8494,
+        "endChar": 54
+      },
+      "revId": "55afd1c12729757c67c2db9fe8df3afb576aaaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
