@@ -20,6 +20,7 @@
 #include "assembler_arm_vixl.h"
 #include "base/bit_utils.h"
 #include "base/bit_utils_iterator.h"
+#include "base/macros.h"
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "heap_poisoning.h"
 #include "thread.h"
@@ -28,6 +29,8 @@ using namespace vixl::aarch32;  // NOLINT(build/namespaces)
 
 namespace art {
 namespace arm {
+
+using FarTarget = ArmVIXLMacroAssembler::FarTarget;
 
 #ifdef ___
 #error "ARM Assembler macro already defined."
@@ -91,7 +94,7 @@ void ArmVIXLAssembler::GenerateMarkingRegisterCheck(vixl32::Register temp, int c
   ___ Ldr(temp, MemOperand(tr, Thread::IsGcMarkingOffset<kArmPointerSize>().Int32Value()));
   // Check that mr == self.tls32_.is.gc_marking.
   ___ Cmp(mr, temp);
-  ___ B(eq, &mr_is_ok, /* far_target */ false);
+  ___ B(eq, &mr_is_ok, FarTarget::kNear);
   ___ Bkpt(code);
   ___ Bind(&mr_is_ok);
 }
@@ -456,28 +459,45 @@ void ArmVIXLAssembler::AddConstantInIt(vixl32::Register rd,
 
 void ArmVIXLMacroAssembler::CompareAndBranchIfZero(vixl32::Register rn,
                                                    vixl32::Label* label,
-                                                   bool is_far_target) {
-  if (!is_far_target && rn.IsLow() && !label->IsBound()) {
-    // In T32, Cbz/Cbnz instructions have following limitations:
-    // - There are only 7 bits (i:imm5:0) to encode branch target address (cannot be far target).
-    // - Only low registers (i.e R0 .. R7) can be encoded.
-    // - Only forward branches (unbound labels) are supported.
-    Cbz(rn, label);
-    return;
+                                                   FarTarget far_target) {
+  switch (far_target) {
+    case FarTarget::kNear:
+      if (rn.IsLow() && !label->IsBound()) {
+        // In T32, Cbz/Cbnz instructions have following limitations:
+        // - There are only 7 bits (i:imm5:0) to encode branch target address (cannot be far
+        //   target).
+        // - Only low registers (i.e R0 .. R7) can be encoded.
+        // - Only forward branches (unbound labels) are supported.
+        Cbz(rn, label);
+        return;
+      }
+      FALLTHROUGH_INTENDED;
+    case FarTarget::kFar:
+      Cmp(rn, 0);
+      B(eq, label, far_target);
+      return;
   }
-  Cmp(rn, 0);
-  B(eq, label, is_far_target);
+  LOG(FATAL) << "Unreachable";
+  UNREACHABLE();
 }
 
 void ArmVIXLMacroAssembler::CompareAndBranchIfNonZero(vixl32::Register rn,
                                                       vixl32::Label* label,
-                                                      bool is_far_target) {
-  if (!is_far_target && rn.IsLow() && !label->IsBound()) {
-    Cbnz(rn, label);
-    return;
+                                                      FarTarget far_target) {
+  switch (far_target) {
+    case FarTarget::kNear:
+      if (rn.IsLow() && !label->IsBound()) {
+        Cbnz(rn, label);
+        return;
+      }
+      FALLTHROUGH_INTENDED;
+    case FarTarget::kFar:
+      Cmp(rn, 0);
+      B(ne, label, far_target);
+      return;
   }
-  Cmp(rn, 0);
-  B(ne, label, is_far_target);
+  LOG(FATAL) << "Unreachable";
+  UNREACHABLE();
 }
 
 void ArmVIXLMacroAssembler::B(vixl32::Label* label) {
@@ -490,14 +510,24 @@ void ArmVIXLMacroAssembler::B(vixl32::Label* label) {
   MacroAssembler::B(label);
 }
 
-void ArmVIXLMacroAssembler::B(vixl32::Condition cond, vixl32::Label* label, bool is_far_target) {
-  if (!label->IsBound() && !is_far_target) {
-    // Try to use a 16-bit encoding of the B instruction.
-    DCHECK(OutsideITBlock());
-    BPreferNear(cond, label);
-    return;
+void ArmVIXLMacroAssembler::B(vixl32::Condition cond,
+                              vixl32::Label* label,
+                              FarTarget far_target) {
+  switch (far_target) {
+    case FarTarget::kNear:
+      if (!label->IsBound()) {
+        // Try to use a 16-bit encoding of the B instruction.
+        DCHECK(OutsideITBlock());
+        BPreferNear(cond, label);
+        return;
+      }
+      FALLTHROUGH_INTENDED;
+    case FarTarget::kFar:
+      MacroAssembler::B(cond, label);
+      return;
   }
-  MacroAssembler::B(cond, label);
+  LOG(FATAL) << "Unreachable";
+  UNREACHABLE();
 }
 
 }  // namespace arm

@@ -56,6 +56,8 @@ using namespace vixl::aarch32;  // NOLINT(build/namespaces)
 using vixl::ExactAssemblyScope;
 using vixl::CodeBufferCheckScope;
 
+using FarTarget = ArmVIXLMacroAssembler::FarTarget;
+
 ArmVIXLAssembler* IntrinsicCodeGeneratorARMVIXL::GetAssembler() {
   return codegen_->GetAssembler();
 }
@@ -229,7 +231,7 @@ class ReadBarrierSystemArrayCopySlowPathARMVIXL : public SlowPathCodeARMVIXL {
     assembler->MaybePoisonHeapReference(tmp);
     __ Str(tmp, MemOperand(dst_curr_addr, element_size, PostIndex));
     __ Cmp(src_curr_addr, src_stop_addr);
-    __ B(ne, &loop, /* far_target */ false);
+    __ B(ne, &loop, FarTarget::kNear);
     __ B(GetExitLabel());
   }
 
@@ -355,7 +357,7 @@ static void GenNumberOfLeadingZeros(HInvoke* invoke,
     vixl32::Label end;
     vixl32::Label* final_label = codegen->GetFinalLabel(invoke, &end);
     __ Clz(out, in_reg_hi);
-    __ CompareAndBranchIfNonZero(in_reg_hi, final_label, /* far_target */ false);
+    __ CompareAndBranchIfNonZero(in_reg_hi, final_label, FarTarget::kNear);
     __ Clz(out, in_reg_lo);
     __ Add(out, out, 32);
     if (end.IsReferenced()) {
@@ -398,7 +400,7 @@ static void GenNumberOfTrailingZeros(HInvoke* invoke,
     vixl32::Label* final_label = codegen->GetFinalLabel(invoke, &end);
     __ Rbit(out, in_reg_lo);
     __ Clz(out, out);
-    __ CompareAndBranchIfNonZero(in_reg_lo, final_label, /* far_target */ false);
+    __ CompareAndBranchIfNonZero(in_reg_lo, final_label, FarTarget::kNear);
     __ Rbit(out, in_reg_hi);
     __ Clz(out, out);
     __ Add(out, out, 32);
@@ -476,7 +478,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitMathRoundFloat(HInvoke* invoke) {
 
   // For positive, zero or NaN inputs, rounding is done.
   __ Cmp(out_reg, 0);
-  __ B(ge, final_label, /* far_target */ false);
+  __ B(ge, final_label, FarTarget::kNear);
 
   // Handle input < 0 cases.
   // If input is negative but not a tie, previous result (round to nearest) is valid.
@@ -844,7 +846,7 @@ static void GenUnsafePut(LocationSummary* locations,
       __ Ldrexd(temp_lo, temp_hi, MemOperand(temp_reg));
       __ Strexd(temp_lo, value_lo, value_hi, MemOperand(temp_reg));
       __ Cmp(temp_lo, 0);
-      __ B(ne, &loop_head, /* far_target */ false);
+      __ B(ne, &loop_head, FarTarget::kNear);
     } else {
       __ Strd(value_lo, value_hi, MemOperand(base, offset));
     }
@@ -1026,7 +1028,7 @@ class BakerReadBarrierCasSlowPathARMVIXL : public SlowPathCodeARMVIXL {
     __ Strex(tmp, value, MemOperand(tmp_ptr));
     assembler->MaybeUnpoisonHeapReference(value);
     __ Cmp(tmp, 0);
-    __ B(ne, &loop_head, /* far_target */ false);
+    __ B(ne, &loop_head, FarTarget::kNear);
     __ B(GetExitLabel());
   }
 };
@@ -1102,7 +1104,7 @@ static void GenCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMVIXL* c
     assembler->MaybeUnpoisonHeapReference(value);
   }
   __ Cmp(tmp, 0);
-  __ B(ne, &loop_head, /* far_target */ false);
+  __ B(ne, &loop_head, FarTarget::kNear);
 
   __ Bind(loop_exit);
 
@@ -1237,7 +1239,9 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringCompareTo(HInvoke* invoke) {
   // Shorter string is empty?
   // Note that mirror::kUseStringCompression==true introduces lots of instructions,
   // which makes &end label far away from this branch and makes it not 'CBZ-encodable'.
-  __ CompareAndBranchIfZero(temp0, &end, mirror::kUseStringCompression);
+  __ CompareAndBranchIfZero(temp0,
+                            &end,
+                            mirror::kUseStringCompression ? FarTarget::kFar : FarTarget::kNear);
 
   if (mirror::kUseStringCompression) {
     // Check if both strings using same compression style to use this comparison loop.
@@ -1308,23 +1312,23 @@ static void GenerateStringCompareToLoop(ArmVIXLAssembler* assembler,
   __ Ldr(temp_reg, MemOperand(str, temp1));
   __ Ldr(temp2, MemOperand(arg, temp1));
   __ Cmp(temp_reg, temp2);
-  __ B(ne, &find_char_diff, /* far_target */ false);
+  __ B(ne, &find_char_diff, FarTarget::kNear);
   __ Add(temp1, temp1, char_size * 2);
 
   __ Ldr(temp_reg, MemOperand(str, temp1));
   __ Ldr(temp2, MemOperand(arg, temp1));
   __ Cmp(temp_reg, temp2);
-  __ B(ne, &find_char_diff_2nd_cmp, /* far_target */ false);
+  __ B(ne, &find_char_diff_2nd_cmp, FarTarget::kNear);
   __ Add(temp1, temp1, char_size * 2);
   // With string compression, we have compared 8 bytes, otherwise 4 chars.
   __ Subs(temp0, temp0, (mirror::kUseStringCompression ? 8 : 4));
-  __ B(hi, &loop, /* far_target */ false);
+  __ B(hi, &loop, FarTarget::kNear);
   __ B(end);
 
   __ Bind(&find_char_diff_2nd_cmp);
   if (mirror::kUseStringCompression) {
     __ Subs(temp0, temp0, 4);  // 4 bytes previously compared.
-    __ B(ls, end, /* far_target */ false);  // Was the second comparison fully beyond the end?
+    __ B(ls, end, FarTarget::kNear);  // Was the second comparison fully beyond the end?
   } else {
     // Without string compression, we can start treating temp0 as signed
     // and rely on the signed comparison below.
@@ -1352,7 +1356,7 @@ static void GenerateStringCompareToLoop(ArmVIXLAssembler* assembler,
   // the remaining string data, so just return length diff (out).
   // The comparison is unsigned for string compression, otherwise signed.
   __ Cmp(temp0, Operand(temp1, vixl32::LSR, (mirror::kUseStringCompression ? 3 : 4)));
-  __ B((mirror::kUseStringCompression ? ls : le), end, /* far_target */ false);
+  __ B((mirror::kUseStringCompression ? ls : le), end, FarTarget::kNear);
 
   // Extract the characters and calculate the difference.
   if (mirror::kUseStringCompression) {
@@ -1419,9 +1423,9 @@ static void GenerateStringCompareToLoop(ArmVIXLAssembler* assembler,
     __ Ldrb(temp_reg, MemOperand(temp1, c_char_size, PostIndex));
     __ Ldrh(temp3, MemOperand(temp2, char_size, PostIndex));
     __ Cmp(temp_reg, temp3);
-    __ B(ne, &different_compression_diff, /* far_target */ false);
+    __ B(ne, &different_compression_diff, FarTarget::kNear);
     __ Subs(temp0, temp0, 2);
-    __ B(hi, &different_compression_loop, /* far_target */ false);
+    __ B(hi, &different_compression_loop, FarTarget::kNear);
     __ B(end);
 
     // Calculate the difference.
@@ -1517,12 +1521,12 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
   StringEqualsOptimizations optimizations(invoke);
   if (!optimizations.GetArgumentNotNull()) {
     // Check if input is null, return false if it is.
-    __ CompareAndBranchIfZero(arg, &return_false, /* far_target */ false);
+    __ CompareAndBranchIfZero(arg, &return_false, FarTarget::kNear);
   }
 
   // Reference equality check, return true if same reference.
   __ Cmp(str, arg);
-  __ B(eq, &return_true, /* far_target */ false);
+  __ B(eq, &return_true, FarTarget::kNear);
 
   if (!optimizations.GetArgumentIsString()) {
     // Instanceof check for the argument by comparing class fields.
@@ -1532,7 +1536,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
     __ Ldr(temp, MemOperand(str, class_offset));
     __ Ldr(out, MemOperand(arg, class_offset));
     __ Cmp(temp, out);
-    __ B(ne, &return_false, /* far_target */ false);
+    __ B(ne, &return_false, FarTarget::kNear);
   }
 
   // Check if one of the inputs is a const string. Do not special-case both strings
@@ -1555,7 +1559,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
     // Also compares the compression style, if differs return false.
     __ Ldr(temp, MemOperand(arg, count_offset));
     __ Cmp(temp, Operand(mirror::String::GetFlaggedCount(const_string_length, is_compressed)));
-    __ B(ne, &return_false, /* far_target */ false);
+    __ B(ne, &return_false, FarTarget::kNear);
   } else {
     // Load `count` fields of this and argument strings.
     __ Ldr(temp, MemOperand(str, count_offset));
@@ -1563,7 +1567,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
     // Check if `count` fields are equal, return false if they're not.
     // Also compares the compression style, if differs return false.
     __ Cmp(temp, out);
-    __ B(ne, &return_false, /* far_target */ false);
+    __ B(ne, &return_false, FarTarget::kNear);
   }
 
   // Assertions that must hold in order to compare strings 4 bytes at a time.
@@ -1586,9 +1590,9 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
       __ Ldrd(temp, temp1, MemOperand(str, offset));
       __ Ldrd(temp2, out, MemOperand(arg, offset));
       __ Cmp(temp, temp2);
-      __ B(ne, &return_false, /* far_label */ false);
+      __ B(ne, &return_false, FarTarget::kNear);
       __ Cmp(temp1, out);
-      __ B(ne, &return_false, /* far_label */ false);
+      __ B(ne, &return_false, FarTarget::kNear);
       offset += 2u * sizeof(uint32_t);
       remaining_bytes -= 2u * sizeof(uint32_t);
     }
@@ -1596,13 +1600,13 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
       __ Ldr(temp, MemOperand(str, offset));
       __ Ldr(out, MemOperand(arg, offset));
       __ Cmp(temp, out);
-      __ B(ne, &return_false, /* far_label */ false);
+      __ B(ne, &return_false, FarTarget::kNear);
     }
   } else {
     // Return true if both strings are empty. Even with string compression `count == 0` means empty.
     static_assert(static_cast<uint32_t>(mirror::StringCompressionFlag::kCompressed) == 0u,
                   "Expecting 0=compressed, 1=uncompressed");
-    __ CompareAndBranchIfZero(temp, &return_true, /* far_target */ false);
+    __ CompareAndBranchIfZero(temp, &return_true, FarTarget::kNear);
 
     if (mirror::kUseStringCompression) {
       // For string compression, calculate the number of bytes to compare (not chars).
@@ -1628,10 +1632,10 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringEquals(HInvoke* invoke) {
     __ Ldr(temp2, MemOperand(arg, temp1));
     __ Add(temp1, temp1, Operand::From(sizeof(uint32_t)));
     __ Cmp(out, temp2);
-    __ B(ne, &return_false, /* far_target */ false);
+    __ B(ne, &return_false, FarTarget::kNear);
     // With string compression, we have compared 4 bytes, otherwise 2 chars.
     __ Subs(temp, temp, mirror::kUseStringCompression ? 4 : 2);
-    __ B(hi, &loop, /* far_target */ false);
+    __ B(hi, &loop, FarTarget::kNear);
   }
 
   // Return true and exit the function.
@@ -1950,7 +1954,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
     } else {
       if (!optimizations.GetDestinationIsSource()) {
         __ Cmp(src, dest);
-        __ B(ne, &conditions_on_positions_validated, /* far_target */ false);
+        __ B(ne, &conditions_on_positions_validated, FarTarget::kNear);
       }
       __ Cmp(RegisterFrom(dest_pos), src_pos_constant);
       __ B(gt, intrinsic_slow_path->GetEntryLabel());
@@ -1958,7 +1962,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
   } else {
     if (!optimizations.GetDestinationIsSource()) {
       __ Cmp(src, dest);
-      __ B(ne, &conditions_on_positions_validated, /* far_target */ false);
+      __ B(ne, &conditions_on_positions_validated, FarTarget::kNear);
     }
     if (dest_pos.IsConstant()) {
       int32_t dest_pos_constant = Int32ConstantFrom(dest_pos);
@@ -2066,7 +2070,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
 
       if (optimizations.GetDestinationIsTypedObjectArray()) {
         vixl32::Label do_copy;
-        __ B(eq, &do_copy, /* far_target */ false);
+        __ B(eq, &do_copy, FarTarget::kNear);
         // /* HeapReference<Class> */ temp1 = temp1->component_type_
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
             invoke, temp1_loc, temp1, component_offset, temp2_loc, /* needs_null_check */ false);
@@ -2126,7 +2130,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
 
       if (optimizations.GetDestinationIsTypedObjectArray()) {
         vixl32::Label do_copy;
-        __ B(eq, &do_copy, /* far_target */ false);
+        __ B(eq, &do_copy, FarTarget::kNear);
         if (!did_unpoison) {
           assembler->MaybeUnpoisonHeapReference(temp1);
         }
@@ -2179,7 +2183,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
 
     if (length.IsRegister()) {
       // Don't enter the copy loop if the length is null.
-      __ CompareAndBranchIfZero(RegisterFrom(length), &done, /* is_far_target */ false);
+      __ CompareAndBranchIfZero(RegisterFrom(length), &done, FarTarget::kNear);
     }
 
     if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
@@ -2256,7 +2260,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
         __ Str(temp_reg, MemOperand(temp2, element_size, PostIndex));
       }
       __ Cmp(temp1, temp3);
-      __ B(ne, &loop, /* far_target */ false);
+      __ B(ne, &loop, FarTarget::kNear);
 
       __ Bind(read_barrier_slow_path->GetExitLabel());
     } else {
@@ -2278,7 +2282,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitSystemArrayCopy(HInvoke* invoke) {
         __ Str(temp_reg, MemOperand(temp2, element_size, PostIndex));
       }
       __ Cmp(temp1, temp3);
-      __ B(ne, &loop, /* far_target */ false);
+      __ B(ne, &loop, FarTarget::kNear);
     }
     __ Bind(&done);
   }
@@ -2814,7 +2818,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
 
   __ Subs(num_chr, srcEnd, srcBegin);
   // Early out for valid zero-length retrievals.
-  __ B(eq, final_label, /* far_target */ false);
+  __ B(eq, final_label, FarTarget::kNear);
 
   // src range to copy.
   __ Add(src_ptr, srcObj, value_offset);
@@ -2830,7 +2834,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
     __ Ldr(temp, MemOperand(srcObj, count_offset));
     __ Tst(temp, 1);
     temps.Release(temp);
-    __ B(eq, &compressed_string_preloop, /* far_target */ false);
+    __ B(eq, &compressed_string_preloop, FarTarget::kNear);
   }
   __ Add(src_ptr, src_ptr, Operand(srcBegin, vixl32::LSL, 1));
 
@@ -2840,7 +2844,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
   temp = temps.Acquire();
   // Save repairing the value of num_chr on the < 4 character path.
   __ Subs(temp, num_chr, 4);
-  __ B(lt, &remainder, /* far_target */ false);
+  __ B(lt, &remainder, FarTarget::kNear);
 
   // Keep the result of the earlier subs, we are going to fetch at least 4 characters.
   __ Mov(num_chr, temp);
@@ -2855,10 +2859,10 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
   __ Ldr(temp, MemOperand(src_ptr, char_size * 4, PostIndex));
   __ Str(temp, MemOperand(dst_ptr, char_size * 4, PostIndex));
   temps.Release(temp);
-  __ B(ge, &loop, /* far_target */ false);
+  __ B(ge, &loop, FarTarget::kNear);
 
   __ Adds(num_chr, num_chr, 4);
-  __ B(eq, final_label, /* far_target */ false);
+  __ B(eq, final_label, FarTarget::kNear);
 
   // Main loop for < 4 character case and remainder handling. Loads and stores one
   // 16-bit Java character at a time.
@@ -2868,7 +2872,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
   __ Subs(num_chr, num_chr, 1);
   __ Strh(temp, MemOperand(dst_ptr, char_size, PostIndex));
   temps.Release(temp);
-  __ B(gt, &remainder, /* far_target */ false);
+  __ B(gt, &remainder, FarTarget::kNear);
 
   if (mirror::kUseStringCompression) {
     __ B(final_label);
@@ -2884,7 +2888,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitStringGetCharsNoCheck(HInvoke* invoke) 
     __ Strh(temp, MemOperand(dst_ptr, char_size, PostIndex));
     temps.Release(temp);
     __ Subs(num_chr, num_chr, 1);
-    __ B(gt, &compressed_string_loop, /* far_target */ false);
+    __ B(gt, &compressed_string_loop, FarTarget::kNear);
   }
 
   if (done.IsReferenced()) {
@@ -3004,7 +3008,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitIntegerValueOf(HInvoke* invoke) {
     __ Add(out, in, -info.low);
     __ Cmp(out, info.length);
     vixl32::Label allocate, done;
-    __ B(hs, &allocate, /* is_far_target */ false);
+    __ B(hs, &allocate, FarTarget::kNear);
     // If the value is within the bounds, load the j.l.Integer directly from the array.
     codegen_->LoadBootImageAddress(temp, info.array_data_boot_image_reference);
     codegen_->LoadFromShiftedRegOffset(DataType::Type::kReference, locations->Out(), temp, out);
@@ -3037,7 +3041,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitThreadInterrupted(HInvoke* invoke) {
   vixl32::Register temp = temps.Acquire();
   vixl32::Label done;
   vixl32::Label* const final_label = codegen_->GetFinalLabel(invoke, &done);
-  __ CompareAndBranchIfZero(out, final_label, /* far_target */ false);
+  __ CompareAndBranchIfZero(out, final_label, FarTarget::kNear);
   __ Dmb(vixl32::ISH);
   __ Mov(temp, 0);
   assembler->StoreToOffset(kStoreWord, temp, tr, offset);

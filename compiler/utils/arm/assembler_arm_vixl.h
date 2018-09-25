@@ -45,6 +45,12 @@ class ArmVIXLMacroAssembler final : public vixl32::MacroAssembler {
   // fewer system calls than a larger default capacity.
   static constexpr size_t kDefaultCodeBufferCapacity = 1 * KB;
 
+  // Note: we need an enum to avoid hiding the base class' B method.
+  enum class FarTarget {
+    kNear,
+    kFar,
+  };
+
   ArmVIXLMacroAssembler()
       : vixl32::MacroAssembler(ArmVIXLMacroAssembler::kDefaultCodeBufferCapacity) {}
 
@@ -59,10 +65,10 @@ class ArmVIXLMacroAssembler final : public vixl32::MacroAssembler {
   // - Backward branches are not supported.
   void CompareAndBranchIfZero(vixl32::Register rn,
                               vixl32::Label* label,
-                              bool is_far_target = true);
+                              FarTarget is_far_target = FarTarget::kFar);
   void CompareAndBranchIfNonZero(vixl32::Register rn,
                                  vixl32::Label* label,
-                                 bool is_far_target = true);
+                                 FarTarget is_far_target = FarTarget::kFar);
 
   // In T32 some of the instructions (add, mov, etc) outside an IT block
   // have only 32-bit encodings. But there are 16-bit flag setting
@@ -136,7 +142,7 @@ class ArmVIXLMacroAssembler final : public vixl32::MacroAssembler {
   // For B(label), we always try to use Narrow encoding, because 16-bit T2 encoding supports
   // jumping within 2KB range. For B(cond, label), because the supported branch range is 256
   // bytes; we use the far_target hint to try to use 16-bit T1 encoding for short range jumps.
-  void B(vixl32::Condition cond, vixl32::Label* label, bool is_far_target = true);
+  void B(vixl32::Condition cond, vixl32::Label* label, FarTarget is_far_target = FarTarget::kFar);
 
   // Use literal for generating double constant if it doesn't fit VMOV encoding.
   void Vmov(vixl32::DRegister rd, double imm) {

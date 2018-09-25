@@ -1539,7 +1539,7 @@ static void GenerateConditionGeneric(HCondition* cond, CodeGeneratorARMVIXL* cod
     vixl32::Label done_label;
     vixl32::Label* const final_label = codegen->GetFinalLabel(cond, &done_label);
 
-    __ B(condition.second, final_label, /* far_target */ false);
+    __ B(condition.second, final_label, FarTarget::kNear);
     __ Mov(out, 1);
 
     if (done_label.IsReferenced()) {
@@ -2463,7 +2463,7 @@ void InstructionCodeGeneratorARMVIXL::VisitExit(HExit* exit ATTRIBUTE_UNUSED) {
 void InstructionCodeGeneratorARMVIXL::GenerateCompareTestAndBranch(HCondition* condition,
                                                                    vixl32::Label* true_target,
                                                                    vixl32::Label* false_target,
-                                                                   bool is_far_target) {
+                                                                   FarTarget is_far_target) {
   if (true_target == false_target) {
     DCHECK(true_target != nullptr);
     __ B(true_target);
@@ -2502,7 +2502,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateTestAndBranch(HInstruction* instru
                                                             size_t condition_input_index,
                                                             vixl32::Label* true_target,
                                                             vixl32::Label* false_target,
-                                                            bool far_target) {
+                                                            FarTarget far_target) {
   HInstruction* cond = instruction->InputAt(condition_input_index);
 
   if (true_target == nullptr && false_target == nullptr) {
@@ -2776,7 +2776,7 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
     }
   }
 
-  GenerateTestAndBranch(select, 2, true_target, false_target, /* far_target */ false);
+  GenerateTestAndBranch(select, 2, true_target, false_target, FarTarget::kNear);
   codegen_->MoveLocation(out, src, type);
 
   if (select_end.IsReferenced()) {
@@ -4414,7 +4414,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateMinMaxFloat(HInstruction* minmax, 
 
   __ Vcmp(op1, op2);
   __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
-  __ B(vs, &nan, /* far_target */ false);  // if un-ordered, go to NaN handling.
+  __ B(vs, &nan, FarTarget::kNear);  // if un-ordered, go to NaN handling.
 
   // op1 <> op2
   vixl32::ConditionType cond = is_min ? gt : lt;
@@ -4426,7 +4426,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateMinMaxFloat(HInstruction* minmax, 
     __ vmov(cond, F32, out, op2);
   }
   // for <>(not equal), we've done min/max calculation.
-  __ B(ne, final_label, /* far_target */ false);
+  __ B(ne, final_label, FarTarget::kNear);
 
   // handle op1 == op2, max(+0.0,-0.0), min(+0.0,-0.0).
   __ Vmov(temp1, op1);
@@ -4471,7 +4471,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateMinMaxDouble(HInstruction* minmax,
 
   __ Vcmp(op1, op2);
   __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
-  __ B(vs, &handle_nan_eq, /* far_target */ false);  // if un-ordered, go to NaN handling.
+  __ B(vs, &handle_nan_eq, FarTarget::kNear);  // if un-ordered, go to NaN handling.
 
   // op1 <> op2
   vixl32::ConditionType cond = is_min ? gt : lt;
@@ -4483,7 +4483,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateMinMaxDouble(HInstruction* minmax,
     __ vmov(cond, F64, out, op2);
   }
   // for <>(not equal), we've done min/max calculation.
-  __ B(ne, final_label, /* far_target */ false);
+  __ B(ne, final_label, FarTarget::kNear);
 
   // handle op1 == op2, max(+0.0,-0.0).
   if (!is_min) {
@@ -4707,7 +4707,7 @@ void InstructionCodeGeneratorARMVIXL::HandleLongRotate(HRor* ror) {
     __ And(shift_right, RegisterFrom(rhs), 0x1F);
     __ Lsrs(shift_left, RegisterFrom(rhs), 6);
     __ Rsb(LeaveFlags, shift_left, shift_right, Operand::From(kArmBitsPerWord));
-    __ B(cc, &shift_by_32_plus_shift_right, /* far_target */ false);
+    __ B(cc, &shift_by_32_plus_shift_right, FarTarget::kNear);
 
     // out_reg_hi = (reg_hi << shift_left) | (reg_lo >> shift_right).
     // out_reg_lo = (reg_lo << shift_left) | (reg_hi >> shift_right).
@@ -5165,8 +5165,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCompare(HCompare* compare) {
     }
     case DataType::Type::kInt64: {
       __ Cmp(HighRegisterFrom(left), HighRegisterFrom(right));  // Signed compare.
-      __ B(lt, &less, /* far_target */ false);
-      __ B(gt, &greater, /* far_target */ false);
+      __ B(lt, &less, FarTarget::kNear);
+      __ B(gt, &greater, FarTarget::kNear);
       // Emit move to `out` before the last `Cmp`, as `Mov` might affect the status flags.
       __ Mov(out, 0);
       __ Cmp(LowRegisterFrom(left), LowRegisterFrom(right));  // Unsigned compare.
@@ -5187,8 +5187,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCompare(HCompare* compare) {
       UNREACHABLE();
   }
 
-  __ B(eq, final_label, /* far_target */ false);
-  __ B(less_cond, &less, /* far_target */ false);
+  __ B(eq, final_label, FarTarget::kNear);
+  __ B(less_cond, &less, FarTarget::kNear);
 
   __ Bind(&greater);
   __ Mov(out, 1);
@@ -5959,7 +5959,7 @@ void InstructionCodeGeneratorARMVIXL::VisitArrayGet(HArrayGet* instruction) {
           __ Lsrs(length, length, 1u);  // LSRS has a 16-bit encoding, TST (immediate) does not.
           static_assert(static_cast<uint32_t>(mirror::StringCompressionFlag::kCompressed) == 0u,
                         "Expecting 0=compressed, 1=uncompressed");
-          __ B(cs, &uncompressed_load, /* far_target */ false);
+          __ B(cs, &uncompressed_load, FarTarget::kNear);
           GetAssembler()->LoadFromOffset(kLoadUnsignedByte,
                                          RegisterFrom(out_loc),
                                          obj,
@@ -6001,7 +6001,7 @@ void InstructionCodeGeneratorARMVIXL::VisitArrayGet(HArrayGet* instruction) {
           __ Lsrs(length, length, 1u);  // LSRS has a 16-bit encoding, TST (immediate) does not.
           static_assert(static_cast<uint32_t>(mirror::StringCompressionFlag::kCompressed) == 0u,
                         "Expecting 0=compressed, 1=uncompressed");
-          __ B(cs, &uncompressed_load, /* far_target */ false);
+          __ B(cs, &uncompressed_load, FarTarget::kNear);
           __ Ldrb(RegisterFrom(out_loc), MemOperand(temp, RegisterFrom(index), vixl32::LSL, 0));
           __ B(final_label);
           __ Bind(&uncompressed_load);
@@ -6320,7 +6320,7 @@ void InstructionCodeGeneratorARMVIXL::VisitArraySet(HArraySet* instruction) {
 
         if (instruction->StaticTypeOfArrayIsObjectArray()) {
           vixl32::Label do_put;
-          __ B(eq, &do_put, /* far_target */ false);
+          __ B(eq, &do_put, FarTarget::kNear);
           // If heap poisoning is enabled, the `temp1` reference has
           // not been unpoisoned yet; unpoison it now.
           GetAssembler()->MaybeUnpoisonHeapReference(temp1);
@@ -7410,7 +7410,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
   if (instruction->MustDoNullCheck()) {
     DCHECK(!out.Is(obj));
     __ Mov(out, 0);
-    __ CompareAndBranchIfZero(obj, final_label, /* far_target */ false);
+    __ CompareAndBranchIfZero(obj, final_label, FarTarget::kNear);
   }
 
   switch (type_check_kind) {
@@ -7442,7 +7442,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
         __ it(eq);
         __ mov(eq, out, 1);
       } else {
-        __ B(ne, final_label, /* far_target */ false);
+        __ B(ne, final_label, FarTarget::kNear);
         __ Mov(out, 1);
       }
 
@@ -7470,9 +7470,9 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
                                        maybe_temp_loc,
                                        read_barrier_option);
       // If `out` is null, we use it for the result, and jump to the final label.
-      __ CompareAndBranchIfZero(out, final_label, /* far_target */ false);
+      __ CompareAndBranchIfZero(out, final_label, FarTarget::kNear);
       __ Cmp(out, cls);
-      __ B(ne, &loop, /* far_target */ false);
+      __ B(ne, &loop, FarTarget::kNear);
       __ Mov(out, 1);
       break;
     }
@@ -7491,7 +7491,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
       vixl32::Label loop, success;
       __ Bind(&loop);
       __ Cmp(out, cls);
-      __ B(eq, &success, /* far_target */ false);
+      __ B(eq, &success, FarTarget::kNear);
       // /* HeapReference<Class> */ out = out->super_class_
       GenerateReferenceLoadOneRegister(instruction,
                                        out_loc,
@@ -7501,7 +7501,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
       // This is essentially a null check, but it sets the condition flags to the
       // proper value for the code that follows the loop, i.e. not `eq`.
       __ Cmp(out, 1);
-      __ B(hs, &loop, /* far_target */ false);
+      __ B(hs, &loop, FarTarget::kNear);
 
       // Since IT blocks longer than a 16-bit instruction are deprecated by ARMv8,
       // we check that the output is in a low register, so that a 16-bit MOV
@@ -7546,7 +7546,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
       // Do an exact check.
       vixl32::Label exact_check;
       __ Cmp(out, cls);
-      __ B(eq, &exact_check, /* far_target */ false);
+      __ B(eq, &exact_check, FarTarget::kNear);
       // Otherwise, we need to check that the object's class is a non-primitive array.
       // /* HeapReference<Class> */ out = out->component_type_
       GenerateReferenceLoadOneRegister(instruction,
@@ -7555,7 +7555,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
                                        maybe_temp_loc,
                                        read_barrier_option);
       // If `out` is null, we use it for the result, and jump to the final label.
-      __ CompareAndBranchIfZero(out, final_label, /* far_target */ false);
+      __ CompareAndBranchIfZero(out, final_label, FarTarget::kNear);
       GetAssembler()->LoadFromOffset(kLoadUnsignedHalfword, out, out, primitive_offset);
       static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
       __ Cmp(out, 0);
@@ -7577,7 +7577,7 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
         __ it(eq);
         __ mov(eq, out, 1);
       } else {
-        __ B(ne, final_label, /* far_target */ false);
+        __ B(ne, final_label, FarTarget::kNear);
         __ Bind(&exact_check);
         __ Mov(out, 1);
       }
@@ -7711,7 +7711,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
   vixl32::Label* final_label = codegen_->GetFinalLabel(instruction, &done);
   // Avoid null check if we know obj is not null.
   if (instruction->MustDoNullCheck()) {
-    __ CompareAndBranchIfZero(obj, final_label, /* far_target */ false);
+    __ CompareAndBranchIfZero(obj, final_label, FarTarget::kNear);
   }
 
   switch (type_check_kind) {
@@ -7758,7 +7758,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
       // Otherwise, compare the classes.
       __ Cmp(temp, cls);
-      __ B(ne, &loop, /* far_target */ false);
+      __ B(ne, &loop, FarTarget::kNear);
       break;
     }
 
@@ -7775,7 +7775,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
       vixl32::Label loop;
       __ Bind(&loop);
       __ Cmp(temp, cls);
-      __ B(eq, final_label, /* far_target */ false);
+      __ B(eq, final_label, FarTarget::kNear);
 
       // /* HeapReference<Class> */ temp = temp->super_class_
       GenerateReferenceLoadOneRegister(instruction,
@@ -7803,7 +7803,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
       // Do an exact check.
       __ Cmp(temp, cls);
-      __ B(eq, final_label, /* far_target */ false);
+      __ B(eq, final_label, FarTarget::kNear);
 
       // Otherwise, we need to check that the object's class is a non-primitive array.
       // /* HeapReference<Class> */ temp = temp->component_type_
@@ -7867,7 +7867,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
       __ Sub(RegisterFrom(maybe_temp2_loc), RegisterFrom(maybe_temp2_loc), 2);
       // Compare the classes and continue the loop if they do not match.
       __ Cmp(cls, RegisterFrom(maybe_temp3_loc));
-      __ B(ne, &start_loop, /* far_target */ false);
+      __ B(ne, &start_loop, FarTarget::kNear);
       break;
     }
 
@@ -9308,7 +9308,7 @@ static void EmitGrayCheckAndFastPath(ArmVIXLAssembler& assembler,
   static_assert(ReadBarrier::NonGrayState() == 0, "Expecting non-gray to have value 0");
   static_assert(ReadBarrier::GrayState() == 1, "Expecting gray to have value 1");
   __ Tst(ip, Operand(LockWord::kReadBarrierStateMaskShifted));
-  __ B(ne, slow_path, /* is_far_target */ false);
+  __ B(ne, slow_path, FarTarget::kNear);
   // To throw NPE, we return to the fast path; the artificial dependence below does not matter.
   if (throw_npe != nullptr) {
     __ Bind(throw_npe);
@@ -9355,7 +9355,7 @@ void CodeGeneratorARMVIXL::CompileBakerReadBarrierThunk(ArmVIXLAssembler& assemb
       vixl32::Label* throw_npe = nullptr;
       if (GetCompilerOptions().GetImplicitNullChecks() && holder_reg.Is(base_reg)) {
         throw_npe = &throw_npe_label;
-        __ CompareAndBranchIfZero(holder_reg, throw_npe, /* is_far_target */ false);
+        __ CompareAndBranchIfZero(holder_reg, throw_npe, FarTarget::kNear);
       }
       // Check if the holder is gray and, if not, add fake dependency to the base register
       // and return to the LDR instruction to load the reference. Otherwise, use introspection
@@ -9432,7 +9432,7 @@ void CodeGeneratorARMVIXL::CompileBakerReadBarrierThunk(ArmVIXLAssembler& assemb
       UseScratchRegisterScope temps(assembler.GetVIXLAssembler());
       temps.Exclude(ip);
       vixl32::Label return_label, not_marked, forwarding_address;
-      __ CompareAndBranchIfZero(root_reg, &return_label, /* is_far_target */ false);
+      __ CompareAndBranchIfZero(root_reg, &return_label, FarTarget::kNear);
       MemOperand lock_word(root_reg, mirror::Object::MonitorOffset().Int32Value());
       __ Ldr(ip, lock_word);
       __ Tst(ip, LockWord::kMarkBitStateMaskShifted);

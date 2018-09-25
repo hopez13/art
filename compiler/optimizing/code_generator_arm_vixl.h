@@ -299,6 +299,8 @@ class LocationsBuilderARMVIXL : public HGraphVisitor {
   DISALLOW_COPY_AND_ASSIGN(LocationsBuilderARMVIXL);
 };
 
+using FarTarget = ArmVIXLMacroAssembler::FarTarget;
+
 class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
  public:
   InstructionCodeGeneratorARMVIXL(HGraph* graph, CodeGeneratorARMVIXL* codegen);
@@ -397,11 +399,11 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
                              size_t condition_input_index,
                              vixl::aarch32::Label* true_target,
                              vixl::aarch32::Label* false_target,
-                             bool far_target = true);
+                             FarTarget far_target = FarTarget::kFar);
   void GenerateCompareTestAndBranch(HCondition* condition,
                                     vixl::aarch32::Label* true_target,
                                     vixl::aarch32::Label* false_target,
-                                    bool is_far_target = true);
+                                    FarTarget is_far_target = FarTarget::kFar);
   void DivRemOneOrMinusOne(HBinaryOperation* instruction);
   void DivRemByPowerOfTwo(HBinaryOperation* instruction);
   void GenerateDivRemWithAnyConstant(HBinaryOperation* instruction);
