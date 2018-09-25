@@ -16,6 +16,24 @@
       "revId": "a8745841180a1aa2ea74231a4f34b36f0c3f5f1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f47416ef_fb67409a",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-09-25T14:36:12Z",
+      "side": 1,
+      "message": "I\u0027m not really sure what your suggesting here. Are you saying the class linker itself should check what thread it\u0027s on and bail early if it is a jit thread?\n\nAlso I\u0027m not sure why we\u0027d want to have jit threadness be dependent on if you\u0027re debugable or not.\n\nI mostly just changed stuff here since it looked like some of the places already used these functions so I just made them all do it. This is probably smaller and easier to maintain then changes in class linker",
+      "parentUuid": "df3323cc_e551e73b",
+      "revId": "a8745841180a1aa2ea74231a4f34b36f0c3f5f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
