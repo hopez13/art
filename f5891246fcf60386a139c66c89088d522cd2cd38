@@ -22,6 +22,53 @@
       "revId": "f5891246fcf60386a139c66c89088d522cd2cd38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71dd7f2e_c4ebe1b8",
+        "filename": "tools/ahat/src/main/com/android/ahat/Summarizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-25T14:11:25Z",
+      "side": 1,
+      "message": "I would prefer having two separate functions. The question I ask myself is how useful those functions would be to a different user of the core ahat library (besides the ahat UI). If they had programmatic access to whether an instance was a binder service vs. binder interface, and what the descriptors were in both cases, I think that would be more useful than have to parse that information from a preformatted string.\n\nHaving two separate functions does make it harder to unit test the formatting done by the summarizer, but the code for the formatting should be simple enough that I\u0027m not worried about testing it in the unit tests.",
+      "parentUuid": "b9fc5a95_875ad952",
+      "range": {
+        "startLine": 125,
+        "startChar": 29,
+        "endLine": 125,
+        "endChar": 34
+      },
+      "revId": "f5891246fcf60386a139c66c89088d522cd2cd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a02b7ba7_45686636",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatInstance.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-09-25T14:11:25Z",
+      "side": 1,
+      "message": "This is no longer true?",
+      "range": {
+        "startLine": 506,
+        "startChar": 75,
+        "endLine": 508,
+        "endChar": 38
+      },
+      "revId": "f5891246fcf60386a139c66c89088d522cd2cd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
