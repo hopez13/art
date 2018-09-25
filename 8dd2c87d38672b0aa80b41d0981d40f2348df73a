@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f96737a_7896aa6b",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-25T08:48:13Z",
+      "side": 1,
+      "message": "Remove this once you add the using declaration.",
+      "range": {
+        "startLine": 1097,
+        "startChar": 2,
+        "endLine": 1097,
+        "endChar": 71
+      },
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c14c96_cfbf62ed",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-25T08:48:13Z",
+      "side": 1,
+      "message": "And where\u0027s that? Without \"using MacroAssembler::B\" those B()s are still hidden.\n\n(And with the using declaration I see very little incentive to convert these bools to an enum.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 67
+      },
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
