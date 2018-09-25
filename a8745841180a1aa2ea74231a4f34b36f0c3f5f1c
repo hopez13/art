@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3323cc_e551e73b",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T08:56:07Z",
+      "side": 1,
+      "message": "Actually, instead of changing the code in multiple places here, you can piggy-back on Thread::CallCallIntoJava, and rename it to eg IsJitThread, where you would then differentiate between whether the app is debuggable or not. \u0027CanCallIntoJava\u0027 was added in part because it avoids duplicating the checks below.",
+      "revId": "a8745841180a1aa2ea74231a4f34b36f0c3f5f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
