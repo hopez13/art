@@ -16,6 +16,24 @@
       "revId": "6a17678665725484e125a3ea81366e036b16029b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4208018d_5aed285b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-25T08:46:58Z",
+      "side": 1,
+      "message": "Unfortunately, after 4 days of continuous jfuzz, I cannot hit this so far. I\u0027ll try to manually go through the code and corner the code into that case.",
+      "parentUuid": "17588765_0645cd72",
+      "revId": "6a17678665725484e125a3ea81366e036b16029b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
