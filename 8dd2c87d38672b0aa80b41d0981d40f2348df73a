@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "e237b763_909ac1d5",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-09-26T13:34:04Z",
+      "side": 1,
+      "message": "what about using already defined in macro-assembler-aarch32.h:\nvoid B(Condition cond, Label* label, BranchHint hint \u003d ...)\n\nwhere\nenum BranchHint { kNear, kFar, kBranchWithoutHint };",
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05c14c96_cfbf62ed",
         "filename": "compiler/utils/arm/assembler_arm_vixl.h",
         "patchSetId": 1
