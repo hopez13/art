@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "9009baa6_1b47a9e9",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-26T08:57:11Z",
+      "side": 1,
+      "message": "Looks unnecessary, given the alignment of Entry which shall be applied to data_.",
+      "parentUuid": "0579c9e1_5cb088bc",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ec269f1_00b3d311",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 7
@@ -128,6 +152,30 @@
       "writtenOn": "2018-09-25T23:02:39Z",
       "side": 1,
       "message": "Clear ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4de5e04_73f411ee",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-26T08:57:11Z",
+      "side": 1,
+      "message": "data_.fill(Entry{});",
+      "parentUuid": "7ed2e570_8a1dbcee",
       "range": {
         "startLine": 44,
         "startChar": 3,
