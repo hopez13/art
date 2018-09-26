@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "4a32ac1d_60e26a20",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-09-26T15:38:07Z",
+      "side": 1,
+      "message": "Possible, I was just refactoring the already existing method. I don\u0027t know the history...",
+      "parentUuid": "e237b763_909ac1d5",
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05c14c96_cfbf62ed",
         "filename": "compiler/utils/arm/assembler_arm_vixl.h",
         "patchSetId": 1
