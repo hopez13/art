@@ -16,6 +16,24 @@
       "revId": "5b97b9102a5f11d48573f9b9ff325b8d2d49a82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac079101_08bd91b0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-26T12:25:49Z",
+      "side": 1,
+      "message": "This is odd, as that warning was supposed to be removed, according to b/62084243.",
+      "parentUuid": "17b4e320_5169062c",
+      "revId": "5b97b9102a5f11d48573f9b9ff325b8d2d49a82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
