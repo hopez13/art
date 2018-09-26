@@ -390,6 +390,24 @@
     },
     {
       "key": {
+        "uuid": "cd5cc970_a7e9c7b9",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-26T19:12:08Z",
+      "side": 1,
+      "message": "Still. We\u0027re talking about memory on the Thread object. We\u0027re wasting almost one entry for what could be another entry in the cache. Given this is only for debug, I think the helper that does the messy computation is worth it.",
+      "parentUuid": "2e2f35b6_4d99e06d",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd7078f_2d33f7b1",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 7
