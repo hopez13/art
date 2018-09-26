@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fd9f143_074a44e9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-26T09:46:16Z",
+      "side": 1,
+      "message": "I\u0027m preserving the ability to run without a boot image on /system. We can discuss whether this should be removed.\n\n(The difference from LoadFromSystem() is mainly the GetSystemImageFilename() vs. GetDalvikCacheFilename() but also in the flags below.)",
+      "parentUuid": "e9d750df_1ea546a5",
+      "range": {
+        "startLine": 1391,
+        "startChar": 7,
+        "endLine": 1391,
+        "endChar": 26
+      },
+      "revId": "ec6817b5f227caa3d85e561cad2a3c530941265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bf93efe_ea9743b8",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "ec6817b5f227caa3d85e561cad2a3c530941265c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04e6b1d8_81b3c1bb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-26T09:46:16Z",
+      "side": 1,
+      "message": "I\u0027ve dropped the `validate_system_checksums` from PS8, checking against system oat files that we just failed to load (see Steps 1 and 2 in ImageSpace::LoadBootImage()) feels wrong.\n\nI\u0027m preserving the `validate_oat_file` for the moment. Any discussion about it\u0027s removal should be centered around the LoadFromDalvikCache() calls from ImageSpace::LoadBootImage().",
+      "parentUuid": "6bf93efe_ea9743b8",
+      "range": {
+        "startLine": 1392,
+        "startChar": 0,
+        "endLine": 1393,
+        "endChar": 29
+      },
+      "revId": "ec6817b5f227caa3d85e561cad2a3c530941265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
