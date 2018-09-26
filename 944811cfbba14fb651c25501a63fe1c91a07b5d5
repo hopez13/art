@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ac8d3a5_86eeb23e",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ed3ed9_c2b1b82a",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 0
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3e1e44d_40aa4adb",
         "filename": "runtime/interpreter/interpreter_cache.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2830d6d7_59c1edf0",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done\n\nIs this correct / sufficient?\n\nWhat does suspended mean exactly?",
+      "parentUuid": "f3e1e44d_40aa4adb",
+      "range": {
+        "startLine": 23,
+        "startChar": 47,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "4774d387_af98fa92",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9009baa6_1b47a9e9",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec269f1_00b3d311",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 7
@@ -115,6 +187,30 @@
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5369f6da_a4d92473",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec269f1_00b3d311",
+      "range": {
+        "startLine": 38,
+        "startChar": 54,
+        "endLine": 38,
+        "endChar": 81
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -188,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "f68e8641_7cc2352b",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4de5e04_73f411ee",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5440e38_a91160e0",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 7
@@ -228,6 +348,48 @@
     },
     {
       "key": {
+        "uuid": "f8637837_6579e425",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d6718d_c18708d9",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 8
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2f35b6_4d99e06d",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "I know, but that is very messy.",
+      "parentUuid": "c5440e38_a91160e0",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd7078f_2d33f7b1",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 7
@@ -242,6 +404,24 @@
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22dd0759_c177279e",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bd7078f_2d33f7b1",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -268,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "111eeb58_e061d53b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4086,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65efbc8f_89b785bb",
+      "range": {
+        "startLine": 4081,
+        "startChar": 0,
+        "endLine": 4086,
+        "endChar": 63
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf58b9e2_82311eed",
         "filename": "runtime/thread.h",
         "patchSetId": 7
@@ -282,6 +486,24 @@
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb7627c_4d74f090",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T17:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf58b9e2_82311eed",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
