@@ -22,6 +22,7 @@
 #include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
 #include "nth_caller_visitor.h"
+#include "mirror/object-inl.h"
 #include "reference_table.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
