@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a559497b_90a4ef6f",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-26T17:47:45Z",
+      "side": 1,
+      "message": "Put this in the header instead? You should leave \"inline\" here.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 13
+      },
+      "revId": "aeaa330a932d213f607886d33c8d2ddd003c1254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
