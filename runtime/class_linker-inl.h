@@ -335,10 +335,10 @@ inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod*
 }
 
 template <ClassLinker::ResolveMode kResolveMode>
-inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
-                                             uint32_t method_idx,
-                                             ArtMethod* referrer,
-                                             InvokeType type) {
+ALWAYS_INLINE ArtMethod* ClassLinker::ResolveMethod(Thread* self,
+                                                    uint32_t method_idx,
+                                                    ArtMethod* referrer,
+                                                    InvokeType type) {
   DCHECK(referrer != nullptr);
   // Note: The referrer can be a Proxy constructor. In that case, we need to do the
   // lookup in the context of the original method from where it steals the code.
