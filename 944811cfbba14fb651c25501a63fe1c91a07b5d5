@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "02568b4e_7310dd99",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T21:03:03Z",
+      "side": 1,
+      "message": "I think the DCHECK was failing from constructor",
+      "parentUuid": "f68e8641_7cc2352b",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5440e38_a91160e0",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 7
@@ -402,6 +426,24 @@
       "side": 1,
       "message": "Still. We\u0027re talking about memory on the Thread object. We\u0027re wasting almost one entry for what could be another entry in the cache. Given this is only for debug, I think the helper that does the messy computation is worth it.",
       "parentUuid": "2e2f35b6_4d99e06d",
+      "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7137ccf5_28dcc937",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-26T21:03:03Z",
+      "side": 1,
+      "message": "I find that way too messy.  I refactored the code to avoid the need for it. (telling the Clear method explicitly the owning thread is sufficient)",
+      "parentUuid": "cd5cc970_a7e9c7b9",
       "revId": "944811cfbba14fb651c25501a63fe1c91a07b5d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
