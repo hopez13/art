@@ -60,6 +60,16 @@ class MANAGED ObjectReference {
   using Compression = PtrCompression<kPoisonReferences, MirrorType>;
 
  public:
+  // TODO (chriswailes): Rename to Ptr(), GetReferentAsMirrorPtr, or something else less confusing
+
+  /*
+   * Returns a pointer to the mirror of the Java object this reference is for.
+   *
+   * This does NOT return the current object (which is already a mirror object)
+   * as a mirror pointer.
+   *
+   * This returns a pointer to the mirror of the Java object this refers to.
+   */
   MirrorType* AsMirrorPtr() const {
     return Compression::Decompress(reference_);
   }
