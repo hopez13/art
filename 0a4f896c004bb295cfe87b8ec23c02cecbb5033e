@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0abb8d0d_cf23aad6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T15:39:12Z",
+      "side": 1,
+      "message": "Line too long. Maybe we should use shorter NeedsEnvOrCache?",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b7bd6c4_64f18fdf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T15:39:12Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef24486c_30e360bf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T15:39:12Z",
+      "side": 1,
+      "message": "InvokeType",
+      "range": {
+        "startLine": 4283,
+        "startChar": 36,
+        "endLine": 4283,
+        "endChar": 44
+      },
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42dd1c8f_cc165dc4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T15:39:12Z",
+      "side": 1,
+      "message": "Move implementation to nodes.cc? (And those helper functions above.)",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5b35f3_afb8f690",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4450,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T15:39:12Z",
+      "side": 1,
+      "message": "I don\u0027t like this call here because constructors are not checked against REQUIRES_SHARED(Locks::mutator_lock_).",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
