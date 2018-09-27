@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1683faba_f851628e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-27T20:37:16Z",
+      "side": 1,
+      "message": "nit: This can be multiple \"Test: \u003c...\u003e\" statements on different lines. When the tests aren\u0027t manual we prefer to write the exact command instead.\n\n  Test: art/\u003ctestscript\u003e \u003cflags\u003e",
+      "revId": "2047cae2018d9446d6e4cd62d38227a0e78964fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
