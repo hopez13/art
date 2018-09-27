@@ -827,6 +827,9 @@ if [[ "$TEST_NAME" =~ ^[0-9]+-checker- ]]; then
   fi
 fi
 
+if [[ "$TEST_NAME" =~ .*avx2.* ]]; then
+  run_args="${run_args}  -Xcompiler-option --instruction-set-features=avx2"
+fi
   run_args="${run_args} --testlib ${testlib}"
 
 # To cause tests to fail fast, limit the file sizes created by dx, dex2oat and
