@@ -16,6 +16,41 @@
       "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18e0f977_7ca950a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-27T14:36:09Z",
+      "side": 1,
+      "message": "out/.soong_intermediates/....? Agreed it would be nice if the exact path was in the commit message.",
+      "parentUuid": "0ed9eccb_dd35a09c",
+      "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bebf008_3b6fbee5",
+        "filename": "tools/cpp-define-generator/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-09-27T14:36:09Z",
+      "side": 1,
+      "message": "nit: I wouldn\u0027t strip out all the \\\" (see left-hand side) , it makes me feel warm and fuzzy knowing our shell commands are tolerant of whitespace :).",
+      "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
