@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1125794f_f2c46ec0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "I talked with Josh and he indicated that art/test.py was broken and the fault didn\u0027t lie with ADB.  I don\u0027t know enough to fix it.  Additionally, if it has been this badly broken for this long it means other people aren\u0027t running it either.",
+      "parentUuid": "b8dbfddc_54016689",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95728f23_9b53a918",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "0e27eead_62929c17",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95728f23_9b53a918",
+      "range": {
+        "startLine": 528,
+        "startChar": 30,
+        "endLine": 528,
+        "endChar": 34
+      },
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e975f6_ef71ebc2",
         "filename": "dex2oat/linker/image_writer.h",
         "patchSetId": 1
@@ -56,6 +98,24 @@
       "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae1251c6_1aa2ad99",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97e975f6_ef71ebc2",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "bb6f2edb_7c7ed9ea",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ebc1f856_dad0d1c0",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39792fb9_b8b9216d",
         "filename": "dex2oat/linker/image_writer.h",
         "patchSetId": 1
@@ -90,6 +168,24 @@
       "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91f3c717_8d1d8466",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39792fb9_b8b9216d",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "04fec6aa_5d1da258",
+        "filename": "runtime/image.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b5803af2_f2845654",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "136db556_2f5b9e54",
         "filename": "runtime/image.h",
         "patchSetId": 1
@@ -124,6 +238,24 @@
       "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86e24148_455789dc",
+        "filename": "runtime/image.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-27T01:30:09Z",
+      "side": 1,
+      "message": "Yes.  Please see his comments in the other CL.",
+      "parentUuid": "136db556_2f5b9e54",
+      "revId": "0d0dd454c68dbb61673cbadd2d2a6b96be9d9c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
