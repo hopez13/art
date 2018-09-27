@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5d4ff64_5015e543",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-27T21:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901f46d4_b2bfb145",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e73ff53a_bdd58d1e",
         "filename": "libartbase/base/memfd.cc",
         "patchSetId": 1
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "How often are we expecting to call this? There should be a comment somewhere that this function isn\u0027t necessarily blazingly fast, or there should be a global setup step initializing a flag.",
       "parentUuid": "cbddd74e_2004bd06",
+      "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "207beb78_7f441411",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-27T21:04:37Z",
+      "side": 1,
+      "message": "We call this once during the JIT initialization. Comment added to the declaration.\n\nThe SIGSEV in b/11676556 does not repro on the 4.17.4 kernel on the orange pi zero on my desk.\n\nIt does however appear to need both mappings to be flushed otherwise there\u0027s SIGILL. This later observation will need some more investigation.\n\nI saw some changes to the ARM syscall path but haven\u0027t found one that explains the SIGSEGV on 3.14. We could enquire with Linaro.",
+      "parentUuid": "ac2366fc_3ec69f8b",
       "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
