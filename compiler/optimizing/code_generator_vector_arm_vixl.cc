@@ -103,6 +103,7 @@ void InstructionCodeGeneratorARMVIXL::VisitVecExtractScalar(HVecExtractScalar* i
   }
 }
 
+
 // Helper to set up locations for vector unary operations.
 static void CreateVecUnOpLocations(ArenaAllocator* allocator, HVecUnaryOperation* instruction) {
   LocationSummary* locations = new (allocator) LocationSummary(instruction);
