@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "726994f0_d518b1f1",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-27T09:44:08Z",
+      "side": 1,
+      "message": "As discussed, The assembler does not handle it automatically, and even if it did, I don\u0027t want have the extra instruction if I don\u0027t have to.\n\nFeel free to try to compile mterp in T32 :-)  I don\u0027t feel like we need to reduce the handler size, but it might still result in speed up, depending the CPU architecture.",
+      "parentUuid": "e50e24eb_25834fa8",
+      "range": {
+        "startLine": 39,
+        "startChar": 18,
+        "endLine": 39,
+        "endChar": 69
+      },
+      "revId": "11f314acd83fd90ac35d45255784240c6e110fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49a72caf_27d21ad6",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 9
@@ -39,6 +63,24 @@
       "revId": "11f314acd83fd90ac35d45255784240c6e110fb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f76876c_c736b65d",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-27T09:44:08Z",
+      "side": 1,
+      "message": "30% (testing on maps; using quick printf hack; not super scientific)",
+      "parentUuid": "49a72caf_27d21ad6",
+      "revId": "11f314acd83fd90ac35d45255784240c6e110fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
