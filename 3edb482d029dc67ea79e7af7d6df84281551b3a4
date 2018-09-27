@@ -16,6 +16,24 @@
       "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbddd74e_2004bd06",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-27T12:32:56Z",
+      "side": 1,
+      "message": "Is there anything in the wrapper that stands out? \n\nstrace on the machine exhibiting the crash shows the failure in memfd_create().\n\nThe hack for i386/x86_64 is horrible, but that\u0027s an artifact of the prebuilt glibc.\n\nWe don\u0027t see this crash on later kernels. Perhaps there was shuffling of syscall numbers that\u0027s happened in the interim, I agree it seems odd so a further check is in order there.",
+      "parentUuid": "e73ff53a_bdd58d1e",
+      "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
