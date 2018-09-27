@@ -942,7 +942,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
 
     // From here code_ptr points to executable code.
-    if (non_exec_pages_.IsValid()) {
+    if (HasDualCodeMapping()) {
       code_ptr = TranslateAddress(code_ptr, non_exec_pages_, exec_pages_);
     }
 
@@ -956,7 +956,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     }
 
     // Update method_header pointer to executable code region.
-    if (non_exec_pages_.IsValid()) {
+    if (HasDualCodeMapping()) {
       method_header = TranslateAddress(method_header, non_exec_pages_, exec_pages_);
     }
 
@@ -968,6 +968,9 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // For reference, this behavior is caused by this commit:
     // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
     FlushInstructionCache(code_ptr, code_ptr + code_size);
+    if (HasDualCodeMapping()) {
+      FlushDataCache(nox_memory, nox_memory + total_size);
+    }
 
     // Ensure CPU instruction pipelines are flushed for all cores. This is necessary for
     // correctness as code may still be in instruction pipelines despite the i-cache flush. It is
