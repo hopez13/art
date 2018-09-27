@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e50e24eb_25834fa8",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T08:44:24Z",
+      "side": 1,
+      "message": "Only for A32 where the 8 bits are rotated by a multiple of two. I\u0027d let the assembler to emit appropriate sequence.\n\nA64: ADD has imm12, allowing 4KiB offset.\nT32: With alignment 8, modified immediate is OK for offsets up to 2KiB (8 bits \u003c\u003c 3).\n\nSize of the 32-bit Thread was previously between 1KiB and 2KiB and this shall be the offset of the new cache.\n\n(I\u0027m tempted to rewrite the ARM mterp in T32 to reduce the code size.)",
+      "range": {
+        "startLine": 39,
+        "startChar": 18,
+        "endLine": 39,
+        "endChar": 69
+      },
+      "revId": "11f314acd83fd90ac35d45255784240c6e110fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a72caf_27d21ad6",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-27T08:44:24Z",
+      "side": 1,
+      "message": "What\u0027s the hit rate for 128?",
+      "revId": "11f314acd83fd90ac35d45255784240c6e110fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
