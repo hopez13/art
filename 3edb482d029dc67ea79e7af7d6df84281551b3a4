@@ -135,6 +135,24 @@
       "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d836a758_fcf6b248",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-09-28T09:46:24Z",
+      "side": 1,
+      "message": "Marking this as resolved as the patch lets us move forward for now.",
+      "parentUuid": "707c5268_1df721e6",
+      "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
