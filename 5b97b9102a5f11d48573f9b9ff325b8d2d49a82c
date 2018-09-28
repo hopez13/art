@@ -52,6 +52,24 @@
       "revId": "5b97b9102a5f11d48573f9b9ff325b8d2d49a82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd97f091_a88c9967",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-09-28T22:45:45Z",
+      "side": 1,
+      "message": "That check was removed in r329292. The toolchain being used here is from r328903, which is just slightly before that. Also, if you look at the TH results, clang-tidy only issued a warning for this instead of an error. This warning has likely been there the entire time, and you just don\u0027t notice it, because there are no errors in this file to make it obvious.",
+      "parentUuid": "c9e76c1f_d61d1b53",
+      "revId": "5b97b9102a5f11d48573f9b9ff325b8d2d49a82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
