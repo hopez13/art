@@ -56,6 +56,30 @@
       "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70a55324_b534b96e",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2018-09-28T12:54:36Z",
+      "side": 1,
+      "message": "os \u003c\u003c kPrefix \u003c\u003c pair.first \u003c\u003c \" (\" \u003c\u003c pair.second \u003c\u003c \" occurrences)\" \u003c\u003c std::endl;",
+      "parentUuid": "c192c124_c7c9fff5",
+      "range": {
+        "startLine": 238,
+        "startChar": 40,
+        "endLine": 238,
+        "endChar": 41
+      },
+      "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
