@@ -351,6 +351,30 @@
       "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef19d12_32fb6814",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-09-28T18:38:04Z",
+      "side": 1,
+      "message": "Wait, I retract some of my previous reasoning.  It looks like HeapReference isn\u0027t a subclass of ObjectReference.  They are un-related via the type system.  So the existing definition in object_reference-inl.h won\u0027t work because it is for a different type.",
+      "parentUuid": "5bcb8f04_95e9117e",
+      "range": {
+        "startLine": 137,
+        "startChar": 24,
+        "endLine": 137,
+        "endChar": 33
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
