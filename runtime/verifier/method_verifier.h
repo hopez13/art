@@ -22,6 +22,7 @@
 #include <vector>
 
 #include "base/arena_allocator.h"
+#include "base/bit_vector-inl.h"
 #include "base/macros.h"
 #include "base/scoped_arena_containers.h"
 #include "base/value_object.h"

@@ -516,6 +516,7 @@ class OatWriter {
   uint32_t size_oat_class_offsets_;
   uint32_t size_oat_class_type_;
   uint32_t size_oat_class_status_;
+  uint32_t size_oat_class_method_verification_bitmap_;
   uint32_t size_oat_class_method_bitmaps_;
   uint32_t size_oat_class_method_offsets_;
   uint32_t size_method_bss_mappings_;

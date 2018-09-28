@@ -858,6 +858,7 @@ void CompilerDriver::PreCompile(jobject class_loader,
   VLOG(compiler) << "Before precompile " << GetMemoryUsageString(false);
 
   compiled_classes_.AddDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
+  method_verification_bitmap_table_.AddDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
   dex_to_dex_compiler_.SetDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
 
   // Precompile:
@@ -2078,6 +2079,10 @@ void CompilerDriver::SetVerifiedDexFile(jobject class_loader,
   if (!compiled_classes_.HaveDexFile(&dex_file)) {
     compiled_classes_.AddDexFile(&dex_file);
   }
+  if (!method_verification_bitmap_table_.HaveDexFile(&dex_file)) {
+    method_verification_bitmap_table_.AddDexFile(&dex_file);
+  }
+
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ParallelCompilationManager context(class_linker, class_loader, this, &dex_file, dex_files,
                                      thread_pool);
@@ -2773,6 +2778,25 @@ void CompilerDriver::RecordClassStatus(const ClassReference& ref, ClassStatus st
   } while (result != ClassStateTable::kInsertResultSuccess);
 }
 
+void CompilerDriver::RecordClassMethodVerificationBitmap(ClassReference ref,
+                                                         BitVector* methods_verification_bitmap) {
+  DCHECK(methods_verification_bitmap != nullptr);
+  ClassMethodVerificationBitmapTable::InsertResult result;
+  BitVector* existing_bitmap = GetMethodVerificationBitmap(ref);
+  result = method_verification_bitmap_table_.Insert(ref, existing_bitmap, methods_verification_bitmap);
+  delete existing_bitmap;
+  CHECK(result != ClassMethodVerificationBitmapTable::kInsertResultInvalidDexFile)
+        << ref.dex_file->GetLocation();
+  CHECK(result == ClassMethodVerificationBitmapTable::kInsertResultSuccess);
+}
+
+BitVector* CompilerDriver::GetMethodVerificationBitmap(ClassReference ref) const {
+  BitVector* methods_verification_bitmap = nullptr;
+  method_verification_bitmap_table_.Get(ref, &methods_verification_bitmap);
+  return methods_verification_bitmap;
+}
+
+
 CompiledMethod* CompilerDriver::GetCompiledMethod(MethodReference ref) const {
   CompiledMethod* compiled_method = nullptr;
   compiled_methods_.Get(ref, &compiled_method);
@@ -2860,6 +2884,7 @@ void CompilerDriver::FreeThreadPools() {
 
 void CompilerDriver::SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files) {
   classpath_classes_.AddDexFiles(dex_files);
+  method_verification_bitmap_table_.AddDexFiles(dex_files);
 }
 
 }  // namespace art

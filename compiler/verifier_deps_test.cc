@@ -19,6 +19,7 @@
 
 #include "art_method-inl.h"
 #include "base/indenter.h"
+#include "base/bit_vector-inl.h"
 #include "class_linker.h"
 #include "common_compiler_test.h"
 #include "compiler_callbacks.h"
@@ -53,6 +54,7 @@ class VerifierDepsCompilerCallbacks : public CompilerCallbacks {
 
   verifier::VerifierDeps* GetVerifierDeps() const override { return deps_; }
   void SetVerifierDeps(verifier::VerifierDeps* deps) override { deps_ = deps; }
+  BitVector* GetVerificationBitmap(ClassReference ref ATTRIBUTE_UNUSED) override { return nullptr;}
 
  private:
   verifier::VerifierDeps* deps_;

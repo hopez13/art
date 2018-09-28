@@ -27,6 +27,7 @@
 #include "arch/instruction_set.h"
 #include "base/array_ref.h"
 #include "base/bit_utils.h"
+#include "base/bit_vector-inl.h"
 #include "base/hash_set.h"
 #include "base/mutex.h"
 #include "base/os.h"
@@ -144,6 +145,9 @@ class CompilerDriver {
 
   ClassStatus GetClassStatus(const ClassReference& ref) const;
   bool GetCompiledClass(const ClassReference& ref, ClassStatus* status) const;
+
+  // Reads the verification bitmap from AtomicDexRefMap
+  BitVector* GetMethodVerificationBitmap(ClassReference ref) const;
 
   CompiledMethod* GetCompiledMethod(MethodReference ref) const;
   size_t GetNonRelativeLinkerPatchCount() const;
@@ -285,6 +289,9 @@ class CompilerDriver {
   bool ShouldVerifyClassBasedOnProfile(const DexFile& dex_file, uint16_t class_idx) const;
 
   void RecordClassStatus(const ClassReference& ref, ClassStatus status);
+
+  // Records the verification bitmap in the AtomicDexRefMap
+  void RecordClassMethodVerificationBitmap(ClassReference ref, BitVector* methods_verification_bitmap);
 
   // Checks if the specified method has been verified without failures. Returns
   // false if the method is not in the verification results (GetVerificationResults).
@@ -428,6 +435,9 @@ class CompilerDriver {
   ClassStateTable classpath_classes_;
 
   typedef AtomicDexRefMap<MethodReference, CompiledMethod*> MethodTable;
+
+  using ClassMethodVerificationBitmapTable = AtomicDexRefMap<ClassReference, BitVector*>;
+  ClassMethodVerificationBitmapTable method_verification_bitmap_table_;
 
  private:
   // All method references that this compiler has compiled.
