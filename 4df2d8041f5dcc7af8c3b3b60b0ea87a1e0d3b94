@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa07d7a7_ceaef667",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Nit: /* precise */ true",
+      "range": {
+        "startLine": 392,
+        "startChar": 45,
+        "endLine": 392,
+        "endChar": 49
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c342c16d_1373db85",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "This style is different than the one we use in the rest of the code base; is there a specific reason for this change?",
+      "range": {
+        "startLine": 643,
+        "startChar": 38,
+        "endLine": 643,
+        "endChar": 50
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7237c81_e04a913d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1326,
+        "startChar": 45,
+        "endLine": 1326,
+        "endChar": 49
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5cc7a59_7e199a24",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71c58639_93ce1fc5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 1515,
+        "startChar": 31,
+        "endLine": 1515,
+        "endChar": 32
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "922454e6_1138e683",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1604,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "I\u0027d be more explicit here and add something like this (it took me some time to understand the logic of lines 1608–1609):\n\n  // A `mirror::Class` object has the following layout:\n  // - Instance fields inherited from `java.lang.Object` (whose only reference\n  //   field is `klass_`, as previously mentioned);\n  // - (Owned) instance reference fields defined by `java.lang.Class`;\n  // - (Owned) instance primitive/native fields defined by `java.lang.Class`.\n  // - (Owned) static fields defined by the class itself.\n  //\n  // To visit and patch the instance reference fields owned by the `*klass`\n  // object, we skip the `mirror::Object` portion. We make sure that doing so,\n  // we preserve the property that the first owned reference field is aligned\n  // with `kHeapReferenceSize`, by checking that `sizeof(mirror::Object)` is a\n  // multiple of `kHeapReferenceSize`.",
+      "range": {
+        "startLine": 1604,
+        "startChar": 9,
+        "endLine": 1604,
+        "endChar": 80
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfd5dd93_c80403a4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Should we also add that check:\n\n  DCHECK_ALIGNED(klass, kHeapReferenceSize);\n\nor maybe:\n\n  DCHECK_ALIGNED(klass, kObjectAlignment);\n  static_assert(IsAligned\u003ckHeapReferenceSize\u003e(kObjectAlignment), \"Object alignment check.\");\n\n?",
+      "range": {
+        "startLine": 1608,
+        "startChar": 6,
+        "endLine": 1608,
+        "endChar": 100
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e5de38_8c246d93",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Should we also add this check:\n\n  static_assert(sizeof(mirror::HeapReference\u003cmirror::Object\u003e) \u003d\u003d kHeapReferenceSize,\n                \"Heap reference sizes equality check.);\n\n?",
+      "range": {
+        "startLine": 1613,
+        "startChar": 50,
+        "endLine": 1613,
+        "endChar": 95
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "094bc416_e0ed380d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 1777,
+        "startChar": 20,
+        "endLine": 1777,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35b31230_05adf6d0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 1879,
+        "startChar": 20,
+        "endLine": 1879,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fda309f_c75515ce",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 54,
+        "startChar": 20,
+        "endLine": 54,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "991e1c61_84168618",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc82dfd_09d1bedc",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 69,
+        "startChar": 20,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00821e44_f1c10af1",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-09-28T15:21:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 71,
+        "startChar": 20,
+        "endLine": 71,
+        "endChar": 21
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
