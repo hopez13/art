@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c64f2e93_df217164",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-09-28T16:51:10Z",
+      "side": 1,
+      "message": "I think this is supposed to be covers, and you need to fix it in all of the files.",
+      "range": {
+        "startLine": 389,
+        "startChar": 31,
+        "endLine": 389,
+        "endChar": 39
+      },
+      "revId": "84cf895b1e3ebd083f0b6dd2a19816bd61db4c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14217ef5_e4fda2ff",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-09-28T16:51:10Z",
+      "side": 1,
+      "message": "It would be useful to add a comment explaining where these function are defined. Otherwise, this looks an error.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "84cf895b1e3ebd083f0b6dd2a19816bd61db4c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
