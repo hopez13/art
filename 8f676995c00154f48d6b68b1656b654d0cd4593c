@@ -22,6 +22,30 @@
       "revId": "8f676995c00154f48d6b68b1656b654d0cd4593c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f99746_8eeeac48",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 0,
+      "message": "This check is obsolete. It was there because of the compiler driver sharpening, which we don\u0027t do anymore.",
+      "parentUuid": "6b89773f_32c96f15",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 40
+      },
+      "revId": "8f676995c00154f48d6b68b1656b654d0cd4593c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

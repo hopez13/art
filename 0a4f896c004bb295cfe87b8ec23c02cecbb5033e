@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c3674284_1769b0b8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 1,
+      "message": "Still too long :) Renamed it to \u0027_\u0027.",
+      "parentUuid": "0abb8d0d_cf23aad6",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b7bd6c4_64f18fdf",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1801f81_3971b795",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b7bd6c4_64f18fdf",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "39d9754d_1439bf08",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef24486c_30e360bf",
+      "range": {
+        "startLine": 4283,
+        "startChar": 36,
+        "endLine": 4283,
+        "endChar": 44
+      },
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42dd1c8f_cc165dc4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "6c092300_853b4374",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42dd1c8f_cc165dc4",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d5b35f3_afb8f690",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -87,6 +165,24 @@
       "writtenOn": "2018-09-27T15:39:12Z",
       "side": 1,
       "message": "I don\u0027t like this call here because constructors are not checked against REQUIRES_SHARED(Locks::mutator_lock_).",
+      "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53987c33_2e647b72",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:36:25Z",
+      "side": 1,
+      "message": "Annoying, having this in the constructor avoids duplicating code. I\u0027ve added a DCHECK to at least get some check, WDYT?",
+      "parentUuid": "0d5b35f3_afb8f690",
       "revId": "0a4f896c004bb295cfe87b8ec23c02cecbb5033e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
