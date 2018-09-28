@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "767b4193_3ff0223f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:30:01Z",
+      "side": 1,
+      "message": "Ouch, a bit more annoying than I anticipated (on the other hand you do mention that the checks are now close to ClassLoad and ClassPrepare events?)\n\nI still think this is better considering all the trouble Calin had to go though to avoid the JIT indirectly calling a helper that ends up loading a class. +calin, do I recall correctly?",
+      "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e15d3e91_1a465c4d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -42,6 +59,52 @@
         "startChar": 2,
         "endLine": 2455,
         "endChar": 29
+      },
+      "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dfbbc6b_c765cbae",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:30:01Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need this. The JIT can be configured to not load classes and live with it, not needing to toggle a state every time it enters a compilation.",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 596,
+        "endChar": 0
+      },
+      "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe2e52ba_9f7e4593",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T09:30:01Z",
+      "side": 1,
+      "message": "I think we can just live with one flag: is_runtime_thread and add helpers that class_linker will call:\n\nbool CanLoadClasses() const {\n return !is_runtime_thread || !IsDebuggable();\n}\n\nbool CanCallJava() const {\n  return !is_runtime_thread;\n}",
+      "range": {
+        "startLine": 1792,
+        "startChar": 0,
+        "endLine": 1797,
+        "endChar": 25
       },
       "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
