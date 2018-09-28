@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "554f2b68_31c33fdb",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer a line break here.",
+      "range": {
+        "startLine": 480,
+        "startChar": 23,
+        "endLine": 480,
+        "endChar": 24
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7728cd31_c1b89258",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer a line break here.",
+      "range": {
+        "startLine": 484,
+        "startChar": 30,
+        "endLine": 484,
+        "endChar": 31
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98dc4bf9_d5c084c9",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 505,
+        "startChar": 78,
+        "endLine": 505,
+        "endChar": 85
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a465556b_5652aa3e",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "Bad variable naming: this is surely not part of the \"tail\".",
+      "range": {
+        "startLine": 714,
+        "startChar": 25,
+        "endLine": 714,
+        "endChar": 44
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baa101c4_0fa8f3a2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "Why are you rewriting this?\n\nIf we want to be strict about object lifetime, you\u0027re replacing _existing_ (old) objects with new ones without destroying the old ones. This is conceptually wrong even though it does not harm the generated code for trivially destructible types.",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04f9d528_01be09e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "Are we really going to call InternTable::InternStrong() on every String reference (and GcRoot\u003c\u003es above) in the image?",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a13425f4_bcd7e8ca",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "What do you mean?",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5df7dadc_9a3919d0",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-09-28T09:40:57Z",
+      "side": 1,
+      "message": "For this, you need to #include \"obj_ptr-inl.h\". Therefore we have the implementation of the Assign(ObjPtr\u003c\u003e) in object_reference-inl.h . You\u0027re just adding another, unnecessary, implementation here.",
+      "range": {
+        "startLine": 137,
+        "startChar": 24,
+        "endLine": 137,
+        "endChar": 33
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
