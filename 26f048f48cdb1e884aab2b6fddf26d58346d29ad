@@ -22,6 +22,30 @@
       "revId": "26f048f48cdb1e884aab2b6fddf26d58346d29ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0235391_a2f5641b",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-09-28T12:39:19Z",
+      "side": 0,
+      "message": "CCed Chris as the unwind expert.\n\nIt generates entry in EXIDX which is like debug_frame expect less expressive and less general.  I don\u0027t like it.\n\nFurthermore, I believe that without the associated .save directive, the generated entry would be bogus.",
+      "parentUuid": "65e5cd67_08cee316",
+      "range": {
+        "startLine": 306,
+        "startChar": 4,
+        "endLine": 306,
+        "endChar": 12
+      },
+      "revId": "26f048f48cdb1e884aab2b6fddf26d58346d29ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
