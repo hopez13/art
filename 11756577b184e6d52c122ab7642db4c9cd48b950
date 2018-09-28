@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "d587cfbb_68e420c2",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-28T13:50:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b7c9caf_918077bf",
+      "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c192c124_c7c9fff5",
         "filename": "tools/veridex/hidden_api_finder.cc",
         "patchSetId": 1
@@ -80,6 +98,30 @@
       "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f68028d8_77fb3888",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-28T13:50:28Z",
+      "side": 1,
+      "message": "yeah, that reads better. went with dario\u0027s format",
+      "parentUuid": "70a55324_b534b96e",
+      "range": {
+        "startLine": 238,
+        "startChar": 40,
+        "endLine": 238,
+        "endChar": 41
+      },
+      "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
