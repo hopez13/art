@@ -260,6 +260,24 @@
     },
     {
       "key": {
+        "uuid": "0e285620_176f22ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-09-28T20:07:55Z",
+      "side": 1,
+      "message": "That matches the existing logic, we can probably relax this later to only call InternStrong for the strings in the app image that are interns. See FixupInternVisitor.",
+      "parentUuid": "29c88eac_4149d399",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13425f4_bcd7e8ca",
         "filename": "runtime/mirror/object_reference.h",
         "patchSetId": 5
