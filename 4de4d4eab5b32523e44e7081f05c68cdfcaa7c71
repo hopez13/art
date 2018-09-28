@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abb70211_7263f263",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-09-28T22:05:43Z",
+      "side": 1,
+      "message": "I presume we only need this in the dual mapping case because FlushInstructionCache actually flushes both? Add a comment?",
+      "range": {
+        "startLine": 968,
+        "startChar": 8,
+        "endLine": 968,
+        "endChar": 28
+      },
+      "revId": "4de4d4eab5b32523e44e7081f05c68cdfcaa7c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
