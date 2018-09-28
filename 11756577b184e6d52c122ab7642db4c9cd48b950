@@ -16,6 +16,46 @@
       "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b7c9caf_918077bf",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T12:43:07Z",
+      "side": 1,
+      "message": "nit: add a comment ala \"Count the number of times a method is present in the vector\".",
+      "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c192c124_c7c9fff5",
+        "filename": "tools/veridex/hidden_api_finder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-09-28T12:43:07Z",
+      "side": 1,
+      "message": "nit: would this be better?\nos \u003c\u003c kPrefix \u003c\u003c pair.first \u003c\u003c \" \" \u003c\u003c pair.second \u003c\u003c \" times\" \u003c\u003c std::endl;\n\n(also aligns well with the 1 occurrence case)",
+      "range": {
+        "startLine": 238,
+        "startChar": 40,
+        "endLine": 238,
+        "endChar": 41
+      },
+      "revId": "11756577b184e6d52c122ab7642db4c9cd48b950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
