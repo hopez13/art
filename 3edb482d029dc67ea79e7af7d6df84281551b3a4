@@ -117,6 +117,24 @@
       "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "707c5268_1df721e6",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1237211
+      },
+      "writtenOn": "2018-09-28T08:03:42Z",
+      "side": 1,
+      "message": "Note that the Odroid-C2 devices have known CPU bugs, for instance the Dart team managed to hit Cortex-A53 Erratum #843419. I wouldn\u0027t know if any CPU / kernel bugs are involved here, just remarking on one experience we had when things were mysterious.",
+      "parentUuid": "207beb78_7f441411",
+      "revId": "3edb482d029dc67ea79e7af7d6df84281551b3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
