@@ -22,6 +22,30 @@
       "revId": "450dfcbc4a5acd1fe7a0500f0f4ef450127f22f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c82b391_8654f9d0",
+        "filename": "test/684-select-condition/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-01T14:16:37Z",
+      "side": 1,
+      "message": "Believe it or not, but this would make the test not break the compiler then :)",
+      "parentUuid": "293dfafa_828b25e7",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "450dfcbc4a5acd1fe7a0500f0f4ef450127f22f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
