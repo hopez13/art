@@ -80,6 +80,52 @@
       "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88b487b8_f86f1bd7",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-10-01T14:30:36Z",
+      "side": 1,
+      "message": "I have a suggestion on the name, how about \u0027BranchTargetHint\u0027 or \u0027BranchHint\u0027? This is based on the comment in below line 59.",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fe02cf1_8872524b",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-10-01T14:30:36Z",
+      "side": 1,
+      "message": "Please change the comment here as well.",
+      "range": {
+        "startLine": 59,
+        "startChar": 25,
+        "endLine": 59,
+        "endChar": 46
+      },
+      "revId": "8dd2c87d38672b0aa80b41d0981d40f2348df73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
