@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12898527_a3c7529d",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T14:03:03Z",
+      "side": 1,
+      "message": "I don\u0027t like BLNE. First, you are supposed to prefix that with IT NE when writing A32/T32-agnostic assembly, and then the T32 variant IT NE+BLNE is deprecated. I\u0027d rather we go back to BEQ+BL if you cannot fit an extra instruction here.\n\n(In the future, we should move the .L${opcode}_slow_path to the helpers. Preferably by defining a function and adding it to a list of helpers, so that we do not need to modify main.S for each slow path.)",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "cafa1c6c1f389b4422f658487cfb66b7c8980276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
