@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "133bcb16_4d49dd89",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-01T13:08:18Z",
+      "side": 1,
+      "message": "I did not know about clang-tidy; thanks for the explanation.",
+      "parentUuid": "9d16de0d_90d8d24b",
+      "range": {
+        "startLine": 643,
+        "startChar": 38,
+        "endLine": 643,
+        "endChar": 50
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7237c81_e04a913d",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 3
