@@ -1,0 +1,298 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * This file is used to generate #defines for use in assembly source code.
+ *
+ * The conent of this file will be used to compile asm_defines.cc object
+ * (generated as human readable asm_defines.S text file, not as binary).
+ * This text file will then be post-processed by a python script to find
+ * and extract the constants and generate the final asm_defines.h header.
+ */
+
+#include "art_method.h"
+#include "base/bit_utils.h"
+#include "base/callee_save_type.h"
+#include "base/enums.h"
+#include "base/globals.h"
+#include "dex/modifiers.h"
+#include "gc/accounting/card_table.h"
+#include "gc/allocator/rosalloc.h"
+#include "gc/heap.h"
+#include "interpreter/shadow_frame.h"
+#include "jit/jit.h"
+#include "lock_word.h"
+#include "mirror/class.h"
+#include "mirror/dex_cache.h"
+#include "mirror/object.h"
+#include "mirror/object_reference.h"
+#include "mirror/string.h"
+#include "runtime.h"
+#include "stack.h"
+#include "thread.h"
+
+#define POINTER_SIZE art::kRuntimePointerSize
+
+namespace art {
+
+void VisitAsmDefines() {
+
+ASM_DEFINE(ACCESS_FLAGS_CLASS_IS_FINALIZABLE,
+           kAccClassIsFinalizable)
+ASM_DEFINE(ACCESS_FLAGS_CLASS_IS_FINALIZABLE_BIT,
+           MostSignificantBit(kAccClassIsFinalizable))
+ASM_DEFINE(ACCESS_FLAGS_CLASS_IS_INTERFACE,
+           kAccInterface)
+ASM_DEFINE(ACC_OBSOLETE_METHOD,
+           kAccObsoleteMethod)
+ASM_DEFINE(ACC_OBSOLETE_METHOD_SHIFT,
+           WhichPowerOf2(kAccObsoleteMethod))
+ASM_DEFINE(ART_METHOD_ACCESS_FLAGS_OFFSET,
+           ArtMethod::AccessFlagsOffset().Int32Value())
+ASM_DEFINE(ART_METHOD_DECLARING_CLASS_OFFSET,
+           ArtMethod::DeclaringClassOffset().Int32Value())
+ASM_DEFINE(ART_METHOD_JNI_OFFSET_32,
+           ArtMethod::EntryPointFromJniOffset(PointerSize::k32).Int32Value())
+ASM_DEFINE(ART_METHOD_JNI_OFFSET_64,
+           ArtMethod::EntryPointFromJniOffset(PointerSize::k64).Int32Value())
+ASM_DEFINE(ART_METHOD_QUICK_CODE_OFFSET_32,
+           ArtMethod::EntryPointFromQuickCompiledCodeOffset(PointerSize::k32).Int32Value())
+ASM_DEFINE(ART_METHOD_QUICK_CODE_OFFSET_64,
+           ArtMethod::EntryPointFromQuickCompiledCodeOffset(PointerSize::k64).Int32Value())
+ASM_DEFINE(CARD_TABLE_CARD_SHIFT,
+           gc::accounting::CardTable::kCardShift)
+ASM_DEFINE(COMPRESSED_REFERENCE_SIZE,
+           sizeof(mirror::CompressedReference<mirror::Object>))
+ASM_DEFINE(COMPRESSED_REFERENCE_SIZE_SHIFT,
+           WhichPowerOf2(sizeof(mirror::CompressedReference<mirror::Object>)))
+ASM_DEFINE(JIT_CHECK_OSR,
+           jit::kJitCheckForOSR)
+ASM_DEFINE(JIT_HOTNESS_DISABLE,
+           jit::kJitHotnessDisabled)
+ASM_DEFINE(LOCK_WORD_GC_STATE_MASK_SHIFTED,
+           LockWord::kGCStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED,
+           LockWord::kGCStateMaskShiftedToggled)
+ASM_DEFINE(LOCK_WORD_GC_STATE_SHIFT,
+           LockWord::kGCStateShift)
+ASM_DEFINE(LOCK_WORD_GC_STATE_SIZE,
+           LockWord::kGCStateSize)
+ASM_DEFINE(LOCK_WORD_MARK_BIT_MASK_SHIFTED,
+           LockWord::kMarkBitStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_MARK_BIT_SHIFT,
+           LockWord::kMarkBitStateShift)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_MASK,
+           LockWord::kReadBarrierStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_MASK_TOGGLED,
+           LockWord::kReadBarrierStateMaskShiftedToggled)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_SHIFT,
+           LockWord::kReadBarrierStateShift)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS,
+           LockWord::kStateForwardingAddress)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS_OVERFLOW,
+           LockWord::kStateForwardingAddressOverflow)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT,
+           LockWord::kForwardingAddressShift)
+ASM_DEFINE(LOCK_WORD_STATE_MASK_SHIFTED,
+           LockWord::kStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_STATE_SHIFT,
+           LockWord::kStateShift)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED,
+           LockWord::kThinLockCountMaskShifted)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_ONE,
+           LockWord::kThinLockCountOne)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_SHIFT,
+           LockWord::kThinLockCountShift)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_SIZE,
+           LockWord::kThinLockCountSize)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED,
+           LockWord::kThinLockOwnerMaskShifted)
+ASM_DEFINE(METHOD_DEX_CACHE_HASH_BITS,
+           LeastSignificantBit(mirror::DexCache::kDexCacheMethodCacheSize))
+ASM_DEFINE(METHOD_DEX_CACHE_SIZE_MINUS_ONE,
+           mirror::DexCache::kDexCacheMethodCacheSize - 1)
+ASM_DEFINE(MIN_LARGE_OBJECT_THRESHOLD,
+           gc::Heap::kMinLargeObjectThreshold)
+ASM_DEFINE(MIRROR_ARRAY_LENGTH_OFFSET,
+           mirror::Array::LengthOffset().Int32Value())
+ASM_DEFINE(MIRROR_BOOLEAN_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(uint8_t)).Int32Value())
+ASM_DEFINE(MIRROR_BYTE_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(int8_t)).Int32Value())
+ASM_DEFINE(MIRROR_CHAR_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(uint16_t)).Int32Value())
+ASM_DEFINE(MIRROR_CLASS_ACCESS_FLAGS_OFFSET,
+           mirror::Class::AccessFlagsOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_COMPONENT_TYPE_OFFSET,
+           mirror::Class::ComponentTypeOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_DEX_CACHE_OFFSET,
+           mirror::Class::DexCacheOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_IF_TABLE_OFFSET,
+           mirror::Class::IfTableOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET,
+           mirror::Class::PrimitiveTypeOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_OBJECT_SIZE_ALLOC_FAST_PATH_OFFSET,
+           mirror::Class::ObjectSizeAllocFastPathOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_OBJECT_SIZE_OFFSET,
+           mirror::Class::ObjectSizeOffset().Int32Value())
+ASM_DEFINE(MIRROR_CLASS_STATUS_OFFSET,
+           mirror::Class::StatusOffset().Int32Value())
+ASM_DEFINE(MIRROR_DEX_CACHE_RESOLVED_METHODS_OFFSET,
+           mirror::DexCache::ResolvedMethodsOffset().Int32Value())
+ASM_DEFINE(MIRROR_INT_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(int32_t)).Int32Value())
+ASM_DEFINE(MIRROR_LONG_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(uint64_t)).Int32Value())
+ASM_DEFINE(MIRROR_OBJECT_ARRAY_COMPONENT_SIZE,
+           sizeof(mirror::HeapReference<mirror::Object>))
+ASM_DEFINE(MIRROR_OBJECT_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(mirror::HeapReference<mirror::Object>)).Int32Value())
+ASM_DEFINE(MIRROR_OBJECT_CLASS_OFFSET,
+           mirror::Object::ClassOffset().Int32Value())
+ASM_DEFINE(MIRROR_OBJECT_HEADER_SIZE,
+           sizeof(mirror::Object))
+ASM_DEFINE(MIRROR_OBJECT_LOCK_WORD_OFFSET,
+           mirror::Object::MonitorOffset().Int32Value())
+ASM_DEFINE(MIRROR_SHORT_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(int16_t)).Int32Value())
+ASM_DEFINE(MIRROR_STRING_COUNT_OFFSET,
+           mirror::String::CountOffset().Int32Value())
+ASM_DEFINE(MIRROR_STRING_VALUE_OFFSET,
+           mirror::String::ValueOffset().Int32Value())
+ASM_DEFINE(MIRROR_WIDE_ARRAY_DATA_OFFSET,
+           mirror::Array::DataOffset(sizeof(uint64_t)).Int32Value())
+ASM_DEFINE(OBJECT_ALIGNMENT_MASK,
+           kObjectAlignment - 1)
+ASM_DEFINE(OBJECT_ALIGNMENT_MASK_TOGGLED,
+           ~static_cast<uint32_t>(kObjectAlignment - 1))
+ASM_DEFINE(OBJECT_ALIGNMENT_MASK_TOGGLED64,
+           ~static_cast<uint64_t>(kObjectAlignment - 1))
+ASM_DEFINE(PRIMITIVE_TYPE_SIZE_SHIFT_SHIFT,
+           mirror::Class::kPrimitiveTypeSizeShiftShift)
+ASM_DEFINE(ROSALLOC_BRACKET_QUANTUM_SIZE_MASK,
+           gc::allocator::RosAlloc::kThreadLocalBracketQuantumSize - 1)
+ASM_DEFINE(ROSALLOC_BRACKET_QUANTUM_SIZE_MASK_TOGGLED32,
+           ~static_cast<uint32_t>(gc::allocator::RosAlloc::kThreadLocalBracketQuantumSize - 1))
+ASM_DEFINE(ROSALLOC_BRACKET_QUANTUM_SIZE_MASK_TOGGLED64,
+           ~static_cast<uint64_t>(gc::allocator::RosAlloc::kThreadLocalBracketQuantumSize - 1))
+ASM_DEFINE(ROSALLOC_BRACKET_QUANTUM_SIZE_SHIFT,
+           gc::allocator::RosAlloc::kThreadLocalBracketQuantumSizeShift)
+ASM_DEFINE(ROSALLOC_MAX_THREAD_LOCAL_BRACKET_SIZE,
+           gc::allocator::RosAlloc::kMaxThreadLocalBracketSize)
+ASM_DEFINE(ROSALLOC_RUN_FREE_LIST_HEAD_OFFSET,
+           gc::allocator::RosAlloc::RunFreeListHeadOffset())
+ASM_DEFINE(ROSALLOC_RUN_FREE_LIST_OFFSET,
+           gc::allocator::RosAlloc::RunFreeListOffset())
+ASM_DEFINE(ROSALLOC_RUN_FREE_LIST_SIZE_OFFSET,
+           gc::allocator::RosAlloc::RunFreeListSizeOffset())
+ASM_DEFINE(ROSALLOC_SLOT_NEXT_OFFSET,
+           gc::allocator::RosAlloc::RunSlotNextOffset())
+ASM_DEFINE(RUNTIME_SAVE_ALL_CALLEE_SAVES_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveAllCalleeSaves))
+ASM_DEFINE(RUNTIME_SAVE_EVERYTHING_FOR_CLINIT_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveEverythingForClinit))
+ASM_DEFINE(RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveEverythingForSuspendCheck))
+ASM_DEFINE(RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveEverything))
+ASM_DEFINE(RUNTIME_SAVE_REFS_AND_ARGS_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveRefsAndArgs))
+ASM_DEFINE(RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET,
+           Runtime::GetCalleeSaveMethodOffset(CalleeSaveType::kSaveRefsOnly))
+ASM_DEFINE(SHADOWFRAME_CACHED_HOTNESS_COUNTDOWN_OFFSET,
+           ShadowFrame::CachedHotnessCountdownOffset())
+ASM_DEFINE(SHADOWFRAME_DEX_INSTRUCTIONS_OFFSET,
+           ShadowFrame::DexInstructionsOffset())
+ASM_DEFINE(SHADOWFRAME_DEX_PC_OFFSET,
+           ShadowFrame::DexPCOffset())
+ASM_DEFINE(SHADOWFRAME_DEX_PC_PTR_OFFSET,
+           ShadowFrame::DexPCPtrOffset())
+ASM_DEFINE(SHADOWFRAME_HOTNESS_COUNTDOWN_OFFSET,
+           ShadowFrame::HotnessCountdownOffset())
+ASM_DEFINE(SHADOWFRAME_LINK_OFFSET,
+           ShadowFrame::LinkOffset())
+ASM_DEFINE(SHADOWFRAME_LOCK_COUNT_DATA_OFFSET,
+           ShadowFrame::LockCountDataOffset())
+ASM_DEFINE(SHADOWFRAME_METHOD_OFFSET,
+           ShadowFrame::MethodOffset())
+ASM_DEFINE(SHADOWFRAME_NUMBER_OF_VREGS_OFFSET,
+           ShadowFrame::NumberOfVRegsOffset())
+ASM_DEFINE(SHADOWFRAME_RESULT_REGISTER_OFFSET,
+           ShadowFrame::ResultRegisterOffset())
+ASM_DEFINE(SHADOWFRAME_VREGS_OFFSET,
+           ShadowFrame::VRegsOffset())
+ASM_DEFINE(STACK_REFERENCE_SIZE,
+           sizeof(StackReference<mirror::Object>))
+ASM_DEFINE(STD_MEMORY_ORDER_RELAXED,
+           std::memory_order_relaxed)
+ASM_DEFINE(STRING_COMPRESSION_FEATURE,
+           mirror::kUseStringCompression)
+ASM_DEFINE(STRING_DEX_CACHE_ELEMENT_SIZE,
+           sizeof(mirror::StringDexCachePair))
+ASM_DEFINE(STRING_DEX_CACHE_ELEMENT_SIZE_SHIFT,
+           WhichPowerOf2(sizeof(mirror::StringDexCachePair)))
+ASM_DEFINE(STRING_DEX_CACHE_HASH_BITS,
+           LeastSignificantBit(mirror::DexCache::kDexCacheStringCacheSize))
+ASM_DEFINE(STRING_DEX_CACHE_SIZE_MINUS_ONE,
+           mirror::DexCache::kDexCacheStringCacheSize - 1)
+ASM_DEFINE(THREAD_ALT_IBASE_OFFSET,
+           Thread::MterpAltIBaseOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_CARD_TABLE_OFFSET,
+           Thread::CardTableOffset<kRuntimePointerSize>().Int32Value())
+ASM_DEFINE(THREAD_CHECKPOINT_REQUEST,
+           kCheckpointRequest)
+ASM_DEFINE(THREAD_CURRENT_IBASE_OFFSET,
+           Thread::MterpCurrentIBaseOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_DEFAULT_IBASE_OFFSET,
+           Thread::MterpDefaultIBaseOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_EMPTY_CHECKPOINT_REQUEST,
+           kEmptyCheckpointRequest)
+ASM_DEFINE(THREAD_EXCEPTION_OFFSET,
+           Thread::ExceptionOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_FLAGS_OFFSET,
+           Thread::ThreadFlagsOffset<kRuntimePointerSize>().Int32Value())
+ASM_DEFINE(THREAD_ID_OFFSET,
+           Thread::ThinLockIdOffset<kRuntimePointerSize>().Int32Value())
+ASM_DEFINE(THREAD_INTERPRETER_CACHE_OFFSET,
+           Thread::InterpreterCacheOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_INTERPRETER_CACHE_SIZE_LOG2,
+           Thread::InterpreterCacheSizeLog2())
+ASM_DEFINE(THREAD_IS_GC_MARKING_OFFSET,
+           Thread::IsGcMarkingOffset<kRuntimePointerSize>().Int32Value())
+ASM_DEFINE(THREAD_LOCAL_ALLOC_STACK_END_OFFSET,
+           Thread::ThreadLocalAllocStackEndOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET,
+           Thread::ThreadLocalAllocStackTopOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_LOCAL_END_OFFSET,
+           Thread::ThreadLocalEndOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_LOCAL_OBJECTS_OFFSET,
+           Thread::ThreadLocalObjectsOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_LOCAL_POS_OFFSET,
+           Thread::ThreadLocalPosOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_ROSALLOC_RUNS_OFFSET,
+           Thread::RosAllocRunsOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_SELF_OFFSET,
+           Thread::SelfOffset<POINTER_SIZE>().Int32Value())
+ASM_DEFINE(THREAD_SUSPEND_OR_CHECKPOINT_REQUEST,
+           kSuspendRequest | kCheckpointRequest | kEmptyCheckpointRequest)
+ASM_DEFINE(THREAD_SUSPEND_REQUEST,
+           kSuspendRequest)
+ASM_DEFINE(THREAD_TOP_QUICK_FRAME_OFFSET,
+           Thread::TopOfManagedStackOffset<POINTER_SIZE>().Int32Value())
+
+}
+
+}  // namespace art

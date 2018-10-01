@@ -370,10 +370,10 @@ libart_cc_defaults {
     },
     cflags: ["-DBUILDING_LIBART=1"],
     generated_sources: ["art_operator_srcs"],
-    // asm_support_gen.h (used by asm_support.h) is generated with cpp-define-generator
-    generated_headers: ["cpp-define-generator-asm-support"],
+    // generated with cpp-define-generator.
+    generated_headers: ["asm_defines-header"],
     // export our headers so the libart-gtest targets can use it as well.
-    export_generated_headers: ["cpp-define-generator-asm-support"],
+    export_generated_headers: ["asm_defines-header"],
     include_dirs: [
         "art/sigchainlib",
         "external/icu/icu4c/source/common",

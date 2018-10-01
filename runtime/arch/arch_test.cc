@@ -39,8 +39,10 @@
 // Return the counter at the end of CheckAsmSupportOffsetsAndSizes.
 #define ASM_SUPPORT_CHECK_FOOTER return count;
 
-// Generate CheckAsmSupportOffsetsAndSizes().
-#include "asm_support_check.h"
+// Check the value of all assembly support constants.
+#define ASM_DEFINE(SYM,VAL) \
+  static_assert(SYM == VAL, "Unexpected value of compile-time constant");
+#include "asm_defines.h"
 
 namespace art {
 
@@ -59,11 +61,6 @@ class ArchTest : public CommonRuntimeTest {
     ASSERT_EQ(InstructionSet::kX86_64, Runtime::Current()->GetInstructionSet());
   }
 };
-
-TEST_F(ArchTest, CheckCommonOffsetsAndSizes) {
-  size_t test_count = CheckAsmSupportOffsetsAndSizes();
-  EXPECT_GT(test_count, 0u);
-}
 
 // Grab architecture specific constants.
 namespace arm {
