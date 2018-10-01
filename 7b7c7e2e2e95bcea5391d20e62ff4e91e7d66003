@@ -39,6 +39,24 @@
       "revId": "7b7c7e2e2e95bcea5391d20e62ff4e91e7d66003",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54850b2_1b166142",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-01T20:14:39Z",
+      "side": 1,
+      "message": "Yeah, no open pragmas.\n\n(In a sense, one could ask to add tests that the values are correct.)",
+      "parentUuid": "b66530e6_32dfa69c",
+      "revId": "7b7c7e2e2e95bcea5391d20e62ff4e91e7d66003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
