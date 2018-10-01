@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "e4463f5b_27d03709",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-01T21:58:03Z",
+      "side": 1,
+      "message": "But that lowers readability and duplicates code. Not sure that is a good tradeoff.",
+      "parentUuid": "661299ac_b0c9881d",
+      "range": {
+        "startLine": 2455,
+        "startChar": 2,
+        "endLine": 2455,
+        "endChar": 29
+      },
+      "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dfbbc6b_c765cbae",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
