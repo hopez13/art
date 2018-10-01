@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa158b8e_278252f6",
+        "filename": "tools/cpp-define-generator/asm_defines.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-01T22:29:16Z",
+      "side": 1,
+      "message": "That is actually what I started with...\nEvery architecture uses different directives (xword/quad/long) to encode even the same data type.  Sometimes multiple directives are used per single variable.  Sometimes aligment is added.  Sometimes the compiler decides to zero-initialize it and set from code.  It became a mess quickly and I gave up and decided to check what the \"asm volatile\" is about - and that turns to be pretty much one liner...",
+      "parentUuid": "a22ef1a4_38a580f0",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6accdf94_efd17b2f",
         "filename": "tools/cpp-define-generator/asm_defines.def",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ae0fccd_fc80a504",
+        "filename": "tools/cpp-define-generator/asm_defines.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-01T22:29:16Z",
+      "side": 1,
+      "message": "Yeah, that is just personal preference - just one macro and just one file.  They are also alphabetically sorted.  The goal is to minimize mental effort for anyone looking at this for the first time.  It might be couple of characters more verbose, but it tries to be as simple as possible.",
+      "parentUuid": "6accdf94_efd17b2f",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
