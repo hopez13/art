@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f594177_e6d12ce0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2686,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T14:59:21Z",
+      "side": 1,
+      "message": "This is unnecessary, only HCondition can pass the `!IsBooleanValueOrMaterializedCondition(condition)` test below.",
+      "range": {
+        "startLine": 2686,
+        "startChar": 6,
+        "endLine": 2686,
+        "endChar": 33
+      },
+      "revId": "107fe59420a3ef062966b088739bb3a6f3aa68fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f95014aa_d970fb14",
+        "filename": "test/684-select-condition/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T14:59:21Z",
+      "side": 1,
+      "message": "This test implicitly relies on certain things not being inlined.\nI\u0027d prefer the test I provided on the bug, using the $noinline$ tags.",
+      "revId": "107fe59420a3ef062966b088739bb3a6f3aa68fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
