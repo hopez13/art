@@ -296,6 +296,24 @@
     },
     {
       "key": {
+        "uuid": "91593c43_d4f73112",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-01T16:59:57Z",
+      "side": 1,
+      "message": "Not a regression, we can fix in a follow up.",
+      "parentUuid": "52a90c14_a906bd94",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13425f4_bcd7e8ca",
         "filename": "runtime/mirror/object_reference.h",
         "patchSetId": 5
