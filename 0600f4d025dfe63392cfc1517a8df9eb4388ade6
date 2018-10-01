@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0450f76f_7c91cd11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T12:33:46Z",
+      "side": 1,
+      "message": "ARM/ARM64:",
+      "revId": "0600f4d025dfe63392cfc1517a8df9eb4388ade6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4277e8cf_fbddcf81",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T12:33:46Z",
+      "side": 1,
+      "message": "This is UNLIKELY, so the artReadBarrierMark call should be in a slow-path.\n\n    bne .L{opcode}_mark\n  .L${opcode}_marked:\n    ...\n  .L${opcode}_mark:\n    bl artReadBarrierMark\n    b .L${opcode}_marked",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 8
+      },
+      "revId": "0600f4d025dfe63392cfc1517a8df9eb4388ade6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd6382f_e683c43d",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T12:33:46Z",
+      "side": 1,
+      "message": "Add .L prefix?",
+      "revId": "0600f4d025dfe63392cfc1517a8df9eb4388ade6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e68d5dc_2ce243cc",
+        "filename": "runtime/interpreter/mterp/arm64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T12:33:46Z",
+      "side": 1,
+      "message": "UNLIKELY",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 8
+      },
+      "revId": "0600f4d025dfe63392cfc1517a8df9eb4388ade6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b70e29_8817239c",
+        "filename": "runtime/interpreter/mterp/arm64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T12:33:46Z",
+      "side": 1,
+      "message": ".L?",
+      "revId": "0600f4d025dfe63392cfc1517a8df9eb4388ade6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
