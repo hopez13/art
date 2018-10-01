@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4de36940_9fc90ef8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-01T23:52:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18e0f977_7ca950a3",
+      "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bebf008_3b6fbee5",
         "filename": "tools/cpp-define-generator/Android.bp",
         "patchSetId": 1
@@ -51,6 +69,24 @@
       "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b9ed6a_91baaed7",
+        "filename": "tools/cpp-define-generator/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-01T23:52:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bebf008_3b6fbee5",
+      "revId": "cd51a4113284e4f095a5360b37c3ebfba7193b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
