@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ee5d4f69_acf426be",
+        "filename": "tools/cpp-define-generator/asm_defines.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-01T22:37:00Z",
+      "side": 1,
+      "message": "This could at least have a static assert that it only supports ints\n \n  static_assert(std::is_integer_v\u003cstd::decay_t\u003cdecltype(VAL)\u003e\u003e)",
+      "parentUuid": "aa158b8e_278252f6",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6accdf94_efd17b2f",
         "filename": "tools/cpp-define-generator/asm_defines.def",
         "patchSetId": 1
@@ -69,6 +87,24 @@
       "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b10f09ce_30fe0d0f",
+        "filename": "tools/cpp-define-generator/asm_defines.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-01T22:37:00Z",
+      "side": 1,
+      "message": "I\u0027d rather it stay the way it was, if it\u0027s all the same to you.",
+      "parentUuid": "0ae0fccd_fc80a504",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
