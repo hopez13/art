@@ -278,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "52a90c14_a906bd94",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T13:00:28Z",
+      "side": 1,
+      "message": "I don\u0027t think JLS mentions app images and I don\u0027t see why we should intern app image strings that are not explicitly listed in the app image\u0027s intern table.",
+      "parentUuid": "0e285620_176f22ce",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13425f4_bcd7e8ca",
         "filename": "runtime/mirror/object_reference.h",
         "patchSetId": 5
