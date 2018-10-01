@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65bccbf3_7bd66748",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-01T13:37:13Z",
+      "side": 1,
+      "message": "Can you add a DCHECK in that method that self-\u003eCanLoadClasses?",
+      "range": {
+        "startLine": 3781,
+        "startChar": 35,
+        "endLine": 3781,
+        "endChar": 46
+      },
+      "revId": "0c1f3e9f404e50b76302e00205cac87a55155f8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a8fafb1_386b4fde",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-01T13:37:13Z",
+      "side": 1,
+      "message": "Mark thread pool workers as runtime thread.",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 46
+      },
+      "revId": "0c1f3e9f404e50b76302e00205cac87a55155f8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
