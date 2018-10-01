@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "4593b542_009a54ad",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-01T16:09:13Z",
+      "side": 1,
+      "message": "Couldn\u0027t you move this to the test on the line above? In this way you would add the new code path in only one place, and would make the function simpler.",
+      "range": {
+        "startLine": 2725,
+        "startChar": 10,
+        "endLine": 2725,
+        "endChar": 48
+      },
+      "revId": "107fe59420a3ef062966b088739bb3a6f3aa68fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba1df2e4_9de0fd27",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2808,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-01T16:09:13Z",
+      "side": 1,
+      "message": "Avoid a potential branch to branch:\n\n __ B(target);",
+      "range": {
+        "startLine": 2808,
+        "startChar": 4,
+        "endLine": 2808,
+        "endChar": 22
+      },
+      "revId": "107fe59420a3ef062966b088739bb3a6f3aa68fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f95014aa_d970fb14",
         "filename": "test/684-select-condition/src/Main.java",
         "patchSetId": 6
