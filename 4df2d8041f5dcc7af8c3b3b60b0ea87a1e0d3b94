@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "9d16de0d_90d8d24b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T11:09:52Z",
+      "side": 1,
+      "message": "Andreas pointed out that clang-tidy understands the style with \u0027\u003d\u0027, so unless there is a compelling reason to avoid that, I\u0027ll use the \u0027\u003d\u0027 from now on.",
+      "parentUuid": "c342c16d_1373db85",
+      "range": {
+        "startLine": 643,
+        "startChar": 38,
+        "endLine": 643,
+        "endChar": 50
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7237c81_e04a913d",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 3
@@ -108,6 +132,30 @@
       "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0bc877a_a2633df0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-01T11:09:52Z",
+      "side": 1,
+      "message": "No, memset() takes an int.",
+      "parentUuid": "71c58639_93ce1fc5",
+      "range": {
+        "startLine": 1515,
+        "startChar": 31,
+        "endLine": 1515,
+        "endChar": 32
+      },
+      "revId": "4df2d8041f5dcc7af8c3b3b60b0ea87a1e0d3b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
