@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a22ef1a4_38a580f0",
+        "filename": "tools/cpp-define-generator/asm_defines.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-01T22:09:39Z",
+      "side": 1,
+      "message": "I believe there\u0027s a more simple and elegant way to do this, which will also support arbitrary types without needing to handle sign.\n\nAlso I want to point out this cast up on on L23 will kill doubles, e.g. 2.5 -\u003e 2, etc.\n\n#define ASM_DEFINE(SYM,VAL) \\\n  auto ASM_DEFINE_ ## SYM \u003d (VAL);\n\nThis generates the correct asm globals you can then parse in the python script (just look for all the .ASM_DEFINE_$NAME labels):\n\nExample:\n\n  auto SPECIAL_VAR_NAME \u003d 123456;\n  auto SPECIAL_VAR_NAME2 \u003d 123.123;\n  auto SPECIAL_BOOL_VAR \u003d true;\n\n  // -S gets us:\n  SPECIAL_VAR_NAME:\n\t.long\t123456                  # 0x1e240\n\t.size\tSPECIAL_VAR_NAME, 4\n\n  SPECIAL_VAR_NAME2:\n\t.quad\t4638364427826256413     # double 123.123\n\t.size\tSPECIAL_VAR_NAME2, 8\n\n  SPECIAL_BOOL_VAR:\n\t.byte\t1                       # 0x1\n\t.size\tSPECIAL_BOOL_VAR, 1\n\nOne can then parse the original type by combining the .$type/.size directives. And this would be easily extensible for strings too (they get an .asciz entry) if we ever wanted that for some reason.\n\n--------\n(Minor sidenote: because you have the static_assert in the other file we are guaranteed the variable will be initialized with the .$type directive since its a contexpr. We might want to make that assumption explicit in this file with static_assert(__is_builtin_constant_p(VAL)) or similar)",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6accdf94_efd17b2f",
+        "filename": "tools/cpp-define-generator/asm_defines.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-01T22:09:39Z",
+      "side": 1,
+      "message": "Deleting the other .def files seems unnecessary?\n\n  #define DEFINE_EXPR(macro_name, field_type, expr) \\\n    ASM_DEFINE(macro_name, expr)\n  #include \"offsets_all.def\"",
+      "revId": "90bf94a1849dcc8a56fe461b84b68a8fe7709774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
