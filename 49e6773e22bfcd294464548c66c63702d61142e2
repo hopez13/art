@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "fd521a0b_c1103a79",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-01T22:35:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e4463f5b_27d03709",
+      "range": {
+        "startLine": 2455,
+        "startChar": 2,
+        "endLine": 2455,
+        "endChar": 29
+      },
+      "revId": "49e6773e22bfcd294464548c66c63702d61142e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dfbbc6b_c765cbae",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
