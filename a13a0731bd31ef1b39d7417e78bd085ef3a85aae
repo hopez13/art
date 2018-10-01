@@ -22,6 +22,30 @@
       "revId": "a13a0731bd31ef1b39d7417e78bd085ef3a85aae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fc5bd17_7822b842",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-01T11:43:54Z",
+      "side": 0,
+      "message": "When I said, I am keeping them future use, I mostly meant this CL.\nI don\u0027t plan to add hand-written assembly iput/sget/sput unless it shows up as hot on some profiling.\nHaving said that, since the mterp clean-up, adding/removing parameters is much easier now :-)",
+      "parentUuid": "c1b80b59_8581cf1a",
+      "range": {
+        "startLine": 144,
+        "startChar": 13,
+        "endLine": 144,
+        "endChar": 26
+      },
+      "revId": "a13a0731bd31ef1b39d7417e78bd085ef3a85aae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
