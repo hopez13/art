@@ -70,6 +70,30 @@
       "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ee6d42_5ec00e2b",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T13:24:51Z",
+      "side": 1,
+      "message": "We only compare with the ClassRoot::kMax as a range check, so I do not think this is worth the effort. If we compared the values for any other purpose I\u0027d add the operator\u003c\u003c.",
+      "parentUuid": "364a00c1_288da480",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "6834d3414308e3d536bc685dbb3d60fe70186f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
