@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99b2e961_4f9e9089",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2682,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-02T13:34:15Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 2682,
+        "startChar": 22,
+        "endLine": 2682,
+        "endChar": 23
+      },
+      "revId": "2158e56ae42e6a6a5b652203dc7e883abcf5c761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a9ac5d0_f51a3bf1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2769,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-02T13:34:15Z",
+      "side": 1,
+      "message": "Nit: Leave the empty line to minimize the difference?",
+      "revId": "2158e56ae42e6a6a5b652203dc7e883abcf5c761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da65fff_da197b21",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-02T13:34:15Z",
+      "side": 1,
+      "message": "If you add here:\n\n src \u003d first;\n\nYou can make a simplification below.",
+      "revId": "2158e56ae42e6a6a5b652203dc7e883abcf5c761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a0798f0_4587c5c0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2802,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2018-10-02T13:34:15Z",
+      "side": 1,
+      "message": "With the change above you can move this out of the else block, and remove line 2800. IMHO this function considers a lot of cases, and it doesn\u0027t hurt to simplify the control flow a bit.",
+      "range": {
+        "startLine": 2802,
+        "startChar": 4,
+        "endLine": 2802,
+        "endChar": 43
+      },
+      "revId": "2158e56ae42e6a6a5b652203dc7e883abcf5c761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
