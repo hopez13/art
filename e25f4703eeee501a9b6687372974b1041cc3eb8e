@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcf353c4_7c0bc35c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-02T13:14:14Z",
+      "side": 1,
+      "message": "Wow, pretty ugly one, thanks for catching it, though I hope our run-tests would have caught it too.",
+      "parentUuid": "3f384384_c43de5e6",
+      "range": {
+        "startLine": 2770,
+        "startChar": 4,
+        "endLine": 2770,
+        "endChar": 11
+      },
+      "revId": "e25f4703eeee501a9b6687372974b1041cc3eb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "710a1636_21f44b3c",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "e25f4703eeee501a9b6687372974b1041cc3eb8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9162a33d_ee528caa",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2902,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-02T13:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "710a1636_21f44b3c",
+      "range": {
+        "startLine": 2902,
+        "startChar": 2,
+        "endLine": 2902,
+        "endChar": 71
+      },
+      "revId": "e25f4703eeee501a9b6687372974b1041cc3eb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
