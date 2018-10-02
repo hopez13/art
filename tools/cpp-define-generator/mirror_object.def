@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-// Convenience macro to define an offset expression.
+#include "mirror/object.h"
 
-#ifndef DEFINE_OFFSET_EXPR
-#define DEFINE_OFFSET_EXPR(holder_type, field_name, field_type, expr) \
-  DEFINE_EXPR(holder_type ## _ ## field_name ## _OFFSET, field_type, expr)
-#define DEFINE_OFFSET_EXPR_STANDARD_DEFINITION
-#endif
-
+ASM_DEFINE(MIRROR_OBJECT_CLASS_OFFSET,
+           art::mirror::Object::ClassOffset().Int32Value())
+ASM_DEFINE(MIRROR_OBJECT_HEADER_SIZE,
+           sizeof(art::mirror::Object))
+ASM_DEFINE(MIRROR_OBJECT_LOCK_WORD_OFFSET,
+           art::mirror::Object::MonitorOffset().Int32Value())
