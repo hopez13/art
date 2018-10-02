@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33fe8bb7_2bdec19d",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T14:03:10Z",
+      "side": 1,
+      "message": "Maybe FindMethodToCall()? (I don\u0027t like the word \"resolve\" in this context.)",
+      "range": {
+        "startLine": 426,
+        "startChar": 25,
+        "endLine": 426,
+        "endChar": 46
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "762bd740_245536cd",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T14:03:10Z",
+      "side": 1,
+      "message": "resolved_method",
+      "range": {
+        "startLine": 144,
+        "startChar": 13,
+        "endLine": 144,
+        "endChar": 26
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb1b029_7a7443e4",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T14:03:10Z",
+      "side": 1,
+      "message": "Use a new variable for readability (ArtMethod* called_method), do not assign to the old one.",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 15
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
