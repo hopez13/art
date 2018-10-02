@@ -28,5 +28,4 @@ for asm_define in sorted(asm_defines):
   if value < 0 and not negative_value:
     # Overflow - uint64_t constant was pretty printed as negiative int64_t.
     value += 2 ** 64
-  print("#define " + name + " " + format(value, "#x"))  ## TODO Remove
   print("#define " + name.upper() + " " + format(value, "#x"))
