@@ -22,6 +22,29 @@
       "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51f0db90_47b567f6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T14:10:35Z",
+      "side": 1,
+      "message": "We wouldn\u0027t need this line if we droped the _other_ MoveLocation() from the `if (output_overlaps_with_condition_inputs)` block and moved the `codegen_-\u003eMoveLocation(out, src, type);` before that block.",
+      "range": {
+        "startLine": 2790,
+        "startChar": 7,
+        "endLine": 2790,
+        "endChar": 20
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
