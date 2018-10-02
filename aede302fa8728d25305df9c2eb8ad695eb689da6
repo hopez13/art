@@ -45,6 +45,30 @@
       "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d0c3600_7d57b2ad",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-02T19:53:33Z",
+      "side": 1,
+      "message": "Can you expand? There\u0027s so many moves and ifs involved here, that if you don\u0027t fold it exactly as you think I\u0027m getting lost :)",
+      "parentUuid": "51f0db90_47b567f6",
+      "range": {
+        "startLine": 2790,
+        "startChar": 7,
+        "endLine": 2790,
+        "endChar": 20
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
