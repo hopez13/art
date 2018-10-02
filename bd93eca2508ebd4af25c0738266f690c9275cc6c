@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d007a892_3a2a7de0",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T15:48:51Z",
+      "side": 1,
+      "message": "In that case, the next line had too much whitespace. I see you fixed that in PS6.",
+      "parentUuid": "a55d7cc6_0cd16820",
+      "range": {
+        "startLine": 480,
+        "startChar": 23,
+        "endLine": 480,
+        "endChar": 24
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7728cd31_c1b89258",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 5
@@ -225,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "8f9c07e1_04cf0837",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T15:48:51Z",
+      "side": 1,
+      "message": "But playing loose with object lifetime is just bad. All forms of operators new and delete should be used very carefully.",
+      "parentUuid": "cc2ca3f7_e839367d",
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04f9d528_01be09e4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -361,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "c34e41b8_b0c514c0",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T15:48:51Z",
+      "side": 1,
+      "message": "As the ObjectReference\u003c\u003e is not derived from mirror::Object, such interpretation does not make sense. You do have a point that the \"AsMirrorPtr()\" is a bad name. I\u0027d prefer Get() which would be more in line with the naming in Handle\u003c\u003e. But that\u0027s out of scope of this CL.\n\nIf you want to keep this comment, I\u0027d rather see it added to the TODO a few lines above.",
+      "parentUuid": "65ba6ae3_737c98e7",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5df7dadc_9a3919d0",
         "filename": "runtime/mirror/object_reference.h",
         "patchSetId": 5
@@ -429,6 +495,30 @@
       "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff478079_824abadb",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T15:48:51Z",
+      "side": 1,
+      "message": "I see, so this was previously unimplemented. You still need to #include \"obj_ptr-inl.h\" (to avoid relying on all users to include it for you), so you should move this new implementation to the object_reference-inl.h and #include that where needed.",
+      "parentUuid": "4ef19d12_32fb6814",
+      "range": {
+        "startLine": 137,
+        "startChar": 24,
+        "endLine": 137,
+        "endChar": 33
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
