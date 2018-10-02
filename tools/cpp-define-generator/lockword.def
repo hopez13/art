@@ -1,0 +1,60 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "lock_word.h"
+
+namespace art {
+
+ASM_DEFINE(LOCK_WORD_GC_STATE_MASK_SHIFTED,
+           LockWord::kGCStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_GC_STATE_MASK_SHIFTED_TOGGLED,
+           LockWord::kGCStateMaskShiftedToggled)
+ASM_DEFINE(LOCK_WORD_GC_STATE_SHIFT,
+           LockWord::kGCStateShift)
+ASM_DEFINE(LOCK_WORD_GC_STATE_SIZE,
+           LockWord::kGCStateSize)
+ASM_DEFINE(LOCK_WORD_MARK_BIT_MASK_SHIFTED,
+           LockWord::kMarkBitStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_MARK_BIT_SHIFT,
+           LockWord::kMarkBitStateShift)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_MASK,
+           LockWord::kReadBarrierStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_MASK_TOGGLED,
+           LockWord::kReadBarrierStateMaskShiftedToggled)
+ASM_DEFINE(LOCK_WORD_READ_BARRIER_STATE_SHIFT,
+           LockWord::kReadBarrierStateShift)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS,
+           LockWord::kStateForwardingAddress)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS_OVERFLOW,
+           LockWord::kStateForwardingAddressOverflow)
+ASM_DEFINE(LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT,
+           LockWord::kForwardingAddressShift)
+ASM_DEFINE(LOCK_WORD_STATE_MASK_SHIFTED,
+           LockWord::kStateMaskShifted)
+ASM_DEFINE(LOCK_WORD_STATE_SHIFT,
+           LockWord::kStateShift)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED,
+           LockWord::kThinLockCountMaskShifted)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_ONE,
+           LockWord::kThinLockCountOne)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_SHIFT,
+           LockWord::kThinLockCountShift)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_COUNT_SIZE,
+           LockWord::kThinLockCountSize)
+ASM_DEFINE(LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED,
+           LockWord::kThinLockOwnerMaskShifted)
+
+}  // namespace art
