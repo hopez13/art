@@ -70,6 +70,30 @@
       "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1d8cc87_05874aca",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-02T13:29:19Z",
+      "side": 1,
+      "message": "As to not liking invalid objects, I don\u0027t like unnecessary std::unique_ptr\u003c\u003e indirection either. We should start using std::optional\u003c\u003e but that\u0027s C++17.",
+      "parentUuid": "d9742934_70f641a5",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 53
+      },
+      "revId": "9e4bbfb8c912dde29f01a76494fe6c253118e1d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
