@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45f10369_c7d105b4",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-03T20:33:49Z",
+      "side": 1,
+      "message": "nit: maybe (NAME) and (EXPR) just to be safe?",
+      "range": {
+        "startLine": 48,
+        "startChar": 52,
+        "endLine": 48,
+        "endChar": 56
+      },
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "056b3a67_d34106c0",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-03T20:33:49Z",
+      "side": 1,
+      "message": "If it\u0027s not too much trouble, can we add a unit test? This would show the example expected input and expected output.",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6fd03fc_b0089286",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-03T20:33:49Z",
+      "side": 1,
+      "message": "nit: Please add description of what this does and a usage example?",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d787c05_0fb7b328",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-03T20:33:49Z",
+      "side": 1,
+      "message": "If it\u0027s not too much trouble, what about using argparse to properly parse arguments?",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a091718d_4d1d2c0c",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-03T20:33:49Z",
+      "side": 1,
+      "message": "nit: Add comment why you want to sort it? Wouldn\u0027t this mean it would be alphabetical now instead of retaining order from the .def files (which seems more desirable)?",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
