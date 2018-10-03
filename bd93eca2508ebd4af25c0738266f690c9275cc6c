@@ -519,6 +519,30 @@
       "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf47357_18c11510",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-03T17:58:47Z",
+      "side": 1,
+      "message": "The implementation has already been moved to object_reference-inl.h.",
+      "parentUuid": "ff478079_824abadb",
+      "range": {
+        "startLine": 137,
+        "startChar": 24,
+        "endLine": 137,
+        "endChar": 33
+      },
+      "revId": "bd93eca2508ebd4af25c0738266f690c9275cc6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
