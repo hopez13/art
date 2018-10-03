@@ -566,6 +566,21 @@ def run_test(command, test, test_variant, test_name):
     failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
     print_test_info(test_name, 'TIMEOUT', 'Timed out in %d seconds\n%s' % (
         timeout, command))
+    # Generate trace on target
+    if 'target' in test_variant:
+      pgrep_proc = subprocess.Popen(["adb", "shell", "pgrep", "-f", test],
+                                    stderr = subprocess.STDOUT,
+                                    stdout = subprocess.PIPE,
+                                    universal_newlines = True)
+      xargs_proc = subprocess.Popen(["xargs", "-l", "adb", "shell", "debuggerd"],
+                                    stdin = subprocess.PIPE,
+                                    stderr = subprocess.STDOUT,
+                                    stdout = subprocess.PIPE,
+                                    universal_newlines = True)
+      trace_output = xargs_proc.communicate(input=pgrep_proc.communicate()[0])[0]
+      print_mutex.acquire()
+      print_text(trace_output)
+      print_mutex.release()
   except Exception as e:
     failed_tests.append((test_name, str(e)))
     print_test_info(test_name, 'FAIL',
