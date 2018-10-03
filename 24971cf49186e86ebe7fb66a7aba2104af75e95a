@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7deee6d1_3e01bcad",
+        "filename": "test/566-polymorphic-inlining/polymorphic_inline.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-03T15:18:35Z",
+      "side": 1,
+      "message": "Restructure the code to release the mutator lock for the duration of the usleep().\n\nCan we drop the changes above if we use ScopedThreadSuspension?",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "24971cf49186e86ebe7fb66a7aba2104af75e95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
