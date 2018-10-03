@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fcc8ba9a_f10cee6f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-03T07:49:26Z",
+      "side": 1,
+      "message": "Gotcha.",
+      "parentUuid": "25dc2c57_d86f9d24",
+      "range": {
+        "startLine": 2790,
+        "startChar": 7,
+        "endLine": 2790,
+        "endChar": 20
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "034bf8e4_c34a15e2",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 10
@@ -116,6 +140,30 @@
       "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06bcab6f_d328b649",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-03T07:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034bf8e4_c34a15e2",
+      "range": {
+        "startLine": 2798,
+        "startChar": 2,
+        "endLine": 2803,
+        "endChar": 41
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
