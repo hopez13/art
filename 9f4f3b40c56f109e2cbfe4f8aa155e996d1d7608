@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "769b7b4d_d1f0faf2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "829f18e6_7bf5e225",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7dd0803_351e8058",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c5b8c6d_dfe2c27e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7dd0803_351e8058",
+      "range": {
+        "startLine": 537,
+        "startChar": 12,
+        "endLine": 537,
+        "endChar": 39
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e0fbec7d_3e6dbbe9",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc080c7_b67b0a21",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 7
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fec2569_27dd4b0b",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae991262_ef643097",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fec2569_27dd4b0b",
+      "range": {
+        "startLine": 574,
+        "startChar": 4,
+        "endLine": 574,
+        "endChar": 26
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f2a4017a_b2d92bf8",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63644ef9_4e322d2f",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 578,
+        "endChar": 9
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87fbd061_2006120e",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2018-10-03T10:57:42Z",
       "side": 1,
       "message": "Could we also output this file to the logcat (or pull it from the device and display it on stdout)? At the moment, it\u0027s a bit tedious to have access to arbitrary artifacts from the Buildbot\u0027s devices.",
+      "range": {
+        "startLine": 579,
+        "startChar": 6,
+        "endLine": 579,
+        "endChar": 100
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b38a24e_e77e980c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-03T16:33:48Z",
+      "side": 1,
+      "message": "I wanted to do the same. But the difficulty is in identifying the name of the generated trace file. One way it could be done is:\n1) move all trace files in /data/anr to a temp dir\n2) send SIGQUIT signal, which will generate a trace file\n3) print that file on stdout\n4) move back all files from temp dir to /data/anr\n\nThoughts?",
+      "parentUuid": "87fbd061_2006120e",
       "range": {
         "startLine": 579,
         "startChar": 6,
