@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3f3cf67a_87d66d85",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "ack.\n\nIt\u0027s hard to implement something that changes interpreter semantics without changing the interpreter.",
+      "parentUuid": "44d718f9_845f889f",
+      "range": {
+        "startLine": 80,
+        "startChar": 30,
+        "endLine": 80,
+        "endChar": 54
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb575554_19e8d878",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d703362_409ed59b",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb575554_19e8d878",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 190,
+        "endChar": 10
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "20161737_2f91c35f",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77116c49_734a7995",
+      "range": {
+        "startLine": 273,
+        "startChar": 36,
+        "endLine": 273,
+        "endChar": 56
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12fa8eb4_b1eb7e89",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 11
@@ -91,6 +163,30 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c8142c4_3ce8144c",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "reworded.",
+      "parentUuid": "12fa8eb4_b1eb7e89",
+      "range": {
+        "startLine": 354,
+        "startChar": 15,
+        "endLine": 354,
+        "endChar": 66
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7f57996b_3a07f693",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b423d8ba_e67900c8",
+      "range": {
+        "startLine": 355,
+        "startChar": 29,
+        "endLine": 355,
+        "endChar": 80
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8f9ddb9_32abed8f",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 11
@@ -137,6 +257,30 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fdbff08_927bb054",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f9ddb9_32abed8f",
+      "range": {
+        "startLine": 356,
+        "startChar": 59,
+        "endLine": 356,
+        "endChar": 91
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -184,6 +328,30 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32e7f6cf_48588050",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Ack\n\nHaving some ability to access the current shadow_frame would be incredibly helpful.",
+      "parentUuid": "a340a5d8_91779013",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 43
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -256,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "64b589f2_42949fe0",
+        "filename": "runtime/mirror/var_handle_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb3fccc8_7c631a8a",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0307559c_173adf02",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 11
@@ -279,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "b30c4d32_0550af21",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "This is actually not needed and is still there b/c I messed up a rebase.\n\nRemoved.",
+      "parentUuid": "0307559c_173adf02",
+      "range": {
+        "startLine": 394,
+        "startChar": 34,
+        "endLine": 394,
+        "endChar": 42
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bcd521f_6e7e0f6e",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 11
@@ -293,6 +509,24 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d31007ed_21b37200",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bcd521f_6e7e0f6e",
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -316,6 +550,30 @@
       "revId": "28d440f7757677867220c3248912f05a80db9906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ba1a8a7_e88c0b79",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-03T21:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9fb04d_8d4bf077",
+      "range": {
+        "startLine": 3395,
+        "startChar": 6,
+        "endLine": 3395,
+        "endChar": 9
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
