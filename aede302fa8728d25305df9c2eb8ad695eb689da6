@@ -69,6 +69,53 @@
       "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25dc2c57_d86f9d24",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2790,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-03T07:20:57Z",
+      "side": 1,
+      "message": "Drop this...",
+      "parentUuid": "9d0c3600_7d57b2ad",
+      "range": {
+        "startLine": 2790,
+        "startChar": 7,
+        "endLine": 2790,
+        "endChar": 20
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "034bf8e4_c34a15e2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-03T07:20:57Z",
+      "side": 1,
+      "message": "... and change this to\n\n  codegen_-\u003eMoveLocation(out, src, type);\n  if (output_overlaps_with_condition_inputs) {\n    __ B(target);\n    __ Bind(\u0026other_case);\n    codegen_-\u003eMoveLocation(out, first, type);\n  }",
+      "range": {
+        "startLine": 2798,
+        "startChar": 2,
+        "endLine": 2803,
+        "endChar": 41
+      },
+      "revId": "aede302fa8728d25305df9c2eb8ad695eb689da6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
