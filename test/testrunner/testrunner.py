@@ -500,7 +500,8 @@ def run_tests(tests):
       command = ' '.join((run_test_sh, options_test, ' '.join(extra_arguments[target]), test))
 
       semaphore.acquire()
-      worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
+      worker = threading.Thread(target=run_test, args=(command, test, variant_set,
+                                                       test_name, target))
       worker.daemon = True
       worker.start()
 
@@ -516,7 +517,7 @@ def run_tests(tests):
     time.sleep(0.1)
 
 
-def run_test(command, test, test_variant, test_name):
+def run_test(command, test, test_variant, test_name, target):
   """Runs the test.
 
   It invokes art/test/run-test script to run the test. The output of the script
@@ -533,6 +534,7 @@ def run_test(command, test, test_variant, test_name):
     test: The name of the test without the variant information.
     test_variant: The set of variant for the test.
     test_name: The name of the test along with the variants.
+    target: where the test is to be run
   """
   global stop_testrunner
   try:
@@ -566,6 +568,15 @@ def run_test(command, test, test_variant, test_name):
     failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
     print_test_info(test_name, 'TIMEOUT', 'Timed out in %d seconds\n%s' % (
         timeout, command))
+    """
+    Generate traces on target
+    """
+    if target == 'target':
+      subprocess.call(["adb", "shell", "pgrep", "-f", test, "-L" , "SIGQUIT"])
+      """
+      Keep aside the traces. Traces in /data/anr/ are recycled after every 64 of them are generated.
+      """
+      subprocess.call(["adb", "shell", "cp", "-r", "/data/anr/", "/data/timeout-" + str(time.time())])
   except Exception as e:
     failed_tests.append((test_name, str(e)))
     print_test_info(test_name, 'FAIL',
