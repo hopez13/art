@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0f63c53_22af9b5a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-03T13:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33fe8bb7_2bdec19d",
+      "range": {
+        "startLine": 426,
+        "startChar": 25,
+        "endLine": 426,
+        "endChar": 46
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762bd740_245536cd",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d868343f_42346327",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-03T13:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "762bd740_245536cd",
+      "range": {
+        "startLine": 144,
+        "startChar": 13,
+        "endLine": 144,
+        "endChar": 26
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb1b029_7a7443e4",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8f84d2_6099ac6d",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-03T13:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb1b029_7a7443e4",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 15
+      },
+      "revId": "610b2bbde38472eddf015b7c4e2ba0461857b877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
