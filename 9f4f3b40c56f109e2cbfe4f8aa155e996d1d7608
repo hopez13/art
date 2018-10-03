@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "829f18e6_7bf5e225",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "Could you also add:\n\n  Bug: 116716956\n\n?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7dd0803_351e8058",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "What about:\n\n  The device/runtime (\u0027target\u0027, \u0027host\u0027 or \u0027jvm\u0027) where the test is to be run.\n\n?\n\nBut maybe that\u0027s not needed at all, if this argument is eventually removed (see my suggestion below.)",
+      "range": {
+        "startLine": 537,
+        "startChar": 12,
+        "endLine": 537,
+        "endChar": 39
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fc080c7_b67b0a21",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "I\u0027d use a normal comment here; I think docstrings are usually used to document high-level entities (methods, classes, etc.), not inner details.",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 7
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fec2569_27dd4b0b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "I think you could replace this with:\n\n  if \"target\" in test_variant:\n\nand drop `target` from `run_test`\u0027s list of arguments.",
+      "range": {
+        "startLine": 574,
+        "startChar": 4,
+        "endLine": 574,
+        "endChar": 26
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63644ef9_4e322d2f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "Ditto regarding docstrings.",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 578,
+        "endChar": 9
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87fbd061_2006120e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-03T10:57:42Z",
+      "side": 1,
+      "message": "Could we also output this file to the logcat (or pull it from the device and display it on stdout)? At the moment, it\u0027s a bit tedious to have access to arbitrary artifacts from the Buildbot\u0027s devices.",
+      "range": {
+        "startLine": 579,
+        "startChar": 6,
+        "endLine": 579,
+        "endChar": 100
+      },
+      "revId": "9f4f3b40c56f109e2cbfe4f8aa155e996d1d7608",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
