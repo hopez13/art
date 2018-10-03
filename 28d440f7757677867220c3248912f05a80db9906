@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44d718f9_845f889f",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "It would be nice if all that could be hidden in the JVMTI code. Still trying to figure out whether there\u0027s a way.",
+      "range": {
+        "startLine": 80,
+        "startChar": 30,
+        "endLine": 80,
+        "endChar": 54
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb575554_19e8d878",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Wrong word.",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 190,
+        "endChar": 10
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77116c49_734a7995",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "This call should be rare, and isn\u0027t performance-sensitive. No need to use an explicit switch, just use Next() in the loop?",
+      "range": {
+        "startLine": 273,
+        "startChar": 36,
+        "endLine": 273,
+        "endChar": 56
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12fa8eb4_b1eb7e89",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 354,
+        "startChar": 15,
+        "endLine": 354,
+        "endChar": 66
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b423d8ba_e67900c8",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "I thought mingyao@ had a version that did not do this.",
+      "range": {
+        "startLine": 355,
+        "startChar": 29,
+        "endLine": 355,
+        "endChar": 80
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8f9ddb9_32abed8f",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "This isn\u0027t really a generally true statement. E.g., gotos jump across payload opcodes...",
+      "range": {
+        "startLine": 356,
+        "startChar": 59,
+        "endLine": 356,
+        "endChar": 91
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "276822a2_dbbfd7b2",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Maybe we should start optimizing this with a cached flag (basically push vs pull)? +dsrbecky",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 43
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f24f33_61263488",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "UNLIKELY",
+      "range": {
+        "startLine": 159,
+        "startChar": 6,
+        "endLine": 159,
+        "endChar": 43
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4da56bc3_6f56ab0b",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Sort",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb3fccc8_7c631a8a",
+        "filename": "runtime/mirror/var_handle_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Seems unrelated? Is that a rebase artifact?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0307559c_173adf02",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Isn\u0027t this LIKELY? Note that deopt is anyways not a fast/hot path, not sure it\u0027s relevant to annotate.\n\nCan you add a comment to the conditional about this conjunct?",
+      "range": {
+        "startLine": 394,
+        "startChar": 34,
+        "endLine": 394,
+        "endChar": 42
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcd521f_6e7e0f6e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "Spurious, remove.",
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c9fb04d_8d4bf077",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-03T16:43:21Z",
+      "side": 1,
+      "message": "VLOG",
+      "range": {
+        "startLine": 3395,
+        "startChar": 6,
+        "endLine": 3395,
+        "endChar": 9
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
