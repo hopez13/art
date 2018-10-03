@@ -566,6 +566,12 @@ def run_test(command, test, test_variant, test_name):
     failed_tests.append((test_name, 'Timed out in %d seconds' % timeout))
     print_test_info(test_name, 'TIMEOUT', 'Timed out in %d seconds\n%s' % (
         timeout, command))
+    # Generate traces on target
+    if 'target' in test_variant:
+      subprocess.call(["adb", "shell", "pgrep", "-f", test, "-L" , "SIGQUIT"])
+      # Keep aside the traces. ANR traces are recycled after every 64 of them are generated.
+      subprocess.call(["adb", "shell", "cp", "-r", "/data/anr/",
+                       "/data/timeout-" + str(time.time())])
   except Exception as e:
     failed_tests.append((test_name, str(e)))
     print_test_info(test_name, 'FAIL',
