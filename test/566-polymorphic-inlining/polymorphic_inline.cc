@@ -27,15 +27,22 @@
 namespace art {
 
 static void do_checks(jclass cls, const char* method_name) {
-  ScopedObjectAccess soa(Thread::Current());
-  ObjPtr<mirror::Class> klass = soa.Decode<mirror::Class>(cls);
+  ArtMethod* method = nullptr;
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    ObjPtr<mirror::Class> klass = soa.Decode<mirror::Class>(cls);
+    method = klass->FindDeclaredDirectMethodByName(method_name, kRuntimePointerSize);
+  }
+
   jit::Jit* jit = Runtime::Current()->GetJit();
   jit::JitCodeCache* code_cache = jit->GetCodeCache();
-  ArtMethod* method = klass->FindDeclaredDirectMethodByName(method_name, kRuntimePointerSize);
 
   OatQuickMethodHeader* header = nullptr;
   // Infinite loop... Test harness will have its own timeout.
   while (true) {
+    // Get the mutator lock inside the loop to ensure we release it at
+    // each iteration.
+    ScopedObjectAccess soa(Thread::Current());
     const void* pc = method->GetEntryPointFromQuickCompiledCode();
     if (code_cache->ContainsPc(pc)) {
       header = OatQuickMethodHeader::FromEntryPoint(pc);
