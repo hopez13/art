@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b557ee9_db598a8d",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-04T11:51:20Z",
+      "side": 1,
+      "message": "I don\u0027t see how field access is related to frame popping... why is this needed?",
+      "revId": "30cb40625903fa144998cd4c6c016339a0544b21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0d73d32_c7dab73f",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-04T11:51:20Z",
+      "side": 1,
+      "message": "I assume you are checking if pop was requested in MethodEntryEvent? That still feels hacky.",
+      "revId": "30cb40625903fa144998cd4c6c016339a0544b21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
