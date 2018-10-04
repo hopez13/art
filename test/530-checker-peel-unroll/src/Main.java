@@ -117,8 +117,8 @@ public class Main {
   /// CHECK-DAG: <<Const2:i\d+>>   IntConstant 2                             loop:none
   /// CHECK-DAG: <<Const128:i\d+>> IntConstant 128                           loop:none
   /// CHECK-DAG: <<Limit:i\d+>>    IntConstant 4094                          loop:none
-  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}}]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}},{{i\d+}}]        loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}},{{i\d+}}]      loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI:i\d+>>     Add [<<PhiI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<Check:z\d+>>    GreaterThanOrEqual [<<PhiI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<If:v\d+>>       If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
@@ -127,7 +127,6 @@ public class Main {
   /// CHECK-DAG:                   If [<<NE>>]                               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddS:i\d+>>     Add [<<PhiS>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                   Phi [<<PhiS>>,<<AddS>>]                   loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-NOT:                   ArrayGet                                  loop:<<Loop>>      outer_loop:none
   /// CHECK-NOT:                   ArraySet                                  loop:<<Loop>>      outer_loop:none
@@ -139,8 +138,8 @@ public class Main {
   /// CHECK-DAG: <<Const2:i\d+>>   IntConstant 2                             loop:none
   /// CHECK-DAG: <<Const128:i\d+>> IntConstant 128                           loop:none
   /// CHECK-DAG: <<Limit:i\d+>>    IntConstant 4094                          loop:none
-  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}}]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}},{{i\d+}}]        loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}},{{i\d+}}]      loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI:i\d+>>     Add [<<PhiI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<Check:z\d+>>    GreaterThanOrEqual [<<PhiI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<If:v\d+>>       If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
@@ -149,7 +148,7 @@ public class Main {
   /// CHECK-DAG:                   If [<<NE>>]                               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddS:i\d+>>     Add [<<PhiS>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet [{{l\d+}},{{i\d+}},<<PhiS>>]     loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<PhiSM:i\d+>>    Phi [<<PhiS>>,<<AddS>>]                   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiSM:i\d+>>    Phi [<<AddS>>,<<PhiS>>]                   loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-DAG: <<AddIA:i\d+>>    Add [<<AddI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<CheckA:z\d+>>   GreaterThanOrEqual [<<AddI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
@@ -159,7 +158,6 @@ public class Main {
   /// CHECK-DAG:                   If [<<NEA>>]                              loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddSA:i\d+>>    Add [<<PhiSM>>,<<Const1>>]                loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet [{{l\d+}},{{i\d+}},<<PhiSM>>]    loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                   Phi [<<AddSA>>,<<PhiSM>>]                 loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-NOT:                   ArrayGet                                  loop:<<Loop>>      outer_loop:none
   /// CHECK-NOT:                   ArraySet                                  loop:<<Loop>>      outer_loop:none
@@ -545,8 +543,8 @@ public class Main {
   /// CHECK-DAG: <<Const2:i\d+>>   IntConstant 2                             loop:none
   /// CHECK-DAG: <<Const128:i\d+>> IntConstant 128                           loop:none
   /// CHECK-DAG: <<Limit:i\d+>>    IntConstant 4094                          loop:none
-  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}}]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}},{{i\d+}}]        loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}},{{i\d+}}]      loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI:i\d+>>     Add [<<PhiI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<Check:z\d+>>    GreaterThanOrEqual [<<PhiI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<If:v\d+>>       If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
@@ -555,7 +553,6 @@ public class Main {
   /// CHECK-DAG:                   If [<<NE>>]                               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddS:i\d+>>     Add [<<PhiS>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                   Phi [<<PhiS>>,<<AddS>>]                   loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-NOT:                   ArrayGet
   /// CHECK-NOT:                   ArraySet
@@ -567,8 +564,8 @@ public class Main {
   /// CHECK-DAG: <<Const2:i\d+>>   IntConstant 2                             loop:none
   /// CHECK-DAG: <<Const128:i\d+>> IntConstant 128                           loop:none
   /// CHECK-DAG: <<Limit:i\d+>>    IntConstant 4094                          loop:none
-  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}}]                 loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}}]               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiI:i\d+>>     Phi [<<Const0>>,{{i\d+}},{{i\d+}}]        loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<PhiS:i\d+>>     Phi [<<Const128>>,{{i\d+}},{{i\d+}}]      loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddI:i\d+>>     Add [<<PhiI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<Check:z\d+>>    GreaterThanOrEqual [<<PhiI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<If:v\d+>>       If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
@@ -577,7 +574,7 @@ public class Main {
   /// CHECK-DAG:                   If [<<NE>>]                               loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddS:i\d+>>     Add [<<PhiS>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet [{{l\d+}},{{i\d+}},<<PhiS>>]     loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<PhiSM:i\d+>>    Phi [<<PhiS>>,<<AddS>>]                   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<PhiSM:i\d+>>    Phi [<<AddS>>,<<PhiS>>]                   loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-DAG: <<AddIA:i\d+>>    Add [<<AddI>>,<<Const1>>]                 loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<CheckA:z\d+>>   GreaterThanOrEqual [<<AddI>>,<<Limit>>]   loop:<<Loop>>      outer_loop:none
@@ -587,7 +584,6 @@ public class Main {
   /// CHECK-DAG:                   If [<<NEA>>]                              loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: <<AddSA:i\d+>>    Add [<<PhiSM>>,<<Const1>>]                loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG:                   ArraySet [{{l\d+}},{{i\d+}},<<PhiSM>>]    loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                   Phi [<<AddSA>>,<<PhiSM>>]                 loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-DAG: <<RetPhi:i\d+>>   Phi [<<PhiS>>,<<PhiSM>>]                  loop:none
   /// CHECK-DAG:                   Return [<<RetPhi>>]                       loop:none
