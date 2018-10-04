@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f8fc1e25_ecd228bc",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-04T18:08:11Z",
+      "side": 1,
+      "message": "You can get an event when you try to write a field. If the thread suspends and is popped the field write never completes. This sort of thing can happen with a debugger for example.\n\nThis does remind me that the second dcheck here is actually incorrect though.",
+      "parentUuid": "6b557ee9_db598a8d",
+      "revId": "30cb40625903fa144998cd4c6c016339a0544b21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0d73d32_c7dab73f",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 15
@@ -33,6 +51,24 @@
       "revId": "30cb40625903fa144998cd4c6c016339a0544b21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a51d9d8_20da9e14",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-04T18:08:11Z",
+      "side": 1,
+      "message": "Yes. Ack.\n\nI\u0027m not sure there\u0027s a better way to do this unfortunately.",
+      "parentUuid": "e0d73d32_c7dab73f",
+      "revId": "30cb40625903fa144998cd4c6c016339a0544b21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
