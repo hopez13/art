@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a7076ff_91967786",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-10-04T23:10:21Z",
+      "side": 1,
+      "message": "Use $(MD5SUM) since this is still executed on Mac",
+      "range": {
+        "startLine": 28,
+        "startChar": 73,
+        "endLine": 28,
+        "endChar": 79
+      },
+      "revId": "35fcdc37d69fbf83763df475ac0d9febca0075ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
