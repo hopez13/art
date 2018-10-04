@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6dc1e3d8_eeac7a98",
+        "filename": "tools/luci/config/cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-04T22:10:42Z",
+      "side": 1,
+      "message": "What sort of group is this? Do we need to create it?",
+      "parentUuid": "622190a7_da80bd4f",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c823c4a3_09550812",
         "filename": "tools/luci/config/cr-buildbucket.cfg",
         "patchSetId": 3
@@ -76,6 +100,30 @@
       "writtenOn": "2018-10-04T21:39:56Z",
       "side": 1,
       "message": "this ACLs differ from cr-buildbucket.cfg. Is it intended?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 2
+      },
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "470751ca_ab8d37c2",
+        "filename": "tools/luci/config/luci-logdog.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-04T22:10:42Z",
+      "side": 1,
+      "message": "just wanted to make sure this is intended.",
+      "parentUuid": "5a153a76_3ac28380",
       "range": {
         "startLine": 6,
         "startChar": 0,
