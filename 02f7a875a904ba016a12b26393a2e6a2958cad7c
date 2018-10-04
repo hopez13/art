@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e071ad29_b25ebe0c",
+        "filename": "runtime/interpreter/mterp/arm64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-04T17:07:45Z",
+      "side": 1,
+      "message": "Change back to w2.",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 14
+      },
+      "revId": "02f7a875a904ba016a12b26393a2e6a2958cad7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a37fefe7_d941e23c",
         "filename": "runtime/interpreter/mterp/common/gen_setup.py",
         "patchSetId": 2
@@ -19,6 +42,69 @@
         "endLine": 57,
         "endChar": 21
       },
+      "revId": "02f7a875a904ba016a12b26393a2e6a2958cad7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fa458f9_2d633016",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-04T17:07:45Z",
+      "side": 1,
+      "message": "These helpers do not need to be aligned so strictly (anything more than cache line is useless).\n\nIf we have helper_start(name) and helper_end(name) calls similar to opcode_start() and opcode_end(), these can specify their own alignment and maybe also use ENTRY and END for better attribution in native stack traces.",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 10
+      },
+      "revId": "02f7a875a904ba016a12b26393a2e6a2958cad7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33484ec6_67d3c012",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-04T17:07:45Z",
+      "side": 1,
+      "message": "This allows only one helper. If we pass the name as an extra argument, we can have arbitrary number of helpers. It would also allow moving the add_helper() call to the end of the opcode function.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 35
+      },
+      "revId": "02f7a875a904ba016a12b26393a2e6a2958cad7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5481d767_a079876c",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-04T17:07:45Z",
+      "side": 1,
+      "message": "I think the add_helper() should be added in a separate CL where the existing helpers() is refactored to use the new mechanism.",
       "revId": "02f7a875a904ba016a12b26393a2e6a2958cad7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
