@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ade8b6a0_c2500e15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "This is monorail, it doesn\u0027t look like the gerrit plugins on this instance recognize it.  Changed to URL.",
+      "parentUuid": "52308476_be7d14fa",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "622190a7_da80bd4f",
         "filename": "tools/luci/config/cr-buildbucket.cfg",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4e18abd3_e0518754",
+        "filename": "tools/luci/config/cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "This is a chrome-infra-auth group.\n\nWe support MDB groups too, but chrome-infra-auth groups are more lightweight for us.\n\nSee: https://chrome-infra-auth.appspot.com/auth/groups/project-art-admins",
+      "parentUuid": "622190a7_da80bd4f",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c823c4a3_09550812",
         "filename": "tools/luci/config/cr-buildbucket.cfg",
         "patchSetId": 3
@@ -86,6 +134,24 @@
       "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7031be44_954b4dc2",
+        "filename": "tools/luci/config/cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c823c4a3_09550812",
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -136,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "efd0fc72_a7c3337b",
+        "filename": "tools/luci/config/luci-logdog.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "Both should have \"all\" as readers.  Writer groups being different is intended.\n\nAdded clarification comments.",
+      "parentUuid": "5a153a76_3ac28380",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 2
+      },
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94931ab5_88a1632f",
         "filename": "tools/luci/config/luci-milo.cfg",
         "patchSetId": 3
@@ -153,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "ff329d97_bf2973a1",
+        "filename": "tools/luci/config/luci-milo.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94931ab5_88a1632f",
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40e590e4_18f3175b",
         "filename": "tools/luci/config/luci-scheduler.cfg",
         "patchSetId": 3
@@ -167,6 +275,24 @@
       "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b57ffe0d_3b99f9d7",
+        "filename": "tools/luci/config/luci-scheduler.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-04T22:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40e590e4_18f3175b",
+      "revId": "98035aacd2a9f4d454cb90f8bd8d437de2dc9b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
