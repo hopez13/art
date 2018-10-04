@@ -50,6 +50,24 @@ def write_opcode(num, name, write_method, is_alt):
   write_line("")
   opnum, opcode = None, None
 
+generated_helpers = list()
+
+# This method generates a helper using the provided writer method.
+# The output is temporarily redirected to in-memory buffer.
+# It returns a lablel which can be used to jump to the helper.
+def add_helper(write_method):
+  global out
+  old_out = out
+  out = StringIO()
+  balign()
+  name = ".L_" + opcode + "_helper"
+  write_line(name + ":")
+  write_method()
+  out.seek(0)
+  generated_helpers.append(out.read())
+  out = old_out
+  return name
+
 def generate(output_filename):
   out.seek(0)
   out.truncate()
@@ -62,6 +80,8 @@ def generate(output_filename):
   balign()
   instruction_end()
 
+  for helper in generated_helpers:
+    out.write(helper)
   helpers()
 
   instruction_start_alt()
