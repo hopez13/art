@@ -16,6 +16,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "442aaedc_0cb05938",
+        "filename": "tools/cpp-define-generator/lockword.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T21:44:45Z",
+      "side": 1,
+      "message": "I am mostly following the look and feel of most of our headers.\nPushing it in the ASM_DEFINE feels like adding to much magic in it.\nI would be more tempted to add \"using namespace\" but we don\u0027t do that here.\n\nYeah, I intentionally favor simplicity over the \"pure preprocessor\".  Mostly because dealing with includes is simpler this way.  It might be reasonable to change the file extension to \".h\" or \".inl\" as consequence though.",
+      "parentUuid": "ac3f8359_f5220ece",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
