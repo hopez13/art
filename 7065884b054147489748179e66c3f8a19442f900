@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e235451_57f6af6b",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T13:27:48Z",
+      "side": 1,
+      "message": "I\u0027d prefer\n\n    !defined(USE_READ_BARRIER) || defined(USE_BAKER_READ_BARRIER)\n\nand adding the extra\n\n    #if defined(USE_READ_BARRIER)\n\nto the op_iget().",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 64
+      },
+      "revId": "7065884b054147489748179e66c3f8a19442f900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
