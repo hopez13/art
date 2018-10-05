@@ -55,6 +55,7 @@ public class Class2Greylist {
     private final String mPublicApiListFile;
     private final String[] mPerSdkOutputFiles;
     private final String mWhitelistFile;
+    private final String mCsvMetadataFile;
     private final String[] mJarFiles;
     private final GreylistConsumer mOutput;
     private final Set<Integer> mAllowedSdkVersions;
@@ -95,10 +96,16 @@ public class Class2Greylist {
                 .hasArgs(0)
                 .create('m'));
         options.addOption(OptionBuilder
+                .withLongOpt("write-metadata-csv")
+                .hasArgs(1)
+                .withDescription("Specify a file to write API meatadata to. This is a CSV file " +
+                        "containing any annotation properties for all members.")
+                .create('c'));
+        options.addOption(OptionBuilder
                 .withLongOpt("help")
                 .hasArgs(0)
                 .withDescription("Show this help")
-                .create("h"));
+                .create('h'));
 
         CommandLineParser parser = new GnuParser();
         CommandLine cmd;
@@ -132,6 +139,7 @@ public class Class2Greylist {
                         cmd.getOptionValue('p', null),
                         cmd.getOptionValues('g'),
                         cmd.getOptionValue('w', null),
+                        cmd.getOptionValue('c', null),
                         jarFiles);
                 c2gl.main();
             } catch (IOException e) {
@@ -149,15 +157,18 @@ public class Class2Greylist {
 
     @VisibleForTesting
     Class2Greylist(Status status, String publicApiListFile, String[] perSdkLevelOutputFiles,
-            String whitelistOutputFile, String[] jarFiles) throws IOException {
+            String whitelistOutputFile, String csvMetadataFile, String[] jarFiles)
+            throws IOException {
         mStatus = status;
         mPublicApiListFile = publicApiListFile;
         mPerSdkOutputFiles = perSdkLevelOutputFiles;
         mWhitelistFile = whitelistOutputFile;
+        mCsvMetadataFile = csvMetadataFile;
         mJarFiles = jarFiles;
         if (mPerSdkOutputFiles != null) {
             Map<Integer, String> outputFiles = readGreylistMap(mStatus, mPerSdkOutputFiles);
-            mOutput = new FileWritingGreylistConsumer(mStatus, outputFiles, mWhitelistFile);
+            mOutput = new FileWritingGreylistConsumer(
+                    mStatus, outputFiles, mWhitelistFile, mCsvMetadataFile);
             mAllowedSdkVersions = outputFiles.keySet();
         } else {
             // TODO remove this once per-SDK greylist support integrated into the build.
