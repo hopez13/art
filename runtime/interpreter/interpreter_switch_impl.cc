@@ -17,6 +17,7 @@
 #include "interpreter_switch_impl.h"
 
 #include "base/enums.h"
+#include "base/memory_tool.h"
 #include "base/quasi_atomic.h"
 #include "dex/dex_file_types.h"
 #include "experimental_flags.h"
@@ -256,6 +257,13 @@ NO_INLINE static bool SendMethodExitEvents(Thread* self,
   }
 }
 
+// TODO On ASAN builds this function gets a huge stack frame. Since normally we run in the mterp
+// this shouldn't cause any problems for stack overflow detection. Remove this once b/117341496 is
+// fixed.
+#pragma clang diagnostic push
+#ifdef ADDRESS_SANITIZER
+#  pragma clang diagnostic ignored "-Wframe-larger-than="
+#endif
 template<bool do_access_check, bool transaction_active>
 void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
   Thread* self = ctx->self;
@@ -2566,6 +2574,7 @@ void ExecuteSwitchImplCpp(SwitchImplContext* ctx) {
   ctx->result = result_register;
   return;
 }  // NOLINT(readability/fn_size)
+#pragma clang diagnostic pop
 
 // Explicit definitions of ExecuteSwitchImplCpp.
 template HOT_ATTR
