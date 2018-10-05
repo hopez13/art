@@ -22,6 +22,30 @@
       "revId": "d1c01a7e8c8c50a54679c223f319c7e285555336",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33cf8cad_551072b1",
+        "filename": "tools/luci/config/luci-milo.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120853
+      },
+      "writtenOn": "2018-10-05T03:10:08Z",
+      "side": 1,
+      "message": "Correct, only the name tends to be unique, the rest are more like labels.",
+      "parentUuid": "371b5d28_a2e5c041",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "d1c01a7e8c8c50a54679c223f319c7e285555336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
