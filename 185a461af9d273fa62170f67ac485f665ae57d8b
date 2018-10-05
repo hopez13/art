@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fc49be8_b9f96656",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-05T09:25:55Z",
+      "side": 1,
+      "message": "nit: I read abort as LOG(FATAL). I think I would just drop the \"so just abort\".",
+      "range": {
+        "startLine": 2504,
+        "startChar": 84,
+        "endLine": 2504,
+        "endChar": 89
+      },
+      "revId": "185a461af9d273fa62170f67ac485f665ae57d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
