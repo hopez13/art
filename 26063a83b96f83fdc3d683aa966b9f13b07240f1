@@ -87,6 +87,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "407efd45_2b81e824",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T22:34:22Z",
+      "side": 1,
+      "message": "I know. I try to \"avoid complexity unless necessary\". So far it is not necessary. I am happy to add back the complexity if it becomes necessary.",
+      "parentUuid": "3e033d47_bfbb16f0",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
