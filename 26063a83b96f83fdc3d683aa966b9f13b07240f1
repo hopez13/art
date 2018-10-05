@@ -52,6 +52,23 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e033d47_bfbb16f0",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-05T21:56:03Z",
+      "side": 1,
+      "message": "Also on that same line of thinking as the \"namespace {\", this shouldn\u0027t be unconditional. There\u0027s a reason there were #ifdef around the include, it\u0027s to allow people to first include all the headers (near the top) and then as a second pass avoid including anything.",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
