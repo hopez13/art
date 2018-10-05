@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "aab2065b_f16c327c",
+        "filename": "tools/cpp-define-generator/lockword.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T22:32:22Z",
+      "side": 1,
+      "message": "Oh, sorry I misunderstood.  I though you wanted something like #define ASM_DEFINE(...) namespace art { ... } \n\nI am quite happy to drop the namespace and make the constant expressions fully qualified.  Sure.",
+      "parentUuid": "a29f7b39_7fd5a326",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e033d47_bfbb16f0",
         "filename": "tools/cpp-define-generator/mirror_array.def",
         "patchSetId": 2
