@@ -123,6 +123,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4210fac6_87d9a406",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T22:57:00Z",
+      "side": 1,
+      "message": "Yes, it just removed the unneeded code :-)\n\nShould we change the extension to reflect the fact they are not pure macro calls?  (even with the #includes guarded it is not pure macro calls anyway)",
+      "parentUuid": "786ea7eb_a0aa338d",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
