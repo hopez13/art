@@ -11,6 +11,8 @@ import org.apache.bcel.classfile.FieldOrMethod;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.classfile.SimpleElementValue;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -101,6 +103,7 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
         }
         String signature = context.getMemberDescriptor();
         Integer maxTargetSdk = null;
+        Map<String, String> allValues = new HashMap<String, String>();
         for (ElementValuePair property : annotation.getElementValuePairs()) {
             switch (property.getNameString()) {
                 case EXPECTED_SIGNATURE:
@@ -110,9 +113,10 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
                     maxTargetSdk = verifyAndGetMaxTargetSdk(context, property);
                     break;
             }
+            allValues.put(property.getNameString(), property.getValue().stringifyValue());
         }
         if (mGreylistFilter.test(new GreylistMember(signature, bridge, maxTargetSdk))) {
-            mGreylistConsumer.greylistEntry(signature, maxTargetSdk);
+            mGreylistConsumer.greylistEntry(signature, maxTargetSdk, allValues);
         }
     }
 
@@ -131,6 +135,7 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
         if (property.getValue().getElementValueType() != ElementValue.PRIMITIVE_INT) {
             context.reportError("Expected property %s to be of type int; got %d",
                     property.getNameString(), property.getValue().getElementValueType());
+            return null;
         }
         int value = ((SimpleElementValue) property.getValue()).getValueInt();
         if (!mValidMaxTargetSdkValues.contains(value)) {

@@ -14,6 +14,7 @@ public class FileWritingGreylistConsumer implements GreylistConsumer {
     private final Status mStatus;
     private final Map<Integer, PrintStream> mSdkToPrintStreamMap;
     private final PrintStream mWhitelistStream;
+    private final CsvWriter mCsvWriter;
 
     private static PrintStream openFile(String filename) throws FileNotFoundException {
         if (filename == null) {
@@ -37,14 +38,20 @@ public class FileWritingGreylistConsumer implements GreylistConsumer {
     }
 
     public FileWritingGreylistConsumer(Status status, Map<Integer, String> sdkToFilenameMap,
-            String whitelistFile) throws FileNotFoundException {
+            String whitelistFile, String csvMetadataFile) throws FileNotFoundException {
         mStatus = status;
         mSdkToPrintStreamMap = openFiles(sdkToFilenameMap);
         mWhitelistStream = openFile(whitelistFile);
+        if (csvMetadataFile != null) {
+            mCsvWriter = new CsvWriter(openFile(csvMetadataFile));
+        } else {
+            mCsvWriter = null;
+        }
     }
 
     @Override
-    public void greylistEntry(String signature, Integer maxTargetSdk) {
+    public void greylistEntry(
+            String signature, Integer maxTargetSdk, Map<String, String> annotationProperties) {
         PrintStream p = mSdkToPrintStreamMap.get(maxTargetSdk);
         if (p == null) {
             mStatus.error("No output file for signature %s with maxTargetSdk of %d", signature,
@@ -52,6 +59,10 @@ public class FileWritingGreylistConsumer implements GreylistConsumer {
             return;
         }
         p.println(signature);
+        if (mCsvWriter != null) {
+            annotationProperties.put("signature", signature);
+            mCsvWriter.addRow(annotationProperties);
+        }
     }
 
     @Override
@@ -68,6 +79,9 @@ public class FileWritingGreylistConsumer implements GreylistConsumer {
         }
         if (mWhitelistStream != null) {
             mWhitelistStream.close();
+        }
+        if (mCsvWriter != null) {
+            mCsvWriter.close();
         }
     }
 }
