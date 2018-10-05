@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac3f8359_f5220ece",
+        "filename": "tools/cpp-define-generator/lockword.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-05T21:33:56Z",
+      "side": 1,
+      "message": "Why is there a namespace \u0027art\u0027 everywhere? Just put it in the ASM_DEFINE. It\u0027ll also increase greppability.\n\nConceptual modeling note:\n\nAlso for .def files, you want to avoid any actual code in them, it should just be preprocessor code. Otherwise it doesn\u0027t become safe to include it elsewhere, like what if we wanted to #include these files in the middle of a function?",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
