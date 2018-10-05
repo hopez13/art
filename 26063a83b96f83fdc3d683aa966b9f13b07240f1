@@ -105,6 +105,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "786ea7eb_a0aa338d",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-05T22:51:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it\u0027s \u0027avoiding\u0027 it, it was just removed something that was there previously. \n\nAnyway, I think the conceptual point is that .def files should be purely macro calls, so this is kind of violating that?",
+      "parentUuid": "407efd45_2b81e824",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
