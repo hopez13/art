@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65379657_91ec060c",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-05T17:16:09Z",
+      "side": 1,
+      "message": "yeah it sucks.",
+      "parentUuid": "71a78675_4698641d",
+      "range": {
+        "startLine": 167,
+        "startChar": 21,
+        "endLine": 167,
+        "endChar": 36
+      },
+      "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffe43ea_69ea98b5",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 16
@@ -45,6 +69,30 @@
       "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5219e0f6_8c2a4f9b",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-05T17:16:09Z",
+      "side": 1,
+      "message": "The ForceFramePop and RetryInst could be in the thread object (since they can only ever be on the top and 2nd from top frame). That seems like it would be much more complicated since we\u0027d basically have a state-machine that we\u0027d need to keep updating all the time.\n\nThe Notify frame pop (which used to just be a bool on the shadow_frame struct) can be on any frame so needs to be on the shadow-frame struct.\n\nSince putting them in the shadow frame seems simpler and as you say it could  be useful anyway I chose to go with this design.",
+      "parentUuid": "3ffe43ea_69ea98b5",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
