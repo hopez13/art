@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "42e0e18d_fbae7f10",
+        "filename": "runtime/interpreter/mterp/arm/floating_point.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T13:20:38Z",
+      "side": 1,
+      "message": "I prefer the file-local labels to be labeled as such. But we do not need to do it in this CL.",
+      "parentUuid": "d02aafc4_dd108630",
+      "range": {
+        "startLine": 328,
+        "startChar": 27,
+        "endLine": 328,
+        "endChar": 37
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2964ee_d0fec815",
         "filename": "runtime/interpreter/mterp/common/gen_setup.py",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "767edd32_8afb744f",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T13:20:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff2ab65d_4f7a2bc1",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 13
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7508284a_2737a870",
         "filename": "runtime/interpreter/mterp/common/gen_setup.py",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Yeap... I tried that, it is non-trivial. Mostly because Arm64 does have a lot of manual helpers which can not be moved to footer due to distance.  After trying to fix it for a while, I gave up. I will revisit this later (in particular, if I kill the \"alt\" handlers, it would make it simpler.",
       "parentUuid": "7508284a_2737a870",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07f0146d_22ef2ece",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T13:20:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e31d7bcc_44933837",
       "range": {
         "startLine": 85,
         "startChar": 2,
