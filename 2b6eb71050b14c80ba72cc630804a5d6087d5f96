@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bd57d72_2a86ac7e",
+        "filename": "runtime/interpreter/mterp/arm/floating_point.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T12:59:25Z",
+      "side": 1,
+      "message": "Prefix with .L?",
+      "range": {
+        "startLine": 328,
+        "startChar": 27,
+        "endLine": 328,
+        "endChar": 37
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df2964ee_d0fec815",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T12:59:25Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 13
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7508284a_2737a870",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-05T12:59:25Z",
+      "side": 1,
+      "message": "I guess we could move the \"ENTRY MterpHelpers\" from helpers() to footer(). That will allow us to remove this call completely. (\"alt\" handlers do not need to be covered my MterpHelpers.)",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
