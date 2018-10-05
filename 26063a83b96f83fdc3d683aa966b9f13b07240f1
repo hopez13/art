@@ -34,6 +34,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a29f7b39_7fd5a326",
+        "filename": "tools/cpp-define-generator/lockword.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-05T21:54:00Z",
+      "side": 1,
+      "message": "I\u0027m not sure if I find it consistent with the greppability rule. It was fine before and you wanted to make it more greppable.\n\nWell what\u0027s more greppable than a fully-qualified-name?\n\nAt this point it would be easy to fix with a quick sed\n\n  sed -i \u0027s/           /           art::/g\u0027 *.def\n\nand the deletion of the namespace {/}",
+      "parentUuid": "442aaedc_0cb05938",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
