@@ -16,6 +16,24 @@
       "revId": "b1eff837902f3659268115faa8f92a7f3825caa8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcfcbb88_0c51cd75",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T14:43:30Z",
+      "side": 1,
+      "message": "I assume non-baker implementation would still implement the Mark method.\n\nNote the removal of #if in iget_object",
+      "parentUuid": "7a59af60_4645fca2",
+      "revId": "b1eff837902f3659268115faa8f92a7f3825caa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
