@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "23f263ed_8651d7e1",
+        "filename": "tools/cpp-define-generator/globals.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T21:16:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d3c699b_1d28aae4",
+      "revId": "67acfb5e196d5b460460ca69c05597c4b74ba9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288e77c5_83321a04",
         "filename": "tools/cpp-define-generator/rosalloc.def",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "67acfb5e196d5b460460ca69c05597c4b74ba9fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "472343f5_b486e0cd",
+        "filename": "tools/cpp-define-generator/rosalloc.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T21:16:48Z",
+      "side": 1,
+      "message": "I agree, but I think cleanups like that should be in different CL.",
+      "parentUuid": "288e77c5_83321a04",
+      "range": {
+        "startLine": 23,
+        "startChar": 56,
+        "endLine": 26,
+        "endChar": 95
+      },
+      "revId": "67acfb5e196d5b460460ca69c05597c4b74ba9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
