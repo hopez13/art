@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71a78675_4698641d",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T16:57:08Z",
+      "side": 1,
+      "message": "Right, now I get it.\n\nI was somehow intuitively expecting that events like this would have a return value saying \"the instrumentation handled the instruction, do nothing\". So you would have:\n  if (instrumentation-\u003e...Event(...)) { return !self-\u003eIsExceptionPending(); }\n\nAlas, that is not the case, so hence the need for the explicit checks everywhere :-(",
+      "range": {
+        "startLine": 167,
+        "startChar": 21,
+        "endLine": 167,
+        "endChar": 36
+      },
+      "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ffe43ea_69ea98b5",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T16:57:08Z",
+      "side": 1,
+      "message": "Are those flags really shadow frame specific, or should they live in the Thread object?\n\n(mostly asking about code design; I concede that generic flags field might eventually be needed in the shadow frame for something anyway)",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
