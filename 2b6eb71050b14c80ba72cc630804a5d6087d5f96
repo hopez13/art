@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d02aafc4_dd108630",
+        "filename": "runtime/interpreter/mterp/arm/floating_point.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T13:04:36Z",
+      "side": 1,
+      "message": "Well, there is many non-L labels in this file.  I don\u0027t want to fold such cleanup in this CL.  What does the .L do?  Just naming convention?",
+      "parentUuid": "4bd57d72_2a86ac7e",
+      "range": {
+        "startLine": 328,
+        "startChar": 27,
+        "endLine": 328,
+        "endChar": 37
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df2964ee_d0fec815",
         "filename": "runtime/interpreter/mterp/common/gen_setup.py",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ff2ab65d_4f7a2bc1",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T13:04:36Z",
+      "side": 1,
+      "message": "It is not used in this CL, but I use it in the followup one.",
+      "parentUuid": "df2964ee_d0fec815",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 13
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7508284a_2737a870",
         "filename": "runtime/interpreter/mterp/common/gen_setup.py",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e31d7bcc_44933837",
+        "filename": "runtime/interpreter/mterp/common/gen_setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-05T13:04:36Z",
+      "side": 1,
+      "message": "Yeap... I tried that, it is non-trivial. Mostly because Arm64 does have a lot of manual helpers which can not be moved to footer due to distance.  After trying to fix it for a while, I gave up. I will revisit this later (in particular, if I kill the \"alt\" handlers, it would make it simpler.",
+      "parentUuid": "7508284a_2737a870",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "2b6eb71050b14c80ba72cc630804a5d6087d5f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
