@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acacef51_97db6f69",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-05T14:25:43Z",
+      "side": 1,
+      "message": "Also, ideally, in a later refinement, you could use a finer condition to decide to take the marking slow path in the case of Baker read barriers (e.g. check the read barrier status bit of `obj`).",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 59
+      },
+      "revId": "0434c6b3c1f4012b24f0af7db52757302b0340d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44cffc5d_393483d2",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-05T14:25:43Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be\n\n  @ GC is active\n\n?",
+      "range": {
+        "startLine": 60,
+        "startChar": 42,
+        "endLine": 60,
+        "endChar": 60
+      },
+      "revId": "0434c6b3c1f4012b24f0af7db52757302b0340d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea6cdb93_ae219e98",
+        "filename": "runtime/interpreter/mterp/arm/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-05T14:25:43Z",
+      "side": 1,
+      "message": "Is think this approach is only correct with Baker read barriers. Could you do something like this:\n\n  #if defined(USE_READ_BARRIER)\n  # if defined(USE_BAKER_READ_BARRIER)\n       ldr    ip, [rSELF, #THREAD_IS_GC_MARKING_OFFSET]\n       cmp    ip, #0\n       bne    .L_${opcode}_mark             @ GC is active\n       .L_${opcode}_marked:\n  # else\n       @ Always take the slow path for non-Baker read barriers.\n       b      .L_${opcode}_mark\n  # endif\n  #endif\n\n(and likewise in the ARM64 implementation)?\n\n(I understand from line 102 that you would only take this code path with Baker read barriers or with no read barriers, so this seems fine as-is.)",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 6
+      },
+      "revId": "0434c6b3c1f4012b24f0af7db52757302b0340d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
