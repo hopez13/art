@@ -159,6 +159,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80137c8c_3a451af7",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-06T01:15:18Z",
+      "side": 1,
+      "message": "It should be viewed conceptually as a x-macro.\n\nOne way of using it is to get just all the includes.\nAnother way of using it is to get just all the ASM_DEFINEs.\n\nOr pseudo-formally\n\n  cpp_defs(:include) -\u003e {#include, #include, #include...}\n  cpp_defs(:defines) -\u003e {define(...), define(...), define(...), ...}\n\nwhich makes for a simple and clean abstraction\n\n-----------\n\nOTOH, if it outputs both then it doesn\u0027t fit the model.\n\nIt\u0027s also not conforming to a header. If it was a header, then why is it using an undefined ASM_DEFINE and why isn\u0027t there a header guard?\n\nYou could turn it into a regular header with a regular header guard, but then it has a magical ASM_DEFINE that comes from somewhere else.\n\nThe \"model\" becomes messy and breaks down. So I don\u0027t see why we need to shave off a few lines of code if the result is harder to nail down the semantics of?",
+      "parentUuid": "3b26dd97_e4f94906",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
