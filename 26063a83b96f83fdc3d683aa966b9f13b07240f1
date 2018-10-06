@@ -141,6 +141,24 @@
       "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b26dd97_e4f94906",
+        "filename": "tools/cpp-define-generator/mirror_array.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-06T00:06:06Z",
+      "side": 1,
+      "message": "After a bit of thought, I am very tempted to rename all files to .h and prefix them with asm_defines_ (to avoid name collisions).\n\nI think I follow what you mean with the pure macros.  However, guards or not, the includes are there, and there is a lot of C++ expressions in the file.  It is fells sufficiently far from the \"data table\" pattern, for which I would expect the pure macro calls approach.",
+      "parentUuid": "4210fac6_87d9a406",
+      "revId": "26063a83b96f83fdc3d683aa966b9f13b07240f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
