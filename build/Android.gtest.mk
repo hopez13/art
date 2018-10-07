@@ -191,6 +191,7 @@ ART_GTEST_oat_file_test_DEX_DEPS := Main MultiDex MainUncompressed MultiDexUncom
 ART_GTEST_oat_test_DEX_DEPS := Main
 ART_GTEST_oat_writer_test_DEX_DEPS := Main
 ART_GTEST_object_test_DEX_DEPS := ProtoCompare ProtoCompare2 StaticsFromCode XandY
+ART_GTEST_patchoat_test_DEX_DEPS := $(ART_GTEST_dex2oat_environment_tests_DEX_DEPS)
 ART_GTEST_proxy_test_DEX_DEPS := Interfaces
 ART_GTEST_reflection_test_DEX_DEPS := Main NonStaticLeafMethods StaticLeafMethods
 ART_GTEST_profile_assistant_test_DEX_DEPS := ProfileTestMultiDex
@@ -214,12 +215,14 @@ ART_GTEST_dex2oat_environment_tests_HOST_DEPS := \
   $(HOST_CORE_IMAGE_optimizing_64) \
   $(HOST_CORE_IMAGE_optimizing_32) \
   $(HOST_CORE_IMAGE_interpreter_64) \
-  $(HOST_CORE_IMAGE_interpreter_32)
+  $(HOST_CORE_IMAGE_interpreter_32) \
+  patchoatd-host
 ART_GTEST_dex2oat_environment_tests_TARGET_DEPS := \
   $(TARGET_CORE_IMAGE_optimizing_64) \
   $(TARGET_CORE_IMAGE_optimizing_32) \
   $(TARGET_CORE_IMAGE_interpreter_64) \
-  $(TARGET_CORE_IMAGE_interpreter_32)
+  $(TARGET_CORE_IMAGE_interpreter_32) \
+  patchoatd-target
 
 ART_GTEST_oat_file_test_HOST_DEPS := \
   $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS)
@@ -346,6 +349,11 @@ ART_GTEST_oatdump_app_test_HOST_DEPS := $(ART_GTEST_oatdump_test_HOST_DEPS) \
 ART_GTEST_oatdump_app_test_TARGET_DEPS := $(ART_GTEST_oatdump_test_TARGET_DEPS) \
   dex2oatd-target
 
+ART_GTEST_patchoat_test_HOST_DEPS := \
+  $(ART_GTEST_dex2oat_environment_tests_HOST_DEPS)
+ART_GTEST_patchoat_test_TARGET_DEPS := \
+  $(ART_GTEST_dex2oat_environment_tests_TARGET_DEPS)
+
 # Profile assistant tests requires profman utility.
 ART_GTEST_profile_assistant_test_HOST_DEPS := profmand-host
 ART_GTEST_profile_assistant_test_TARGET_DEPS := profmand-target
@@ -375,6 +383,7 @@ ART_TEST_MODULES := \
     art_libdexfile_tests \
     art_libprofile_tests \
     art_oatdump_tests \
+    art_patchoat_tests \
     art_profman_tests \
     art_runtime_tests \
     art_runtime_compiler_tests \
@@ -725,6 +734,9 @@ ART_GTEST_dex2oat_image_test_DEX_DEPS :=
 ART_GTEST_dex2oat_image_test_HOST_DEPS :=
 ART_GTEST_dex2oat_image_test_TARGET_DEPS :=
 ART_GTEST_object_test_DEX_DEPS :=
+ART_GTEST_patchoat_test_DEX_DEPS :=
+ART_GTEST_patchoat_test_HOST_DEPS :=
+ART_GTEST_patchoat_test_TARGET_DEPS :=
 ART_GTEST_proxy_test_DEX_DEPS :=
 ART_GTEST_reflection_test_DEX_DEPS :=
 ART_GTEST_stub_test_DEX_DEPS :=
