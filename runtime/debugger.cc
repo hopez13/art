@@ -2358,25 +2358,18 @@ void Dbg::GetThreads(mirror::Object* thread_group, std::vector<JDWP::ObjectId>* 
 }
 
 static int GetStackDepth(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_) {
-  struct CountStackDepthVisitor : public StackVisitor {
-    explicit CountStackDepthVisitor(Thread* thread_in)
-        : StackVisitor(thread_in, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-          depth(0) {}
-
-    // TODO: Enable annotalysis. We know lock is held in constructor, but abstraction confuses
-    // annotalysis.
-    bool VisitFrame() override NO_THREAD_SAFETY_ANALYSIS {
-      if (!GetMethod()->IsRuntimeMethod()) {
-        ++depth;
-      }
-      return true;
-    }
-    size_t depth;
-  };
-
-  CountStackDepthVisitor visitor(thread);
-  visitor.WalkStack();
-  return visitor.depth;
+  size_t depth = 0u;
+  WalkStackWithLambdaVisitor(
+      [&depth](const StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (!visitor->GetMethod()->IsRuntimeMethod()) {
+          ++depth;
+        }
+        return true;
+      },
+      thread,
+      /* context= */ nullptr,
+      StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+  return depth;
 }
 
 JDWP::JdwpError Dbg::GetThreadFrameCount(JDWP::ObjectId thread_id, size_t* result) {
@@ -2394,47 +2387,10 @@ JDWP::JdwpError Dbg::GetThreadFrameCount(JDWP::ObjectId thread_id, size_t* resul
   return JDWP::ERR_NONE;
 }
 
-JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id, size_t start_frame,
-                                     size_t frame_count, JDWP::ExpandBuf* buf) {
-  class GetFrameVisitor : public StackVisitor {
-   public:
-    GetFrameVisitor(Thread* thread, size_t start_frame_in, size_t frame_count_in,
-                    JDWP::ExpandBuf* buf_in)
-        REQUIRES_SHARED(Locks::mutator_lock_)
-        : StackVisitor(thread, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-          depth_(0),
-          start_frame_(start_frame_in),
-          frame_count_(frame_count_in),
-          buf_(buf_in) {
-      expandBufAdd4BE(buf_, frame_count_);
-    }
-
-    bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
-      if (GetMethod()->IsRuntimeMethod()) {
-        return true;  // The debugger can't do anything useful with a frame that has no Method*.
-      }
-      if (depth_ >= start_frame_ + frame_count_) {
-        return false;
-      }
-      if (depth_ >= start_frame_) {
-        JDWP::FrameId frame_id(GetFrameId());
-        JDWP::JdwpLocation location;
-        SetJdwpLocation(&location, GetMethod(), GetDexPc());
-        VLOG(jdwp) << StringPrintf("    Frame %3zd: id=%3" PRIu64 " ", depth_, frame_id) << location;
-        expandBufAdd8BE(buf_, frame_id);
-        expandBufAddLocation(buf_, location);
-      }
-      ++depth_;
-      return true;
-    }
-
-   private:
-    size_t depth_;
-    const size_t start_frame_;
-    const size_t frame_count_;
-    JDWP::ExpandBuf* buf_;
-  };
-
+JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id,
+                                     const size_t start_frame,
+                                     const size_t frame_count,
+                                     JDWP::ExpandBuf* buf) {
   ScopedObjectAccessUnchecked soa(Thread::Current());
   JDWP::JdwpError error;
   Thread* thread = DecodeThread(soa, thread_id, &error);
@@ -2444,8 +2400,32 @@ JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id, size_t start_fram
   if (!IsSuspendedForDebugger(soa, thread)) {
     return JDWP::ERR_THREAD_NOT_SUSPENDED;
   }
-  GetFrameVisitor visitor(thread, start_frame, frame_count, buf);
-  visitor.WalkStack();
+
+  size_t depth = 0u;
+  WalkStackWithLambdaVisitor(
+      [&](StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (visitor->GetMethod()->IsRuntimeMethod()) {
+          return true;  // The debugger can't do anything useful with a frame that has no Method*.
+        }
+        if (depth >= start_frame + frame_count) {
+          return false;
+        }
+        if (depth >= start_frame) {
+          JDWP::FrameId frame_id(visitor->GetFrameId());
+          JDWP::JdwpLocation location;
+          SetJdwpLocation(&location, visitor->GetMethod(), visitor->GetDexPc());
+          VLOG(jdwp)
+              << StringPrintf("    Frame %3zd: id=%3" PRIu64 " ", depth, frame_id) << location;
+          expandBufAdd8BE(buf, frame_id);
+          expandBufAddLocation(buf, location);
+        }
+        ++depth;
+        return true;
+      },
+      thread,
+      /* context= */ nullptr,
+      StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+
   return JDWP::ERR_NONE;
 }
 
@@ -2526,28 +2506,6 @@ void Dbg::SuspendSelf() {
   Runtime::Current()->GetThreadList()->SuspendSelfForDebugger();
 }
 
-struct GetThisVisitor : public StackVisitor {
-  GetThisVisitor(Thread* thread, Context* context, JDWP::FrameId frame_id_in)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      : StackVisitor(thread, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-        this_object(nullptr),
-        frame_id(frame_id_in) {}
-
-  // TODO: Enable annotalysis. We know lock is held in constructor, but abstraction confuses
-  // annotalysis.
-  bool VisitFrame() override NO_THREAD_SAFETY_ANALYSIS {
-    if (frame_id != GetFrameId()) {
-      return true;  // continue
-    } else {
-      this_object = GetThisObject();
-      return false;
-    }
-  }
-
-  mirror::Object* this_object;
-  JDWP::FrameId frame_id;
-};
-
 JDWP::JdwpError Dbg::GetThisObject(JDWP::ObjectId thread_id, JDWP::FrameId frame_id,
                                    JDWP::ObjectId* result) {
   ScopedObjectAccessUnchecked soa(Thread::Current());
@@ -2560,9 +2518,20 @@ JDWP::JdwpError Dbg::GetThisObject(JDWP::ObjectId thread_id, JDWP::FrameId frame
     return JDWP::ERR_THREAD_NOT_SUSPENDED;
   }
   std::unique_ptr<Context> context(Context::Create());
-  GetThisVisitor visitor(thread, context.get(), frame_id);
-  visitor.WalkStack();
-  *result = gRegistry->Add(visitor.this_object);
+  mirror::Object* this_object = nullptr;
+  WalkStackWithLambdaVisitor(
+      [&](art::StackVisitor* stack_visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (frame_id != stack_visitor->GetFrameId()) {
+          return true;  // continue
+        } else {
+          this_object = stack_visitor->GetThisObject();
+          return false;
+        }
+      },
+      thread,
+      context.get(),
+      art::StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+  *result = gRegistry->Add(this_object);
   return JDWP::ERR_NONE;
 }
 
@@ -2603,6 +2572,34 @@ class FindFrameVisitor final : public StackVisitor {
   DISALLOW_COPY_AND_ASSIGN(FindFrameVisitor);
 };
 
+template <typename FrameHandler>
+static JDWP::JdwpError FindAndHandleNonNativeFrame(Thread* thread,
+                                                   JDWP::FrameId frame_id,
+                                                   const FrameHandler& handler)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  JDWP::JdwpError result = JDWP::ERR_INVALID_FRAMEID;
+  std::unique_ptr<Context> context(Context::Create());
+  WalkStackWithLambdaVisitor(
+      [&](art::StackVisitor* stack_visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (stack_visitor->GetFrameId() != frame_id) {
+          return true;  // Not our frame, carry on.
+        }
+        ArtMethod* m = stack_visitor->GetMethod();
+        if (m->IsNative()) {
+          // We can't read/write local value from/into native method.
+          result = JDWP::ERR_OPAQUE_FRAME;
+        } else {
+          // We found our frame.
+          result = handler(stack_visitor);
+        }
+        return false;
+      },
+      thread,
+      context.get(),
+      art::StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+  return result;
+}
+
 JDWP::JdwpError Dbg::GetLocalValues(JDWP::Request* request, JDWP::ExpandBuf* pReply) {
   JDWP::ObjectId thread_id = request->ReadThreadId();
   JDWP::FrameId frame_id = request->ReadFrameId();
@@ -2616,31 +2613,29 @@ JDWP::JdwpError Dbg::GetLocalValues(JDWP::Request* request, JDWP::ExpandBuf* pRe
   if (!IsSuspendedForDebugger(soa, thread)) {
     return JDWP::ERR_THREAD_NOT_SUSPENDED;
   }
-  // Find the frame with the given frame_id.
-  std::unique_ptr<Context> context(Context::Create());
-  FindFrameVisitor visitor(thread, context.get(), frame_id);
-  visitor.WalkStack();
-  if (visitor.GetError() != JDWP::ERR_NONE) {
-    return visitor.GetError();
-  }
 
-  // Read the values from visitor's context.
-  int32_t slot_count = request->ReadSigned32("slot count");
-  expandBufAdd4BE(pReply, slot_count);     /* "int values" */
-  for (int32_t i = 0; i < slot_count; ++i) {
-    uint32_t slot = request->ReadUnsigned32("slot");
-    JDWP::JdwpTag reqSigByte = request->ReadTag();
+  return FindAndHandleNonNativeFrame(
+      thread,
+      frame_id,
+      [&](art::StackVisitor* stack_visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        // Read the values from visitor's context.
+        int32_t slot_count = request->ReadSigned32("slot count");
+        expandBufAdd4BE(pReply, slot_count);     /* "int values" */
+        for (int32_t i = 0; i < slot_count; ++i) {
+          uint32_t slot = request->ReadUnsigned32("slot");
+          JDWP::JdwpTag reqSigByte = request->ReadTag();
 
-    VLOG(jdwp) << "    --> slot " << slot << " " << reqSigByte;
+          VLOG(jdwp) << "    --> slot " << slot << " " << reqSigByte;
 
-    size_t width = Dbg::GetTagWidth(reqSigByte);
-    uint8_t* ptr = expandBufAddSpace(pReply, width + 1);
-    error = Dbg::GetLocalValue(visitor, soa, slot, reqSigByte, ptr, width);
-    if (error != JDWP::ERR_NONE) {
-      return error;
-    }
-  }
-  return JDWP::ERR_NONE;
+          size_t width = Dbg::GetTagWidth(reqSigByte);
+          uint8_t* ptr = expandBufAddSpace(pReply, width + 1);
+          error = Dbg::GetLocalValue(*stack_visitor, soa, slot, reqSigByte, ptr, width);
+          if (error != JDWP::ERR_NONE) {
+            return error;
+          }
+        }
+        return JDWP::ERR_NONE;
+      });
 }
 
 constexpr JDWP::JdwpError kStackFrameLocalAccessError = JDWP::ERR_ABSENT_INFORMATION;
@@ -2787,29 +2782,27 @@ JDWP::JdwpError Dbg::SetLocalValues(JDWP::Request* request) {
   if (!IsSuspendedForDebugger(soa, thread)) {
     return JDWP::ERR_THREAD_NOT_SUSPENDED;
   }
-  // Find the frame with the given frame_id.
-  std::unique_ptr<Context> context(Context::Create());
-  FindFrameVisitor visitor(thread, context.get(), frame_id);
-  visitor.WalkStack();
-  if (visitor.GetError() != JDWP::ERR_NONE) {
-    return visitor.GetError();
-  }
 
-  // Writes the values into visitor's context.
-  int32_t slot_count = request->ReadSigned32("slot count");
-  for (int32_t i = 0; i < slot_count; ++i) {
-    uint32_t slot = request->ReadUnsigned32("slot");
-    JDWP::JdwpTag sigByte = request->ReadTag();
-    size_t width = Dbg::GetTagWidth(sigByte);
-    uint64_t value = request->ReadValue(width);
+  return FindAndHandleNonNativeFrame(
+      thread,
+      frame_id,
+      [&](art::StackVisitor* stack_visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        // Writes the values into visitor's context.
+        int32_t slot_count = request->ReadSigned32("slot count");
+        for (int32_t i = 0; i < slot_count; ++i) {
+          uint32_t slot = request->ReadUnsigned32("slot");
+          JDWP::JdwpTag sigByte = request->ReadTag();
+          size_t width = Dbg::GetTagWidth(sigByte);
+          uint64_t value = request->ReadValue(width);
 
-    VLOG(jdwp) << "    --> slot " << slot << " " << sigByte << " " << value;
-    error = Dbg::SetLocalValue(thread, visitor, slot, sigByte, value, width);
-    if (error != JDWP::ERR_NONE) {
-      return error;
-    }
-  }
-  return JDWP::ERR_NONE;
+          VLOG(jdwp) << "    --> slot " << slot << " " << sigByte << " " << value;
+          error = Dbg::SetLocalValue(thread, *stack_visitor, slot, sigByte, value, width);
+          if (error != JDWP::ERR_NONE) {
+            return error;
+          }
+        }
+        return JDWP::ERR_NONE;
+      });
 }
 
 template<typename T>
