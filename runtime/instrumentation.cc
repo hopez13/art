@@ -1354,47 +1354,47 @@ DeoptimizationMethodType Instrumentation::GetDeoptimizationMethodType(ArtMethod*
 }
 
 // Try to get the shorty of a runtime method if it's an invocation stub.
-struct RuntimeMethodShortyVisitor : public StackVisitor {
-  explicit RuntimeMethodShortyVisitor(Thread* thread)
-      : StackVisitor(thread, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-        shorty('V') {}
-
-  bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
-    ArtMethod* m = GetMethod();
-    if (m != nullptr && !m->IsRuntimeMethod()) {
-      // The first Java method.
-      if (m->IsNative()) {
-        // Use JNI method's shorty for the jni stub.
-        shorty = m->GetShorty()[0];
-        return false;
-      }
-      if (m->IsProxyMethod()) {
-        // Proxy method just invokes its proxied method via
-        // art_quick_proxy_invoke_handler.
-        shorty = m->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty()[0];
-        return false;
-      }
-      const Instruction& instr = m->DexInstructions().InstructionAt(GetDexPc());
-      if (instr.IsInvoke()) {
-        const DexFile* dex_file = m->GetDexFile();
-        if (interpreter::IsStringInit(dex_file, instr.VRegB())) {
-          // Invoking string init constructor is turned into invoking
-          // StringFactory.newStringFromChars() which returns a string.
-          shorty = 'L';
+static char GetRuntimeMethodShorty(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_) {
+  char shorty = 'V';
+  WalkStackWithLambdaVisitor(
+      [&](const art::StackVisitor* stack_visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        ArtMethod* m = stack_visitor->GetMethod();
+        if (m != nullptr && !m->IsRuntimeMethod()) {
+          // The first Java method.
+          if (m->IsNative()) {
+            // Use JNI method's shorty for the jni stub.
+            shorty = m->GetShorty()[0];
+            return false;
+          }
+          if (m->IsProxyMethod()) {
+            // Proxy method just invokes its proxied method via
+            // art_quick_proxy_invoke_handler.
+            shorty = m->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty()[0];
+            return false;
+          }
+          const Instruction& instr = m->DexInstructions().InstructionAt(stack_visitor->GetDexPc());
+          if (instr.IsInvoke()) {
+            const DexFile* dex_file = m->GetDexFile();
+            if (interpreter::IsStringInit(dex_file, instr.VRegB())) {
+              // Invoking string init constructor is turned into invoking
+              // StringFactory.newStringFromChars() which returns a string.
+              shorty = 'L';
+              return false;
+            }
+            // A regular invoke, use callee's shorty.
+            uint32_t method_idx = instr.VRegB();
+            shorty = dex_file->GetMethodShorty(method_idx)[0];
+          }
+          // Stop stack walking since we've seen a Java frame.
           return false;
         }
-        // A regular invoke, use callee's shorty.
-        uint32_t method_idx = instr.VRegB();
-        shorty = dex_file->GetMethodShorty(method_idx)[0];
-      }
-      // Stop stack walking since we've seen a Java frame.
-      return false;
-    }
-    return true;
-  }
-
-  char shorty;
-};
+        return true;
+      },
+      thread,
+      /* context= */ nullptr,
+      art::StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+  return shorty;
+}
 
 TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
                                                             uintptr_t* return_pc,
@@ -1428,9 +1428,7 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
       // for clinit, we need to pass return results to the caller.
       // We need the correct shorty to decide whether we need to pass the return
       // result for deoptimization below.
-      RuntimeMethodShortyVisitor visitor(self);
-      visitor.WalkStack();
-      return_shorty = visitor.shorty;
+      return_shorty = GetRuntimeMethodShorty(self);
     } else {
       // Some runtime methods such as allocations, unresolved field getters, etc.
       // have return value. We don't need to set return_value since MethodExitEvent()
