@@ -2358,25 +2358,18 @@ void Dbg::GetThreads(mirror::Object* thread_group, std::vector<JDWP::ObjectId>* 
 }
 
 static int GetStackDepth(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_) {
-  struct CountStackDepthVisitor : public StackVisitor {
-    explicit CountStackDepthVisitor(Thread* thread_in)
-        : StackVisitor(thread_in, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-          depth(0) {}
-
-    // TODO: Enable annotalysis. We know lock is held in constructor, but abstraction confuses
-    // annotalysis.
-    bool VisitFrame() override NO_THREAD_SAFETY_ANALYSIS {
-      if (!GetMethod()->IsRuntimeMethod()) {
-        ++depth;
-      }
-      return true;
-    }
-    size_t depth;
-  };
-
-  CountStackDepthVisitor visitor(thread);
-  visitor.WalkStack();
-  return visitor.depth;
+  size_t depth = 0u;
+  WalkStackWithLambdaVisitor(
+      [&depth](const StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (!visitor->GetMethod()->IsRuntimeMethod()) {
+          ++depth;
+        }
+        return true;
+      },
+      thread,
+      /* context= */ nullptr,
+      StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+  return depth;
 }
 
 JDWP::JdwpError Dbg::GetThreadFrameCount(JDWP::ObjectId thread_id, size_t* result) {
@@ -2394,47 +2387,10 @@ JDWP::JdwpError Dbg::GetThreadFrameCount(JDWP::ObjectId thread_id, size_t* resul
   return JDWP::ERR_NONE;
 }
 
-JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id, size_t start_frame,
-                                     size_t frame_count, JDWP::ExpandBuf* buf) {
-  class GetFrameVisitor : public StackVisitor {
-   public:
-    GetFrameVisitor(Thread* thread, size_t start_frame_in, size_t frame_count_in,
-                    JDWP::ExpandBuf* buf_in)
-        REQUIRES_SHARED(Locks::mutator_lock_)
-        : StackVisitor(thread, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
-          depth_(0),
-          start_frame_(start_frame_in),
-          frame_count_(frame_count_in),
-          buf_(buf_in) {
-      expandBufAdd4BE(buf_, frame_count_);
-    }
-
-    bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
-      if (GetMethod()->IsRuntimeMethod()) {
-        return true;  // The debugger can't do anything useful with a frame that has no Method*.
-      }
-      if (depth_ >= start_frame_ + frame_count_) {
-        return false;
-      }
-      if (depth_ >= start_frame_) {
-        JDWP::FrameId frame_id(GetFrameId());
-        JDWP::JdwpLocation location;
-        SetJdwpLocation(&location, GetMethod(), GetDexPc());
-        VLOG(jdwp) << StringPrintf("    Frame %3zd: id=%3" PRIu64 " ", depth_, frame_id) << location;
-        expandBufAdd8BE(buf_, frame_id);
-        expandBufAddLocation(buf_, location);
-      }
-      ++depth_;
-      return true;
-    }
-
-   private:
-    size_t depth_;
-    const size_t start_frame_;
-    const size_t frame_count_;
-    JDWP::ExpandBuf* buf_;
-  };
-
+JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id,
+                                     const size_t start_frame,
+                                     const size_t frame_count,
+                                     JDWP::ExpandBuf* buf) {
   ScopedObjectAccessUnchecked soa(Thread::Current());
   JDWP::JdwpError error;
   Thread* thread = DecodeThread(soa, thread_id, &error);
@@ -2444,8 +2400,32 @@ JDWP::JdwpError Dbg::GetThreadFrames(JDWP::ObjectId thread_id, size_t start_fram
   if (!IsSuspendedForDebugger(soa, thread)) {
     return JDWP::ERR_THREAD_NOT_SUSPENDED;
   }
-  GetFrameVisitor visitor(thread, start_frame, frame_count, buf);
-  visitor.WalkStack();
+
+  size_t depth = 0u;
+  WalkStackWithLambdaVisitor(
+      [&](const StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (visitor->GetMethod()->IsRuntimeMethod()) {
+          return true;  // The debugger can't do anything useful with a frame that has no Method*.
+        }
+        if (depth >= start_frame + frame_count) {
+          return false;
+        }
+        if (depth_ >= start_frame) {
+          JDWP::FrameId frame_id(visitor->GetFrameId());
+          JDWP::JdwpLocation location;
+          SetJdwpLocation(&location, visitor->GetMethod(), visitor->GetDexPc());
+          VLOG(jdwp)
+              << StringPrintf("    Frame %3zd: id=%3" PRIu64 " ", depth, frame_id) << location;
+          expandBufAdd8BE(buf, frame_id);
+          expandBufAddLocation(buf, location);
+        }
+        ++depth;
+        return true;
+      },
+      thread,
+      /* context= */ nullptr,
+      StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+
   return JDWP::ERR_NONE;
 }
 
