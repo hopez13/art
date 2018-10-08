@@ -319,6 +319,35 @@ class StackVisitor {
   const bool check_suspended_;
 };
 
+template <StackVisitor::CountTransitions kCountTransitions = StackVisitor::CountTransitions::kYes,
+          typename T>
+ALWAYS_INLINE void WalkStackWithLambdaVisitor(const T& fn,
+                                              Thread* thread,
+                                              Context* context,
+                                              StackVisitor::StackWalkKind walk_kind,
+                                              bool check_suspended = true,
+                                              bool include_transitions = false)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  class LambdaStackVisitor : public StackVisitor {
+   public:
+    LambdaStackVisitor(const T& fn,
+                       Thread* thread,
+                       Context* context,
+                       StackWalkKind walk_kind,
+                       bool check_suspended = true)
+        : StackVisitor(thread, context, walk_kind, check_suspended), fn_(fn) {}
+
+    bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
+      return fn_(this);
+    }
+
+   private:
+    T fn_;
+  };
+  LambdaStackVisitor visitor(fn, thread, context, walk_kind, check_suspended);
+  visitor.template WalkStack<kCountTransitions>(include_transitions);
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_STACK_H_
