@@ -2397,7 +2397,7 @@ std::string ImageSpace::GetMultiImageBootClassPath(
     size_t image_last_sep = (image_last_slash == std::string::npos)
                                 ? image_last_at
                                 : (image_last_at == std::string::npos)
-                                      ? std::string::npos
+                                      ? image_last_slash
                                       : std::max(image_last_slash, image_last_at);
     // Note: whenever image_last_sep == npos, +1 overflow means using the full string.
 
