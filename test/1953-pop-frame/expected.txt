@@ -72,14 +72,6 @@ Test stopped during Exception event of calledFunction (catch in called function)
 Single call with PopFrame on ExceptionThrowFarTestObject { cnt: 0 } base-call-count: 0
 art.Test1953$ExceptionThrowFarTestObject$TestError caught in same function.
 result is ExceptionThrowFarTestObject { cnt: 2 } base-call count: 1
-Test stopped during a ClassLoad event.
-Single call with PopFrame on ClassLoadObject { cnt: 0, curClass: 0} base-call-count: 0
-TC0.foo == 1
-result is ClassLoadObject { cnt: 2, curClass: 1} base-call count: 1
-Test stopped during a ClassPrepare event.
-Single call with PopFrame on ClassLoadObject { cnt: 0, curClass: 1} base-call-count: 0
-TC1.foo == 2
-result is ClassLoadObject { cnt: 2, curClass: 2} base-call count: 1
 Test stopped during random Suspend.
 Single call with PopFrame on SuspendSuddenlyObject { cnt: 0 } base-call-count: 0
 result is SuspendSuddenlyObject { cnt: 2 } base-call count: 1
@@ -90,19 +82,17 @@ Test stopped during a native method fails
 Single call with PopFrame on NativeCalledObject { cnt: 0 } base-call-count: 0
 Failed to pop frame due to java.lang.RuntimeException: JVMTI_ERROR_OPAQUE_FRAME
 	art.Test1953.popFrame(Native Method)
-	art.Test1953.runTestOn(Test1953.java:104)
-	art.Test1953.runTestOn(Test1953.java:53)
-	art.Test1953.runTests(Test1953.java:867)
-	art.Test1953.run(Test1953.java:654)
+	art.Test1953.runTestOn(Test1953.java)
+	art.Test1953.runTestOn(Test1953.java)
+	art.Test1953.runTests(Test1953.java)
 	<Additional frames hidden>
 result is NativeCalledObject { cnt: 1 } base-call count: 1
 Test stopped in a method called by native fails
 Single call with PopFrame on NativeCallerObject { cnt: 0 } base-call-count: 0
 Failed to pop frame due to java.lang.RuntimeException: JVMTI_ERROR_OPAQUE_FRAME
 	art.Test1953.popFrame(Native Method)
-	art.Test1953.runTestOn(Test1953.java:104)
-	art.Test1953.runTestOn(Test1953.java:53)
-	art.Test1953.runTests(Test1953.java:873)
-	art.Test1953.run(Test1953.java:654)
+	art.Test1953.runTestOn(Test1953.java)
+	art.Test1953.runTestOn(Test1953.java)
+	art.Test1953.runTests(Test1953.java)
 	<Additional frames hidden>
 result is NativeCallerObject { cnt: 1 } base-call count: 1
