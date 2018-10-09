@@ -745,6 +745,7 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
       }
       JitCompileTask compile_task(method, JitCompileTask::kCompile);
       // Fake being in a runtime thread so that class-load behavior will be the same as normal jit.
+      // TODO Prevent/remove all compilation on non-jit threads.
       ScopedSetRuntimeThread ssrt(thread);
       compile_task.Run(thread);
     }
