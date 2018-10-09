@@ -22,6 +22,30 @@
       "revId": "5e6287987c2bef5e48f97200deab6864732a9860",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4749e87e_736a7937",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-10-09T01:04:51Z",
+      "side": 1,
+      "message": "This code won\u0027t be able to detect whether we\u0027ve got a DIST_DIR or not, so we either need to do the same thing in both cases, or have two completely different rules - one for local users and one for the server. It seems best to keep a single set of rules, and always dump the xml files into an intermediate directory that nobody should ever care about.",
+      "parentUuid": "16669fbd_538e1ee2",
+      "range": {
+        "startLine": 509,
+        "startChar": 49,
+        "endLine": 509,
+        "endChar": 71
+      },
+      "revId": "5e6287987c2bef5e48f97200deab6864732a9860",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
