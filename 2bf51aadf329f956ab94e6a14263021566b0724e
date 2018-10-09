@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0120c875_34ee1d3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-09T15:23:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6509b1b_8b578284",
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fab57ba_15f2a4a2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Like you want --baseline added to the line or do you think something is broken?",
       "parentUuid": "5fab57ba_15f2a4a2",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0571fa45_f52d54dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-09T15:23:30Z",
+      "side": 1,
+      "message": "I think it would be good to give the command line that actually tests the new compiler (considering you have it nicely wired up).",
+      "parentUuid": "b7491698_8479b0e9",
       "range": {
         "startLine": 16,
         "startChar": 6,
