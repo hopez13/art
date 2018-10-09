@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a1b35910_e913bfa7",
+        "filename": "test/685-shifts/smali/Test.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T12:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd50352a_3ab97e32",
+      "revId": "0a56e6eec0f188ff39895bc0683a0bcffe119e2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9e141e7_d7ae11a9",
         "filename": "test/685-shifts/src/Main.java",
         "patchSetId": 5
@@ -39,6 +57,30 @@
       "revId": "0a56e6eec0f188ff39895bc0683a0bcffe119e2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805262a1_0f39f6d1",
+        "filename": "test/685-shifts/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T12:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e141e7_d7ae11a9",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "0a56e6eec0f188ff39895bc0683a0bcffe119e2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
