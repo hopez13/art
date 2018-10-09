@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "835b0abf_36af6d84",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T12:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f547b6ef_39dbab90",
+      "range": {
+        "startLine": 191,
+        "startChar": 50,
+        "endLine": 191,
+        "endChar": 54
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d93fc3a_bdf547f0",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -153,6 +177,30 @@
       "writtenOn": "2018-10-09T11:48:33Z",
       "side": 1,
       "message": "Does vixl accept LSL #32 below? (LSR #32 is valid and used for fake dependencies.)",
+      "range": {
+        "startLine": 4974,
+        "startChar": 17,
+        "endLine": 4974,
+        "endChar": 18
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "754c8253_0d9f7246",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4974,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T12:27:05Z",
+      "side": 1,
+      "message": "Yes, I\u0027ve checked this with the new test case added in this CL.",
+      "parentUuid": "6d93fc3a_bdf547f0",
       "range": {
         "startLine": 4974,
         "startChar": 17,
@@ -179,6 +227,24 @@
       "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5915ce11_d74219bb",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T12:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ee9724c_059d3444",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
