@@ -25,7 +25,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.function.Consumer;
 
 public class Test1953 {
-  public static final boolean IS_ART = System.getProperty("java.vm.name").equals("Dalvik");
   public final boolean canRunClassLoadTests;
   public static void doNothing() {}
 
@@ -55,9 +54,9 @@ public class Test1953 {
 
   private static void SafePrintStackTrace(StackTraceElement st[]) {
     for (StackTraceElement e : st) {
-      if (e.getClassName().contains("Test1953")) {
-        System.out.println("\t" + e);
-      } else {
+      System.out.println("\t" + e.getClassName() + "." + e.getMethodName() + "(" +
+          (e.isNativeMethod() ? "Native Method" : e.getFileName()) + ")");
+      if (e.getClassName().equals("art.Test1953") && e.getMethodName().equals("runTests")) {
         System.out.println("\t<Additional frames hidden>");
         break;
       }
@@ -654,8 +653,13 @@ public class Test1953 {
     new Test1953(canRunClassLoadTests, (x)-> {}).runTests();
   }
 
+  // This entrypoint is used by CTS only. */
   public static void run() throws Exception {
-    run(IS_ART);
+    /* TODO: Due to the way that CTS tests are verified we cannot run class-load-tests since the
+     *       verifier will be delayed until runtime and then load the classes all at once. This
+     *       makes the test impossible to run.
+     */
+    run(/*canRunClassLoadTests*/ false);
   }
 
   public Test1953(boolean canRunClassLoadTests, Consumer<Object> preTest) {
