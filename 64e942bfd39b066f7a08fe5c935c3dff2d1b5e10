@@ -119,6 +119,46 @@
     },
     {
       "key": {
+        "uuid": "6d93fc3a_bdf547f0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4974,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-09T11:48:33Z",
+      "side": 1,
+      "message": "Does vixl accept LSL #32 below? (LSR #32 is valid and used for fake dependencies.)",
+      "range": {
+        "startLine": 4974,
+        "startChar": 17,
+        "endLine": 4974,
+        "endChar": 18
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ee9724c_059d3444",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-09T11:48:33Z",
+      "side": 1,
+      "message": "This should still be unreachable because the locations builder does not create the LocationSummary.",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3b6b3b8_aeb5b9fe",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
