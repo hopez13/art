@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b800737f_3b959cea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-09T10:57:59Z",
+      "side": 1,
+      "message": "Maybe also mention that baseline compilation was breaking some original assertions of the compiler, which thus have been loosened.",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70b8a8a8_7519adc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-09T10:57:59Z",
+      "side": 1,
+      "message": "Do we have a bug for this feature?",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36bdfd12_cd12df16",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-09T10:57:59Z",
+      "side": 1,
+      "message": "Could you add a comment explaining why we are using baseline compilation by default with JIT?",
+      "range": {
+        "startLine": 191,
+        "startChar": 34,
+        "endLine": 191,
+        "endChar": 54
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b6b3b8_aeb5b9fe",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-09T10:57:59Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 38
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f9e38ea_7d4d9d80",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-09T10:57:59Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 921,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 30
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
