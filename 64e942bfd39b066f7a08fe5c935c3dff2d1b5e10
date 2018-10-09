@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2765d0dd_ef05562f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T11:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b800737f_3b959cea",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70b8a8a8_7519adc5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9fea49bc_87582806",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T11:48:20Z",
+      "side": 1,
+      "message": "Too many. I\u0027ll just bucket it to app startup for now.",
+      "parentUuid": "70b8a8a8_7519adc5",
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36bdfd12_cd12df16",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 3
@@ -47,6 +83,30 @@
       "writtenOn": "2018-10-09T10:57:59Z",
       "side": 1,
       "message": "Could you add a comment explaining why we are using baseline compilation by default with JIT?",
+      "range": {
+        "startLine": 191,
+        "startChar": 34,
+        "endLine": 191,
+        "endChar": 54
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "513a7292_cb9fb36f",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T11:48:20Z",
+      "side": 1,
+      "message": "Woops, leftover testing. Changed to false.",
+      "parentUuid": "36bdfd12_cd12df16",
       "range": {
         "startLine": 191,
         "startChar": 34,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "093821a0_c3dae03a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T11:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b6b3b8_aeb5b9fe",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 38
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9e38ea_7d4d9d80",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
@@ -102,6 +186,30 @@
       "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4b43c25_8df62b0b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T11:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f9e38ea_7d4d9d80",
+      "range": {
+        "startLine": 921,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 30
+      },
+      "revId": "64e942bfd39b066f7a08fe5c935c3dff2d1b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
