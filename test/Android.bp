@@ -321,7 +321,6 @@ art_cc_defaults {
         "983-source-transform-verify/source_transform_art.cc",
         "1940-ddms-ext/ddm_ext.cc",
         "1944-sudden-exit/sudden_exit.cc",
-        // "1952-pop-frame-jit/pop_frame.cc",
     ],
     static_libs: [
         "libz",
