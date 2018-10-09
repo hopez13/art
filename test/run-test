@@ -316,17 +316,20 @@ while true; do
         image_suffix="-interpreter"
         shift
     elif [ "x$1" = "x--jit" ]; then
-        image_args="--jit"
+        run_args="${run_args} --jit"
         image_suffix="-interpreter"
         shift
+    elif [ "x$1" = "x--baseline" ]; then
+        run_args="${run_args} --baseline"
+        shift
     elif [ "x$1" = "x--optimizing" ]; then
-        image_args="-Xcompiler-option --compiler-backend=Optimizing"
+        run_args="${run_args} -Xcompiler-option --compiler-backend=Optimizing"
         shift
     elif [ "x$1" = "x--no-verify" ]; then
         run_args="${run_args} --no-verify"
         shift
     elif [ "x$1" = "x--verify-soft-fail" ]; then
-        image_args="--verify-soft-fail"
+        run_args="${run_args} --verify-soft-fail"
         image_suffix="-interp-ac"
         shift
     elif [ "x$1" = "x--no-optimize" ]; then
@@ -794,31 +797,7 @@ chmod 755 "$check_cmd"
 
 export TEST_NAME=`basename ${test_dir}`
 
-# Tests named '<number>-checker-*' will also have their CFGs verified with
-# Checker when compiled with Optimizing on host.
-if [[ "$TEST_NAME" =~ ^[0-9]+-checker- ]]; then
-  if [ "$runtime" = "art" -a "$image_suffix" = "" ]; then
-    # In no-prebuild or no-image mode, the compiler only quickens so disable the checker.
-    if [ "$prebuild_mode" = "yes" -a "$have_image" = "yes" ]; then
-      run_checker="yes"
 
-      if [ "$target_mode" = "no" ]; then
-        cfg_output_dir="$tmp_dir"
-        checker_args="--arch=${host_arch_name^^}"
-      else
-        cfg_output_dir="$DEX_LOCATION"
-        checker_args="--arch=${target_arch_name^^}"
-      fi
-
-      if [ "$debuggable" = "yes" ]; then
-        checker_args="$checker_args --debuggable"
-      fi
-
-      run_args="${run_args} -Xcompiler-option --dump-cfg=$cfg_output_dir/$cfg_output \
-                            -Xcompiler-option -j1"
-    fi
-  fi
-fi
 
   run_args="${run_args} --testlib ${testlib}"
 
