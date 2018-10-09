@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b6509b1b_8b578284",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T15:08:03Z",
+      "side": 1,
+      "message": "Not yet, early results show Quick-like compile times and performance.",
+      "parentUuid": "2acc3453_cf7a9ee4",
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5fab57ba_15f2a4a2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "b7491698_8479b0e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T15:08:03Z",
+      "side": 1,
+      "message": "Like you want --baseline added to the line or do you think something is broken?",
+      "parentUuid": "5fab57ba_15f2a4a2",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e713643_d0f67595",
         "filename": "test/knownfailures.json",
         "patchSetId": 7
@@ -53,6 +95,30 @@
       "writtenOn": "2018-10-09T14:58:28Z",
       "side": 1,
       "message": "Curiosity: why is this expected to fail?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 47,
+        "endLine": 1107,
+        "endChar": 65
+      },
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cde57d7_de17e439",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T15:08:03Z",
+      "side": 1,
+      "message": "It\u0027s not, thanks for spotting this.",
+      "parentUuid": "0e713643_d0f67595",
       "range": {
         "startLine": 1107,
         "startChar": 47,
