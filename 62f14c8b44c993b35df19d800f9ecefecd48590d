@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c071a0f_3ecb9365",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-09T11:58:06Z",
+      "side": 0,
+      "message": "Consider keeping this comment (I found it useful) or s/IsImplicit/IsImplicitConverstion/.",
+      "range": {
+        "startLine": 1185,
+        "startChar": 4,
+        "endLine": 1185,
+        "endChar": 81
+      },
+      "revId": "62f14c8b44c993b35df19d800f9ecefecd48590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
