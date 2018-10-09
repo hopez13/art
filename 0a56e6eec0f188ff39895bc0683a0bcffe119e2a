@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd50352a_3ab97e32",
+        "filename": "test/685-shifts/smali/Test.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-09T12:35:55Z",
+      "side": 1,
+      "message": "Add known failures for --jvm (or rewrite in jasmin).",
+      "revId": "0a56e6eec0f188ff39895bc0683a0bcffe119e2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9e141e7_d7ae11a9",
         "filename": "test/685-shifts/src/Main.java",
         "patchSetId": 5
