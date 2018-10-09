@@ -126,6 +126,30 @@
     },
     {
       "key": {
+        "uuid": "04f17ad6_b04bf2d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-09T16:06:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0571fa45_f52d54dc",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "2bf51aadf329f956ab94e6a14263021566b0724e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e713643_d0f67595",
         "filename": "test/knownfailures.json",
         "patchSetId": 7
