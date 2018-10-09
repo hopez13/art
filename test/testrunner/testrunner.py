@@ -153,7 +153,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['address_sizes'] = {'64', '32'}
   VARIANT_TYPE_DICT['jvmti'] = {'no-jvmti', 'jvmti-stress', 'redefine-stress', 'trace-stress',
                                 'field-stress', 'step-stress'}
-  VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'optimizing',
+  VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'optimizing', 'baseline',
                                    'regalloc_gc', 'speed-profile'}
 
   for v_type in VARIANT_TYPE_DICT:
@@ -435,6 +435,8 @@ def run_tests(tests):
         options_test += ' --jit'
       elif compiler == 'speed-profile':
         options_test += ' --random-profile'
+      elif compiler == 'baseline':
+        options_test += ' --baseline'
 
       if relocate == 'relocate':
         options_test += ' --relocate'
