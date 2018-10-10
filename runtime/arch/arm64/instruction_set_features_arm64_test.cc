@@ -84,6 +84,16 @@ TEST(Arm64InstructionSetFeaturesTest, Arm64Features) {
   EXPECT_FALSE(cortex_a75_features->Equals(cortex_a57_features.get()));
   EXPECT_STREQ("-a53", cortex_a75_features->GetFeatureString().c_str());
   EXPECT_EQ(cortex_a75_features->AsBitmap(), 0U);
+
+  std::unique_ptr<const InstructionSetFeatures> cortex_a76_features(
+      InstructionSetFeatures::FromVariant(InstructionSet::kArm64, "cortex-a76", &error_msg));
+  ASSERT_TRUE(cortex_a76_features.get() != nullptr) << error_msg;
+  EXPECT_EQ(cortex_a76_features->GetInstructionSet(), InstructionSet::kArm64);
+  EXPECT_TRUE(cortex_a76_features->Equals(cortex_a76_features.get()));
+  EXPECT_TRUE(cortex_a76_features->Equals(cortex_a75_features.get()));
+  EXPECT_FALSE(cortex_a76_features->Equals(cortex_a57_features.get()));
+  EXPECT_STREQ("-a53", cortex_a75_features->GetFeatureString().c_str());
+  EXPECT_EQ(cortex_a75_features->AsBitmap(), 0U);
 }
 
 }  // namespace art
