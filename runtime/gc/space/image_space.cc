@@ -46,7 +46,7 @@
 #include "gc/accounting/space_bitmap-inl.h"
 #include "image-inl.h"
 #include "image_space_fs.h"
-#include "intern_table.h"
+#include "intern_table-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/executable.h"
 #include "mirror/object-inl.h"
@@ -1090,7 +1090,7 @@ class ImageSpace::Loader {
       // Two pass approach, fix up all classes first, then fix up non class-objects.
       // The visited bitmap is used to ensure that pointer arrays are not forwarded twice.
       std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> visited_bitmap(
-          gc::accounting::ContinuousSpaceBitmap::Create("Relocate bitmap",
+          gc::accounting::ContinuousSpaceBitmap::Create("Relocation bitmap",
                                                         target_base,
                                                         image_header.GetImageSize()));
       FixupObjectVisitor fixup_object_visitor(visited_bitmap.get(),
@@ -1099,7 +1099,7 @@ class ImageSpace::Loader {
                                               boot_oat,
                                               app_image,
                                               app_oat);
-      TimingLogger::ScopedTiming timing("Fixup classes", &logger);
+      TimingLogger::ScopedTiming timing("Relocate classes", &logger);
       // Fixup objects may read fields in the boot image, use the mutator lock here for sanity. Though
       // its probably not required.
       ScopedObjectAccess soa(Thread::Current());
@@ -1197,22 +1197,24 @@ class ImageSpace::Loader {
     if (fixup_image) {
       {
         // Only touches objects in the app image, no need for mutator lock.
-        TimingLogger::ScopedTiming timing("Fixup fields", &logger);
+        TimingLogger::ScopedTiming timing("Relocate fields", &logger);
         FixupArtFieldVisitor field_visitor(boot_image, boot_oat, app_image, app_oat);
         image_header.VisitPackedArtFields(&field_visitor, target_base);
       }
       {
-        TimingLogger::ScopedTiming timing("Fixup imt", &logger);
+        TimingLogger::ScopedTiming timing("Relocate imt", &logger);
         image_header.VisitPackedImTables(fixup_adapter, target_base, pointer_size);
       }
       {
-        TimingLogger::ScopedTiming timing("Fixup conflict tables", &logger);
+        TimingLogger::ScopedTiming timing("Relocate conflict tables", &logger);
         image_header.VisitPackedImtConflictTables(fixup_adapter, target_base, pointer_size);
       }
       // In the app image case, the image methods are actually in the boot image.
       image_header.RelocateImageMethods(boot_image.Delta());
+      // Fix up the class table.
       const auto& class_table_section = image_header.GetClassTableSection();
       if (class_table_section.Size() > 0u) {
+        TimingLogger::ScopedTiming timing("Relocate classes", &logger);
         // Note that we require that ReadFromMemory does not make an internal copy of the elements.
         // This also relies on visit roots not doing any verification which could fail after we update
         // the roots to be the image addresses.
@@ -1222,6 +1224,24 @@ class ImageSpace::Loader {
         temp_table.ReadFromMemory(target_base + class_table_section.Offset());
         FixupRootVisitor root_visitor(boot_image, boot_oat, app_image, app_oat);
         temp_table.VisitRoots(root_visitor);
+      }
+      // Fix up the intern table.
+      const auto& intern_table_section = image_header.GetInternedStringsSection();
+      if (intern_table_section.Size() > 0u) {
+        TimingLogger::ScopedTiming timing("Relocate intern table", &logger);
+        ScopedObjectAccess soa(Thread::Current());
+        // Fixup the pointers in the newly written intern table to contain image addresses.
+        InternTable temp_intern_table;
+        // Note that we require that ReadFromMemory does not make an internal copy of the elements
+        // so that the VisitRoots() will update the memory directly rather than the copies.
+        FixupRootVisitor root_visitor(boot_image, boot_oat, app_image, app_oat);
+        temp_intern_table.AddTableFromMemory(target_base + intern_table_section.Offset(),
+                                             [&](InternTable::UnorderedSet& set)
+            REQUIRES_SHARED(Locks::mutator_lock_) {
+          for (GcRoot<mirror::String>& root : set) {
+            root = GcRoot<mirror::String>(fixup_adapter(root.Read<kWithoutReadBarrier>()));
+          }
+        });
       }
     }
     if (VLOG_IS_ON(image)) {
