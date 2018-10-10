@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "474dc03a_fd77f407",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-10T15:07:03Z",
+      "side": 1,
+      "message": "nit: I think if I had done the change, I would have removed the compile_pic_ flag and just branch on whether we\u0027re AOT/JIT. But I understand why keeping the flag is interesting too (like we could have JIT generate PIC code).",
+      "range": {
+        "startLine": 727,
+        "startChar": 4,
+        "endLine": 727,
+        "endChar": 75
+      },
+      "revId": "a2da9b99fa1ea3d25d52da71308a623b2aae216c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
