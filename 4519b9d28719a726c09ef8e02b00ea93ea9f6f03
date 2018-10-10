@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "583b983b_05d147d0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-10T17:30:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be\n\n  image_filenames_.size() \u003e 1\n\n?",
+      "range": {
+        "startLine": 1244,
+        "startChar": 25,
+        "endLine": 1244,
+        "endChar": 53
+      },
+      "revId": "4519b9d28719a726c09ef8e02b00ea93ea9f6f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
