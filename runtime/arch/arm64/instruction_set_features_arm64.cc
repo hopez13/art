@@ -54,6 +54,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
         "cortex-a35",
         "cortex-a55",
         "cortex-a75",
+        "cortex-a76",
         "exynos-m1",
         "exynos-m2",
         "exynos-m3",
