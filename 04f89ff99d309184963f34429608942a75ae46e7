@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c06b8490_f2af2718",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-10T15:47:00Z",
+      "side": 1,
+      "message": "There\u0027s a comment here missing that states that the for compiled frames we\u0027ll check the type correctly now for GetVreg(Ref) - which is kind of the main thing in this CL, IMHO.",
+      "revId": "04f89ff99d309184963f34429608942a75ae46e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0f1ba41_bd22993b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-10T15:47:00Z",
+      "side": 1,
+      "message": "I\u0027d prefer to leave this a conditional, even if value is zero-initialized before.\n\n if (!GetVreg(...)) {\n   return nullptr;\n }",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 46
+      },
+      "revId": "04f89ff99d309184963f34429608942a75ae46e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
