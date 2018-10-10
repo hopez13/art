@@ -70,6 +70,30 @@
       "revId": "a2da9b99fa1ea3d25d52da71308a623b2aae216c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d3becd_79efaaa5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-10T15:22:13Z",
+      "side": 1,
+      "message": "Yes, we shouldn\u0027t query the runtime. For better encapsulation, codegen should get its information from the CompilerOptions. (Even the information provided by the CompilerDriver should be moved to CompilerOptions.)",
+      "parentUuid": "a9d825ff_7495add9",
+      "range": {
+        "startLine": 727,
+        "startChar": 4,
+        "endLine": 727,
+        "endChar": 75
+      },
+      "revId": "a2da9b99fa1ea3d25d52da71308a623b2aae216c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
