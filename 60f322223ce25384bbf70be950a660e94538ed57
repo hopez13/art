@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b4a5277_9aeee232",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-10T09:14:44Z",
+      "side": 1,
+      "message": "reinterpret_cast32\u003cmirror::Object*\u003e (#include \"base/casts.h\")",
+      "range": {
+        "startLine": 593,
+        "startChar": 16,
+        "endLine": 593,
+        "endChar": 72
+      },
+      "revId": "60f322223ce25384bbf70be950a660e94538ed57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
