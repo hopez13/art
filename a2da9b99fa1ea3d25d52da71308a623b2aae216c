@@ -22,6 +22,30 @@
       "revId": "a2da9b99fa1ea3d25d52da71308a623b2aae216c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff964864_8dad8f31",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-10T15:12:23Z",
+      "side": 1,
+      "message": "The important part for me is that the codegen can get the information from CompilerOptions. Going through Runtime::Current()-\u003eUseJitCompilation() is bad.",
+      "parentUuid": "474dc03a_fd77f407",
+      "range": {
+        "startLine": 727,
+        "startChar": 4,
+        "endLine": 727,
+        "endChar": 75
+      },
+      "revId": "a2da9b99fa1ea3d25d52da71308a623b2aae216c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
