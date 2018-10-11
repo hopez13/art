@@ -21,6 +21,7 @@
 #include <vector>
 
 #include "android-base/logging.h"
+#include "base/casts.h"
 #include "jni.h"
 #include "jvmti.h"
 
@@ -63,13 +64,13 @@ extern "C" JNIEXPORT jlong JNICALL Java_art_Test1934_allocNativeMonitor(JNIEnv* 
   }
   mon->should_continue = false;
   mon->should_start = false;
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(mon));
+  return reinterpret_cast64<jlong>(mon);
 }
 
 extern "C" JNIEXPORT void Java_art_Test1934_nativeWaitForOtherThread(JNIEnv* env,
                                                                      jclass,
                                                                      jlong id) {
-  NativeMonitor* mon = reinterpret_cast<NativeMonitor*>(static_cast<intptr_t>(id));
+  NativeMonitor* mon = reinterpret_cast64<NativeMonitor*>(id);
   // Start
   if (JvmtiErrorToException(env, jvmti_env, jvmti_env->RawMonitorEnter(mon->start_monitor))) {
     return;
@@ -104,7 +105,7 @@ extern "C" JNIEXPORT void Java_art_Test1934_nativeDoInterleaved(JNIEnv* env,
                                                                 jclass,
                                                                 jlong id,
                                                                 jobject closure) {
-  NativeMonitor* mon = reinterpret_cast<NativeMonitor*>(static_cast<intptr_t>(id));
+  NativeMonitor* mon = reinterpret_cast64<NativeMonitor*>(id);
   // Wait for start.
   if (JvmtiErrorToException(env, jvmti_env, jvmti_env->RawMonitorEnter(mon->start_monitor))) {
     return;
@@ -146,7 +147,7 @@ extern "C" JNIEXPORT void Java_art_Test1934_nativeDoInterleaved(JNIEnv* env,
 }
 
 extern "C" JNIEXPORT void Java_art_Test1934_destroyNativeMonitor(JNIEnv*, jclass, jlong id) {
-  NativeMonitor* mon = reinterpret_cast<NativeMonitor*>(static_cast<intptr_t>(id));
+  NativeMonitor* mon = reinterpret_cast64<NativeMonitor*>(id);
   jvmti_env->DestroyRawMonitor(mon->start_monitor);
   jvmti_env->DestroyRawMonitor(mon->continue_monitor);
   jvmti_env->Deallocate(reinterpret_cast<unsigned char*>(mon));
@@ -154,4 +155,3 @@ extern "C" JNIEXPORT void Java_art_Test1934_destroyNativeMonitor(JNIEnv*, jclass
 
 }  // namespace Test1934SignalThreads
 }  // namespace art
-
