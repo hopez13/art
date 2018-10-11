@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "01dee7e9_b2b34520",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-11T23:43:30Z",
+      "side": 1,
+      "message": "Isn\u0027t this just for docstrings (I am not python expert by far)",
+      "parentUuid": "efe98942_ce823be2",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "619befe2_91b843b0",
         "filename": "tools/cpp-define-generator/make_header.py",
         "patchSetId": 6
@@ -161,6 +179,24 @@
       "writtenOn": "2018-10-11T23:26:32Z",
       "side": 1,
       "message": "By the way, why is it outputting the name and the upper name at the same time?",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7f4802_f5a7a561",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-11T23:43:30Z",
+      "side": 1,
+      "message": "The old version exported the lower case  name as well.  It is needed by the tests.  I fixed it properly in the next CL.",
+      "parentUuid": "850ef178_a836907e",
       "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
