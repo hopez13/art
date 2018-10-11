@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "12e002f3_64a0d34b",
+        "filename": "runtime/imt_conflict_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-11T14:57:29Z",
+      "side": 1,
+      "message": "reinterpret_cast64\u003c\u003e() avoids sing-extending 32-bit ArtMethod* to 64 bits. (As shocking as it is, 32-bit pointers can be treated as signed for reinterpret_cast\u003cint64_t\u003e().)",
+      "parentUuid": "aaaba2fa_d755711f",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8363f2ab_38e042f6",
         "filename": "runtime/imtable.h",
         "patchSetId": 2
@@ -51,6 +69,24 @@
       "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf858537_81000009",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-11T14:57:29Z",
+      "side": 1,
+      "message": "This adds a DCHECK() that the 64-bit `value` fits in the pointer.",
+      "parentUuid": "8363f2ab_38e042f6",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
