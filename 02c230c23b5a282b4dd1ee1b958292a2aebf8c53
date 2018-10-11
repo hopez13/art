@@ -46,6 +46,30 @@
       "revId": "02c230c23b5a282b4dd1ee1b958292a2aebf8c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8c4cd21_c1dd0251",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-11T16:22:41Z",
+      "side": 1,
+      "message": "I thought so too. But the required logging info, irrespective of which of the two conditions fail, is the same. So, to avoid repetition, I kept them in one CHECK. Let me know if you still want me to split.",
+      "parentUuid": "c07f492d_28375680",
+      "range": {
+        "startLine": 578,
+        "startChar": 54,
+        "endLine": 578,
+        "endChar": 56
+      },
+      "revId": "02c230c23b5a282b4dd1ee1b958292a2aebf8c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
