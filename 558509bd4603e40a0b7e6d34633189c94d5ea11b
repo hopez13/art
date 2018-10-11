@@ -1,0 +1,186 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d301db8_8c3d26ae",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: example",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e7b945f_b6b0d577",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: alphabetical sort",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efe98942_ce823be2",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: If you are commenting these anyway (and thanks for doing that), \"\"\" is preferred over #\n\n   \"\"\" Find all ...\n   Sort them...\n   \"\"\"",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "619befe2_91b843b0",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: RuntimeError",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf64279d_40dce694",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: output \u003d [] is more pythonic",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1db0c7_a7b5cc7f",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: this should work\n\n  for name, value, negative_value in asm_defines",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b3aa19_836b7236",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: mixing + and format\n\n  \"#define {0} {1:#x}\".format(name, value)",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "897b4ff9_755f9003",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "nit: \"#define {0} {1:#x}\".format(name.upper(), value)",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850ef178_a836907e",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "By the way, why is it outputting the name and the upper name at the same time?",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c60946ca_10893447",
+        "filename": "tools/cpp-define-generator/make_header_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:26:32Z",
+      "side": 1,
+      "message": "Why is it outputting 2x the same exact value?",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
