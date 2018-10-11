@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "a5c66ed9_1043ec23",
+        "filename": "runtime/imt_conflict_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T15:27:37Z",
+      "side": 1,
+      "message": "Not the point I was making. I realize reinterpret_cast32/64 is a custom function which does unsigned type extension (and it could\u0027ve been named differently to avoid this confusion).\n\nMy point is that your_custom_reinterpret_cast function doesn\u0027t need the two 64/32 versions, it\u0027s already explicit as the template parameter and the static asserts can\u0027t make them be used otherwise.\n\nSo it\u0027s just forcing everyone to type out 32 32 and 64 64.",
+      "parentUuid": "12e002f3_64a0d34b",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8363f2ab_38e042f6",
         "filename": "runtime/imtable.h",
         "patchSetId": 2
@@ -87,6 +105,24 @@
       "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86e72da5_cb84e243",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T15:27:37Z",
+      "side": 1,
+      "message": "That can be done without 2 separate names.\n\n  template \u003ctypename Dest, typename Source\u003e\n  Dest my_safer_reinterpret_cast(Source src) {\n    static_assert(std::is_pointer_v\u003cDest\u003e);\n    static_assert(std::is_integral_v\u003cSource\u003e);\n\n    if constexpr (sizeof(src) \u003e sizeof(Dest)) {\n      DCHECK_EQ(static_cast\u003cSource\u003e(static_cast\u003cuintptr_t\u003e(source)), source);\n    }\n\n    return reinterpret_cast\u003cDest\u003e(static_cast\u003cuintptr_t\u003e(source));\n  }\n\n(Written in C++17 style for brevity but should be obvious how to rewrite in C++14)",
+      "parentUuid": "cf858537_81000009",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
