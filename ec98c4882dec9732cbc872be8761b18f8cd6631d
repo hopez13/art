@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0482ccfd_0fe94e09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-11T16:27:51Z",
+      "side": 1,
+      "message": "Sorry I forgot to mention it in the commit message. I have confirmed that the change fixes the issue. The bug was fairly easy to reproduce (not on all attempts though).\n\nI\u0027ll fix the commit message.",
+      "parentUuid": "27d1bd29_b56c77f4",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "ec98c4882dec9732cbc872be8761b18f8cd6631d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "94a6e71e_b5ad65bb",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
