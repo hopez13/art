@@ -198,6 +198,24 @@
     },
     {
       "key": {
+        "uuid": "26a11cd7_2e2665a1",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T15:45:06Z",
+      "side": 1,
+      "message": "SGTM, thanks for clarifying.",
+      "parentUuid": "0bc9fd82_45f261b8",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daa5012e_fc3bdd37",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
