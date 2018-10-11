@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4929362f_41f0951e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-11T07:52:15Z",
+      "side": 1,
+      "message": "It also applies to the shadow frame. I\u0027ll changed the shadow frame code to make it clearer.",
+      "parentUuid": "c06b8490_f2af2718",
+      "revId": "04f89ff99d309184963f34429608942a75ae46e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0f1ba41_bd22993b",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "04f89ff99d309184963f34429608942a75ae46e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c78a90_eca0d7ac",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-11T07:52:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0f1ba41_bd22993b",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 142,
+        "endChar": 46
+      },
+      "revId": "04f89ff99d309184963f34429608942a75ae46e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
