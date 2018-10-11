@@ -191,6 +191,24 @@
     },
     {
       "key": {
+        "uuid": "679c735f_fe9b1aea",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:50:29Z",
+      "side": 1,
+      "message": "Yeah, it should be deterministic.\n\nUsually in python scripts something is added to a regular map and then later it\u0027s sorted, but nothing was being added in map in this case. So it\u0027s non-obvious why sorted was needed.\n\nI think the final take-away is that we can guess the compiler might introduce non-determinism, we should add something similar to this as a comment:\n\n   # In case the C++ compiler decides to reorder the AsmDefinesFor_${name} functions,\n   # we don\u0027t want the order of the .h file to change from one compilation to another.\n   # Sorting ensures non-determinism of the #defines.\n\n(Its also good to know why we think its deterministic/non-deterministic since that can often imply a dataflow problem upstream)",
+      "parentUuid": "7d3359dc_7d3778d6",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6fd03fc_b0089286",
         "filename": "tools/cpp-define-generator/make_header.py",
         "patchSetId": 4

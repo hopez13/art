@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2fd8bb5f_05942eb1",
+        "filename": "tools/cpp-define-generator/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:50:29Z",
+      "side": 1,
+      "message": "Note: If you do this, you might also want to add an AndroidTest.xml and a TEST_MAPPING file to make it run in treehugger.\n\nhttp://go/test-mapping",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d301db8_8c3d26ae",
         "filename": "tools/cpp-define-generator/make_header.py",
         "patchSetId": 6
@@ -71,6 +88,24 @@
       "side": 1,
       "message": "Isn\u0027t this just for docstrings (I am not python expert by far)",
       "parentUuid": "efe98942_ce823be2",
+      "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b4a6a85_0288753c",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T23:50:29Z",
+      "side": 1,
+      "message": "Yep, just docstrings. Docstrings is recommended for documenting functions because using the \u0027help(functionname)\u0027 builtin will display them, regular comments get stripped out.\n\nThere\u0027s some more nuances here:\n\nhttps://github.com/google/styleguide/blob/gh-pages/pyguide.md#383-functions-and-methods",
+      "parentUuid": "01dee7e9_b2b34520",
       "revId": "558509bd4603e40a0b7e6d34633189c94d5ea11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
