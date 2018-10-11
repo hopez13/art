@@ -16,6 +16,8 @@
 
 #include "jvmti.h"
 
+#include "base/casts.h"
+
 // Test infrastructure
 #include "jvmti_helper.h"
 #include "scoped_local_ref.h"
@@ -48,7 +50,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1900_doDeallocate(JNIEnv* env,
   JvmtiErrorToException(env,
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr),
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr)->Deallocate(
-                            reinterpret_cast<unsigned char*>(static_cast<intptr_t>(ptr))));
+                            reinterpret_cast64<unsigned char*>(ptr)));
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test1900_doAllocate(JNIEnv* env,
@@ -59,7 +61,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_art_Test1900_doAllocate(JNIEnv* env,
   JvmtiErrorToException(env,
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr),
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr)->Allocate(size, &res));
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(res));
+  return reinterpret_cast64<jlong>(res);
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test1900_getAmountAllocated(JNIEnv* env, jclass) {
@@ -85,7 +87,7 @@ static void DeallocParams(jvmtiParamInfo* params, jint n_params) {
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test1900_getDefaultJvmtiEnv(JNIEnv*, jclass) {
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(jvmti_env));
+  return reinterpret_cast64<jlong>(jvmti_env);
 }
 
 extern "C" JNIEXPORT void Java_art_Test1900_destroyJvmtiEnv(JNIEnv* env,
@@ -109,7 +111,7 @@ extern "C" JNIEXPORT jlong Java_art_Test1900_newJvmtiEnv(JNIEnv* env, jclass) {
     env->ThrowNew(rt_exception.get(), "Unable to create new jvmtiEnv");
     return -1;
   }
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(new_env));
+  return reinterpret_cast64<jlong>(new_env);
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1900_initializeTest(JNIEnv* env, jclass) {
