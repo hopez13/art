@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "d2b58052_7dc840f7",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T16:54:02Z",
+      "side": 1,
+      "message": "its just build+run. the build target makes a self-contained par file\n\n  $\u003e make adb_integration_test_adb\n  $\u003e out/path/to/file/adb_integration_test_adb.par\n\nIf you mean for running your own code, you just call unittest.main and it magically executes all the unittest functions. Just look at art/tools/checker/run_unit_tests.py , you can ask dbrazdil since he wrote it.",
+      "parentUuid": "dc31c155_f5c9452a",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6fd03fc_b0089286",
         "filename": "tools/cpp-define-generator/make_header.py",
         "patchSetId": 4
@@ -273,6 +291,30 @@
       "side": 1,
       "message": "I mean, it will compile and work as expected regardless of the order of generated defines.\nSo given that, I prefer when tools produce deterministic output.",
       "parentUuid": "a8c8f26c_86833fdf",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4242165_fbc1db4f",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T16:54:02Z",
+      "side": 1,
+      "message": "100% agree the tool should have deterministic output.\n\nCan you please elaborate what would make it non-deterministic without the sorted?",
+      "parentUuid": "765a002a_a55004a6",
       "range": {
         "startLine": 24,
         "startChar": 25,
