@@ -16,6 +16,8 @@
 
 #include "jvmti.h"
 
+#include "base/casts.h"
+
 // Test infrastructure
 #include "jvmti_helper.h"
 #include "scoped_local_ref.h"
@@ -32,7 +34,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1909_setTLS(JNIEnv* env,
   JvmtiErrorToException(env,
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr),
                         reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr)->SetThreadLocalStorage(
-                            thr, reinterpret_cast<const void*>(static_cast<intptr_t>(data))));
+                            thr, reinterpret_cast64<const void*>(data)));
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test1909_getTLS(JNIEnv* env,
@@ -44,7 +46,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_art_Test1909_getTLS(JNIEnv* env,
       env,
       reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr),
       reinterpret_cast<jvmtiEnv*>(jvmti_env_ptr)->GetThreadLocalStorage(thr, &res));
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(res));
+  return reinterpret_cast64<jlong>(res);
 }
 
 extern "C" JNIEXPORT void Java_art_Test1909_destroyJvmtiEnv(JNIEnv* env,
@@ -68,7 +70,7 @@ extern "C" JNIEXPORT jlong Java_art_Test1909_newJvmtiEnv(JNIEnv* env, jclass) {
     env->ThrowNew(rt_exception.get(), "Unable to create new jvmtiEnv");
     return -1;
   }
-  return static_cast<jlong>(reinterpret_cast<intptr_t>(new_env));
+  return reinterpret_cast64<jlong>(new_env);
 }
 
 }  // namespace Test1909AgentTLS

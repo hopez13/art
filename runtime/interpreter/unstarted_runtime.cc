@@ -638,7 +638,7 @@ static void GetResourceAsStream(Thread* self,
   }
 
   uint32_t args[1];
-  args[0] = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(h_array.Get()));
+  args[0] = reinterpret_cast32<uint32_t>(h_array.Get());
   EnterInterpreterFromInvoke(self, constructor, h_obj.Get(), args, nullptr);
 
   if (self->IsExceptionPending()) {
@@ -1792,11 +1792,12 @@ void UnstartedRuntime::UnstartedJNIObjectNotifyAll(
 void UnstartedRuntime::UnstartedJNIStringCompareTo(
     Thread* self, ArtMethod* method ATTRIBUTE_UNUSED, mirror::Object* receiver, uint32_t* args,
     JValue* result) {
-  mirror::String* rhs = reinterpret_cast<mirror::Object*>(args[0])->AsString();
+  ObjPtr<mirror::Object> rhs = reinterpret_cast<mirror::Object*>(args[0]);
   if (rhs == nullptr) {
     AbortTransactionOrFail(self, "String.compareTo with null object");
+    return;
   }
-  result->SetI(receiver->AsString()->CompareTo(rhs));
+  result->SetI(receiver->AsString()->CompareTo(rhs->AsString()));
 }
 
 void UnstartedRuntime::UnstartedJNIStringIntern(

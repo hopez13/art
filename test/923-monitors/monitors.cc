@@ -17,6 +17,7 @@
 #include <stdio.h>
 
 #include "android-base/macros.h"
+#include "base/casts.h"
 #include "jni.h"
 #include "jvmti.h"
 #include "scoped_utf_chars.h"
@@ -30,11 +31,11 @@ namespace Test923Monitors {
 
 
 static jlong MonitorToLong(jrawMonitorID id) {
-  return static_cast<jlong>(reinterpret_cast<uintptr_t>(id));
+  return reinterpret_cast64<jlong>(id);
 }
 
 static jrawMonitorID LongToMonitor(jlong l) {
-  return reinterpret_cast<jrawMonitorID>(static_cast<uintptr_t>(l));
+  return reinterpret_cast64<jrawMonitorID>(l);
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test923_createRawMonitor(
