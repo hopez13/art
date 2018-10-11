@@ -22,6 +22,29 @@
       "revId": "ec98c4882dec9732cbc872be8761b18f8cd6631d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94a6e71e_b5ad65bb",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2963,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-11T15:42:01Z",
+      "side": 1,
+      "message": "Could you also add the explanation from the commit message here as well?",
+      "range": {
+        "startLine": 2963,
+        "startChar": 10,
+        "endLine": 2963,
+        "endChar": 30
+      },
+      "revId": "ec98c4882dec9732cbc872be8761b18f8cd6631d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
