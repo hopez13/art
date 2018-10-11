@@ -46,6 +46,30 @@
       "revId": "4519b9d28719a726c09ef8e02b00ea93ea9f6f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c571b3a_c372457d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-11T12:30:48Z",
+      "side": 1,
+      "message": "\"\u003d\u003d 1\" is correct here.\n\nI\u0027m not keen to change the definition of the ImageFilenames option in this CL.",
+      "parentUuid": "af382946_fac1c111",
+      "range": {
+        "startLine": 1244,
+        "startChar": 25,
+        "endLine": 1244,
+        "endChar": 53
+      },
+      "revId": "4519b9d28719a726c09ef8e02b00ea93ea9f6f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
