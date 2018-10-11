@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3fbe723_e045ebe2",
+        "filename": "runtime/imt_conflict_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T14:44:41Z",
+      "side": 1,
+      "message": "Why do you need the 64 here? It\u0027s already explicitly-passed in as a type parameter.\n\nSeems redundant to have the 64/32 versions?",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8363f2ab_38e042f6",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-11T14:44:41Z",
+      "side": 1,
+      "message": "I\u0027d argue this is redundant too, since the 32vs64 is obvious from the parameter (value). If for some reason it wasn\u0027t obvious that call-site could pass it in explicitly reinterpret_cast64\u003cArtMethod*, uint64_t\u003e(value)",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
