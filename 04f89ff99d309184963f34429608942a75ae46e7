@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3db86f2c_48ca2397",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-11T15:04:07Z",
+      "side": 1,
+      "message": "Sorry, yeah, I messed up the place/scope. Fine with me with the changes, but dsrbecky may have opinions.\n\n(However, technically the implementations do not have the same API now, as the ShadowFrame will not report a failure but null [which was why I mentioned a template before to force an extra check for callers that would care].)",
+      "parentUuid": "4929362f_41f0951e",
+      "revId": "04f89ff99d309184963f34429608942a75ae46e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0f1ba41_bd22993b",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
