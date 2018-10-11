@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e42cfe2_a0c78725",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-11T15:20:47Z",
+      "side": 1,
+      "message": "You may want to consider two separate CHECKs, as otherwise only the conjunction failure will be logged. (But it\u0027s OK, I assume you\u0027re aiming for the logging below.)",
+      "range": {
+        "startLine": 578,
+        "startChar": 54,
+        "endLine": 578,
+        "endChar": 56
+      },
+      "revId": "02c230c23b5a282b4dd1ee1b958292a2aebf8c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
