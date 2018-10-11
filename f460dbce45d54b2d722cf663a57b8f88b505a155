@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "a89c9751_1313259e",
+        "filename": "runtime/imt_conflict_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-11T15:40:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a5c66ed9_1043ec23",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8363f2ab_38e042f6",
         "filename": "runtime/imtable.h",
         "patchSetId": 2
@@ -123,6 +141,24 @@
       "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14dfb2d1_7109bbdc",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-11T15:40:42Z",
+      "side": 1,
+      "message": "If you\u0027re volunteering to do a rename, please go ahead. I cannot think of a better name than reinterpret_cast{32,64}.",
+      "parentUuid": "86e72da5_cb84e243",
+      "revId": "f460dbce45d54b2d722cf663a57b8f88b505a155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
