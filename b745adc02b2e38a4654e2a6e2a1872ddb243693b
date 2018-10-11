@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f861306_ecf04b2c",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-11T12:15:38Z",
+      "side": 1,
+      "message": "Also add\n\n  adb root\n\nhere to be able to push to the chroot dir.\n\nWhich makes me think: maybe we should use /data/local/tmp/art-test-chroot (instead of /data/local/art-test-chroot) as ART_TEST_CHROOT, as it would not require root permissions for creation nor use.",
+      "revId": "b745adc02b2e38a4654e2a6e2a1872ddb243693b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
