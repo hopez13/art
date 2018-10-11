@@ -2960,7 +2960,8 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
       // Since the mark bitmap is still filled in from last GC, we can not use that or else the
       // mutator may see references to the from space. Instead, use the Baker pointer itself as
       // the mark bit.
-      if (ref->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(), ReadBarrier::GrayState())) {
+      if (!IsOnAllocStack(ref) &&
+          ref->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(), ReadBarrier::GrayState())) {
         // TODO: We don't actually need to scan this object later, we just need to clear the gray
         // bit.
         // Also make sure the object is marked.
