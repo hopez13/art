@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1c9dd53_9d4cf3b7",
+        "filename": "build/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-10-11T14:49:17Z",
+      "side": 1,
+      "message": "FYI. \n\nafter aosp/784216 the prop names have been changed.\n\ne.g. native_shared_lib_modules -\u003e native_shared_libs\n     executable_modules -\u003e binaries\n     ...",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 1
+      },
+      "revId": "84f5c916608e08dd8dedfd552b882597a51790f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
