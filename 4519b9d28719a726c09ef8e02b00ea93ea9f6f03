@@ -70,6 +70,30 @@
       "revId": "4519b9d28719a726c09ef8e02b00ea93ea9f6f03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76aee511_d8ee7c9e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-11T14:07:11Z",
+      "side": 1,
+      "message": "I see; I understand how `image_filenames_` works now.\n\nI just chatted with Vladimir. It seems the \"multiple image filenames passed as argument\" use case is not used (was it ever?), so I agree with Andreas that we should drop it (in a follow-up CL).",
+      "parentUuid": "6c571b3a_c372457d",
+      "range": {
+        "startLine": 1244,
+        "startChar": 25,
+        "endLine": 1244,
+        "endChar": 53
+      },
+      "revId": "4519b9d28719a726c09ef8e02b00ea93ea9f6f03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
