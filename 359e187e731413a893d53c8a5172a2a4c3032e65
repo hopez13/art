@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "7d3359dc_7d3778d6",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-11T18:09:19Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "d2b58052_7dc840f7",
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6fd03fc_b0089286",
         "filename": "tools/cpp-define-generator/make_header.py",
         "patchSetId": 4
@@ -315,6 +333,30 @@
       "side": 1,
       "message": "100% agree the tool should have deterministic output.\n\nCan you please elaborate what would make it non-deterministic without the sorted?",
       "parentUuid": "765a002a_a55004a6",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "359e187e731413a893d53c8a5172a2a4c3032e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae75c03f_6cc81289",
+        "filename": "tools/cpp-define-generator/make_header.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-11T18:09:19Z",
+      "side": 1,
+      "message": "Well, I can think of three things here:\n1) Refactoring the code (which was my primary motivation)\n2) I don\u0027t think the generated assembly by compiler has guaranteed order\n3) I am not sure if the regex findall has guaranteed order\n\nTo be fair, it might be deterministic as is.  It just just force of habit to ensure it.  And it was faster to type sorted() than research the guaranteed of the components.",
+      "parentUuid": "f4242165_fbc1db4f",
       "range": {
         "startLine": 24,
         "startChar": 25,
