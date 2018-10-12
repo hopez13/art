@@ -22,6 +22,30 @@
       "revId": "0aa7a5a6a7bc350b79351f52e26c97747e927acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e540e429_27496e2c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-12T17:00:12Z",
+      "side": 1,
+      "message": "It\u0027s expected but something that might be surprising to people using the jvmti pop-frame feature.\n\nSince it will only be shown for apps that are debuggable (and are in some sense being debugged) I figured it would be useful to show it.",
+      "parentUuid": "084b8b38_f1291285",
+      "range": {
+        "startLine": 814,
+        "startChar": 0,
+        "endLine": 815,
+        "endChar": 53
+      },
+      "revId": "0aa7a5a6a7bc350b79351f52e26c97747e927acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
