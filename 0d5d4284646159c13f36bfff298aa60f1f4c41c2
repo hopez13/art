@@ -34,6 +34,24 @@
       "revId": "0d5d4284646159c13f36bfff298aa60f1f4c41c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd29998e_b8e12f5d",
+        "filename": "tools/cpp-define-generator/make_header_test.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-12T00:55:11Z",
+      "side": 1,
+      "message": "Oh I thought you meant its fixed in the next *patch set*\n\nIf you are talking about this next CL in the stack:\nhttps://android-review.googlesource.com/c/platform/art/+/776228/6\n\nShould that also have the .py changes to remove duplicate #define generation?",
+      "parentUuid": "2d25358b_cc663a07",
+      "revId": "0d5d4284646159c13f36bfff298aa60f1f4c41c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
