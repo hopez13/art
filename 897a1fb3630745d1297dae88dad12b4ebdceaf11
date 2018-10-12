@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "423ab4b0_ac7fc4cb",
+        "filename": "test/050-sync-test/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-12T19:35:50Z",
+      "side": 1,
+      "message": "I think the do while would be enough. So long as we\u0027re guaranteed to wait once, I think we\u0027re fine. Even with enteredTryBlock, there\u0027s still a race in which the other thread interrupts and sets done right between the first and second wait, and we thus don\u0027t get interrupted. Since this is only a test, I\u0027d ignore that, arguing that it\u0027s too unlikely to worry about.\n\nI don\u0027t see how enteredTryBlock substantially changes the failure probability.",
+      "range": {
+        "startLine": 165,
+        "startChar": 14,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "897a1fb3630745d1297dae88dad12b4ebdceaf11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
