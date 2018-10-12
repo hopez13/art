@@ -354,6 +354,12 @@ static inline JValue Execute(
     }
   } else {
     // Enter the "with access check" interpreter.
+
+    // The boot classpath should really not have to run access checks.
+    DCHECK(method->GetDeclaringClass()->GetClassLoader() != nullptr
+           || Runtime::Current()->IsVerificationSoftFail())
+        << method->PrettyMethod();
+
     if (kInterpreterImplKind == kMterpImplKind) {
       // No access check variants for Mterp.  Just use the switch version.
       if (transaction_active) {
