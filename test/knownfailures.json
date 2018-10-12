@@ -1110,12 +1110,6 @@
         "description": ["Tests are expected to fail with baseline."]
     },
     {
-        "tests": ["050-sync-test"],
-        "variant": "target & gcstress & debug",
-        "bug": "b/117597114",
-        "description": ["Looks timing dependent"]
-    },
-    {
         "tests": ["920-objects"],
         "variant": "jit-on-first-use",
         "bug": "b/117638896",
