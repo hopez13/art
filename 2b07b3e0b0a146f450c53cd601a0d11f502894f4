@@ -22,6 +22,30 @@
       "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4111fa5d_e346dddc",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-12T17:51:40Z",
+      "side": 1,
+      "message": "I find this check to be integral for performance, and we already have DCHECKs enforcing this in dex2oat.\n\nYou are right about interp-ac, and I will add this as a cutout (I thought we use the quicken image, so everything is pre-verified, but we may want to be more general).\n\nLibcore experiments are irrelevant. The code should still verify. We should never ship broken code.",
+      "parentUuid": "2c107a3e_75214e1d",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
