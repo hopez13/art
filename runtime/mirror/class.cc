@@ -36,6 +36,7 @@
 #include "handle_scope-inl.h"
 #include "subtype_check.h"
 #include "method.h"
+#include "native_stack_dump.h"
 #include "object-inl.h"
 #include "object-refvisitor-inl.h"
 #include "object_array-inl.h"
@@ -139,6 +140,12 @@ ClassExt* Class::EnsureExtDataPresent(Thread* self) {
 }
 
 void Class::SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self) {
+//  if (new_status >= ClassStatus::kResolved) {
+//    VLOG(class_linker) << h_this->PrettyClass() << " " << new_status;
+//    if (new_status == ClassStatus::kVerified) {
+//      DumpNativeStack(LOG_STREAM(ERROR), GetTid());
+//    }
+//  }
   ClassStatus old_status = h_this->GetStatus();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   bool class_linker_initialized = class_linker != nullptr && class_linker->IsInitialized();
@@ -204,6 +211,11 @@ void Class::SetStatus(Handle<Class> h_this, ClassStatus new_status, Thread* self
     if (!h_this->IsFinalizable()) {
       h_this->SetObjectSizeAllocFastPath(RoundUp(h_this->GetObjectSize(), kObjectAlignment));
     }
+  }
+
+  if (kIsDebugBuild && new_status >= ClassStatus::kInitialized) {
+    CHECK(h_this->WasVerificationAttempted()) << h_this->PrettyClassAndClassLoader()
+        << h_this->GetStatus() << " " << h_this->GetAccessFlags();
   }
 
   if (!class_linker_initialized) {
