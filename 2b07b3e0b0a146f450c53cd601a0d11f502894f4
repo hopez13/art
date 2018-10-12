@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c107a3e_75214e1d",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-12T09:16:19Z",
+      "side": 1,
+      "message": "I don\u0027t think we should make this a DCHECK - a build time warning for sure, but not a DCHECK. A DCHECK prevents our ability to test (aren\u0027t you breaking the interp-ar config?), and experiments updating parts of libcore.",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
