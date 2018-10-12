@@ -133,11 +133,15 @@ class CpuThread extends Thread {
 class SleepyThread extends Thread {
     private SleepyThread mOther;
     private Integer[] mWaitOnMe;      // any type of object will do
+    private volatile boolean otherDone;
+    private volatile boolean enteredTryBlock;
 
     private static int count = 0;
 
     SleepyThread(SleepyThread other) {
         mOther = other;
+        otherDone = false;
+        enteredTryBlock = false;
         mWaitOnMe = new Integer[] { 1, 2 };
 
         setName("thread#" + count);
@@ -158,9 +162,12 @@ class SleepyThread extends Thread {
             boolean intr = false;
 
             try {
+              enteredTryBlock = true;
+              do {
                 synchronized (mWaitOnMe) {
                     mWaitOnMe.wait(9000);
                 }
+              } while (!otherDone);
             } catch (InterruptedException ie) {
                 // Expecting this; interrupted should be false.
                 System.out.println(Thread.currentThread().getName() +
@@ -181,7 +188,12 @@ class SleepyThread extends Thread {
 
             System.out.println("interrupting other (isAlive="
                 + mOther.isAlive() + ")");
+            // Wait for other thread to enter try block.
+            while (!mOther.enteredTryBlock) {
+              Thread.yield();
+            }
             mOther.interrupt();
+            mOther.otherDone = true;
         }
     }
 }
