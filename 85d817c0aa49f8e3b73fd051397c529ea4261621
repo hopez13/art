@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4478dfb7_37c134d1",
+        "filename": "test/050-sync-test/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-12T16:51:11Z",
+      "side": 1,
+      "message": "Can we make this a do while please? Otherwise I think we get a new race, in that we may finish without ever checking for the interrupt. I think we are left with some races anyway, but they should hopefully be really rare. I\u0027m not positive this one is.",
+      "range": {
+        "startLine": 163,
+        "startChar": 15,
+        "endLine": 163,
+        "endChar": 34
+      },
+      "revId": "85d817c0aa49f8e3b73fd051397c529ea4261621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
