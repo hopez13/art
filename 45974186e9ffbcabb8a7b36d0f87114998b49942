@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6328a1ad_83c0a6cc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "Put the code below into its own function, maybe?",
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f43973_436ada1b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "always",
+      "range": {
+        "startLine": 1422,
+        "startChar": 22,
+        "endLine": 1422,
+        "endChar": 23
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69c7c33c_7a4637c3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "VLOG",
+      "range": {
+        "startLine": 1430,
+        "startChar": 4,
+        "endLine": 1430,
+        "endChar": 7
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfd2b834_5f6818b4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "All these name fixups should go into a separate CL.",
+      "range": {
+        "startLine": 1093,
+        "startChar": 57,
+        "endLine": 1093,
+        "endChar": 67
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "117fca3a_a9ecaa90",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1217,
+        "startChar": 8,
+        "endLine": 1217,
+        "endChar": 20
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8f241e_834586c8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "Better to use another name.",
+      "range": {
+        "startLine": 1239,
+        "startChar": 76,
+        "endLine": 1239,
+        "endChar": 79
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a47e71_aabd68b7",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-13T18:51:11Z",
+      "side": 1,
+      "message": "If this wasn\u0027t public, you wouldn\u0027t need to make UnorderedSet public? Is there a user outside of InternTable for this?",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 82
+      },
+      "revId": "45974186e9ffbcabb8a7b36d0f87114998b49942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
