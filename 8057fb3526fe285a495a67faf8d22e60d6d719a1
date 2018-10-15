@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "477a1ac8_9ecde76f",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-15T21:00:15Z",
+      "side": 1,
+      "message": "nit: /*in*/ , /*out*/, /*inout*/ ?",
+      "revId": "8057fb3526fe285a495a67faf8d22e60d6d719a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310936c9_dd2c52e5",
+        "filename": "compiler/driver/compiler_options_map.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-15T21:00:15Z",
+      "side": 1,
+      "message": "nit: you should just default it to \u0027false\u0027 here so its clear the default is false. and use GetOrDefault to read it.",
+      "revId": "8057fb3526fe285a495a67faf8d22e60d6d719a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
