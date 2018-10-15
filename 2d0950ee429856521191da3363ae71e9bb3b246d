@@ -16,6 +16,29 @@
       "revId": "2d0950ee429856521191da3363ae71e9bb3b246d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb4288d5_798fe1f2",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-15T14:50:16Z",
+      "side": 1,
+      "message": "This has the DCHECK_LT(index, kSize)",
+      "range": {
+        "startLine": 541,
+        "startChar": 59,
+        "endLine": 541,
+        "endChar": 62
+      },
+      "revId": "2d0950ee429856521191da3363ae71e9bb3b246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
