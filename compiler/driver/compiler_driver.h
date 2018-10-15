@@ -409,6 +409,12 @@ class CompilerDriver {
 
   bool RequiresConstructorBarrier(const DexFile& dex_file, uint16_t class_def_idx) const;
 
+  // Resolve const string literals that are loaded from dex code. If only_startup_strings is
+  // specified, only methods that are marked startup in the profile are resolved.
+  void ResolveConstStrings(const std::vector<const DexFile*>& dex_files,
+                           bool only_startup_strings,
+                           /*out*/ TimingLogger* timings);
+
   const CompilerOptions* const compiler_options_;
   VerificationResults* const verification_results_;
 
