@@ -46,6 +46,30 @@
       "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9173ed81_400c34cd",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-15T11:10:18Z",
+      "side": 1,
+      "message": "No, we can discuss this offline for details, but I still think the DCHECK here is too much. +vmarko",
+      "parentUuid": "4111fa5d_e346dddc",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
