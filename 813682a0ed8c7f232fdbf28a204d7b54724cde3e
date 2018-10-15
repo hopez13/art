@@ -46,6 +46,30 @@
       "revId": "813682a0ed8c7f232fdbf28a204d7b54724cde3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b060406d_bfb7aad6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-15T19:43:10Z",
+      "side": 1,
+      "message": "I set the is_mterp argument true for all invokes form mtrep. \nWhereas the fast_invoke was used only of couple select ones.\n\nI would consider that an improvement as the meaning of template arguments is clear now (fast_invoke was rather abstract), and it somewhat explicitly makes it clear here when we call  MterpHandleIntrinsic (we are very picky).\n\nWhy we can not use the MterpHandleIntrinsic fast path (before or after this CL), puzzles me though.",
+      "parentUuid": "b453929d_9632f842",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "813682a0ed8c7f232fdbf28a204d7b54724cde3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
