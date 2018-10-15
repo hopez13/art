@@ -94,6 +94,30 @@
       "revId": "813682a0ed8c7f232fdbf28a204d7b54724cde3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7aa94c3_ea81b499",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-15T19:52:52Z",
+      "side": 1,
+      "message": "NotifyInterpreterToCompiledCodeTransition is being called in DoCall, and may significantly accelerate the PIC data collection as the warm threshold may be reached earlier (at least the InvokeVirtualOrInterface call above does nothing when there\u0027s no ProfilingInfo object, and the default for a transition seems to be equal to 500 invokes - while the test threshold is 100)? I think you should copy that into the intrinsic handling call (as all intrinsics are compiled).\n\n(I\u0027d guess that adjusting the iteration count / JIT threshold would also recover the behavior.)",
+      "parentUuid": "9a4bb952_54d1acdd",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "813682a0ed8c7f232fdbf28a204d7b54724cde3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
