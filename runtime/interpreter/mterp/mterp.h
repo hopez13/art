@@ -20,13 +20,13 @@
 #include <cstddef>
 #include <cstdint>
 
+#include "base/globals.h"
+
 /*
  * Mterp assembly handler bases
  */
 extern "C" void* artMterpAsmInstructionStart[];
 extern "C" void* artMterpAsmInstructionEnd[];
-extern "C" void* artMterpAsmAltInstructionStart[];
-extern "C" void* artMterpAsmAltInstructionEnd[];
 
 namespace art {
 
@@ -49,6 +49,12 @@ extern "C" size_t MterpShouldSwitchInterpreters();
 constexpr uintptr_t kExportPCPoison = 0xdead00ff;
 // Set true to enable poison testing of ExportPC.  Uses Alt interpreter.
 constexpr bool kTestExportPC = false;
+
+#if defined(__i386__) && !defined(NDEBUG)
+constexpr size_t kMterpHandlerSize = 256;  // Needs more room for debug checks.
+#else
+constexpr size_t kMterpHandlerSize = 128;
+#endif
 
 }  // namespace interpreter
 }  // namespace art

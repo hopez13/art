@@ -410,17 +410,7 @@ ENTRY ExecuteMterpImpl
     // cfi info continues, and covers the whole mterp implementation.
     END ExecuteMterpImpl
 
-%def alt_stub():
-/*
- * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
- * any interesting requests and then jump to the real instruction
- * handler.  Unlike the Arm handler, we can't do this as a tail call
- * because rIBASE is caller save and we need to reload it.
- *
- * Note that unlike in the Arm implementation, we should never arrive
- * here with a zero breakFlag because we always refresh rIBASE on
- * return.
- */
+%def dchecks_before():
     .extern MterpCheckBefore
     movl    rSELF, %ecx
     movl    %ecx, OUT_ARG0(%esp)
@@ -429,7 +419,6 @@ ENTRY ExecuteMterpImpl
     movl    rPC, OUT_ARG2(%esp)
     call    SYMBOL(MterpCheckBefore)        # (self, shadow_frame, dex_pc_ptr)
     REFRESH_IBASE
-    jmp     .L_op_nop+(${opnum}*${handler_size_bytes})
 
 %def fallback():
 /* Transfer stub to alternate interpreter */
@@ -773,13 +762,6 @@ MRestoreFrame:
     .global SYMBOL(artMterpAsmInstructionEnd)
 SYMBOL(artMterpAsmInstructionEnd):
 
-%def instruction_end_alt():
-
-    OBJECT_TYPE(artMterpAsmAltInstructionEnd)
-    ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionEnd)
-    .global SYMBOL(artMterpAsmAltInstructionEnd)
-SYMBOL(artMterpAsmAltInstructionEnd):
-
 %def instruction_start():
 
     OBJECT_TYPE(artMterpAsmInstructionStart)
@@ -787,14 +769,6 @@ SYMBOL(artMterpAsmAltInstructionEnd):
     .global SYMBOL(artMterpAsmInstructionStart)
 SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .text
-
-%def instruction_start_alt():
-
-    OBJECT_TYPE(artMterpAsmAltInstructionStart)
-    ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionStart)
-    .global SYMBOL(artMterpAsmAltInstructionStart)
-    .text
-SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 
 %def opcode_start():
     ENTRY Mterp_${opcode}

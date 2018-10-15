@@ -429,19 +429,12 @@ ENTRY ExecuteMterpImpl
     // cfi info continues, and covers the whole mterp implementation.
     END ExecuteMterpImpl
 
-%def alt_stub():
-/*
- * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
- * any interesting requests and then jump to the real instruction
- * handler.  Note that the call to MterpCheckBefore is done as a tail call.
- */
+%def dchecks_before():
     .extern MterpCheckBefore
-    ldr    xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]            // refresh IBASE.
-    adr    lr, artMterpAsmInstructionStart + (${opnum} * 128)       // Addr of primary handler.
     mov    x0, xSELF
     add    x1, xFP, #OFF_FP_SHADOWFRAME
     mov    x2, xPC
-    b      MterpCheckBefore     // (self, shadow_frame, dex_pc_ptr) Note: tail call.
+    bl     MterpCheckBefore     // (self, shadow_frame, dex_pc_ptr)
 
 %def footer():
     .cfi_endproc
@@ -766,27 +759,12 @@ MterpProfileActive:
     .global artMterpAsmInstructionEnd
 artMterpAsmInstructionEnd:
 
-%def instruction_end_alt():
-
-    .type artMterpAsmAltInstructionEnd, #object
-    .hidden artMterpAsmAltInstructionEnd
-    .global artMterpAsmAltInstructionEnd
-artMterpAsmAltInstructionEnd:
-
 %def instruction_start():
 
     .type artMterpAsmInstructionStart, #object
     .hidden artMterpAsmInstructionStart
     .global artMterpAsmInstructionStart
 artMterpAsmInstructionStart = .L_op_nop
-    .text
-
-%def instruction_start_alt():
-
-    .type artMterpAsmAltInstructionStart, #object
-    .hidden artMterpAsmAltInstructionStart
-    .global artMterpAsmAltInstructionStart
-artMterpAsmAltInstructionStart = .L_ALT_op_nop
     .text
 
 %def opcode_start():
