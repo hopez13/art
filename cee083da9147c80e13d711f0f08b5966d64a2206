@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf32ac81_9bf3f6eb",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-15T19:35:21Z",
+      "side": 1,
+      "message": "Can you also add comments on the lifetime of the cache? You want guarantees that it won\u0027t hold stale data, and I think you\u0027re doing it now by clearing for each dex file unload, right?",
+      "revId": "cee083da9147c80e13d711f0f08b5966d64a2206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
