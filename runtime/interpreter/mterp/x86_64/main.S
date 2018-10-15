@@ -393,7 +393,7 @@ ENTRY ExecuteMterpImpl
     // cfi info continues, and covers the whole mterp implementation.
     END ExecuteMterpImpl
 
-%def alt_stub():
+%def dchecks_before_helper():
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
  * any interesting requests and then jump to the real instruction
@@ -405,12 +405,19 @@ ENTRY ExecuteMterpImpl
  * return.
  */
     .extern MterpCheckBefore
+    popq    %rax                     # Return address (the instuction handler).
     REFRESH_IBASE
     movq    rSELF, OUT_ARG0
     leaq    OFF_FP_SHADOWFRAME(rFP), OUT_ARG1
     movq    rPC, OUT_ARG2
-    call    SYMBOL(MterpCheckBefore)        # (self, shadow_frame, dex_pc_ptr)
-    jmp     .L_op_nop+(${opnum}*${handler_size_bytes})
+    pushq   %rax                     # Return address for the tail call.
+    jmp     SYMBOL(MterpCheckBefore) # (self, shadow_frame, dex_pc_ptr)
+
+%def opcode_pre():
+%  add_helper(dchecks_before_helper, "Mterp_dchecks_before_helper")
+    #if !defined(NDEBUG)
+    call    SYMBOL(Mterp_dchecks_before_helper)
+    #endif
 
 %def fallback():
 /* Transfer stub to alternate interpreter */
@@ -726,13 +733,6 @@ MRestoreFrame:
     .global SYMBOL(artMterpAsmInstructionEnd)
 SYMBOL(artMterpAsmInstructionEnd):
 
-%def instruction_end_alt():
-
-    OBJECT_TYPE(artMterpAsmAltInstructionEnd)
-    ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionEnd)
-    .global SYMBOL(artMterpAsmAltInstructionEnd)
-SYMBOL(artMterpAsmAltInstructionEnd):
-
 %def instruction_start():
 
     OBJECT_TYPE(artMterpAsmInstructionStart)
@@ -740,14 +740,6 @@ SYMBOL(artMterpAsmAltInstructionEnd):
     .global SYMBOL(artMterpAsmInstructionStart)
 SYMBOL(artMterpAsmInstructionStart) = .L_op_nop
     .text
-
-%def instruction_start_alt():
-
-    OBJECT_TYPE(artMterpAsmAltInstructionStart)
-    ASM_HIDDEN SYMBOL(artMterpAsmAltInstructionStart)
-    .global SYMBOL(artMterpAsmAltInstructionStart)
-    .text
-SYMBOL(artMterpAsmAltInstructionStart) = .L_ALT_op_nop
 
 %def opcode_start():
     ENTRY Mterp_${opcode}
