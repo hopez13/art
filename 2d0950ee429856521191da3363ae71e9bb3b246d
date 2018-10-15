@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "304e0215_ee927fec",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-15T14:47:37Z",
+      "side": 1,
+      "message": "Add at least some integrity check.\n\n else {\n   DCHECK_LT(...)\n }",
+      "revId": "2d0950ee429856521191da3363ae71e9bb3b246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
