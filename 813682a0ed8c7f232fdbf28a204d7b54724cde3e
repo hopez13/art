@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6eada72_fd71cb35",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-15T19:32:42Z",
+      "side": 1,
+      "message": "NB: This condition is here so that it exactly preserves semantics (i.e. MterpHandleIntrinsic is called exactly iff it was called before)\n\nIn particular, changing the semantic to include kInterface invokes breaks the 638-checker-inline-cache-intrinsic test... I am quite sure why.",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "813682a0ed8c7f232fdbf28a204d7b54724cde3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
