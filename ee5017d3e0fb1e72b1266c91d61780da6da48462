@@ -69,6 +69,30 @@
       "revId": "ee5017d3e0fb1e72b1266c91d61780da6da48462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e0bcb5_99127b65",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-15T17:00:31Z",
+      "side": 1,
+      "message": "Please use the variant with \u0027\u003d\u0027 from now on to have the name checked by clang-tidy.",
+      "parentUuid": "4fc8ae32_e18eb8c3",
+      "range": {
+        "startLine": 1672,
+        "startChar": 76,
+        "endLine": 1672,
+        "endChar": 77
+      },
+      "revId": "ee5017d3e0fb1e72b1266c91d61780da6da48462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
