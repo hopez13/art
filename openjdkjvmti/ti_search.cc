@@ -230,7 +230,7 @@ jvmtiError SearchUtil::AddToBootstrapClassLoaderSearch(jvmtiEnv* env ATTRIBUTE_U
   std::vector<std::unique_ptr<const art::DexFile>> dex_files;
   const art::ArtDexFileLoader dex_file_loader;
   if (!dex_file_loader.Open(
-        segment, segment, /* verify */ true, /* verify_checksum */ true, &error_msg, &dex_files)) {
+        segment, segment, /* verify= */ true, /* verify_checksum= */ true, &error_msg, &dex_files)) {
     LOG(WARNING) << "Could not open " << segment << " for boot classpath extension: " << error_msg;
     return ERR(ILLEGAL_ARGUMENT);
   }
