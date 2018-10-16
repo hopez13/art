@@ -210,6 +210,24 @@
       "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31fc6f25_9a9a94d1",
+        "filename": "runtime/interpreter/mterp/x86_64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T12:20:12Z",
+      "side": 1,
+      "message": "What about %rax? Or any other register used for temps in mterp.",
+      "parentUuid": "9e47953e_64e4ff97",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
