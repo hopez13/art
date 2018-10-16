@@ -138,6 +138,24 @@
       "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad8bedd7_431c1cee",
+        "filename": "runtime/interpreter/mterp/x86_64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T12:02:56Z",
+      "side": 1,
+      "message": "You could pop the return address, process args and push the return address before JMP.",
+      "parentUuid": "0b122b75_9f78dd6b",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
