@@ -59,5 +59,4 @@ python_binary_host {
         "make_header.py",
         "make_header_test.py",
     ],
-    test_suites: ["general-tests"],
 }
