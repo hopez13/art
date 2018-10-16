@@ -1431,6 +1431,7 @@ void ThreadList::Register(Thread* self) {
     }
     self->SetWeakRefAccessEnabled(cc->IsWeakRefAccessEnabled());
   }
+  self->RegisteredInTheadList();
 }
 
 void ThreadList::Unregister(Thread* self) {
