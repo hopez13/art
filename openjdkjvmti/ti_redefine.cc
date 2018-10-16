@@ -1288,7 +1288,7 @@ bool Redefiner::FinishAllRemainingAllocations(RedefinitionDataHolder& holder) {
 }
 
 void Redefiner::ClassRedefinition::ReleaseDexFile() {
-  dex_file_.release();
+  dex_file_.release();  // NOLINT
 }
 
 void Redefiner::ReleaseAllDexFiles() {
