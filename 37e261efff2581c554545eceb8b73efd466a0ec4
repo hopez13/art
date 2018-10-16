@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2654e02d_3d028631",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-16T11:41:33Z",
+      "side": 1,
+      "message": "Yeah, I did that first, but decided to go for inlining to be consistent with x86",
+      "parentUuid": "4170381b_af4b2043",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1e61ae0_2e53a684",
         "filename": "runtime/interpreter/mterp/mterp.h",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "e4caa1a9_798cfe54",
+        "filename": "runtime/interpreter/mterp/x86/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-16T11:41:33Z",
+      "side": 1,
+      "message": "...but this is inlined...",
+      "parentUuid": "27ce7d74_f64a9eef",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af61580b_44be693b",
         "filename": "runtime/interpreter/mterp/x86_64/main.S",
         "patchSetId": 1
@@ -81,6 +117,24 @@
       "writtenOn": "2018-10-16T10:39:01Z",
       "side": 1,
       "message": "Unlike ARM/ARM64, if you use a helper that makes a tail call to MterpCheckBefore, you shall have to adjust all the SP offsets (including those in rSelf and REFRESH_IBASE).",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b122b75_9f78dd6b",
+        "filename": "runtime/interpreter/mterp/x86_64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-16T11:41:33Z",
+      "side": 1,
+      "message": "Yeah... that is the main reason I went with inline as opposed to helper call... Dealing with the SP here was messy.",
+      "parentUuid": "af61580b_44be693b",
       "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
