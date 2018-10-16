@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47b6c51c_52f1588d",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-16T16:45:09Z",
+      "side": 1,
+      "message": "Shared lib dependencies should work transitively. Does it still break if you remove this?",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 21
+      },
+      "revId": "46d59adf04d5005d4c33e18a88539698d7a5eed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
