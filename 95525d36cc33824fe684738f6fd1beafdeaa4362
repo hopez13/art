@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bc41a63_e8a6d883",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T17:05:22Z",
+      "side": 1,
+      "message": "X86-specific instruction classes should start with \"HX86\". (Though the HAndNot could be moved to nodes.h as the ARM architecture contains the BIC instruction. However, in that case I would want the simplification to be always applied and the x86 codegen to handle it even without the AVX2 support.)",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 13
+      },
+      "revId": "95525d36cc33824fe684738f6fd1beafdeaa4362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1255cf7e_b6e75e32",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T17:05:22Z",
+      "side": 1,
+      "message": "We still do not have the support for instruction-set-features-dependent checker tests, so this test is broken on CPUs without AVX2 support.",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 26
+      },
+      "revId": "95525d36cc33824fe684738f6fd1beafdeaa4362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
