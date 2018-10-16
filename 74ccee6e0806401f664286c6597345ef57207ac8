@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "218133d5_25e74aaf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T11:48:01Z",
+      "side": 1,
+      "message": "Weak interns shall be kept alive by the app image, right?",
+      "range": {
+        "startLine": 1448,
+        "startChar": 40,
+        "endLine": 1448,
+        "endChar": 78
+      },
+      "revId": "74ccee6e0806401f664286c6597345ef57207ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70d7f31_481d9047",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T11:48:01Z",
+      "side": 1,
+      "message": "Did you mean root_visitor? (Otherwise the root_visitor in line 1235 is unused.)",
+      "range": {
+        "startLine": 1240,
+        "startChar": 42,
+        "endLine": 1240,
+        "endChar": 55
+      },
+      "revId": "74ccee6e0806401f664286c6597345ef57207ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fa4dcf_27ce65d0",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T11:48:01Z",
+      "side": 1,
+      "message": "Considering that the visitor is called outside any loop, what\u0027s the reason for using these templates at all? The InternTable::UnorderedSet is now public and can be used directly, so all this visiting can be done outside any InternTable member function template.\n\nOTOH, shouldn\u0027t we hold the intern_table_lock_ while visiting to make the operation \"atomic\"? What if something inserts a conflicting String between the visitor in AppImageLoadingHelper::AddImageInternTable() and the insertion below?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "74ccee6e0806401f664286c6597345ef57207ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ebd59c_aba8bc76",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T11:48:01Z",
+      "side": 1,
+      "message": "Can we remove this (and the forward declaration) after having made the members public?",
+      "revId": "74ccee6e0806401f664286c6597345ef57207ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
