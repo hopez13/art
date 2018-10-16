@@ -71,6 +71,7 @@
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/mterp.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "java_frame_root_info.h"
 #include "jni/java_vm_ext.h"
@@ -4018,6 +4019,7 @@ void Thread::SetAsyncException(ObjPtr<mirror::Throwable> new_exception) {
         << this << " count: " << GetSuspendCount();
   }
   tlsPtr_.async_exception = new_exception.Ptr();
+  Thread::MaybeSwitchInterpreter();
 }
 
 bool Thread::ObserveAsyncException() {
@@ -4030,6 +4032,7 @@ bool Thread::ObserveAsyncException() {
     }
     tlsPtr_.exception = tlsPtr_.async_exception;
     tlsPtr_.async_exception = nullptr;
+    Thread::MaybeSwitchInterpreter();
     return true;
   } else {
     return IsExceptionPending();
@@ -4067,6 +4070,15 @@ void Thread::ClearAllInterpreterCaches() {
   static struct ClearInterpreterCacheClosure : Closure {
     virtual void Run(Thread* thread) {
       thread->GetInterpreterCache()->Clear(thread);
+    }
+  } closure;
+  Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);
+}
+
+void Thread::MaybeSwitchInterpreter() {
+  static struct MaybeSwitchInterpreterClosure : Closure {
+    virtual void Run(Thread* thread) {
+      thread->tls32_.use_mterp = interpreter::CanUseMterp(thread);
     }
   } closure;
   Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);

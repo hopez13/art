@@ -537,6 +537,7 @@ static void PotentiallyAddListenerTo(Instrumentation::InstrumentationEvent event
     list.push_back(listener);
   }
   *has_listener = true;
+  Thread::MaybeSwitchInterpreter();
 }
 
 void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t events) {
@@ -615,10 +616,12 @@ static void PotentiallyRemoveListenerFrom(Instrumentation::InstrumentationEvent 
   for (InstrumentationListener* l : list) {
     if (l != nullptr) {
       *has_listener = true;
+      Thread::MaybeSwitchInterpreter();
       return;
     }
   }
   *has_listener = false;
+  Thread::MaybeSwitchInterpreter();
 }
 
 void Instrumentation::RemoveListener(InstrumentationListener* listener, uint32_t events) {

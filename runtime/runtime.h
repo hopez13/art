@@ -658,9 +658,7 @@ class Runtime {
     return non_standard_exits_enabled_;
   }
 
-  void SetNonStandardExitsEnabled() {
-    non_standard_exits_enabled_ = true;
-  }
+  void SetNonStandardExitsEnabled();
 
   bool AreAsyncExceptionsThrown() const {
     return async_exceptions_thrown_;

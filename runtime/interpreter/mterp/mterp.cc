@@ -146,17 +146,18 @@ extern "C" ssize_t MterpDoPackedSwitch(const uint16_t* switchData, int32_t testV
   return entries[index];
 }
 
-extern "C" size_t MterpShouldSwitchInterpreters()
+bool CanUseMterp(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Runtime* const runtime = Runtime::Current();
   const instrumentation::Instrumentation* const instrumentation = runtime->GetInstrumentation();
-  return instrumentation->NonJitProfilingActive() ||
-      Dbg::IsDebuggerActive() ||
+  return
+      !instrumentation->NonJitProfilingActive() &&
+      !Dbg::IsDebuggerActive() &&
       // mterp only knows how to deal with the normal exits. It cannot handle any of the
       // non-standard force-returns.
       // TODO We really only need to switch interpreters if a PopFrame has actually happened. We
       // should check this here.
-      UNLIKELY(runtime->AreNonStandardExitsEnabled()) ||
+      !runtime->AreNonStandardExitsEnabled() &&
       // An async exception has been thrown. We need to go to the switch interpreter. MTerp doesn't
       // know how to deal with these so we could end up never dealing with it if we are in an
       // infinite loop. Since this can be called in a tight loop and getting the current thread
@@ -165,8 +166,7 @@ extern "C" size_t MterpShouldSwitchInterpreters()
       // the common case where no async exception has ever been sent. We don't need to worry about
       // synchronization on the runtime flag since it is only set in a checkpoint which will either
       // take place on the current thread or act as a synchronization point.
-      (UNLIKELY(runtime->AreAsyncExceptionsThrown()) &&
-       Thread::Current()->IsAsyncExceptionPending());
+      !self->IsAsyncExceptionPending();
 }
 
 
@@ -566,6 +566,7 @@ extern "C" size_t MterpHandleException(Thread* self, ShadowFrame* shadow_frame)
 
 extern "C" void MterpCheckBefore(Thread* self, ShadowFrame* shadow_frame, uint16_t* dex_pc_ptr)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(self->UseMterp());
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   uint16_t inst_data = inst->Fetch16(0);
   if (inst->Opcode(inst_data) == Instruction::MOVE_EXCEPTION) {
@@ -665,7 +666,7 @@ extern "C" void MterpLogSuspendFallback(Thread* self, ShadowFrame* shadow_frame,
 extern "C" size_t MterpSuspendCheck(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   self->AllowThreadSuspension();
-  return MterpShouldSwitchInterpreters();
+  return !self->UseMterp();
 }
 
 // Execute single field access instruction (get/put, static/instance).

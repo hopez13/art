@@ -87,6 +87,7 @@
 #include "instrumentation.h"
 #include "intern_table.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/mterp.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profile_saver.h"
@@ -2657,4 +2658,10 @@ void Runtime::DeoptimizeBootImage() {
     GetClassLinker()->VisitClasses(&visitor);
   }
 }
+
+void Runtime::SetNonStandardExitsEnabled() {
+  non_standard_exits_enabled_ = true;
+  Thread::MaybeSwitchInterpreter();
+}
+
 }  // namespace art
