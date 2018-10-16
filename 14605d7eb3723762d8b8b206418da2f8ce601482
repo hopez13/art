@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5187fb05_bf16b3be",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-16T16:55:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41e0f9fa_122525fb",
+      "range": {
+        "startLine": 2120,
+        "startChar": 60,
+        "endLine": 2120,
+        "endChar": 61
+      },
+      "revId": "14605d7eb3723762d8b8b206418da2f8ce601482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca7c940_a193a5ef",
         "filename": "runtime/intern_table-inl.h",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2018-10-16T11:55:20Z",
       "side": 1,
       "message": "Why?",
+      "revId": "14605d7eb3723762d8b8b206418da2f8ce601482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "574b8e3a_e12648d7",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-16T16:55:31Z",
+      "side": 1,
+      "message": "It\u0027s required for ToModifiedUtf8 below.",
+      "parentUuid": "1ca7c940_a193a5ef",
       "revId": "14605d7eb3723762d8b8b206418da2f8ce601482",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
