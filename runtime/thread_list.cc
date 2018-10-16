@@ -40,6 +40,7 @@
 #include "gc/heap.h"
 #include "gc/reference_processor.h"
 #include "gc_root.h"
+#include "interpreter/mterp/mterp.h"
 #include "jni/jni_internal.h"
 #include "lock_word.h"
 #include "monitor.h"
@@ -1431,6 +1432,7 @@ void ThreadList::Register(Thread* self) {
     }
     self->SetWeakRefAccessEnabled(cc->IsWeakRefAccessEnabled());
   }
+  self->tls32_.use_mterp = interpreter::CanUseMterp();
 }
 
 void ThreadList::Unregister(Thread* self) {
