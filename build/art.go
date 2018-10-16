@@ -330,6 +330,7 @@ func libartDefaultsFactory() android.Module {
 		if !envTrue(ctx, "ART_TARGET_LINUX") {
 			p.Target.Android.Shared_libs = []string{
 				"libmetricslogger",
+				"libstatssocket",
 			}
 		}
 		ctx.AppendProperties(p)
@@ -356,7 +357,8 @@ func libartStaticDefaultsFactory() android.Module {
 		// TODO: express this in .bp instead b/79671158
 		if !envTrue(ctx, "ART_TARGET_LINUX") {
 			p.Target.Android.Static_libs = []string{
-				"libmetricslogger_static",
+				"libmetricslogger",
+				"libstatssocket",
 			}
 		}
 		ctx.AppendProperties(p)
