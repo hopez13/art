@@ -268,7 +268,7 @@ void AdbConnectionState::StartDebuggerThreads() {
     runtime->EndThreadBirth();
     return;
   }
-  data.release();
+  data.release();  // NOLINT
 }
 
 static bool FlagsSet(int16_t data, int16_t flags) {
