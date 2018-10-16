@@ -71,6 +71,7 @@
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/mterp.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "java_frame_root_info.h"
 #include "jni/java_vm_ext.h"
@@ -2139,6 +2140,7 @@ Thread::Thread(bool daemon)
   tlsPtr_.flip_function = nullptr;
   tlsPtr_.thread_local_mark_stack = nullptr;
   tls32_.is_transitioning_to_runnable = false;
+  tls32_.use_mterp = Runtime::Current()->UseMterp();
 }
 
 bool Thread::CanLoadClasses() const {

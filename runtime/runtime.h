@@ -660,6 +660,7 @@ class Runtime {
 
   void SetNonStandardExitsEnabled() {
     non_standard_exits_enabled_ = true;
+    DontUseMterp();
   }
 
   bool AreAsyncExceptionsThrown() const {
@@ -668,7 +669,14 @@ class Runtime {
 
   void SetAsyncExceptionsThrown() {
     async_exceptions_thrown_ = true;
+    DontUseMterp();
   }
+
+  bool UseMterp() const {
+    return use_mterp;
+  }
+
+  void DontUseMterp();
 
   // Returns the build fingerprint, if set. Otherwise an empty string is returned.
   std::string GetFingerprint() {
@@ -1000,6 +1008,8 @@ class Runtime {
 
   // Whether Java code needs to be debuggable.
   bool is_java_debuggable_;
+
+  bool use_mterp = true;
 
   // The maximum number of failed boots we allow before pruning the dalvik cache
   // and trying again. This option is only inspected when we're running as a

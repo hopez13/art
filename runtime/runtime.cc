@@ -87,6 +87,7 @@
 #include "instrumentation.h"
 #include "intern_table.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/mterp.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/profile_saver.h"
@@ -2657,4 +2658,11 @@ void Runtime::DeoptimizeBootImage() {
     GetClassLinker()->VisitClasses(&visitor);
   }
 }
+
+void Runtime::DontUseMterp() {
+  use_mterp = false;
+  MutexLock tll_mu(Thread::Current(), *Locks::thread_list_lock_);
+  GetThreadList()->ForEach([](Thread* thread, void*) { thread->DontUseMterp(); }, nullptr);
+}
+
 }  // namespace art

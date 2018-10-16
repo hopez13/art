@@ -689,6 +689,7 @@ void Dbg::GoActive() {
   }
   instrumentation_events_ = 0;
   gDebuggerActive = true;
+  Runtime::Current()->DontUseMterp();
   Runtime::Current()->GetRuntimeCallbacks()->AddMethodInspectionCallback(&gDebugActiveCallback);
   LOG(INFO) << "Debugger is active";
 }

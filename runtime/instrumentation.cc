@@ -537,6 +537,7 @@ static void PotentiallyAddListenerTo(Instrumentation::InstrumentationEvent event
     list.push_back(listener);
   }
   *has_listener = true;
+  Runtime::Current()->DontUseMterp();
 }
 
 void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t events) {
