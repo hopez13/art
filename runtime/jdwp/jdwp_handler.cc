@@ -1350,7 +1350,7 @@ static JdwpError ER_Set(JdwpState* state, Request* request, ExpandBuf* pReply)
     LOG(WARNING) << "WARNING: event request rejected";
     return err;
   }
-  pEvent.release();
+  pEvent.release();  // NOLINT
   return ERR_NONE;
 }
 
