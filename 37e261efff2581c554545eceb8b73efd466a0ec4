@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4170381b_af4b2043",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T10:39:01Z",
+      "side": 1,
+      "message": "You could just BL to a helper where we fill the arguments and tail-call MterpCheckBefore. (And the helper should have the #if !defined(NDEBUG), so I\u0027d also like it explicitly in each dchecks_before() rather than gen_setup.py.)",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1e61ae0_2e53a684",
         "filename": "runtime/interpreter/mterp/mterp.h",
         "patchSetId": 1
@@ -13,6 +30,57 @@
       "writtenOn": "2018-10-16T08:20:04Z",
       "side": 1,
       "message": "What\u0027s in this CL that requires this?",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b59272d8_62950ce0",
+        "filename": "runtime/interpreter/mterp/mterp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T10:39:01Z",
+      "side": 1,
+      "message": "Did you check the size of the handlers is sufficient also with heap poisoning?",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27ce7d74_f64a9eef",
+        "filename": "runtime/interpreter/mterp/x86/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T10:39:01Z",
+      "side": 1,
+      "message": "The REFRESH_IBASE would need to remain outside the helper here because %edx is caller-save.",
+      "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af61580b_44be693b",
+        "filename": "runtime/interpreter/mterp/x86_64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-16T10:39:01Z",
+      "side": 1,
+      "message": "Unlike ARM/ARM64, if you use a helper that makes a tail call to MterpCheckBefore, you shall have to adjust all the SP offsets (including those in rSelf and REFRESH_IBASE).",
       "revId": "37e261efff2581c554545eceb8b73efd466a0ec4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
