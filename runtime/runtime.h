@@ -658,17 +658,13 @@ class Runtime {
     return non_standard_exits_enabled_;
   }
 
-  void SetNonStandardExitsEnabled() {
-    non_standard_exits_enabled_ = true;
-  }
+  void SetNonStandardExitsEnabled();
 
   bool AreAsyncExceptionsThrown() const {
     return async_exceptions_thrown_;
   }
 
-  void SetAsyncExceptionsThrown() {
-    async_exceptions_thrown_ = true;
-  }
+  void SetAsyncExceptionsThrown();
 
   // Returns the build fingerprint, if set. Otherwise an empty string is returned.
   std::string GetFingerprint() {

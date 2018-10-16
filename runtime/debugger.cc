@@ -689,6 +689,7 @@ void Dbg::GoActive() {
   }
   instrumentation_events_ = 0;
   gDebuggerActive = true;
+  Thread::MaybeSwitchInterpreter();
   Runtime::Current()->GetRuntimeCallbacks()->AddMethodInspectionCallback(&gDebugActiveCallback);
   LOG(INFO) << "Debugger is active";
 }
@@ -727,6 +728,7 @@ void Dbg::Disconnected() {
         runtime->GetInstrumentation()->DisableDeoptimization(kDbgInstrumentationKey);
       }
       gDebuggerActive = false;
+      Thread::MaybeSwitchInterpreter();
       Runtime::Current()->GetRuntimeCallbacks()->RemoveMethodInspectionCallback(
           &gDebugActiveCallback);
     }

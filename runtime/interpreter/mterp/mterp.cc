@@ -142,27 +142,19 @@ extern "C" ssize_t MterpDoPackedSwitch(const uint16_t* switchData, int32_t testV
   return entries[index];
 }
 
-extern "C" size_t MterpShouldSwitchInterpreters()
+bool CanUseMterp()
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Runtime* const runtime = Runtime::Current();
-  const instrumentation::Instrumentation* const instrumentation = runtime->GetInstrumentation();
-  return instrumentation->NonJitProfilingActive() ||
-      Dbg::IsDebuggerActive() ||
+  return
+      !Dbg::IsDebuggerActive() &&
+      !runtime->GetInstrumentation()->NonJitProfilingActive() &&
       // mterp only knows how to deal with the normal exits. It cannot handle any of the
       // non-standard force-returns.
-      // TODO We really only need to switch interpreters if a PopFrame has actually happened. We
-      // should check this here.
-      UNLIKELY(runtime->AreNonStandardExitsEnabled()) ||
+      !runtime->AreNonStandardExitsEnabled() &&
       // An async exception has been thrown. We need to go to the switch interpreter. MTerp doesn't
       // know how to deal with these so we could end up never dealing with it if we are in an
-      // infinite loop. Since this can be called in a tight loop and getting the current thread
-      // requires a TLS read we instead first check a short-circuit runtime flag that will only be
-      // set if something tries to set an async exception. This will make this function faster in
-      // the common case where no async exception has ever been sent. We don't need to worry about
-      // synchronization on the runtime flag since it is only set in a checkpoint which will either
-      // take place on the current thread or act as a synchronization point.
-      (UNLIKELY(runtime->AreAsyncExceptionsThrown()) &&
-       Thread::Current()->IsAsyncExceptionPending());
+      // infinite loop.
+      !runtime->AreAsyncExceptionsThrown();
 }
 
 
@@ -661,7 +653,7 @@ extern "C" void MterpLogSuspendFallback(Thread* self, ShadowFrame* shadow_frame,
 extern "C" size_t MterpSuspendCheck(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   self->AllowThreadSuspension();
-  return MterpShouldSwitchInterpreters();
+  return !self->UseMterp();
 }
 
 // Execute single field access instruction (get/put, static/instance).

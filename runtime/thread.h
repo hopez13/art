@@ -672,6 +672,13 @@ class Thread {
   }
 
   template<PointerSize pointer_size>
+  static constexpr ThreadOffset<pointer_size> UseMterpOffset() {
+    return ThreadOffset<pointer_size>(
+        OFFSETOF_MEMBER(Thread, tls32_) +
+        OFFSETOF_MEMBER(tls_32bit_sized_values, use_mterp));
+  }
+
+  template<PointerSize pointer_size>
   static constexpr ThreadOffset<pointer_size> IsGcMarkingOffset() {
     return ThreadOffset<pointer_size>(
         OFFSETOF_MEMBER(Thread, tls32_) +
@@ -1113,6 +1120,10 @@ class Thread {
     tls32_.state_and_flags.as_atomic_int.fetch_and(-1 ^ flag, std::memory_order_seq_cst);
   }
 
+  bool UseMterp() const {
+    return tls32_.use_mterp;
+  }
+
   void ResetQuickAllocEntryPointsForThread(bool is_marking);
 
   // Returns the remaining space in the TLAB.
@@ -1277,6 +1288,12 @@ class Thread {
   static constexpr int InterpreterCacheSizeLog2() {
     return WhichPowerOf2(InterpreterCache::kSize);
   }
+
+  // Re-check which interpreter should be used on all threads.
+  //
+  // This must be called whever there is significant event that
+  // forces us to use different interpreter (e.g. debugger is attached).
+  static void MaybeSwitchInterpreter();
 
  private:
   explicit Thread(bool daemon);
@@ -1547,6 +1564,10 @@ class Thread {
     // This should have GUARDED_BY(Locks::user_code_suspension_lock_) but auto analysis cannot be
     // told that AssertHeld should be good enough.
     int user_code_suspend_count GUARDED_BY(Locks::thread_suspend_count_lock_);
+
+    // True if everything is in the ideal state for fast interpretation.
+    // False if we need to switch to the C++ interpreter to handle special cases.
+    bool32_t use_mterp;
   } tls32_;
 
   struct PACKED(8) tls_64bit_sized_values {

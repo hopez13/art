@@ -72,6 +72,7 @@
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/mterp.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "java_frame_root_info.h"
 #include "jni/java_vm_ext.h"
@@ -2141,6 +2142,7 @@ Thread::Thread(bool daemon)
   tlsPtr_.flip_function = nullptr;
   tlsPtr_.thread_local_mark_stack = nullptr;
   tls32_.is_transitioning_to_runnable = false;
+  tls32_.use_mterp = interpreter::CanUseMterp();
 }
 
 bool Thread::CanLoadClasses() const {
@@ -4029,6 +4031,7 @@ void Thread::SetAsyncException(ObjPtr<mirror::Throwable> new_exception) {
         << this << " count: " << GetSuspendCount();
   }
   tlsPtr_.async_exception = new_exception.Ptr();
+  Thread::MaybeSwitchInterpreter();
 }
 
 bool Thread::ObserveAsyncException() {
@@ -4041,6 +4044,7 @@ bool Thread::ObserveAsyncException() {
     }
     tlsPtr_.exception = tlsPtr_.async_exception;
     tlsPtr_.async_exception = nullptr;
+    Thread::MaybeSwitchInterpreter();
     return true;
   } else {
     return IsExceptionPending();
@@ -4081,6 +4085,13 @@ void Thread::ClearAllInterpreterCaches() {
     }
   } closure;
   Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);
+}
+
+void Thread::MaybeSwitchInterpreter() {
+  MutexLock tll_mu(Thread::Current(), *Locks::thread_list_lock_);
+  Runtime::Current()->GetThreadList()->ForEach([](Thread* thread, void*) {
+      thread->tls32_.use_mterp = interpreter::CanUseMterp();
+  }, nullptr);
 }
 
 }  // namespace art
