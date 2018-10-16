@@ -1625,7 +1625,7 @@ bool DexFileVerifier::CheckIntraHiddenapiClassData() {
                           ptr_, data_end, field.GetIndex());
         failure = true;
         return;
-      } else if (!HiddenApiAccessFlags::AreValidFlags(decoded_flags)) {
+      } else if (!hiddenapi::AreValidFlags(decoded_flags)) {
         ErrorStringPrintf("Hiddenapi class data flags invalid (%u) for field %i",
                           decoded_flags, field.GetIndex());
         failure = true;
@@ -1642,7 +1642,7 @@ bool DexFileVerifier::CheckIntraHiddenapiClassData() {
                           ptr_, data_end, method.GetIndex());
         failure = true;
         return;
-      } else if (!HiddenApiAccessFlags::AreValidFlags(decoded_flags)) {
+      } else if (!hiddenapi::AreValidFlags(decoded_flags)) {
         ErrorStringPrintf("Hiddenapi class data flags invalid (%u) for 'method' %i",
                           decoded_flags, method.GetIndex());
         failure = true;
