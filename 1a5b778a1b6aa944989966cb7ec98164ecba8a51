@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd38fd1f_c1e1a134",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-10-16T16:57:22Z",
+      "side": 1,
+      "message": "It\u0027s HOST_PREFER_32_BIT",
+      "range": {
+        "startLine": 107,
+        "startChar": 13,
+        "endLine": 107,
+        "endChar": 30
+      },
+      "revId": "1a5b778a1b6aa944989966cb7ec98164ecba8a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23821bc3_c3d001bf",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-10-16T16:57:22Z",
+      "side": 1,
+      "message": "you need to set this for $(AHAT_TEST_DUMP_BASE_HPROF) too",
+      "range": {
+        "startLine": 140,
+        "startChar": 33,
+        "endLine": 140,
+        "endChar": 63
+      },
+      "revId": "1a5b778a1b6aa944989966cb7ec98164ecba8a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
