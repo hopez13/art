@@ -185,6 +185,7 @@ Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
       options->GetCodeCacheMaxCapacity(),
       jit->generate_debug_info_,
       code_cache_only_for_profile_data,
+      options->RWXMemoryAllowed(),
       error_msg));
   if (jit->GetCodeCache() == nullptr) {
     return nullptr;
@@ -194,9 +195,6 @@ Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
       << ", max_capacity=" << PrettySize(options->GetCodeCacheMaxCapacity())
       << ", compile_threshold=" << options->GetCompileThreshold()
       << ", profile_saver_options=" << options->GetProfileSaverOptions();
-
-
-  jit->CreateThreadPool();
 
   // Notify native debugger about the classes already loaded before the creation of the jit.
   jit->DumpTypeInfoForLoadedTypes(Runtime::Current()->GetClassLinker());

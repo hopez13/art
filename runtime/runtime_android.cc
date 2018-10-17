@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-#include "runtime.h"
-
 #include <signal.h>
-
 #include <cstring>
+#include <selinux/android.h>
 
+#include "runtime.h"
 #include "runtime_common.h"
 
 namespace art {
@@ -45,6 +44,15 @@ void Runtime::InitPlatformSignalHandlers() {
     InitPlatformSignalHandlersCommon(HandleUnexpectedSignalAndroid,
                                      &old_action,
                                      /* handle_timeout_signal */ false);
+  }
+}
+
+void Runtime::InitSystemServerSecurityContext() {
+  // TODO(oth): avoid hard coding label in ART (b/117874058).
+  static const char* kSystemServerLabel = "u:r:system_server:s0";
+  // selinux_android_setcon requires that the process is still single threaded.
+  if (selinux_android_setcon(kSystemServerLabel) != 0) {
+    PLOG(ERROR) << "setcon('" << kSystemServerLabel << "')";
   }
 }
 
