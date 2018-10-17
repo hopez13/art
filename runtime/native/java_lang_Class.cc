@@ -56,7 +56,7 @@ namespace art {
 
 // Returns true if the first caller outside of the Class class or java.lang.invoke package
 // is in a platform DEX file.
-static bool IsCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+static bool IsReflectionCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
   // Walk the stack and find the first frame not from java.lang.Class and not from java.lang.invoke.
   // This is very expensive. Save this till the last.
   struct FirstExternalCallerVisitor : public StackVisitor {
@@ -102,30 +102,26 @@ static bool IsCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) 
 
   FirstExternalCallerVisitor visitor(self);
   visitor.WalkStack();
-  return visitor.caller != nullptr &&
-         hiddenapi::IsCallerTrusted(visitor.caller->GetDeclaringClass());
+  ObjPtr<mirror::Class> caller = (visitor.caller == nullptr)
+      ? nullptr : visitor.caller->GetDeclaringClass();
+  return hiddenapi::IsCallingClassTrusted(caller, /* trust_if_null= */ true);
 }
 
-// Returns true if the first non-ClassClass caller up the stack is not allowed to
-// access hidden APIs. This can be *very* expensive. Never call this in a loop.
-ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
+ALWAYS_INLINE static bool ShouldEnforceHiddenapiChecks(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  hiddenapi::EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
-  return policy != hiddenapi::EnforcementPolicy::kNoChecks && !IsCallerTrusted(self);
+  return hiddenapi::AreChecksEnforcedForCaller(
+      [&]() REQUIRES_SHARED(Locks::mutator_lock_) { return IsReflectionCallerTrusted(self); });
 }
 
 // Returns true if the first non-ClassClass caller up the stack should not be
 // allowed access to `member`.
 template<typename T>
-ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
+ALWAYS_INLINE static bool ShouldDenyAccessToMember(T* member, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  hiddenapi::Action action = hiddenapi::GetMemberAction(
-      member, self, IsCallerTrusted, hiddenapi::kReflection);
-  if (action != hiddenapi::kAllow) {
-    hiddenapi::NotifyHiddenApiListener(member);
-  }
-
-  return action == hiddenapi::kDeny;
+  return hiddenapi::ShouldDenyAccessToMember(
+      member,
+      [&]() REQUIRES_SHARED(Locks::mutator_lock_) { return IsReflectionCallerTrusted(self); },
+      hiddenapi::AccessMethod::kReflection);
 }
 
 // Returns true if a class member should be discoverable with reflection given
@@ -141,11 +137,8 @@ ALWAYS_INLINE static bool IsDiscoverable(bool public_only,
     return false;
   }
 
-  return hiddenapi::GetMemberAction(member,
-                                    nullptr,
-                                    [enforce_hidden_api] (Thread*) { return !enforce_hidden_api; },
-                                    hiddenapi::kNone)
-      != hiddenapi::kDeny;
+  return !hiddenapi::ShouldDenyAccessToMember(
+      member, [&]() { return !enforce_hidden_api; }, hiddenapi::AccessMethod::kNone);
 }
 
 ALWAYS_INLINE static inline ObjPtr<mirror::Class> DecodeClass(
@@ -266,7 +259,7 @@ static ObjPtr<mirror::ObjectArray<mirror::Field>> GetDeclaredFields(
   IterationRange<StrideIterator<ArtField>> ifields = klass->GetIFields();
   IterationRange<StrideIterator<ArtField>> sfields = klass->GetSFields();
   size_t array_size = klass->NumInstanceFields() + klass->NumStaticFields();
-  bool enforce_hidden_api = ShouldEnforceHiddenApi(self);
+  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(self);
   // Lets go subtract all the non discoverable fields.
   for (ArtField& field : ifields) {
     if (!IsDiscoverable(public_only, enforce_hidden_api, &field)) {
@@ -459,8 +452,7 @@ static jobject Class_getPublicFieldRecursive(JNIEnv* env, jobject javaThis, jstr
   StackHandleScope<1> hs(soa.Self());
   Handle<mirror::Field> field = hs.NewHandle(GetPublicFieldRecursive(
       soa.Self(), DecodeClass(soa, javaThis), name_string));
-  if (field.Get() == nullptr ||
-      ShouldBlockAccessToMember(field->GetArtField(), soa.Self())) {
+  if (field.Get() == nullptr || ShouldDenyAccessToMember(field->GetArtField(), soa.Self())) {
     return nullptr;
   }
   return soa.AddLocalReference<jobject>(field.Get());
@@ -477,7 +469,7 @@ static jobject Class_getDeclaredField(JNIEnv* env, jobject javaThis, jstring nam
   Handle<mirror::Class> h_klass = hs.NewHandle(DecodeClass(soa, javaThis));
   Handle<mirror::Field> result =
       hs.NewHandle(GetDeclaredField(soa.Self(), h_klass.Get(), h_string.Get()));
-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtField(), soa.Self())) {
+  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtField(), soa.Self())) {
     std::string name_str = h_string->ToModifiedUtf8();
     if (name_str == "value" && h_klass->IsStringClass()) {
       // We log the error for this specific case, as the user might just swallow the exception.
@@ -509,7 +501,7 @@ static jobject Class_getDeclaredConstructorInternal(
       soa.Self(),
       DecodeClass(soa, javaThis),
       soa.Decode<mirror::ObjectArray<mirror::Class>>(args)));
-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtMethod(), soa.Self())) {
+  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtMethod(), soa.Self())) {
     return nullptr;
   }
   return soa.AddLocalReference<jobject>(result.Get());
@@ -529,7 +521,7 @@ static jobjectArray Class_getDeclaredConstructorsInternal(
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<2> hs(soa.Self());
   bool public_only = (publicOnly != JNI_FALSE);
-  bool enforce_hidden_api = ShouldEnforceHiddenApi(soa.Self());
+  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(soa.Self());
   Handle<mirror::Class> h_klass = hs.NewHandle(DecodeClass(soa, javaThis));
   size_t constructor_count = 0;
   // Two pass approach for speed.
@@ -571,7 +563,7 @@ static jobject Class_getDeclaredMethodInternal(JNIEnv* env, jobject javaThis,
           DecodeClass(soa, javaThis),
           soa.Decode<mirror::String>(name),
           soa.Decode<mirror::ObjectArray<mirror::Class>>(args)));
-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtMethod(), soa.Self())) {
+  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtMethod(), soa.Self())) {
     return nullptr;
   }
   return soa.AddLocalReference<jobject>(result.Get());
@@ -582,7 +574,7 @@ static jobjectArray Class_getDeclaredMethodsUnchecked(JNIEnv* env, jobject javaT
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<2> hs(soa.Self());
 
-  bool enforce_hidden_api = ShouldEnforceHiddenApi(soa.Self());
+  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(soa.Self());
   bool public_only = (publicOnly != JNI_FALSE);
 
   Handle<mirror::Class> klass = hs.NewHandle(DecodeClass(soa, javaThis));
@@ -819,7 +811,7 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
       soa.Self(),
       ScopedNullHandle<mirror::ObjectArray<mirror::Class>>(),
       kRuntimePointerSize);
-  if (UNLIKELY(constructor == nullptr) || ShouldBlockAccessToMember(constructor, soa.Self())) {
+  if (ShouldDenyAccessToMember(constructor, soa.Self())) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/InstantiationException;",
                                    "%s has no zero argument constructor",
                                    klass->PrettyClass().c_str());
