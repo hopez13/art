@@ -22,6 +22,30 @@
       "revId": "2547af34e1e56d961f9e834c84fb73d3e4c900a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dddfcb4_11ca25bc",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-17T01:16:57Z",
+      "side": 1,
+      "message": "Yes, and even if it wasn\u0027t, the code is safe since it doesn\u0027t store the from-space pointer anywhere.",
+      "parentUuid": "e77b90af_3d69e645",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 36
+      },
+      "revId": "2547af34e1e56d961f9e834c84fb73d3e4c900a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
