@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "536045f8_72a58f17",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-17T10:36:03Z",
+      "side": 1,
+      "message": "This is horrible. I\u0027m tempted to rewrite the entire function from scratch.\n(No action to take in this CL.)",
+      "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdafcad8_79ff1e64",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-17T10:36:03Z",
+      "side": 1,
+      "message": "// TODO: RegisterEvent() should take std::unique_ptr\u003c\u003e.",
+      "range": {
+        "startLine": 1347,
+        "startChar": 25,
+        "endLine": 1347,
+        "endChar": 52
+      },
+      "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
