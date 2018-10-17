@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "112b045e_e95027ac",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-17T12:12:07Z",
+      "side": 1,
+      "message": "Well, I added the check to all the relevant state changes, including disabling.  So it possible to go back to mterp if debugger is detached for example.\n\nShould I make it one-way?  Once we switch to C++ we never go back?",
+      "parentUuid": "2d535979_14b3fb3a",
+      "range": {
+        "startLine": 540,
+        "startChar": 10,
+        "endLine": 540,
+        "endChar": 32
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0664f5d5_9d9a601f",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Right, we could create artificial exceptions (like we do for full frame deopt) to only do one check after an invoke. Is that in the plan?\n\nThere are performance concerns if we\u0027re stuck with the switch interpreter in debuggable. We\u0027re already lowering down the performance by having the compiler compile in debuggable mode, so if we can avoid taking another hit, that would be good.",
       "parentUuid": "a7ea240f_ba3096f8",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a255751d_8c9d1f75",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-17T12:12:07Z",
+      "side": 1,
+      "message": "Yes, something like that.  I am thinking \"invoke returns bool\".  If True, all is good and ideal.  If False, something unusual is going on, so check for exceptions, interpreter switch, anything else...\n\nThe switch interpreter is unavoidable in debuggable, no?  Or can we run mterp for methods without breakpoints for example?\n\nHaving said that, I would like to see how much slower switch intepreter is at some point, and if it can be easily optimized.",
+      "parentUuid": "d20245a7_3d7a088a",
       "range": {
         "startLine": 153,
         "startChar": 0,
