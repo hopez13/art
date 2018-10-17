@@ -52,8 +52,9 @@ inline void InternTable::Table::AddInternStrings(UnorderedSet&& intern_strings) 
   static constexpr bool kCheckDuplicates = kIsDebugBuild;
   if (kCheckDuplicates) {
     for (GcRoot<mirror::String>& string : intern_strings) {
-      CHECK(Find(string.Read()) == nullptr)
-          << "Already found " << string.Read()->ToModifiedUtf8() << " in the intern table";
+      CHECK(Find(string.Read<kWithoutReadBarrier>()) == nullptr)
+          << "Already found " << string.Read<kWithoutReadBarrier>()->ToModifiedUtf8()
+          << " in the intern table";
     }
   }
   // Insert at the front since we add new interns into the back.
