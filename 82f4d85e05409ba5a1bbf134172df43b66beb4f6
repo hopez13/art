@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2d535979_14b3fb3a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T12:03:27Z",
+      "side": 1,
+      "message": "Yeah, I understand the state may be that it\u0027s already in the slow interpreter. But when reading \"MaybeSwitch\" I don\u0027t read \"Please ensure we are running the slow interpreter\". Here it is the case that we want to force the interpreter.",
+      "parentUuid": "2ac85a06_4c72a245",
+      "range": {
+        "startLine": 540,
+        "startChar": 10,
+        "endLine": 540,
+        "endChar": 32
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0664f5d5_9d9a601f",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I think the check close to negligible, and I would like to avoid having two versions of mterp if I can help it.\n\nMore importantly, Vladimir pointed out to me that we need *some* check either way to handle exceptions.  So at the very minimum, we need one conditional branch after the invoke.  This check can be likely folded into it.\n\nAlternative line of thinking would be to just never enter mterp in debuggable apk... Why enter it if we are likely to just exit it as soon as possible.",
       "parentUuid": "0664f5d5_9d9a601f",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d20245a7_3d7a088a",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T12:03:27Z",
+      "side": 1,
+      "message": "Right, we could create artificial exceptions (like we do for full frame deopt) to only do one check after an invoke. Is that in the plan?\n\nThere are performance concerns if we\u0027re stuck with the switch interpreter in debuggable. We\u0027re already lowering down the performance by having the compiler compile in debuggable mode, so if we can avoid taking another hit, that would be good.",
+      "parentUuid": "a7ea240f_ba3096f8",
       "range": {
         "startLine": 153,
         "startChar": 0,
