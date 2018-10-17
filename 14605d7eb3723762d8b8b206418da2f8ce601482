@@ -81,6 +81,24 @@
       "revId": "14605d7eb3723762d8b8b206418da2f8ce601482",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dad90cb_5ee87fbb",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-17T09:12:43Z",
+      "side": 1,
+      "message": "String::ToModifiedUtf8() is in the string.cc, so \"#include mirror/string.h\" would be enough.",
+      "parentUuid": "574b8e3a_e12648d7",
+      "revId": "14605d7eb3723762d8b8b206418da2f8ce601482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
