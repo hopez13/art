@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18cebfae_39c5d2a1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T11:27:46Z",
+      "side": 1,
+      "message": "Isn\u0027t it a \"ForSure\" instead of a \"Maybe\"? nit: rename to EnsureSwitchInterpreter or something similar?",
+      "range": {
+        "startLine": 540,
+        "startChar": 10,
+        "endLine": 540,
+        "endChar": 32
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0664f5d5_9d9a601f",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T11:27:46Z",
+      "side": 1,
+      "message": "We\u0027ve taken the approach of doing best effort when non-debuggable, and being accurate when debuggable. That means that ideally, we could have an mterp version that doesn\u0027t check CanUseMterp in the thread (as we discussed yesterday).\n\nIs the TLS check negligible compared to having two mterp versions?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15bfe9d3_1d995cda",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T11:27:46Z",
+      "side": 1,
+      "message": "whenever there is an event that ...",
+      "range": {
+        "startLine": 1322,
+        "startChar": 25,
+        "endLine": 1322,
+        "endChar": 31
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
