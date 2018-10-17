@@ -186,6 +186,7 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                    size_t max_capacity,
                                    bool generate_debug_info,
                                    bool used_only_for_profile_data,
+                                   bool rwx_memory_allowed,
                                    std::string* error_msg) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   CHECK_GE(max_capacity, initial_capacity);
@@ -223,8 +224,15 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   // Bionic supports memfd_create, but the call may fail on older kernels.
   mem_fd = unique_fd(art::memfd_create("/jit-cache", /* flags */ 0));
   if (mem_fd.get() < 0) {
-    VLOG(jit) << "Failed to initialize dual view JIT. memfd_create() error: "
-              << strerror(errno);
+    std::ostringstream oss;
+    oss << "Failed to initialize dual view JIT. memfd_create() error: " << strerror(errno);
+    if (!rwx_memory_allowed) {
+      // Without using RWX page permissions, the JIT can not fallback to single mapping as it
+      // requires tranitioning the code pages to RWX for updates.
+      *error_msg = oss.str();
+      return nullptr;
+    }
+    VLOG(jit) << oss.str();
   }
 
   if (mem_fd.get() >= 0 && ftruncate(mem_fd, max_capacity) != 0) {
@@ -352,8 +360,14 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
                                        "jit-code-cache-rw",
                                        &error_str);
       if (!non_exec_pages.IsValid()) {
-        // Log and continue as single view JIT.
-        VLOG(jit) << "Failed to map non-executable view of JIT code cache";
+        static const char* kFailedNxView = "Failed to map non-executable view of JIT code cache";
+        if (rwx_memory_allowed) {
+          // Log and continue as single view JIT (requires RWX memory).
+          VLOG(jit) << kFailedNxView;
+        } else {
+          *error_msg = kFailedNxView;
+          return nullptr;
+        }
       }
     }
   } else {

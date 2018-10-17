@@ -279,6 +279,15 @@ static jlong ZygoteHooks_nativePreFork(JNIEnv* env, jclass) {
   return reinterpret_cast<jlong>(ThreadForEnv(env));
 }
 
+static void ZygoteHooks_nativePostForkSystemServer(JNIEnv* env ATTRIBUTE_UNUSED,
+                                                   jclass klass ATTRIBUTE_UNUSED) {
+  // This JIT code cache for system server is created whilst the runtime is still single threaded.
+  // System server has a window where it can create executable pages for this purpose, but this is
+  // turned off after this hook. Consequently, the only JIT mode supported is the dual-view JIT
+  // where one mapping is R->RW and the other is RX. Single view requires RX->RWX->RX.
+  Runtime::Current()->CreateJit(/* is_system_server */true);
+}
+
 static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
                                             jclass,
                                             jlong token,
@@ -416,6 +425,7 @@ static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
 
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),
+  NATIVE_METHOD(ZygoteHooks, nativePostForkSystemServer, "()V"),
   NATIVE_METHOD(ZygoteHooks, nativePostForkChild, "(JIZZLjava/lang/String;)V"),
   NATIVE_METHOD(ZygoteHooks, startZygoteNoThreadCreation, "()V"),
   NATIVE_METHOD(ZygoteHooks, stopZygoteNoThreadCreation, "()V"),
