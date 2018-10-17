@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "089a6395_7923665a",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-17T18:49:56Z",
+      "side": 1,
+      "message": "Well, sure, there\u0027s a TODO. :-)",
+      "parentUuid": "536045f8_72a58f17",
+      "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdafcad8_79ff1e64",
         "filename": "runtime/jdwp/jdwp_handler.cc",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "647b0d1b_a48ff09e",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-17T18:49:56Z",
+      "side": 1,
+      "message": "I\u0027ve added it, but note that this isn\u0027t an unusual flow. E.g., the pthread create stuff works the same: on error the callee doesn\u0027t take ownership. We\u0027ve been somewhat averse to passing a unique_ptr reference or pointer and modifying it in the callee.",
+      "parentUuid": "cdafcad8_79ff1e64",
+      "range": {
+        "startLine": 1347,
+        "startChar": 25,
+        "endLine": 1347,
+        "endChar": 52
+      },
+      "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
