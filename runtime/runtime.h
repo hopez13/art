@@ -615,7 +615,7 @@ class Runtime {
   }
 
   // Create the JIT and instrumentation and code cache.
-  void CreateJit();
+  void CreateJit(bool is_system_server = false);
 
   ArenaPool* GetArenaPool() {
     return arena_pool_.get();

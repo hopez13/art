@@ -100,6 +100,10 @@ class JitOptions {
     return use_jit_compilation_;
   }
 
+  bool RWXMemoryAllowed() const {
+    return rwx_memory_allowed_;
+  }
+
   void SetUseJitCompilation(bool b) {
     use_jit_compilation_ = b;
   }
@@ -121,6 +125,10 @@ class JitOptions {
     compile_threshold_ = 0;
   }
 
+  void SetRWXMemoryAllowed(bool rwx_allowed) {
+    rwx_memory_allowed_ = rwx_allowed;
+  }
+
  private:
   bool use_jit_compilation_;
   size_t code_cache_initial_capacity_;
@@ -132,6 +140,7 @@ class JitOptions {
   uint16_t invoke_transition_weight_;
   bool dump_info_on_shutdown_;
   int thread_pool_pthread_priority_;
+  bool rwx_memory_allowed_;
   ProfileSaverOptions profile_saver_options_;
 
   JitOptions()
@@ -144,7 +153,8 @@ class JitOptions {
         priority_thread_weight_(0),
         invoke_transition_weight_(0),
         dump_info_on_shutdown_(false),
-        thread_pool_pthread_priority_(kJitPoolThreadPthreadDefaultPriority) {}
+        thread_pool_pthread_priority_(kJitPoolThreadPthreadDefaultPriority),
+        rwx_memory_allowed_(true) {}
 
   DISALLOW_COPY_AND_ASSIGN(JitOptions);
 };
@@ -160,7 +170,9 @@ class Jit {
   static Jit* Create(JitOptions* options, std::string* error_msg);
   bool CompileMethod(ArtMethod* method, Thread* self, bool osr)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
   void CreateThreadPool();
+  void DeleteThreadPool();
 
   const JitCodeCache* GetCodeCache() const {
     return code_cache_.get();
@@ -170,7 +182,6 @@ class Jit {
     return code_cache_.get();
   }
 
-  void DeleteThreadPool();
   // Dump interesting info: #methods compiled, code vs data size, compile / verify cumulative
   // loggers.
   void DumpInfo(std::ostream& os) REQUIRES(!lock_);
@@ -300,6 +311,7 @@ class Jit {
 
   std::unique_ptr<jit::JitCodeCache> code_cache_;
   std::unique_ptr<ThreadPool> thread_pool_;
+  bool is_started_;
 
   // Performance monitoring.
   CumulativeLogger cumulative_timings_;
