@@ -1,0 +1,266 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7383db0_b34b5c8a",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "I was upset at this one first but it\u0027s really just C code craziness.\n\nstd::thread would do the right thing *except* it throws an exception when it fails and we don\u0027t have exceptions. and there\u0027s no API that doesn\u0027t have exceptions because nobody would ever be crazy enough to turn off exceptions?\n\nI think there should just be a comment here why the more obvious std::thread (which would allow moving the unique_ptr into the lambda) is not used.",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99322771_5c434534",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Is there some kind of AtomicMap::kInsertAlreadyExists or similar?",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21761298_00fba8fc",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Feels like AtomicMap::Insert should take a unique_ptr and then do release internally.\n\nEither the map owns the pointer itself transparently or it owns a unique_ptr\u003cT\u003e which would automatically do the cleanup?\n\n   \n  using AtomicMap \u003d AtomicDexRefMap\u003cMethodReference, std::unique_ptr\u003cconst VerifiedMethod\u003e\u003e;\n?",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f6825f_fc248154",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Well I guess this isn\u0027t terrible since this code is already admitting its a giant hack.\n\nBut why doesn\u0027t it just call exit(0) or std::terminate directly?",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29ca4b14_80057190",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Yes",
+      "range": {
+        "startLine": 1556,
+        "startChar": 48,
+        "endLine": 1556,
+        "endChar": 58
+      },
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f3e3c9_f5493966",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Yes",
+      "range": {
+        "startLine": 1572,
+        "startChar": 48,
+        "endLine": 1572,
+        "endChar": 58
+      },
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8bfc587_6f4e4ebf",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "shared_ptr ?",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b0fabae_1d25e44e",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "T* Redefiner::ClassRedefinition::ReleaseDexFile\n\nthe ownership is super unclear here and even the TODO mentions it:\n\nhttp://cs/android/art/openjdkjvmti/ti_redefine.cc?l\u003d1389\n\nCan we fix this properly?\n\n  // TODO Do the dex_file release at a more reasonable place. This works but it muddles who really\n  // owns the DexFile and when ownership is transferred.",
+      "range": {
+        "startLine": 1290,
+        "startChar": 35,
+        "endLine": 1290,
+        "endChar": 49
+      },
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d5780b_12b7c7ec",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Ok, pthreads. ugh.",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "996afba0_f9ab8a94",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "shared_ptr ?",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2cea379_f08e70bd",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "Yes",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfb2e31_645d1a76",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "https://en.cppreference.com/w/cpp/algorithm/find_first_of\n\n  std::find_first_of(..., [\u0026](const std::unique_ptr\u003cconst OatFile\u003e\u0026 cur) { \n      return cur.get() \u003d\u003d oat_file;\n  })",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ce4558c_fa299581",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "std::move image_space ?",
+      "range": {
+        "startLine": 560,
+        "startChar": 73,
+        "endLine": 560,
+        "endChar": 90
+      },
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adef662_61d3064a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T21:20:32Z",
+      "side": 1,
+      "message": "3 pthread_creates, would be nice to have a wrapper for this that accepts move-semantics.",
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
