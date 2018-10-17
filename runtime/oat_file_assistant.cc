@@ -575,7 +575,6 @@ OatFileAssistant::ImageInfo::GetRuntimeImageInfo(InstructionSet isa, std::string
   }
 
   info->oat_checksum = image_header->GetOatChecksum();
-  info->oat_data_begin = reinterpret_cast<uintptr_t>(image_header->GetOatDataBegin());
   info->patch_delta = image_header->GetPatchDelta();
   return info;
 }
@@ -779,22 +778,20 @@ const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
                                     vdex_fd_,
                                     oat_fd_,
                                     filename_.c_str(),
-                                    /* requested_base */ nullptr,
                                     executable,
-                                    /* low_4gb */ false,
+                                    /*low_4gb=*/ false,
                                     oat_file_assistant_->dex_location_.c_str(),
-                                    /* reservation */ nullptr,
+                                    /*reservation=*/ nullptr,
                                     &error_msg));
         }
       } else {
-        file_.reset(OatFile::Open(/* zip_fd */ -1,
+        file_.reset(OatFile::Open(/*zip_fd=*/ -1,
                                   filename_.c_str(),
                                   filename_.c_str(),
-                                  /* requested_base */ nullptr,
                                   executable,
-                                  /* low_4gb */ false,
+                                  /*low_4gb=*/ false,
                                   oat_file_assistant_->dex_location_.c_str(),
-                                  /* reservation */ nullptr,
+                                  /*reservation=*/ nullptr,
                                   &error_msg));
       }
       if (file_.get() == nullptr) {
