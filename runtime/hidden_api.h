@@ -32,11 +32,10 @@ namespace hiddenapi {
 // This must be kept in sync with ApplicationInfo.ApiEnforcementPolicy in
 // frameworks/base/core/java/android/content/pm/ApplicationInfo.java
 enum class EnforcementPolicy {
-  kNoChecks             = 0,
+  kDisabled             = 0,
   kJustWarn             = 1,  // keep checks enabled, but allow everything (enables logging)
-  kDarkGreyAndBlackList = 2,  // ban dark grey & blacklist
-  kBlacklistOnly        = 3,  // ban blacklist violations only
-  kMax = kBlacklistOnly,
+  kEnabled              = 2,  // ban dark grey & blacklist
+  kMax = kEnabled,
 };
 
 inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
@@ -45,55 +44,12 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   return static_cast<EnforcementPolicy>(api_policy_int);
 }
 
-enum Action {
-  kAllow,
-  kAllowButWarn,
-  kAllowButWarnAndToast,
-  kDeny
-};
-
-enum AccessMethod {
+enum class AccessMethod {
   kNone,  // internal test that does not correspond to an actual access by app
   kReflection,
   kJNI,
   kLinking,
 };
-
-// Do not change the values of items in this enum, as they are written to the
-// event log for offline analysis. Any changes will interfere with that analysis.
-enum AccessContextFlags {
-  // Accessed member is a field if this bit is set, else a method
-  kMemberIsField = 1 << 0,
-  // Indicates if access was denied to the member, instead of just printing a warning.
-  kAccessDenied  = 1 << 1,
-};
-
-inline Action GetActionFromAccessFlags(ApiList api_list) {
-  if (api_list == ApiList::kWhitelist) {
-    return kAllow;
-  }
-
-  EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
-  if (policy == EnforcementPolicy::kNoChecks) {
-    // Exit early. Nothing to enforce.
-    return kAllow;
-  }
-
-  // if policy is "just warn", always warn. We returned above for whitelist APIs.
-  if (policy == EnforcementPolicy::kJustWarn) {
-    return kAllowButWarn;
-  }
-  DCHECK(policy >= EnforcementPolicy::kDarkGreyAndBlackList);
-  // The logic below relies on equality of values in the enums EnforcementPolicy and
-  // ApiList, and their ordering. Assertions are in hidden_api.cc.
-  if (static_cast<int>(policy) > static_cast<int>(api_list)) {
-    return api_list == ApiList::kDarkGreylist
-        ? kAllowButWarnAndToast
-        : kAllowButWarn;
-  } else {
-    return kDeny;
-  }
-}
 
 class ScopedHiddenApiEnforcementPolicySetting {
  public:
@@ -113,6 +69,13 @@ class ScopedHiddenApiEnforcementPolicySetting {
 
 // Implementation details. DO NOT ACCESS DIRECTLY.
 namespace detail {
+
+enum class SdkCodes {
+  kVersionNone      = std::numeric_limits<int32_t>::min(),
+  kVersionUnlimited = std::numeric_limits<int32_t>::max(),
+  kVersionP         = 26,
+  kVersionO         = 24,
+};
 
 // Class to encapsulate the signature of a member (ArtField or ArtMethod). This
 // is used as a helper when matching prefixes, and when logging the signature.
@@ -146,38 +109,29 @@ class MemberSignature {
 
   void WarnAboutAccess(AccessMethod access_method, ApiList list);
 
-  void LogAccessToEventLog(AccessMethod access_method, Action action_taken);
+  void LogAccessToEventLog(AccessMethod access_method, bool access_denied);
 };
 
-template<typename T>
-Action GetMemberActionImpl(T* member,
-                           ApiList api_list,
-                           Action action,
-                           AccessMethod access_method)
-    REQUIRES_SHARED(Locks::mutator_lock_);
-
-// Returns true if the caller is either loaded by the boot strap class loader or comes from
-// a dex file located in ${ANDROID_ROOT}/framework/.
 ALWAYS_INLINE
-inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller,
-                            ObjPtr<mirror::ClassLoader> caller_class_loader,
-                            ObjPtr<mirror::DexCache> caller_dex_cache)
+inline bool IsCallingClassTrustedImpl(ObjPtr<mirror::Class> klass,
+                                      ObjPtr<mirror::ClassLoader> class_loader,
+                                      ObjPtr<mirror::DexCache> dex_cache)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (caller_class_loader.IsNull()) {
+  if (class_loader.IsNull()) {
     // Boot class loader.
     return true;
   }
 
-  if (!caller_dex_cache.IsNull()) {
-    const DexFile* caller_dex_file = caller_dex_cache->GetDexFile();
-    if (caller_dex_file != nullptr && caller_dex_file->IsPlatformDexFile()) {
+  if (!dex_cache.IsNull()) {
+    const DexFile* dex_file = dex_cache->GetDexFile();
+    if (dex_file != nullptr && dex_file->IsPlatformDexFile()) {
       // Caller is in a platform dex file.
       return true;
     }
   }
 
-  if (!caller.IsNull() &&
-      caller->ShouldSkipHiddenApiChecks() &&
+  if (!klass.IsNull() &&
+      klass->ShouldSkipHiddenApiChecks() &&
       Runtime::Current()->IsJavaDebuggable()) {
     // We are in debuggable mode and this caller has been marked trusted.
     return true;
@@ -186,19 +140,51 @@ inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller,
   return false;
 }
 
+template<typename T>
+bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod access_method)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 }  // namespace detail
+
+ALWAYS_INLINE inline bool IsCallingClassTrusted(ObjPtr<mirror::Class> klass, bool trust_if_null)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return klass.IsNull() ? trust_if_null : detail::IsCallingClassTrustedImpl(
+      klass, klass->GetClassLoader(), klass->GetDexCache());
+}
+
+ALWAYS_INLINE inline bool IsCallingClassTrusted(ObjPtr<mirror::ClassLoader> class_loader,
+                                                ObjPtr<mirror::DexCache> dex_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return detail::IsCallingClassTrustedImpl(/* klass= */ nullptr, class_loader, dex_cache);
+}
+
+inline bool AreChecksEnforcedForCaller(std::function<bool()> fn_is_caller_exempted) {
+  EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
+  if (policy == EnforcementPolicy::kDisabled) {
+    // Exit early. Nothing to enforce.
+    return false;
+  }
+
+  // Invoke given function and find the origin of the access.
+  // This can be *very* expensive. Save it for last.
+  if (fn_is_caller_exempted()) {
+    // Caller is trusted. Exit.
+    return false;
+  }
+
+  return true;
+}
 
 // Returns true if access to `member` should be denied to the caller of the
 // reflective query. The decision is based on whether the caller is trusted or
 // not. Because different users of this function determine this in a different
-// way, `fn_caller_is_trusted(self)` is called and should return true if the
+// way, `fn_caller_is_trusted()` is called and should return true if the
 // caller is allowed to access the platform.
 // This function might print warnings into the log if the member is hidden.
 template<typename T>
-inline Action GetMemberAction(T* member,
-                              Thread* self,
-                              std::function<bool(Thread*)> fn_caller_is_trusted,
-                              AccessMethod access_method)
+inline bool ShouldDenyAccessToMember(T* member,
+                                     std::function<bool()> fn_is_caller_exempted,
+                                     AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
 
@@ -210,52 +196,37 @@ inline Action GetMemberAction(T* member,
   // results, e.g. print whitelist warnings (b/78327881).
   ApiList api_list = member->GetHiddenApiAccessFlags();
 
-  Action action = GetActionFromAccessFlags(member->GetHiddenApiAccessFlags());
-  if (action == kAllow) {
-    // Nothing to do.
-    return action;
+  // Exit early if member is on the whitelist.
+  if (api_list == ApiList::kWhitelist) {
+    return false;
   }
 
-  // Member is hidden. Invoke `fn_caller_in_platform` and find the origin of the access.
+  // Check if caller is exempted from access checks.
   // This can be *very* expensive. Save it for last.
-  if (fn_caller_is_trusted(self)) {
-    // Caller is trusted. Exit.
-    return kAllow;
+  if (!AreChecksEnforcedForCaller(fn_is_caller_exempted)) {
+    return false;
   }
 
-  // Member is hidden and caller is not in the platform.
-  return detail::GetMemberActionImpl(member, api_list, action, access_method);
-}
-
-inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return !caller.IsNull() &&
-      detail::IsCallerTrusted(caller, caller->GetClassLoader(), caller->GetDexCache());
+  // Member is hidden and caller is not exempted. Enter slow path.
+  return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);
 }
 
 // Returns true if access to `member` should be denied to a caller loaded with
 // `caller_class_loader`.
 // This function might print warnings into the log if the member is hidden.
 template<typename T>
-inline Action GetMemberAction(T* member,
-                              ObjPtr<mirror::ClassLoader> caller_class_loader,
-                              ObjPtr<mirror::DexCache> caller_dex_cache,
-                              AccessMethod access_method)
+inline bool ShouldDenyAccessToMember(T* member,
+                                     ObjPtr<mirror::ClassLoader> caller_class_loader,
+                                     ObjPtr<mirror::DexCache> caller_dex_cache,
+                                     AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  bool is_caller_trusted =
-      detail::IsCallerTrusted(/* caller= */ nullptr, caller_class_loader, caller_dex_cache);
-  return GetMemberAction(member,
-                         /* thread= */ nullptr,
-                         [is_caller_trusted] (Thread*) { return is_caller_trusted; },
-                         access_method);
+  return ShouldDenyAccessToMember(
+      member,
+      [&] () REQUIRES_SHARED(Locks::mutator_lock_) {
+        return IsCallingClassTrusted(caller_class_loader, caller_dex_cache);
+      },
+      access_method);
 }
-
-// Calls back into managed code to notify VMRuntime.nonSdkApiUsageConsumer that
-// |member| was accessed. This is usually called when an API is on the black,
-// dark grey or light grey lists. Given that the callback can execute arbitrary
-// code, a call to this method can result in thread suspension.
-template<typename T> void NotifyHiddenApiListener(T* member)
-    REQUIRES_SHARED(Locks::mutator_lock_);
-
 
 }  // namespace hiddenapi
 }  // namespace art
