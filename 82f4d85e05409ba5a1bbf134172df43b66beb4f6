@@ -192,6 +192,29 @@
     },
     {
       "key": {
+        "uuid": "a7cf7445_db074441",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4084,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-17T12:21:15Z",
+      "side": 1,
+      "message": "I keep getting DCHECKs here: Check failed: !IsExclusiveHeld(self) mutator lock\nAny idea why exclusively held mutator is forbidden?",
+      "range": {
+        "startLine": 4084,
+        "startChar": 39,
+        "endLine": 4084,
+        "endChar": 52
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15bfe9d3_1d995cda",
         "filename": "runtime/thread.h",
         "patchSetId": 1
