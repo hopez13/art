@@ -171,7 +171,9 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
 Jit::Jit(JitOptions* options) : options_(options),
                                 cumulative_timings_("JIT timings"),
                                 memory_use_("Memory used for compilation", 16),
-                                lock_("JIT memory use lock") {}
+                                lock_("JIT memory use lock") {
+  is_started_.store(false, std::memory_order_release);
+}
 
 Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
   DCHECK(options->UseJitCompilation() || options->GetProfileSaverOptions().IsEnabled());
@@ -185,6 +187,7 @@ Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
       options->GetCodeCacheMaxCapacity(),
       jit->generate_debug_info_,
       code_cache_only_for_profile_data,
+      options->RWXMemoryAllowed(),
       error_msg));
   if (jit->GetCodeCache() == nullptr) {
     return nullptr;
@@ -194,9 +197,6 @@ Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
       << ", max_capacity=" << PrettySize(options->GetCodeCacheMaxCapacity())
       << ", compile_threshold=" << options->GetCompileThreshold()
       << ", profile_saver_options=" << options->GetProfileSaverOptions();
-
-
-  jit->CreateThreadPool();
 
   // Notify native debugger about the classes already loaded before the creation of the jit.
   jit->DumpTypeInfoForLoadedTypes(Runtime::Current()->GetClassLinker());
@@ -314,8 +314,8 @@ void Jit::CreateThreadPool() {
 
   // We need peers as we may report the JIT thread, e.g., in the debugger.
   constexpr bool kJitPoolNeedsPeers = true;
+  // Needing peers can cause samples to be collected, which fails if thread_pool_ is null.
   thread_pool_.reset(new ThreadPool("Jit thread pool", 1, kJitPoolNeedsPeers));
-
   thread_pool_->SetPthreadPriority(options_->GetThreadPoolPthreadPriority());
   Start();
 }
@@ -646,8 +646,10 @@ static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mut
 
 void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
   if (thread_pool_ == nullptr) {
-    // Should only see this when shutting down.
-    DCHECK(Runtime::Current()->IsShuttingDown(self));
+    // Creating ThreadPool can add samples when starting up before thread_pool_ is assigned.
+    // Similarly during shutdown the threadpool may be null.
+    DCHECK(!is_started_.load(std::memory_order_acquire) ||
+           Runtime::Current()->IsShuttingDown(self));
     return;
   }
   if (IgnoreSamplesForMethod(method)) {
@@ -793,6 +795,7 @@ void Jit::Stop() {
 
 void Jit::Start() {
   GetThreadPool()->StartWorkers(Thread::Current());
+  is_started_.store(true, std::memory_order_release);
 }
 
 ScopedJitSuspend::ScopedJitSuspend() {
