@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0e9d1115_00a32ded",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T12:56:53Z",
+      "side": 1,
+      "message": "Ah I see. OK, sounds good then.",
+      "parentUuid": "112b045e_e95027ac",
+      "range": {
+        "startLine": 540,
+        "startChar": 10,
+        "endLine": 540,
+        "endChar": 32
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0664f5d5_9d9a601f",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 1
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Yes, something like that.  I am thinking \"invoke returns bool\".  If True, all is good and ideal.  If False, something unusual is going on, so check for exceptions, interpreter switch, anything else...\n\nThe switch interpreter is unavoidable in debuggable, no?  Or can we run mterp for methods without breakpoints for example?\n\nHaving said that, I would like to see how much slower switch intepreter is at some point, and if it can be easily optimized.",
       "parentUuid": "d20245a7_3d7a088a",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "82f4d85e05409ba5a1bbf134172df43b66beb4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55214dce_7ea1d19d",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-17T12:56:53Z",
+      "side": 1,
+      "message": "We can run mterp for methods without eg breakpoints. The switch interpreter is *very* slow :)\n\nI like the bool on return.",
+      "parentUuid": "a255751d_8c9d1f75",
       "range": {
         "startLine": 153,
         "startChar": 0,
