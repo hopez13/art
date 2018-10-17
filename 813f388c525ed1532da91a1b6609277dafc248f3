@@ -22,6 +22,30 @@
       "revId": "813f388c525ed1532da91a1b6609277dafc248f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c02d02f8_a9055b89",
+        "filename": "openjdkjvmti/transform.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-17T19:18:12Z",
+      "side": 1,
+      "message": "I\u0027m keeping whatever was there before. Style changes should be a separate CL.",
+      "parentUuid": "330b0343_fd10b98c",
+      "range": {
+        "startLine": 79,
+        "startChar": 48,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "813f388c525ed1532da91a1b6609277dafc248f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
