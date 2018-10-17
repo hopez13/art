@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7a8c503_53ac2acc",
+        "filename": "libdexfile/dex/hidden_api_access_flags.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-10-17T09:12:40Z",
+      "side": 1,
+      "message": "could consider adding a kMaxValid to the enum definition, so this check doesn\u0027t need explicit updating when we add extra values.",
+      "range": {
+        "startLine": 69,
+        "startChar": 42,
+        "endLine": 69,
+        "endChar": 52
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
