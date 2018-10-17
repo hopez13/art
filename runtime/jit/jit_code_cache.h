@@ -94,6 +94,7 @@ class JitCodeCache {
                               size_t max_capacity,
                               bool generate_debug_info,
                               bool used_only_for_profile_data,
+                              bool rwx_memory_allowed,
                               std::string* error_msg);
   ~JitCodeCache();
 

@@ -80,4 +80,8 @@ void Runtime::InitPlatformSignalHandlers() {
                                    /* handle_timeout_signal */ true);
 }
 
+void Runtime::InitSystemServerSecurityContext() {
+  // Android specific.
+}
+
 }  // namespace art

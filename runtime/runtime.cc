@@ -779,11 +779,11 @@ bool Runtime::Start() {
   // TODO(calin): We use the JIT class as a proxy for JIT compilation and for
   // recoding profiles. Maybe we should consider changing the name to be more clear it's
   // not only about compiling. b/28295073.
-  if (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo()) {
+  if (!safe_mode_ && (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo())) {
     std::string error_msg;
     if (!IsZygote()) {
-    // If we are the zygote then we need to wait until after forking to create the code cache
-    // due to SELinux restrictions on r/w/x memory regions.
+      // If we are the zygote then we need to wait until after forking to create the code cache
+      // due to SELinux restrictions on r/w/x memory regions.
       CreateJit();
     } else if (jit_options_->UseJitCompilation()) {
       if (!jit::Jit::LoadCompilerLibrary(&error_msg)) {
@@ -892,21 +892,28 @@ void Runtime::InitNonZygoteOrPostFork(
   // before fork aren't attributed to an app.
   heap_->ResetGcPerformanceInfo();
 
-  // We may want to collect profiling samples for system server, but we never want to JIT there.
   if (is_system_server) {
-    jit_options_->SetUseJitCompilation(false);
     jit_options_->SetSaveProfilingInfo(profile_system_server);
     if (profile_system_server) {
       jit_options_->SetWaitForJitNotificationsToSaveProfile(false);
       VLOG(profiler) << "Enabling system server profiles";
     }
   }
+
   if (!safe_mode_ &&
       (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo()) &&
       jit_ == nullptr) {
+    // SystemServer has execmem blocked by SELinux so can not use RWX page permissions after the
+    // cache initialized.
+    jit_options_->SetRWXMemoryAllowed(!is_system_server);
+
     // Note that when running ART standalone (not zygote, nor zygote fork),
     // the jit may have already been created.
     CreateJit();
+  }
+
+  if (is_system_server) {
+    InitSystemServerSecurityContext();
   }
 
   StartSignalCatcher();

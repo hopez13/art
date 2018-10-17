@@ -788,6 +788,7 @@ class Runtime {
 
  private:
   static void InitPlatformSignalHandlers();
+  static void InitSystemServerSecurityContext();
 
   Runtime();
 

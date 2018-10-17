@@ -339,6 +339,8 @@ libart_cc_defaults {
                 "libtombstoned_client",
             ],
             static_libs: [
+                "libselinux", // For selinux_android_setcon().
+                "libcrypto", // For SHA1() dependency of libselinux.
                 "libz",  // For adler32.
             ],
         },

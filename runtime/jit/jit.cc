@@ -185,6 +185,7 @@ Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
       options->GetCodeCacheMaxCapacity(),
       jit->generate_debug_info_,
       code_cache_only_for_profile_data,
+      options->RWXMemoryAllowed(),
       error_msg));
   if (jit->GetCodeCache() == nullptr) {
     return nullptr;
