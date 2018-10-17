@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22a0c8ec_1904df85",
+        "filename": "runtime/runtime_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2018-10-17T13:21:12Z",
+      "side": 1,
+      "message": "We try hard to keep knowledge of SELinux, and especially SELinux labels, out of code, instead preferring configuration files. This maintains the ability to independently iterate on SELinux configuration without code changes.\n\nWould it be possible to make this string a command line option, similar to what we do for adbd? See line 15 of https://android.googlesource.com/platform/system/core/+/4bc53d20afce1e1201f8effa2404d97aa3c67b50/rootdir/init.usb.rc#15",
+      "revId": "29d57ae836aac640b15ea53826b6ff11e727f613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
