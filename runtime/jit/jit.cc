@@ -168,33 +168,31 @@ void Jit::AddTimingLogger(const TimingLogger& logger) {
   cumulative_timings_.AddLogger(logger);
 }
 
-Jit::Jit(JitOptions* options) : options_(options),
-                                cumulative_timings_("JIT timings"),
-                                memory_use_("Memory used for compilation", 16),
-                                lock_("JIT memory use lock") {}
+Jit::Jit(JitCodeCache* code_cache, JitOptions* options)
+    : code_cache_(code_cache),
+      options_(options),
+      cumulative_timings_("JIT timings"),
+      memory_use_("Memory used for compilation", 16),
+      lock_("JIT memory use lock") {}
 
-Jit* Jit::Create(JitOptions* options, std::string* error_msg) {
-  DCHECK(options->UseJitCompilation() || options->GetProfileSaverOptions().IsEnabled());
-  std::unique_ptr<Jit> jit(new Jit(options));
+Jit* Jit::Create(JitCodeCache* code_cache, JitOptions* options, std::string* error_msg) {
+  std::unique_ptr<Jit> jit(new Jit(code_cache, options));
   if (jit_compiler_handle_ == nullptr && !LoadCompiler(error_msg)) {
     return nullptr;
   }
-  bool code_cache_only_for_profile_data = !options->UseJitCompilation();
-  jit->code_cache_.reset(JitCodeCache::Create(
-      options->GetCodeCacheInitialCapacity(),
-      options->GetCodeCacheMaxCapacity(),
-      jit->generate_debug_info_,
-      code_cache_only_for_profile_data,
-      error_msg));
-  if (jit->GetCodeCache() == nullptr) {
-    return nullptr;
-  }
+
+  // With 'perf', we want a 1-1 mapping between an address and a method.
+  // We aren't able to keep method pointers live during the instrumentation method entry trampoline
+  // so we will just disable jit-gc if we are doing that.
+  bool garbage_collect_code =
+      !generate_debug_info_ && !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled();
+  jit->code_cache_->SetGarbageCollectCode(garbage_collect_code);
+
   VLOG(jit) << "JIT created with initial_capacity="
       << PrettySize(options->GetCodeCacheInitialCapacity())
       << ", max_capacity=" << PrettySize(options->GetCodeCacheMaxCapacity())
       << ", compile_threshold=" << options->GetCompileThreshold()
       << ", profile_saver_options=" << options->GetProfileSaverOptions();
-
 
   jit->CreateThreadPool();
 
@@ -347,10 +345,7 @@ void Jit::DeleteThreadPool() {
 void Jit::StartProfileSaver(const std::string& filename,
                             const std::vector<std::string>& code_paths) {
   if (options_->GetSaveProfilingInfo()) {
-    ProfileSaver::Start(options_->GetProfileSaverOptions(),
-                        filename,
-                        code_cache_.get(),
-                        code_paths);
+    ProfileSaver::Start(options_->GetProfileSaverOptions(), filename, code_cache_, code_paths);
   }
 }
 
