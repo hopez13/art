@@ -81,6 +81,30 @@
       "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00dba9db_04383654",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-17T20:22:13Z",
+      "side": 1,
+      "message": "This is not the greatest, it could just be like\n\n  std::unique_ptr\u003cT\u003e Args(args, args, args, *error_code)",
+      "parentUuid": "647b0d1b_a48ff09e",
+      "range": {
+        "startLine": 1347,
+        "startChar": 25,
+        "endLine": 1347,
+        "endChar": 52
+      },
+      "revId": "a64f6422723381c7bd2af44f43ece4cc616f2d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
