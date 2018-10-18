@@ -93,6 +93,30 @@
     },
     {
       "key": {
+        "uuid": "bf719567_ce8c27e3",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-18T09:00:50Z",
+      "side": 1,
+      "message": "No, just move the elements to another CollectionVector\u003c\u003e and swap.\n\n(The dexlayout Collections are also quite weird. I would just replace them with appropriate standard containers.)",
+      "parentUuid": "29ca4b14_80057190",
+      "range": {
+        "startLine": 1556,
+        "startChar": 48,
+        "endLine": 1556,
+        "endChar": 58
+      },
+      "revId": "c100ac40ebbeb6474af91b8a2dba5e5a87251d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0f3e3c9_f5493966",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 3
