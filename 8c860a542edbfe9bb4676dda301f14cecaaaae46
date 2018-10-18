@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c196e666_709697cd",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T21:35:48Z",
+      "side": 1,
+      "message": "Done. This was clang-format being overzealous",
+      "parentUuid": "a214d4eb_7339afe1",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21abcbc5_26c556e9",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-10-18T20:48:44Z",
       "side": 1,
       "message": "You\u0027ll need an alternative implementation without futex, and you\u0027ll have to wrap this into #ifdef ART_USE_FUTEXES (see the other occurrences in this file, as an example). (I think this is also important for Mac compatibility...)\n\nAlso use futex instead of the syscall.",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85009d57_f7da8a73",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T21:35:48Z",
+      "side": 1,
+      "message": "\u003e You\u0027ll need an alternative implementation without futex, and you\u0027ll have to wrap this into #ifdef ART_USE_FUTEXES (see the other occurrences in this file, as an example). (I think this is also important for Mac compatibility...)\nWhen I tried to get this working on my mac, you said:\n\"We keep it compiling at the moment - though through a lot of #ifdef replace with nop. The host side on the Mac is utterly nonfunctional (unless a miracle happened somewhere).\"\n\nI am fine to ifdef it out so that it will build without futexes, but do I need to write a whole other unused implementation if it doesn\u0027t work on macs to begin with?\n\u003e \n\u003e Also use futex instead of the syscall.\nDone.",
+      "parentUuid": "21abcbc5_26c556e9",
       "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -56,6 +92,30 @@
       "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "739eca6b_4a124380",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T21:35:48Z",
+      "side": 1,
+      "message": "Sorry, I haven\u0027t used repo in a long time and accidentally uploaded part of this. Fixed.",
+      "parentUuid": "6c2268d6_00de88d8",
+      "range": {
+        "startLine": 585,
+        "startChar": 16,
+        "endLine": 585,
+        "endChar": 18
+      },
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
