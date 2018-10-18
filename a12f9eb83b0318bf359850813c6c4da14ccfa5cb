@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "75d89675_9fcdab28",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-18T22:09:36Z",
+      "side": 1,
+      "message": "I think the sleep/no-op implementation is probably good enough on a host machine that we may not need to pother with this.",
+      "parentUuid": "d635b7f6_3b3f2008",
+      "revId": "a12f9eb83b0318bf359850813c6c4da14ccfa5cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "587dbfdf_ac6192bb",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
