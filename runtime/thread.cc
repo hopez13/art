@@ -44,6 +44,7 @@
 #include "arch/context.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "base/atomic.h"
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "base/file_utils.h"
@@ -280,6 +281,93 @@ void Thread::PopDeoptimizationContext(JValue* result,
 void Thread::AssertHasDeoptimizationContext() {
   CHECK(tlsPtr_.deoptimization_context_stack != nullptr)
       << "No deoptimization context for thread " << *this;
+}
+
+void Thread::Park(bool isAbsolute, int64_t time) {
+  if (time < 0) {
+    return;
+  }
+#if ART_USE_FUTEXES
+  // Consume the permit, or mark as waiting
+  if (tls32_.park_state_.fetch_add(1, std::memory_order_relaxed) == 1) {
+    // TODO: Call to signal jvmti here
+    int result;
+    if (!isAbsolute && time == 0) {
+      // Untimed wait
+      ScopedThreadSuspension sts(this, ThreadState::kWaiting);
+      result = futex(tls32_.park_state_.Address(),
+                     FUTEX_WAIT_PRIVATE,
+                     /*sleep if val = */ 2,
+                     /* timeout */ nullptr,
+                     nullptr,
+                     0);
+    } else {
+      ScopedThreadSuspension sts(this, ThreadState::kTimedWaiting);
+      timespec timespec;
+      if (isAbsolute) {
+        // Time is millis when scheduled for an absolute time
+        timespec.tv_nsec = (time % 1000) * 1000000;
+        timespec.tv_sec = time / 1000;
+        // This odd looking pattern is recommended by futex documentation to
+        // wait until an absolute deadline, with otherwise identical behavior to
+        // FUTEX_WAIT_PRIVATE. This also allows parkUntil() to return at the
+        // correct time when the system clock changes.
+        result = futex(tls32_.park_state_.Address(),
+                       FUTEX_WAIT_BITSET_PRIVATE | FUTEX_CLOCK_REALTIME,
+                       /*sleep if val = */ 2,
+                       &timespec,
+                       nullptr,
+                       FUTEX_BITSET_MATCH_ANY);
+      } else {
+        // Time is nanos when scheduled for a relative time
+        timespec.tv_sec = time / 1000000000;
+        timespec.tv_nsec = time % 1000000000;
+        result = futex(tls32_.park_state_.Address(),
+                       FUTEX_WAIT_PRIVATE,
+                       /*sleep if val = */ 2,
+                       &timespec,
+                       nullptr,
+                       0);
+      }
+    }
+    if (result == -1) {
+      switch (errno) {
+        case EAGAIN:
+        case ETIMEDOUT:
+        case EINTR: break;
+        default: PLOG(FATAL) << "Failed to park";
+      }
+    }
+    // Mark as no longer waiting.
+    tls32_.park_state_.store(1, std::memory_order_relaxed);
+    // TODO: Call to signal jvmti here
+  }
+#else
+  #pragma clang diagnostic push
+  #pragma clang diagnostic warning "-W#warnings"
+  #warning "LockSupport.park/unpark implemented as noops without FUTEX support."
+  #pragma clang diagnostic pop
+  UNIMPLEMENTED(WARNING);
+  sched_yield();
+#endif
+}
+
+void Thread::Unpark() {
+#if ART_USE_FUTEXES
+  if (tls32_.park_state_.exchange(0, std::memory_order_relaxed) == 2) {
+    int result = futex(tls32_.park_state_.Address(),
+                       FUTEX_WAKE_PRIVATE,
+                       /*number of waiters = */ 1,
+                       nullptr,
+                       nullptr,
+                       0);
+    if (result == -1) {
+      PLOG(FATAL) << "Failed to unpark";
+    }
+  }
+#else
+  UNIMPLEMENTED(WARNING);
+#endif
 }
 
 void Thread::PushStackedShadowFrame(ShadowFrame* sf, StackedShadowFrameType type) {
@@ -2130,6 +2218,7 @@ Thread::Thread(bool daemon)
   tls32_.state_and_flags.as_struct.flags = 0;
   tls32_.state_and_flags.as_struct.state = kNative;
   tls32_.interrupted.store(false, std::memory_order_relaxed);
+  tls32_.park_state_.store(1, std::memory_order_relaxed);
   memset(&tlsPtr_.held_mutexes[0], 0, sizeof(tlsPtr_.held_mutexes));
   std::fill(tlsPtr_.rosalloc_runs,
             tlsPtr_.rosalloc_runs + kNumRosAllocThreadLocalSizeBracketsInThread,
@@ -2441,12 +2530,15 @@ bool Thread::IsInterrupted() {
 }
 
 void Thread::Interrupt(Thread* self) {
-  MutexLock mu(self, *wait_mutex_);
-  if (tls32_.interrupted.load(std::memory_order_seq_cst)) {
-    return;
+  {
+    MutexLock mu(self, *wait_mutex_);
+    if (tls32_.interrupted.load(std::memory_order_seq_cst)) {
+      return;
+    }
+    tls32_.interrupted.store(true, std::memory_order_seq_cst);
+    NotifyLocked(self);
   }
-  tls32_.interrupted.store(true, std::memory_order_seq_cst);
-  NotifyLocked(self);
+  Unpark();
 }
 
 void Thread::Notify() {
