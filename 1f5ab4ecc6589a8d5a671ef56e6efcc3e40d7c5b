@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b7b479e_31f30f06",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-18T13:42:30Z",
+      "side": 1,
+      "message": "I would put template argument checks to the outer `if` and the `called_method-\u003eIsIntrinsic()` in the inner `if`.",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 185,
+        "endChar": 63
+      },
+      "revId": "1f5ab4ecc6589a8d5a671ef56e6efcc3e40d7c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
