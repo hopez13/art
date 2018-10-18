@@ -16,6 +16,46 @@
       "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21abcbc5_26c556e9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-18T20:48:44Z",
+      "side": 1,
+      "message": "You\u0027ll need an alternative implementation without futex, and you\u0027ll have to wrap this into #ifdef ART_USE_FUTEXES (see the other occurrences in this file, as an example). (I think this is also important for Mac compatibility...)\n\nAlso use futex instead of the syscall.",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c2268d6_00de88d8",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-18T20:48:44Z",
+      "side": 1,
+      "message": "Why is this in comments?",
+      "range": {
+        "startLine": 585,
+        "startChar": 16,
+        "endLine": 585,
+        "endChar": 18
+      },
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
