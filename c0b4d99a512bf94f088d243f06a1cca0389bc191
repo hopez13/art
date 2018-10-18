@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c31f97_cd6929c4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T23:08:16Z",
+      "side": 1,
+      "message": "format nit: 1 arg per line, align with \u0027(\u0027",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 16
+      },
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f137790_e6463429",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T23:08:16Z",
+      "side": 1,
+      "message": "either TODO This or implement it.\n\n(implementation would be to add a new RuntimeCallback that the jvmti plugin listens on).",
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d470283_ea18c740",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T23:08:16Z",
+      "side": 1,
+      "message": "one line (if it fits)",
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
