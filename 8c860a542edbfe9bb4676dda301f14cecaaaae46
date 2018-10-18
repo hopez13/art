@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "cbaff843_108a7eba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-18T21:46:21Z",
+      "side": 1,
+      "message": "It\u0027s probably fine to make this an abort for the Mac, for now. Though I\u0027m curious whether an alternative solution is hard to write (if you keep it trivial unoptimized).",
+      "parentUuid": "85009d57_f7da8a73",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c2268d6_00de88d8",
         "filename": "runtime/thread.h",
         "patchSetId": 1
