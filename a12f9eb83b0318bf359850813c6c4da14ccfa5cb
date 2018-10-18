@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d635b7f6_3b3f2008",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T22:05:29Z",
+      "side": 1,
+      "message": "I think it would be better to give this the trivial no-op implementation TBH.\n\nAlso please make the compiler emit a warning so we don\u0027t forget about this.\n\n    #pragma clang diagnostic push\n    #pragma clang diagnostic warning \"-W#warnings\"\n    #warning \"LockSupport.park/unpark implemented as no-ops without FUTEX support.\"\n    #pragma clang diagnostic pop",
+      "revId": "a12f9eb83b0318bf359850813c6c4da14ccfa5cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587dbfdf_ac6192bb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T22:05:29Z",
+      "side": 1,
+      "message": "see above.",
+      "revId": "a12f9eb83b0318bf359850813c6c4da14ccfa5cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
