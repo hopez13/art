@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "66e1ea36_c7acf600",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T21:58:43Z",
+      "side": 1,
+      "message": "Park can\u0027t just be a short sleep, since it\u0027s required to actually return when unparked. I could legally make them both a noop, but that\u0027s worse - it turns all locks into spinlocks, which then creates horrible to diagnose problems, especially on OS X and iOS:\n\nhttps://blog.postmates.com/why-spinlocks-are-bad-on-ios-b69fc5221058",
+      "parentUuid": "cdd05a36_4a3dc5b1",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c2268d6_00de88d8",
         "filename": "runtime/thread.h",
         "patchSetId": 1
