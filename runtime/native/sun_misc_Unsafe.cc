@@ -21,6 +21,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <atomic>
+#include <well_known_classes.h>
 
 #include "nativehelper/jni_macros.h"
 
@@ -504,6 +505,24 @@ static void Unsafe_fullFence(JNIEnv*, jobject) {
   std::atomic_thread_fence(std::memory_order_seq_cst);
 }
 
+static void Unsafe_park(JNIEnv* env, jobject, jboolean isAbsolute, jlong time) {
+  ScopedObjectAccess soa(env);
+  Thread::Current()->Park(isAbsolute, time);
+}
+
+static void Unsafe_unpark(JNIEnv* env, jobject, jobject jthread) {
+  art::ScopedFastNativeObjectAccess soa(env);
+  if (jthread == nullptr || !env->IsInstanceOf(jthread, WellKnownClasses::java_lang_Thread)) {
+    ThrowIllegalArgumentException("Argument to unpark() was not a Thread");
+    return;
+  }
+  art::MutexLock mu(soa.Self(), *art::Locks::thread_list_lock_);
+  art::Thread* thread = art::Thread::FromManagedThread(soa, jthread);
+  if (thread != nullptr) {
+    thread->Unpark();
+  }
+}
+
 static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Unsafe, compareAndSwapInt, "(Ljava/lang/Object;JII)Z"),
   FAST_NATIVE_METHOD(Unsafe, compareAndSwapLong, "(Ljava/lang/Object;JJJ)Z"),
@@ -546,6 +565,8 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Unsafe, putShort, "(Ljava/lang/Object;JS)V"),
   FAST_NATIVE_METHOD(Unsafe, putFloat, "(Ljava/lang/Object;JF)V"),
   FAST_NATIVE_METHOD(Unsafe, putDouble, "(Ljava/lang/Object;JD)V"),
+  FAST_NATIVE_METHOD(Unsafe, unpark, "(Ljava/lang/Object;)V"),
+  NATIVE_METHOD(Unsafe, park, "(ZJ)V"),
 
   // Each of the getFoo variants are overloaded with a call that operates
   // directively on a native pointer.
