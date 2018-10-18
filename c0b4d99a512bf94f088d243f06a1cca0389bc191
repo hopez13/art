@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "b960ae91_a00ac28f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-18T23:32:08Z",
+      "side": 1,
+      "message": "I\u0027d do it in a followup. I don\u0027t think it\u0027s super critical TBH.",
+      "parentUuid": "fa361bdb_e8922839",
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d470283_ea18c740",
         "filename": "runtime/thread.h",
         "patchSetId": 7
