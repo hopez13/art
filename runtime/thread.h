@@ -580,6 +580,9 @@ class Thread {
     return poison_object_cookie_;
   }
 
+  void Park(bool isAbsolute, int64_t time) REQUIRES_SHARED(Locks::mutator_lock_);
+  void Unpark();
+
  private:
   void NotifyLocked(Thread* self) REQUIRES(wait_mutex_);
 
@@ -1555,6 +1558,12 @@ class Thread {
 
     // Thread "interrupted" status; stays raised until queried or thrown.
     Atomic<bool32_t> interrupted;
+
+    // Represents the state of the thread for Unsafe.park/unpark.
+    // 0 - permit available
+    // 1 - no permit
+    // 2 - no permit, waiter waiting
+    AtomicInteger park_state_;
 
     // True if the thread is allowed to access a weak ref (Reference::GetReferent() and system
     // weaks) and to potentially mark an object alive/gray. This is used for concurrent reference
