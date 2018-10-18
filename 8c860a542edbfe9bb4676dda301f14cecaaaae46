@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "900c9a0d_38f5b3b3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-18T21:55:04Z",
+      "side": 1,
+      "message": "I think it\u0027s correct to make Park a short sleep and Unpark a no-op. Waiting primitives are only tricky if you care about performance.",
+      "parentUuid": "cbaff843_108a7eba",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c2268d6_00de88d8",
         "filename": "runtime/thread.h",
         "patchSetId": 1
