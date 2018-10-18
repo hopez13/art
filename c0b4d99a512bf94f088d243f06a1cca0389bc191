@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7d432d64_c35c694f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T23:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c31f97_cd6929c4",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 16
+      },
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f137790_e6463429",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2018-10-18T23:08:16Z",
       "side": 1,
       "message": "either TODO This or implement it.\n\n(implementation would be to add a new RuntimeCallback that the jvmti plugin listens on).",
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa361bdb_e8922839",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T23:27:49Z",
+      "side": 1,
+      "message": "Which would you prefer? I uploaded this to start getting feedback on the actual implementation. I am happy to implement the jvmti logic in this patch or in a subsequent one.",
+      "parentUuid": "9f137790_e6463429",
       "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -56,6 +98,24 @@
       "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df0849ea_e1ffac37",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-18T23:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d470283_ea18c740",
+      "revId": "c0b4d99a512bf94f088d243f06a1cca0389bc191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
