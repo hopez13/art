@@ -22,6 +22,30 @@
       "revId": "846571464fb0e4d955d3302e7965db0b9591a7c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "731114f6_1f6dbb1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-19T19:53:45Z",
+      "side": 1,
+      "message": "Not measured, but I measured `4k strings for maps. Assuming average length is 20, that would be 800k RAM. Note that the strings may be loaded during normal startup anyways.\n\nAlso, the feature is not yet enabled.",
+      "parentUuid": "16cd71c7_55ae5aa5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "846571464fb0e4d955d3302e7965db0b9591a7c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
