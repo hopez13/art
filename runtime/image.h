@@ -447,33 +447,50 @@ class PACKED(4) ImageHeader {
 };
 
 /*
- * Tags the last bit.  Used by AppImage logic to differentiate between managed
- * and native references.
+ * This type holds the information necessary to fix up AppImage string
+ * references.
+ *
+ * The first element of the pair contains either:
+ *   1. an offset into the image of a mirror::Object
+ *   2. an offset into the image of a StringDexCacheType array
+ *
+ * These values can be differentiated using the HasDexCacheStringArrayTag
+ * function.
+ *
+ * The second element of the pair contains either:
+ *   1. the offset into the mirror::Object of the reference field
+ *   2. the offset into the StringDexCacheType array of the reference
+ */
+typedef std::pair<uint32_t, uint32_t> AppImageReferenceOffsetInfo;
+
+/*
+ * Tags the last bit.  Used by AppImage logic to differentiate between pointers
+ * to managed objects and pointers to native reference arrays.
  */
 template<typename T>
-T SetNativeRefTag(T val) {
+T SetDexCacheStringArrayTag(T val) {
   static_assert(std::is_integral<T>::value, "Expected integral type.");
 
   return val | 1u;
 }
 
 /*
- * Retrieves the value of the last bit.  Used by AppImage logic to
- * differentiate between managed and native references.
+ * Retrieves the value of the last bit.  Used by AppImage logic to differentiate between pointers
+ * to managed objects and pointers to native reference arrays.
  */
 template<typename T>
-bool HasNativeRefTag(T val) {
+bool HasDexCacheStringArrayTag(T val) {
   static_assert(std::is_integral<T>::value, "Expected integral type.");
 
   return (val & 1u) == 1u;
 }
 
 /*
- * Sets the last bit of the value to 0.  Used by AppImage logic to
- * differentiate between managed and native references.
+ * Sets the last bit of the value to 0.  Used by AppImage logic to differentiate between pointers
+ * to managed objects and pointers to native reference arrays.
  */
 template<typename T>
-T ClearNativeRefTag(T val) {
+T ClearDexCacheStringArrayTag(T val) {
   static_assert(std::is_integral<T>::value, "Expected integral type.");
 
   return val & ~1u;
