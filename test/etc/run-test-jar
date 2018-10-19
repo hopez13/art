@@ -531,13 +531,14 @@ if [ "$HAVE_IMAGE" = "n" ]; then
     if [ "${HOST}" = "y" ]; then
         framework="${ANDROID_HOST_OUT}/framework"
         bpath_suffix="-hostdex"
+        bpath="${framework}/core-simple.impl${bpath_suffix}.jar"
     else
         framework="${ANDROID_ROOT}/framework"
         bpath_suffix="-testdex"
+        bpath="${framework}/core-simple${bpath_suffix}.jar"
     fi
-    bpath="${framework}/core-libart${bpath_suffix}.jar"
+    bpath="${bpath}:${framework}/core-libart${bpath_suffix}.jar"
     bpath="${bpath}:${framework}/core-oj${bpath_suffix}.jar"
-    bpath="${bpath}:${framework}/core-simple${bpath_suffix}.jar"
     bpath="${bpath}:${framework}/conscrypt${bpath_suffix}.jar"
     bpath="${bpath}:${framework}/okhttp${bpath_suffix}.jar"
     bpath="${bpath}:${framework}/bouncycastle${bpath_suffix}.jar"

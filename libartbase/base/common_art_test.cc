@@ -319,7 +319,8 @@ static std::string GetDexFileName(const std::string& jar_prefix, bool host) {
 std::vector<std::string> CommonArtTestImpl::GetLibCoreDexFileNames() {
   return std::vector<std::string>({GetDexFileName("core-oj", IsHost()),
                                    GetDexFileName("core-libart", IsHost()),
-                                   GetDexFileName("core-simple", IsHost())});
+                                   GetDexFileName(IsHost() ? "core-simple.impl" : "core-simple",
+                                                  IsHost())});
 }
 
 std::string CommonArtTestImpl::GetTestAndroidRoot() {
