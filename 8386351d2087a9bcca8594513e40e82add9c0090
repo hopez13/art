@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7521c668_c553a999",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3698,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T16:02:08Z",
+      "side": 1,
+      "message": "Note: This is one of the things currently broken if we do not extract dex files from boot image jars. But you\u0027re fixing that in this CL.",
+      "range": {
+        "startLine": 3698,
+        "startChar": 50,
+        "endLine": 3698,
+        "endChar": 56
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f54fbd0_0d4773c4",
         "filename": "libdexfile/dex/dex_file.cc",
         "patchSetId": 14
