@@ -97,6 +97,7 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 // Add the C++11 noreturn attribute.
 #define NO_RETURN [[ noreturn ]]  // NOLINT[whitespace/braces] [5]
 
+
 // Annotalysis thread-safety analysis support. Things that are not in base.
 
 #define LOCKABLE CAPABILITY("mutex")
