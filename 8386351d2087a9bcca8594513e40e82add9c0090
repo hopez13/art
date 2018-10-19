@@ -25,6 +25,190 @@
     },
     {
       "key": {
+        "uuid": "3e8f64e8_a0ed85d0",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cHiddenapiFlagsMap\u003e.\nOr HiddenapiFlagsMap\u0026\u0026 and store by value, using \".empty()\" instead of \"\u003d\u003d nullptr\".",
+      "range": {
+        "startLine": 1281,
+        "startChar": 48,
+        "endLine": 1281,
+        "endChar": 66
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4175cf1_4358ab01",
+        "filename": "dexlayout/dex_ir_builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003c\u003e or just value.",
+      "range": {
+        "startLine": 643,
+        "startChar": 4,
+        "endLine": 643,
+        "endChar": 22
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b897f8a5_ca5b3039",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "This could be a simple DCHECK() in the \"Write class data streams\" loop.",
+      "range": {
+        "startLine": 473,
+        "startChar": 4,
+        "endLine": 477,
+        "endChar": 5
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8f1f656_fa3c0503",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "Rename to \"hiddenapi_flags\".",
+      "range": {
+        "startLine": 225,
+        "startChar": 51,
+        "endLine": 225,
+        "endChar": 56
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee02e84d_2bf0cb6f",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "Change \"Create\" to \"Get\"",
+      "range": {
+        "startLine": 225,
+        "startChar": 19,
+        "endLine": 225,
+        "endChar": 41
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de4e1487_590c328b",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 226,
+        "startChar": 20,
+        "endLine": 226,
+        "endChar": 21
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9acffecc_6aea8a1c",
+        "filename": "libdexfile/dex/class_accessor-inl.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "This two should be documented as bogus and set to null. The \"end\" iterator should be used only for \"\u003d\u003d\" where these fields are not used. (We do not want to iterate over fields just to find the correct values.)",
+      "range": {
+        "startLine": 165,
+        "startChar": 26,
+        "endLine": 166,
+        "endChar": 44
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ab8dda_5b58427c",
+        "filename": "libdexfile/dex/class_accessor-inl.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 187,
+        "startChar": 27,
+        "endLine": 188,
+        "endChar": 51
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f54fbd0_0d4773c4",
         "filename": "libdexfile/dex/dex_file.cc",
         "patchSetId": 14
@@ -36,6 +220,29 @@
       "writtenOn": "2018-10-19T12:03:27Z",
       "side": 1,
       "message": "Would be good to have an } else { with a comment explaining why it\u0027s ok to skip that section.",
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844f9029_5d594a5d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "elem_size \u003d sizeof(uint32_t); do not include that in the header_size.",
+      "range": {
+        "startLine": 1565,
+        "startChar": 27,
+        "endLine": 1565,
+        "endChar": 42
+      },
       "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -82,6 +289,29 @@
         "startChar": 42,
         "endLine": 69,
         "endChar": 52
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d71ed4d_09428727",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-19T17:00:19Z",
+      "side": 1,
+      "message": "\u003d",
+      "range": {
+        "startLine": 3246,
+        "startChar": 54,
+        "endLine": 3246,
+        "endChar": 55
       },
       "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
