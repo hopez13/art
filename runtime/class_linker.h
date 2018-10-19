@@ -113,7 +113,8 @@ class ClassLinker {
  public:
   // Disabled until AppImageLoadingHelper::UpdateInternStrings does the missing GC card marks.
   // Bug: 117846779
-  static constexpr bool kAppImageMayContainStrings = false;
+  // TODO: Make sure this is turned back off before submitting patch.
+  static constexpr bool kAppImageMayContainStrings = true;
 
   explicit ClassLinker(InternTable* intern_table);
   virtual ~ClassLinker();
