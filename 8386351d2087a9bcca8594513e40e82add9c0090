@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f54fbd0_0d4773c4",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "Would be good to have an } else { with a comment explaining why it\u0027s ok to skip that section.",
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7a8c503_53ac2acc",
         "filename": "libdexfile/dex/hidden_api_access_flags.h",
         "patchSetId": 14
@@ -43,6 +60,143 @@
         "endLine": 69,
         "endChar": 52
       },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb60a47f_ea52abc9",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "nit: add high level comments on classes.",
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9513b03_935f345c",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94d72c25_af2f39bb",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "Add comment: we don\u0027t support encoding on non standard dex files like cdex.",
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31321456_7b683f89",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 706,
+        "startChar": 0,
+        "endLine": 714,
+        "endChar": 3
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97274a85_675ff255",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 722,
+        "startChar": 31,
+        "endLine": 722,
+        "endChar": 32
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c830bed_d406c031",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "Add a comment why you need to reload.",
+      "range": {
+        "startLine": 800,
+        "startChar": 4,
+        "endLine": 800,
+        "endChar": 13
+      },
+      "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21ddce66_18db7411",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-19T12:03:27Z",
+      "side": 1,
+      "message": "nit: add comment.",
       "revId": "8386351d2087a9bcca8594513e40e82add9c0090",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
