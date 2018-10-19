@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1be48f5e_b5ec3d6f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-19T20:35:44Z",
+      "side": 1,
+      "message": "Please document what a zero time means, and check that you\u0027re following that convention. I read the current code as saying that a zero relative time is special.",
+      "range": {
+        "startLine": 583,
+        "startChar": 29,
+        "endLine": 583,
+        "endChar": 41
+      },
+      "revId": "ab962413fab2359fe1c7e91b242f22bcd8b70fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
