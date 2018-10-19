@@ -97,6 +97,17 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 // Add the C++11 noreturn attribute.
 #define NO_RETURN [[ noreturn ]]  // NOLINT[whitespace/braces] [5]
 
+// A macro for disabling optimizations in GCC and Clang.  Ordering is important
+// because Clang defines both __clang__ and __GNUC__.
+#if defined(__clang__)
+#define DISABLE_OPTIMIZATION [[clang::optnone]]  // NOLINT[whitespace/braces] [5]
+#elif defined(__GNUC__)
+#define DISABLE_OPTIMIZATION [[gnu::optimize(0)]]  // NOLINT[whitespace/braces] [5]
+#else
+#define DISABLE_OPTIMIZATION
+#endif
+
+
 // Annotalysis thread-safety analysis support. Things that are not in base.
 
 #define LOCKABLE CAPABILITY("mutex")

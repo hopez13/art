@@ -233,7 +233,7 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
 
   // Used to store information that will later be used to calculate image
   // offsets to string references in the AppImage.
-  std::vector<RefInfoPair> string_ref_info;
+  std::vector<HeapReferencePointerInfo> string_ref_info;
   if (ClassLinker::kAppImageMayContainStrings && compile_app_image_) {
     // Count the number of string fields so we can allocate the appropriate
     // amount of space in the image section.
@@ -287,31 +287,27 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
 
     /*
      * Iterate over the string reference info and calculate image offsets.
-     * The first element of the pair is the object the reference belongs to
-     * and the second element is the offset to the field.  If the offset has
-     * a native ref tag 1) the object is a DexCache and 2) the offset needs
-     * to be calculated using the relocation information for the DexCache's
-     * strings array.
+     * The first element of the pair is either the object the reference belongs
+     * to or the beginning of the native reference array it is located in.  In
+     * the first case second element is the offset of the field relative to the
+     * object's base address.  In the second case, it is the index of the
+     * StringDexCacheType object in the array.
      */
-    for (const RefInfoPair& ref_info : string_ref_info) {
-      uint32_t image_offset;
+    for (const HeapReferencePointerInfo& ref_info : string_ref_info) {
+      uint32_t base_offset;
 
-      if (HasNativeRefTag(ref_info.second)) {
+      if (HasDexCacheStringArrayTag(ref_info.first)) {
         ++native_string_refs;
 
-        // Only DexCaches can contain native references to Java strings.
-        ObjPtr<mirror::DexCache> dex_cache(ref_info.first->AsDexCache());
+        void* obj_ptr = reinterpret_cast<void*>(ClearDexCacheStringArrayTag(ref_info.first));
 
-        // No need to set or clear native ref tags.  The existing tag will be
-        // carried forward.
-        image_offset = native_object_relocations_[dex_cache->GetStrings()].offset +
-                       ref_info.second;
+        base_offset = SetDexCacheStringArrayTag(native_object_relocations_[obj_ptr].offset);
       } else {
         ++managed_string_refs;
-        image_offset = GetImageOffset(ref_info.first) + ref_info.second;
+        base_offset = GetImageOffset(reinterpret_cast<mirror::Object*>(ref_info.first));
       }
 
-      string_reference_offsets_.push_back(image_offset);
+      string_reference_offsets_.emplace_back(base_offset, ref_info.second);
     }
 
     CHECK_EQ(image_infos_.back().num_string_references_,
@@ -325,11 +321,7 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
   // This needs to happen after CalculateNewObjectOffsets since it relies on intern_table_bytes_ and
   // bin size sums being calculated.
   TimingLogger::ScopedTiming t("AllocMemory", timings);
-  if (!AllocMemory()) {
-    return false;
-  }
-
-  return true;
+  return AllocMemory();
 }
 
 class ImageWriter::CollectStringReferenceVisitor {
@@ -373,7 +365,8 @@ class ImageWriter::CollectStringReferenceVisitor {
             member_offset);
 
     if (image_writer_.IsValidAppImageStringReference(referred_obj)) {
-      string_ref_info_.emplace_back(obj.Ptr(), member_offset.Uint32Value());
+      string_ref_info_.emplace_back(reinterpret_cast<uintptr_t>(obj.Ptr()),
+                                    member_offset.Uint32Value());
     }
   }
 
@@ -395,14 +388,14 @@ class ImageWriter::CollectStringReferenceVisitor {
   }
 
   ObjPtr<mirror::Object> curr_obj_;
-  mutable std::vector<RefInfoPair> string_ref_info_;
+  mutable std::vector<HeapReferencePointerInfo> string_ref_info_;
 
  private:
   mutable size_t dex_cache_string_ref_counter_;
   const ImageWriter& image_writer_;
 };
 
-std::vector<ImageWriter::RefInfoPair> ImageWriter::CollectStringReferenceInfo() const
+std::vector<ImageWriter::HeapReferencePointerInfo> ImageWriter::CollectStringReferenceInfo() const
     REQUIRES_SHARED(Locks::mutator_lock_) {
   gc::Heap* const heap = Runtime::Current()->GetHeap();
   CollectStringReferenceVisitor visitor(*this);
@@ -422,30 +415,31 @@ std::vector<ImageWriter::RefInfoPair> ImageWriter::CollectStringReferenceInfo() 
       // all native GC roots.
       visitor.curr_obj_ = object;
       if (object->IsDexCache()) {
-        object->VisitReferences</* kVisitNativeRoots */ true,
+        object->VisitReferences</* kVisitNativeRoots */ kIsDebugBuild,
                                                         kVerifyNone,
                                                         kWithoutReadBarrier>(visitor, visitor);
 
         ObjPtr<mirror::DexCache> dex_cache = object->AsDexCache();
         size_t new_native_ref_counter = 0;
 
+        // Not all strings in this array are AppImage strings.  Some live in
+        // the boot image.  As such, walking the entire array at load time
+        // would be slow, so  we need an offset info pair for each AppImage
+        // string in the array.
         for (size_t string_index = 0; string_index < dex_cache->NumStrings(); ++string_index) {
-          mirror::StringDexCachePair dc_pair = dex_cache->GetStrings()[string_index].load();
-          mirror::Object* referred_obj = dc_pair.object.AddressWithoutBarrier()->AsMirrorPtr();
+          mirror::StringDexCachePair dc_string_pair = dex_cache->GetStrings()[string_index].load();
+          mirror::Object* referred_obj = dc_string_pair.object.AddressWithoutBarrier()->AsMirrorPtr();
 
           if (IsValidAppImageStringReference(referred_obj)) {
             ++new_native_ref_counter;
 
-            uint32_t string_vector_offset =
-                (string_index * sizeof(mirror::StringDexCachePair)) +
-                offsetof(mirror::StringDexCachePair, object);
-
-            visitor.string_ref_info_.emplace_back(object.Ptr(),
-                                                  SetNativeRefTag(string_vector_offset));
+            visitor.string_ref_info_.emplace_back(
+                SetDexCacheStringArrayTag(reinterpret_cast<uintptr_t>(dex_cache->GetStrings())),
+                string_index);
           }
         }
 
-        CHECK_EQ(visitor.GetDexCacheStringRefCounter(), new_native_ref_counter);
+        DCHECK_EQ(visitor.GetDexCacheStringRefCounter(), new_native_ref_counter);
       } else {
         object->VisitReferences</* kVisitNativeRoots */ false,
                                                         kVerifyNone,
@@ -478,12 +472,12 @@ class ImageWriter::NativeGCRootInvariantVisitor {
     ObjPtr<mirror::Object> referred_obj = root->AsMirrorPtr();
 
     if (curr_obj_->IsClass()) {
-      class_violation = class_violation ||
-                        image_writer_.IsValidAppImageStringReference(referred_obj);
+      class_violation_ = class_violation_ ||
+                         image_writer_.IsValidAppImageStringReference(referred_obj);
 
     } else if (curr_obj_->IsClassLoader()) {
-      class_loader_violation = class_loader_violation ||
-                               image_writer_.IsValidAppImageStringReference(referred_obj);
+      class_loader_violation_ = class_loader_violation_ ||
+                                image_writer_.IsValidAppImageStringReference(referred_obj);
 
     } else if (!curr_obj_->IsDexCache()) {
       LOG(FATAL) << "Dex2Oat:AppImage | " <<
@@ -504,12 +498,12 @@ class ImageWriter::NativeGCRootInvariantVisitor {
 
   // Returns true iff the only reachable native string references are through DexCache objects.
   bool InvariantsHold() const {
-    return !(class_violation || class_loader_violation);
+    return !(class_violation_ || class_loader_violation_);
   }
 
   ObjPtr<mirror::Object> curr_obj_;
-  mutable bool class_violation        = false,
-               class_loader_violation = false;
+  mutable bool class_violation_        = false,
+               class_loader_violation_ = false;
 
  private:
   const ImageWriter& image_writer_;
@@ -538,12 +532,12 @@ void ImageWriter::VerifyNativeGCRootInvariants() const REQUIRES_SHARED(Locks::mu
    * Build the error string
    */
 
-  if (UNLIKELY(visitor.class_violation)) {
+  if (UNLIKELY(visitor.class_violation_)) {
     error_str << "Class";
     error = true;
   }
 
-  if (UNLIKELY(visitor.class_loader_violation)) {
+  if (UNLIKELY(visitor.class_loader_violation_)) {
     if (error) {
       error_str << ", ";
     }
@@ -552,8 +546,8 @@ void ImageWriter::VerifyNativeGCRootInvariants() const REQUIRES_SHARED(Locks::mu
   }
 
   CHECK(visitor.InvariantsHold()) <<
-    "Native GC root invariant failure. String refs reachable through the following objects: " <<
-    error_str.str();
+    "Native GC root invariant failure. String ref invariants don't hold for the following" <<
+    "object types: " << error_str.str();
 }
 
 void ImageWriter::CopyMetadata() {
@@ -563,7 +557,7 @@ void ImageWriter::CopyMetadata() {
   const ImageInfo& image_info = image_infos_.back();
   std::vector<ImageSection> image_sections = image_info.CreateImageSections().second;
 
-  uint32_t* sfo_section_base = reinterpret_cast<uint32_t*>(
+  AppImageReferenceOffsetInfo* sfo_section_base = reinterpret_cast<AppImageReferenceOffsetInfo*>(
       image_info.image_.Begin() +
       image_sections[ImageHeader::kSectionStringReferenceOffsets].Offset());
 
@@ -2342,9 +2336,15 @@ std::pair<size_t, std::vector<ImageSection>> ImageWriter::ImageInfo::CreateImage
   // Round up to the alignment of the offsets we are going to store.
   cur_pos = RoundUp(class_table_section.End(), sizeof(uint32_t));
 
+  // The size of string_reference_offsets_ can't be used here because it hasn't
+  // been filled with AppImageReferenceOffsetInfo objects yet.  The
+  // num_string_references_ value is calculated separately, before we can
+  // compute the actual offsets.
   const ImageSection& string_reference_offsets =
       sections[ImageHeader::kSectionStringReferenceOffsets] =
-          ImageSection(cur_pos, sizeof(uint32_t) * num_string_references_);
+          ImageSection(cur_pos,
+                       sizeof(typename decltype(string_reference_offsets_)::value_type) *
+                           num_string_references_);
 
   // Return the number of bytes described by these sections, and the sections
   // themselves.
