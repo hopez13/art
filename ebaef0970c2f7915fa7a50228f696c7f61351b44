@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f65cc21b_098d622b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-19T01:32:41Z",
+      "side": 1,
+      "message": "Maybe possible to condense these into a single access flag, something like \"kFastPathMethod\" or something?",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 3
+      },
+      "revId": "ebaef0970c2f7915fa7a50228f696c7f61351b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fd47bc7_0ec830c7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-19T01:32:41Z",
+      "side": 1,
+      "message": "Can this be true if is_mterp \u003d\u003d true?",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 36
+      },
+      "revId": "ebaef0970c2f7915fa7a50228f696c7f61351b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
