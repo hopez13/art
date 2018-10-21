@@ -743,7 +743,7 @@ bool Runtime::Start() {
 
   self->TransitionFromRunnableToSuspended(kNative);
 
-  started_ = true;
+  DoAndMaybeSwitchInterpreter([=](){ started_ = true; });
 
   if (!IsImageDex2OatEnabled() || !GetHeap()->HasBootImageSpace()) {
     ScopedObjectAccess soa(self);
@@ -2297,28 +2297,40 @@ bool Runtime::IsActiveTransaction() const {
   return !preinitialization_transactions_.empty() && !GetTransaction()->IsRollingBack();
 }
 
+bool Runtime::IsActiveTransactionOrRollingBack() const {
+  return !preinitialization_transactions_.empty();
+}
+
 void Runtime::EnterTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(!IsActiveTransaction());
-  preinitialization_transactions_.push_back(std::make_unique<Transaction>());
+  DoAndMaybeSwitchInterpreter([=](){
+      preinitialization_transactions_.push_back(std::make_unique<Transaction>());
+  });
 }
 
 void Runtime::EnterTransactionMode(bool strict, mirror::Class* root) {
   DCHECK(IsAotCompiler());
-  preinitialization_transactions_.push_back(std::make_unique<Transaction>(strict, root));
+  DoAndMaybeSwitchInterpreter([=](){
+      preinitialization_transactions_.push_back(std::make_unique<Transaction>(strict, root));
+  });
 }
 
 void Runtime::ExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
-  preinitialization_transactions_.pop_back();
+  DoAndMaybeSwitchInterpreter([=](){
+      preinitialization_transactions_.pop_back();
+  });
 }
 
 void Runtime::RollbackAndExitTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(IsActiveTransaction());
   preinitialization_transactions_.back()->Rollback();
-  preinitialization_transactions_.pop_back();
+  DoAndMaybeSwitchInterpreter([=](){
+      preinitialization_transactions_.pop_back();
+  });
 }
 
 bool Runtime::IsTransactionAborted() const {
@@ -2487,7 +2499,8 @@ void Runtime::CreateJit() {
     DCHECK(!jit_options_->UseJitCompilation());
   }
   std::string error_msg;
-  jit_.reset(jit::Jit::Create(jit_options_.get(), &error_msg));
+  jit::Jit* jit = jit::Jit::Create(jit_options_.get(), &error_msg);
+  DoAndMaybeSwitchInterpreter([=](){ jit_.reset(jit); });
   if (jit_.get() == nullptr) {
     LOG(WARNING) << "Failed to create JIT " << error_msg;
     return;

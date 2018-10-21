@@ -146,15 +146,18 @@ bool CanUseMterp()
     REQUIRES_SHARED(Locks::mutator_lock_) {
   const Runtime* const runtime = Runtime::Current();
   return
+      runtime->IsStarted() &&
       !Dbg::IsDebuggerActive() &&
-      !runtime->GetInstrumentation()->NonJitProfilingActive() &&
+      !runtime->IsActiveTransactionOrRollingBack() &&
+      !runtime->GetInstrumentation()->IsActive() &&
       // mterp only knows how to deal with the normal exits. It cannot handle any of the
       // non-standard force-returns.
       !runtime->AreNonStandardExitsEnabled() &&
       // An async exception has been thrown. We need to go to the switch interpreter. MTerp doesn't
       // know how to deal with these so we could end up never dealing with it if we are in an
       // infinite loop.
-      !runtime->AreAsyncExceptionsThrown();
+      !runtime->AreAsyncExceptionsThrown() &&
+      (runtime->GetJit() == nullptr || !runtime->GetJit()->JitAtFirstUse());
 }
 
 

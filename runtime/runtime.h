@@ -463,6 +463,7 @@ class Runtime {
 
   // Transaction support.
   bool IsActiveTransaction() const;
+  bool IsActiveTransactionOrRollingBack() const;
   void EnterTransactionMode();
   void EnterTransactionMode(bool strict, mirror::Class* root);
   void ExitTransactionMode();
