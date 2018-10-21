@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "739d670f_f857f1a5",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-21T22:21:24Z",
+      "side": 1,
+      "message": "Yes, that is exactly my plan... I would like to condense about half of the conditions into access flag bit...",
+      "parentUuid": "f65cc21b_098d622b",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 3
+      },
+      "revId": "ebaef0970c2f7915fa7a50228f696c7f61351b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fd47bc7_0ec830c7",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "ebaef0970c2f7915fa7a50228f696c7f61351b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c8c2a9_78a9eba6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-21T22:21:24Z",
+      "side": 1,
+      "message": "...and I would like to put the other half into the mterp condition.\n\nHowever, I would like to keep the current CL as-is, and do those improvements in separate CLs.",
+      "parentUuid": "9fd47bc7_0ec830c7",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 36
+      },
+      "revId": "ebaef0970c2f7915fa7a50228f696c7f61351b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
