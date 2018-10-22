@@ -1,0 +1,204 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20873491_3b53fd00",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "nit: /*paramname\u003d*/",
+      "range": {
+        "startLine": 749,
+        "startChar": 47,
+        "endLine": 749,
+        "endChar": 52
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07f1af60_ddfea31d",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "Considering this happens quite often, you might want to swap context and the StackWalkKind parameter so that you can use the default of context\u003dnullptr",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee970c19_65afd790",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "\u0026shorty ?",
+      "range": {
+        "startLine": 1360,
+        "startChar": 7,
+        "endLine": 1360,
+        "endChar": 8
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12d3f11_491d170d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to be a separate struct, could it be anonymous within WalkStackWithLambdaVisitor?",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d1a2c26_ef0ac198",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "using *this would probably be a nicer API, const T\u0026 is better than const T* if its not-null.",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83bac42f_de75636b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "also you could check the return type of fn() and if its void assume it returns true. This will save on all the functions that unconditionally \u0027return true\u0027, making all the call sites where this doesn\u0027t matter 1 line less\n\n       \n       if constexpr (std::is_void_v\u003cdecltype(fn_(*this))\u003e) {\n         fn_(*this);\n         return true;\n       } else {\n         return fn_(*this);\n       }\n\n---------------\n\nHere\u0027s a full example with C++14:\n\n  // Example program\n  #include \u003ciostream\u003e\n  #include \u003cstring\u003e\n\n  #include \u003ctype_traits\u003e\n\n  template \u003ctypename T\u003e\n  T func() { return T{}; }\n\n  struct Base{\n    virtual bool VisitFrame() \u003d 0;\n  };\n\n  template \u003ctypename T\u003e\n  struct LambdaVisitFrame : public Base {\n      \n     LambdaVisitFrame(const T\u0026 fn) : fn_(fn) {}\n     T fn_;\n     \n     bool VisitFrame() {\n       /** \n       reimplement this\n       C++17 code in C++14:\n       \n       if constexpr (std::is_void_v\u003cfn_(*this)\u003e) {\n         fn_(*this);\n         return true;\n       } else {\n         return fn_(*this);\n       }\n       */\n       return VisitFrameImpl();\n     }\n          \n     using InvokeFnT \u003d decltype(fn_(std::declval\u003cBase\u003e()));\n     \n     template \u003ctypename U, bool Cond \u003d true\u003e\n     using EnableIfVoidIs \u003d std::enable_if\u003cstd::is_void\u003cU\u003e::value \u003d\u003d Cond, bool\u003e;\n\n     template \u003ctypename FnReturnT \u003d InvokeFnT\u003e\n     typename EnableIfVoidIs\u003cFnReturnT, false\u003e::type\n     VisitFrameImpl() {\n       return fn_(*this);\n     }\n\n     template \u003ctypename FnReturnT \u003d InvokeFnT\u003e\n     typename EnableIfVoidIs\u003cFnReturnT, true\u003e::type\n     VisitFrameImpl() {\n       fn_(*this);\n       return true;\n     }\n  };\n\n  int main()\n  {\n    std::cout \u003c\u003c \"Hello!\\n\";\n    \n    auto lamb \u003d [](const Base\u0026){};\n    // return true is optional\n    \n    LambdaVisitFrame\u003cdecltype(lamb)\u003e f(lamb);\n    std::cout \u003c\u003c f.VisitFrame();\n    std::cout \u003c\u003c \"\\n\";\n    \n    \n    auto lamb2 \u003d [](const Base\u0026){ return false; };\n    \n    LambdaVisitFrame\u003cdecltype(lamb2)\u003e f2(lamb2);\n    std::cout \u003c\u003c f2.VisitFrame();\n    \n    \n    return 0;\n  }",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b840bb5a_7ab2deda",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "nit: kCountTransitions",
+      "range": {
+        "startLine": 340,
+        "startChar": 53,
+        "endLine": 340,
+        "endChar": 59
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d05021ad_c5804060",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "The API would look nicer if it was a static member function in StackVisitor so it was called like...\n\n   StackVisitor::WalkStack(lambda, thread, context, walk_kind,...);",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65159105_27288cf5",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "also recommend swapping these 2, since you use context\u003dnullptr very often (while still specifying the walk_kind)",
+      "range": {
+        "startLine": 343,
+        "startChar": 46,
+        "endLine": 344,
+        "endChar": 84
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d68fc4_ed88689c",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-22T20:40:09Z",
+      "side": 1,
+      "message": "Is making this a template parameter (L340) necessary? I don\u0027t think I spotted a place where it\u0027s customized. \n\nIf you did want it to be customized, it\u0027s probably better being the 1st template parameter\n\n   FunctionCall\u003cdecltype(lambda), kCount\u003e(lambda,...)\nvs\n   FunctionCall\u003ckCount\u003e(lambda,...)\n\nthe first way (current) is more awkward",
+      "range": {
+        "startLine": 349,
+        "startChar": 29,
+        "endLine": 349,
+        "endChar": 35
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
