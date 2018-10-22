@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c0b5648_6da644e8",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:33:36Z",
+      "side": 1,
+      "message": "You\u0027re strongly approximating, e.g., this check doesn\u0027t leave space for any callouts from the mterp code. I think there should be at least a small added constant.\n\n(And with your check, it isn\u0027t even given that you can call ThrowStackOverflowError, or am I missing something? You probably need to do the check *first* before allocating the shadow frame.)\n\n(And I\u0027d somehow feel safer if, for a while at least, we\u0027d call to a noinline function to get the actual stack pointer.)",
+      "range": {
+        "startLine": 261,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 0
+      },
+      "revId": "45eabe834e9630657c08c59330ba7c41388722c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
