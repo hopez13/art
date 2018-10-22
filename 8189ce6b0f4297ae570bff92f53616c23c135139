@@ -603,6 +603,24 @@
     },
     {
       "key": {
+        "uuid": "65ac77e7_06d654b3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-10-22T23:28:38Z",
+      "side": 1,
+      "message": "Yes, using something like that. It\u0027s up to the ART folks to decide whether they want static_assert\u0027s in the body of those kind of functions too, but I would think you don\u0027t want someone accidentally refactoring them into the regular codebase (or using one of the functions that might not be well optimized).",
+      "parentUuid": "9377fae1_77eab435",
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e697b3a6_9031cba4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
