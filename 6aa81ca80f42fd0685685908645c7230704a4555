@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08df52ca_bd71ed5d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-22T13:51:09Z",
+      "side": 1,
+      "message": "Could we have instead an invariant that AOT compiler does not use mterp?",
+      "range": {
+        "startLine": 2307,
+        "startChar": 0,
+        "endLine": 2309,
+        "endChar": 5
+      },
+      "revId": "6aa81ca80f42fd0685685908645c7230704a4555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
