@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e9614f8_8f8a695a",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-22T16:20:17Z",
+      "side": 1,
+      "message": "For Dex caches, the offset you want to do the GC card mark on is the DexCache address. I think you want the same as the other branch.",
+      "range": {
+        "startLine": 302,
+        "startChar": 22,
+        "endLine": 302,
+        "endChar": 91
+      },
+      "revId": "e512241b6387b976eb8a66225b5e13413944c569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dbe3e9e_1c722c83",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-10-22T16:20:17Z",
+      "side": 1,
+      "message": "Does it work to do Read\u003ckWithoutReadBarrier\u003e that\u0027s usually what we do for this case.",
+      "range": {
+        "startLine": 431,
+        "startChar": 63,
+        "endLine": 432,
+        "endChar": 0
+      },
+      "revId": "e512241b6387b976eb8a66225b5e13413944c569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
