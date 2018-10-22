@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c84c28c6_9458aaa1",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:43:07Z",
+      "side": 0,
+      "message": "Should become a DCHECK in the fast path. Same below.",
+      "revId": "45eabe834e9630657c08c59330ba7c41388722c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
