@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "dfe5be7c_cec94aca",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-22T16:25:49Z",
+      "side": 1,
+      "message": "I would also find it less confusing if the other arguments were lined up at the beginning of the comment, since the comment is logically part of the first argument. I don\u0027t know if our formatting checker allows that.",
+      "parentUuid": "0c69b669_ed6246bb",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "185ed831_60fc6e19",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -209,6 +233,29 @@
     },
     {
       "key": {
+        "uuid": "674c2741_4feb5278",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-22T16:25:49Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of introducing this, especially since there doesn\u0027t seem to be an easy way to automatically check that such code doesn\u0027t end up in production builds.\n\nIf there is specific information you need to be preserved somewhere, and you can\u0027t limit it to your own debug builds, I expect that assignments to local volatiles under kIsDebugBuild would do the trick with much less impact on code size, etc.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e697b3a6_9031cba4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -225,6 +272,29 @@
         "startChar": 0,
         "endLine": 1206,
         "endChar": 50
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c2a32b_eb8076ad",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-22T16:25:49Z",
+      "side": 1,
+      "message": "I don\u0027t think extra white space is allowed here.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 24,
+        "endLine": 1266,
+        "endChar": 26
       },
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
