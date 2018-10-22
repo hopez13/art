@@ -223,7 +223,7 @@ jclass FindClass(jvmtiEnv* jvmti_env, JNIEnv* env, const char* class_name, jobje
   }
 
   // TODO: Implement scanning *all* classloaders.
-  LOG(WARNING) << "Scanning all classloaders unimplemented";
+  LOG(FATAL) << "Unimplemented";
 
   return nullptr;
 }
