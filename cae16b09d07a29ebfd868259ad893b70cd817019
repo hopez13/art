@@ -46,6 +46,30 @@
       "revId": "cae16b09d07a29ebfd868259ad893b70cd817019",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "773e9481_72bf48f8",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-22T20:47:07Z",
+      "side": 1,
+      "message": "Changing the java api is a no-go (it\u0027s not public but is on the Greylist IIRC so it\u0027s kind-of public). I\u0027d just put it in this function here.\n\nJust add something like:\n\n  if (jthread \u003d\u003d nullptr || !env-\u003eIsInstanceOf(jthread, WellKnownClasses::java_lang_Thread)) {\n    // Throw error\n    return;\n  }",
+      "parentUuid": "0f302a55_05786a50",
+      "range": {
+        "startLine": 515,
+        "startChar": 24,
+        "endLine": 515,
+        "endChar": 68
+      },
+      "revId": "cae16b09d07a29ebfd868259ad893b70cd817019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
