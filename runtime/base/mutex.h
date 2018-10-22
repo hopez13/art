@@ -508,6 +508,7 @@ class ConditionVariable {
 #else
   pthread_cond_t cond_;
 #endif
+  void RequeueWaiters(int32_t count);
   DISALLOW_COPY_AND_ASSIGN(ConditionVariable);
 };
 
