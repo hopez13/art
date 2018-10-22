@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "ba8d8822_e2f530fc",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-22T16:05:40Z",
+      "side": 1,
+      "message": "Andreas: Done. I have replaced this method with single boolean flag (read in-line from assembly, and updated as needed when any of the conditions change)",
+      "parentUuid": "32e7f6cf_48588050",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 43
+      },
+      "revId": "28d440f7757677867220c3248912f05a80db9906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00f24f33_61263488",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 11

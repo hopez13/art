@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5c3dc7b8_b3984192",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-22T16:05:40Z",
+      "side": 1,
+      "message": "Alex: Would it be possible to clean this up in followup CL?",
+      "parentUuid": "65379657_91ec060c",
+      "range": {
+        "startLine": 167,
+        "startChar": 21,
+        "endLine": 167,
+        "endChar": 36
+      },
+      "revId": "88a2a9d7a14b67e10525d93b0ee57d9dd6bc345a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffe43ea_69ea98b5",
         "filename": "runtime/interpreter/shadow_frame.h",
         "patchSetId": 16
