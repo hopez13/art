@@ -94,6 +94,30 @@
       "revId": "cae16b09d07a29ebfd868259ad893b70cd817019",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf2918b_70b4a30f",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-22T20:51:24Z",
+      "side": 1,
+      "message": "Is there a natural art idiom for throwing the error I should use?",
+      "parentUuid": "11064917_2a8e40eb",
+      "range": {
+        "startLine": 515,
+        "startChar": 24,
+        "endLine": 515,
+        "endChar": 68
+      },
+      "revId": "cae16b09d07a29ebfd868259ad893b70cd817019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
