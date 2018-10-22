@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "060aabbf_19d69844",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "OK.  This is going to require some changes to the patch.  I\u0027ll get them uploaded with the next patchset.",
+      "parentUuid": "9e9614f8_8f8a695a",
+      "range": {
+        "startLine": 302,
+        "startChar": 22,
+        "endLine": 302,
+        "endChar": 91
+      },
+      "revId": "e512241b6387b976eb8a66225b5e13413944c569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6dbe3e9e_1c722c83",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e512241b6387b976eb8a66225b5e13413944c569",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7200e91_e4ad7019",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Good catch.  Thanks.",
+      "parentUuid": "6dbe3e9e_1c722c83",
+      "range": {
+        "startLine": 431,
+        "startChar": 63,
+        "endLine": 432,
+        "endChar": 0
+      },
+      "revId": "e512241b6387b976eb8a66225b5e13413944c569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

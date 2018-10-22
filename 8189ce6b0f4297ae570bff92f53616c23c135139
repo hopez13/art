@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5fb68e5_caf5ca68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51a4d129_0bc89eed",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca563dd0_c5b5bd91",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f985599e_2eecfe47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca563dd0_c5b5bd91",
+      "range": {
+        "startLine": 11,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 71
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc31d92a_5bd057a4",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ccbba00_ea7c5c82",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc31d92a_5bd057a4",
+      "range": {
+        "startLine": 292,
+        "startChar": 22,
+        "endLine": 292,
+        "endChar": 28
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "4e39b79d_6bd24bba",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Adding an equals sign seems to be inconsistent with other instances of labeling template arguments in this file.  Is it common in other places?\n\nI changed the indention as Hans requested.  With this alignment I think I would prefer to put the parameter name comment after the value, but I don\u0027t think that would fit how it\u0027s done in other locations.",
+      "parentUuid": "dfe5be7c_cec94aca",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "185ed831_60fc6e19",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -138,6 +234,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de52b69f_bfa69834",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185ed831_60fc6e19",
+      "range": {
+        "startLine": 427,
+        "startChar": 29,
+        "endLine": 427,
+        "endChar": 30
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "9ac0d152_8171e6a2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "160bf2e4_1dad822f",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 102
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56ff496d_58610b36",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -175,6 +319,30 @@
       "writtenOn": "2018-10-22T13:08:07Z",
       "side": 1,
       "message": "While you\u0027re changing this, could you split this into two declarations?",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bf38a3_a2f2164c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Can I ask why?  These two variables need to be of the same type.  This helps to convey that not only are they linked by type, they are also logically linked.",
+      "parentUuid": "56ff496d_58610b36",
       "range": {
         "startLine": 505,
         "startChar": 0,
@@ -207,6 +375,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8c57e75_12f4fa91",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d0644c9_57ddc7ac",
+      "range": {
+        "startLine": 549,
+        "startChar": 80,
+        "endLine": 550,
+        "endChar": 11
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -245,6 +437,30 @@
       "side": 1,
       "message": "I\u0027m not going to disagree with this if ART style specifically wants to continue forbidding the use of decltype, but this seems like one of the intended uses of it. The storage is indeed related to string_reference_offsets_, rather than being some abstract type. Perhaps now is the time to start allowing decltype for size/allocation-related uses too.",
       "parentUuid": "283f894f_3812ae25",
+      "range": {
+        "startLine": 2346,
+        "startChar": 30,
+        "endLine": 2346,
+        "endChar": 86
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2527047a_0b91e41c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Previously I had been told that it is preferable to use variable names instead of types for sizeof calculations.  I couldn\u0027t do that directly here, so I had to run through a decltype.\n\nIn addition, I ran into a bug when developing this patch that was caused by me changing the type of string_reference_offsets_ and not adjusting this line.  Using decltype to fetch the element type of the vector should prevent that from happening in the future.",
+      "parentUuid": "799adc58_5b5c9e32",
       "range": {
         "startLine": 2346,
         "startChar": 30,
@@ -304,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "bf2c06bb_b9372567",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "You raise a good point Hans.  I can see three possible solutions: 1) defining the macro to the empty string if it isn\u0027t a debug build; 2) Wrapping the functions/classes it is used on in \"#if kIsDebugBuild\" blocks; and 3) using an ASSERT_DEBUG macro in the body of any function that uses DISABLE_OPTIMIZATION.\n\nThe first of these options is the only one that wouldn\u0027t require an extra step for the programmer.  Unfortunately it won\u0027t cause a warning or error if the function is used in a non-debug context, but that is the same behavior we have today.  That could maybe be addressed by the addition of the ASSERT_DEBUG macro, and we could add that to any DEGUB-only function, regardless of if they use DISABLE_OPTIMIZATION.\n\nThoughts?",
+      "parentUuid": "2a21e992_79e09705",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "10262448_ed305b86",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -315,6 +555,24 @@
       "writtenOn": "2018-10-22T19:19:37Z",
       "side": 1,
       "message": "A debug-only class should clearly be guarded completely by kIsDebugBuild.",
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9377fae1_77eab435",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Using \"#if kIsDebugBuild\" ?  Or is there a type/function attribute that can be used?  I agree this would be a good change, but I have heard some pushback against macro-guards around code and haven\u0027t seen it in the codebase yet.",
+      "parentUuid": "10262448_ed305b86",
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -344,6 +602,30 @@
     },
     {
       "key": {
+        "uuid": "4c891fe0_61d8e139",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e697b3a6_9031cba4",
+      "range": {
+        "startLine": 1205,
+        "startChar": 0,
+        "endLine": 1206,
+        "endChar": 50
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30c2a32b_eb8076ad",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -355,6 +637,30 @@
       "writtenOn": "2018-10-22T16:25:49Z",
       "side": 1,
       "message": "I don\u0027t think extra white space is allowed here.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 24,
+        "endLine": 1266,
+        "endChar": 26
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4578cfb8_82204119",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "I don\u0027t see anything in the style guide about it, but I would be willing to remove it if you feel strongly.",
+      "parentUuid": "30c2a32b_eb8076ad",
       "range": {
         "startLine": 1266,
         "startChar": 24,
@@ -387,6 +693,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0631395_28d3afec",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Thanks!  I didn\u0027t know about those.  Much better.",
+      "parentUuid": "bcb36a90_8cc4e32c",
+      "range": {
+        "startLine": 1439,
+        "startChar": 0,
+        "endLine": 1440,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -459,6 +789,30 @@
     },
     {
       "key": {
+        "uuid": "c4740adb_8a72cce4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f67124c_12e20280",
+      "range": {
+        "startLine": 1468,
+        "startChar": 0,
+        "endLine": 1470,
+        "endChar": 62
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eafe2d0c_fe9db7f2",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -479,6 +833,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d19f62_092aef24",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T22:59:06Z",
+      "side": 1,
+      "message": "The naming convention here is to start with a capital letter if it is a logical component (e.g. AppImage or Dex2Oat) and a lower case letter if it is a message or value name.",
+      "parentUuid": "eafe2d0c_fe9db7f2",
+      "range": {
+        "startLine": 1494,
+        "startChar": 27,
+        "endLine": 1494,
+        "endChar": 51
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
