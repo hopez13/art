@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bb2a08d_9ba20e71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-22T09:53:36Z",
+      "side": 1,
+      "message": "You forgot to account for the String headers which would take and additional ~70k.",
+      "range": {
+        "startLine": 11,
+        "startChar": 58,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "22752770e5e7dd9fb30bb35373b61e76b40ae5c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
