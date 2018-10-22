@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6f3100c_cbada7b1",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:52:44Z",
+      "side": 1,
+      "message": "No else after return.",
+      "range": {
+        "startLine": 1574,
+        "startChar": 4,
+        "endLine": 1575,
+        "endChar": 8
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6dfc303_1811d4bd",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:52:44Z",
+      "side": 1,
+      "message": "No else after return.",
+      "range": {
+        "startLine": 1630,
+        "startChar": 8,
+        "endLine": 1631,
+        "endChar": 12
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62d46c5b_1265f74f",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:52:44Z",
+      "side": 1,
+      "message": "Could consider a templated lambda:\n\n auto fn_method \u003d [\u0026](const auto\u0026 member, const char* name) { ... }",
+      "range": {
+        "startLine": 1638,
+        "startChar": 4,
+        "endLine": 1654,
+        "endChar": 6
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
