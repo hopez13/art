@@ -233,6 +233,30 @@
     },
     {
       "key": {
+        "uuid": "799adc58_5b5c9e32",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-10-22T19:19:37Z",
+      "side": 1,
+      "message": "I\u0027m not going to disagree with this if ART style specifically wants to continue forbidding the use of decltype, but this seems like one of the intended uses of it. The storage is indeed related to string_reference_offsets_, rather than being some abstract type. Perhaps now is the time to start allowing decltype for size/allocation-related uses too.",
+      "parentUuid": "283f894f_3812ae25",
+      "range": {
+        "startLine": 2346,
+        "startChar": 30,
+        "endLine": 2346,
+        "endChar": 86
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "674c2741_4feb5278",
         "filename": "libartbase/base/macros.h",
         "patchSetId": 2
@@ -250,6 +274,47 @@
         "endLine": 101,
         "endChar": 53
       },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a21e992_79e09705",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-10-22T19:19:37Z",
+      "side": 1,
+      "message": "Since Android only supports Clang, I don\u0027t see the need for a GCC-specific define here. I see that these are used for some debug-related routines. Would it be good to mark those functions specifically as DEBUG-only? Tagging them directly with [[clang::optnone]] won\u0027t be as surprising.",
+      "parentUuid": "674c2741_4feb5278",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10262448_ed305b86",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-10-22T19:19:37Z",
+      "side": 1,
+      "message": "A debug-only class should clearly be guarded completely by kIsDebugBuild.",
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
