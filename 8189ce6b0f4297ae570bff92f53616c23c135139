@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "b44797c0_f791eeca",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T23:21:10Z",
+      "side": 1,
+      "message": "Andreas just told me about the effort to move to /* kName\u003d */ style.  I\u0027ll switch these over.",
+      "parentUuid": "4e39b79d_6bd24bba",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "185ed831_60fc6e19",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -743,6 +767,30 @@
     },
     {
       "key": {
+        "uuid": "2101c17f_8bc12d2c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T23:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d146786c_df33617a",
+      "range": {
+        "startLine": 1449,
+        "startChar": 34,
+        "endLine": 1449,
+        "endChar": 51
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ca4a9d0_461e4ba0",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -763,6 +811,30 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89bd7bc8_38eb92fe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-22T23:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca4a9d0_461e4ba0",
+      "range": {
+        "startLine": 1454,
+        "startChar": 32,
+        "endLine": 1454,
+        "endChar": 56
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
