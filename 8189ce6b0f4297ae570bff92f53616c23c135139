@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51a4d129_0bc89eed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "improper",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc31d92a_5bd057a4",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "the second",
+      "range": {
+        "startLine": 292,
+        "startChar": 22,
+        "endLine": 292,
+        "endChar": 28
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c69b669_ed6246bb",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "While you\u0027re changing this line, could you also change this comment to:\n\n  /*kVisitNativeRoots\u003d*/\n\n?",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "185ed831_60fc6e19",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "Nit: Extra space.",
+      "range": {
+        "startLine": 427,
+        "startChar": 29,
+        "endLine": 427,
+        "endChar": 30
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "160bf2e4_1dad822f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 102
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56ff496d_58610b36",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "While you\u0027re changing this, could you split this into two declarations?",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d0644c9_57ddc7ac",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "Nit: Missing white space between \"following\" and \"object\".",
+      "range": {
+        "startLine": 549,
+        "startChar": 80,
+        "endLine": 550,
+        "endChar": 11
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "283f894f_3812ae25",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "Could you replace this with `AppImageReferenceOffsetInfo`? We\u0027ve tried so far to limit the use of `auto` and `decltype` in ART\u0027s code base to some specific use cases (e.g. iterators).",
+      "range": {
+        "startLine": 2346,
+        "startChar": 30,
+        "endLine": 2346,
+        "endChar": 86
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e697b3a6_9031cba4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 1205,
+        "startChar": 0,
+        "endLine": 1206,
+        "endChar": 50
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb36a90_8cc4e32c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "DCHECK_ALIGNED(sro_base[offset_index].first, 2);\nDCHECK_ALIGNED(sro_base[offset_index].second, 2);",
+      "range": {
+        "startLine": 1439,
+        "startChar": 0,
+        "endLine": 1440,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d146786c_df33617a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "/*kIsVolatile\u003d*/",
+      "range": {
+        "startLine": 1449,
+        "startChar": 34,
+        "endLine": 1449,
+        "endChar": 51
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ca4a9d0_461e4ba0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "/*kTransactionActive\u003d*/ (And ditto for other template parameters.)",
+      "range": {
+        "startLine": 1454,
+        "startChar": 32,
+        "endLine": 1454,
+        "endChar": 56
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f67124c_12e20280",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "I don\u0027t think we use that type of indentation/alignment in ART\u0027s code base.",
+      "range": {
+        "startLine": 1468,
+        "startChar": 0,
+        "endLine": 1470,
+        "endChar": 62
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eafe2d0c_fe9db7f2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-22T13:08:07Z",
+      "side": 1,
+      "message": "This seems to be not uniform with the style used line 1478.",
+      "range": {
+        "startLine": 1494,
+        "startChar": 27,
+        "endLine": 1494,
+        "endChar": 51
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
