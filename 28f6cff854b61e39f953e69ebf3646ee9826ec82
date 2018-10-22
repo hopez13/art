@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "107bbcb5_39513d72",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:28:31Z",
+      "side": 1,
+      "message": "REQUIRES(!thread_list_lock)",
+      "range": {
+        "startLine": 682,
+        "startChar": 55,
+        "endLine": 682,
+        "endChar": 56
+      },
+      "revId": "28f6cff854b61e39f953e69ebf3646ee9826ec82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cef2c23_f6bef59c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-22T16:28:31Z",
+      "side": 1,
+      "message": "Typo",
+      "range": {
+        "startLine": 1298,
+        "startChar": 7,
+        "endLine": 1298,
+        "endChar": 24
+      },
+      "revId": "28f6cff854b61e39f953e69ebf3646ee9826ec82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
