@@ -500,6 +500,9 @@ art_cc_library {
     strip: {
         keep_symbols: true,
     },
+    header_libs: [
+        "libdexfile_headers",
+    ],
     whole_static_libs: [
     ],
     shared_libs: [
@@ -524,6 +527,9 @@ art_cc_library {
     defaults: [
         "art_debug_defaults",
         "libart_defaults",
+    ],
+    header_libs: [
+        "libdexfile_headers",
     ],
     whole_static_libs: [
     ],

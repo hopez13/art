@@ -185,6 +185,7 @@ art_cc_defaults {
     include_dirs: ["art/disassembler"],
     header_libs: [
         "art_cmdlineparser_headers",  // For compiler_options.
+        "libdexfile_headers",
         "libnativehelper_header_only",
     ],
 

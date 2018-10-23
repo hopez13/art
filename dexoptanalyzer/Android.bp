@@ -28,6 +28,9 @@ cc_defaults {
         },
     },
 
+    header_libs: [
+        "libdexfile_headers",
+    ],
     shared_libs: [
         "libbase",
     ],
