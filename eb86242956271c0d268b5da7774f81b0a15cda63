@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "434cfb63_03ee4511",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem right. Shouldn\u0027t the consumers get this through the \"right\" shared-lib dependency (libdexfile or libdexfiled) below?",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e8a924_b5259b75",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "I think this should be solved by libart-dexlayout exporting libdexfile_headers.",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cd413b1_aade3007",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e7eec1_0c79826c",
+        "filename": "libprofile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "This seems wrong with the shared-lib below.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8970f61_1936bac3",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "Seems wrong with the shared-libs.",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 505,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dfd5b65_adfd3ee0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 531,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b84511_6a6c27d2",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "Unnecessary as this depends on libdexfiled below?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9936f27_aaaf2a64",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T22:16:57Z",
+      "side": 1,
+      "message": "Same?",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
