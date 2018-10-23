@@ -22,6 +22,30 @@
       "revId": "584771b5a85843700289ffcd36a46f3b187ca349",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d141ce32_38e098b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T14:54:51Z",
+      "side": 1,
+      "message": "It\u0027s too expensive in general (there\u0027s a change to turn it on for the debug builds, but even then we\u0027ll still build it multiple times).\n\nRight now, this relies on one of the TH builds running with tidy enabled (as well as daily builds).\n\nNote that the parens check is very noisy (because of most pulled-in libs, including external/, not following this). The warnings are suppressed, but it still means two extra lines per file, plus analysis time. It also wants all defines with negative numbers to be enclosed. I didn\u0027t check whether that works for assembler literals. For those two reasons, I have left the warning a warning...",
+      "parentUuid": "6f57b8aa_b63a5291",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "584771b5a85843700289ffcd36a46f3b187ca349",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
