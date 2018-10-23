@@ -1,0 +1,387 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b226958c_2e676cce",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "This takes a mutex from an @FastNative.\n\n1) Are you absolutely sure this won\u0027t cause a deadlock?\n2) Is the performance boost from @FastNative actually necessary here?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f697b3a_cc8c3508",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: is_absolute",
+      "range": {
+        "startLine": 286,
+        "startChar": 23,
+        "endLine": 286,
+        "endChar": 33
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf9bbaf_e7e0c331",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "Doesn\u0027t this allow it to go to values 3,4,5, etc or am I missing something?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "985ffd91_48ebef92",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermit",
+      "range": {
+        "startLine": 292,
+        "startChar": 68,
+        "endLine": 292,
+        "endChar": 69
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "150f200c_f57fa55f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermitWaiterWaiting ?",
+      "range": {
+        "startLine": 300,
+        "startChar": 41,
+        "endLine": 300,
+        "endChar": 42
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3815e407_be82aaad",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: /* uaddr2 */",
+      "range": {
+        "startLine": 302,
+        "startChar": 21,
+        "endLine": 302,
+        "endChar": 28
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edf0110a_7cbb4ec1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: /*val3*/",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9d350f4_650027f4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermitWaiterWaiting ?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27f4ff65_eb6b4ca0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: /* uaddr2 */",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f0c3c24_8859ab14",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermitWaiterWaiting ?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78fd783_4a9759c3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermit ?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a13417f_7f25611b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermitWaiterWaiting",
+      "range": {
+        "startLine": 357,
+        "startChar": 67,
+        "endLine": 357,
+        "endChar": 68
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd31345_e1f83a0f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kPermitAvailable",
+      "range": {
+        "startLine": 357,
+        "startChar": 34,
+        "endLine": 357,
+        "endChar": 35
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c5768ee_3dd322a8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: space after /* if there\u0027s a space before */\n(here and in the rest of the file)",
+      "range": {
+        "startLine": 360,
+        "startChar": 23,
+        "endLine": 360,
+        "endChar": 25
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a9d502b_d31aa55d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: /* arg names */ here and below",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eb7a3f8_afb3dfa2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "kNoPermit",
+      "range": {
+        "startLine": 2221,
+        "startChar": 27,
+        "endLine": 2221,
+        "endChar": 28
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "782fe6cc_f95748fd",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "What about negative?",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5b08977_5f782369",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: is_absolute",
+      "range": {
+        "startLine": 584,
+        "startChar": 17,
+        "endLine": 584,
+        "endChar": 27
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78c1dc6a_4d2411f1",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-23T23:17:29Z",
+      "side": 1,
+      "message": "nit: enum would be preferred\n\n  enum class ParkState {\n    kPermitAvailable \u003d 0,\n    kNoPermit \u003d 1,\n    kNoPermitWaiterWaiting \u003d 2,\n  };\n\n  AtomicInteger park_state_;  // see ParkState above.",
+      "range": {
+        "startLine": 1567,
+        "startChar": 4,
+        "endLine": 1567,
+        "endChar": 17
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
