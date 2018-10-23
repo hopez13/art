@@ -712,6 +712,30 @@
     },
     {
       "key": {
+        "uuid": "89923112_d365d9fb",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-23T20:47:03Z",
+      "side": 1,
+      "message": "It sounds like there isn\u0027t a lot of support for this so I removed it.  I\u0027ll use [[clang::optnone]] when I need to debug and remove it from any code that gets checked in.",
+      "parentUuid": "2402e599_437ae9a9",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10262448_ed305b86",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -798,6 +822,24 @@
       "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6056ddaa_55b759b2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-23T20:47:03Z",
+      "side": 1,
+      "message": "I\u0027ve removed the DISABLE_OPTIMIZATION macros.  As other similar visitors aren\u0027t limited to the scope of the calling function I\u0027m going to leave this as is.",
+      "parentUuid": "8a106d01_40e3ee98",
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
