@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "44211a39_cc01f4e9",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-23T22:29:55Z",
+      "side": 1,
+      "message": "Can we add an explicit comment here that the Mutex must be held when these are called? The old code wasn\u0027t correct anyway unless that was true. And I think you\u0027re relying on it even more now. A DCHECK to confirm that would be even better.",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 484,
+        "endChar": 28
+      },
+      "revId": "dde5ace855acefac5cd804c612ea99102f7551f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89895e05_7a8f91bb",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
