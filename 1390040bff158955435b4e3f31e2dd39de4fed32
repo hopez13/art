@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "319fc6ce_eaa366df",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T09:54:37Z",
+      "side": 1,
+      "message": "Indentation. (And please remove the spaces around \"kVisitNativeRoots\u003d\".)",
+      "range": {
+        "startLine": 1273,
+        "startChar": 52,
+        "endLine": 1273,
+        "endChar": 53
+      },
+      "revId": "1390040bff158955435b4e3f31e2dd39de4fed32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a3b5c94_a4204b44",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T09:54:37Z",
+      "side": 1,
+      "message": "Remove these spaces when you\u0027re already manually touching the code for indentation.",
+      "range": {
+        "startLine": 772,
+        "startChar": 25,
+        "endLine": 772,
+        "endChar": 26
+      },
+      "revId": "1390040bff158955435b4e3f31e2dd39de4fed32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c8c67d_9f339562",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T09:54:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 794,
+        "startChar": 23,
+        "endLine": 794,
+        "endChar": 24
+      },
+      "revId": "1390040bff158955435b4e3f31e2dd39de4fed32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63c2f2a3_f8ef21b6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T09:54:37Z",
+      "side": 1,
+      "message": "Fix comment.",
+      "range": {
+        "startLine": 316,
+        "startChar": 35,
+        "endLine": 316,
+        "endChar": 46
+      },
+      "revId": "1390040bff158955435b4e3f31e2dd39de4fed32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea33c7e_1b798ad0",
+        "filename": "runtime/subtype_check_info_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T09:54:37Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "range": {
+        "startLine": 231,
+        "startChar": 58,
+        "endLine": 231,
+        "endChar": 59
+      },
+      "revId": "1390040bff158955435b4e3f31e2dd39de4fed32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
