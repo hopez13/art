@@ -14,6 +14,12 @@
 // limitations under the License.
 //
 
+cc_library_headers {
+    name: "libdexfile_headers",
+    host_supported: true,
+    export_include_dirs: ["."],
+}
+
 cc_defaults {
     name: "libdexfile_defaults",
     defaults: ["art_defaults"],
@@ -55,6 +61,12 @@ cc_defaults {
         },
     },
     generated_sources: ["dexfile_operator_srcs"],
+    header_libs: [
+        "libdexfile_headers",
+    ],
+    export_header_lib_headers: [
+        "libdexfile_headers",
+    ],
     shared_libs: [
         // For MemMap.
         "libartbase",
@@ -65,7 +77,6 @@ cc_defaults {
         "libbase",
         "libz",
     ],
-    export_include_dirs: ["."],
     export_shared_lib_headers: [
         "libartbase",
         "libbase",

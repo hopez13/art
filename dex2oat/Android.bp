@@ -69,6 +69,9 @@ art_cc_defaults {
         },
     },
     generated_sources: ["art_dex2oat_operator_srcs"],
+    header_libs: [
+        "libdexfile_headers",
+    ],
     shared_libs: [
         "libbase",
         "liblz4",
