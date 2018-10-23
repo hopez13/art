@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1f2a86b_59c44efa",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Yes, this one is unnecessary. Thanks for catching it.",
+      "parentUuid": "434cfb63_03ee4511",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7e8a924_b5259b75",
         "filename": "dexlayout/Android.bp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "204ca1e0_fabb8efe",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Agreed, since the dependency goes through dexlayout.h.",
+      "parentUuid": "c7e8a924_b5259b75",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b005ba7f_04e63858",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "dexdiag.cc includes dex/dex_file.h directly, so I think direct dependency is warranted here, even though it\u0027s strictly speaking unnecessary.",
+      "parentUuid": "1cd413b1_aade3007",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50e7eec1_0c79826c",
         "filename": "libprofile/Android.bp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5c241f7_7f236a18",
+        "filename": "libprofile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50e7eec1_0c79826c",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "574c966c_81038e57",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Hmm, yes. I must have had some bad change in libdexfile that I later reverted.",
+      "parentUuid": "b8970f61_1936bac3",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 505,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6dfd5b65_adfd3ee0",
         "filename": "runtime/Android.bp",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70318df2_af9b3132",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dfd5b65_adfd3ee0",
+      "range": {
+        "startLine": 531,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1d15e5de_2ce5b0de",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Yep, same thing.",
+      "parentUuid": "a4b84511_6a6c27d2",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9936f27_aaaf2a64",
         "filename": "test/Android.bp",
         "patchSetId": 1
@@ -183,6 +351,30 @@
       "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8f41640_6cf9445b",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-23T23:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9936f27_aaaf2a64",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 6
+      },
+      "revId": "eb86242956271c0d268b5da7774f81b0a15cda63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
