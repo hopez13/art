@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee91fde5_95b817b4",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-23T17:41:46Z",
+      "side": 1,
+      "message": "The string reference offsets section is included in these calculations.  Only the bitmap and the header aren\u0027t.",
+      "revId": "d68ab24b556fca8b89695d4e199a906a611dae64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
