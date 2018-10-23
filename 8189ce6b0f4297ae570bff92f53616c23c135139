@@ -783,6 +783,24 @@
     },
     {
       "key": {
+        "uuid": "8a106d01_40e3ee98",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-23T20:20:04Z",
+      "side": 1,
+      "message": "The name of the class is clear enough that I don\u0027t think this needs to be hidden from non-debug builds (and I\u0027d expect the linker to eliminate this code). It seems overkill to #ifdef this out.\n\nYou could move the visitor into the caller (from this context it looks like it\u0027s only one) to isolate it.",
+      "parentUuid": "370c2825_14131ba6",
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e697b3a6_9031cba4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
