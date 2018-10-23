@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7fd31c6_a347b33b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T10:19:46Z",
+      "side": 1,
+      "message": "Done.\n\nThe overall sizes of the image files changed since\n\n    https://android-review.googlesource.com/c/platform/art/+/713931\n\nso the values are different but proportionate.\n\nNote that with --image-format\u003dlz4hc, the changes would be\n\n  - before:\n    arm/boot*.art: 5945837\n    arm64/boot.art: 6131174\n  - after:\n    arm/boot*.art: 5804032 (-138KiB)\n    arm64/boot.art: 5988352 (-139KiB)",
+      "parentUuid": "f358fb00_0771d321",
+      "revId": "366d00f53a4e7b1bf565e6cf44f662fc986c879a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "366b2fb2_17e0e2fc",
         "filename": "dex2oat/linker/image_writer.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "366d00f53a4e7b1bf565e6cf44f662fc986c879a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51f7a19f_c871134c",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-23T10:19:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "366b2fb2_17e0e2fc",
+      "revId": "366d00f53a4e7b1bf565e6cf44f662fc986c879a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
