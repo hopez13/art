@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd93db7a_a4a8246c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Yeah, I counted is as the sum of all of these extra items. So either that ends up in vdex or remains in dex files if no preopt.",
+      "parentUuid": "025b82ea_66b1dc04",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 28
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4fc79f81_90440630",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 23
@@ -45,6 +69,30 @@
       "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bce038e_90ae3abe",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fc79f81_90440630",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 116
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b8cfbd0c_b5677897",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 1277,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57e9db33_52b1bebb",
+      "range": {
+        "startLine": 1277,
+        "startChar": 26,
+        "endLine": 1277,
+        "endChar": 34
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "842eed2e_f8b6ab20",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 23
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b850e945_59af7ec9",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "842eed2e_f8b6ab20",
+      "range": {
+        "startLine": 1292,
+        "startChar": 6,
+        "endLine": 1292,
+        "endChar": 34
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41bdcffe_638d1ad8",
         "filename": "dexlayout/dex_writer.cc",
         "patchSetId": 23
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "d52174a8_7d536f77",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Two right now, soon to be extended. Hopefully never more than 1 byte but the uleb128 gives us flexibility if ever needed.",
+      "parentUuid": "41bdcffe_638d1ad8",
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc3f5b68_4dbaf0a8",
         "filename": "libdexfile/dex/dex_file.h",
         "patchSetId": 23
@@ -125,6 +239,24 @@
       "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebf44bfa_f4b91f40",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc3f5b68_4dbaf0a8",
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "70cad5e4_6fa2c2c0",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f3100c_cbada7b1",
+      "range": {
+        "startLine": 1574,
+        "startChar": 4,
+        "endLine": 1575,
+        "endChar": 8
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6dfc303_1811d4bd",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 23
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "4bfe1972_5caaf694",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6dfc303_1811d4bd",
+      "range": {
+        "startLine": 1630,
+        "startChar": 8,
+        "endLine": 1631,
+        "endChar": 12
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62d46c5b_1265f74f",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 23
@@ -185,6 +365,30 @@
       "writtenOn": "2018-10-22T16:52:44Z",
       "side": 1,
       "message": "Could consider a templated lambda:\n\n auto fn_method \u003d [\u0026](const auto\u0026 member, const char* name) { ... }",
+      "range": {
+        "startLine": 1638,
+        "startChar": 4,
+        "endLine": 1654,
+        "endChar": 6
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e40fa7c_48cd0059",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure how that would work (please teach me!)\nWhat I\u0027ve done is:\n  fn_member \u003d [\u0026](const BaseItem\u0026 member, const char* member_name) { ... }\n  fn_field \u003d [\u0026](const Field\u0026 field) { fn_member(field, \"field\"); }\n  fn_method \u003d [\u0026](const Method\u0026 method) { fn_member(method, \"method\"); }",
+      "parentUuid": "62d46c5b_1265f74f",
       "range": {
         "startLine": 1638,
         "startChar": 4,
@@ -217,6 +421,30 @@
       "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9603be1d_7cae16cb",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-10-23T10:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b8b674e_8fdb01e0",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 18
+      },
+      "revId": "7c05a636a755a42d07318ed747a3ce14c030008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
