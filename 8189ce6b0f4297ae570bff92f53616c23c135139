@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "e73e149b_d95d6312",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "Sorry, I should have mentioned the rationale behind this comment.",
+      "parentUuid": "b44797c0_f791eeca",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 55
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "185ed831_60fc6e19",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -379,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "462bf163_b1825fa1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "This is inconsistent with the style used throughout the ART code base. We could revisit this, but I\u0027d rather have you do that in another CL (if the team agrees with the change).",
+      "parentUuid": "d8bf38a3_a2f2164c",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d0644c9_57ddc7ac",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -485,6 +533,30 @@
       "side": 1,
       "message": "Previously I had been told that it is preferable to use variable names instead of types for sizeof calculations.  I couldn\u0027t do that directly here, so I had to run through a decltype.\n\nIn addition, I ran into a bug when developing this patch that was caused by me changing the type of string_reference_offsets_ and not adjusting this line.  Using decltype to fetch the element type of the vector should prevent that from happening in the future.",
       "parentUuid": "799adc58_5b5c9e32",
+      "range": {
+        "startLine": 2346,
+        "startChar": 30,
+        "endLine": 2346,
+        "endChar": 86
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "083ac9e4_147ffc15",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "I\u0027m not against it (I actually do like generic programming idioms), but this does not seem consistent with the style used in ART.",
+      "parentUuid": "2527047a_0b91e41c",
       "range": {
         "startLine": 2346,
         "startChar": 30,
@@ -621,6 +693,24 @@
     },
     {
       "key": {
+        "uuid": "370c2825_14131ba6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "Given how `kIsDebugBuild` is defined, you\u0027d probably want to use something like\n\n  #if !defined(NDEBUG)\n  …\n  #endif\n\nto guard such code.",
+      "parentUuid": "65ac77e7_06d654b3",
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e697b3a6_9031cba4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -703,6 +793,30 @@
       "side": 1,
       "message": "I don\u0027t see anything in the style guide about it, but I would be willing to remove it if you feel strongly.",
       "parentUuid": "30c2a32b_eb8076ad",
+      "range": {
+        "startLine": 1266,
+        "startChar": 24,
+        "endLine": 1266,
+        "endChar": 26
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9dd274_7608421c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "I don\u0027t remember anything specific about this in the style guide(s). That\u0027s mostly to be consistent with the ART code base (which is more important than following the style guide to the letter IMO).",
+      "parentUuid": "4578cfb8_82204119",
       "range": {
         "startLine": 1266,
         "startChar": 24,
@@ -938,6 +1052,30 @@
       "side": 1,
       "message": "The naming convention here is to start with a capital letter if it is a logical component (e.g. AppImage or Dex2Oat) and a lower case letter if it is a message or value name.",
       "parentUuid": "eafe2d0c_fe9db7f2",
+      "range": {
+        "startLine": 1494,
+        "startChar": 27,
+        "endLine": 1494,
+        "endChar": 51
+      },
+      "revId": "8189ce6b0f4297ae570bff92f53616c23c135139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cb86048_3e5fc43e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-23T14:22:40Z",
+      "side": 1,
+      "message": "Sorry about the nitpicking, but why using different capitalizations for `StringsInInternTable` (line 1478) and for `conflictingInternStrings` (line 1494)? They seem to be both value names. Is there any other example (or comment/documentation) that would explain this difference?",
+      "parentUuid": "c1d19f62_092aef24",
       "range": {
         "startLine": 1494,
         "startChar": 27,
