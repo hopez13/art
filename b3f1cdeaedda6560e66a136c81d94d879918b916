@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47a79e9e_eec33d6a",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-23T01:05:53Z",
+      "side": 1,
+      "message": "This throws:\nhttps://android-build.googleplex.com/builds/pending/P6869507/art-test/latest/view/logs/build_error.log\n\nI think that\u0027s because of missing @FastNative in the libcore CL, which I\u0027ve now updated.",
+      "range": {
+        "startLine": 514,
+        "startChar": 7,
+        "endLine": 514,
+        "endChar": 35
+      },
+      "revId": "b3f1cdeaedda6560e66a136c81d94d879918b916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
