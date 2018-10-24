@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "524de642_c297f151",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-24T17:40:50Z",
+      "side": 1,
+      "message": "I noticed an improvement I could make to the patch when fixing an issue raised my Mathieu.  I\u0027m finishing that up and then I\u0027ll upload the combined changes.",
+      "parentUuid": "a809aa61_29b15a21",
+      "range": {
+        "startLine": 615,
+        "startChar": 5,
+        "endLine": 615,
+        "endChar": 8
+      },
+      "revId": "c40c7e8696055f45464cdc10c77b694efdfe946f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06d703a7_a456d7ee",
         "filename": "runtime/class_linker.h",
         "patchSetId": 3
