@@ -183,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "45dfe064_40d4a15b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-24T22:11:30Z",
+      "side": 1,
+      "message": "I\u0027m kind of neutral on this, since you need to know the numeric values to understand the code. Maybe kNoPermit_1 and kNoPermitWaiterWaiting_2? I\u0027m personally also OK with the way it is, given that the values are documented in the .h file.",
+      "parentUuid": "985ffd91_48ebef92",
+      "range": {
+        "startLine": 292,
+        "startChar": 68,
+        "endLine": 292,
+        "endChar": 69
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "150f200c_f57fa55f",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
