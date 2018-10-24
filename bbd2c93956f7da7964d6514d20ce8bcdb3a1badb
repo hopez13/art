@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "cd2d682f_3a0edf32",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T23:46:50Z",
+      "side": 1,
+      "message": "Added DCHECKs and enhanced ThreadStressTest.",
+      "parentUuid": "f0424060_e896d731",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f697b3a_cc8c3508",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
