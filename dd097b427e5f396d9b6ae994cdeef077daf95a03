@@ -22,6 +22,30 @@
       "revId": "dd097b427e5f396d9b6ae994cdeef077daf95a03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85f681ab_2c07e630",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-24T13:47:22Z",
+      "side": 1,
+      "message": "Agreed, it would be better to only provide inline stuff through this library. That would require splitting it up into two different include dirs, which is too much effort.",
+      "parentUuid": "fddc2c9b_00a8aee9",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "dd097b427e5f396d9b6ae994cdeef077daf95a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
