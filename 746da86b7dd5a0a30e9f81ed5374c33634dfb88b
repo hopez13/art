@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e6fc238_4e1f15c1",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-24T14:03:00Z",
+      "side": 1,
+      "message": "Can you also annotate the \"/*mmmmm\u003d*/ 2\", \"/*l\u003d*/ 128\" and \"/*pp\u003d*/ 0\"?",
+      "range": {
+        "startLine": 3375,
+        "startChar": 78,
+        "endLine": 3375,
+        "endChar": 79
+      },
+      "revId": "746da86b7dd5a0a30e9f81ed5374c33634dfb88b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
