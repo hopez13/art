@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dc2d236_fb2b4d04",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-24T22:34:14Z",
+      "side": 1,
+      "message": "this is a \u0027\"\u0027 include. It\u0027s in art.\n\n\u0027\u003c\u003e\u0027 are for system includes.",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "1d512b501361eaccb467ca42c7833e130455351d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb4a3e79_9772efd2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-24T22:34:14Z",
+      "side": 1,
+      "message": "new line: 100 char line length.",
+      "range": {
+        "startLine": 577,
+        "startChar": 50,
+        "endLine": 577,
+        "endChar": 104
+      },
+      "revId": "1d512b501361eaccb467ca42c7833e130455351d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42583812_f874e07a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 2225,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-24T22:34:14Z",
+      "side": 1,
+      "message": "Should be 1. Also put a comment that this means no-permit is available.",
+      "range": {
+        "startLine": 2225,
+        "startChar": 27,
+        "endLine": 2225,
+        "endChar": 28
+      },
+      "revId": "1d512b501361eaccb467ca42c7833e130455351d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f90d130f_f85ada89",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-24T22:34:14Z",
+      "side": 1,
+      "message": "space before \u003d please.",
+      "range": {
+        "startLine": 380,
+        "startChar": 38,
+        "endLine": 380,
+        "endChar": 39
+      },
+      "revId": "1d512b501361eaccb467ca42c7833e130455351d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
