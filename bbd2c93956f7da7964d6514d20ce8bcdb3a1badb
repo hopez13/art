@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bea05f1b_4eedf2e1",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "\u003e This takes a mutex from an @FastNative.\n\nI figured since Object.notify() which is similar in purpose is @FastNative, this would be too - and notify() also acquires a mutex. \n\u003e \n\u003e 1) Are you absolutely sure this won\u0027t cause a deadlock?\n\nIf we deadlock here, that would be disastrous already - but I am pretty confident, since there\u0027s the global lock order enforcement.\n\u003e 2) Is the performance boost from @FastNative actually necessary here?\n\nIt would be nice for calls to unpark() that do not require a wake (namely unparking a thread that has not yet gone to sleep) to be as close to free as possible.",
+      "parentUuid": "b226958c_2e676cce",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f697b3a_cc8c3508",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -39,6 +57,30 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "165e9684_fd96ba4d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f697b3a_cc8c3508",
+      "range": {
+        "startLine": 286,
+        "startChar": 23,
+        "endLine": 286,
+        "endChar": 33
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -79,6 +121,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e436ad8a_3d0d2374",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "No - since this is only unparking the current thread, if we increment to 2 there\u0027s an store that pushes it back to 1. This can\u0027t be called concurrently with itself.",
+      "parentUuid": "eaf9bbaf_e7e0c331",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "88481d82_0b6cd2cd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "I don\u0027t think it makes sense to document undefined params",
+      "parentUuid": "3815e407_be82aaad",
+      "range": {
+        "startLine": 302,
+        "startChar": 21,
+        "endLine": 302,
+        "endChar": 28
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edf0110a_7cbb4ec1",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -142,6 +226,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea21d6e_27fbd176",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Val3 is unused for wait calls.",
+      "parentUuid": "edf0110a_7cbb4ec1",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -176,6 +278,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69758c18_c3254080",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Unused for wait calls",
+      "parentUuid": "27f4ff65_eb6b4ca0",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -282,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "692e4c35_eddae15f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5768ee_3dd322a8",
+      "range": {
+        "startLine": 360,
+        "startChar": 23,
+        "endLine": 360,
+        "endChar": 25
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a9d502b_d31aa55d",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -296,6 +440,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1db182b_9ae24f82",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "There are no arg names for futex wake, these are all unused.",
+      "parentUuid": "5a9d502b_d31aa55d",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -339,6 +501,24 @@
     },
     {
       "key": {
+        "uuid": "76ca12bf_b5df9050",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Parking for negative time is checked by the java code before calling in. The implementation just returns immediately though. I felt the need to call out 0 as a special case because \"park for zero seconds\" would not normally be interpreted as \"park forever\"",
+      "parentUuid": "782fe6cc_f95748fd",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5b08977_5f782369",
         "filename": "runtime/thread.h",
         "patchSetId": 19
@@ -362,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "4c002940_278822d7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b08977_5f782369",
+      "range": {
+        "startLine": 584,
+        "startChar": 17,
+        "endLine": 584,
+        "endChar": 27
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78c1dc6a_4d2411f1",
         "filename": "runtime/thread.h",
         "patchSetId": 19
@@ -382,6 +586,30 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9402c8b_90c429b5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T01:23:31Z",
+      "side": 1,
+      "message": "I thought about that, but I felt that it obscured the flow of the fetch_add. If I was just using exchanges I\u0027d use an enum, but it felt weird to add to an enum and get another enum...",
+      "parentUuid": "78c1dc6a_4d2411f1",
+      "range": {
+        "startLine": 1567,
+        "startChar": 4,
+        "endLine": 1567,
+        "endChar": 17
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
