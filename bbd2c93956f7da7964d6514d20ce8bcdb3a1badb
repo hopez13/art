@@ -207,6 +207,30 @@
     },
     {
       "key": {
+        "uuid": "7f4a90f0_a0eac043",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-24T22:34:31Z",
+      "side": 1,
+      "message": "I\u0027ve now made sure that there\u0027s explanatory comments at each usage of these constants, but I think making them named would actually make it harder to follow the logic.",
+      "parentUuid": "45dfe064_40d4a15b",
+      "range": {
+        "startLine": 292,
+        "startChar": 68,
+        "endLine": 292,
+        "endChar": 69
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "150f200c_f57fa55f",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
