@@ -16,6 +16,24 @@
       "revId": "d68ab24b556fca8b89695d4e199a906a611dae64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6fe6c0f_6448f701",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-24T13:04:23Z",
+      "side": 1,
+      "message": "You have confused me by placing ImageHeader::GetImageStringReferenceOffsetsSection() after ImageHeader::GetImageBitmapSection().\n\nhttps://android-review.googlesource.com/800076",
+      "parentUuid": "ee91fde5_95b817b4",
+      "revId": "d68ab24b556fca8b89695d4e199a906a611dae64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
