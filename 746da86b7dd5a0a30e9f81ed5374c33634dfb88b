@@ -22,6 +22,30 @@
       "revId": "746da86b7dd5a0a30e9f81ed5374c33634dfb88b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2af114a5_b4e9d4c4",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-10-24T14:06:18Z",
+      "side": 1,
+      "message": "In that case, should i make one argument per line as this line will become too long?",
+      "parentUuid": "5e6fc238_4e1f15c1",
+      "range": {
+        "startLine": 3375,
+        "startChar": 78,
+        "endLine": 3375,
+        "endChar": 79
+      },
+      "revId": "746da86b7dd5a0a30e9f81ed5374c33634dfb88b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
