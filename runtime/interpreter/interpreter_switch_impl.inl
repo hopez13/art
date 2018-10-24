@@ -2571,15 +2571,5 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
   return;
 }  // NOLINT(readability/fn_size)
 
-// Explicit definitions of ExecuteSwitchImplCpp.
-template HOT_ATTR
-void ExecuteSwitchImplCpp<true, false>(SwitchImplContext* ctx);
-template HOT_ATTR
-void ExecuteSwitchImplCpp<false, false>(SwitchImplContext* ctx);
-template
-void ExecuteSwitchImplCpp<true, true>(SwitchImplContext* ctx);
-template
-void ExecuteSwitchImplCpp<false, true>(SwitchImplContext* ctx);
-
 }  // namespace interpreter
 }  // namespace art
