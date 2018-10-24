@@ -22,6 +22,29 @@
       "revId": "e0647289daf8f861b985a993f9c5c93e37ac00c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f1949f8_14858de8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1583,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-24T13:34:53Z",
+      "side": 1,
+      "message": "One argument per line, please.",
+      "range": {
+        "startLine": 1583,
+        "startChar": 46,
+        "endLine": 1583,
+        "endChar": 49
+      },
+      "revId": "e0647289daf8f861b985a993f9c5c93e37ac00c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
