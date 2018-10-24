@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b21868a8_731391da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-24T10:31:58Z",
+      "side": 1,
+      "message": "Could you add:\n\n  Bug: 26601270\n  Bug: 32578862\n\nhere?",
+      "revId": "2a5b32ca74bf4bae3f69fe3b618f93e5a173cb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a618a4_ca0207c9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-24T10:31:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you alter the logic for this case too?",
+      "range": {
+        "startLine": 2366,
+        "startChar": 0,
+        "endLine": 2376,
+        "endChar": 84
+      },
+      "revId": "2a5b32ca74bf4bae3f69fe3b618f93e5a173cb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5967dc47_08a98911",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6009,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-24T10:31:58Z",
+      "side": 1,
+      "message": "Nit: Perhaps use a more descriptive name here (e.g. `interm_addr`)?",
+      "range": {
+        "startLine": 6009,
+        "startChar": 28,
+        "endLine": 6009,
+        "endChar": 31
+      },
+      "revId": "2a5b32ca74bf4bae3f69fe3b618f93e5a173cb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c51a601_1db4b7fa",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-24T10:31:58Z",
+      "side": 1,
+      "message": "Nit: `DataOffset`?",
+      "range": {
+        "startLine": 590,
+        "startChar": 15,
+        "endLine": 590,
+        "endChar": 22
+      },
+      "revId": "2a5b32ca74bf4bae3f69fe3b618f93e5a173cb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
