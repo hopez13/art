@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "40c27bd2_ca9180e8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-25T22:23:58Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 293,
+        "endChar": 8
+      },
+      "revId": "116f72c902d78d218b7bd40a0958a499cf818950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e30cea57_dd7f9d2b",
         "filename": "runtime/thread.cc",
         "patchSetId": 28
@@ -13,6 +36,29 @@
       "writtenOn": "2018-10-25T19:36:40Z",
       "side": 1,
       "message": "Worth adding a note about the \"java.lang.Thread.getState() contract for Thread.park()\" to elaborate why these ThreadState::enums were chosen for each ScopedThreadSuspension?",
+      "revId": "116f72c902d78d218b7bd40a0958a499cf818950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c14a2b67_fcbcc6fc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-25T22:23:58Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 319,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 12
+      },
       "revId": "116f72c902d78d218b7bd40a0958a499cf818950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
