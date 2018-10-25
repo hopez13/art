@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e30cea57_dd7f9d2b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T19:36:40Z",
+      "side": 1,
+      "message": "Worth adding a note about the \"java.lang.Thread.getState() contract for Thread.park()\" to elaborate why these ThreadState::enums were chosen for each ScopedThreadSuspension?",
+      "revId": "116f72c902d78d218b7bd40a0958a499cf818950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
