@@ -70,6 +70,30 @@
       "revId": "d92c5f0111e58ac872291ea854584618bdb6e34d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa0f766_ecc92717",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-25T14:48:46Z",
+      "side": 1,
+      "message": "It will check and transition on every method exit, and backedges I think.\nI would like to move the check to method entry, but that is for other CL.",
+      "parentUuid": "effa351a_406c5cce",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "d92c5f0111e58ac872291ea854584618bdb6e34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
