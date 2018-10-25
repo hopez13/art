@@ -26,15 +26,6 @@ cc_defaults {
     // to be same ISA as what it is attached to.
     compile_multilib: "both",
 
-    shared_libs: [
-        "libbase",
-    ],
-    target: {
-        android: {
-        },
-        host: {
-        },
-    },
     header_libs: [
         "libopenjdkjvmti_headers",
     ],
@@ -53,6 +44,7 @@ art_cc_library {
     name: "libwrapagentproperties",
     defaults: ["wrapagentproperties-defaults"],
     shared_libs: [
+        "libartbase",
     ],
 }
 
@@ -62,5 +54,7 @@ art_cc_library {
         "art_debug_defaults",
         "wrapagentproperties-defaults",
     ],
-    shared_libs: [],
+    shared_libs: [
+        "libartbased",
+    ],
 }

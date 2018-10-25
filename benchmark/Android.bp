@@ -27,8 +27,8 @@ art_cc_library {
     ],
     shared_libs: [
         "libart",
+        "libartbase",
         "libbacktrace",
-        "libbase",
         "libnativehelper",
     ],
     cflags: [

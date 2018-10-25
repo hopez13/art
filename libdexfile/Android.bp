@@ -44,20 +44,16 @@ cc_defaults {
         "liblog",
         // For atrace.
         "libcutils",
-        // For common macros.
-        "libbase",
     ],
     export_include_dirs: ["."],
     export_shared_lib_headers: [
         "libartbase",
-        "libbase",
     ],
 }
 
 cc_defaults {
     name: "libdexfile_static_base_defaults",
     static_libs: [
-        "libbase",
         "libcutils",
         "liblog",
     ],

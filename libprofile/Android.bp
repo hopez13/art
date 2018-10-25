@@ -25,23 +25,17 @@ cc_defaults {
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
         "libartbase",
-        "libbase",
         "libdexfile",
         "libartbase",
 	// For atrace.
         "libcutils",
     ],
     export_include_dirs: ["."],
-    // ART's macros.h depends on libbase's macros.h.
-    // Note: runtime_options.h depends on cmdline. But we don't really want to export this
-    //       generically. dex2oat takes care of it itself.
-    export_shared_lib_headers: ["libbase"],
 }
 
 cc_defaults {
     name: "libprofile_static_base_defaults",
     static_libs: [
-        "libbase",
         "libcutils",
     ],
 }
@@ -74,9 +68,6 @@ art_cc_library {
     strip: {
         keep_symbols: true,
     },
-    shared_libs: [
-        "libbase",
-    ],
 }
 
 art_cc_library {
@@ -84,9 +75,6 @@ art_cc_library {
     defaults: [
         "art_debug_defaults",
         "libprofile_defaults",
-    ],
-    shared_libs: [
-        "libbase",
     ],
 }
 

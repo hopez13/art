@@ -25,9 +25,6 @@ cc_defaults {
     // to be same ISA as what it is attached to.
     compile_multilib: "both",
 
-    shared_libs: [
-        "libbase",
-    ],
     header_libs: [
         "libopenjdkjvmti_headers",
     ],
@@ -45,6 +42,9 @@ cc_defaults {
 art_cc_library {
     name: "libfieldnull",
     defaults: ["fieldnull-defaults"],
+    shared_libs: [
+        "libartbase",
+    ],
 }
 
 art_cc_library {
@@ -52,5 +52,8 @@ art_cc_library {
     defaults: [
         "art_debug_defaults",
         "fieldnull-defaults",
+    ],
+    shared_libs: [
+        "libartbased",
     ],
 }
