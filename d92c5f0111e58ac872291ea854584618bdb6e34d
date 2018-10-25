@@ -22,6 +22,30 @@
       "revId": "d92c5f0111e58ac872291ea854584618bdb6e34d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e3a4de9_15689356",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-25T13:52:01Z",
+      "side": 1,
+      "message": "That would not necessarily hold - the async exception can be thrown while we are in mterp.  The mterp will bail out as soon as possible, but there is still race.",
+      "parentUuid": "36a0e242_d4f2598e",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "d92c5f0111e58ac872291ea854584618bdb6e34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
