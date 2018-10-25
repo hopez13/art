@@ -33,6 +33,74 @@
       "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8572999_c01d1def",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T17:11:37Z",
+      "side": 1,
+      "message": "// Invariants: \n // * Only Thread::Current() can call Thread::Park().\n // * Either the permit is available (kPermitAvailable) or there is no permit available (kNoPermitAvailable).\n // * Other park_state_ values are not allowed.\n\nAlso is it possible to make these an explicit DCHECK or would that be racey?",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ebb1be_f11bc676",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T17:11:37Z",
+      "side": 1,
+      "message": "It seems this could be a bit more explicit:\n\n  int old_state \u003d fetch_add(1...)\n\n  if (old_state \u003d\u003d kNoPermit) {\n    // no permit was available. block thread until later.\n  } else {\n    // the fetch_add has consumed the permit. immediately return.\n    DCHECK_EQ(old_state, kPermitAvailable);\n  }",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aec16a48_1fa9d44a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T17:11:37Z",
+      "side": 1,
+      "message": "I think this can cause spurious wakeups right? We should document\n\n  // Note: futex can return early with spurious wakeup. This is allowed by LockSupport#park()",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745cbb1c_b27a041d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T17:11:37Z",
+      "side": 1,
+      "message": "nit: document allowed spurious wakeups behavior",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
