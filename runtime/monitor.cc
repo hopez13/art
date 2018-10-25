@@ -97,6 +97,7 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
       lock_count_(0),
       obj_(GcRoot<mirror::Object>(obj)),
       wait_set_(nullptr),
+      wake_set_(nullptr),
       hash_code_(hash_code),
       locking_method_(nullptr),
       locking_dex_pc_(0),
@@ -120,6 +121,7 @@ Monitor::Monitor(Thread* self, Thread* owner, mirror::Object* obj, int32_t hash_
       lock_count_(0),
       obj_(GcRoot<mirror::Object>(obj)),
       wait_set_(nullptr),
+      wake_set_(nullptr),
       hash_code_(hash_code),
       locking_method_(nullptr),
       locking_dex_pc_(0),
@@ -245,24 +247,29 @@ void Monitor::AppendToWaitSet(Thread* thread) {
 void Monitor::RemoveFromWaitSet(Thread *thread) {
   DCHECK(owner_ == Thread::Current());
   DCHECK(thread != nullptr);
-  if (wait_set_ == nullptr) {
-    return;
-  }
-  if (wait_set_ == thread) {
-    wait_set_ = thread->GetWaitNext();
-    thread->SetWaitNext(nullptr);
-    return;
-  }
-
-  Thread* t = wait_set_;
-  while (t->GetWaitNext() != nullptr) {
-    if (t->GetWaitNext() == thread) {
-      t->SetWaitNext(thread->GetWaitNext());
-      thread->SetWaitNext(nullptr);
-      return;
+  auto remove = [&](Thread*& set){
+    if (set != nullptr) {
+      if (set == thread) {
+        set = thread->GetWaitNext();
+        thread->SetWaitNext(nullptr);
+        return true;
+      }
+      Thread* t = set;
+      while (t->GetWaitNext() != nullptr) {
+        if (t->GetWaitNext() == thread) {
+          t->SetWaitNext(thread->GetWaitNext());
+          thread->SetWaitNext(nullptr);
+          return true;
+        }
+        t = t->GetWaitNext();
+      }
     }
-    t = t->GetWaitNext();
+    return false;
+  };
+  if (remove(wait_set_)) {
+    return;
   }
+  remove(wake_set_);
 }
 
 void Monitor::SetObject(mirror::Object* object) {
@@ -699,30 +706,62 @@ void Monitor::FailedUnlock(mirror::Object* o,
 bool Monitor::Unlock(Thread* self) {
   DCHECK(self != nullptr);
   uint32_t owner_thread_id = 0u;
-  {
-    MutexLock mu(self, monitor_lock_);
-    Thread* owner = owner_;
-    if (owner != nullptr) {
-      owner_thread_id = owner->GetThreadId();
-    }
-    if (owner == self) {
-      // We own the monitor, so nobody else can be in here.
-      AtraceMonitorUnlock();
-      if (lock_count_ == 0) {
-        owner_ = nullptr;
-        locking_method_ = nullptr;
-        locking_dex_pc_ = 0;
-        // Wake a contender.
-        monitor_contenders_.Signal(self);
-      } else {
-        --lock_count_;
+  DCHECK(!monitor_lock_.IsExclusiveHeld(self));
+  monitor_lock_.Lock(self);
+  Thread* owner = owner_;
+  if (owner != nullptr) {
+    owner_thread_id = owner->GetThreadId();
+  }
+  if (owner == self) {
+    // We own the monitor, so nobody else can be in here.
+    AtraceMonitorUnlock();
+    if (lock_count_ == 0) {
+      owner_ = nullptr;
+      locking_method_ = nullptr;
+      locking_dex_pc_ = 0;
+      // We want to signal one thread to wake up, to acquire the monitor that
+      // we are releasing. This could either be a Thread waiting on its own
+      // ConditionVariable, or a thread waiting on monitor_contenders_.
+      while (wake_set_ != nullptr) {
+        Thread* thread = wake_set_;
+        wake_set_ = thread->GetWaitNext();
+        thread->SetWaitNext(nullptr);
+
+        // Release the lock, so that a potentially awakened thread will not
+        // immediately contend on it.
+        monitor_lock_.Unlock(self);
+        // Check to see if the thread is still waiting.
+        {
+          MutexLock wait_mu(self, *thread->GetWaitMutex());
+          if (thread->GetWaitMonitor() != nullptr) {
+            thread->GetWaitConditionVariable()->Signal(self);
+            return true;
+          }
+        }
+        // Reacquire the lock for the next iteration
+        monitor_lock_.Lock(self);
+        // We had to reacquire the lock so that we can wake a contender, or look
+        // for another notified waiter thread, but if someone else has already acquired our
+        // monitor, there's no need to wake anybody else as they'll just contend
+        // with the current owner.
+        if (owner_ != nullptr) {
+          monitor_lock_.Unlock(self);
+          return true;
+        }
       }
-      return true;
+      // If we didn't wake any threads that were originally waiting on us,
+      // wake a contender.
+      monitor_contenders_.Signal(self);
+    } else {
+      --lock_count_;
     }
+    monitor_lock_.Unlock(self);
+    return true;
   }
   // We don't own this, so we're not allowed to unlock it.
   // The JNI spec says that we should throw IllegalMonitorStateException in this case.
   FailedUnlock(GetObject(), self->GetThreadId(), owner_thread_id, this);
+  monitor_lock_.Unlock(self);
   return false;
 }
 
@@ -874,18 +913,12 @@ void Monitor::Notify(Thread* self) {
     ThrowIllegalMonitorStateExceptionF("object not locked by thread before notify()");
     return;
   }
-  // Signal the first waiting thread in the wait set.
-  while (wait_set_ != nullptr) {
-    Thread* thread = wait_set_;
-    wait_set_ = thread->GetWaitNext();
-    thread->SetWaitNext(nullptr);
-
-    // Check to see if the thread is still waiting.
-    MutexLock wait_mu(self, *thread->GetWaitMutex());
-    if (thread->GetWaitMonitor() != nullptr) {
-      thread->GetWaitConditionVariable()->Signal(self);
-      return;
-    }
+  // Move one thread from waiters to wake set
+  Thread* to_move = wait_set_;
+  if (to_move != nullptr) {
+    wait_set_ = to_move->GetWaitNext();
+    to_move->SetWaitNext(wake_set_);
+    wake_set_ = to_move;
   }
 }
 
@@ -897,12 +930,20 @@ void Monitor::NotifyAll(Thread* self) {
     ThrowIllegalMonitorStateExceptionF("object not locked by thread before notifyAll()");
     return;
   }
-  // Signal all threads in the wait set.
-  while (wait_set_ != nullptr) {
-    Thread* thread = wait_set_;
-    wait_set_ = thread->GetWaitNext();
-    thread->SetWaitNext(nullptr);
-    thread->Notify();
+  // Move all threads from waiters to wake set
+  Thread* to_move = wait_set_;
+  if (to_move == nullptr) {
+    return;
+  }
+  wait_set_ = nullptr;
+  Thread* t = wake_set_;
+  if (t == nullptr) {
+    wake_set_ = to_move;
+  } else {
+    while (t->GetWaitNext() != nullptr) {
+      t = t->GetWaitNext();
+    }
+    t->SetWaitNext(to_move);
   }
 }
 

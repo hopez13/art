@@ -305,6 +305,8 @@ class Monitor {
 
   // Threads currently waiting on this monitor.
   Thread* wait_set_ GUARDED_BY(monitor_lock_);
+  // Threads that were waiting on this monitor, but are now contending on it.
+  Thread* wake_set_ GUARDED_BY(monitor_lock_);
 
   // Stored object hash code, generated lazily by GetHashCode.
   AtomicInteger hash_code_;
