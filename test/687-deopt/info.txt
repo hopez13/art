@@ -1,0 +1,3 @@
+Regression test for instrumentation deopt, which used
+to not exept a quickened instruction at return of instrumentation
+stub.
