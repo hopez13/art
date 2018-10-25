@@ -37,13 +37,6 @@ cc_defaults {
         "dex/utf.cc",
     ],
 
-    target: {
-        android: {
-            shared_libs: [
-                "libutils",
-            ],
-        },
-    },
     generated_sources: ["dexfile_operator_srcs"],
     shared_libs: [
         // For MemMap.
@@ -67,7 +60,6 @@ cc_defaults {
         "libbase",
         "libcutils",
         "liblog",
-        "libutils",
     ],
 }
 
