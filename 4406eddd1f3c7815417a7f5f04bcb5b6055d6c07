@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5fb7ab9_748baac3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-25T14:43:44Z",
+      "side": 1,
+      "message": "This is a copy of the other place where we do the same thing (jit.cc:185), is that intended?",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 73
+      },
+      "revId": "4406eddd1f3c7815417a7f5f04bcb5b6055d6c07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
