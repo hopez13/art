@@ -273,6 +273,48 @@
     },
     {
       "key": {
+        "uuid": "e57167b4_95a53e30",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T00:10:15Z",
+      "side": 1,
+      "message": "I would be ok with the kConstantName_# naming convention.\n\n-------------------- \n\nThat being said, I don\u0027t fully understand, there\u0027s only one \u0027fetch_and_add\u0027 and the rest is just read/write the value?\n\nIt\u0027s just hard to tell what these magic numbers are without a variable name (I can also appreciate the other side that the lock-free logic is hard to tell without the exact numerical value).",
+      "parentUuid": "7f4a90f0_a0eac043",
+      "range": {
+        "startLine": 292,
+        "startChar": 68,
+        "endLine": 292,
+        "endChar": 69
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a7812f4_fe134c48",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T00:10:15Z",
+      "side": 1,
+      "message": "So the invariant is it either goes to 1 or to 2? Can you add a comment about this?",
+      "parentUuid": "e436ad8a_3d0d2374",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "150f200c_f57fa55f",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -647,6 +689,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef75bdff_fc3e995c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T00:10:15Z",
+      "side": 1,
+      "message": "Yeah, that SGTM, would you just mind adding a comment about what happens to negative values?\n\n   // time \u003e\u003d 0, enforced by java code\n\nor anything you think makes sense here, would be great?\n\n(It\u0027s easy to see it in this CL because the patches are in the same topic but usually the java code is \"very far\" away so it\u0027s hard to tell what kind of invariants there is cross-language when we are looking at the codebase as a whole)",
+      "parentUuid": "76ca12bf_b5df9050",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
