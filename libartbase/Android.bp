@@ -46,20 +46,6 @@ cc_defaults {
         "base/utils.cc",
         "base/zip_archive.cc",
     ],
-    target: {
-        android: {
-	    shared_libs: [
-	        // For android::FileMap used by libziparchive.
-                "libutils",
-	    ],
-        },
-        host: {
-            static_libs: [
-                // For android::FileMap used by libziparchive.
-                "libutils",
-            ],
-        },
-    },
     generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
@@ -94,7 +80,6 @@ cc_defaults {
         "libbase",
         "libcutils",
         "liblog",
-        "libutils",
     ],
 }
 
