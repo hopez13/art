@@ -28,10 +28,6 @@ cc_defaults {
             compile_multilib: "prefer32",
         },
     },
-
-    shared_libs: [
-        "libbase",
-    ],
 }
 
 art_cc_binary {
