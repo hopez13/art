@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71bf1d96_c11137e3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T16:06:16Z",
+      "side": 1,
+      "message": "nit: these should either be enum{} or static constexpr, we don\u0027t need these global variables in the .rodata",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fd7d1cb_d4df7d6a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-10-25T16:06:16Z",
+      "side": 1,
+      "message": "Awesome, thanks, by the way just using this works:\n\n  enum {\n    ...\n  }",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
