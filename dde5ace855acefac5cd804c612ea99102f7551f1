@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8dfc0b9_ee601495",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53e1d3b6_12dfc58e",
+      "range": {
+        "startLine": 908,
+        "startChar": 58,
+        "endLine": 908,
+        "endChar": 59
+      },
+      "revId": "dde5ace855acefac5cd804c612ea99102f7551f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44211a39_cc01f4e9",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6fff8f9e_71527553",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:08:06Z",
+      "side": 1,
+      "message": "There\u0027s already DCHECKs for that in the implementation. Added comment.",
+      "parentUuid": "44211a39_cc01f4e9",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 484,
+        "endChar": 28
+      },
+      "revId": "dde5ace855acefac5cd804c612ea99102f7551f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89895e05_7a8f91bb",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "dde5ace855acefac5cd804c612ea99102f7551f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba4a523_02c21514",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89895e05_7a8f91bb",
+      "range": {
+        "startLine": 511,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 37
+      },
+      "revId": "dde5ace855acefac5cd804c612ea99102f7551f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
