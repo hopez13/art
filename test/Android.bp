@@ -57,6 +57,7 @@ art_cc_defaults {
     ],
 
     shared_libs: [
+        "libartbased",
         "libartd",
         "libartd-disassembler",
         "libvixld-arm",
@@ -66,7 +67,6 @@ art_cc_defaults {
         "libprofiled",
         "libartbased",
 
-        "libbase",
         "libicuuc",
         "libicui18n",
         "libnativehelper",
@@ -153,7 +153,6 @@ art_cc_library {
         "libdexfiled",
         "libprofiled",
         "libartbased",
-        "libbase",
         "libbacktrace",
     ],
     target: {
@@ -171,7 +170,6 @@ cc_defaults {
     ],
     shared_libs: [
         "libbacktrace",
-        "libbase",
         "libnativehelper",
     ],
 }
@@ -388,7 +386,6 @@ art_cc_defaults {
     name: "libtistress-defaults",
     defaults: ["libtistress-srcs"],
     shared_libs: [
-        "libbase",
         "slicer",
     ],
 }
@@ -491,7 +488,6 @@ cc_defaults {
     ],
     shared_libs: [
         "libbacktrace",
-        "libbase",
         "libnativehelper",
     ],
 }

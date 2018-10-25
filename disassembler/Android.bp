@@ -27,9 +27,6 @@ art_cc_defaults {
     ],
     include_dirs: ["art/runtime"],
 
-    shared_libs: [
-        "libbase",
-    ],
     header_libs: [
         "art_libartbase_headers",
     ],
@@ -40,6 +37,7 @@ art_cc_library {
     name: "libart-disassembler",
     defaults: ["libart-disassembler-defaults"],
     shared_libs: [
+        "libartbase",
         // For disassembler_arm*.
         "libvixl-arm",
         "libvixl-arm64",
@@ -53,6 +51,7 @@ art_cc_library {
         "libart-disassembler-defaults",
     ],
     shared_libs: [
+        "libartbased",
         // For disassembler_arm*.
         "libvixld-arm",
         "libvixld-arm64",

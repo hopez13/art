@@ -387,8 +387,6 @@ libart_cc_defaults {
         "liblog",
         // For atrace, properties, ashmem, set_sched_policy and socket_peer_is_trusted.
         "libcutils",
-        // For common macros.
-        "libbase",
     ],
     static: {
         static_libs: ["libsigchain_dummy"],
@@ -397,10 +395,6 @@ libart_cc_defaults {
         shared_libs: ["libsigchain"],
     },
     export_include_dirs: ["."],
-    // ART's macros.h depends on libbase's macros.h.
-    // Note: runtime_options.h depends on cmdline. But we don't really want to export this
-    //       generically. dex2oat takes care of it itself.
-    export_shared_lib_headers: ["libbase"],
 }
 
 libart_static_cc_defaults {
@@ -412,7 +406,6 @@ libart_static_cc_defaults {
     },
     static_libs: [
         "libbacktrace",
-        "libbase",
         "libcutils",
         "liblog",
         "libnativebridge",
@@ -493,8 +486,6 @@ art_cc_library {
     strip: {
         keep_symbols: true,
     },
-    whole_static_libs: [
-    ],
     shared_libs: [
         "libartbase",
         "libdexfile",
@@ -518,8 +509,6 @@ art_cc_library {
         "art_debug_defaults",
         "libart_defaults",
     ],
-    whole_static_libs: [
-    ],
     shared_libs: [
         "libartbased",
         "libdexfiled",
@@ -540,7 +529,7 @@ art_cc_library {
     shared_libs: [
         "libartd",
 	"libartbase-art-gtest",
-        "libbase",
+        "libartbased",
         "libbacktrace",
     ],
     header_libs: [
