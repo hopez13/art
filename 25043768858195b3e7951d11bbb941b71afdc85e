@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "605e9abd_9aa393ab",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-25T14:36:04Z",
+      "side": 1,
+      "message": "LoadCompiler in the preceding block above sets generate_debug_info_.\n\nRefactored to put in the code cache constructor, but this requires Jit::LoadCompiler() to be called before JitCodeCache::Create(). Enforced with CHECKs.",
+      "parentUuid": "7c20168e_79988a6a",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 64
+      },
+      "revId": "25043768858195b3e7951d11bbb941b71afdc85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4aba86ce_bcc2a3d3",
         "filename": "runtime/runtime.cc",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cbeef30c_a76a73f0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-25T14:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aba86ce_bcc2a3d3",
+      "range": {
+        "startLine": 2488,
+        "startChar": 41,
+        "endLine": 2488,
+        "endChar": 49
+      },
+      "revId": "25043768858195b3e7951d11bbb941b71afdc85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bdc6ae2_e1eea997",
         "filename": "runtime/runtime.cc",
         "patchSetId": 8
@@ -68,6 +116,30 @@
       "revId": "25043768858195b3e7951d11bbb941b71afdc85e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81fe3f06_fec24dc2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2489,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-25T14:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bdc6ae2_e1eea997",
+      "range": {
+        "startLine": 2489,
+        "startChar": 44,
+        "endLine": 2489,
+        "endChar": 52
+      },
+      "revId": "25043768858195b3e7951d11bbb941b71afdc85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
