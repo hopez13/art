@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ead61987_3854d6e6",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b2b36d_ed60d118",
+      "revId": "1926f31f59a7bdb88e4e0a2e315632c63b5715f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d56ff94b_f9006f6b",
         "filename": "runtime/native/sun_misc_Unsafe.cc",
         "patchSetId": 25
@@ -39,6 +57,30 @@
       "revId": "1926f31f59a7bdb88e4e0a2e315632c63b5715f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c0eb9c_d554ef86",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Added clarifying comment to match other usage in this file.",
+      "parentUuid": "d56ff94b_f9006f6b",
+      "range": {
+        "startLine": 530,
+        "startChar": 25,
+        "endLine": 530,
+        "endChar": 30
+      },
+      "revId": "1926f31f59a7bdb88e4e0a2e315632c63b5715f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

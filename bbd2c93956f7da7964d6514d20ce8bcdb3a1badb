@@ -315,6 +315,48 @@
     },
     {
       "key": {
+        "uuid": "b64fa8ca_b3b84791",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "I\u0027ve changed my mind on this, and am now using constants. Enum doesn\u0027t work because atomicinteger rejects it.",
+      "parentUuid": "e57167b4_95a53e30",
+      "range": {
+        "startLine": 292,
+        "startChar": 68,
+        "endLine": 292,
+        "endChar": 69
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968726a1_b1a6df8c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a7812f4_fe134c48",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "150f200c_f57fa55f",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -335,6 +377,30 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adfb6c01_66d27e64",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150f200c_f57fa55f",
+      "range": {
+        "startLine": 300,
+        "startChar": 41,
+        "endLine": 300,
+        "endChar": 42
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -437,6 +503,24 @@
     },
     {
       "key": {
+        "uuid": "a168aaba_c0fb9b8f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9d350f4_650027f4",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27f4ff65_eb6b4ca0",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -489,6 +573,24 @@
     },
     {
       "key": {
+        "uuid": "21de4e0d_d2f35d25",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f0c3c24_8859ab14",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d78fd783_4a9759c3",
         "filename": "runtime/thread.cc",
         "patchSetId": 19
@@ -503,6 +605,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57fa5af7_6c0032a7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d78fd783_4a9759c3",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -549,6 +669,54 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e517e8_d8e0762b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd31345_e1f83a0f",
+      "range": {
+        "startLine": 357,
+        "startChar": 34,
+        "endLine": 357,
+        "endChar": 35
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a0a1f8_f9738ea1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a13417f_7f25611b",
+      "range": {
+        "startLine": 357,
+        "startChar": 67,
+        "endLine": 357,
+        "endChar": 68
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -657,6 +825,30 @@
     },
     {
       "key": {
+        "uuid": "0209c40b_67c6869b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eb7a3f8_afb3dfa2",
+      "range": {
+        "startLine": 2221,
+        "startChar": 27,
+        "endLine": 2221,
+        "endChar": 28
+      },
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782fe6cc_f95748fd",
         "filename": "runtime/thread.h",
         "patchSetId": 19
@@ -707,6 +899,24 @@
       "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ae24b35_e2269315",
+        "filename": "runtime/thread.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T16:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef75bdff_fc3e995c",
+      "revId": "bbd2c93956f7da7964d6514d20ce8bcdb3a1badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
