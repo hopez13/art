@@ -68,6 +68,9 @@ enum LockLevel : uint8_t {
   // A generic lock level for mutexs that should not allow any additional mutexes to be gained after
   // acquiring it.
   kGenericBottomLock,
+  // Tracks the second acquisition at the same lock level for kThreadWaitLock
+  kThreadWaitWakeLock,
+  kThreadWaitLock,
   kJdwpAdbStateLock,
   kJdwpSocketLock,
   kRegionSpaceRegionLock,
