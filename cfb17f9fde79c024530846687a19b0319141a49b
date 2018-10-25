@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b754de45_7016ada3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T17:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71bf1d96_c11137e3",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fd7d1cb_d4df7d6a",
         "filename": "runtime/thread.cc",
         "patchSetId": 26
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "97e742e3_f58d0bdc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T17:29:26Z",
+      "side": 1,
+      "message": "Time wouldn\u0027t be racy, but it\u0027s not invalid to pass negative times into LockSupport.park(), so I don\u0027t think there\u0027s a reason to DCHECK here. Added the DCHECK for thread::current",
+      "parentUuid": "b8572999_c01d1def",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71ebb1be_f11bc676",
         "filename": "runtime/thread.cc",
         "patchSetId": 26
@@ -67,6 +103,24 @@
       "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f89e29_00a83c8a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T17:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71ebb1be_f11bc676",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "6db77a0c_627f1d17",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T17:29:26Z",
+      "side": 1,
+      "message": "Futex will not spuriously wake up since 2.6.22. The documentation about spurious wakeups is a recommendation that users of futex should be robust to spurious wakeups, because certain patterns that reuse addresses can cause wakes to happen in unexpected places.\n\nhttp://man7.org/linux/man-pages/man2/futex.2.html, search for \"spurious\"",
+      "parentUuid": "aec16a48_1fa9d44a",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "745cbb1c_b27a041d",
         "filename": "runtime/thread.cc",
         "patchSetId": 26
@@ -101,6 +173,24 @@
       "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6472dcc9_bc5a62a2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-25T17:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "745cbb1c_b27a041d",
+      "revId": "cfb17f9fde79c024530846687a19b0319141a49b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
