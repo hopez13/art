@@ -21,14 +21,6 @@ cc_defaults {
     srcs: [
         "profile/profile_compilation_info.cc",
     ],
-    target: {
-        android: {
-	    shared_libs: [
-	        // For android::FileMap used by libziparchive.
-                "libutils",
-	    ],
-        },
-    },
     //generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
@@ -51,7 +43,6 @@ cc_defaults {
     static_libs: [
         "libbase",
         "libcutils",
-        "libutils",
     ],
 }
 
