@@ -271,24 +271,6 @@ void X86Assembler::movntl(const Address& dst, Register src) {
   EmitOperand(src, dst);
 }
 
-void X86Assembler::blsi(Register dst, Register src) {
-  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
-  uint8_t byte_zero = EmitVexByteZero(/*is_two_byte=*/ false);
-  uint8_t byte_one = EmitVexByte1(/*r=*/ false,
-                                  /*x=*/ false,
-                                  /*b=*/ false,
-                                  /*mmmmm=*/ 2);
-  uint8_t byte_two = EmitVexByte2(/*w=*/ false,
-                                  /*l=*/ 128,
-                                  X86ManagedRegister::FromCpuRegister(dst),
-                                  /*pp=*/ 0);
-  EmitUint8(byte_zero);
-  EmitUint8(byte_one);
-  EmitUint8(byte_two);
-  EmitUint8(0xF3);
-  EmitRegisterOperand(3, src);
-}
-
 void X86Assembler::blsmsk(Register dst, Register src) {
   AssemblerBuffer::EnsureCapacity ensured(&buffer_);
   uint8_t byte_zero = EmitVexByteZero(/*is_two_byte=*/ false);
