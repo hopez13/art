@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72b77fb5_8c6e2adb",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-26T20:23:07Z",
+      "side": 1,
+      "message": "Have you considered templatizing over the opcode? That could allow you to share the preamble and get rid of the macro. Maybe something like (CRTP as partial specialization isn\u0027t allowed for functions, so I don\u0027t know how to share the base code otherwise):\n\n template \u003cbool ac, bool ta, typename T\u003e\n struct HandlerBase {\n   void Handle() {\n     PREAMBLE code\n     static_cast\u003cT*\u003e(this)-\u003eHandleInst();\n   }\n };\n \n template \u003cbool ac, bool ta, Opcode op\u003e\n struct InstructionHandler : public HandlerBase\u003cInstructionHandler\u003cac, ta, op\u003e\u003e {\n   void HandleFoo();\n };\n\n template \u003c\u003e void InstructionHandler\u003cac, ta, ADD\u003e::HandleFoo() {\n   ...\n }\n\n switch (opcode):\n   case ADD:\n     InstructionHandler\u003cac,ta,ADD\u003e handler;\n     handler.Handle();",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 26
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01607817_49fad2ba",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-26T20:23:07Z",
+      "side": 1,
+      "message": "Add a comment on the method names (style).",
+      "range": {
+        "startLine": 277,
+        "startChar": 21,
+        "endLine": 277,
+        "endChar": 24
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a83b1866_dd7e73fb",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-26T20:23:07Z",
+      "side": 1,
+      "message": "UNDEF all macros.",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2705,
+        "endChar": 2
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
