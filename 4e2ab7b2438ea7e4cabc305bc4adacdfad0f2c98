@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d9075bf_76fcde7a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "DCHECK() the AVX2 feature flag.",
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d72db898_679fe6ff",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "This should immediately follow LocationsBuilderX86::VisitX86AndNot().",
+      "range": {
+        "startLine": 7451,
+        "startChar": 0,
+        "endLine": 7456,
+        "endChar": 1
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddcc11ce_9896bdfe",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "Due to the order in which we traverse instructions during simplification, removing instructions after the one we\u0027re visiting is unsafe (and you\u0027re removing the HAnd). Therefore this needs to be rewritten, so that we apply the optimization when visiting the HAnd (instead of when visiting the HNot).",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb0339f6_f4b4cd48",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "It think this should be called HasAVX2() as it\u0027s just a shortcut to HasAVX2() in the instruction set features.",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1298b696_98c735de",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "If this only simplifies for AVX2, you should check the flag here and avoid iterating over instructions if compiling without AVX2.",
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80fcc2a8_48ada592",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "Move Run() implementation to the .cc file, move the InstructionSimplifierX86Visitor definition there as well. Clean up includes, using forward declarations when necessary (you should not need to include the codegen; the .cc file should include the codegen and instruction set features).",
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ecd189d_78d8cf5a",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "This should be on its own line and the instructions should have some indentation (seems to be 3 spaces in instruction_simplifier.cc).",
+      "range": {
+        "startLine": 60,
+        "startChar": 21,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17f2457b_7175b034",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "I would propose that you first implement the IntegerLowestOneBit/LongLowestOneBit intrinsic (including an implementation without the AVX2, i.e. MOV+NEG+AND with kOutputOverlap). Then we can refactor the code the way we did for Ror/Min/Max to introduce a HIR class. I don\u0027t really care if we call it HAndNeg or HLowestBitSet but it should be architecture-independent and the simplification should be in the generic instruction simplifier.",
+      "range": {
+        "startLine": 169,
+        "startChar": 6,
+        "endLine": 169,
+        "endChar": 16
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67c7210_91c29fb6",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-26T11:59:17Z",
+      "side": 1,
+      "message": "The name is a bit weird for what the instruction is doing.\n\n(Optimization opportunity: Simplify {HSub,HXor,HAndNot}(x, HAndNeg(x)) to this instruction. I do not know how often we would see this pattern but it looks useful for iteration over the individual bits.)",
+      "range": {
+        "startLine": 199,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 25
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
