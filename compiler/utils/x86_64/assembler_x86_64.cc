@@ -3372,24 +3372,6 @@ void X86_64Assembler::setcc(Condition condition, CpuRegister dst) {
   EmitUint8(0xC0 + dst.LowBits());
 }
 
-void X86_64Assembler::blsi(CpuRegister dst, CpuRegister src) {
-  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
-  uint8_t byte_zero = EmitVexByteZero(/*is_two_byte=*/ false);
-  uint8_t byte_one = EmitVexByte1(/*r=*/ false,
-                                  /*x=*/ false,
-                                  src.NeedsRex(),
-                                  /*mmmmm=*/ 2);
-  uint8_t byte_two = EmitVexByte2(/*w=*/ true,
-                                  /*l=*/ 128,
-                                  X86_64ManagedRegister::FromCpuRegister(dst.AsRegister()),
-                                  /*pp=*/ 0);
-  EmitUint8(byte_zero);
-  EmitUint8(byte_one);
-  EmitUint8(byte_two);
-  EmitUint8(0xF3);
-  EmitRegisterOperand(3, src.LowBits());
-}
-
 void X86_64Assembler::blsmsk(CpuRegister dst, CpuRegister src) {
   AssemblerBuffer::EnsureCapacity ensured(&buffer_);
   uint8_t byte_zero = EmitVexByteZero(/*is_two_byte=*/ false);
