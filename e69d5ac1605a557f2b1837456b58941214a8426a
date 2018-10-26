@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18be78c3_72ca6d8c",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-26T23:35:09Z",
+      "side": 1,
+      "message": "This feels unfair since it seems to be cutting in line in front of older wake_set entries. Same for NotifyAll below. But I can\u0027t convince myself that it really matters.",
+      "range": {
+        "startLine": 921,
+        "startChar": 4,
+        "endLine": 921,
+        "endChar": 24
+      },
+      "revId": "e69d5ac1605a557f2b1837456b58941214a8426a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9a3cb1_e7b0bea0",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-10-26T23:35:09Z",
+      "side": 1,
+      "message": "Nit: The local style seems to call for a blank line before the comment. I also initially did a double take, thinking that you accidentally duplicated the preceding declaration. It might help with that, too.",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 77
+      },
+      "revId": "e69d5ac1605a557f2b1837456b58941214a8426a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
