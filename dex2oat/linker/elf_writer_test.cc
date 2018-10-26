@@ -101,10 +101,9 @@ TEST_F(ElfWriterTest, dlsym) {
     bool success = ef->GetLoadedSize(&size, &error_msg);
     CHECK(success) << error_msg;
     MemMap reservation = MemMap::MapAnonymous("ElfWriterTest#dlsym reservation",
-                                              /* addr */ nullptr,
                                               RoundUp(size, kPageSize),
                                               PROT_NONE,
-                                              /* low_4gb */ true,
+                                              /*low_4gb*/ true,
                                               &error_msg);
     CHECK(reservation.IsValid()) << error_msg;
     uint8_t* base = reservation.Begin();

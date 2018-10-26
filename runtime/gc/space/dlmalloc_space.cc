@@ -108,8 +108,10 @@ DlMallocSpace* DlMallocSpace::CreateFromMemMap(MemMap&& mem_map,
   }
 }
 
-DlMallocSpace* DlMallocSpace::Create(const std::string& name, size_t initial_size,
-                                     size_t growth_limit, size_t capacity, uint8_t* requested_begin,
+DlMallocSpace* DlMallocSpace::Create(const std::string& name,
+                                     size_t initial_size,
+                                     size_t growth_limit,
+                                     size_t capacity,
                                      bool can_move_objects) {
   uint64_t start_time = 0;
   if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
@@ -117,8 +119,7 @@ DlMallocSpace* DlMallocSpace::Create(const std::string& name, size_t initial_siz
     LOG(INFO) << "DlMallocSpace::Create entering " << name
         << " initial_size=" << PrettySize(initial_size)
         << " growth_limit=" << PrettySize(growth_limit)
-        << " capacity=" << PrettySize(capacity)
-        << " requested_begin=" << reinterpret_cast<void*>(requested_begin);
+        << " capacity=" << PrettySize(capacity);
   }
 
   // Memory we promise to dlmalloc before it asks for morecore.
@@ -127,7 +128,7 @@ DlMallocSpace* DlMallocSpace::Create(const std::string& name, size_t initial_siz
   // size of the large allocation) will be greater than the footprint limit.
   size_t starting_size = kPageSize;
   MemMap mem_map =
-      CreateMemMap(name, starting_size, &initial_size, &growth_limit, &capacity, requested_begin);
+      CreateMemMap(name, starting_size, &initial_size, &growth_limit, &capacity);
   if (!mem_map.IsValid()) {
     LOG(ERROR) << "Failed to create mem map for alloc space (" << name << ") of size "
                << PrettySize(capacity);

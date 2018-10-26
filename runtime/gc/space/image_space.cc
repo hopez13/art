@@ -649,11 +649,9 @@ class ImageSpace::Loader {
 
     // Reserve output and decompress into it.
     MemMap map = MemMap::MapAnonymous(image_location,
-                                      address,
                                       image_header.GetImageSize(),
                                       PROT_READ | PROT_WRITE,
                                       /*low_4gb=*/ true,
-                                      /*reuse=*/ false,
                                       image_reservation,
                                       error_msg);
     if (map.IsValid()) {
