@@ -1650,12 +1650,16 @@ size_t ConcurrentCopying::ProcessThreadLocalMarkStacks(bool disable_weak_ref_acc
 
 inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   DCHECK(!region_space_->IsInFromSpace(to_ref));
+  space::RegionSpace::RegionType rtype = region_space_->GetRegionType(to_ref);
   if (kUseBakerReadBarrier) {
     DCHECK(to_ref->GetReadBarrierState() == ReadBarrier::GrayState())
         << " " << to_ref << " " << to_ref->GetReadBarrierState()
-        << " is_marked=" << IsMarked(to_ref);
+        << " is_marked=" << IsMarked(to_ref)
+        << " type=" << to_ref->PrettyTypeOf()
+        << " is_young_gc=" << young_gen_
+        << " region_type=" << rtype
+        << " is_immune_obj=" << immune_spaces_.ContainsObject(to_ref);
   }
-  space::RegionSpace::RegionType rtype = region_space_->GetRegionType(to_ref);
   bool add_to_live_bytes = false;
   // Invariant: There should be no object from a newly-allocated
   // region (either large or non-large) on the mark stack.
@@ -1693,7 +1697,11 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   if (kUseBakerReadBarrier) {
     DCHECK(to_ref->GetReadBarrierState() == ReadBarrier::GrayState())
         << " " << to_ref << " " << to_ref->GetReadBarrierState()
-        << " is_marked=" << IsMarked(to_ref);
+        << " is_marked=" << IsMarked(to_ref)
+        << " type=" << to_ref->PrettyTypeOf()
+        << " is_young_gc=" << young_gen_
+        << " region_type=" << rtype
+        << " is_immune_obj=" << immune_spaces_.ContainsObject(to_ref);
   }
 #ifdef USE_BAKER_OR_BROOKS_READ_BARRIER
   mirror::Object* referent = nullptr;
