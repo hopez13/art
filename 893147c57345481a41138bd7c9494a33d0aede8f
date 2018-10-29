@@ -16,6 +16,23 @@
       "revId": "893147c57345481a41138bd7c9494a33d0aede8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0782a2a_ee644a96",
+        "filename": "runtime/interpreter/mterp/arm/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T15:17:53Z",
+      "side": 1,
+      "message": "The arm64/x86/x86_64 code is unnecessarily clearing the shadow frame entry.",
+      "revId": "893147c57345481a41138bd7c9494a33d0aede8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
