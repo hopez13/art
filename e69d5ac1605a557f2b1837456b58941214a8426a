@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfb115c0_6e3808e3",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-29T16:54:50Z",
+      "side": 1,
+      "message": "It is unfair - but it felt weird to append the newly woken thread to wake_set_, since that would make notifying N threads O(n^2). Javadoc says \"The choice is arbitrary and occurs at the discretion of the implementation.\"\n\nDo you want me to make this fair-er? These locks won\u0027t ever be really fair, since we allow new acquisitions from other threads if they race with a contender waking up after the lock is released. Real fairness would require an explicit hand off mechanism.",
+      "parentUuid": "18be78c3_72ca6d8c",
+      "range": {
+        "startLine": 921,
+        "startChar": 4,
+        "endLine": 921,
+        "endChar": 24
+      },
+      "revId": "e69d5ac1605a557f2b1837456b58941214a8426a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa9a3cb1_e7b0bea0",
         "filename": "runtime/monitor.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e69d5ac1605a557f2b1837456b58941214a8426a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6355ffc0_ae06cf6b",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-29T16:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa9a3cb1_e7b0bea0",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 77
+      },
+      "revId": "e69d5ac1605a557f2b1837456b58941214a8426a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
