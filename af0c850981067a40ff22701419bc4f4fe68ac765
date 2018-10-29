@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3191c3ec_49da33fe",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-10-29T20:28:06Z",
+      "side": 1,
+      "message": "I need to somehow suppress the lock ordering checker here, since it doesn\u0027t (and can\u0027t) know that this lock acquisition is safe.",
+      "range": {
+        "startLine": 783,
+        "startChar": 16,
+        "endLine": 783,
+        "endChar": 23
+      },
+      "revId": "af0c850981067a40ff22701419bc4f4fe68ac765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
