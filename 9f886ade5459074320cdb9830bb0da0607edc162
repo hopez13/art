@@ -1,0 +1,359 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b66be044_3643a953",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "This comment looks unnecessary. ANDN with immediate is AND with another immediate.",
+      "range": {
+        "startLine": 7432,
+        "startChar": 2,
+        "endLine": 7432,
+        "endChar": 65
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd329d6_de6cc40b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Please move this before the InstructionCodeGeneratorX86::VisitX86MaskOrResetLeastSetBit().\n\nI must have misread the Patch Set 1 when I requested reordering. Your original ordering was OK.",
+      "range": {
+        "startLine": 7437,
+        "startChar": 0,
+        "endLine": 7443,
+        "endChar": 1
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2b87f41_1ad2aaa6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e15b2cad_797bbba2",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dff42a6_dc89d28e",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6f1cdc0_7b2d5322",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Move inside the `if`.",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 68
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d9a4c8e_ee4d6074",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03079b66_61950037",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Move inside the `if`.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 71
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a6990e_785776ba",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65eb957_a4040884",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Move before the first use.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b55e6dd0_c6b2b8f2",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Insert space before \u0027:\u0027.",
+      "range": {
+        "startLine": 40,
+        "startChar": 39,
+        "endLine": 40,
+        "endChar": 40
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6744196d_5b8884fb",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Drop this. We should not clutter the code with the assertion that an instruction\u0027s input\u0027s single use is that instruction.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3704274e_ab06fe43",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a78a16df_0d3bd21e",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Move before the first use.",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 78
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30d9d5da_5559e983",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "It\u0027s better to break the line here.",
+      "range": {
+        "startLine": 74,
+        "startChar": 41,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "873aa58b_0853f640",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "This is removing an instruction that may be right after the one we\u0027re currently visiting. Rewrite the code to match the pattern in VisitAnd()/VisitXor().",
+      "range": {
+        "startLine": 78,
+        "startChar": 57,
+        "endLine": 78,
+        "endChar": 60
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c1bbfd2_d3ac9d2d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Are you sure you want it in this order?",
+      "range": {
+        "startLine": 585,
+        "startChar": 8,
+        "endLine": 586,
+        "endChar": 59
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

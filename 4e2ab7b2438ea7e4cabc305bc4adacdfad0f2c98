@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "60a31c22_60c30ccd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:34:49Z",
+      "side": 1,
+      "message": "Sorry, I must have misread the code because of the similarity between AndNot and AndNeg.",
+      "parentUuid": "61e6609c_0e65cf7d",
+      "range": {
+        "startLine": 7451,
+        "startChar": 0,
+        "endLine": 7456,
+        "endChar": 1
+      },
+      "revId": "4e2ab7b2438ea7e4cabc305bc4adacdfad0f2c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddcc11ce_9896bdfe",
         "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
         "patchSetId": 1
