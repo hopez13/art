@@ -164,7 +164,8 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
                                    JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Make sure to check for async exceptions before anything else.
-  if (is_mterp && self->UseMterp()) {
+  if (is_mterp) {
+    DCHECK(self->UseMterp());
     DCHECK(!self->ObserveAsyncException());
   } else if (UNLIKELY(self->ObserveAsyncException())) {
     return false;
@@ -224,7 +225,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     }
   }
 
-  if (is_mterp && self->UseMterp() && UseInterpreterToInterpreterFastPath<type>(called_method)) {
+  if (is_mterp && UseInterpreterToInterpreterFastPath<type>(called_method)) {
     const uint16_t number_of_inputs =
         (is_range) ? inst->VRegA_3rc(inst_data) : inst->VRegA_35c(inst_data);
     CodeItemDataAccessor accessor(called_method->DexInstructionData());
