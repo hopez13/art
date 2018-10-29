@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec652a72_881d9738",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "This looks like a generic APEX test. I presume it\u0027s a temporary measure until there\u0027s an APEX framework that also includes testing.",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f1167d0_2cc78ffb",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "Suggest \"set +e\" here to ensure the cleanup isn\u0027t interrupted if guestmount hasn\u0027t completed successfully.",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f0e1cab_bd0081ed",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "It\u0027s intentional that the cleanup isn\u0027t done on ERR?",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "199e55fa_50de01f7",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "WDYT about also checking that the APEX doesn\u0027t contain any binaries and libraries that aren\u0027t listed above?\n\nMarking resolved since I don\u0027t think that needs to be addressed in this CL.",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

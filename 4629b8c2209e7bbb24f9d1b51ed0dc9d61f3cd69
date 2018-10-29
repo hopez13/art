@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1378fae0_b541bb84",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to make use of that same logic here, i.e. the apex rule is able to capture any symlinks that the dalvikvm target have chosen to create? (Just a side note, not saying that it\u0027s something to address now.)",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 73
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d45159_c26d7222",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "Put this in a message that\u0027s shown if $(which guestmount) doesn\u0027t find the executable?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9924415_74ae5394",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-29T15:59:28Z",
+      "side": 1,
+      "message": "Nit: Maybe \"exit 1\" here.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
