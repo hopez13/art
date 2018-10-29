@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ea120e64_b85352c0",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-29T17:35:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01607817_49fad2ba",
+      "range": {
+        "startLine": 277,
+        "startChar": 21,
+        "endLine": 277,
+        "endChar": 24
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a83b1866_dd7e73fb",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 4
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "aa86ae2f_64025aec",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-29T17:35:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "065781fd_0feba010",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2705,
+        "endChar": 2
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "385aefb9_721d82e1",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 4
@@ -202,6 +250,30 @@
       "side": 1,
       "message": "I suppose maybe I can include that in this CL as well then.\n\nYeah, \"if\" or conditional should be enough to handle the one odd case.\n\n(I don\u0027t like we have to special case it, and I don\u0027t like the whole result handling, but again, that is cleanup for different CL)",
       "parentUuid": "2e327b65_315854f2",
+      "range": {
+        "startLine": 2743,
+        "startChar": 8,
+        "endLine": 2743,
+        "endChar": 30
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2af244_c4d76b07",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-29T17:35:15Z",
+      "side": 1,
+      "message": "I spoke too soon.  It is non-trivial due to \"return\" vs \"break\" control-flow.  I will do it as proper separate CL.",
+      "parentUuid": "84a35101_e2da0461",
       "range": {
         "startLine": 2743,
         "startChar": 8,
