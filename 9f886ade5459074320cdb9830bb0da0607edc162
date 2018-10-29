@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "579b08c4_29ad6b7d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7450,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-29T17:36:01Z",
+      "side": 1,
+      "message": "The code does not seem to handle `long`.",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2b87f41_1ad2aaa6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
