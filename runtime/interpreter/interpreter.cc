@@ -254,11 +254,7 @@ static inline JValue Execute(
   DCHECK(!shadow_frame.GetMethod()->IsNative());
 
   // Check that we are using the right interpreter.
-  if (kIsDebugBuild && self->UseMterp() != CanUseMterp()) {
-    // The flag might be currently being updated on all threads. Retry with lock.
-    MutexLock tll_mu(self, *Locks::thread_list_lock_);
-    DCHECK_EQ(self->UseMterp(), CanUseMterp());
-  }
+  DCHECK_EQ(self->UseMterp(), CanUseMterp());
 
   if (LIKELY(!from_deoptimize)) {  // Entering the method, but not via deoptimization.
     if (kIsDebugBuild) {
