@@ -90,11 +90,23 @@ inline ArtMethod* Runtime::GetCalleeSaveMethodUnchecked(CalleeSaveType type)
 
 template<typename Action>
 void Runtime::DoAndMaybeSwitchInterpreter(Action lamda) {
-  MutexLock tll_mu(Thread::Current(), *Locks::thread_list_lock_);
-  lamda();
-  Runtime::Current()->GetThreadList()->ForEach([](Thread* thread, void*) {
-      thread->tls32_.use_mterp.store(interpreter::CanUseMterp());
-  }, nullptr);
+  Thread* self = Thread::Current();
+  if (!Runtime::Current()->IsShuttingDown(self)) {
+    if (Locks::mutator_lock_->IsExclusiveHeld(self)) {
+      MutexLock tll_mu(self, *Locks::thread_list_lock_);
+      lamda();
+      Runtime::Current()->GetThreadList()->ForEach([](Thread* thread, void*) {
+          thread->tls32_.use_mterp.store(interpreter::CanUseMterp());
+      }, nullptr);
+    } else {
+      ScopedSuspendAll ssa(__FUNCTION__);
+      MutexLock tll_mu(self, *Locks::thread_list_lock_);
+      lamda();
+      Runtime::Current()->GetThreadList()->ForEach([](Thread* thread, void*) {
+          thread->tls32_.use_mterp.store(interpreter::CanUseMterp());
+      }, nullptr);
+    }
+  }
 }
 
 }  // namespace art
