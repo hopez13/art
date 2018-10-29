@@ -46,6 +46,30 @@
       "revId": "26d8492aa0f1f992ddb518bc5e336e4e1b30eb42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32c8ca45_1b33064d",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-29T10:24:31Z",
+      "side": 1,
+      "message": "Then please add lots of comments about why it\u0027s ok to ignore the async exception in this case.",
+      "parentUuid": "7aec1a99_c595b646",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 3
+      },
+      "revId": "26d8492aa0f1f992ddb518bc5e336e4e1b30eb42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
