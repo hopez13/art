@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "37a2f805_0f73314a",
+        "filename": "runtime/interpreter/mterp/arm/arithmetic.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-10-29T18:06:36Z",
+      "side": 1,
+      "message": "just a note, feel free to ignore: I don\u0027t know why you made the change in line 237, but FYI I note that this comment here seems to relate to the fact that the old comment listed all of {long-to-float, double-to-int, double-to-float}. Since you removed two of those three, should this comment also be dropped or rephrased?",
+      "range": {
+        "startLine": 239,
+        "startChar": 7,
+        "endLine": 240,
+        "endChar": 35
+      },
+      "revId": "893147c57345481a41138bd7c9494a33d0aede8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0782a2a_ee644a96",
         "filename": "runtime/interpreter/mterp/arm/floating_point.S",
         "patchSetId": 2
