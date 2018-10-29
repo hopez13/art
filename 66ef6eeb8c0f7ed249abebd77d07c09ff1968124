@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfd5d4bd_4c8e906c",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-29T23:18:55Z",
+      "side": 1,
+      "message": "no auto please.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 6
+      },
+      "revId": "66ef6eeb8c0f7ed249abebd77d07c09ff1968124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eab8f92_9022798a",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-29T23:18:55Z",
+      "side": 1,
+      "message": "Needs much more robust check. Ensure that kThreadWaitLock being held implies that kThread WaitWakeLock is held (or the other way around?)",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 83
+      },
+      "revId": "66ef6eeb8c0f7ed249abebd77d07c09ff1968124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "231b00f1_eb98c0b5",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-29T23:18:55Z",
+      "side": 1,
+      "message": "needs a more in-depth comment about how this is an exception to the lock-level system",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 17
+      },
+      "revId": "66ef6eeb8c0f7ed249abebd77d07c09ff1968124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
