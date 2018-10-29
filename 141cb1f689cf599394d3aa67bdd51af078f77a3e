@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e9cf763_55501b9d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-29T13:43:12Z",
+      "side": 1,
+      "message": "We could also print the space containing `ref`, especially if it is not in the regions space (by querying spaces with calls like `heap_-\u003enon_moving_space_-\u003eHasAddress(to_ref)`. And/or print all spaces (using `heap_-\u003eDumpSpaces()`).",
+      "range": {
+        "startLine": 1660,
+        "startChar": 8,
+        "endLine": 1660,
+        "endChar": 35
+      },
+      "revId": "141cb1f689cf599394d3aa67bdd51af078f77a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
