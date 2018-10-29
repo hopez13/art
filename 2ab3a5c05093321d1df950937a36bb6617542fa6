@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "5e86732b_d8c15daf",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-29T15:09:06Z",
+      "side": 1,
+      "message": "You move the use cases, you can have stricter macro lifetimes now.",
+      "parentUuid": "dbda66f0_06738df7",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2705,
+        "endChar": 2
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "385aefb9_721d82e1",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 4
@@ -106,6 +130,30 @@
       "writtenOn": "2018-10-29T15:02:51Z",
       "side": 1,
       "message": "There is a lot of further cleanup that is possible, but I want to keep that for followup CLs.\n\nIn the case of preamble, I was just planing to turn the macro into member function and do handler.Preamble(); here.",
+      "range": {
+        "startLine": 2743,
+        "startChar": 8,
+        "endLine": 2743,
+        "endChar": 30
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e327b65_315854f2",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-29T15:09:06Z",
+      "side": 1,
+      "message": "See my comment above. This should be explained somewhere, as it\u0027s important to understand your eventual design goal, and how a single handler fits there.\n\n(E.g., not sure how handler.Preamble() as a single function distinguishes that one result-register case, an \"if\" in that function?)",
+      "parentUuid": "385aefb9_721d82e1",
       "range": {
         "startLine": 2743,
         "startChar": 8,
