@@ -33,6 +33,24 @@
       "revId": "893147c57345481a41138bd7c9494a33d0aede8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a971f4f5_d45661ea",
+        "filename": "runtime/interpreter/mterp/arm/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-10-29T15:19:32Z",
+      "side": 1,
+      "message": "I was going to do the same here, but the fact we have already computed \u0026vA makes it annoying (or do even more extra work).",
+      "parentUuid": "d0782a2a_ee644a96",
+      "revId": "893147c57345481a41138bd7c9494a33d0aede8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
