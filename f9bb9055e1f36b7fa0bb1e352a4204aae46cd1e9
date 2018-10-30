@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa1c208a_3562026b",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "I\u0027ll file another bug to consider moving these and relying on LTO. This CL is again focused on a small-scale refactor to remove the last unnecessary heap-inl transitive includes.",
+      "parentUuid": "0ee3ff27_be0379a1",
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb39b052_0adb581e",
         "filename": "runtime/mirror/string-alloc-inl.h",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41af13c1_46dcc13e",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb39b052_0adb581e",
+      "range": {
+        "startLine": 158,
+        "startChar": 42,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "97dbff32_41c4eb2a",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb96bd4a_16be82a3",
+      "range": {
+        "startLine": 193,
+        "startChar": 60,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92529b37_f3de7520",
         "filename": "runtime/mirror/string-alloc-inl.h",
         "patchSetId": 1
@@ -85,6 +151,30 @@
       "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74565de0_be568177",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92529b37_f3de7520",
+      "range": {
+        "startLine": 205,
+        "startChar": 42,
+        "endLine": 207,
+        "endChar": 93
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "25eb4cf6_67551a98",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "818ab20c_37d50de5",
+      "range": {
+        "startLine": 219,
+        "startChar": 42,
+        "endLine": 221,
+        "endChar": 74
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1b5846b_01ba80f6",
         "filename": "runtime/mirror/string-alloc-inl.h",
         "patchSetId": 1
@@ -131,6 +245,30 @@
       "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc27c182_19c86fc1",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-10-30T17:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b5846b_01ba80f6",
+      "range": {
+        "startLine": 233,
+        "startChar": 39,
+        "endLine": 234,
+        "endChar": 87
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
