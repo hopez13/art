@@ -22,6 +22,30 @@
       "revId": "4406eddd1f3c7815417a7f5f04bcb5b6055d6c07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f6f9a19_17cbb3d1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-30T12:36:58Z",
+      "side": 1,
+      "message": "Ouch, that was slipshod. The other is gone now.",
+      "parentUuid": "d5fb7ab9_748baac3",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 73
+      },
+      "revId": "4406eddd1f3c7815417a7f5f04bcb5b6055d6c07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
