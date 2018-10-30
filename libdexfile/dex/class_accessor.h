@@ -77,7 +77,7 @@ class ClassAccessor {
     const uint8_t* hiddenapi_ptr_pos_ = nullptr;
     uint32_t index_ = 0u;
     uint32_t access_flags_ = 0u;
-    uint32_t hiddenapi_flags_ = 0u;
+    uint32_t hiddenapi_flags_ = DexFile::HiddenapiClassData::kDefaultFlags;
   };
 
   // A decoded version of the method of a class_data_item.
