@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "3153a7d7_b9f1bc49",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-10-30T14:45:18Z",
+      "side": 1,
+      "message": "Cool. The bash manpage isn\u0027t completely clear on that detail. In the docs for \"set -e\" it says \"A trap on ERR, if set, is executed before the shell exits\", which to me implied that a trap on EXIT isn\u0027t run.",
+      "parentUuid": "7c9be0c7_a7fb64a6",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "199e55fa_50de01f7",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 19
