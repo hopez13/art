@@ -180,8 +180,8 @@ class ArtField final {
     return (GetAccessFlags() & kAccVolatile) != 0;
   }
 
-  hiddenapi::ApiList GetHiddenApiAccessFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return hiddenapi::DecodeFromRuntime(GetAccessFlags());
+  uint32_t GetHiddenapiFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetAccessFlags() & kAccHiddenapiBits;
   }
 
   // Returns an instance field with this offset in the given class or null if not found.
