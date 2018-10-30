@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3d6e192_a36e2a63",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "Agree; I left this note here as a reminder, but this can be implemented in Soong\u0027s logic for APEX modules.",
+      "parentUuid": "1378fae0_b541bb84",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 73
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d45159_c26d7222",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 17
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5a624656_0c2c697e",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "Done in PS20.\n\nI had a discussion with Neil about this, and he said we should probably make libguestfs part of the build system (e.g. as a prebuilt) to make the build hermetic.",
+      "parentUuid": "63d45159_c26d7222",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9924415_74ae5394",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 17
@@ -68,6 +116,30 @@
       "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b675d8_e4ee8d93",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "Most binutils (e.g. `ls`) return an exit status 0 when they print their help (option `-h` or `--help`), which I prefer. I\u0027ve extended the message printed in the case of an unknown option to suggest using `--help`.",
+      "parentUuid": "e9924415_74ae5394",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "4629b8c2209e7bbb24f9d1b51ed0dc9d61f3cd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

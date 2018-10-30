@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9377d206_0f940ad1",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "There are ART-specific tests in this script. I wrote it because I needed a test to check what is produced by the ART APEX module build rules (and make sure we don\u0027t regress). I agree some parts of the script could be reused to check other APEX modules, but that could be done later if needed.",
+      "parentUuid": "ec652a72_881d9738",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f1167d0_2cc78ffb",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 19
@@ -33,6 +51,24 @@
       "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00444e53_249c7236",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "Thanks; done in PS20.",
+      "parentUuid": "7f1167d0_2cc78ffb",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7c9be0c7_a7fb64a6",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "It seems that `set -e` on line 32 makes this superfluous.",
+      "parentUuid": "1f0e1cab_bd0081ed",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "199e55fa_50de01f7",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 19
@@ -64,6 +118,24 @@
       "writtenOn": "2018-10-29T15:59:28Z",
       "side": 1,
       "message": "WDYT about also checking that the APEX doesn\u0027t contain any binaries and libraries that aren\u0027t listed above?\n\nMarking resolved since I don\u0027t think that needs to be addressed in this CL.",
+      "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b84bc4c_fac6f326",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T14:30:08Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a possibility. We can indeed refine the test in a follow-up CL, as the contents of the APEX is still evolving.",
+      "parentUuid": "199e55fa_50de01f7",
       "revId": "c90f31d1781fee63758d903c4cc1fc7c458f8e45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
