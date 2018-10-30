@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d042511_902b39c3",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-30T16:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51813591_8372b416",
+      "range": {
+        "startLine": 291,
+        "startChar": 60,
+        "endLine": 291,
+        "endChar": 61
+      },
+      "revId": "de80069d4d5711f265167e766c6e4a552f776b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef7190d7_b294d140",
         "filename": "runtime/runtime.h",
         "patchSetId": 14
@@ -45,6 +69,30 @@
       "revId": "de80069d4d5711f265167e766c6e4a552f776b87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7792b183_9307df99",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-30T16:36:00Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ef7190d7_b294d140",
+      "range": {
+        "startLine": 618,
+        "startChar": 31,
+        "endLine": 618,
+        "endChar": 47
+      },
+      "revId": "de80069d4d5711f265167e766c6e4a552f776b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
