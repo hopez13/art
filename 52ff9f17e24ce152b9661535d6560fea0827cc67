@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9189374d_15af6053",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-30T15:49:08Z",
+      "side": 1,
+      "message": "Thanks for bringing the DCHECK back. I didn\u0027t realize in the other CL that without this the failed condition won\u0027t get printed.",
+      "range": {
+        "startLine": 1699,
+        "startChar": 4,
+        "endLine": 1699,
+        "endChar": 69
+      },
+      "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81cd8d68_24b9fe64",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-10-30T15:49:08Z",
+      "side": 1,
+      "message": "How about SpaceNameFromAddress? Dump gives an impression that we are printing a lot more information than just name.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 18,
+        "endLine": 1273,
+        "endChar": 38
+      },
+      "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
