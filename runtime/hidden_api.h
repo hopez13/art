@@ -161,11 +161,25 @@ class MemberSignature {
   void LogAccessToEventLog(AccessMethod access_method, bool access_denied);
 };
 
+uint32_t GetHiddenapiFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_);
+uint32_t GetHiddenapiFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
+
 template<typename T>
 bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod access_method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 }  // namespace detail
+
+ALWAYS_INLINE inline uint32_t GetRuntimeFlags(uint32_t hiddenapi_flags) {
+  uint32_t flags = 0u;
+
+  hiddenapi::ApiList api_list = static_cast<hiddenapi::ApiList>(hiddenapi_flags);
+  if (api_list == hiddenapi::ApiList::kWhitelist) {
+    flags |= kAccPublicApi;
+  }
+
+  return flags;
+}
 
 // Returns true if access to `member` should be denied in the given context.
 // The decision is based on whether the caller is in a trusted context or not.
@@ -180,16 +194,8 @@ inline bool ShouldDenyAccessToMember(T* member,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(member != nullptr);
 
-  // Decode hidden API access flags.
-  // NB Multiple threads might try to access (and overwrite) these simultaneously,
-  // causing a race. We only do that if access has not been denied, so the race
-  // cannot change Java semantics. We should, however, decode the access flags
-  // once and use it throughout this function, otherwise we may get inconsistent
-  // results, e.g. print whitelist warnings (b/78327881).
-  ApiList api_list = member->GetHiddenApiAccessFlags();
-
-  // Exit early if member is on the whitelist.
-  if (api_list == ApiList::kWhitelist) {
+  // Exit early if member is public API.
+  if ((member->GetHiddenapiFlags() & kAccPublicApi) != 0) {
     return false;
   }
 
@@ -198,6 +204,15 @@ inline bool ShouldDenyAccessToMember(T* member,
   if (fn_get_access_context().IsTrusted()) {
     return false;
   }
+
+  // Decode hidden API access flags.
+  // NB Multiple threads might try to access (and overwrite) these simultaneously,
+  // causing a race. We only do that if access has not been denied, so the race
+  // cannot change Java semantics. We should, however, decode the access flags
+  // once and use it throughout this function, otherwise we may get inconsistent
+  // results, e.g. print whitelist warnings (b/78327881).
+  uint32_t hiddenapi_flags = detail::GetHiddenapiFlags(member);
+  hiddenapi::ApiList api_list = static_cast<hiddenapi::ApiList>(hiddenapi_flags);
 
   // Member is hidden and caller is not exempted. Enter slow path.
   return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);

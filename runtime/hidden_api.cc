@@ -19,6 +19,7 @@
 #include <nativehelper/scoped_local_ref.h>
 
 #include "base/dumpable.h"
+#include "dex/class_accessor-inl.h"
 #include "thread-current-inl.h"
 #include "well_known_classes.h"
 
@@ -215,8 +216,7 @@ template<typename T>
 static ALWAYS_INLINE void MaybeWhitelistMember(Runtime* runtime, T* member)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (CanUpdateMemberAccessFlags(member) && runtime->ShouldDedupeHiddenApiWarnings()) {
-    member->SetAccessFlags(hiddenapi::EncodeForRuntime(
-        member->GetAccessFlags(), hiddenapi::ApiList::kWhitelist));
+    member->SetAccessFlags(member->GetAccessFlags() | kAccPublicApi);
   }
 }
 
@@ -255,6 +255,58 @@ void NotifyHiddenApiListener(const MemberSignature& member_signature, AccessMeth
                                 signature_str.get());
     }
   }
+}
+
+uint32_t GetHiddenapiFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
+  const DexFile* dex_file = field->GetDexFile();
+  if (dex_file == nullptr) {
+    return DexFile::HiddenapiClassData::kDefaultFlags;
+  }
+
+  ObjPtr<mirror::Class> declaring_class = field->GetDeclaringClass();
+  DCHECK(!declaring_class.IsNull());
+  const DexFile::ClassDef* class_def = declaring_class->GetClassDef();
+  DCHECK(class_def != nullptr);
+
+  uint32_t flags = DexFile::HiddenapiClassData::kNoFlags;
+
+  ClassAccessor accessor(*dex_file, *class_def, /* parse_hiddenapi_class_data= */ true);
+  auto fn_visit = [&](const ClassAccessor::Field& dex_field) {
+    if (dex_field.GetIndex() == field->GetDexFieldIndex()) {
+      flags = dex_field.GetHiddenapiFlags();
+    }
+  };
+  accessor.VisitFields(fn_visit, fn_visit);
+
+  CHECK_NE(flags, DexFile::HiddenapiClassData::kNoFlags)
+      << "Could not find flags for field " << field->PrettyField();
+  return flags;
+}
+
+uint32_t GetHiddenapiFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+  const DexFile* dex_file = method->GetDexFile();
+  if (dex_file == nullptr) {
+    return DexFile::HiddenapiClassData::kDefaultFlags;
+  }
+
+  ObjPtr<mirror::Class> declaring_class = method->GetDeclaringClass();
+  DCHECK(!declaring_class.IsNull());
+  const DexFile::ClassDef* class_def = declaring_class->GetClassDef();
+  DCHECK(class_def != nullptr);
+
+  uint32_t flags = DexFile::HiddenapiClassData::kNoFlags;
+
+  ClassAccessor accessor(*dex_file, *class_def, /* parse_hiddenapi_class_data= */ true);
+  auto fn_visit = [&](const ClassAccessor::Method& dex_method) {
+    if (dex_method.GetIndex() == method->GetDexMethodIndex()) {
+      flags = dex_method.GetHiddenapiFlags();
+    }
+  };
+  accessor.VisitMethods(fn_visit, fn_visit);
+
+  CHECK_NE(flags, DexFile::HiddenapiClassData::kNoFlags)
+      << "Could not find flags for method " << method->PrettyMethod();
+  return flags;
 }
 
 template<typename T>
