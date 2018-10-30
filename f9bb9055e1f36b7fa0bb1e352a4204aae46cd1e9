@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ee3ff27_be0379a1",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "Can we move this to the string.cc file instead and explicitly instantiate String::Alloc{EmptyString,From{ByteArray,CharArray,String}} for kIsInstrumented\u003dtrue/false?\n\nIn other words, is it performance-critical that these are inlined? Are these methods actually inlined? What about LTO?\n\nIt seems to me that the allocation entrypoints are the only place that could be performance-critical. If it is, making the AllocatorType a template parameter would essentially eliminate the need for inlining. The only slow-down would be the artAllocStringObject##suffix##suffix2 entrypoints doing an unnecessary tail call due to the fact that we do not have a decent way to specify mangled names for trampolines. (Currently this would be a PLT call but the overhead could be reduced by changing the visibility to .hidden.)",
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb39b052_0adb581e",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "Line break.",
+      "range": {
+        "startLine": 158,
+        "startChar": 42,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb96bd4a_16be82a3",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "Line break before `self` or one arg per line.",
+      "range": {
+        "startLine": 193,
+        "startChar": 60,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92529b37_f3de7520",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "One parameter per line.",
+      "range": {
+        "startLine": 205,
+        "startChar": 42,
+        "endLine": 207,
+        "endChar": 93
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "818ab20c_37d50de5",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 219,
+        "startChar": 42,
+        "endLine": 221,
+        "endChar": 74
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1b5846b_01ba80f6",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-30T14:29:04Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 233,
+        "startChar": 39,
+        "endLine": 234,
+        "endChar": 87
+      },
+      "revId": "f9bb9055e1f36b7fa0bb1e352a4204aae46cd1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
