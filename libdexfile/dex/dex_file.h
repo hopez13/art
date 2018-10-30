@@ -439,6 +439,9 @@ class DexFile {
       }
     }
 
+    static constexpr uint32_t kDefaultFlags = 0u;
+    static constexpr uint32_t kNoFlags = static_cast<uint32_t>(-1);
+
    private:
     DISALLOW_COPY_AND_ASSIGN(HiddenapiClassData);
   };

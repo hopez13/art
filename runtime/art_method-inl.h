@@ -367,8 +367,7 @@ inline bool ArtMethod::HasSingleImplementation() {
   return (GetAccessFlags() & kAccSingleImplementation) != 0;
 }
 
-inline hiddenapi::ApiList ArtMethod::GetHiddenApiAccessFlags()
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+inline uint32_t ArtMethod::GetHiddenapiFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
   if (UNLIKELY(IsIntrinsic())) {
     switch (static_cast<Intrinsics>(GetIntrinsic())) {
       case Intrinsics::kSystemArrayCopyChar:
@@ -402,12 +401,6 @@ inline hiddenapi::ApiList ArtMethod::GetHiddenApiAccessFlags()
       case Intrinsics::kUnsafeLoadFence:
       case Intrinsics::kUnsafeStoreFence:
       case Intrinsics::kUnsafeFullFence:
-        // These intrinsics are on the light greylist and will fail a DCHECK in
-        // SetIntrinsic() if their flags change on the respective dex methods.
-        // Note that the DCHECK currently won't fail if the dex methods are
-        // whitelisted, e.g. in the core image (b/77733081). As a result, we
-        // might print warnings but we won't change the semantics.
-        return hiddenapi::ApiList::kLightGreylist;
       case Intrinsics::kStringNewStringFromBytes:
       case Intrinsics::kStringNewStringFromChars:
       case Intrinsics::kStringNewStringFromString:
@@ -417,7 +410,6 @@ inline hiddenapi::ApiList ArtMethod::GetHiddenApiAccessFlags()
       case Intrinsics::kMemoryPokeIntNative:
       case Intrinsics::kMemoryPokeLongNative:
       case Intrinsics::kMemoryPokeShortNative:
-        return hiddenapi::ApiList::kDarkGreylist;
       case Intrinsics::kVarHandleFullFence:
       case Intrinsics::kVarHandleAcquireFence:
       case Intrinsics::kVarHandleReleaseFence:
@@ -454,19 +446,13 @@ inline hiddenapi::ApiList ArtMethod::GetHiddenApiAccessFlags()
       case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
       case Intrinsics::kVarHandleWeakCompareAndSetPlain:
       case Intrinsics::kVarHandleWeakCompareAndSetRelease:
-        // These intrinsics are on the blacklist and will fail a DCHECK in
-        // SetIntrinsic() if their flags change on the respective dex methods.
-        // Note that the DCHECK currently won't fail if the dex methods are
-        // whitelisted, e.g. in the core image (b/77733081). Given that they are
-        // exclusively VarHandle intrinsics, they should not be used outside
-        // tests that do not enable hidden API checks.
-        return hiddenapi::ApiList::kBlacklist;
+        return 0u;
       default:
         // Remaining intrinsics are public API. We DCHECK that in SetIntrinsic().
-        return hiddenapi::ApiList::kWhitelist;
+        return kAccPublicApi;
     }
   } else {
-    return hiddenapi::DecodeFromRuntime(GetAccessFlags());
+    return GetAccessFlags() & kAccHiddenapiBits;
   }
 }
 
@@ -492,7 +478,7 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool is_default_conflict = IsDefaultConflicting();
     bool is_compilable = IsCompilable();
     bool must_count_locks = MustCountLocks();
-    hiddenapi::ApiList hidden_api_flags = GetHiddenApiAccessFlags();
+    uint32_t hiddenapi_flags = GetHiddenapiFlags();
     SetAccessFlags(new_value);
     DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
     DCHECK_EQ(is_constructor, IsConstructor());
@@ -512,8 +498,8 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     // these because (a) warnings on greylist do not change semantics, and
     // (b) only VarHandle intrinsics are blacklisted at the moment and they
     // should not be used outside tests with disabled API checks.
-    if (hidden_api_flags != hiddenapi::ApiList::kWhitelist) {
-      DCHECK_EQ(hidden_api_flags, GetHiddenApiAccessFlags()) << PrettyMethod();
+    if ((hiddenapi_flags & kAccPublicApi) == 0) {
+      DCHECK_EQ(hiddenapi_flags, GetHiddenapiFlags()) << PrettyMethod();
     }
   } else {
     SetAccessFlags(new_value);
