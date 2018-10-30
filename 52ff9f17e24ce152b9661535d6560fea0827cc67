@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b59daaf_9aa48e5c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T16:53:05Z",
+      "side": 1,
+      "message": "Sure, no problem. :)",
+      "parentUuid": "9189374d_15af6053",
+      "range": {
+        "startLine": 1699,
+        "startChar": 4,
+        "endLine": 1699,
+        "endChar": 69
+      },
+      "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81cd8d68_24b9fe64",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-10-30T15:49:08Z",
       "side": 1,
       "message": "How about SpaceNameFromAddress? Dump gives an impression that we are printing a lot more information than just name.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 18,
+        "endLine": 1273,
+        "endChar": 38
+      },
+      "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c1eeb61_d9336ae9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T16:53:05Z",
+      "side": 1,
+      "message": "Right. I\u0027d like to keep \"Dump\" in the name as well, as this is in line with what we do in the code base in general, so I\u0027ll rename this as `DumpSpaceNameFromAddress`.",
+      "parentUuid": "81cd8d68_24b9fe64",
       "range": {
         "startLine": 1273,
         "startChar": 18,
