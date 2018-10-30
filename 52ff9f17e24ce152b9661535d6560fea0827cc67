@@ -93,6 +93,30 @@
       "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecd69b94_3f0de01b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-10-30T16:56:24Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "8c1eeb61_d9336ae9",
+      "range": {
+        "startLine": 1273,
+        "startChar": 18,
+        "endLine": 1273,
+        "endChar": 38
+      },
+      "revId": "52ff9f17e24ce152b9661535d6560fea0827cc67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
