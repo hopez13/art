@@ -31,6 +31,7 @@
 #include "dex/code_item_accessors.h"
 #include "dex/dex_file.h"
 #include "dex/dex_instruction_iterator.h"
+#include "dex/hidden_api_access_flags.h"
 #include "dex/modifiers.h"
 #include "dex/primitive.h"
 #include "gc_root.h"
