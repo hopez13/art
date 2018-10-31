@@ -19,11 +19,12 @@ package com.android.class2greylist;
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import static java.util.Collections.emptySet;
+import static java.util.Collections.emptyMap;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
@@ -35,6 +36,7 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -42,6 +44,13 @@ import java.util.function.Predicate;
 public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
 
     private static final String ANNOTATION = "Lannotation/Anno;";
+
+    private static final Map<Integer, String> SDK_MAP_NULL_ONE;
+    static {
+        SDK_MAP_NULL_ONE = new HashMap<>();
+        SDK_MAP_NULL_ONE.put(null, "flag-null");
+        SDK_MAP_NULL_ONE.put(1, "flag1");
+    }
 
     @Before
     public void setup() throws IOException {
@@ -58,9 +67,9 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
 
     private GreylistAnnotationHandler createGreylistHandler(
             Predicate<GreylistAnnotationHandler.GreylistMember> greylistFilter,
-            Set<Integer> validMaxTargetSdkValues) {
+            Map<Integer, String> validMaxTargetSdkValues) {
         return new GreylistAnnotationHandler(
-                mStatus, mConsumer, greylistFilter, x -> validMaxTargetSdkValues.contains(x));
+                mStatus, mConsumer, greylistFilter, validMaxTargetSdkValues);
     }
 
     @Test
@@ -75,12 +84,13 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
+        // TODO duplicate
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->method()V");
     }
 
@@ -96,12 +106,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;-><init>()V");
     }
 
@@ -117,12 +127,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->i:I");
     }
 
@@ -138,12 +148,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->method()V");
     }
 
@@ -159,7 +169,7 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         verify(mStatus, times(1)).error(any(), any());
@@ -179,12 +189,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class$Inner"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class$Inner;->method()V");
     }
 
@@ -198,11 +208,11 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
-        verify(mConsumer, never()).greylistEntry(any(String.class), any(), any());
+        verify(mConsumer, never()).entryWithHiddenapiFlags(any(String.class), any());
     }
 
     @Test
@@ -217,12 +227,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()))
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->method(Ljava/lang/String;)V");
     }
 
@@ -245,14 +255,14 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         Map<String, AnnotationHandler> handlerMap =
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()));
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), mStatus, handlerMap).visit();
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
         // A bridge method is generated for the above, so we expect 2 greylist entries.
-        verify(mConsumer, times(2)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(2)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getAllValues()).containsExactly(
                 "La/b/Class;->method(Ljava/lang/Object;)V",
                 "La/b/Class;->method(Ljava/lang/String;)V");
@@ -277,14 +287,14 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         Map<String, AnnotationHandler> handlerMap =
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()));
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), mStatus, handlerMap).visit();
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
         // A bridge method is generated for the above, so we expect 2 greylist entries.
-        verify(mConsumer, times(2)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(2)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getAllValues()).containsExactly(
                 "La/b/Class;->method(Ljava/lang/Object;)V",
                 "La/b/Class;->method(Ljava/lang/String;)V");
@@ -313,7 +323,7 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         Map<String, AnnotationHandler> handlerMap =
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()));
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Interface"), mStatus, handlerMap)
                 .visit();
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), mStatus, handlerMap).visit();
@@ -322,7 +332,7 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
         // A bridge method is generated for the above, so we expect 2 greylist entries.
-        verify(mConsumer, times(2)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(2)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getAllValues()).containsExactly(
                 "La/b/Class;->method(Ljava/lang/Object;)V",
                 "La/b/Base;->method(Ljava/lang/Object;)V");
@@ -355,14 +365,14 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
                                 mStatus,
                                 mConsumer,
                                 publicApis,
-                                x -> false));
+                                SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Base"), mStatus, handlerMap).visit();
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
 
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
         // The bridge method generated for the above, is a public API so should be excluded
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->method(Ljava/lang/String;)V");
     }
 
@@ -380,11 +390,11 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         Map<String, AnnotationHandler> handlerMap =
                 ImmutableMap.of(ANNOTATION, createGreylistHandler(
                         member -> !member.bridge, // exclude bridge methods
-                        emptySet()));
+                        SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
         assertNoErrors();
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
-        verify(mConsumer, times(1)).greylistEntry(greylist.capture(), any(), any());
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(greylist.capture(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->field:I");
     }
 
@@ -400,7 +410,7 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
 
         Map<String, AnnotationHandler> handlerMap =
-                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, emptySet()));
+                ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
         verify(mStatus, times(1)).error(any(), any());
     }
@@ -419,12 +429,10 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         Map<String, AnnotationHandler> handlerMap =
                 ImmutableMap.of(ANNOTATION, createGreylistHandler(
                         x -> true,
-                        ImmutableSet.of(1)));
+                        SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
         assertNoErrors();
-        ArgumentCaptor<Integer> maxTargetSdk = ArgumentCaptor.forClass(Integer.class);
-        verify(mConsumer, times(1)).greylistEntry(any(), maxTargetSdk.capture(), any());
-        assertThat(maxTargetSdk.getValue()).isEqualTo(1);
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(any(), eq(new String[] { "flag1" }));
     }
 
     @Test
@@ -441,12 +449,11 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         Map<String, AnnotationHandler> handlerMap =
                 ImmutableMap.of(ANNOTATION, createGreylistHandler(
                         x -> true,
-                        ImmutableSet.of(1)));
+                        SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
         assertNoErrors();
-        ArgumentCaptor<Integer> maxTargetSdk = ArgumentCaptor.forClass(Integer.class);
-        verify(mConsumer, times(1)).greylistEntry(any(), maxTargetSdk.capture(), any());
-        assertThat(maxTargetSdk.getValue()).isEqualTo(null);
+        verify(mConsumer, times(1)).entryWithHiddenapiFlags(any(),
+                eq(new String[] { "flag-null" }));
     }
 
     @Test
@@ -463,7 +470,7 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         Map<String, AnnotationHandler> handlerMap =
                 ImmutableMap.of(ANNOTATION, createGreylistHandler(
                         x -> true,
-                        ImmutableSet.of(1)));
+                        SDK_MAP_NULL_ONE));
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus, handlerMap).visit();
         verify(mStatus, times(1)).error(any(), any());
     }
@@ -490,12 +497,12 @@ public class GreylistAnnotationHandlerTest extends AnnotationHandlerTestBase {
         assertThat(mJavac.compile()).isTrue();
         new AnnotationVisitor(mJavac.getCompiledClass("a.b.Class"), mStatus,
                 ImmutableMap.of("Lannotation/Anno2;", createGreylistHandler(x -> true,
-                        ImmutableSet.of(2)))
+                        ImmutableMap.of(2, "flag2")))
         ).visit();
 
         assertNoErrors();
         ArgumentCaptor<Map<String, String>> properties = ArgumentCaptor.forClass(Map.class);
-        verify(mConsumer, times(1)).greylistEntry(any(), any(), properties.capture());
+        verify(mConsumer, times(1)).entryWithAnnotationProperties(any(), properties.capture());
         assertThat(properties.getValue()).containsExactly(
                 "maxTargetSdk", "2",
                 "trackingBug", "123456789");
