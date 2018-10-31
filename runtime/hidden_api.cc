@@ -72,26 +72,6 @@ enum AccessContextFlags {
   kAccessDenied  = 1 << 1,
 };
 
-static int32_t GetSdkVersionForApiList(ApiList api_list) {
-  SdkCodes sdk = SdkCodes::kVersionNone;
-  switch (api_list) {
-    case ApiList::kWhitelist:
-    case ApiList::kLightGreylist:
-      sdk = SdkCodes::kVersionUnlimited;
-      break;
-    case ApiList::kDarkGreylist:
-      sdk = SdkCodes::kVersionP;
-      break;
-    case ApiList::kBlacklist:
-      sdk = SdkCodes::kVersionNone;
-      break;
-    case ApiList::kNoList:
-      LOG(FATAL) << "Unexpected value";
-      UNREACHABLE();
-  }
-  return static_cast<int32_t>(sdk);
-}
-
 MemberSignature::MemberSignature(ArtField* field) {
   class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
   member_name_ = field->GetName();
@@ -318,8 +298,9 @@ bool ShouldDenyAccessToMemberImpl(T* member,
   Runtime* runtime = Runtime::Current();
   EnforcementPolicy policy = runtime->GetHiddenApiEnforcementPolicy();
 
-  const bool deny_access = (policy == EnforcementPolicy::kEnabled) &&
-                           (runtime->GetTargetSdkVersion() >= GetSdkVersionForApiList(api_list));
+  const bool deny_access =
+      (policy == EnforcementPolicy::kEnabled) &&
+      (runtime->GetTargetSdkVersion() > api_list.GetMaxAllowedSdkVersion());
 
   MemberSignature member_signature(member);
 
