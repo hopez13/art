@@ -331,6 +331,30 @@
       "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb72b869_f27c0cec",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-10-31T18:01:49Z",
+      "side": 1,
+      "message": "I added follow up CLs to show at least some of the things I want to do next (remove the large macros, and fix the pathological build time).  I agree that without that this CL was somewhat theoretical... (and without the CLs it would be speculative discussion still)",
+      "parentUuid": "c266b542_ffe0d23b",
+      "range": {
+        "startLine": 2743,
+        "startChar": 8,
+        "endLine": 2743,
+        "endChar": 30
+      },
+      "revId": "2ab3a5c05093321d1df950937a36bb6617542fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
