@@ -2,22 +2,21 @@ package com.android.class2greylist;
 
 import java.util.Map;
 
-public interface GreylistConsumer {
+public abstract class GreylistConsumer {
+
     /**
      * Handle a new greylist entry.
      *
      * @param signature Signature of the member.
      * @param maxTargetSdk maxTargetSdk value from the annotation, or null if none set.
      */
-    void greylistEntry(
-            String signature, Integer maxTargetSdk, Map<String, String> annotationProperties);
+    public void entryWithHiddenapiFlags(String signature, String[] flags) {
+    }
 
-    /**
-     * Handle a new whitelist entry.
-     *
-     * @param signature Signature of the member.
-     */
-    void whitelistEntry(String signature);
+    public void entryWithAnnotationProperties(String signature,
+            Map<String, String> annotationProperties) {
+    }
 
-    void close();
+    public void close() {
+    }
 }
