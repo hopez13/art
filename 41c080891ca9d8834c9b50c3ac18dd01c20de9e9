@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13aee12e_b1f5d2c0",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-10-31T23:16:41Z",
+      "side": 1,
+      "message": "It seems like if we wanted to be consistent with other ART functions (e.g. functions with WithoutBarrier variants) the LookupStrong method should require the lock be held and then we should have LookupStrongWithoutLock.\n\nIs that something we should worry about here?  Are there other functions where the naming convention is reversed?",
+      "revId": "41c080891ca9d8834c9b50c3ac18dd01c20de9e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
