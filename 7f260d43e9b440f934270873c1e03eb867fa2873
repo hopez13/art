@@ -22,6 +22,30 @@
       "revId": "7f260d43e9b440f934270873c1e03eb867fa2873",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856af7b8_22a337f8",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-10-31T15:11:54Z",
+      "side": 1,
+      "message": "I do not see much difference for readability, so I\u0027ll keep it as is.",
+      "parentUuid": "72db9071_aa274a34",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 0
+      },
+      "revId": "7f260d43e9b440f934270873c1e03eb867fa2873",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
