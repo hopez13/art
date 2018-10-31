@@ -20,7 +20,7 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/mutex.h"
-#include "dex/hidden_api_access_flags.h"
+#include "dex/hiddenapi_flags.h"
 #include "mirror/class-inl.h"
 #include "reflection.h"
 #include "runtime.h"
@@ -119,12 +119,6 @@ struct AccessContext {
 // Implementation details. DO NOT ACCESS DIRECTLY.
 namespace detail {
 
-enum class SdkCodes {
-  kVersionNone      = std::numeric_limits<int32_t>::min(),
-  kVersionUnlimited = std::numeric_limits<int32_t>::max(),
-  kVersionO_MR1     = 27,
-};
-
 // Class to encapsulate the signature of a member (ArtField or ArtMethod). This
 // is used as a helper when matching prefixes, and when logging the signature.
 class MemberSignature {
@@ -172,8 +166,8 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
 ALWAYS_INLINE inline uint32_t GetRuntimeFlags(uint32_t hiddenapi_flags) {
   uint32_t flags = 0u;
 
-  hiddenapi::ApiList api_list = static_cast<hiddenapi::ApiList>(hiddenapi_flags);
-  if (api_list == hiddenapi::ApiList::kWhitelist) {
+  ApiList api_list = ApiList::FromFlags(hiddenapi_flags);
+  if (api_list == ApiList::Whitelist()) {
     flags |= kAccPublicApi;
   }
 
@@ -210,8 +204,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   // cannot change Java semantics. We should, however, decode the access flags
   // once and use it throughout this function, otherwise we may get inconsistent
   // results, e.g. print whitelist warnings (b/78327881).
-  uint32_t hiddenapi_flags = detail::GetHiddenapiFlags(member);
-  hiddenapi::ApiList api_list = static_cast<hiddenapi::ApiList>(hiddenapi_flags);
+  ApiList api_list = ApiList::FromFlags(detail::GetHiddenapiFlags(member));
 
   // Member is hidden and caller is not exempted. Enter slow path.
   return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);

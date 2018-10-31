@@ -102,7 +102,9 @@ void PreciseHiddenApiFinder::Dump(std::ostream& os, HiddenApiStats* stats) {
     ++stats->reflection_count;
     const std::string& full_name = it.first;
     hiddenapi::ApiList api_list = hidden_api_.GetApiList(full_name);
-    stats->api_counts[static_cast<unsigned>(api_list)]++;
+    if (api_list != hiddenapi::ApiList::kNoList) {
+      stats->api_counts[static_cast<unsigned>(api_list)]++;
+    }
     os << "#" << ++stats->count << ": Reflection " << api_list << " " << full_name << " use(s):";
     os << std::endl;
     for (const MethodReference& ref : it.second) {
