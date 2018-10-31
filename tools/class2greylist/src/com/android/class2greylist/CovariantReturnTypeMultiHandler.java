@@ -28,14 +28,15 @@ public class CovariantReturnTypeMultiHandler implements AnnotationHandler {
     private final CovariantReturnTypeHandler mWrappedHandler;
     private final String mInnerAnnotationName;
 
-    public CovariantReturnTypeMultiHandler(GreylistConsumer consumer, Set<String> publicApis) {
-        this(consumer, publicApis, CovariantReturnTypeHandler.ANNOTATION_NAME);
+    public CovariantReturnTypeMultiHandler(GreylistConsumer consumer, Set<String> publicApis,
+            String flag) {
+        this(consumer, publicApis, CovariantReturnTypeHandler.ANNOTATION_NAME, flag);
     }
 
     @VisibleForTesting
     public CovariantReturnTypeMultiHandler(GreylistConsumer consumer, Set<String> publicApis,
-            String innerAnnotationName) {
-        mWrappedHandler = new CovariantReturnTypeHandler(consumer, publicApis);
+            String flag, String innerAnnotationName) {
+        mWrappedHandler = new CovariantReturnTypeHandler(consumer, publicApis, flag);
         mInnerAnnotationName = innerAnnotationName;
     }
 
