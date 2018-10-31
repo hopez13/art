@@ -74,7 +74,8 @@ public class CovariantReturnTypeHandler implements AnnotationHandler {
                     signature, SHORT_NAME);
             return;
         }
-        mConsumer.whitelistEntry(signature);
+        mConsumer.entryWithHiddenapiFlags(
+                signature, new String[] { GreylistConsumer.FLAG_WHITELIST });
     }
 
     private String findReturnType(AnnotationEntry a) {
