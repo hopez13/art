@@ -189,6 +189,11 @@ class InternTable {
   void ChangeWeakRootState(gc::WeakRootState new_state)
       REQUIRES(!Locks::intern_table_lock_);
 
+  ObjPtr<mirror::String> LookupStrongLocked(ObjPtr<mirror::String> s)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
+  ObjPtr<mirror::String> LookupWeakLocked(ObjPtr<mirror::String> s)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
+
  private:
   // Table which holds pre zygote and post zygote interned strings. There is one instance for
   // weak interns and strong interns.
@@ -250,10 +255,6 @@ class InternTable {
   size_t AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor)
       REQUIRES(!Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ObjPtr<mirror::String> LookupStrongLocked(ObjPtr<mirror::String> s)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
-  ObjPtr<mirror::String> LookupWeakLocked(ObjPtr<mirror::String> s)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
   ObjPtr<mirror::String> InsertStrong(ObjPtr<mirror::String> s)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
   ObjPtr<mirror::String> InsertWeak(ObjPtr<mirror::String> s)
