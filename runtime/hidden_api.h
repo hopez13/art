@@ -20,7 +20,7 @@
 #include "art_field.h"
 #include "art_method.h"
 #include "base/mutex.h"
-#include "dex/hidden_api_access_flags.h"
+#include "dex/hiddenapi_flags.h"
 #include "intrinsics_enum.h"
 #include "mirror/class-inl.h"
 #include "reflection.h"
@@ -117,13 +117,6 @@ class ScopedHiddenApiEnforcementPolicySetting {
 // Implementation details. DO NOT ACCESS DIRECTLY.
 namespace detail {
 
-enum class SdkCodes {
-  kVersionNone      = std::numeric_limits<int32_t>::min(),
-  kVersionUnlimited = std::numeric_limits<int32_t>::max(),
-  kVersionO_MR1     = 27,
-  kVersionP         = 28,
-};
-
 // Class to encapsulate the signature of a member (ArtField or ArtMethod). This
 // is used as a helper when matching prefixes, and when logging the signature.
 class MemberSignature {
@@ -184,10 +177,10 @@ ALWAYS_INLINE inline uint32_t CreateRuntimeFlags(const ClassAccessor::BaseItem& 
   uint32_t runtime_flags = 0u;
 
   uint32_t dex_flags = member.GetHiddenapiFlags();
-  DCHECK(AreValidFlags(dex_flags));
+  DCHECK(AreValidDexFlags(dex_flags));
 
-  ApiList api_list = static_cast<hiddenapi::ApiList>(dex_flags);
-  if (api_list == ApiList::kWhitelist) {
+  ApiList api_list = ApiList::FromDexFlags(dex_flags);
+  if (api_list == ApiList::Whitelist()) {
     runtime_flags |= kAccPublicApi;
   }
 
@@ -323,7 +316,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   // Decode hidden API access flags from the dex file.
   // This is an O(N) operation scaling with the number of fields/methods
   // in the class. Only do this on slow path and only do it once.
-  ApiList api_list = static_cast<hiddenapi::ApiList>(detail::GetDexFlags(member));
+  ApiList api_list = ApiList::FromDexFlags(detail::GetDexFlags(member));
 
   // Member is hidden and caller is not exempted. Enter slow path.
   return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);

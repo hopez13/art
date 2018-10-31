@@ -75,26 +75,6 @@ enum AccessContextFlags {
   kAccessDenied  = 1 << 1,
 };
 
-static int32_t GetMaxAllowedSdkVersionForApiList(ApiList api_list) {
-  SdkCodes sdk = SdkCodes::kVersionNone;
-  switch (api_list) {
-    case ApiList::kWhitelist:
-    case ApiList::kLightGreylist:
-      sdk = SdkCodes::kVersionUnlimited;
-      break;
-    case ApiList::kDarkGreylist:
-      sdk = SdkCodes::kVersionO_MR1;
-      break;
-    case ApiList::kBlacklist:
-      sdk = SdkCodes::kVersionNone;
-      break;
-    case ApiList::kNoList:
-      LOG(FATAL) << "Unexpected value";
-      UNREACHABLE();
-  }
-  return static_cast<int32_t>(sdk);
-}
-
 MemberSignature::MemberSignature(ArtField* field) {
   class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
   member_name_ = field->GetName();
@@ -268,7 +248,7 @@ uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
   uint32_t flags = kInvalidDexFlags;
-  DCHECK(!AreValidFlags(flags));
+  DCHECK(!AreValidDexFlags(flags));
 
   ClassAccessor accessor(declaring_class->GetDexFile(),
                          *class_def,
@@ -281,7 +261,7 @@ uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
   accessor.VisitFields(fn_visit, fn_visit);
 
   CHECK_NE(flags, kInvalidDexFlags) << "Could not find flags for field " << field->PrettyField();
-  DCHECK(AreValidFlags(flags));
+  DCHECK(AreValidDexFlags(flags));
   return flags;
 }
 
@@ -298,7 +278,7 @@ uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
   uint32_t flags = kInvalidDexFlags;
-  DCHECK(!AreValidFlags(flags));
+  DCHECK(!AreValidDexFlags(flags));
 
   ClassAccessor accessor(declaring_class->GetDexFile(),
                          *class_def,
@@ -311,7 +291,7 @@ uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   accessor.VisitMethods(fn_visit, fn_visit);
 
   CHECK_NE(flags, kInvalidDexFlags) << "Could not find flags for method " << method->PrettyMethod();
-  DCHECK(AreValidFlags(flags));
+  DCHECK(AreValidDexFlags(flags));
   return flags;
 }
 
@@ -326,7 +306,7 @@ bool ShouldDenyAccessToMemberImpl(T* member,
 
   const bool deny_access =
       (policy == EnforcementPolicy::kEnabled) &&
-      (runtime->GetTargetSdkVersion() > GetMaxAllowedSdkVersionForApiList(api_list));
+      (runtime->GetTargetSdkVersion() > api_list.GetMaxAllowedSdkVersion());
 
   MemberSignature member_signature(member);
 
