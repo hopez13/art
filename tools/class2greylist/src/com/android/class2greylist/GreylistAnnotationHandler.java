@@ -11,6 +11,7 @@ import org.apache.bcel.classfile.FieldOrMethod;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.classfile.SimpleElementValue;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -33,10 +34,18 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
     private static final String EXPECTED_SIGNATURE = "expectedSignature";
     private static final String MAX_TARGET_SDK = "maxTargetSdk";
 
+    private static final Map<Integer, String> TARGET_SDK_TO_FLAG_MAP;
+    static {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(null, GreylistConsumer.FLAG_GREYLIST);
+        map.put(26, GreylistConsumer.FLAG_BLACKLIST_MAX_O);
+        map.put(28, GreylistConsumer.FLAG_GREYLIST);
+        TARGET_SDK_TO_FLAG_MAP = Collections.unmodifiableMap(map);
+    }
+
     private final Status mStatus;
     private final Predicate<GreylistMember> mGreylistFilter;
     private final GreylistConsumer mGreylistConsumer;
-    private final Predicate<Integer> mValidMaxTargetSdkValues;
 
     /**
      * Represents a member of a class file (a field or method).
@@ -72,23 +81,19 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
     public GreylistAnnotationHandler(
             Status status,
             GreylistConsumer greylistConsumer,
-            Set<String> publicApis,
-            Predicate<Integer> validMaxTargetSdkValues) {
+            Set<String> publicApis) {
         this(status, greylistConsumer,
-                member -> !(member.bridge && publicApis.contains(member.signature)),
-                validMaxTargetSdkValues);
+                member -> !(member.bridge && publicApis.contains(member.signature)));
     }
 
     @VisibleForTesting
     public GreylistAnnotationHandler(
             Status status,
             GreylistConsumer greylistConsumer,
-            Predicate<GreylistMember> greylistFilter,
-            Predicate<Integer> validMaxTargetSdkValues) {
+            Predicate<GreylistMember> greylistFilter) {
         mStatus = status;
         mGreylistConsumer = greylistConsumer;
         mGreylistFilter = greylistFilter;
-        mValidMaxTargetSdkValues = validMaxTargetSdkValues;
     }
 
     @Override
@@ -114,7 +119,9 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
             allValues.put(property.getNameString(), property.getValue().stringifyValue());
         }
         if (mGreylistFilter.test(new GreylistMember(signature, bridge, maxTargetSdk))) {
-            mGreylistConsumer.greylistEntry(signature, maxTargetSdk, allValues);
+            mGreylistConsumer.entryWithHiddenapiFlags(
+                    signature, new String[] { TARGET_SDK_TO_FLAG_MAP.get(maxTargetSdk) });
+            mGreylistConsumer.entryWithAnnotationProperties(signature, allValues);
         }
     }
 
@@ -136,11 +143,11 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
             return null;
         }
         int value = ((SimpleElementValue) property.getValue()).getValueInt();
-        if (!mValidMaxTargetSdkValues.test(value)) {
+        if (!TARGET_SDK_TO_FLAG_MAP.containsKey(value)) {
             context.reportError("Invalid value for %s: got %d, expected one of [%s]",
                     property.getNameString(),
                     value,
-                    mValidMaxTargetSdkValues);
+                    TARGET_SDK_TO_FLAG_MAP.keySet());
             return null;
         }
         return value;
