@@ -163,6 +163,13 @@ class InternTable {
   void VisitRoots(RootVisitor* visitor, VisitRootFlags flags)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::intern_table_lock_);
 
+  // Visit all of the interns in the table.
+  template <typename Visitor>
+  void VisitInterns(const Visitor& visitor,
+                    bool visit_boot_images,
+                    bool visit_app_images)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
+
   void DumpForSigQuit(std::ostream& os) const REQUIRES(!Locks::intern_table_lock_);
 
   void BroadcastForNewInterns();
@@ -194,6 +201,33 @@ class InternTable {
   // weak interns and strong interns.
   class Table {
    public:
+    class InternalTable {
+     public:
+      InternalTable() = default;
+      InternalTable(UnorderedSet&& set, bool is_boot_image)
+          : set_(std::move(set)), is_boot_image_(is_boot_image) {}
+
+      bool Empty() const {
+        return set_.empty();
+      }
+
+      size_t Size() const {
+        return set_.size();
+      }
+
+      bool IsBootImage() const {
+        return is_boot_image_;
+      }
+
+     private:
+      UnorderedSet set_;
+      bool is_boot_image_ = false;
+
+      friend class InternTable;
+      friend class Table;
+      ART_FRIEND_TEST(InternTableTest, CrossHash);
+    };
+
     Table();
     ObjPtr<mirror::String> Find(ObjPtr<mirror::String> s) REQUIRES_SHARED(Locks::mutator_lock_)
         REQUIRES(Locks::intern_table_lock_);
@@ -215,7 +249,7 @@ class InternTable {
     // debug builds. Returns how many bytes were read.
     // NO_THREAD_SAFETY_ANALYSIS for the visitor that may require locks.
     template <typename Visitor>
-    size_t AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor)
+    size_t AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor, bool is_boot_image)
         REQUIRES(!Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
     // Write the intern tables to ptr, if there are multiple tables they are combined into a single
     // one. Returns how many bytes were written.
@@ -227,12 +261,12 @@ class InternTable {
         REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
 
     // Add a table to the front of the tables vector.
-    void AddInternStrings(UnorderedSet&& intern_strings)
+    void AddInternStrings(UnorderedSet&& intern_strings, bool is_boot_image)
         REQUIRES(Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
     // We call AddNewTable when we create the zygote to reduce private dirty pages caused by
     // modifying the zygote intern table. The back of table is modified when strings are interned.
-    std::vector<UnorderedSet> tables_;
+    std::vector<InternalTable> tables_;
 
     friend class InternTable;
     friend class linker::ImageWriter;
@@ -247,7 +281,7 @@ class InternTable {
 
   // Add a table from memory to the strong interns.
   template <typename Visitor>
-  size_t AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor)
+  size_t AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor, bool is_boot_image)
       REQUIRES(!Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   ObjPtr<mirror::String> LookupStrongLocked(ObjPtr<mirror::String> s)
