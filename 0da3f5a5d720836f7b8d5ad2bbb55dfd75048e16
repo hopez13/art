@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "535cee70_6b260ec4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "File a separate bug to keep track of this.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83590c7e_25bc75b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "We should add this to the build bots.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 87
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14162934_d2f490c7",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "This looks suspicious. \n\nAre we always building 32 bits?",
+      "range": {
+        "startLine": 658,
+        "startChar": 46,
+        "endLine": 658,
+        "endChar": 49
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ff87e9e_d4e45a89",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "let\u0027s find a a better name for this.",
+      "range": {
+        "startLine": 692,
+        "startChar": 8,
+        "endLine": 692,
+        "endChar": 9
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76ed1fec_cc85c781",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "\u0027host_bionic\u0027will be consistent with the .bp variables",
+      "range": {
+        "startLine": 393,
+        "startChar": 8,
+        "endLine": 393,
+        "endChar": 19
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e452b9a3_f728cae6",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66bbc239_5fba66dc",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "TODO(bug_or_ldap): text...\n\nhere and everywhere else.\n\nreferencing a bug is better.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7f70f54_b164ecda",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-10-31T23:05:10Z",
+      "side": 1,
+      "message": "this is indeed hacky.\n\nWhat it will take to have proper supports for these builds?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
