@@ -31,7 +31,6 @@
 #include "dex/code_item_accessors.h"
 #include "dex/dex_file.h"
 #include "dex/dex_instruction_iterator.h"
-#include "dex/hidden_api_access_flags.h"
 #include "dex/modifiers.h"
 #include "dex/primitive.h"
 #include "gc_root.h"
@@ -175,7 +174,7 @@ class ArtMethod final {
     return (GetAccessFlags() & kAccIntrinsic) != 0;
   }
 
-  ALWAYS_INLINE void SetIntrinsic(uint32_t intrinsic) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetIntrinsic(uint32_t intrinsic) REQUIRES_SHARED(Locks::mutator_lock_);
 
   uint32_t GetIntrinsic() {
     static const int kAccFlagsShift = CTZ(kAccIntrinsicBits);
@@ -343,8 +342,6 @@ class ArtMethod final {
   void SetMustCountLocks() {
     AddAccessFlags(kAccMustCountLocks);
   }
-
-  hiddenapi::ApiList GetHiddenApiAccessFlags() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if this method could be overridden by a default method.
   bool IsOverridableByDefaultMethod() REQUIRES_SHARED(Locks::mutator_lock_);

@@ -33,6 +33,7 @@
 #include "dex/dex_instruction.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "gc/accounting/card_table-inl.h"
+#include "hidden_api.h"
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
@@ -688,14 +689,14 @@ void ArtMethod::SetNotIntrinsic() {
   }
 
   // Query the hidden API access flags of the intrinsic.
-  hiddenapi::ApiList intrinsic_api_list = GetHiddenApiAccessFlags();
+  hiddenapi::ApiList intrinsic_api_list = hiddenapi::GetHiddenApiAccessFlags(this);
 
   // Clear intrinsic-related access flags.
   ClearAccessFlags(kAccIntrinsic | kAccIntrinsicBits);
 
   // Re-apply hidden API access flags now that the method is not an intrinsic.
   SetAccessFlags(hiddenapi::EncodeForRuntime(GetAccessFlags(), intrinsic_api_list));
-  DCHECK_EQ(GetHiddenApiAccessFlags(), intrinsic_api_list);
+  DCHECK_EQ(hiddenapi::GetHiddenApiAccessFlags(this), intrinsic_api_list);
 }
 
 
@@ -792,6 +793,56 @@ ALWAYS_INLINE static inline void DoGetAccessFlagsHelper(ArtMethod* method)
   CHECK(method->IsRuntimeMethod() ||
         method->GetDeclaringClass<kReadBarrierOption>()->IsIdxLoaded() ||
         method->GetDeclaringClass<kReadBarrierOption>()->IsErroneous());
+}
+
+void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
+  // Currently we only do intrinsics for static/final methods or methods of final
+  // classes. We don't set kHasSingleImplementation for those methods.
+  DCHECK(IsStatic() || IsFinal() || GetDeclaringClass()->IsFinal()) <<
+      "Potential conflict with kAccSingleImplementation";
+  static const int kAccFlagsShift = CTZ(kAccIntrinsicBits);
+  DCHECK_LE(intrinsic, kAccIntrinsicBits >> kAccFlagsShift);
+  uint32_t intrinsic_bits = intrinsic << kAccFlagsShift;
+  uint32_t new_value = (GetAccessFlags() & ~kAccIntrinsicBits) | kAccIntrinsic | intrinsic_bits;
+  if (kIsDebugBuild) {
+    uint32_t java_flags = (GetAccessFlags() & kAccJavaFlagsMask);
+    bool is_constructor = IsConstructor();
+    bool is_synchronized = IsSynchronized();
+    bool skip_access_checks = SkipAccessChecks();
+    bool is_fast_native = IsFastNative();
+    bool is_critical_native = IsCriticalNative();
+    bool is_copied = IsCopied();
+    bool is_miranda = IsMiranda();
+    bool is_default = IsDefault();
+    bool is_default_conflict = IsDefaultConflicting();
+    bool is_compilable = IsCompilable();
+    bool must_count_locks = MustCountLocks();
+    hiddenapi::ApiList hidden_api_flags = hiddenapi::GetHiddenApiAccessFlags(this);
+    SetAccessFlags(new_value);
+    DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
+    DCHECK_EQ(is_constructor, IsConstructor());
+    DCHECK_EQ(is_synchronized, IsSynchronized());
+    DCHECK_EQ(skip_access_checks, SkipAccessChecks());
+    DCHECK_EQ(is_fast_native, IsFastNative());
+    DCHECK_EQ(is_critical_native, IsCriticalNative());
+    DCHECK_EQ(is_copied, IsCopied());
+    DCHECK_EQ(is_miranda, IsMiranda());
+    DCHECK_EQ(is_default, IsDefault());
+    DCHECK_EQ(is_default_conflict, IsDefaultConflicting());
+    DCHECK_EQ(is_compilable, IsCompilable());
+    DCHECK_EQ(must_count_locks, MustCountLocks());
+    // Only DCHECK that we have preserved the hidden API access flags if the
+    // original method was not on the whitelist. This is because the core image
+    // does not have the access flags set (b/77733081). It is fine to hard-code
+    // these because (a) warnings on greylist do not change semantics, and
+    // (b) only VarHandle intrinsics are blacklisted at the moment and they
+    // should not be used outside tests with disabled API checks.
+    if (hidden_api_flags != hiddenapi::ApiList::kWhitelist) {
+      DCHECK_EQ(hidden_api_flags, hiddenapi::GetHiddenApiAccessFlags(this)) << PrettyMethod();
+    }
+  } else {
+    SetAccessFlags(new_value);
+  }
 }
 
 }  // namespace art

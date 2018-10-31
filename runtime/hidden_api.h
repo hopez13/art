@@ -188,6 +188,114 @@ inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller,
 
 }  // namespace detail
 
+inline ApiList GetHiddenApiAccessFlags(ArtField* field)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return DecodeFromRuntime(field->GetAccessFlags());
+}
+
+inline ApiList GetHiddenApiAccessFlags(ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (UNLIKELY(method->IsIntrinsic())) {
+    switch (static_cast<Intrinsics>(method->GetIntrinsic())) {
+      case Intrinsics::kSystemArrayCopyChar:
+      case Intrinsics::kStringGetCharsNoCheck:
+      case Intrinsics::kReferenceGetReferent:
+      case Intrinsics::kMemoryPeekByte:
+      case Intrinsics::kMemoryPokeByte:
+      case Intrinsics::kUnsafeCASInt:
+      case Intrinsics::kUnsafeCASLong:
+      case Intrinsics::kUnsafeCASObject:
+      case Intrinsics::kUnsafeGet:
+      case Intrinsics::kUnsafeGetAndAddInt:
+      case Intrinsics::kUnsafeGetAndAddLong:
+      case Intrinsics::kUnsafeGetAndSetInt:
+      case Intrinsics::kUnsafeGetAndSetLong:
+      case Intrinsics::kUnsafeGetAndSetObject:
+      case Intrinsics::kUnsafeGetLong:
+      case Intrinsics::kUnsafeGetLongVolatile:
+      case Intrinsics::kUnsafeGetObject:
+      case Intrinsics::kUnsafeGetObjectVolatile:
+      case Intrinsics::kUnsafeGetVolatile:
+      case Intrinsics::kUnsafePut:
+      case Intrinsics::kUnsafePutLong:
+      case Intrinsics::kUnsafePutLongOrdered:
+      case Intrinsics::kUnsafePutLongVolatile:
+      case Intrinsics::kUnsafePutObject:
+      case Intrinsics::kUnsafePutObjectOrdered:
+      case Intrinsics::kUnsafePutObjectVolatile:
+      case Intrinsics::kUnsafePutOrdered:
+      case Intrinsics::kUnsafePutVolatile:
+      case Intrinsics::kUnsafeLoadFence:
+      case Intrinsics::kUnsafeStoreFence:
+      case Intrinsics::kUnsafeFullFence:
+        // These intrinsics are on the light greylist and will fail a DCHECK in
+        // SetIntrinsic() if their flags change on the respective dex methods.
+        // Note that the DCHECK currently won't fail if the dex methods are
+        // whitelisted, e.g. in the core image (b/77733081). As a result, we
+        // might print warnings but we won't change the semantics.
+        return hiddenapi::ApiList::kLightGreylist;
+      case Intrinsics::kStringNewStringFromBytes:
+      case Intrinsics::kStringNewStringFromChars:
+      case Intrinsics::kStringNewStringFromString:
+      case Intrinsics::kMemoryPeekIntNative:
+      case Intrinsics::kMemoryPeekLongNative:
+      case Intrinsics::kMemoryPeekShortNative:
+      case Intrinsics::kMemoryPokeIntNative:
+      case Intrinsics::kMemoryPokeLongNative:
+      case Intrinsics::kMemoryPokeShortNative:
+        return hiddenapi::ApiList::kDarkGreylist;
+      case Intrinsics::kVarHandleFullFence:
+      case Intrinsics::kVarHandleAcquireFence:
+      case Intrinsics::kVarHandleReleaseFence:
+      case Intrinsics::kVarHandleLoadLoadFence:
+      case Intrinsics::kVarHandleStoreStoreFence:
+      case Intrinsics::kVarHandleCompareAndExchange:
+      case Intrinsics::kVarHandleCompareAndExchangeAcquire:
+      case Intrinsics::kVarHandleCompareAndExchangeRelease:
+      case Intrinsics::kVarHandleCompareAndSet:
+      case Intrinsics::kVarHandleGet:
+      case Intrinsics::kVarHandleGetAcquire:
+      case Intrinsics::kVarHandleGetAndAdd:
+      case Intrinsics::kVarHandleGetAndAddAcquire:
+      case Intrinsics::kVarHandleGetAndAddRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseAnd:
+      case Intrinsics::kVarHandleGetAndBitwiseAndAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseAndRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseOr:
+      case Intrinsics::kVarHandleGetAndBitwiseOrAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseOrRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseXor:
+      case Intrinsics::kVarHandleGetAndBitwiseXorAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseXorRelease:
+      case Intrinsics::kVarHandleGetAndSet:
+      case Intrinsics::kVarHandleGetAndSetAcquire:
+      case Intrinsics::kVarHandleGetAndSetRelease:
+      case Intrinsics::kVarHandleGetOpaque:
+      case Intrinsics::kVarHandleGetVolatile:
+      case Intrinsics::kVarHandleSet:
+      case Intrinsics::kVarHandleSetOpaque:
+      case Intrinsics::kVarHandleSetRelease:
+      case Intrinsics::kVarHandleSetVolatile:
+      case Intrinsics::kVarHandleWeakCompareAndSet:
+      case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
+      case Intrinsics::kVarHandleWeakCompareAndSetPlain:
+      case Intrinsics::kVarHandleWeakCompareAndSetRelease:
+        // These intrinsics are on the blacklist and will fail a DCHECK in
+        // SetIntrinsic() if their flags change on the respective dex methods.
+        // Note that the DCHECK currently won't fail if the dex methods are
+        // whitelisted, e.g. in the core image (b/77733081). Given that they are
+        // exclusively VarHandle intrinsics, they should not be used outside
+        // tests that do not enable hidden API checks.
+        return hiddenapi::ApiList::kBlacklist;
+      default:
+        // Remaining intrinsics are public API. We DCHECK that in SetIntrinsic().
+        return hiddenapi::ApiList::kWhitelist;
+    }
+  } else {
+    return DecodeFromRuntime(method->GetAccessFlags());
+  }
+}
+
 // Returns true if access to `member` should be denied to the caller of the
 // reflective query. The decision is based on whether the caller is trusted or
 // not. Because different users of this function determine this in a different
@@ -208,9 +316,9 @@ inline Action GetMemberAction(T* member,
   // cannot change Java semantics. We should, however, decode the access flags
   // once and use it throughout this function, otherwise we may get inconsistent
   // results, e.g. print whitelist warnings (b/78327881).
-  ApiList api_list = member->GetHiddenApiAccessFlags();
+  ApiList api_list = GetHiddenApiAccessFlags(member);
 
-  Action action = GetActionFromAccessFlags(member->GetHiddenApiAccessFlags());
+  Action action = GetActionFromAccessFlags(api_list);
   if (action == kAllow) {
     // Nothing to do.
     return action;
