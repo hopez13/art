@@ -29,7 +29,7 @@ namespace Test674HiddenApi {
 extern "C" JNIEXPORT void JNICALL Java_Main_init(JNIEnv*, jclass) {
   Runtime* runtime = Runtime::Current();
   runtime->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kEnabled);
-  runtime->SetTargetSdkVersion(static_cast<int32_t>(hiddenapi::detail::SdkCodes::kVersionO_MR1));
+  runtime->SetTargetSdkVersion(hiddenapi::ApiList::BlacklistMaxO().GetMaxAllowedSdkVersion());
   runtime->SetDedupeHiddenApiWarnings(false);
 }
 
