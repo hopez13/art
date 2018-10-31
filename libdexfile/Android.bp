@@ -30,6 +30,7 @@ cc_defaults {
         "dex/dex_file_tracking_registrar.cc",
         "dex/dex_file_verifier.cc",
         "dex/dex_instruction.cc",
+        "dex/hiddenapi_flags.cc",
         "dex/modifiers.cc",
         "dex/primitive.cc",
         "dex/standard_dex_file.cc",
