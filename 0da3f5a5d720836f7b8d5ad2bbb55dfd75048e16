@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f62c54f3_64d83fcd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535cee70_6b260ec4",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83590c7e_25bc75b2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b444e859_515185df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "We\u0027ll need to change how everything is built though",
+      "parentUuid": "83590c7e_25bc75b2",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 87
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8f1a1c62_0ca2a901",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "That is just what the folder is named. It\u0027s actually always x86_64 and 32-bit isn\u0027t even built.",
+      "parentUuid": "14162934_d2f490c7",
+      "range": {
+        "startLine": 658,
+        "startChar": 46,
+        "endLine": 658,
+        "endChar": 49
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ff87e9e_d4e45a89",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca47c7e2_9d2b1878",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "Done\n\nnow linkroot_overlay",
+      "parentUuid": "6ff87e9e_d4e45a89",
+      "range": {
+        "startLine": 692,
+        "startChar": 8,
+        "endLine": 692,
+        "endChar": 9
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "4670a882_2dd97780",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e452b9a3_f728cae6",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66bbc239_5fba66dc",
         "filename": "tools/build_linux_bionic_tests.sh",
         "patchSetId": 1
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "7c5f7fea_5146f1e2",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66bbc239_5fba66dc",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7f70f54_b164ecda",
         "filename": "tools/build_linux_bionic_tests.sh",
         "patchSetId": 1
@@ -183,6 +327,30 @@
       "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45b7f0ab_97419f2f",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-10-31T23:19:19Z",
+      "side": 1,
+      "message": "soong/make support. Talk to ccross/dwillemsen for more info.",
+      "parentUuid": "f7f70f54_b164ecda",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
