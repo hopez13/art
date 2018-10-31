@@ -29,26 +29,30 @@ inline void InternTable::AddImageStringsToTable(gc::space::ImageSpace* image_spa
                                                 const Visitor& visitor) {
   DCHECK(image_space != nullptr);
   // Only add if we have the interned strings section.
-  const ImageSection& section = image_space->GetImageHeader().GetInternedStringsSection();
+  const ImageHeader& header = image_space->GetImageHeader();
+  const ImageSection& section = header.GetInternedStringsSection();
   if (section.Size() > 0) {
-    AddTableFromMemory(image_space->Begin() + section.Offset(), visitor);
+    AddTableFromMemory(image_space->Begin() + section.Offset(), visitor, !header.IsAppImage());
   }
 }
 
 template <typename Visitor>
-inline size_t InternTable::AddTableFromMemory(const uint8_t* ptr, const Visitor& visitor) {
+inline size_t InternTable::AddTableFromMemory(const uint8_t* ptr,
+                                              const Visitor& visitor,
+                                              bool is_boot_image) {
   size_t read_count = 0;
   UnorderedSet set(ptr, /*make copy*/false, &read_count);
   // Visit the unordered set, may remove elements.
   visitor(set);
   if (!set.empty()) {
     MutexLock mu(Thread::Current(), *Locks::intern_table_lock_);
-    strong_interns_.AddInternStrings(std::move(set));
+    strong_interns_.AddInternStrings(std::move(set), is_boot_image);
   }
   return read_count;
 }
 
-inline void InternTable::Table::AddInternStrings(UnorderedSet&& intern_strings) {
+inline void InternTable::Table::AddInternStrings(UnorderedSet&& intern_strings,
+                                                 bool is_boot_image) {
   static constexpr bool kCheckDuplicates = kIsDebugBuild;
   if (kCheckDuplicates) {
     // Avoid doing read barriers since the space might not yet be added to the heap.
@@ -60,7 +64,8 @@ inline void InternTable::Table::AddInternStrings(UnorderedSet&& intern_strings) 
     }
   }
   // Insert at the front since we add new interns into the back.
-  tables_.insert(tables_.begin(), std::move(intern_strings));
+  tables_.insert(tables_.begin(),
+                 InternalTable(std::move(intern_strings), is_boot_image));
 }
 
 }  // namespace art
