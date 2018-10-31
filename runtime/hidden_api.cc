@@ -21,7 +21,6 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/dumpable.h"
-#include "base/enums.h"
 #include "dex/class_accessor-inl.h"
 #include "scoped_thread_state_change.h"
 #include "thread-inl.h"
@@ -75,21 +74,6 @@ enum AccessContextFlags {
   // Indicates if access was denied to the member, instead of just printing a warning.
   kAccessDenied  = 1 << 1,
 };
-
-static uint32_t GetMaxAllowedSdkVersionForApiList(ApiList api_list) {
-  switch (api_list) {
-    case ApiList::kWhitelist:
-    case ApiList::kLightGreylist:
-      return kSdkVersionMax;
-    case ApiList::kDarkGreylist:
-      return kSdkVersionO_MR1;
-    case ApiList::kBlacklist:
-      return kSdkVersionMin;
-    case ApiList::kNoList:
-      LOG(FATAL) << "Unexpected value";
-      UNREACHABLE();
-  }
-}
 
 MemberSignature::MemberSignature(ArtField* field) {
   class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
@@ -264,7 +248,7 @@ uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
   uint32_t flags = kInvalidDexFlags;
-  DCHECK(!AreValidFlags(flags));
+  DCHECK(!AreValidDexFlags(flags));
 
   ClassAccessor accessor(declaring_class->GetDexFile(),
                          *class_def,
@@ -277,7 +261,7 @@ uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
   accessor.VisitFields(fn_visit, fn_visit);
 
   CHECK_NE(flags, kInvalidDexFlags) << "Could not find flags for field " << field->PrettyField();
-  DCHECK(AreValidFlags(flags));
+  DCHECK(AreValidDexFlags(flags));
   return flags;
 }
 
@@ -294,7 +278,7 @@ uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   }
 
   uint32_t flags = kInvalidDexFlags;
-  DCHECK(!AreValidFlags(flags));
+  DCHECK(!AreValidDexFlags(flags));
 
   ClassAccessor accessor(declaring_class->GetDexFile(),
                          *class_def,
@@ -307,7 +291,7 @@ uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   accessor.VisitMethods(fn_visit, fn_visit);
 
   CHECK_NE(flags, kInvalidDexFlags) << "Could not find flags for method " << method->PrettyMethod();
-  DCHECK(AreValidFlags(flags));
+  DCHECK(AreValidDexFlags(flags));
   return flags;
 }
 
@@ -322,7 +306,7 @@ bool ShouldDenyAccessToMemberImpl(T* member,
 
   const bool deny_access =
       (policy == EnforcementPolicy::kEnabled) &&
-      (runtime->GetTargetSdkVersion() > GetMaxAllowedSdkVersionForApiList(api_list));
+      (runtime->GetTargetSdkVersion() > api_list.GetMaxAllowedSdkVersion());
 
   MemberSignature member_signature(member);
 
