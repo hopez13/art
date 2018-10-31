@@ -1,0 +1,399 @@
+diff --git a/tools/hiddenapi/hiddenapi.cc b/tools/hiddenapi/hiddenapi.cc
+index f61b3e8038..4950a4af79 100644
+--- a/tools/hiddenapi/hiddenapi.cc
++++ b/tools/hiddenapi/hiddenapi.cc
+@@ -72,10 +72,8 @@ NO_RETURN static void Usage(const char* fmt, ...) {
+   UsageError("    --output-dex=<filename>: file to write encoded dex into");
+   UsageError("        input and output dex files are paired in order of appearance");
+   UsageError("");
+-  UsageError("    --light-greylist=<filename>:");
+-  UsageError("    --dark-greylist=<filename>:");
+-  UsageError("    --blacklist=<filename>:");
+-  UsageError("        text files with signatures of methods/fields to be annotated");
++  UsageError("    --flags=<filename>:");
++  UsageError("        CSV file with signatures of methods/fields and their respective flags");
+   UsageError("");
+   UsageError("  Command \"list\": dump lists of public and private API");
+   UsageError("    --boot-dex=<filename>: dex file which belongs to boot class path");
+@@ -600,7 +598,7 @@ class HiddenapiClassDataBuilder final {
+   // between BeginClassDef and EndClassDef in the order of appearance of
+   // fields/methods in the class data stream.
+   void WriteFlags(hiddenapi::ApiList flags) {
+-    uint32_t uint_flags = static_cast<uint32_t>(flags);
++    uint32_t uint_flags = flags.GetIntValue();
+     EncodeUnsignedLeb128(&data_, uint_flags);
+     class_def_has_non_zero_flags_ |= (uint_flags != 0u);
+   }
+@@ -888,12 +886,8 @@ class HiddenApi final {
+             boot_dex_paths_.push_back(option.substr(strlen("--input-dex=")).ToString());
+           } else if (option.starts_with("--output-dex=")) {
+             output_dex_paths_.push_back(option.substr(strlen("--output-dex=")).ToString());
+-          } else if (option.starts_with("--light-greylist=")) {
+-            light_greylist_path_ = option.substr(strlen("--light-greylist=")).ToString();
+-          } else if (option.starts_with("--dark-greylist=")) {
+-            dark_greylist_path_ = option.substr(strlen("--dark-greylist=")).ToString();
+-          } else if (option.starts_with("--blacklist=")) {
+-            blacklist_path_ = option.substr(strlen("--blacklist=")).ToString();
++          } else if (option.starts_with("--flags=")) {
++            api_list_path_ = option.substr(strlen("--flags=")).ToString();
+           } else {
+             Usage("Unknown argument '%s'", option.data());
+           }
+@@ -932,10 +926,7 @@ class HiddenApi final {
+     }
+
+     // Load dex signatures.
+-    std::map<std::string, hiddenapi::ApiList> api_list;
+-    OpenApiFile(light_greylist_path_, api_list, hiddenapi::ApiList::kLightGreylist);
+-    OpenApiFile(dark_greylist_path_, api_list, hiddenapi::ApiList::kDarkGreylist);
+-    OpenApiFile(blacklist_path_, api_list, hiddenapi::ApiList::kBlacklist);
++    std::map<std::string, hiddenapi::ApiList> api_list = OpenApiFile(api_list_path_);
+
+     // Iterate over input dex files and insert HiddenapiClassData sections.
+     for (size_t i = 0; i < boot_dex_paths_.size(); ++i) {
+@@ -952,10 +943,9 @@ class HiddenApi final {
+         builder.BeginClassDef(boot_class.GetClassDefIndex());
+         if (boot_class.GetData() != nullptr) {
+           auto fn_shared = [&](const DexMember& boot_member) {
+-            // TODO: Load whitelist and CHECK that entry was found.
+             auto it = api_list.find(boot_member.GetApiEntry());
+-            builder.WriteFlags(
+-                (it == api_list.end()) ? hiddenapi::ApiList::kWhitelist : it->second);
++            CHECK(it != api_list.end());
++            builder.WriteFlags(it->second);
+           };
+           auto fn_field = [&](const ClassAccessor::Field& boot_field) {
+             fn_shared(DexMember(boot_class, boot_field));
+@@ -974,22 +964,29 @@ class HiddenApi final {
+     }
+   }
+
+-  void OpenApiFile(const std::string& path,
+-                   std::map<std::string, hiddenapi::ApiList>& api_list,
+-                   hiddenapi::ApiList membership) {
+-    if (path.empty()) {
+-      return;
+-    }
+-
++  std::map<std::string, hiddenapi::ApiList> OpenApiFile(const std::string& path) {
++    CHECK(!path.empty());
+     std::ifstream api_file(path, std::ifstream::in);
+     CHECK(!api_file.fail()) << "Unable to open file '" << path << "' " << strerror(errno);
+
++    std::map<std::string, hiddenapi::ApiList> api_flag_map;
++
+     for (std::string line; std::getline(api_file, line);) {
+-      CHECK(api_list.find(line) == api_list.end())
+-          << "Duplicate entry: " << line << " (" << api_list[line] << " and " << membership << ")";
+-      api_list.emplace(line, membership);
++      std::vector<std::string> values = android::base::Split(line, ",");
++      CHECK_EQ(values.size(), 2u) << "Currently only signature and one flag are supported";
++
++      const std::string& signature = values[0];
++      CHECK(api_flag_map.find(signature) == api_flag_map.end()) << "Duplicate entry: " << signature;
++
++      const std::string& flag_str = values[1];
++      hiddenapi::ApiList membership = hiddenapi::ApiList::FromName(flag_str);
++      CHECK_NE(membership, hiddenapi::ApiList::Invalid()) << "Unknown ApiList name: " << flag_str;
++
++      api_flag_map.emplace(signature, membership);
+     }
++
+     api_file.close();
++    return api_flag_map;
+   }
+
+   void ListApi() {
+@@ -1079,9 +1076,7 @@ class HiddenApi final {
+   std::vector<std::vector<std::string>> stub_classpaths_;
+
+   // Paths to text files which contain the lists of API members.
+-  std::string light_greylist_path_;
+-  std::string dark_greylist_path_;
+-  std::string blacklist_path_;
++  std::string api_list_path_;
+
+   // Paths to text files to which we will output list of all API members.
+   std::string out_public_path_;
+diff --git a/tools/veridex/hidden_api.cc b/tools/veridex/hidden_api.cc
+index 17fa1b8513..8929e9c986 100644
+--- a/tools/veridex/hidden_api.cc
++++ b/tools/veridex/hidden_api.cc
+@@ -19,10 +19,51 @@
+ #include <fstream>
+ #include <sstream>
+
++#include "android-base/strings.h"
+ #include "dex/dex_file-inl.h"
+
+ namespace art {
+
++HiddenApi::HiddenApi(const char* filename, bool sdk_uses_only) {
++  CHECK(filename != nullptr);
++
++  std::ifstream in(filename);
++  for (std::string str; std::getline(api_file, str);) {
++    std::vector<std::string> values = android::base::Split(str, ",");
++    CHECK_EQ(values.size(), 2u) << "Currently only signature and one flag are supported";
++
++    const std::string& signature = values[0];
++    const std::string& flag_str = values[1];
++
++    hiddenapi::ApiList membership = hiddenapi::ApiList::kNoList;
++    for (size_t i = 0; i < hiddenapi::kApiListCount; ++i) {
++      if (flag_str == hiddenapi::kApiListNames[i]) {
++        membership = static_cast<hiddenapi::ApiList>(i);
++      }
++    }
++    CHECK_NE(membership, hiddenapi::ApiList::kNoList) << "Unknown ApiList name: " << flag_str;
++
++    CHECK(api_list_.find(signature) == api_list_.end()) << "Duplicate entry: " << signature;
++
++    api_list_.emplace(signature, membership);
++    size_t pos = signature.find("->");
++    if (pos != std::string::npos) {
++      // Add the class name.
++      api_list_.emplace(signature.substr(0, pos), membership);
++      pos = signature.find('(');
++      if (pos != std::string::npos) {
++        // Add the class->method name (so stripping the signature).
++        api_list_.emplace(signature.substr(0, pos), membership);
++      }
++      pos = signature.find(':');
++      if (pos != std::string::npos) {
++        // Add the class->field name (so stripping the type).
++        api_list_.emplace(signature.substr(0, pos), membership);
++      }
++    }
++  }
++}
++
+ std::string HiddenApi::GetApiMethodName(const DexFile& dex_file, uint32_t method_index) {
+   std::stringstream ss;
+   const DexFile::MethodId& method_id = dex_file.GetMethodId(method_index);
+@@ -44,30 +85,4 @@ std::string HiddenApi::GetApiFieldName(const DexFile& dex_file, uint32_t field_i
+   return ss.str();
+ }
+
+-void HiddenApi::FillList(const char* filename, std::set<std::string>& entries) {
+-  if (filename == nullptr) {
+-    return;
+-  }
+-  std::ifstream in(filename);
+-  std::string str;
+-  while (std::getline(in, str)) {
+-    entries.insert(str);
+-    size_t pos = str.find("->");
+-    if (pos != std::string::npos) {
+-      // Add the class name.
+-      entries.insert(str.substr(0, pos));
+-      pos = str.find('(');
+-      if (pos != std::string::npos) {
+-        // Add the class->method name (so stripping the signature).
+-        entries.insert(str.substr(0, pos));
+-      }
+-      pos = str.find(':');
+-      if (pos != std::string::npos) {
+-        // Add the class->field name (so stripping the type).
+-        entries.insert(str.substr(0, pos));
+-      }
+-    }
+-  }
+-}
+-
+ }  // namespace art
+diff --git a/tools/veridex/hidden_api.h b/tools/veridex/hidden_api.h
+index da9f058cb4..d7399ee929 100644
+--- a/tools/veridex/hidden_api.h
++++ b/tools/veridex/hidden_api.h
+@@ -33,28 +33,11 @@ class DexFile;
+  */
+ class HiddenApi {
+  public:
+-  HiddenApi(const char* whitelist,
+-            const char* blacklist,
+-            const char* dark_greylist,
+-            const char* light_greylist) {
+-    FillList(light_greylist, light_greylist_);
+-    FillList(dark_greylist, dark_greylist_);
+-    FillList(blacklist, blacklist_);
+-    FillList(whitelist, whitelist_);
+-  }
++  HiddenApi(const char* flags_file, bool sdk_uses_only);
+
+   hiddenapi::ApiList GetApiList(const std::string& name) const {
+-    if (IsInList(name, blacklist_)) {
+-      return hiddenapi::ApiList::kBlacklist;
+-    } else if (IsInList(name, dark_greylist_)) {
+-      return hiddenapi::ApiList::kDarkGreylist;
+-    } else if (IsInList(name, light_greylist_)) {
+-      return hiddenapi::ApiList::kLightGreylist;
+-    } else if (IsInList(name, whitelist_)) {
+-      return hiddenapi::ApiList::kWhitelist;
+-    } else {
+-      return hiddenapi::ApiList::kNoList;
+-    }
++    auto it = api_list_.find(name);
++    return (it == api_list_.end()) ? hiddenapi::ApiList::kNoList : it.second;
+   }
+
+   bool IsInAnyList(const std::string& name) const {
+@@ -76,23 +59,14 @@ class HiddenApi {
+   }
+
+  private:
+-  static bool IsInList(const std::string& name, const std::set<std::string>& list) {
+-    return list.find(name) != list.end();
+-  }
+-
+-  static void FillList(const char* filename, std::set<std::string>& entries);
+-
+-  std::set<std::string> whitelist_;
+-  std::set<std::string> blacklist_;
+-  std::set<std::string> light_greylist_;
+-  std::set<std::string> dark_greylist_;
++  std::map<std::string, hiddenapi::ApiList> api_list_;
+ };
+
+ struct HiddenApiStats {
+   uint32_t count = 0;
+   uint32_t reflection_count = 0;
+   uint32_t linking_count = 0;
+-  uint32_t api_counts[5] = { 0, 0, 0, 0, 0 };
++  uint32_t api_counts[hiddenapi::kApiListCount] = { 0, 0, 0, 0 };
+ };
+
+ }  // namespace art
+diff --git a/tools/veridex/hidden_api_finder.cc b/tools/veridex/hidden_api_finder.cc
+index e24d151069..5c99e44465 100644
+--- a/tools/veridex/hidden_api_finder.cc
++++ b/tools/veridex/hidden_api_finder.cc
+@@ -180,7 +180,9 @@ void HiddenApiFinder::Dump(std::ostream& os,
+   for (const std::pair<const std::string,
+                        std::vector<MethodReference>>& pair : method_locations_) {
+     hiddenapi::ApiList api_list = hidden_api_.GetApiList(pair.first);
+-    stats->api_counts[static_cast<unsigned>(api_list)]++;
++    if (api_list != hiddenapi::ApiList::kNoList) {
++      stats->api_counts[static_cast<unsigned>(api_list)]++;
++    }
+     os << "#" << ++stats->count << ": Linking " << api_list << " " << pair.first << " use(s):";
+     os << std::endl;
+     HiddenApiFinder::DumpReferences(os, pair.second);
+@@ -191,7 +193,9 @@ void HiddenApiFinder::Dump(std::ostream& os,
+   for (const std::pair<const std::string,
+                        std::vector<MethodReference>>& pair : field_locations_) {
+     hiddenapi::ApiList api_list = hidden_api_.GetApiList(pair.first);
+-    stats->api_counts[static_cast<unsigned>(api_list)]++;
++    if (api_list != hiddenapi::ApiList::kNoList) {
++      stats->api_counts[static_cast<unsigned>(api_list)]++;
++    }
+     os << "#" << ++stats->count << ": Linking " << api_list << " " << pair.first << " use(s):";
+     os << std::endl;
+     HiddenApiFinder::DumpReferences(os, pair.second);
+@@ -204,8 +208,8 @@ void HiddenApiFinder::Dump(std::ostream& os,
+       for (const std::string& name : strings_) {
+         std::string full_name = cls + "->" + name;
+         hiddenapi::ApiList api_list = hidden_api_.GetApiList(full_name);
+-        stats->api_counts[static_cast<unsigned>(api_list)]++;
+         if (api_list != hiddenapi::ApiList::kNoList) {
++          stats->api_counts[static_cast<unsigned>(api_list)]++;
+           stats->reflection_count++;
+           os << "#" << ++stats->count << ": Reflection " << api_list << " " << full_name
+              << " potential use(s):";
+diff --git a/tools/veridex/precise_hidden_api_finder.cc b/tools/veridex/precise_hidden_api_finder.cc
+index 6aef89f7ee..9702d23618 100644
+--- a/tools/veridex/precise_hidden_api_finder.cc
++++ b/tools/veridex/precise_hidden_api_finder.cc
+@@ -102,7 +102,9 @@ void PreciseHiddenApiFinder::Dump(std::ostream& os, HiddenApiStats* stats) {
+     ++stats->reflection_count;
+     const std::string& full_name = it.first;
+     hiddenapi::ApiList api_list = hidden_api_.GetApiList(full_name);
+-    stats->api_counts[static_cast<unsigned>(api_list)]++;
++    if (api_list != hiddenapi::ApiList::kNoList) {
++      stats->api_counts[static_cast<unsigned>(api_list)]++;
++    }
+     os << "#" << ++stats->count << ": Reflection " << api_list << " " << full_name << " use(s):";
+     os << std::endl;
+     for (const MethodReference& ref : it.second) {
+diff --git a/tools/veridex/veridex.cc b/tools/veridex/veridex.cc
+index 179e391219..05946ece15 100644
+--- a/tools/veridex/veridex.cc
++++ b/tools/veridex/veridex.cc
+@@ -67,10 +67,7 @@ VeriField VeriClass::sdkInt_ = nullptr;
+
+ static const char* kDexFileOption = "--dex-file=";
+ static const char* kStubsOption = "--core-stubs=";
+-static const char* kWhitelistOption = "--whitelist=";
+-static const char* kBlacklistOption = "--blacklist=";
+-static const char* kDarkGreylistOption = "--dark-greylist=";
+-static const char* kLightGreylistOption = "--light-greylist=";
++static const char* kFlagsOption = "--flags=";
+ static const char* kImprecise = "--imprecise";
+ static const char* kTargetSdkVersion = "--target-sdk-version=";
+ static const char* kOnlyReportSdkUses = "--only-report-sdk-uses";
+@@ -78,10 +75,7 @@ static const char* kOnlyReportSdkUses = "--only-report-sdk-uses";
+ struct VeridexOptions {
+   const char* dex_file = nullptr;
+   const char* core_stubs = nullptr;
+-  const char* whitelist = nullptr;
+-  const char* blacklist = nullptr;
+-  const char* light_greylist = nullptr;
+-  const char* dark_greylist = nullptr;
++  const char* flags_file = nullptr;
+   bool precise = true;
+   int target_sdk_version = 28; /* P */
+   bool only_report_sdk_uses = false;
+@@ -105,14 +99,8 @@ static void ParseArgs(VeridexOptions* options, int argc, char** argv) {
+       options->dex_file = Substr(argv[i], strlen(kDexFileOption));
+     } else if (StartsWith(argv[i], kStubsOption)) {
+       options->core_stubs = Substr(argv[i], strlen(kStubsOption));
+-    } else if (StartsWith(argv[i], kWhitelistOption)) {
+-      options->whitelist = Substr(argv[i], strlen(kWhitelistOption));
+-    } else if (StartsWith(argv[i], kBlacklistOption)) {
+-      options->blacklist = Substr(argv[i], strlen(kBlacklistOption));
+-    } else if (StartsWith(argv[i], kDarkGreylistOption)) {
+-      options->dark_greylist = Substr(argv[i], strlen(kDarkGreylistOption));
+-    } else if (StartsWith(argv[i], kLightGreylistOption)) {
+-      options->light_greylist = Substr(argv[i], strlen(kLightGreylistOption));
++    } else if (StartsWith(argv[i], kFlagsOption)) {
++      options->flags_file = Substr(argv[i], strlen(kFlagsOption));
+     } else if (strcmp(argv[i], kImprecise) == 0) {
+       options->precise = false;
+     } else if (StartsWith(argv[i], kTargetSdkVersion)) {
+@@ -229,20 +217,8 @@ class Veridex {
+     std::vector<std::unique_ptr<VeridexResolver>> app_resolvers;
+     Resolve(app_dex_files, resolver_map, type_map, &app_resolvers);
+
+-    if (options.only_report_sdk_uses) {
+-      // If we only need to report SDK uses, clear out any of the other lists so that
+-      // the analysis don't report them.
+-      options.blacklist = nullptr;
+-      options.dark_greylist = nullptr;
+-      options.light_greylist = nullptr;
+-    } else {
+-      // Otherwise, omit SDK uses.
+-      options.whitelist = nullptr;
+-    }
+-
+     // Find and log uses of hidden APIs.
+-    HiddenApi hidden_api(
+-        options.whitelist, options.blacklist, options.dark_greylist, options.light_greylist);
++    HiddenApi hidden_api(options.flags_file, options.only_report_sdk_uses);
+     HiddenApiStats stats;
+
+     HiddenApiFinder api_finder(hidden_api);
+@@ -279,10 +255,10 @@ class Veridex {
+          << stats.reflection_count << " through reflection" << std::endl;
+       os << kPrefix << stats.api_counts[static_cast<unsigned>(hiddenapi::ApiList::kBlacklist)]
+          << " in blacklist" << std::endl;
+-      os << kPrefix << stats.api_counts[static_cast<unsigned>(hiddenapi::ApiList::kDarkGreylist)]
+-         << " in dark greylist" << std::endl;
+-      os << kPrefix << stats.api_counts[static_cast<unsigned>(hiddenapi::ApiList::kLightGreylist)]
+-         << " in light greylist" << std::endl;
++      os << kPrefix << stats.api_counts[static_cast<unsigned>(hiddenapi::ApiList::kBlacklistMaxO)]
++         << " in blacklist-max-o" << std::endl;
++      os << kPrefix << stats.api_counts[static_cast<unsigned>(hiddenapi::ApiList::kGreylist)]
++         << " in greylist" << std::endl;
+     }
+   }
+

@@ -1,0 +1,1490 @@
+From ac015416ea71294c725913e1c2b4c02a6f57fdea Mon Sep 17 00:00:00 2001
+From: David Brazdil <dbrazdil@google.com>
+Date: Wed, 17 Oct 2018 18:00:06 +0100
+Subject: [PATCH] Simplify hidden_api.h logic
+
+Refactor GetMemberAction to return a boolean whether access to a class
+member should be denied. This also moves StrictMode consumer
+notification into hidden_api.cc and removes notifications for toasts.
+Tests are changed accordingly.
+
+Test: phone boots
+Test: m test-art
+Change-Id: I02902143de0ff91d402ba79c83f28226b1822a6f
+---
+ runtime/class_linker.cc                     |  29 ++-
+ runtime/dexopt_test.cc                      |   2 +-
+ runtime/hidden_api.cc                       | 220 ++++++++++----------
+ runtime/hidden_api.h                        | 183 +++++++---------
+ runtime/hidden_api_test.cc                  |  66 +++---
+ runtime/interpreter/unstarted_runtime.cc    |  22 +-
+ runtime/jni/jni_internal.cc                 |  24 +--
+ runtime/native/dalvik_system_VMRuntime.cc   |   5 -
+ runtime/native/dalvik_system_ZygoteHooks.cc |  12 +-
+ runtime/native/java_lang_Class.cc           |  52 ++---
+ runtime/runtime.cc                          |   8 +-
+ runtime/runtime.h                           |  16 --
+ runtime/well_known_classes.cc               |   2 +-
+ test/674-hiddenapi/hiddenapi.cc             |  12 +-
+ test/674-hiddenapi/src-ex/ChildClass.java   | 130 +++---------
+ 15 files changed, 314 insertions(+), 469 deletions(-)
+
+diff --git a/runtime/class_linker.cc b/runtime/class_linker.cc
+index f43791ab06..fb0f22e444 100644
+--- a/runtime/class_linker.cc
++++ b/runtime/class_linker.cc
+@@ -5042,8 +5042,8 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
+       ArtField* resolved_field = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+       if (resolved_field == nullptr) {
+         // Populating cache of a dex file which defines `klass` should always be allowed.
+-        DCHECK_EQ(hiddenapi::GetMemberAction(
+-            field, class_loader.Get(), dex_cache.Get(), hiddenapi::kNone), hiddenapi::kAllow);
++        DCHECK(!hiddenapi::ShouldDenyAccessToMember(
++            field, class_loader.Get(), dex_cache.Get(), hiddenapi::AccessMethod::kNone));
+         dex_cache->SetResolvedField(field_idx, field, image_pointer_size_);
+       } else {
+         DCHECK_EQ(field, resolved_field);
+@@ -8074,8 +8074,8 @@ ArtMethod* ClassLinker::FindResolvedMethod(ObjPtr<mirror::Class> klass,
+   }
+   DCHECK(resolved == nullptr || resolved->GetDeclaringClassUnchecked() != nullptr);
+   if (resolved != nullptr &&
+-      hiddenapi::GetMemberAction(
+-          resolved, class_loader, dex_cache, hiddenapi::kLinking) == hiddenapi::kDeny) {
++      hiddenapi::ShouldDenyAccessToMember(
++          resolved, class_loader, dex_cache, hiddenapi::AccessMethod::kLinking)) {
+     resolved = nullptr;
+   }
+   if (resolved != nullptr) {
+@@ -8105,11 +8105,10 @@ static bool CheckNoSuchMethod(ArtMethod* method,
+                               ObjPtr<mirror::ClassLoader> class_loader)
+       REQUIRES_SHARED(Locks::mutator_lock_) {
+   return method == nullptr ||
+-         hiddenapi::GetMemberAction(method,
+-                                    class_loader,
+-                                    dex_cache,
+-                                    hiddenapi::kNone)  // do not print warnings
+-             == hiddenapi::kDeny;
++         hiddenapi::ShouldDenyAccessToMember(method,
++                                             class_loader,
++                                             dex_cache,
++                                             hiddenapi::AccessMethod::kNone);  // no warnings
+ }
+ 
+ ArtMethod* ClassLinker::FindIncompatibleMethod(ObjPtr<mirror::Class> klass,
+@@ -8245,8 +8244,8 @@ ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(uint32_t method_idx,
+     resolved = klass->FindClassMethod(dex_cache.Get(), method_idx, image_pointer_size_);
+   }
+   if (resolved != nullptr &&
+-      hiddenapi::GetMemberAction(
+-          resolved, class_loader.Get(), dex_cache.Get(), hiddenapi::kLinking) == hiddenapi::kDeny) {
++      hiddenapi::ShouldDenyAccessToMember(
++          resolved, class_loader.Get(), dex_cache.Get(), hiddenapi::AccessMethod::kLinking)) {
+     resolved = nullptr;
+   }
+   return resolved;
+@@ -8345,8 +8344,8 @@ ArtField* ClassLinker::FindResolvedField(ObjPtr<mirror::Class> klass,
+   }
+ 
+   if (resolved != nullptr &&
+-      hiddenapi::GetMemberAction(
+-          resolved, class_loader, dex_cache, hiddenapi::kLinking) == hiddenapi::kDeny) {
++      hiddenapi::ShouldDenyAccessToMember(
++          resolved, class_loader, dex_cache, hiddenapi::AccessMethod::kLinking)) {
+     resolved = nullptr;
+   }
+ 
+@@ -8371,8 +8370,8 @@ ArtField* ClassLinker::FindResolvedFieldJLS(ObjPtr<mirror::Class> klass,
+   resolved = mirror::Class::FindField(self, klass, name, type);
+ 
+   if (resolved != nullptr &&
+-      hiddenapi::GetMemberAction(
+-          resolved, class_loader, dex_cache, hiddenapi::kLinking) == hiddenapi::kDeny) {
++      hiddenapi::ShouldDenyAccessToMember(
++          resolved, class_loader, dex_cache, hiddenapi::AccessMethod::kLinking)) {
+     resolved = nullptr;
+   }
+ 
+diff --git a/runtime/dexopt_test.cc b/runtime/dexopt_test.cc
+index ed3a18db28..b11e368871 100644
+--- a/runtime/dexopt_test.cc
++++ b/runtime/dexopt_test.cc
+@@ -66,7 +66,7 @@ bool DexoptTest::Dex2Oat(const std::vector<std::string>& args, std::string* erro
+   }
+   runtime->AddCurrentRuntimeFeaturesAsDex2OatArguments(&argv);
+ 
+-  if (runtime->GetHiddenApiEnforcementPolicy() != hiddenapi::EnforcementPolicy::kNoChecks) {
++  if (runtime->GetHiddenApiEnforcementPolicy() != hiddenapi::EnforcementPolicy::kDisabled) {
+     argv.push_back("--runtime-arg");
+     argv.push_back("-Xhidden-api-checks");
+   }
+diff --git a/runtime/hidden_api.cc b/runtime/hidden_api.cc
+index f3552765c5..a6c541fb03 100644
+--- a/runtime/hidden_api.cc
++++ b/runtime/hidden_api.cc
+@@ -44,38 +44,53 @@ static constexpr bool kLogAllAccesses = false;
+ 
+ static inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
+   switch (value) {
+-    case kNone:
++    case AccessMethod::kNone:
+       LOG(FATAL) << "Internal access to hidden API should not be logged";
+       UNREACHABLE();
+-    case kReflection:
++    case AccessMethod::kReflection:
+       os << "reflection";
+       break;
+-    case kJNI:
++    case AccessMethod::kJNI:
+       os << "JNI";
+       break;
+-    case kLinking:
++    case AccessMethod::kLinking:
+       os << "linking";
+       break;
+   }
+   return os;
+ }
+ 
+-static constexpr bool EnumsEqual(EnforcementPolicy policy, hiddenapi::ApiList apiList) {
+-  return static_cast<int>(policy) == static_cast<int>(apiList);
+-}
+-
+-// GetMemberAction-related static_asserts.
+-static_assert(
+-    EnumsEqual(EnforcementPolicy::kDarkGreyAndBlackList, hiddenapi::ApiList::kDarkGreylist) &&
+-    EnumsEqual(EnforcementPolicy::kBlacklistOnly, hiddenapi::ApiList::kBlacklist),
+-    "Mismatch between EnforcementPolicy and ApiList enums");
+-static_assert(
+-    EnforcementPolicy::kJustWarn < EnforcementPolicy::kDarkGreyAndBlackList &&
+-    EnforcementPolicy::kDarkGreyAndBlackList < EnforcementPolicy::kBlacklistOnly,
+-    "EnforcementPolicy values ordering not correct");
+-
+ namespace detail {
+ 
++// Do not change the values of items in this enum, as they are written to the
++// event log for offline analysis. Any changes will interfere with that analysis.
++enum AccessContextFlags {
++  // Accessed member is a field if this bit is set, else a method
++  kMemberIsField = 1 << 0,
++  // Indicates if access was denied to the member, instead of just printing a warning.
++  kAccessDenied  = 1 << 1,
++};
++
++static int32_t GetSdkVersionForApiList(ApiList api_list) {
++  SdkCodes sdk = SdkCodes::kVersionNone;
++  switch (api_list) {
++    case ApiList::kWhitelist:
++    case ApiList::kLightGreylist:
++      sdk = SdkCodes::kVersionUnlimited;
++      break;
++    case ApiList::kDarkGreylist:
++      sdk = SdkCodes::kVersionP;
++      break;
++    case ApiList::kBlacklist:
++      sdk = SdkCodes::kVersionNone;
++      break;
++    case ApiList::kNoList:
++      LOG(FATAL) << "Unexpected value";
++      UNREACHABLE();
++  }
++  return static_cast<int32_t>(sdk);
++}
++
+ MemberSignature::MemberSignature(ArtField* field) {
+   class_name_ = field->GetDeclaringClass()->GetDescriptor(&tmp_);
+   member_name_ = field->GetName();
+@@ -137,6 +152,7 @@ void MemberSignature::WarnAboutAccess(AccessMethod access_method, hiddenapi::Api
+   LOG(WARNING) << "Accessing hidden " << (type_ == kField ? "field " : "method ")
+                << Dumpable<MemberSignature>(*this) << " (" << list << ", " << access_method << ")";
+ }
++
+ #ifdef ART_TARGET_ANDROID
+ // Convert an AccessMethod enum to a value for logging from the proto enum.
+ // This method may look odd (the enum values are current the same), but it
+@@ -145,13 +161,13 @@ void MemberSignature::WarnAboutAccess(AccessMethod access_method, hiddenapi::Api
+ // future.
+ inline static int32_t GetEnumValueForLog(AccessMethod access_method) {
+   switch (access_method) {
+-    case kNone:
++    case AccessMethod::kNone:
+       return android::metricslogger::ACCESS_METHOD_NONE;
+-    case kReflection:
++    case AccessMethod::kReflection:
+       return android::metricslogger::ACCESS_METHOD_REFLECTION;
+-    case kJNI:
++    case AccessMethod::kJNI:
+       return android::metricslogger::ACCESS_METHOD_JNI;
+-    case kLinking:
++    case AccessMethod::kLinking:
+       return android::metricslogger::ACCESS_METHOD_LINKING;
+     default:
+       DCHECK(false);
+@@ -159,9 +175,9 @@ inline static int32_t GetEnumValueForLog(AccessMethod access_method) {
+ }
+ #endif
+ 
+-void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action action_taken) {
++void MemberSignature::LogAccessToEventLog(AccessMethod access_method, bool access_denied) {
+ #ifdef ART_TARGET_ANDROID
+-  if (access_method == kLinking || access_method == kNone) {
++  if (access_method == AccessMethod::kLinking || access_method == AccessMethod::kNone) {
+     // Linking warnings come from static analysis/compilation of the bytecode
+     // and can contain false positives (i.e. code that is never run). We choose
+     // not to log these in the event log.
+@@ -170,7 +186,7 @@ void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action act
+   }
+   ComplexEventLogger log_maker(ACTION_HIDDEN_API_ACCESSED);
+   log_maker.AddTaggedData(FIELD_HIDDEN_API_ACCESS_METHOD, GetEnumValueForLog(access_method));
+-  if (action_taken == kDeny) {
++  if (access_denied) {
+     log_maker.AddTaggedData(FIELD_HIDDEN_API_ACCESS_DENIED, 1);
+   }
+   const std::string& package_name = Runtime::Current()->GetProcessPackageName();
+@@ -183,7 +199,7 @@ void MemberSignature::LogAccessToEventLog(AccessMethod access_method, Action act
+   log_maker.Record();
+ #else
+   UNUSED(access_method);
+-  UNUSED(action_taken);
++  UNUSED(access_denied);
+ #endif
+ }
+ 
+@@ -204,88 +220,18 @@ static ALWAYS_INLINE void MaybeWhitelistMember(Runtime* runtime, T* member)
+   }
+ }
+ 
++// Calls back into managed code to notify VMRuntime.nonSdkApiUsageConsumer that
++// |member| was accessed. This is usually called when an API is on the black,
++// dark grey or light grey lists. Given that the callback can execute arbitrary
++// code, a call to this method can result in thread suspension.
+ template<typename T>
+-Action GetMemberActionImpl(T* member,
+-                           hiddenapi::ApiList api_list,
+-                           Action action,
+-                           AccessMethod access_method) {
+-  DCHECK_NE(action, kAllow);
+-
+-  // Get the signature, we need it later.
+-  MemberSignature member_signature(member);
+-
+-  Runtime* runtime = Runtime::Current();
+-
+-  // Check for an exemption first. Exempted APIs are treated as white list.
+-  // We only do this if we're about to deny, or if the app is debuggable. This is because:
+-  // - we only print a warning for light greylist violations for debuggable apps
+-  // - for non-debuggable apps, there is no distinction between light grey & whitelisted APIs.
+-  // - we want to avoid the overhead of checking for exemptions for light greylisted APIs whenever
+-  //   possible.
+-  const bool shouldWarn = kLogAllAccesses || runtime->IsJavaDebuggable();
+-  if (shouldWarn || action == kDeny) {
+-    if (member_signature.IsExempted(runtime->GetHiddenApiExemptions())) {
+-      action = kAllow;
+-      // Avoid re-examining the exemption list next time.
+-      // Note this results in no warning for the member, which seems like what one would expect.
+-      // Exemptions effectively adds new members to the whitelist.
+-      MaybeWhitelistMember(runtime, member);
+-      return kAllow;
+-    }
+-
+-    if (access_method != kNone) {
+-      // Print a log message with information about this class member access.
+-      // We do this if we're about to block access, or the app is debuggable.
+-      member_signature.WarnAboutAccess(access_method, api_list);
+-    }
+-  }
+-
+-  if (kIsTargetBuild && !kIsTargetLinux) {
+-    uint32_t eventLogSampleRate = runtime->GetHiddenApiEventLogSampleRate();
+-    // Assert that RAND_MAX is big enough, to ensure sampling below works as expected.
+-    static_assert(RAND_MAX >= 0xffff, "RAND_MAX too small");
+-    if (eventLogSampleRate != 0 &&
+-        (static_cast<uint32_t>(std::rand()) & 0xffff) < eventLogSampleRate) {
+-      member_signature.LogAccessToEventLog(access_method, action);
+-    }
+-  }
+-
+-  if (action == kDeny) {
+-    // Block access
+-    return action;
+-  }
+-
+-  // Allow access to this member but print a warning.
+-  DCHECK(action == kAllowButWarn || action == kAllowButWarnAndToast);
+-
+-  if (access_method != kNone) {
+-    // Depending on a runtime flag, we might move the member into whitelist and
+-    // skip the warning the next time the member is accessed.
+-    MaybeWhitelistMember(runtime, member);
+-
+-    // If this action requires a UI warning, set the appropriate flag.
+-    if (shouldWarn &&
+-        (action == kAllowButWarnAndToast || runtime->ShouldAlwaysSetHiddenApiWarningFlag())) {
+-      runtime->SetPendingHiddenApiWarning(true);
+-    }
++void NotifyHiddenApiListener(T* member, AccessMethod access_method)
++    REQUIRES_SHARED(Locks::mutator_lock_) {
++  if (access_method != AccessMethod::kReflection && access_method != AccessMethod::kJNI) {
++    // We can only up-call into Java during reflection and JNI down-calls.
++    return;
+   }
+ 
+-  return action;
+-}
+-
+-// Need to instantiate this.
+-template Action GetMemberActionImpl<ArtField>(ArtField* member,
+-                                              hiddenapi::ApiList api_list,
+-                                              Action action,
+-                                              AccessMethod access_method);
+-template Action GetMemberActionImpl<ArtMethod>(ArtMethod* member,
+-                                               hiddenapi::ApiList api_list,
+-                                               Action action,
+-                                               AccessMethod access_method);
+-}  // namespace detail
+-
+-template<typename T>
+-void NotifyHiddenApiListener(T* member) {
+   Runtime* runtime = Runtime::Current();
+   if (!runtime->IsAotCompiler()) {
+     ScopedObjectAccessUnchecked soa(Thread::Current());
+@@ -297,7 +243,7 @@ void NotifyHiddenApiListener(T* member) {
+     // If the consumer is non-null, we call back to it to let it know that we
+     // have encountered an API that's in one of our lists.
+     if (consumer_object != nullptr) {
+-      detail::MemberSignature member_signature(member);
++      MemberSignature member_signature(member);
+       std::ostringstream member_signature_str;
+       member_signature.Dump(member_signature_str);
+ 
+@@ -313,8 +259,66 @@ void NotifyHiddenApiListener(T* member) {
+   }
+ }
+ 
+-template void NotifyHiddenApiListener<ArtMethod>(ArtMethod* member);
+-template void NotifyHiddenApiListener<ArtField>(ArtField* member);
++template<typename T>
++bool ShouldDenyAccessToMemberImpl(T* member,
++                                  hiddenapi::ApiList api_list,
++                                  AccessMethod access_method) {
++  Runtime* runtime = Runtime::Current();
++  EnforcementPolicy policy = runtime->GetHiddenApiEnforcementPolicy();
++
++  const bool deny_access = (policy == EnforcementPolicy::kEnabled) &&
++                           (runtime->GetTargetSdkVersion() >= GetSdkVersionForApiList(api_list));
++
++  MemberSignature member_signature(member);
++
++  // Check for an exemption first. Exempted APIs are treated as white list.
++  if (member_signature.IsExempted(runtime->GetHiddenApiExemptions())) {
++    // Avoid re-examining the exemption list next time.
++    // Note this results in no warning for the member, which seems like what one would expect.
++    // Exemptions effectively adds new members to the whitelist.
++    MaybeWhitelistMember(runtime, member);
++    return false;
++  }
++
++  if (access_method != AccessMethod::kNone) {
++    // Print a log message with information about this class member access.
++    // We do this if we're about to deny access, or the app is debuggable.
++    if (kLogAllAccesses || deny_access || runtime->IsJavaDebuggable()) {
++      member_signature.WarnAboutAccess(access_method, api_list);
++    }
++
++    // If there is a StrictMode listener, notify it about this violation.
++    NotifyHiddenApiListener(member, access_method);
++
++    // If event log sampling is enabled, report this violation.
++    if (kIsTargetBuild && !kIsTargetLinux) {
++      uint32_t eventLogSampleRate = runtime->GetHiddenApiEventLogSampleRate();
++      // Assert that RAND_MAX is big enough, to ensure sampling below works as expected.
++      static_assert(RAND_MAX >= 0xffff, "RAND_MAX too small");
++      if (eventLogSampleRate != 0 &&
++          (static_cast<uint32_t>(std::rand()) & 0xffff) < eventLogSampleRate) {
++        member_signature.LogAccessToEventLog(access_method, deny_access);
++      }
++    }
++
++    // If this access was not denied, move the member into whitelist and skip
++    // the warning the next time the member is accessed.
++    if (!deny_access) {
++      MaybeWhitelistMember(runtime, member);
++    }
++  }
++
++  return deny_access;
++}
++
++// Need to instantiate this.
++template bool ShouldDenyAccessToMemberImpl<ArtField>(ArtField* member,
++                                                     hiddenapi::ApiList api_list,
++                                                     AccessMethod access_method);
++template bool ShouldDenyAccessToMemberImpl<ArtMethod>(ArtMethod* member,
++                                                      hiddenapi::ApiList api_list,
++                                                      AccessMethod access_method);
++}  // namespace detail
+ 
+ }  // namespace hiddenapi
+ }  // namespace art
+diff --git a/runtime/hidden_api.h b/runtime/hidden_api.h
+index 57f1a599cf..1ce33c34ee 100644
+--- a/runtime/hidden_api.h
++++ b/runtime/hidden_api.h
+@@ -32,11 +32,10 @@ namespace hiddenapi {
+ // This must be kept in sync with ApplicationInfo.ApiEnforcementPolicy in
+ // frameworks/base/core/java/android/content/pm/ApplicationInfo.java
+ enum class EnforcementPolicy {
+-  kNoChecks             = 0,
++  kDisabled             = 0,
+   kJustWarn             = 1,  // keep checks enabled, but allow everything (enables logging)
+-  kDarkGreyAndBlackList = 2,  // ban dark grey & blacklist
+-  kBlacklistOnly        = 3,  // ban blacklist violations only
+-  kMax = kBlacklistOnly,
++  kEnabled              = 2,  // ban dark grey & blacklist
++  kMax = kEnabled,
+ };
+ 
+ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
+@@ -45,56 +44,13 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
+   return static_cast<EnforcementPolicy>(api_policy_int);
+ }
+ 
+-enum Action {
+-  kAllow,
+-  kAllowButWarn,
+-  kAllowButWarnAndToast,
+-  kDeny
+-};
+-
+-enum AccessMethod {
++enum class AccessMethod {
+   kNone,  // internal test that does not correspond to an actual access by app
+   kReflection,
+   kJNI,
+   kLinking,
+ };
+ 
+-// Do not change the values of items in this enum, as they are written to the
+-// event log for offline analysis. Any changes will interfere with that analysis.
+-enum AccessContextFlags {
+-  // Accessed member is a field if this bit is set, else a method
+-  kMemberIsField = 1 << 0,
+-  // Indicates if access was denied to the member, instead of just printing a warning.
+-  kAccessDenied  = 1 << 1,
+-};
+-
+-inline Action GetActionFromAccessFlags(ApiList api_list) {
+-  if (api_list == ApiList::kWhitelist) {
+-    return kAllow;
+-  }
+-
+-  EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
+-  if (policy == EnforcementPolicy::kNoChecks) {
+-    // Exit early. Nothing to enforce.
+-    return kAllow;
+-  }
+-
+-  // if policy is "just warn", always warn. We returned above for whitelist APIs.
+-  if (policy == EnforcementPolicy::kJustWarn) {
+-    return kAllowButWarn;
+-  }
+-  DCHECK(policy >= EnforcementPolicy::kDarkGreyAndBlackList);
+-  // The logic below relies on equality of values in the enums EnforcementPolicy and
+-  // ApiList, and their ordering. Assertions are in hidden_api.cc.
+-  if (static_cast<int>(policy) > static_cast<int>(api_list)) {
+-    return api_list == ApiList::kDarkGreylist
+-        ? kAllowButWarnAndToast
+-        : kAllowButWarn;
+-  } else {
+-    return kDeny;
+-  }
+-}
+-
+ class ScopedHiddenApiEnforcementPolicySetting {
+  public:
+   explicit ScopedHiddenApiEnforcementPolicySetting(EnforcementPolicy new_policy)
+@@ -114,6 +70,13 @@ class ScopedHiddenApiEnforcementPolicySetting {
+ // Implementation details. DO NOT ACCESS DIRECTLY.
+ namespace detail {
+ 
++enum class SdkCodes {
++  kVersionNone      = std::numeric_limits<int32_t>::min(),
++  kVersionUnlimited = std::numeric_limits<int32_t>::max(),
++  kVersionP         = 24,
++  kVersionO         = 26,
++};
++
+ // Class to encapsulate the signature of a member (ArtField or ArtMethod). This
+ // is used as a helper when matching prefixes, and when logging the signature.
+ class MemberSignature {
+@@ -146,39 +109,46 @@ class MemberSignature {
+ 
+   void WarnAboutAccess(AccessMethod access_method, ApiList list);
+ 
+-  void LogAccessToEventLog(AccessMethod access_method, Action action_taken);
++  void LogAccessToEventLog(AccessMethod access_method, bool access_denied);
+ };
+ 
+-template<typename T>
+-Action GetMemberActionImpl(T* member,
+-                           ApiList api_list,
+-                           Action action,
+-                           AccessMethod access_method)
+-    REQUIRES_SHARED(Locks::mutator_lock_);
+-
+-// Returns true if the caller is either loaded by the boot strap class loader or comes from
+-// a dex file located in ${ANDROID_ROOT}/framework/.
+ ALWAYS_INLINE
+-inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller,
+-                            ObjPtr<mirror::ClassLoader> caller_class_loader,
+-                            ObjPtr<mirror::DexCache> caller_dex_cache)
++inline bool IsTrustedContextImpl(ObjPtr<mirror::ClassLoader> class_loader,
++                                 ObjPtr<mirror::DexCache> dex_cache)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+-  if (caller_class_loader.IsNull()) {
++  if (class_loader.IsNull()) {
+     // Boot class loader.
+     return true;
+   }
+ 
+-  if (!caller_dex_cache.IsNull()) {
+-    const DexFile* caller_dex_file = caller_dex_cache->GetDexFile();
+-    if (caller_dex_file != nullptr && caller_dex_file->IsPlatformDexFile()) {
++  if (!dex_cache.IsNull()) {
++    const DexFile* dex_file = dex_cache->GetDexFile();
++    if (dex_file != nullptr && dex_file->IsPlatformDexFile()) {
+       // Caller is in a platform dex file.
+       return true;
+     }
+   }
+ 
+-  if (!caller.IsNull() &&
+-      caller->ShouldSkipHiddenApiChecks() &&
+-      Runtime::Current()->IsJavaDebuggable()) {
++  return false;
++}
++
++template<typename T>
++bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod access_method)
++    REQUIRES_SHARED(Locks::mutator_lock_);
++
++}  // namespace detail
++
++ALWAYS_INLINE inline bool IsTrustedContext(ObjPtr<mirror::Class> klass, bool trust_if_null)
++    REQUIRES_SHARED(Locks::mutator_lock_) {
++  if (klass.IsNull()) {
++    return trust_if_null;
++  }
++
++  if (detail::IsTrustedContextImpl(klass->GetClassLoader(), klass->GetDexCache())) {
++    return true;
++  }
++
++  if (klass->ShouldSkipHiddenApiChecks() && Runtime::Current()->IsJavaDebuggable()) {
+     // We are in debuggable mode and this caller has been marked trusted.
+     return true;
+   }
+@@ -186,19 +156,33 @@ inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller,
+   return false;
+ }
+ 
+-}  // namespace detail
++inline bool AreChecksEnforcedForCaller(std::function<bool()> fn_is_caller_exempted) {
++  EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
++  if (policy == EnforcementPolicy::kDisabled) {
++    // Exit early. Nothing to enforce.
++    return false;
++  }
++
++  // Invoke given function and find the origin of the access.
++  // This can be *very* expensive. Save it for last.
++  if (fn_is_caller_exempted()) {
++    // Caller is trusted. Exit.
++    return false;
++  }
++
++  return true;
++}
+ 
+ // Returns true if access to `member` should be denied to the caller of the
+ // reflective query. The decision is based on whether the caller is trusted or
+ // not. Because different users of this function determine this in a different
+-// way, `fn_caller_is_trusted(self)` is called and should return true if the
++// way, `fn_caller_is_trusted()` is called and should return true if the
+ // caller is allowed to access the platform.
+ // This function might print warnings into the log if the member is hidden.
+ template<typename T>
+-inline Action GetMemberAction(T* member,
+-                              Thread* self,
+-                              std::function<bool(Thread*)> fn_caller_is_trusted,
+-                              AccessMethod access_method)
++inline bool ShouldDenyAccessToMember(T* member,
++                                     std::function<bool()> fn_is_caller_exempted,
++                                     AccessMethod access_method)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+   DCHECK(member != nullptr);
+ 
+@@ -210,53 +194,38 @@ inline Action GetMemberAction(T* member,
+   // results, e.g. print whitelist warnings (b/78327881).
+   ApiList api_list = member->GetHiddenApiAccessFlags();
+ 
+-  Action action = GetActionFromAccessFlags(member->GetHiddenApiAccessFlags());
+-  if (action == kAllow) {
+-    // Nothing to do.
+-    return action;
++  // Exit early if member is on the whitelist.
++  if (api_list == ApiList::kWhitelist) {
++    return false;
+   }
+ 
+-  // Member is hidden. Invoke `fn_caller_in_platform` and find the origin of the access.
++  // Check if caller is exempted from access checks.
+   // This can be *very* expensive. Save it for last.
+-  if (fn_caller_is_trusted(self)) {
+-    // Caller is trusted. Exit.
+-    return kAllow;
++  if (!AreChecksEnforcedForCaller(fn_is_caller_exempted)) {
++    return false;
+   }
+ 
+-  // Member is hidden and caller is not in the platform.
+-  return detail::GetMemberActionImpl(member, api_list, action, access_method);
+-}
+-
+-inline bool IsCallerTrusted(ObjPtr<mirror::Class> caller) REQUIRES_SHARED(Locks::mutator_lock_) {
+-  return !caller.IsNull() &&
+-      detail::IsCallerTrusted(caller, caller->GetClassLoader(), caller->GetDexCache());
++  // Member is hidden and caller is not exempted. Enter slow path.
++  return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);
+ }
+ 
+ // Returns true if access to `member` should be denied to a caller loaded with
+ // `caller_class_loader`.
+ // This function might print warnings into the log if the member is hidden.
+ template<typename T>
+-inline Action GetMemberAction(T* member,
+-                              ObjPtr<mirror::ClassLoader> caller_class_loader,
+-                              ObjPtr<mirror::DexCache> caller_dex_cache,
+-                              AccessMethod access_method)
++inline bool ShouldDenyAccessToMember(T* member,
++                                     ObjPtr<mirror::ClassLoader> caller_class_loader,
++                                     ObjPtr<mirror::DexCache> caller_dex_cache,
++                                     AccessMethod access_method)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+-  bool is_caller_trusted =
+-      detail::IsCallerTrusted(/* caller= */ nullptr, caller_class_loader, caller_dex_cache);
+-  return GetMemberAction(member,
+-                         /* thread= */ nullptr,
+-                         [is_caller_trusted] (Thread*) { return is_caller_trusted; },
+-                         access_method);
++  return ShouldDenyAccessToMember(
++      member,
++      [&] () REQUIRES_SHARED(Locks::mutator_lock_) {
++        return detail::IsTrustedContextImpl(caller_class_loader, caller_dex_cache);
++      },
++      access_method);
+ }
+ 
+-// Calls back into managed code to notify VMRuntime.nonSdkApiUsageConsumer that
+-// |member| was accessed. This is usually called when an API is on the black,
+-// dark grey or light grey lists. Given that the callback can execute arbitrary
+-// code, a call to this method can result in thread suspension.
+-template<typename T> void NotifyHiddenApiListener(T* member)
+-    REQUIRES_SHARED(Locks::mutator_lock_);
+-
+-
+ }  // namespace hiddenapi
+ }  // namespace art
+ 
+diff --git a/runtime/hidden_api_test.cc b/runtime/hidden_api_test.cc
+index 1727af016c..b967cbef9b 100644
+--- a/runtime/hidden_api_test.cc
++++ b/runtime/hidden_api_test.cc
+@@ -23,7 +23,7 @@
+ namespace art {
+ 
+ using hiddenapi::detail::MemberSignature;
+-using hiddenapi::GetActionFromAccessFlags;
++using hiddenapi::detail::ShouldDenyAccessToMemberImpl;
+ 
+ class HiddenApiTest : public CommonRuntimeTest {
+  protected:
+@@ -87,42 +87,40 @@ class HiddenApiTest : public CommonRuntimeTest {
+   ArtMethod* class3_method1_i_;
+ };
+ 
++static bool ShouldDenyAccess(hiddenapi::ApiList list) REQUIRES_SHARED(Locks::mutator_lock_) {
++  return ShouldDenyAccessToMemberImpl(/* member= */ static_cast<ArtMethod*>(nullptr),
++                                      list,
++                                      /* access_method= */ hiddenapi::AccessMethod::kNone);
++}
++
+ TEST_F(HiddenApiTest, CheckGetActionFromRuntimeFlags) {
+-  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kNoChecks);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kWhitelist), hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kLightGreylist), hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kDarkGreylist), hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kBlacklist), hiddenapi::kAllow);
++  ScopedObjectAccess soa(self_);
++
++  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kDisabled);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kWhitelist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kLightGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kDarkGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kBlacklist), false);
+ 
+   runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kJustWarn);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kWhitelist),
+-            hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kLightGreylist),
+-            hiddenapi::kAllowButWarn);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kDarkGreylist),
+-            hiddenapi::kAllowButWarn);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kBlacklist),
+-            hiddenapi::kAllowButWarn);
+-
+-  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kDarkGreyAndBlackList);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kWhitelist),
+-            hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kLightGreylist),
+-            hiddenapi::kAllowButWarn);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kDarkGreylist),
+-            hiddenapi::kDeny);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kBlacklist),
+-            hiddenapi::kDeny);
+-
+-  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kBlacklistOnly);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kWhitelist),
+-            hiddenapi::kAllow);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kLightGreylist),
+-            hiddenapi::kAllowButWarn);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kDarkGreylist),
+-            hiddenapi::kAllowButWarnAndToast);
+-  ASSERT_EQ(GetActionFromAccessFlags(hiddenapi::ApiList::kBlacklist),
+-            hiddenapi::kDeny);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kWhitelist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kLightGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kDarkGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kBlacklist), false);
++
++  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kEnabled);
++  runtime_->SetTargetSdkVersion(static_cast<int32_t>(hiddenapi::detail::SdkCodes::kVersionO));
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kWhitelist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kLightGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kDarkGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kBlacklist), true);
++
++  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kEnabled);
++  runtime_->SetTargetSdkVersion(static_cast<int32_t>(hiddenapi::detail::SdkCodes::kVersionP));
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kWhitelist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kLightGreylist), false);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kDarkGreylist), true);
++  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::kBlacklist), true);
+ }
+ 
+ TEST_F(HiddenApiTest, CheckMembersRead) {
+diff --git a/runtime/interpreter/unstarted_runtime.cc b/runtime/interpreter/unstarted_runtime.cc
+index 9bc2179b63..8e2b605652 100644
+--- a/runtime/interpreter/unstarted_runtime.cc
++++ b/runtime/interpreter/unstarted_runtime.cc
+@@ -182,15 +182,17 @@ static mirror::String* GetClassName(Thread* self, ShadowFrame* shadow_frame, siz
+ }
+ 
+ template<typename T>
+-static ALWAYS_INLINE bool ShouldBlockAccessToMember(T* member, ShadowFrame* frame)
++static ALWAYS_INLINE bool ShouldDenyAccessToMember(T* member, ShadowFrame* frame)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+   // All uses in this file are from reflection
+-  constexpr hiddenapi::AccessMethod access_method = hiddenapi::kReflection;
+-  return hiddenapi::GetMemberAction(
++  constexpr hiddenapi::AccessMethod access_method = hiddenapi::AccessMethod::kReflection;
++  return hiddenapi::ShouldDenyAccessToMember(
+       member,
+-      frame->GetMethod()->GetDeclaringClass()->GetClassLoader(),
+-      frame->GetMethod()->GetDeclaringClass()->GetDexCache(),
+-      access_method) == hiddenapi::kDeny;
++      [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
++        return hiddenapi::IsTrustedContext(frame->GetMethod()->GetDeclaringClass(),
++                                           /* trust_if_null= */ false);
++      },
++      access_method);
+ }
+ 
+ void UnstartedRuntime::UnstartedClassForNameCommon(Thread* self,
+@@ -297,7 +299,7 @@ void UnstartedRuntime::UnstartedClassNewInstance(
+   auto* cl = Runtime::Current()->GetClassLinker();
+   if (cl->EnsureInitialized(self, h_klass, true, true)) {
+     ArtMethod* cons = h_klass->FindConstructor("()V", cl->GetImagePointerSize());
+-    if (cons != nullptr && ShouldBlockAccessToMember(cons, shadow_frame)) {
++    if (cons != nullptr && ShouldDenyAccessToMember(cons, shadow_frame)) {
+       cons = nullptr;
+     }
+     if (cons != nullptr) {
+@@ -342,7 +344,7 @@ void UnstartedRuntime::UnstartedClassGetDeclaredField(
+       }
+     }
+   }
+-  if (found != nullptr && ShouldBlockAccessToMember(found, shadow_frame)) {
++  if (found != nullptr && ShouldDenyAccessToMember(found, shadow_frame)) {
+     found = nullptr;
+   }
+   if (found == nullptr) {
+@@ -407,7 +409,7 @@ void UnstartedRuntime::UnstartedClassGetDeclaredMethod(
+           self, klass, name, args);
+     }
+   }
+-  if (method != nullptr && ShouldBlockAccessToMember(method->GetArtMethod(), shadow_frame)) {
++  if (method != nullptr && ShouldDenyAccessToMember(method->GetArtMethod(), shadow_frame)) {
+     method = nullptr;
+   }
+   result->SetL(method);
+@@ -445,7 +447,7 @@ void UnstartedRuntime::UnstartedClassGetDeclaredConstructor(
+     }
+   }
+   if (constructor != nullptr &&
+-      ShouldBlockAccessToMember(constructor->GetArtMethod(), shadow_frame)) {
++      ShouldDenyAccessToMember(constructor->GetArtMethod(), shadow_frame)) {
+     constructor = nullptr;
+   }
+   result->SetL(constructor);
+diff --git a/runtime/jni/jni_internal.cc b/runtime/jni/jni_internal.cc
+index 5e01b7941f..b0f6055626 100644
+--- a/runtime/jni/jni_internal.cc
++++ b/runtime/jni/jni_internal.cc
+@@ -84,20 +84,16 @@ namespace art {
+ // things not rendering correctly. E.g. b/16858794
+ static constexpr bool kWarnJniAbort = false;
+ 
+-static bool IsCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+-  return hiddenapi::IsCallerTrusted(GetCallingClass(self, /* num_frames= */ 1));
+-}
+-
+ template<typename T>
+-ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
++ALWAYS_INLINE static bool ShouldDenyAccessToMember(T* member, Thread* self)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+-  hiddenapi::Action action = hiddenapi::GetMemberAction(
+-      member, self, IsCallerTrusted, hiddenapi::kJNI);
+-  if (action != hiddenapi::kAllow) {
+-    hiddenapi::NotifyHiddenApiListener(member);
+-  }
+-
+-  return action == hiddenapi::kDeny;
++  return hiddenapi::ShouldDenyAccessToMember(
++      member,
++      [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
++        return hiddenapi::IsTrustedContext(GetCallingClass(self, /* num_frames */ 1),
++                                           /* trust_if_null= */ true);
++      },
++      hiddenapi::AccessMethod::kJNI);
+ }
+ 
+ // Helpers to call instrumentation functions for fields. These take jobjects so we don't need to set
+@@ -259,7 +255,7 @@ static jmethodID FindMethodID(ScopedObjectAccess& soa, jclass jni_class,
+   } else {
+     method = c->FindClassMethod(name, sig, pointer_size);
+   }
+-  if (method != nullptr && ShouldBlockAccessToMember(method, soa.Self())) {
++  if (method != nullptr && ShouldDenyAccessToMember(method, soa.Self())) {
+     method = nullptr;
+   }
+   if (method == nullptr || method->IsStatic() != is_static) {
+@@ -338,7 +334,7 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
+   } else {
+     field = c->FindInstanceField(name, field_type->GetDescriptor(&temp));
+   }
+-  if (field != nullptr && ShouldBlockAccessToMember(field, soa.Self())) {
++  if (field != nullptr && ShouldDenyAccessToMember(field, soa.Self())) {
+     field = nullptr;
+   }
+   if (field == nullptr) {
+diff --git a/runtime/native/dalvik_system_VMRuntime.cc b/runtime/native/dalvik_system_VMRuntime.cc
+index 0d7160ee9e..32b88e6fa1 100644
+--- a/runtime/native/dalvik_system_VMRuntime.cc
++++ b/runtime/native/dalvik_system_VMRuntime.cc
+@@ -76,10 +76,6 @@ static void VMRuntime_startJitCompilation(JNIEnv*, jobject) {
+ static void VMRuntime_disableJitCompilation(JNIEnv*, jobject) {
+ }
+ 
+-static jboolean VMRuntime_hasUsedHiddenApi(JNIEnv*, jobject) {
+-  return Runtime::Current()->HasPendingHiddenApiWarning() ? JNI_TRUE : JNI_FALSE;
+-}
+-
+ static void VMRuntime_setHiddenApiExemptions(JNIEnv* env,
+                                             jclass,
+                                             jobjectArray exemptions) {
+@@ -697,7 +693,6 @@ static JNINativeMethod gMethods[] = {
+   NATIVE_METHOD(VMRuntime, concurrentGC, "()V"),
+   NATIVE_METHOD(VMRuntime, disableJitCompilation, "()V"),
+   FAST_NATIVE_METHOD(VMRuntime, hasBootImageSpaces, "()Z"),  // Could be CRITICAL.
+-  NATIVE_METHOD(VMRuntime, hasUsedHiddenApi, "()Z"),
+   NATIVE_METHOD(VMRuntime, setHiddenApiExemptions, "([Ljava/lang/String;)V"),
+   NATIVE_METHOD(VMRuntime, setHiddenApiAccessLogSamplingRate, "(I)V"),
+   NATIVE_METHOD(VMRuntime, getTargetHeapUtilization, "()F"),
+diff --git a/runtime/native/dalvik_system_ZygoteHooks.cc b/runtime/native/dalvik_system_ZygoteHooks.cc
+index 4d3ad620cc..e4bc1b77a2 100644
+--- a/runtime/native/dalvik_system_ZygoteHooks.cc
++++ b/runtime/native/dalvik_system_ZygoteHooks.cc
+@@ -304,8 +304,7 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
+   // Our system thread ID, etc, has changed so reset Thread state.
+   thread->InitAfterFork();
+   runtime_flags = EnableDebugFeatures(runtime_flags);
+-  hiddenapi::EnforcementPolicy api_enforcement_policy = hiddenapi::EnforcementPolicy::kNoChecks;
+-  bool dedupe_hidden_api_warnings = true;
++  hiddenapi::EnforcementPolicy api_enforcement_policy = hiddenapi::EnforcementPolicy::kDisabled;
+ 
+   if ((runtime_flags & DISABLE_VERIFIER) != 0) {
+     Runtime::Current()->DisableVerifier();
+@@ -372,14 +371,14 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
+     }
+   }
+ 
+-  bool do_hidden_api_checks = api_enforcement_policy != hiddenapi::EnforcementPolicy::kNoChecks;
++  bool do_hidden_api_checks = api_enforcement_policy != hiddenapi::EnforcementPolicy::kDisabled;
+   DCHECK(!(is_system_server && do_hidden_api_checks))
+       << "SystemServer should be forked with EnforcementPolicy::kDisable";
+   DCHECK(!(is_zygote && do_hidden_api_checks))
+       << "Child zygote processes should be forked with EnforcementPolicy::kDisable";
+   Runtime::Current()->SetHiddenApiEnforcementPolicy(api_enforcement_policy);
+-  Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe_hidden_api_warnings);
+-  if (api_enforcement_policy != hiddenapi::EnforcementPolicy::kNoChecks &&
++  Runtime::Current()->SetDedupeHiddenApiWarnings(true);
++  if (api_enforcement_policy != hiddenapi::EnforcementPolicy::kDisabled &&
+       Runtime::Current()->GetHiddenApiEventLogSampleRate() != 0) {
+     // Hidden API checks are enabled, and we are sampling access for the event log. Initialize the
+     // random seed, to ensure the sampling is actually random. We do this post-fork, as doing it
+@@ -387,9 +386,6 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
+     std::srand(static_cast<uint32_t>(NanoTime()));
+   }
+ 
+-  // Clear the hidden API warning flag, in case it was set.
+-  Runtime::Current()->SetPendingHiddenApiWarning(false);
+-
+   if (is_zygote) {
+     // If creating a child-zygote, do not call into the runtime's post-fork logic.
+     // Doing so would spin up threads for Binder and JDWP. Instead, the Java side
+diff --git a/runtime/native/java_lang_Class.cc b/runtime/native/java_lang_Class.cc
+index c7b8ad4392..012241f6f2 100644
+--- a/runtime/native/java_lang_Class.cc
++++ b/runtime/native/java_lang_Class.cc
+@@ -56,7 +56,7 @@ namespace art {
+ 
+ // Returns true if the first caller outside of the Class class or java.lang.invoke package
+ // is in a platform DEX file.
+-static bool IsCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
++static bool IsReflectionCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+   // Walk the stack and find the first frame not from java.lang.Class and not from java.lang.invoke.
+   // This is very expensive. Save this till the last.
+   struct FirstExternalCallerVisitor : public StackVisitor {
+@@ -102,30 +102,26 @@ static bool IsCallerTrusted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
+ 
+   FirstExternalCallerVisitor visitor(self);
+   visitor.WalkStack();
+-  return visitor.caller != nullptr &&
+-         hiddenapi::IsCallerTrusted(visitor.caller->GetDeclaringClass());
++  ObjPtr<mirror::Class> caller = (visitor.caller == nullptr)
++      ? nullptr : visitor.caller->GetDeclaringClass();
++  return hiddenapi::IsTrustedContext(caller, /* trust_if_null= */ true);
+ }
+ 
+-// Returns true if the first non-ClassClass caller up the stack is not allowed to
+-// access hidden APIs. This can be *very* expensive. Never call this in a loop.
+-ALWAYS_INLINE static bool ShouldEnforceHiddenApi(Thread* self)
++ALWAYS_INLINE static bool ShouldEnforceHiddenapiChecks(Thread* self)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+-  hiddenapi::EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
+-  return policy != hiddenapi::EnforcementPolicy::kNoChecks && !IsCallerTrusted(self);
++  return hiddenapi::AreChecksEnforcedForCaller(
++      [&]() REQUIRES_SHARED(Locks::mutator_lock_) { return IsReflectionCallerTrusted(self); });
+ }
+ 
+ // Returns true if the first non-ClassClass caller up the stack should not be
+ // allowed access to `member`.
+ template<typename T>
+-ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
++ALWAYS_INLINE static bool ShouldDenyAccessToMember(T* member, Thread* self)
+     REQUIRES_SHARED(Locks::mutator_lock_) {
+-  hiddenapi::Action action = hiddenapi::GetMemberAction(
+-      member, self, IsCallerTrusted, hiddenapi::kReflection);
+-  if (action != hiddenapi::kAllow) {
+-    hiddenapi::NotifyHiddenApiListener(member);
+-  }
+-
+-  return action == hiddenapi::kDeny;
++  return hiddenapi::ShouldDenyAccessToMember(
++      member,
++      [&]() REQUIRES_SHARED(Locks::mutator_lock_) { return IsReflectionCallerTrusted(self); },
++      hiddenapi::AccessMethod::kReflection);
+ }
+ 
+ // Returns true if a class member should be discoverable with reflection given
+@@ -141,11 +137,8 @@ ALWAYS_INLINE static bool IsDiscoverable(bool public_only,
+     return false;
+   }
+ 
+-  return hiddenapi::GetMemberAction(member,
+-                                    nullptr,
+-                                    [enforce_hidden_api] (Thread*) { return !enforce_hidden_api; },
+-                                    hiddenapi::kNone)
+-      != hiddenapi::kDeny;
++  return !hiddenapi::ShouldDenyAccessToMember(
++      member, [&]() { return !enforce_hidden_api; }, hiddenapi::AccessMethod::kNone);
+ }
+ 
+ ALWAYS_INLINE static inline ObjPtr<mirror::Class> DecodeClass(
+@@ -266,7 +259,7 @@ static ObjPtr<mirror::ObjectArray<mirror::Field>> GetDeclaredFields(
+   IterationRange<StrideIterator<ArtField>> ifields = klass->GetIFields();
+   IterationRange<StrideIterator<ArtField>> sfields = klass->GetSFields();
+   size_t array_size = klass->NumInstanceFields() + klass->NumStaticFields();
+-  bool enforce_hidden_api = ShouldEnforceHiddenApi(self);
++  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(self);
+   // Lets go subtract all the non discoverable fields.
+   for (ArtField& field : ifields) {
+     if (!IsDiscoverable(public_only, enforce_hidden_api, &field)) {
+@@ -459,8 +452,7 @@ static jobject Class_getPublicFieldRecursive(JNIEnv* env, jobject javaThis, jstr
+   StackHandleScope<1> hs(soa.Self());
+   Handle<mirror::Field> field = hs.NewHandle(GetPublicFieldRecursive(
+       soa.Self(), DecodeClass(soa, javaThis), name_string));
+-  if (field.Get() == nullptr ||
+-      ShouldBlockAccessToMember(field->GetArtField(), soa.Self())) {
++  if (field.Get() == nullptr || ShouldDenyAccessToMember(field->GetArtField(), soa.Self())) {
+     return nullptr;
+   }
+   return soa.AddLocalReference<jobject>(field.Get());
+@@ -477,7 +469,7 @@ static jobject Class_getDeclaredField(JNIEnv* env, jobject javaThis, jstring nam
+   Handle<mirror::Class> h_klass = hs.NewHandle(DecodeClass(soa, javaThis));
+   Handle<mirror::Field> result =
+       hs.NewHandle(GetDeclaredField(soa.Self(), h_klass.Get(), h_string.Get()));
+-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtField(), soa.Self())) {
++  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtField(), soa.Self())) {
+     std::string name_str = h_string->ToModifiedUtf8();
+     if (name_str == "value" && h_klass->IsStringClass()) {
+       // We log the error for this specific case, as the user might just swallow the exception.
+@@ -509,7 +501,7 @@ static jobject Class_getDeclaredConstructorInternal(
+       soa.Self(),
+       DecodeClass(soa, javaThis),
+       soa.Decode<mirror::ObjectArray<mirror::Class>>(args)));
+-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtMethod(), soa.Self())) {
++  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtMethod(), soa.Self())) {
+     return nullptr;
+   }
+   return soa.AddLocalReference<jobject>(result.Get());
+@@ -529,7 +521,7 @@ static jobjectArray Class_getDeclaredConstructorsInternal(
+   ScopedFastNativeObjectAccess soa(env);
+   StackHandleScope<2> hs(soa.Self());
+   bool public_only = (publicOnly != JNI_FALSE);
+-  bool enforce_hidden_api = ShouldEnforceHiddenApi(soa.Self());
++  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(soa.Self());
+   Handle<mirror::Class> h_klass = hs.NewHandle(DecodeClass(soa, javaThis));
+   size_t constructor_count = 0;
+   // Two pass approach for speed.
+@@ -571,7 +563,7 @@ static jobject Class_getDeclaredMethodInternal(JNIEnv* env, jobject javaThis,
+           DecodeClass(soa, javaThis),
+           soa.Decode<mirror::String>(name),
+           soa.Decode<mirror::ObjectArray<mirror::Class>>(args)));
+-  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtMethod(), soa.Self())) {
++  if (result == nullptr || ShouldDenyAccessToMember(result->GetArtMethod(), soa.Self())) {
+     return nullptr;
+   }
+   return soa.AddLocalReference<jobject>(result.Get());
+@@ -582,7 +574,7 @@ static jobjectArray Class_getDeclaredMethodsUnchecked(JNIEnv* env, jobject javaT
+   ScopedFastNativeObjectAccess soa(env);
+   StackHandleScope<2> hs(soa.Self());
+ 
+-  bool enforce_hidden_api = ShouldEnforceHiddenApi(soa.Self());
++  bool enforce_hidden_api = ShouldEnforceHiddenapiChecks(soa.Self());
+   bool public_only = (publicOnly != JNI_FALSE);
+ 
+   Handle<mirror::Class> klass = hs.NewHandle(DecodeClass(soa, javaThis));
+@@ -819,7 +811,7 @@ static jobject Class_newInstance(JNIEnv* env, jobject javaThis) {
+       soa.Self(),
+       ScopedNullHandle<mirror::ObjectArray<mirror::Class>>(),
+       kRuntimePointerSize);
+-  if (UNLIKELY(constructor == nullptr) || ShouldBlockAccessToMember(constructor, soa.Self())) {
++  if (constructor != nullptr && ShouldDenyAccessToMember(constructor, soa.Self())) {
+     soa.Self()->ThrowNewExceptionF("Ljava/lang/InstantiationException;",
+                                    "%s has no zero argument constructor",
+                                    klass->PrettyClass().c_str());
+diff --git a/runtime/runtime.cc b/runtime/runtime.cc
+index 34b84f52c6..fe14781704 100644
+--- a/runtime/runtime.cc
++++ b/runtime/runtime.cc
+@@ -269,10 +269,8 @@ Runtime::Runtime()
+       oat_file_manager_(nullptr),
+       is_low_memory_mode_(false),
+       safe_mode_(false),
+-      hidden_api_policy_(hiddenapi::EnforcementPolicy::kNoChecks),
+-      pending_hidden_api_warning_(false),
++      hidden_api_policy_(hiddenapi::EnforcementPolicy::kDisabled),
+       dedupe_hidden_api_warnings_(true),
+-      always_set_hidden_api_warning_flag_(false),
+       hidden_api_access_event_log_rate_(0),
+       dump_native_stack_on_sig_quit_(true),
+       pruned_dalvik_cache_(false),
+@@ -1230,8 +1228,8 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
+   // As is, we're encoding some logic here about which specific policy to use, which would be better
+   // controlled by the framework.
+   hidden_api_policy_ = do_hidden_api_checks
+-      ? hiddenapi::EnforcementPolicy::kDarkGreyAndBlackList
+-      : hiddenapi::EnforcementPolicy::kNoChecks;
++      ? hiddenapi::EnforcementPolicy::kEnabled
++      : hiddenapi::EnforcementPolicy::kDisabled;
+ 
+   no_sig_chain_ = runtime_options.Exists(Opt::NoSigChain);
+   force_native_bridge_ = runtime_options.Exists(Opt::ForceNativeBridge);
+diff --git a/runtime/runtime.h b/runtime/runtime.h
+index 4fb0d2ede0..e705b48ea5 100644
+--- a/runtime/runtime.h
++++ b/runtime/runtime.h
+@@ -535,10 +535,6 @@ class Runtime {
+     return hidden_api_policy_;
+   }
+ 
+-  void SetPendingHiddenApiWarning(bool value) {
+-    pending_hidden_api_warning_ = value;
+-  }
+-
+   void SetHiddenApiExemptions(const std::vector<std::string>& exemptions) {
+     hidden_api_exemptions_ = exemptions;
+   }
+@@ -547,10 +543,6 @@ class Runtime {
+     return hidden_api_exemptions_;
+   }
+ 
+-  bool HasPendingHiddenApiWarning() const {
+-    return pending_hidden_api_warning_;
+-  }
+-
+   void SetDedupeHiddenApiWarnings(bool value) {
+     dedupe_hidden_api_warnings_ = value;
+   }
+@@ -559,14 +551,6 @@ class Runtime {
+     return dedupe_hidden_api_warnings_;
+   }
+ 
+-  void AlwaysSetHiddenApiWarningFlag() {
+-    always_set_hidden_api_warning_flag_ = true;
+-  }
+-
+-  bool ShouldAlwaysSetHiddenApiWarningFlag() const {
+-    return always_set_hidden_api_warning_flag_;
+-  }
+-
+   void SetHiddenApiEventLogSampleRate(uint32_t rate) {
+     hidden_api_access_event_log_rate_ = rate;
+   }
+diff --git a/runtime/well_known_classes.cc b/runtime/well_known_classes.cc
+index 94faa626f6..a18d2ea33a 100644
+--- a/runtime/well_known_classes.cc
++++ b/runtime/well_known_classes.cc
+@@ -292,7 +292,7 @@ uint32_t WellKnownClasses::StringInitToEntryPoint(ArtMethod* string_init) {
+ 
+ void WellKnownClasses::Init(JNIEnv* env) {
+   hiddenapi::ScopedHiddenApiEnforcementPolicySetting hiddenapi_exemption(
+-      hiddenapi::EnforcementPolicy::kNoChecks);
++      hiddenapi::EnforcementPolicy::kDisabled);
+ 
+   dalvik_annotation_optimization_CriticalNative =
+       CacheClass(env, "dalvik/annotation/optimization/CriticalNative");
+diff --git a/test/674-hiddenapi/hiddenapi.cc b/test/674-hiddenapi/hiddenapi.cc
+index 96754c3076..acc40c210d 100644
+--- a/test/674-hiddenapi/hiddenapi.cc
++++ b/test/674-hiddenapi/hiddenapi.cc
+@@ -28,9 +28,9 @@ namespace Test674HiddenApi {
+ 
+ extern "C" JNIEXPORT void JNICALL Java_Main_init(JNIEnv*, jclass) {
+   Runtime* runtime = Runtime::Current();
+-  runtime->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kBlacklistOnly);
++  runtime->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kEnabled);
++  runtime->SetTargetSdkVersion(static_cast<int32_t>(hiddenapi::detail::SdkCodes::kSdkVersionO));
+   runtime->SetDedupeHiddenApiWarnings(false);
+-  runtime->AlwaysSetHiddenApiWarningFlag();
+ }
+ 
+ extern "C" JNIEXPORT void JNICALL Java_Main_appendToBootClassLoader(
+@@ -287,13 +287,5 @@ extern "C" JNIEXPORT jint JNICALL Java_Reflection_getHiddenApiAccessFlags(JNIEnv
+   return static_cast<jint>(kAccHiddenApiBits);
+ }
+ 
+-extern "C" JNIEXPORT jboolean JNICALL Java_ChildClass_hasPendingWarning(JNIEnv*, jclass) {
+-  return Runtime::Current()->HasPendingHiddenApiWarning();
+-}
+-
+-extern "C" JNIEXPORT void JNICALL Java_ChildClass_clearWarning(JNIEnv*, jclass) {
+-  Runtime::Current()->SetPendingHiddenApiWarning(false);
+-}
+-
+ }  // namespace Test674HiddenApi
+ }  // namespace art
+diff --git a/test/674-hiddenapi/src-ex/ChildClass.java b/test/674-hiddenapi/src-ex/ChildClass.java
+index db3ba6d8bf..3427b8eba6 100644
+--- a/test/674-hiddenapi/src-ex/ChildClass.java
++++ b/test/674-hiddenapi/src-ex/ChildClass.java
+@@ -98,10 +98,8 @@ public class ChildClass {
+         expected = Behaviour.Granted;
+       } else if (hiddenness == Hiddenness.Blacklist) {
+         expected = Behaviour.Denied;
+-      } else if (isDebuggable) {
+-        expected = Behaviour.Warning;
+       } else {
+-        expected = Behaviour.Granted;
++        expected = Behaviour.Warning;
+       }
+ 
+       for (boolean isStatic : booleanValues) {
+@@ -145,7 +143,7 @@ public class ChildClass {
+   }
+ 
+   private static void checkMemberCallback(Class<?> klass, String name,
+-          boolean isPublic, boolean isField) {
++          boolean isPublic, boolean isField, boolean expectedCallback) {
+       try {
+           RecordingConsumer consumer = new RecordingConsumer();
+           VMRuntime.setNonSdkApiUsageConsumer(consumer);
+@@ -168,8 +166,14 @@ public class ChildClass {
+               // only interested in whether the callback is invoked.
+           }
+ 
+-          if (consumer.recordedValue == null || !consumer.recordedValue.contains(name)) {
+-              throw new RuntimeException("No callback for member: " + name);
++          boolean actualCallback = consumer.recordedValue != null &&
++                          consumer.recordedValue.contains(name);
++          if (expectedCallback != actualCallback) {
++              if (expectedCallback) {
++                throw new RuntimeException("Expected callback for member: " + name);
++              } else {
++                throw new RuntimeException("Did not expect callback for member: " + name);
++              }
+           }
+       } finally {
+           VMRuntime.setNonSdkApiUsageConsumer(null);
+@@ -181,7 +185,7 @@ public class ChildClass {
+ 
+     boolean isPublic = (visibility == Visibility.Public);
+     boolean canDiscover = (behaviour != Behaviour.Denied);
+-    boolean setsWarning = (behaviour == Behaviour.Warning);
++    boolean invokesMemberCallback = (behaviour != Behaviour.Granted);
+ 
+     if (klass.isInterface() && (!isStatic || !isPublic)) {
+       // Interfaces only have public static fields.
+@@ -243,8 +247,6 @@ public class ChildClass {
+                               canDiscover);
+     }
+ 
+-    // Finish here if we could not discover the field.
+-
+     if (canDiscover) {
+       // Test that modifiers are unaffected.
+ 
+@@ -254,44 +256,22 @@ public class ChildClass {
+ 
+       // Test getters and setters when meaningful.
+ 
+-      clearWarning();
+       if (!Reflection.canGetField(klass, name)) {
+         throwAccessException(klass, name, true, "Field.getInt()");
+       }
+-      if (hasPendingWarning() != setsWarning) {
+-        throwWarningException(klass, name, true, "Field.getInt()", setsWarning);
+-      }
+-
+-      clearWarning();
+       if (!Reflection.canSetField(klass, name)) {
+         throwAccessException(klass, name, true, "Field.setInt()");
+       }
+-      if (hasPendingWarning() != setsWarning) {
+-        throwWarningException(klass, name, true, "Field.setInt()", setsWarning);
+-      }
+-
+-      clearWarning();
+       if (!JNI.canGetField(klass, name, isStatic)) {
+         throwAccessException(klass, name, true, "getIntField");
+       }
+-      if (hasPendingWarning() != setsWarning) {
+-        throwWarningException(klass, name, true, "getIntField", setsWarning);
+-      }
+-
+-      clearWarning();
+       if (!JNI.canSetField(klass, name, isStatic)) {
+         throwAccessException(klass, name, true, "setIntField");
+       }
+-      if (hasPendingWarning() != setsWarning) {
+-        throwWarningException(klass, name, true, "setIntField", setsWarning);
+-      }
+     }
+ 
+     // Test that callbacks are invoked correctly.
+-    clearWarning();
+-    if (setsWarning || !canDiscover) {
+-      checkMemberCallback(klass, name, isPublic, true /* isField */);
+-    }
++    checkMemberCallback(klass, name, isPublic, true /* isField */, invokesMemberCallback);
+   }
+ 
+   private static void checkMethod(Class<?> klass, String name, boolean isStatic,
+@@ -304,7 +284,7 @@ public class ChildClass {
+     }
+ 
+     boolean canDiscover = (behaviour != Behaviour.Denied);
+-    boolean setsWarning = (behaviour == Behaviour.Warning);
++    boolean invokesMemberCallback = (behaviour != Behaviour.Granted);
+ 
+     // Test discovery with reflection.
+ 
+@@ -354,39 +334,21 @@ public class ChildClass {
+       }
+ 
+       // Test whether we can invoke the method. This skips non-static interface methods.
+-
+       if (!klass.isInterface() || isStatic) {
+-        clearWarning();
+         if (!Reflection.canInvokeMethod(klass, name)) {
+           throwAccessException(klass, name, false, "invoke()");
+         }
+-        if (hasPendingWarning() != setsWarning) {
+-          throwWarningException(klass, name, false, "invoke()", setsWarning);
+-        }
+-
+-        clearWarning();
+         if (!JNI.canInvokeMethodA(klass, name, isStatic)) {
+           throwAccessException(klass, name, false, "CallMethodA");
+         }
+-        if (hasPendingWarning() != setsWarning) {
+-          throwWarningException(klass, name, false, "CallMethodA()", setsWarning);
+-        }
+-
+-        clearWarning();
+         if (!JNI.canInvokeMethodV(klass, name, isStatic)) {
+           throwAccessException(klass, name, false, "CallMethodV");
+         }
+-        if (hasPendingWarning() != setsWarning) {
+-          throwWarningException(klass, name, false, "CallMethodV()", setsWarning);
+-        }
+       }
+     }
+ 
+     // Test that callbacks are invoked correctly.
+-    clearWarning();
+-    if (setsWarning || !canDiscover) {
+-        checkMemberCallback(klass, name, isPublic, false /* isField */);
+-    }
++    checkMemberCallback(klass, name, isPublic, false /* isField */, invokesMemberCallback);
+   }
+ 
+   private static void checkConstructor(Class<?> klass, Visibility visibility, Hiddenness hiddenness,
+@@ -403,7 +365,6 @@ public class ChildClass {
+     MethodType methodType = MethodType.methodType(void.class, args);
+ 
+     boolean canDiscover = (behaviour != Behaviour.Denied);
+-    boolean setsWarning = (behaviour == Behaviour.Warning);
+ 
+     // Test discovery with reflection.
+ 
+@@ -446,70 +407,41 @@ public class ChildClass {
+                               canDiscover);
+     }
+ 
+-    // Finish here if we could not discover the constructor.
+-
+-    if (!canDiscover) {
+-      return;
+-    }
+-
+-    // Test whether we can invoke the constructor.
+-
+-    clearWarning();
+-    if (!Reflection.canInvokeConstructor(klass, args, initargs)) {
+-      throwAccessException(klass, fullName, false, "invoke()");
+-    }
+-    if (hasPendingWarning() != setsWarning) {
+-      throwWarningException(klass, fullName, false, "invoke()", setsWarning);
+-    }
+-
+-    clearWarning();
+-    if (!JNI.canInvokeConstructorA(klass, signature)) {
+-      throwAccessException(klass, fullName, false, "NewObjectA");
+-    }
+-    if (hasPendingWarning() != setsWarning) {
+-      throwWarningException(klass, fullName, false, "NewObjectA", setsWarning);
+-    }
++    if (canDiscover) {
++      // Test whether we can invoke the constructor.
+ 
+-    clearWarning();
+-    if (!JNI.canInvokeConstructorV(klass, signature)) {
+-      throwAccessException(klass, fullName, false, "NewObjectV");
+-    }
+-    if (hasPendingWarning() != setsWarning) {
+-      throwWarningException(klass, fullName, false, "NewObjectV", setsWarning);
++      if (!Reflection.canInvokeConstructor(klass, args, initargs)) {
++        throwAccessException(klass, fullName, false, "invoke()");
++      }
++      if (!JNI.canInvokeConstructorA(klass, signature)) {
++        throwAccessException(klass, fullName, false, "NewObjectA");
++      }
++      if (!JNI.canInvokeConstructorV(klass, signature)) {
++        throwAccessException(klass, fullName, false, "NewObjectV");
++      }
+     }
+   }
+ 
+   private static void checkNullaryConstructor(Class<?> klass, Behaviour behaviour)
+       throws Exception {
+     boolean canAccess = (behaviour != Behaviour.Denied);
+-    boolean setsWarning = (behaviour == Behaviour.Warning);
+ 
+-    clearWarning();
+     if (Reflection.canUseNewInstance(klass) != canAccess) {
+       throw new RuntimeException("Expected to " + (canAccess ? "" : "not ") +
+           "be able to construct " + klass.getName() + ". " +
+           "isParentInBoot = " + isParentInBoot + ", " + "isChildInBoot = " + isChildInBoot);
+     }
+-    if (canAccess && hasPendingWarning() != setsWarning) {
+-      throwWarningException(klass, "nullary constructor", false, "newInstance", setsWarning);
+-    }
+   }
+ 
+   private static void checkLinking(String className, boolean takesParameter, Behaviour behaviour)
+       throws Exception {
+     boolean canAccess = (behaviour != Behaviour.Denied);
+-    boolean setsWarning = (behaviour == Behaviour.Warning);
+ 
+-    clearWarning();
+     if (Linking.canAccess(className, takesParameter) != canAccess) {
+       throw new RuntimeException("Expected to " + (canAccess ? "" : "not ") +
+           "be able to verify " + className + "." +
+           "isParentInBoot = " + isParentInBoot + ", " + "isChildInBoot = " + isChildInBoot);
+     }
+-    if (canAccess && hasPendingWarning() != setsWarning) {
+-      throwWarningException(
+-          Class.forName(className), "access", false, "static linking", setsWarning);
+-    }
+   }
+ 
+   private static void throwDiscoveryException(Class<?> klass, String name, boolean isField,
+@@ -528,15 +460,6 @@ public class ChildClass {
+         "everythingWhitelisted = " + everythingWhitelisted);
+   }
+ 
+-  private static void throwWarningException(Class<?> klass, String name, boolean isField,
+-      String fn, boolean setsWarning) {
+-    throw new RuntimeException("Expected access to " + (isField ? "field " : "method ") +
+-        klass.getName() + "." + name + " using " + fn + " to " + (setsWarning ? "" : "not ") +
+-        "set the warning flag. " +
+-        "isParentInBoot = " + isParentInBoot + ", " + "isChildInBoot = " + isChildInBoot + ", " +
+-        "everythingWhitelisted = " + everythingWhitelisted);
+-  }
+-
+   private static void throwModifiersException(Class<?> klass, String name, boolean isField) {
+     throw new RuntimeException("Expected " + (isField ? "field " : "method ") + klass.getName() +
+         "." + name + " to not expose hidden modifiers");
+@@ -545,7 +468,4 @@ public class ChildClass {
+   private static boolean isParentInBoot;
+   private static boolean isChildInBoot;
+   private static boolean everythingWhitelisted;
+-
+-  private static native boolean hasPendingWarning();
+-  private static native void clearWarning();
+ }
+-- 
+2.19.1.568.g152ad8e336-goog
+
