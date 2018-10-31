@@ -29,10 +29,13 @@ public class CovariantReturnTypeHandler implements AnnotationHandler {
 
     private final GreylistConsumer mConsumer;
     private final Set<String> mPublicApis;
+    private final String mFlag;
 
-    public CovariantReturnTypeHandler(GreylistConsumer consumer, Set<String> publicApis) {
+    public CovariantReturnTypeHandler(GreylistConsumer consumer, Set<String> publicApis,
+            String flag) {
         mConsumer = consumer;
         mPublicApis = publicApis;
+        mFlag = flag;
     }
 
     @Override
@@ -74,7 +77,7 @@ public class CovariantReturnTypeHandler implements AnnotationHandler {
                     signature, SHORT_NAME);
             return;
         }
-        mConsumer.whitelistEntry(signature);
+        mConsumer.entryWithHiddenapiFlags(signature, new String[] { mFlag });
     }
 
     private String findReturnType(AnnotationEntry a) {
