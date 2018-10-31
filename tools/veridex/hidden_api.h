@@ -33,28 +33,11 @@ class DexFile;
  */
 class HiddenApi {
  public:
-  HiddenApi(const char* whitelist,
-            const char* blacklist,
-            const char* dark_greylist,
-            const char* light_greylist) {
-    FillList(light_greylist, light_greylist_);
-    FillList(dark_greylist, dark_greylist_);
-    FillList(blacklist, blacklist_);
-    FillList(whitelist, whitelist_);
-  }
+  HiddenApi(const char* flags_file, bool sdk_uses_only);
 
   hiddenapi::ApiList GetApiList(const std::string& name) const {
-    if (IsInList(name, blacklist_)) {
-      return hiddenapi::ApiList::kBlacklist;
-    } else if (IsInList(name, dark_greylist_)) {
-      return hiddenapi::ApiList::kDarkGreylist;
-    } else if (IsInList(name, light_greylist_)) {
-      return hiddenapi::ApiList::kLightGreylist;
-    } else if (IsInList(name, whitelist_)) {
-      return hiddenapi::ApiList::kWhitelist;
-    } else {
-      return hiddenapi::ApiList::kNoList;
-    }
+    auto it = api_list_.find(name);
+    return (it == api_list_.end()) ? hiddenapi::ApiList::kNoList : it.second;
   }
 
   bool IsInAnyList(const std::string& name) const {
@@ -76,23 +59,14 @@ class HiddenApi {
   }
 
  private:
-  static bool IsInList(const std::string& name, const std::set<std::string>& list) {
-    return list.find(name) != list.end();
-  }
-
-  static void FillList(const char* filename, std::set<std::string>& entries);
-
-  std::set<std::string> whitelist_;
-  std::set<std::string> blacklist_;
-  std::set<std::string> light_greylist_;
-  std::set<std::string> dark_greylist_;
+  std::map<std::string, hiddenapi::ApiList> api_list_;
 };
 
 struct HiddenApiStats {
   uint32_t count = 0;
   uint32_t reflection_count = 0;
   uint32_t linking_count = 0;
-  uint32_t api_counts[5] = { 0, 0, 0, 0, 0 };
+  uint32_t api_counts[hiddenapi::kApiListCount] = { 0, 0, 0, 0 };
 };
 
 }  // namespace art
