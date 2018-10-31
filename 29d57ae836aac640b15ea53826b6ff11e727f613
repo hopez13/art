@@ -16,6 +16,24 @@
       "revId": "29d57ae836aac640b15ea53826b6ff11e727f613",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d858d1a_4e52cc40",
+        "filename": "runtime/runtime_android.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-10-31T14:20:34Z",
+      "side": 1,
+      "message": "Removed in later factoring. Still present in frameworks/base change here with bug to clean up.",
+      "parentUuid": "22a0c8ec_1904df85",
+      "revId": "29d57ae836aac640b15ea53826b6ff11e727f613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
