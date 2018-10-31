@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "6bda6e6d_59611420",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2018-10-31T13:11:26Z",
+      "side": 1,
+      "message": "Looks like the Mac build broke because in the case without ART_USE_FUTEXES, the method parameters are unused, and that breaks compilation (I\u0027m guessing that that\u0027s an unfortunate combination of \"warn about unused method parameters\" and \"all warnings are errors\"). Therefore the build cop is reverting this CL topic.\n\nIf I see it right, then neither of the broken targets (sdk_mac and sdk_gphone_x86-sdk_addon_mac) *should* need ART, so the fact that ART code is even being compiled there seems surprising.\n\nI don\u0027t have an informed opinion on how best to address this.",
+      "parentUuid": "66e1ea36_c7acf600",
+      "revId": "8c860a542edbfe9bb4676dda301f14cecaaaae46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c2268d6_00de88d8",
         "filename": "runtime/thread.h",
         "patchSetId": 1
