@@ -11,6 +11,7 @@ import org.apache.bcel.classfile.FieldOrMethod;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.classfile.SimpleElementValue;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -36,7 +37,7 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
     private final Status mStatus;
     private final Predicate<GreylistMember> mGreylistFilter;
     private final GreylistConsumer mGreylistConsumer;
-    private final Predicate<Integer> mValidMaxTargetSdkValues;
+    private final Map<Integer, String> mSdkVersionToFlagMap;
 
     /**
      * Represents a member of a class file (a field or method).
@@ -73,10 +74,10 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
             Status status,
             GreylistConsumer greylistConsumer,
             Set<String> publicApis,
-            Predicate<Integer> validMaxTargetSdkValues) {
+            Map<Integer, String> sdkVersionToFlagMap) {
         this(status, greylistConsumer,
                 member -> !(member.bridge && publicApis.contains(member.signature)),
-                validMaxTargetSdkValues);
+                sdkVersionToFlagMap);
     }
 
     @VisibleForTesting
@@ -84,11 +85,11 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
             Status status,
             GreylistConsumer greylistConsumer,
             Predicate<GreylistMember> greylistFilter,
-            Predicate<Integer> validMaxTargetSdkValues) {
+            Map<Integer, String> sdkVersionToFlagMap) {
         mStatus = status;
         mGreylistConsumer = greylistConsumer;
         mGreylistFilter = greylistFilter;
-        mValidMaxTargetSdkValues = validMaxTargetSdkValues;
+        mSdkVersionToFlagMap = sdkVersionToFlagMap;
     }
 
     @Override
@@ -101,6 +102,7 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
         }
         String signature = context.getMemberDescriptor();
         Integer maxTargetSdk = null;
+        boolean hasInvalidMaxTargetSdk = false;
         Map<String, String> allValues = new HashMap<String, String>();
         for (ElementValuePair property : annotation.getElementValuePairs()) {
             switch (property.getNameString()) {
@@ -108,13 +110,19 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
                     verifyExpectedSignature(context, property, signature, bridge);
                     break;
                 case MAX_TARGET_SDK:
-                    maxTargetSdk = verifyAndGetMaxTargetSdk(context, property);
+                    maxTargetSdk = getMaxTargetSdk(context, property);
+                    hasInvalidMaxTargetSdk |= (maxTargetSdk == null);
                     break;
             }
             allValues.put(property.getNameString(), property.getValue().stringifyValue());
         }
-        if (mGreylistFilter.test(new GreylistMember(signature, bridge, maxTargetSdk))) {
-            mGreylistConsumer.greylistEntry(signature, maxTargetSdk, allValues);
+        if (!hasInvalidMaxTargetSdk) {
+          verifyMaxTargetSdkAnnotation(context, maxTargetSdk);
+          if (mGreylistFilter.test(new GreylistMember(signature, bridge, maxTargetSdk))) {
+              mGreylistConsumer.entryWithHiddenapiFlags(
+                      signature, new String[] { mSdkVersionToFlagMap.get(maxTargetSdk) });
+              mGreylistConsumer.entryWithAnnotationProperties(signature, allValues);
+          }
         }
     }
 
@@ -129,21 +137,21 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
         }
     }
 
-    private Integer verifyAndGetMaxTargetSdk(AnnotationContext context, ElementValuePair property) {
+    private Integer getMaxTargetSdk(AnnotationContext context, ElementValuePair property) {
         if (property.getValue().getElementValueType() != ElementValue.PRIMITIVE_INT) {
             context.reportError("Expected property %s to be of type int; got %d",
                     property.getNameString(), property.getValue().getElementValueType());
             return null;
         }
-        int value = ((SimpleElementValue) property.getValue()).getValueInt();
-        if (!mValidMaxTargetSdkValues.test(value)) {
-            context.reportError("Invalid value for %s: got %d, expected one of [%s]",
-                    property.getNameString(),
-                    value,
-                    mValidMaxTargetSdkValues);
-            return null;
-        }
-        return value;
+        return ((SimpleElementValue) property.getValue()).getValueInt();
     }
 
+    private void verifyMaxTargetSdkAnnotation(AnnotationContext context, Integer value) {
+        if (!mSdkVersionToFlagMap.containsKey(value)) {
+            context.reportError("Invalid value for %s: got %d, expected one of [%s]",
+                    MAX_TARGET_SDK,
+                    value,
+                    mSdkVersionToFlagMap.keySet());
+        }
+    }
 }
