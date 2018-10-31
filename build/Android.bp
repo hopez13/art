@@ -162,6 +162,9 @@ art_global_defaults {
                 "-mpopcnt",
             ],
         },
+        linux_bionic: {
+            enabled: true,
+        },
     },
 
     codegen: {
