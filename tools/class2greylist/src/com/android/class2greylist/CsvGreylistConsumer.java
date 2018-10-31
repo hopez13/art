@@ -6,26 +6,20 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.Map;
 
-public class CsvGreylistConsumer implements GreylistConsumer {
+public class CsvGreylistConsumer extends GreylistConsumer {
 
-    private final Status mStatus;
     private final CsvWriter mCsvWriter;
 
     public CsvGreylistConsumer(Status status, String csvMetadataFile) throws FileNotFoundException {
-        mStatus = status;
         mCsvWriter = new CsvWriter(
                 new PrintStream(new FileOutputStream(new File(csvMetadataFile))));
     }
 
     @Override
-    public void greylistEntry(String signature, Integer maxTargetSdk,
+    public void entryWithAnnotationProperties(String signature,
             Map<String, String> annotationProperties) {
         annotationProperties.put("signature", signature);
         mCsvWriter.addRow(annotationProperties);
-    }
-
-    @Override
-    public void whitelistEntry(String signature) {
     }
 
     @Override
