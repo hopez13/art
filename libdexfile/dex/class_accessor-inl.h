@@ -22,6 +22,7 @@
 #include "base/leb128.h"
 #include "class_iterator.h"
 #include "code_item_accessors-inl.h"
+#include "dex/hiddenapi_flags.h"
 
 namespace art {
 
