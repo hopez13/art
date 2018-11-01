@@ -351,6 +351,30 @@
       "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06803cb4_09304a54",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-11-01T03:00:18Z",
+      "side": 1,
+      "message": "A large amount of surgery to make in order to understand yet-another-build-type. I suspect this will get somewhat simpler if we can stop doing host builds in Make, but we\u0027ve still got a decent number.",
+      "parentUuid": "45b7f0ab_97419f2f",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "0da3f5a5d720836f7b8d5ad2bbb55dfd75048e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
