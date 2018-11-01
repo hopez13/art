@@ -102,12 +102,14 @@ TEST_F(HiddenApiTest, CheckGetActionFromRuntimeFlags) {
   runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kDisabled);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Whitelist()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Greylist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxP()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxO()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Blacklist()), false);
 
   runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kJustWarn);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Whitelist()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Greylist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxP()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxO()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Blacklist()), false);
 
@@ -115,6 +117,7 @@ TEST_F(HiddenApiTest, CheckGetActionFromRuntimeFlags) {
   runtime_->SetTargetSdkVersion(hiddenapi::ApiList::BlacklistMaxO().GetMaxAllowedSdkVersion());
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Whitelist()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Greylist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxP()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxO()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Blacklist()), true);
 
@@ -122,6 +125,15 @@ TEST_F(HiddenApiTest, CheckGetActionFromRuntimeFlags) {
   runtime_->SetTargetSdkVersion(hiddenapi::ApiList::BlacklistMaxO().GetMaxAllowedSdkVersion() + 1);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Whitelist()), false);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Greylist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxP()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxO()), true);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Blacklist()), true);
+
+  runtime_->SetHiddenApiEnforcementPolicy(hiddenapi::EnforcementPolicy::kEnabled);
+  runtime_->SetTargetSdkVersion(hiddenapi::ApiList::BlacklistMaxP().GetMaxAllowedSdkVersion() + 1);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Whitelist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Greylist()), false);
+  ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxP()), true);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::BlacklistMaxO()), true);
   ASSERT_EQ(ShouldDenyAccess(hiddenapi::ApiList::Blacklist()), true);
 }
