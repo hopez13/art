@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7759319_3162061f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-01T18:10:12Z",
+      "side": 1,
+      "message": "maybe some VLOGs will help future debugging.",
+      "range": {
+        "startLine": 2465,
+        "startChar": 21,
+        "endLine": 2465,
+        "endChar": 74
+      },
+      "revId": "80a560c91a0c46215f4d554a58528fc24b00fc09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2974ef47_cf54faec",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-01T18:10:12Z",
+      "side": 1,
+      "message": "document what type of class loaders are supported. Similar to FindClassInBaseDexClassLoader.",
+      "range": {
+        "startLine": 878,
+        "startChar": 7,
+        "endLine": 878,
+        "endChar": 33
+      },
+      "revId": "80a560c91a0c46215f4d554a58528fc24b00fc09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1267210_8d92054f",
+        "filename": "test/688-shared-library/src-art/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-01T18:10:12Z",
+      "side": 1,
+      "message": "It will help for readability if for each of these tests you document\n- what classes are in what shared libraries,\n- the class loader context you are creating.",
+      "range": {
+        "startLine": 49,
+        "startChar": 23,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "80a560c91a0c46215f4d554a58528fc24b00fc09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e694c3_27a57405",
+        "filename": "test/688-shared-library/src-art/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-01T18:10:12Z",
+      "side": 1,
+      "message": "empty spaces. Here, and in a couple of other places in this file.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "80a560c91a0c46215f4d554a58528fc24b00fc09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
