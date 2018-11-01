@@ -7,6 +7,7 @@ public abstract class GreylistConsumer {
     public static final String FLAG_GREYLIST = "greylist";
     public static final String FLAG_BLACKLIST = "blacklist";
     public static final String FLAG_BLACKLIST_MAX_O = "blacklist-max-o";
+    public static final String FLAG_BLACKLIST_MAX_P = "blacklist-max-p";
 
     /**
      * Handle a new greylist entry.
