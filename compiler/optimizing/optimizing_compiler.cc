@@ -1056,6 +1056,15 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
     std::unique_ptr<CodeGenerator> codegen;
     bool compiled_intrinsic = false;
     {
+      ScopedObjectAccess soa(Thread::Current());
+      ArtMethod* method =
+          runtime->GetClassLinker()->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
+              method_idx, dex_cache, jclass_loader, /* referrer */ nullptr, invoke_type);
+      DCHECK_EQ(method == nullptr, soa.Self()->IsExceptionPending());
+      soa.Self()->ClearException();  // Suppress exception if any.
+      VariableSizedHandleScope handles(soa.Self());
+      Handle<mirror::Class> compiling_class =
+          handles.NewHandle(method != nullptr ? method->GetDeclaringClass() : nullptr);
       DexCompilationUnit dex_compilation_unit(
           jclass_loader,
           runtime->GetClassLinker(),
@@ -1065,11 +1074,8 @@ CompiledMethod* OptimizingCompiler::Compile(const DexFile::CodeItem* code_item,
           method_idx,
           access_flags,
           /* verified_method */ nullptr,  // Not needed by the Optimizing compiler.
-          dex_cache);
-      ScopedObjectAccess soa(Thread::Current());
-      ArtMethod* method = compiler_driver->ResolveMethod(
-            soa, dex_cache, jclass_loader, &dex_compilation_unit, method_idx, invoke_type);
-      VariableSizedHandleScope handles(soa.Self());
+          dex_cache,
+          compiling_class);
       // Go to native so that we don't block GC during compilation.
       ScopedThreadSuspension sts(soa.Self(), kNative);
       if (method != nullptr && UNLIKELY(method->IsIntrinsic())) {
@@ -1173,7 +1179,9 @@ CompiledMethod* OptimizingCompiler::JniCompile(uint32_t access_flags,
     ArtMethod* method = runtime->GetClassLinker()->LookupResolvedMethod(
         method_idx, dex_cache.Get(), /* class_loader */ nullptr);
     if (method != nullptr && UNLIKELY(method->IsIntrinsic())) {
+      VariableSizedHandleScope handles(soa.Self());
       ScopedNullHandle<mirror::ClassLoader> class_loader;  // null means boot class path loader.
+      Handle<mirror::Class> compiling_class = handles.NewHandle(method->GetDeclaringClass());
       DexCompilationUnit dex_compilation_unit(
           class_loader,
           runtime->GetClassLinker(),
@@ -1183,9 +1191,9 @@ CompiledMethod* OptimizingCompiler::JniCompile(uint32_t access_flags,
           method_idx,
           access_flags,
           /* verified_method */ nullptr,
-          dex_cache);
+          dex_cache,
+          compiling_class);
       CodeVectorAllocator code_allocator(&allocator);
-      VariableSizedHandleScope handles(soa.Self());
       // Go to native so that we don't block GC during compilation.
       ScopedThreadSuspension sts(soa.Self(), kNative);
       std::unique_ptr<CodeGenerator> codegen(
@@ -1349,6 +1357,7 @@ bool OptimizingCompiler::JitCompile(Thread* self,
 
   std::unique_ptr<CodeGenerator> codegen;
   {
+    Handle<mirror::Class> compiling_class = handles.NewHandle(method->GetDeclaringClass());
     DexCompilationUnit dex_compilation_unit(
         class_loader,
         runtime->GetClassLinker(),
@@ -1358,7 +1367,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
         method_idx,
         access_flags,
         /* verified_method */ nullptr,
-        dex_cache);
+        dex_cache,
+        compiling_class);
 
     // Go to native so that we don't block GC during compilation.
     ScopedThreadSuspension sts(self, kNative);
