@@ -31,6 +31,7 @@
 #include "dex/invoke_type.h"
 #include "dex/primitive.h"
 #include "gc_root-inl.h"
+#include "hidden_api.h"
 #include "intrinsics_enum.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
@@ -367,95 +368,6 @@ inline bool ArtMethod::HasSingleImplementation() {
   return (GetAccessFlags() & kAccSingleImplementation) != 0;
 }
 
-inline uint32_t ArtMethod::GetHiddenapiFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (UNLIKELY(IsIntrinsic())) {
-    switch (static_cast<Intrinsics>(GetIntrinsic())) {
-      case Intrinsics::kSystemArrayCopyChar:
-      case Intrinsics::kStringGetCharsNoCheck:
-      case Intrinsics::kReferenceGetReferent:
-      case Intrinsics::kMemoryPeekByte:
-      case Intrinsics::kMemoryPokeByte:
-      case Intrinsics::kUnsafeCASInt:
-      case Intrinsics::kUnsafeCASLong:
-      case Intrinsics::kUnsafeCASObject:
-      case Intrinsics::kUnsafeGet:
-      case Intrinsics::kUnsafeGetAndAddInt:
-      case Intrinsics::kUnsafeGetAndAddLong:
-      case Intrinsics::kUnsafeGetAndSetInt:
-      case Intrinsics::kUnsafeGetAndSetLong:
-      case Intrinsics::kUnsafeGetAndSetObject:
-      case Intrinsics::kUnsafeGetLong:
-      case Intrinsics::kUnsafeGetLongVolatile:
-      case Intrinsics::kUnsafeGetObject:
-      case Intrinsics::kUnsafeGetObjectVolatile:
-      case Intrinsics::kUnsafeGetVolatile:
-      case Intrinsics::kUnsafePut:
-      case Intrinsics::kUnsafePutLong:
-      case Intrinsics::kUnsafePutLongOrdered:
-      case Intrinsics::kUnsafePutLongVolatile:
-      case Intrinsics::kUnsafePutObject:
-      case Intrinsics::kUnsafePutObjectOrdered:
-      case Intrinsics::kUnsafePutObjectVolatile:
-      case Intrinsics::kUnsafePutOrdered:
-      case Intrinsics::kUnsafePutVolatile:
-      case Intrinsics::kUnsafeLoadFence:
-      case Intrinsics::kUnsafeStoreFence:
-      case Intrinsics::kUnsafeFullFence:
-      case Intrinsics::kStringNewStringFromBytes:
-      case Intrinsics::kStringNewStringFromChars:
-      case Intrinsics::kStringNewStringFromString:
-      case Intrinsics::kMemoryPeekIntNative:
-      case Intrinsics::kMemoryPeekLongNative:
-      case Intrinsics::kMemoryPeekShortNative:
-      case Intrinsics::kMemoryPokeIntNative:
-      case Intrinsics::kMemoryPokeLongNative:
-      case Intrinsics::kMemoryPokeShortNative:
-      case Intrinsics::kVarHandleFullFence:
-      case Intrinsics::kVarHandleAcquireFence:
-      case Intrinsics::kVarHandleReleaseFence:
-      case Intrinsics::kVarHandleLoadLoadFence:
-      case Intrinsics::kVarHandleStoreStoreFence:
-      case Intrinsics::kVarHandleCompareAndExchange:
-      case Intrinsics::kVarHandleCompareAndExchangeAcquire:
-      case Intrinsics::kVarHandleCompareAndExchangeRelease:
-      case Intrinsics::kVarHandleCompareAndSet:
-      case Intrinsics::kVarHandleGet:
-      case Intrinsics::kVarHandleGetAcquire:
-      case Intrinsics::kVarHandleGetAndAdd:
-      case Intrinsics::kVarHandleGetAndAddAcquire:
-      case Intrinsics::kVarHandleGetAndAddRelease:
-      case Intrinsics::kVarHandleGetAndBitwiseAnd:
-      case Intrinsics::kVarHandleGetAndBitwiseAndAcquire:
-      case Intrinsics::kVarHandleGetAndBitwiseAndRelease:
-      case Intrinsics::kVarHandleGetAndBitwiseOr:
-      case Intrinsics::kVarHandleGetAndBitwiseOrAcquire:
-      case Intrinsics::kVarHandleGetAndBitwiseOrRelease:
-      case Intrinsics::kVarHandleGetAndBitwiseXor:
-      case Intrinsics::kVarHandleGetAndBitwiseXorAcquire:
-      case Intrinsics::kVarHandleGetAndBitwiseXorRelease:
-      case Intrinsics::kVarHandleGetAndSet:
-      case Intrinsics::kVarHandleGetAndSetAcquire:
-      case Intrinsics::kVarHandleGetAndSetRelease:
-      case Intrinsics::kVarHandleGetOpaque:
-      case Intrinsics::kVarHandleGetVolatile:
-      case Intrinsics::kVarHandleSet:
-      case Intrinsics::kVarHandleSetOpaque:
-      case Intrinsics::kVarHandleSetRelease:
-      case Intrinsics::kVarHandleSetVolatile:
-      case Intrinsics::kVarHandleWeakCompareAndSet:
-      case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
-      case Intrinsics::kVarHandleWeakCompareAndSetPlain:
-      case Intrinsics::kVarHandleWeakCompareAndSetRelease:
-        return 0u;
-      default:
-        // Remaining intrinsics are public API. We DCHECK that in SetIntrinsic().
-        return kAccPublicApi;
-    }
-  } else {
-    return GetAccessFlags() & kAccHiddenapiBits;
-  }
-}
-
 inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
   // Currently we only do intrinsics for static/final methods or methods of final
   // classes. We don't set kHasSingleImplementation for those methods.
@@ -478,7 +390,7 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool is_default_conflict = IsDefaultConflicting();
     bool is_compilable = IsCompilable();
     bool must_count_locks = MustCountLocks();
-    uint32_t hiddenapi_flags = GetHiddenapiFlags();
+    uint32_t hiddenapi_flags = hiddenapi::detail::GetRuntimeFlags(this);
     SetAccessFlags(new_value);
     DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
     DCHECK_EQ(is_constructor, IsConstructor());
@@ -499,7 +411,7 @@ inline void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     // (b) only VarHandle intrinsics are blacklisted at the moment and they
     // should not be used outside tests with disabled API checks.
     if ((hiddenapi_flags & kAccPublicApi) == 0) {
-      DCHECK_EQ(hiddenapi_flags, GetHiddenapiFlags()) << PrettyMethod();
+      DCHECK_EQ(hiddenapi_flags, hiddenapi::detail::GetRuntimeFlags(this)) << PrettyMethod();
     }
   } else {
     SetAccessFlags(new_value);
