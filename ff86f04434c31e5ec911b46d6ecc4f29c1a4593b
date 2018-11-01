@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04f9f065_c2f1472e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-01T17:25:22Z",
+      "side": 1,
+      "message": "I feel like it would be nice to have an abstraction for this:\ndex_file.GetMethodName(method_id, \u0026unicode_length) or something\n\nOr MethodReference(\u0026dex_file, dex_method_idx).GetName",
+      "range": {
+        "startLine": 635,
+        "startChar": 0,
+        "endLine": 635,
+        "endChar": 88
+      },
+      "revId": "ff86f04434c31e5ec911b46d6ecc4f29c1a4593b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
