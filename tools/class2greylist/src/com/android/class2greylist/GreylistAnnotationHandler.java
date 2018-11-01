@@ -39,7 +39,7 @@ public class GreylistAnnotationHandler implements AnnotationHandler {
         Map<Integer, String> map = new HashMap<>();
         map.put(null, GreylistConsumer.FLAG_GREYLIST);
         map.put(26, GreylistConsumer.FLAG_BLACKLIST_MAX_O);
-        map.put(28, GreylistConsumer.FLAG_GREYLIST);
+        map.put(28, GreylistConsumer.FLAG_BLACKLIST_MAX_P);
         TARGET_SDK_TO_FLAG_MAP = Collections.unmodifiableMap(map);
     }
 

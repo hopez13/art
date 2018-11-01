@@ -19,8 +19,8 @@
 namespace art {
 namespace hiddenapi {
 
-constexpr const char* ApiList::kNames[4];
-constexpr ApiList::SdkCodes ApiList::kMaxSdkVersions[4];
+constexpr const char* ApiList::kNames[5];
+constexpr ApiList::SdkCodes ApiList::kMaxSdkVersions[5];
 
 }  // namespace hiddenapi
 }  // namespace art
