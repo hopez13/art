@@ -42,11 +42,12 @@ class ApiList {
     // Values dependent on target SDK version of app.
     // List will be extended in future releases.
     kBlacklistMaxO = 3,
+    kBlacklistMaxP = 4,
 
     // Special values
     kInvalid =       static_cast<uint32_t>(-1),
     kMinValue =      kWhitelist,
-    kMaxValue =      kBlacklistMaxO,
+    kMaxValue =      kBlacklistMaxP,
   };
 
   static constexpr const char* kNames[] = {
@@ -54,6 +55,7 @@ class ApiList {
     "greylist",
     "blacklist",
     "blacklist-max-o",
+    "blacklist-max-p",
   };
 
   static constexpr SdkVersion kMaxSdkVersions[] {
@@ -61,6 +63,7 @@ class ApiList {
     /* greylist */ SdkVersion::kMax,
     /* blacklist */ SdkVersion::kMin,
     /* blacklist-max-o */ SdkVersion::kO_MR1,
+    /* blacklist-max-p */ SdkVersion::kP_MR1,
   };
 
   static ApiList MinValue() { return ApiList(Value::kMinValue); }
@@ -75,6 +78,7 @@ class ApiList {
   static ApiList Greylist() { return ApiList(Value::kGreylist); }
   static ApiList Blacklist() { return ApiList(Value::kBlacklist); }
   static ApiList BlacklistMaxO() { return ApiList(Value::kBlacklistMaxO); }
+  static ApiList BlacklistMaxP() { return ApiList(Value::kBlacklistMaxP); }
   static ApiList Invalid() { return ApiList(Value::kInvalid); }
 
   // Decodes ApiList from dex hiddenapi flags.
