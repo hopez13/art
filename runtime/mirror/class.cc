@@ -630,10 +630,20 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   // If we do not have a dex_cache match, try to find the declared method in this class now.
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
     DCHECK(name.empty());
-    name = dex_file.StringDataByIdx(method_id.name_idx_);
+    // Avoid string comparisons by comparing the respective unicode lengths first.
+    uint32_t unicode_length;
+    name = dex_file.StringDataAndUtf16LengthByIdx(method_id.name_idx_, &unicode_length);
     for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
-      if (method.GetName() == name && method.GetSignature() == signature) {
-        return &method;
+      uint32_t method_idx = method.GetDexMethodIndex();
+      if (LIKELY(method_idx != dex::kDexNoIndex)) {
+        uint32_t method_unicode_length;
+        const char* method_name = method.GetDexFile()->StringDataAndUtf16LengthByIdx(
+            method.GetDexFile()->GetMethodId(method_idx).name_idx_, &method_unicode_length);
+        if (method_unicode_length == unicode_length &&
+            name == method_name &&
+            method.GetSignature() == signature) {
+          return &method;
+        }
       }
     }
   }
