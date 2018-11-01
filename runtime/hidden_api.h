@@ -17,8 +17,8 @@
 #ifndef ART_RUNTIME_HIDDEN_API_H_
 #define ART_RUNTIME_HIDDEN_API_H_
 
-#include "art_field-inl.h"
-#include "art_method-inl.h"
+#include "art_field.h"
+#include "art_method.h"
 #include "base/mutex.h"
 #include "dex/hiddenapi_flags.h"
 #include "mirror/class-inl.h"
@@ -125,8 +125,11 @@ inline bool IsTrustedContextImpl(ObjPtr<mirror::ClassLoader> class_loader,
   return false;
 }
 
-uint32_t GetHiddenapiFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_);
-uint32_t GetHiddenapiFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
+uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_);
+uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
+
+uint32_t GetRuntimeFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_);
+uint32_t GetRuntimeFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
 
 template<typename T>
 bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod access_method)
@@ -152,15 +155,17 @@ ALWAYS_INLINE inline bool IsTrustedContext(ObjPtr<mirror::Class> klass, bool tru
   return false;
 }
 
-ALWAYS_INLINE inline uint32_t GetRuntimeFlags(uint32_t hiddenapi_flags) {
-  uint32_t flags = 0u;
+ALWAYS_INLINE inline uint32_t CreateRuntimeFlags(uint32_t dex_hiddenapi_flags) {
+  DCHECK(AreValidFlags(dex_hiddenapi_flags));
 
-  ApiList api_list = ApiList::FromFlags(hiddenapi_flags);
+  uint32_t runtime_flags = 0u;
+
+  ApiList api_list = ApiList::FromFlags(dex_hiddenapi_flags);
   if (api_list == ApiList::Whitelist()) {
-    flags |= kAccPublicApi;
+    runtime_flags |= kAccPublicApi;
   }
 
-  return flags;
+  return runtime_flags;
 }
 
 inline bool AreChecksEnforcedForCaller(std::function<bool()> fn_is_caller_exempted) {
@@ -194,7 +199,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   DCHECK(member != nullptr);
 
   // Exit early if member is public API.
-  if ((member->GetHiddenapiFlags() & kAccPublicApi) != 0) {
+  if ((detail::GetRuntimeFlags(member) & kAccPublicApi) != 0) {
     return false;
   }
 
@@ -210,7 +215,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   // cannot change Java semantics. We should, however, decode the access flags
   // once and use it throughout this function, otherwise we may get inconsistent
   // results, e.g. print whitelist warnings (b/78327881).
-  ApiList api_list = ApiList::FromFlags(detail::GetHiddenapiFlags(member));
+  ApiList api_list = ApiList::FromFlags(detail::GetDexFlags(member));
 
   // Member is hidden and caller is not exempted. Enter slow path.
   return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);

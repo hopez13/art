@@ -18,9 +18,13 @@
 
 #include <nativehelper/scoped_local_ref.h>
 
+#include "art_field-inl.h"
+#include "art_method-inl.h"
 #include "base/dumpable.h"
 #include "dex/class_accessor-inl.h"
-#include "thread-current-inl.h"
+#include "intrinsics_enum.h"
+#include "scoped_thread_state_change.h"
+#include "thread-inl.h"
 #include "well_known_classes.h"
 
 #ifdef ART_TARGET_ANDROID
@@ -239,7 +243,7 @@ void NotifyHiddenApiListener(T* member, AccessMethod access_method)
   }
 }
 
-uint32_t GetHiddenapiFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
+uint32_t GetDexFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
   const DexFile* dex_file = field->GetDexFile();
   if (dex_file == nullptr) {
     return DexFile::HiddenapiClassData::kDefaultFlags;
@@ -265,7 +269,7 @@ uint32_t GetHiddenapiFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_
   return flags;
 }
 
-uint32_t GetHiddenapiFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+uint32_t GetDexFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   const DexFile* dex_file = method->GetDexFile();
   if (dex_file == nullptr) {
     return DexFile::HiddenapiClassData::kDefaultFlags;
@@ -289,6 +293,99 @@ uint32_t GetHiddenapiFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_loc
   CHECK_NE(flags, DexFile::HiddenapiClassData::kNoFlags)
       << "Could not find flags for method " << method->PrettyMethod();
   return flags;
+}
+
+uint32_t GetRuntimeFlags(ArtField* field) REQUIRES_SHARED(Locks::mutator_lock_) {
+  return field->GetAccessFlags() & kAccHiddenapiBits;
+}
+
+uint32_t GetRuntimeFlags(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (UNLIKELY(method->IsIntrinsic())) {
+    switch (static_cast<Intrinsics>(method->GetIntrinsic())) {
+      case Intrinsics::kSystemArrayCopyChar:
+      case Intrinsics::kStringGetCharsNoCheck:
+      case Intrinsics::kReferenceGetReferent:
+      case Intrinsics::kMemoryPeekByte:
+      case Intrinsics::kMemoryPokeByte:
+      case Intrinsics::kUnsafeCASInt:
+      case Intrinsics::kUnsafeCASLong:
+      case Intrinsics::kUnsafeCASObject:
+      case Intrinsics::kUnsafeGet:
+      case Intrinsics::kUnsafeGetAndAddInt:
+      case Intrinsics::kUnsafeGetAndAddLong:
+      case Intrinsics::kUnsafeGetAndSetInt:
+      case Intrinsics::kUnsafeGetAndSetLong:
+      case Intrinsics::kUnsafeGetAndSetObject:
+      case Intrinsics::kUnsafeGetLong:
+      case Intrinsics::kUnsafeGetLongVolatile:
+      case Intrinsics::kUnsafeGetObject:
+      case Intrinsics::kUnsafeGetObjectVolatile:
+      case Intrinsics::kUnsafeGetVolatile:
+      case Intrinsics::kUnsafePut:
+      case Intrinsics::kUnsafePutLong:
+      case Intrinsics::kUnsafePutLongOrdered:
+      case Intrinsics::kUnsafePutLongVolatile:
+      case Intrinsics::kUnsafePutObject:
+      case Intrinsics::kUnsafePutObjectOrdered:
+      case Intrinsics::kUnsafePutObjectVolatile:
+      case Intrinsics::kUnsafePutOrdered:
+      case Intrinsics::kUnsafePutVolatile:
+      case Intrinsics::kUnsafeLoadFence:
+      case Intrinsics::kUnsafeStoreFence:
+      case Intrinsics::kUnsafeFullFence:
+      case Intrinsics::kStringNewStringFromBytes:
+      case Intrinsics::kStringNewStringFromChars:
+      case Intrinsics::kStringNewStringFromString:
+      case Intrinsics::kMemoryPeekIntNative:
+      case Intrinsics::kMemoryPeekLongNative:
+      case Intrinsics::kMemoryPeekShortNative:
+      case Intrinsics::kMemoryPokeIntNative:
+      case Intrinsics::kMemoryPokeLongNative:
+      case Intrinsics::kMemoryPokeShortNative:
+      case Intrinsics::kVarHandleFullFence:
+      case Intrinsics::kVarHandleAcquireFence:
+      case Intrinsics::kVarHandleReleaseFence:
+      case Intrinsics::kVarHandleLoadLoadFence:
+      case Intrinsics::kVarHandleStoreStoreFence:
+      case Intrinsics::kVarHandleCompareAndExchange:
+      case Intrinsics::kVarHandleCompareAndExchangeAcquire:
+      case Intrinsics::kVarHandleCompareAndExchangeRelease:
+      case Intrinsics::kVarHandleCompareAndSet:
+      case Intrinsics::kVarHandleGet:
+      case Intrinsics::kVarHandleGetAcquire:
+      case Intrinsics::kVarHandleGetAndAdd:
+      case Intrinsics::kVarHandleGetAndAddAcquire:
+      case Intrinsics::kVarHandleGetAndAddRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseAnd:
+      case Intrinsics::kVarHandleGetAndBitwiseAndAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseAndRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseOr:
+      case Intrinsics::kVarHandleGetAndBitwiseOrAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseOrRelease:
+      case Intrinsics::kVarHandleGetAndBitwiseXor:
+      case Intrinsics::kVarHandleGetAndBitwiseXorAcquire:
+      case Intrinsics::kVarHandleGetAndBitwiseXorRelease:
+      case Intrinsics::kVarHandleGetAndSet:
+      case Intrinsics::kVarHandleGetAndSetAcquire:
+      case Intrinsics::kVarHandleGetAndSetRelease:
+      case Intrinsics::kVarHandleGetOpaque:
+      case Intrinsics::kVarHandleGetVolatile:
+      case Intrinsics::kVarHandleSet:
+      case Intrinsics::kVarHandleSetOpaque:
+      case Intrinsics::kVarHandleSetRelease:
+      case Intrinsics::kVarHandleSetVolatile:
+      case Intrinsics::kVarHandleWeakCompareAndSet:
+      case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
+      case Intrinsics::kVarHandleWeakCompareAndSetPlain:
+      case Intrinsics::kVarHandleWeakCompareAndSetRelease:
+        return 0u;
+      default:
+        // Remaining intrinsics are public API. We DCHECK that in SetIntrinsic().
+        return kAccPublicApi;
+    }
+  } else {
+    return method->GetAccessFlags() & kAccHiddenapiBits;
+  }
 }
 
 template<typename T>
