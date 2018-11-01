@@ -179,10 +179,6 @@ class ArtField final {
     return (GetAccessFlags() & kAccVolatile) != 0;
   }
 
-  uint32_t GetHiddenapiFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetAccessFlags() & kAccHiddenapiBits;
-  }
-
   // Returns an instance field with this offset in the given class or null if not found.
   // If kExactOffset is true then we only find the matching offset, not the field containing the
   // offset.

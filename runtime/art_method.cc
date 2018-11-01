@@ -687,17 +687,16 @@ void ArtMethod::SetNotIntrinsic() {
     return;
   }
 
-  // Query the hidden API access flags of the intrinsic.
-  uint32_t hiddenapi_flags = GetHiddenapiFlags();
+  // Read the existing hiddenapi flags.
+  uint32_t hiddenapi_runtime_flags = hiddenapi::detail::GetRuntimeFlags(this);
 
   // Clear intrinsic-related access flags.
   ClearAccessFlags(kAccIntrinsic | kAccIntrinsicBits);
 
   // Re-apply hidden API access flags now that the method is not an intrinsic.
-  SetAccessFlags(GetAccessFlags() | hiddenapi_flags);
-  DCHECK_EQ(GetHiddenapiFlags(), hiddenapi_flags);
+  SetAccessFlags(GetAccessFlags() | hiddenapi_runtime_flags);
+  DCHECK_EQ(hiddenapi_runtime_flags, hiddenapi::detail::GetRuntimeFlags(this));
 }
-
 
 void ArtMethod::CopyFrom(ArtMethod* src, PointerSize image_pointer_size) {
   memcpy(reinterpret_cast<void*>(this), reinterpret_cast<const void*>(src),
