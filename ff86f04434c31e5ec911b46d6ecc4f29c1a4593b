@@ -22,6 +22,29 @@
       "revId": "ff86f04434c31e5ec911b46d6ecc4f29c1a4593b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ef3a7f_1830d8ce",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-01T17:39:57Z",
+      "side": 1,
+      "message": "Is this needed? I\u0027d expect the \"declared\" methods to have valid method index. (And we DCHECK() above that this is not a proxy class.)",
+      "range": {
+        "startLine": 638,
+        "startChar": 6,
+        "endLine": 638,
+        "endChar": 49
+      },
+      "revId": "ff86f04434c31e5ec911b46d6ecc4f29c1a4593b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
