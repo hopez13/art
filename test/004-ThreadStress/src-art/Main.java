@@ -264,19 +264,6 @@ public class Main implements Runnable {
         }
     }
 
-    private final static class UnparkAllThreads extends Operation {
-        public UnparkAllThreads() {}
-
-        @Override
-        public boolean perform() {
-            Set<Thread> threads = Thread.getAllStackTraces().keySet();
-            for (Thread candidate : threads) {
-                LockSupport.unpark(candidate);
-            }
-            return true;
-        }
-    }
-
     private final static class SyncAndWork extends Operation {
         private final Object lock;
 
@@ -347,8 +334,7 @@ public class Main implements Runnable {
         frequencyMap.put(new StackTrace(), 0.1);              //  20/200
         frequencyMap.put(new Exit(), 0.225);                  //  45/200
         frequencyMap.put(new Sleep(), 0.125);                 //  15/200
-        frequencyMap.put(new TimedPark(), 0.025);             //   5/200
-        frequencyMap.put(new UnparkAllThreads(), 0.025);      //   5/200
+        frequencyMap.put(new TimedPark(), 0.05);              //  10/200
         frequencyMap.put(new TimedWait(lock), 0.05);          //  10/200
         frequencyMap.put(new Wait(lock), 0.075);              //  15/200
         frequencyMap.put(new QueuedWait(semaphore), 0.05);    //  10/200
@@ -372,8 +358,7 @@ public class Main implements Runnable {
       frequencyMap.put(new TimedWait(lock), 0.1);             //  20/200
       frequencyMap.put(new Wait(lock), 0.1);                  //  20/200
       frequencyMap.put(new SyncAndWork(lock), 0.4);           //  80/200
-      frequencyMap.put(new TimedPark(), 0.1);                 //  20/200
-      frequencyMap.put(new UnparkAllThreads(), 0.1);          //  20/200
+      frequencyMap.put(new TimedPark(), 0.2);                 //  40/200
 
       return frequencyMap;
     }
@@ -723,13 +708,18 @@ public class Main implements Runnable {
         }
 
         // The notifier thread is a daemon just loops forever to wake
-        // up threads in operation Wait.
+        // up threads in operations Wait and Park.
         if (lock != null) {
             Thread notifier = new Thread("Notifier") {
                 public void run() {
                     while (true) {
                         synchronized (lock) {
                             lock.notifyAll();
+                        }
+                        for (Thread runner : runners) {
+                          if (runner != null) {
+                            LockSupport.unpark(runner);
+                          }
                         }
                     }
                 }
