@@ -22,6 +22,69 @@
       "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "550e59c4_e59b2a79",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-01T19:59:12Z",
+      "side": 1,
+      "message": "Since this is possibly a suspend point, I\u0027d call self-\u003ePoisonObjectPointers here to be safe",
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0afca66_94f057de",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-01T19:59:12Z",
+      "side": 1,
+      "message": "Does this case really happen?",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 18
+      },
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27c81a88_7e54a8be",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-01T19:59:12Z",
+      "side": 1,
+      "message": "Put a\nScopedThreadStateChange tsc(self, kSuspended);\nbefore the ScopedSuspendAll I think.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 41
+      },
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
