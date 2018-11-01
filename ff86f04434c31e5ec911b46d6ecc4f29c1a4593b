@@ -45,6 +45,30 @@
       "revId": "ff86f04434c31e5ec911b46d6ecc4f29c1a4593b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ad3528b_d91b78c7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-01T18:55:07Z",
+      "side": 1,
+      "message": "I don\u0027t know ... the GetName() method would handle magic methods...\nHaving said that I don\u0027t know if that can here in practice...\nDo you do know for sure?",
+      "parentUuid": "c0ef3a7f_1830d8ce",
+      "range": {
+        "startLine": 638,
+        "startChar": 6,
+        "endLine": 638,
+        "endChar": 49
+      },
+      "revId": "ff86f04434c31e5ec911b46d6ecc4f29c1a4593b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
