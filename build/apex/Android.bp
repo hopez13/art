@@ -66,6 +66,11 @@ art_tools_host_binaries = [
     // ...
 ]
 
+// (Some) Libcore native libraries.
+libcore_native_shared_libs = [
+    "libopenjdk",
+]
+
 apex {
     // TODO: Or name it "com.android.runtime"? (If so, don't forget to also update the manifest.)
     name: "com.android.art",
@@ -74,7 +79,8 @@ apex {
     file_contexts: "file_contexts",
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_fake_native_shared_libs
-        + art_runtime_debug_native_shared_libs,
+        + art_runtime_debug_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
