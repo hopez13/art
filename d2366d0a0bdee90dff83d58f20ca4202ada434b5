@@ -22,6 +22,76 @@
       "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81906af6_c8a6f381",
+        "filename": "tools/timeout_dumper/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-11-02T23:32:30Z",
+      "side": 1,
+      "message": "Hmm, this crash could be because the stack_map is nullptr, or that somehow you got a stack map that is not really an UnwindStackMap.",
+      "parentUuid": "fb359495_0d77f9b5",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b7e1598_e5d91ffb",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-11-02T23:32:30Z",
+      "side": 1,
+      "message": "Could you replace this with:\n\nos \u003c\u003c std::string(tmp, new_line - tmp);",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 32
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2ad0759_3cff6bb8",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2018-11-02T23:32:30Z",
+      "side": 1,
+      "message": "nullptr?",
+      "range": {
+        "startLine": 335,
+        "startChar": 36,
+        "endLine": 335,
+        "endChar": 40
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
