@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "29f4c7c6_4e6c7d37",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T10:32:03Z",
+      "side": 1,
+      "message": "I know.  That would work too.  I followed the general pattern in this file.",
+      "parentUuid": "d60eaaf1_f65fdd19",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 78
+      },
+      "revId": "39d8c873645df7c956bf306693d95212d1d51906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9ecfd33_26599c80",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-02T10:29:54Z",
       "side": 1,
       "message": "Why are you declaring `other_length` this early?",
+      "range": {
+        "startLine": 634,
+        "startChar": 21,
+        "endLine": 634,
+        "endChar": 33
+      },
+      "revId": "39d8c873645df7c956bf306693d95212d1d51906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2bceed0_d7554acc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T10:32:03Z",
+      "side": 1,
+      "message": "Personal preference... to save a line to be honest :-)",
+      "parentUuid": "a9ecfd33_26599c80",
       "range": {
         "startLine": 634,
         "startChar": 21,
