@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4c4663f_4e70177e",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-02T11:14:49Z",
+      "side": 1,
+      "message": "Add comments about why you need to do this check.",
+      "revId": "dbb059c941cce02f51711b445e39c762136193c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa33b0d_73e8ffb5",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-02T11:14:49Z",
+      "side": 1,
+      "message": "This looks unrelated?",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 33
+      },
+      "revId": "dbb059c941cce02f51711b445e39c762136193c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
