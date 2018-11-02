@@ -79,6 +79,24 @@
       "revId": "97f639dfabff172962955477cb77e1955895c1fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06e221fc_276425aa",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T22:37:30Z",
+      "side": 1,
+      "message": "I still kept it inside the method.",
+      "parentUuid": "051e3704_0fca746d",
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
