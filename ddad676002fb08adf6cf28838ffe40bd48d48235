@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c59d85c_fb88f2c3",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T14:21:40Z",
+      "side": 1,
+      "message": "Considering this is relatively sensitive to the performance of the check, why not put this into the header?\n\n(hidden_api.h actually isn\u0027t transitively included too widely, so I think it would be OK)",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 83
+      },
+      "revId": "ddad676002fb08adf6cf28838ffe40bd48d48235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
