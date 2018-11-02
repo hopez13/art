@@ -22,6 +22,30 @@
       "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa9becf_a29dad88",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-11-02T18:48:58Z",
+      "side": 1,
+      "message": "SetHeldMutex is called outside the kDebugLocking check, and this affects that - so it has to be outside the check as well.",
+      "parentUuid": "bf0200df_8d8c8b1d",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
