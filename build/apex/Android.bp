@@ -66,6 +66,11 @@ art_tools_host_binaries = [
     // ...
 ]
 
+// (Some) Libcore native libraries.
+libcore_native_shared_libs = [
+    "libopenjdk",
+]
+
 apex_key {
     name: "com.android.runtime.key",
     public_key: "runtime.avbpubkey",
@@ -83,7 +88,8 @@ apex {
     compile_multilib: "both",
     manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
-        + art_runtime_fake_native_shared_libs,
+        + art_runtime_fake_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
@@ -111,7 +117,8 @@ apex {
     manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_fake_native_shared_libs
-        + art_runtime_debug_native_shared_libs,
+        + art_runtime_debug_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
