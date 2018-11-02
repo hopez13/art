@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bedf091e_cd170c3e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-02T18:06:20Z",
+      "side": 1,
+      "message": "An other option is to use equal range, not sure if that would be faster or not? You wouldn\u0027t need to compare names in the loop then.",
+      "range": {
+        "startLine": 639,
+        "startChar": 23,
+        "endLine": 639,
+        "endChar": 38
+      },
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
