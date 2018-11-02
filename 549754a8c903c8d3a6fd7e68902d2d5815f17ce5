@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a8bbf3d_1c235281",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T11:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1de5ce3f_87d8a56e",
+      "range": {
+        "startLine": 92,
+        "startChar": 49,
+        "endLine": 92,
+        "endChar": 54
+      },
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "550e59c4_e59b2a79",
         "filename": "runtime/runtime-inl.h",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc17b516_f94cc5c1",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T11:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "550e59c4_e59b2a79",
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "1c29db62_c27fe6ff",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T11:12:58Z",
+      "side": 1,
+      "message": "Yes, for example I have seen:\n+  at art.Trace.enableTracing(Native method)\n+  at art.Trace.enableSingleStepTracing(Trace.java:49)\n+  at art.Test1944.run(Test1944.java:47)\n+  at Main.main(Main.java:19)\n\nWhich adds listener hooks, which calls this method.\n\nThe ssa then fails with: Check failed: !IsExclusiveHeld(self)",
+      "parentUuid": "f0afca66_94f057de",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 18
+      },
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27c81a88_7e54a8be",
         "filename": "runtime/runtime-inl.h",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0898366d_8d138ebf",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-02T11:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27c81a88_7e54a8be",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 41
+      },
+      "revId": "549754a8c903c8d3a6fd7e68902d2d5815f17ce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
