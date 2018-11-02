@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "604e583a_2d434ccd",
+        "filename": "disassembler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-11-02T17:25:57Z",
+      "side": 1,
+      "message": "I think the following #ifdef need to be introduced in \"disassembler.cc\"\n#ifdef ART_ENABLE_CODEGEN_arm    \n#ifdef ART_ENABLE_CODEGEN_arm64",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "74fd13f5668de29992570260a566504b434fe115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb30628f_67289881",
+        "filename": "disassembler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2018-11-02T17:25:57Z",
+      "side": 1,
+      "message": "codegen: {\n        arm: {\n            srcs: [\n                \"disassembler_arm.cc\",\n            ],\n        },\n        arm64: {\n            srcs: [\n                \"disassembler_arm64.cc\",\n            ],\n        },\n    },",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 32
+      },
+      "revId": "74fd13f5668de29992570260a566504b434fe115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
