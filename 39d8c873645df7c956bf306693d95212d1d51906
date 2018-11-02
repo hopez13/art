@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d4763a9e_d832ea32",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-02T10:40:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29f4c7c6_4e6c7d37",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 78
+      },
+      "revId": "39d8c873645df7c956bf306693d95212d1d51906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9ecfd33_26599c80",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "39d8c873645df7c956bf306693d95212d1d51906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "763c528a_f3c4cc0a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-02T10:40:48Z",
+      "side": 1,
+      "message": "OK, let\u0027s leave it as is.",
+      "parentUuid": "c2bceed0_d7554acc",
+      "range": {
+        "startLine": 634,
+        "startChar": 21,
+        "endLine": 634,
+        "endChar": 33
+      },
+      "revId": "39d8c873645df7c956bf306693d95212d1d51906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
