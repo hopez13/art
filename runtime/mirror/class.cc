@@ -605,6 +605,37 @@ ArtMethod* Class::FindClassMethod(const StringPiece& name,
   return FindClassMethodWithSignature(this, name, signature, pointer_size);
 }
 
+// Search the given slice for method with given name. The slice must be sorted.
+ALWAYS_INLINE static bool FindMethodByName(ArraySlice<ArtMethod> methods,
+                                           StringPiece name,
+                                           uint32_t length,
+                                           const Signature& signature,
+                                           /*out*/ ArtMethod** result)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  auto method = methods.begin();
+  // Binary-search - check only the first letter of the name.
+  if (methods.size() >= 8) {
+    auto predicate = [=](ArtMethod& m) REQUIRES_SHARED(Locks::mutator_lock_) {
+      uint32_t length;
+      return m.GetDexFile()->GetMethodName(m.GetDexMethodIndex(), &length)[0] < name[0];
+    };
+    DCHECK(std::is_partitioned(methods.begin(), methods.end(), predicate));
+    method = std::partition_point(methods.begin(), methods.end(), predicate);
+  }
+  // Liner-search - check all remaining methods / overloads.
+  for (; method != methods.end(); ++method) {
+    DCHECK_NE(method->GetDexMethodIndex(), dex::kDexNoIndex);
+    uint32_t other_length;
+    const char* other_name = method->GetDexFile()->GetMethodName(
+        method->GetDexMethodIndex(), &other_length);
+    if (length == other_length && name == other_name && signature == method->GetSignature()) {
+      *result = &*method;
+      return true;
+    }
+  }
+  return false;
+}
+
 ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
                                   uint32_t dex_method_idx,
                                   PointerSize pointer_size) {
@@ -631,15 +662,15 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
     DCHECK(name.empty());
     // Avoid string comparisons by comparing the respective unicode lengths first.
-    uint32_t length, other_length;  // UTF16 length.
+    uint32_t length;  // UTF16 length.
     name = dex_file.GetMethodName(method_id, &length);
-    for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
-      DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
-      const char* other_name = method.GetDexFile()->GetMethodName(
-          method.GetDexMethodIndex(), &other_length);
-      if (length == other_length && name == other_name && signature == method.GetSignature()) {
-        return &method;
-      }
+    ArtMethod* result = nullptr;
+    // Only the individual slices are sorted, the whole method list isn't.
+    ArraySlice<ArtMethod> direct_methods = GetDirectMethodsSlice(pointer_size);
+    ArraySlice<ArtMethod> virtual_methods = GetDeclaredVirtualMethodsSlice(pointer_size);
+    if (FindMethodByName(direct_methods, name, length, signature, &result) ||
+        FindMethodByName(virtual_methods, name, length, signature, &result)) {
+      return result;
     }
   }
 
