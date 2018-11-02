@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f3a5c4d_66ad3719",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20873491_3b53fd00",
+      "range": {
+        "startLine": 749,
+        "startChar": 47,
+        "endLine": 749,
+        "endChar": 52
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f1af60_ddfea31d",
         "filename": "runtime/gc/allocation_record.cc",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2018-10-22T20:40:09Z",
       "side": 1,
       "message": "Considering this happens quite often, you might want to swap context and the StackWalkKind parameter so that you can use the default of context\u003dnullptr",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a92a258f_a6cc5c78",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "I left them in the order of the constructor to avoid confusion for now (it wasn\u0027t a default arg there, either). Do you feel strongly?\n\nAnother option would be to also give the walk-kind a default.",
+      "parentUuid": "07f1af60_ddfea31d",
       "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c45f4ecb_ecf3a1bd",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee970c19_65afd790",
+      "range": {
+        "startLine": 1360,
+        "startChar": 7,
+        "endLine": 1360,
+        "endChar": 8
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b12d3f11_491d170d",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -79,6 +145,24 @@
       "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fde3c4c5_1b483b4c",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Yeah, this is an artifact of development.",
+      "parentUuid": "b12d3f11_491d170d",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "a85b9309_fc0475cf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Many visitor APIs modify the state (e.g., lots of instrumentation stuff caches some expensive things). So it needs to support non-const, too. At that point, since we prefer * over \u0026 for non-const, it seemed the right way to use this.\n\nDo you feel strongly about this?",
+      "parentUuid": "2d1a2c26_ef0ac198",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83bac42f_de75636b",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -110,6 +212,24 @@
       "writtenOn": "2018-10-22T20:40:09Z",
       "side": 1,
       "message": "also you could check the return type of fn() and if its void assume it returns true. This will save on all the functions that unconditionally \u0027return true\u0027, making all the call sites where this doesn\u0027t matter 1 line less\n\n       \n       if constexpr (std::is_void_v\u003cdecltype(fn_(*this))\u003e) {\n         fn_(*this);\n         return true;\n       } else {\n         return fn_(*this);\n       }\n\n---------------\n\nHere\u0027s a full example with C++14:\n\n  // Example program\n  #include \u003ciostream\u003e\n  #include \u003cstring\u003e\n\n  #include \u003ctype_traits\u003e\n\n  template \u003ctypename T\u003e\n  T func() { return T{}; }\n\n  struct Base{\n    virtual bool VisitFrame() \u003d 0;\n  };\n\n  template \u003ctypename T\u003e\n  struct LambdaVisitFrame : public Base {\n      \n     LambdaVisitFrame(const T\u0026 fn) : fn_(fn) {}\n     T fn_;\n     \n     bool VisitFrame() {\n       /** \n       reimplement this\n       C++17 code in C++14:\n       \n       if constexpr (std::is_void_v\u003cfn_(*this)\u003e) {\n         fn_(*this);\n         return true;\n       } else {\n         return fn_(*this);\n       }\n       */\n       return VisitFrameImpl();\n     }\n          \n     using InvokeFnT \u003d decltype(fn_(std::declval\u003cBase\u003e()));\n     \n     template \u003ctypename U, bool Cond \u003d true\u003e\n     using EnableIfVoidIs \u003d std::enable_if\u003cstd::is_void\u003cU\u003e::value \u003d\u003d Cond, bool\u003e;\n\n     template \u003ctypename FnReturnT \u003d InvokeFnT\u003e\n     typename EnableIfVoidIs\u003cFnReturnT, false\u003e::type\n     VisitFrameImpl() {\n       return fn_(*this);\n     }\n\n     template \u003ctypename FnReturnT \u003d InvokeFnT\u003e\n     typename EnableIfVoidIs\u003cFnReturnT, true\u003e::type\n     VisitFrameImpl() {\n       fn_(*this);\n       return true;\n     }\n  };\n\n  int main()\n  {\n    std::cout \u003c\u003c \"Hello!\\n\";\n    \n    auto lamb \u003d [](const Base\u0026){};\n    // return true is optional\n    \n    LambdaVisitFrame\u003cdecltype(lamb)\u003e f(lamb);\n    std::cout \u003c\u003c f.VisitFrame();\n    std::cout \u003c\u003c \"\\n\";\n    \n    \n    auto lamb2 \u003d [](const Base\u0026){ return false; };\n    \n    LambdaVisitFrame\u003cdecltype(lamb2)\u003e f2(lamb2);\n    std::cout \u003c\u003c f2.VisitFrame();\n    \n    \n    return 0;\n  }",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aadf484_f0bd6731",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Do you mind if I leave this until we have C++17? :-)",
+      "parentUuid": "83bac42f_de75636b",
       "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "499c9e94_356285a6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b840bb5a_7ab2deda",
+      "range": {
+        "startLine": 340,
+        "startChar": 53,
+        "endLine": 340,
+        "endChar": 59
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d05021ad_c5804060",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -150,6 +294,24 @@
       "writtenOn": "2018-10-22T20:40:09Z",
       "side": 1,
       "message": "The API would look nicer if it was a static member function in StackVisitor so it was called like...\n\n   StackVisitor::WalkStack(lambda, thread, context, walk_kind,...);",
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e27e6050_fcc917ca",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "Hm. Not sure I like the WalkStack overload. Let me see how it looks.",
+      "parentUuid": "d05021ad_c5804060",
       "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -179,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "70966e20_2bd637b5",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "See comment in the other file. Resolving this comment for now.",
+      "parentUuid": "65159105_27288cf5",
+      "range": {
+        "startLine": 343,
+        "startChar": 46,
+        "endLine": 344,
+        "endChar": 84
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d68fc4_ed88689c",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -199,6 +385,30 @@
       "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35173af1_4b3ff8ff",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:37:24Z",
+      "side": 1,
+      "message": "There\u0027s one spot, and in general we should go and check to see whether we can remove this (it was added to possibly improve stack walking performance for most cases).\n\nSwitched template parameter order.",
+      "parentUuid": "f2d68fc4_ed88689c",
+      "range": {
+        "startLine": 349,
+        "startChar": 29,
+        "endLine": 349,
+        "endChar": 35
+      },
+      "revId": "647237dbd3e01a0fafbcdde59e6e58c380979534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
