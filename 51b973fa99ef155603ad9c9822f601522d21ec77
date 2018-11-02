@@ -46,6 +46,53 @@
       "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d148879_41e4547c",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-11-02T20:34:31Z",
+      "side": 1,
+      "message": "Right. But it still feels very wrong to add anything to the mutex critical path to deal with error-checking for a single client. The fact that we seem to have non-ART-debugging uses of GetHeldMutex() also seems suboptimal. I hadn\u0027t realized how much this had diverged from a standard mutex abstraction.\n\nIf we can\u0027t think of a better way to do this, I\u0027m OK with it, but please add a comment explaining why it\u0027s hard to avoid. I really don\u0027t want to add more code here in the future. I can reluctantly tolerate it because it\u0027s only a single comparison in the other cases, and we\u0027re fixing a performance bug that\u0027s probably considerably worse in practice.",
+      "parentUuid": "0fa9becf_a29dad88",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5208b888_f7171c8d",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-11-02T20:34:31Z",
+      "side": 1,
+      "message": "level?",
+      "range": {
+        "startLine": 123,
+        "startChar": 10,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
