@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb359495_0d77f9b5",
+        "filename": "tools/timeout_dumper/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-02T22:36:06Z",
+      "side": 1,
+      "message": "On to get a dump on a segfault I don\u0027t understand:\n\n  RELADDR           FUNCTION                                                                                                                                                                                                                                                                                                                                                                                                         FILE:LINE\n  v--------------\u003e  unwindstack::Unwinder::SetResolveNames(bool)                                                                                                                                                                                                                                                                                                                                                                     system/core/libunwindstack/include/unwindstack/Unwinder.h:80\n     104b4  Backtrace::Unwind(unwindstack::Regs*, BacktraceMap*, std::__1::vector\u003cbacktrace_frame_data_t, std::__1::allocator\u003cbacktrace_frame_data_t\u003e \u003e*, unsigned long, std::__1::vector\u003cstd::__1::basic_string\u003cchar, std::__1::char_traits\u003cchar\u003e, std::__1::allocator\u003cchar\u003e \u003e, std::__1::allocator\u003cstd::__1::basic_string\u003cchar, std::__1::char_traits\u003cchar\u003e, std::__1::allocator\u003cchar\u003e \u003e \u003e \u003e*, BacktraceUnwindError*)+260  system/core/libbacktrace/UnwindStack.cpp:51\n     10dac  UnwindStackPtrace::Unwind(unsigned long, void*)+76                                                                                                                                                                                                                                                                                                                                                               system/core/libbacktrace/UnwindStack.cpp:184",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
