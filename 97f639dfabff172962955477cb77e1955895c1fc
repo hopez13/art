@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e864fcad_21573225",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-02T18:14:03Z",
+      "side": 1,
+      "message": "This must be CompareModifiedUtf8ToModifiedUtf8AsUtf16CodePointValues() and that shall probably slow things down considerably.",
+      "range": {
+        "startLine": 636,
+        "startChar": 13,
+        "endLine": 636,
+        "endChar": 19
+      },
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bedf091e_cd170c3e",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -19,6 +42,40 @@
         "endLine": 639,
         "endChar": 38
       },
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "353a51ad_e54b1a9d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-02T18:14:03Z",
+      "side": 1,
+      "message": "Are you sure binary search is beneficial here? For small arrays, linear search tends to be better in practice. (This is a good reason to split this change into two and benchmark separately.)",
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "051e3704_0fca746d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-02T18:14:03Z",
+      "side": 1,
+      "message": "You\u0027re losing the quick utf16_length comparison here. Did you benchmark this CL?",
       "revId": "97f639dfabff172962955477cb77e1955895c1fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
