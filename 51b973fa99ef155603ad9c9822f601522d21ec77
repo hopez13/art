@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "55ad6332_56cc8c9a",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-11-03T01:09:25Z",
+      "side": 1,
+      "message": "Added more comments and UNLIKELY for conditions that happen without debugging enabled",
+      "parentUuid": "9d148879_41e4547c",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5208b888_f7171c8d",
         "filename": "runtime/base/mutex-inl.h",
         "patchSetId": 8
@@ -93,6 +117,30 @@
       "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46e14de1_040328db",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-11-03T01:09:25Z",
+      "side": 1,
+      "message": "Good catch, although benign in this case. Done.",
+      "parentUuid": "5208b888_f7171c8d",
+      "range": {
+        "startLine": 123,
+        "startChar": 10,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "51b973fa99ef155603ad9c9822f601522d21ec77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
