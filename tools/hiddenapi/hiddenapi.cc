@@ -72,10 +72,8 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("    --output-dex=<filename>: file to write encoded dex into");
   UsageError("        input and output dex files are paired in order of appearance");
   UsageError("");
-  UsageError("    --light-greylist=<filename>:");
-  UsageError("    --dark-greylist=<filename>:");
-  UsageError("    --blacklist=<filename>:");
-  UsageError("        text files with signatures of methods/fields to be annotated");
+  UsageError("    --flags=<filename>:");
+  UsageError("        CSV file with signatures of methods/fields and their respective flags");
   UsageError("");
   UsageError("  Command \"list\": dump lists of public and private API");
   UsageError("    --boot-dex=<filename>: dex file which belongs to boot class path");
@@ -889,12 +887,8 @@ class HiddenApi final {
             boot_dex_paths_.push_back(option.substr(strlen("--input-dex=")).ToString());
           } else if (option.starts_with("--output-dex=")) {
             output_dex_paths_.push_back(option.substr(strlen("--output-dex=")).ToString());
-          } else if (option.starts_with("--light-greylist=")) {
-            light_greylist_path_ = option.substr(strlen("--light-greylist=")).ToString();
-          } else if (option.starts_with("--dark-greylist=")) {
-            dark_greylist_path_ = option.substr(strlen("--dark-greylist=")).ToString();
-          } else if (option.starts_with("--blacklist=")) {
-            blacklist_path_ = option.substr(strlen("--blacklist=")).ToString();
+          } else if (option.starts_with("--flags=")) {
+            api_list_path_ = option.substr(strlen("--flags=")).ToString();
           } else {
             Usage("Unknown argument '%s'", option.data());
           }
@@ -933,11 +927,7 @@ class HiddenApi final {
     }
 
     // Load dex signatures.
-    std::map<std::string, hiddenapi::ApiList> api_list;
-    OpenApiFile(light_greylist_path_, api_list, hiddenapi::ApiList::Greylist());
-    OpenApiFile(dark_greylist_path_, api_list, hiddenapi::ApiList::BlacklistMaxO());
-    OpenApiFile(blacklist_path_, api_list, hiddenapi::ApiList::Blacklist());
-
+    std::map<std::string, hiddenapi::ApiList> api_list = OpenApiFile(api_list_path_);
     // Iterate over input dex files and insert HiddenapiClassData sections.
     for (size_t i = 0; i < boot_dex_paths_.size(); ++i) {
       const std::string& input_path = boot_dex_paths_[i];
@@ -953,10 +943,9 @@ class HiddenApi final {
         builder.BeginClassDef(boot_class.GetClassDefIndex());
         if (boot_class.GetData() != nullptr) {
           auto fn_shared = [&](const DexMember& boot_member) {
-            // TODO: Load whitelist and CHECK that entry was found.
             auto it = api_list.find(boot_member.GetApiEntry());
-            builder.WriteFlags(
-                (it == api_list.end()) ? hiddenapi::ApiList::Whitelist() : it->second);
+            CHECK(it != api_list.end());
+            builder.WriteFlags(it->second);
           };
           auto fn_field = [&](const ClassAccessor::Field& boot_field) {
             fn_shared(DexMember(boot_class, boot_field));
@@ -975,23 +964,29 @@ class HiddenApi final {
     }
   }
 
-  void OpenApiFile(const std::string& path,
-                   std::map<std::string, hiddenapi::ApiList>& api_list,
-                   hiddenapi::ApiList membership) {
-    if (path.empty()) {
-      return;
-    }
-
+  std::map<std::string, hiddenapi::ApiList> OpenApiFile(const std::string& path) {
+    CHECK(!path.empty());
     std::ifstream api_file(path, std::ifstream::in);
     CHECK(!api_file.fail()) << "Unable to open file '" << path << "' " << strerror(errno);
 
+    std::map<std::string, hiddenapi::ApiList> api_flag_map;
+
     for (std::string line; std::getline(api_file, line);) {
-      CHECK(api_list.find(line) == api_list.end())
-          << "Duplicate entry: " << line << " (" << api_list.find(line)->second
-          << " and " << membership << ")";
-      api_list.emplace(line, membership);
+      std::vector<std::string> values = android::base::Split(line, ",");
+      CHECK_EQ(values.size(), 2u) << "Currently only signature and one flag are supported";
+
+      const std::string& signature = values[0];
+      CHECK(api_flag_map.find(signature) == api_flag_map.end()) << "Duplicate entry: " << signature;
+
+      const std::string& flag_str = values[1];
+      hiddenapi::ApiList membership = hiddenapi::ApiList::FromName(flag_str);
+      CHECK_NE(membership, hiddenapi::ApiList::Invalid()) << "Unknown ApiList name: " << flag_str;
+
+      api_flag_map.emplace(signature, membership);
     }
+
     api_file.close();
+    return api_flag_map;
   }
 
   void ListApi() {
@@ -1081,9 +1076,7 @@ class HiddenApi final {
   std::vector<std::vector<std::string>> stub_classpaths_;
 
   // Paths to text files which contain the lists of API members.
-  std::string light_greylist_path_;
-  std::string dark_greylist_path_;
-  std::string blacklist_path_;
+  std::string api_list_path_;
 
   // Paths to text files to which we will output list of all API members.
   std::string out_public_path_;
