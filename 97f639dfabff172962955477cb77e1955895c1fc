@@ -97,6 +97,24 @@
       "revId": "97f639dfabff172962955477cb77e1955895c1fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00ebe7f2_376fccb1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-05T10:02:07Z",
+      "side": 1,
+      "message": "You did not (and cannot) keep it in the predicate for std::partition.",
+      "parentUuid": "06e221fc_276425aa",
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
