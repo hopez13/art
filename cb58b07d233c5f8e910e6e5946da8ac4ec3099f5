@@ -70,6 +70,30 @@
       "revId": "cb58b07d233c5f8e910e6e5946da8ac4ec3099f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04fe39b1_9f8a47c5",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-05T14:12:28Z",
+      "side": 1,
+      "message": "The method is in hiddenapi-light-greylist.txt:\n/work02/repos/google-aosp/out/target/common/obj/PACKAGING$ grep CRC32 hiddenapi*txt | grep \u0027update(II)I\u0027\nhiddenapi-light-greylist.txt:Ljava/util/zip/CRC32;-\u003eupdate(II)I\nhiddenapi-private-list.txt:Ljava/util/zip/CRC32;-\u003eupdate(II)I",
+      "parentUuid": "08e46fd2_e9aedffd",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 36
+      },
+      "revId": "cb58b07d233c5f8e910e6e5946da8ac4ec3099f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
