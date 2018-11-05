@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97994ae3_25f78404",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-05T21:40:14Z",
+      "side": 1,
+      "message": "Is there a guarded by lock for these? Can you comment on why they don\u0027t need to be atomic?",
+      "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
