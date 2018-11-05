@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c41543d_e661d4c0",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-05T08:27:23Z",
+      "side": 1,
+      "message": "blsmsk and blsr dont have support for long data types in 32 bit mode as these instructions always take 32 bit entity as input in 32 bit mode. Hence avoided this optimization if data type is long.",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
