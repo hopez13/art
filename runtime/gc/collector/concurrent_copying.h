@@ -359,6 +359,11 @@ class ConcurrentCopying : public GarbageCollector {
   Atomic<uint64_t> cumulative_bytes_moved_;
   Atomic<uint64_t> cumulative_objects_moved_;
 
+  // Average of percentage of live bytes copied from from-space to to-space.
+  float_t copy_live_ratio_average_ = 0;
+  // The number of GC counts, used for calculate the average above.
+  size_t gc_count_ = 0;
+
   // Generational "sticky", only trace through dirty objects in region space.
   const bool young_gen_;
   // If true, the GC thread is done scanning marked objects on dirty and aged
