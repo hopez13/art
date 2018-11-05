@@ -265,6 +265,19 @@ public class Main implements Runnable {
         }
     }
 
+    private final static class UnparkAllThreads extends Operation {
+        public UnparkAllThreads() {}
+
+        @Override
+        public boolean perform() {
+            Set<Thread> threads = Thread.getAllStackTraces().keySet();
+            for (Thread candidate : threads) {
+                LockSupport.unpark(candidate);
+            }
+            return true;
+        }
+    }
+
     private final static class SyncAndWork extends Operation {
         private final Object lock;
 
@@ -335,7 +348,8 @@ public class Main implements Runnable {
         frequencyMap.put(new StackTrace(), 0.1);              //  20/200
         frequencyMap.put(new Exit(), 0.225);                  //  45/200
         frequencyMap.put(new Sleep(), 0.075);                 //  15/200
-        frequencyMap.put(new TimedPark(), 0.05);              //  10/200
+        frequencyMap.put(new TimedPark(), 0.025);             //   5/200
+        frequencyMap.put(new UnparkAllThreads(), 0.025);      //   5/200
         frequencyMap.put(new TimedWait(lock), 0.05);          //  10/200
         frequencyMap.put(new Wait(lock), 0.075);              //  15/200
         frequencyMap.put(new QueuedWait(semaphore), 0.05);    //  10/200
@@ -357,9 +371,10 @@ public class Main implements Runnable {
       Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
       frequencyMap.put(new Sleep(), 0.2);                     //  40/200
       frequencyMap.put(new TimedWait(lock), 0.1);             //  20/200
-      frequencyMap.put(new Wait(lock), 0.2);                  //  40/200
+      frequencyMap.put(new Wait(lock), 0.1);                  //  20/200
       frequencyMap.put(new SyncAndWork(lock), 0.4);           //  80/200
       frequencyMap.put(new TimedPark(), 0.1);                 //  20/200
+      frequencyMap.put(new UnparkAllThreads(), 0.1);          //  20/200
 
       return frequencyMap;
     }
