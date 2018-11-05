@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "93a83509_276efcec",
+        "filename": "tools/timeout_dumper/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-05T16:29:26Z",
+      "side": 1,
+      "message": "I have null checks for both ::Create calls, so I don\u0027t know how I\u0027d get into that state.",
+      "parentUuid": "81906af6_c8a6f381",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b7e1598_e5d91ffb",
         "filename": "tools/timeout_dumper/timeout_dumper.cc",
         "patchSetId": 1
