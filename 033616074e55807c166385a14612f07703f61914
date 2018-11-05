@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "df6583f4_9c9bbc10",
+        "filename": "test/004-ThreadStress/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-11-05T19:11:16Z",
+      "side": 1,
+      "message": "In my version, I moved this logic into the Notifier thread, and had it just unpark every runner just like how it keeps notifying the lock. I think if you change this to only call getAllStackTraces it\u0027ll probably still exhibit the bug.",
+      "range": {
+        "startLine": 376,
+        "startChar": 27,
+        "endLine": 376,
+        "endChar": 43
+      },
+      "revId": "033616074e55807c166385a14612f07703f61914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aabc8869_757f4e29",
         "filename": "test/004-ThreadStress/src-art/Main.java",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2018-11-05T18:46:54Z",
       "side": 1,
       "message": "By the way, could you (Charles or Andreas) add new options here to support the new operations `TimedPark` and `UnparkAllThreads` (and also document them in the comment lines 37–57)?",
+      "revId": "033616074e55807c166385a14612f07703f61914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65cddc8_42d6b36f",
+        "filename": "test/004-ThreadStress/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1059543
+      },
+      "writtenOn": "2018-11-05T19:11:16Z",
+      "side": 1,
+      "message": "I\u0027ve now done this in my update to ThreadStress.",
+      "parentUuid": "aabc8869_757f4e29",
       "revId": "033616074e55807c166385a14612f07703f61914",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
