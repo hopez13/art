@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "986ab907_5b141ec9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Please replace with `float` (our coding style limits the use of `auto` to a reduced set of use cases).",
+      "range": {
+        "startLine": 2038,
+        "startChar": 6,
+        "endLine": 2038,
+        "endChar": 10
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae6cbd92_de1d9185",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2039,
+        "startChar": 6,
+        "endLine": 2039,
+        "endChar": 10
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71efec7e_b3724e5e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Could you add a comment explaining why these assertions are true in the case of a minor collection?",
+      "range": {
+        "startLine": 2055,
+        "startChar": 0,
+        "endLine": 2056,
+        "endChar": 48
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58bccfdd_771b7959",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "I\u0027d be more specific here:\n\n  copied live bytes ratio",
+      "range": {
+        "startLine": 3215,
+        "startChar": 28,
+        "endLine": 3215,
+        "endChar": 38
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6f9cc5c_d4293141",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3216,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Nit:\n\n  GCs",
+      "range": {
+        "startLine": 3216,
+        "startChar": 43,
+        "endLine": 3216,
+        "endChar": 45
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44ac4652_824e5e5f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3218,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3218,
+        "startChar": 28,
+        "endLine": 3218,
+        "endChar": 38
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c879a720_5f992e6e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3219,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3219,
+        "startChar": 43,
+        "endLine": 3219,
+        "endChar": 45
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7056ff4f_a0d9e28e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "This should be:\n\n  float\n\n(`float_t` is not used in the ART code base).",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 9
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63ed0131_8a701760",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Nit:\n\n  0.f",
+      "range": {
+        "startLine": 363,
+        "startChar": 37,
+        "endLine": 363,
+        "endChar": 38
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15d12383_f04fd588",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Instead of maintaining an average of the live-byte ratios, I think it would be better (for the sake of precision) to maintain two values:\n1. the sum of all copied live-bytes ratios (e.g. `copied_live_bytes_ratio_`);\n2. the number of times you added a value to the previous sum (you already have it: that\u0027s `gc_count_`).\n\nYou could then compute the average as:\n\n  float copied_live_bytes_ratio_average_ \u003d copied_live_bytes_ratio_ / gc_count_;\n\nin ConcurrentCopying::DumpPerformanceInfo.",
+      "range": {
+        "startLine": 363,
+        "startChar": 10,
+        "endLine": 363,
+        "endChar": 34
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2ef85c0_6051345d",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "I would add to the comment that this number does not take into account GCs where the `from_bytes` value is null.",
+      "range": {
+        "startLine": 364,
+        "startChar": 5,
+        "endLine": 364,
+        "endChar": 28
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e350416f_fb8fea4a",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 364,
+        "startChar": 35,
+        "endLine": 364,
+        "endChar": 38
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75bf55d6_712e0fce",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-05T14:58:04Z",
+      "side": 1,
+      "message": "Nit:\n\n  0u",
+      "range": {
+        "startLine": 365,
+        "startChar": 21,
+        "endLine": 365,
+        "endChar": 22
+      },
+      "revId": "8382b8236f72e332740c131f2bb8dddd4c2a3826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
