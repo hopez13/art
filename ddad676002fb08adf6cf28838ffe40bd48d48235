@@ -22,6 +22,30 @@
       "revId": "ddad676002fb08adf6cf28838ffe40bd48d48235",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42605117_204fabc5",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-05T14:09:55Z",
+      "side": 1,
+      "message": "Ok, done. I\u0027ve merged this with aosp/810674, so have addressed it there and will abandon this.",
+      "parentUuid": "7c59d85c_fb88f2c3",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 83
+      },
+      "revId": "ddad676002fb08adf6cf28838ffe40bd48d48235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
