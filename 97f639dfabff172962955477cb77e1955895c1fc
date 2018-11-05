@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "847eea39_b7f750e2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-05T13:23:39Z",
+      "side": 1,
+      "message": "For the sake of curiosity... is that true?\nI believe simple strcmp should work on proper utf8 strings.\nAnd it seems to me it should also work on mutf8 strings as long as they don\u0027t contain null.",
+      "parentUuid": "e864fcad_21573225",
+      "range": {
+        "startLine": 636,
+        "startChar": 13,
+        "endLine": 636,
+        "endChar": 19
+      },
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bedf091e_cd170c3e",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -112,6 +136,24 @@
       "side": 1,
       "message": "You did not (and cannot) keep it in the predicate for std::partition.",
       "parentUuid": "06e221fc_276425aa",
+      "revId": "97f639dfabff172962955477cb77e1955895c1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca150f0_4f1441f5",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-05T13:23:39Z",
+      "side": 1,
+      "message": "But I don\u0027t do strcmp in the predicate anymore.",
+      "parentUuid": "00ebe7f2_376fccb1",
       "revId": "97f639dfabff172962955477cb77e1955895c1fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
