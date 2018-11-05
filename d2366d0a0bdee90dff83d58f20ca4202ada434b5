@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fe6c05aa_043bd746",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-05T16:28:10Z",
+      "side": 1,
+      "message": "For the cost of an extra allocation (I don\u0027t trust that it can be optimized away).\n\nCan do it in a follow-up - this code is exactly the one in native_stack_dump.cc, I\u0027d like to keep it as-is for this CL.",
+      "parentUuid": "3b7e1598_e5d91ffb",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 32
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2ad0759_3cff6bb8",
         "filename": "tools/timeout_dumper/timeout_dumper.cc",
         "patchSetId": 1
@@ -92,6 +116,30 @@
       "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04802b99_06a9af38",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-05T16:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2ad0759_3cff6bb8",
+      "range": {
+        "startLine": 335,
+        "startChar": 36,
+        "endLine": 335,
+        "endChar": 40
+      },
+      "revId": "d2366d0a0bdee90dff83d58f20ca4202ada434b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
