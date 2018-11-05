@@ -22,6 +22,30 @@
       "revId": "cb58b07d233c5f8e910e6e5946da8ac4ec3099f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1851f2_d99cfc7f",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-05T14:05:06Z",
+      "side": 1,
+      "message": "It\u0027s light grey on my builds. Paul moved libcore to annotations:\n  https://android.googlesource.com/platform/libcore/+/master/ojluni/annotations/hiddenapi/java/util/zip/CRC32.java#61",
+      "parentUuid": "08e46fd2_e9aedffd",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 36
+      },
+      "revId": "cb58b07d233c5f8e910e6e5946da8ac4ec3099f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
