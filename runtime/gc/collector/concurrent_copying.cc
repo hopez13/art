@@ -2034,6 +2034,11 @@ void ConcurrentCopying::ReclaimPhase() {
     }
     CHECK_LE(to_objects, from_objects);
     CHECK_LE(to_bytes, from_bytes);
+    if (from_bytes > 0) {
+      copied_live_bytes_ratio_ += static_cast<float>(to_bytes)/from_bytes;
+      gc_count_++;
+    }
+
     // Cleared bytes and objects, populated by the call to RegionSpace::ClearFromSpace below.
     uint64_t cleared_bytes;
     uint64_t cleared_objects;
@@ -2044,6 +2049,12 @@ void ConcurrentCopying::ReclaimPhase() {
       // RegionSpace::ClearFromSpace may clear empty unevac regions.
       CHECK_GE(cleared_bytes, from_bytes);
       CHECK_GE(cleared_objects, from_objects);
+      // However, for minor GC unenvac regions are not collected, so they must
+      // be equal.
+      if (young_gen_) {
+        CHECK_EQ(cleared_bytes, from_bytes);
+        CHECK_EQ(cleared_objects, from_objects);
+      }
     }
     int64_t freed_bytes = cleared_bytes - to_bytes;
     int64_t freed_objects = cleared_objects - to_objects;
@@ -3199,6 +3210,13 @@ void ConcurrentCopying::DumpPerformanceInfo(std::ostream& os) {
   }
   if (rb_slow_path_count_gc_total_ > 0) {
     os << "GC slow path count " << rb_slow_path_count_gc_total_ << "\n";
+  }
+  if (young_gen_) {
+    os << "Average minor GC live ratio " << copied_live_bytes_ratio_/gc_count_
+       << " over " << gc_count_ << " minor GC\n";
+  } else {
+    os << "Average major GC live ratio " << copied_live_bytes_ratio_/gc_count_
+       << " over " << gc_count_ << " major GC\n";
   }
   os << "Cumulative bytes moved "
      << cumulative_bytes_moved_.load(std::memory_order_relaxed) << "\n";
