@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08e46fd2_e9aedffd",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-05T13:47:42Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s correct. The method is private and not in any list, AFAICS?",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 36
+      },
+      "revId": "cb58b07d233c5f8e910e6e5946da8ac4ec3099f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
