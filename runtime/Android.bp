@@ -398,6 +398,7 @@ libart_cc_defaults {
         "liblog",
         // For atrace, properties, ashmem, set_sched_policy.
         "libcutils",
+        "libprocessgroup",
         // For common macros.
         "libbase",
     ],
