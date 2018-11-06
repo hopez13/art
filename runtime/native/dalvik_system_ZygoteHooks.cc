@@ -78,10 +78,13 @@ static void EnableDebugger() {
 #endif
   // We don't want core dumps, though, so set the core dump size to 0.
   rlimit rl;
-  rl.rlim_cur = 0;
-  rl.rlim_max = RLIM_INFINITY;
-  if (setrlimit(RLIMIT_CORE, &rl) == -1) {
-    PLOG(ERROR) << "setrlimit(RLIMIT_CORE) failed for pid " << getpid();
+  if (getrlimit(RLIMIT_CORE, &rl) == -1) {
+    PLOG(ERROR) << "getrlimit(RLIMIT_CORE) failed for pid " << getpid();
+  } else {
+    rl.rlim_cur = 0;
+    if (setrlimit(RLIMIT_CORE, &rl) == -1) {
+      PLOG(ERROR) << "setrlimit(RLIMIT_CORE) failed for pid " << getpid();
+    }
   }
 }
 
