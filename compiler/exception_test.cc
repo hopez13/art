@@ -17,6 +17,7 @@
 #include <memory>
 #include <type_traits>
 
+#include "art_method-inl.h"
 #include "base/arena_allocator.h"
 #include "base/callee_save_type.h"
 #include "base/enums.h"
