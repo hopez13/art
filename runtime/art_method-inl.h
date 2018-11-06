@@ -31,6 +31,7 @@
 #include "dex/invoke_type.h"
 #include "dex/primitive.h"
 #include "gc_root-inl.h"
+#include "imtable-inl.h"
 #include "intrinsics_enum.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
@@ -573,6 +574,32 @@ inline CodeItemDataAccessor ArtMethod::DexInstructionData() {
 
 inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
   return CodeItemDebugInfoAccessor(*GetDexFile(), GetCodeItem(), GetDexMethodIndex());
+}
+
+inline uint32_t ArtMethod::GetCodeItemOffset() {
+  return UNLIKELY(IsAbstract()) ? 0 : dex_code_item_offset_;
+}
+
+inline void ArtMethod::SetCodeItemOffset(uint32_t new_code_off) {
+  DCHECK(!IsAbstract() || new_code_off == 0);  // Abstract methods must not have code.
+  dex_code_item_offset_ = new_code_off;
+}
+
+inline uint32_t ArtMethod::GetImtIndex() {
+  uint32_t index = imt_index_;
+  if (LIKELY(IsAbstract() && (index & kHasImtIndex) != 0)) {
+    index &= ~kHasImtIndex;
+    DCHECK_EQ(index, ImTable::GetImtIndex(this));
+    return index;
+  } else {
+    return ImTable::GetImtIndex(this);
+  }
+}
+
+inline void ArtMethod::SetImtIndex() {
+  DCHECK(GetDeclaringClass()->IsInterface());  // IMT index is only ever needed for interfaces.
+  DCHECK(IsAbstract());  // We can use the field only if code item offset is not used.
+  imt_index_ = ImTable::GetImtIndex(this) | kHasImtIndex;
 }
 
 }  // namespace art

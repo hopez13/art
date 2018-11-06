@@ -3456,7 +3456,6 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   ScopedAssertNoThreadSuspension ants("LoadMethod");
   dst->SetDexMethodIndex(dex_method_idx);
   dst->SetDeclaringClass(klass.Get());
-  dst->SetCodeItemOffset(method.GetCodeItemOffset());
 
   // Get access flags from the DexFile. If this is a boot class path class,
   // also set its runtime hidden API access flags.
@@ -3506,6 +3505,11 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
         dex_file, dst->GetClassDef(), dex_method_idx);
   }
   dst->SetAccessFlags(access_flags);
+  if (klass->IsInterface() && dst->IsAbstract()) {
+    dst->SetImtIndex();
+  } else {
+    dst->SetCodeItemOffset(method.GetCodeItemOffset());
+  }
 }
 
 void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile& dex_file) {
@@ -6593,7 +6597,7 @@ void ClassLinker::FillIMTFromIfTable(ObjPtr<mirror::IfTable> if_table,
       // or interface methods in the IMT here they will not create extra conflicts since we compare
       // names and signatures in SetIMTRef.
       ArtMethod* interface_method = interface->GetVirtualMethod(j, image_pointer_size_);
-      const uint32_t imt_index = ImTable::GetImtIndex(interface_method);
+      const uint32_t imt_index = interface_method->GetImtIndex();
 
       // There is only any conflicts if all of the interface methods for an IMT slot don't have
       // the same implementation method, keep track of this to avoid creating a conflict table in
@@ -6647,7 +6651,7 @@ void ClassLinker::FillIMTFromIfTable(ObjPtr<mirror::IfTable> if_table,
         }
         DCHECK(implementation_method != nullptr);
         ArtMethod* interface_method = interface->GetVirtualMethod(j, image_pointer_size_);
-        const uint32_t imt_index = ImTable::GetImtIndex(interface_method);
+        const uint32_t imt_index = interface_method->GetImtIndex();
         if (!imt[imt_index]->IsRuntimeMethod() ||
             imt[imt_index] == unimplemented_method ||
             imt[imt_index] == imt_conflict_method) {
@@ -7573,7 +7577,7 @@ bool ClassLinker::LinkInterfaceMethods(
         auto* interface_method = iftable->GetInterface(i)->GetVirtualMethod(j, image_pointer_size_);
         MethodNameAndSignatureComparator interface_name_comparator(
             interface_method->GetInterfaceMethodIfProxy(image_pointer_size_));
-        uint32_t imt_index = ImTable::GetImtIndex(interface_method);
+        uint32_t imt_index = interface_method->GetImtIndex();
         ArtMethod** imt_ptr = &out_imt[imt_index];
         // For each method listed in the interface's method list, find the
         // matching method in our class's method list.  We want to favor the
