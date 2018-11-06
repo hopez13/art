@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da6d1f53_03270831",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2057,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-06T13:21:42Z",
+      "side": 1,
+      "message": "Yes, you are right.",
+      "parentUuid": "98aec403_589c19cf",
+      "range": {
+        "startLine": 2052,
+        "startChar": 4,
+        "endLine": 2057,
+        "endChar": 7
+      },
+      "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97994ae3_25f78404",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5ad999d_e9d3a4b9",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-06T13:21:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97994ae3_25f78404",
+      "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
