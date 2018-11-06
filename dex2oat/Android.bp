@@ -72,9 +72,6 @@ art_cc_defaults {
     shared_libs: [
         "libbase",
     ],
-    include_dirs: [
-        "external/zlib",
-    ],
     export_include_dirs: ["."],
 
     // For SHA-1 checksumming of build ID
@@ -399,9 +396,6 @@ art_cc_test {
     },
 
     header_libs: ["dex2oat_headers"],
-    include_dirs: [
-        "external/zlib",
-    ],
     shared_libs: [
         "libartbased",
         "libartd-compiler",
@@ -409,7 +403,6 @@ art_cc_test {
         "libbase",
         "libprofiled",
         "libsigchain",
-        "libziparchive",
     ],
     static_libs: [
         "libartd-dex2oat",
