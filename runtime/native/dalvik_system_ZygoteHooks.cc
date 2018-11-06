@@ -397,6 +397,11 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     return;
   }
 
+  // b/119063276.
+#if defined(__i386__) || defined(__x86_64__)
+  Runtime::Current()->GetJITOptions()->SetUseJitCompilation(false);
+#endif
+
   if (instruction_set != nullptr && !is_system_server) {
     ScopedUtfChars isa_string(env, instruction_set);
     InstructionSet isa = GetInstructionSetFromString(isa_string.c_str());
