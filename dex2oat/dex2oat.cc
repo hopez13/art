@@ -299,6 +299,12 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("      Example: --instruction-set-features=div");
   UsageError("      Default: default");
   UsageError("");
+  UsageError("  --instruction-set-features-runtime-detection: Use runtime detection of");
+  UsageError("      instruction set features. If it is supported by a target");
+  UsageError("      it will be used instead of other options specifying instruction set");
+  UsageError("      features.");
+  UsageError("      Note: the option has no effect if it is used on a host.");
+  UsageError("");
   UsageError("  --compiler-backend=(Quick|Optimizing): select compiler backend");
   UsageError("      set.");
   UsageError("      Example: --compiler-backend=Optimizing");
@@ -875,14 +881,19 @@ class Dex2Oat final {
       oat_unstripped_ = std::move(parser_options->oat_symbols);
     }
 
-    // If no instruction set feature was given, use the default one for the target
-    // instruction set.
-    if (compiler_options_->instruction_set_features_.get() == nullptr) {
-      compiler_options_->instruction_set_features_ = InstructionSetFeatures::FromVariant(
-          compiler_options_->instruction_set_, "default", &parser_options->error_msg);
+    if (compiler_options_->instruction_set_features_ == nullptr) {
+      // '--instruction-set-features/--instruction-set-variant' were not used.
+      // Try to get features from runtime detection or use features for the
+      // 'default' variant if the runtime detection is not supported.
+      compiler_options_->instruction_set_features_ =
+          InstructionSetFeatures::FromRuntimeDetection();
       if (compiler_options_->instruction_set_features_ == nullptr) {
-        Usage("Problem initializing default instruction set features variant: %s",
-              parser_options->error_msg.c_str());
+        compiler_options_->instruction_set_features_ = InstructionSetFeatures::FromVariant(
+            compiler_options_->instruction_set_, "default", &parser_options->error_msg);
+        if (compiler_options_->instruction_set_features_ == nullptr) {
+          Usage("Problem initializing default instruction set features variant: %s",
+                parser_options->error_msg.c_str());
+        }
       }
     }
 
@@ -890,9 +901,9 @@ class Dex2Oat final {
       std::unique_ptr<const InstructionSetFeatures> runtime_features(
           InstructionSetFeatures::FromCppDefines());
       if (!compiler_options_->GetInstructionSetFeatures()->Equals(runtime_features.get())) {
-        LOG(WARNING) << "Mismatch between dex2oat instruction set features ("
+        LOG(WARNING) << "Mismatch between dex2oat instruction set features to use ("
             << *compiler_options_->GetInstructionSetFeatures()
-            << ") and those of dex2oat executable (" << *runtime_features
+            << ") and those from CPP defines (" << *runtime_features
             << ") for the command line:\n" << CommandLine();
       }
     }
@@ -1131,11 +1142,20 @@ class Dex2Oat final {
     if (args.Exists(M::Base)) {
       ParseBase(*args.Get(M::Base));
     }
-    if (args.Exists(M::TargetInstructionSetVariant)) {
-      ParseInstructionSetVariant(*args.Get(M::TargetInstructionSetVariant), parser_options.get());
+    if (kIsTargetBuild && args.Exists(M::TargetInstructionSetFeaturesRuntimeDetection)) {
+      compiler_options_->instruction_set_features_ =
+          InstructionSetFeatures::FromRuntimeDetection();
     }
-    if (args.Exists(M::TargetInstructionSetFeatures)) {
-      ParseInstructionSetFeatures(*args.Get(M::TargetInstructionSetFeatures), parser_options.get());
+
+    if (compiler_options_->instruction_set_features_ == nullptr) {
+      if (args.Exists(M::TargetInstructionSetVariant)) {
+        ParseInstructionSetVariant(*args.Get(M::TargetInstructionSetVariant),
+                                   parser_options.get());
+      }
+      if (args.Exists(M::TargetInstructionSetFeatures)) {
+        ParseInstructionSetFeatures(*args.Get(M::TargetInstructionSetFeatures),
+                                    parser_options.get());
+      }
     }
     if (args.Exists(M::ClassLoaderContext)) {
       std::string class_loader_context_arg = *args.Get(M::ClassLoaderContext);

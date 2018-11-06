@@ -161,4 +161,29 @@ TEST(InstructionSetFeaturesTest, FeaturesFromAssembly) {
       << "\nFeatures from build: " << *instruction_set_features.get();
 }
 
+TEST(InstructionSetFeaturesTest, IsRuntimeDetectionSupported) {
+  if (kRuntimeISA == InstructionSet::kArm64) {
+    EXPECT_TRUE(InstructionSetFeatures::IsRuntimeDetectionSupported());
+  }
+}
+
+TEST(InstructionSetFeaturesTest, FeaturesFromRuntimeDetection) {
+  if (kRuntimeISA == InstructionSet::kArm64) {
+    std::unique_ptr<const InstructionSetFeatures> hwcap_features(
+        InstructionSetFeatures::FromHwcap());
+    std::unique_ptr<const InstructionSetFeatures> runtime_detected_features(
+        InstructionSetFeatures::FromRuntimeDetection());
+    std::unique_ptr<const InstructionSetFeatures> cpp_defined_features(
+        InstructionSetFeatures::FromCppDefines());
+    EXPECT_NE(runtime_detected_features, nullptr);
+    EXPECT_TRUE(InstructionSetFeatures::IsRuntimeDetectionSupported());
+    EXPECT_TRUE(runtime_detected_features->Equals(hwcap_features.get()));
+    EXPECT_TRUE(runtime_detected_features->HasAtLeast(cpp_defined_features.get()));
+  }
+
+  if (!InstructionSetFeatures::IsRuntimeDetectionSupported()) {
+    EXPECT_EQ(InstructionSetFeatures::FromRuntimeDetection(), nullptr);
+  }
+}
+
 }  // namespace art

@@ -110,6 +110,20 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromCppDef
   UNREACHABLE();
 }
 
+bool InstructionSetFeatures::IsRuntimeDetectionSupported() {
+  return FromRuntimeDetection() != nullptr;
+}
+
+std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromRuntimeDetection() {
+  switch (kRuntimeISA) {
+#ifdef ART_TARGET_ANDROID
+    case InstructionSet::kArm64:
+      return Arm64InstructionSetFeatures::FromHwcap();
+#endif
+    default:
+      return nullptr;
+  }
+}
 
 std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromCpuInfo() {
   switch (kRuntimeISA) {

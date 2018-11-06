@@ -71,6 +71,7 @@ void JitCompiler::ParseCompilerOptions() {
     DCHECK_EQ(instruction_set, kRuntimeISA);
   }
   std::unique_ptr<const InstructionSetFeatures> instruction_set_features;
+  std::unique_ptr<const InstructionSetFeatures> runtime_detected_isa_features;
   for (const StringPiece option : runtime->GetCompilerOptions()) {
     VLOG(compiler) << "JIT compiler option " << option;
     std::string error_msg;
@@ -97,10 +98,23 @@ void JitCompiler::ParseCompilerOptions() {
       if (instruction_set_features == nullptr) {
         LOG(WARNING) << "Error parsing " << option << " message=" << error_msg;
       }
+    } else if (option.starts_with("--instruction-set-features-runtime-detection")) {
+      runtime_detected_isa_features = InstructionSetFeatures::FromRuntimeDetection();
     }
   }
-  if (instruction_set_features == nullptr) {
-    instruction_set_features = InstructionSetFeatures::FromCppDefines();
+
+  if (runtime_detected_isa_features != nullptr) {
+    // Runtime detected features have higher priority as they are more
+    // precise than build-time definitions.
+    instruction_set_features = std::move(runtime_detected_isa_features);
+  } else if (instruction_set_features == nullptr) {
+    // '--instruction-set-features/--instruction-set-variant' were not used.
+    // Try to get features from runtime detection or use built-time defined
+    // features if the runtime detection is not supported.
+    instruction_set_features = InstructionSetFeatures::FromRuntimeDetection();
+    if (instruction_set_features == nullptr) {
+      instruction_set_features = InstructionSetFeatures::FromCppDefines();
+    }
   }
   compiler_options_->instruction_set_features_ = std::move(instruction_set_features);
   compiler_options_->compiling_with_core_image_ =

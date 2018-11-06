@@ -48,6 +48,18 @@ class InstructionSetFeatures {
   // Turn C pre-processor #defines into the equivalent instruction set features for kRuntimeISA.
   static std::unique_ptr<const InstructionSetFeatures> FromCppDefines();
 
+  // Check if runtime detection of instruction set features is supported.
+  //
+  // Return: true - if runtime detection is supported on a target device.
+  //         false - otherwise
+  static bool IsRuntimeDetectionSupported();
+
+  // Use runtime detection to get instruction set features.
+  //
+  // Return: a set of detected features or nullptr if runtime detection is not
+  //         supported on a target.
+  static std::unique_ptr<const InstructionSetFeatures> FromRuntimeDetection();
+
   // Process /proc/cpuinfo and use kRuntimeISA to produce InstructionSetFeatures.
   static std::unique_ptr<const InstructionSetFeatures> FromCpuInfo();
 

@@ -183,7 +183,9 @@ static void AddTargetMappings(Builder& builder) {
           .IntoKey(M::TargetInstructionSetVariant)
       .Define("--instruction-set-features=_")
           .WithType<std::string>()
-          .IntoKey(M::TargetInstructionSetFeatures);
+          .IntoKey(M::TargetInstructionSetFeatures)
+      .Define("--instruction-set-features-runtime-detection")
+          .IntoKey(M::TargetInstructionSetFeaturesRuntimeDetection);
 }
 
 static Parser CreateArgumentParser() {
