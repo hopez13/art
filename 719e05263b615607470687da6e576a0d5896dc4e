@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ecb1c64_32f0162b",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-06T16:23:43Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "715f1258_1238fa77",
+      "range": {
+        "startLine": 2763,
+        "startChar": 13,
+        "endLine": 2763,
+        "endChar": 17
+      },
+      "revId": "719e05263b615607470687da6e576a0d5896dc4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d736bea1_85eb292a",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "719e05263b615607470687da6e576a0d5896dc4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "659da672_d215cbb6",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-06T16:23:43Z",
+      "side": 1,
+      "message": "Yes, but we have OPCODE here, which is still compile-time constant.",
+      "parentUuid": "d736bea1_85eb292a",
+      "range": {
+        "startLine": 2768,
+        "startChar": 8,
+        "endLine": 2768,
+        "endChar": 78
+      },
+      "revId": "719e05263b615607470687da6e576a0d5896dc4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
