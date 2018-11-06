@@ -71,6 +71,33 @@ cc_defaults {
         // For common macros.
         "libbase",
     ],
+
+    // Utilities used by various ART libs and tools are linked in statically
+    // here to avoid shared lib dependencies outside the ART APEX. No target
+    // there should depend on these separately.
+    whole_static_libs: [
+        "liblz4",
+        "liblzma",
+    ],
+
+    // Exclude the version script from Darwin host since it's not supported by
+    // the linker there. That means ASan checks on Darwin might trigger ODR
+    // violations.
+    target: {
+        android: {
+            version_script: "libartbase.map",
+        },
+        host: {
+            version_script: "libartbase.map",
+        },
+        linux_glibc: {
+            version_script: "libartbase.map",
+        },
+        windows: {
+            version_script: "libartbase.map",
+        },
+    },
+
     export_include_dirs: ["."],
     // ART's macros.h depends on libbase's macros.h.
     // Note: runtime_options.h depends on cmdline. But we don't really want to export this
