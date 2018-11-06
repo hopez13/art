@@ -283,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "9e120c7d_b4889fdd",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Sorry, I misread the code.",
+      "parentUuid": "303d6bd0_c5509172",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 68
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9a4c8e_ee4d6074",
         "filename": "compiler/optimizing/instruction_simplifier_x86_64.cc",
         "patchSetId": 2
@@ -362,6 +386,30 @@
       "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff75605_9a76bd4e",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba9e55fb_fbce66c5",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 71
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -710,6 +758,23 @@
         "endLine": 586,
         "endChar": 59
       },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "314e4d7e_8a4726cc",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Why are you removing this? (It has already been merged in its own CL.)",
       "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

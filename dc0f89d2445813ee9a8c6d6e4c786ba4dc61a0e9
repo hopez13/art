@@ -2,6 +2,109 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d4e59ee_8d4578e0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf8defb_7d70025e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Do not break between the parameter type and name. In this case, put the entire parameter on a new line with 4 space indentation.",
+      "range": {
+        "startLine": 7452,
+        "startChar": 57,
+        "endLine": 7453,
+        "endChar": 68
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f023119f_7a158506",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 7461,
+        "startChar": 65,
+        "endLine": 7462,
+        "endChar": 76
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1fa5f8e_9a8c405b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "DCHECK() that the type is Int32.",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b959f5d8_78386e1f",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c41543d_e661d4c0",
         "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
         "patchSetId": 4
@@ -18,6 +121,275 @@
         "startChar": 2,
         "endLine": 71,
         "endChar": 61
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169012c1_fa69ec91",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Missing braces, please reformat. Either\n\n  if (...) {\n    if (...) {\n    }\n  }\n\nor\n\n  if (... \u0026\u0026\n      ...) {\n  }",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "312233ab_fed6e0e8",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "This fits on one 100-character line. (When it doesn\u0027t, we would write one parameter per line.)",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b32ad4_5eb5e3b5",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "This fits on one line. (When it doesn\u0027t, we break after the \u0027\u003d\u0027.)",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76fff48d_da7c772c",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "One parameter per line.",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 45
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9da73216_cbfb3779",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Break after \u0027\u003d\u0027.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ad082cb_8e3b9a4e",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Break after the \u0027\u003d\u0027 and put the entire `new` expression on the next line.",
+      "range": {
+        "startLine": 44,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 64
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de374e3c_27c1376c",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Break after the \u0027\u003d\u0027 or after the constructor\u0027s opening \u0027(\u0027. Put all args in one line or one arg per line.",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 72
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49ed407_a342dd21",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "This means you shall miss an optimization opportunity with Sub if the input is an Add.\n\n  x \u003d a + b\n  y \u003d x ^ (x-1)  // with Sub.\n\n(Though this would usually happen only after inlining because the x-1 is likely to use the add-int/lit8 bytecode.)",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 200,
+        "endChar": 9
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3eb4a9_b7a5c709",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "There is a lot of code duplication. Can you refactor it, please? I\u0027d use this helper:\n\n  bool AreLeastBitSetInputs(HInstruction* to_test, HInstrution* other) {\n    if (to_test-\u003eIsAdd()) {\n      HInstruction* add \u003d to_test-\u003eAsAdd();\n      HConstant* cst \u003d sub-\u003eGetConstantRight();\n      return cst !\u003d nullptr \u0026\u0026 cst-\u003eIsMinusOne() \u0026\u0026 other \u003d\u003d sub-\u003eGetLeastConstantLeft();\n    }\n    if (to_test-\u003eIsSub()) {\n      // ...\n    }\n    return false;\n  }",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc4aabbe_5065670d",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Add copyright header (copy from art/test/001-Main/src/Main.java, change year to 2018).",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "085952a3_e4ec7506",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Add indentation to methods.",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97215976_1e4603d2",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Add blank line between methods.",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dcfe44d_6d7b1314",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T16:44:46Z",
+      "side": 1,
+      "message": "Remove trailing whitespace.",
+      "range": {
+        "startLine": 111,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 39
       },
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
