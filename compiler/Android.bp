@@ -459,10 +459,6 @@ art_cc_test {
         "libnativeloader",
     ],
 
-    include_dirs: [
-        "external/zlib",
-    ],
-
     target: {
         host: {
             shared_libs: [

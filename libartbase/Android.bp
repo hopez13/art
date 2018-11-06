@@ -47,23 +47,14 @@ cc_defaults {
         "base/utils.cc",
         "base/zip_archive.cc",
     ],
+    // Exclude the version script from Darwin host since it's not supported by
+    // the linker there. That means ASan checks on Darwin might trigger ODR
+    // violations.
     target: {
         android: {
-            static_libs: [
-                // ZipArchive support, the order matters here to get all symbols.
-                "libziparchive",
-                "libz",
-            ],
-            // Exclude the version script from Darwin host since it's not
-            // supported by the linker there. That means ASan checks on Darwin
-            // might trigger ODR violations.
             version_script: "libartbase.map",
         },
         host: {
-            shared_libs: [
-                "libziparchive",
-                "libz",
-            ],
             version_script: "libartbase.map",
         },
         linux_glibc: {
@@ -89,6 +80,9 @@ cc_defaults {
     whole_static_libs: [
         "liblz4",
         "liblzma",
+        // ZipArchive support, the order matters here to get all symbols.
+        "libziparchive",
+        "libz",
     ],
 
     export_include_dirs: ["."],
@@ -104,8 +98,6 @@ cc_defaults {
         "libbase",
         "libcutils",
         "liblog",
-        "libz",
-        "libziparchive",
     ],
 }
 
@@ -144,7 +136,6 @@ art_cc_library {
     },
     shared_libs: [
         "libbase",
-        "libziparchive",
     ],
     export_shared_lib_headers: ["libbase"],
 }
@@ -155,11 +146,6 @@ art_cc_library {
         "art_debug_defaults",
         "libartbase_defaults",
     ],
-    shared_libs: [
-        "libbase",
-        "libziparchive",
-    ],
-    export_shared_lib_headers: ["libbase"],
 }
 
 art_cc_library {
