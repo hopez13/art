@@ -47,21 +47,6 @@ cc_defaults {
         "base/utils.cc",
         "base/zip_archive.cc",
     ],
-    target: {
-        android: {
-            static_libs: [
-                // ZipArchive support, the order matters here to get all symbols.
-                "libziparchive",
-                "libz",
-            ],
-        },
-        host: {
-            shared_libs: [
-                "libziparchive",
-                "libz",
-            ],
-        },
-    },
     generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
@@ -78,6 +63,9 @@ cc_defaults {
     whole_static_libs: [
         "liblz4",
         "liblzma",
+        // ZipArchive support, the order matters here to get all symbols.
+        "libziparchive",
+        "libz",
     ],
     version_script: "libartbase.map",
 
@@ -94,8 +82,6 @@ cc_defaults {
         "libbase",
         "libcutils",
         "liblog",
-        "libz",
-        "libziparchive",
     ],
 }
 
@@ -134,7 +120,6 @@ art_cc_library {
     },
     shared_libs: [
         "libbase",
-        "libziparchive",
     ],
     export_shared_lib_headers: ["libbase"],
 }
@@ -145,11 +130,6 @@ art_cc_library {
         "art_debug_defaults",
         "libartbase_defaults",
     ],
-    shared_libs: [
-        "libbase",
-        "libziparchive",
-    ],
-    export_shared_lib_headers: ["libbase"],
 }
 
 art_cc_library {
