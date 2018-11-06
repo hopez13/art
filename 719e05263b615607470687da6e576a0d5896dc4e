@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "715f1258_1238fa77",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T15:32:54Z",
+      "side": 1,
+      "message": "Maybe \u0027exit_loop\u0027?",
+      "range": {
+        "startLine": 2763,
+        "startChar": 13,
+        "endLine": 2763,
+        "endChar": 17
+      },
+      "revId": "719e05263b615607470687da6e576a0d5896dc4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d736bea1_85eb292a",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-06T15:32:54Z",
+      "side": 1,
+      "message": "Handlers know the size of the instruction but here we would have to caclulate it based on the opcode.",
+      "range": {
+        "startLine": 2768,
+        "startChar": 8,
+        "endLine": 2768,
+        "endChar": 78
+      },
+      "revId": "719e05263b615607470687da6e576a0d5896dc4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
