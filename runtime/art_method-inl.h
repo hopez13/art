@@ -31,6 +31,7 @@
 #include "dex/invoke_type.h"
 #include "dex/primitive.h"
 #include "gc_root-inl.h"
+#include "imtable-inl.h"
 #include "intrinsics_enum.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
@@ -573,6 +574,29 @@ inline CodeItemDataAccessor ArtMethod::DexInstructionData() {
 
 inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
   return CodeItemDebugInfoAccessor(*GetDexFile(), GetCodeItem(), GetDexMethodIndex());
+}
+
+inline void ArtMethod::SetCodeItemOffsetOrImtIndex(uint32_t new_code_off) {
+  if (IsAbstract()) {
+    DCHECK(new_code_off == 0) << PrettyMethod(this);
+    imt_index_ = ImTable::GetImtIndex(this);
+  } else {
+    dex_code_item_offset_ = new_code_off;
+  }
+}
+
+inline uint32_t ArtMethod::GetCodeItemOffset() {
+  return IsAbstract() ? 0 : dex_code_item_offset_;
+}
+
+inline uint32_t ArtMethod::GetImtIndex() {
+  if (LIKELY(IsAbstract())) {
+    DCHECK_EQ(imt_index_, ImTable::GetImtIndex(this)) << PrettyMethod(this);
+    return imt_index_;
+  } else {
+    // We don't have the hash cached for default interface methods - calculate it.
+    return ImTable::GetImtIndex(this);
+  }
 }
 
 }  // namespace art

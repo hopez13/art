@@ -376,14 +376,13 @@ class ArtMethod final {
     return MemberOffset(OFFSETOF_MEMBER(ArtMethod, method_index_));
   }
 
-  uint32_t GetCodeItemOffset() {
-    return dex_code_item_offset_;
-  }
+  ALWAYS_INLINE uint32_t GetCodeItemOffset();
 
-  void SetCodeItemOffset(uint32_t new_code_off) {
-    // Not called within a transaction.
-    dex_code_item_offset_ = new_code_off;
-  }
+  ALWAYS_INLINE void SetCodeItemOffsetOrImtIndex(uint32_t new_code_off)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE uint32_t GetImtIndex()
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Number of 32bit registers that would be required to hold all the arguments
   static size_t NumArgRegisters(const StringPiece& shorty);
@@ -761,8 +760,12 @@ class ArtMethod final {
 
   /* Dex file fields. The defining dex file is available via declaring_class_->dex_cache_ */
 
-  // Offset to the CodeItem.
-  uint32_t dex_code_item_offset_;
+  union {
+    // Non-abstract methods: Offset to the CodeItem.
+    uint32_t dex_code_item_offset_;
+    // Abstract methods: Cached IMT index of the interface method.
+    uint32_t imt_index_;
+  };
 
   // Index into method_ids of the dex file associated with this method.
   uint32_t dex_method_index_;
