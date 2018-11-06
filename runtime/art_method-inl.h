@@ -31,6 +31,7 @@
 #include "dex/invoke_type.h"
 #include "dex/primitive.h"
 #include "gc_root-inl.h"
+#include "imtable-inl.h"
 #include "intrinsics_enum.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
@@ -573,6 +574,19 @@ inline CodeItemDataAccessor ArtMethod::DexInstructionData() {
 
 inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
   return CodeItemDebugInfoAccessor(*GetDexFile(), GetCodeItem(), GetDexMethodIndex());
+}
+
+inline uint32_t ArtMethod::GetImtIndex() {
+  if (LIKELY(IsAbstract())) {
+    constexpr uint32_t kHasCachedValue = 1 << 31;
+    if (UNLIKELY((imt_index_ & kHasCachedValue) == 0)) {
+      imt_index_ = ImTable::GetImtIndex(this) | kHasCachedValue;
+    }
+    return imt_index_ & ~kHasCachedValue;
+  } else {
+    // Default methods of interfaces are not abstract.
+    return ImTable::GetImtIndex(this);
+  }
 }
 
 }  // namespace art

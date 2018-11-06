@@ -531,12 +531,7 @@ ALWAYS_INLINE ArtMethod* FindMethodToCall(uint32_t method_idx,
       UNREACHABLE();
     }
     case kInterface: {
-      size_t imt_index;
-      InterpreterCache* tls_cache = self->GetInterpreterCache();
-      if (UNLIKELY(!tls_cache->Get(resolved_method, &imt_index))) {
-        imt_index = ImTable::GetImtIndex(resolved_method);
-        tls_cache->Set(resolved_method, imt_index);
-      }
+      size_t imt_index = resolved_method->GetImtIndex();
       DCHECK_EQ(imt_index, ImTable::GetImtIndex(resolved_method));
       PointerSize pointer_size = class_linker->GetImagePointerSize();
       ObjPtr<mirror::Class> klass = (*this_object)->GetClass();

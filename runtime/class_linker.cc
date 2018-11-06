@@ -3459,7 +3459,6 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   ScopedAssertNoThreadSuspension ants("LoadMethod");
   dst->SetDexMethodIndex(dex_method_idx);
   dst->SetDeclaringClass(klass.Get());
-  dst->SetCodeItemOffset(method.GetCodeItemOffset());
 
   // Get access flags from the DexFile. If this is a boot class path class,
   // also set its runtime hidden API access flags.
@@ -3468,6 +3467,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     access_flags = hiddenapi::EncodeForRuntime(
         access_flags, static_cast<hiddenapi::ApiList>(method.GetHiddenapiFlags()));
   }
+  dst->SetCodeItemOffset(method.GetCodeItemOffset());
 
   if (UNLIKELY(strcmp("finalize", method_name) == 0)) {
     // Set finalizable flag on declaring class.
