@@ -5,6 +5,7 @@
 # sections.
 LIBARTBASE {
   local:
+    # liblzma
     PPMD7_kExpEscape;
     XZ_SIG;
     g_AlignedAlloc;
@@ -12,4 +13,29 @@ LIBARTBASE {
     g_BigAlloc;
     g_MidAlloc;
     k7zSignature;
+    # libz
+    _dist_code;
+    _length_code;
+    deflate_copyright;
+    inflate_copyright;
+    z_errmsg;
+    # libziparchive
+    _ZTI21ZipArchiveStreamEntry;
+    _ZTI31ZipArchiveStreamEntryCompressed;
+    _ZTI33ZipArchiveStreamEntryUncompressed;
+    _ZTI34ZipArchiveStreamEntryRawCompressed;
+    _ZTIN11zip_archive6ReaderE;
+    _ZTIN11zip_archive6WriterE;
+    _ZTS21ZipArchiveStreamEntry;
+    _ZTS31ZipArchiveStreamEntryCompressed;
+    _ZTS33ZipArchiveStreamEntryUncompressed;
+    _ZTS34ZipArchiveStreamEntryRawCompressed;
+    _ZTSN11zip_archive6ReaderE;
+    _ZTSN11zip_archive6WriterE;
+    _ZTV21ZipArchiveStreamEntry;
+    _ZTV31ZipArchiveStreamEntryCompressed;
+    _ZTV33ZipArchiveStreamEntryUncompressed;
+    _ZTV34ZipArchiveStreamEntryRawCompressed;
+    _ZTVN11zip_archive6ReaderE;
+    _ZTVN11zip_archive6WriterE;
 };
