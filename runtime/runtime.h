@@ -56,7 +56,6 @@ enum class EnforcementPolicy;
 
 namespace jit {
 class Jit;
-class JitCodeCache;
 class JitOptions;
 }  // namespace jit
 
@@ -615,8 +614,6 @@ class Runtime {
     return (experimental_flags_ & flags) != ExperimentalFlags::kNone;
   }
 
-  void CreateJitCodeCache(bool rwx_memory_allowed);
-
   // Create the JIT and instrumentation and code cache.
   void CreateJit();
 
@@ -909,7 +906,6 @@ class Runtime {
   std::unique_ptr<JavaVMExt> java_vm_;
 
   std::unique_ptr<jit::Jit> jit_;
-  std::unique_ptr<jit::JitCodeCache> jit_code_cache_;
   std::unique_ptr<jit::JitOptions> jit_options_;
 
   // Fault message, printed when we get a SIGSEGV.
