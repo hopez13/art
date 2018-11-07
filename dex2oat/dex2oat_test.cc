@@ -2214,6 +2214,73 @@ TEST_F(Dex2oatTest, AppImageResolveStrings) {
   }
 }
 
+TEST_F(Dex2oatTest, CompileClassInitializer) {
+  // Create a profile with the startup method marked.
+  ScratchFile profile_file;
+  std::vector<dex::TypeIndex> classes;
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("StringLiterals"));
+  {
+    for (ClassAccessor accessor : dex->GetClasses()) {
+      if (accessor.GetDescriptor() == std::string("LStringLiterals$StartupClass;")) {
+        classes.push_back(accessor.GetClassIdx());
+      }
+    }
+    ASSERT_GT(classes.size(), 0u);
+    ProfileCompilationInfo info;
+    info.AddClassesForDex(dex.get(), classes.begin(), classes.end());
+    // Save the profile since we want to use it with dex2oat to produce an oat file.
+    ASSERT_TRUE(info.Save(profile_file.GetFd()));
+  }
+  const std::string out_dir = GetScratchDir();
+  const std::string odex_location = out_dir + "/base.odex";
+  ASSERT_TRUE(GenerateOdexForTest(GetTestDexFileName("StringLiterals"),
+                                  odex_location,
+                                  CompilerFilter::Filter::kSpeedProfile,
+                                  { "--compile-class-initializers=true",
+                                    "--profile-file=" + profile_file.GetFilename()},
+                                  /* expect_success= */ true,
+                                  /* use_fd= */ false,
+                                  [](const OatFile&) {}));
+  // Open our generated oat file.
+  std::string error_msg;
+  std::unique_ptr<OatFile> odex_file(OatFile::Open(/*zip_fd=*/ -1,
+                                                   odex_location.c_str(),
+                                                   odex_location.c_str(),
+                                                   /*executable=*/ false,
+                                                   /*low_4gb=*/ false,
+                                                   odex_location.c_str(),
+                                                   /*reservation=*/ nullptr,
+                                                   &error_msg));
+  ASSERT_TRUE(odex_file != nullptr);
+  ASSERT_NE(odex_file->GetOatDexFiles().size(), 0u);
+  for (const OatDexFile* oat_dex_file : odex_file->GetOatDexFiles()) {
+    std::unique_ptr<const DexFile> dex_file = oat_dex_file->OpenDexFile(&error_msg);
+    ASSERT_TRUE(dex_file != nullptr) << error_msg;
+    const DexFile::ClassDef* startup_def;
+    const DexFile::ClassDef* other_def;
+
+    {
+      const DexFile::TypeId* type_id = dex_file->FindTypeId("LStringLiterals$StartupClass;");
+      dex::TypeIndex type_idx = dex_file->GetIndexForTypeId(*type_id);
+      startup_def = dex_file->FindClassDef(type_idx);
+      ASSERT_TRUE(startup_def != nullptr);
+    }
+
+    {
+      const DexFile::TypeId* type_id = dex_file->FindTypeId("LStringLiterals$OtherClass;");
+      dex::TypeIndex type_idx = dex_file->GetIndexForTypeId(*type_id);
+      other_def = dex_file->FindClassDef(type_idx);
+      ASSERT_TRUE(other_def != nullptr);
+    }
+
+    OatFile::OatClass startup_class =
+        oat_dex_file->GetOatClass(dex_file->GetIndexForClassDef(*startup_def));
+    EXPECT_NE(startup_class.GetType(), OatClassType::kOatClassNoneCompiled);
+    OatFile::OatClass other_class =
+        oat_dex_file->GetOatClass(dex_file->GetIndexForClassDef(*other_def));
+    EXPECT_EQ(other_class.GetType(), OatClassType::kOatClassNoneCompiled);
+  }
+}
 
 TEST_F(Dex2oatClassLoaderContextTest, StoredClassLoaderContext) {
   std::vector<std::unique_ptr<const DexFile>> dex_files = OpenTestDexFiles("MultiDex");

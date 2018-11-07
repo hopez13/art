@@ -81,6 +81,7 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
     options->count_hotness_in_compiled_code_ = true;
   }
   map.AssignIfExists(Base::ResolveStartupConstStrings, &options->resolve_startup_const_strings_);
+  map.AssignIfExists(Base::CompileClassInitializers, &options->compile_class_initializers_);
 
   if (map.Exists(Base::DumpTimings)) {
     options->dump_timings_ = true;
@@ -189,6 +190,11 @@ inline void AddCompilerOptionsArgumentParserOptions(Builder& b) {
           .template WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
           .IntoKey(Map::ResolveStartupConstStrings)
+
+      .Define("--compile-class-initializers=_")
+          .template WithType<bool>()
+          .WithValueMap({{"false", false}, {"true", true}})
+          .IntoKey(Map::CompileClassInitializers)
 
       .Define("--verbose-methods=_")
           .template WithType<ParseStringList<','>>()

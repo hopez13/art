@@ -70,6 +70,7 @@ CompilerOptions::CompilerOptions()
       deduplicate_code_(true),
       count_hotness_in_compiled_code_(false),
       resolve_startup_const_strings_(false),
+      compile_class_initializers_(false),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
       passes_to_run_(nullptr) {
 }

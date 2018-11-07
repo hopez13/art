@@ -317,6 +317,10 @@ class CompilerOptions final {
     return resolve_startup_const_strings_;
   }
 
+  bool CompileClassInitializers() const {
+    return compile_class_initializers_;
+  }
+
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -399,6 +403,9 @@ class CompilerOptions final {
   // Whether we eagerly resolve all of the const strings that are loaded from startup methods in the
   // profile.
   bool resolve_startup_const_strings_;
+
+  // If true, we treat class initializers the same as other methods regarding compilation.
+  bool compile_class_initializers_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

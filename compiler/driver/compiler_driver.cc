@@ -596,7 +596,7 @@ static void CompileMethodQuick(
           (verified_method->GetEncounteredVerificationFailures() &
               (verifier::VERIFY_ERROR_FORCE_INTERPRETER | verifier::VERIFY_ERROR_LOCKING)) == 0 &&
               // Is eligable for compilation by methods-to-compile filter.
-              driver->ShouldCompileBasedOnProfile(method_ref);
+              driver->ShouldCompileBasedOnProfile(method_ref, access_flags);
 
       if (compile) {
         // NOTE: if compiler declines to compile this method, it will return null.
@@ -736,8 +736,7 @@ void CompilerDriver::ResolveConstStrings(const std::vector<const DexFile*>& dex_
           profile_compilation_info_->ContainsClass(*dex_file, accessor.GetClassIdx());
 
       for (const ClassAccessor::Method& method : accessor.GetMethods()) {
-        const bool is_clinit = (method.GetAccessFlags() & kAccConstructor) != 0 &&
-            (method.GetAccessFlags() & kAccStatic) != 0;
+        const bool is_clinit = IsClassInitializer(method.GetAccessFlags());
         const bool is_startup_clinit = is_startup_class && is_clinit;
 
         if (only_startup_strings &&
@@ -973,7 +972,8 @@ bool CompilerDriver::IsClassToCompile(const char* descriptor) const {
   return classes_to_compile_->find(StringPiece(descriptor)) != classes_to_compile_->end();
 }
 
-bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_ref) const {
+bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_ref,
+                                                 uint32_t access_flags) const {
   // Profile compilation info may be null if no profile is passed.
   if (!CompilerFilter::DependsOnProfile(compiler_options_->GetCompilerFilter())) {
     // Use the compiler filter instead of the presence of profile_compilation_info_ since
@@ -987,6 +987,14 @@ bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_r
   // Compile only hot methods, it is the profile saver's job to decide what startup methods to mark
   // as hot.
   bool result = profile_compilation_info_->GetMethodHotness(method_ref).IsHot();
+
+  // Treat all of the class initializers of profile casses as hot.
+  if (IsClassInitializer(access_flags)) {
+    const DexFile::MethodId& method_id = method_ref.dex_file->GetMethodId(method_ref.index);
+    if (profile_compilation_info_->ContainsClass(*method_ref.dex_file, method_id.class_idx_)) {
+      result = true;
+    }
+  }
 
   if (kDebugProfileGuidedCompilation) {
     LOG(INFO) << "[ProfileGuidedCompilation] "

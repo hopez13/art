@@ -133,6 +133,10 @@ static constexpr uint32_t kAccValidInterfaceFlags = kAccPublic | kAccInterface |
 
 static constexpr uint32_t kAccVisibilityFlags = kAccPublic | kAccPrivate | kAccProtected;
 
+static constexpr bool IsClassInitializer(uint32_t flags) {
+  return (flags & kAccConstructor) != 0u && (flags & kAccStatic) != 0u;
+}
+
 // Returns a human-readable version of the Java part of the access flags, e.g., "private static "
 // (note the trailing whitespace).
 std::string PrettyJavaAccessFlags(uint32_t access_flags);

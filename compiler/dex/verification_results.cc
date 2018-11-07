@@ -139,9 +139,9 @@ bool VerificationResults::IsCandidateForCompilation(MethodReference&,
   if (!compiler_options_->IsAotCompilationEnabled()) {
     return false;
   }
-  // Don't compile class initializers unless kEverything.
+  // Don't compile class initializers unless kEverything or CompileClassInitializers is true.
   if ((compiler_options_->GetCompilerFilter() != CompilerFilter::kEverything) &&
-     ((access_flags & kAccConstructor) != 0) && ((access_flags & kAccStatic) != 0)) {
+      (IsClassInitializer(access_flags) && !compiler_options_->CompileClassInitializers())) {
     return false;
   }
   return true;

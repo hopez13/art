@@ -234,7 +234,8 @@ class CompilerDriver {
 
   // Checks whether profile guided compilation is enabled and if the method should be compiled
   // according to the profile file.
-  bool ShouldCompileBasedOnProfile(const MethodReference& method_ref) const;
+  bool ShouldCompileBasedOnProfile(const MethodReference& method_ref,
+                                   uint32_t access_flags) const;
 
   // Checks whether profile guided verification is enabled and if the method should be verified
   // according to the profile file.
