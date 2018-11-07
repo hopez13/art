@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3430ff1_5d201adc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "4 spaces from the start of the line, please.",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "738e86bf_dddf3d54",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Indentation should be 4 spaces from the start of the previous line (6 spaces in total).",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c3d0f80_c3fd9385",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Blank line between the methods.",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a542feb2_3ceff6be",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Fix indentation starting from the throw (+2 spaces each line).",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e9014a_380cf7f0",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Checker assertions should have the same indentation as the method they check, i.e. 2 spaces here.",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8548b54_2c804463",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Can you separate the CHECK-NOT assertions to its own \"instruction_simplifier_x86_64 (after)\" section?",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6a1dfd_32977f68",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36e17ed4_019d69de",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59367c2f_e1b59cb5",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a82598d2_cf5ccb5e",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

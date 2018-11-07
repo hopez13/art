@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "94c9374e_81ed3742",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "0d4e59ee_8d4578e0",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaf8defb_7d70025e",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d5caab_1b98012e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6 (single line).",
+      "parentUuid": "eaf8defb_7d70025e",
+      "range": {
+        "startLine": 7452,
+        "startChar": 57,
+        "endLine": 7453,
+        "endChar": 68
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "9ac88265_f566c440",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6 (but see the new comment there).",
+      "parentUuid": "f023119f_7a158506",
+      "range": {
+        "startLine": 7461,
+        "startChar": 65,
+        "endLine": 7462,
+        "endChar": 76
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1fa5f8e_9a8c405b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -76,6 +142,24 @@
       "writtenOn": "2018-11-06T16:44:46Z",
       "side": 1,
       "message": "DCHECK() that the type is Int32.",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48e1ce02_960fe471",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "e1fa5f8e_9a8c405b",
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -102,6 +186,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a17cd853_348af8b5",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "b959f5d8_78386e1f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -145,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "dc6ef923_323983a2",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "169012c1_fa69ec91",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "312233ab_fed6e0e8",
         "filename": "compiler/optimizing/instruction_simplifier_x86.h",
         "patchSetId": 4
@@ -165,6 +291,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d659c3ed_f318d8aa",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "312233ab_fed6e0e8",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -191,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "44f8aada_c6cbb7d5",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "96b32ad4_5eb5e3b5",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76fff48d_da7c772c",
         "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
         "patchSetId": 4
@@ -214,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "82ed5aa5_3fdd0806",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6 (single line).",
+      "parentUuid": "76fff48d_da7c772c",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 45
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9da73216_cbfb3779",
         "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
         "patchSetId": 4
@@ -234,6 +432,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0af968d0_af1bf1d4",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6 (but see comment there).",
+      "parentUuid": "9da73216_cbfb3779",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -306,6 +528,30 @@
     },
     {
       "key": {
+        "uuid": "512568d8_9efd1af5",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "f49ed407_a342dd21",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 200,
+        "endChar": 9
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca3eb4a9_b7a5c709",
         "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
         "patchSetId": 4
@@ -317,6 +563,24 @@
       "writtenOn": "2018-11-06T16:44:46Z",
       "side": 1,
       "message": "There is a lot of code duplication. Can you refactor it, please? I\u0027d use this helper:\n\n  bool AreLeastBitSetInputs(HInstruction* to_test, HInstrution* other) {\n    if (to_test-\u003eIsAdd()) {\n      HInstruction* add \u003d to_test-\u003eAsAdd();\n      HConstant* cst \u003d sub-\u003eGetConstantRight();\n      return cst !\u003d nullptr \u0026\u0026 cst-\u003eIsMinusOne() \u0026\u0026 other \u003d\u003d sub-\u003eGetLeastConstantLeft();\n    }\n    if (to_test-\u003eIsSub()) {\n      // ...\n    }\n    return false;\n  }",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efff64e_e166e408",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "ca3eb4a9_b7a5c709",
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -340,6 +604,24 @@
     },
     {
       "key": {
+        "uuid": "1e0d2f13_f51a949d",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "cc4aabbe_5065670d",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085952a3_e4ec7506",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 4
@@ -354,6 +636,24 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0331cef_2771fe1c",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:44:52Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "085952a3_e4ec7506",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
