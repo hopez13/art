@@ -310,6 +310,22 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
   }
 
+  void SetAllRegionLiveBytesZero() REQUIRES(!region_lock_) {
+    MutexLock mu(Thread::Current(), region_lock_);
+    const size_t iter_limit = kUseTableLookupReadBarrier
+        ? num_regions_
+        : std::min(num_regions_, non_free_region_index_limit_);
+    for (size_t i = 0; i < iter_limit; ++i) {
+      Region* r = &regions_[i];
+      // Newly allocated regions don't need up-to-date live_bytes_ for deciding
+      // whether to be evacuated or not. See Region::ShouldBeEvacuated().
+      if (r->IsFree() && !r->IsNewlyAllocated()) {
+        DCHECK(r->LiveBytes() == static_cast<size_t>(-1));
+        r->ZeroLiveBytes();
+      }
+    }
+  }
+
   void RecordAlloc(mirror::Object* ref) REQUIRES(!region_lock_);
   bool AllocNewTlab(Thread* self, size_t min_bytes) REQUIRES(!region_lock_);
 

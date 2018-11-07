@@ -78,7 +78,8 @@ class ConcurrentCopying : public GarbageCollector {
                !skipped_blocks_lock_);
   void InitializePhase() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !immune_gray_stack_lock_);
-  void MarkingPhase() REQUIRES_SHARED(Locks::mutator_lock_)
+  void MarkingPhase() REQUIRED_SHARED(Locks::mutator_lock_);
+  void CopyingPhase() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);
   void ReclaimPhase() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
   void FinishPhase() REQUIRES(!mark_stack_lock_,
@@ -198,7 +199,10 @@ class ConcurrentCopying : public GarbageCollector {
   void VerifyNoMissingCardMarks()
       REQUIRES(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
-  size_t ProcessThreadLocalMarkStacks(bool disable_weak_ref_access, Closure* checkpoint_callback)
+  template <typename Processor>
+  size_t ProcessThreadLocalMarkStacks(bool disable_weak_ref_access,
+                                      Closure* checkpoint_callback,
+                                      const Processor& processor)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
   void RevokeThreadLocalMarkStacks(bool disable_weak_ref_access, Closure* checkpoint_callback)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -370,7 +374,7 @@ class ConcurrentCopying : public GarbageCollector {
   // Generational "sticky", only trace through dirty objects in region space.
   const bool young_gen_;
   // If true, the GC thread is done scanning marked objects on dirty and aged
-  // card (see ConcurrentCopying::MarkingPhase).
+  // card (see ConcurrentCopying::CopyingPhase).
   Atomic<bool> done_scanning_;
 
   // The skipped blocks are memory blocks/chucks that were copies of

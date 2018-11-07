@@ -186,6 +186,11 @@ void ConcurrentCopying::RunPhases() {
   {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
     InitializePhase();
+    // In case of force evacuation all regions are evacuated and hence no
+    // need to compute live_bytes.
+    if (kEnableGenerationalConcurrentCopyingCollection && !young_gen_ && !force_evacuate_all_) {
+      MarkingPhase();
+    }
   }
   if (kUseBakerReadBarrier && kGrayDirtyImmuneObjects) {
     // Switch to read barrier mark entrypoints before we gray the objects. This is required in case
@@ -199,7 +204,7 @@ void ConcurrentCopying::RunPhases() {
   FlipThreadRoots();
   {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
-    MarkingPhase();
+    CopyingPhase();
   }
   // Verify no from space refs. This causes a pause.
   if (kEnableNoFromSpaceRefsVerification) {
@@ -857,13 +862,193 @@ class ConcurrentCopying::ImmuneSpaceScanObjVisitor {
   ConcurrentCopying* const collector_;
 };
 
-// Concurrently mark roots that are guarded by read barriers and process the mark stack.
+class ConcurrentCopying::CaptureRootsForMarkingVisitor : public RootVisitor {
+  explicit CaptureRootsForMarkingVisitor(ConcurrentCopying* cc) : collector_(cc) {
+  }
+
+  void VisitRoots(mirror::Object*** roots,
+                  size_t count,
+                  const RootInfo& info ATTRIBUTE_UNUSED) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    Thread* self = Thread::Current();
+    for (size_t i = 0; i < count; ++i) {
+      mirror::Object** root = roots[i];
+      mirror::Object* ref = *root;
+      if (ref != nullptr && collector_->TestMarkBitmapForRef(ref)) {
+        collector_->PushOntoMarkStack(self, ref);
+      }
+    }
+  }
+
+  void VisitRoots(mirror::CompressedReference<mirror::Object>** roots,
+                  size_t count,
+                  const RootInfo& info ATTRIBUTE_UNUSED) override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    Thread* self = Thread::Current();
+    for (size_t i = 0; i < count; ++i) {
+      mirror::CompressedReference<mirror::Object>* const root = roots[i];
+      if (!root->IsNull()) {
+        mirror::Object* ref = root->AsMirrorPtr();
+        if (ref != nullptr && collector_->TestMarkBitmapForRef(ref)) {
+          collector_->PushOntoMarkStack(self, ref);
+        }
+      }
+    }
+  }
+
+ private:
+  ConcurrentCopying* const collector_;
+};
+
+class ConcurrentCopying::CaptureThreadRootsForMarkingAndCheckpoint :
+  public RevokeThreadLocalMarkStackCheckpoint {
+  CaptureRootsForMarkingVisitor(ConcurrentCopying* cc) :
+    RevokeThreadLocalMarkStackCheckpoint(cc, /* disable_weak_ref_access */ false) {
+  }
+
+  void Run(Thread* thread) override {
+    Thread* self = Thread::Current();
+    ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
+    // We can use the non-CAS VisitRoots functions below because we update thread-local GC roots
+    // only.
+    CaptureRootsForMarkingVisitor visitor(concurrent_copying_);
+    thread->VisitRoots(&visitor, kVisitRootFlagAllRoots);
+    // Barrier handling is done in the base class' Run() below.
+    RevokeThreadLocalMarkStackCheckpoint::Run(thread);
+  }
+};
+
+void ConcurrentCopying::CaptureThreadRootsForMarking() {
+  TimingLogger::ScopedTiming split("CaptureThreadRootsForMarking", GetTimings());
+  if (kVerboseMode) {
+    LOG(INFO) << "time=" << region_space_->Time();
+    region_space_->DumpNonFreeRegions(LOG_STREAM(INFO));
+  }
+  Thread* self = Thread::Current();
+  CaptureThreadRootsForMarkingAndCheckpoint check_point(this);
+  ThreadList* thread_list = Runtime::Current()->GetThreadList();
+  gc_barrier_->Init(self, 0);
+  size_t barrier_count = thread_list->RunCheckpoint(&check_point, /* callback */ nullptr);
+  // If there are no threads to wait which implys that all the checkpoint functions are finished,
+  // then no need to release the mutator lock.
+  if (barrier_count == 0) {
+    return;
+  }
+  Locks::mutator_lock_->SharedUnlock(self);
+  {
+    ScopedThreadStateChange tsc(self, kWaitingForCheckPointsToRun);
+    gc_barrier_->Increment(self, barrier_count);
+  }
+  Locks::mutator_lock_->SharedLock(self);
+  if (kVerboseMode) {
+    LOG(INFO) << "time=" << region_space_->Time();
+    region_space_->DumpNonFreeRegions(LOG_STREAM(INFO));
+    LOG(INFO) << "GC end of CaptureThreadRootsForMarking";
+  }
+}
+
+void ConcurrentCopying::AddLiveBytesAndScanRef(mirror::Object* ref) {
+}
+
+bool ConcurrentCopying::TestMarkBitmapForRef(mirror::Object* ref) {
+  if (LIKELY(region_space_->HasAddress(ref))) {
+    return region_space_bitmap_->Test(ref);
+  } else if (heap_->GetNonMovingSpace()->HasAddress(ref)) {
+    return heap_->GetNonMovingSpace()->GetMarkBitmap()->Test(ref);
+  } else if (immune_spaces_->ContainsObject(ref)) {
+    // References to immune space objects are always live.
+    DCHECK(heap_mark_bitmap_->GetContinuousSpaceBitmap(ref)->Test(ref));
+    return true;
+  } else {
+    // Should be a large object. Must be page aligned and the LOS must exist.
+    if (!IsAligned<kPageSize>(ref) || heap_->GetLargeObjectsSpace() == nullptr) {
+      // It must be heap corruption. Remove memory protection and dump data.
+      region_space_->Unprotect();
+      heap_->GetVerification()->LogHeapCorruption(/* obj */ nullptr,
+                                                  MemberOffset(0),
+                                                  ref,
+                                                  /* fatal */ true);
+    }
+    return heap_->GetLargeObjectsSpace()->GetMarkBitmap()->Test(ref);
+  }
+}
+
+void ConcurrentCopying::PushOntoLocalMarkStack(mirror::Object* ref) {
+  DCHECK_EQ(thread_running_gc_, Thread::Current());
+  DCHECK_EQ(mark_stack_mode_.load(std::memory_order_relaxed), kMarkStackModeThreadLocal);
+  DCHECK_EQ(self->GetThreadLocalMarkStack(), nullptr);
+  gc_mark_stack_->PushBack(ref);
+}
+
+
 void ConcurrentCopying::MarkingPhase() {
   TimingLogger::ScopedTiming split("MarkingPhase", GetTimings());
   if (kVerboseMode) {
     LOG(INFO) << "GC MarkingPhase";
   }
   Thread* self = Thread::Current();
+  accounting::CardTable* const card_table = heap_->GetCardTable();
+  // Clear live_bytes_ of every non-free region, except the ones that are newly
+  // allocated.
+  region_space_->SetAllRegionLiveBytesZero();
+
+  // Scan immune spaces
+  {
+    TimingLogger::ScopedTiming split2("ScanImmuneSpaces", GetTimings());
+    for (auto& space : immune_spaces_.GetSpaces()) {
+      DCHECK(space->IsImageSpace() || space->IsZygoteSpace());
+      accounting::ContinuousSpaceBitmap* live_bitmap = space->GetLiveBitmap();
+      accounting::ModUnionTable* table = heap_->FindModUnionTableFromSpace(space);
+      // TODO: Define the immune space scan object visitor
+      ImmuneSpaceScanObjVisitor visitor(this);
+      if (table != nullptr) {
+        table->VisitObjects(ImmuneSpaceScanObjVisitor::Callback, &visitor);
+      } else {
+        card_table->Scan<false>(
+            live_bitmap,
+            space->Begin(),
+            space->Limit(),
+            [visitor](mirror::Object* obj) {
+              visitor(obj);
+            },
+            accounting::CardTable::kCardDirty - 1);
+      }
+    }
+  }
+  // Scan runtime roots
+  {
+    TimingLogger::ScopedTiming split2("VisitConcurrentRoots", GetTimings());
+    CaptureThreadRootsForMarking visitor(this);
+    Runtime::Current()->VisitConcurrentRoots(&visitor, kVisitRootFlagAllRoots);
+  }
+  {
+    // TODO: don't visit the transaction roots if it's not active.
+    TimingLogger::ScopedTiming split2("VisitNonThreadRoots", GetTimings());
+    CaptureThreadRootsForMarking visitor(this);
+    Runtime::Current()->VisitNonThreadRoots(&visitor);
+  }
+  // TODO: Process mark stack
+
+  CaptureThreadRootsForMarking();
+  // Process thread-local mark stack containing thread roots
+  ProcessThreadLocalMarkStacks(/* disable_weak_ref_access */ false,
+                               /* checkpoint_callback */ nullptr,
+                               [this] (mirror::Object* ref) {
+                                 AddLiveBytesAndScanRef(ref);
+                               });
+  if (kVerboseMode) {
+    LOG(INFO) << "GC end of MarkingPhase";
+  }
+}
+
+// Concurrently mark roots that are guarded by read barriers and process the mark stack.
+void ConcurrentCopying::CopyingPhase() {
+  TimingLogger::ScopedTiming split("CopyingPhase", GetTimings());
+  if (kVerboseMode) {
+    LOG(INFO) << "GC CopyingPhase";
+  }
+  Thread* self = Thread::Current();
+  accounting::CardTable* const card_table = heap_->GetCardTable();
   if (kIsDebugBuild) {
     MutexLock mu(self, *Locks::thread_list_lock_);
     CHECK(weak_ref_access_enabled_);
@@ -905,7 +1090,7 @@ void ConcurrentCopying::MarkingPhase() {
       //   which is an immune space.
       // - In the case where we run without a boot image, these classes are allocated in the
       //   non-moving space (see art::ClassLinker::InitWithoutImage).
-      Runtime::Current()->GetHeap()->GetCardTable()->Scan<false>(
+      card_table->Scan<false>(
           space->GetMarkBitmap(),
           space->Begin(),
           space->End(),
@@ -944,10 +1129,14 @@ void ConcurrentCopying::MarkingPhase() {
       if (kUseBakerReadBarrier && kGrayDirtyImmuneObjects && table != nullptr) {
         table->VisitObjects(ImmuneSpaceScanObjVisitor::Callback, &visitor);
       } else {
-        // TODO: Scan only the aged cards.
-        live_bitmap->VisitMarkedRange(reinterpret_cast<uintptr_t>(space->Begin()),
-                                      reinterpret_cast<uintptr_t>(space->Limit()),
-                                      visitor);
+        card_table->Scan<false>(
+            live_bitmap,
+            space->Begin(),
+            space->Limit(),
+            [visitor](mirror::Object* obj) {
+              visitor(obj);
+            },
+            accounting::CardTable::kCardDirty - 1);
       }
     }
   }
@@ -1056,7 +1245,7 @@ void ConcurrentCopying::MarkingPhase() {
     CHECK(weak_ref_access_enabled_);
   }
   if (kVerboseMode) {
-    LOG(INFO) << "GC end of MarkingPhase";
+    LOG(INFO) << "GC end of CopyingPhase";
   }
 }
 
@@ -1445,8 +1634,10 @@ class ConcurrentCopying::RevokeThreadLocalMarkStackCheckpoint : public Closure {
     concurrent_copying_->GetBarrier().Pass(self);
   }
 
- private:
+ protected:
   ConcurrentCopying* const concurrent_copying_;
+
+ private:
   const bool disable_weak_ref_access_;
 };
 
@@ -1507,7 +1698,10 @@ bool ConcurrentCopying::ProcessMarkStackOnce() {
   if (mark_stack_mode == kMarkStackModeThreadLocal) {
     // Process the thread-local mark stacks and the GC mark stack.
     count += ProcessThreadLocalMarkStacks(/* disable_weak_ref_access= */ false,
-                                          /* checkpoint_callback= */ nullptr);
+                                          /* checkpoint_callback= */ nullptr,
+                                          [this] (mirror::Object* ref) {
+                                            ProcessMarkStackRef(ref);
+                                          });
     while (!gc_mark_stack_->IsEmpty()) {
       mirror::Object* to_ref = gc_mark_stack_->PopBack();
       ProcessMarkStackRef(to_ref);
@@ -1563,8 +1757,10 @@ bool ConcurrentCopying::ProcessMarkStackOnce() {
   return count == 0;
 }
 
+template <typename Processor>
 size_t ConcurrentCopying::ProcessThreadLocalMarkStacks(bool disable_weak_ref_access,
-                                                       Closure* checkpoint_callback) {
+                                                       Closure* checkpoint_callback,
+                                                       const Processor& processor) {
   // Run a checkpoint to collect all thread local mark stacks and iterate over them all.
   RevokeThreadLocalMarkStacks(disable_weak_ref_access, checkpoint_callback);
   size_t count = 0;
@@ -1578,7 +1774,7 @@ size_t ConcurrentCopying::ProcessThreadLocalMarkStacks(bool disable_weak_ref_acc
   for (accounting::AtomicStack<mirror::Object>* mark_stack : mark_stacks) {
     for (StackReference<mirror::Object>* p = mark_stack->Begin(); p != mark_stack->End(); ++p) {
       mirror::Object* to_ref = p->AsMirrorPtr();
-      ProcessMarkStackRef(to_ref);
+      processor(to_ref);
       ++count;
     }
     {
@@ -1770,7 +1966,11 @@ void ConcurrentCopying::SwitchToSharedMarkStackMode() {
   DisableWeakRefAccessCallback dwrac(this);
   // Process the thread local mark stacks one last time after switching to the shared mark stack
   // mode and disable weak ref accesses.
-  ProcessThreadLocalMarkStacks(/* disable_weak_ref_access= */ true, &dwrac);
+  ProcessThreadLocalMarkStacks(/* disable_weak_ref_access= */ true,
+                               &dwrac,
+                               [this] (mirror::Object* ref) {
+                                 ProcessMarkStackRef(ref);
+                               });
   if (kVerboseMode) {
     LOG(INFO) << "Switched to shared mark stack mode and disabled weak ref access";
   }
