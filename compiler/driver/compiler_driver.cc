@@ -431,7 +431,6 @@ static void CompileMethodHarness(
     Handle<mirror::ClassLoader> class_loader,
     const DexFile& dex_file,
     optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level,
-    bool compilation_enabled,
     Handle<mirror::DexCache> dex_cache,
     CompileFn compile_fn) {
   DCHECK(driver != nullptr);
@@ -449,7 +448,6 @@ static void CompileMethodHarness(
                                class_loader,
                                dex_file,
                                dex_to_dex_compilation_level,
-                               compilation_enabled,
                                dex_cache);
 
   if (kTimeCompileMethod) {
@@ -482,7 +480,6 @@ static void CompileMethodDex2Dex(
     Handle<mirror::ClassLoader> class_loader,
     const DexFile& dex_file,
     optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level,
-    bool compilation_enabled,
     Handle<mirror::DexCache> dex_cache) {
   auto dex_2_dex_fn = [](Thread* self ATTRIBUTE_UNUSED,
       CompilerDriver* driver,
@@ -494,7 +491,6 @@ static void CompileMethodDex2Dex(
       Handle<mirror::ClassLoader> class_loader,
       const DexFile& dex_file,
       optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level,
-      bool compilation_enabled ATTRIBUTE_UNUSED,
       Handle<mirror::DexCache> dex_cache ATTRIBUTE_UNUSED) -> CompiledMethod* {
     DCHECK(driver != nullptr);
     MethodReference method_ref(&dex_file, method_idx);
@@ -531,7 +527,6 @@ static void CompileMethodDex2Dex(
                        class_loader,
                        dex_file,
                        dex_to_dex_compilation_level,
-                       compilation_enabled,
                        dex_cache,
                        dex_2_dex_fn);
 }
@@ -547,7 +542,6 @@ static void CompileMethodQuick(
     Handle<mirror::ClassLoader> class_loader,
     const DexFile& dex_file,
     optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level,
-    bool compilation_enabled,
     Handle<mirror::DexCache> dex_cache) {
   auto quick_fn = [](
       Thread* self,
@@ -560,7 +554,6 @@ static void CompileMethodQuick(
       Handle<mirror::ClassLoader> class_loader,
       const DexFile& dex_file,
       optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level,
-      bool compilation_enabled,
       Handle<mirror::DexCache> dex_cache) {
     DCHECK(driver != nullptr);
     CompiledMethod* compiled_method = nullptr;
@@ -586,7 +579,7 @@ static void CompileMethodQuick(
       VerificationResults* results = driver->GetVerificationResults();
       DCHECK(results != nullptr);
       const VerifiedMethod* verified_method = results->GetVerifiedMethod(method_ref);
-      bool compile = compilation_enabled &&
+      bool compile =
           // Basic checks, e.g., not <clinit>.
           results->IsCandidateForCompilation(method_ref, access_flags) &&
           // Did not fail to create VerifiedMethod metadata.
@@ -629,7 +622,6 @@ static void CompileMethodQuick(
                        class_loader,
                        dex_file,
                        dex_to_dex_compilation_level,
-                       compilation_enabled,
                        dex_cache,
                        quick_fn);
 }
@@ -725,12 +717,6 @@ void CompilerDriver::ResolveConstStrings(const std::vector<const DexFile*>& dex_
     TimingLogger::ScopedTiming t("Resolve const-string Strings", timings);
 
     for (ClassAccessor accessor : dex_file->GetClasses()) {
-      if (!IsClassToCompile(accessor.GetDescriptor())) {
-        // Compilation is skipped, do not resolve const-string in code of this class.
-        // FIXME: Make sure that inlining honors this. b/26687569
-        continue;
-      }
-
       const bool is_startup_class =
           profile_compilation_info_ != nullptr &&
           profile_compilation_info_->ContainsClass(*dex_file, accessor.GetClassIdx());
@@ -834,12 +820,6 @@ static void InitializeTypeCheckBitstrings(CompilerDriver* driver,
     TimingLogger::ScopedTiming t("Initialize type check bitstrings", timings);
 
     for (ClassAccessor accessor : dex_file->GetClasses()) {
-      if (!driver->IsClassToCompile(accessor.GetDescriptor())) {
-        // Compilation is skipped, do not look for type checks in code of this class.
-        // FIXME: Make sure that inlining honors this. b/26687569
-        continue;
-      }
-
       // Direct and virtual methods.
       for (const ClassAccessor::Method& method : accessor.GetMethods()) {
         InitializeTypeCheckBitstrings(driver, class_linker, dex_cache, *dex_file, method);
@@ -964,13 +944,6 @@ void CompilerDriver::PreCompile(jobject class_loader,
     // Note: This is done after UpdateImageClasses() at it relies on the image classes to be final.
     InitializeTypeCheckBitstrings(this, dex_files, timings);
   }
-}
-
-bool CompilerDriver::IsClassToCompile(const char* descriptor) const {
-  if (classes_to_compile_ == nullptr) {
-    return true;
-  }
-  return classes_to_compile_->find(StringPiece(descriptor)) != classes_to_compile_->end();
 }
 
 bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_ref) const {
@@ -2610,9 +2583,6 @@ static void CompileDexFile(CompilerDriver* driver,
     optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level =
         GetDexToDexCompilationLevel(soa.Self(), *driver, jclass_loader, dex_file, class_def);
 
-
-    const bool compilation_enabled = driver->IsClassToCompile(accessor.GetDescriptor());
-
     // Compile direct and virtual methods.
     int64_t previous_method_idx = -1;
     for (const ClassAccessor::Method& method : accessor.GetMethods()) {
@@ -2633,7 +2603,6 @@ static void CompileDexFile(CompilerDriver* driver,
                  class_loader,
                  dex_file,
                  dex_to_dex_compilation_level,
-                 compilation_enabled,
                  dex_cache);
     }
   };
