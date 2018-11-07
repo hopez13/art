@@ -95,6 +95,7 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
       weak_ref_access_enabled_(true),
       copied_live_bytes_ratio_sum_(0.f),
       gc_count_(0),
+      reclaimed_bytes_ratio_sum_(0.f),
       young_gen_(young_gen),
       skipped_blocks_lock_("concurrent copying bytes blocks lock", kMarkSweepMarkStackLock),
       measure_read_barrier_slow_path_(measure_read_barrier_slow_path),
@@ -183,8 +184,11 @@ void ConcurrentCopying::RunPhases() {
   Thread* self = Thread::Current();
   thread_running_gc_ = self;
   Locks::mutator_lock_->AssertNotHeld(self);
+  // Use signed because after_gc may be larger than before_gc.
+  int64_t num_bytes_allocated_before_gc;
   {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
+    num_bytes_allocated_before_gc = static_cast<int64_t>(heap_->GetBytesAllocated());
     InitializePhase();
   }
   if (kUseBakerReadBarrier && kGrayDirtyImmuneObjects) {
@@ -218,6 +222,11 @@ void ConcurrentCopying::RunPhases() {
   {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
     ReclaimPhase();
+
+    int64_t num_bytes_allocated_after_gc = static_cast<int64_t>(heap_->GetBytesAllocated());
+    int64_t diff = num_bytes_allocated_before_gc - num_bytes_allocated_after_gc;
+    auto ratio = static_cast<float>(diff) / num_bytes_allocated_before_gc;
+    reclaimed_bytes_ratio_sum_ += ratio;
   }
   FinishPhase();
   CHECK(is_active_);
@@ -3199,6 +3208,7 @@ mirror::Object* ConcurrentCopying::MarkFromReadBarrierWithMeasurements(Thread* c
 
 void ConcurrentCopying::DumpPerformanceInfo(std::ostream& os) {
   GarbageCollector::DumpPerformanceInfo(os);
+  size_t num_gc_cycles = GetCumulativeTimings().GetIterations();
   MutexLock mu(Thread::Current(), rb_slow_path_histogram_lock_);
   if (rb_slow_path_time_histogram_.SampleSize() > 0) {
     Histogram<uint64_t>::CumulativeData cumulative_data;
@@ -3211,15 +3221,15 @@ void ConcurrentCopying::DumpPerformanceInfo(std::ostream& os) {
   if (rb_slow_path_count_gc_total_ > 0) {
     os << "GC slow path count " << rb_slow_path_count_gc_total_ << "\n";
   }
-  float average_ratio = copied_live_bytes_ratio_sum_ / gc_count_;
 
-  if (young_gen_) {
-    os << "Average minor GC copied live bytes ratio "
-       << average_ratio << " over " << gc_count_ << " minor GCs\n";
-  } else {
-    os << "Average major GC copied live bytes ratio "
-       << average_ratio << " over " << gc_count_ << " major GCs\n";
-  }
+  os << "Average " << (young_gen_ ? "minor" : "major") << " GC reclaim bytes ratio "
+     << (reclaimed_bytes_ratio_sum_ / num_gc_cycles) << " over " << num_gc_cycles
+     << " GC cycles\n";
+
+  os << "Average " << (young_gen_ ? "minor" : "major") << " GC copied live bytes ratio "
+     << (copied_live_bytes_ratio_sum_ / gc_count_) << " over " << gc_count_
+     << " " << (young_gen_ ? "minor" : "major") << " GCs\n";
+
   os << "Cumulative bytes moved "
      << cumulative_bytes_moved_.load(std::memory_order_relaxed) << "\n";
   os << "Cumulative objects moved "
