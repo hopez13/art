@@ -725,12 +725,6 @@ void CompilerDriver::ResolveConstStrings(const std::vector<const DexFile*>& dex_
     TimingLogger::ScopedTiming t("Resolve const-string Strings", timings);
 
     for (ClassAccessor accessor : dex_file->GetClasses()) {
-      if (!IsClassToCompile(accessor.GetDescriptor())) {
-        // Compilation is skipped, do not resolve const-string in code of this class.
-        // FIXME: Make sure that inlining honors this. b/26687569
-        continue;
-      }
-
       const bool is_startup_class =
           profile_compilation_info_ != nullptr &&
           profile_compilation_info_->ContainsClass(*dex_file, accessor.GetClassIdx());
@@ -834,12 +828,6 @@ static void InitializeTypeCheckBitstrings(CompilerDriver* driver,
     TimingLogger::ScopedTiming t("Initialize type check bitstrings", timings);
 
     for (ClassAccessor accessor : dex_file->GetClasses()) {
-      if (!driver->IsClassToCompile(accessor.GetDescriptor())) {
-        // Compilation is skipped, do not look for type checks in code of this class.
-        // FIXME: Make sure that inlining honors this. b/26687569
-        continue;
-      }
-
       // Direct and virtual methods.
       for (const ClassAccessor::Method& method : accessor.GetMethods()) {
         InitializeTypeCheckBitstrings(driver, class_linker, dex_cache, *dex_file, method);
@@ -964,13 +952,6 @@ void CompilerDriver::PreCompile(jobject class_loader,
     // Note: This is done after UpdateImageClasses() at it relies on the image classes to be final.
     InitializeTypeCheckBitstrings(this, dex_files, timings);
   }
-}
-
-bool CompilerDriver::IsClassToCompile(const char* descriptor) const {
-  if (classes_to_compile_ == nullptr) {
-    return true;
-  }
-  return classes_to_compile_->find(StringPiece(descriptor)) != classes_to_compile_->end();
 }
 
 bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_ref) const {
@@ -2610,9 +2591,6 @@ static void CompileDexFile(CompilerDriver* driver,
     optimizer::DexToDexCompiler::CompilationLevel dex_to_dex_compilation_level =
         GetDexToDexCompilationLevel(soa.Self(), *driver, jclass_loader, dex_file, class_def);
 
-
-    const bool compilation_enabled = driver->IsClassToCompile(accessor.GetDescriptor());
-
     // Compile direct and virtual methods.
     int64_t previous_method_idx = -1;
     for (const ClassAccessor::Method& method : accessor.GetMethods()) {
@@ -2633,7 +2611,7 @@ static void CompileDexFile(CompilerDriver* driver,
                  class_loader,
                  dex_file,
                  dex_to_dex_compilation_level,
-                 compilation_enabled,
+                 /*compilation_enabled=*/true,
                  dex_cache);
     }
   };
