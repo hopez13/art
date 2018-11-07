@@ -99,6 +99,24 @@
       "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41ffdd95_6a1fcffb",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-07T18:10:54Z",
+      "side": 1,
+      "message": "I disagree that even when we know that a variable is not accessed concurrently, we declare it atomic since it is accessed rarely and hence won\u0027t affect performance. Rather we should have a comment explaining in what context the variable is accessed, to which one may include explanation on why it\u0027s not atomic, if desired. Seeing a variable is atomic also gives instant indication that it\u0027s accessed concurrently, and hence may confuse the reader.",
+      "parentUuid": "a71eb360_0a908dc8",
+      "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
