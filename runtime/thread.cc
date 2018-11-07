@@ -2286,7 +2286,7 @@ void Thread::NotifyInTheadList() {
 }
 
 bool Thread::CanLoadClasses() const {
-  return !IsRuntimeThread() || !Runtime::Current()->IsJavaDebuggable();
+  return !IsRuntimeThread() || !Runtime::Current()->IsJavaDebuggableZygoteOK();
 }
 
 bool Thread::IsStillStarting() const {

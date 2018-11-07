@@ -193,7 +193,7 @@ bool Instrumentation::NeedDebugVersionFor(ArtMethod* method) const
   // If anything says we need the debug version or we are debuggable we will need the debug version
   // of the method.
   return (runtime->GetRuntimeCallbacks()->MethodNeedsDebugVersion(method) ||
-          runtime->IsJavaDebuggable()) &&
+          runtime->IsJavaDebuggableZygoteOK()) &&
          !method->IsNative() &&
          !method->IsProxyMethod();
 }

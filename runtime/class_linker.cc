@@ -3102,7 +3102,7 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
     return ShouldUseInterpreterEntrypoint(method, instr_target);
   }
 
-  if (runtime->IsJavaDebuggable()) {
+  if (runtime->IsJavaDebuggableZygoteOK()) {
     // For simplicity, we ignore precompiled code and go to the interpreter
     // assuming we don't already have jitted code.
     // We could look at the oat file where `quick_code` is being defined,

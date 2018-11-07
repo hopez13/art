@@ -27,6 +27,8 @@
 #include <memory>
 #include <vector>
 
+#include <android-base/logging.h>
+
 #include "arch/instruction_set.h"
 #include "base/macros.h"
 #include "base/mem_map.h"
@@ -641,6 +643,13 @@ class Runtime {
   }
 
   bool IsJavaDebuggable() const {
+    CHECK(!is_zygote_ || IsAotCompiler());
+    return is_java_debuggable_;
+  }
+
+  // Note: prefer not to use this method, but the checked version above. The separation exists
+  //       as the runtime state may change for a zygote child.
+  bool IsJavaDebuggableZygoteOK() const {
     return is_java_debuggable_;
   }
 

@@ -1314,7 +1314,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 
   jdwp_options_ = runtime_options.GetOrDefault(Opt::JdwpOptions);
   jdwp_provider_ = CanonicalizeJdwpProvider(runtime_options.GetOrDefault(Opt::JdwpProvider),
-                                            IsJavaDebuggable());
+                                            IsJavaDebuggableZygoteOK());
   switch (jdwp_provider_) {
     case JdwpProvider::kNone: {
       VLOG(jdwp) << "Disabling all JDWP support.";
@@ -1497,7 +1497,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
         GetInternTable()->AddImageStringsToTable(image_space, VoidFunctor());
       }
     }
-    if (IsJavaDebuggable()) {
+    if (IsJavaDebuggableZygoteOK()) {
       // Now that we have loaded the boot image, deoptimize its methods if we are running
       // debuggable, as the code may have been compiled non-debuggable.
       DeoptimizeBootImage();
@@ -1708,6 +1708,8 @@ static bool EnsureJvmtiPlugin(Runtime* runtime,
   }
 
   // TODO Rename Dbg::IsJdwpAllowed is IsDebuggingAllowed.
+  // Note: Using non-zygote-approveddebuggable means we cannot load plugins into the zygote. This
+  //       is intentional.
   DCHECK(Dbg::IsJdwpAllowed() || !runtime->IsJavaDebuggable())
       << "Being debuggable requires that jdwp (i.e. debugging) is allowed.";
   // Is the process debuggable? Otherwise, do not attempt to load the plugin unless we are
@@ -2587,7 +2589,7 @@ bool Runtime::IsAsyncDeoptimizeable(uintptr_t code) const {
   // We could look at the oat file where `code` is being defined,
   // and check whether it's been compiled debuggable, but we decided to
   // only rely on the JIT for debuggable apps.
-  return IsJavaDebuggable() &&
+  return IsJavaDebuggableZygoteOK() &&
       GetJit() != nullptr &&
       GetJit()->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(code));
 }
