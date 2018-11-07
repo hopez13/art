@@ -1658,9 +1658,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
         << " type=" << to_ref->PrettyTypeOf()
         << " young_gen=" << std::boolalpha << young_gen_ << std::noboolalpha
         << " space=" << heap_->DumpSpaceNameFromAddress(to_ref)
-        << " region_type=" << rtype
-        // TODO: Temporary; remove this when this is no longer needed (b/116087961).
-        << " runtime->sentinel=" << Runtime::Current()->GetSentinel().Read<kWithoutReadBarrier>();
+        << " region_type=" << rtype;
   }
   bool add_to_live_bytes = false;
   // Invariant: There should be no object from a newly-allocated
@@ -1704,9 +1702,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
         << " type=" << to_ref->PrettyTypeOf()
         << " young_gen=" << std::boolalpha << young_gen_ << std::noboolalpha
         << " space=" << heap_->DumpSpaceNameFromAddress(to_ref)
-        << " region_type=" << rtype
-        // TODO: Temporary; remove this when this is no longer needed (b/116087961).
-        << " runtime->sentinel=" << Runtime::Current()->GetSentinel().Read<kWithoutReadBarrier>();
+        << " region_type=" << rtype;
   }
 #ifdef USE_BAKER_OR_BROOKS_READ_BARRIER
   mirror::Object* referent = nullptr;
