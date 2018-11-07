@@ -140,6 +140,30 @@
       "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b24a85_821a8407",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-07T22:49:43Z",
+      "side": 1,
+      "message": "So add a DCHECK that you\u0027re correct (and that it stays the online case).",
+      "parentUuid": "059c46e6_a5a2bac9",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 54
+      },
+      "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
