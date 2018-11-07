@@ -81,6 +81,24 @@
       "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a71eb360_0a908dc8",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-07T16:13:19Z",
+      "side": 1,
+      "message": "There should not be any concurrent accesses to these new members. For the sake of correctness in the future (should they be accessed concurrently), and as they are rarely accessed, we thought it would be fine to make them atomic.",
+      "parentUuid": "c5ad999d_e9d3a4b9",
+      "revId": "6b4fbf6a10c6cf88e4b4f71000ed9e75b42da51a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
