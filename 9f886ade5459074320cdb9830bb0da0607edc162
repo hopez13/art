@@ -518,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "8b8c4930_c460344e",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:58:04Z",
+      "side": 1,
+      "message": "Done in PS3.",
+      "parentUuid": "b55e6dd0_c6b2b8f2",
+      "range": {
+        "startLine": 40,
+        "startChar": 39,
+        "endLine": 40,
+        "endChar": 40
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6744196d_5b8884fb",
         "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
         "patchSetId": 2
@@ -764,6 +788,30 @@
     },
     {
       "key": {
+        "uuid": "3f1016c7_8ad43fd5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:58:04Z",
+      "side": 1,
+      "message": "Changed in PS3.",
+      "parentUuid": "8c1bbfd2_d3ac9d2d",
+      "range": {
+        "startLine": 585,
+        "startChar": 8,
+        "endLine": 586,
+        "endChar": 59
+      },
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "314e4d7e_8a4726cc",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -778,6 +826,24 @@
       "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e225529c_dcffb46c",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:58:04Z",
+      "side": 1,
+      "message": "Fixed in PS6.",
+      "parentUuid": "314e4d7e_8a4726cc",
+      "revId": "9f886ade5459074320cdb9830bb0da0607edc162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
