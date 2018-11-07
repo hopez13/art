@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "6a812cf6_d7a1bab4",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-07T16:44:56Z",
+      "side": 1,
+      "message": "I\u0027m always wary of mutating ArtMethods since it can cause extra private dirty pages in the boot image.",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 64
+      },
+      "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e81541c3_b467f73d",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 1
