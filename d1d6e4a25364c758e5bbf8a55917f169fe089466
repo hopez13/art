@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a05a0b5e_36042121",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-07T19:40:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e57827ef_299b6660",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 64
+      },
+      "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81541c3_b467f73d",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2018-11-07T16:30:27Z",
       "side": 1,
       "message": "Where\u0027s the invariant check for this?",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 54
+      },
+      "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "059c46e6_a5a2bac9",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-07T19:40:23Z",
+      "side": 1,
+      "message": "What is the question?\nThe comment intends to explain why this path exists at all.",
+      "parentUuid": "e81541c3_b467f73d",
       "range": {
         "startLine": 587,
         "startChar": 4,
