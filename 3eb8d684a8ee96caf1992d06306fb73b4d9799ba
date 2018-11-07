@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19e09b18_401f055d",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-07T16:57:16Z",
+      "side": 1,
+      "message": "We prefer nanosleep in the ART codebase, but done.",
+      "parentUuid": "236bf631_e4e5fb07",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 28
+      },
+      "revId": "3eb8d684a8ee96caf1992d06306fb73b4d9799ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00781fe5_d281f317",
         "filename": "tools/timeout_dumper/timeout_dumper.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "3eb8d684a8ee96caf1992d06306fb73b4d9799ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f26ff72_c61ee575",
+        "filename": "tools/timeout_dumper/timeout_dumper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-07T16:57:16Z",
+      "side": 1,
+      "message": "I removed the return in the hope that the rest *might* work (or just the BackTrace::Create fails). It\u0027s a best-effort thing for the situation on the test bots.",
+      "parentUuid": "00781fe5_d281f317",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 3
+      },
+      "revId": "3eb8d684a8ee96caf1992d06306fb73b4d9799ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
