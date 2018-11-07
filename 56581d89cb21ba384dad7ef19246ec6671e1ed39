@@ -22,6 +22,30 @@
       "revId": "56581d89cb21ba384dad7ef19246ec6671e1ed39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b29b882_bff87404",
+        "filename": "runtime/oat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:04:28Z",
+      "side": 1,
+      "message": "No, the key-value store has the same format. And we were not relying on the removed \"image-location\" to be present (the only \"use\" was an assertion that it\u0027s not there for boot image).",
+      "parentUuid": "80af11a7_351c4753",
+      "range": {
+        "startLine": 35,
+        "startChar": 27,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "56581d89cb21ba384dad7ef19246ec6671e1ed39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
