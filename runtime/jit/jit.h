@@ -283,6 +283,7 @@ class Jit {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Load and initialize compiler.
+  static bool BindCompilerMethods(std::string* error_msg);
   static bool LoadCompiler(std::string* error_msg);
 
   static bool CompilerIsLoaded() { return jit_compiler_handle_ != nullptr; }
@@ -302,8 +303,6 @@ class Jit {
 
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
-
-  static bool BindCompilerMethods(std::string* error_msg);
 
   // JIT compiler
   static void* jit_library_handle_;
