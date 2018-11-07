@@ -22,6 +22,30 @@
       "revId": "e369921bcddbef1212d631541c2e68913320ba92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b286599_167f3957",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2551,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-07T17:10:15Z",
+      "side": 1,
+      "message": "Yes, that is intentional - I didn\u0027t want to include massive renaming as part of this CL.\n\nI want to replace some of the accesses with helper methods, and then add \u0027_\u0027 to whatever remains.",
+      "parentUuid": "be752a85_bd25f420",
+      "range": {
+        "startLine": 2544,
+        "startChar": 1,
+        "endLine": 2551,
+        "endChar": 30
+      },
+      "revId": "e369921bcddbef1212d631541c2e68913320ba92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
