@@ -118,6 +118,30 @@
       "revId": "e22d70ad1e13fe4039fbc3675901dea533ca4b7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac83a033_b1df0e95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-07T23:25:45Z",
+      "side": 1,
+      "message": "The problematic cases are instrumentation and class-linker stuff, which links during zygote. Changing those to say ZygoteDebuggable seems strange. Any good ideas?",
+      "parentUuid": "0d86ff5e_72349bbd",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "e22d70ad1e13fe4039fbc3675901dea533ca4b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
