@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "810ccf01_ba531be8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48e1ce02_960fe471",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b959f5d8_78386e1f",
         "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
         "patchSetId": 4
@@ -233,6 +251,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "955ee245_0f59439d",
+        "filename": "compiler/optimizing/instruction_simplifier_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c41543d_e661d4c0",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -482,6 +524,30 @@
     },
     {
       "key": {
+        "uuid": "1039b2f5_6e9e6257",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Style in PS6 is OK.",
+      "parentUuid": "9ad082cb_8e3b9a4e",
+      "range": {
+        "startLine": 44,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 64
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de374e3c_27c1376c",
         "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
         "patchSetId": 4
@@ -502,6 +568,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14727083_2daaa0de",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "See style comment in PS6.",
+      "parentUuid": "de374e3c_27c1376c",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 72
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -552,6 +642,30 @@
     },
     {
       "key": {
+        "uuid": "d60aeeb3_0cbd4a81",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "512568d8_9efd1af5",
+      "range": {
+        "startLine": 200,
+        "startChar": 3,
+        "endLine": 200,
+        "endChar": 9
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca3eb4a9_b7a5c709",
         "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
         "patchSetId": 4
@@ -584,6 +698,24 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14a2566d_de8f0e5b",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5efff64e_e166e408",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -674,6 +806,24 @@
     },
     {
       "key": {
+        "uuid": "4b573961_c6412b45",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Not done in PS6 but added a new comment there.",
+      "parentUuid": "97215976_1e4603d2",
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dcfe44d_6d7b1314",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 4
@@ -694,6 +844,30 @@
       "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "337b7412_05ccc0ab",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Done in PS6.",
+      "parentUuid": "5dcfe44d_6d7b1314",
+      "range": {
+        "startLine": 111,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 39
+      },
+      "revId": "dc0f89d2445813ee9a8c6d6e4c786ba4dc61a0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

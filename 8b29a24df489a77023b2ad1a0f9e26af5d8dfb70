@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "370d32ab_bb261ebe",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-07T14:53:41Z",
+      "side": 1,
+      "message": "Weird line breaks. When breaking after \u0027\u003d\u0027, indent the next line just 4 spaces from the start of the current line. Prefer to put the \"new (\u003cnew-params\u003e) \u003ctype-to-construct\u003e(\" on one line.\n\nExamples of good style:\n\n    HX86MaskOrResetLeastSetBit* lsb \u003d new (arena) HX86MaskOrResetLeastSetBit(\n        type, HInstruction::kAnd, other, instruction-\u003eGetDexPc());\n\n    HX86MaskOrResetLeastSetBit* lsb \u003d\n        new (arena) HX86MaskOrResetLeastSetBit(type,\n                                               HInstruction::kAnd,\n                                               other,\n                                               instruction-\u003eGetDexPc());",
+      "range": {
+        "startLine": 80,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 90
+      },
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6c3d0f80_c3fd9385",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
