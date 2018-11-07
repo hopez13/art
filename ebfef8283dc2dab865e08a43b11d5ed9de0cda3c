@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5094409d_c964ec49",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-07T23:25:15Z",
+      "side": 1,
+      "message": "Can you add LOG(WARNING) here?",
+      "revId": "ebfef8283dc2dab865e08a43b11d5ed9de0cda3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46281c2d_b4743ba0",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
