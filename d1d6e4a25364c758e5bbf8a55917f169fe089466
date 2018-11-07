@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e57827ef_299b6660",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-07T16:55:37Z",
+      "side": 1,
+      "message": "Argument would be that this should be prepopulated in the boot image.",
+      "parentUuid": "6a812cf6_d7a1bab4",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 64
+      },
+      "revId": "d1d6e4a25364c758e5bbf8a55917f169fe089466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e81541c3_b467f73d",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 1
