@@ -235,7 +235,8 @@ bool Jit::BindCompilerMethods(std::string* error_msg) {
 }
 
 bool Jit::LoadCompiler(std::string* error_msg) {
-  if (jit_library_handle_ == nullptr && !BindCompilerMethods(error_msg)) {
+  if (jit_library_handle_ == nullptr) {
+    *error_msg = "Missing jit library handle";
     return false;
   }
   bool will_generate_debug_symbols = false;

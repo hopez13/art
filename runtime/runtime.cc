@@ -786,10 +786,10 @@ bool Runtime::Start() {
   // TODO(calin): We use the JIT class as a proxy for JIT compilation and for
   // recoding profiles. Maybe we should consider changing the name to be more clear it's
   // not only about compiling. b/28295073.
-  if (!safe_mode_ && (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo())) {
+  if (jit_options_->UseJitCompilation() || jit_options_->GetSaveProfilingInfo()) {
     // Try to load compiler pre zygote to reduce PSS. b/27744947
     std::string error_msg;
-    if (!jit::Jit::LoadCompiler(&error_msg)) {
+    if (!jit::Jit::BindCompilerMethods(&error_msg)) {
       LOG(WARNING) << "Failed to load JIT compiler with error " << error_msg;
     }
   }
@@ -2512,6 +2512,12 @@ void Runtime::CreateJitCodeCache(bool rwx_memory_allowed) {
 
 void Runtime::CreateJit() {
   if (jit_code_cache_.get() == nullptr) {
+    return;
+  }
+
+  if (!jit::Jit::LoadCompiler(&error_msg)) {
+    LOG(WARNING) << "Failed to load JIT compiler with error " << error_msg;
+    jit_code_cache_.reset(nullptr);
     return;
   }
 
