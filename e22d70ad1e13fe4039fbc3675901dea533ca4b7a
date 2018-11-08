@@ -142,6 +142,30 @@
       "revId": "e22d70ad1e13fe4039fbc3675901dea533ca4b7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ed63ac1_b26fd621",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-08T00:13:34Z",
+      "side": 1,
+      "message": "Ah right, I agree that makes it strange.\n\nWe discussed this offline, and some of the checks here are probably going to become obsolete soon. I\u0027ll think of a way to protect ourselves from these problems.",
+      "parentUuid": "ac83a033_b1df0e95",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "e22d70ad1e13fe4039fbc3675901dea533ca4b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
