@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "a476a213_9dcfa8e0",
+        "filename": "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370d32ab_bb261ebe",
+      "range": {
+        "startLine": 80,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 90
+      },
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c3d0f80_c3fd9385",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
@@ -99,6 +123,30 @@
     },
     {
       "key": {
+        "uuid": "4b8b696a_e5ca905a",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a542feb2_3ceff6be",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e9014a_380cf7f0",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
@@ -113,6 +161,24 @@
       "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe69fb6a_491b4409",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e9014a_380cf7f0",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -133,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "d732cf99_15e28801",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8548b54_2c804463",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e6a1dfd_32977f68",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
@@ -147,6 +231,24 @@
       "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db9285e8_195efd83",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e6a1dfd_32977f68",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +269,24 @@
     },
     {
       "key": {
+        "uuid": "01b9163e_826173c8",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36e17ed4_019d69de",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59367c2f_e1b59cb5",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
@@ -184,6 +304,24 @@
     },
     {
       "key": {
+        "uuid": "fcad4206_ff7d563f",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59367c2f_e1b59cb5",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a82598d2_cf5ccb5e",
         "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
         "patchSetId": 6
@@ -198,6 +336,24 @@
       "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08959c10_ec078cec",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T09:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a82598d2_cf5ccb5e",
+      "revId": "8b29a24df489a77023b2ad1a0f9e26af5d8dfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
