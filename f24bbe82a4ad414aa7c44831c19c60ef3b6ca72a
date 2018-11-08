@@ -246,6 +246,30 @@
       "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba53f9ef_0c1ad756",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T21:33:42Z",
+      "side": 1,
+      "message": "More specifically, the compiler bug would be as follows:\n\nint i;    // hot variable, which must be in register\nfoo(\u0026i);  // non-inlined function\n\nI think it unreasonable, and probably impossible, to make the compiler avoid allocating \u0027i\u0027 on the stack (what if foo stores the pointer, and something else uses the pointer to modify \u0027i\u0027 later).  But make a copy of \u0027i\u0027 just for the function, and copy it back, and it is all good.  I don\u0027t think it is compiler bug... just C++ semantics....",
+      "parentUuid": "c452463b_1b5fe69f",
+      "range": {
+        "startLine": 2626,
+        "startChar": 8,
+        "endLine": 2627,
+        "endChar": 90
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
