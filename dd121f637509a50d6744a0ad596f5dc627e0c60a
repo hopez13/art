@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9da49d76_746e9e94",
+        "filename": "test/552-checker-x86-avx2-bit-manipulation/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2018-11-08T10:46:41Z",
+      "side": 1,
+      "message": "Sorry I did not understand. Did you mean to style these lines in the below format? I have addressed other style comments in PS6.\n/// CHECK-START-X86_64: long Main.reset_lowest_set_bit_64(long) instruction_simplifier_x86_64( \n    before)",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 141,
+        "endChar": 104
+      },
+      "revId": "dd121f637509a50d6744a0ad596f5dc627e0c60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
