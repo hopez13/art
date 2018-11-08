@@ -71,7 +71,7 @@ class InstructionHandler {
     return true;
   }
 
-  ALWAYS_INLINE WARN_UNUSED bool HandlePendingExceptionWithInstrumentation(
+  NO_INLINE WARN_UNUSED bool HandlePendingExceptionWithInstrumentationImpl(
       const instrumentation::Instrumentation* instr)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(self->IsExceptionPending());
@@ -97,6 +97,21 @@ class InstructionHandler {
         static_cast<int32_t>(shadow_frame.GetDexPC()) - static_cast<int32_t>(dex_pc);
     inst = inst->RelativeAt(displacement);
     return false;  // Stop executing this opcode and continue in the exception handler.
+  }
+
+  // Forwards the call to the NO_INLINE HandlePendingExceptionWithInstrumentationImpl.
+  // It makes a copy of all state to help the compiler with optimizations.
+  ALWAYS_INLINE WARN_UNUSED bool HandlePendingExceptionWithInstrumentation(
+      const instrumentation::Instrumentation* instr)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    const Instruction* inst_copy = inst;
+    bool exit_loop_copy = exit_interpreter_loop;
+    InstructionHandler<do_access_check, transaction_active> handler_copy(
+        ctx, instrumentation, self, shadow_frame, dex_pc, inst_copy, inst_data, exit_loop_copy);
+    bool result = handler_copy.HandlePendingExceptionWithInstrumentationImpl(instr);
+    inst = inst_copy;
+    exit_interpreter_loop = exit_loop_copy;
+    return result;
   }
 
   ALWAYS_INLINE WARN_UNUSED bool HandlePendingException()
