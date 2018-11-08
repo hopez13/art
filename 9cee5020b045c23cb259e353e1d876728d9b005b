@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae4a16ec_ed491dac",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-08T10:00:49Z",
+      "side": 1,
+      "message": "This seems weak. I think we should not calculate the IMT index for abstract non-interface classes. Or does that speed up the linking?",
+      "range": {
+        "startLine": 580,
+        "startChar": 6,
+        "endLine": 580,
+        "endChar": 18
+      },
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8514ed1a_a1d1df92",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-08T10:00:49Z",
+      "side": 1,
+      "message": "Should we also store the IMT index for default methods? (We could then re-parse the class data to find the dex code item offset when creating a \"copied\" method.)",
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e0fb5e1_5c7edbc0",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -13,6 +53,30 @@
       "writtenOn": "2018-11-07T22:49:43Z",
       "side": 1,
       "message": "Why this change? This looks pretty terrible :-) Can you explain?",
+      "range": {
+        "startLine": 381,
+        "startChar": 21,
+        "endLine": 381,
+        "endChar": 48
+      },
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26bf06aa_eefcc48f",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-08T10:00:49Z",
+      "side": 1,
+      "message": "I\u0027d prefer 2 separate methods that DCHECK() preconditions, i.e. check access flags and declaring class type.",
+      "parentUuid": "4e0fb5e1_5c7edbc0",
       "range": {
         "startLine": 381,
         "startChar": 21,
