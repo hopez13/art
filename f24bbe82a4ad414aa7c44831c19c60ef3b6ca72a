@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "e8d41ab3_d0b5ac19",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-11-08T21:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4a4908c_20b10394",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 74
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c452463b_1b5fe69f",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 1
@@ -270,6 +294,30 @@
       "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cf0b433_a370e537",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-11-08T21:50:03Z",
+      "side": 1,
+      "message": "Right, I understand now why you want/need to duplicate things.",
+      "parentUuid": "ba53f9ef_0c1ad756",
+      "range": {
+        "startLine": 2626,
+        "startChar": 8,
+        "endLine": 2627,
+        "endChar": 90
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
