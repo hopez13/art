@@ -132,6 +132,11 @@ class ImageSpace : public MemMapSpace {
                                                 const std::vector<const char*>& oat_filenames,
                                                 const std::vector<const char*>& image_filenames);
 
+  static std::string GetBootImageChecksums(const std::string& image_location,
+                                           InstructionSet image_isa,
+                                           /*out*/std::string* error_msg);
+  static std::string GetBootImageChecksums(const std::vector<ImageSpace*>& image_spaces);
+
   // Returns true if the dex checksums in the given oat file match the
   // checksums of the original dex files on disk. This is intended to be used
   // to validate the boot image oat file, which may contain dex entries from
@@ -191,6 +196,10 @@ class ImageSpace : public MemMapSpace {
   friend class Space;
 
  private:
+  static bool GetBootClassPathImageLocations(const std::string& image_location,
+                                             const std::string& image_filename,
+                                             /*out*/ std::vector<std::string>* all_locations,
+                                             /*out*/ std::string* error_msg);
   class Loader;
   class BootImageLoader;
 

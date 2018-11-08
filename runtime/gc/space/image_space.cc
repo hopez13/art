@@ -59,6 +59,7 @@ namespace art {
 namespace gc {
 namespace space {
 
+using android::base::StringAppendF;
 using android::base::StringPrintf;
 
 Atomic<uint32_t> ImageSpace::bitmap_index_(0);
@@ -2055,35 +2056,6 @@ class ImageSpace::BootImageLoader {
 
   // Extract boot class path from oat file associated with `image_filename`
   // and list all associated image locations.
-  static bool GetBootClassPathImageLocations(const std::string& image_location,
-                                             const std::string& image_filename,
-                                             /*out*/ std::vector<std::string>* all_locations,
-                                             /*out*/ std::string* error_msg) {
-    std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(image_filename);
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
-                                                    oat_filename,
-                                                    oat_filename,
-                                                    /*executable=*/ false,
-                                                    /*low_4gb=*/ false,
-                                                    /*abs_dex_location=*/ nullptr,
-                                                    /*reservation=*/ nullptr,
-                                                    error_msg));
-    if (oat_file == nullptr) {
-      *error_msg = StringPrintf("Failed to open oat file '%s' for image file %s: %s",
-                                oat_filename.c_str(),
-                                image_filename.c_str(),
-                                error_msg->c_str());
-      return false;
-    }
-    const OatHeader& oat_header = oat_file->GetOatHeader();
-    const char* boot_classpath = oat_header.GetStoreValueByKey(OatHeader::kBootClassPathKey);
-    all_locations->push_back(image_location);
-    if (boot_classpath != nullptr && boot_classpath[0] != 0) {
-      ExtractMultiImageLocations(image_location, boot_classpath, all_locations);
-    }
-    return true;
-  }
-
   bool GetBootImageAddressRange(const std::string& filename,
                                 /*out*/uint32_t* start,
                                 /*out*/uint32_t* end,
@@ -2451,6 +2423,74 @@ std::string ImageSpace::GetMultiImageBootClassPath(
   return bootcp_oss.str();
 }
 
+std::string ImageSpace::GetBootImageChecksums(const std::string& image_location,
+                                              InstructionSet image_isa,
+                                              /*out*/std::string* error_msg) {
+  std::string system_filename;
+  bool has_system = false;
+  std::string cache_filename;
+  bool has_cache = false;
+  bool dalvik_cache_exists = false;
+  bool is_global_cache = false;
+  if (!FindImageFilename(image_location.c_str(),
+                         image_isa,
+                         &system_filename,
+                         &has_system,
+                         &cache_filename,
+                         &dalvik_cache_exists,
+                         &has_cache,
+                         &is_global_cache)) {
+    *error_msg = StringPrintf("Unable to find image file for %s and %s",
+                              image_location.c_str(),
+                              GetInstructionSetString(image_isa));
+    return std::string();
+  }
+
+  DCHECK(has_system || has_cache);
+  std::vector<std::string> image_locations;
+  if (!GetBootClassPathImageLocations(image_location,
+                                      has_system ? system_filename : cache_filename,
+                                      &image_locations,
+                                      error_msg)) {
+    return std::string();
+  }
+  std::string boot_image_checksum;
+  boot_image_checksum.reserve(9 * image_locations.size());
+  for (const std::string& location : image_locations) {
+    std::string filename;
+    if (has_system) {
+      filename = GetSystemImageFilename(location.c_str(), image_isa);
+    } else {
+      if (!GetDalvikCacheFilename(location.c_str(),
+                                  cache_filename.c_str(),
+                                  &filename,
+                                  error_msg)) {
+        return std::string();
+      }
+    }
+    std::unique_ptr<ImageHeader> header = ReadSpecificImageHeader(filename.c_str(), error_msg);
+    if (header == nullptr) {
+      return std::string();
+    }
+    StringAppendF(&boot_image_checksum, "%08x:", header->GetImageChecksum());
+  }
+  DCHECK_EQ(boot_image_checksum.size(), 9 * image_locations.size());
+  boot_image_checksum.resize(9 * image_locations.size() - 1u);  // Remove trailing ':'.
+  return boot_image_checksum;
+}
+
+std::string ImageSpace::GetBootImageChecksums(const std::vector<ImageSpace*>& image_spaces) {
+  DCHECK(!image_spaces.empty());
+  std::string boot_image_checksum;
+  boot_image_checksum.reserve(9 * image_spaces.size());
+  for (gc::space::ImageSpace* space : image_spaces) {
+    StringAppendF(&boot_image_checksum, "%08x:", space->GetImageHeader().GetImageChecksum());
+  }
+  DCHECK_EQ(boot_image_checksum.size(), 9 * image_spaces.size());
+  boot_image_checksum.resize(9 * image_spaces.size() - 1u);  // Remove trailing ':'.
+  return boot_image_checksum;
+}
+
 bool ImageSpace::ValidateOatFile(const OatFile& oat_file, std::string* error_msg) {
   const ArtDexFileLoader dex_file_loader;
   for (const OatDexFile* oat_dex_file : oat_file.GetOatDexFiles()) {
@@ -2551,6 +2591,41 @@ void ImageSpace::ExtractMultiImageLocations(const std::string& input_image_file_
     std::string suffix = image.substr(old_prefix_length);
     image_file_names->push_back(new_prefix + suffix);
   }
+}
+
+bool ImageSpace::GetBootClassPathImageLocations(const std::string& image_location,
+                                                const std::string& image_filename,
+                                                /*out*/ std::vector<std::string>* all_locations,
+                                                /*out*/ std::string* error_msg) {
+  std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(image_filename);
+  std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
+                                                  oat_filename,
+                                                  oat_filename,
+                                                  /*executable=*/ false,
+                                                  /*low_4gb=*/ false,
+                                                  /*abs_dex_location=*/ nullptr,
+                                                  /*reservation=*/ nullptr,
+                                                  error_msg));
+  if (oat_file == nullptr) {
+    *error_msg = StringPrintf("Failed to open oat file '%s' for image file %s: %s",
+                              oat_filename.c_str(),
+                              image_filename.c_str(),
+                              error_msg->c_str());
+    return false;
+  }
+  const OatHeader& oat_header = oat_file->GetOatHeader();
+  const char* boot_classpath = oat_header.GetStoreValueByKey(OatHeader::kBootClassPathKey);
+  if (boot_classpath == nullptr) {
+    *error_msg = StringPrintf("Oat file '%s' for image file %s does not contain bootclasspath",
+                              oat_filename.c_str(),
+                              image_filename.c_str());
+    return false;
+  }
+  all_locations->push_back(image_location);
+  if (boot_classpath[0] != 0) {
+    ExtractMultiImageLocations(image_location, boot_classpath, all_locations);
+  }
+  return true;
 }
 
 void ImageSpace::DumpSections(std::ostream& os) const {

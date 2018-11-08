@@ -134,19 +134,19 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
   ASSERT_TRUE(odex_file.get() != nullptr) << error_msg;
   EXPECT_EQ(filter, odex_file->GetCompilerFilter());
 
-  std::unique_ptr<ImageHeader> image_header(
-          gc::space::ImageSpace::ReadImageHeader(image_location.c_str(),
-                                                 kRuntimeISA,
-                                                 &error_msg));
-  ASSERT_TRUE(image_header != nullptr) << error_msg;
+  std::string boot_image_checksums =
+      gc::space::ImageSpace::GetBootImageChecksums(image_location, kRuntimeISA, &error_msg);
+  ASSERT_FALSE(boot_image_checksums.empty()) << error_msg;
+
   const OatHeader& oat_header = odex_file->GetOatHeader();
-  uint32_t combined_checksum = image_header->GetOatChecksum();
 
   if (CompilerFilter::DependsOnImageChecksum(filter)) {
+    const char* checksums = oat_header.GetStoreValueByKey(OatHeader::kBootImageChecksumKey);
+    ASSERT_TRUE(checksums != nullptr);
     if (with_alternate_image) {
-      EXPECT_NE(combined_checksum, oat_header.GetImageFileLocationOatChecksum());
+      EXPECT_NE(boot_image_checksums, checksums);
     } else {
-      EXPECT_EQ(combined_checksum, oat_header.GetImageFileLocationOatChecksum());
+      EXPECT_EQ(boot_image_checksums, checksums);
     }
   }
 }

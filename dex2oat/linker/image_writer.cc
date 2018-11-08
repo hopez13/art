@@ -19,6 +19,7 @@
 #include <lz4.h>
 #include <lz4hc.h>
 #include <sys/stat.h>
+#include <zlib.h>
 
 #include <memory>
 #include <numeric>
@@ -690,6 +691,7 @@ bool ImageWriter::Write(int image_fd,
     std::vector<uint8_t> compressed_data;
     ArrayRef<const uint8_t> image_data =
         MaybeCompressData(raw_image_data, image_storage_mode_, &compressed_data);
+    image_header->data_size_ = image_data.size();  // Fill in the data size.
 
     // Write out the image + fields + methods.
     if (!image_file->PwriteFully(image_data.data(), image_data.size(), sizeof(ImageHeader))) {
@@ -721,10 +723,20 @@ bool ImageWriter::Write(int image_fd,
       return false;
     }
 
+    // Calculate the image checksum.
+    uint32_t image_checksum = adler32(0L, Z_NULL, 0);
+    image_checksum = adler32(image_checksum,
+                             reinterpret_cast<const uint8_t*>(image_header),
+                             sizeof(ImageHeader));
+    image_checksum = adler32(image_checksum, image_data.data(), image_data.size());
+    image_checksum = adler32(image_checksum,
+                             reinterpret_cast<const uint8_t*>(image_info.image_bitmap_->Begin()),
+                             bitmap_section.Size());
+    image_header->SetImageChecksum(image_checksum);
+
     // Write header last in case the compiler gets killed in the middle of image writing.
     // We do not want to have a corrupted image with a valid header.
     // The header is uncompressed since it contains whether the image is compressed or not.
-    image_header->data_size_ = image_data.size();
     if (!image_file->PwriteFully(reinterpret_cast<char*>(image_info.image_.Begin()),
                                  sizeof(ImageHeader),
                                  0)) {
@@ -3347,11 +3359,14 @@ void ImageWriter::UpdateOatFileLayout(size_t oat_index,
                                       size_t oat_loaded_size,
                                       size_t oat_data_offset,
                                       size_t oat_data_size) {
+  DCHECK_GE(oat_loaded_size, oat_data_offset);
+  DCHECK_GE(oat_loaded_size - oat_data_offset, oat_data_size);
+
   const uint8_t* images_end = image_infos_.back().image_begin_ + image_infos_.back().image_size_;
+  DCHECK(images_end != nullptr);  // Image space must be ready.
   for (const ImageInfo& info : image_infos_) {
     DCHECK_LE(info.image_begin_ + info.image_size_, images_end);
   }
-  DCHECK(images_end != nullptr);  // Image space must be ready.
 
   ImageInfo& cur_image_info = GetImageInfo(oat_index);
   cur_image_info.oat_file_begin_ = images_end + cur_image_info.oat_offset_;
