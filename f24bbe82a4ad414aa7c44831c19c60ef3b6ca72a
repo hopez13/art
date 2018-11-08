@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e86438d4_729d04fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T17:47:40Z",
+      "side": 1,
+      "message": "It is... I mean, I also renamed the method after... hmmm....",
+      "parentUuid": "c6d1c6ea_b4164e33",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfc60cba_b72958df",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-08T17:37:07Z",
       "side": 1,
       "message": "Hahaha, citation needed. :-)",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 20
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0359dbe_8bff5f4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T17:47:40Z",
+      "side": 1,
+      "message": "Should be rare....",
+      "parentUuid": "cfc60cba_b72958df",
       "range": {
         "startLine": 9,
         "startChar": 11,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "c9775279_d57b1deb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T17:47:40Z",
+      "side": 1,
+      "message": "Still waiting...",
+      "parentUuid": "1245a192_433f61ed",
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1b4a65a_6e56dcbf",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2018-11-08T17:37:07Z",
       "side": 1,
       "message": "That sounds terribly brittle. :-)",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 74
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3115580c_74841d44",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T17:47:40Z",
+      "side": 1,
+      "message": "Aren\u0027t all compiler optimizations though? :-)\n\nIt is odd. I wouldn\u0027t expect it to be brittle.",
+      "parentUuid": "a1b4a65a_6e56dcbf",
       "range": {
         "startLine": 103,
         "startChar": 5,
