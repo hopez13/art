@@ -223,6 +223,29 @@
       "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c452463b_1b5fe69f",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T21:26:04Z",
+      "side": 1,
+      "message": "Pirama/Stephen: I think this better line to look at actually....  It inside the (very hot) interpreter loop and it is generated (by macro) for each bytecode.\n\nThe list of variables is the interpreter state, which we want to keep in registers... and I believe that is mostly the case.\n\nI create the InstructionHandler object here... but since the following method is inlined, the object is \"inlined\" as kept in registers as well.  Yay, good compiler.\n\nNow, this CL introduces NO_LINE method on the InstructionHandler... which means we take a pointer to the handler, which means it must be materialized in memory.  Hence the handler_copy, so that it gets materialized in memory only at the slow path.\n\nSecondly, (as Valdimir pointer out to me) that is not enough.  Even with the copy, the \u0027exit_loop\u0027 and \u0027inst\u0027 are referenced by pointer in the copy, so they will be moved out of registers.  Hence their manual copy out and in.\n\nSo the helper method is icky but the compiler is behaving \"as expected\".  It took me (+Vladimir) less time to figure out how to make the compiler happy than it took to write this comment :-)\n\nArguably, the compiler could be able to do all of that on its own without the explicit copying, but then that would be brittle...",
+      "range": {
+        "startLine": 2626,
+        "startChar": 8,
+        "endLine": 2627,
+        "endChar": 90
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
