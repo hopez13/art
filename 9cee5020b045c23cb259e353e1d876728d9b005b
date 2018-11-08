@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "4460c4ca_09dda285",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-08T10:42:51Z",
+      "side": 1,
+      "message": "I would not worry about preconditions. You could even abstract them away by introducing ShouldHaveImtIndex().",
+      "parentUuid": "b51b34d0_b6397ccb",
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e0fb5e1_5c7edbc0",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "I did that to start with, but didn\u0027t like the complexity it pushed to the callers.\nTwo methods that are no-op for the wrong preconditions?",
       "parentUuid": "26bf06aa_eefcc48f",
+      "range": {
+        "startLine": 381,
+        "startChar": 21,
+        "endLine": 381,
+        "endChar": 48
+      },
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5422ce5f_43208710",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-08T10:42:51Z",
+      "side": 1,
+      "message": "There are only 2 callers and I\u0027d consider it better to have both do this:\n\n  if (klass-\u003eIsInterface() \u0026\u0026 method-\u003eIsAbstract()) {\n    method-\u003eSetImtIndex(ImTable::GetImtIndex(method));\n  } else {\n    method-\u003eSetCodeItemOffset(...);\n  }\n\nThe condition actually depends on answers to my other comments.",
+      "parentUuid": "33a65a7c_01b47c43",
       "range": {
         "startLine": 381,
         "startChar": 21,
