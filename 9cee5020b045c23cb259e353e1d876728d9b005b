@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "b51b34d0_b6397ccb",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T10:10:06Z",
+      "side": 1,
+      "message": "I don\u0027t want to complicate the pre-conditions too much.\nThe IsAbstract is easily accessible from the access flags.",
+      "parentUuid": "8514ed1a_a1d1df92",
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e0fb5e1_5c7edbc0",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -77,6 +95,30 @@
       "side": 1,
       "message": "I\u0027d prefer 2 separate methods that DCHECK() preconditions, i.e. check access flags and declaring class type.",
       "parentUuid": "4e0fb5e1_5c7edbc0",
+      "range": {
+        "startLine": 381,
+        "startChar": 21,
+        "endLine": 381,
+        "endChar": 48
+      },
+      "revId": "9cee5020b045c23cb259e353e1d876728d9b005b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a65a7c_01b47c43",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T10:10:06Z",
+      "side": 1,
+      "message": "I did that to start with, but didn\u0027t like the complexity it pushed to the callers.\nTwo methods that are no-op for the wrong preconditions?",
+      "parentUuid": "26bf06aa_eefcc48f",
       "range": {
         "startLine": 381,
         "startChar": 21,
