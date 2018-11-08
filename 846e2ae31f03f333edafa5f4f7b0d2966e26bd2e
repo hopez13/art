@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cfe53f81_88476500",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T16:44:48Z",
+      "side": 1,
+      "message": "Done, thanks for the test instructions :-)",
+      "parentUuid": "a6230ff4_77921dd4",
+      "revId": "846e2ae31f03f333edafa5f4f7b0d2966e26bd2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb94459_93cc0e73",
         "filename": "build/art.go",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "846e2ae31f03f333edafa5f4f7b0d2966e26bd2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b02d2376_7c2b7d18",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T16:44:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb94459_93cc0e73",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "846e2ae31f03f333edafa5f4f7b0d2966e26bd2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
