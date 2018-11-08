@@ -105,6 +105,30 @@
       "revId": "846e2ae31f03f333edafa5f4f7b0d2966e26bd2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "492132b9_1e871285",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-08T17:01:38Z",
+      "side": 1,
+      "message": "Future proofing... just in case I succeed in removing the switch dispatch...",
+      "parentUuid": "07c9365f_eded2bba",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "846e2ae31f03f333edafa5f4f7b0d2966e26bd2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
