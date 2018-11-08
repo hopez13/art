@@ -175,6 +175,30 @@
       "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "988d4689_da4d5fc8",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2018-11-08T19:02:54Z",
+      "side": 1,
+      "message": "Maybe I\u0027m missing some detail here - what optimization does the compiler do with the copy/restore that it didn\u0027t do before?",
+      "parentUuid": "3115580c_74841d44",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 74
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
