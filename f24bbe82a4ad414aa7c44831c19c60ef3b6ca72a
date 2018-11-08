@@ -199,6 +199,30 @@
       "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4a4908c_20b10394",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2018-11-08T21:21:21Z",
+      "side": 1,
+      "message": "Agreed. This doesn\u0027t make sense. Please file a compiler bug with what you expect vs. what you are getting. This looks extremely brittle, and there is no obvious way to know to undo this when the compiler potentially changes to do what you want it to.",
+      "parentUuid": "988d4689_da4d5fc8",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 74
+      },
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
