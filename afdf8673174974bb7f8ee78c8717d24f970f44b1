@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "88112f87_2ae9292c",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-09T19:04:14Z",
+      "side": 1,
+      "message": "Grammar. (I assume you wanted to write it, but reformulate it clearly: when there is a change in the highest-set bits of the counter.",
+      "range": {
+        "startLine": 234,
+        "startChar": 38,
+        "endLine": 234,
+        "endChar": 83
+      },
+      "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "442238d2_4f4a793f",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
@@ -66,6 +89,53 @@
         "startChar": 4,
         "endLine": 236,
         "endChar": 86
+      },
+      "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31173877_21118933",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-09T19:04:14Z",
+      "side": 1,
+      "message": "Ah, sorry, I misunderstood what you were doing.",
+      "parentUuid": "07480099_7c8b0cf2",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 86
+      },
+      "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77c0867b_de584636",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-09T19:04:14Z",
+      "side": 1,
+      "message": "Requires bit_utils.h import.",
+      "range": {
+        "startLine": 239,
+        "startChar": 44,
+        "endLine": 239,
+        "endChar": 62
       },
       "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
