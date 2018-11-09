@@ -46,6 +46,30 @@
       "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07480099_7c8b0cf2",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-09T18:35:27Z",
+      "side": 1,
+      "message": "Example (in binary):\nold_count   \u003d 0000000101010001\nnew_count \u003d 0000000101101010\nmsb_mask \u003d 0000000111110000\nHence the count changed within the top most significant bits of the old count, and we will do full check.",
+      "parentUuid": "c4f737f3_fe5ca25f",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 86
+      },
+      "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
