@@ -32,6 +32,7 @@
 #include "events-inl.h"
 
 #include <array>
+#include <sys/time.h>
 
 #include "art_field-inl.h"
 #include "art_jvmti.h"
@@ -56,6 +57,7 @@
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "ti_phase.h"
+#include "well_known_classes.h"
 
 namespace openjdkjvmti {
 
@@ -404,6 +406,95 @@ class JvmtiMonitorListener : public art::MonitorCallback {
           mon.get(),
           static_cast<jboolean>(timeout));
     }
+  }
+
+ private:
+  EventHandler* handler_;
+};
+
+class JvmtiParkListener : public art::ParkCallback {
+ public:
+  explicit JvmtiParkListener(EventHandler* handler) : handler_(handler) {}
+
+  void ThreadParkStart(bool is_absolute, int64_t timeout)
+  override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorWait)) {
+        art::Thread* self = art::Thread::Current();
+        art::JNIEnvExt* jnienv = self->GetJniEnv();
+        art::ArtField* parkBlockerField = art::jni::DecodeArtField(
+            art::WellKnownClasses::java_lang_Thread_parkBlocker);
+        art::ObjPtr<art::mirror::Object> blocker_obj = parkBlockerField->GetObj(self->GetPeer());
+        if (blocker_obj.IsNull()) {
+          blocker_obj = self->GetPeer();
+        }
+        int64_t timeout_ms;
+        if (!is_absolute) {
+          if (timeout == 0) {
+            timeout_ms = 0;
+          } else {
+            timeout_ms = timeout / 1000000;
+            if (timeout_ms == 0) {
+              // If we were instructed to park for a nonzero number of nanoseconds, but not enough
+              // to be a full millisecond, round up to 1 ms. A nonzero park() call will return
+              // soon, but a 0 wait or park call will wait indefinitely.
+              timeout_ms = 1;
+            }
+          }
+
+        } else {
+          struct timeval tv;
+          gettimeofday(&tv, (struct timezone *) nullptr);
+          int64_t now = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
+          if (now < timeout) {
+            timeout_ms = timeout - now;
+          } else {
+            // Waiting for 0 ms is an indefinite wait; parking until a time in
+            // the past or the current time will return immediately, so emulate
+            // the shortest possible wait event.
+            timeout_ms = 1;
+          }
+        }
+        ScopedLocalRef<jobject> blocker(jnienv, AddLocalRef<jobject>(jnienv, blocker_obj.Ptr()));
+        RunEventCallback<ArtJvmtiEvent::kMonitorWait>(
+            handler_,
+            self,
+            jnienv,
+            blocker.get(),
+            static_cast<jlong>(timeout));
+      }
+  }
+
+
+  // Our interpretation of the spec is that the JVMTI_EVENT_MONITOR_WAITED will be sent immediately
+  // after a thread has woken up from a sleep caused by a call to Object#wait. If the thread will
+  // never go to sleep (due to not having the lock, having bad arguments, or having an exception
+  // propogated from JVMTI_EVENT_MONITOR_WAIT) we will not send this event.
+  //
+  // This does not fully match the RI semantics. Specifically, we will not send the
+  // JVMTI_EVENT_MONITOR_WAITED event in one situation where the RI would, there was an exception in
+  // the JVMTI_EVENT_MONITOR_WAIT event but otherwise the call was fine. In that case the RI would
+  // send this event and return without going to sleep.
+  //
+  // See b/65558434 for more discussion.
+  void ThreadParkFinished(bool timeout)
+  override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      if (handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMonitorWaited)) {
+        art::Thread* self = art::Thread::Current();
+        art::JNIEnvExt* jnienv = self->GetJniEnv();
+        art::ArtField* parkBlockerField = art::jni::DecodeArtField(
+            art::WellKnownClasses::java_lang_Thread_parkBlocker);
+        art::ObjPtr<art::mirror::Object> blocker_obj = parkBlockerField->GetObj(self->GetPeer());
+        if (blocker_obj.IsNull()) {
+          blocker_obj = self->GetPeer();
+        }
+        ScopedLocalRef<jobject> blocker(jnienv, AddLocalRef<jobject>(jnienv, blocker_obj.Ptr()));
+        RunEventCallback<ArtJvmtiEvent::kMonitorWaited>(
+            handler_,
+            self,
+            jnienv,
+            blocker.get(),
+            static_cast<jboolean>(timeout));
+      }
   }
 
  private:
