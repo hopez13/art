@@ -28,6 +28,7 @@
 #include "debugger.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "interpreter/interpreter.h"
+#include "jit-inl.h"
 #include "jit_code_cache.h"
 #include "jni/java_vm_ext.h"
 #include "mirror/method_handle_impl.h"
@@ -628,7 +629,7 @@ static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mut
   return false;
 }
 
-void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
+void Jit::AddSamplesImpl(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
   if (thread_pool_ == nullptr) {
     // Should only see this when shutting down.
     DCHECK(Runtime::Current()->IsShuttingDown(self));

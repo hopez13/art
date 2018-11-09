@@ -25,6 +25,7 @@
 #include "interpreter/interpreter_common.h"
 #include "interpreter/interpreter_intrinsics.h"
 #include "interpreter/shadow_frame-inl.h"
+#include "jit/jit-inl.h"
 #include "mirror/string-alloc-inl.h"
 
 namespace art {
