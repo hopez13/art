@@ -131,6 +131,23 @@
     },
     {
       "key": {
+        "uuid": "b34824c7_b910dc55",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-09T11:35:23Z",
+      "side": 1,
+      "message": "Always returns false, so change return type to void and \"return false\" in the caller.",
+      "revId": "f24bbe82a4ad414aa7c44831c19c60ef3b6ca72a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1b4a65a_6e56dcbf",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 1
