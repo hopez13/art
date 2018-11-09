@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4af69a26_8c021b4e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "607e98f2_180d692b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 55
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8505896c_c33875db",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "Should all of this be moved into ConcurrentCopying::ReclaimPhase()?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 40
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34056f56_7d92bf49",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3214,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 3214,
+        "startChar": 2,
+        "endLine": 3214,
+        "endChar": 6
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8965c408_679b01ca",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3237,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "This can be refactored as:\n\n  os \u003c\u003c \"Average \" \u003c\u003c (young_gen_ ? \"minor\" : \"major\") \u003c\u003c \" GC reclaim bytes ratio \"\n     \u003c\u003c (reclaimed_bytes_ratio_sum_ / num_gc_cycles) \u003c\u003c \" over \" \u003c\u003c num_gc_cycles\n     \u003c\u003c \" GC cycles\\n\";",
+      "range": {
+        "startLine": 3227,
+        "startChar": 0,
+        "endLine": 3237,
+        "endChar": 3
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a46faf4c_89302b5c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "Likewise, this can be refactored as:\n\n  os \u003c\u003c \"Average \" \u003c\u003c (young_gen_ ? \"minor\" : \"major\") \u003c\u003c \" GC copied live bytes ratio \"\n     \u003c\u003c (copied_live_bytes_ratio_sum_ / gc_count_) \u003c\u003c \" over \" \u003c\u003c gc_count_\n     \u003c\u003c \" \" \u003c\u003c (young_gen_ ? \"minor\" : \"major\") \u003c\u003c \" GCs\\n\";",
+      "range": {
+        "startLine": 3238,
+        "startChar": 0,
+        "endLine": 3248,
+        "endChar": 3
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60c5327f_29e49394",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-09T20:05:56Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 363,
+        "startChar": 23,
+        "endLine": 363,
+        "endChar": 26
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
