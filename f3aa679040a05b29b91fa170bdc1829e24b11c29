@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4266a6ff_e7af3def",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-09T20:48:29Z",
+      "side": 1,
+      "message": "Consider an -inl file for this. E.g., ArtMethod wasn\u0027t required before (even though it should have a forward-declare which is missing).",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 3
+      },
+      "revId": "f3aa679040a05b29b91fa170bdc1829e24b11c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
