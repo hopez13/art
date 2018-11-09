@@ -132,7 +132,13 @@
     RESTORE_IBASE
     testb   %al, %al
     jnz     MterpException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+    ADVANCE_PC 1
+    movl    rSELF, %eax
+    movb    THREAD_USE_MTERP_OFFSET(%eax), %al
+    testb   %al, %al
+    jz      MterpFallback
+    FETCH_INST
+    GOTO_NEXT
 
 %def op_monitor_exit():
 /*
@@ -152,7 +158,13 @@
     RESTORE_IBASE
     testb   %al, %al
     jnz     MterpException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+    ADVANCE_PC 1
+    movl    rSELF, %eax
+    movb    THREAD_USE_MTERP_OFFSET(%eax), %al
+    testb   %al, %al
+    jz      MterpFallback
+    FETCH_INST
+    GOTO_NEXT
 
 %def op_move(is_object="0"):
     /* for move, move-object, long-to-int */

@@ -108,7 +108,13 @@
     call    SYMBOL(artLockObjectFromCode)   # (object, self)
     testq   %rax, %rax
     jnz     MterpException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+    ADVANCE_PC 1
+    movq    rSELF, %rax
+    movb    THREAD_USE_MTERP_OFFSET(%rax), %al
+    testb   %al, %al
+    jz      MterpFallback
+    FETCH_INST
+    GOTO_NEXT
 
 %def op_monitor_exit():
 /*
@@ -125,7 +131,13 @@
     call    SYMBOL(artUnlockObjectFromCode) # (object, self)
     testq   %rax, %rax
     jnz     MterpException
-    ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
+    ADVANCE_PC 1
+    movq    rSELF, %rax
+    movb    THREAD_USE_MTERP_OFFSET(%rax), %al
+    testb   %al, %al
+    jz      MterpFallback
+    FETCH_INST
+    GOTO_NEXT
 
 %def op_move(is_object="0"):
     /* for move, move-object, long-to-int */
