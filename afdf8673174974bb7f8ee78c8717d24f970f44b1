@@ -22,6 +22,30 @@
       "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4f737f3_fe5ca25f",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-09T18:30:25Z",
+      "side": 1,
+      "message": "This should work pretty well with the configurable thresholds (regardless of their magnitude).  That was the point.  It still does the checks fairly often.  It might be delayed a bit, but not much (to be precise, at most 1/2^5 longer \u003d 3% for this constant).\n\nDifferent viewpoint: It is exactly precise with nice round binary numbers, and will round up the thresholds slightly otherwise.  For example if the threshold is at 10000, it will get triggered only after 10240 samples.\n\nThe exponential back-off part: It checks the most significant bits of the current count.  Meaning for low number (\u003c32) it will do the check every single time.  For (\u003c64) every other time, etc... the period keeps increasing.... At 100000 it will be checking every 512th time.",
+      "parentUuid": "442238d2_4f4a793f",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 86
+      },
+      "revId": "afdf8673174974bb7f8ee78c8717d24f970f44b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
