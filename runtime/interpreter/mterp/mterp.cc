@@ -25,6 +25,7 @@
 #include "interpreter/interpreter_common.h"
 #include "interpreter/interpreter_intrinsics.h"
 #include "interpreter/shadow_frame-inl.h"
+#include "jit/jit-inl.h"
 #include "mirror/string-alloc-inl.h"
 
 namespace art {
@@ -873,27 +874,17 @@ extern "C" mirror::Object* artIGetObjectFromMterp(mirror::Object* obj,
  */
 extern "C" ssize_t MterpSetUpHotnessCountdown(ArtMethod* method,
                                               ShadowFrame* shadow_frame,
-                                              Thread* self)
+                                              Thread* self ATTRIBUTE_UNUSED)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   uint16_t hotness_count = method->GetCounter();
   int32_t countdown_value = jit::kJitHotnessDisabled;
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr) {
-    int32_t warm_threshold = jit->WarmMethodThreshold();
-    int32_t hot_threshold = jit->HotMethodThreshold();
     int32_t osr_threshold = jit->OSRMethodThreshold();
-    if (hotness_count < warm_threshold) {
-      countdown_value = warm_threshold - hotness_count;
-    } else if (hotness_count < hot_threshold) {
-      countdown_value = hot_threshold - hotness_count;
-    } else if (hotness_count < osr_threshold) {
-      countdown_value = osr_threshold - hotness_count;
+    if (hotness_count < osr_threshold) {
+      countdown_value = jit::Jit::GetHotnessCountdown(hotness_count);
     } else {
       countdown_value = jit::kJitCheckForOSR;
-    }
-    if (jit::Jit::ShouldUsePriorityThreadWeight(self)) {
-      int32_t priority_thread_weight = jit->PriorityThreadWeight();
-      countdown_value = std::min(countdown_value, countdown_value / priority_thread_weight);
     }
   }
   /*
