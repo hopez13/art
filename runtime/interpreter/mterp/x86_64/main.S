@@ -527,8 +527,7 @@ MterpException:
     movq    rPC, OFF_FP_DEX_PC_PTR(rFP)
     /* Do we need to switch interpreters? */
     movq    rSELF, %rax
-    movb    THREAD_USE_MTERP_OFFSET(%rax), %al
-    testb   %al, %al
+    cmpb    $$0, THREAD_USE_MTERP_OFFSET(%rax)
     jz      MterpFallback
     /* resume execution at catch block */
     REFRESH_IBASE

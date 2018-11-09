@@ -561,8 +561,7 @@ MterpException:
     movl    rPC, OFF_FP_DEX_PC_PTR(rFP)
     /* Do we need to switch interpreters? */
     movl    rSELF, %eax
-    movb    THREAD_USE_MTERP_OFFSET(%eax), %al
-    testb   %al, %al
+    cmpb    $$0, THREAD_USE_MTERP_OFFSET(%eax)
     jz      MterpFallback
     /* resume execution at catch block */
     REFRESH_IBASE
