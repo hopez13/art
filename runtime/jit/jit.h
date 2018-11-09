@@ -24,10 +24,10 @@
 #include "jit/profile_saver_options.h"
 #include "obj_ptr.h"
 #include "thread_pool.h"
+#include "art_method.h"
 
 namespace art {
 
-class ArtMethod;
 class ClassLinker;
 struct RuntimeArgumentMap;
 union JValue;
@@ -228,7 +228,21 @@ class Jit {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void AddSamples(Thread* self, ArtMethod* method, uint16_t samples, bool with_backedges)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    // The full check is fairly expensive so we just add to hotness most of the time,
+    // and we do the full check only occasionally (following an exponential back-off).
+    // In particular, we do the check when the 'n' most significant bits the change.
+    // TODO: Simplify the sample accounting logic so tricks like this are not needed.
+    constexpr uint32_t kNumBits = 5;  // The number of most significant bits to check.
+    uint32_t old_count = method->GetCounter();
+    uint32_t new_count = old_count + samples;
+    uint32_t ignore_mask = MaxInt<uint32_t>(MinimumBitsToStore(old_count)) >> kNumBits;
+    if (((old_count ^ new_count) & ~ignore_mask) == 0) {
+      method->SetCounter(new_count);
+      return;
+    }
+    AddSamplesImpl(self, method, samples, with_backedges);
+  }
 
   void InvokeVirtualOrInterface(ObjPtr<mirror::Object> this_object,
                                 ArtMethod* caller,
@@ -297,6 +311,9 @@ class Jit {
 
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
+
+  void AddSamplesImpl(Thread* self, ArtMethod* method, uint16_t samples, bool with_backedges)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   static bool BindCompilerMethods(std::string* error_msg);
 
