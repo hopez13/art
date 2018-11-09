@@ -27,6 +27,7 @@
 #include "class_flags.h"
 #include "class_linker.h"
 #include "dex_cache.h"
+#include "dex/primitive.h"
 #include "heap_poisoning.h"
 #include "lock_word-inl.h"
 #include "monitor.h"
@@ -192,113 +193,102 @@ inline Array* Object::AsArray() {
   return down_cast<Array*>(this);
 }
 
+template<VerifyObjectFlags kVerifyFlags, typename PrimitiveType>
+ALWAYS_INLINE bool Object::IsSpecificPrimitiveArray(PrimitiveType type) {
+  // We do not need a read barrier here as the primitive type is constant,
+  // both from-space and to-space component type classes shall yield the same result.
+  ObjPtr<Class> klass = GetClass<kVerifyFlags, kWithoutReadBarrier>();
+  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
+  ObjPtr<Class> const component_type = klass->GetComponentType<kNewFlags, kWithoutReadBarrier>();
+  return component_type != nullptr &&
+         component_type->GetPrimitiveType<kNewFlags>() == type();
+}
+
+template<VerifyObjectFlags kVerifyFlags>
+inline bool Object::IsBooleanArray() {
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimBoolean; });
+}
+
 template<VerifyObjectFlags kVerifyFlags>
 inline BooleanArray* Object::AsBooleanArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->GetComponentType()->IsPrimitiveBoolean());
+  DCHECK(IsBooleanArray<kVerifyFlags>());
   return down_cast<BooleanArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
+inline bool Object::IsByteArray() {
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimByte; });
+}
+
+template<VerifyObjectFlags kVerifyFlags>
 inline ByteArray* Object::AsByteArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveByte());
+  DCHECK(IsByteArray<kVerifyFlags>());
   return down_cast<ByteArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
-inline ByteArray* Object::AsByteSizedArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveByte() ||
-         GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveBoolean());
-  return down_cast<ByteArray*>(this);
+inline bool Object::IsCharArray() {
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimChar; });
 }
 
 template<VerifyObjectFlags kVerifyFlags>
 inline CharArray* Object::AsCharArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveChar());
+  DCHECK(IsCharArray<kVerifyFlags>());
   return down_cast<CharArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
+inline bool Object::IsShortArray() {
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimShort; });
+}
+
+template<VerifyObjectFlags kVerifyFlags>
 inline ShortArray* Object::AsShortArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveShort());
+  DCHECK(IsShortArray<kVerifyFlags>());
   return down_cast<ShortArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
-inline ShortArray* Object::AsShortSizedArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveShort() ||
-         GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveChar());
-  return down_cast<ShortArray*>(this);
-}
-
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline bool Object::IsIntArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  ObjPtr<Class> klass = GetClass<kVerifyFlags, kReadBarrierOption>();
-  ObjPtr<Class> component_type = klass->GetComponentType<kVerifyFlags, kReadBarrierOption>();
-  return component_type != nullptr && component_type->template IsPrimitiveInt<kNewFlags>();
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimInt; });
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline IntArray* Object::AsIntArray() {
-  DCHECK((IsIntArray<kVerifyFlags, kReadBarrierOption>()));
+  DCHECK((IsIntArray<kVerifyFlags>()));
   return down_cast<IntArray*>(this);
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline bool Object::IsLongArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  ObjPtr<Class> klass = GetClass<kVerifyFlags, kReadBarrierOption>();
-  ObjPtr<Class> component_type = klass->GetComponentType<kVerifyFlags, kReadBarrierOption>();
-  return component_type != nullptr && component_type->template IsPrimitiveLong<kNewFlags>();
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimLong; });
 }
 
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+template<VerifyObjectFlags kVerifyFlags>
 inline LongArray* Object::AsLongArray() {
-  DCHECK((IsLongArray<kVerifyFlags, kReadBarrierOption>()));
+  DCHECK((IsLongArray<kVerifyFlags>()));
   return down_cast<LongArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
 inline bool Object::IsFloatArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  auto* component_type = GetClass<kVerifyFlags>()->GetComponentType();
-  return component_type != nullptr && component_type->template IsPrimitiveFloat<kNewFlags>();
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimFloat; });
 }
 
 template<VerifyObjectFlags kVerifyFlags>
 inline FloatArray* Object::AsFloatArray() {
   DCHECK(IsFloatArray<kVerifyFlags>());
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveFloat());
   return down_cast<FloatArray*>(this);
 }
 
 template<VerifyObjectFlags kVerifyFlags>
 inline bool Object::IsDoubleArray() {
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  auto* component_type = GetClass<kVerifyFlags>()->GetComponentType();
-  return component_type != nullptr && component_type->template IsPrimitiveDouble<kNewFlags>();
+  return IsSpecificPrimitiveArray<kVerifyFlags>([]() { return Primitive::kPrimDouble; });
 }
 
 template<VerifyObjectFlags kVerifyFlags>
 inline DoubleArray* Object::AsDoubleArray() {
   DCHECK(IsDoubleArray<kVerifyFlags>());
-  constexpr auto kNewFlags = RemoveThisFlags(kVerifyFlags);
-  DCHECK(GetClass<kVerifyFlags>()->IsArrayClass());
-  DCHECK(GetClass<kNewFlags>()->template GetComponentType<kNewFlags>()->IsPrimitiveDouble());
   return down_cast<DoubleArray*>(this);
 }
 
