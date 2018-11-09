@@ -227,7 +227,13 @@ class Jit {
   void MethodEntered(Thread* thread, ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddSamples(Thread* self, ArtMethod* method, uint16_t samples, bool with_backedges)
+  // Returns how many samples we should accumulate before calling AddSamples.
+  ALWAYS_INLINE static size_t GetHotnessCountdown(size_t count);
+
+  ALWAYS_INLINE void AddSamples(Thread* self,
+                                ArtMethod* method,
+                                uint16_t samples,
+                                bool with_backedges)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void InvokeVirtualOrInterface(ObjPtr<mirror::Object> this_object,
@@ -297,6 +303,13 @@ class Jit {
 
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
+
+  void AddSamplesImpl(Thread* self,
+                      ArtMethod* method,
+                      uint16_t starting_count,
+                      uint16_t samples,
+                      bool with_backedges)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   static bool BindCompilerMethods(std::string* error_msg);
 
