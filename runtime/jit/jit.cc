@@ -628,7 +628,7 @@ static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mut
   return false;
 }
 
-void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
+void Jit::AddSamplesImpl(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
   if (thread_pool_ == nullptr) {
     // Should only see this when shutting down.
     DCHECK(Runtime::Current()->IsShuttingDown(self));
