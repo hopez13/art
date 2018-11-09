@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81eba18a_94155f02",
+        "filename": "test/1931-monitor-events/src/art/Test1931.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-11-09T21:33:35Z",
+      "side": 1,
+      "message": "Needs to be:\n  new Monitors.NamedLock(\u0027\u003csome name\u003e\u0027)\n\nto actually be printed to the log.",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 42
+      },
+      "revId": "7192cb2ee71ad307c3e29d9a7de9378f0bdc181d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
