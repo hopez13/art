@@ -213,10 +213,12 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
   }
 
   // File descriptor enabling dual-view mapping of code section.
+  // TODO(oth): switch to mremap.
   unique_fd mem_fd;
 
   // Bionic supports memfd_create, but the call may fail on older kernels.
-  mem_fd = unique_fd(art::memfd_create("/jit-cache", /* flags= */ 0));
+  // TODO(oth): Needs system health review (b/118833033), disabled in the interim.
+  // mem_fd = unique_fd(art::memfd_create("/jit-cache", /* flags= */ 0));
   if (mem_fd.get() < 0) {
     std::ostringstream oss;
     oss << "Failed to initialize dual view JIT. memfd_create() error: " << strerror(errno);
