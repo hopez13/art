@@ -327,11 +327,6 @@ void ConcurrentCopying::InitializePhase() {
               << reinterpret_cast<void*>(region_space_->Limit());
   }
   CheckEmptyMarkStack();
-  if (kIsDebugBuild) {
-    MutexLock mu(Thread::Current(), mark_stack_lock_);
-    CHECK(false_gray_stack_.empty());
-  }
-
   rb_mark_bit_stack_full_ = false;
   mark_from_read_barrier_measurements_ = measure_read_barrier_slow_path_;
   if (measure_read_barrier_slow_path_) {
@@ -1051,9 +1046,6 @@ void ConcurrentCopying::MarkingPhase() {
     Runtime::Current()->GetClassLinker()->CleanupClassLoaders();
     // Marking is done. Disable marking.
     DisableMarking();
-    if (kUseBakerReadBarrier) {
-      ProcessFalseGrayStack();
-    }
     CheckEmptyMarkStack();
   }
 
@@ -1163,32 +1155,6 @@ void ConcurrentCopying::DisableMarking() {
   }
   is_mark_stack_push_disallowed_.store(1, std::memory_order_seq_cst);
   mark_stack_mode_.store(kMarkStackModeOff, std::memory_order_seq_cst);
-}
-
-void ConcurrentCopying::PushOntoFalseGrayStack(Thread* const self, mirror::Object* ref) {
-  CHECK(kUseBakerReadBarrier);
-  DCHECK(ref != nullptr);
-  MutexLock mu(self, mark_stack_lock_);
-  false_gray_stack_.push_back(ref);
-}
-
-void ConcurrentCopying::ProcessFalseGrayStack() {
-  CHECK(kUseBakerReadBarrier);
-  // Change the objects on the false gray stack from gray to non-gray (conceptually black).
-  MutexLock mu(Thread::Current(), mark_stack_lock_);
-  for (mirror::Object* obj : false_gray_stack_) {
-    DCHECK(IsMarked(obj));
-    // The object could be non-gray (conceptually black) here if a thread got preempted after a
-    // success at the AtomicSetReadBarrierState in MarkNonMoving(), GC started marking through it
-    // (but not finished so still gray), the thread ran to register it onto the false gray stack,
-    // and then GC eventually marked it black (non-gray) after it finished scanning it.
-    if (obj->GetReadBarrierState() == ReadBarrier::GrayState()) {
-      bool success = obj->AtomicSetReadBarrierState(ReadBarrier::GrayState(),
-                                                    ReadBarrier::NonGrayState());
-      DCHECK(success);
-    }
-  }
-  false_gray_stack_.clear();
 }
 
 void ConcurrentCopying::IssueEmptyCheckpoint() {
@@ -1666,6 +1632,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   // Invariant: There should be no object from a newly-allocated
   // region (either large or non-large) on the mark stack.
   DCHECK(!region_space_->IsInNewlyAllocatedRegion(to_ref)) << to_ref;
+  bool perform_scan = false;
   if (rtype == space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace) {
     // Mark the bitmap only in the GC thread here so that we don't need a CAS.
     if (!kUseBakerReadBarrier ||
@@ -1675,21 +1642,42 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
       if (kEnableGenerationalConcurrentCopyingCollection && young_gen_) {
         CHECK(region_space_->IsLargeObject(to_ref));
         region_space_->ZeroLiveBytesForLargeObject(to_ref);
-        Scan<true>(to_ref);
-      } else {
-        Scan<false>(to_ref);
       }
+      perform_scan = true;
       // Only add to the live bytes if the object was not already marked and we are not the young
       // GC.
       add_to_live_bytes = true;
     }
-  } else {
+  } else if (rtype == space::RegionSpace::RegionType::kRegionTypeToSpace) {
     if (kEnableGenerationalConcurrentCopyingCollection) {
-      if (rtype == space::RegionSpace::RegionType::kRegionTypeToSpace) {
-        // Copied to to-space, set the bit so that the next GC can scan objects.
-        region_space_bitmap_->Set(to_ref);
-      }
+      // Copied to to-space, set the bit so that the next GC can scan objects.
+      perform_scan = true;
+      region_space_bitmap_->Set(to_ref);
     }
+  } else {
+    DCHECK(!region_space_->HasAddress(to_ref)) << to_ref;
+    DCHECK(!immune_spaces_.ContainsObject(to_ref));
+    // Use the mark bitmap.
+    if (kUseBakerReadBarrier) {
+      accounting::ContinuousSpaceBitmap* mark_bitmap =
+          heap_->GetNonMovingSpace()->GetMarkBitmap();
+      const bool is_los = !mark_bitmap->HasAddress(to_ref);
+      if (is_los) {
+        CHECK(heap_->GetLargeObjectsSpace())
+            << "ref=" << to_ref
+            << " doesn't belong to non-moving space and large object space doesn't exist";
+        accounting::LargeObjectBitmap* los_bitmap =
+            heap_->GetLargeObjectsSpace()->GetMarkBitmap();
+        DCHECK(los_bitmap->HasAddress(to_ref));
+        perform_scan = !los_bitmap->Set(to_ref);
+      } else {
+        perform_scan = !mark_bitmap->Set(to_ref);
+      }
+    } else {
+      perform_scan = true;
+    }
+  }
+  if (perform_scan) {
     if (kEnableGenerationalConcurrentCopyingCollection && young_gen_) {
       Scan<true>(to_ref);
     } else {
@@ -2357,51 +2345,27 @@ void ConcurrentCopying::AssertToSpaceInvariantInNonMovingSpace(mirror::Object* o
   } else {
     // Non-moving space and large-object space (LOS) cases.
     accounting::ContinuousSpaceBitmap* mark_bitmap =
-        heap_mark_bitmap_->GetContinuousSpaceBitmap(ref);
-    accounting::LargeObjectBitmap* los_bitmap =
-        heap_mark_bitmap_->GetLargeObjectBitmap(ref);
-    bool is_los = (mark_bitmap == nullptr);
+        heap_->GetNonMovingSpace()->GetMarkBitmap();
+    accounting::LargeObjectBitmap* los_bitmap = nullptr;
+    const bool is_los = !mark_bitmap->HasAddress(ref);
+    if (is_los) {
+      CHECK(heap_->GetLargeObjectsSpace() && heap_->GetLargeObjectsSpace()->Contains(ref))
+          << "obj=" << obj
+          << " ref=" << ref
+          << " doesn't belong to non-moving space and large object space doesn't exist";
+      los_bitmap = heap_->GetLargeObjectsSpace()->GetMarkBitmap();
+    }
 
-    bool marked_in_non_moving_space_or_los =
-        (kUseBakerReadBarrier
-         && kEnableGenerationalConcurrentCopyingCollection
-         && young_gen_
-         && !done_scanning_.load(std::memory_order_acquire))
-        // Don't use the mark bitmap to ensure `ref` is marked: check that the
-        // read barrier state is gray instead. This is to take into account a
-        // potential race between two read barriers on the same reference when the
-        // young-generation collector is still scanning the dirty cards.
-        //
-        // For instance consider two concurrent read barriers on the same GC root
-        // reference during the dirty-card-scanning step of a young-generation
-        // collection. Both threads would call ReadBarrier::BarrierForRoot, which
-        // would:
-        // a. mark the reference (leading to a call to
-        //    ConcurrentCopying::MarkNonMoving); then
-        // b. check the to-space invariant (leading to a call this
-        //    ConcurrentCopying::AssertToSpaceInvariantInNonMovingSpace -- this
-        //    method).
-        //
-        // In this situation, the following race could happen:
-        // 1. Thread A successfully changes `ref`'s read barrier state from
-        //    non-gray (white) to gray (with AtomicSetReadBarrierState) in
-        //    ConcurrentCopying::MarkNonMoving, then gets preempted.
-        // 2. Thread B also tries to change `ref`'s read barrier state with
-        //    AtomicSetReadBarrierState from non-gray to gray in
-        //    ConcurrentCopying::MarkNonMoving, but fails, as Thread A already
-        //    changed it.
-        // 3. Because Thread B failed the previous CAS, it does *not* set the
-        //    bit in the mark bitmap for `ref`.
-        // 4. Thread B checks the to-space invariant and calls
-        //    ConcurrentCopying::AssertToSpaceInvariantInNonMovingSpace: the bit
-        //    is not set in the mark bitmap for `ref`; checking that this bit is
-        //    set to check the to-space invariant is therefore not a reliable
-        //    test.
-        // 5. (Note that eventually, Thread A will resume its execution and set
-        //    the bit for `ref` in the mark bitmap.)
-        ? (ref->GetReadBarrierState() == ReadBarrier::GrayState())
-        // It is safe to use the heap mark bitmap otherwise.
-        : (!is_los && mark_bitmap->Test(ref)) || (is_los && los_bitmap->Test(ref));
+    bool marked_in_non_moving_space_or_los = false;
+    if (kUseBakerReadBarrier) {
+      marked_in_non_moving_space_or_los = ref->GetReadBarrierState() == ReadBarrier::GrayState();
+    }
+    if ((!kEnableGenerationalConcurrentCopyingCollection
+        || !young_gen_
+        || done_scanning_.load(std::memory_order_acquire))
+        && !marked_in_non_moving_space_or_los) {
+      marked_in_non_moving_space_or_los = is_los ? los_bitmap->Test(ref) : mark_bitmap->Test(ref);
+    }
 
     // If `ref` is on the allocation stack, then it may not be
     // marked live, but considered marked/alive (but not
@@ -2963,10 +2927,24 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
   DCHECK(!immune_spaces_.ContainsObject(ref));
   // Use the mark bitmap.
   accounting::ContinuousSpaceBitmap* mark_bitmap =
-      heap_mark_bitmap_->GetContinuousSpaceBitmap(ref);
-  accounting::LargeObjectBitmap* los_bitmap =
-      heap_mark_bitmap_->GetLargeObjectBitmap(ref);
-  bool is_los = mark_bitmap == nullptr;
+      heap_->GetNonMovingSpace()->GetMarkBitmap();
+  accounting::LargeObjectBitmap* los_bitmap = nullptr;
+  const bool is_los = !mark_bitmap->HasAddress(ref);
+  if (is_los) {
+    CHECK(heap_->GetLargeObjectsSpace())
+        << "ref=" << ref
+        << " doesn't belong to non-moving space and large object space doesn't exist";
+    los_bitmap = heap_->GetLargeObjectsSpace()->GetMarkBitmap();
+    DCHECK(los_bitmap->HasAddress(ref));
+  }
+  if (is_los && !IsAligned<kPageSize>(ref)) {
+    // Ref is a large object that is not aligned, it must be heap
+    // corruption. Remove memory protection and dump data before
+    // AtomicSetReadBarrierState since it will fault if the address is not
+    // valid.
+    region_space_->Unprotect();
+    heap_->GetVerification()->LogHeapCorruption(holder, offset, ref, /* fatal= */ true);
+  }
   if (kEnableGenerationalConcurrentCopyingCollection && young_gen_) {
     // The sticky-bit CC collector is only compatible with Baker-style read barriers.
     DCHECK(kUseBakerReadBarrier);
@@ -2984,12 +2962,6 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
           ref->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(), ReadBarrier::GrayState())) {
         // TODO: We don't actually need to scan this object later, we just need to clear the gray
         // bit.
-        // Also make sure the object is marked.
-        if (is_los) {
-          los_bitmap->AtomicTestAndSet(ref);
-        } else {
-          mark_bitmap->AtomicTestAndSet(ref);
-        }
         // We don't need to mark newly allocated objects (those in allocation stack) as they can
         // only point to to-space objects. Also, they are considered live till the next GC cycle.
         PushOntoMarkStack(self, ref);
@@ -3015,46 +2987,18 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
         DCHECK_EQ(ref->GetReadBarrierState(), ReadBarrier::NonGrayState());
       }
     } else {
-      // For the baker-style RB, we need to handle 'false-gray' cases. See the
-      // kRegionTypeUnevacFromSpace-case comment in Mark().
-      if (kUseBakerReadBarrier) {
-        // Test the bitmap first to reduce the chance of false gray cases.
-        if ((!is_los && mark_bitmap->Test(ref)) ||
-            (is_los && los_bitmap->Test(ref))) {
-          return ref;
-        }
-      }
-      if (is_los && !IsAligned<kPageSize>(ref)) {
-        // Ref is a large object that is not aligned, it must be heap
-        // corruption. Remove memory protection and dump data before
-        // AtomicSetReadBarrierState since it will fault if the address is not
-        // valid.
-        region_space_->Unprotect();
-        heap_->GetVerification()->LogHeapCorruption(holder, offset, ref, /* fatal= */ true);
-      }
       // Not marked nor on the allocation stack. Try to mark it.
       // This may or may not succeed, which is ok.
-      bool cas_success = false;
+      bool success = false;
       if (kUseBakerReadBarrier) {
-        cas_success = ref->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(),
-                                                     ReadBarrier::GrayState());
-      }
-      if (!is_los && mark_bitmap->AtomicTestAndSet(ref)) {
-        // Already marked.
-        if (kUseBakerReadBarrier &&
-            cas_success &&
-            ref->GetReadBarrierState() == ReadBarrier::GrayState()) {
-          PushOntoFalseGrayStack(self, ref);
-        }
-      } else if (is_los && los_bitmap->AtomicTestAndSet(ref)) {
-        // Already marked in LOS.
-        if (kUseBakerReadBarrier &&
-            cas_success &&
-            ref->GetReadBarrierState() == ReadBarrier::GrayState()) {
-          PushOntoFalseGrayStack(self, ref);
-        }
+        success = ref->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(),
+                                                 ReadBarrier::GrayState());
       } else {
-        // Newly marked.
+        success = is_los ?
+            !los_bitmap->AtomicTestAndSet(ref) :
+            !mark_bitmap->AtomicTestAndSet(ref);
+      }
+      if (success) {
         if (kUseBakerReadBarrier) {
           DCHECK_EQ(ref->GetReadBarrierState(), ReadBarrier::GrayState());
         }

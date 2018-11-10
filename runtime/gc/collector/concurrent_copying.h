@@ -283,11 +283,6 @@ class ConcurrentCopying : public GarbageCollector {
   ALWAYS_INLINE mirror::Object* MarkImmuneSpace(Thread* const self,
                                                 mirror::Object* from_ref)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!immune_gray_stack_lock_);
-  void PushOntoFalseGrayStack(Thread* const self, mirror::Object* obj)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!mark_stack_lock_);
-  void ProcessFalseGrayStack() REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!mark_stack_lock_);
   void ScanImmuneObject(mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
   mirror::Object* MarkFromReadBarrierWithMeasurements(Thread* const self,
@@ -315,7 +310,6 @@ class ConcurrentCopying : public GarbageCollector {
   // (see use case in ConcurrentCopying::MarkFromReadBarrier).
   bool rb_mark_bit_stack_full_;
 
-  std::vector<mirror::Object*> false_gray_stack_ GUARDED_BY(mark_stack_lock_);
   Mutex mark_stack_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
   std::vector<accounting::ObjectStack*> revoked_mark_stacks_
       GUARDED_BY(mark_stack_lock_);
