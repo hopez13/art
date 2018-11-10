@@ -242,15 +242,17 @@ inline bool ConcurrentCopying::IsMarkedInUnevacFromSpace(mirror::Object* from_re
   // Use load-acquire on the read barrier pointer to ensure that we never see a black (non-gray)
   // read barrier state with an unmarked bit due to reordering.
   DCHECK(region_space_->IsInUnevacFromSpace(from_ref));
-  if (kEnableGenerationalConcurrentCopyingCollection
-      && young_gen_
-      && !done_scanning_.load(std::memory_order_acquire)) {
-    return from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState();
+  bool is_marked = false;
+  if (kUseBakerReadBarrier) {
+    is_marked = from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState();
   }
-  if (kUseBakerReadBarrier && from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState()) {
-    return true;
+  if ((!kEnableGenerationalConcurrentCopyingCollection
+       || !young_gen_
+       || done_scanning_.load(std::memory_order_acquire))
+      && !is_marked) {
+    is_marked = region_space_bitmap_->Test(from_ref);
   }
-  return region_space_bitmap_->Test(from_ref);
+  return is_marked;
 }
 
 }  // namespace collector
