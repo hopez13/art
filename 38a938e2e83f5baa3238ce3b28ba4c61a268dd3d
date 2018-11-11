@@ -22,6 +22,30 @@
       "revId": "38a938e2e83f5baa3238ce3b28ba4c61a268dd3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94b914c8_2bc6d6c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-11T10:34:52Z",
+      "side": 1,
+      "message": "That\u0027s a fair question. :) Some answers:\n\n1. Soong does parse and take into account the new build rules, which counts as a bit of testing.\n2. APEX package testing is manual at the moment (using script art/build/apex/runtests.sh).\n3. Automated building on master-art will happen when https://android-review.googlesource.com/c/platform/art/+/821962/ lands.\n4. Systematic building (on master targets) will happen when https://android-review.googlesource.com/c/platform/build/+/804934/ lands. (I wanted to wait for Monday before submitting that CL, as I foresee build breakages on targets where the size of the system image is close to the limit).\n5. In addition, I plan to run art/build/apex/runtests.sh as part of ART tests, but I need to make the build system hermetic first, by adding libguestfs as an official dependency (watch this space).\n6. There will be more testing when other CL (changing system paths to use \"/apex/com.android.runtime\") land.\n\nThis CL has been broken several times during its development by changes in other projects. I wanted to merge it ASAP to make sure we do not regress, even if we don\u0027t have the full solution yet.",
+      "parentUuid": "d5d040d7_eab2a022",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 67
+      },
+      "revId": "38a938e2e83f5baa3238ce3b28ba4c61a268dd3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
