@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8f8a630_f2a687d6",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-12T20:14:47Z",
+      "side": 1,
+      "message": "Although not that important, but I\u0027d recommend moving this inside InitializePhase(). RunPhases() should be kept simple with giving a broad list of different phases involved to the reader.",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 191,
+        "endChar": 85
+      },
+      "revId": "51a2baaf431bddf46ad7d4235a504f27a7942005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f5154f_1b1629f0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-12T20:14:47Z",
+      "side": 1,
+      "message": "Same reasoning as above. I\u0027d recommend moving this inside ReclaimPhase()",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 40
+      },
+      "revId": "51a2baaf431bddf46ad7d4235a504f27a7942005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
