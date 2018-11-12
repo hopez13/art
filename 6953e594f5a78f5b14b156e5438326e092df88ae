@@ -195,6 +195,30 @@
       "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "512625c0_383814e5",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-12T19:04:48Z",
+      "side": 1,
+      "message": "I meant \"add primitive namespace.\" It\u0027s not too different writing Primitive::XYZ vs primitive::XYZ, and would allow the enum to be scoped but not be in a class.\n\n(Google style says \"don\u0027t use a class to scope only static members\")",
+      "parentUuid": "b651c734_9187681b",
+      "range": {
+        "startLine": 762,
+        "startChar": 29,
+        "endLine": 762,
+        "endChar": 72
+      },
+      "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
