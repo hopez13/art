@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bfa14c1f_1dd30372",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-12T16:37:46Z",
+      "side": 1,
+      "message": "Done. Also in the object-inl.h, the source of this copy-pasted \"auto\".",
+      "parentUuid": "1606a6e7_5c2708ca",
+      "range": {
+        "startLine": 978,
+        "startChar": 12,
+        "endLine": 978,
+        "endChar": 16
+      },
+      "revId": "d689d9a47300822cbd73deded455847e825d4ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2de9cda_ecb39fab",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "d689d9a47300822cbd73deded455847e825d4ef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e10a6539_90e590ad",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-12T16:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2de9cda_ecb39fab",
+      "range": {
+        "startLine": 987,
+        "startChar": 12,
+        "endLine": 987,
+        "endChar": 16
+      },
+      "revId": "d689d9a47300822cbd73deded455847e825d4ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
