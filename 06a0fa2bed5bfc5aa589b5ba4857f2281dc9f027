@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fca9c782_095eac85",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-12T13:31:47Z",
+      "side": 1,
+      "message": "Add a comment why it\u0027s ok to suspend all. Why do you need that btw? I would have thought a lock on the thread_list_lock would be ok.",
+      "revId": "06a0fa2bed5bfc5aa589b5ba4857f2281dc9f027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
