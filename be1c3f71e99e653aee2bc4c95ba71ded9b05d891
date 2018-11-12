@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1d412a2_555637e4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-12T20:05:59Z",
+      "side": 1,
+      "message": "Should be lower case.",
+      "range": {
+        "startLine": 334,
+        "startChar": 43,
+        "endLine": 334,
+        "endChar": 44
+      },
+      "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13c98b02_9d8aeba3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-12T20:05:59Z",
+      "side": 1,
+      "message": "This ratio seems unfair to me as there is a lot of idle time involved in runtime wall-clock time. I and Roland had a discussion about this last week that may be we can capture CPU time of each thread that get added/deleted to thread_list and then have this comparison.\n\nThoughts?",
+      "range": {
+        "startLine": 335,
+        "startChar": 3,
+        "endLine": 340,
+        "endChar": 16
+      },
+      "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
