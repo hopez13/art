@@ -81,6 +81,30 @@
       "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cdc802a_64764d05",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-12T13:47:27Z",
+      "side": 1,
+      "message": "I see. My preference would be to not make includes logic require loosing on code simplicity,",
+      "parentUuid": "3334e0e7_3c2933bb",
+      "range": {
+        "startLine": 762,
+        "startChar": 29,
+        "endLine": 762,
+        "endChar": 72
+      },
+      "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
