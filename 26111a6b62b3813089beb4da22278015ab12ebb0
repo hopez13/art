@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6271f75_db13c20d",
+        "filename": "test/1931-monitor-events/expected.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-11-12T16:46:24Z",
+      "side": 1,
+      "message": "Does this work with ./test/run-test --jvm 1931?\n\nI don\u0027t think it will. If it doesn\u0027t you\u0027ll need to create a patch file for the difference and make a check script that tests both outputs. Look at test 1932 for what this script looks like.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 74
+      },
+      "revId": "26111a6b62b3813089beb4da22278015ab12ebb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
