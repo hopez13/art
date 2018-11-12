@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "710b95f2_991e9aa4",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-12T13:20:02Z",
+      "side": 1,
+      "message": "Isn\u0027t this being called at each interpreter entry?",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 53
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25cfe426_996c300a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-12T13:20:02Z",
+      "side": 1,
+      "message": "Add a comment why it\u0027s ok this is 31bit max.",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 35
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
