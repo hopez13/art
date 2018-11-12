@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "54f7b2e7_3094831d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-12T14:10:59Z",
+      "side": 1,
+      "message": "Right, makes sense.",
+      "parentUuid": "2c33f3dd_eeb16dd1",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 40
+      },
+      "revId": "33871b324fa99d2a662a64e9605b08667fcad6ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34056f56_7d92bf49",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
