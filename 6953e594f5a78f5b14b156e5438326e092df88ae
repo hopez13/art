@@ -147,6 +147,30 @@
       "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9757d33_1699f457",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-12T18:34:28Z",
+      "side": 1,
+      "message": "We should just get rid of the class wrapper and use a namespace (which follows Google-style guidance, anyways). Then you can forward-declare the enum. (Obviously comment not meant to be implemented in this CL...)",
+      "parentUuid": "29f84a44_53f1fe27",
+      "range": {
+        "startLine": 762,
+        "startChar": 29,
+        "endLine": 762,
+        "endChar": 72
+      },
+      "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

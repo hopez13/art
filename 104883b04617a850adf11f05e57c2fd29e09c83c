@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05024568_7923b68f",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-12T18:34:28Z",
+      "side": 1,
+      "message": "Doesn\u0027t technically require an instance function exposed in the main header.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 1
+      },
+      "revId": "104883b04617a850adf11f05e57c2fd29e09c83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
