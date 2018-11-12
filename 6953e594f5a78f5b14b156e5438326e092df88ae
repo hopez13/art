@@ -57,6 +57,30 @@
       "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3334e0e7_3c2933bb",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-12T13:45:24Z",
+      "side": 1,
+      "message": "I wanted to know what people think about this. I\u0027m not too keen on adding new #includes but this one is reasonably small and rarely touched.",
+      "parentUuid": "ab908a28_c41b2d6a",
+      "range": {
+        "startLine": 762,
+        "startChar": 29,
+        "endLine": 762,
+        "endChar": 72
+      },
+      "revId": "6953e594f5a78f5b14b156e5438326e092df88ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
