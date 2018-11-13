@@ -72,6 +72,13 @@ apex_key {
     private_key: "com.android.runtime.pem",
 }
 
+prebuilt_etc {
+    name: "com.android.runtime.ld.config.txt",
+    src: "ld.config.txt",
+    filename: "ld.config.txt",
+    installable: false,
+}
+
 // TODO: Introduce `apex_defaults` to factor common parts of `apex`
 // module definitions below?
 
@@ -98,8 +105,7 @@ apex {
         }
     },
     key: "com.android.runtime.key",
-    // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
-    // ...
+    prebuilts: ["com.android.runtime.ld.config.txt"],
 }
 
 // "Debug" version of the Runtime APEX module (containing both release and
@@ -127,6 +133,5 @@ apex {
         }
     },
     key: "com.android.runtime.key",
-    // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
-    // ...
+    prebuilts: ["com.android.runtime.ld.config.txt"],
 }
