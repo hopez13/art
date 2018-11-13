@@ -185,6 +185,7 @@ cc_defaults {
         android: {
             // Use the 32-bit version of dex2oat on devices.
             compile_multilib: "prefer32",
+            shared_libs: ["libcutils"],
         },
     },
     header_libs: [
