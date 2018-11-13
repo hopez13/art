@@ -31,11 +31,10 @@ class InstructionSetFeatures;
 class PACKED(4) OatHeader {
  public:
   static constexpr uint8_t kOatMagic[] = { 'o', 'a', 't', '\n' };
-  // Last oat version changed reason: Remove interpreter alt tables.
-  static constexpr uint8_t kOatVersion[] = { '1', '6', '3', '\0' };
+  // Last oat version changed reason: Remove dex2oat-host key
+  static constexpr uint8_t kOatVersion[] = { '1', '6', '4', '\0' };
 
   static constexpr const char* kDex2OatCmdLineKey = "dex2oat-cmdline";
-  static constexpr const char* kDex2OatHostKey = "dex2oat-host";
   static constexpr const char* kDebuggableKey = "debuggable";
   static constexpr const char* kNativeDebuggableKey = "native-debuggable";
   static constexpr const char* kCompilerFilter = "compiler-filter";
