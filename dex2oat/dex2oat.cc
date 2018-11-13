@@ -99,6 +99,8 @@
 #include "verifier/verifier_deps.h"
 #include "well_known_classes.h"
 
+#include "cutils/klog.h"
+
 namespace art {
 
 using android::base::StringAppendV;
@@ -1117,6 +1119,9 @@ class Dex2Oat final {
 
     Locks::Init();
     InitLogging(argv, Runtime::Abort);
+#ifdef __ANDROID__
+    IndirectLogGlobalRef();
+#endif
 
     compiler_options_.reset(new CompilerOptions());
 
