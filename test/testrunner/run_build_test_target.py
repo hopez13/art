@@ -62,6 +62,15 @@ custom_env['SOONG_ALLOW_MISSING_DEPENDENCIES'] = 'true'
 print(custom_env)
 os.environ.update(custom_env)
 
+if 'build' in target:
+  build_command = target.get('build').format(
+      ANDROID_BUILD_TOP = env.ANDROID_BUILD_TOP,
+      MAKE_OPTIONS='DX=  -j{threads}'.format(threads = n_threads))
+  sys.stdout.write(str(build_command) + '\n')
+  sys.stdout.flush()
+  if subprocess.call(build_command.split()):
+    sys.exit(1)
+
 if 'make' in target:
   build_command = 'build/soong/soong_ui.bash --make-mode'
   build_command += ' DX='
@@ -107,7 +116,8 @@ if 'run-test' in target:
     run_test_command += ['--host']
     run_test_command += ['--dex2oat-jobs']
     run_test_command += ['4']
-  run_test_command += ['-b']
+  if '--no-build-dependencies' not in test_flags:
+    run_test_command += ['-b']
   run_test_command += ['--verbose']
 
   sys.stdout.write(str(run_test_command) + '\n')
