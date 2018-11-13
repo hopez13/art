@@ -1550,24 +1550,11 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
     ObjPtr<mirror::DexCache> dex_cache = class_linker_->FindDexCache(self, *dex_file_);
     ArtMethod* resolved_method;
     if (writer_->GetCompilerOptions().IsBootImage()) {
-      const InvokeType invoke_type = method.GetInvokeType(
-          dex_file_->GetClassDef(class_def_index_).access_flags_);
-      // Unchecked as we hold mutator_lock_ on entry.
-      ScopedObjectAccessUnchecked soa(self);
-      StackHandleScope<1> hs(self);
-      resolved_method = class_linker_->ResolveMethod<ClassLinker::ResolveMode::kNoChecks>(
-          method.GetIndex(),
-          hs.NewHandle(dex_cache),
-          ScopedNullHandle<mirror::ClassLoader>(),
-          /* referrer */ nullptr,
-          invoke_type);
+      resolved_method = class_linker_->LookupResolvedMethod(
+          method.GetIndex(), dex_cache, /*class_loader=*/ nullptr);
       if (resolved_method == nullptr) {
-        LOG(FATAL_WITHOUT_ABORT) << "Unexpected failure to resolve a method: "
+        LOG(FATAL) << "Unexpected failure to look up a method: "
             << dex_file_->PrettyMethod(method.GetIndex(), true);
-        self->AssertPendingException();
-        mirror::Throwable* exc = self->GetException();
-        std::string dump = exc->Dump();
-        LOG(FATAL) << dump;
         UNREACHABLE();
       }
     } else {
