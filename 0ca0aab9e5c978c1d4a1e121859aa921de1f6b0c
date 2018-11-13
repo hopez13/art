@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "701ca47a_9248733f",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-13T22:06:19Z",
+      "side": 1,
+      "message": "I think this could deserve its own .h file.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14dc9153_83645ec9",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-13T22:06:19Z",
+      "side": 1,
+      "message": "Thanks for cleanup. Could we add helper for this? Ie IsAtLeast, IsAtMost, IsExactly... ?",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 70
+      },
+      "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
