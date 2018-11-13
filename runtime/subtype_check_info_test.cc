@@ -17,7 +17,7 @@
 #include "subtype_check_info.h"
 
 #include "gtest/gtest.h"
-#include "android-base/logging.h"
+#include "base/logging.h"
 
 namespace art {
 
@@ -87,7 +87,7 @@ BitString SetBitStringCharAt(BitString bit_string, size_t i, size_t val) {
 struct SubtypeCheckInfoTest : public ::testing::Test {
  protected:
   void SetUp() override {
-    android::base::InitLogging(/*argv=*/nullptr);
+    art::InitLogging(/*argv=*/nullptr);
   }
 
   void TearDown() override {

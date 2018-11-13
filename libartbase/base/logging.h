@@ -25,7 +25,8 @@
 
 namespace art {
 
-// Make libbase's LogSeverity more easily available.
+// Make libbase's logging enums more easily available.
+using ::android::base::LogId;
 using ::android::base::LogSeverity;
 using ::android::base::ScopedLogSeverity;
 
@@ -71,7 +72,8 @@ extern LogVerbosity gLogVerbosity;
 // The tag (or '*' for the global level) comes first, followed by a colon
 // and a letter indicating the minimum priority level we're expected to log.
 // This can be used to reveal or conceal logs with specific tags.
-extern void InitLogging(char* argv[], AbortFunction& default_aborter);
+extern void InitLogging(char* argv[],
+                        AbortFunction& default_aborter = android::base::DefaultAborter);
 
 // Returns the command line used to invoke the current tool or null if InitLogging hasn't been
 // performed.

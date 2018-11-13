@@ -30,9 +30,9 @@ art_cc_binary {
     defaults: ["dexdump_defaults"],
     host_supported: true,
     shared_libs: [
-        "libdexfile",
         "libartbase",
-        "libbase",
+        "libbase_art",
+        "libdexfile",
     ],
 }
 

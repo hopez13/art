@@ -181,7 +181,7 @@ art_cc_defaults {
     },
     generated_sources: ["art_compiler_operator_srcs"],
     shared_libs: [
-        "libbase",
+        "libbase_art",
         "libcutils",  // for atrace.
     ],
     include_dirs: ["art/disassembler"],
@@ -196,7 +196,7 @@ art_cc_defaults {
 cc_defaults {
     name: "libart-compiler_static_base_defaults",
     static_libs: [
-        "libbase",
+        "libbase_art",
         "libcutils",
     ],
 }
@@ -344,7 +344,7 @@ art_cc_library {
         "libartd-compiler",
         "libartd-disassembler",
         "libart-runtime-gtest",
-        "libbase",
+        "libbase_art",
     ],
 }
 
