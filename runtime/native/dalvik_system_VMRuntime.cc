@@ -256,12 +256,14 @@ static void VMRuntime_setTargetSdkVersionNative(JNIEnv*, jobject, jint target_sd
   // where workarounds can be enabled.
   // Note that targetSdkVersion may be CUR_DEVELOPMENT (10000).
   // Note that targetSdkVersion may be 0, meaning "current".
-  Runtime::Current()->SetTargetSdkVersion(target_sdk_version);
+  uint32_t uint_target_sdk_version =
+      target_sdk_version <= 0 ? kSdkVersionUnset : static_cast<uint32_t>(target_sdk_version);
+  Runtime::Current()->SetTargetSdkVersion(uint_target_sdk_version);
 
 #ifdef ART_TARGET_ANDROID
   // This part is letting libc/dynamic linker know about current app's
   // target sdk version to enable compatibility workarounds.
-  android_set_application_target_sdk_version(static_cast<uint32_t>(target_sdk_version));
+  android_set_application_target_sdk_version(uint_target_sdk_version);
 #endif
 }
 

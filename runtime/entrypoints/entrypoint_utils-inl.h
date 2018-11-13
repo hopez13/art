@@ -94,7 +94,7 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
       // even going back from boot image methods to the same oat file. However, this is
       // not currently implemented in the compiler. Therefore crossing dex file boundary
       // indicates that the inlined definition is not the same as the one used at runtime.
-      bool target_sdk_pre_p = Runtime::Current()->GetTargetSdkVersion() < 28;
+      bool target_sdk_pre_p = Runtime::Current()->GetTargetSdkVersion() < kSdkVersionP;
       LOG(target_sdk_pre_p ? WARNING : FATAL)
           << "Inlined method resolution crossed dex file boundary: from "
           << method->PrettyMethod()

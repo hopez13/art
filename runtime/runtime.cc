@@ -253,7 +253,7 @@ Runtime::Runtime()
       preinitialization_transactions_(),
       verify_(verifier::VerifyMode::kNone),
       allow_dex_file_fallback_(true),
-      target_sdk_version_(kUnsetSdkVersion),
+      target_sdk_version_(kSdkVersionUnset),
       implicit_null_checks_(false),
       implicit_so_checks_(false),
       implicit_suspend_checks_(false),

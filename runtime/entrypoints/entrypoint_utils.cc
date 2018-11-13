@@ -64,9 +64,10 @@ JValue InvokeProxyInvocationHandler(ScopedObjectAccessAlreadyRunnable& soa, cons
   soa.Self()->AssertThreadSuspensionIsAllowable();
   jobjectArray args_jobj = nullptr;
   const JValue zero;
-  int32_t target_sdk_version = Runtime::Current()->GetTargetSdkVersion();
+  uint32_t target_sdk_version = Runtime::Current()->GetTargetSdkVersion();
   // Do not create empty arrays unless needed to maintain Dalvik bug compatibility.
-  if (args.size() > 0 || (target_sdk_version > 0 && target_sdk_version <= 21)) {
+  if (args.size() > 0 ||
+      (target_sdk_version != kSdkVersionUnset && target_sdk_version <= kSdkVersionL)) {
     args_jobj = soa.Env()->NewObjectArray(args.size(), WellKnownClasses::java_lang_Object, nullptr);
     if (args_jobj == nullptr) {
       CHECK(soa.Self()->IsExceptionPending());

@@ -18,6 +18,7 @@
 #define ART_LIBARTBASE_BASE_ENUMS_H_
 
 #include <cstddef>
+#include <limits>
 #include <ostream>
 
 namespace art {
@@ -39,6 +40,21 @@ inline std::ostream& operator<<(std::ostream& os, const PointerSize& rhs) {
 static constexpr PointerSize kRuntimePointerSize = sizeof(void*) == 8U
                                                        ? PointerSize::k64
                                                        : PointerSize::k32;
+
+enum SdkVersion : uint32_t {
+  kSdkVersionMin       =  0u,
+  kSdkVersionUnset     =  0u,
+  kSdkVersionL         = 21u,
+  kSdkVersionL_MR1     = 22u,
+  kSdkVersionM         = 23u,
+  kSdkVersionN         = 24u,
+  kSdkVersionN_MR1     = 25u,
+  kSdkVersionO         = 26u,
+  kSdkVersionO_MR1     = 27u,
+  kSdkVersionP         = 28u,
+  kSdkVersionP_MR1     = 29u,
+  kSdkVersionMax       = std::numeric_limits<uint32_t>::max(),
+};
 
 }  // namespace art
 

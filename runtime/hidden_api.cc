@@ -21,6 +21,7 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/dumpable.h"
+#include "base/enums.h"
 #include "dex/class_accessor-inl.h"
 #include "scoped_thread_state_change.h"
 #include "thread-inl.h"
@@ -75,24 +76,19 @@ enum AccessContextFlags {
   kAccessDenied  = 1 << 1,
 };
 
-static int32_t GetMaxAllowedSdkVersionForApiList(ApiList api_list) {
-  SdkCodes sdk = SdkCodes::kVersionNone;
+static uint32_t GetMaxAllowedSdkVersionForApiList(ApiList api_list) {
   switch (api_list) {
     case ApiList::kWhitelist:
     case ApiList::kLightGreylist:
-      sdk = SdkCodes::kVersionUnlimited;
-      break;
+      return kSdkVersionMax;
     case ApiList::kDarkGreylist:
-      sdk = SdkCodes::kVersionO_MR1;
-      break;
+      return kSdkVersionO_MR1;
     case ApiList::kBlacklist:
-      sdk = SdkCodes::kVersionNone;
-      break;
+      return kSdkVersionMin;
     case ApiList::kNoList:
       LOG(FATAL) << "Unexpected value";
       UNREACHABLE();
   }
-  return static_cast<int32_t>(sdk);
 }
 
 MemberSignature::MemberSignature(ArtField* field) {
