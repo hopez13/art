@@ -75,11 +75,10 @@ cc_defaults {
     generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     shared_libs: [
+        "libbase_art",
         "liblog",
         // For ashmem.
         "libcutils",
-        // For common macros.
-        "libbase",
     ],
 
     // Utilities used by various ART libs and tools are linked in statically
@@ -91,16 +90,12 @@ cc_defaults {
     ],
 
     export_include_dirs: ["."],
-    // ART's macros.h depends on libbase's macros.h.
-    // Note: runtime_options.h depends on cmdline. But we don't really want to export this
-    //       generically. dex2oat takes care of it itself.
-    export_shared_lib_headers: ["libbase"],
 }
 
 cc_defaults {
     name: "libartbase_static_base_defaults",
     static_libs: [
-        "libbase",
+        "libbase_art",
         "libcutils",
         "liblog",
         "libz",
@@ -142,10 +137,10 @@ art_cc_library {
         keep_symbols: true,
     },
     shared_libs: [
-        "libbase",
+        "libbase_art",
         "libziparchive",
     ],
-    export_shared_lib_headers: ["libbase"],
+    export_shared_lib_headers: ["libbase_art"],
 }
 
 art_cc_library {
@@ -155,10 +150,10 @@ art_cc_library {
         "libartbase_defaults",
     ],
     shared_libs: [
-        "libbase",
+        "libbase_art",
         "libziparchive",
     ],
-    export_shared_lib_headers: ["libbase"],
+    export_shared_lib_headers: ["libbase_art"],
 }
 
 art_cc_library {
@@ -170,7 +165,7 @@ art_cc_library {
     shared_libs: [
         "libartbased",
         "libdexfiled",
-        "libbase",
+        "libbase_art",
         "libbacktrace",
     ],
     header_libs: [
@@ -218,7 +213,7 @@ art_cc_test {
         "base/zip_archive_test.cc",
     ],
     shared_libs: [
-        "libbase",
+        "libbase_art",
     ],
 }
 
@@ -226,6 +221,6 @@ cc_library_headers {
     name: "art_libartbase_headers",
     host_supported: true,
     export_include_dirs: ["."],
-    shared_libs: ["libbase"],
-    export_shared_lib_headers: ["libbase"],
+    header_libs: ["libbase_headers"],
+    export_header_lib_headers: ["libbase_headers"],
 }

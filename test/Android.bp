@@ -65,7 +65,7 @@ art_cc_defaults {
         "libprofiled",
         "libartbased",
 
-        "libbase",
+        "libbase_art",
         "libicuuc",
         "libicui18n",
         "libnativehelper",
@@ -153,13 +153,13 @@ art_cc_library {
         "libgtest",
     ],
     shared_libs: [
+        "libartbased",
         "libartd",
         "libartd-compiler",
+        "libbacktrace",
+        "libbase_art",
         "libdexfiled",
         "libprofiled",
-        "libartbased",
-        "libbase",
-        "libbacktrace",
     ],
     target: {
         darwin: {
@@ -176,7 +176,7 @@ cc_defaults {
     ],
     shared_libs: [
         "libbacktrace",
-        "libbase",
+        "libbase_art",
         "libnativehelper",
     ],
 }
@@ -397,7 +397,7 @@ art_cc_defaults {
     name: "libtistress-defaults",
     defaults: ["libtistress-srcs"],
     shared_libs: [
-        "libbase",
+        "libbase_art",
         "slicer",
     ],
 }
@@ -500,7 +500,7 @@ cc_defaults {
     ],
     shared_libs: [
         "libbacktrace",
-        "libbase",
+        "libbase_art",
         "libnativehelper",
     ],
 }

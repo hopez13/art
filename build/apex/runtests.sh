@@ -185,7 +185,7 @@ check_library libprofiled.so
 # TODO: Should we check for other libraries, such as:
 #
 #   libbacktrace.so
-#   libbase.so
+#   libbase_art.so
 #   liblog.so
 #   libsigchain.so
 #   libtombstoned_client.so

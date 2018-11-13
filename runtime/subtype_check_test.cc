@@ -17,7 +17,7 @@
 #include "subtype_check.h"
 
 #include "gtest/gtest.h"
-#include "android-base/logging.h"
+#include "base/logging.h"
 
 namespace art {
 
@@ -302,7 +302,7 @@ struct MockScopedLockMutator {
 struct SubtypeCheckTest : public ::testing::Test {
  protected:
   void SetUp() override {
-    android::base::InitLogging(/*argv=*/nullptr);
+    art::InitLogging(/*argv=*/nullptr);
 
     CreateRootedTree(BitString::kCapacity + 2u, BitString::kCapacity + 2u);
   }
