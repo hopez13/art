@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5254b618_413ed64d",
+        "filename": "runtime/interpreter/mterp/x86_64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-13T16:09:35Z",
+      "side": 1,
+      "message": "Why MACRO_LITERAL instead of LITERAL? (They differ for Mac builds.)",
+      "range": {
+        "startLine": 113,
+        "startChar": 12,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "b22298cf87224fc56efdd287a9f457800ae0a5ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
