@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "238447f4_f81af60f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-13T15:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64f39c0c_c58031c7",
+      "range": {
+        "startLine": 2100,
+        "startChar": 0,
+        "endLine": 2103,
+        "endChar": 38
+      },
+      "revId": "9798924f84769c5e235364bc5e3bb19ede8bf319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "809ea160_08eff8ed",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "9798924f84769c5e235364bc5e3bb19ede8bf319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "386ce81d_c16f175e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-13T15:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "809ea160_08eff8ed",
+      "range": {
+        "startLine": 425,
+        "startChar": 10,
+        "endLine": 425,
+        "endChar": 39
+      },
+      "revId": "9798924f84769c5e235364bc5e3bb19ede8bf319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
