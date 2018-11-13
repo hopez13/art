@@ -1,0 +1,18 @@
+dir.runtime = /apex/com.android.runtime@1/bin/
+
+[runtime]
+additional.namespaces = runtime,platform
+
+namespace.default.isolated = true
+namespace.default.links = runtime,platform
+namespace.default.link.runtime.shared_libs = libart-compiler.so:libart-dexlayout.so:libart-disassembler.so:libart.so:libartbase.so:libartbased.so:libartd-compiler.so:libartd-dexlayout.so:libartd.so:libbacktrace.so:libbase.so:libdexfile.so:libdexfiled.so:liblz4.so:liblzma.so:libopenjdkd.so:libopenjdkjvm.so:libopenjdkjvmd.so:libopenjdkjvmti.so:libopenjdkjvmtid.so:libprofile.so:libprofiled.so:libsigchain.so:libunwindstack.so:libvixl-arm.so:libvixl-arm64.so:libvixld-arm.so:libvixld-arm64.so:libz.so:libziparchive.so
+namespace.default.link.platform.shared_libs = ld-android.so:libadbconnection.so:libadbconnectiond.so:libc++.so:libc.so:libcrypto.so:libcutils.so:libdl.so:libicuuc.so:liblog.so:libm.so:libmetricslogger.so:libnativebridge.so:libnativehelper.so:libnativeloader.so:libpagemap.so:libstatssocket.so:libtombstoned_client.so:libutils.so:libvndksupport.so
+
+namespace.runtime.isolated = true
+namespace.runtime.search.paths = /apex/com.android.runtime@1/${LIB}
+namespace.runtime.links = platform
+namespace.runtime.link.platform.shared_libs = ld-android.so:libadbconnection.so:libadbconnectiond.so:libc++.so:libc.so:libcrypto.so:libcutils.so:libdl.so:libicuuc.so:liblog.so:libm.so:libmetricslogger.so:libnativebridge.so:libnativehelper.so:libnativeloader.so:libpagemap.so:libstatssocket.so:libtombstoned_client.so:libutils.so:libvndksupport.so
+
+namespace.platform.isolated = true
+namespace.platform.search.paths  = /apex/com.android.runtime@1/${LIB}
+namespace.platform.search.paths += /system/${LIB}
