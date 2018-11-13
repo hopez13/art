@@ -1,0 +1,29 @@
+dir.runtime = /apex/com.android.runtime@1/bin/
+
+[runtime]
+additional.namespaces = runtime,platform
+
+# runtime is the internal namespace for ART tools.
+# platform is the the namespace that would be open for external use.
+#
+# Libraries loaded from runtime won't be the same instances as those loaded from
+# platform. E.g. libbase.so in runtime is a different instance from libbase.so
+# in platform that gets loaded from libnativeloader.so (which is in platform).
+#
+# The long messy lists are because both are in the same directory.
+
+namespace.default.isolated = true
+namespace.default.links = runtime,platform
+namespace.default.link.runtime.shared_libs = libart-compiler.so:libart-dexlayout.so:libart-disassembler.so:libart.so:libartbase.so:libartbased.so:libartd-compiler.so:libartd-dexlayout.so:libartd.so:libbacktrace.so:libbase.so:libdexfile.so:libdexfiled.so:liblz4.so:liblzma.so:libopenjdkd.so:libopenjdkjvm.so:libopenjdkjvmd.so:libopenjdkjvmti.so:libopenjdkjvmtid.so:libprofile.so:libprofiled.so:libsigchain.so:libunwindstack.so:libvixl-arm.so:libvixl-arm64.so:libvixld-arm.so:libvixld-arm64.so:libz.so:libziparchive.so
+namespace.default.link.platform.shared_libs = ld-android.so:libadbconnection.so:libadbconnectiond.so:libc++.so:libc.so:libcrypto.so:libcutils.so:libdl.so:libicuuc.so:liblog.so:libm.so:libmetricslogger.so:libnativebridge.so:libnativehelper.so:libnativeloader.so:libpagemap.so:libstatssocket.so:libtombstoned_client.so:libutils.so:libvndksupport.so
+
+namespace.runtime.isolated = true
+namespace.runtime.search.paths = /apex/com.android.runtime@1/${LIB}
+# The following lines don't really do anything since runtime will find all libs
+# in the path above.
+namespace.runtime.links = platform
+namespace.runtime.link.platform.allow_all_shared_libs = true
+
+namespace.platform.isolated = true
+namespace.platform.search.paths  = /apex/com.android.runtime@1/${LIB}
+namespace.platform.search.paths += /system/${LIB}

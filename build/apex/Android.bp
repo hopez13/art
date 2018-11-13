@@ -72,6 +72,13 @@ apex_key {
     private_key: "runtime.pem",
 }
 
+prebuilt_etc {
+    name: "com.android.runtime.ld.config.txt",
+    src: "ld.config.txt",
+    filename: "ld.config.txt",
+    installable: false,  // TODO(mast): Understand what this means.
+}
+
 apex {
     name: "com.android.runtime",
     compile_multilib: "both",
@@ -95,6 +102,5 @@ apex {
         }
     },
     key: "com.android.runtime.key",
-    // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
-    // ...
+    prebuilts: ["com.android.runtime.ld.config.txt"],
 }
