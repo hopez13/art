@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64f39c0c_c58031c7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T13:29:04Z",
+      "side": 1,
+      "message": "I\u0027d move this before line 2096, so that the logging statement from line 2097 is truly the last thing executed by this method.",
+      "range": {
+        "startLine": 2100,
+        "startChar": 0,
+        "endLine": 2103,
+        "endChar": 38
+      },
+      "revId": "9798924f84769c5e235364bc5e3bb19ede8bf319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "809ea160_08eff8ed",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T13:29:04Z",
+      "side": 1,
+      "message": "Style: Add a trailing underscore, as this variable is now a member of class ConcurrentCopying.\n\nAlso, could you initialize this member to 0 in ConcurrentCopying::ConcurrentCopying, as it\u0027s a bit cleaner and deterministic?",
+      "range": {
+        "startLine": 425,
+        "startChar": 10,
+        "endLine": 425,
+        "endChar": 39
+      },
+      "revId": "9798924f84769c5e235364bc5e3bb19ede8bf319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
