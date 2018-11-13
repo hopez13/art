@@ -147,6 +147,30 @@
       "revId": "0894aa8642623477d56835bc57bd02c8a729ed69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac410fc9_faf88399",
+        "filename": "runtime/interpreter/mterp/x86_64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-13T14:33:20Z",
+      "side": 1,
+      "message": "I guess we have to exchange the operands. I frequently get confused by the two different notations:\n\n  cmpb [rax+0x4c], 0\n  cmpb $0, 0x4c(%rax)",
+      "parentUuid": "0986e73b_29863a4a",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "0894aa8642623477d56835bc57bd02c8a729ed69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
