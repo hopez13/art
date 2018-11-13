@@ -94,6 +94,9 @@ apex {
             binaries: art_tools_binaries,
         }
     },
+    prebuilts: [
+        "apex_icu.dat",
+    ],
     key: "com.android.runtime.key",
     // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
     // ...
