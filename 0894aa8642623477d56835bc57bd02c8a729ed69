@@ -123,6 +123,30 @@
       "revId": "0894aa8642623477d56835bc57bd02c8a729ed69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0986e73b_29863a4a",
+        "filename": "runtime/interpreter/mterp/x86_64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-13T13:44:52Z",
+      "side": 1,
+      "message": "mterp_x86_64.S:7287:22: error: invalid operand for instruction\n    cmpb 0x4c(%rax), $0",
+      "parentUuid": "0e99bbdf_3f9c0e8e",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "0894aa8642623477d56835bc57bd02c8a729ed69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
