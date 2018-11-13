@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ac11fd_a7c25773",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "/* obj\u003d */ nullptr",
+      "range": {
+        "startLine": 1418,
+        "startChar": 39,
+        "endLine": 1418,
+        "endChar": 46
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7d6329a_15becde5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Maybe replace this cascade of `if` statements on `rtype` by a `switch` statement?",
+      "range": {
+        "startLine": 1625,
+        "startChar": 2,
+        "endLine": 1625,
+        "endChar": 76
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91d6e8d2_15caad24",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "\"Use\" feels a bit too imprecise here. What about \"Test and set the mark bitmap\"?",
+      "range": {
+        "startLine": 1649,
+        "startChar": 7,
+        "endLine": 1649,
+        "endChar": 27
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55054884_ecefc836",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 1651,
+        "startChar": 0,
+        "endLine": 1652,
+        "endChar": 54
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f488200a_cc94a535",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "DCHECK?",
+      "range": {
+        "startLine": 1655,
+        "startChar": 8,
+        "endLine": 1655,
+        "endChar": 13
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "974aed7f_c1b4451d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1658,
+        "startChar": 0,
+        "endLine": 1659,
+        "endChar": 59
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b3b0909_df7fe64f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "I\u0027d add a comment saying only the GC thread marks the non-moving space mark bitmap, so we don\u0027t need an atomic test and set instruction here.",
+      "range": {
+        "startLine": 1661,
+        "startChar": 8,
+        "endLine": 1661,
+        "endChar": 48
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f14aaa_af2ba334",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Likewise, but for the large-object space.",
+      "range": {
+        "startLine": 1663,
+        "startChar": 8,
+        "endLine": 1663,
+        "endChar": 49
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e92762_a71eb810",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 2336,
+        "startChar": 0,
+        "endLine": 2337,
+        "endChar": 52
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d8ec80_a9b7ea68",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "I\u0027d add a comment explaining this.\n\nAlso, you could remove some logical not operators by rewriting this as:\n\n  if ((kEnableGenerationalConcurrentCopyingCollection\n       \u0026\u0026 young_gen_\n       \u0026\u0026 !done_scanning_.load(std::memory_order_acquire))\n      || marked_in_non_moving_space_or_los)) {\n    // \u003cAdd explanation here, e.g. bitmap marking taken care of by the GC thread\n    // in ConcurrentCopying::ProcessMarkStackRef.\u003e\n    // Nothing to do.\n  } else {\n    marked_in_non_moving_space_or_los \u003d is_los ? los_bitmap-\u003eTest(ref) : mark_bitmap-\u003eTest(ref);\n  }",
+      "range": {
+        "startLine": 2352,
+        "startChar": 0,
+        "endLine": 2357,
+        "endChar": 5
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c49ccdd7_85966fec",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2919,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 2918,
+        "startChar": 0,
+        "endLine": 2919,
+        "endChar": 50
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "306304fe_3c8fd8e4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2931,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-13T17:52:40Z",
+      "side": 1,
+      "message": "DCHECK?",
+      "range": {
+        "startLine": 2931,
+        "startChar": 4,
+        "endLine": 2931,
+        "endChar": 9
+      },
+      "revId": "090e4b2600e55acff7f90a18cef944204e7ffbe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
