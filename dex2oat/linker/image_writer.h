@@ -76,6 +76,11 @@ namespace linker {
 // Write a Space built during compilation for use during execution.
 class ImageWriter final {
  public:
+  enum class ImageBlockMode : uint32_t {
+    kSolid,
+    kPerSection,
+  };
+
   ImageWriter(const CompilerOptions& compiler_options,
               uintptr_t image_begin,
               ImageHeader::StorageMode image_storage_mode,
@@ -783,6 +788,9 @@ class ImageWriter final {
 
   // Which mode the image is stored as, see image.h
   const ImageHeader::StorageMode image_storage_mode_;
+
+  // Which mode is used for computing solid blocks.
+  const ImageBlockMode block_mode_;
 
   // The file names of oat files.
   const std::vector<const char*>& oat_filenames_;
