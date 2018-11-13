@@ -40,7 +40,7 @@ art_cc_binary {
     shared_libs: [
         "libdexfile",
         "libartbase",
-        "libbase",
+        "libbase_art",
     ],
 }
 

@@ -55,6 +55,39 @@ const char* ProgramInvocationShortName() {
                                                         : "art";
 }
 
+#ifdef ART_TARGET_ANDROID
+
+static const android_LogPriority kLogSeverityToAndroidLogPriority[] = {
+  ANDROID_LOG_VERBOSE, ANDROID_LOG_DEBUG, ANDROID_LOG_INFO, ANDROID_LOG_WARN,
+  ANDROID_LOG_ERROR, ANDROID_LOG_FATAL, ANDROID_LOG_FATAL
+};
+static_assert(arraysize(kLogSeverityToAndroidLogPriority) == ::android::base::FATAL + 1,
+              "Mismatch in size of kLogSeverityToAndroidLogPriority and values in LogSeverity");
+
+void LogdLogger(LogId id, LogSeverity severity, const char* tag, const char* file, unsigned int line,
+                const char* message) {
+  int priority = kLogSeverityToAndroidLogPriority[severity];
+
+  if (id == android::base::DEFAULT) {
+    id = android::base::MAIN;
+  }
+  static constexpr log_id kLogIdToAndroidLogId[] = {
+    LOG_ID_MAX, LOG_ID_MAIN, LOG_ID_SYSTEM,
+  };
+  static_assert(arraysize(kLogIdToAndroidLogId) == android::base::SYSTEM + 1,
+                "Mismatch in size of kLogIdToAndroidLogId and values in LogId");
+  log_id lg_id = kLogIdToAndroidLogId[id];
+
+  if (priority == ANDROID_LOG_FATAL) {
+    __android_log_buf_print(lg_id, priority, tag, "%s:%u] %s", file, line,
+                            message);
+  } else {
+    __android_log_buf_print(lg_id, priority, tag, "%s", message);
+  }
+}
+
+#endif
+
 void InitLogging(char* argv[], AbortFunction& abort_function) {
   if (gCmdLine.get() != nullptr) {
     return;
@@ -79,7 +112,7 @@ void InitLogging(char* argv[], AbortFunction& abort_function) {
   }
 
 #ifdef ART_TARGET_ANDROID
-#define INIT_LOGGING_DEFAULT_LOGGER android::base::LogdLogger()
+#define INIT_LOGGING_DEFAULT_LOGGER LogdLogger
 #else
 #define INIT_LOGGING_DEFAULT_LOGGER android::base::StderrLogger
 #endif
@@ -87,15 +120,6 @@ void InitLogging(char* argv[], AbortFunction& abort_function) {
                              std::move<AbortFunction>(abort_function));
 #undef INIT_LOGGING_DEFAULT_LOGGER
 }
-
-#ifdef ART_TARGET_ANDROID
-static const android_LogPriority kLogSeverityToAndroidLogPriority[] = {
-  ANDROID_LOG_VERBOSE, ANDROID_LOG_DEBUG, ANDROID_LOG_INFO, ANDROID_LOG_WARN,
-  ANDROID_LOG_ERROR, ANDROID_LOG_FATAL, ANDROID_LOG_FATAL
-};
-static_assert(arraysize(kLogSeverityToAndroidLogPriority) == ::android::base::FATAL + 1,
-              "Mismatch in size of kLogSeverityToAndroidLogPriority and values in LogSeverity");
-#endif
 
 void LogHelper::LogLineLowStack(const char* file,
                                 unsigned int line,

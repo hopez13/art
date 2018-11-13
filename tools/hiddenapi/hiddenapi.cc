@@ -1094,7 +1094,7 @@ class HiddenApi final {
 int main(int argc, char** argv) {
   art::original_argc = argc;
   art::original_argv = argv;
-  android::base::InitLogging(argv);
+  art::InitLogging(argv);
   art::MemMap::Init();
   art::HiddenApi().Run(argc, argv);
   return EXIT_SUCCESS;

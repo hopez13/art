@@ -13,7 +13,7 @@
 // limitations under the License.
 //
 
-#include <android-base/logging.h>
+#include <base/logging.h>
 
 #include <atomic>
 #include <iomanip>
@@ -167,7 +167,7 @@ static void VMInitCb(jvmtiEnv* jvmti, JNIEnv* env, jobject thr ATTRIBUTE_UNUSED)
 }
 
 static jint AgentStart(JavaVM* vm, char* options, bool is_onload) {
-  android::base::InitLogging(/* argv= */nullptr);
+  art::InitLogging(/* argv= */nullptr);
   java_vm = vm;
   jvmtiEnv* jvmti = nullptr;
   if (SetupJvmtiEnv(vm, &jvmti) != JNI_OK) {
@@ -215,4 +215,3 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* jvm,
 }
 
 }  // namespace fieldnull
-

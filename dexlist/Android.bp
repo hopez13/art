@@ -18,9 +18,9 @@ art_cc_binary {
     host_supported: true,
     srcs: ["dexlist.cc"],
     shared_libs: [
-        "libdexfile",
         "libartbase",
-        "libbase"
+        "libbase_art",
+        "libdexfile",
     ],
 }
 

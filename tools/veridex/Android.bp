@@ -26,9 +26,9 @@ cc_binary {
     ],
     cflags: ["-Wall", "-Werror"],
     static_libs: [
-        "libdexfile",
         "libartbase",
-        "libbase",
+        "libbase_art",
+        "libdexfile",
         "liblog",
         "libz",
         "libziparchive",

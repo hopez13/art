@@ -26,6 +26,9 @@ art_cc_binary {
         "-Wextra",
     ],
     shared_libs: [
+        // FIXME: This is a kludge to load libbase_art before libbase which
+        // libnativehelper still depends on.
+        "libbase_art",
         "libnativehelper",
     ],
     whole_static_libs: ["libsigchain"],

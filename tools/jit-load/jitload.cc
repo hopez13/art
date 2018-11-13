@@ -13,7 +13,7 @@
 // limitations under the License.
 //
 
-#include <android-base/logging.h>
+#include <base/logging.h>
 #include <jni.h>
 #include <jvmti.h>
 
@@ -90,7 +90,7 @@ JNICALL void VMDeathCb(jvmtiEnv* jvmti, JNIEnv* env ATTRIBUTE_UNUSED) {
 }
 
 static jvmtiEnv* SetupJvmti(JavaVM* vm, const char* options) {
-  android::base::InitLogging(/* argv= */nullptr);
+  art::InitLogging(/* argv= */nullptr);
 
   jvmtiEnv* jvmti = nullptr;
   if (vm->GetEnv(reinterpret_cast<void**>(&jvmti), JVMTI_VERSION_1_0) != JNI_OK &&
@@ -141,4 +141,3 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnAttach(JavaVM *vm, char* options, void
 #undef CHECK_CALL_SUCCESS
 
 }  // namespace jitload
-

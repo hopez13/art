@@ -26,7 +26,8 @@ cc_defaults {
     compile_multilib: "both",
 
     shared_libs: [
-        "libbase",
+        "libartbase",
+        "libbase_art",
     ],
     header_libs: [
         "libopenjdkjvmti_headers",

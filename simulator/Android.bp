@@ -31,7 +31,7 @@ cc_defaults {
         "code_simulator_arm64.cc",
     ],
     shared_libs: [
-        "libbase",
+        "libbase_art",
         "liblog",
     ],
     cflags: ["-DVIXL_INCLUDE_SIMULATOR_AARCH64"],
@@ -71,7 +71,7 @@ cc_defaults {
         "code_simulator_container.cc",
     ],
     shared_libs: [
-        "libbase",
+        "libbase_art",
     ],
 
     header_libs: ["libart_simulator_headers"],

@@ -39,10 +39,10 @@ art_cc_binary {
         "libart-compiler",
         "libart-dexlayout",
         "libart-disassembler",
-        "libdexfile",
         "libartbase",
+        "libbase_art",
+        "libdexfile",
         "libprofile",
-        "libbase",
     ],
 }
 
@@ -53,14 +53,14 @@ art_cc_binary {
         "oatdump-defaults",
     ],
     shared_libs: [
+        "libartbased",
         "libartd",
         "libartd-compiler",
         "libartd-dexlayout",
         "libartd-disassembler",
+        "libbase_art",
         "libdexfiled",
-        "libartbased",
         "libprofiled",
-        "libbase",
     ],
 }
 

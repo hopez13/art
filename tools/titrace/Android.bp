@@ -30,14 +30,9 @@ cc_defaults {
     compile_multilib: "both",
 
     shared_libs: [
-        "libbase",
+        "libartbase",
+        "libbase_art",
     ],
-    target: {
-        android: {
-        },
-        host: {
-        },
-    },
     header_libs: [
         "libopenjdkjvmti_headers",
     ],

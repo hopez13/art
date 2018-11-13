@@ -55,24 +55,23 @@ cc_defaults {
     shared_libs: [
         // For MemMap.
         "libartbase",
-        "liblog",
+        "libbase_art",
         // For atrace.
         "libcutils",
-        // For common macros.
-        "libbase",
+        "liblog",
         "libz",
     ],
     export_include_dirs: ["."],
     export_shared_lib_headers: [
         "libartbase",
-        "libbase",
+        "libbase_art",
     ],
 }
 
 cc_defaults {
     name: "libdexfile_static_base_defaults",
     static_libs: [
-        "libbase",
+        "libbase_art",
         "libcutils",
         "liblog",
         "libz",

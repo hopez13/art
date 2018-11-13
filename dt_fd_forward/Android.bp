@@ -27,13 +27,9 @@ cc_defaults {
     compile_multilib: "both",
 
     shared_libs: [
-        "libbase",
+        "libbase_art",
     ],
     target: {
-        android: {
-        },
-        host: {
-        },
         darwin: {
             enabled: false,
         },

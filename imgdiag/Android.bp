@@ -28,7 +28,7 @@ cc_defaults {
 
     shared_libs: [
         "libbacktrace",
-        "libbase",
+        "libbase_art",
     ],
     target: {
         android: {

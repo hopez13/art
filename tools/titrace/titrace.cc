@@ -15,7 +15,7 @@
 
 #include "instruction_decoder.h"
 
-#include <android-base/logging.h>
+#include <base/logging.h>
 #include <atomic>
 #include <jni.h>
 #include <jvmti.h>
@@ -237,7 +237,7 @@ JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* jvm,
                                     void* /* reserved */) {
   using namespace titrace;  // NOLINT [build/namespaces] [5]
 
-  android::base::InitLogging(/* argv= */nullptr);
+  art::InitLogging(/* argv= */nullptr);
 
   jvmtiEnv* jvmti = nullptr;
   {
@@ -306,4 +306,3 @@ JNIEXPORT void JNICALL Agent_OnUnload(JavaVM* vm ATTRIBUTE_UNUSED) {
 
   TraceStatistics::GetSingleton().Log();
 }
-
