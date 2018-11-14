@@ -45,6 +45,30 @@
       "revId": "5a3319107fa99fd4bff9e4b7991bb071f38ee24b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e0bb6d_7396a240",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-14T16:20:23Z",
+      "side": 1,
+      "message": "No idea, just keeping the existing style. Do you want me to merge the three blocks?",
+      "parentUuid": "062be2d5_e33f37a9",
+      "range": {
+        "startLine": 628,
+        "startChar": 2,
+        "endLine": 631,
+        "endChar": 33
+      },
+      "revId": "5a3319107fa99fd4bff9e4b7991bb071f38ee24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
