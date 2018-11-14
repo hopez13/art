@@ -164,6 +164,30 @@
       "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d37ef8b9_09a12ff1",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-14T20:48:16Z",
+      "side": 1,
+      "message": "Yes, that\u0027s clear to me. Apologies for the confusion around these lines; please disregard them for now. I\u0027d still like your take on the matter of separation of the two kinds of libs - see http://aosp/c/platform/art/+/825520/2#message-cb400dcaf0c37a5a1f6aa54f33c1b0092c7c5211.",
+      "parentUuid": "23eb3d60_d2c6f8ef",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 60
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
