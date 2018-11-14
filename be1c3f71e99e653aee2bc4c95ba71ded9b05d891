@@ -69,6 +69,30 @@
       "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee050c9_bc45f491",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-14T19:59:50Z",
+      "side": 1,
+      "message": "I thought this is what we all agreed to in the GC meeting yesterday. Isn\u0027t it?",
+      "parentUuid": "216a93f5_935423cb",
+      "range": {
+        "startLine": 335,
+        "startChar": 3,
+        "endLine": 340,
+        "endChar": 16
+      },
+      "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
