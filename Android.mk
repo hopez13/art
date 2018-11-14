@@ -376,6 +376,12 @@ endif
 
 include $(BUILD_PHONY_PACKAGE)
 
+# Android Runtime APEX.
+.PHONY: com.android.runtime
+# TODO: Select the debug module (`com.android.runtime.debug`) for
+# userdebug and eng products.
+com.android.runtime: com.android.runtime.release
+
 # The art-tools package depends on helpers and tools that are useful for developers and on-device
 # investigations.
 
