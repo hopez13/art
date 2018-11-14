@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bb42d549_b68d1fcf",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-14T12:08:49Z",
+      "side": 1,
+      "message": "I will check if the IsAbstract has measurable perofrmance difference.  I am guess it does not (and it can be optimized away at higher level if needed).",
+      "parentUuid": "a8f273ee_16250d2b",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 53
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25cfe426_996c300a",
         "filename": "runtime/art_method.h",
         "patchSetId": 6
@@ -93,6 +117,30 @@
       "revId": "c3225078e31be1f153062f47741a1667bfb40640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75dd3ae0_e153bc43",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-14T12:08:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7882978_395f31e5",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 35
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
