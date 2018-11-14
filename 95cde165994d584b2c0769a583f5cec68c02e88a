@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57ae5f81_982df29f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-14T02:20:42Z",
+      "side": 1,
+      "message": "Without this, a build rule targeting /system/etc/ld.config.txt will be created fro mthis module. And that will conflict with the same build target defined in /system/core/rootdir",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 67
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec1bac23_c7c2f4d9",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-14T02:20:42Z",
+      "side": 1,
+      "message": "you could use +\u003d to split these into multiple lines.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 346
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded88df7_cef675b3",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-14T02:20:42Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you need runtime namespace. Why don\u0027t you just add /apex/com.android.runtime@1/${LIB} to the search paths of the default namespace?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 60
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
