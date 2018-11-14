@@ -388,6 +388,11 @@ Runtime::~Runtime() {
     jit_->DeleteThreadPool();
   }
 
+  // Thread pools must be deleted before the runtime shuts down to avoid hanging.
+  if (thread_pool_ != nullptr) {
+    thread_pool_.reset();
+  }
+
   // Make sure our internal threads are dead before we start tearing down things they're using.
   GetRuntimeCallbacks()->StopDebugger();
   delete signal_catcher_;
@@ -908,6 +913,11 @@ void Runtime::InitNonZygoteOrPostFork(
 
   if (jit_ != nullptr) {
     jit_->CreateThreadPool();
+  }
+
+  if (thread_pool_ == nullptr) {
+    thread_pool_.reset(new ThreadPool("Runtime", 4u));
+    thread_pool_->StartWorkers(Thread::Current());
   }
 
   // Create the thread pools.
