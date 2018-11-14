@@ -70,6 +70,30 @@
       "revId": "9f789d0a59bf034c8996192feffb37ee3542a540",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d95eed49_a099fff3",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-14T17:42:44Z",
+      "side": 1,
+      "message": "Just as a design decision point: in the verifier, I\u0027ve gone with the framework style of \"sdk is never unset - if it was, pretend it\u0027s \u0027in-devel\u0027 super high.\" We could go away from allowing unset, which would reduce the complexity of all these checks.",
+      "parentUuid": "65ffef6a_bcca87a5",
+      "range": {
+        "startLine": 133,
+        "startChar": 33,
+        "endLine": 133,
+        "endChar": 74
+      },
+      "revId": "9f789d0a59bf034c8996192feffb37ee3542a540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
