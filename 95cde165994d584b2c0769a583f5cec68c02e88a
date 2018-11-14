@@ -140,6 +140,30 @@
       "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23eb3d60_d2c6f8ef",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-14T13:09:39Z",
+      "side": 1,
+      "message": "Yeah, for binaries in /system/bin, you will need to touch /system/etc/ld.config.txt.\n\nBut for the binaries within this APEX, you need this, because we don\u0027t want to expose ART libraries to other processes.",
+      "parentUuid": "5a288c2f_57524996",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 60
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
