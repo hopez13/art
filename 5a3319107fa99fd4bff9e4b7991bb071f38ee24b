@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b079371_8029c789",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-14T17:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59b7053d_ca118887",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "5a3319107fa99fd4bff9e4b7991bb071f38ee24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "062be2d5_e33f37a9",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 4
