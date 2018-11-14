@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "890fe664_81031bc4",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-14T16:46:17Z",
+      "side": 1,
+      "message": "Because we would either have to cast to uint32_t everywhere or provider helpers / override operators. Nicolas wants helpers though, so will convert this to enum class.",
+      "parentUuid": "531c6ae8_b92d0e21",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "701ca47a_9248733f",
         "filename": "libartbase/base/enums.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "21f54dc8_4b4a5059",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-14T16:46:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "701ca47a_9248733f",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14dc9153_83645ec9",
         "filename": "runtime/dex/dex_file_annotations.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7b601c_8b3f719f",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-14T16:46:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14dc9153_83645ec9",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 70
+      },
+      "revId": "0ca0aab9e5c978c1d4a1e121859aa921de1f6b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
