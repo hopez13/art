@@ -72,6 +72,10 @@ apex_key {
     private_key: "runtime.pem",
 }
 
+// TODO: Introduce `apex_defaults` to factor common parts of `apex`
+// module definitions below?
+
+// Full version of the Runtime APEX module.
 apex {
     name: "com.android.runtime",
     compile_multilib: "both",
@@ -87,10 +91,37 @@ apex {
         },
         prefer32: {
             binaries: art_runtime_base_binaries_prefer32
-                + art_runtime_debug_binaries_prefer32
+                + art_runtime_debug_binaries_prefer32,
         },
         first: {
             binaries: art_tools_binaries,
+        }
+    },
+    key: "com.android.runtime.key",
+    // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
+    // ...
+}
+
+// Essential (minimal) version of the Runtime APEX module (that does
+// not include debug variants nor tools) for storage-constrained
+// devices.
+apex {
+    name: "com.android.runtime.essential",
+    compile_multilib: "both",
+    manifest: "manifest.json",
+    native_shared_libs: art_runtime_base_native_shared_libs
+        + art_runtime_fake_native_shared_libs,
+    multilib: {
+        both: {
+            // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
+            // (see `symlink_preferred_arch` in art/dalvikvm/Android.bp).
+            binaries: art_runtime_base_binaries_both,
+        },
+        prefer32: {
+            binaries: art_runtime_base_binaries_prefer32,
+        },
+        first: {
+            binaries: [],
         }
     },
     key: "com.android.runtime.key",
