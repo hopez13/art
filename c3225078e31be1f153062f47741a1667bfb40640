@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a8f273ee_16250d2b",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-14T10:33:48Z",
+      "side": 1,
+      "message": "It is... which is why it checks the top bit rather than IsAbstract() which would be separate memory load.",
+      "parentUuid": "710b95f2_991e9aa4",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 53
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25cfe426_996c300a",
         "filename": "runtime/art_method.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-12T13:20:02Z",
       "side": 1,
       "message": "Add a comment why it\u0027s ok this is 31bit max.",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 35
+      },
+      "revId": "c3225078e31be1f153062f47741a1667bfb40640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7882978_395f31e5",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-14T10:33:48Z",
+      "side": 1,
+      "message": "Are dex files larger than 2GB expected/possible?",
+      "parentUuid": "25cfe426_996c300a",
       "range": {
         "startLine": 766,
         "startChar": 0,
