@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e506305b_ffd50080",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-14T12:54:58Z",
+      "side": 1,
+      "message": "Thanks. I\u0027m a bit curious why this target would get associated with /system/etc, but anyway it\u0027s clear it should be this way.",
+      "parentUuid": "57ae5f81_982df29f",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 67
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec1bac23_c7c2f4d9",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "934e67a0_837ebf2e",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-14T12:54:58Z",
+      "side": 1,
+      "message": "Thanks I know, I just didn\u0027t spend time on the formatting since this was just a test.",
+      "parentUuid": "ec1bac23_c7c2f4d9",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 346
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ded88df7_cef675b3",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a288c2f_57524996",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-14T12:54:58Z",
+      "side": 1,
+      "message": "Sorry, this was just a test to try out namespaces in the APEX. As I wrote earlier I believe this business is more likely to go into rootdir/etc/ld.config.txt: the internal runtime namespace needs to apply to ART libs loaded in the zygote and perhaps other places, not just the binaries in the APEX.",
+      "parentUuid": "ded88df7_cef675b3",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 60
+      },
+      "revId": "95cde165994d584b2c0769a583f5cec68c02e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
