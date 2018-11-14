@@ -45,6 +45,30 @@
       "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "216a93f5_935423cb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-14T19:28:01Z",
+      "side": 1,
+      "message": "Albert and I had a discussion about this and he suggested we use the whole-process CPU time as the denominator, which seems fair. What do you think?",
+      "parentUuid": "13c98b02_9d8aeba3",
+      "range": {
+        "startLine": 335,
+        "startChar": 3,
+        "endLine": 340,
+        "endChar": 16
+      },
+      "revId": "be1c3f71e99e653aee2bc4c95ba71ded9b05d891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
