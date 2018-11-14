@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59b7053d_ca118887",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-14T16:04:48Z",
+      "side": 1,
+      "message": "Rewrite to clarify?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "5a3319107fa99fd4bff9e4b7991bb071f38ee24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "062be2d5_e33f37a9",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-14T16:04:48Z",
+      "side": 1,
+      "message": "Not related to this CL (more \"you touch it you gotta answer questions\"): what\u0027s the argument to drop the mutator lock and reacquire here?",
+      "range": {
+        "startLine": 628,
+        "startChar": 2,
+        "endLine": 631,
+        "endChar": 33
+      },
+      "revId": "5a3319107fa99fd4bff9e4b7991bb071f38ee24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
