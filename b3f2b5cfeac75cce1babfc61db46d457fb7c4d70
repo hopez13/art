@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8765340b_7bb8f8bf",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-14T14:51:15Z",
+      "side": 1,
+      "message": "This is non-deterministic. Fix included in https://android-review.googlesource.com/825002 PS4.",
+      "range": {
+        "startLine": 1014,
+        "startChar": 38,
+        "endLine": 1014,
+        "endChar": 53
+      },
+      "revId": "b3f2b5cfeac75cce1babfc61db46d457fb7c4d70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
