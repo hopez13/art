@@ -120,7 +120,7 @@ public class Test905 {
     getCollectedTags(0);
     getCollectedTags(1);
     // Allocate objects.
-    for (int i = 1; i <= 100000; ++i) {
+    for (int i = 1; i <= 10000; ++i) {
       stressAllocate(i);
     }
     gcAndWait();
