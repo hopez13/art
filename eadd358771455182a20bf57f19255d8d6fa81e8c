@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da68ec1d_41402784",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T11:01:01Z",
+      "side": 1,
+      "message": "Can you add a comment why we\u0027re claling getrlimit?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 10
+      },
+      "revId": "eadd358771455182a20bf57f19255d8d6fa81e8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
