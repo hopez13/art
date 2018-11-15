@@ -271,6 +271,7 @@ class ClassPath final {
         // We do those checks here and skip them when loading the processed file
         // into boot class path.
         std::unique_ptr<const DexFile> dex_file(dex_loader.OpenDex(fd.Release(),
+                                                                   /* offset= */ 0,
                                                                    /* location= */ filename,
                                                                    /* verify= */ true,
                                                                    /* verify_checksum= */ true,

@@ -94,7 +94,7 @@ class HiddenApiTest : public CommonRuntimeTest {
     }
 
     std::unique_ptr<const DexFile> dex_file(dex_loader.OpenDex(
-        fd.Release(), /* location= */ file.GetFilename(), /* verify= */ true,
+        fd.Release(), /* offset= */ 0, /* location= */ file.GetFilename(), /* verify= */ true,
         /* verify_checksum= */ true, /* mmap_shared= */ false, &error_msg));
     if (dex_file.get() == nullptr) {
       LOG(FATAL) << "Open failed for '" << file.GetFilename() << "' " << error_msg;
