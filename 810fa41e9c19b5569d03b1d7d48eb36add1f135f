@@ -22,6 +22,30 @@
       "revId": "810fa41e9c19b5569d03b1d7d48eb36add1f135f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa0c4b59_1a73afe0",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2018-11-15T16:41:08Z",
+      "side": 0,
+      "message": "Good catch, thanks!  On the plus side this is the only host mode test where I overlooked the mode.  It does pass in host mode so I\u0027ll update the commit message.",
+      "parentUuid": "5d2b17bf_ae8f3e27",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "810fa41e9c19b5569d03b1d7d48eb36add1f135f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
