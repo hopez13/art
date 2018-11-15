@@ -16,6 +16,29 @@
       "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39595a2c_02845fe6",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-15T06:14:50Z",
+      "side": 1,
+      "message": "Why does libnativehelper depend on libbase?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
