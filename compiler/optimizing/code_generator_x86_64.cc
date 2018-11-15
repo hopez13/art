@@ -3608,9 +3608,19 @@ void InstructionCodeGeneratorX86_64::DivByPowerOfTwo(HDiv* instruction) {
   CpuRegister tmp = locations->GetTemp(0).AsRegister<CpuRegister>();
 
   if (instruction->GetResultType() == DataType::Type::kInt32) {
+   /*
+    When denominator is equal to 2. we added signed bit and numerator to tmp.
+    For example, a/2 can be lowered to add+asr.
+   */
+    if (abs_imm == 2) {
+     __ leal(tmp, Address(numerator, 0));
+     __ shrl(tmp, Immediate(31));
+     __ addl(tmp, numerator);
+    } else {
     __ leal(tmp, Address(numerator, abs_imm - 1));
     __ testl(numerator, numerator);
     __ cmov(kGreaterEqual, tmp, numerator);
+    }
     int shift = CTZ(imm);
     __ sarl(tmp, Immediate(shift));
 
@@ -3622,11 +3632,16 @@ void InstructionCodeGeneratorX86_64::DivByPowerOfTwo(HDiv* instruction) {
   } else {
     DCHECK_EQ(instruction->GetResultType(), DataType::Type::kInt64);
     CpuRegister rdx = locations->GetTemp(0).AsRegister<CpuRegister>();
-
+    if (abs_imm == 2) {
+      __ movq(rdx, numerator);
+      __ shrq(rdx, Immediate(63));
+      __ addq(rdx, numerator);
+    } else {
     codegen_->Load64BitValue(rdx, abs_imm - 1);
     __ addq(rdx, numerator);
     __ testq(numerator, numerator);
     __ cmov(kGreaterEqual, rdx, numerator);
+    }
     int shift = CTZ(imm);
     __ sarq(rdx, Immediate(shift));
 
