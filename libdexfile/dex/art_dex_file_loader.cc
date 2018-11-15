@@ -141,6 +141,7 @@ bool ArtDexFileLoader::GetMultiDexChecksums(const char* filename,
   }
   if (IsMagicValid(magic)) {
     std::unique_ptr<const DexFile> dex_file(OpenFile(fd.Release(),
+                                                     /* offset= */ 0,
                                                      filename,
                                                      /* verify= */ false,
                                                      /* verify_checksum= */ false,
@@ -237,6 +238,7 @@ bool ArtDexFileLoader::Open(const char* filename,
   }
   if (IsMagicValid(magic)) {
     std::unique_ptr<const DexFile> dex_file(OpenFile(fd.Release(),
+                                                     /* offset= */ 0,
                                                      location,
                                                      verify,
                                                      verify_checksum,
@@ -254,13 +256,14 @@ bool ArtDexFileLoader::Open(const char* filename,
 }
 
 std::unique_ptr<const DexFile> ArtDexFileLoader::OpenDex(int fd,
+                                                         size_t offset,
                                                          const std::string& location,
                                                          bool verify,
                                                          bool verify_checksum,
                                                          bool mmap_shared,
                                                          std::string* error_msg) const {
   ScopedTrace trace("Open dex file " + std::string(location));
-  return OpenFile(fd, location, verify, verify_checksum, mmap_shared, error_msg);
+  return OpenFile(fd, offset, location, verify, verify_checksum, mmap_shared, error_msg);
 }
 
 bool ArtDexFileLoader::OpenZip(int fd,
@@ -281,6 +284,7 @@ bool ArtDexFileLoader::OpenZip(int fd,
 }
 
 std::unique_ptr<const DexFile> ArtDexFileLoader::OpenFile(int fd,
+                                                          size_t offset,
                                                           const std::string& location,
                                                           bool verify,
                                                           bool verify_checksum,
@@ -307,7 +311,7 @@ std::unique_ptr<const DexFile> ArtDexFileLoader::OpenFile(int fd,
                           PROT_READ,
                           mmap_shared ? MAP_SHARED : MAP_PRIVATE,
                           fd,
-                          0,
+                          offset,
                           /*low_4gb=*/false,
                           location.c_str(),
                           error_msg);
