@@ -22,6 +22,7 @@
 #include <vector>
 
 #include <android-base/logging.h>
+#include <unwindstack/DexFileHooks.h>
 
 #include "base/globals.h"
 #include "base/iteration_range.h"
@@ -66,7 +67,7 @@ class DexFileContainer {
 // quickened opcodes and layout optimizations.
 // Since ART needs to support both native dex files and CompactDex files, the DexFile interface
 // provides an abstraction to facilitate this.
-class DexFile {
+class DexFile : public unwindstack::hooks::DexFileImpl {
  public:
   // Number of bytes in the dex file magic.
   static constexpr size_t kDexMagicSize = 4;
