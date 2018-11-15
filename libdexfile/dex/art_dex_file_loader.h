@@ -81,6 +81,7 @@ class ArtDexFileLoader : public DexFileLoader {
 
   // Open a single dex file from an fd. This function closes the fd.
   std::unique_ptr<const DexFile> OpenDex(int fd,
+                                         size_t offset,
                                          const std::string& location,
                                          bool verify,
                                          bool verify_checksum,
@@ -97,6 +98,7 @@ class ArtDexFileLoader : public DexFileLoader {
 
  private:
   std::unique_ptr<const DexFile> OpenFile(int fd,
+                                          size_t offset,
                                           const std::string& location,
                                           bool verify,
                                           bool verify_checksum,

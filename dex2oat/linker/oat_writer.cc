@@ -3416,7 +3416,9 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
       return false;
     }
     TimingLogger::ScopedTiming extract("Open", timings_);
-    dex_file = dex_file_loader.OpenDex(dup_fd, location,
+    dex_file = dex_file_loader.OpenDex(dup_fd,
+                                       /* offset */ 0,
+                                       location,
                                        /* verify */ true,
                                        /* verify_checksum */ true,
                                        /* mmap_shared */ false,
