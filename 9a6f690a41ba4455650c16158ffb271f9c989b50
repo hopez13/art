@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b511cdb0_850b40aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-15T14:58:20Z",
+      "side": 1,
+      "message": "From what I understand this helps making the PALette interface complete, but I\u0027m not sure I have the full picture on this either. Orion might be able to fill us in?\n\nBtw speaking of system dependencies, can mention that I\u0027m not addressing the system properties functions here. They go through Bionic libc and end up accessing files iiuc (http://cs/aosp-master/bionic/libc/system_properties/contexts_split.cpp), so I reckon they\u0027re not a problem.",
+      "parentUuid": "27ef6909_e0d08592",
+      "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39595a2c_02845fe6",
         "filename": "dalvikvm/Android.bp",
         "patchSetId": 2
