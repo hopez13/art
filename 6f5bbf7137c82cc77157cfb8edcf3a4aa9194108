@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2048cddd_187283a7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-15T21:56:22Z",
+      "side": 1,
+      "message": "Worth maybe moving the null check to the AssertToSpaceInvariant?",
+      "range": {
+        "startLine": 1395,
+        "startChar": 1,
+        "endLine": 1398,
+        "endChar": 5
+      },
+      "revId": "6f5bbf7137c82cc77157cfb8edcf3a4aa9194108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
