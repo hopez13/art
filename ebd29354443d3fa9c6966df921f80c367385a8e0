@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90890b70_7f868d78",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3612,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T10:24:28Z",
+      "side": 1,
+      "message": "-\u003e ..., we can add ...",
+      "range": {
+        "startLine": 3612,
+        "startChar": 34,
+        "endLine": 3612,
+        "endChar": 45
+      },
+      "revId": "ebd29354443d3fa9c6966df921f80c367385a8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53cd5044_c53c791c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T10:24:28Z",
+      "side": 1,
+      "message": "Prefer // for small comments.",
+      "range": {
+        "startLine": 3611,
+        "startChar": 0,
+        "endLine": 3614,
+        "endChar": 5
+      },
+      "revId": "ebd29354443d3fa9c6966df921f80c367385a8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7011d2b6_44221652",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3618,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T10:24:28Z",
+      "side": 1,
+      "message": "Can you comment on why this is better?",
+      "range": {
+        "startLine": 3616,
+        "startChar": 0,
+        "endLine": 3618,
+        "endChar": 29
+      },
+      "revId": "ebd29354443d3fa9c6966df921f80c367385a8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6d35a7_91cfd626",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T10:24:28Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "range": {
+        "startLine": 3620,
+        "startChar": 0,
+        "endLine": 3622,
+        "endChar": 43
+      },
+      "revId": "ebd29354443d3fa9c6966df921f80c367385a8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4befa4e1_35ef21a9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-15T10:24:28Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "range": {
+        "startLine": 3640,
+        "startChar": 0,
+        "endLine": 3643,
+        "endChar": 43
+      },
+      "revId": "ebd29354443d3fa9c6966df921f80c367385a8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
