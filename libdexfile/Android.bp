@@ -34,6 +34,7 @@ cc_defaults {
         "dex/primitive.cc",
         "dex/standard_dex_file.cc",
         "dex/type_lookup_table.cc",
+        "dex/unwindstack_hooks.cc",
         "dex/utf.cc",
     ],
 
@@ -52,6 +53,9 @@ cc_defaults {
         },
     },
     generated_sources: ["dexfile_operator_srcs"],
+    header_libs: [
+        "libunwindstack_headers",
+    ],
     shared_libs: [
         // For MemMap.
         "libartbase",
@@ -66,6 +70,9 @@ cc_defaults {
     export_shared_lib_headers: [
         "libartbase",
         "libbase",
+    ],
+    export_header_lib_headers: [
+        "libunwindstack_headers",
     ],
 }
 

@@ -422,7 +422,7 @@ libart_static_cc_defaults {
         "liblog",
         "libnativebridge",
         "libnativeloader",
-        "libunwindstack",
+        "libunwindstack",  // FIXME: Why is this only present for static build?
         "libz",
     ],
 }

@@ -26,9 +26,9 @@ cc_object {
     include_dirs: [
         "art/libartbase",
         "art/libdexfile",
-        "art/libartbase",
         "art/runtime",
         "system/core/base/include",
+        "system/core/libunwindstack/include",
     ],
     // Produce text file rather than binary.
     cflags: ["-S"],
