@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a2677b6a_41faffff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-15T17:51:27Z",
+      "side": 1,
+      "message": "We\u0027ve looked at extending and depending on the NDK, but it just seems like the wrong level and the stuff we need is very particular to ART.\n\nIf we have a small abstraction library that interposes on the system interactions, then it\u0027s pretty clear where our dependencies lie. I don\u0027t see any reason why not to use it on host too. Then if you don\u0027t have liblog, you can use a host specialized version of the abstraction library and not have to special case as many dependencies for host and target.",
+      "parentUuid": "b511cdb0_850b40aa",
+      "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39595a2c_02845fe6",
         "filename": "dalvikvm/Android.bp",
         "patchSetId": 2
