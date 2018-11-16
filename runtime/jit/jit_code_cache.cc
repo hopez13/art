@@ -18,7 +18,8 @@
 
 #include <sstream>
 
-#include "android-base/unique_fd.h"
+#include <android-base/logging.h>
+#include <android-base/unique_fd.h>
 
 #include "arch/context.h"
 #include "art_method-inl.h"
@@ -1305,8 +1306,24 @@ class MarkCodeClosure final : public Closure {
   void Run(Thread* thread) override REQUIRES_SHARED(Locks::mutator_lock_) {
     ScopedTrace trace(__PRETTY_FUNCTION__);
     DCHECK(thread == Thread::Current() || thread->IsSuspended());
-    MarkCodeVisitor visitor(thread, code_cache_, bitmap_);
-    visitor.WalkStack();
+    StackVisitor::WalkStack(
+        [&](const art::StackVisitor* stack_visitor) {
+          const OatQuickMethodHeader* method_header =
+              stack_visitor->GetCurrentOatQuickMethodHeader();
+          if (method_header == nullptr) {
+            return true;
+          }
+          const void* code = method_header->GetCode();
+          if (code_cache_->ContainsPc(code)) {
+            // Use the atomic set version, as multiple threads are executing this code.
+            bitmap_->AtomicTestAndSet(FromCodeToAllocation(code));
+          }
+          return true;
+        },
+        thread,
+        /* context= */ nullptr,
+        art::StackVisitor::StackWalkKind::kSkipInlinedFrames);
+
     if (kIsDebugBuild) {
       // The stack walking code queries the side instrumentation stack if it
       // sees an instrumentation exit pc, so the JIT code of methods in that stack
