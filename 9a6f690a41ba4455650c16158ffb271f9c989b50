@@ -75,6 +75,30 @@
       "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a505b675_fc311d88",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-16T00:12:42Z",
+      "side": 1,
+      "message": "I only switched to libbase_art in the art/ tree, but if libnativehelper will go above PALette it should use libbase_art too, otherwise not. What\u0027s the plan there?",
+      "parentUuid": "39595a2c_02845fe6",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
