@@ -73,6 +73,9 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define ALWAYS_INLINE  __attribute__ ((always_inline))
 #endif
 
+// Inline performance critical methods even in debug builds.
+#define REALLY_ALWAYS_INLINE  __attribute__ ((always_inline))
+
 // clang doesn't like attributes on lambda functions. It would be nice to say:
 //   #define ALWAYS_INLINE_LAMBDA ALWAYS_INLINE
 #define ALWAYS_INLINE_LAMBDA
