@@ -106,7 +106,8 @@ echo "$partition" | cmp "$image_filesystems" -
 guestmount -a "$image_file" -m "$partition" "$mount_point"
 
 # List the contents of the mounted image (optional).
-$list_image_files_p && say "Listing image files" && ls -ld "$mount_point" && tree -ap "$mount_point"
+$list_image_files_p
+  && say "Listing image files" && ls -ld "$mount_point" && tree -aph --du "$mount_point"
 
 say "Running tests"
 
