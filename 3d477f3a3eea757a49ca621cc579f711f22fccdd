@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12c9c126_1fd08c7b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-16T22:12:52Z",
+      "side": 1,
+      "message": "Why the helper function if there is only 1 caller?",
+      "range": {
+        "startLine": 1396,
+        "startChar": 36,
+        "endLine": 1396,
+        "endChar": 55
+      },
+      "revId": "3d477f3a3eea757a49ca621cc579f711f22fccdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
