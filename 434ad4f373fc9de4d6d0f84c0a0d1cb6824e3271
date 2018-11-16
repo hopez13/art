@@ -16,6 +16,24 @@
       "revId": "434ad4f373fc9de4d6d0f84c0a0d1cb6824e3271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ff799ca_cfd70b35",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3612,
+      "author": {
+        "id": 1195903
+      },
+      "writtenOn": "2018-11-16T12:44:51Z",
+      "side": 1,
+      "message": "Lines 3613-3616 are better as now we are using addl instruction(Line 3616) instead of using cmov which give us 1 cycle benefit.",
+      "parentUuid": "67ed061e_0ac03195",
+      "revId": "434ad4f373fc9de4d6d0f84c0a0d1cb6824e3271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
