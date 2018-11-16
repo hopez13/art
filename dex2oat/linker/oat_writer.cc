@@ -105,7 +105,14 @@ class ChecksumUpdatingOutputStream : public OutputStream {
       : OutputStream(out->GetLocation()), out_(out), oat_header_(oat_header) { }
 
   bool WriteFully(const void* buffer, size_t byte_count) override {
-    oat_header_->UpdateChecksum(buffer, byte_count);
+    if (buffer != nullptr) {
+      const uint8_t* bytes = reinterpret_cast<const uint8_t*>(buffer);
+      uint32_t old_checksum = oat_header_->GetChecksum();
+      uint32_t new_checksum = adler32(old_checksum, bytes, byte_count);
+      oat_header_->SetChecksum(new_checksum);
+    } else {
+      DCHECK_EQ(0U, byte_count);
+    }
     return out_->WriteFully(buffer, byte_count);
   }
 
@@ -2005,6 +2012,7 @@ size_t OatWriter::InitOatHeader(uint32_t num_dex_files,
                                       GetCompilerOptions().GetInstructionSetFeatures(),
                                       num_dex_files,
                                       key_value_store));
+  oat_header_->SetChecksum(adler32(0L, Z_NULL, 0));
   size_oat_header_ += sizeof(OatHeader);
   size_oat_header_key_value_store_ += oat_header_->GetHeaderSize() - sizeof(OatHeader);
   return oat_header_->GetHeaderSize();
@@ -2800,11 +2808,18 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
   return true;
 }
 
-bool OatWriter::WriteHeader(OutputStream* out, uint32_t image_file_location_oat_checksum) {
+bool OatWriter::WriteHeader(OutputStream* out, uint32_t boot_image_checksum) {
   CHECK(write_state_ == WriteState::kWriteHeader);
 
-  oat_header_->SetImageFileLocationOatChecksum(image_file_location_oat_checksum);
-  oat_header_->UpdateChecksumWithHeaderData();
+  oat_header_->SetBootImageChecksum(boot_image_checksum);
+
+  // Update checksum with header data.
+  uint32_t old_checksum = oat_header_->GetChecksum();
+  oat_header_->SetChecksum(0u);  // For checksum calculation.
+  const uint8_t* header_begin = reinterpret_cast<const uint8_t*>(oat_header_.get());
+  const uint8_t* header_end = oat_header_->GetKeyValueStore() + oat_header_->GetKeyValueStoreSize();
+  uint32_t new_checksum = adler32(old_checksum, header_begin, header_end - header_begin);
+  oat_header_->SetChecksum(new_checksum);
 
   const size_t file_offset = oat_data_offset_;
 
