@@ -164,7 +164,7 @@ ModUnionTable* ModUnionTableFactory::Create(
       UNIMPLEMENTED(FATAL) << "Invalid type " << type;
     }
   }
-  return nullptr;
+  UNREACHABLE();
 }
 
 TEST_F(ModUnionTableTest, TestCardCache) {
