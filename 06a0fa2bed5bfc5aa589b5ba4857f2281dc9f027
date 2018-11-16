@@ -16,6 +16,24 @@
       "revId": "06a0fa2bed5bfc5aa589b5ba4857f2281dc9f027",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f462e5b_812dfc86",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-16T16:24:04Z",
+      "side": 1,
+      "message": "The thread_list_lock_ still allows other thread to be running... which might be accessing the use_mterp field... which is fine... the other threads will bail out of mterp eventually.  It also means some places need to recheck the use_mterp field for sanity... which is still better then the long check method we had before. So all good as-is really.\n\nWhat this CL does is to suspend all threads, change the state, and then resume all threads.  If the resumed thread is mterp, they should bail out immediately without any further progress.  It also means we can unconditionally DCHECK(thread-\u003etls32_.use_mterp \u003d\u003d interpreter::CanUseMterp()) in mterp for sanity.  The minor benefit is that it saves the single use_mterp memory load in invoke.",
+      "parentUuid": "fca9c782_095eac85",
+      "revId": "06a0fa2bed5bfc5aa589b5ba4857f2281dc9f027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
