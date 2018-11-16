@@ -41,6 +41,7 @@ set -e
 
 build_apex_p=true
 list_image_files_p=false
+print_image_tree_p=false
 
 function usage {
   cat <<EOF
@@ -48,7 +49,8 @@ Usage: $0 [OPTION]
 Build (optional) and run tests on Android Runtime APEX package (on host).
 
   -s, --skip-build    skip the build step
-  -l, --list-files    list the contents of the ext4 image
+  -l, --list-files    list the contents of the ext4 image using `find`
+  -t, --print-tree    list the contents of the ext4 image using `tree`
   -h, --help          display this help and exit
 
 EOF
@@ -59,6 +61,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     (-s|--skip-build) build_apex_p=false;;
     (-l|--list-files) list_image_files_p=true;;
+    (-t|--print-tree) print_image_tree_p=true;;
     (-h|--help) usage;;
     (*) die "Unknown option: '$1'
 Try '$0 --help' for more information.";;
@@ -105,8 +108,12 @@ echo "$partition" | cmp "$image_filesystems" -
 # Mount the image from the Android Runtime APEX.
 guestmount -a "$image_file" -m "$partition" "$mount_point"
 
-# List the contents of the mounted image (optional).
-$list_image_files_p && say "Listing image files" && ls -ld "$mount_point" && tree -ap "$mount_point"
+# List the contents of the mounted image using `find` (optional).
+$list_image_files_p && say "Listing image files" && find "$mount_point"
+
+# List the contents of the mounted image using `tree` (optional).
+$print_image_tree_p \
+  && say "Printing image tree" && ls -ld "$mount_point" && tree -aph --du "$mount_point"
 
 say "Running tests"
 
