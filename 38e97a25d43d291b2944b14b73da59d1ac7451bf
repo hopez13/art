@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fd936e4a_28dfe071",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-16T18:56:24Z",
+      "side": 1,
+      "message": "Thanks, I added the missing backslash in PS2.\n\nI like chaining commands with `\u0026\u0026` for that use case, as it is shorter.",
+      "parentUuid": "dd68c529_8c4bed05",
+      "revId": "38e97a25d43d291b2944b14b73da59d1ac7451bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ddf983b_9f361389",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "38e97a25d43d291b2944b14b73da59d1ac7451bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d509b0b_689909f4",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-16T18:56:24Z",
+      "side": 1,
+      "message": "This is from package `tree`:\n\n  $ dlocate $(which tree)\n  tree: /usr/bin/tree\n\nNote that `-l, --list-files` is an option meant to be used for debugging, and in interactive mode only (this should not be used in scripts, as I don\u0027t think `tree`\u0027s output is meant to be stable). I renamed that option `-t, --print-tree` to make this more obvious.\n\nI also introduced a new `-l, --list-files` option listing the contents of the image using `find`, which has a stable output.",
+      "parentUuid": "5ddf983b_9f361389",
+      "range": {
+        "startLine": 110,
+        "startChar": 59,
+        "endLine": 110,
+        "endChar": 63
+      },
+      "revId": "38e97a25d43d291b2944b14b73da59d1ac7451bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
