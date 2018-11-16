@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd68c529_8c4bed05",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-16T15:16:15Z",
+      "side": 1,
+      "message": "Missing backslash at the end?\n\nSuggest just using an ordinary if then fi block instead of stringing things together with \u0026\u0026. There\u0027s \"set -e\" so it wouldn\u0027t continue after a failure anyway.\n\nAlso note that if a fails in \"a \u0026\u0026 b\" then the status code for the whole list is nonzero and \"set -e\" will make the shell exit.",
+      "revId": "38e97a25d43d291b2944b14b73da59d1ac7451bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ddf983b_9f361389",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-16T15:16:15Z",
+      "side": 1,
+      "message": "Where does this come from? I don\u0027t have it on my workstation.",
+      "range": {
+        "startLine": 110,
+        "startChar": 59,
+        "endLine": 110,
+        "endChar": 63
+      },
+      "revId": "38e97a25d43d291b2944b14b73da59d1ac7451bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
