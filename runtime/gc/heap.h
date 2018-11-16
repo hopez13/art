@@ -196,7 +196,9 @@ class Heap {
        bool gc_stress_mode,
        bool measure_gc_performance,
        bool use_homogeneous_space_compaction,
-       uint64_t min_interval_homogeneous_space_compaction_by_oom);
+       uint64_t min_interval_homogeneous_space_compaction_by_oom,
+       bool dump_region_info_before_gc,
+       bool dump_region_info_after_gc);
 
   ~Heap();
 
@@ -1427,6 +1429,9 @@ class Heap {
   // We disable GC when we are shutting down the runtime in case there are daemon threads still
   // allocating.
   bool gc_disabled_for_shutdown_ GUARDED_BY(gc_complete_lock_);
+
+  bool dump_region_info_before_gc_;
+  bool dump_region_info_after_gc_;
 
   // Boot image spaces.
   std::vector<space::ImageSpace*> boot_image_spaces_;

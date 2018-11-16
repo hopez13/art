@@ -689,7 +689,7 @@ void ConcurrentCopying::VerifyNoMissingCardMarks() {
 // Switch threads that from from-space to to-space refs. Forward/mark the thread roots.
 void ConcurrentCopying::FlipThreadRoots() {
   TimingLogger::ScopedTiming split("FlipThreadRoots", GetTimings());
-  if (kVerboseMode) {
+  if (kVerboseMode || heap_->dump_region_info_before_gc_) {
     LOG(INFO) << "time=" << region_space_->Time();
     region_space_->DumpNonFreeRegions(LOG_STREAM(INFO));
   }
@@ -2098,6 +2098,11 @@ void ConcurrentCopying::ReclaimPhase() {
   int64_t diff = num_bytes_allocated_before_gc_ - num_bytes_allocated_after_gc;
   auto ratio = static_cast<float>(diff) / num_bytes_allocated_before_gc_;
   reclaimed_bytes_ratio_sum_ += ratio;
+
+  if (heap_->dump_region_info_after_gc_) {
+    LOG(INFO) << "time=" << region_space_->Time();
+    region_space_->DumpNonFreeRegions(LOG_STREAM(INFO));
+  }
 
   if (kVerboseMode) {
     LOG(INFO) << "GC end of ReclaimPhase";
