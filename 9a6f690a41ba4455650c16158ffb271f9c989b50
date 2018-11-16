@@ -99,6 +99,30 @@
       "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22c17ea5_93b4854f",
+        "filename": "dalvikvm/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-16T09:53:41Z",
+      "side": 1,
+      "message": "What is the source of the problem we need to solve? ie where is that dependency expressed and why? libnativehelper does not appear to depend on libbase (or at least I\u0027m not seeing it).",
+      "parentUuid": "a505b675_fc311d88",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "9a6f690a41ba4455650c16158ffb271f9c989b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
