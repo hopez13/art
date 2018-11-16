@@ -377,10 +377,32 @@ endif
 include $(BUILD_PHONY_PACKAGE)
 
 # Android Runtime APEX.
+#
+# Potentially use the debug APEX module (containing debug variants and
+# tools, in addition to release variants) instead of the release APEX
+# module (containing just release variants).
+#
+# * We will use it if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = false.
+# * We will always use it if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = true.
+# * Otherwise, we will use it by default in userdebug and eng builds.
+art_target_include_debug_build := $(PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD)
+ifneq (false,$(art_target_include_debug_build))
+  ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+    art_target_include_debug_build := true
+  endif
+endif
+ifeq (true,$(art_target_include_debug_build))
+  # Module with both release and debug variants, as well as
+  # additional tools.
+  TARGET_RUNTIME_APEX := com.android.runtime.debug
+else
+  # Release module (without debug variants nor tools).
+  TARGET_RUNTIME_APEX := com.android.runtime.release
+endif
+# Clear locally used variable.
+art_target_include_debug_build :=
 .PHONY: com.android.runtime
-# TODO: Select the debug module (`com.android.runtime.debug`) for
-# userdebug and eng products.
-com.android.runtime: com.android.runtime.release
+com.android.runtime: $(TARGET_RUNTIME_APEX)
 
 # The art-tools package depends on helpers and tools that are useful for developers and on-device
 # investigations.
