@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17780457_7e987c4a",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-19T13:57:07Z",
+      "side": 1,
+      "message": "Maybe it\u0027s better to have FORCE_INLINE_FOR_DEBUG macro? The code could be like:\n#if !defined(NDEBUG) \u0026\u0026 !defined(FORCE_INLINE_FOR_DEBUG)\n#define ALWAYS_INLINE\n#else\n#define ALWAYS_INLINE  __attribute__ ((always_inline))\n#endif",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
