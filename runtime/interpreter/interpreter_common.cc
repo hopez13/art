@@ -112,7 +112,7 @@ bool DoFieldGet(Thread* self, ShadowFrame& shadow_frame, const Instruction* inst
   if (is_static) {
     obj = f->GetDeclaringClass();
     if (transaction_active) {
-      if (Runtime::Current()->GetTransaction()->ReadConstraint(obj.Ptr(), f)) {
+      if (Runtime::Current()->GetTransaction()->ReadConstraint(self, obj, f)) {
         Runtime::Current()->AbortTransactionAndThrowAbortError(self, "Can't read static fields of "
             + obj->PrettyTypeOf() + " since it does not belong to clinit's class.");
         return false;
@@ -325,7 +325,7 @@ bool DoFieldPut(Thread* self, const ShadowFrame& shadow_frame, const Instruction
   if (is_static) {
     obj = f->GetDeclaringClass();
     if (transaction_active) {
-      if (Runtime::Current()->GetTransaction()->WriteConstraint(obj.Ptr(), f)) {
+      if (Runtime::Current()->GetTransaction()->WriteConstraint(self, obj, f)) {
         Runtime::Current()->AbortTransactionAndThrowAbortError(
             self, "Can't set fields of " + obj->PrettyTypeOf());
         return false;

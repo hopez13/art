@@ -53,7 +53,7 @@
 #include "gc/space/space-inl.h"
 #include "gc/verification.h"
 #include "handle_scope-inl.h"
-#include "image.h"
+#include "image-inl.h"
 #include "imt_conflict_table.h"
 #include "intern_table-inl.h"
 #include "jni/jni_internal.h"
@@ -2397,14 +2397,22 @@ bool ImageWriter::LayoutHelper::TryAssignBinSlot(ObjPtr<mirror::Object> obj, siz
   return assigned;
 }
 
+static ObjPtr<ObjectArray<Object>> GetBootImageLiveObjects() REQUIRES_SHARED(Locks::mutator_lock_) {
+  gc::Heap* heap = Runtime::Current()->GetHeap();
+  DCHECK(!heap->GetBootImageSpaces().empty());
+  const ImageHeader& primary_header = heap->GetBootImageSpaces().front()->GetImageHeader();
+  return ObjPtr<ObjectArray<Object>>::DownCast(
+      primary_header.GetImageRoot<kWithReadBarrier>(ImageHeader::kBootImageLiveObjects));
+}
+
 void ImageWriter::CalculateNewObjectOffsets() {
   Thread* const self = Thread::Current();
   Runtime* const runtime = Runtime::Current();
   VariableSizedHandleScope handles(self);
   MutableHandle<ObjectArray<Object>> boot_image_live_objects = handles.NewHandle(
-      compiler_options_.IsAppImage()
-          ? nullptr
-          : AllocateBootImageLiveObjects(self, runtime));
+      compiler_options_.IsBootImage()
+          ? AllocateBootImageLiveObjects(self, runtime)
+          : (compiler_options_.IsBootImageExtension() ? GetBootImageLiveObjects() : nullptr));
   std::vector<Handle<ObjectArray<Object>>> image_roots;
   for (size_t i = 0, size = oat_filenames_.size(); i != size; ++i) {
     image_roots.push_back(handles.NewHandle(CreateImageRoots(i, boot_image_live_objects)));
@@ -3125,7 +3133,7 @@ void ImageWriter::FixupClass(mirror::Class* orig, mirror::Class* copy) {
   FixupClassVisitor visitor(this, copy);
   ObjPtr<mirror::Object>(orig)->VisitReferences(visitor, visitor);
 
-  if (kBitstringSubtypeCheckEnabled && compiler_options_.IsAppImage()) {
+  if (kBitstringSubtypeCheckEnabled && !compiler_options_.IsBootImage()) {
     // When we call SubtypeCheck::EnsureInitialize, it Assigns new bitstring
     // values to the parent of that class.
     //
@@ -3141,6 +3149,8 @@ void ImageWriter::FixupClass(mirror::Class* orig, mirror::Class* copy) {
     //
     // On startup, the class linker will then re-initialize all the app
     // image bitstrings. See also ClassLinker::AddImageSpace.
+    //
+    // FIXME: Deal with boot image extensions.
     MutexLock subtype_check_lock(Thread::Current(), *Locks::subtype_check_lock_);
     // Lock every time to prevent a dcheck failure when we suspend with the lock held.
     SubtypeCheck<mirror::Class*>::ForceUninitialize(copy);
@@ -3305,7 +3315,8 @@ void ImageWriter::FixupDexCache(DexCache* orig_dex_cache, DexCache* copy_dex_cac
 
 const uint8_t* ImageWriter::GetOatAddress(StubType type) const {
   DCHECK_LE(type, StubType::kLast);
-  // If we are compiling an app image, we need to use the stubs of the boot image.
+  // If we are compiling a boot image extension or app image,
+  // we need to use the stubs of the primary boot image.
   if (!compiler_options_.IsBootImage()) {
     // Use the current image pointers.
     const std::vector<gc::space::ImageSpace*>& image_spaces =
@@ -3614,7 +3625,9 @@ ImageWriter::ImageWriter(
       oat_filenames_(oat_filenames),
       dex_file_oat_index_map_(dex_file_oat_index_map),
       dirty_image_objects_(dirty_image_objects) {
-  DCHECK(compiler_options.IsBootImage() || compiler_options.IsAppImage());
+  DCHECK(compiler_options.IsBootImage() ||
+         compiler_options.IsBootImageExtension() ||
+         compiler_options.IsAppImage());
   DCHECK_EQ(compiler_options.IsBootImage(), boot_image_begin_ == 0u);
   DCHECK_EQ(compiler_options.IsBootImage(), boot_image_size_ == 0u);
   CHECK_NE(image_begin, 0U);

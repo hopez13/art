@@ -2315,13 +2315,16 @@ std::string ImageSpace::GetBootClassPathChecksums(
 
 std::vector<std::string> ImageSpace::ExpandMultiImageLocations(
     const std::vector<std::string>& dex_locations,
-    const std::string& image_location) {
-  return ExpandMultiImageLocations(ArrayRef<const std::string>(dex_locations), image_location);
+    const std::string& image_location,
+    bool boot_image_extension) {
+  return ExpandMultiImageLocations(
+      ArrayRef<const std::string>(dex_locations), image_location, boot_image_extension);
 }
 
 std::vector<std::string> ImageSpace::ExpandMultiImageLocations(
     ArrayRef<const std::string> dex_locations,
-    const std::string& image_location) {
+    const std::string& image_location,
+    bool boot_image_extension) {
   DCHECK(!dex_locations.empty());
 
   // Find the path.
@@ -2349,11 +2352,15 @@ std::vector<std::string> ImageSpace::ExpandMultiImageLocations(
   }
 
   std::vector<std::string> locations;
-  locations.reserve(dex_locations.size());
-  locations.push_back(image_location);
+  size_t start_index = 0u;
+  if (!boot_image_extension) {
+    start_index = 1u;
+    locations.reserve(dex_locations.size());
+    locations.push_back(image_location);
+  }
 
-  // Now create the other names. Use a counted loop to skip the first one.
-  for (size_t i = 1u; i < dex_locations.size(); ++i) {
+  // Now create the other names. Use a counted loop to skip the first one if needed.
+  for (size_t i = start_index; i < dex_locations.size(); ++i) {
     // Replace path with `base` (i.e. image path and prefix) and replace the original
     // extension (if any) with `extension`.
     std::string name = dex_locations[i];

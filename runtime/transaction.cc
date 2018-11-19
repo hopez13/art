@@ -22,11 +22,14 @@
 #include "base/stl_util.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc_root-inl.h"
+#include "gc/heap.h"
 #include "intern_table.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
+#include "obj_ptr-inl.h"
+#include "runtime.h"
 
 #include <list>
 
@@ -121,25 +124,32 @@ const std::string& Transaction::GetAbortMessage() {
   return abort_message_;
 }
 
-bool Transaction::WriteConstraint(mirror::Object* obj, ArtField* field) {
-  MutexLock mu(Thread::Current(), log_lock_);
-  if (strict_  // no constraint for boot image
-      && field->IsStatic()  // no constraint instance updating
-      && obj != root_) {  // modifying other classes' static field, fail
-    return true;
+bool Transaction::WriteConstraint(Thread* self, ObjPtr<mirror::Object> obj, ArtField* field) {
+  MutexLock mu(self, log_lock_);
+  if (strict_) {
+    return field->IsStatic()  &&  // no constraint instance updating
+           obj != root_;  // modifying other classes' static field, fail
+  } else {
+    // For boot image extension, prevent changes in boot image.
+    // For boot image there are no boot image spaces and this returns false.
+    return Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(obj);
   }
-  return false;
 }
 
-bool Transaction::ReadConstraint(mirror::Object* obj, ArtField* field) {
+bool Transaction::ReadConstraint(Thread* self, ObjPtr<mirror::Object> obj, ArtField* field) {
   DCHECK(field->IsStatic());
   DCHECK(obj->IsClass());
-  MutexLock mu(Thread::Current(), log_lock_);
+  MutexLock mu(self, log_lock_);
   if (!strict_ ||   // no constraint for boot image
       obj == root_) {  // self-updating, pass
     return false;
   }
-  return true;
+  if (strict_) {
+    return obj != root_;  // fail if not self-updating
+  } else {
+    // For boot image and boot image extension, allow reading any field.
+    return false;
+  }
 }
 
 void Transaction::RecordWriteFieldBoolean(mirror::Object* obj,
