@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47c863cc_4a486fbe",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-19T09:22:06Z",
+      "side": 1,
+      "message": "Maybe better to describe the two variants and then outline the selection criteria.",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 44
+      },
+      "revId": "d61edaea6d54055c77099ae9814aa8776e389db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dd9cc94_4e495f99",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-19T09:22:06Z",
+      "side": 1,
+      "message": "This is confusing \"will use it if X \u003d false\", \"will always use it if X \u003d true\".",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 75
+      },
+      "revId": "d61edaea6d54055c77099ae9814aa8776e389db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
