@@ -22,6 +22,30 @@
       "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8294e5e5_44d79200",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-19T13:07:39Z",
+      "side": 1,
+      "message": "adler32() is not header-only.",
+      "parentUuid": "d687c031_13ff7eed",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
