@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aba9484c_7cb68d39",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-19T16:56:54Z",
+      "side": 1,
+      "message": "I\u0027d prefer explicit types, or at least \"auto*\"/\"const auto*\" depending on the context.",
+      "range": {
+        "startLine": 1067,
+        "startChar": 7,
+        "endLine": 1067,
+        "endChar": 11
+      },
+      "revId": "b9e4a2b603e0776ae154d60b10c3da229dadde8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
