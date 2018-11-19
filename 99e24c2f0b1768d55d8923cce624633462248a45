@@ -70,6 +70,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f595df1b_46914a64",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-19T14:35:38Z",
+      "side": 1,
+      "message": "\u003e Isn\u0027t that mostly the same as just removing the debug distinction and always having it on?\n\u003e I don\u0027t want to be that intrusive.  (assuming we would enable that flag; otherwise there is\n\u003e no point)\n\nI\u0027d like to have functions not to be inlined at O0. There is a macro __NO_INLINE__ which is set at O0 or for \u0027-fno-inline\u0027. Could it be used?",
+      "parentUuid": "b1b405a7_b9875be2",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
