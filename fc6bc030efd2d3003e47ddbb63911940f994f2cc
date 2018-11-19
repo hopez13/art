@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3dab35dd_2eddc3ae",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-19T11:53:29Z",
+      "side": 1,
+      "message": "Did we arrive at a conclusion on that email thread with Tobias/Paul/Brian? Would be good if this was at least consistent across all the build tools and ART.",
+      "parentUuid": "2512b772_54b7e005",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd6fed20_e6b1df70",
         "filename": "libdexfile/dex/dex_file_layout.cc",
         "patchSetId": 29
@@ -60,6 +84,30 @@
       "writtenOn": "2018-11-19T11:42:27Z",
       "side": 1,
       "message": "is this used?",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1486f3f_96598bc6",
+        "filename": "libdexfile/dex/dex_file_layout.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-19T11:53:29Z",
+      "side": 1,
+      "message": "Yeah. AlignUp/AlignDown lines 30/31. The hidden_api_access.flags.h used to be included through dex_file.h and include bit_utils.h.",
+      "parentUuid": "bd6fed20_e6b1df70",
       "range": {
         "startLine": 21,
         "startChar": 1,
