@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5495a071_3c92c074",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-19T13:28:59Z",
+      "side": 1,
+      "message": "The hiddenapi_str is only used inside \u0027if (hiddenapi_flags !\u003d 0u)\u0027. Maybe to move it there? If the string is not supposed to be changed it can be declared as const.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 2,
+        "endLine": 1172,
+        "endChar": 67
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d227e2_67dfc81e",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-19T13:28:59Z",
+      "side": 1,
+      "message": "It is the same code as in lines 1174 - 1182. Maybe it should be a function?",
+      "range": {
+        "startLine": 1294,
+        "startChar": 0,
+        "endLine": 1301,
+        "endChar": 5
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e614126_db94f6b4",
         "filename": "libartbase/base/hiddenapi_flags.h",
         "patchSetId": 29
