@@ -752,19 +752,40 @@ class Dex2Oat final {
 
   void ProcessOptions(ParserOptions* parser_options) {
     compiler_options_->compile_pic_ = true;  // All AOT compilation is PIC.
+
+    if (android_root_.empty()) {
+      const char* android_root_env_var = getenv("ANDROID_ROOT");
+      if (android_root_env_var == nullptr) {
+        Usage("--android-root unspecified and ANDROID_ROOT not set");
+      }
+      android_root_ += android_root_env_var;
+    }
+
+    if (!parser_options->boot_image_filename.empty()) {
+      boot_image_filename_ = parser_options->boot_image_filename;
+    }
+
     DCHECK(compiler_options_->image_type_ == CompilerOptions::ImageType::kNone);
     if (!image_filenames_.empty()) {
-      if (android::base::EndsWith(image_filenames_[0], "apex.art")) {
+      if (!boot_image_filename_.empty()) {
+        compiler_options_->image_type_ = CompilerOptions::ImageType::kBootImageExtension;
+      } else if (android::base::EndsWith(image_filenames_[0], "apex.art")) {
         compiler_options_->image_type_ = CompilerOptions::ImageType::kApexBootImage;
       } else {
         compiler_options_->image_type_ = CompilerOptions::ImageType::kBootImage;
       }
     }
     if (app_image_fd_ != -1 || !app_image_file_name_.empty()) {
-      if (compiler_options_->IsBootImage()) {
+      if (compiler_options_->IsBootImage() ||
+          compiler_options_->IsApexBootImage() ||
+          compiler_options_->IsBootImageExtension()) {
         Usage("Can't have both --image and (--app-image-fd or --app-image-file)");
       }
       compiler_options_->image_type_ = CompilerOptions::ImageType::kAppImage;
+
+      if (boot_image_filename_.empty()) {
+        boot_image_filename_ = GetDefaultBootImageLocation(android_root_);
+      }
     }
 
     if (oat_filenames_.empty() && oat_fd_ == -1) {
@@ -816,21 +837,6 @@ class Dex2Oat final {
 
     if (!image_filenames_.empty() && image_filenames_.size() != oat_filenames_.size()) {
       Usage("--oat-file arguments do not match --image arguments");
-    }
-
-    if (android_root_.empty()) {
-      const char* android_root_env_var = getenv("ANDROID_ROOT");
-      if (android_root_env_var == nullptr) {
-        Usage("--android-root unspecified and ANDROID_ROOT not set");
-      }
-      android_root_ += android_root_env_var;
-    }
-
-    if (!IsBootImage() && parser_options->boot_image_filename.empty()) {
-      parser_options->boot_image_filename = GetDefaultBootImageLocation(android_root_);
-    }
-    if (!parser_options->boot_image_filename.empty()) {
-      boot_image_filename_ = parser_options->boot_image_filename;
     }
 
     if (dex_filenames_.empty() && zip_fd_ == -1) {
@@ -961,12 +967,14 @@ class Dex2Oat final {
     if (image_filenames_[0].rfind('/') == std::string::npos) {
       Usage("Unusable boot image filename %s", image_filenames_[0].c_str());
     }
-    image_filenames_ = ImageSpace::ExpandMultiImageLocations(dex_locations_, image_filenames_[0]);
+    image_filenames_ = ImageSpace::ExpandMultiImageLocations(
+        dex_locations_, image_filenames_[0], IsBootImageExtension());
 
     if (oat_filenames_[0].rfind('/') == std::string::npos) {
       Usage("Unusable boot image oat filename %s", oat_filenames_[0].c_str());
     }
-    oat_filenames_ = ImageSpace::ExpandMultiImageLocations(dex_locations_, oat_filenames_[0]);
+    oat_filenames_ = ImageSpace::ExpandMultiImageLocations(
+        dex_locations_, oat_filenames_[0], IsBootImageExtension());
 
     if (!oat_unstripped_.empty()) {
       if (oat_unstripped_[0].rfind('/') == std::string::npos) {
@@ -1206,7 +1214,7 @@ class Dex2Oat final {
     PruneNonExistentDexFiles();
 
     // Expand oat and image filenames for multi image.
-    if (IsBootImage() && image_filenames_.size() == 1) {
+    if ((IsBootImage() || IsBootImageExtension()) && image_filenames_.size() == 1) {
       ExpandOatAndImageFilenames();
     }
 
@@ -1456,14 +1464,16 @@ class Dex2Oat final {
       // If we're compiling the boot image, store the boot classpath into the Key-Value store.
       // We use this when loading the boot image.
       key_value_store_->Put(OatHeader::kBootClassPathKey, android::base::Join(dex_locations_, ':'));
-    }
-
-    if (!IsBootImage()) {
-      // When compiling an app, create the runtime early to retrieve
+    } else {
+      // When compiling an app or boot image extension, create the runtime early to retrieve
       // the boot image checksums needed for the oat header.
       if (!CreateRuntime(std::move(runtime_options))) {
         return dex2oat::ReturnCode::kCreateRuntime;
       }
+      // TODO: For boot image extension check that the boot class path contains only image spaces
+      // and the dex files that are marked for compilation, i.e. no non-image space dependency.
+      // (This limitation exists because we're loading image spaces first rather than interleaved
+      // with other dex files, so we do not have those dex files available for matching checksums.)
 
       if (CompilerFilter::DependsOnImageChecksum(compiler_options_->GetCompilerFilter())) {
         TimingLogger::ScopedTiming t3("Loading image checksum", timings_);
@@ -1800,7 +1810,7 @@ class Dex2Oat final {
     ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
 
     jobject class_loader = nullptr;
-    if (!IsBootImage()) {
+    if (!IsBootImage() && !IsBootImageExtension()) {
       class_loader =
           class_loader_context_->CreateClassLoader(compiler_options_->dex_files_for_oat_file_);
       callbacks_->SetDexFiles(&dex_files);
@@ -2168,7 +2178,7 @@ class Dex2Oat final {
   }
 
   bool IsImage() const {
-    return IsAppImage() || IsBootImage();
+    return IsAppImage() || IsBootImage() || IsBootImageExtension();
   }
 
   bool IsAppImage() const {
@@ -2177,6 +2187,10 @@ class Dex2Oat final {
 
   bool IsBootImage() const {
     return compiler_options_->IsBootImage();
+  }
+
+  bool IsBootImageExtension() const {
+    return compiler_options_->IsBootImageExtension();
   }
 
   bool IsHost() const {
@@ -2383,7 +2397,7 @@ class Dex2Oat final {
   bool PrepareRuntimeOptions(RuntimeArgumentMap* runtime_options,
                              QuickCompilerCallbacks* callbacks) {
     RuntimeOptions raw_options;
-    if (boot_image_filename_.empty()) {
+    if (IsBootImage()) {
       std::string boot_class_path = "-Xbootclasspath:";
       boot_class_path += android::base::Join(dex_filenames_, ':');
       raw_options.push_back(std::make_pair(boot_class_path, nullptr));
@@ -2473,7 +2487,7 @@ class Dex2Oat final {
   bool CreateImageFile()
       REQUIRES(!Locks::mutator_lock_) {
     CHECK(image_writer_ != nullptr);
-    if (!IsBootImage()) {
+    if (!IsBootImage() && !IsBootImageExtension()) {
       CHECK(image_filenames_.empty());
       image_filenames_.push_back(app_image_file_name_);
     }
