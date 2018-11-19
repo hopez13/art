@@ -94,6 +94,30 @@
       "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2497f54d_9174b5d6",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-19T13:39:15Z",
+      "side": 1,
+      "message": "I\u0027ve got a WIP CL to link libz statically into libartbase which would preclude this, but I\u0027m not moving forward with that as I hope we\u0027ll rely on linker namespaces instead.\n\nRegardless how that goes, LGTM on this approach for the time being. I\u0027ll adapt my CL accordingly.",
+      "parentUuid": "efc6ad9b_18abbd72",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
