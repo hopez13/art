@@ -1375,7 +1375,9 @@ class ImageSpace::BootImageLoader {
                   bool is_zygote)
       : boot_class_path_(boot_class_path),
         boot_class_path_locations_(boot_class_path_locations),
-        image_location_(image_location),
+        load_extensions_(EndsWith(image_location, ":*")),
+        image_location_(load_extensions_ ? image_location.substr(0u, image_location.size() - 2u)
+                                         : image_location),
         image_isa_(image_isa),
         relocate_(relocate),
         executable_(executable),
@@ -1425,10 +1427,12 @@ class ImageSpace::BootImageLoader {
                       /*out*/MemMap* extra_reservation,
                       /*out*/std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
-    std::string filename = GetSystemImageFilename(image_location_.c_str(), image_isa_);
+    std::string image_location = image_location_;
+    std::string filename = GetSystemImageFilename(image_location.c_str(), image_isa_);
 
     if (!LoadFromFile(filename,
                       validate_oat_file,
+                      load_extensions_,
                       extra_reservation_size,
                       &logger,
                       boot_image_spaces,
@@ -1456,6 +1460,7 @@ class ImageSpace::BootImageLoader {
 
     if (!LoadFromFile(cache_filename_,
                       validate_oat_file,
+                      /*load_extensions=*/ false,
                       extra_reservation_size,
                       &logger,
                       boot_image_spaces,
@@ -1476,6 +1481,7 @@ class ImageSpace::BootImageLoader {
   bool LoadFromFile(
       const std::string& filename,
       bool validate_oat_file,
+      bool load_extensions,
       size_t extra_reservation_size,
       TimingLogger* logger,
       /*out*/std::vector<std::unique_ptr<space::ImageSpace>>* boot_image_spaces,
@@ -1486,8 +1492,9 @@ class ImageSpace::BootImageLoader {
       *error_msg = StringPrintf("Cannot read header of %s", filename.c_str());
       return false;
     }
+    size_t bcp_component_count = boot_class_path_.size();
     if (system_hdr.GetComponentCount() == 0u ||
-        system_hdr.GetComponentCount() > boot_class_path_.size()) {
+        system_hdr.GetComponentCount() > bcp_component_count) {
       *error_msg = StringPrintf("Unexpected component count in %s, received %u, "
                                     "expected non-zero and <= %zu",
                                 filename.c_str(),
@@ -1495,51 +1502,137 @@ class ImageSpace::BootImageLoader {
                                 boot_class_path_.size());
       return false;
     }
-    MemMap image_reservation;
-    MemMap local_extra_reservation;
-    if (!ReserveBootImageMemory(system_hdr.GetImageReservationSize(),
-                                reinterpret_cast32<uint32_t>(system_hdr.GetImageBegin()),
-                                extra_reservation_size,
-                                &image_reservation,
-                                &local_extra_reservation,
-                                error_msg)) {
+
+    size_t image_component_count = system_hdr.GetComponentCount();
+    size_t image_reservation_size = system_hdr.GetImageReservationSize();
+    struct ExtensionRange {
+      size_t start_index;
+      size_t component_count;
+      size_t reservation_size;
+    };
+    std::vector<ExtensionRange> extension_data;
+    if (load_extensions) {
+      VLOG(image) << "Looking for boot image extensions for " << filename;
+      for (size_t i = system_hdr.GetComponentCount(); i != bcp_component_count; ) {
+        std::vector<std::string> extension_filename = ExpandMultiImageLocations(
+            ArrayRef<const std::string>(boot_class_path_locations_).SubArray(i, 1u),
+            filename,
+            /*boot_image_extension=*/ true);
+        DCHECK_EQ(extension_filename.size(), 1u);
+        ImageHeader extension_hdr;
+        if (!ReadSpecificImageHeader(extension_filename[0].c_str(), &extension_hdr)) {
+          VLOG(image) << "Failed to read image header for " << extension_filename[0];
+          ++i;
+          continue;
+        }
+        size_t extension_component_count = extension_hdr.GetComponentCount();
+        if (extension_component_count == 0u ||
+            extension_component_count > bcp_component_count - i) {
+          VLOG(image) << "Unexpected component count in " << filename[0]
+                      << " received " << extension_component_count
+                      << ", expected non-zero and <= " << (bcp_component_count - i);
+          ++i;
+          continue;
+        }
+        size_t extension_reservation_size = extension_hdr.GetImageReservationSize();
+        extension_data.push_back({ i, extension_component_count, extension_reservation_size });
+        i += extension_component_count;
+        image_component_count += extension_component_count;
+        image_reservation_size += extension_reservation_size;
+        CHECK_LT(extension_reservation_size,
+                 std::numeric_limits<uint32_t>::max() - image_reservation_size);
+      }
+    }
+
+    // If relocating, choose a random address for ALSR.
+    uint8_t* addr = relocate_
+        ? reinterpret_cast<uint8_t*>(ART_BASE_ADDRESS + ChooseRelocationOffsetDelta())
+        : system_hdr.GetImageBegin();
+    CHECK_LT(extra_reservation_size,
+             std::numeric_limits<uint32_t>::max() - image_reservation_size);
+    MemMap image_reservation =
+        ReserveBootImageMemory(addr, image_reservation_size + extra_reservation_size, error_msg);
+    if (!image_reservation.IsValid()) {
       return false;
     }
 
-    ArrayRef<const std::string> provided_locations(boot_class_path_locations_.data(),
-                                                   system_hdr.GetComponentCount());
-    std::vector<std::string> locations =
-        ExpandMultiImageLocations(provided_locations, image_location_);
-    std::vector<std::string> filenames =
-        ExpandMultiImageLocations(provided_locations, filename);
-    DCHECK_EQ(locations.size(), filenames.size());
     std::vector<std::unique_ptr<ImageSpace>> spaces;
-    spaces.reserve(locations.size());
-    for (std::size_t i = 0u, size = locations.size(); i != size; ++i) {
-      spaces.push_back(Load(locations[i], filenames[i], logger, &image_reservation, error_msg));
-      const ImageSpace* space = spaces.back().get();
-      if (space == nullptr) {
-        return false;
-      }
-      uint32_t expected_component_count = (i == 0u) ? system_hdr.GetComponentCount() : 0u;
-      uint32_t expected_reservation_size = (i == 0u) ? system_hdr.GetImageReservationSize() : 0u;
-      if (!Loader::CheckImageReservationSize(*space, expected_reservation_size, error_msg) ||
-          !Loader::CheckImageComponentCount(*space, expected_component_count, error_msg)) {
-        return false;
+    spaces.reserve(image_component_count);
+    if (!LoadComponents(filename,
+                        validate_oat_file,
+                        /*start_index=*/ 0u,
+                        system_hdr.GetComponentCount(),
+                        system_hdr.GetImageReservationSize(),
+                        /*max_image_space_dependencies=*/ 0u,
+                        logger,
+                        &spaces,
+                        &image_reservation,
+                        error_msg)) {
+      return false;
+    }
+
+    if (load_extensions) {
+      size_t max_image_space_dependencies = spaces.size();
+      for (const ExtensionRange& range : extension_data) {
+        std::string extension_error_msg;
+        uint8_t* old_reservation_begin = image_reservation.Begin();
+        size_t old_reservation_size = image_reservation.Size();
+        DCHECK_LE(range.reservation_size, old_reservation_size);
+        if (!LoadComponents(filename,
+                            validate_oat_file,
+                            range.start_index,
+                            range.component_count,
+                            range.reservation_size,
+                            max_image_space_dependencies,
+                            logger,
+                            &spaces,
+                            &image_reservation,
+                            &extension_error_msg)) {
+          // Shrink the reservation (and remap if needed, see below).
+          size_t new_reservation_size = old_reservation_size - range.reservation_size;
+          if (new_reservation_size == 0u) {
+            DCHECK_EQ(extra_reservation_size, 0u);
+            DCHECK_EQ(&range, &extension_data.back());
+            image_reservation.Reset();
+          } else if (old_reservation_begin != image_reservation.Begin()) {
+            // Part of the image reservation has been used and then unmapped when
+            // rollling back the partial boot image extension load. Try to remap
+            // the image reservation. As this should be running single-threaded,
+            // the address range should still be available to mmap().
+            image_reservation.Reset();
+            std::string remap_error_msg;
+            image_reservation = ReserveBootImageMemory(old_reservation_begin,
+                                                       new_reservation_size,
+                                                       &remap_error_msg);
+            if (!image_reservation.IsValid()) {
+              *error_msg = StringPrintf("Failed to remap boot image reservation after failing "
+                                            "to load boot image extension (%s: %s): %s",
+                                        boot_class_path_locations_[range.start_index].c_str(),
+                                        extension_error_msg.c_str(),
+                                        remap_error_msg.c_str());
+              return false;
+            }
+          } else {
+            DCHECK_EQ(old_reservation_size, image_reservation.Size());
+            image_reservation.SetSize(new_reservation_size);
+          }
+          LOG(ERROR) << "Failed to load boot image extension "
+              << boot_class_path_locations_[range.start_index] << ": " << extension_error_msg;
+        }
+        // Update `max_image_space_dependencies` if we all previous BCP components
+        // were covered and loading the current extension succeeded.
+        if (max_image_space_dependencies == range.start_index &&
+            spaces.size() == range.start_index + range.component_count) {
+          max_image_space_dependencies = range.start_index + range.component_count;
+        }
       }
     }
-    for (size_t i = 0u, size = spaces.size(); i != size; ++i) {
-      if (!OpenOatFile(spaces[i].get(),
-                       boot_class_path_[i],
-                       validate_oat_file,
-                       /*available_dependencies=*/ ArrayRef<const std::unique_ptr<ImageSpace>>(),
-                       logger,
-                       &image_reservation,
-                       error_msg)) {
-        return false;
-      }
-    }
-    if (!CheckReservationExhausted(image_reservation, error_msg)) {
+
+    MemMap local_extra_reservation;
+    if (!RemapExtraReservation(extra_reservation_size,
+                               &image_reservation,
+                               &local_extra_reservation,
+                               error_msg)) {
       return false;
     }
 
@@ -2027,37 +2120,111 @@ class ImageSpace::BootImageLoader {
     return true;
   }
 
-  bool ReserveBootImageMemory(uint32_t reservation_size,
-                              uint32_t image_start,
-                              size_t extra_reservation_size,
-                              /*out*/MemMap* image_reservation,
-                              /*out*/MemMap* extra_reservation,
-                              /*out*/std::string* error_msg) {
+  bool LoadComponents(const std::string& filename,
+                      bool validate_oat_file,
+                      size_t start_index,
+                      size_t num_components,
+                      size_t reservation_size,
+                      size_t max_image_space_dependencies,
+                      TimingLogger* logger,
+                      /*inout*/std::vector<std::unique_ptr<ImageSpace>>* spaces,
+                      /*inout*/MemMap* image_reservation,
+                      /*out*/std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    // Make sure we destroy the spaces we created if we're returning an error.
+    // Note that this can unmap part of the original `image_reservation`.
+    class Guard {
+     public:
+      explicit Guard(std::vector<std::unique_ptr<ImageSpace>>* spaces_in)
+          : spaces_(spaces_in), committed_(spaces_->size()) {}
+      void Commit() {
+        DCHECK_LT(committed_, spaces_->size());
+        committed_ = spaces_->size();
+      }
+      ~Guard() {
+        DCHECK_LE(committed_, spaces_->size());
+        spaces_->resize(committed_);
+      }
+     private:
+      std::vector<std::unique_ptr<ImageSpace>>* const spaces_;
+      size_t committed_;
+    };
+    Guard guard(spaces);
+
+    bool is_extension = (start_index != 0u);
+    DCHECK_NE(spaces->empty(), is_extension);
+    ArrayRef<const std::string> requested_bcp_locations =
+        ArrayRef<const std::string>(boot_class_path_locations_).SubArray(
+            start_index, num_components);
+    std::vector<std::string> locations =
+        ExpandMultiImageLocations(requested_bcp_locations, image_location_, is_extension);
+    std::vector<std::string> filenames =
+        ExpandMultiImageLocations(requested_bcp_locations, filename, is_extension);
+    DCHECK_EQ(locations.size(), filenames.size());
+    for (std::size_t i = 0u, size = locations.size(); i != size; ++i) {
+      spaces->push_back(Load(locations[i], filenames[i], logger, image_reservation, error_msg));
+      const ImageSpace* space = spaces->back().get();
+      if (space == nullptr) {
+        return false;
+      }
+      uint32_t expected_component_count = (i == 0u) ? num_components : 0u;
+      uint32_t expected_reservation_size = (i == 0u) ? reservation_size : 0u;
+      if (!Loader::CheckImageReservationSize(*space, expected_reservation_size, error_msg) ||
+          !Loader::CheckImageComponentCount(*space, expected_component_count, error_msg)) {
+        return false;
+      }
+    }
+    ArrayRef<const std::unique_ptr<ImageSpace>> available_dependencies =
+        ArrayRef<const std::unique_ptr<ImageSpace>>(*spaces).SubArray(/*pos=*/ 0u,
+                                                                      max_image_space_dependencies);
+    for (std::size_t i = 0u, size = locations.size(); i != size; ++i) {
+      ImageSpace* space = (*spaces)[start_index + i].get();
+      if (!OpenOatFile(space,
+                       boot_class_path_[start_index + i],
+                       validate_oat_file,
+                       available_dependencies,
+                       logger,
+                       image_reservation,
+                       error_msg)) {
+        return false;
+      }
+    }
+
+    guard.Commit();
+    return true;
+  }
+
+  MemMap ReserveBootImageMemory(uint8_t* addr,
+                                uint32_t reservation_size,
+                                /*out*/std::string* error_msg) {
     DCHECK_ALIGNED(reservation_size, kPageSize);
-    DCHECK_ALIGNED(image_start, kPageSize);
-    DCHECK(!image_reservation->IsValid());
-    DCHECK_LT(extra_reservation_size, std::numeric_limits<uint32_t>::max() - reservation_size);
-    size_t total_size = reservation_size + extra_reservation_size;
-    // If relocating, choose a random address for ALSR.
-    uint32_t addr = relocate_ ? ART_BASE_ADDRESS + ChooseRelocationOffsetDelta() : image_start;
-    *image_reservation =
-        MemMap::MapAnonymous("Boot image reservation",
-                             reinterpret_cast32<uint8_t*>(addr),
-                             total_size,
-                             PROT_NONE,
-                             /*low_4gb=*/ true,
-                             /*reuse=*/ false,
-                             /*reservation=*/ nullptr,
-                             error_msg);
-    if (!image_reservation->IsValid()) {
+    DCHECK_ALIGNED(addr, kPageSize);
+    return MemMap::MapAnonymous("Boot image reservation",
+                                addr,
+                                reservation_size,
+                                PROT_NONE,
+                                /*low_4gb=*/ true,
+                                /*reuse=*/ false,
+                                /*reservation=*/ nullptr,
+                                error_msg);
+  }
+
+  bool RemapExtraReservation(size_t extra_reservation_size,
+                             /*inout*/MemMap* image_reservation,
+                             /*out*/MemMap* extra_reservation,
+                             /*out*/std::string* error_msg) {
+    DCHECK_ALIGNED(extra_reservation_size, kPageSize);
+    DCHECK(!extra_reservation->IsValid());
+    if (extra_reservation_size != image_reservation->Size()) {
+      *error_msg = StringPrintf("Image reservation mismatch after loading boot image: %zd != %zd",
+                                extra_reservation_size,
+                                image_reservation->Size());
       return false;
     }
-    DCHECK(!extra_reservation->IsValid());
     if (extra_reservation_size != 0u) {
-      DCHECK_ALIGNED(extra_reservation_size, kPageSize);
-      DCHECK_LT(extra_reservation_size, image_reservation->Size());
-      uint8_t* split = image_reservation->End() - extra_reservation_size;
-      *extra_reservation = image_reservation->RemapAtEnd(split,
+      DCHECK(image_reservation->IsValid());
+      DCHECK_EQ(extra_reservation_size, image_reservation->Size());
+      *extra_reservation = image_reservation->RemapAtEnd(image_reservation->Begin(),
                                                          "Boot image extra reservation",
                                                          PROT_NONE,
                                                          error_msg);
@@ -2065,23 +2232,14 @@ class ImageSpace::BootImageLoader {
         return false;
       }
     }
-
-    return true;
-  }
-
-  bool CheckReservationExhausted(const MemMap& image_reservation, /*out*/std::string* error_msg) {
-    if (image_reservation.IsValid()) {
-      *error_msg = StringPrintf("Excessive image reservation after loading boot image: %p-%p",
-                                image_reservation.Begin(),
-                                image_reservation.End());
-      return false;
-    }
+    DCHECK(!image_reservation->IsValid());
     return true;
   }
 
   const std::vector<std::string>& boot_class_path_;
   const std::vector<std::string>& boot_class_path_locations_;
-  const std::string& image_location_;
+  const bool load_extensions_;
+  const std::string image_location_;
   InstructionSet image_isa_;
   bool relocate_;
   bool executable_;
@@ -2509,8 +2667,9 @@ bool ImageSpace::VerifyBootClassPathChecksums(std::string_view oat_checksums,
     return false;
   }
 
-  bool load_extensions = false;  // TODO: Boot image extensions.
-  const std::string& actual_image_location = image_location;  // TODO: Boot image extensions.
+  bool load_extensions = EndsWith(image_location, ":*");
+  std::string actual_image_location =
+      load_extensions ? image_location.substr(0u, image_location.size() - 2u) : image_location;
   std::string system_filename;
   bool has_system = false;
   std::string cache_filename;
@@ -2538,13 +2697,18 @@ bool ImageSpace::VerifyBootClassPathChecksums(std::string_view oat_checksums,
 
   size_t bcp_pos = 0u;
   while (StartsWith(oat_checksums, "i")) {
-    const std::string& current_filename = filename;
+    std::string current_filename = filename;
     if (bcp_pos != 0u) {
       if (!load_extensions) {
         *error_msg = "Checksum specifies boot image extension but extensions are not used.";
         return false;
       }
-      UNREACHABLE();  // TODO: Boot image extensions.
+      std::vector<std::string> expanded = ExpandMultiImageLocations(
+          {boot_class_path_locations[bcp_pos]},
+          filename,
+          /*boot_image_extension=*/ true);
+      DCHECK_EQ(expanded.size(), 1u);
+      current_filename = expanded[0];
     }
     std::unique_ptr<ImageHeader> header =
         ReadSpecificImageHeader(current_filename.c_str(), error_msg);
