@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84fc400e_db1d838c",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-11-19T14:46:12Z",
+      "side": 1,
+      "message": "can you use BUILD_PHONY_PACKAGE here too? it has the added benefit of recording metadata for the com.android.runtime module (like where it\u0027s defined and that sort of thing). Should be almost equally straight-forward :)",
+      "revId": "c6f521a68574d1d9a08f57ce876d8f0c9994f11f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
