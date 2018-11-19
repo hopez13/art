@@ -142,6 +142,30 @@
       "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f790e2_647bed3a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-19T14:45:49Z",
+      "side": 1,
+      "message": "Ok. Any particular reason? I\u0027ve never figured out why there\u0027s all this business with the static linking of libz and libziparchive all around.",
+      "parentUuid": "15cf1c51_2ec755ca",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "00ef5e7b11f6a16a9f1931ab04fbf20c6485177f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
