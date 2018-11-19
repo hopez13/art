@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd4d51ac_fe53c0d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-19T13:18:34Z",
+      "side": 1,
+      "message": "I think we should use\n\n  auto\u0026\n\nhere, to be consistent with other range-based for-loops on `garbage_collectors_` in this file.\n\nOn the other hand, `garbage_collectors_` is a vector of pointers, so the reference don\u0027t make much sense here. I think we should probably clean that up in another CL.",
+      "range": {
+        "startLine": 1067,
+        "startChar": 7,
+        "endLine": 1067,
+        "endChar": 11
+      },
+      "revId": "aad69b3b0c96ddaecc7f89ac3e7c34302d25ead3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
