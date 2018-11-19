@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f2ca011_ef618902",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-19T19:55:57Z",
+      "side": 1,
+      "message": "Add a similar comment to L612, saying why this is false.",
+      "range": {
+        "startLine": 599,
+        "startChar": 25,
+        "endLine": 599,
+        "endChar": 61
+      },
+      "revId": "1eaede5c1dc38380dafd19d9999e77056acf70f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b05d2d59_a2883a46",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-19T19:55:57Z",
+      "side": 1,
+      "message": "even if it gets more convoluted, let\u0027s add a shared library dependency on another shared library. Maybe you could make the \u0027_d\u0027 one a nested dependency.\n\nParsing and creating the class loader is complex enough now :)",
+      "range": {
+        "startLine": 617,
+        "startChar": 14,
+        "endLine": 617,
+        "endChar": 26
+      },
+      "revId": "1eaede5c1dc38380dafd19d9999e77056acf70f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
