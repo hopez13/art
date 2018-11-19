@@ -22,6 +22,30 @@
       "revId": "aad69b3b0c96ddaecc7f89ac3e7c34302d25ead3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5be174de_9cdb19c0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-19T13:21:43Z",
+      "side": 1,
+      "message": "Got it. Will use `auto\u0026` in this CL, and create another CL to drop `\u0026` for all usage of `garbage_collectors`.",
+      "parentUuid": "bd4d51ac_fe53c0d2",
+      "range": {
+        "startLine": 1067,
+        "startChar": 7,
+        "endLine": 1067,
+        "endChar": 11
+      },
+      "revId": "aad69b3b0c96ddaecc7f89ac3e7c34302d25ead3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
