@@ -239,6 +239,7 @@ class ImageSpace : public MemMapSpace {
       const std::string& image_location,
       bool boot_image_extension = false);
 
+  class BootImageLayout;
   class BootImageLoader;
   template <typename ReferenceVisitor>
   class ClassTableVisitor;
