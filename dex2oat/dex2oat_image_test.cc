@@ -19,23 +19,31 @@
 #include <string>
 #include <vector>
 
+#include <sys/mman.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
 #include <android-base/logging.h>
+#include <android-base/stringprintf.h>
+#include <android-base/strings.h>
 
 #include "common_runtime_test.h"
 
+#include "base/array_ref.h"
 #include "base/file_utils.h"
 #include "base/macros.h"
+#include "base/mem_map.h"
 #include "base/unix_file/fd_file.h"
 #include "base/utils.h"
 #include "dex/art_dex_file_loader.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_loader.h"
 #include "dex/method_reference.h"
+#include "gc/space/image_space.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime.h"
+#include "scoped_thread_state_change-inl.h"
+#include "thread-current-inl.h"
 
 namespace art {
 
@@ -132,8 +140,12 @@ class Dex2oatImageTest : public CommonRuntimeTest {
       scratch_dir.pop_back();
     }
     CHECK(!scratch_dir.empty()) << "No directory " << scratch.GetFilename();
+    std::vector<std::string> libcore_dex_files = GetLibCoreDexFileNames();
+    ArrayRef<const std::string> dex_files(libcore_dex_files);
+    std::vector<std::string> local_extra_args = extra_args;
+    local_extra_args.push_back("--base=0x60000000");
     std::string error_msg;
-    if (!CompileBootImage(extra_args, scratch.GetFilename(), &error_msg)) {
+    if (!CompileBootImage(local_extra_args, scratch.GetFilename(), dex_files, &error_msg)) {
       LOG(ERROR) << "Failed to compile image " << scratch.GetFilename() << error_msg;
     }
     std::string art_file = scratch.GetFilename() + ".art";
@@ -157,13 +169,13 @@ class Dex2oatImageTest : public CommonRuntimeTest {
 
   bool CompileBootImage(const std::vector<std::string>& extra_args,
                         const std::string& image_file_name_prefix,
+                        ArrayRef<const std::string> dex_files,
                         std::string* error_msg) {
     Runtime* const runtime = Runtime::Current();
     std::vector<std::string> argv;
     argv.push_back(runtime->GetCompilerExecutable());
     AddRuntimeArg(argv, "-Xms64m");
     AddRuntimeArg(argv, "-Xmx64m");
-    std::vector<std::string> dex_files = GetLibCoreDexFileNames();
     for (const std::string& dex_file : dex_files) {
       argv.push_back("--dex-file=" + dex_file);
       argv.push_back("--dex-location=" + dex_file);
@@ -182,7 +194,6 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     argv.push_back("--image=" + image_file_name_prefix + ".art");
     argv.push_back("--oat-file=" + image_file_name_prefix + ".oat");
     argv.push_back("--oat-location=" + image_file_name_prefix + ".oat");
-    argv.push_back("--base=0x60000000");
 
     std::vector<std::string> compiler_options = runtime->GetCompilerOptions();
     argv.insert(argv.end(), compiler_options.begin(), compiler_options.end());
@@ -208,7 +219,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
   }
 };
 
-TEST_F(Dex2oatImageTest, TestModesAndFilters) {
+TEST_F(Dex2oatImageTest, DISABLED_TestModesAndFilters) {
   // This test crashes on the gtest-heap-poisoning configuration
   // (AddressSanitizer + CMS/RosAlloc + heap-poisoning); see b/111061592.
   // Temporarily disable this test on this configuration to keep
@@ -263,6 +274,86 @@ TEST_F(Dex2oatImageTest, TestModesAndFilters) {
     classes.Close();
     std::cout << "Dirty image object sizes " << image_classes_sizes << std::endl;
   }
+}
+
+TEST_F(Dex2oatImageTest, TestExtension) {
+  constexpr uint32_t kBaseAddress = 0x60000000;
+  constexpr size_t kReservationSize = 256 * MB;  // This should be enough for the compiled images.
+  std::string error_msg;
+  MemMap reservation = MemMap::MapAnonymous("Reservation",
+                                            reinterpret_cast<uint8_t*>(kBaseAddress),
+                                            kReservationSize,
+                                            PROT_NONE,
+                                            /*low_4gb=*/ true,
+                                            /*reuse=*/ false,
+                                            /*reservation=*/ nullptr,
+                                            &error_msg);
+  ASSERT_TRUE(reservation.IsValid());
+
+  ScratchFile scratch;
+  std::string scratch_dir = scratch.GetFilename();
+  while (!scratch_dir.empty() && scratch_dir.back() != '/') {
+    scratch_dir.pop_back();
+  }
+  CHECK(!scratch_dir.empty()) << "No directory " << scratch.GetFilename();
+  std::string image_dir = scratch_dir + GetInstructionSetString(kRuntimeISA);
+  int mkdir_result = mkdir(image_dir.c_str(), 0700);
+  ASSERT_EQ(0, mkdir_result);
+  std::string base_location = scratch_dir + "core.art";
+  std::string filename_prefix = image_dir + "/core";
+
+  std::vector<std::string> libcore_dex_files = GetLibCoreDexFileNames();
+  ArrayRef<const std::string> libcore_dex_files_ref(libcore_dex_files);
+  size_t total_dex_files = libcore_dex_files.size();
+  ASSERT_GE(total_dex_files, 3u);
+  ArrayRef<const std::string> head_dex_files =
+      libcore_dex_files_ref.SubArray(/*pos=*/ 0u, /*length=*/ libcore_dex_files.size() - 1u);
+  ArrayRef<const std::string> tail_dex_files =
+      libcore_dex_files_ref.SubArray(/*pos=*/ total_dex_files - 1u, /*length=*/ 1u);
+
+  std::string base = android::base::StringPrintf("--base=0x%08x", kBaseAddress);
+  bool head_ok = CompileBootImage({base}, filename_prefix, head_dex_files, &error_msg);
+  ASSERT_TRUE(head_ok) << error_msg;
+
+  std::string boot_class_path = android::base::Join(libcore_dex_files, ':');
+  std::vector<std::string> extra_args;
+  AddRuntimeArg(extra_args, "-Xbootclasspath:" + boot_class_path);
+  AddRuntimeArg(extra_args, "-Xbootclasspath-locations:" + boot_class_path);
+  extra_args.push_back("--boot-image=" + base_location);
+  LOG(ERROR) << extra_args.back();
+  bool tail_ok = CompileBootImage(extra_args, filename_prefix, tail_dex_files, &error_msg);
+  ASSERT_TRUE(tail_ok) << error_msg;
+
+  reservation = MemMap::Invalid();  // Free the reserved memory for loading images.
+
+  // Try to load the boot image.
+  std::vector<std::unique_ptr<gc::space::ImageSpace>> boot_image_spaces;
+  MemMap extra_reservation;
+  auto load = [&](const std::string& image_location) {
+    boot_image_spaces.clear();
+    extra_reservation = MemMap::Invalid();
+    ScopedObjectAccess soa(Thread::Current());
+    return gc::space::ImageSpace::LoadBootImage(/*boot_class_path=*/ libcore_dex_files,
+                                                /*boot_class_path_locations=*/ libcore_dex_files,
+                                                image_location,
+                                                kRuntimeISA,
+                                                gc::space::ImageSpaceLoadingOrder::kSystemFirst,
+                                                /*relocate=*/ false,
+                                                /*executable=*/ true,
+                                                /*is_zygote=*/ false,
+                                                /*extra_reservation_size=*/ 0u,
+                                                &boot_image_spaces,
+                                                &extra_reservation);
+  };
+  bool load_ok = load(base_location);
+  ASSERT_TRUE(load_ok);
+  ASSERT_FALSE(extra_reservation.IsValid());
+  ASSERT_EQ(head_dex_files.size(), boot_image_spaces.size());
+  // TODO: Exercise other location definitions.
+
+  ClearDirectory(image_dir.c_str());
+  int rmdir_result = rmdir(image_dir.c_str());
+  ASSERT_EQ(0, rmdir_result);
 }
 
 }  // namespace art
