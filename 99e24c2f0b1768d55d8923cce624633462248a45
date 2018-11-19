@@ -22,6 +22,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccb7db53_2825ff48",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-19T14:02:17Z",
+      "side": 1,
+      "message": "Isn\u0027t that mostly the same as just removing the debug distinction and always having it on?  I don\u0027t want to be that intrusive.  (assuming we would enable that flag; otherwise there is no point)",
+      "parentUuid": "17780457_7e987c4a",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
