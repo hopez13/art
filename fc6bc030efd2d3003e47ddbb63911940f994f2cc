@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b814d7c_79ea842b",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-19T14:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5495a071_3c92c074",
+      "range": {
+        "startLine": 1172,
+        "startChar": 2,
+        "endLine": 1172,
+        "endChar": 67
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36d227e2_67dfc81e",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 29
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-19T13:28:59Z",
       "side": 1,
       "message": "It is the same code as in lines 1174 - 1182. Maybe it should be a function?",
+      "range": {
+        "startLine": 1294,
+        "startChar": 0,
+        "endLine": 1301,
+        "endChar": 5
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7f342d2_da3f8ade",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-19T14:17:08Z",
+      "side": 1,
+      "message": "It\u0027s only a few lines and the strings are precomputed differently for methods and fields anyway, so I don\u0027t think it outweighs readability. But feel free to submit a CL to the author.",
+      "parentUuid": "36d227e2_67dfc81e",
       "range": {
         "startLine": 1294,
         "startChar": 0,
