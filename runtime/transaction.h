@@ -38,6 +38,7 @@ class Object;
 class String;
 }  // namespace mirror
 class InternTable;
+template<class MirrorType> class ObjPtr;
 
 class Transaction final {
  public:
@@ -135,11 +136,11 @@ class Transaction final {
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool ReadConstraint(mirror::Object* obj, ArtField* field)
+  bool ReadConstraint(Thread* self, ObjPtr<mirror::Object> obj, ArtField* field)
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool WriteConstraint(mirror::Object* obj, ArtField* field)
+  bool WriteConstraint(Thread* self, ObjPtr<mirror::Object> obj, ArtField* field)
       REQUIRES(!log_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

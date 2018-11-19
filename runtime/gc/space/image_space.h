@@ -149,7 +149,8 @@ class ImageSpace : public MemMapSpace {
   // Expand a single image location to multi-image locations based on the dex locations.
   static std::vector<std::string> ExpandMultiImageLocations(
       const std::vector<std::string>& dex_locations,
-      const std::string& image_location);
+      const std::string& image_location,
+      bool boot_image_extension = false);
 
   // Returns true if the dex checksums in the given oat file match the
   // checksums of the original dex files on disk. This is intended to be used
@@ -216,7 +217,8 @@ class ImageSpace : public MemMapSpace {
   // Internal overload that takes ArrayRef<> instead of vector<>.
   static std::vector<std::string> ExpandMultiImageLocations(
       ArrayRef<const std::string> dex_locations,
-      const std::string& image_location);
+      const std::string& image_location,
+      bool boot_image_extension = false);
 
   class BootImageLoader;
   template <typename ReferenceVisitor>
