@@ -612,43 +612,21 @@ bool OatFileAssistant::ValidateBootClassPathChecksums(const OatFile& oat_file) {
   if (oat_boot_class_path_checksums == nullptr || oat_boot_class_path == nullptr) {
     return false;
   }
-
-  // Check that the oat BCP is a prefix of current BCP locations and count components.
-  Runtime* runtime = Runtime::Current();
-  size_t component_count = 0u;
-  std::string_view remaining_bcp(oat_boot_class_path);
-  bool bcp_ok = false;
-  for (const std::string& location : runtime->GetBootClassPathLocations()) {
-    if (!StartsWith(remaining_bcp, location)) {
-      break;
-    }
-    remaining_bcp.remove_prefix(location.size());
-    ++component_count;
-    if (remaining_bcp.empty()) {
-      bcp_ok = true;
-      break;
-    }
-    if (!StartsWith(remaining_bcp, ":")) {
-      break;
-    }
-    remaining_bcp.remove_prefix(1u);
-  }
-  if (!bcp_ok) {
-    return false;
-  }
-
-  std::string_view checksums_view(oat_boot_class_path_checksums);
-  if (component_count == cached_boot_class_path_checksum_component_count_ &&
-      checksums_view == cached_boot_class_path_checksums_) {
+  std::string_view oat_boot_class_path_checksums_view(oat_boot_class_path_checksums);
+  std::string_view oat_boot_class_path_view(oat_boot_class_path);
+  if (oat_boot_class_path_view == cached_boot_class_path_ &&
+      oat_boot_class_path_checksums_view == cached_boot_class_path_checksums_) {
     return true;
   }
 
-  ArrayRef<const std::string> boot_class_path(runtime->GetBootClassPath());
+  Runtime* runtime = Runtime::Current();
   std::string error_msg;
   bool result = gc::space::ImageSpace::VerifyBootClassPathChecksums(
-      checksums_view,
-      boot_class_path.SubArray(/*pos=*/ 0u, component_count),
+      oat_boot_class_path_checksums_view,
+      oat_boot_class_path_view,
       runtime->GetImageLocation(),
+      ArrayRef<const std::string>(runtime->GetBootClassPathLocations()),
+      ArrayRef<const std::string>(runtime->GetBootClassPath()),
       isa_,
       runtime->GetImageSpaceLoadingOrder(),
       &error_msg);
@@ -672,8 +650,8 @@ bool OatFileAssistant::ValidateBootClassPathChecksums(const OatFile& oat_file) {
   }
 
   // This checksum has been validated, so save it.
-  cached_boot_class_path_checksum_component_count_ = component_count;
-  cached_boot_class_path_checksums_ = checksums_view;
+  cached_boot_class_path_ = oat_boot_class_path_view;
+  cached_boot_class_path_checksums_ = oat_boot_class_path_checksums_view;
   return true;
 }
 

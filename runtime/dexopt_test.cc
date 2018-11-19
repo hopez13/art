@@ -129,8 +129,10 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
 
     bool match = gc::space::ImageSpace::VerifyBootClassPathChecksums(
         checksums,
-        ArrayRef<const std::string>(Runtime::Current()->GetBootClassPath()),
+        oat_bcp,
         image_location,
+        ArrayRef<const std::string>(Runtime::Current()->GetBootClassPathLocations()),
+        ArrayRef<const std::string>(Runtime::Current()->GetBootClassPath()),
         kRuntimeISA,
         gc::space::ImageSpaceLoadingOrder::kSystemFirst,
         &error_msg);
