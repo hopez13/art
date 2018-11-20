@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecf064fd_c445763b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-20T18:58:33Z",
+      "side": 1,
+      "message": "Add a top level comment documenting this behaviour. (maybe on the public CreateClassLoader())",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 5
+      },
+      "revId": "da5c1e33bc31397dab3d07bebed75fc1d4ceb8cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
