@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80a6eeb0_c3b26d5d",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-11-20T00:47:02Z",
+      "side": 1,
+      "message": "I think you are right. I can simplify the logic as follows:\n\nif (from_ref-\u003eGetReadBarrierStateAcquire() \u003d\u003d ReadBarrier::GrayState()) {\n  return true;\n} else if (kEnableGenerationalConcurrentCopyingCollection\n           \u0026\u0026 young_gen_\n           \u0026\u0026 !done_scanning_.load(std::memory_order_acquire)) {\n  // Assume that the comment below from line 253 - 272 is here.\n  return false;\n} else {\n  return region_space_bitmap_-\u003eTest(from_ref);\n}\n\nSame applies to the IsMarkedInNonMovingSpace().\n\nHans, please let me know what you think of this from correctness POV.",
+      "parentUuid": "27a2e9ba_d3296dc0",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 25
+      },
+      "revId": "6f5bbf7137c82cc77157cfb8edcf3a4aa9194108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2048cddd_187283a7",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 9
