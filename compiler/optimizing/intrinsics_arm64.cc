@@ -3095,6 +3095,74 @@ void IntrinsicCodeGeneratorARM64::VisitCRC32UpdateBytes(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
+void IntrinsicLocationsBuilderARM64::VisitFP16ToFloat(HInvoke* invoke) {
+  if (!codegen_->GetInstructionSetFeatures().HasFP16()) {
+    return;
+  }
+
+  LocationSummary* locations = new (allocator_) LocationSummary(invoke,
+                                                                LocationSummary::kNoCall,
+                                                                kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresFpuRegister());
+}
+
+void IntrinsicCodeGeneratorARM64::VisitFP16ToFloat(HInvoke* invoke) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasFP16());
+
+  MacroAssembler* masm = GetVIXLAssembler();
+
+  vixl::aarch64::Label fast_path, end;
+  Register bits = InputRegisterAt(invoke, 0);
+  FPRegister out = SRegisterFrom(invoke->GetLocations()->Out());
+
+  UseScratchRegisterScope scratch_scope(masm);
+  // Use two VIXL scratch registers, as VIXL macro assembler won't use them in instructions below.
+  Register temp = scratch_scope.AcquireW();
+  Register temp1 = scratch_scope.AcquireW();
+  FPRegister half = scratch_scope.AcquireH();
+
+  // The FP16 format is laid out as follows
+  // 1   11111   1111111111
+  // ^   --^--   -----^----
+  // sign  |          |_______ significand
+  //       |
+  //       -- exponent
+  static constexpr uint16_t kFP16SignMask = 0x8000;
+  static constexpr uint32_t kFloatInfnityOrNanMask = 0x7f800000;  // float exponent bits all ones
+  static constexpr uint32_t kFP16ExponentPostion = 10;
+  static constexpr uint32_t kFP16ExponentBits = 5;
+  static constexpr uint32_t kFP16SignificantBits = 10;  // least significant 10 bits of FP16.
+
+  // Get fp16 exponent bits and check NaN/Inf inputs (exponent bits all 1).
+  __ Sbfx(temp, bits, kFP16ExponentPostion, kFP16ExponentBits);
+  __ Cmp(temp, -1);
+  __ B(&fast_path, ne);
+
+  // Slower code to handle NaN/Inf inputs.
+  // According to ARM Architecture Reference Manual ARMv8-A, FCVT instruction (C7.2.62)
+  // and FPConvertNaN() operation (J1.3.3), when input is SNaN, FCVT converts SNaN to a QNaN.
+  // Current Java implementation android.util.Half.toFloat() doesn't perform such conversion.
+  // fp16 sign to float sign
+  __ And(temp, bits, kFP16SignMask);
+  // fp16 significant bits [9:0] to float significant bits [22:13],
+  // and set float significant bits [12:0] all zero.
+  __ Ubfiz(temp1, bits, 13, kFP16SignificantBits);
+  // float exponent bits (all 1)
+  __ Orr(temp1, temp1, kFloatInfnityOrNanMask);
+  // Result float value
+  __ Orr(temp, temp1, Operand(temp, LSL, 16));
+  __ Fmov(out, temp);
+  __ B(&end);
+
+  // Fast ARMv8 FP16 implementation
+  __ Bind(&fast_path);
+  __ Fmov(half, bits);  // ARMv8.2
+  __ Fcvt(out, half);
+
+  __ Bind(&end);
+}
+
 UNIMPLEMENTED_INTRINSIC(ARM64, ReferenceGetReferent)
 
 UNIMPLEMENTED_INTRINSIC(ARM64, StringStringIndexOf);
