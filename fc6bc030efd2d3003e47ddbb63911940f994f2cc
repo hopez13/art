@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "29ae0fa3_e16b50d8",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-20T15:52:47Z",
+      "side": 1,
+      "message": "Agreed with mathewi@ that this will now be called GreylistMaxO with a comment that the release code includes all maintenance releases.\n\nRationale:\n\"Max\" not \"Min\" - we already do that in annotations, hard to change\n\"Greylist\" not \"Blacklist\" - it is available up to version X, not restricted\n\"O\" not \"O_MR1\" - we would need to keep updating the name as new MRs are being created; this way we only have to update the integer it represents",
+      "parentUuid": "3dab35dd_2eddc3ae",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "fc6bc030efd2d3003e47ddbb63911940f994f2cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd6fed20_e6b1df70",
         "filename": "libdexfile/dex/dex_file_layout.cc",
         "patchSetId": 29
