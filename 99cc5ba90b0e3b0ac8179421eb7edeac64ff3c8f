@@ -69,6 +69,30 @@
       "revId": "99cc5ba90b0e3b0ac8179421eb7edeac64ff3c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc2fcb2d_e35d8cff",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-20T12:14:33Z",
+      "side": 1,
+      "message": "I originally wanted to simplify it so that the counter is always updated, and it is up to the MaybeCompile method to decide how to react to it (including doing nothing). But:\n1) The tests sometimes check the counter is kept at 0 explicitly.\n2) OSR only counts backedges towards the hotness. I find that odd, but I don\u0027t want to change it.",
+      "parentUuid": "666aee73_1a4b7d4b",
+      "range": {
+        "startLine": 683,
+        "startChar": 28,
+        "endLine": 684,
+        "endChar": 86
+      },
+      "revId": "99cc5ba90b0e3b0ac8179421eb7edeac64ff3c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
