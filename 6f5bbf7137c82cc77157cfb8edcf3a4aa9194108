@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "27a2e9ba_d3296dc0",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-11-20T00:15:47Z",
+      "side": 1,
+      "message": "Why not get rid of this and just directly return true or false in each branch? It doesn\u0027t seem to add anything. Or is there a typo and the then clause isn\u0027t meant to be empty?",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 25
+      },
+      "revId": "6f5bbf7137c82cc77157cfb8edcf3a4aa9194108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2048cddd_187283a7",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 9
@@ -18,6 +41,29 @@
         "startChar": 1,
         "endLine": 1398,
         "endChar": 5
+      },
+      "revId": "6f5bbf7137c82cc77157cfb8edcf3a4aa9194108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3525002_576c1a66",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-11-20T00:15:47Z",
+      "side": 1,
+      "message": "Same question as before. Why not just\n\nif (from_ref-\u003eGetReadBarrierStateAcquire() \u003d\u003d ReadBarrier::GrayState()) {\n    return true;\n}\n\nand get rid of is_marked, etc.",
+      "range": {
+        "startLine": 2347,
+        "startChar": 4,
+        "endLine": 2347,
+        "endChar": 83
       },
       "revId": "6f5bbf7137c82cc77157cfb8edcf3a4aa9194108",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
