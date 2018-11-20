@@ -56,10 +56,12 @@ static constexpr size_t kJitSlowStressDefaultCompileThreshold = 2;      // Slow-
 // JIT compiler
 void* Jit::jit_library_handle_ = nullptr;
 void* Jit::jit_compiler_handle_ = nullptr;
-void* (*Jit::jit_load_)(bool*) = nullptr;
+void* (*Jit::jit_load_)(void) = nullptr;
 void (*Jit::jit_unload_)(void*) = nullptr;
 bool (*Jit::jit_compile_method_)(void*, ArtMethod*, Thread*, bool) = nullptr;
 void (*Jit::jit_types_loaded_)(void*, mirror::Class**, size_t count) = nullptr;
+bool (*Jit::jit_generate_debug_info_)(void*) = nullptr;
+void (*Jit::jit_update_options_)(void*) = nullptr;
 
 struct StressModeHelper {
   DECLARE_RUNTIME_DEBUG_FLAG(kSlowMode);
@@ -179,28 +181,27 @@ Jit* Jit::Create(JitCodeCache* code_cache, JitOptions* options) {
     LOG(WARNING) << "Not creating JIT: library not loaded";
     return nullptr;
   }
-  bool will_generate_debug_symbols = false;
-  jit_compiler_handle_ = (jit_load_)(&will_generate_debug_symbols);
+  jit_compiler_handle_ = (jit_load_)();
   if (jit_compiler_handle_ == nullptr) {
     LOG(WARNING) << "Not creating JIT: failed to allocate a compiler";
     return nullptr;
   }
   std::unique_ptr<Jit> jit(new Jit(code_cache, options));
-  jit->generate_debug_info_ = will_generate_debug_symbols;
 
+  // If the code collector is enabled, check if that still holds:
   // With 'perf', we want a 1-1 mapping between an address and a method.
   // We aren't able to keep method pointers live during the instrumentation method entry trampoline
   // so we will just disable jit-gc if we are doing that.
-  code_cache->SetGarbageCollectCode(!jit->generate_debug_info_ &&
-      !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled());
+  if (code_cache->GetGarbageCollectCode()) {
+    code_cache->SetGarbageCollectCode(!jit_generate_debug_info_(jit_compiler_handle_) &&
+        !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled());
+  }
 
   VLOG(jit) << "JIT created with initial_capacity="
       << PrettySize(options->GetCodeCacheInitialCapacity())
       << ", max_capacity=" << PrettySize(options->GetCodeCacheMaxCapacity())
       << ", compile_threshold=" << options->GetCompileThreshold()
       << ", profile_saver_options=" << options->GetProfileSaverOptions();
-
-  jit->CreateThreadPool();
 
   // Notify native debugger about the classes already loaded before the creation of the jit.
   jit->DumpTypeInfoForLoadedTypes(Runtime::Current()->GetClassLinker());
@@ -216,7 +217,7 @@ bool Jit::LoadCompilerLibrary(std::string* error_msg) {
     *error_msg = oss.str();
     return false;
   }
-  jit_load_ = reinterpret_cast<void* (*)(bool*)>(dlsym(jit_library_handle_, "jit_load"));
+  jit_load_ = reinterpret_cast<void* (*)(void)>(dlsym(jit_library_handle_, "jit_load"));
   if (jit_load_ == nullptr) {
     dlclose(jit_library_handle_);
     *error_msg = "JIT couldn't find jit_load entry point";
@@ -241,6 +242,20 @@ bool Jit::LoadCompilerLibrary(std::string* error_msg) {
   if (jit_types_loaded_ == nullptr) {
     dlclose(jit_library_handle_);
     *error_msg = "JIT couldn't find jit_types_loaded entry point";
+    return false;
+  }
+  jit_update_options_ = reinterpret_cast<void (*)(void*)>(
+      dlsym(jit_library_handle_, "jit_update_options"));
+  if (jit_update_options_ == nullptr) {
+    dlclose(jit_library_handle_);
+    *error_msg = "JIT couldn't find jit_update_options entry point";
+    return false;
+  }
+  jit_generate_debug_info_ = reinterpret_cast<bool (*)(void*)>(
+      dlsym(jit_library_handle_, "jit_generate_debug_info"));
+  if (jit_generate_debug_info_ == nullptr) {
+    dlclose(jit_library_handle_);
+    *error_msg = "JIT couldn't find jit_generate_debug_info entry point";
     return false;
   }
   return true;
@@ -296,6 +311,10 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
 }
 
 void Jit::CreateThreadPool() {
+  if (Runtime::Current()->IsSafeMode()) {
+    // Never create the pool in safe mode.
+    return;
+  }
   // There is a DCHECK in the 'AddSamples' method to ensure the tread pool
   // is not null when we instrument.
 
@@ -375,7 +394,7 @@ void Jit::NewTypeLoadedIfUsingJit(mirror::Class* type) {
     return;
   }
   jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit->generate_debug_info_) {
+  if (jit_generate_debug_info_(jit->jit_compiler_handle_)) {
     DCHECK(jit->jit_types_loaded_ != nullptr);
     jit->jit_types_loaded_(jit->jit_compiler_handle_, &type, 1);
   }
@@ -390,7 +409,7 @@ void Jit::DumpTypeInfoForLoadedTypes(ClassLinker* linker) {
     std::vector<mirror::Class*> classes_;
   };
 
-  if (generate_debug_info_) {
+  if (jit_generate_debug_info_(jit_compiler_handle_)) {
     ScopedObjectAccess so(Thread::Current());
 
     CollectClasses visitor;
@@ -630,8 +649,8 @@ static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mut
 
 void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_backedges) {
   if (thread_pool_ == nullptr) {
-    // Should only see this when shutting down.
-    DCHECK(Runtime::Current()->IsShuttingDown(self));
+    // Should only see this when shutting down or starting up.
+    DCHECK(Runtime::Current()->IsShuttingDown(self) || !Runtime::Current()->IsFinishedStarting());
     return;
   }
   if (IgnoreSamplesForMethod(method)) {
@@ -793,6 +812,16 @@ ScopedJitSuspend::~ScopedJitSuspend() {
     DCHECK(Runtime::Current()->GetJit()->GetThreadPool() != nullptr);
     Runtime::Current()->GetJit()->Start();
   }
+}
+
+void Jit::PostForkChildAction() {
+  // At this point, the compiler options have been adjusted to the particular configuration
+  // of the forked child. Parse them again.
+  jit_update_options_(jit_compiler_handle_);
+
+  // Adjust the status of code cache collection: the status from zygote was to not collect.
+  code_cache_->SetGarbageCollectCode(!jit_generate_debug_info_(jit_compiler_handle_) &&
+      !Runtime::Current()->GetInstrumentation()->AreExitStubsInstalled());
 }
 
 }  // namespace jit
