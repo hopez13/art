@@ -20,7 +20,8 @@
     movzbq  2(rPC), %rax                    # eax<- BB
     GET_VREG_XMM${suff} %xmm0, %rax
     xor     %eax, %eax
-    ucomis${suff} VREG_ADDRESS(%rcx), %xmm0
+    GET_VREG_XMM${suff} %xmm1, %rcx
+    ucomis${suff} %xmm1, %xmm0
     jp      .L${opcode}_nan_is_${nanval}
     je      .L${opcode}_finish
     jb      .L${opcode}_less
@@ -42,7 +43,16 @@
     movl    rINST, %ecx                     # rcx <- A+
     sarl    $$4, rINST                      # rINST <- B
     andb    $$0xf, %cl                      # ecx <- A
-    cvts${source_suffix}2s${dest_suffix}    VREG_ADDRESS(rINSTq), %xmm0
+%  if opcode.startswith("op_int_to_"):
+    GET_VREG %eax, rINSTq
+    cvts${source_suffix}2s${dest_suffix} %eax, %xmm0
+%  elif opcode.startswith("op_long_to_"):
+    GET_WIDE_VREG %rax, rINSTq
+    cvts${source_suffix}2s${dest_suffix} %rax, %xmm0
+%  else:
+    GET_VREG_XMM${source_suffix} %xmm0, rINSTq
+    cvts${source_suffix}2s${dest_suffix} %xmm0, %xmm0
+%  #endif
     .if $wide
     SET_VREG_XMMd %xmm0, %rcx
     .else
@@ -54,7 +64,8 @@
     movzbq  2(rPC), %rcx                    # ecx <- BB
     movzbq  3(rPC), %rax                    # eax <- CC
     GET_VREG_XMM${suff} %xmm0, %rcx         # %xmm0 <- 1st src
-    ${instr}${suff} VREG_ADDRESS(%rax), %xmm0
+    GET_VREG_XMM${suff} %xmm1, %rax         # %xmm1 <- 2st src
+    ${instr}${suff} %xmm1, %xmm0
     SET_VREG_XMM${suff} %xmm0, rINSTq       # vAA <- %xmm0
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
@@ -63,7 +74,8 @@
     andl    $$0xf, %ecx                     # ecx <- A
     GET_VREG_XMM${suff} %xmm0, %rcx         # %xmm0 <- 1st src
     sarl    $$4, rINST                      # rINST<- B
-    ${instr}${suff} VREG_ADDRESS(rINSTq), %xmm0
+    GET_VREG_XMM${suff} %xmm1, rINSTq       # %xmm1 <- 2st src
+    ${instr}${suff} %xmm1, %xmm0
     SET_VREG_XMM${suff} %xmm0, %rcx         # vAA <- %xmm0
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
@@ -152,6 +164,8 @@
 %  unop(instr="    xorl    $0x80000000, %eax")
 
 %def op_rem_double():
+%   fallback()
+%   return
     /* rem_double vAA, vBB, vCC */
     movzbq  3(rPC), %rcx                    # ecx <- BB
     movzbq  2(rPC), %rax                    # eax <- CC
@@ -168,6 +182,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_rem_double_2addr():
+%   fallback()
+%   return
     /* rem_double/2addr vA, vB */
     movzbq  rINSTbl, %rcx                   # ecx <- A+
     sarl    $$4, rINST                      # rINST <- B

@@ -72,7 +72,7 @@ Some key interpreter variables will be assigned to registers.
   rINSTbl  bl    opcode portion of instruction word
   rINSTbh  bh    high byte of inst word, usually contains src/tgt reg names
   rIBASE   edx   base of instruction handler table
-  rREFS    ebp   base of object references in shadow frame.
+  rUNUSED  ebp
 
 Notes:
    o High order 16 bits of ebx must be zero on entry to handler
@@ -172,7 +172,7 @@ unspecified registers or condition codes.
 #define rINSTbh  %bh
 #define rINSTbl  %bl
 #define rIBASE   %edx
-#define rREFS    %ebp
+#define rUNUSED  %ebp
 #define rPROFILE OFF_FP_COUNTDOWN_OFFSET(rFP)
 
 #define MTERP_LOGGING 0
@@ -269,10 +269,10 @@ unspecified registers or condition codes.
 /*
  * Get/set the 32-bit value from a Dalvik register.
  */
-#define VREG_ADDRESS(_vreg) (rFP,_vreg,4)
-#define VREG_HIGH_ADDRESS(_vreg) 4(rFP,_vreg,4)
-#define VREG_REF_ADDRESS(_vreg) (rREFS,_vreg,4)
-#define VREG_REF_HIGH_ADDRESS(_vreg) 4(rREFS,_vreg,4)
+#define VREG_ADDRESS(_vreg) (rFP,_vreg,8)
+#define VREG_HIGH_ADDRESS(_vreg) 8(rFP,_vreg,8)
+#define VREG_REF_ADDRESS(_vreg) 4(rFP,_vreg,8)
+#define VREG_REF_HIGH_ADDRESS(_vreg) 12(rFP,_vreg,8)
 
 .macro GET_VREG _reg _vreg
     movl    VREG_ADDRESS(\_vreg), \_reg
@@ -280,7 +280,7 @@ unspecified registers or condition codes.
 
 /* Read wide value to xmm. */
 .macro GET_WIDE_FP_VREG _reg _vreg
-    movq    VREG_ADDRESS(\_vreg), \_reg
+    GET_VREG_XMMd \_reg, \_vreg
 .endm
 
 .macro SET_VREG _reg _vreg
@@ -288,11 +288,9 @@ unspecified registers or condition codes.
     movl    MACRO_LITERAL(0), VREG_REF_ADDRESS(\_vreg)
 .endm
 
-/* Write wide value from xmm. xmm is clobbered. */
+/* Write wide value from xmm. */
 .macro SET_WIDE_FP_VREG _reg _vreg
-    movq    \_reg, VREG_ADDRESS(\_vreg)
-    pxor    \_reg, \_reg
-    movq    \_reg, VREG_REF_ADDRESS(\_vreg)
+    SET_VREG_XMMd \_reg, \_vreg
 .endm
 
 .macro SET_VREG_OBJECT _reg _vreg
@@ -322,15 +320,17 @@ unspecified registers or condition codes.
     movss VREG_ADDRESS(\_vreg), \_xmmreg
 .endm
 .macro GET_VREG_XMMd _xmmreg _vreg
-    movsd VREG_ADDRESS(\_vreg), \_xmmreg
+    movupd VREG_ADDRESS(\_vreg), \_xmmreg  // Load 128-bits.
+    shufps $$216, \_xmmreg, \_xmmreg  // Shuffle 0123 to 0213 = 0*0+2*4+1*16+3*64 = 216.
 .endm
 .macro SET_VREG_XMMs _xmmreg _vreg
     movss \_xmmreg, VREG_ADDRESS(\_vreg)
     CLEAR_REF \_vreg
 .endm
 .macro SET_VREG_XMMd _xmmreg _vreg
-    movsd \_xmmreg, VREG_ADDRESS(\_vreg)
-    CLEAR_WIDE_REF \_vreg
+    shufps $$216, \_xmmreg, \_xmmreg  // Shuffle 0123 to 0213 = 0*0+2*4+1*16+3*64 = 216.
+    movupd \_xmmreg, VREG_ADDRESS(\_vreg)  // Store 128-bits (low, zero, high, zero).
+    CLEAR_WIDE_REF \_vreg  // TODO: Not needed if the high 64-bits are always 0.
 .endm
 
 /*
@@ -402,7 +402,6 @@ ENTRY ExecuteMterpImpl
     /* set up "named" registers */
     movl    SHADOWFRAME_NUMBER_OF_VREGS_OFFSET(%edx), %eax
     leal    SHADOWFRAME_VREGS_OFFSET(%edx), rFP
-    leal    (rFP, %eax, 4), rREFS
     movl    SHADOWFRAME_DEX_PC_OFFSET(%edx), %eax
     lea     (%ecx, %eax, 2), rPC
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)

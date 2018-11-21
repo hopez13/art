@@ -74,7 +74,7 @@ The following registers have fixed assignments:
   r7  rINST     first 16-bit code unit of current instruction
   r8  rIBASE    interpreted instruction base pointer, used for computed goto
   r10 rPROFILE  branch profiling countdown
-  r11 rREF_OFF  offset from vreg to its shadow copy.
+  r11 rZERO     allways holds the value 0
 
 Macros are provided for common operations.  Each macro MUST emit only
 one instruction to make instruction-counting easier.  They MUST NOT alter
@@ -101,7 +101,7 @@ unspecified registers or condition codes.
 #define rINST    r7
 #define rIBASE   r8
 #define rPROFILE r10
-#define rREF_OFF r11
+#define rZERO    r11
 
 /*
  * Instead of holding a pointer to the shadow frame, we keep rFP at the base of the vregs.  So,
@@ -252,49 +252,50 @@ unspecified registers or condition codes.
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, rFP, \vreg, lsl #2
+    add     \reg, rFP, \vreg, lsl #3
 .endm
 
 .macro GET_VREG reg, vreg
-    ldr     \reg, [rFP, \vreg, lsl #2]
+    ldr     \reg, [rFP, \vreg, lsl #3]
 .endm
 .macro SET_VREG reg, vreg  // Clobbers input registers.
     VREG_INDEX_TO_ADDR \vreg, \vreg  // Reuse vreg as address.
     str     \reg, [\vreg]
-    mov     \reg, #0
-    str     \reg, [\vreg, rREF_OFF]
+    str     rZERO, [\vreg, #4]
 .endm
 .macro SET_VREG_OBJECT reg, vreg  // Clobbers input registers.
     VREG_INDEX_TO_ADDR \vreg, \vreg  // Reuse vreg as address.
     str     \reg, [\vreg]
-    str     \reg, [\vreg, rREF_OFF]
+    str     \reg, [\vreg, #4]
 .endm
-.macro GET_VREG_WIDE_BY_ADDR reg0, reg1, addr
-    ldmia \addr, {\reg0, \reg1}
+.macro GET_VREG_WIDE_BY_ADDR reg0, reg1, addr  // reg0 must not alias addr.
+    ldr     \reg0, [\addr]
+    ldr     \reg1, [\addr, #8]
 .endm
 .macro SET_VREG_WIDE_BY_ADDR reg0, reg1, addr  // Clobbers input registers.
-    stmia \addr, {\reg0, \reg1}
-    add \addr, \addr, rREF_OFF
-    mov \reg0, #0
-    mov \reg1, #0
-    stmia \addr, {\reg0, \reg1}
+    str     \reg0, [\addr]
+    str     rZERO, [\addr, #4]
+    str     \reg1, [\addr, #8]
+    str     rZERO, [\addr, #12]
 .endm
 .macro GET_VREG_FLOAT_BY_ADDR reg, addr
     flds \reg, [\addr]
 .endm
 .macro SET_VREG_FLOAT_BY_ADDR reg, addr, temp  // Clobbers input registers.
     fsts \reg, [\addr]
-    mov \temp, #0
-    str \temp, [\addr, rREF_OFF]
+    str rZERO, [\addr, #4]
 .endm
-.macro GET_VREG_DOUBLE_BY_ADDR reg, addr
-    fldd \reg, [\addr]
+.macro GET_VREG_DOUBLE_BY_ADDR reg, addr  // Uses ip.
+    vld1.32 {\reg[0]}, [\addr]
+    add ip, \addr, #8
+    vld1.32 {\reg[1]}, [ip]
 .endm
 .macro SET_VREG_DOUBLE_BY_ADDR reg, addr  // Clobbers input registers.
-    fstd \reg, [\addr]
-    add \addr, \addr, rREF_OFF
-    vmov.i64 \reg, #0
-    fstd \reg, [\addr]
+    vst1.32 {\reg[0]}, [\addr]
+    str rZERO, [\addr, #4]
+    add \addr, \addr, #8
+    vst1.32 {\reg[1]}, [\addr]
+    str rZERO, [\addr, #4]
 .endm
 
 /*
@@ -383,9 +384,8 @@ ENTRY ExecuteMterpImpl
 
     /* set up "named" registers */
     mov     rSELF, r0
-    ldr     r0, [r2, #SHADOWFRAME_NUMBER_OF_VREGS_OFFSET]
     add     rFP, r2, #SHADOWFRAME_VREGS_OFFSET     @ point to vregs.
-    lsl     rREF_OFF, r0, #2                       @ offset of shadow vregs.
+    mov     rZERO, #0
     ldr     r0, [r2, #SHADOWFRAME_DEX_PC_OFFSET]   @ Get starting dex_pc.
     add     rPC, r1, r0, lsl #1                    @ Create direct pointer to 1st dex opcode
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)

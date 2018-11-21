@@ -228,7 +228,8 @@
     movzbq  2(rPC), %rax                    # eax <- BB
     movzbq  3(rPC), %rcx                    # ecx <- CC
     GET_WIDE_VREG %rax, %rax                # rax <- v[BB]
-    $instr VREG_ADDRESS(%rcx),%rax
+    GET_WIDE_VREG %rcx, %rcx                # rax <- v[CC]
+    $instr %rcx, %rax
     SET_WIDE_VREG %rax, rINSTq              # v[AA] <- rax
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
@@ -241,8 +242,9 @@
     sarl    $$4, rINST                      # rINST <- B
     andb    $$0xf, %cl                      # ecx <- A
     GET_WIDE_VREG %rax, rINSTq              # rax <- vB
-    $instr %rax,VREG_ADDRESS(%rcx)
-    CLEAR_WIDE_REF %rcx
+    GET_WIDE_VREG rINSTq, %rcx              # rINST <- vA
+    $instr %rax, rINSTq
+    SET_WIDE_VREG rINSTq, %rcx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
 %def cvtfp_int(fp_suffix="", i_suffix="", max_const="", result_reg="", wide=""):
@@ -361,11 +363,12 @@ $instr
     movzbq  2(rPC), %rdx                    # edx <- BB
     movzbq  3(rPC), %rcx                    # ecx <- CC
     GET_WIDE_VREG %rdx, %rdx                # rdx <- v[BB]
+    GET_WIDE_VREG %rcx, %rcx                # rcx <- v[CC]
     xorl    %eax, %eax
     xorl    %edi, %edi
     addb    $$1, %al
     movl    $$-1, %esi
-    cmpq    VREG_ADDRESS(%rcx), %rdx
+    cmpq    %rcx, %rdx
     cmovl   %esi, %edi
     cmovg   %eax, %edi
     SET_VREG %edi, rINSTq
@@ -421,7 +424,7 @@ $instr
     sarl    $$4, rINST                      # rINST <- B
     andb    $$0xf, %cl                      # ecx <- A
     GET_VREG %eax, %rcx                     # eax <- vA
-    imull   (rFP,rINSTq,4), %eax
+    imull   VREG_ADDRESS(rINSTq), %eax
     SET_VREG %eax, %rcx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
@@ -440,7 +443,8 @@ $instr
     sarl    $$4, rINST                      # rINST <- B
     andb    $$0xf, %cl                      # ecx <- A
     GET_WIDE_VREG %rax, %rcx                # rax <- vA
-    imulq   (rFP,rINSTq,4), %rax
+    GET_WIDE_VREG rINSTq, rINSTq            # rINST <- vB
+    imulq   rINSTq, %rax
     SET_WIDE_VREG %rax, %rcx
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 

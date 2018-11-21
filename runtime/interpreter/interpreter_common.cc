@@ -614,9 +614,15 @@ void ArtInterpreterToCompiledCodeBridge(Thread* self,
   if (jit != nullptr && caller != nullptr) {
     jit->NotifyInterpreterToCompiledCodeTransition(self, caller);
   }
-  method->Invoke(self, shadow_frame->GetVRegArgs(arg_offset),
-                 (shadow_frame->NumberOfVRegs() - arg_offset) * sizeof(uint32_t),
-                 result, method->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty());
+  size_t num_vregs = shadow_frame->NumberOfVRegs();
+  size_t args_size = (num_vregs - arg_offset) * sizeof(uint32_t);
+  uint32_t* args = static_cast<uint32_t*>(alloca(args_size));
+  shadow_frame->CopyArgsTo(args, arg_offset, num_vregs);
+  method->Invoke(self,
+                 args,
+                 args_size,
+                 result,
+                 method->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetShorty());
 }
 
 void SetStringInitValueToAllAliases(ShadowFrame* shadow_frame,

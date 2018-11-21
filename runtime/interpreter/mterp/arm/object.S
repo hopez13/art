@@ -256,8 +256,8 @@
     ubfx    r0, rINST, #8, #4           @ r0<- A
     cmp     r2, #0                      @ check object for null
     beq     common_errNullObject        @ object was null
-    VREG_INDEX_TO_ADDR r0, r0           @ r0<- &fp[A]
-    GET_VREG_WIDE_BY_ADDR r0, r1, r0    @ r0/r1<- fp[A]/fp[A+1]
+    VREG_INDEX_TO_ADDR ip, r0           @ ip<- &fp[A]
+    GET_VREG_WIDE_BY_ADDR r0, r1, ip    @ r0/r1<- fp[A]/fp[A+1]
     FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
     strd    r0, [r2, r3]                @ obj.field<- r0/r1
     GET_INST_OPCODE ip                  @ extract opcode from rINST

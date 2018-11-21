@@ -19,8 +19,9 @@
     movzbl  3(rPC), %ecx                    # ecx<- CC
     movzbl  2(rPC), %eax                    # eax<- BB
     GET_VREG_XMM${suff} %xmm0, %eax
+    GET_VREG_XMM${suff} %xmm1, %ecx
     xor     %eax, %eax
-    ucomis${suff} VREG_ADDRESS(%ecx), %xmm0
+    ucomis${suff} %xmm1, %xmm0
     jp      .L${opcode}_nan_is_${nanval}
     je      .L${opcode}_finish
     jb      .L${opcode}_less
@@ -35,6 +36,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def fpcvt(instr="", load="", store="", wide="0"):
+%  fallback()
+%  return
 /*
  * Generic 32-bit FP conversion operation.
  */
@@ -56,7 +59,8 @@
     movzbl  2(rPC), %ecx                    # ecx <- BB
     movzbl  3(rPC), %eax                    # eax <- CC
     GET_VREG_XMM${suff} %xmm0, %ecx         # %xmm0 <- 1st src
-    ${instr}${suff} VREG_ADDRESS(%eax), %xmm0
+    GET_VREG_XMM${suff} %xmm1, %eax         # %xmm1 <- 2st src
+    ${instr}${suff} %xmm1, %xmm0
     SET_VREG_XMM${suff} %xmm0, rINST        # vAA <- %xmm0
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
@@ -65,7 +69,8 @@
     andl    $$0xf, %ecx                     # ecx <- A
     GET_VREG_XMM${suff} %xmm0, %ecx         # %xmm0 <- 1st src
     sarl    $$4, rINST                      # rINST<- B
-    ${instr}${suff} VREG_ADDRESS(rINST), %xmm0
+    GET_VREG_XMM${suff} %xmm1, rINST        # %xmm1 <- 2st src
+    ${instr}${suff} %xmm1, %xmm0
     SET_VREG_XMM${suff} %xmm0, %ecx         # vAA<- %xmm0
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
@@ -154,6 +159,8 @@
 %  fpcvt(instr="fchs", load="flds", store="fstps")
 
 %def op_rem_double():
+%   fallback()
+%   return
     /* rem_double vAA, vBB, vCC */
     movzbl  3(rPC), %ecx                    # ecx <- BB
     movzbl  2(rPC), %eax                    # eax <- CC
@@ -170,6 +177,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_rem_double_2addr():
+%   fallback()
+%   return
     /* rem_double/2addr vA, vB */
     movzx   rINSTbl, %ecx                   # ecx <- A+
     sarl    $$4, rINST                      # rINST <- B

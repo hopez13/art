@@ -74,7 +74,7 @@ The following registers have fixed assignments:
   x22  xSELF     self (Thread) pointer
   x23  xINST     first 16-bit code unit of current instruction
   x24  xIBASE    interpreted instruction base pointer, used for computed goto
-  x25  xREFS     base of object references in shadow frame  (ideally, we'll get rid of this later).
+  x25  xZERO     always holds the value 0
   x26  wPROFILE  jit profile hotness countdown
   x16  ip        scratch reg
   x17  ip2       scratch reg (used by macros)
@@ -103,7 +103,8 @@ codes.
 #define xINST    x23
 #define wINST    w23
 #define xIBASE   x24
-#define xREFS    x25
+#define wZERO    w25
+#define xZERO    x25
 #define wPROFILE w26
 #define xPROFILE x26
 #define ip       x16
@@ -249,58 +250,62 @@ codes.
  * Get/set the 32-bit value from a Dalvik register.
  */
 .macro GET_VREG reg, vreg
-    ldr     \reg, [xFP, \vreg, uxtw #2]
+    add     ip2, xFP, \vreg, lsl #3
+    ldr     \reg, [ip2]
 .endm
 .macro SET_VREG reg, vreg
-    str     \reg, [xFP, \vreg, uxtw #2]
-    str     wzr, [xREFS, \vreg, uxtw #2]
+    add     ip2, xFP, \vreg, lsl #3
+    stp     \reg, wZERO, [ip2]
 .endm
-.macro SET_VREG_OBJECT reg, vreg, tmpreg
-    str     \reg, [xFP, \vreg, uxtw #2]
-    str     \reg, [xREFS, \vreg, uxtw #2]
+.macro SET_VREG_OBJECT reg, vreg
+    add     ip2, xFP, \vreg, lsl #3
+    stp     \reg, \reg, [ip2]
 .endm
 .macro SET_VREG_FLOAT reg, vreg
-    str     \reg, [xFP, \vreg, uxtw #2]
-    str     wzr, [xREFS, \vreg, uxtw #2]
+    add     ip2, xFP, \vreg, lsl #3
+    str     \reg, [ip2]
+    str     wzr, [ip2, #4]
 .endm
 
 /*
  * Get/set the 64-bit value from a Dalvik register.
  */
 .macro GET_VREG_WIDE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
-    ldr     \reg, [ip2]
+    add     ip2, xFP, \vreg, lsl #3
+    ldp     \reg, ip2, [ip2]
+    bfi     \reg, ip2, #32, #32
 .endm
 .macro SET_VREG_WIDE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
+    add     ip2, xFP, \vreg, lsl #3
     str     \reg, [ip2]
-    add     ip2, xREFS, \vreg, lsl #2
-    str     xzr, [ip2]
+    str     \reg, [ip2, #4]
+    str     wzr, [ip2, #4]
+    str     wzr, [ip2, #12]
 .endm
 .macro GET_VREG_DOUBLE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
-    ldr     \reg, [ip2]
+    add     ip2, xFP, \vreg, lsl #3
+    ldp     ip, ip2, [ip2]
+    bfi     ip, ip2, #32, #32
+    fmov    \reg, ip
 .endm
 .macro SET_VREG_DOUBLE reg, vreg
-    add     ip2, xFP, \vreg, lsl #2
+    add     ip2, xFP, \vreg, lsl #3
     str     \reg, [ip2]
-    add     ip2, xREFS, \vreg, lsl #2
-    str     xzr, [ip2]
+    str     \reg, [ip2, #4]
+    str     wzr, [ip2, #4]
+    str     wzr, [ip2, #12]
 .endm
 
-/*
- * Get the 32-bit value from a Dalvik register and sign-extend to 64-bit.
- * Used to avoid an extra instruction in int-to-long.
- */
 .macro GET_VREG_S reg, vreg
-    ldrsw   \reg, [xFP, \vreg, uxtw #2]
+    add    ip2, xFP, \vreg, lsl #3
+    ldrsw   \reg, [ip2]
 .endm
 
 /*
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, xFP, \vreg, lsl #2   /* WARNING: handle shadow frame vreg zero if store */
+    add     \reg, xFP, \vreg, lsl #3   /* WARNING: handle shadow frame vreg zero if store */
 .endm
 
 /*
@@ -402,7 +407,7 @@ codes.
 ENTRY ExecuteMterpImpl
     .cfi_startproc
     SAVE_TWO_REGS_INCREASE_FRAME xPROFILE, x27, 80
-    SAVE_TWO_REGS                xIBASE, xREFS, 16
+    SAVE_TWO_REGS                xIBASE, xZERO, 16
     SAVE_TWO_REGS                xSELF, xINST, 32
     SAVE_TWO_REGS                xPC, xFP, 48
     SAVE_TWO_REGS                fp, lr, 64
@@ -416,9 +421,8 @@ ENTRY ExecuteMterpImpl
 
     /* set up "named" registers */
     mov     xSELF, x0
-    ldr     w0, [x2, #SHADOWFRAME_NUMBER_OF_VREGS_OFFSET]
     add     xFP, x2, #SHADOWFRAME_VREGS_OFFSET     // point to vregs.
-    add     xREFS, xFP, w0, lsl #2                 // point to reference array in shadow frame
+    mov     xZERO, #0
     ldr     w0, [x2, #SHADOWFRAME_DEX_PC_OFFSET]   // Get starting dex_pc.
     add     xPC, x1, w0, lsl #1                    // Create direct pointer to 1st dex opcode
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)
@@ -749,7 +753,7 @@ MterpDone:
     RESTORE_TWO_REGS                fp, lr, 64
     RESTORE_TWO_REGS                xPC, xFP, 48
     RESTORE_TWO_REGS                xSELF, xINST, 32
-    RESTORE_TWO_REGS                xIBASE, xREFS, 16
+    RESTORE_TWO_REGS                xIBASE, xZERO, 16
     RESTORE_TWO_REGS_DECREASE_FRAME xPROFILE, x27, 80
     ret
     .cfi_restore_state                              // Reset unwind info so following code unwinds.
@@ -767,7 +771,7 @@ MterpProfileActive:
     RESTORE_TWO_REGS                fp, lr, 64
     RESTORE_TWO_REGS                xPC, xFP, 48
     RESTORE_TWO_REGS                xSELF, xINST, 32
-    RESTORE_TWO_REGS                xIBASE, xREFS, 16
+    RESTORE_TWO_REGS                xIBASE, xZERO, 16
     RESTORE_TWO_REGS_DECREASE_FRAME xPROFILE, x27, 80
     ret
 

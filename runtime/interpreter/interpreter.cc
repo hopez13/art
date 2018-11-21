@@ -486,7 +486,7 @@ void EnterInterpreterFromInvoke(Thread* self,
     // generated stub) except during testing and image writing.
     // Update args to be the args in the shadow frame since the input ones could hold stale
     // references pointers due to moving GC.
-    args = shadow_frame->GetVRegArgs(method->IsStatic() ? 0 : 1);
+    shadow_frame->CopyArgsTo(args, method->IsStatic() ? 0 : 1, num_ins);
     if (!Runtime::Current()->IsStarted()) {
       UnstartedRuntime::Jni(self, method, receiver.Ptr(), args, result);
     } else {
@@ -666,7 +666,9 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
     // generated stub) except during testing and image writing.
     CHECK(!Runtime::Current()->IsStarted());
     ObjPtr<mirror::Object> receiver = is_static ? nullptr : shadow_frame->GetVRegReference(0);
-    uint32_t* args = shadow_frame->GetVRegArgs(is_static ? 0 : 1);
+    size_t num_vregs = shadow_frame->NumberOfVRegs();
+    uint32_t* args = static_cast<uint32_t*>(alloca(num_vregs * sizeof(uint32_t)));
+    shadow_frame->CopyArgsTo(args, is_static ? 0 : 1, num_vregs);
     UnstartedRuntime::Jni(self, shadow_frame->GetMethod(), receiver.Ptr(), args, result);
   }
 

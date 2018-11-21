@@ -264,15 +264,13 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     if (is_range) {
       size_t src = vregC;
       for (size_t i = 0, dst = first_dest_reg; i < number_of_inputs; ++i, ++dst, ++src) {
-        *new_shadow_frame->GetVRegAddr(dst) = *shadow_frame.GetVRegAddr(src);
-        *new_shadow_frame->GetShadowRefAddr(dst) = *shadow_frame.GetShadowRefAddr(src);
+        new_shadow_frame->SetVRegFrom(dst, shadow_frame, src);
       }
     } else {
       uint32_t arg[Instruction::kMaxVarArgRegs];
       inst->GetVarArgs(arg, inst_data);
       for (size_t i = 0, dst = first_dest_reg; i < number_of_inputs; ++i, ++dst) {
-        *new_shadow_frame->GetVRegAddr(dst) = *shadow_frame.GetVRegAddr(arg[i]);
-        *new_shadow_frame->GetShadowRefAddr(dst) = *shadow_frame.GetShadowRefAddr(arg[i]);
+        new_shadow_frame->SetVRegFrom(dst, shadow_frame, arg[i]);
       }
     }
     self->PushShadowFrame(new_shadow_frame);

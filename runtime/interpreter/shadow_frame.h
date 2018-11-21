@@ -21,6 +21,7 @@
 #include <cstring>
 #include <string>
 
+#include "base/casts.h"
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "dex/dex_file.h"
@@ -45,9 +46,17 @@ union JValue;
 struct ShadowFrameDeleter;
 using ShadowFrameAllocaUniquePtr = std::unique_ptr<ShadowFrame, ShadowFrameDeleter>;
 
-// ShadowFrame has 2 possible layouts:
-//  - interpreter - separate VRegs and reference arrays. References are in the reference array.
-//  - JNI - just VRegs, but where every VReg holds a reference.
+// Register values are stored twice in the shadow frame to support garbage collection.
+// Note that long and double values therefore are not trivially consecutive in memory.
+//
+// Note that this works almost unmodified for 64-bit references - if the heap is above
+// the low 4GB, we can still use the high 32-bits to determine the value is an object.
+class alignas(uint64_t) ShadowVreg {
+ public:
+  uint32_t value;
+  uint32_t object;  // Stores copy of the value if it is an object, otherwise it is 0.
+};
+
 class ShadowFrame {
  private:
   // Used to keep track of extra state the shadowframe has.
@@ -61,10 +70,9 @@ class ShadowFrame {
   };
 
  public:
-  // Compute size of ShadowFrame in bytes assuming it has a reference array.
+  // Compute size of ShadowFrame in bytes.
   static size_t ComputeSize(uint32_t num_vregs) {
-    return sizeof(ShadowFrame) + (sizeof(uint32_t) * num_vregs) +
-           (sizeof(StackReference<mirror::Object>) * num_vregs);
+    return sizeof(ShadowFrame) + (sizeof(ShadowVreg) * num_vregs);
   }
 
   // Create ShadowFrame in heap for deoptimization.
@@ -92,12 +100,6 @@ class ShadowFrame {
     })
 
   ~ShadowFrame() {}
-
-  // TODO(iam): Clean references array up since they're always there,
-  // we don't need to do conditionals.
-  bool HasReferenceArray() const {
-    return true;
-  }
 
   uint32_t NumberOfVRegs() const {
     return number_of_vregs_;
@@ -137,10 +139,9 @@ class ShadowFrame {
     link_ = frame;
   }
 
-  int32_t GetVReg(size_t i) const {
-    DCHECK_LT(i, NumberOfVRegs());
-    const uint32_t* vreg = &vregs_[i];
-    return *reinterpret_cast<const int32_t*>(vreg);
+  int32_t GetVReg(size_t idx) const {
+    DCHECK_LT(idx, NumberOfVRegs());
+    return vregs_[idx].value;
   }
 
   // Shorts are extended to Ints in VRegs.  Interpreter intrinsics needs them as shorts.
@@ -148,50 +149,39 @@ class ShadowFrame {
     return static_cast<int16_t>(GetVReg(i));
   }
 
-  uint32_t* GetVRegAddr(size_t i) {
-    return &vregs_[i];
-  }
-
-  uint32_t* GetShadowRefAddr(size_t i) {
-    DCHECK(HasReferenceArray());
-    DCHECK_LT(i, NumberOfVRegs());
-    return &vregs_[i + NumberOfVRegs()];
+  ALWAYS_INLINE void CopyArgsTo(uint32_t* dst, size_t first_idx, size_t last_idx) {
+    DCHECK_LE(first_idx, last_idx);
+    DCHECK_LE(last_idx, NumberOfVRegs());
+    for (; first_idx < last_idx; ++dst, ++first_idx) {
+      *dst = GetVReg(first_idx);
+    }
   }
 
   const uint16_t* GetDexInstructions() const {
     return dex_instructions_;
   }
 
-  float GetVRegFloat(size_t i) const {
-    DCHECK_LT(i, NumberOfVRegs());
-    // NOTE: Strict-aliasing?
-    const uint32_t* vreg = &vregs_[i];
-    return *reinterpret_cast<const float*>(vreg);
+  float GetVRegFloat(size_t idx) const {
+    return bit_cast<float>(GetVReg(idx));
   }
 
-  int64_t GetVRegLong(size_t i) const {
-    DCHECK_LT(i + 1, NumberOfVRegs());
-    const uint32_t* vreg = &vregs_[i];
-    typedef const int64_t unaligned_int64 __attribute__ ((aligned (4)));
-    return *reinterpret_cast<unaligned_int64*>(vreg);
+  int64_t GetVRegLong(size_t idx) const {
+    uint32_t lo = GetVReg(idx);
+    uint32_t hi = GetVReg(idx + 1);
+    return lo | (static_cast<uint64_t>(hi) << 32);
   }
 
-  double GetVRegDouble(size_t i) const {
-    DCHECK_LT(i + 1, NumberOfVRegs());
-    const uint32_t* vreg = &vregs_[i];
-    typedef const double unaligned_double __attribute__ ((aligned (4)));
-    return *reinterpret_cast<unaligned_double*>(vreg);
+  double GetVRegDouble(size_t idx) const {
+    return bit_cast<double>(GetVRegLong(idx));
   }
 
-  // Look up the reference given its virtual register number.
-  // If this returns non-null then this does not mean the vreg is currently a reference
-  // on non-moving collectors. Check that the raw reg with GetVReg is equal to this if not certain.
+  // Returns the object reference or nullptr if the register holds primitive value.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   mirror::Object* GetVRegReference(size_t i) const REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK_LT(i, NumberOfVRegs());
-    mirror::Object* ref;
-    DCHECK(HasReferenceArray());
-    ref = References()[i].AsMirrorPtr();
+    static_assert(sizeof(StackReference<mirror::Object>) == sizeof(vregs_[i].object), "size");
+    mirror::Object* ref =
+        reinterpret_cast<const StackReference<mirror::Object>*>(&vregs_[i].object)->AsMirrorPtr();
     ReadBarrier::MaybeAssertToSpaceInvariant(ref);
     if (kVerifyFlags & kVerifyReads) {
       VerifyObject(ref);
@@ -199,57 +189,29 @@ class ShadowFrame {
     return ref;
   }
 
-  // Get view of vregs as range of consecutive arguments starting at i.
-  uint32_t* GetVRegArgs(size_t i) {
-    return &vregs_[i];
+  ALWAYS_INLINE void SetVReg(size_t idx, int32_t val) {
+    DCHECK_LT(idx, NumberOfVRegs());
+    vregs_[idx].value = val;
+    vregs_[idx].object = 0;
   }
 
-  void SetVReg(size_t i, int32_t val) {
-    DCHECK_LT(i, NumberOfVRegs());
-    uint32_t* vreg = &vregs_[i];
-    *reinterpret_cast<int32_t*>(vreg) = val;
-    // This is needed for moving collectors since these can update the vreg references if they
-    // happen to agree with references in the reference array.
-    if (kMovingCollector && HasReferenceArray()) {
-      References()[i].Clear();
-    }
+  ALWAYS_INLINE void SetVRegFloat(size_t idx, float val) {
+    SetVReg(idx, bit_cast<uint32_t>(val));
   }
 
-  void SetVRegFloat(size_t i, float val) {
-    DCHECK_LT(i, NumberOfVRegs());
-    uint32_t* vreg = &vregs_[i];
-    *reinterpret_cast<float*>(vreg) = val;
-    // This is needed for moving collectors since these can update the vreg references if they
-    // happen to agree with references in the reference array.
-    if (kMovingCollector && HasReferenceArray()) {
-      References()[i].Clear();
-    }
+  ALWAYS_INLINE void SetVRegLong(size_t idx, int64_t val) {
+    SetVReg(idx, static_cast<int32_t>(val));
+    SetVReg(idx + 1, static_cast<int32_t>(val >> 32));
   }
 
-  void SetVRegLong(size_t i, int64_t val) {
-    DCHECK_LT(i + 1, NumberOfVRegs());
-    uint32_t* vreg = &vregs_[i];
-    typedef int64_t unaligned_int64 __attribute__ ((aligned (4)));
-    *reinterpret_cast<unaligned_int64*>(vreg) = val;
-    // This is needed for moving collectors since these can update the vreg references if they
-    // happen to agree with references in the reference array.
-    if (kMovingCollector && HasReferenceArray()) {
-      References()[i].Clear();
-      References()[i + 1].Clear();
-    }
+  ALWAYS_INLINE void SetVRegDouble(size_t idx, double val) {
+    SetVRegLong(idx, bit_cast<int64_t>(val));
   }
 
-  void SetVRegDouble(size_t i, double val) {
-    DCHECK_LT(i + 1, NumberOfVRegs());
-    uint32_t* vreg = &vregs_[i];
-    typedef double unaligned_double __attribute__ ((aligned (4)));
-    *reinterpret_cast<unaligned_double*>(vreg) = val;
-    // This is needed for moving collectors since these can update the vreg references if they
-    // happen to agree with references in the reference array.
-    if (kMovingCollector && HasReferenceArray()) {
-      References()[i].Clear();
-      References()[i + 1].Clear();
-    }
+  ALWAYS_INLINE void SetVRegFrom(size_t idx, ShadowFrame& other, size_t other_idx) {
+    DCHECK_LT(idx, NumberOfVRegs());
+    DCHECK_LT(other_idx, other.NumberOfVRegs());
+    vregs_[idx] = other.vregs_[other_idx];
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -272,14 +234,8 @@ class ShadowFrame {
   mirror::Object* GetThisObject(uint16_t num_ins) const REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool Contains(StackReference<mirror::Object>* shadow_frame_entry_obj) const {
-    if (HasReferenceArray()) {
-      return ((&References()[0] <= shadow_frame_entry_obj) &&
-              (shadow_frame_entry_obj <= (&References()[NumberOfVRegs() - 1])));
-    } else {
-      uint32_t* shadow_frame_entry = reinterpret_cast<uint32_t*>(shadow_frame_entry_obj);
-      return ((&vregs_[0] <= shadow_frame_entry) &&
-              (shadow_frame_entry <= (&vregs_[NumberOfVRegs() - 1])));
-    }
+    ShadowVreg* ptr = reinterpret_cast<ShadowVreg*>(shadow_frame_entry_obj);
+    return &vregs_[0] <= ptr && ptr < &vregs_[number_of_vregs_];
   }
 
   LockCountData& GetLockCountData() {
@@ -336,7 +292,7 @@ class ShadowFrame {
                                             ArtMethod* method,
                                             uint32_t dex_pc,
                                             void* memory) {
-    return new (memory) ShadowFrame(num_vregs, link, method, dex_pc, true);
+    return new (memory) ShadowFrame(num_vregs, link, method, dex_pc);
   }
 
   const uint16_t* GetDexPCPtr() {
@@ -380,15 +336,14 @@ class ShadowFrame {
       // A shadow frame visible to GC requires the following rule: for a given vreg,
       // its vreg reference equivalent should be the same, or null.
       for (uint32_t i = 0; i < NumberOfVRegs(); ++i) {
-        int32_t reference_value = References()[i].AsVRegValue();
-        CHECK((GetVReg(i) == reference_value) || (reference_value == 0));
+        ShadowVreg vreg = vregs_[i];
+        CHECK((vreg.value == vreg.object) || (vreg.object == 0));
       }
     }
   }
 
  private:
-  ShadowFrame(uint32_t num_vregs, ShadowFrame* link, ArtMethod* method,
-              uint32_t dex_pc, bool has_reference_array)
+  ShadowFrame(uint32_t num_vregs, ShadowFrame* link, ArtMethod* method, uint32_t dex_pc)
       : link_(link),
         method_(method),
         result_register_(nullptr),
@@ -399,13 +354,7 @@ class ShadowFrame {
         cached_hotness_countdown_(0),
         hotness_countdown_(0),
         frame_flags_(0) {
-    // TODO(iam): Remove this parameter, it's an an artifact of portable removal
-    DCHECK(has_reference_array);
-    if (has_reference_array) {
-      memset(vregs_, 0, num_vregs * (sizeof(uint32_t) + sizeof(StackReference<mirror::Object>)));
-    } else {
-      memset(vregs_, 0, num_vregs * sizeof(uint32_t));
-    }
+    memset(vregs_, 0, num_vregs * sizeof(*vregs_));
   }
 
   void UpdateFrameFlag(bool enable, FrameFlags flag) {
@@ -418,17 +367,6 @@ class ShadowFrame {
 
   bool GetFrameFlag(FrameFlags flag) const {
     return (frame_flags_ & static_cast<uint32_t>(flag)) != 0;
-  }
-
-  const StackReference<mirror::Object>* References() const {
-    DCHECK(HasReferenceArray());
-    const uint32_t* vreg_end = &vregs_[NumberOfVRegs()];
-    return reinterpret_cast<const StackReference<mirror::Object>*>(vreg_end);
-  }
-
-  StackReference<mirror::Object>* References() {
-    return const_cast<StackReference<mirror::Object>*>(
-        const_cast<const ShadowFrame*>(this)->References());
   }
 
   // Link to previous shadow frame or null.
@@ -449,15 +387,7 @@ class ShadowFrame {
   // currently used.
   uint32_t frame_flags_;
 
-  // This is a two-part array:
-  //  - [0..number_of_vregs) holds the raw virtual registers, and each element here is always 4
-  //    bytes.
-  //  - [number_of_vregs..number_of_vregs*2) holds only reference registers. Each element here is
-  //    ptr-sized.
-  // In other words when a primitive is stored in vX, the second (reference) part of the array will
-  // be null. When a reference is stored in vX, the second (reference) part of the array will be a
-  // copy of vX.
-  uint32_t vregs_[0];
+  ShadowVreg vregs_[0];
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(ShadowFrame);
 };

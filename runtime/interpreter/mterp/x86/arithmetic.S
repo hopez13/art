@@ -263,6 +263,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
 %def cvtfp_int(srcdouble="1", tgtlong="1"):
+%  fallback()
+%  return
 /* On fp to int conversions, Java requires that
  * if the result > maxint, it should be clamped to maxint.  If it is less
  * than minint, it should be clamped to minint.  If it is a nan, the result
@@ -560,6 +562,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_mul_long():
+%  fallback()
+%  return
 /*
  * Signed 64-bit integer multiply.
  *
@@ -595,6 +599,8 @@
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_mul_long_2addr():
+%  fallback()
+%  return
 /*
  * Signed 64-bit integer multiply, 2-addr version
  *

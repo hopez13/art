@@ -257,18 +257,19 @@ unspecified registers or condition codes.
 /*
  * Get/set the 32-bit value from a Dalvik register.
  */
-#define VREG_ADDRESS(_vreg) (rFP,_vreg,4)
-#define VREG_HIGH_ADDRESS(_vreg) 4(rFP,_vreg,4)
-#define VREG_REF_ADDRESS(_vreg) (rREFS,_vreg,4)
-#define VREG_REF_HIGH_ADDRESS(_vreg) 4(rREFS,_vreg,4)
+#define VREG_ADDRESS(_vreg) (rFP,_vreg,8)
+#define VREG_HIGH_ADDRESS(_vreg) 8(rFP,_vreg,8)
+#define VREG_REF_ADDRESS(_vreg) 4(rFP,_vreg,8)
+#define VREG_REF_HIGH_ADDRESS(_vreg) 12(rFP,_vreg,8)
 
 .macro GET_VREG _reg _vreg
     movl    VREG_ADDRESS(\_vreg), \_reg
 .endm
 
-/* Read wide value. */
+/* Read wide value. xmm0 is clobbered. */
 .macro GET_WIDE_VREG _reg _vreg
-    movq    VREG_ADDRESS(\_vreg), \_reg
+    GET_VREG_XMMd %xmm0, \_vreg
+    movq    %xmm0, \_reg
 .endm
 
 .macro SET_VREG _reg _vreg
@@ -279,8 +280,9 @@ unspecified registers or condition codes.
 /* Write wide value. reg is clobbered. */
 .macro SET_WIDE_VREG _reg _vreg
     movq    \_reg, VREG_ADDRESS(\_vreg)
-    xorq    \_reg, \_reg
-    movq    \_reg, VREG_REF_ADDRESS(\_vreg)
+    movl    MACRO_LITERAL(0), VREG_REF_ADDRESS(\_vreg)
+    shrq    $$32, \_reg
+    movq    \_reg, VREG_HIGH_ADDRESS(\_vreg)
 .endm
 
 .macro SET_VREG_OBJECT _reg _vreg
@@ -301,15 +303,17 @@ unspecified registers or condition codes.
     movss VREG_ADDRESS(\_vreg), \_xmmreg
 .endm
 .macro GET_VREG_XMMd _xmmreg _vreg
-    movsd VREG_ADDRESS(\_vreg), \_xmmreg
+    movupd VREG_ADDRESS(\_vreg), \_xmmreg  // Load 128-bits (low, zero, high, zero).
+    shufps $$216, \_xmmreg, \_xmmreg  // Shuffle 0123 to 0213 = 0*0+2*4+1*16+3*64 = 216.
 .endm
 .macro SET_VREG_XMMs _xmmreg _vreg
     movss \_xmmreg, VREG_ADDRESS(\_vreg)
     CLEAR_REF \_vreg
 .endm
 .macro SET_VREG_XMMd _xmmreg _vreg
-    movsd \_xmmreg, VREG_ADDRESS(\_vreg)
-    CLEAR_WIDE_REF \_vreg
+    shufps $$216, \_xmmreg, \_xmmreg  // Shuffle 0123 to 0213 = 0*0+2*4+1*16+3*64 = 216.
+    movupd \_xmmreg, VREG_ADDRESS(\_vreg)  // Store 128-bits (low, zero, high, zero).
+    CLEAR_WIDE_REF \_vreg  // TODO: Not needed if the high 64-bits are always 0.
 .endm
 
 /*
@@ -379,7 +383,7 @@ ENTRY ExecuteMterpImpl
     /* set up "named" registers */
     movl    SHADOWFRAME_NUMBER_OF_VREGS_OFFSET(IN_ARG2), %eax
     leaq    SHADOWFRAME_VREGS_OFFSET(IN_ARG2), rFP
-    leaq    (rFP, %rax, 4), rREFS
+    leaq    4(rFP), rREFS
     movl    SHADOWFRAME_DEX_PC_OFFSET(IN_ARG2), %eax
     leaq    (IN_ARG1, %rax, 2), rPC
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)
