@@ -58,8 +58,6 @@
     GET_VREG_XMM${suff} %xmm0, %ecx         # %xmm0 <- 1st src
     ${instr}${suff} VREG_ADDRESS(%eax), %xmm0
     SET_VREG_XMM${suff} %xmm0, rINST        # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movs${suff}   %xmm0, VREG_REF_ADDRESS(rINST) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def sseBinop2Addr(instr="", suff=""):
@@ -69,8 +67,6 @@
     sarl    $$4, rINST                      # rINST<- B
     ${instr}${suff} VREG_ADDRESS(rINST), %xmm0
     SET_VREG_XMM${suff} %xmm0, %ecx         # vAA<- %xmm0
-    pxor    %xmm0, %xmm0
-    movs${suff} %xmm0, VREG_REF_ADDRESS(rINST)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
 %def op_add_double():

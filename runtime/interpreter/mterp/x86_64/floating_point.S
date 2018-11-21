@@ -45,10 +45,8 @@
     cvts${source_suffix}2s${dest_suffix}    VREG_ADDRESS(rINSTq), %xmm0
     .if $wide
     SET_VREG_XMMd %xmm0, %rcx
-    CLEAR_WIDE_REF %rcx
     .else
     SET_VREG_XMMs %xmm0, %rcx
-    CLEAR_REF %rcx
     .endif
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
@@ -58,8 +56,6 @@
     GET_VREG_XMM${suff} %xmm0, %rcx         # %xmm0 <- 1st src
     ${instr}${suff} VREG_ADDRESS(%rax), %xmm0
     SET_VREG_XMM${suff} %xmm0, rINSTq       # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movs${suff}   %xmm0, VREG_REF_ADDRESS(rINSTq) # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def sseBinop2Addr(instr="", suff=""):
@@ -69,8 +65,6 @@
     sarl    $$4, rINST                      # rINST<- B
     ${instr}${suff} VREG_ADDRESS(rINSTq), %xmm0
     SET_VREG_XMM${suff} %xmm0, %rcx         # vAA <- %xmm0
-    pxor    %xmm0, %xmm0
-    movs${suff} %xmm0, VREG_REF_ADDRESS(rINSTq)  # clear ref
     ADVANCE_PC_FETCH_AND_GOTO_NEXT 1
 
 %def op_add_double():

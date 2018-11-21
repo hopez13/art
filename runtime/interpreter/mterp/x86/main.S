@@ -326,9 +326,11 @@ unspecified registers or condition codes.
 .endm
 .macro SET_VREG_XMMs _xmmreg _vreg
     movss \_xmmreg, VREG_ADDRESS(\_vreg)
+    CLEAR_REF \_vreg
 .endm
 .macro SET_VREG_XMMd _xmmreg _vreg
     movsd \_xmmreg, VREG_ADDRESS(\_vreg)
+    CLEAR_WIDE_REF \_vreg
 .endm
 
 /*
