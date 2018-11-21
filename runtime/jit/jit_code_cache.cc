@@ -1806,8 +1806,9 @@ void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) NO_THREAD_S
 
 void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_locations,
                                       std::vector<ProfileMethodInfo>& methods) {
-  ScopedTrace trace(__FUNCTION__);
+  WaitUntilInlineCacheAccessible(self);
   MutexLock mu(Thread::Current(), lock_);
+  ScopedTrace trace(__FUNCTION__);
   uint16_t jit_compile_threshold = Runtime::Current()->GetJITOptions()->GetCompileThreshold();
   for (const ProfilingInfo* info : profiling_infos_) {
     ArtMethod* method = info->GetMethod();
