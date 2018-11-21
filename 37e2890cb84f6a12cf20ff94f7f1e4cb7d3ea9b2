@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbee163e_65c77493",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "Maybe keep a note about the boot image case here.",
+      "range": {
+        "startLine": 775,
+        "startChar": 2,
+        "endLine": 776,
+        "endChar": 28
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49e8149_7f8fa661",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "CompareClassLoaderTypes",
+      "range": {
+        "startLine": 1130,
+        "startChar": 12,
+        "endLine": 1130,
+        "endChar": 24
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c631bbda_a418e084",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "consider renaming these two; the method is generic enough to not care about the \"image_\".",
+      "range": {
+        "startLine": 1185,
+        "startChar": 32,
+        "endLine": 1186,
+        "endChar": 73
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a93314_9106cd17",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "document why this is overriding the method argument.",
+      "range": {
+        "startLine": 1241,
+        "startChar": 31,
+        "endLine": 1241,
+        "endChar": 65
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fdca0d1_335e0ca3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 1251,
+        "startChar": 27,
+        "endLine": 1251,
+        "endChar": 61
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbe6c8cb_0996dad9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T08:29:20Z",
+      "side": 1,
+      "message": "not sure I fully get this comment. what\u0027s the special case here?",
+      "range": {
+        "startLine": 2035,
+        "startChar": 0,
+        "endLine": 2036,
+        "endChar": 25
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
