@@ -1241,24 +1241,23 @@ class ImageSpace::BootImageLoader {
                       /*out*/std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
     std::string filename = GetSystemImageFilename(image_location_.c_str(), image_isa_);
-    std::vector<std::string> locations =
-        ExpandMultiImageLocations(boot_class_path_locations_, image_location_);
-    uint32_t image_start;
-    uint32_t image_end;
-    if (!GetBootImageAddressRange(filename, &image_start, &image_end, error_msg)) {
+
+    ImageHeader system_hdr;
+    if (!ReadSpecificImageHeader(filename.c_str(), &system_hdr)) {
+      *error_msg = StringPrintf("Cannot read header of %s", filename.c_str());
       return false;
     }
-    if (locations.size() > 1u) {
-      std::string last_filename = GetSystemImageFilename(locations.back().c_str(), image_isa_);
-      uint32_t dummy;
-      if (!GetBootImageAddressRange(last_filename, &dummy, &image_end, error_msg)) {
-        return false;
-      }
+    if (system_hdr.GetComponentCount() != boot_class_path_.size()) {
+      *error_msg = StringPrintf("Unexpected component count in %s, %u v. %zu",
+                                filename.c_str(),
+                                system_hdr.GetComponentCount(),
+                                boot_class_path_.size());
+      return false;
     }
     MemMap image_reservation;
     MemMap local_extra_reservation;
-    if (!ReserveBootImageMemory(/*reservation_size=*/ image_end - image_start,
-                                image_start,
+    if (!ReserveBootImageMemory(system_hdr.GetImageReservationSize(),
+                                reinterpret_cast32<uint32_t>(system_hdr.GetImageBegin()),
                                 extra_reservation_size,
                                 &image_reservation,
                                 &local_extra_reservation,
@@ -1266,6 +1265,8 @@ class ImageSpace::BootImageLoader {
       return false;
     }
 
+    std::vector<std::string> locations =
+        ExpandMultiImageLocations(boot_class_path_locations_, image_location_);
     std::vector<std::unique_ptr<ImageSpace>> spaces;
     spaces.reserve(locations.size());
     for (const std::string& location : locations) {
@@ -1313,30 +1314,23 @@ class ImageSpace::BootImageLoader {
       /*out*/std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
     DCHECK(DalvikCacheExists());
-    std::vector<std::string> locations =
-        ExpandMultiImageLocations(boot_class_path_locations_, image_location_);
-    uint32_t image_start;
-    uint32_t image_end;
-    if (!GetBootImageAddressRange(cache_filename_, &image_start, &image_end, error_msg)) {
+
+    ImageHeader system_hdr;
+    if (!ReadSpecificImageHeader(cache_filename_.c_str(), &system_hdr)) {
+      *error_msg = StringPrintf("Cannot read header of %s", cache_filename_.c_str());
       return false;
     }
-    if (locations.size() > 1u) {
-      std::string last_filename;
-      if (!GetDalvikCacheFilename(locations.back().c_str(),
-                                  dalvik_cache_.c_str(),
-                                  &last_filename,
-                                  error_msg)) {
-        return false;
-      }
-      uint32_t dummy;
-      if (!GetBootImageAddressRange(last_filename, &dummy, &image_end, error_msg)) {
-        return false;
-      }
+    if (system_hdr.GetComponentCount() != boot_class_path_.size()) {
+      *error_msg = StringPrintf("Unexpected component count in %s, %u v. %zu",
+                                cache_filename_.c_str(),
+                                system_hdr.GetComponentCount(),
+                                boot_class_path_.size());
+      return false;
     }
     MemMap image_reservation;
     MemMap local_extra_reservation;
-    if (!ReserveBootImageMemory(/*reservation_size=*/ image_end - image_start,
-                                image_start,
+    if (!ReserveBootImageMemory(system_hdr.GetImageReservationSize(),
+                                reinterpret_cast32<uint32_t>(system_hdr.GetImageBegin()),
                                 extra_reservation_size,
                                 &image_reservation,
                                 &local_extra_reservation,
@@ -1344,6 +1338,8 @@ class ImageSpace::BootImageLoader {
       return false;
     }
 
+    std::vector<std::string> locations =
+        ExpandMultiImageLocations(boot_class_path_locations_, image_location_);
     std::vector<std::unique_ptr<ImageSpace>> spaces;
     spaces.reserve(locations.size());
     for (const std::string& location : locations) {
@@ -2029,27 +2025,14 @@ class ImageSpace::BootImageLoader {
     return true;
   }
 
-  bool GetBootImageAddressRange(const std::string& filename,
-                                /*out*/uint32_t* start,
-                                /*out*/uint32_t* end,
-                                /*out*/std::string* error_msg) {
-    ImageHeader system_hdr;
-    if (!ReadSpecificImageHeader(filename.c_str(), &system_hdr)) {
-      *error_msg = StringPrintf("Cannot read header of %s", filename.c_str());
-      return false;
-    }
-    *start = reinterpret_cast32<uint32_t>(system_hdr.GetImageBegin());
-    CHECK_ALIGNED(*start, kPageSize);
-    *end = RoundUp(reinterpret_cast32<uint32_t>(system_hdr.GetOatFileEnd()), kPageSize);
-    return true;
-  }
-
   bool ReserveBootImageMemory(uint32_t reservation_size,
                               uint32_t image_start,
                               size_t extra_reservation_size,
                               /*out*/MemMap* image_reservation,
                               /*out*/MemMap* extra_reservation,
                               /*out*/std::string* error_msg) {
+    DCHECK_ALIGNED(reservation_size, kPageSize);
+    DCHECK_ALIGNED(image_start, kPageSize);
     DCHECK(!image_reservation->IsValid());
     DCHECK_LT(extra_reservation_size, std::numeric_limits<uint32_t>::max() - reservation_size);
     size_t total_size = reservation_size + extra_reservation_size;
