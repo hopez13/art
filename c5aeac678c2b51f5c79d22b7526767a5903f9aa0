@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "089f359c_a6a799d3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "And the comment seems to be bogus (meaningful only for x86-64).",
+      "parentUuid": "759a9ec1_4afb681c",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 107
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "754cf6d3_ce439c51",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -41,6 +65,144 @@
         "startChar": 55,
         "endLine": 581,
         "endChar": 57
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d030025_828d4a62",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "Broken for stack slot.",
+      "range": {
+        "startLine": 618,
+        "startChar": 19,
+        "endLine": 618,
+        "endChar": 45
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f6a1e57_69e7b437",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "This is unnecessary, you could work directly with `src`.",
+      "range": {
+        "startLine": 625,
+        "startChar": 8,
+        "endLine": 625,
+        "endChar": 49
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12cc1f8f_a9e77592",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "You could work directly with the stack slot but I don\u0027t know if two memory accesses for the same location would be better than loading to a register and working with that register.\n\n(And indentation is off.)",
+      "range": {
+        "startLine": 628,
+        "startChar": 7,
+        "endLine": 628,
+        "endChar": 55
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ee4ec01_b0d89f04",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "Broken for stack slot.",
+      "range": {
+        "startLine": 2418,
+        "startChar": 19,
+        "endLine": 2418,
+        "endChar": 48
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab28f569_684092bd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 2425,
+        "startChar": 9,
+        "endLine": 2425,
+        "endChar": 11
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fecffd0_d7c59c37",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T10:58:18Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 2428,
+        "startChar": 0,
+        "endLine": 2435,
+        "endChar": 5
       },
       "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
