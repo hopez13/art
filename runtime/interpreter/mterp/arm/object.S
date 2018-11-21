@@ -70,7 +70,8 @@
 %  if is_object:
      SET_VREG_OBJECT r0, r2               @ fp[A]<- r0
 %  elif is_wide:
-     SET_VREG_WIDE r0, r1, r2             @ fp[A]<- r0, r1
+     VREG_INDEX_TO_ADDR r2, r2            @ r2<- &fp[A]
+     SET_VREG_WIDE_BY_ADDR r0, r1, r2     @ fp[A]<- r0, r1
 %  else:
      SET_VREG r0, r2                      @ fp[A]<- r0
 %  #endif
@@ -158,7 +159,6 @@
     ldrd    r0, [r3, ip]                @ r0<- obj.field (64 bits, aligned)
     FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
     VREG_INDEX_TO_ADDR r3, r2           @ r3<- &fp[A]
-    CLEAR_SHADOW_PAIR r2, ip, lr        @ Zero out the shadow regs
     GET_INST_OPCODE ip                  @ extract opcode from rINST
     SET_VREG_WIDE_BY_ADDR r0, r1, r3    @ fp[A]<- r0/r1
     GOTO_OPCODE ip                      @ jump to next instruction

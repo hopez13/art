@@ -74,7 +74,7 @@ The following registers have fixed assignments:
   r7  rINST     first 16-bit code unit of current instruction
   r8  rIBASE    interpreted instruction base pointer, used for computed goto
   r10 rPROFILE  branch profiling countdown
-  r11 rREFS     base of object references in shadow frame  (ideally, we'll get rid of this later).
+  r11 rREF_OFF  offset from vreg to its shadow copy.
 
 Macros are provided for common operations.  Each macro MUST emit only
 one instruction to make instruction-counting easier.  They MUST NOT alter
@@ -101,7 +101,7 @@ unspecified registers or condition codes.
 #define rINST    r7
 #define rIBASE   r8
 #define rPROFILE r10
-#define rREFS    r11
+#define rREF_OFF r11
 
 /*
  * Instead of holding a pointer to the shadow frame, we keep rFP at the base of the vregs.  So,
@@ -254,66 +254,50 @@ unspecified registers or condition codes.
 .macro GET_VREG reg, vreg
     ldr     \reg, [rFP, \vreg, lsl #2]
 .endm
-.macro SET_VREG reg, vreg
-    str     \reg, [rFP, \vreg, lsl #2]
+.macro SET_VREG reg, vreg  // May clobber reg/vreg.
+    VREG_INDEX_TO_ADDR \vreg, \vreg  // Reuse vreg as address.
+    str     \reg, [\vreg]
     mov     \reg, #0
-    str     \reg, [rREFS, \vreg, lsl #2]
+    str     \reg, [\vreg, rREF_OFF]
 .endm
-.macro SET_VREG_WIDE regLo, regHi, vreg
-    add     ip, rFP, \vreg, lsl #2
-    strd    \regLo, \regHi, [ip]
-    mov     \regLo, #0
-    mov     \regHi, #0
-    add     ip, rREFS, \vreg, lsl #2
-    strd    \regLo, \regHi, [ip]
-.endm
-.macro SET_VREG_OBJECT reg, vreg, tmpreg
-    str     \reg, [rFP, \vreg, lsl #2]
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-.macro SET_VREG_SHADOW reg, vreg
-    str     \reg, [rREFS, \vreg, lsl #2]
-.endm
-.macro SET_VREG_FLOAT reg, vreg, tmpreg
-    add     \tmpreg, rFP, \vreg, lsl #2
-    fsts    \reg, [\tmpreg]
-    mov     \tmpreg, #0
-    str     \tmpreg, [rREFS, \vreg, lsl #2]
-.endm
-
-/*
- * Clear the corresponding shadow regs for a vreg pair
- */
-.macro CLEAR_SHADOW_PAIR vreg, tmp1, tmp2
-    mov     \tmp1, #0
-    add     \tmp2, \vreg, #1
-    SET_VREG_SHADOW \tmp1, \vreg
-    SET_VREG_SHADOW \tmp1, \tmp2
+.macro SET_VREG_OBJECT reg, vreg  // May clobber reg/vreg.
+    VREG_INDEX_TO_ADDR \vreg, \vreg  // Reuse vreg as address.
+    str     \reg, [\vreg]
+    str     \reg, [\vreg, rREF_OFF]
 .endm
 
 /*
  * Convert a virtual register index into an address.
  */
 .macro VREG_INDEX_TO_ADDR reg, vreg
-    add     \reg, rFP, \vreg, lsl #2   /* WARNING/FIXME: handle shadow frame vreg zero if store */
+    add     \reg, rFP, \vreg, lsl #2
 .endm
 
 .macro GET_VREG_WIDE_BY_ADDR reg0, reg1, addr
     ldmia \addr, {\reg0, \reg1}
 .endm
-.macro SET_VREG_WIDE_BY_ADDR reg0, reg1, addr
+.macro SET_VREG_WIDE_BY_ADDR reg0, reg1, addr  // May clobber reg0/reg1/addr.
+    stmia \addr, {\reg0, \reg1}
+    add \addr, \addr, rREF_OFF
+    mov \reg0, #0
+    mov \reg1, #0
     stmia \addr, {\reg0, \reg1}
 .endm
 .macro GET_VREG_FLOAT_BY_ADDR reg, addr
     flds \reg, [\addr]
 .endm
-.macro SET_VREG_FLOAT_BY_ADDR reg, addr
+.macro SET_VREG_FLOAT_BY_ADDR reg, addr, temp  // May clobber reg/addr/temp.
     fsts \reg, [\addr]
+    mov \temp, #0
+    str \temp, [\addr, rREF_OFF]
 .endm
 .macro GET_VREG_DOUBLE_BY_ADDR reg, addr
     fldd \reg, [\addr]
 .endm
-.macro SET_VREG_DOUBLE_BY_ADDR reg, addr
+.macro SET_VREG_DOUBLE_BY_ADDR reg, addr  // May clobber reg/addr.
+    fstd \reg, [\addr]
+    add \addr, \addr, rREF_OFF
+    vmov.i64 \reg, #0
     fstd \reg, [\addr]
 .endm
 
@@ -405,7 +389,7 @@ ENTRY ExecuteMterpImpl
     mov     rSELF, r0
     ldr     r0, [r2, #SHADOWFRAME_NUMBER_OF_VREGS_OFFSET]
     add     rFP, r2, #SHADOWFRAME_VREGS_OFFSET     @ point to vregs.
-    VREG_INDEX_TO_ADDR rREFS, r0                   @ point to reference array in shadow frame
+    lsl     rREF_OFF, r0, #2                       @ offset of shadow vregs.
     ldr     r0, [r2, #SHADOWFRAME_DEX_PC_OFFSET]   @ Get starting dex_pc.
     add     rPC, r1, r0, lsl #1                    @ Create direct pointer to 1st dex opcode
     CFI_DEFINE_DEX_PC_WITH_OFFSET(CFI_TMP, CFI_DEX, 0)

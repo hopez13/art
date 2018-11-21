@@ -83,7 +83,6 @@
     cmp     r1, r3                      @ compare unsigned index, length
     bcs     common_errArrayIndex        @ index >= length, bail
     FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     ldrd    r2, [r0, #MIRROR_WIDE_ARRAY_DATA_OFFSET]  @ r2/r3<- vBB[vCC]
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
     GET_INST_OPCODE ip                  @ extract opcode from rINST

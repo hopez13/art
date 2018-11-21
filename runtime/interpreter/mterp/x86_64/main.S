@@ -288,15 +288,6 @@ unspecified registers or condition codes.
     movl    \_reg, VREG_REF_ADDRESS(\_vreg)
 .endm
 
-.macro GET_VREG_HIGH _reg _vreg
-    movl    VREG_HIGH_ADDRESS(\_vreg), \_reg
-.endm
-
-.macro SET_VREG_HIGH _reg _vreg
-    movl    \_reg, VREG_HIGH_ADDRESS(\_vreg)
-    movl    MACRO_LITERAL(0), VREG_REF_HIGH_ADDRESS(\_vreg)
-.endm
-
 .macro CLEAR_REF _vreg
     movl    MACRO_LITERAL(0), VREG_REF_ADDRESS(\_vreg)
 .endm
@@ -314,9 +305,11 @@ unspecified registers or condition codes.
 .endm
 .macro SET_VREG_XMMs _xmmreg _vreg
     movss \_xmmreg, VREG_ADDRESS(\_vreg)
+    CLEAR_REF \_vreg
 .endm
 .macro SET_VREG_XMMd _xmmreg _vreg
     movsd \_xmmreg, VREG_ADDRESS(\_vreg)
+    CLEAR_WIDE_REF \_vreg
 .endm
 
 /*

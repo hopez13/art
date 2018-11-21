@@ -163,7 +163,6 @@
     orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
     beq     common_errDivideByZero
     .endif
-    CLEAR_SHADOW_PAIR rINST, lr, ip     @ Zero out the shadow regs
     FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
     $preinstr                           @ optional op; may set condition codes
     $instr                              @ result<- op, r0-r3 changed
@@ -198,7 +197,6 @@
     orrs    ip, r2, r3                  @ second arg (r2-r3) is zero?
     beq     common_errDivideByZero
     .endif
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
     FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
     $preinstr                           @ optional op; may set condition codes
     $instr                              @ result<- op, r0-r3 changed
@@ -266,7 +264,6 @@
     VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[B]
     VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
     GET_VREG_WIDE_BY_ADDR r0, r1, r3    @ r0/r1<- vAA
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
     FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
     $preinstr                           @ optional op; may set condition codes
     $instr                              @ r0/r1<- op, r2-r3 changed
@@ -289,7 +286,6 @@
     GET_VREG r0, r3                     @ r0<- vB
     VREG_INDEX_TO_ADDR r9, rINST        @ r9<- &fp[A]
     $preinstr                           @ optional op; may set condition codes
-    CLEAR_SHADOW_PAIR rINST, ip, lr     @ Zero shadow regs
     FETCH_ADVANCE_INST 1                @ advance rPC, load rINST
     $instr                              @ r0<- op, r0-r3 changed
     GET_INST_OPCODE ip                  @ extract opcode from rINST
@@ -548,7 +544,6 @@
     mla     r2, r0, r3, ip              @ r2<- YxX + (ZxW)
     mov     r0, rINST, lsr #8           @ r0<- AA
     add     r2, r2, lr                  @ r2<- lr + low(ZxW + (YxX))
-    CLEAR_SHADOW_PAIR r0, lr, ip        @ Zero out the shadow regs
     VREG_INDEX_TO_ADDR r0, r0           @ r0<- &fp[AA]
     FETCH_ADVANCE_INST 2                @ advance rPC, load rINST
     GET_INST_OPCODE ip                  @ extract opcode from rINST
@@ -782,7 +777,6 @@
     VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
     GET_VREG r2, r0                     @ r2<- vCC
     GET_VREG_WIDE_BY_ADDR r0, r1, r3    @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     and     r2, r2, #63                 @ r2<- r2 & 0x3f
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
     mov     r1, r1, asl r2              @ r1<- r1 << r2
@@ -805,7 +799,6 @@
     mov     r3, rINST, lsr #12          @ r3<- B
     ubfx    r9, rINST, #8, #4           @ r9<- A
     GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
     and     r2, r2, #63                 @ r2<- r2 & 0x3f
     GET_VREG_WIDE_BY_ADDR r0, r1, r9    @ r0/r1<- vAA/vAA+1
@@ -844,7 +837,6 @@
     VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
     GET_VREG r2, r0                     @ r2<- vCC
     GET_VREG_WIDE_BY_ADDR r0, r1, r3    @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     and     r2, r2, #63                 @ r0<- r0 & 0x3f
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
     mov     r0, r0, lsr r2              @ r0<- r2 >> r2
@@ -867,7 +859,6 @@
     mov     r3, rINST, lsr #12          @ r3<- B
     ubfx    r9, rINST, #8, #4           @ r9<- A
     GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
     and     r2, r2, #63                 @ r2<- r2 & 0x3f
     GET_VREG_WIDE_BY_ADDR r0, r1, r9    @ r0/r1<- vAA/vAA+1
@@ -918,7 +909,6 @@
     VREG_INDEX_TO_ADDR r3, r3           @ r3<- &fp[BB]
     GET_VREG r2, r0                     @ r2<- vCC
     GET_VREG_WIDE_BY_ADDR r0, r1, r3    @ r0/r1<- vBB/vBB+1
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     and     r2, r2, #63                 @ r0<- r0 & 0x3f
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[AA]
     mov     r0, r0, lsr r2              @ r0<- r2 >> r2
@@ -941,7 +931,6 @@
     mov     r3, rINST, lsr #12          @ r3<- B
     ubfx    r9, rINST, #8, #4           @ r9<- A
     GET_VREG r2, r3                     @ r2<- vB
-    CLEAR_SHADOW_PAIR r9, lr, ip        @ Zero out the shadow regs
     VREG_INDEX_TO_ADDR r9, r9           @ r9<- &fp[A]
     and     r2, r2, #63                 @ r2<- r2 & 0x3f
     GET_VREG_WIDE_BY_ADDR r0, r1, r9    @ r0/r1<- vAA/vAA+1
