@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efbef031_e6d86955",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-11-21T16:45:34Z",
+      "side": 1,
+      "message": "It would be good to have extra coverage for the complex cases.\n\nAdd a test having a shared lib depend on another. And one that will force reusing a classloader for the shared library.",
+      "range": {
+        "startLine": 1224,
+        "startChar": 38,
+        "endLine": 1224,
+        "endChar": 70
+      },
+      "revId": "13fbb997d1cb5cd9eebd9ae05dda4c8de65b1ab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
