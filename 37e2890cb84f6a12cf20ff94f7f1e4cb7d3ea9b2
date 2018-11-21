@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c9525197_7786c48b",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbee163e_65c77493",
+      "range": {
+        "startLine": 775,
+        "startChar": 2,
+        "endLine": 776,
+        "endChar": 28
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49e8149_7f8fa661",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "162ee520_97c4784e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49e8149_7f8fa661",
+      "range": {
+        "startLine": 1130,
+        "startChar": 12,
+        "endLine": 1130,
+        "endChar": 24
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c631bbda_a418e084",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-11-21T08:29:20Z",
       "side": 1,
       "message": "consider renaming these two; the method is generic enough to not care about the \"image_\".",
+      "range": {
+        "startLine": 1185,
+        "startChar": 32,
+        "endLine": 1186,
+        "endChar": 73
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bd87009_350a145e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Actually, the VLOG just above (lines 1171 and 1175) metion images, and that\u0027s probably useful for debugging. I\u0027ll keep the names for now?",
+      "parentUuid": "c631bbda_a418e084",
       "range": {
         "startLine": 1185,
         "startChar": 32,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "29983326_b57f5a72",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Done, and thanks for pointing this out, it should be \"true\" :)",
+      "parentUuid": "18a93314_9106cd17",
+      "range": {
+        "startLine": 1241,
+        "startChar": 31,
+        "endLine": 1241,
+        "endChar": 65
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9fdca0d1_335e0ca3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d6e2eed6_fa0991ba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fdca0d1_335e0ca3",
+      "range": {
+        "startLine": 1251,
+        "startChar": 27,
+        "endLine": 1251,
+        "endChar": 61
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbe6c8cb_0996dad9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "493fe755_7ca4c1cd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T09:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe6c8cb_0996dad9",
+      "range": {
+        "startLine": 2035,
+        "startChar": 0,
+        "endLine": 2036,
+        "endChar": 25
+      },
+      "revId": "37e2890cb84f6a12cf20ff94f7f1e4cb7d3ea9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
