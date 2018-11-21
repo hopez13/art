@@ -848,7 +848,7 @@ void JitCodeCache::DisallowInlineCacheAccess() {
 
 void JitCodeCache::CopyInlineCacheInto(const InlineCache& ic,
                                        Handle<mirror::ObjectArray<mirror::Class>> array) {
-  WaitUntilInlineCacheAccessible(Thread::Current());
+  WaitUntilInlineCacheAccessible wuica(Thread::Current());
   // Note that we don't need to lock `lock_` here, the compiler calling
   // this method has already ensured the inline cache will not be deleted.
   for (size_t in_cache = 0, in_array = 0;
@@ -1806,8 +1806,9 @@ void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) NO_THREAD_S
 
 void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_locations,
                                       std::vector<ProfileMethodInfo>& methods) {
-  ScopedTrace trace(__FUNCTION__);
+  WaitUntilInlineCacheAccessible wuica(self);
   MutexLock mu(Thread::Current(), lock_);
+  ScopedTrace trace(__FUNCTION__);
   uint16_t jit_compile_threshold = Runtime::Current()->GetJITOptions()->GetCompileThreshold();
   for (const ProfilingInfo* info : profiling_infos_) {
     ArtMethod* method = info->GetMethod();
