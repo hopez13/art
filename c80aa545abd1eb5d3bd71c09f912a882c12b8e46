@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1654ae06_9e5d35ff",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Unnecessary spaces.",
+      "range": {
+        "startLine": 1234,
+        "startChar": 12,
+        "endLine": 1234,
+        "endChar": 31
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a51ce0c5_a13ee5fc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "/*out*/",
+      "range": {
+        "startLine": 1099,
+        "startChar": 27,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf430793_fcfaac57",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Prefer pointers for output args.",
+      "range": {
+        "startLine": 1099,
+        "startChar": 61,
+        "endLine": 1099,
+        "endChar": 62
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a4d121_e5328158",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "/*out*/",
+      "range": {
+        "startLine": 1100,
+        "startChar": 27,
+        "endLine": 1100,
+        "endChar": 28
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ed92a5_1316e2f9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Why? (Given that this is \"not a critical error\".)",
+      "range": {
+        "startLine": 1116,
+        "startChar": 6,
+        "endLine": 1116,
+        "endChar": 41
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16c380f1_5e73a022",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Unnecessary spaces.",
+      "range": {
+        "startLine": 1126,
+        "startChar": 45,
+        "endLine": 1126,
+        "endChar": 61
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a29ac975_fc986df1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "What about\n\n  image_dex_files.size() \u003d\u003d loader_dex_files.size() \u0026\u0026\n  std::equal(image_dex_files.begin(),\n             image_dex_files.end(),\n             image_dex_files.begin(),\n             [](ObjPtr\u003cmirror::String\u003e lhs, ObjPtr\u003cmirror::String\u003e rhs) {\n               return lhs-\u003eEquals(rhs);\n             });",
+      "range": {
+        "startLine": 1162,
+        "startChar": 15,
+        "endLine": 1169,
+        "endChar": 3
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39dd1584_e9431f79",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1249,
+        "startChar": 48,
+        "endLine": 1249,
+        "endChar": 58
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e01c3a56_1d29dc3c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Unnecessary spaces.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 29,
+        "endLine": 1253,
+        "endChar": 52
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "774d1603_d520665d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Really?",
+      "range": {
+        "startLine": 2024,
+        "startChar": 42,
+        "endLine": 2024,
+        "endChar": 60
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90b6af46_42ea2f2b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2054,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Why list\u003c\u003e?",
+      "range": {
+        "startLine": 2054,
+        "startChar": 9,
+        "endLine": 2054,
+        "endChar": 13
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03365474_06737caa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T11:48:42Z",
+      "side": 1,
+      "message": "Unnecessary spaces.",
+      "range": {
+        "startLine": 2069,
+        "startChar": 49,
+        "endLine": 2069,
+        "endChar": 72
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
