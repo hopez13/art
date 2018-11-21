@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "302f285b_152844fe",
+        "filename": "runtime/image.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-21T18:23:43Z",
+      "side": 1,
+      "message": "My local CL had some functional changes to the image header which I decided to undo. I kept this cleanup and I\u0027m not eager to split it out to a separate CL.",
+      "revId": "312f10ed40dd175e71eba51ecb44e550e0ac6e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
