@@ -426,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "85345765_aafe805f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-21T13:15:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46cfee42_57520a89",
+      "range": {
+        "startLine": 1249,
+        "startChar": 48,
+        "endLine": 1249,
+        "endChar": 58
+      },
+      "revId": "c80aa545abd1eb5d3bd71c09f912a882c12b8e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e01c3a56_1d29dc3c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
