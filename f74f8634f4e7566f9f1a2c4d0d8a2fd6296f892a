@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccaeb40e_87f0cc23",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T15:43:06Z",
+      "side": 1,
+      "message": "Tried \"dex2oat -h\" from this directory, and I see in the linker debug that it still loads all libs from /system/${LIB}. Verified that this file is in /apex/com.android.runtime/etc. Shouldn\u0027t it work better?",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b61b7abc_1d35d63a",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T15:43:06Z",
+      "side": 1,
+      "message": "We need some sort of expansion here to deal with this version number and the one in the search path below, right?",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7df4f6a_e2ce6a7b",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T15:43:06Z",
+      "side": 1,
+      "message": "This is a small subset of the paths and other setup for the default namespace in the [system] section in /system/etc/ld.config.txt. How much of it do we need here?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
