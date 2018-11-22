@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6c559e32_1d1a5073",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-22T17:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5bd0408_91485549",
+      "revId": "ce2560ee1e7258a341580938d96aaf3fa2117e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e22b2468_ae8df94d",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "ce2560ee1e7258a341580938d96aaf3fa2117e17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bee912e_6f82fb21",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-22T17:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e22b2468_ae8df94d",
+      "range": {
+        "startLine": 1433,
+        "startChar": 0,
+        "endLine": 1434,
+        "endChar": 34
+      },
+      "revId": "ce2560ee1e7258a341580938d96aaf3fa2117e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
