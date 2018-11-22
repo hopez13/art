@@ -58,6 +58,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "default",
       "generic",
       "kryo",
+      "kryo385",
       "exynos-m1",
       "exynos-m2",
       "exynos-m3",
@@ -74,12 +75,14 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
   };
 
   static const char* arm64_variants_with_lse[] = {
+      "kryo385",
       "cortex-a55",
       "cortex-a75",
       "cortex-a76",
   };
 
   static const char* arm64_variants_with_fp16[] = {
+      "kryo385",
       "cortex-a55",
       "cortex-a75",
       "cortex-a76",
@@ -124,7 +127,8 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
         "exynos-m2",
         "exynos-m3",
         "denver64",
-        "kryo"
+        "kryo",
+        "kryo385"
     };
     if (!FindVariantInArray(arm64_known_variants, arraysize(arm64_known_variants), variant)) {
       std::ostringstream os;
