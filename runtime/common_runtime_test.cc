@@ -118,8 +118,14 @@ void CommonRuntimeTestImpl::SetUp() {
     boot_class_path_string += ":";
     boot_class_path_string += core_dex_file_name;
   }
+  std::string boot_class_path_locations_string = "-Xbootclasspath-locations";
+  for (const std::string &core_dex_location : GetLibCoreDexLocations()) {
+    boot_class_path_locations_string += ":";
+    boot_class_path_locations_string += core_dex_location;
+  }
 
   options.push_back(std::make_pair(boot_class_path_string, nullptr));
+  options.push_back(std::make_pair(boot_class_path_locations_string, nullptr));
   options.push_back(std::make_pair("-Xcheck:jni", nullptr));
   options.push_back(std::make_pair(min_heap_string, nullptr));
   options.push_back(std::make_pair(max_heap_string, nullptr));
