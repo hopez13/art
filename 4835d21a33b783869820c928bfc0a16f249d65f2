@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e393826_b620a8cd",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-22T10:32:12Z",
+      "side": 1,
+      "message": "ObjPtr\u003c\u003e?",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "4835d21a33b783869820c928bfc0a16f249d65f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3933461a_d510038d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-22T10:32:12Z",
+      "side": 1,
+      "message": "Passing `Class*` instead of `ObjPtr\u003cClass\u003e` would yield an unresolved reference link error, right?",
+      "range": {
+        "startLine": 8093,
+        "startChar": 58,
+        "endLine": 8093,
+        "endChar": 88
+      },
+      "revId": "4835d21a33b783869820c928bfc0a16f249d65f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e1173e_2af46c8e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-22T10:32:12Z",
+      "side": 1,
+      "message": "Ptr or PtrType",
+      "range": {
+        "startLine": 934,
+        "startChar": 21,
+        "endLine": 934,
+        "endChar": 22
+      },
+      "revId": "4835d21a33b783869820c928bfc0a16f249d65f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
