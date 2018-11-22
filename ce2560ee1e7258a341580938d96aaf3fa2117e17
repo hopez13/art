@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5bd0408_91485549",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-22T16:14:07Z",
+      "side": 1,
+      "message": "Please add\n\n  Bug: 119486919\n\nhere.",
+      "revId": "ce2560ee1e7258a341580938d96aaf3fa2117e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e22b2468_ae8df94d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-22T16:14:07Z",
+      "side": 1,
+      "message": "Could you document these two new fields?",
+      "range": {
+        "startLine": 1433,
+        "startChar": 0,
+        "endLine": 1434,
+        "endChar": 34
+      },
+      "revId": "ce2560ee1e7258a341580938d96aaf3fa2117e17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
