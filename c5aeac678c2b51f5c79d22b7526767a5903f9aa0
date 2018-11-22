@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "f109f662_268f50f0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-22T10:20:35Z",
+      "side": 1,
+      "message": "Sorry I missed that. I see you didn\u0027t add the `blsi(Register, Address)` to the assembler.",
+      "parentUuid": "42814a9d_be167a74",
+      "range": {
+        "startLine": 618,
+        "startChar": 19,
+        "endLine": 618,
+        "endChar": 45
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f6a1e57_69e7b437",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -329,6 +353,30 @@
       "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79affd0c_81e51156",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-22T10:20:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2efffeae_0bebb09c",
+      "range": {
+        "startLine": 2418,
+        "startChar": 19,
+        "endLine": 2418,
+        "endChar": 48
+      },
+      "revId": "c5aeac678c2b51f5c79d22b7526767a5903f9aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
