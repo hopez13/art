@@ -75,6 +75,21 @@ bool DexoptTest::Dex2Oat(const std::vector<std::string>& args, std::string* erro
     argv.push_back("--host");
   }
 
+  std::string boot_class_path_string = "-Xbootclasspath";
+  for (const std::string &core_dex_file_name : GetLibCoreDexFileNames()) {
+    boot_class_path_string += ":";
+    boot_class_path_string += core_dex_file_name;
+  }
+  argv.push_back("--runtime-arg");
+  argv.push_back(boot_class_path_string);
+  std::string boot_class_path_locations_string = "-Xbootclasspath-locations";
+  for (const std::string &core_dex_location : GetLibCoreDexLocations()) {
+    boot_class_path_locations_string += ":";
+    boot_class_path_locations_string += core_dex_location;
+  }
+  argv.push_back("--runtime-arg");
+  argv.push_back(boot_class_path_locations_string);
+
   argv.push_back("--boot-image=" + ImageLocation());
 
   std::vector<std::string> compiler_options = runtime->GetCompilerOptions();
