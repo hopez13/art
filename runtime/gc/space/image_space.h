@@ -39,9 +39,11 @@ class ImageSpace : public MemMapSpace {
   // Load boot image spaces from a primary image file for a specified instruction set.
   //
   // On successful return, the loaded spaces are added to boot_image_spaces (which must be
-  // empty on entry) and oat_file_end is updated with the (page-aligned) end of the last
-  // oat file.
+  // empty on entry) and `extra_reservation` is set to the requested reservation located
+  // after the end of the last loaded oat file.
   static bool LoadBootImage(
+      const std::vector<std::string>& boot_class_path,
+      const std::vector<std::string>& boot_class_path_locations,
       const std::string& image_location,
       const InstructionSet image_isa,
       size_t extra_reservation_size,
@@ -128,9 +130,10 @@ class ImageSpace : public MemMapSpace {
                                         const std::string& boot_classpath,
                                         std::vector<std::string>* image_filenames);
 
-  static std::string GetMultiImageBootClassPath(const std::vector<const char*>& dex_locations,
-                                                const std::vector<const char*>& oat_filenames,
-                                                const std::vector<const char*>& image_filenames);
+  // Expand a single image location to multi-image locations based on the dex locations.
+  static std::vector<std::string> ExpandMultiImageLocations(
+      const std::vector<std::string>& dex_locations,
+      const std::string& image_location);
 
   // Returns true if the dex checksums in the given oat file match the
   // checksums of the original dex files on disk. This is intended to be used
