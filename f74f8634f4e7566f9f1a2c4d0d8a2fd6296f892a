@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "02787be0_e6d26bca",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-22T16:43:27Z",
+      "side": 1,
+      "message": "Hmm, I have no idea. That worked for me though. Perhaps selinux denial? What is the label of this file? Is it accessible to the app?",
+      "parentUuid": "ccaeb40e_87f0cc23",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b61b7abc_1d35d63a",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "The reason for this line is to pick the right linker config if a binary is started as /apex/com.android.runtime@1/bin/foo, regardless what\u0027s mounted on /apex/com.android.runtime.",
       "parentUuid": "4d765995_fb77db4e",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0900113f_ee2f3ae2",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-22T16:43:27Z",
+      "side": 1,
+      "message": "I don\u0027t think you need @1. You will always run art tools from /apex/com.android.runtime/bin.\n\n@1 directory is for the cases where having multiple versions of the same APEX makes sense, which isn\u0027t true for ART.",
+      "parentUuid": "395e69fc_9e616b3c",
       "range": {
         "startLine": 2,
         "startChar": 39,
