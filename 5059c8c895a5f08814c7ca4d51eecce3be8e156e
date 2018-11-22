@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f4620bf_db961f9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-11-22T18:04:54Z",
+      "side": 1,
+      "message": "I always assume the top line will be mangled by merge tooling. Usually I expand on the top line but there was nothing to add.",
+      "parentUuid": "71759bbd_1fbb3be3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "5059c8c895a5f08814c7ca4d51eecce3be8e156e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8d503464_5f51b945",
         "filename": "build/apex/file_contexts",
         "patchSetId": 2
