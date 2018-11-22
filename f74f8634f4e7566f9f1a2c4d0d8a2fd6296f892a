@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "395e69fc_9e616b3c",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T16:36:41Z",
+      "side": 1,
+      "message": "The reason for this line is to pick the right linker config if a binary is started as /apex/com.android.runtime@1/bin/foo, regardless what\u0027s mounted on /apex/com.android.runtime.",
+      "parentUuid": "4d765995_fb77db4e",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed702083_88aab807",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -118,6 +142,30 @@
       "writtenOn": "2018-11-22T16:03:48Z",
       "side": 1,
       "message": "Shouldn\u0027t we use\n\n  com.android.runtime\n\nhere?",
+      "range": {
+        "startLine": 9,
+        "startChar": 38,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d82fc9c_bf6a1103",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T16:36:41Z",
+      "side": 1,
+      "message": "Then a binary in /apex/com.android.runtime@1/bin/ could link to libraries in /apex/com.android.runtime@2/${LIB}, if that\u0027s what mounted on /apex/com.android.runtime.\n\nIt\u0027d be more correct to use a relative path ../${LIB} here, providing the linker would resolve it relative to the directory of the binary. I\u0027ve seen no sign that that would work though.",
+      "parentUuid": "ed702083_88aab807",
       "range": {
         "startLine": 9,
         "startChar": 38,
