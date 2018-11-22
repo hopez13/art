@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "24865dac_4df7d418",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T17:52:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be selinux - I\u0027ve actually disabled it completely to test this, while rpl@ is working on getting the selinux config in order.\n\n\u003e What is the label of this file? Is it accessible to the app?\n\nSorry, I don\u0027t know what you mean with label there. Permission bits look ok:\n\ntaimen:/ # ls -la /apex/com.android.runtime/                                                                                                     \ntotal 68\ndrwxr-xr-x 7 system system  4096 1970-01-01 01:00 .\ndrwxr-xr-x 6 root   root     120 2018-11-07 21:04 ..\ndrwxr-xr-x 2 system system  4096 1970-01-01 01:00 bin\ndrwxr-xr-x 2 system system  4096 1970-01-01 01:00 etc\ndrwxr-xr-x 2 system system  4096 1970-01-01 01:00 lib\ndrwxr-xr-x 2 system system  4096 1970-01-01 01:00 lib64\ndrwx------ 2 root   root   16384 2018-11-22 14:11 lost+found\n-rw-r--r-- 1 system system    52 1970-01-01 01:00 manifest.json\ntaimen:/ # ls -la /apex/com.android.runtime/etc/                                                                                                 \ntotal 24\ndrwxr-xr-x 2 system system 4096 1970-01-01 01:00 .\ndrwxr-xr-x 7 system system 4096 1970-01-01 01:00 ..\n-rw-r--r-- 1 system system 1090 1970-01-01 01:00 ld.config.txt\ntaimen:/ # ls -la /apex/com.android.runtime/bin/dex2oat                                                                                          \n-rwxr-xr-x 1 system system 539772 1970-01-01 01:00 /apex/com.android.runtime/bin/dex2oat\ntaimen:/ # id\nuid\u003d0(root) gid\u003d0(root) groups\u003d0(root),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context\u003du:r:su:s0\n\nHere\u0027s the logcat output: http://gpaste/6347587183443968",
+      "parentUuid": "02787be0_e6d26bca",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b61b7abc_1d35d63a",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "I don\u0027t think you need @1. You will always run art tools from /apex/com.android.runtime/bin.\n\n@1 directory is for the cases where having multiple versions of the same APEX makes sense, which isn\u0027t true for ART.",
       "parentUuid": "395e69fc_9e616b3c",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52aedd97_fcce03f7",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-22T17:52:16Z",
+      "side": 1,
+      "message": "Good, that simplifies matters. I assumed several could be mounted temporarily during upgrades or rollbacks.\n\nIf we\u0027re making that assumption in this APEX, it\u0027d be good to make it explicit with a property in the manifest too. Then it\u0027d be nice if apexd didn\u0027t mount it on @1 at all, to avoid uncertainty about this.",
+      "parentUuid": "0900113f_ee2f3ae2",
       "range": {
         "startLine": 2,
         "startChar": 39,
