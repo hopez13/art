@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad59120c_14fdeba5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-22T16:03:48Z",
+      "side": 1,
+      "message": "Could you add:\n\n  Bug: 113373927\n\nhere?",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ccaeb40e_87f0cc23",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -35,6 +52,53 @@
         "startChar": 39,
         "endLine": 2,
         "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af77bbd0_7fb6a2e7",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-22T16:03:48Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "parentUuid": "b61b7abc_1d35d63a",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed702083_88aab807",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-22T16:03:48Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use\n\n  com.android.runtime\n\nhere?",
+      "range": {
+        "startLine": 9,
+        "startChar": 38,
+        "endLine": 9,
+        "endChar": 59
       },
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
