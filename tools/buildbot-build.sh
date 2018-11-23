@@ -86,8 +86,13 @@ elif [[ $mode == "target" ]]; then
   mode_suffix="-target"
 fi
 
-mode_specific_libraries="libjavacoretests libjdwp libwrapagentproperties libwrapagentpropertiesd"
-for LIB in ${mode_specific_libraries} ; do
+mode_specific_libraries=( \
+  libjavacoretests \
+  libinmemorydexclassloadertest \
+  libjdwp \
+  libwrapagentproperties \
+  libwrapagentpropertiesd )
+for LIB in ${mode_specific_libraries[@]} ; do
   make_command+=" $LIB${mode_suffix}"
 done
 
