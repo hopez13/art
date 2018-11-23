@@ -85,7 +85,7 @@ class CommonArtTestImpl {
   CommonArtTestImpl() = default;
   virtual ~CommonArtTestImpl() = default;
 
-  static void SetUpAndroidRoot();
+  static void SetUpAndroidRootAndRuntime();
 
   // Note: setting up ANDROID_DATA may create a temporary directory. If this is used in a
   // non-derived class, be sure to also call the corresponding tear-down below.
