@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "86a28330_6a06f964",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-23T02:26:40Z",
+      "side": 1,
+      "message": "I meant selinux label, which can be shown with -Z option. (ls -Z ...)",
+      "parentUuid": "24865dac_4df7d418",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b61b7abc_1d35d63a",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
