@@ -22,6 +22,30 @@
       "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "127860b5_2f6b9f24",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T01:40:31Z",
+      "side": 1,
+      "message": "Probably not, but in this case I think it\u0027s overall less thought and fret to just mindlessly stick to the \"keep in sync\" directives and ensure we have the exact same namespace switching happening in both places.",
+      "parentUuid": "0fcdc8bb_21b36bc2",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
