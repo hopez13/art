@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "29e2351e_40094bd1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T00:24:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad59120c_14fdeba5",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ccaeb40e_87f0cc23",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I meant selinux label, which can be shown with -Z option. (ls -Z ...)",
       "parentUuid": "24865dac_4df7d418",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f571d7a_bffae46e",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T00:24:02Z",
+      "side": 1,
+      "message": "As I said, I believe I\u0027ve disabled SELinux. Nevertheless, here are the -Z outputs (I\u0027ll need to read up on SELinux):\n\ntaimen:/apex/com.android.runtime # ls -lZ                                                                                                        \ntotal 60\ndrwxr-xr-x 2 system system u:object_r:system_file:s0      4096 1970-01-01 01:00 bin\ndrwxr-xr-x 2 system system u:object_r:system_file:s0      4096 1970-01-01 01:00 etc\ndrwxr-xr-x 2 system system u:object_r:system_lib_file:s0  4096 1970-01-01 01:00 lib\ndrwxr-xr-x 2 system system u:object_r:system_lib_file:s0  4096 1970-01-01 01:00 lib64\ndrwx------ 2 root   root   u:object_r:system_file:s0     16384 2018-11-23 16:14 lost+found\n-rw-r--r-- 1 system system u:object_r:system_file:s0        52 1970-01-01 01:00 manifest.json\ntaimen:/apex/com.android.runtime # ls -lZ bin/dex2oat                                                                                            \n-rwxr-xr-x 1 system system u:object_r:dex2oat_exec:s0 539772 1970-01-01 01:00 bin/dex2oat\ntaimen:/apex/com.android.runtime # ls -lZ etc/ld.config.txt                                                                                      \n-rw-r--r-- 1 system system u:object_r:system_file:s0 894 1970-01-01 01:00 etc/ld.config.txt",
+      "parentUuid": "86a28330_6a06f964",
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -233,6 +269,30 @@
     },
     {
       "key": {
+        "uuid": "0e518c50_4745f106",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T00:24:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52aedd97_fcce03f7",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 41
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed702083_88aab807",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -280,6 +340,30 @@
     },
     {
       "key": {
+        "uuid": "f0d4d80b_94808352",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T00:24:02Z",
+      "side": 1,
+      "message": "Changed as per discussion above.",
+      "parentUuid": "4d82fc9c_bf6a1103",
+      "range": {
+        "startLine": 9,
+        "startChar": 38,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7df4f6a_e2ce6a7b",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -291,6 +375,30 @@
       "writtenOn": "2018-11-22T15:43:06Z",
       "side": 1,
       "message": "This is a small subset of the paths and other setup for the default namespace in the [system] section in /system/etc/ld.config.txt. How much of it do we need here?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d22582b_6d53bf3e",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-24T00:24:02Z",
+      "side": 1,
+      "message": "I\u0027m particularly unsure whether we need to include some amount of system/vendor directories to ensure PALette dependencies are satisfied. I see for instance this in rootdir/etc/ld.config.txt:\n\n/.../\n# These are where odex files are located. libart has to be able to dlopen the files\nnamespace.default.permitted.paths +\u003d /system/framework\nnamespace.default.permitted.paths +\u003d /system/app\n/.../\n\nOrion?",
+      "parentUuid": "f7df4f6a_e2ce6a7b",
       "range": {
         "startLine": 15,
         "startChar": 0,
