@@ -1507,6 +1507,12 @@ size_t ConcurrentCopying::ProcessThreadLocalMarkStacks(bool disable_weak_ref_acc
 
 inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   DCHECK(!region_space_->IsInFromSpace(to_ref));
+  /* to_ref should not be null, check it earlier to avoid crash */
+  if (to_ref == nullptr) {
+    LOG(ERROR) << "ProcessMarkStackRef Find null object, try ignore it for stability purpose."
+               << "This null object exists in gc_mark_stack_ or thread local mark stacks.";
+    return;
+  }
   if (kUseBakerReadBarrier) {
     DCHECK(to_ref->GetReadBarrierState() == ReadBarrier::GrayState())
         << " " << to_ref << " " << to_ref->GetReadBarrierState()
