@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "741114c8_abf8ea0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-26T18:44:15Z",
+      "side": 1,
+      "message": "Just a small paragraph, maybe? \"As a module, ART must no longer use the Android-wide ANDROID_ROOT environment variable as the base of default paths for module content. ANDROID_RUNTIME will take over the responsibility. It remains a variable to unify host and device treatment.\"",
+      "parentUuid": "d88c8ac2_135975d5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "4e4eebe610b1ddc3eff457c141aa63423d516f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "721ab1d1_3cd00ae6",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
