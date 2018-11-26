@@ -22,6 +22,30 @@
       "revId": "85f1c576d228c2c43e9a0dc37f0cbb91fad59c45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9665e64_e4f4f04b",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-26T18:16:24Z",
+      "side": 1,
+      "message": "We\u0027re super inconsistent, so I left the style as-is. We should do one big CL cleaning up everything, IMHO.",
+      "parentUuid": "581f499a_feca9873",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "85f1c576d228c2c43e9a0dc37f0cbb91fad59c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
