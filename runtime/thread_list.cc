@@ -771,6 +771,19 @@ void ThreadList::SuspendAllInternal(Thread* self,
             LOG(kIsDebugBuild ? ::android::base::FATAL : ::android::base::ERROR)
                 << "Timed out waiting for threads to suspend, waited for "
                 << PrettyDuration(NanoTime() - start_time);
+
+            {
+              MutexLock mu(self, *Locks::thread_list_lock_);
+              MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
+              for (const auto& thread : list_) {
+                if (thread == ignore1 || thread == ignore2) {
+                    continue;
+                }
+                if (!(thread->IsSuspended())) {
+                    LOG(ERROR) << "still not suspend: " << *thread;
+                }
+              }
+            }
           } else {
             PLOG(FATAL) << "futex wait failed for SuspendAllInternal()";
           }
