@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4db06e57_88983e87",
+        "filename": "runtime/interpreter/mterp/arm/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-26T11:12:19Z",
+      "side": 1,
+      "message": "Do we want to introduce explicit *_NO_CLEAR macros?",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "20b7bb0452719217905576aa25a85061ca5dee75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13411a55_5e96ab54",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-26T11:12:19Z",
+      "side": 1,
+      "message": "It doesn\u0027t, `temp` is not an input. (But maybe the user should treat the macro as if it did clobber reg/addr?)",
+      "range": {
+        "startLine": 285,
+        "startChar": 50,
+        "endLine": 285,
+        "endChar": 75
+      },
+      "revId": "20b7bb0452719217905576aa25a85061ca5dee75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
