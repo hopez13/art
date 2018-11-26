@@ -155,10 +155,8 @@ art_cc_library {
         "libbacktrace",
     ],
     header_libs: [
+        "libicuuc_headers",
         "libnativehelper_header_only",
-    ],
-    include_dirs: [
-        "external/icu/icu4c/source/common",
     ],
 }
 
