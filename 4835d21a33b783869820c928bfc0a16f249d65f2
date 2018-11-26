@@ -140,6 +140,30 @@
       "revId": "4835d21a33b783869820c928bfc0a16f249d65f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4040528a_917c39f9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-26T17:56:17Z",
+      "side": 1,
+      "message": "I think so, ObjPtr\u003c\u003e is a pointer type.",
+      "parentUuid": "d25bd9b7_c063e7c9",
+      "range": {
+        "startLine": 934,
+        "startChar": 21,
+        "endLine": 934,
+        "endChar": 22
+      },
+      "revId": "4835d21a33b783869820c928bfc0a16f249d65f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
