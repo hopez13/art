@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d1314e8_555340fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aebc9cb_df3578f8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2413dd12_a62d3957",
         "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
         "patchSetId": 33
@@ -39,6 +63,24 @@
       "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46b1517_7583776e",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Can\u0027t. ImmutableMap.Builder throws an exception for \u0027null\u0027 keys",
+      "parentUuid": "2413dd12_a62d3957",
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c83140aa_ef9ca820",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/CsvGreylistConsumer.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Simplified this - merged with CsvWriter. And renamed:\nThe base GreylistConsumer is now AnnotationConsumer.\nThe concrete implementations are \"Writers\": AnnotationPropertyWriter and HiddenapiFlagsWriter.",
+      "parentUuid": "bddd868e_42980e82",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70823b4d_021ae64e",
         "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistAnnotationHandler.java",
         "patchSetId": 33
@@ -76,6 +142,30 @@
       "writtenOn": "2018-11-23T10:40:09Z",
       "side": 1,
       "message": "why not do this inside the case statement as before? You can\u0027t have more than one maxTargetSdk value on an annotation?",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d0dc352_00487e3b",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistAnnotationHandler.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Yeah, but it doesn\u0027t cover the case of not having the property at all, thus not checking \u0027null\u0027 is a key in the map.",
+      "parentUuid": "70823b4d_021ae64e",
       "range": {
         "startLine": 120,
         "startChar": 10,
@@ -108,6 +198,30 @@
       "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f21b6582_51958af0",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistAnnotationHandler.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "I think the more interesting question is what it was printing before when this was a Predicate.\nNow it prints:\n\"[ key1, key2, ..., keyN ]\"",
+      "parentUuid": "4f921712_a1bb1470",
+      "range": {
+        "startLine": 154,
+        "startChar": 20,
+        "endLine": 154,
+        "endChar": 49
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "8a62a602_f8ab0a42",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistConsumer.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93f8cbf8_245f32f6",
+      "range": {
+        "startLine": 13,
+        "startChar": 58,
+        "endLine": 13,
+        "endChar": 72
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cde8ac1_054bac44",
         "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistConsumer.java",
         "patchSetId": 33
@@ -168,6 +306,30 @@
       "writtenOn": "2018-11-23T10:40:09Z",
       "side": 1,
       "message": "I think it would be cleaner to have just entryWithHiddenapiFlags in here (i.e. get rid of this method), and move the sdk-\u003eflag map into the consumer. You can then leave this as an interface, and revert some of the changes in GreylistAnnotationHandler",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 45
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d11438fb_f259dd37",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistConsumer.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Merged back into one \u0027consume\u0027 method. I tried making this more generic by passing the ElementValuePair array here and extracting maxTargetSdk with the sdk-\u003eflag map in the consumer, but that means fabricating an ElementValuePair for the covariant return type annotation and that\u0027s tricky. Let\u0027s keep things simple and easy to test.\n\nAnnotationHandler parses the annotation and provides it to the consumers as primitive types / basic data structures.",
+      "parentUuid": "4cde8ac1_054bac44",
       "range": {
         "startLine": 16,
         "startChar": 16,
@@ -203,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "37f602f6_8deac275",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/SystemOutGreylistConsumer.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97c6b88_9013509a",
+      "range": {
+        "startLine": 6,
+        "startChar": 13,
+        "endLine": 6,
+        "endChar": 38
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37d21347_279e052c",
         "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
         "patchSetId": 33
@@ -217,6 +403,24 @@
       "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7580374_32e9913e",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "37d21347_279e052c",
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -243,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "37433d1e_fe4ff7e3",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b92d1d6_50527189",
+      "range": {
+        "startLine": 432,
+        "startChar": 24,
+        "endLine": 432,
+        "endChar": 40
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95c57a14_cc0891da",
         "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
         "patchSetId": 33
@@ -266,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "377c4bf5_7a367971",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "doesn\u0027t work",
+      "parentUuid": "95c57a14_cc0891da",
+      "range": {
+        "startLine": 452,
+        "startChar": 24,
+        "endLine": 452,
+        "endChar": 40
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9625780b_06261c4f",
         "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
         "patchSetId": 33
@@ -277,6 +529,30 @@
       "writtenOn": "2018-11-23T10:40:09Z",
       "side": 1,
       "message": "ImmutableMap.of() ?",
+      "range": {
+        "startLine": 473,
+        "startChar": 24,
+        "endLine": 473,
+        "endChar": 40
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d89f61d2_2c37da33",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/GreylistAnnotationHandlerTest.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-26T15:26:57Z",
+      "side": 1,
+      "message": "doesn\u0027t work",
+      "parentUuid": "9625780b_06261c4f",
       "range": {
         "startLine": 473,
         "startChar": 24,
