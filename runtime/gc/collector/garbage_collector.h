@@ -84,6 +84,9 @@ class GarbageCollector : public RootVisitor, public IsMarkedVisitor, public Mark
   uint64_t GetTotalCpuTime() const {
     return total_thread_cpu_time_ns_;
   }
+  uint64_t GetTotalCpuTimeInSeconds() const {
+    return GetTotalCpuTime() / 1000000000.0;
+  }
   uint64_t GetTotalPausedTimeNs() REQUIRES(!pause_histogram_lock_);
   int64_t GetTotalFreedBytes() const {
     return total_freed_bytes_;
