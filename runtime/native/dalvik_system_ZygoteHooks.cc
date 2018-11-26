@@ -49,6 +49,10 @@
 
 #include <sys/resource.h>
 
+#ifdef ART_TARGET_ANDROID
+#include "cutils/properties.h"
+#endif
+
 namespace art {
 
 // Set to true to always determine the non-debuggable classes even if we would not allow a debugger
@@ -77,12 +81,24 @@ static void EnableDebugger() {
   }
 #endif
   // We don't want core dumps, though, so set the core dump size to 0.
+  // SPRD: Only in user version, we don't want coredumpp
+#ifdef ART_TARGET_ANDROID
+  char value[PROPERTY_VALUE_MAX];
+#endif
   rlimit rl;
   rl.rlim_cur = 0;
   rl.rlim_max = RLIM_INFINITY;
+#ifdef ART_TARGET_ANDROID
+  property_get("persist.core.enabled", value, "");
+  if (strcmp(value, "1") != 0) {
+    LOG(DEBUG) << "Try to disable coredump for pid " << getpid();
+#endif
   if (setrlimit(RLIMIT_CORE, &rl) == -1) {
     PLOG(ERROR) << "setrlimit(RLIMIT_CORE) failed for pid " << getpid();
   }
+#ifdef ART_TARGET_ANDROID
+  }
+#endif
 }
 
 class ClassSet {
