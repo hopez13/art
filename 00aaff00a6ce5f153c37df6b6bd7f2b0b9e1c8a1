@@ -22,6 +22,30 @@
       "revId": "00aaff00a6ce5f153c37df6b6bd7f2b0b9e1c8a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fa5dc6_f19753cb",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-27T14:07:54Z",
+      "side": 1,
+      "message": "I\u0027ll change it if you want, but it is meant to be generic because it won\u0027t be just ApiList in the future.",
+      "parentUuid": "d991d9ad_9842dbd6",
+      "range": {
+        "startLine": 76,
+        "startChar": 20,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "00aaff00a6ce5f153c37df6b6bd7f2b0b9e1c8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
