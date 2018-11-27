@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bad7a029_ae81fc97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-27T18:13:47Z",
+      "side": 1,
+      "message": "Any bug number?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "287aaeddf7595d8f5a808b87684d4a8e0763ccc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be637d7a_62230faf",
+        "filename": "runtime/jit/jit-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-27T18:13:47Z",
+      "side": 1,
+      "message": "Add static assert that it\u0027s a power of 2?",
+      "revId": "287aaeddf7595d8f5a808b87684d4a8e0763ccc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
