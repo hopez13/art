@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "812f1a03_c4a70f90",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-27T17:12:26Z",
+      "side": 1,
+      "message": "If we set the threshold to the maximum value of 2^16-1, adding the batch size of 32, is 2^16+31, which still must fit int32",
+      "parentUuid": "1e785046_c8f0157e",
+      "range": {
+        "startLine": 882,
+        "startChar": 0,
+        "endLine": 885,
+        "endChar": 82
+      },
+      "revId": "431270f35e7054d8b54e85da4209891435f1fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb49c6a4_071807d5",
         "filename": "runtime/jit/jit-inl.h",
         "patchSetId": 9
