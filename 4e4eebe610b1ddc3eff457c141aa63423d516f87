@@ -117,6 +117,30 @@
       "revId": "4e4eebe610b1ddc3eff457c141aa63423d516f87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d61ec1_a2d6c737",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-11-27T17:37:46Z",
+      "side": 1,
+      "message": "I think so?\n\nWe need to make sure that it uses the libraries symlinked into this directory at least.",
+      "parentUuid": "721ab1d1_3cd00ae6",
+      "range": {
+        "startLine": 389,
+        "startChar": 4,
+        "endLine": 389,
+        "endChar": 16
+      },
+      "revId": "4e4eebe610b1ddc3eff457c141aa63423d516f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
