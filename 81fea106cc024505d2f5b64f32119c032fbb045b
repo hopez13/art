@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "63266a09_dafa063c",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-11-27T09:13:07Z",
+      "side": 1,
+      "message": "Oh yes, I\u0027ve hit that before. Annoying.",
+      "parentUuid": "d46b1517_7583776e",
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bddd868e_42980e82",
         "filename": "tools/class2greylist/src/com/android/class2greylist/CsvGreylistConsumer.java",
         "patchSetId": 33
@@ -213,6 +231,30 @@
       "side": 1,
       "message": "I think the more interesting question is what it was printing before when this was a Predicate.\nNow it prints:\n\"[ key1, key2, ..., keyN ]\"",
       "parentUuid": "4f921712_a1bb1470",
+      "range": {
+        "startLine": 154,
+        "startChar": 20,
+        "endLine": 154,
+        "endChar": 49
+      },
+      "revId": "81fea106cc024505d2f5b64f32119c032fbb045b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc5e69b3_d045e47f",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/GreylistAnnotationHandler.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-11-27T09:13:07Z",
+      "side": 1,
+      "message": "The predicate before had a custom toString implementation to address this.",
+      "parentUuid": "f21b6582_51958af0",
       "range": {
         "startLine": 154,
         "startChar": 20,
