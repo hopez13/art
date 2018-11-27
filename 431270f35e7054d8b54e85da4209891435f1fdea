@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "999f4df8_e7141091",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-27T17:07:28Z",
+      "side": 1,
+      "message": "We set the threshold so something like 10000, right?  That is far from 2^32.\n\nIn fact, we seem to store the threshold value as uint16_t, so overflow here is impossible, right?",
+      "parentUuid": "2b6d13e6_4f7e9b03",
+      "range": {
+        "startLine": 882,
+        "startChar": 0,
+        "endLine": 885,
+        "endChar": 82
+      },
+      "revId": "431270f35e7054d8b54e85da4209891435f1fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb49c6a4_071807d5",
         "filename": "runtime/jit/jit-inl.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-27T17:00:39Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 61
+      },
+      "revId": "431270f35e7054d8b54e85da4209891435f1fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ff330b3_10977a8e",
+        "filename": "runtime/jit/jit-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-27T17:07:28Z",
+      "side": 1,
+      "message": "The support the current OSR behavior where forward edges are ignored in the sampling.",
+      "parentUuid": "eb49c6a4_071807d5",
       "range": {
         "startLine": 57,
         "startChar": 5,
