@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1e785046_c8f0157e",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-27T17:10:11Z",
+      "side": 1,
+      "message": "But we could set it to something else which would overflow then (at least some checks and/or comments are needed here).\n\nYeah, the counter is 16bit. WDYM it\u0027s impossible?",
+      "parentUuid": "999f4df8_e7141091",
+      "range": {
+        "startLine": 882,
+        "startChar": 0,
+        "endLine": 885,
+        "endChar": 82
+      },
+      "revId": "431270f35e7054d8b54e85da4209891435f1fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eb49c6a4_071807d5",
         "filename": "runtime/jit/jit-inl.h",
         "patchSetId": 9
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The support the current OSR behavior where forward edges are ignored in the sampling.",
       "parentUuid": "eb49c6a4_071807d5",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 61
+      },
+      "revId": "431270f35e7054d8b54e85da4209891435f1fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "578870ed_acffefd2",
+        "filename": "runtime/jit/jit-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-27T17:10:11Z",
+      "side": 1,
+      "message": "I see. Can you add that as a comment?",
+      "parentUuid": "1ff330b3_10977a8e",
       "range": {
         "startLine": 57,
         "startChar": 5,
