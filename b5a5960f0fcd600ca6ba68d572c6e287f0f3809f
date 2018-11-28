@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "53077b62_24c5a696",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:47:05Z",
+      "side": 1,
+      "message": "This should be renamed. We already have a \"dex_file.h\".",
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2092682d_062f42fc",
         "filename": "libdexfile/external/include/art_api/dex_file.h",
         "patchSetId": 5
