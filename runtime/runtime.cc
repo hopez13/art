@@ -233,8 +233,7 @@ Runtime::Runtime()
       class_linker_(nullptr),
       signal_catcher_(nullptr),
       java_vm_(nullptr),
-      fault_message_lock_("Fault message lock"),
-      fault_message_(""),
+      fault_message_(nullptr),
       threads_being_born_(0),
       shutdown_cond_(new ConditionVariable("Runtime shutdown", *Locks::runtime_shutdown_lock_)),
       shutting_down_(false),
@@ -2347,8 +2346,28 @@ void Runtime::RecordResolveString(ObjPtr<mirror::DexCache> dex_cache,
 }
 
 void Runtime::SetFaultMessage(const std::string& message) {
-  MutexLock mu(Thread::Current(), fault_message_lock_);
-  fault_message_ = message;
+  std::string* new_msg = new std::string(message);
+  std::string* cur_msg;
+  do {
+    cur_msg = fault_message_.load(std::memory_order_relaxed);
+  } while (!fault_message_.compare_exchange_weak(cur_msg, new_msg));
+  if (cur_msg != nullptr) {
+    delete cur_msg;
+  }
+}
+
+std::string Runtime::GetFaultMessage() {
+  std::string* cur_msg;
+  std::string* null_str = nullptr;
+  do {
+    cur_msg = fault_message_.load(std::memory_order_relaxed);
+  } while (!fault_message_.compare_exchange_weak(cur_msg, null_str));
+  std::string ret = *cur_msg;
+  if (!fault_message_.compare_exchange_weak(null_str, cur_msg)) {
+    // Already replaced.
+    delete cur_msg;
+  }
+  return ret;
 }
 
 void Runtime::AddCurrentRuntimeFeaturesAsDex2OatArguments(std::vector<std::string>* argv)

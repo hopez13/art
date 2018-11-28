@@ -28,9 +28,9 @@
 #include <vector>
 
 #include "arch/instruction_set.h"
+#include "base/locks.h"
 #include "base/macros.h"
 #include "base/mem_map.h"
-#include "base/mutex.h"
 #include "deoptimization_kind.h"
 #include "dex/dex_file_types.h"
 #include "experimental_flags.h"
@@ -510,12 +510,10 @@ class Runtime {
   void RecordResolveString(ObjPtr<mirror::DexCache> dex_cache, dex::StringIndex string_idx) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void SetFaultMessage(const std::string& message) REQUIRES(!fault_message_lock_);
+  void SetFaultMessage(const std::string& message);
   // Only read by the signal handler, NO_THREAD_SAFETY_ANALYSIS to prevent lock order violations
   // with the unexpected_signal_lock_.
-  const std::string& GetFaultMessage() NO_THREAD_SAFETY_ANALYSIS {
-    return fault_message_;
-  }
+  std::string GetFaultMessage();
 
   void AddCurrentRuntimeFeaturesAsDex2OatArguments(std::vector<std::string>* arg_vector) const;
 
@@ -902,8 +900,7 @@ class Runtime {
   std::unique_ptr<jit::JitOptions> jit_options_;
 
   // Fault message, printed when we get a SIGSEGV.
-  Mutex fault_message_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
-  std::string fault_message_ GUARDED_BY(fault_message_lock_);
+  std::atomic<std::string*> fault_message_;
 
   // A non-zero value indicates that a thread has been created but not yet initialized. Guarded by
   // the shutdown lock so that threads aren't born while we're shutting down.
