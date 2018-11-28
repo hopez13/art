@@ -142,6 +142,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e4c33fe_9fc4dcc6",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-28T17:47:22Z",
+      "side": 1,
+      "message": "Elaborate... Specifically, I was thinking of adding the OBJPTR_INLINE in locally obj_ptr.h and adding a comment.  Is that kind of what you mean?  Or just explicitly annotating methods in obj_ptr.h without macro?",
+      "parentUuid": "ad6d9760_477c9ef1",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
