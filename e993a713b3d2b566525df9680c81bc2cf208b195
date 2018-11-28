@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57d94949_eff064a0",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "Could be VLD2 but that would load D[reg+1] with the shadow vregs, i.e. zeros.",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 27
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50522eb6_53b89ff3",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "Could be VST2 but we would need to clear D[reg+1] for the shadow vregs, though for most operations that would already be done by reading the input with GET_VREG_DOUBLE_BY_ADDR.",
+      "range": {
+        "startLine": 294,
+        "startChar": 4,
+        "endLine": 298,
+        "endChar": 26
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4e41162_810b5de9",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "ARM64 has a dedicated zero register.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 20
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "995b2325_01016e56",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "If we know that the input is not a reference, we can use\n\n  ldr \\reg, [xFP, \\vreg, lsl #3]\n\nwith an X register \\reg.",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 23
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "720eba90_ef894780",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "Or just store the X register directly, the high 32 bits should be 0.",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 30
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23158a2e_7d8b79d4",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 281,
+        "startChar": 25,
+        "endLine": 281,
+        "endChar": 26
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8be7189_23c664d2",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "Or LD2, loading the shadow vregs into another D register.",
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4799da5d_776d337b",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 294,
+        "startChar": 25,
+        "endLine": 294,
+        "endChar": 26
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d048fbbf_d3ba0524",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "Or ST2 with zero pre-loaded in another D register.",
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad4bc852_4adbb485",
+        "filename": "runtime/interpreter/mterp/arm64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T14:41:34Z",
+      "side": 1,
+      "message": "The GET_VREG_S seems to be a rather useless optimization after the shadow regs reordering. Loading the vregs into X register and doing the sign-extension explicitly seems better.\n\n  // int-to-long\n  ldr xTMP1, [xFP, xIN lsl #3]\n  VREG_INDEX_TO_ADDR xOUT, xOUT\n  asr wTMP2, wTMP, #31\n  stp xTMP1, xTMP2, [xOUT]",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 5
+      },
+      "revId": "e993a713b3d2b566525df9680c81bc2cf208b195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
