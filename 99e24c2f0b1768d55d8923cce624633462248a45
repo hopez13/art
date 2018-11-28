@@ -238,6 +238,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e121a275_6c40cee8",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-28T20:04:45Z",
+      "side": 1,
+      "message": "I made the changes local to just the obj_ptr.h file.",
+      "parentUuid": "0aa3062f_d2d41d81",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
