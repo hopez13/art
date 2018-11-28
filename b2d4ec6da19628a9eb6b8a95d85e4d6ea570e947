@@ -93,6 +93,30 @@
       "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7f74309_4ae8af3c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2018-11-28T18:00:10Z",
+      "side": 1,
+      "message": "This warning is disabled/ignored only when PGO instrumentation is turned on for collecting the profiles.  PGO instrumentation adds per-function counters on the stack, which\u0027ll obviously push the frame size beyond the limit.\n\nThis property will not ignore stack frame warnings in a release/user build where profiles are getting used.",
+      "parentUuid": "1fae1254_358d507d",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 34
+      },
+      "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
