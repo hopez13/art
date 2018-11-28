@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0deb8623_fa189a4d",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-11-28T18:29:07Z",
+      "side": 1,
+      "message": "why not only one library? the libdexfile_support is very small, and linking one library is less complex than linking two.",
+      "range": {
+        "startLine": 176,
+        "startChar": 28,
+        "endLine": 176,
+        "endChar": 30
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5dc729bf_4604a014",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
