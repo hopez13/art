@@ -69,6 +69,29 @@
       "revId": "6b81d0c9685efce5b2ee93fa83f9fe8d92fa9064",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d248f0bf_b7539bfc",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-28T18:15:31Z",
+      "side": 1,
+      "message": "Can we move the whole function to the zygote code in frameworks, maybe? This isn\u0027t really ART-specific, at all.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "6b81d0c9685efce5b2ee93fa83f9fe8d92fa9064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
