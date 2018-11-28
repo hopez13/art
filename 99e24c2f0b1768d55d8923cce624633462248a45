@@ -118,6 +118,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad6d9760_477c9ef1",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-28T17:43:58Z",
+      "side": 1,
+      "message": "How about just putting the __attribute__ in obj_ptr and adding a comment.\n\n(This would be in line with some of rpl\u0027s work of removing old macros that were for C++11 compat originally, instead using keywords etc directly)",
+      "parentUuid": "a1e012b4_024e0150",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
