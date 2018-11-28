@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7281a818_91260a2f",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-28T15:11:56Z",
+      "side": 1,
+      "message": "I put it in an art_api/ subdirectory that needs to be mentioned in the #include. Isn\u0027t that enough?",
+      "parentUuid": "53077b62_24c5a696",
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2092682d_062f42fc",
         "filename": "libdexfile/external/include/art_api/dex_file.h",
         "patchSetId": 5
