@@ -190,6 +190,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5be9a8d3_63d4aecd",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-28T17:55:28Z",
+      "side": 1,
+      "message": "I made the macro global in this CL thinking it might be used for other things...\nBut ObjPtr is really by far the biggest offender performance wise... I would be happy to make it (and only it) special.",
+      "parentUuid": "1e4c33fe_9fc4dcc6",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
