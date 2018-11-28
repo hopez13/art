@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "775ad740_1cd32f48",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-28T11:12:05Z",
+      "side": 1,
+      "message": "Has any testing been done on target devices?",
+      "range": {
+        "startLine": 437,
+        "startChar": 1,
+        "endLine": 446,
+        "endChar": 10
+      },
+      "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c6710fc_1e97dea0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-11-28T11:12:05Z",
+      "side": 1,
+      "message": "Why is it set to ignoring? Will it have an impact on target devices?",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 34
+      },
+      "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
