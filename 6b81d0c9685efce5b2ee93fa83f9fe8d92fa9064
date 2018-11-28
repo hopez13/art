@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "992bd067_0888aceb",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-28T13:54:50Z",
+      "side": 1,
+      "message": "Can this use android-base/properties.h instead? This avoids introducing a direct dependency on libcutils and has helpers for boolean properties.",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "6b81d0c9685efce5b2ee93fa83f9fe8d92fa9064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc5fe2c8_37e372af",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-11-28T13:54:50Z",
+      "side": 1,
+      "message": "android::base::GetBoolProperty()",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 14
+      },
+      "revId": "6b81d0c9685efce5b2ee93fa83f9fe8d92fa9064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
