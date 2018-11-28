@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d75f27b5_7f8d82f5",
+        "filename": "runtime/interpreter/mterp/arm64/floating_point.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T10:05:11Z",
+      "side": 1,
+      "message": "As discussed offline, this macro should use explicit registers (make it closer to fbinop rather than binopWide). But that can be done as a follow-up CL if you want to submit this now.",
+      "range": {
+        "startLine": 21,
+        "startChar": 28,
+        "endLine": 21,
+        "endChar": 70
+      },
+      "revId": "561303f94b5262bf939b91eb11feff5dc3a6aab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
