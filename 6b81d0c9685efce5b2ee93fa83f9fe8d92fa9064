@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "89926458_5dc17e96",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-28T17:52:20Z",
+      "side": 1,
+      "message": "-2. No further system properties in ART (the existing use was a mistake).",
+      "parentUuid": "992bd067_0888aceb",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "6b81d0c9685efce5b2ee93fa83f9fe8d92fa9064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc5fe2c8_37e372af",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
