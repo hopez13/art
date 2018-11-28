@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c273f373_9da0237e",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-28T19:26:53Z",
+      "side": 1,
+      "message": "libdexfile_external exposes the stable C ABI and is necessary to provide the version scripts and APEX stubs. libdexfile_support is a helper on the client side to not have to deal with the C level directly.\n\nIow, libdexfile_external ends up on the callee side in the Runtime APEX, while libdexfile_support is on the caller side.\n\nAn alternative is to make libdexfile_support a header-only library, but it wouldn\u0027t be all that different. If we\u0027re going with a dlopen solution there\u0027d be a bit more code in dex_file_supp.cc that preferably shouldn\u0027t be inlined.",
+      "parentUuid": "0deb8623_fa189a4d",
+      "range": {
+        "startLine": 176,
+        "startChar": 28,
+        "endLine": 176,
+        "endChar": 30
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dc729bf_4604a014",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e8e44a4e_bb57e8c9",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-28T19:26:53Z",
+      "side": 1,
+      "message": "I think the copy is necessary, unfortunately. The reason for the ExtDexFileString wrapper is that we can\u0027t pass std::string across the C API. Instead ExtDexFileString gives access to an std::string that has been allocated on the library side and also has to be freed there.\n\nThe only alternative to the copy here is to continue passing ExtDexFileString upwards, but that\u0027s inconvenient since std::string is expected practically everywhere.\n\nIf std::string_view was more prevalent that could be a more efficient alternative, although it would make the interface more vulnerable to object lifetime bugs. Here I opted for API safety rather than performance.\n\nI\u0027m not particularly happy with this ExtDexFileString thing, so if you have better ideas I\u0027m all ears.",
+      "parentUuid": "5dc729bf_4604a014",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b638dbe5_272bb780",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-28T19:26:53Z",
+      "side": 1,
+      "message": "Yep.",
+      "parentUuid": "a94eff5a_a4bd252f",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
