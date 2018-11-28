@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "e1b592a4_eefaf411",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "nit: either align all these or use two spaces consistently.",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 37
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3595a50_b9a7f483",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "For my memory\u0027s sake, doesn\u0027t emplace have a std::forward version that would allow you not to use the std::make_pair?  Is there a reason not to use it?",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c71095b0_df8c82c5",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "res.second \u003d\u003d nullptr",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 23
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55217a4d_f873dc5c",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "files",
+      "range": {
+        "startLine": 163,
+        "startChar": 19,
+        "endLine": 163,
+        "endChar": 23
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bbe37d7_f3c4def4",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "entry !\u003d nullptr",
+      "range": {
+        "startLine": 291,
+        "startChar": 6,
+        "endLine": 291,
+        "endChar": 11
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4c34bc_2dfd4f10",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "I\u0027m a little surprised here and above that you didn\u0027t get a build warning/error from the fact you\u0027re converting ptrdiff_t to int32_t on 64-bit platforms.  You may need an explicit static_cast.",
+      "range": {
+        "startLine": 314,
+        "startChar": 10,
+        "endLine": 314,
+        "endChar": 26
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d74a14b_c6a5572b",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "again regarding the emplace_back having a std::forward method that eliminates the need for the call here to MethodInfo constructor.",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53077b62_24c5a696",
         "filename": "libdexfile/external/include/art_api/dex_file.h",
         "patchSetId": 5
@@ -57,6 +218,29 @@
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a041e44_76e21345",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-28T21:07:38Z",
+      "side": 1,
+      "message": "std::make_unique\u003cDexFile\u003e does all this.",
+      "range": {
+        "startLine": 128,
+        "startChar": 13,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
