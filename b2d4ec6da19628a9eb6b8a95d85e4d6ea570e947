@@ -45,6 +45,30 @@
       "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fae1254_358d507d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-28T17:56:54Z",
+      "side": 1,
+      "message": "Yes, this is a no-go. The checks are there *for a reason* (namely, so that stack overflow checks are [more or less] guaranteed to work).",
+      "parentUuid": "3c6710fc_1e97dea0",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 34
+      },
+      "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
