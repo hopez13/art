@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72f302e6_0ad3ab1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T11:08:54Z",
+      "side": 1,
+      "message": "Split out the obsolete core removal with PS5.",
+      "parentUuid": "35dc7ef3_502cbb1a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "e7126c54e85c39e0534dd257438e61edeb6d79bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dcffe77_720f130e",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 4
@@ -68,6 +92,30 @@
       "revId": "e7126c54e85c39e0534dd257438e61edeb6d79bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9484c32f_3707b878",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-11-28T11:08:54Z",
+      "side": 1,
+      "message": "I\u0027m not too keen to investigate how to do this. I\u0027ve been through enough pain parsing the makefiles to make the tests pass. (And a few target gtests are still actually failing with PS4/PS5.)",
+      "parentUuid": "b9251e9c_91109d1c",
+      "range": {
+        "startLine": 320,
+        "startChar": 1,
+        "endLine": 321,
+        "endChar": 65
+      },
+      "revId": "e7126c54e85c39e0534dd257438e61edeb6d79bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
