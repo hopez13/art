@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c16f1891_0836baea",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-11-28T23:12:01Z",
+      "side": 1,
+      "message": "I prefer to use char* instead of ExtDexFileString:\n  For error msgs, we can use asprintf.\n  ExtDexFileMethodInfo.name can use type char*. In ExtDexFileGetAllMethodInfos(), method_info.name can use \u0026pretty_method[0] to avoid a string create/copy. In ExtDexFileGetMethodInfoForOffset(), method_info.name can use strdup(), and user needs to free it.",
+      "parentUuid": "e8e44a4e_bb57e8c9",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
