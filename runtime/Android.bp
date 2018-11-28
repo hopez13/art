@@ -428,6 +428,47 @@ libart_static_cc_defaults {
 }
 
 cc_defaults {
+     name: "libart-pgo-defaults",
+     pgo: {
+         instrumentation: true,
+         benchmarks: ["art_runtime", "dex2oat",],
+     },
+     target: {
+        android_arm64: {
+            pgo: {
+                profile_file: "art/art-runtime_arm_arm64.profdata",
+            },
+        },
+        android_arm: {
+            pgo: {
+                profile_file: "art/art-runtime_arm_arm64.profdata",
+            },
+        },
+        android_x86_64: {
+            pgo: {
+                  profile_file: "art/art-runtime_x86_x86_64.profdata",
+            },
+        },
+        android_x86: {
+            pgo: {
+                  profile_file: "art/art-runtime_x86_x86_64.profdata",
+            },
+        },
+	android_mips64: {
+            pgo: {
+                profile_file: "art/art-runtime_mips_mips64.profdata",
+            },
+        },
+        android_mips: {
+            pgo: {
+                profile_file: "art/art-runtime_mips_mips64.profdata",
+            },
+        },
+     },
+}
+
+
+cc_defaults {
     name: "libart_static_defaults",
     defaults: [
         "libart_static_base_defaults",
@@ -493,7 +534,9 @@ gensrcs {
 
 art_cc_library {
     name: "libart",
-    defaults: ["libart_defaults"],
+    defaults: ["libart_defaults",
+               "libart-pgo-defaults",
+    ],
     // Leave the symbols in the shared library so that stack unwinders can
     // produce meaningful name resolution.
     strip: {
@@ -509,6 +552,14 @@ art_cc_library {
     export_shared_lib_headers: [
         "libdexfile",
     ],
+    pgo: {
+         // Additional cflags just for dex2oat during PGO instrumentation
+	 cflags: [
+	       // Ignore frame-size increase resulting from instrumentation.
+	       "-Wno-frame-larger-than=",
+	       "-DART_PGO_INSTRUMENTATION",
+	 ],
+    },
     target: {
         android: {
             lto: {
