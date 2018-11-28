@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2092682d_062f42fc",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-28T14:37:48Z",
+      "side": 1,
+      "message": "If there is anything else we\u0027re likely to want to add here then now is a good time. Extending this struct in the future effectively means adding new functions that returns extended info.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 31
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
