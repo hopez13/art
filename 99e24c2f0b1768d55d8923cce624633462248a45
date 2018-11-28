@@ -94,6 +94,30 @@
       "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1e012b4_024e0150",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-28T17:42:05Z",
+      "side": 1,
+      "message": "ALWAYS_INLINE_EVEN_ON_DEBUG is pretty verbose... any other options?\nALWAYS_INLINE_IN_DEBUG? \nDEBUG_ALWAYS_INLINE?\nOBJPTR_INLINE?",
+      "parentUuid": "f595df1b_46914a64",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "99e24c2f0b1768d55d8923cce624633462248a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
