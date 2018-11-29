@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "844015e6_b2498d23",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-29T18:17:49Z",
+      "side": 0,
+      "message": "This is technically OK because the obsolete case is handled in line 475.",
+      "range": {
+        "startLine": 506,
+        "startChar": 1,
+        "endLine": 512,
+        "endChar": 61
+      },
+      "revId": "7e09737125ddb8c6f243ac1882d2a23da3f109c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
