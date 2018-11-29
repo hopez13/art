@@ -166,6 +166,30 @@
       "revId": "00aaff00a6ce5f153c37df6b6bd7f2b0b9e1c8a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64d728d7_3aee177f",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-11-29T15:54:23Z",
+      "side": 1,
+      "message": "Command line option changed to \u0027--api-flags\u0027",
+      "parentUuid": "5397da5a_da883510",
+      "range": {
+        "startLine": 76,
+        "startChar": 20,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "00aaff00a6ce5f153c37df6b6bd7f2b0b9e1c8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
