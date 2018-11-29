@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "16a6d280_fdb7f29a",
+        "filename": "openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-29T20:58:41Z",
+      "side": 1,
+      "message": "Huh, that\u0027s strange.\n\nI see in comment in test 136 native code that says NO_RETURN doesn\u0027t work for extern \"C\" for target builds, so seemingly we\u0027ve seen this before. Worth filing a bug, I guess.",
+      "parentUuid": "163ca834_1e60398e",
+      "revId": "c1896c9a0e15df3a1b9a3a19bcd2a933b654fe06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "224c8b3c_e6e8d66a",
         "filename": "tools/titrace/instruction_decoder.cc",
         "patchSetId": 1
