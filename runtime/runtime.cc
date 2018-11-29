@@ -189,6 +189,8 @@ static constexpr double kExtraDefaultHeapGrowthMultiplier = kUseReadBarrier ? 1.
 
 Runtime* Runtime::instance_ = nullptr;
 
+bool enableGenerationalConcurrentCopyingCollection = false;
+
 struct TraceConfig {
   Trace::TraceMode trace_mode;
   Trace::TraceOutputMode trace_output_mode;
@@ -1160,6 +1162,11 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
             kExtraDefaultHeapGrowthMultiplier;
   }
   XGcOption xgc_option = runtime_options.GetOrDefault(Opt::GcOption);
+
+  // Generational CC collection is currently only compatible with Baker read
+  // barriers.
+  enableGenerationalConcurrentCopyingCollection = kUseBakerReadBarrier && runtime_options.Exists(Opt::UseGenerationalCC);
+
   heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
                        runtime_options.GetOrDefault(Opt::HeapMinFree),

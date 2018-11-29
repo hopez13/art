@@ -88,7 +88,7 @@ class ConcurrentCopying : public GarbageCollector {
   void BindBitmaps() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   GcType GetGcType() const override {
-    return (kEnableGenerationalConcurrentCopyingCollection && young_gen_)
+    return (enableGenerationalConcurrentCopyingCollection && young_gen_)
         ? kGcTypeSticky
         : kGcTypePartial;
   }
