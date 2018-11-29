@@ -113,6 +113,12 @@ class ThreadPool {
   ThreadPool(const char* name, size_t num_threads, bool create_peers = false);
   virtual ~ThreadPool();
 
+  // Create the threads of this pool.
+  void CreateThreads();
+
+  // Stops and deletes all threads in this pool.
+  void DeleteThreads();
+
   // Wait for all tasks currently on queue to get completed. If the pool has been stopped, only
   // wait till all already running tasks are done.
   // When the pool was created with peers for workers, do_work must not be true (see ThreadPool()).
