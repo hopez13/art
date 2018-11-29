@@ -22,6 +22,30 @@
       "revId": "c1b7ea38ca6a42029496692f2a86de87273702aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcbe1eca_45c16f1a",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-11-29T15:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92d89e5a_2e21c5b3",
+      "range": {
+        "startLine": 237,
+        "startChar": 43,
+        "endLine": 237,
+        "endChar": 55
+      },
+      "revId": "c1b7ea38ca6a42029496692f2a86de87273702aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
