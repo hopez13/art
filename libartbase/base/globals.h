@@ -122,18 +122,6 @@ static constexpr bool kMovingCollector = true;
 static constexpr bool kMarkCompactSupport = false && kMovingCollector;
 // True if we allow moving classes.
 static constexpr bool kMovingClasses = !kMarkCompactSupport;
-// If true, enable generational collection when using the Concurrent Copying
-// (CC) collector, i.e. use sticky-bit CC for minor collections and (full) CC
-// for major collections.
-//
-// Generational CC collection is currently only compatible with Baker read
-// barriers.
-#if defined(ART_USE_GENERATIONAL_CC) && defined(ART_READ_BARRIER_TYPE_IS_BAKER)
-static constexpr bool kEnableGenerationalConcurrentCopyingCollection = true;
-#else
-static constexpr bool kEnableGenerationalConcurrentCopyingCollection = false;
-#endif
-
 // If true, enable the tlab allocator by default.
 #ifdef ART_USE_TLAB
 static constexpr bool kUseTlab = true;
