@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "a5b3c00d_780b4315",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-29T15:15:11Z",
+      "side": 1,
+      "message": "Also, we shouldn\u0027t put extern in this file.",
+      "parentUuid": "5efa0e31_120cb78e",
+      "range": {
+        "startLine": 128,
+        "startChar": 12,
+        "endLine": 128,
+        "endChar": 57
+      },
+      "revId": "6c8de1d092e68b711e168c7857254ff445bcd4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c33339b1_2d9fe700",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
