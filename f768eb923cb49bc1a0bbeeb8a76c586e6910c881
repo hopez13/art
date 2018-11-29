@@ -46,6 +46,30 @@
       "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f6f5876_c462ebcd",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-11-29T01:58:57Z",
+      "side": 1,
+      "message": "I think you can now remove these? Because we have many places where only bionic libs are linked in ld.config.txt?",
+      "parentUuid": "127860b5_2f6b9f24",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
