@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e0dd81b_ad1f3a2b",
+        "filename": "runtime/interpreter/mterp/arm/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-29T15:54:31Z",
+      "side": 1,
+      "message": "I would rather go with safety and uniformity.",
+      "parentUuid": "4db06e57_88983e87",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "20b7bb0452719217905576aa25a85061ca5dee75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13411a55_5e96ab54",
         "filename": "runtime/interpreter/mterp/arm/main.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-26T11:12:19Z",
       "side": 1,
       "message": "It doesn\u0027t, `temp` is not an input. (But maybe the user should treat the macro as if it did clobber reg/addr?)",
+      "range": {
+        "startLine": 285,
+        "startChar": 50,
+        "endLine": 285,
+        "endChar": 75
+      },
+      "revId": "20b7bb0452719217905576aa25a85061ca5dee75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "884113ab_5951bb09",
+        "filename": "runtime/interpreter/mterp/arm/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-11-29T15:54:31Z",
+      "side": 1,
+      "message": "What I meant is, all the registers used for the macro may be clobbered.\n(SET_VREG_* macros are used last in the handler, so that is fine)",
+      "parentUuid": "13411a55_5e96ab54",
       "range": {
         "startLine": 285,
         "startChar": 50,
