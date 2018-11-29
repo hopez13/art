@@ -444,6 +444,7 @@ class Runtime {
   bool UseJitCompilation() const;
 
   void PreZygoteFork();
+  void PostZygoteFork();
   void InitNonZygoteOrPostFork(
       JNIEnv* env,
       bool is_system_server,
