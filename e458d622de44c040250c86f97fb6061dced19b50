@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52fff530_fc703581",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "Unfinished sentence?",
+      "range": {
+        "startLine": 127,
+        "startChar": 34,
+        "endLine": 127,
+        "endChar": 44
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca320df0_9521375e",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "std::string android_host_out \u003d android_build_top_from_env;",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 53
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5b56c1_92404dea",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "Maybe replace with\n\n  Environment variable `ANDROID_ROOT`\n\n?",
+      "range": {
+        "startLine": 141,
+        "startChar": 7,
+        "endLine": 141,
+        "endChar": 22
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1028e0bd_b9c69d51",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "Maybe replace with\n\n  Environment variable `ANDROID_RUNTIME_ROOT`\n\n?",
+      "range": {
+        "startLine": 149,
+        "startChar": 7,
+        "endLine": 149,
+        "endChar": 30
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7c45132_c7b2ad4b",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "This path looks new to me. Is this where we intend to install the \"Host Runtime APEX\"?",
+      "range": {
+        "startLine": 154,
+        "startChar": 13,
+        "endLine": 154,
+        "endChar": 40
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abdb4cd0_aa1522b9",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:26:06Z",
+      "side": 1,
+      "message": "Nit: Keep backslashes aligned.",
+      "range": {
+        "startLine": 264,
+        "startChar": 60,
+        "endLine": 264,
+        "endChar": 70
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
