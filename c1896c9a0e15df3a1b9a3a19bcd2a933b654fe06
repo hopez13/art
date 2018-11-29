@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f22ba194_c00f1117",
+        "filename": "openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-11-29T19:42:51Z",
+      "side": 1,
+      "message": "first i was nagged that the `return` couldn\u0027t be reached, then i was nagged that these functions should be `noreturn`...",
+      "revId": "c1896c9a0e15df3a1b9a3a19bcd2a933b654fe06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "224c8b3c_e6e8d66a",
+        "filename": "tools/titrace/instruction_decoder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-11-29T19:42:51Z",
+      "side": 1,
+      "message": "i couldn\u0027t find a header with UNREACHABLE that i was actually allowed to include here, so i gave up. neither \"ti_macros.h\" nor \"base/macros.h\" were allowed.",
+      "revId": "c1896c9a0e15df3a1b9a3a19bcd2a933b654fe06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
