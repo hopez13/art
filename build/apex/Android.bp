@@ -49,12 +49,13 @@ art_runtime_debug_native_shared_libs = [
 ]
 
 // Modules listed in LOCAL_REQUIRED_MODULES for module art-tools in art/Android.mk.
-art_tools_binaries = [
+art_tools_binaries_common = [
     "dexdiag",
     "dexdump",
     "dexlist",
-    "oatdump",
 ]
+art_tools_binaries_device_only = ["oatdump",]
+art_tools_binaries = art_tools_binaries_common + art_tools_binaries_device_only
 
 // Host-only modules listed in LOCAL_REQUIRED_MODULES for module art-tools in art/Android.mk.
 // TODO: Include these modules in the future "host APEX".
@@ -129,4 +130,27 @@ apex {
     key: "com.android.runtime.key",
     // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
     // ...
+}
+
+art_zip_apex {
+    name: "com.android.runtime.host-apex",
+    compile_multilib: "both",
+    host_supported: true,
+    native_shared_libs: art_runtime_base_native_shared_libs
+        + art_runtime_fake_native_shared_libs,
+    multilib: {
+        both: {
+            // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
+            // (see `symlink_preferred_arch` in art/dalvikvm/Android.bp).
+            binaries: art_runtime_base_binaries_both,
+        },
+        prefer32: {
+            binaries: art_runtime_base_binaries_prefer32
+                + art_runtime_debug_binaries_prefer32,
+        },
+        first: {
+            // TODO: oatdump cannot link with host linux_bionic due to not using clang ld
+            binaries: art_tools_binaries_common,
+        }
+    },
 }

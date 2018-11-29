@@ -279,6 +279,8 @@ func testInstall(ctx android.InstallHookContext) {
 var artTestMutex sync.Mutex
 
 func init() {
+	initZipApex()
+
 	android.RegisterModuleType("art_cc_library", artLibrary)
 	android.RegisterModuleType("art_cc_static_library", artStaticLibrary)
 	android.RegisterModuleType("art_cc_binary", artBinary)
@@ -289,6 +291,7 @@ func init() {
 	android.RegisterModuleType("libart_static_cc_defaults", libartStaticDefaultsFactory)
 	android.RegisterModuleType("art_global_defaults", artGlobalDefaultsFactory)
 	android.RegisterModuleType("art_debug_defaults", artDebugDefaultsFactory)
+	android.RegisterModuleType("art_zip_apex", artZipApexFactory)
 }
 
 func artGlobalDefaultsFactory() android.Module {
@@ -369,7 +372,7 @@ func libartStaticDefaultsFactory() android.Module {
 }
 
 func artLibrary() android.Module {
-	m, _ := cc.NewLibrary(android.HostAndDeviceSupported)
+	m := apex.apexBundleFactory()
 	module := m.Init()
 
 	installCodegenCustomizer(module, true)
