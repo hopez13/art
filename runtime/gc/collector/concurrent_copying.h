@@ -65,8 +65,9 @@ class ConcurrentCopying : public GarbageCollector {
   // pages.
   static constexpr bool kGrayDirtyImmuneObjects = true;
 
-  explicit ConcurrentCopying(Heap* heap,
+  ConcurrentCopying(Heap* heap,
                              bool young_gen,
+                             bool use_generational_cc,
                              const std::string& name_prefix = "",
                              bool measure_read_barrier_slow_path = false);
   ~ConcurrentCopying();
@@ -88,7 +89,7 @@ class ConcurrentCopying : public GarbageCollector {
   void BindBitmaps() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   GcType GetGcType() const override {
-    return (kEnableGenerationalConcurrentCopyingCollection && young_gen_)
+    return (use_generational_cc_ && young_gen_)
         ? kGcTypeSticky
         : kGcTypePartial;
   }
@@ -314,6 +315,12 @@ class ConcurrentCopying : public GarbageCollector {
   // stack is full is implemented by `rb_mark_bit_stack_->AtomicPushBack(ref)`
   // (see use case in ConcurrentCopying::MarkFromReadBarrier).
   bool rb_mark_bit_stack_full_;
+
+  // If true, enable generational collection when using the Concurrent Copying
+  // (CC) collector, i.e. use sticky-bit CC for minor collections and (full) CC
+  // for major collections. Generational CC collection is currently only
+  // compatible with Baker read barriers. Set in Heap constructor.
+  const bool use_generational_cc_;
 
   std::vector<mirror::Object*> false_gray_stack_ GUARDED_BY(mark_stack_lock_);
   Mutex mark_stack_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
