@@ -62,11 +62,12 @@ uint64_t Iteration::GetEstimatedThroughput() const {
 }
 
 GarbageCollector::GarbageCollector(Heap* heap, const std::string& name)
-    : heap_(heap),
-      name_(name),
-      pause_histogram_((name_ + " paused").c_str(), kPauseBucketSize, kPauseBucketCount),
-      cumulative_timings_(name),
+    :
       pause_histogram_lock_("pause histogram lock", kDefaultMutexLevel, true),
+      pause_histogram_((name + " paused").c_str(), kPauseBucketSize, kPauseBucketCount),
+      heap_(heap),
+      name_(name),
+      cumulative_timings_(name),
       is_transaction_active_(false) {
   ResetCumulativeStatistics();
 }

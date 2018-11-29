@@ -65,10 +65,11 @@ class ConcurrentCopying : public GarbageCollector {
   // pages.
   static constexpr bool kGrayDirtyImmuneObjects = true;
 
-  explicit ConcurrentCopying(Heap* heap,
-                             bool young_gen,
-                             const std::string& name_prefix = "",
-                             bool measure_read_barrier_slow_path = false);
+  ConcurrentCopying(Heap* heap,
+                    bool young_gen,
+                    bool use_generational_cc,
+                    const std::string& name_prefix = "",
+                    bool measure_read_barrier_slow_path = false);
   ~ConcurrentCopying();
 
   void RunPhases() override
@@ -90,7 +91,7 @@ class ConcurrentCopying : public GarbageCollector {
   void BindBitmaps() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   GcType GetGcType() const override {
-    return (kEnableGenerationalConcurrentCopyingCollection && young_gen_)
+    return (use_generational_cc_ && young_gen_)
         ? kGcTypeSticky
         : kGcTypePartial;
   }
@@ -319,9 +320,29 @@ class ConcurrentCopying : public GarbageCollector {
   void ProcessMarkStackForMarkingAndComputeLiveBytes() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
 
-  space::RegionSpace* region_space_;      // The underlying region space.
   std::unique_ptr<Barrier> gc_barrier_;
   std::unique_ptr<accounting::ObjectStack> gc_mark_stack_;
+
+  // If true, enable generational collection when using the Concurrent Copying
+  // (CC) collector, i.e. use sticky-bit CC for minor collections and (full) CC
+  // for major collections. Generational CC collection is currently only
+  // compatible with Baker read barriers. Set in Heap constructor.
+  const bool use_generational_cc_;
+
+  // Generational "sticky", only trace through dirty objects in region space.
+  const bool young_gen_;
+
+  // If true, the GC thread is done scanning marked objects on dirty and aged
+  // card (see ConcurrentCopying::CopyingPhase).
+  Atomic<bool> done_scanning_;
+
+  space::RegionSpace* region_space_;      // The underlying region space.
+
+  Thread* thread_running_gc_;
+
+  accounting::ContinuousSpaceBitmap* region_space_bitmap_;
+  accounting::HeapBitmap* heap_mark_bitmap_;
+  accounting::ReadBarrierTable* rb_table_;
 
   // The read-barrier mark-bit stack. Stores object references whose
   // mark bit has been set by ConcurrentCopying::MarkFromReadBarrier,
@@ -330,6 +351,7 @@ class ConcurrentCopying : public GarbageCollector {
   // used by mutator read barrier code to quickly test whether that
   // object has been already marked.
   std::unique_ptr<accounting::ObjectStack> rb_mark_bit_stack_;
+
   // Thread-unsafe Boolean value hinting that `rb_mark_bit_stack_` is
   // full. A thread-safe test of whether the read-barrier mark-bit
   // stack is full is implemented by `rb_mark_bit_stack_->AtomicPushBack(ref)`
@@ -343,16 +365,13 @@ class ConcurrentCopying : public GarbageCollector {
   static constexpr size_t kMarkStackPoolSize = 256;
   std::vector<accounting::ObjectStack*> pooled_mark_stacks_
       GUARDED_BY(mark_stack_lock_);
-  Thread* thread_running_gc_;
   bool is_marking_;                       // True while marking is ongoing.
   // True while we might dispatch on the read barrier entrypoints.
   bool is_using_read_barrier_entrypoints_;
   bool is_active_;                        // True while the collection is ongoing.
   bool is_asserting_to_space_invariant_;  // True while asserting the to-space invariant.
   ImmuneSpaces immune_spaces_;
-  accounting::ContinuousSpaceBitmap* region_space_bitmap_;
   // A cache of Heap::GetMarkBitmap().
-  accounting::HeapBitmap* heap_mark_bitmap_;
   size_t live_stack_freeze_size_;
   size_t from_space_num_objects_at_first_pause_;
   size_t from_space_num_bytes_at_first_pause_;
@@ -400,12 +419,6 @@ class ConcurrentCopying : public GarbageCollector {
   // reclaimed_bytes_ratio = reclaimed_bytes/num_allocated_bytes per GC cycle
   float reclaimed_bytes_ratio_sum_;
 
-  // Generational "sticky", only trace through dirty objects in region space.
-  const bool young_gen_;
-  // If true, the GC thread is done scanning marked objects on dirty and aged
-  // card (see ConcurrentCopying::CopyingPhase).
-  Atomic<bool> done_scanning_;
-
   // The skipped blocks are memory blocks/chucks that were copies of
   // objects that were unused due to lost races (cas failures) at
   // object copy/forward pointer install. They are reused.
@@ -428,7 +441,6 @@ class ConcurrentCopying : public GarbageCollector {
   uint64_t rb_slow_path_count_total_ GUARDED_BY(rb_slow_path_histogram_lock_);
   uint64_t rb_slow_path_count_gc_total_ GUARDED_BY(rb_slow_path_histogram_lock_);
 
-  accounting::ReadBarrierTable* rb_table_;
   bool force_evacuate_all_;  // True if all regions are evacuated.
   Atomic<bool> updated_all_immune_objects_;
   bool gc_grays_immune_objects_;

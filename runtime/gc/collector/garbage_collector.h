@@ -145,16 +145,16 @@ class GarbageCollector : public RootVisitor, public IsMarkedVisitor, public Mark
   static constexpr size_t kPauseBucketSize = 500;
   static constexpr size_t kPauseBucketCount = 32;
 
-  Heap* const heap_;
-  std::string name_;
+  mutable Mutex pause_histogram_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
   // Cumulative statistics.
   Histogram<uint64_t> pause_histogram_ GUARDED_BY(pause_histogram_lock_);
+  Heap* const heap_;
+  std::string name_;
   uint64_t total_thread_cpu_time_ns_;
   uint64_t total_time_ns_;
   uint64_t total_freed_objects_;
   int64_t total_freed_bytes_;
   CumulativeLogger cumulative_timings_;
-  mutable Mutex pause_histogram_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
   bool is_transaction_active_;
 
  private:
