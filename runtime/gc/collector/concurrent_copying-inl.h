@@ -36,7 +36,7 @@ inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
     Thread* const self,
     mirror::Object* ref,
     accounting::ContinuousSpaceBitmap* bitmap) {
-  if (kEnableGenerationalConcurrentCopyingCollection
+  if (use_generational_cc_
       && young_gen_
       && !done_scanning_.load(std::memory_order_acquire)) {
     // Everything in the unevac space should be marked for generational CC except for large objects.
@@ -129,7 +129,7 @@ inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
                                                mirror::Object* holder,
                                                MemberOffset offset) {
   // Cannot have `kNoUnEvac` when Generational CC collection is disabled.
-  DCHECK(kEnableGenerationalConcurrentCopyingCollection || !kNoUnEvac);
+  DCHECK(use_generational_cc_ || !kNoUnEvac);
   if (from_ref == nullptr) {
     return nullptr;
   }
@@ -171,7 +171,7 @@ inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
         return to_ref;
       }
       case space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace:
-        if (kEnableGenerationalConcurrentCopyingCollection
+        if (use_generational_cc_
             && kNoUnEvac
             && !region_space_->IsLargeObject(from_ref)) {
           if (!kFromGCThread) {
@@ -242,7 +242,7 @@ inline bool ConcurrentCopying::IsMarkedInUnevacFromSpace(mirror::Object* from_re
   // Use load-acquire on the read barrier pointer to ensure that we never see a black (non-gray)
   // read barrier state with an unmarked bit due to reordering.
   DCHECK(region_space_->IsInUnevacFromSpace(from_ref));
-  if (kEnableGenerationalConcurrentCopyingCollection
+  if (use_generational_cc_
       && young_gen_
       && !done_scanning_.load(std::memory_order_acquire)) {
     return from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState();

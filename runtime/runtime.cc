@@ -190,6 +190,7 @@ static constexpr double kExtraDefaultHeapGrowthMultiplier = kUseReadBarrier ? 1.
 
 Runtime* Runtime::instance_ = nullptr;
 
+
 struct TraceConfig {
   Trace::TraceMode trace_mode;
   Trace::TraceOutputMode trace_output_mode;
@@ -1180,6 +1181,11 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
             kExtraDefaultHeapGrowthMultiplier;
   }
   XGcOption xgc_option = runtime_options.GetOrDefault(Opt::GcOption);
+
+  // Generational CC collection is currently only compatible with Baker read
+  // barriers.
+  bool use_generational_cc = kUseBakerReadBarrier && xgc_option.generational_cc;
+
   heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
                        runtime_options.GetOrDefault(Opt::HeapMinFree),
@@ -1212,6 +1218,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        xgc_option.gcstress_,
                        xgc_option.measure_,
                        runtime_options.GetOrDefault(Opt::EnableHSpaceCompactForOOM),
+                       use_generational_cc,
                        runtime_options.GetOrDefault(Opt::HSpaceCompactForOOMMinIntervalsMs));
 
   if (!heap_->HasBootImageSpace() && !allow_dex_file_fallback_) {

@@ -59,7 +59,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // guaranteed to be granted, if it is required, the caller should call Begin on the returned
   // space to confirm the request was granted.
   static MemMap CreateMemMap(const std::string& name, size_t capacity, uint8_t* requested_begin);
-  static RegionSpace* Create(const std::string& name, MemMap&& mem_map);
+  static RegionSpace* Create(const std::string& name, MemMap&& mem_map, bool use_generational_cc);
 
   // Allocate `num_bytes`, returns null if the space is full.
   mirror::Object* Alloc(Thread* self,
@@ -318,7 +318,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   }
 
  private:
-  RegionSpace(const std::string& name, MemMap&& mem_map);
+  RegionSpace(const std::string& name, MemMap&& mem_map, bool use_generational_cc);
 
   template<bool kToSpaceOnly, typename Visitor>
   ALWAYS_INLINE void WalkInternal(Visitor&& visitor) NO_THREAD_SAFETY_ANALYSIS;
@@ -476,33 +476,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     // collection, RegionSpace::ClearFromSpace will preserve the space
     // used by this region, and tag it as to-space (see
     // Region::SetUnevacFromSpaceAsToSpace below).
-    void SetAsUnevacFromSpace(bool clear_live_bytes) {
-      // Live bytes are only preserved (i.e. not cleared) during sticky-bit CC collections.
-      DCHECK(kEnableGenerationalConcurrentCopyingCollection || clear_live_bytes);
-      DCHECK(!IsFree() && IsInToSpace());
-      type_ = RegionType::kRegionTypeUnevacFromSpace;
-      if (IsNewlyAllocated()) {
-        // A newly allocated region set as unevac from-space must be
-        // a large or large tail region.
-        DCHECK(IsLarge() || IsLargeTail()) << static_cast<uint>(state_);
-        // Always clear the live bytes of a newly allocated (large or
-        // large tail) region.
-        clear_live_bytes = true;
-        // Clear the "newly allocated" status here, as we do not want the
-        // GC to see it when encountering (and processing) references in the
-        // from-space.
-        //
-        // Invariant: There should be no newly-allocated region in the
-        // from-space (when the from-space exists, which is between the calls
-        // to RegionSpace::SetFromSpace and RegionSpace::ClearFromSpace).
-        is_newly_allocated_ = false;
-      }
-      if (clear_live_bytes) {
-        // Reset the live bytes, as we have made a non-evacuation
-        // decision (possibly based on the percentage of live bytes).
-        live_bytes_ = 0;
-      }
-    }
+    void SetAsUnevacFromSpace(bool clear_live_bytes);
 
     // Set this region as to-space. Used by RegionSpace::ClearFromSpace.
     // This is only valid if it is currently an unevac from-space region.
@@ -568,6 +542,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
 
    private:
+    static inline bool GetUseGenerationalCC();
+
     size_t idx_;                        // The region's index in the region space.
     size_t live_bytes_;                 // The live bytes. Used to compute the live percent.
     uint8_t* begin_;                    // The begin address of the region.
@@ -682,6 +658,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
   Mutex region_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
 
+  // Cached version from use_generational_cc_ in Heap.
+  const bool use_generational_cc_;
   uint32_t time_;                  // The time as the number of collections since the startup.
   size_t num_regions_;             // The number of regions in this space.
   // The number of non-free regions in this space.
