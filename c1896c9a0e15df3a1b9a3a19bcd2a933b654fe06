@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "163ca834_1e60398e",
+        "filename": "openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-11-29T20:42:21Z",
+      "side": 1,
+      "message": "i tried that first:\n\n  art/openjdkjvm/OpenjdkJvm.cc:438:67: error: \u0027noreturn\u0027 attribute cannot be applied to types\n\ni can do that if i change NO_RETURN to be `__attribute__((noreturn))` though.\n\n(L470 was already just using `__attribute__((noreturn))` directly.)",
+      "parentUuid": "098fefb8_b75459e2",
+      "revId": "c1896c9a0e15df3a1b9a3a19bcd2a933b654fe06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "224c8b3c_e6e8d66a",
         "filename": "tools/titrace/instruction_decoder.cc",
         "patchSetId": 1
