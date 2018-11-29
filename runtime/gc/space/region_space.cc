@@ -181,7 +181,7 @@ size_t RegionSpace::ToSpaceSize() {
 
 inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
   // Evacuation mode `kEvacModeNewlyAllocated` is only used during sticky-bit CC collections.
-  DCHECK(kEnableGenerationalConcurrentCopyingCollection || (evac_mode != kEvacModeNewlyAllocated));
+  DCHECK(enableGenerationalConcurrentCopyingCollection || (evac_mode != kEvacModeNewlyAllocated));
   DCHECK((IsAllocated() || IsLarge()) && IsInToSpace());
   // The region should be evacuated if:
   // - the evacuation is forced (`evac_mode == kEvacModeForceAll`); or
@@ -253,7 +253,7 @@ inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
 
 void RegionSpace::ZeroLiveBytesForLargeObject(mirror::Object* obj) {
   // This method is only used when Generational CC collection is enabled.
-  DCHECK(kEnableGenerationalConcurrentCopyingCollection);
+  DCHECK(enableGenerationalConcurrentCopyingCollection);
 
   // This code uses a logic similar to the one used in RegionSpace::FreeLarge
   // to traverse the regions supporting `obj`.
@@ -292,7 +292,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
                                EvacMode evac_mode,
                                bool clear_live_bytes) {
   // Live bytes are only preserved (i.e. not cleared) during sticky-bit CC collections.
-  DCHECK(kEnableGenerationalConcurrentCopyingCollection || clear_live_bytes);
+  DCHECK(enableGenerationalConcurrentCopyingCollection || clear_live_bytes);
   ++time_;
   if (kUseTableLookupReadBarrier) {
     DCHECK(rb_table->IsAllCleared());
@@ -485,7 +485,7 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
         // bitmap. But they cannot do so before we know the next GC cycle will
         // be a major one, so this operation happens at the beginning of such a
         // major collection, before marking starts.
-        if (!kEnableGenerationalConcurrentCopyingCollection) {
+        if (!enableGenerationalConcurrentCopyingCollection) {
           GetLiveBitmap()->ClearRange(
               reinterpret_cast<mirror::Object*>(r->Begin()),
               reinterpret_cast<mirror::Object*>(r->Begin() + regions_to_clear_bitmap * kRegionSize));
@@ -499,7 +499,7 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
         // `r` when it has an undefined live bytes count (i.e. when
         // `r->LiveBytes() == static_cast<size_t>(-1)`) with
         // Generational CC.
-        if (!kEnableGenerationalConcurrentCopyingCollection ||
+        if (!enableGenerationalConcurrentCopyingCollection ||
             (r->LiveBytes() != static_cast<size_t>(-1))) {
           // Only some allocated bytes are live in this unevac region.
           // This should only happen for an allocated non-large region.
@@ -859,7 +859,7 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
     Region* r = &regions_[region_index];
     if (r->IsFree()) {
       r->Unfree(this, time_);
-      if (kEnableGenerationalConcurrentCopyingCollection) {
+      if (enableGenerationalConcurrentCopyingCollection) {
         // TODO: Add an explanation for this assertion.
         DCHECK(!for_evac || !r->is_newly_allocated_);
       }

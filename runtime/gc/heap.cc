@@ -104,7 +104,7 @@ static constexpr size_t kMaxConcurrentRemainingBytes = 512 * KB;
 // relative to partial/full GC. This may be desirable since sticky GCs interfere less with mutator
 // threads (lower pauses, use less memory bandwidth).
 static float getStickyGcThroughputAdjustment() {
-  return kEnableGenerationalConcurrentCopyingCollection ? 0.5 : 1.0;
+  return enableGenerationalConcurrentCopyingCollection ? 0.5 : 1.0;
 }
 // Whether or not we compact the zygote in PreZygoteFork.
 static constexpr bool kCompactZygote = kMovingCollector;
@@ -637,7 +637,7 @@ Heap::Heap(size_t initial_size,
                                                                        /*young_gen=*/false,
                                                                        "",
                                                                        measure_gc_performance);
-      if (kEnableGenerationalConcurrentCopyingCollection) {
+      if (enableGenerationalConcurrentCopyingCollection) {
         young_concurrent_copying_collector_ = new collector::ConcurrentCopying(
             this,
             /*young_gen=*/true,
@@ -647,11 +647,11 @@ Heap::Heap(size_t initial_size,
       active_concurrent_copying_collector_ = concurrent_copying_collector_;
       DCHECK(region_space_ != nullptr);
       concurrent_copying_collector_->SetRegionSpace(region_space_);
-      if (kEnableGenerationalConcurrentCopyingCollection) {
+      if (enableGenerationalConcurrentCopyingCollection) {
         young_concurrent_copying_collector_->SetRegionSpace(region_space_);
       }
       garbage_collectors_.push_back(concurrent_copying_collector_);
-      if (kEnableGenerationalConcurrentCopyingCollection) {
+      if (enableGenerationalConcurrentCopyingCollection) {
         garbage_collectors_.push_back(young_concurrent_copying_collector_);
       }
     }
@@ -2205,7 +2205,7 @@ void Heap::ChangeCollector(CollectorType collector_type) {
     gc_plan_.clear();
     switch (collector_type_) {
       case kCollectorTypeCC: {
-        if (kEnableGenerationalConcurrentCopyingCollection) {
+        if (enableGenerationalConcurrentCopyingCollection) {
           gc_plan_.push_back(collector::kGcTypeSticky);
         }
         gc_plan_.push_back(collector::kGcTypeFull);
@@ -2658,7 +2658,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
         collector = semi_space_collector_;
         break;
       case kCollectorTypeCC:
-        if (kEnableGenerationalConcurrentCopyingCollection) {
+        if (enableGenerationalConcurrentCopyingCollection) {
           // TODO: Other threads must do the flip checkpoint before they start poking at
           // active_concurrent_copying_collector_. So we should not concurrency here.
           active_concurrent_copying_collector_ = (gc_type == collector::kGcTypeSticky) ?
@@ -3550,7 +3550,7 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
     collector::GcType non_sticky_gc_type = NonStickyGcType();
     // Find what the next non sticky collector will be.
     collector::GarbageCollector* non_sticky_collector = FindCollectorByGcType(non_sticky_gc_type);
-    if (kEnableGenerationalConcurrentCopyingCollection) {
+    if (enableGenerationalConcurrentCopyingCollection) {
       if (non_sticky_collector == nullptr) {
         non_sticky_collector = FindCollectorByGcType(collector::kGcTypePartial);
       }

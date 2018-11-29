@@ -717,7 +717,7 @@ class Heap {
 
   // Returns the active concurrent copying collector.
   collector::ConcurrentCopying* ConcurrentCopyingCollector() {
-    if (kEnableGenerationalConcurrentCopyingCollection) {
+    if (enableGenerationalConcurrentCopyingCollection) {
       DCHECK((active_concurrent_copying_collector_ == concurrent_copying_collector_) ||
              (active_concurrent_copying_collector_ == young_concurrent_copying_collector_));
     } else {

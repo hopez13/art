@@ -478,7 +478,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     // Region::SetUnevacFromSpaceAsToSpace below).
     void SetAsUnevacFromSpace(bool clear_live_bytes) {
       // Live bytes are only preserved (i.e. not cleared) during sticky-bit CC collections.
-      DCHECK(kEnableGenerationalConcurrentCopyingCollection || clear_live_bytes);
+      DCHECK(enableGenerationalConcurrentCopyingCollection || clear_live_bytes);
       DCHECK(!IsFree() && IsInToSpace());
       type_ = RegionType::kRegionTypeUnevacFromSpace;
       if (IsNewlyAllocated()) {

@@ -125,7 +125,7 @@ static constexpr bool kMovingClasses = !kMarkCompactSupport;
 // If true, enable generational collection when using the Concurrent Copying
 // (CC) collector, i.e. use sticky-bit CC for minor collections and (full) CC
 // for major collections.
-extern bool kEnableGenerationalConcurrentCopyingCollection;
+extern bool enableGenerationalConcurrentCopyingCollection;
 // If true, enable the tlab allocator by default.
 #ifdef ART_USE_TLAB
 static constexpr bool kUseTlab = true;
