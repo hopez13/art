@@ -105,14 +105,17 @@ static Runtime* StartRuntime(const char* boot_image_location,
     boot_image_option += boot_image_location;
     options.push_back(std::make_pair(boot_image_option.c_str(), nullptr));
   }
-  for (const char* runtime_arg : runtime_args) {
-    options.emplace_back(runtime_arg, nullptr);
-  }
 
   // Instruction set.
   options.push_back(
       std::make_pair("imageinstructionset",
                      reinterpret_cast<const void*>(GetInstructionSetString(instruction_set))));
+
+  // Explicit runtime args.
+  for (const char* runtime_arg : runtime_args) {
+    options.emplace_back(runtime_arg, nullptr);
+  }
+
   // None of the command line tools need sig chain. If this changes we'll need
   // to upgrade this option to a proper parameter.
   options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
