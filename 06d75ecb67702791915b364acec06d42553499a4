@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b820ae4a_38cd44c5",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T15:24:00Z",
+      "side": 1,
+      "message": "I\u0027d suggest replacing this with:\n\n  NsToMs(GetTotalPausedTimeNs()) / 1000.0;\n\n(similarly to line 226) and removing the definition `GetTotalCpuTimeInSeconds()`.",
+      "range": {
+        "startLine": 237,
+        "startChar": 23,
+        "endLine": 237,
+        "endChar": 50
+      },
+      "revId": "06d75ecb67702791915b364acec06d42553499a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
