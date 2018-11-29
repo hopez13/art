@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "7aa7ad03_4bf335a7",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "For error messages I prefer keeping this, because many error messages are created in the internal dexfile library and just propagated here, and I don\u0027t want to change the internal library to asprintf. I also reckon that error propagation isn\u0027t performance sensitive so the extra copy isn\u0027t much of a concern.\n\nExtDexFileGetAllMethodInfos cannot avoid the copy with less than a) changing the internal PrettyMethod to work completely with a malloc allocated string, and b) pass that up to client code without ever wrapping it as an std::string. I think we need to have pretty strong performance concerns to resort to C-style string building.\n\n\u003e In ExtDexFileGetMethodInfoForOffset(), method_info.name can use strdup(), and user needs to free it.\n\nThat still means a string copy, so then nothing is gained.",
+      "parentUuid": "c16f1891_0836baea",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6

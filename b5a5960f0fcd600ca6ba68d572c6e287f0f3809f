@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "202ff505_ce0a0f2b",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "I like running clang-format over the whole file, so changed the style to \"AlignTrailingComments: false\" then.",
+      "parentUuid": "e1b592a4_eefaf411",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 37
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3595a50_b9a7f483",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50700d39_b7628fae",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "Nope, done.",
+      "parentUuid": "c3595a50_b9a7f483",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "14e2a083_c150be95",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "res.second is a bool.\n\nAnyway, decided to remove this statement altogether, because the gain isn\u0027t worth the \"cleverness\".",
+      "parentUuid": "c71095b0_df8c82c5",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 23
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55217a4d_f873dc5c",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21fb98e5_9a671d1d",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55217a4d_f873dc5c",
+      "range": {
+        "startLine": 163,
+        "startChar": 19,
+        "endLine": 163,
+        "endChar": 23
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f2eb521b_440b37be",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "Oops, thanks.",
+      "parentUuid": "3bbe37d7_f3c4def4",
+      "range": {
+        "startLine": 291,
+        "startChar": 6,
+        "endLine": 291,
+        "endChar": 11
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c4c34bc_2dfd4f10",
         "filename": "libdexfile/external/dex_file_ext.cc",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "4f24a8b5_523be60a",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "I would have liked that, but -Wimplicit-int-conversion isn\u0027t enabled. Enabling it causes quite a bit of noise from inlined code in the dex headers, so some cleanup work is required first to get there.\n\nOddly enough, even with -Wimplicit-int-conversion enabled clang won\u0027t complain on the conversion from ptrdiff_t to int32_t (and I\u0027ve checked that ptrdiff_t is 8 bytes). I have to make the result int16_t to get a warning. Weird.\n\nAnyway, I\u0027ve added an extra static_cast for clarity.",
+      "parentUuid": "9c4c34bc_2dfd4f10",
+      "range": {
+        "startLine": 314,
+        "startChar": 10,
+        "endLine": 314,
+        "endChar": 26
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d74a14b_c6a5572b",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 5
@@ -160,6 +304,30 @@
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e8e0fe0_d177fea2",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "Here I\u0027m using a MethodInfo in the argument for clarity: http://doc/1kbDXlGaxI7DJI76N7ouD_DtJBKRfwLo91JgBPVkQsQo#heading\u003dh.j4wcmeucldrd\n\n(Guess I could just as well use push_back, but this way it\u0027s somewhat more clear that I actually expect in-place construction.)",
+      "parentUuid": "6d74a14b_c6a5572b",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -192,6 +360,24 @@
       "side": 1,
       "message": "I put it in an art_api/ subdirectory that needs to be mentioned in the #include. Isn\u0027t that enough?",
       "parentUuid": "53077b62_24c5a696",
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d09e8011_b20626f2",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "Vladimir argues to make this dex_symbols.h to show that this interface is only intended to expose symbols (and to avoid having another dex_file.h even though it afaics can\u0027t clash with dex/dex_file.h).\n\nMy intention was for this to cover any external use that requires opening a dex file. E.g. if we were to create an external API for a disassembler that too would go in here. So I prefer to keep it like this, but I can change if more people shares Vladimir\u0027s point of view.",
+      "parentUuid": "7281a818_91260a2f",
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -241,6 +427,30 @@
       "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c86077_d7257416",
+        "filename": "libdexfile/external/include/art_api/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-29T14:38:07Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure it\u0027s safe to use C++ 14 features, but I see a -std\u003dgnu++14 in the command line so I suppose it is.\n\nChanged in dex_file_ext.cc, but here I found that std::make_unique doesn\u0027t work since it needs access to the constructor from the function template, and it\u0027s private here. :\\",
+      "parentUuid": "1a041e44_76e21345",
+      "range": {
+        "startLine": 128,
+        "startChar": 13,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "b5a5960f0fcd600ca6ba68d572c6e287f0f3809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
