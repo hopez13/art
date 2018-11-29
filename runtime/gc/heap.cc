@@ -103,8 +103,9 @@ static constexpr size_t kMaxConcurrentRemainingBytes = 512 * KB;
 // Sticky GC throughput adjustment, divided by 4. Increasing this causes sticky GC to occur more
 // relative to partial/full GC. This may be desirable since sticky GCs interfere less with mutator
 // threads (lower pauses, use less memory bandwidth).
-static constexpr double kStickyGcThroughputAdjustment =
-    kEnableGenerationalConcurrentCopyingCollection ? 0.5 : 1.0;
+static float getStickyGcThroughputAdjustment() {
+  return kEnableGenerationalConcurrentCopyingCollection ? 0.5 : 1.0;
+}
 // Whether or not we compact the zygote in PreZygoteFork.
 static constexpr bool kCompactZygote = kMovingCollector;
 // How many reserve entries are at the end of the allocation stack, these are only needed if the
@@ -3560,7 +3561,7 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
     // We also check that the bytes allocated aren't over the footprint limit in order to prevent a
     // pathological case where dead objects which aren't reclaimed by sticky could get accumulated
     // if the sticky GC throughput always remained >= the full/partial throughput.
-    if (current_gc_iteration_.GetEstimatedThroughput() * kStickyGcThroughputAdjustment >=
+    if (current_gc_iteration_.GetEstimatedThroughput() * getStickyGcThroughputAdjustment() >=
         non_sticky_collector->GetEstimatedMeanThroughput() &&
         non_sticky_collector->NumberOfIterations() > 0 &&
         bytes_allocated <= max_allowed_footprint_) {

@@ -133,6 +133,8 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-XX:ParallelGCThreads=_")
           .WithType<unsigned int>()
           .IntoKey(M::ParallelGCThreads)
+      .Define("-XX:UseGenerationalCC")
+          .IntoKey(M::UseGenerationalCC)
       .Define("-XX:ConcGCThreads=_")
           .WithType<unsigned int>()
           .IntoKey(M::ConcGCThreads)
@@ -683,6 +685,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Xjnitrace:substring (eg NativeClass or nativeMethod)\n");
   UsageMessage(stream, "  -Xgc:[no]preverify\n");
   UsageMessage(stream, "  -Xgc:[no]postverify\n");
+  UsageMessage(stream, "  -XX:UseGenerationalCC\n");
   UsageMessage(stream, "  -XX:HeapGrowthLimit=N\n");
   UsageMessage(stream, "  -XX:HeapMinFree=N\n");
   UsageMessage(stream, "  -XX:HeapMaxFree=N\n");
