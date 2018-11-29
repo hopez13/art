@@ -59,7 +59,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // guaranteed to be granted, if it is required, the caller should call Begin on the returned
   // space to confirm the request was granted.
   static MemMap CreateMemMap(const std::string& name, size_t capacity, uint8_t* requested_begin);
-  static RegionSpace* Create(const std::string& name, MemMap&& mem_map);
+  static RegionSpace* Create(const std::string& name, MemMap&& mem_map, bool use_generational_cc);
 
   // Allocate `num_bytes`, returns null if the space is full.
   mirror::Object* Alloc(Thread* self,
@@ -318,6 +318,9 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   }
 
  private:
+  // static so that inner classes could access it.
+  static bool use_generational_cc_;
+
   RegionSpace(const std::string& name, MemMap&& mem_map);
 
   template<bool kToSpaceOnly, typename Visitor>
@@ -478,7 +481,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     // Region::SetUnevacFromSpaceAsToSpace below).
     void SetAsUnevacFromSpace(bool clear_live_bytes) {
       // Live bytes are only preserved (i.e. not cleared) during sticky-bit CC collections.
-      DCHECK(kEnableGenerationalConcurrentCopyingCollection || clear_live_bytes);
+      DCHECK(use_generational_cc_ || clear_live_bytes);
       DCHECK(!IsFree() && IsInToSpace());
       type_ = RegionType::kRegionTypeUnevacFromSpace;
       if (IsNewlyAllocated()) {
