@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c2c618f_9851cf34",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-11-29T19:20:16Z",
+      "side": 1,
+      "message": "Would it make more sense to add a constructor to ImageHeader::Block and then use emplace_back()?  This seems to break encapsulation.",
+      "revId": "3da5c46a2fc0dcc765f3c72f5be864e53892da8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
