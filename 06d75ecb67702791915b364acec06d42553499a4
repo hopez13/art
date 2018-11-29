@@ -46,6 +46,30 @@
       "revId": "06d75ecb67702791915b364acec06d42553499a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f80d04c_b7df1e91",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-11-29T16:33:48Z",
+      "side": 1,
+      "message": "Indeed; in this case (as well as for `seconds` line 226), this means we have a 3-decimal precision, which might be OK, considering how large `freed_bytes` is expected to be (in ratios lines 243 and 245).\n\nI didn\u0027t realize \u003cchrono\u003e was already available in C++11! Yeah, I agree we should use it. Albert, would you like to refactor this code in a follow-up CL to use \u003cchrono\u003e (see https://en.cppreference.com/w/cpp/header/chrono)?",
+      "parentUuid": "b4e1a1c3_6d5c7c72",
+      "range": {
+        "startLine": 237,
+        "startChar": 23,
+        "endLine": 237,
+        "endChar": 50
+      },
+      "revId": "06d75ecb67702791915b364acec06d42553499a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
