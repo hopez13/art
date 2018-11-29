@@ -16,6 +16,47 @@
       "revId": "3da5c46a2fc0dcc765f3c72f5be864e53892da8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a02cedce_4ddd29b5",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-29T20:55:24Z",
+      "side": 1,
+      "message": "What do you mean by encapsulation? Block seems to be a storage struct, so this is as good as a constructor (if you like GCC extensions), I guess?",
+      "parentUuid": "7c2c618f_9851cf34",
+      "revId": "3da5c46a2fc0dcc765f3c72f5be864e53892da8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ede8dc_4521396d",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-11-29T20:55:24Z",
+      "side": 1,
+      "message": "Style guide says: Only public members -\u003e struct. Struct -\u003e no trailing \u0027_\u0027 for fields.\n\nAlso make it final.",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "3da5c46a2fc0dcc765f3c72f5be864e53892da8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
