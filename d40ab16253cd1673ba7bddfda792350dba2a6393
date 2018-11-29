@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7570e02a_4d01d2fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-29T17:25:38Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 11,
+        "startChar": 53,
+        "endLine": 11,
+        "endChar": 56
+      },
+      "revId": "d40ab16253cd1673ba7bddfda792350dba2a6393",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c49de059_d1b094d5",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-29T17:25:38Z",
+      "side": 1,
+      "message": "nit: space after \u0027\u003d\u0027.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 62
+      },
+      "revId": "d40ab16253cd1673ba7bddfda792350dba2a6393",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d3fe3d_bea09dea",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-29T17:25:38Z",
+      "side": 1,
+      "message": "nit: \"\u0026 \"",
+      "range": {
+        "startLine": 360,
+        "startChar": 24,
+        "endLine": 360,
+        "endChar": 26
+      },
+      "revId": "d40ab16253cd1673ba7bddfda792350dba2a6393",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
