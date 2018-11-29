@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92d89e5a_2e21c5b3",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-11-29T14:58:14Z",
+      "side": 1,
+      "message": "Add a kConstant for this, or add a helper GetTotalCpuTimeInSeconds.",
+      "range": {
+        "startLine": 237,
+        "startChar": 43,
+        "endLine": 237,
+        "endChar": 55
+      },
+      "revId": "c1b7ea38ca6a42029496692f2a86de87273702aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
