@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2055690d_81821d93",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-11-29T16:32:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1b70033_dc8b9bda",
+      "range": {
+        "startLine": 58,
+        "startChar": 6,
+        "endLine": 58,
+        "endChar": 15
+      },
+      "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e426bad_19fe5891",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64681da2_538bb6f0",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-11-29T16:32:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e426bad_19fe5891",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4e8090a8_8e3982bb",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-11-29T16:32:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51c240c4_283a2500",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cf1a9db_79571a55",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8c1ffd43_43d8832e",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-11-29T16:32:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cf1a9db_79571a55",
+      "range": {
+        "startLine": 85,
+        "startChar": 6,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3f330d8_70106152",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9baf129d_20de093f",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-11-29T16:32:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3f330d8_70106152",
+      "range": {
+        "startLine": 131,
+        "startChar": 8,
+        "endLine": 131,
+        "endChar": 17
+      },
+      "revId": "684bfd05e1dfbc6900431a98fc5888636e8f71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
