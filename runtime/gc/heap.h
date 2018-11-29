@@ -196,6 +196,7 @@ class Heap {
        bool gc_stress_mode,
        bool measure_gc_performance,
        bool use_homogeneous_space_compaction,
+       bool use_generational_cc,
        uint64_t min_interval_homogeneous_space_compaction_by_oom);
 
   ~Heap();
@@ -717,7 +718,7 @@ class Heap {
 
   // Returns the active concurrent copying collector.
   collector::ConcurrentCopying* ConcurrentCopyingCollector() {
-    if (kEnableGenerationalConcurrentCopyingCollection) {
+    if (use_generational_cc_) {
       DCHECK((active_concurrent_copying_collector_ == concurrent_copying_collector_) ||
              (active_concurrent_copying_collector_ == young_concurrent_copying_collector_));
     } else {
@@ -1389,6 +1390,8 @@ class Heap {
 
   // Whether or not we use homogeneous space compaction to avoid OOM errors.
   bool use_homogeneous_space_compaction_for_oom_;
+
+  const bool use_generational_cc_;
 
   // True if the currently running collection has made some thread wait.
   bool running_collection_is_blocking_ GUARDED_BY(gc_complete_lock_);
