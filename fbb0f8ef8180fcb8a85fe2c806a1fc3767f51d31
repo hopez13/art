@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5bcefe05_b4216714",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-30T13:17:34Z",
+      "side": 1,
+      "message": "support.",
+      "range": {
+        "startLine": 160,
+        "startChar": 47,
+        "endLine": 160,
+        "endChar": 55
+      },
+      "revId": "fbb0f8ef8180fcb8a85fe2c806a1fc3767f51d31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29db9c16_f1134660",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-11-30T13:17:34Z",
+      "side": 1,
+      "message": "dex_file \u003d\u003d nullptr",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "fbb0f8ef8180fcb8a85fe2c806a1fc3767f51d31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15e14069_cd1c7552",
         "filename": "libdexfile/external/include/art_api/dex_file.h",
         "patchSetId": 8
