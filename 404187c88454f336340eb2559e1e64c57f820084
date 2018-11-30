@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "38de357a_ae111519",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-11-30T19:21:05Z",
+      "side": 1,
+      "message": "Actually, this is already done by ScopedThreadStateChange in TransitionFromRunnableToSuspended, you can delete it.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 33
+      },
+      "revId": "404187c88454f336340eb2559e1e64c57f820084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8be24ea3_51589f4a",
         "filename": "runtime/runtime-inl.h",
         "patchSetId": 5
