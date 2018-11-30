@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "fb3609f6_db362d3d",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-30T14:30:14Z",
+      "side": 1,
+      "message": "Opened b/120267645 for this. It looks like a bug in the linker, but I\u0027m not sure since my testing setup is slightly hacked up.",
+      "parentUuid": "7f571d7a_bffae46e",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b61b7abc_1d35d63a",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2

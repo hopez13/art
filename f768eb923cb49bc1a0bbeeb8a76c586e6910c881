@@ -70,6 +70,30 @@
       "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "add5c8a6_6e751ce7",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-30T14:30:14Z",
+      "side": 1,
+      "message": "Well, the relevant sync section would be in [system] where these still remain, but removed anyway since it\u0027s confusing in itself.",
+      "parentUuid": "0f6f5876_c462ebcd",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "f768eb923cb49bc1a0bbeeb8a76c586e6910c881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
