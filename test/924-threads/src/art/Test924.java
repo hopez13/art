@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.time.Instant;
 
 public class Test924 {
   public static void run() throws Exception {
@@ -109,8 +110,13 @@ public class Test924 {
     final CountDownLatch cdl4 = new CountDownLatch(1);
     final CountDownLatch cdl5 = new CountDownLatch(1);
     final Holder h = new Holder();
+    final long ALMOST_INFINITE = 100000000;  // 1.1 days!
     final NativeWaiter w = new NativeWaiter();
     Runnable r = new Runnable() {
+      private void infiniteTimedWait(Object o) {
+        synchronized (o) {
+        }
+      }
       @Override
       public void run() {
         try {
@@ -121,7 +127,7 @@ public class Test924 {
 
           cdl2.countDown();
           synchronized(cdl2) {
-            cdl2.wait(1000);  // Wait a second.
+            cdl2.wait(ALMOST_INFINITE);
           }
 
           cdl3_1.await();
@@ -131,7 +137,9 @@ public class Test924 {
           }
 
           cdl4.countDown();
-          Thread.sleep(1000);
+          try {
+            Thread.sleep(ALMOST_INFINITE);
+          } catch (InterruptedException e) { }
 
           cdl5.countDown();
           while (!h.flag) {
@@ -152,18 +160,18 @@ public class Test924 {
 
     // Waiting.
     cdl1.await();
-    Thread.yield();
-    Thread.sleep(100);
-    printThreadState(t);
+    // This is super inconsistent so just wait for the desired state for up to 5 minutes then give
+    // up and continue
+    waitForState(t, 0x191);
     synchronized(cdl1) {
       cdl1.notifyAll();
     }
 
     // Timed waiting.
     cdl2.await();
-    Thread.yield();
-    Thread.sleep(100);
-    printThreadState(t);
+    // This is super inconsistent so just wait for the desired state for up to 5 minutes then give
+    // up and continue
+    waitForState(t, 0x1a1);
     synchronized(cdl2) {
       cdl2.notifyAll();
     }
@@ -185,14 +193,15 @@ public class Test924 {
 
     // Sleeping.
     cdl4.await();
-    Thread.yield();
-    Thread.sleep(100);
-    printThreadState(t);
+    // This is super inconsistent so just wait for the desired state for up to 5 minutes then give
+    // up and continue
+    waitForState(t, 0xe1);
+    t.interrupt();
 
     // Running.
     cdl5.await();
     Thread.yield();
-    Thread.sleep(100);
+    Thread.sleep(1000);
     printThreadState(t);
     h.flag = true;
 
@@ -204,9 +213,24 @@ public class Test924 {
     // Dying.
     t.join();
     Thread.yield();
-    Thread.sleep(100);
+    Thread.sleep(1000);
 
     printThreadState(t);
+  }
+
+  private static void waitForState(Thread t, int desired) throws Exception {
+    Thread.yield();
+    Thread.sleep(1000);
+    // This is super inconsistent so just wait for the desired state for up to 5 minutes then give
+    // up and continue
+    int state;
+    Instant deadline = Instant.now().plusSeconds(60 * 5);
+    while ((state = getThreadState(t)) != desired && deadline.isAfter(Instant.now())) {
+      Thread.yield();
+      Thread.sleep(100);
+      Thread.yield();
+    }
+    printThreadState(state);
   }
 
   private static void doAllThreadsTests() {
