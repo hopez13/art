@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e50ec39b_dabbe336",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-30T16:40:54Z",
+      "side": 1,
+      "message": "That is effectively what this code already does, if I\u0027m not mistaken. The copy happens in DexFile::AddMethodInfo. Anyway, I\u0027m getting rid of the free here to allow the callback to take over ownership.",
+      "parentUuid": "7fec0305_1d033e22",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 45
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dc729bf_4604a014",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "39206749_eda13535",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-30T16:40:54Z",
+      "side": 1,
+      "message": "\u003e For error messages, I feel char* is slightly more obvious than ExtDexFileString in a C api. But not a big deal.\n\nAgreed, but the C API isn\u0027t the focus to get nice here. Users may use it if they like, but they are expected to use the C++ wrapper which mostly hides that stuff.\n\n\u003e ExtDexFileGetAllMethodInfo() reads all symbols in the dex file. The time taken by copying them once (and new/delete strings) isn\u0027t trivial. Especially if users (like simpleperf) want to read many dex files. That\u0027s why I want to avoid copying strings in ExtDexFileGetAllMethodInfo().\n\nUnderstood. Then I plan to rework the API for that function so that read_dex_file.cpp can register a visitor callback directly, and then it\u0027ll propagate the ExtDexFileStrings up to dso.cpp where they\u0027d get copied directly by OneTimeFreeAllocator. That copy is already happening there[1], so it wouldn\u0027t be any additional work. I might just as well skip the translation of ExtDexFileMethodInfo too then. SG?\n\n[1] http://cs/aosp-master/system/extras/simpleperf/dso.cpp?l\u003d444\u0026rcl\u003d4d1d32c9a45ac405fbd0b28d15b74abfb2d83b20 -\u003e http://cs/aosp-master/system/extras/simpleperf/utils.cpp?l\u003d49-62\u0026rcl\u003d4d1d32c9a45ac405fbd0b28d15b74abfb2d83b20",
+      "parentUuid": "ad68336e_3af822a2",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "Can we rely on the fact that ExtDexFileString is a std::string, and use std::move(*static_cast\u003cstd::string*\u003e(ext_method_info-\u003ename)) to avoid a string copy here?",
       "parentUuid": "b638dbe5_272bb780",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85fadd24_90e57ea9",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-11-30T16:40:54Z",
+      "side": 1,
+      "message": "I think that\u0027s risky since it assumes std::string is layout and allocator compatible between the C++ versions used to compile libdexfile and the client.\n\nIdeally we\u0027d have a guarantee that std::string works across build boundaries, just like malloc/free works because libc is guaranteed to be shared. That\u0027s not easy to fix though, maybe it\u0027d even require replacing std::string with something like android::string throughout the code base.",
+      "parentUuid": "dce1da62_2d0a8c1c",
       "range": {
         "startLine": 43,
         "startChar": 34,
