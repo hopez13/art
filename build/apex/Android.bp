@@ -132,10 +132,16 @@ apex {
     // ...
 }
 
-art_zip_apex {
-    name: "com.android.runtime.host-apex",
+zip_apex {
+    name: "com.android.runtime.host",
     compile_multilib: "both",
+    // TODO We need this and the multilib is different from above b/c ART does
+    // different prefer32 on host and device. We should change this.
     host_supported: true,
+    device_supported: false,
+    // The files are the same on both.
+    file_contexts: "com.android.runtime.debug",
+    manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_fake_native_shared_libs,
     multilib: {
@@ -144,13 +150,14 @@ art_zip_apex {
             // (see `symlink_preferred_arch` in art/dalvikvm/Android.bp).
             binaries: art_runtime_base_binaries_both,
         },
-        prefer32: {
-            binaries: art_runtime_base_binaries_prefer32
-                + art_runtime_debug_binaries_prefer32,
-        },
         first: {
             // TODO: oatdump cannot link with host linux_bionic due to not using clang ld
-            binaries: art_tools_binaries_common,
+            binaries: art_tools_binaries_common
+                + art_runtime_base_binaries_prefer32
+                + art_runtime_debug_binaries_prefer32,
         }
     },
+    key: "com.android.runtime.key",
+    // TODO: Also package a `ld.config.txt` config file (to be placed in `etc/`).
+    // ...
 }
