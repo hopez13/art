@@ -382,6 +382,29 @@
     },
     {
       "key": {
+        "uuid": "a151950d_1f60243f",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-12-01T05:28:47Z",
+      "side": 1,
+      "message": "this should be paths not path.",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f7df4f6a_e2ce6a7b",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
