@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "6c91d5cc_1e2933f5",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-12-01T00:25:18Z",
+      "side": 1,
+      "message": "Sorry, didn\u0027t notice the const ExtDexFileString* MakeExtDexFileString(const std::string\u0026\u0026 str).",
+      "parentUuid": "e50ec39b_dabbe336",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 45
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dc729bf_4604a014",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -239,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "403f8b88_1ed41a28",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-12-01T00:25:18Z",
+      "side": 1,
+      "message": "Thanks, passing ExtDexFileStrings up to dso.cpp LGTM.",
+      "parentUuid": "39206749_eda13535",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
@@ -322,6 +370,30 @@
       "side": 1,
       "message": "I think that\u0027s risky since it assumes std::string is layout and allocator compatible between the C++ versions used to compile libdexfile and the client.\n\nIdeally we\u0027d have a guarantee that std::string works across build boundaries, just like malloc/free works because libc is guaranteed to be shared. That\u0027s not easy to fix though, maybe it\u0027d even require replacing std::string with something like android::string throughout the code base.",
       "parentUuid": "dce1da62_2d0a8c1c",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb3b691_81df3f17",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2018-12-01T00:25:18Z",
+      "side": 1,
+      "message": "right. the \u003cstring\u003e header may change. forget my comment here.",
+      "parentUuid": "85fadd24_90e57ea9",
       "range": {
         "startLine": 43,
         "startChar": 34,
