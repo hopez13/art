@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76c80d3a_89acc7f2",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-12-02T20:12:32Z",
+      "side": 1,
+      "message": "Same as my comment on the libcore/ CL: \"original\" here means \"before retransform\". But that might be after redefine, in which case it contains the byte[] of the redefining dex file.",
+      "parentUuid": "ff586589_bf28a430",
+      "range": {
+        "startLine": 1471,
+        "startChar": 31,
+        "endLine": 1471,
+        "endChar": 52
+      },
+      "revId": "c25ba353a8e54a877c00479633c1ad41dabbbd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4fbcb06_8fa60e27",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
