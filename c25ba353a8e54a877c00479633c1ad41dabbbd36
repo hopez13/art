@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff586589_bf28a430",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1471,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-02T19:24:48Z",
+      "side": 1,
+      "message": "Isn\u0027t that the orginal dex file set line 1464?",
+      "range": {
+        "startLine": 1471,
+        "startChar": 31,
+        "endLine": 1471,
+        "endChar": 52
+      },
+      "revId": "c25ba353a8e54a877c00479633c1ad41dabbbd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4fbcb06_8fa60e27",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-02T19:24:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 335,
+        "startChar": 67,
+        "endLine": 335,
+        "endChar": 76
+      },
+      "revId": "c25ba353a8e54a877c00479633c1ad41dabbbd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12247008_74ebf320",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-02T19:24:48Z",
+      "side": 1,
+      "message": "and",
+      "range": {
+        "startLine": 336,
+        "startChar": 54,
+        "endLine": 336,
+        "endChar": 55
+      },
+      "revId": "c25ba353a8e54a877c00479633c1ad41dabbbd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
