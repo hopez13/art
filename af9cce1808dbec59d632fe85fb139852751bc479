@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9f6d4f0a_706eecad",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-03T22:05:09Z",
+      "side": 1,
+      "message": "I\u0027d argue for yes to all of the above, though those are slightly different issues. But this is clearly a question about what we\u0027re trying to measure.\n\nThe reason I initially thought this is weird is that computing the arithmetic mean of ratios is generally wrong. That\u0027s also how you demonstrate that your great new optimization that speeds up your code by a factor of 10 half the time, and slows it down by a factor of 10 the other half, is a great win, because it results in a mean speedup of around 5. (That has been done in academic papers, but ...) That\u0027s not exactly the problem here, but it remains fishy.",
+      "parentUuid": "9bab1c47_b242f55e",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "af9cce1808dbec59d632fe85fb139852751bc479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd601204_c6f90aac",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 5
