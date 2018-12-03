@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "f7db630b_3a060c1b",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T14:43:53Z",
+      "side": 1,
+      "message": "It looks like there\u0027s still a tab character on this line in patch set 2.",
+      "parentUuid": "34b41f24_fc5cec13",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 1
+      },
+      "revId": "b2d4ec6da19628a9eb6b8a95d85e4d6ea570e947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a1cdb3b_31a82cd4",
         "filename": "runtime/Android.bp",
         "patchSetId": 1
