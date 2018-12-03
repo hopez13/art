@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9bab1c47_b242f55e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-03T20:08:56Z",
+      "side": 1,
+      "message": "Just to confirm, are you suggesting that we should use bytes allocated after GC and not before for computing the ratio?\n\nOn another thought, instead of having a reclaimed bytes ratio over the bytes allocated of the entire heap, shouldn\u0027t it be over just the regions covered in that type of GC? That will give us an indication of whether generational hypothesis holds for us or not. If it holds, then we can expect to see a larger ratio for young GCs than full GCs. In the current form, I\u0027m not sure if it gives any additional insight than what a simple metric like \"avg bytes freed\" would give.",
+      "parentUuid": "dcb984a9_00e9eee2",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "af9cce1808dbec59d632fe85fb139852751bc479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd601204_c6f90aac",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 5
