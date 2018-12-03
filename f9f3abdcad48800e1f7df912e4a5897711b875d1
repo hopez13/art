@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf0eb25c_f225fd53",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2083,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T14:58:44Z",
+      "side": 1,
+      "message": "I\u0027d rename this to something more explicit, like `reclaimed_bytes_ratio`.",
+      "range": {
+        "startLine": 2083,
+        "startChar": 10,
+        "endLine": 2083,
+        "endChar": 15
+      },
+      "revId": "f9f3abdcad48800e1f7df912e4a5897711b875d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
