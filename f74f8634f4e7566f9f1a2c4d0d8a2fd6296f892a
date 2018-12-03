@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "8bef69e2_931db4e6",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-03T20:47:37Z",
+      "side": 1,
+      "message": "As you spotted, this was due to a typo of mine. Filed http://b/120430775 about better debug logging.",
+      "parentUuid": "fb3609f6_db362d3d",
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b61b7abc_1d35d63a",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 2
@@ -402,6 +420,30 @@
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d325bbb7_e68fb896",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-03T20:47:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a151950d_1f60243f",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

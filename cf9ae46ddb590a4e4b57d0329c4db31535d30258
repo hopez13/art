@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b8873cd_eda7fcd8",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-03T20:47:37Z",
+      "side": 1,
+      "message": "I learned today that this won\u0027t be true - during the preinstall step we will have another newer version of the Runtime APEX mounted somewhere to recompile the boot class path before the reboot.\n\nUnless that preinstall step is done in a complete chroot, it means both dir.runtime and namespace.default.search.paths will need to include the version. (I tried a relative path ../${LIB} for the search path, but that didn\u0027t work.)\n\nI don\u0027t think that needs to be addressed right now though.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "cf9ae46ddb590a4e4b57d0329c4db31535d30258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
