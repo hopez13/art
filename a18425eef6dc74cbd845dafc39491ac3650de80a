@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a5df74d_d17202b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "I\u0027d also mention that this CL is moving member `process_cpu_start_time_` from `art::Runtime` to `art::gc:Heap` (and removing member `process_cpu_end_time_` from `art::Runtime`), and the reason for this change.",
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e3a064f_7486a64f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Nit: 0u.",
+      "range": {
+        "startLine": 215,
+        "startChar": 32,
+        "endLine": 215,
+        "endChar": 33
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb50f80e_bd41d4da",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Nit: 0u.",
+      "range": {
+        "startLine": 1156,
+        "startChar": 30,
+        "endLine": 1156,
+        "endChar": 31
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc32ca78_2aa04a01",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Rename this as\n\n  process_cpu_start_time_ns_\n\nto make it uniform with `last_process_cpu_time_ns_` line 1175?",
+      "range": {
+        "startLine": 1173,
+        "startChar": 11,
+        "endLine": 1173,
+        "endChar": 34
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25d4c038_6251e953",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Can you document all these new members?",
+      "range": {
+        "startLine": 1173,
+        "startChar": 0,
+        "endLine": 1176,
+        "endChar": 37
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5377d036_fd57b4ed",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 61
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "173beccb_063a63a6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-03T15:10:36Z",
+      "side": 1,
+      "message": "Nit: Extra semi-colon.",
+      "range": {
+        "startLine": 333,
+        "startChar": 61,
+        "endLine": 333,
+        "endChar": 62
+      },
+      "revId": "a18425eef6dc74cbd845dafc39491ac3650de80a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
