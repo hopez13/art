@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2015ce4_3525fb27",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-03T17:59:44Z",
+      "side": 1,
+      "message": "I\u0027d prefer\n\n  if (art_features !\u003d nullptr) {\n    SetVIXLCPUFeaturesFromART(\u0026vixl_masm_, art_features);\n  }",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 55
+      },
+      "revId": "182eca357cc809ec8e0e4f4a0c587ef27912096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
