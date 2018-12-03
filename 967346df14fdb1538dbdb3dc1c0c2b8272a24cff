@@ -22,6 +22,30 @@
       "revId": "967346df14fdb1538dbdb3dc1c0c2b8272a24cff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80ba9ae6_0e818b1e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2018-12-03T19:53:32Z",
+      "side": 1,
+      "message": "Done for the comment.\n\nSeems libartbase-art-gtest and libart-runtime-gtest don\u0027t use ICU4C directly and thus it doesn\u0027t need the flag. I remove the dependency from these 2 target in a separate CL.",
+      "parentUuid": "dda30110_d7bb782e",
+      "range": {
+        "startLine": 347,
+        "startChar": 12,
+        "endLine": 349,
+        "endChar": 14
+      },
+      "revId": "967346df14fdb1538dbdb3dc1c0c2b8272a24cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
