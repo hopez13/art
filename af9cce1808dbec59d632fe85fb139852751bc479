@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcb984a9_00e9eee2",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-03T03:13:28Z",
+      "side": 1,
+      "message": "This may be a question for Lokesh as well:\n\nThis is basically what might traditionally be called the average cons to mark ratio.\n\nIs this really the mathematically correct metric? It seems to give the same weight to what happens in small heap/cheap GCs as it does to collections that happen when the heap is much larger. To me it seems that sum(reclaimed_bytes)/sum(allocated_bytes at GC end) or the inverse (i.e. the total mark to cons ratio) would be a better choice. Effectively that gives larger collections the weight they deserve.",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "af9cce1808dbec59d632fe85fb139852751bc479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd601204_c6f90aac",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-03T03:13:28Z",
+      "side": 1,
+      "message": "Why is this signed? The comment specifies a good reason to cast it to signed before performing the subtraction. But the value itself seems clearly non-negative. I believe the usual convention in this code is to use size_t for such things. I have a pending CL that makes it a bit more consistent that way.",
+      "range": {
+        "startLine": 425,
+        "startChar": 2,
+        "endLine": 425,
+        "endChar": 41
+      },
+      "revId": "af9cce1808dbec59d632fe85fb139852751bc479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
