@@ -175,7 +175,6 @@ art_cc_library {
         "libbacktrace",
     ],
     header_libs: [
-        "libicuuc_headers",
         "libnativehelper_header_only",
     ],
 }
