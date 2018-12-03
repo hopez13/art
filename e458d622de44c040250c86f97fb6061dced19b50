@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "0b25117d_d3f82fbd",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-12-03T14:14:50Z",
+      "side": 1,
+      "message": "Dir now called com.android.runtime.",
+      "parentUuid": "7c242352_52e31a26",
+      "range": {
+        "startLine": 154,
+        "startChar": 13,
+        "endLine": 154,
+        "endChar": 40
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7c4269fa_07c10470",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 6
@@ -296,6 +320,30 @@
       "side": 1,
       "message": "I think `SetUpAndroidRootDirs` is indeed better than `SetUpAndroidRootDirs`. Could you also document it (i.e. describe which environment variables are read and set) in libartbase/base/common_art_test.h?\n\nI also like your suggestion to replace `SetUpAndroidData` with `SetUpAndroidDataDir`.",
       "parentUuid": "7c4269fa_07c10470",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 28
+      },
+      "revId": "e458d622de44c040250c86f97fb6061dced19b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a0ccd84_c94321a4",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-12-03T14:14:50Z",
+      "side": 1,
+      "message": "Looked at what the methods do and chose better names. Changed TearDown to match.",
+      "parentUuid": "93a82ca6_e6184ee1",
       "range": {
         "startLine": 184,
         "startChar": 2,
