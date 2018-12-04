@@ -246,8 +246,10 @@ class OatFileAssistant {
 
  private:
   struct ImageInfo {
-    uint32_t boot_image_checksum = 0;
+    bool ValidateBootImageChecksum(const OatFile& oat_file) const;
+
     std::string location;
+    std::string image_checksum;
 
     static std::unique_ptr<ImageInfo> GetRuntimeImageInfo(InstructionSet isa,
                                                           std::string* error_msg);

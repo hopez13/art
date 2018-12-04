@@ -980,8 +980,8 @@ void Runtime::StartDaemonThreads() {
   VLOG(startup) << "Runtime::StartDaemonThreads exiting";
 }
 
-static size_t OpenDexFiles(const std::vector<std::string>& dex_filenames,
-                           const std::vector<std::string>& dex_locations,
+static size_t OpenDexFiles(ArrayRef<const std::string> dex_filenames,
+                           ArrayRef<const std::string> dex_locations,
                            std::vector<std::unique_ptr<const DexFile>>* dex_files) {
   DCHECK(dex_files != nullptr) << "OpenDexFiles: out-param is nullptr";
   size_t failure_count = 0;
@@ -1428,6 +1428,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       return false;
     }
     if (kIsDebugBuild) {
+      CHECK_LE(heap_->GetBootImageSpaces().size(), GetBootClassPath().size());
       for (auto image_space : GetHeap()->GetBootImageSpaces()) {
         image_space->VerifyImageAllocations();
       }
@@ -1437,6 +1438,19 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       for (gc::space::ImageSpace* image_space : heap_->GetBootImageSpaces()) {
         GetInternTable()->AddImageStringsToTable(image_space, VoidFunctor());
       }
+    }
+    if (heap_->GetBootImageSpaces().size() != GetBootClassPath().size()) {
+      size_t start = heap_->GetBootImageSpaces().size();
+      DCHECK_LT(start, GetBootClassPath().size());
+      std::vector<std::unique_ptr<const DexFile>> extra_boot_class_path;
+      if (runtime_options.Exists(Opt::BootClassPathDexList)) {
+        extra_boot_class_path.swap(*runtime_options.GetOrDefault(Opt::BootClassPathDexList));
+      } else {
+        OpenDexFiles(ArrayRef<const std::string>(GetBootClassPath()).SubArray(start),
+                     ArrayRef<const std::string>(GetBootClassPathLocations()).SubArray(start),
+                     &extra_boot_class_path);
+      }
+      class_linker_->AddExtraBootDexFiles(self, std::move(extra_boot_class_path));
     }
     if (IsJavaDebuggable()) {
       // Now that we have loaded the boot image, deoptimize its methods if we are running
@@ -1448,7 +1462,9 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     if (runtime_options.Exists(Opt::BootClassPathDexList)) {
       boot_class_path.swap(*runtime_options.GetOrDefault(Opt::BootClassPathDexList));
     } else {
-      OpenDexFiles(GetBootClassPath(), GetBootClassPathLocations(), &boot_class_path);
+      OpenDexFiles(ArrayRef<const std::string>(GetBootClassPath()),
+                   ArrayRef<const std::string>(GetBootClassPathLocations()),
+                   &boot_class_path);
     }
     if (!class_linker_->InitWithoutImage(std::move(boot_class_path), &error_msg)) {
       LOG(ERROR) << "Could not initialize without image: " << error_msg;

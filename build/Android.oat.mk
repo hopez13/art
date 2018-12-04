@@ -85,8 +85,8 @@ $$(core_image_name): $$(HOST_CORE_DEX_LOCATIONS) $$(core_dex2oat_dependency)
 	@mkdir -p $$(dir $$@)
 	$$(hide) ANDROID_LOG_TAGS="*:e" $$(DEX2OAT) --runtime-arg -Xms$(DEX2OAT_IMAGE_XMS) \
 	  --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
-	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(HOST_CORE_DEX_FILES)) \
-	  $$(addprefix --dex-location=,$$(HOST_CORE_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
+	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(HOST_CORE_IMG_DEX_FILES)) \
+	  $$(addprefix --dex-location=,$$(HOST_CORE_IMG_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
 	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
 	  --base=$$(LIBART_IMG_HOST_BASE_ADDRESS) --instruction-set=$$($(2)ART_HOST_ARCH) \
 	  $$(LOCAL_$(2)DEX2OAT_HOST_INSTRUCTION_SET_FEATURES_OPTION) \

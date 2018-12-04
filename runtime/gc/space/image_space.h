@@ -24,6 +24,8 @@
 
 namespace art {
 
+template <typename T> class ArrayRef;
+class DexFile;
 class OatFile;
 
 namespace gc {
@@ -124,6 +126,13 @@ class ImageSpace : public MemMapSpace {
                                 bool* has_data,
                                 bool *is_global_cache);
 
+  static std::string GetBootImageChecksums(const std::vector<std::string>& boot_class_path,
+                                           const std::string& image_location,
+                                           InstructionSet image_isa,
+                                           /*out*/std::string* error_msg);
+  static std::string GetBootImageChecksums(const std::vector<ImageSpace*>& image_spaces,
+                                           const std::vector<const DexFile*>& boot_class_path);
+
   // Expand a single image location to multi-image locations based on the dex locations.
   static std::vector<std::string> ExpandMultiImageLocations(
       const std::vector<std::string>& dex_locations,
@@ -188,6 +197,11 @@ class ImageSpace : public MemMapSpace {
   friend class Space;
 
  private:
+  // Internal overload that takes ArrayRef<> instead of vector<>.
+  static std::vector<std::string> ExpandMultiImageLocations(
+      ArrayRef<const std::string> dex_locations,
+      const std::string& image_location);
+
   class Loader;
   class BootImageLoader;
 

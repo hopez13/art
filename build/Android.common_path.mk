@@ -73,6 +73,15 @@ TARGET_CORE_IMG_OUTS :=
 HOST_CORE_IMG_LOCATION := $(HOST_OUT_JAVA_LIBRARIES)/core.art
 TARGET_CORE_IMG_LOCATION := $(ART_TARGET_TEST_OUT)/core.art
 
+# Modules to compile for core.art.
+CORE_IMG_JARS := core-oj core-libart
+HOST_CORE_IMG_JARS   := $(addsuffix -hostdex,$(CORE_IMG_JARS))
+TARGET_CORE_IMG_JARS := $(addsuffix -testdex,$(CORE_IMG_JARS))
+HOST_CORE_IMG_DEX_LOCATIONS   := $(foreach jar,$(HOST_CORE_IMG_JARS),  $(HOST_OUT_JAVA_LIBRARIES)/$(jar).jar)
+TARGET_CORE_IMG_DEX_LOCATIONS := $(foreach jar,$(TARGET_CORE_IMG_JARS),/$(DEXPREOPT_BOOT_JAR_DIR)/$(jar).jar)
+HOST_CORE_IMG_DEX_FILES   := $(foreach jar,$(HOST_CORE_IMG_JARS),  $(call intermediates-dir-for,JAVA_LIBRARIES,$(jar),t,COMMON)/javalib.jar)
+TARGET_CORE_IMG_DEX_FILES := $(foreach jar,$(TARGET_CORE_IMG_JARS),$(call intermediates-dir-for,JAVA_LIBRARIES,$(jar), ,COMMON)/javalib.jar)
+
 # Jar files for core.art.
 TEST_CORE_JARS := core-oj core-libart core-simple conscrypt okhttp bouncycastle
 HOST_TEST_CORE_JARS   := $(addsuffix -hostdex,$(TEST_CORE_JARS))

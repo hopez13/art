@@ -1038,12 +1038,7 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
       self, java_lang_Object, java_lang_Object->GetObjectSize(), VoidFunctor()));
 
   const std::vector<std::string>& boot_class_path = runtime->GetBootClassPath();
-  if (boot_class_path.size() != spaces.size()) {
-    *error_msg = StringPrintf("Boot class path has %zu components but there are %zu image spaces.",
-                              boot_class_path.size(),
-                              spaces.size());
-    return false;
-  }
+  CHECK_LE(spaces.size(), boot_class_path.size());
   for (size_t i = 0u, size = spaces.size(); i != size; ++i) {
     // Boot class loader, use a null handle.
     std::vector<std::unique_ptr<const DexFile>> dex_files;
@@ -1067,6 +1062,15 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
 
   VLOG(startup) << __FUNCTION__ << " exiting";
   return true;
+}
+
+void ClassLinker::AddExtraBootDexFiles(
+    Thread* self,
+    std::vector<std::unique_ptr<const DexFile>>&& additional_dex_files) {
+  for (std::unique_ptr<const DexFile>& dex_file : additional_dex_files) {
+    AppendToBootClassPath(self, *dex_file);
+    boot_dex_files_.push_back(std::move(dex_file));
+  }
 }
 
 bool ClassLinker::IsBootClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
