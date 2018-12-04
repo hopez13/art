@@ -22,6 +22,98 @@
       "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5aafad_a24453df",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-04T17:37:57Z",
+      "side": 1,
+      "message": "two more spaces",
+      "range": {
+        "startLine": 2993,
+        "startChar": 2,
+        "endLine": 2993,
+        "endChar": 4
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3273f8f_0209edcd",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3034,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-04T17:37:57Z",
+      "side": 1,
+      "message": "Or SUSB+B.LO? (Are there some micro-architectural optimizations on this pattern? Or are both patterns supposed to yield the same performance?)",
+      "range": {
+        "startLine": 3030,
+        "startChar": 0,
+        "endLine": 3034,
+        "endChar": 0
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "222c7efc_e4312433",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-04T17:37:57Z",
+      "side": 1,
+      "message": "Add a comment that this may be unaligned. (I assume this is deliberate, avoiding code bloat for initial peeling.)",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 56
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a05af89f_62b04838",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-04T17:37:57Z",
+      "side": 1,
+      "message": "Remove (to keep the line length \u003c\u003d 100)",
+      "range": {
+        "startLine": 32,
+        "startChar": 74,
+        "endLine": 32,
+        "endChar": 80
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
