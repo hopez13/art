@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9273e45b_55a8f119",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2955,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-04T16:52:01Z",
+      "side": 1,
+      "message": "The current threshold value is randomly picked up. It\u0027s a subject for the discussion. Processing an array of such a size takes ~40 microseconds on Cortex-A53.",
+      "range": {
+        "startLine": 2955,
+        "startChar": 0,
+        "endLine": 2955,
+        "endChar": 63
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
