@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a53adb2b_086e37ce",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-04T16:35:30Z",
+      "side": 1,
+      "message": "Yes... in future CL.",
+      "parentUuid": "004440a1_445dc500",
+      "range": {
+        "startLine": 377,
+        "startChar": 9,
+        "endLine": 377,
+        "endChar": 49
+      },
+      "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97cffbad_d9a055ac",
         "filename": "compiler/linker/elf_builder.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-04T16:26:53Z",
       "side": 1,
       "message": "Many writes are bad if this is not further buffered in the output stream.",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 58
+      },
+      "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3938fc1b_0fb44c6f",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-04T16:35:30Z",
+      "side": 1,
+      "message": "We do buffer it, right? (elf_writer_quick.cc:169)",
+      "parentUuid": "97cffbad_d9a055ac",
       "range": {
         "startLine": 397,
         "startChar": 8,
