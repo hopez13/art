@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "148a8723_47abf74c",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52c2166e_8903c055",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 25
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa03fa4_72406443",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -68,6 +92,30 @@
       "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13b4e98_3e0ff82f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Want to match art_tools_host_binaries below.",
+      "parentUuid": "dfa03fa4_72406443",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "3aee4838_87dc1e8d",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "It seems better not to do a bunch of renaming and refactoring in this CL.",
+      "parentUuid": "6f185cdd_6fdfffe2",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 18
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cbb4f54_8c5b7343",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -114,6 +186,30 @@
       "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1893f11a_f0d4c7c0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cbb4f54_8c5b7343",
+      "range": {
+        "startLine": 143,
+        "startChar": 7,
+        "endLine": 143,
+        "endChar": 11
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "b3fbb17d_d4e1ea84",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdc8d524_dd014688",
+      "range": {
+        "startLine": 143,
+        "startChar": 74,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "462af03e_6b0842ce",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdc8d524_dd014688",
+      "range": {
+        "startLine": 143,
+        "startChar": 74,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9efddd75_615ed29f",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "28d59150_90127289",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "apex\u0027s need to be signed so yes.",
+      "parentUuid": "9efddd75_615ed29f",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 35
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2321aac5_4fc5b891",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4eeeaad_aae09739",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-04T18:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2321aac5_4fc5b891",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 9
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
