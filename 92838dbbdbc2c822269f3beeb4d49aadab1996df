@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bac83a0d_f81aa145",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-04T18:41:21Z",
+      "side": 1,
+      "message": "I\u0027d add an explicit build command here:\n\n  make com.android.runtime.host\n\nAlso, could you add some unit testing for this new build artifact, even if it is not hook to continuous testing (yet)? You can have a look at art/build/apex/runtests.sh to see what we are doing for the device APEX package. I agree this is minimal, but it is better than nothing.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "92838dbbdbc2c822269f3beeb4d49aadab1996df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52c2166e_8903c055",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
