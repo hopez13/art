@@ -127,6 +127,10 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
+  void AddExtraBootDexFiles(Thread* self,
+                            std::vector<std::unique_ptr<const DexFile>>&& additional_dex_files)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Add an image space to the class linker, may fix up classloader fields and dex cache fields.
   // The dex files that were newly opened for the space are placed in the out argument
   // out_dex_files. Returns true if the operation succeeded.

@@ -419,7 +419,7 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
       // starts up.
       LOG(WARNING) << "Dex location " << dex_location_ << " does not seem to include dex file. "
         << "Allow oat file use. This is potentially dangerous.";
-    } else if (file.GetOatHeader().GetBootImageChecksum() != image_info->boot_image_checksum) {
+    } else if (!image_info->ValidateBootImageChecksums(file)) {
       VLOG(oat) << "Oat image checksum does not match image checksum.";
       return kOatBootImageOutOfDate;
     }
@@ -560,6 +560,12 @@ const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {
   return required_dex_checksums_found_ ? &cached_required_dex_checksums_ : nullptr;
 }
 
+bool OatFileAssistant::ImageInfo::ValidateBootImageChecksums(const OatFile& oat_file) const {
+  const char* boot_image_checksums =
+      oat_file.GetOatHeader().GetStoreValueByKey(OatHeader::kBootImageChecksumsKey);
+  return boot_image_checksums != nullptr && image_checksums == boot_image_checksums;
+}
+
 std::unique_ptr<OatFileAssistant::ImageInfo>
 OatFileAssistant::ImageInfo::GetRuntimeImageInfo(InstructionSet isa, std::string* error_msg) {
   CHECK(error_msg != nullptr);
@@ -567,14 +573,11 @@ OatFileAssistant::ImageInfo::GetRuntimeImageInfo(InstructionSet isa, std::string
   Runtime* runtime = Runtime::Current();
   std::unique_ptr<ImageInfo> info(new ImageInfo());
   info->location = runtime->GetImageLocation();
-
-  std::unique_ptr<ImageHeader> image_header(
-      gc::space::ImageSpace::ReadImageHeader(info->location.c_str(), isa, error_msg));
-  if (image_header == nullptr) {
+  info->image_checksums = gc::space::ImageSpace::GetBootImageChecksums(
+      runtime->GetBootClassPath(), info->location, isa, error_msg);
+  if (info->image_checksums.empty()) {
     return nullptr;
   }
-
-  info->boot_image_checksum = image_header->GetImageChecksum();
   return info;
 }
 
