@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "75c8864d_a10c3b73",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3034,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-04T23:04:22Z",
+      "side": 1,
+      "message": "As it\u0027s come from the initial variant of the code I kept it.\nAccording to the optimization guide both have the same performance. I checked they do.\nI\u0027ll change to use SUBS+B.LO here and SUBS+B.HS below.",
+      "parentUuid": "c3273f8f_0209edcd",
+      "range": {
+        "startLine": 3030,
+        "startChar": 0,
+        "endLine": 3034,
+        "endChar": 0
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "222c7efc_e4312433",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2018-12-04T17:37:57Z",
       "side": 1,
       "message": "Add a comment that this may be unaligned. (I assume this is deliberate, avoiding code bloat for initial peeling.)",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 56
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "116cc9e7_17dfb095",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-04T23:04:22Z",
+      "side": 1,
+      "message": "Yes, there will be a one-clock penalty in case of an unaligned load.\nI don\u0027t think this will be often.\nI am going to benchmark the performance difference in these cases.",
+      "parentUuid": "222c7efc_e4312433",
       "range": {
         "startLine": 3037,
         "startChar": 2,
