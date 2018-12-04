@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd88f212_22b6811b",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-04T10:09:03Z",
+      "side": 1,
+      "message": "How about using MemMap::HasAddress instead?",
+      "range": {
+        "startLine": 391,
+        "startChar": 14,
+        "endLine": 391,
+        "endChar": 29
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96acdc16_c867eb00",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-04T10:09:03Z",
+      "side": 1,
+      "message": "How does this work?",
+      "range": {
+        "startLine": 171,
+        "startChar": 2,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b707805d_b33804fc",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-04T10:09:03Z",
+      "side": 1,
+      "message": "Should threads_ be guarded?",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 31
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6c7c8d3_8008a9a9",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-04T10:09:03Z",
+      "side": 1,
+      "message": "nit: max_active/num_threads/\u003csomething indicating a number\u003e",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 51
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46a2a7a1_8a2a9ba8",
+        "filename": "runtime/thread_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-04T10:09:03Z",
+      "side": 1,
+      "message": "This can be dropped",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 37
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
