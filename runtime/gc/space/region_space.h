@@ -209,6 +209,11 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   template <typename Visitor>
   ALWAYS_INLINE void WalkToSpace(Visitor&& visitor) REQUIRES(Locks::mutator_lock_);
 
+  template <typename Visitor>
+  ALWAYS_INLINE void ScanUnevacFromSpace(accounting::ContinuousSpaceBitmap* bitmap,
+                                         Visitor&& visitor)
+  NO_THREAD_SAFETY_ANALYSIS;
+
   accounting::ContinuousSpaceBitmap::SweepCallback* GetSweepCallback() override {
     return nullptr;
   }

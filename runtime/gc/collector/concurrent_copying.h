@@ -25,7 +25,7 @@
 #include "mirror/object_reference.h"
 #include "offsets.h"
 
-#include <unordered_map>
+#include <memory>
 #include <vector>
 
 namespace art {
@@ -389,6 +389,7 @@ class ConcurrentCopying : public GarbageCollector {
   // possible for minor GC if all allocated objects are in non-moving
   // space.)
   size_t gc_count_;
+  std::unique_ptr<accounting::ContinuousSpaceBitmap> inter_region_bitmap_;
 
   // reclaimed_bytes_ratio = reclaimed_bytes/num_allocated_bytes per GC cycle
   float reclaimed_bytes_ratio_sum_;
