@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b27b5b03_ece7f462",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:29:43Z",
+      "side": 1,
+      "message": "I see; thanks for the precision. We should try and get this fixed.",
+      "parentUuid": "17d48906_6adfbfed",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cc29505_be2facee",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
