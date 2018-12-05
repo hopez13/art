@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af3a6205_082da600",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T20:54:05Z",
+      "side": 1,
+      "message": "It\u0027s not used on a Linux host. The preceding hblkhd hack is there mostly to make it work on host. We probably build this on Mac? I\u0027m just being defensive here after past bad experiences with things getting built in unexpected places.",
+      "parentUuid": "e7f67d5c_404e6511",
+      "range": {
+        "startLine": 2605,
+        "startChar": 29,
+        "endLine": 2605,
+        "endChar": 84
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29d7c3e0_119fbeaa",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-05T09:51:24Z",
       "side": 1,
       "message": "My gut feeling is that you\u0027ll end up hitting this annoyingly often in practice. I\u0027m not sure it\u0027s worth adding the check.",
+      "range": {
+        "startLine": 4000,
+        "startChar": 2,
+        "endLine": 4000,
+        "endChar": 38
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0219b20_115d4ae4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T20:54:05Z",
+      "side": 1,
+      "message": "Do you have bad experiences with this sort of check? I think that\u0027s a valid concern. On the other hand, this reflects an abuse of a private API, so I think it would be good to try to fix those bugs.  I\u0027m inclined to leave it in until we run into a problem, so we know where we stand.",
+      "parentUuid": "29d7c3e0_119fbeaa",
       "range": {
         "startLine": 4000,
         "startChar": 2,
