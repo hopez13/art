@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17d48906_6adfbfed",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "It fails to build with linker errors on linux_bionic.\n\nAFAICT it\u0027s because of this line in oatdump/Android.bp:\n      // b/79417743, oatdump 32-bit tests failed with clang lld\n    use_clang_lld: false,\n\nI haven\u0027t done the investigation on how to fix this yet",
+      "parentUuid": "686978dc_a185cb40",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cc29505_be2facee",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c3210a_c05431b9",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cc29505_be2facee",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 30
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "439d6a2b_a564ac70",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecfb0041_78a8295c",
+      "range": {
+        "startLine": 173,
+        "startChar": 9,
+        "endLine": 173,
+        "endChar": 21
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a494a587_474c7940",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a255f12_62cfef0d",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a494a587_474c7940",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 50
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "44262460_8904cfbb",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac2291f_d6f61313",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 36
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a57e1281_db3e630f",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3cb5f1_4bd5f1a9",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57e1281_db3e630f",
+      "range": {
+        "startLine": 227,
+        "startChar": 36,
+        "endLine": 227,
+        "endChar": 39
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "3f80b4bb_cb22036d",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "188c25a8_2ab074a1",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 79
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e369e88_12121bb7",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
@@ -183,6 +351,30 @@
       "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba42afab_729f4ea5",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e369e88_12121bb7",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 35
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4e54b767_08d2213a",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a0af52_d50cb38a",
+      "range": {
+        "startLine": 253,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 50
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3750d6a_4fe26c85",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 5
@@ -229,6 +445,30 @@
       "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0517beac_b55afb1c",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-05T17:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3750d6a_4fe26c85",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 33
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
