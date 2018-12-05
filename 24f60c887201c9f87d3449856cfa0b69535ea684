@@ -334,6 +334,30 @@
     },
     {
       "key": {
+        "uuid": "e8d3df2a_16b7d026",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T21:53:22Z",
+      "side": 1,
+      "message": "Hm. I guess from the usage point of view the whole feature is a \"write-only\" thing and the reader is for abort logging purposes only. I\u0027ll document (and make the getter private, if I can).",
+      "parentUuid": "e0c4ad08_a0efeef7",
+      "range": {
+        "startLine": 2364,
+        "startChar": 11,
+        "endLine": 2364,
+        "endChar": 67
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98474fc_88565054",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
