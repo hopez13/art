@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "59a3e83b_bcd651ce",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T19:08:36Z",
+      "side": 1,
+      "message": "You\u0027d still need a loop, though, just not the load? Anyways, changed to use exchange.",
+      "parentUuid": "0ff3269c_6a518c95",
+      "range": {
+        "startLine": 2353,
+        "startChar": 27,
+        "endLine": 2353,
+        "endChar": 48
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20562712_b22fd0c0",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "0aa81f4a_e2a7aff3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T19:08:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b90a29_c3c7b091",
+      "range": {
+        "startLine": 2364,
+        "startChar": 11,
+        "endLine": 2364,
+        "endChar": 67
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98474fc_88565054",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "Needs to be compare_exchange_strong.",
       "parentUuid": "6d83cb73_7ff9fdd3",
+      "range": {
+        "startLine": 2365,
+        "startChar": 2,
+        "endLine": 2369,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a3a5a43_ef4d1979",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T19:08:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66c04a9c_c98e706d",
       "range": {
         "startLine": 2365,
         "startChar": 2,
