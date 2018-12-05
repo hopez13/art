@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "686978dc_a185cb40",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "This is not a blocker for this CL, but why don\u0027t we want to provide oatdump in the host APEX?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cc29505_be2facee",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "Could you move this under lines 146–147, as this library is not explicitly added to the APEX module definition?",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 30
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecfb0041_78a8295c",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "finish_device_debug?",
+      "range": {
+        "startLine": 173,
+        "startChar": 9,
+        "endLine": 173,
+        "endChar": 21
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a494a587_474c7940",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "Extract the image (payload) from the Android Runtime device APEX.",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 50
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ac2291f_d6f61313",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "Could you add a comment above these lines:\n\n # Check for device-specific files.\n\n?",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 36
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a57e1281_db3e630f",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "host",
+      "range": {
+        "startLine": 227,
+        "startChar": 36,
+        "endLine": 227,
+        "endChar": 39
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "188c25a8_2ab074a1",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "I think you can drop this comment, as we probably intend to have a single host APEX package.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 79
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e369e88_12121bb7",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "Replace with\n\n  say \"Extracting payload\"\n\n?",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 35
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9a0af52_d50cb38a",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "Extract the payload from the Android Runtime host APEX.",
+      "range": {
+        "startLine": 253,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 50
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3750d6a_4fe26c85",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T17:10:11Z",
+      "side": 1,
+      "message": "I think you can remove lines 259–260.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 33
+      },
+      "revId": "bbcd77ae01435a573f4735cc19295e375a3113aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
