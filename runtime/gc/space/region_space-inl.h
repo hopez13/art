@@ -193,6 +193,38 @@ inline uint64_t RegionSpace::GetObjectsAllocatedInternal() {
   return bytes;
 }
 
+template <typename Visitor>
+inline void RegionSpace::ScanUnevacFromSpace(accounting::ContinuousSpaceBitmap* bitmap,
+                                             Visitor&& visitor) {
+  // Initialize visit block to the beginning of region space as the bitmap may
+  // not be only for this space, in which case passing nullptr to
+  // VisitMarkedRange may visit objects in other spaces covered by this bitmap.
+  uint8_t* visit_block_begin = regions_[0].Begin();
+  uint8_t* visit_block_end = regions_[0].Begin();
+  auto visit_range = [&visit_block_begin, &visit_block_end, bitmap, visitor](Region* r) {
+    if (visit_block_end != r->Begin()) {
+      // Region `r` is not adjacent to the current visit block; visit marked
+      // objects within the current block and restart a new visit block at the
+      // beginning of region `r`.
+      bitmap->VisitMarkedRange(reinterpret_cast<uintptr_t>(visit_block_begin),
+                               reinterpret_cast<uintptr_t>(visit_block_end),
+                               visitor);
+      visit_block_begin = r->Begin();
+    }
+    visit_block_end = r->End();
+  };
+  for (size_t i = 0; i < std::min(num_regions_, non_free_region_index_limit_); ++i) {
+    Region* r = &regions_[i];
+    if (r->IsInUnevacFromSpace()) {
+      visit_range(r);
+    }
+  }
+  // Clear pages for the last block since clearing happens when a new block opens.
+  bitmap->VisitMarkedRange(reinterpret_cast<uintptr_t>(visit_block_begin),
+                           reinterpret_cast<uintptr_t>(visit_block_end),
+                           visitor);
+}
+
 template<bool kToSpaceOnly, typename Visitor>
 inline void RegionSpace::WalkInternal(Visitor&& visitor) {
   // TODO: MutexLock on region_lock_ won't work due to lock order
