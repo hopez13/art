@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17fcc0bb_a9859356",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use a cast instead of using the conversion operator explicitly:\n\n  static_cast\u003cstd::vector\u003cstd::string\u003e\u003e(actual)\n\n?",
+      "range": {
+        "startLine": 69,
+        "startChar": 23,
+        "endLine": 69,
+        "endChar": 65
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08b8f9d6_6c28d8ab",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "I think you can use\n\n  std::vector\u003cstd::string\u003e{\"/hello/world\"}\n\ndirectly here.",
+      "range": {
+        "startLine": 227,
+        "startChar": 28,
+        "endLine": 227,
+        "endChar": 70
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c724355_8d84d27f",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Ditto:\n\n  std::vector\u003cstd::string\u003e{\"/hello\", \"/world\"}",
+      "range": {
+        "startLine": 230,
+        "startChar": 28,
+        "endLine": 230,
+        "endChar": 74
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "163071c3_a731e89f",
+        "filename": "dex2oat/linker/image_test.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 175,
+        "startChar": 20,
+        "endLine": 175,
+        "endChar": 21
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96d2d11b_f33c707e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 1047,
+        "startChar": 18,
+        "endLine": 1047,
+        "endChar": 19
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7962e9db_b4a65557",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 129,
+        "startChar": 18,
+        "endLine": 129,
+        "endChar": 19
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de36815d_f604660f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1278,
+        "startChar": 20,
+        "endLine": 1278,
+        "endChar": 21
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df353f5c_65b8cc4e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1280,
+        "startChar": 16,
+        "endLine": 1280,
+        "endChar": 17
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "963c6e4f_a18a38fd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1359,
+        "startChar": 20,
+        "endLine": 1359,
+        "endChar": 21
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6f03aa_68f0c5ab",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1361,
+        "startChar": 16,
+        "endLine": 1361,
+        "endChar": 17
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d75565ca_fca20d66",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "I would define\n\n  std::string actual_boot_class_path \u003d\n    (oat_boot_class_path !\u003d nullptr) ? oat_boot_class_path : \"\";\n\nand use it here as well as on line 2002 (`actual_boot_class_path.c_str()`).\n\n(When I first read this code, I thought `expected_boot_class_path` was a `char*` and I was surprised by the comparison with the empty string literal (\"\"), until I realized that `expected_boot_class_path` was an `std::string`.)",
+      "range": {
+        "startLine": 1999,
+        "startChar": 38,
+        "endLine": 1999,
+        "endChar": 97
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0293d036_f2b5bdc1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2421,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "Nit: 1u",
+      "range": {
+        "startLine": 2421,
+        "startChar": 18,
+        "endLine": 2421,
+        "endChar": 19
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ce4b182_1652097c",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "This seems to no longer be used in this file; remove this line as well as the #include line 27?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 34
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "110e819f_0ed26226",
+        "filename": "runtime/parsed_options_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T18:52:14Z",
+      "side": 1,
+      "message": "What about:\n\n  static_cast\u003cstd::vector\u003cstd::string\u003e\u003e(map.GetOrDefault(actual_key))\n\n?",
+      "range": {
+        "startLine": 83,
+        "startChar": 22,
+        "endLine": 83,
+        "endChar": 86
+      },
+      "revId": "427b1caec2b16b792335809ae48295a998c128e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
