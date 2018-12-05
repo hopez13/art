@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f378790a_d519c114",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-05T15:16:57Z",
+      "side": 1,
+      "message": "Byte array data still starts at 12 bytes from the 8-byte aligned start of the object, right?",
+      "parentUuid": "116cc9e7_17dfb095",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 56
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a05af89f_62b04838",
         "filename": "runtime/image.cc",
         "patchSetId": 1
@@ -182,6 +206,98 @@
         "startChar": 74,
         "endLine": 32,
         "endChar": 80
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eb67e73_d323f48e",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-05T15:16:57Z",
+      "side": 1,
+      "message": "Maybe \"AIOOBE\"?",
+      "range": {
+        "startLine": 186,
+        "startChar": 45,
+        "endLine": 186,
+        "endChar": 57
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7ad67ab_020f2daf",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-05T15:16:57Z",
+      "side": 1,
+      "message": "Fits into the previous line.",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 16
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84a859cc_970d44cd",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-05T15:16:57Z",
+      "side": 1,
+      "message": "Using local CRC32 object is inconsistent with the other functions. I think it would be better to get rid of the static field `crc32` and allocate new instances instead of resetting a shared one.",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 30
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b46a46_9de842b6",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-05T15:16:57Z",
+      "side": 1,
+      "message": "Align arguments?",
+      "range": {
+        "startLine": 245,
+        "startChar": 8,
+        "endLine": 245,
+        "endChar": 9
       },
       "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
