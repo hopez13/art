@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3dfa1c12_79115870",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-05T21:34:13Z",
+      "side": 1,
+      "message": "\u003e Byte array data still starts at 12 bytes\n\u003e from the 8-byte aligned start of the object, right?\n\nYes, I see 12 is added in the generated code.",
+      "parentUuid": "f378790a_d519c114",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 56
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a05af89f_62b04838",
         "filename": "runtime/image.cc",
         "patchSetId": 1
