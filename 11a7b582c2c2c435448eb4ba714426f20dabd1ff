@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1d47e56c_f7172f9f",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-05T11:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c9fee2_6714cb53",
+      "revId": "11a7b582c2c2c435448eb4ba714426f20dabd1ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "971ed598_81ae7e4e",
         "filename": "compiler/debug/elf_debug_writer.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-12-05T11:33:08Z",
       "side": 1,
       "message": "static_assert",
+      "revId": "11a7b582c2c2c435448eb4ba714426f20dabd1ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bab43883_00c92763",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-05T11:42:07Z",
+      "side": 1,
+      "message": "That is intentional runtime check to verify the \u0027isa\u0027 argument.",
+      "parentUuid": "971ed598_81ae7e4e",
       "revId": "11a7b582c2c2c435448eb4ba714426f20dabd1ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
