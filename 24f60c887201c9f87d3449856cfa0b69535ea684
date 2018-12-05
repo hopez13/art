@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "53901583_6d4e1fab",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T18:43:28Z",
+      "side": 1,
+      "message": "I normally prefer to be explicit for the algorithmic view, but sure.",
+      "parentUuid": "20562712_b22fd0c0",
+      "range": {
+        "startLine": 2354,
+        "startChar": 0,
+        "endLine": 2356,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72dcac01_3d855942",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -68,6 +92,30 @@
       "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d581620d_0a963d15",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T18:43:28Z",
+      "side": 1,
+      "message": "It\u0027s only temporary, though, so as to a) not have it deleted by a concurrent SetFaultMessage and b) retain ordering when trying to add it back.",
+      "parentUuid": "72dcac01_3d855942",
+      "range": {
+        "startLine": 2364,
+        "startChar": 11,
+        "endLine": 2364,
+        "endChar": 67
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "6d83cb73_7ff9fdd3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T18:43:28Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "f98474fc_88565054",
+      "range": {
+        "startLine": 2365,
+        "startChar": 2,
+        "endLine": 2369,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b988629_7357061f",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "6db14dc5_db583a24",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T18:43:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b988629_7357061f",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 515,
+        "endChar": 38
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12f89466_7d510b49",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -137,6 +233,30 @@
       "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c90d992_ca4319e6",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-05T18:43:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12f89466_7d510b49",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 13
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
