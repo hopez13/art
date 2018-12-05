@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c78e24b_681bdf35",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T22:58:52Z",
+      "side": 1,
+      "message": "Lokesh points out that this sometimes doesn\u0027t appear to work correctly. And indeed, this appears prone to overflow. Lokesh is still investigating, but keeping weighted_allocated_bytes_ as a double, and doing the computations as double, should solve the problem.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1074,
+        "endChar": 1
+      },
+      "revId": "2d7329b5379a739751448ee93ae7c52d15d0c07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
