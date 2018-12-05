@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "4421fe49_144975f9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-05T14:55:52Z",
+      "side": 1,
+      "message": "I was mistaken. This is not a rare situation. I ran a benchmark when an array pointer is made aligned before the main loop.\nThe improvements are on little CPUs:\n\narray size | Cortex-A53 | Cortex-A55\n------------------------------------\n128        | 1.8%       | -1.9%\n256        | 8.3%       | 6.8%\n512        | 13.2%      | 12.7%\n1024       | 16.3%      | 16.1%\n2048       | 18.1%      | 18%\n4096       | 19%        | 18.9%\n8192       | 19.5%      | 19.5%\n16384      | 19.7%      | 19.7%\n32768      | 20.3%      | 19.8%\n65536      | 19.7%      | 21%\n\nIn all cases data was processed from the zero offset.\n\nI\u0027ll submit the new patchset soon.",
+      "parentUuid": "116cc9e7_17dfb095",
+      "range": {
+        "startLine": 3037,
+        "startChar": 2,
+        "endLine": 3037,
+        "endChar": 56
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a05af89f_62b04838",
         "filename": "runtime/image.cc",
         "patchSetId": 1
