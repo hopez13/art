@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f882a67_953ac72f",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-05T00:35:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd88f212_22b6811b",
+      "range": {
+        "startLine": 391,
+        "startChar": 14,
+        "endLine": 391,
+        "endChar": 29
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96acdc16_c867eb00",
         "filename": "runtime/thread_pool.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-04T10:09:03Z",
       "side": 1,
       "message": "How does this work?",
+      "range": {
+        "startLine": 171,
+        "startChar": 2,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "480fe8c4_8e79480f",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-05T00:35:44Z",
+      "side": 1,
+      "message": "The destructor method of ThreadPoolWorker is just a pthread_join.",
+      "parentUuid": "96acdc16_c867eb00",
       "range": {
         "startLine": 171,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "71cb5318_34404e7d",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-05T00:35:44Z",
+      "side": 1,
+      "message": "Hmmm, good question. It technically doesn\u0027t to because only one thread will create / delete the threads in the pool. Not sure how to express this in the code, I\u0027ll add a comment.",
+      "parentUuid": "b707805d_b33804fc",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 31
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6c7c8d3_8008a9a9",
         "filename": "runtime/thread_pool.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "de2f8aa4_7327b5f7",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-05T00:35:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6c7c8d3_8008a9a9",
+      "range": {
+        "startLine": 175,
+        "startChar": 44,
+        "endLine": 175,
+        "endChar": 51
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46a2a7a1_8a2a9ba8",
         "filename": "runtime/thread_pool.h",
         "patchSetId": 3
@@ -114,6 +210,30 @@
       "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "323373e3_6f6f3bac",
+        "filename": "runtime/thread_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-05T00:35:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46a2a7a1_8a2a9ba8",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 37
+      },
+      "revId": "651daae8489fc6421a55116d73fa46224ecbc5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
