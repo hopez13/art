@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d257f85a_1b01e3ce",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T21:50:42Z",
+      "side": 1,
+      "message": "Yes, you would still need the loop.",
+      "parentUuid": "59a3e83b_bcd651ce",
+      "range": {
+        "startLine": 2353,
+        "startChar": 27,
+        "endLine": 2353,
+        "endChar": 48
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20562712_b22fd0c0",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -167,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "c106630b_e18b26d1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T21:50:42Z",
+      "side": 1,
+      "message": "It is. IMHO, an uncharacteristic trade-off of performance for code simplicity. It dates back to C\u0027s free().",
+      "parentUuid": "a4b0a27b_549cf59d",
+      "range": {
+        "startLine": 2354,
+        "startChar": 0,
+        "endLine": 2356,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72dcac01_3d855942",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "70b90a29_c3c7b091",
+      "range": {
+        "startLine": 2364,
+        "startChar": 11,
+        "endLine": 2364,
+        "endChar": 67
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0c4ad08_a0efeef7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-05T21:50:42Z",
+      "side": 1,
+      "message": "One GetFaultMessage can still cause a concurrent GetFaultMessage to see an unexpected null, with very small probability, right? I presume we expect this not to matter, but I agree with Roland that it\u0027s probably worth documenting.",
+      "parentUuid": "0aa81f4a_e2a7aff3",
       "range": {
         "startLine": 2364,
         "startChar": 11,
