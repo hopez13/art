@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "f98474fc_88565054",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-05T18:23:38Z",
+      "side": 1,
+      "message": "What if cur_msg is nullptr here?",
+      "range": {
+        "startLine": 2365,
+        "startChar": 2,
+        "endLine": 2369,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b988629_7357061f",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
