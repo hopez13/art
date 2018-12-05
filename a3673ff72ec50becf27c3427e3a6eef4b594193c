@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7f67d5c_404e6511",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-12-05T09:51:24Z",
+      "side": 1,
+      "message": "What contexts are you thinking of? Running on host?",
+      "range": {
+        "startLine": 2605,
+        "startChar": 29,
+        "endLine": 2605,
+        "endChar": 84
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d7c3e0_119fbeaa",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-12-05T09:51:24Z",
+      "side": 1,
+      "message": "My gut feeling is that you\u0027ll end up hitting this annoyingly often in practice. I\u0027m not sure it\u0027s worth adding the check.",
+      "range": {
+        "startLine": 4000,
+        "startChar": 2,
+        "endLine": 4000,
+        "endChar": 38
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
