@@ -157,7 +157,6 @@
 {
   description: "Missing resource in classpath",
   result: EXEC_FAILED,
-  modes: [device],
   names: ["libcore.java.util.prefs.OldAbstractPreferencesTest#testClear",
           "libcore.java.util.prefs.OldAbstractPreferencesTest#testExportNode",
           "libcore.java.util.prefs.OldAbstractPreferencesTest#testExportSubtree",
