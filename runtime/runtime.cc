@@ -917,15 +917,17 @@ void Runtime::InitNonZygoteOrPostFork(
     }
   }
 
+
   if (jit_ != nullptr) {
     jit_->CreateThreadPool();
   }
 
   if (thread_pool_ == nullptr) {
-    constexpr size_t kMaxRuntimeThreads = 4u;
-    thread_pool_.reset(
-        new ThreadPool("Runtime", std::min(
-            static_cast<size_t>(std::thread::hardware_concurrency()), kMaxRuntimeThreads)));
+    constexpr size_t kStackSize = 64 * KB;
+    constexpr size_t kMaxRuntimeWorkers = 4u;
+    const size_t num_workers =
+        std::min(static_cast<size_t>(std::thread::hardware_concurrency()), kMaxRuntimeWorkers);
+    thread_pool_.reset(new ThreadPool("Runtime", num_workers, /*create_peers=*/false, kStackSize));
     thread_pool_->StartWorkers(Thread::Current());
   }
 
