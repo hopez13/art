@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cddfa7b1_81322c79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T16:51:14Z",
+      "side": 1,
+      "message": "native heap object?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20562712_b22fd0c0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T16:51:14Z",
+      "side": 1,
+      "message": "You can just do\n\n  delete cur_msg;\n\nhere (`delete` is a no-op on a null pointer).",
+      "range": {
+        "startLine": 2354,
+        "startChar": 0,
+        "endLine": 2356,
+        "endChar": 3
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72dcac01_3d855942",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T16:51:14Z",
+      "side": 1,
+      "message": "I think the fact that you replace the fault message with a null pointer when you read it should be part of this method\u0027s documentation.",
+      "range": {
+        "startLine": 2364,
+        "startChar": 11,
+        "endLine": 2364,
+        "endChar": 67
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b988629_7357061f",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T16:51:14Z",
+      "side": 1,
+      "message": "This comment needs to be updated.",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 515,
+        "endChar": 38
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12f89466_7d510b49",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-05T16:51:14Z",
+      "side": 1,
+      "message": "Could you add a comment why this member needs to be atomic?",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 13
+      },
+      "revId": "24f60c887201c9f87d3449856cfa0b69535ea684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
