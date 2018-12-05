@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c16f139b_eb5fd754",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-05T18:01:42Z",
+      "side": 1,
+      "message": "Right! Basically, the problem that 2-phase is trying to address is not too serious without generational CC. Also, 2-phase reuses almost all the code there for generational CC.",
+      "parentUuid": "00989ffb_ac63d802",
+      "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38f7255a_23509c2a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2018-12-04T13:56:31Z",
       "side": 1,
       "message": "Looking at the definition of `RootVisitor`, it seems that root that is null is filtered out already. I added `DCHECK(ref !\u003d nullptr);` right before this line, and `art/test/testrunner/testrunner.py --host --64` doesn\u0027t report any failing test cases.",
+      "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e5c5235_5730cf18",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-05T18:01:42Z",
+      "side": 1,
+      "message": "In RootVisitor (defined at runtime/gc_root.h:326) filters null roots only in VisitRootIfNonNull(), and not in VisitRoot(). So I believe checking here is necessary.",
+      "parentUuid": "38f7255a_23509c2a",
       "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
