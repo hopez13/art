@@ -214,6 +214,49 @@ class HX86MaskOrResetLeastSetBit final : public HUnaryOperation {
   DEFAULT_COPY_CONSTRUCTOR(X86MaskOrResetLeastSetBit);
 };
 
+// X86/X86-64 version of HBoundsCheck that checks length in array descriptor.
+class HX86BoundsCheckMemory : public HExpression<2> {
+ public:
+  HX86BoundsCheckMemory(HInstruction* index, HInstruction* array, uint32_t dex_pc, bool is_string = false)
+      : HExpression(kX86BoundsCheckMemory, index->GetType(), SideEffects::CanTriggerGC(), dex_pc) {
+    DCHECK_EQ(array->GetType(), DataType::Type::kReference);
+
+    DCHECK(DataType::IsIntegralType(index->GetType()));
+
+    SetPackedFlag<kFlagIsStringCharAt>(is_string);
+    SetRawInputAt(0, index);
+    SetRawInputAt(1, array);
+  }
+
+  bool CanBeMoved() const override { return true; }
+
+  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const override {
+    return true;
+  }
+
+  bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
+    return obj == InputAt(1);
+  }
+
+  bool NeedsEnvironment() const override { return true; }
+
+  bool CanThrow() const override { return true; }
+
+//  virtual size_t GetBaseInputIndex() const OVERRIDE { return 1; }
+
+  HInstruction* GetIndex() const { return InputAt(0); }
+
+  HInstruction* GetArray() const { return InputAt(1); }
+
+  bool IsStringCharAt() const { return GetPackedFlag<kFlagIsStringCharAt>(); }
+
+  DECLARE_INSTRUCTION(X86BoundsCheckMemory);
+
+ protected:
+  static constexpr size_t kFlagIsStringCharAt = kNumberOfGenericPackedBits;
+  DEFAULT_COPY_CONSTRUCTOR(X86BoundsCheckMemory);
+};
+
 }  // namespace art
 
 #endif  // ART_COMPILER_OPTIMIZING_NODES_X86_H_
