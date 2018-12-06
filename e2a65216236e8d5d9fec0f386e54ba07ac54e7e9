@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fd1b0b8_a14ce0cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T19:26:12Z",
+      "side": 1,
+      "message": "I know you are aware of this problem, but this won\u0027t work on marlin/sailfish, unless you implement a conditional. You can have a look at https://android-review.googlesource.com/c/platform/frameworks/native/+/812733/6/cmds/installd/Android.bp to see how to use the `dont_include_runtime_apex` build variable and extends its capabilities (we can talk about it if you want). Note that the topic containing this change (https://android-review.googlesource.com/q/topic:%22runtime-apex-conditional-use%22+(status:open%20OR%20status:merged)) is not merged yet (waiting for approvals).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "e2a65216236e8d5d9fec0f386e54ba07ac54e7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc46f35a_8b925615",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T19:26:12Z",
+      "side": 1,
+      "message": "Move these filenames into a Blueprint variable, and use it to replace these lines (108–110) as well as lines 141–143?",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 28
+      },
+      "revId": "e2a65216236e8d5d9fec0f386e54ba07ac54e7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
