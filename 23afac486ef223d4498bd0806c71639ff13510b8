@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41d9377a_8330669b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T23:44:08Z",
+      "side": 1,
+      "message": "forced?",
+      "range": {
+        "startLine": 191,
+        "startChar": 18,
+        "endLine": 191,
+        "endChar": 23
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d71e7fd_9d2ecf5e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T23:44:08Z",
+      "side": 1,
+      "message": "Memory_order for mark_stack_mode_ is inconsistent. This is a preexisting problem that we don\u0027t need to address with this CL. Filed b/120623963 .",
+      "range": {
+        "startLine": 392,
+        "startChar": 71,
+        "endLine": 392,
+        "endChar": 97
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "875091e3_f7fb40db",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T23:44:08Z",
+      "side": 1,
+      "message": "How does this differ from just passing visitor?",
+      "range": {
+        "startLine": 1348,
+        "startChar": 12,
+        "endLine": 1350,
+        "endChar": 27
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69c131e2_5aff9344",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T23:44:08Z",
+      "side": 1,
+      "message": "DCHECKs aside, ref looks unused. It seems odd to pass in ref just for the DCHECKs. It also seems to result in an odd function name. This really looks like it should be called RegionIsNewlyAllocated.",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 231,
+        "endChar": 76
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eee3a43_85776acf",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T23:44:08Z",
+      "side": 1,
+      "message": "\"Unchecked\"? Unsafe begs the question of \"how?\"",
+      "range": {
+        "startLine": 338,
+        "startChar": 24,
+        "endLine": 338,
+        "endChar": 30
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
