@@ -48,6 +48,9 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
   void VisitNullCheck(HNullCheck* check) override;
   void VisitDivZeroCheck(HDivZeroCheck* check) override;
   void VisitBoundsCheck(HBoundsCheck* check) override;
+  #if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)
+  void VisitX86BoundsCheckMemory(HX86BoundsCheckMemory* check) override;
+  #endif
   void VisitBoundType(HBoundType* bound_type) override;
   void VisitArraySet(HArraySet* instruction) override;
   void VisitClinitCheck(HClinitCheck* check) override;
