@@ -52,17 +52,22 @@ import java.util.function.Predicate;
  */
 public class Class2Greylist {
 
-    private static final Set<String> GREYLIST_ANNOTATIONS =
-            ImmutableSet.of(
-                    "Landroid/annotation/UnsupportedAppUsage;",
-                    "Ldalvik/annotation/compat/UnsupportedAppUsage;");
-    private static final Set<String> WHITELIST_ANNOTATIONS = ImmutableSet.of();
-
     public static final String FLAG_WHITELIST = "whitelist";
     public static final String FLAG_GREYLIST = "greylist";
     public static final String FLAG_BLACKLIST = "blacklist";
     public static final String FLAG_GREYLIST_MAX_O = "greylist-max-o";
     public static final String FLAG_GREYLIST_MAX_P = "greylist-max-p";
+    public static final String FLAG_CORE_PLATFORM_API = "core-platform-api";
+
+    private static final Set<String> GREYLIST_ANNOTATIONS =
+            ImmutableSet.of(
+                    "Landroid/annotation/UnsupportedAppUsage;",
+                    "Ldalvik/annotation/compat/UnsupportedAppUsage;");
+
+    private static final Map<String, String> OVERRIDE_ANNOTATIONS =
+            new ImmutableMap.Builder()
+                .put("Llibcore/api/CorePlatformApi;", FLAG_CORE_PLATFORM_API)
+                .build();
 
     private static final Map<Integer, String> TARGET_SDK_TO_LIST_MAP;
     static {
@@ -189,16 +194,28 @@ public class Class2Greylist {
 
     private Map<String, AnnotationHandler> createAnnotationHandlers() {
         Builder<String, AnnotationHandler> builder = ImmutableMap.builder();
+
+        // Register one handler for each greylist annotation.
         UnsupportedAppUsageAnnotationHandler greylistAnnotationHandler =
                 new UnsupportedAppUsageAnnotationHandler(
                     mStatus, mOutput, mPublicApis, TARGET_SDK_TO_LIST_MAP);
         GREYLIST_ANNOTATIONS.forEach(a -> builder.put(a, greylistAnnotationHandler));
-        return builder
-                .put(CovariantReturnTypeHandler.ANNOTATION_NAME,
-                        new CovariantReturnTypeHandler(mOutput, mPublicApis, FLAG_WHITELIST))
-                .put(CovariantReturnTypeMultiHandler.ANNOTATION_NAME,
-                        new CovariantReturnTypeMultiHandler(mOutput, mPublicApis, FLAG_WHITELIST))
-                .build();
+
+        for (Map.Entry<String, String> overrideAnnotation : OVERRIDE_ANNOTATIONS.entrySet()) {
+            Map<Integer, String> nullSdkToFlagMap = new HashMap<>();
+            nullSdkToFlagMap.put(null, overrideAnnotation.getValue());
+            nullSdkToFlagMap = Collections.unmodifiableMap(nullSdkToFlagMap);
+            builder.put(overrideAnnotation.getKey(), new UnsupportedAppUsageAnnotationHandler(
+                    mStatus, mOutput, mPublicApis, nullSdkToFlagMap));
+        }
+
+        // Register covariant return type handlers.
+        builder.put(CovariantReturnTypeHandler.ANNOTATION_NAME,
+                new CovariantReturnTypeHandler(mOutput, mPublicApis, FLAG_WHITELIST));
+        builder.put(CovariantReturnTypeMultiHandler.ANNOTATION_NAME,
+                new CovariantReturnTypeMultiHandler(mOutput, mPublicApis, FLAG_WHITELIST));
+
+        return builder.build();
     }
 
     private void main() throws IOException {

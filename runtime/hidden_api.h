@@ -178,12 +178,15 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
 ALWAYS_INLINE inline uint32_t CreateRuntimeFlags(const ClassAccessor::BaseItem& member) {
   uint32_t runtime_flags = 0u;
 
-  uint32_t dex_flags = member.GetHiddenapiFlags();
-  DCHECK(AreValidDexFlags(dex_flags));
+  ApiInfo api_info = ApiInfo::FromDexFlags(member.GetHiddenapiFlags());
+  DCHECK(api_info.IsValid());
 
-  ApiList api_list = ApiList::FromDexFlags(dex_flags);
-  if (api_list == ApiList::Whitelist()) {
+  if (api_info.GetApiList() == ApiList::Whitelist()) {
     runtime_flags |= kAccPublicApi;
+  }
+
+  if (api_info.GetSpecializedApiFlags().Contains(SpecializedApiFlags::CorePlatformApi())) {
+    runtime_flags |= kAccCorePlatformApi;
   }
 
   DCHECK_EQ(runtime_flags & kAccHiddenapiBits, runtime_flags)
@@ -318,10 +321,11 @@ inline bool ShouldDenyAccessToMember(T* member,
   // Decode hidden API access flags from the dex file.
   // This is an O(N) operation scaling with the number of fields/methods
   // in the class. Only do this on slow path and only do it once.
-  ApiList api_list = ApiList::FromDexFlags(detail::GetDexFlags(member));
+  ApiInfo api_info = ApiInfo::FromDexFlags(detail::GetDexFlags(member));
+  DCHECK(api_info.IsValid());
 
   // Member is hidden and caller is not exempted. Enter slow path.
-  return detail::ShouldDenyAccessToMemberImpl(member, api_list, access_method);
+  return detail::ShouldDenyAccessToMemberImpl(member, api_info.GetApiList(), access_method);
 }
 
 // Helper method for callers where access context can be determined beforehand.
