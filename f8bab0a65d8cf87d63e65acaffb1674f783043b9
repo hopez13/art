@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6ec1f3d_d4c9c691",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-06T14:50:59Z",
+      "side": 1,
+      "message": "android::base::Trim() would be fine here too and not assume format (though fixed).",
+      "range": {
+        "startLine": 1878,
+        "startChar": 0,
+        "endLine": 1881,
+        "endChar": 5
+      },
+      "revId": "f8bab0a65d8cf87d63e65acaffb1674f783043b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1e5dcb8_427b9360",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1882,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-06T14:50:59Z",
+      "side": 1,
+      "message": "Rather than \"else\" it\u0027d be better with \"if (scheduler_stats.size() \u003d\u003d 0)\".",
+      "range": {
+        "startLine": 1882,
+        "startChar": 4,
+        "endLine": 1882,
+        "endChar": 9
+      },
+      "revId": "f8bab0a65d8cf87d63e65acaffb1674f783043b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
