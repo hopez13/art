@@ -1,5 +1,7 @@
 package com.android.class2greylist;
 
+import java.util.Formattable;
+import java.util.Formatter;
 import org.apache.bcel.Const;
 import org.apache.bcel.classfile.FieldOrMethod;
 import org.apache.bcel.classfile.JavaClass;
@@ -42,8 +44,12 @@ public class AnnotationContext {
      * the greylist.
      */
     public String getMemberDescriptor() {
-        return String.format(Locale.US, signatureFormatString,
+        if (member == null) {
+            return String.format(Locale.US, signatureFormatString, getClassDescriptor());
+        } else {
+            return String.format(Locale.US, signatureFormatString,
                 getClassDescriptor(), member.getName(), member.getSignature());
+        }
     }
 
     /**
@@ -51,14 +57,16 @@ public class AnnotationContext {
      * the class and member names, and the source file name.
      */
     public void reportError(String message, Object... args) {
-        StringBuilder error = new StringBuilder();
-        error.append(definingClass.getSourceFileName())
-                .append(": ")
-                .append(definingClass.getClassName())
-                .append(".")
-                .append(member.getName())
-                .append(": ")
-                .append(String.format(Locale.US, message, args));
+        Formatter error = new Formatter();
+        String location;
+        if (member == null) {
+            location = definingClass.getClassName();
+        } else {
+            location = String.format("%s.%s", definingClass.getClassName(), member.getName());
+        }
+        error
+            .format("%s: %s: ", definingClass.getSourceFileName(), location)
+            .format(Locale.US, message, args);
 
         status.error(error.toString());
     }
