@@ -117,6 +117,30 @@
       "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf2cce5_0fca7eef",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-06T16:46:50Z",
+      "side": 1,
+      "message": "It means buffered in the \"stored for later because it can not be processed now\" sense... I think it still has meaning.\n\nThe whole ElfBuilder does many tiny writes overall, this is does not change it, really.",
+      "parentUuid": "c700a278_8aadf858",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 58
+      },
+      "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
