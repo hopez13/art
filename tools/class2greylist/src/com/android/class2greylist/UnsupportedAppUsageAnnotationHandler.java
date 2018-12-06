@@ -1,7 +1,6 @@
 package com.android.class2greylist;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 
 import org.apache.bcel.Const;
@@ -20,11 +19,11 @@ import java.util.function.Predicate;
  * Processes {@code UnsupportedAppUsage} annotations to generate greylist
  * entries.
  *
- * Any annotations with a {@link #EXPECTED_SIGNATURE} property will have their
+ * Any annotations with a {@link #EXPECTED_SIGNATURE_PROPERTY} property will have their
  * generated signature verified against this, and an error will be reported if
  * it does not match. Exclusions are made for bridge methods.
  *
- * Any {@link #MAX_TARGET_SDK} properties will be validated against the given
+ * Any {@link #MAX_TARGET_SDK_PROPERTY} properties will be validated against the given
  * set of valid values, then passed through to the greylist consumer.
  */
 public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
@@ -32,6 +31,7 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
     // properties of greylist annotations:
     private static final String EXPECTED_SIGNATURE_PROPERTY = "expectedSignature";
     private static final String MAX_TARGET_SDK_PROPERTY = "maxTargetSdk";
+    private static final String SYNTHETIC_SIGNATURE_PROPERTY = "syntheticSignature";
 
     private final Status mStatus;
     private final Predicate<ClassMember> mClassMemberFilter;
@@ -112,6 +112,19 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
                     }
 
                     maxTargetSdk = ((SimpleElementValue) property.getValue()).getValueInt();
+                    break;
+                case SYNTHETIC_SIGNATURE_PROPERTY:
+                    String syntheticSignature = property.getValue().stringifyValue();
+                    if (context.member != null) {
+                        context.reportError(
+                            "Expected annotation with a %s property to be on a class but is on %s",
+                            SYNTHETIC_SIGNATURE_PROPERTY,
+                            signature);
+                        return;
+                    }
+
+                    signature = String.format("L%s;->%s",
+                        context.getClassDescriptor(), syntheticSignature);
                     break;
             }
         }

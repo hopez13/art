@@ -55,6 +55,10 @@ public class AnnotationVisitor extends EmptyVisitor {
 
     public void visit() {
         mStatus.debug("Visit class %s", mClass.getClassName());
+        AnnotationContext context = new AnnotationContext(mStatus, null, mClass, "L%s;");
+        AnnotationEntry[] annotationEntries = mClass.getAnnotationEntries();
+        handleAnnotations(context, annotationEntries);
+
         mDescendingVisitor.visit();
     }
 
@@ -72,7 +76,12 @@ public class AnnotationVisitor extends EmptyVisitor {
         mStatus.debug("Visit member %s : %s", member.getName(), member.getSignature());
         AnnotationContext context = new AnnotationContext(mStatus, member,
                 (JavaClass) mDescendingVisitor.predecessor(), signatureFormatString);
-        for (AnnotationEntry a : member.getAnnotationEntries()) {
+        AnnotationEntry[] annotationEntries = member.getAnnotationEntries();
+        handleAnnotations(context, annotationEntries);
+    }
+
+    private void handleAnnotations(AnnotationContext context, AnnotationEntry[] annotationEntries) {
+        for (AnnotationEntry a : annotationEntries) {
             if (mAnnotationHandlers.containsKey(a.getAnnotationType())) {
                 mStatus.debug("Member has annotation %s for which we have a handler",
                         a.getAnnotationType());

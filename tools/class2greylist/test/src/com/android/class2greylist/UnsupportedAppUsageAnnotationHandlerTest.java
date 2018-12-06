@@ -59,10 +59,17 @@ public class UnsupportedAppUsageAnnotationHandlerTest extends AnnotationHandlerT
                 "package annotation;",
                 "import static java.lang.annotation.RetentionPolicy.CLASS;",
                 "import java.lang.annotation.Retention;",
+                "import java.lang.annotation.Repeatable;",
                 "@Retention(CLASS)",
+                "@Repeatable(Anno.Container.class)",
                 "public @interface Anno {",
                 "  String expectedSignature() default \"\";",
                 "  int maxTargetSdk() default Integer.MAX_VALUE;",
+                "  String syntheticSignature() default \"\";",
+                "  @Retention(CLASS)",
+                "  public @interface Container {",
+                "    Anno[] value();",
+                "  }",
                 "}"));
     }
 
@@ -134,6 +141,27 @@ public class UnsupportedAppUsageAnnotationHandlerTest extends AnnotationHandlerT
         ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
         verify(mConsumer, times(1)).consume(greylist.capture(), any(), any());
         assertThat(greylist.getValue()).isEqualTo("La/b/Class;->i:I");
+    }
+
+    @Test
+    public void testGreylistSynthetic() throws IOException {
+        mJavac.addSource("a.b.EnumClass", Joiner.on('\n').join(
+            "package a.b;",
+            "import annotation.Anno;",
+            "@Anno(syntheticSignature=\"values()[La/b/EnumClass;\")",
+            "public enum EnumClass {",
+            "  VALUE",
+            "}"));
+        mJavac.compile();
+
+        new AnnotationVisitor(mJavac.getCompiledClass("a.b.EnumClass"), mStatus,
+            ImmutableMap.of(ANNOTATION, createGreylistHandler(x -> true, NULL_SDK_MAP))
+        ).visit();
+
+        assertNoErrors();
+        ArgumentCaptor<String> greylist = ArgumentCaptor.forClass(String.class);
+        verify(mConsumer, times(1)).consume(greylist.capture(), any(), any());
+        assertThat(greylist.getValue()).isEqualTo("La/b/EnumClass;->values()[La/b/EnumClass;");
     }
 
     @Test
