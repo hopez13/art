@@ -93,6 +93,30 @@
       "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c700a278_8aadf858",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T16:43:39Z",
+      "side": 1,
+      "message": "I don\u0027t like it when code relies on remote stuff. And, in this context, the word \"Buffered\" on line 403 is losing most of its meaning.",
+      "parentUuid": "3938fc1b_0fb44c6f",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 58
+      },
+      "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
