@@ -48,6 +48,9 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
   void VisitNullCheck(HNullCheck* check) override;
   void VisitDivZeroCheck(HDivZeroCheck* check) override;
   void VisitBoundsCheck(HBoundsCheck* check) override;
+  #if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)
+  void VisitX86BoundsCheck(HX86BoundsCheck* check) override;
+  #endif
   void VisitBoundType(HBoundType* bound_type) override;
   void VisitArraySet(HArraySet* instruction) override;
   void VisitClinitCheck(HClinitCheck* check) override;
@@ -56,7 +59,7 @@ class PrepareForRegisterAllocation : public HGraphDelegateVisitor {
   void VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) override;
   void VisitDeoptimize(HDeoptimize* deoptimize) override;
   void VisitTypeConversion(HTypeConversion* instruction) override;
-
+  void AddStringCharAtEnv(HInstruction* check) const;
   bool CanMoveClinitCheck(HInstruction* input, HInstruction* user) const;
   bool CanEmitConditionAt(HCondition* condition, HInstruction* user) const;
 
