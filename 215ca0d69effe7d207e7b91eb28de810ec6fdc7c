@@ -105,6 +105,24 @@
       "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08291ae1_50128c8c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-06T18:53:08Z",
+      "side": 1,
+      "message": "VisitRootIfNonNull() calls VisitRoot() because the implementation is same. That doesn\u0027t mean that somebody can\u0027t call VisitRoot() directly (note that VisitRoot() is a public function).\n\nI have not seen any test failing if the check is removed. However, this is not a guarantee that it may not happen in production.\n\nAll I\u0027m saying is that there exists a code path, which if exercised will cause a problem without the check. It is not part of any spec (nor mentioned in any comment) that VisitRoots() will not get non-null roots.",
+      "parentUuid": "b4947815_4f6a069d",
+      "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
