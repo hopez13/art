@@ -21,6 +21,7 @@ namespace hiddenapi {
 
 constexpr const char* ApiList::kNames[ApiList::kValueCount];
 constexpr SdkVersion ApiList::kMaxSdkVersions[ApiList::kValueCount];
+constexpr const char* SpecializedApiFlags::kNames[SpecializedApiFlags::kFlagsCount];
 
 }  // namespace hiddenapi
 }  // namespace art

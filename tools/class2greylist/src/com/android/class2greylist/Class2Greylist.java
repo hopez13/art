@@ -45,17 +45,22 @@ import java.util.Set;
  */
 public class Class2Greylist {
 
-    private static final Set<String> GREYLIST_ANNOTATIONS =
-            ImmutableSet.of(
-                    "Landroid/annotation/UnsupportedAppUsage;",
-                    "Ldalvik/annotation/compat/UnsupportedAppUsage;");
-    private static final Set<String> WHITELIST_ANNOTATIONS = ImmutableSet.of();
-
     public static final String FLAG_WHITELIST = "whitelist";
     public static final String FLAG_GREYLIST = "greylist";
     public static final String FLAG_BLACKLIST = "blacklist";
     public static final String FLAG_GREYLIST_MAX_O = "greylist-max-o";
     public static final String FLAG_GREYLIST_MAX_P = "greylist-max-p";
+    public static final String FLAG_CORE_PLATFORM_API = "core-platform-api";
+
+    private static final Set<String> GREYLIST_ANNOTATIONS =
+            ImmutableSet.of(
+                    "Landroid/annotation/UnsupportedAppUsage;",
+                    "Ldalvik/annotation/compat/UnsupportedAppUsage;");
+
+    private static final Map<String, String> SPECIALIZED_API_ANNOTATIONS =
+            new ImmutableMap.Builder()
+                .put("Llibcore/api/CorePlatformApi;", FLAG_CORE_PLATFORM_API)
+                .build();
 
     private static final Map<Integer, String> TARGET_SDK_TO_LIST_MAP;
     static {
@@ -182,17 +187,31 @@ public class Class2Greylist {
 
     private Map<String, AnnotationHandler> createAnnotationHandlers() {
         Builder<String, AnnotationHandler> builder = ImmutableMap.builder();
+
+        // Register one handler for each greylist annotation.
         UnsupportedAppUsageAnnotationHandler greylistAnnotationHandler =
                 new UnsupportedAppUsageAnnotationHandler(
                     mStatus, mOutput, mPublicApis, TARGET_SDK_TO_LIST_MAP);
         GREYLIST_ANNOTATIONS.forEach(a -> builder.put(a, greylistAnnotationHandler));
 
-        CovariantReturnTypeHandler covariantReturnTypeHandler = new CovariantReturnTypeHandler(
-            mOutput, mPublicApis, FLAG_WHITELIST);
+        // Register handlers for specialized API annotations. These do not have
+        // a maxTargetSdk property, so create a dummy SDK->flag map where 'null'
+        // SDK version maps to the corresponding CSV flag.
+        for (Map.Entry<String, String> annoEntry : SPECIALIZED_API_ANNOTATIONS.entrySet()) {
+            Map<Integer, String> nullSdkToFlagMap = new HashMap<>();
+            nullSdkToFlagMap.put(null, annoEntry.getValue());
+            nullSdkToFlagMap = Collections.unmodifiableMap(nullSdkToFlagMap);
+            builder.put(annoEntry.getKey(), new UnsupportedAppUsageAnnotationHandler(
+                    mStatus, mOutput, mPublicApis, nullSdkToFlagMap));
+        }
 
-        return addRepeatedAnnotationHandlers(builder, CovariantReturnTypeHandler.ANNOTATION_NAME,
-            CovariantReturnTypeHandler.REPEATED_ANNOTATION_NAME, covariantReturnTypeHandler)
-            .build();
+        // Register covariant return type handlers.
+        CovariantReturnTypeHandler covariantReturnTypeHandler = new CovariantReturnTypeHandler(
+                mOutput, mPublicApis, FLAG_WHITELIST);
+        addRepeatedAnnotationHandlers(builder, CovariantReturnTypeHandler.ANNOTATION_NAME,
+                CovariantReturnTypeHandler.REPEATED_ANNOTATION_NAME, covariantReturnTypeHandler);
+
+        return builder.build();
     }
 
     /**

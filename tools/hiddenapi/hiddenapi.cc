@@ -601,10 +601,10 @@ class HiddenapiClassDataBuilder final {
   // Append flags at the end of the data struct. This should be called
   // between BeginClassDef and EndClassDef in the order of appearance of
   // fields/methods in the class data stream.
-  void WriteFlags(hiddenapi::ApiList flags) {
-    uint32_t uint_flags = flags.GetIntValue();
-    EncodeUnsignedLeb128(&data_, uint_flags);
-    class_def_has_non_zero_flags_ |= (uint_flags != 0u);
+  void WriteDexFlags(const hiddenapi::ApiInfo& api_info) {
+    uint32_t dex_flags = api_info.ToDexFlags();
+    EncodeUnsignedLeb128(&data_, dex_flags);
+    class_def_has_non_zero_flags_ |= (dex_flags != 0u);
   }
 
   // Return backing data, assuming that all flags have been written.
@@ -932,8 +932,12 @@ class HiddenApi final {
       Usage("Number of input DEX files does not match number of output DEX files");
     }
 
-    // Load dex signatures.
-    std::map<std::string, hiddenapi::ApiList> api_list = OpenApiFile(api_list_path_);
+    // Load mappings of API to access flags.
+    std::map<std::string, hiddenapi::ApiInfo> api_info = OpenApiFile(api_list_path_);
+
+    // If there is no info for an API, whitelist it.
+    const hiddenapi::ApiInfo default_info(
+        hiddenapi::ApiList::Whitelist(), hiddenapi::SpecializedApiFlags::Empty());
 
     // Iterate over input dex files and insert HiddenapiClassData sections.
     for (size_t i = 0; i < boot_dex_paths_.size(); ++i) {
@@ -950,14 +954,14 @@ class HiddenApi final {
         builder.BeginClassDef(boot_class.GetClassDefIndex());
         if (boot_class.GetData() != nullptr) {
           auto fn_shared = [&](const DexMember& boot_member) {
-            auto it = api_list.find(boot_member.GetApiEntry());
-            bool api_list_found = (it != api_list.end());
+            auto it = api_info.find(boot_member.GetApiEntry());
+            bool api_list_found = (it != api_info.end());
             // TODO: Fix ART buildbots and turn this into a CHECK.
             if (force_assign_all_ && !api_list_found) {
               LOG(WARNING) << "Could not find hiddenapi flags for dex entry: "
                            << boot_member.GetApiEntry();
             }
-            builder.WriteFlags(api_list_found ? it->second : hiddenapi::ApiList::Whitelist());
+            builder.WriteDexFlags(api_list_found ? it->second : default_info);
           };
           auto fn_field = [&](const ClassAccessor::Field& boot_field) {
             fn_shared(DexMember(boot_class, boot_field));
@@ -976,25 +980,49 @@ class HiddenApi final {
     }
   }
 
-  std::map<std::string, hiddenapi::ApiList> OpenApiFile(const std::string& path) {
+  std::map<std::string, hiddenapi::ApiInfo> OpenApiFile(const std::string& path) {
     CHECK(!path.empty());
     std::ifstream api_file(path, std::ifstream::in);
     CHECK(!api_file.fail()) << "Unable to open file '" << path << "' " << strerror(errno);
 
-    std::map<std::string, hiddenapi::ApiList> api_flag_map;
+    std::map<std::string, hiddenapi::ApiInfo> api_flag_map;
 
     for (std::string line; std::getline(api_file, line);) {
       std::vector<std::string> values = android::base::Split(line, ",");
-      CHECK_EQ(values.size(), 2u) << "Currently only signature and one flag are supported";
 
       const std::string& signature = values[0];
       CHECK(api_flag_map.find(signature) == api_flag_map.end()) << "Duplicate entry: " << signature;
 
-      const std::string& flag_str = values[1];
-      hiddenapi::ApiList membership = hiddenapi::ApiList::FromName(flag_str);
-      CHECK(membership.IsValid()) << "Unknown ApiList name: " << flag_str;
+      hiddenapi::ApiList api_list_flag = hiddenapi::ApiList::Invalid();
+      hiddenapi::SpecializedApiFlags specialized_api_info =
+          hiddenapi::SpecializedApiFlags::Empty();
 
-      api_flag_map.emplace(signature, membership);
+      for (size_t i = 1; i < values.size(); ++i) {
+        const std::string& flag_str = values[i];
+
+        // Try to parse as ApiList.
+        hiddenapi::ApiList flag_as_api_list = hiddenapi::ApiList::FromName(flag_str);
+        if (flag_as_api_list.IsValid()) {
+          CHECK(!api_list_flag.IsValid())
+              << "Multiple ApiList flags for " << signature << ": "
+              << api_list_flag << " and " << flag_as_api_list;
+          api_list_flag = flag_as_api_list;
+          continue;
+        }
+
+        // Try to parse as a specialized API flag.
+        hiddenapi::SpecializedApiFlags flag_as_override =
+            hiddenapi::SpecializedApiFlags::FromName(flag_str);
+        if (flag_as_override.IsValid()) {
+          specialized_api_info |= flag_as_override;
+          continue;
+        }
+
+        LOG(FATAL) << "Unrecognized flag: " << flag_str;
+      }
+
+      CHECK(api_list_flag.IsValid()) << "No ApiList flag specified for " << signature;
+      api_flag_map.emplace(signature, hiddenapi::ApiInfo(api_list_flag, specialized_api_info));
     }
 
     api_file.close();
