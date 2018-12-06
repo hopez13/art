@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63d24665_eb28b02b",
+        "filename": "runtime/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T17:18:51Z",
+      "side": 1,
+      "message": "Added extra runtime checks and fixed code. Running existing tests verifies that these are set and checked correctly in PS4.",
+      "parentUuid": "9e4bbedc_937446d5",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 26
+      },
+      "revId": "07a9e58b6505c3884c81c71b11351468258b18a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e141b19_6fabe6f3",
         "filename": "runtime/image.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "07a9e58b6505c3884c81c71b11351468258b18a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5bda309_67dc1170",
+        "filename": "runtime/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T17:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e141b19_6fabe6f3",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 33
+      },
+      "revId": "07a9e58b6505c3884c81c71b11351468258b18a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
