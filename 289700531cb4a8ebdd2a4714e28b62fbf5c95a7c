@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa6ed36e_35ff4b37",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T13:12:18Z",
+      "side": 1,
+      "message": "We could unroll this and use LDRH+CRC32H / LDR(W)+CRC32W. The SUBS+B.LO for 2 and 4 bytes would target process_1byte and process_2bytes, respectively.\n\n    TBZ ptr, #0, aligned2\n    SUBS len, len, 1\n    B.LO done\n    LDRB array_elem, [ptr], #1\n    CRC32B out, out, array_elem\n  aligned2:\n    TBZ ptr, #1, aligned4\n    SUBS len, len, 2\n    B.LO process_1byte\n    LDRH array_elem, [ptr], #2\n    CRC32H out, out, array_elem\n  aligned4:\n    TBZ ptr, #2, aligned8\n    SUBS len, len, 4\n    B.LO process_2bytes\n    LDR array_elem.W(), [ptr], #4\n    CRC32W out, out, array_elem\n  aligned8:\n\n(And when you write it this way, the benefit of the k8ByteAlignedMask test is questionable, considering that array_data_offset\u003d12.)",
+      "range": {
+        "startLine": 3037,
+        "startChar": 0,
+        "endLine": 3045,
+        "endChar": 0
+      },
+      "revId": "289700531cb4a8ebdd2a4714e28b62fbf5c95a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22ac8cd_e1f89500",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T13:12:18Z",
+      "side": 1,
+      "message": "Should fit on the previous line (with 100 character limit).",
+      "range": {
+        "startLine": 154,
+        "startChar": 41,
+        "endLine": 154,
+        "endChar": 58
+      },
+      "revId": "289700531cb4a8ebdd2a4714e28b62fbf5c95a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2b07d75_95627f15",
+        "filename": "test/580-crc32/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T13:12:18Z",
+      "side": 1,
+      "message": "These two fit on a single line each.",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 75
+      },
+      "revId": "289700531cb4a8ebdd2a4714e28b62fbf5c95a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
