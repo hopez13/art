@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "d31ab0ed_ae14532a",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-06T23:33:58Z",
+      "side": 1,
+      "message": "Done. Since C++ 17 is ok now and we can use std::string_view, I made a C++ wrapper for ExtDexFileString too which made it behave fairly decently on the calling side. PTAL here and in http://aosp/836983 too.",
+      "parentUuid": "403f8b88_1ed41a28",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "4c7dd6448cbde21c5ee5cbf5dd442c8b316b46cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a94eff5a_a4bd252f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
