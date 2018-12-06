@@ -127,14 +127,7 @@ inline size_t CardTable::Scan(ContinuousSpaceBitmap* bitmap,
   return cards_scanned;
 }
 
-/*
- * Visitor is expected to take in a card and return the new value. When a value is modified, the
- * modify visitor is called.
- * visitor: The visitor which modifies the cards. Returns the new value for a card given an old
- * value.
- * modified: Whenever the visitor modifies a card, this visitor is called on the card. Enables
- * us to know which cards got cleared.
- */
+// See comment in card_table.h.
 template <typename Visitor, typename ModifiedVisitor>
 inline void CardTable::ModifyCardsAtomic(uint8_t* scan_begin,
                                          uint8_t* scan_end,
