@@ -22,6 +22,30 @@
       "revId": "f5e7819426f29aef125d03f56193957fe6c86130",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deb56686_04bd3119",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2018-12-06T17:22:18Z",
+      "side": 1,
+      "message": "Agreed. The reason why I\u0027m doing it like this is:\n1) I will need IsInMemoryDexClassLoader to single it out for the vdex/oat generation,\n2) Right now IsPathOrDexClassLoader is also used in ClassLoaderContext. I will need to add InMemDexCL support there later but wanted to keep this change just about fixing this problem.",
+      "parentUuid": "2d877306_b44fc1dd",
+      "range": {
+        "startLine": 2665,
+        "startChar": 6,
+        "endLine": 2665,
+        "endChar": 28
+      },
+      "revId": "f5e7819426f29aef125d03f56193957fe6c86130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
