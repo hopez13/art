@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8add608f_5f8112d9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-06T17:33:00Z",
+      "side": 1,
+      "message": "Thank you, Vladimir. This is a great solution.",
+      "parentUuid": "aa6ed36e_35ff4b37",
+      "range": {
+        "startLine": 3037,
+        "startChar": 0,
+        "endLine": 3045,
+        "endChar": 0
+      },
+      "revId": "289700531cb4a8ebdd2a4714e28b62fbf5c95a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f22ac8cd_e1f89500",
         "filename": "test/580-crc32/src/Main.java",
         "patchSetId": 2
