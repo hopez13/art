@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7b2f50ef_56dec626",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-12-06T11:24:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af3a6205_082da600",
+      "range": {
+        "startLine": 2605,
+        "startChar": 29,
+        "endLine": 2605,
+        "endChar": 84
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29d7c3e0_119fbeaa",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 9
@@ -93,6 +117,30 @@
       "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96038763_40a1fcd4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2018-12-06T11:24:00Z",
+      "side": 1,
+      "message": "I\u0027m fine leaving the dcheck in until we run into a problem. It\u0027s easy to remove later if it becomes an issue.",
+      "parentUuid": "f0219b20_115d4ae4",
+      "range": {
+        "startLine": 4000,
+        "startChar": 2,
+        "endLine": 4000,
+        "endChar": 38
+      },
+      "revId": "a3673ff72ec50becf27c3427e3a6eef4b594193c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
