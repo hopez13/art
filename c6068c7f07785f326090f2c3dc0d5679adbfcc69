@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20157aaa_e09ecdf5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-06T11:04:24Z",
+      "side": 1,
+      "message": "Are you keeping the thread pool alive? So they\u0027re sitting there for the entire lifetime of the app?",
+      "revId": "c6068c7f07785f326090f2c3dc0d5679adbfcc69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
