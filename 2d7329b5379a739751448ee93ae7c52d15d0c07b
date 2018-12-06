@@ -22,6 +22,30 @@
       "revId": "2d7329b5379a739751448ee93ae7c52d15d0c07b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ba2173_2048dbda",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-06T01:56:32Z",
+      "side": 1,
+      "message": "I have tested by changing weighted_allocated_bytes_ type to double. It fixes the issue.",
+      "parentUuid": "6c78e24b_681bdf35",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1074,
+        "endChar": 1
+      },
+      "revId": "2d7329b5379a739751448ee93ae7c52d15d0c07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
