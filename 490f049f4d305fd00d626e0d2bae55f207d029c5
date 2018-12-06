@@ -22,6 +22,30 @@
       "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5334f269_09b4e744",
+        "filename": "compiler/debug/xz_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-06T19:03:01Z",
+      "side": 1,
+      "message": "There\u0027s two ways of doing this in C++11 in a standard way. and both are thread safe:\n\n  // option 1, using function-local static initialization\n  static void XzInitRc() {\n    struct XzInitializer {  // can also be a global\n      XzInitializer() {\n        CrcGenerateTable();\n        Crc64GenerateTable();\n      }\n    };\n    static XzInitializer initializer;\n  }\n\n  // option 2, using std:call_once\n  static void XzInitRc() {\n    static std::once_flag xz_init_flag;  // can also be a global\n    std::call_once(xz_init_flag, [](){ \n      CrcGenerateTable();\n      Crc64GenerateTable();\n    });\n  }\n\nThese are both for lazy-init, you can just put a regular top-level static if eager is ok.",
+      "parentUuid": "446d06a6_5e4af50f",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
