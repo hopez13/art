@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e794aa08_b37f9aa7",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-06T19:54:03Z",
+      "side": 1,
+      "message": "This is close, but I was actually more interested in live_bytes / RoundUp(BytesAllocated(), kRegionSize), as it is used in the evacuation decision. If we\u0027ve barely allocated in a region, it\u0027s still mostly empty.\n\nIf it\u0027s feasible to compute, I\u0027d also like to know \u003clength of longest free run\u003e / \u003cfree bytes in region\u003e .\n\nIf we\u0027re spending a lot of time evacuating regions that have nearly all the empty space already contiguous, then it may be worth moving away from the pure copying strategy.",
+      "range": {
+        "startLine": 816,
+        "startChar": 10,
+        "endLine": 816,
+        "endChar": 63
+      },
+      "revId": "07bd00e30c9c37c676624eafaf2b4bddd13d5cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
