@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d3ae7c55_dba89c3c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-06T15:57:23Z",
+      "side": 1,
+      "message": "Understood. Thanks for the clarification.",
+      "parentUuid": "c16f139b_eb5fd754",
+      "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38f7255a_23509c2a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "In RootVisitor (defined at runtime/gc_root.h:326) filters null roots only in VisitRootIfNonNull(), and not in VisitRoot(). So I believe checking here is necessary.",
       "parentUuid": "38f7255a_23509c2a",
+      "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4947815_4f6a069d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-06T15:57:23Z",
+      "side": 1,
+      "message": "However, VisitRootIfNonNull calls VisitRoot after the null-check, so it feels that the precondition of VisitRoot is that root must be non-null. IOW, VisitRoot operates on roots that are not null (due to previous checks before call it), while VisitRootIfNonNull operates on roots that are potential null.\n\nAny failing tests/examples if `ref !\u003d nullptr` is removed?",
+      "parentUuid": "8e5c5235_5730cf18",
       "revId": "215ca0d69effe7d207e7b91eb28de810ec6fdc7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
