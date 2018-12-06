@@ -189,6 +189,30 @@
       "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3741e0c1_95eb8582",
+        "filename": "compiler/linker/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-06T16:54:00Z",
+      "side": 1,
+      "message": "Having said that, I do acknowledge that having an explicit buffered stream in the ElfBuilder might be an improvement....\n\nOn the other hand, it is also reasonable that it is responsibility of the stream to ensure decent performance (e.g. we could switch from buffering to mmaped writes in the future).",
+      "parentUuid": "a4e5525a_d1ba973f",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 58
+      },
+      "revId": "1fad850a8094ab8d9eb35283b787fa781370c31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
