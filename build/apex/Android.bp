@@ -104,7 +104,12 @@ apex {
             binaries: [],
         }
     },
-    prebuilts: ["com.android.runtime.ld.config.txt"],
+    prebuilts: [
+        "apex_tz_version",
+        "apex_tzdata",
+        "apex_tzlookup.xml",
+        "com.android.runtime.ld.config.txt",
+    ],
     key: "com.android.runtime.key",
 }
 
@@ -132,6 +137,11 @@ apex {
             binaries: art_tools_binaries,
         }
     },
-    prebuilts: ["com.android.runtime.ld.config.txt"],
+    prebuilts: [
+        "apex_tz_version",
+        "apex_tzdata",
+        "apex_tzlookup.xml",
+        "com.android.runtime.ld.config.txt",
+    ],
     key: "com.android.runtime.key",
 }
