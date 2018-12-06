@@ -104,7 +104,12 @@ apex {
             binaries: [],
         }
     },
-    prebuilts: ["com.android.runtime.ld.config.txt"],
+    prebuilts: [
+        "com.android.runtime.ld.config.txt",
+        "apex_tz_version",
+        "apex_tzlookup.xml",
+        "apex_tzdata",
+    ],
     key: "com.android.runtime.key",
 }
 
