@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2082dd00_3b2edb2a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-06T16:05:10Z",
+      "side": 1,
+      "message": "Tidy will suggest using empty() for this check.",
+      "range": {
+        "startLine": 1879,
+        "startChar": 24,
+        "endLine": 1879,
+        "endChar": 30
+      },
+      "revId": "f8bab0a65d8cf87d63e65acaffb1674f783043b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b6ec1f3d_d4c9c691",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
