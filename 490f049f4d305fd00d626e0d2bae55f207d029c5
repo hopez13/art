@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "446d06a6_5e4af50f",
+        "filename": "compiler/debug/xz_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-06T18:03:08Z",
+      "side": 1,
+      "message": "Thread unsafe. As discussed offline, I\u0027d rather have a static constructor do the initialization. (Despite my dislike for static constructors.) This can be implemented without a namespace variable by using __attribute__((constructor)) on an initialization function.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
