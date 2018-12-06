@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "5e199f07_b4c62359",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-06T16:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7dbd503_22842ba7",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 1
+      },
+      "revId": "6c8de1d092e68b711e168c7857254ff445bcd4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c33339b1_2d9fe700",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
