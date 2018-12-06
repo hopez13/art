@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84d75979_7a7eb3fb",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationContext.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-12-06T15:06:15Z",
+      "side": 1,
+      "message": "could we use specialised subclasses, rather than modifying the behaviour based on the nullness of this? Make getMemberDescriptor(), reportError() abstract here",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d16c54de_6af09120",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-12-06T15:06:15Z",
+      "side": 1,
+      "message": "\"syntheticMember\" better?",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 82
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5beb9993_1706a351",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-12-06T15:06:15Z",
+      "side": 1,
+      "message": "Can we also assert that if the annotation is on a class, it *must* have this property?",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 97
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab37ba17_13465d35",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-12-06T15:06:15Z",
+      "side": 1,
+      "message": "assert that the member really is synthetic",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5901eaee_63efa178",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandlerTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2018-12-06T15:06:15Z",
+      "side": 1,
+      "message": "would it be possible to specify just the name of the synthetic member here? i.e.\n \n  syntheticSignature\u003d\"values()\"\n\nWe should be able to infer the return type in the annotation processor by instrospecting the class object. It would make the annotation easier to write.",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 46
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
