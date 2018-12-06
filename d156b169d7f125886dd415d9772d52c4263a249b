@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3a9966_5c67cc04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5100a558_8ca23ebe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "You can also add:\n\n  Test: make test-art-host-gtest-parsed_options_test\n  Test: make test-art-target-gtest-parsed_options_test\n\nhere.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 196
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb107ce0_cfe6db84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Nit: Extra space before \"along\".",
+      "range": {
+        "startLine": 12,
+        "startChar": 53,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e1e05f_9aa4c88e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Could you also preserve that part of the original comment:\n\n  // Generational CC collection is currently only compatible with Baker read\n  // barriers.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e63eb75_49c7b602",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "We usually try to avoid global states, but maybe this is fine here, as we don\u0027t expect to run more than one \"kind\" of GC at a time. Lokesh, Mathieu, Hans, what do you think?\n\nOn second thoughts, as most inner classes of ConcurrentCopying have a pointer to the collector object as a member (`cc_` or `collector_`), there would be not much difference between using\n\n  use_generational_cc_  // This is actually a short-hand for\n                        // `ConcurrentCopying::use_generational_cc_`.\n\nand\n\n  cc_-\u003euse_generational_cc_\n\nin inner classes. I think the later is also clearer. Albert, could you make this a non-static and adjust users?",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 8
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c3db9b7_d6df409e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Can you make this `const bool`?",
+      "range": {
+        "startLine": 72,
+        "startChar": 9,
+        "endLine": 72,
+        "endChar": 13
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcab9037_6018640f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Style: Put either all arguments on the same line, or each on its own line. We also allow that style:\n\n    region_space_ \u003d space::RegionSpace::Create(\n        kRegionSpaceName, std::move(region_space_mem_map), use_generational_cc_);\n\n(which I would recommend here).",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 63
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08b01d79_e39b8a40",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Add comment (or simply copy the comment of `ConcurrentCopying::use_generational_cc_`) for this new member.",
+      "range": {
+        "startLine": 1394,
+        "startChar": 2,
+        "endLine": 1394,
+        "endChar": 34
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2154f594_4c0da0a7",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Ditto: add a comment.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 39
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8388e435_d3e6758a",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Style: Put all arguments on the same line or one per line.",
+      "range": {
+        "startLine": 98,
+        "startChar": 33,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad5979e_6f29be30",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Likewise, can you make this non-static?",
+      "range": {
+        "startLine": 322,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 8
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37fe25e4_001d6874",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Can you make this `const bool`?",
+      "range": {
+        "startLine": 322,
+        "startChar": 9,
+        "endLine": 322,
+        "endChar": 13
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a6dde3d_7e6e3048",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Can we have a set of two options instead:\n\n  -Xgc:generational_cc\n  -Xgc:nogenerational_cc\n\nthe first one being the default, and documented as\n\n  -Xgc:[no]generational_cc\n\n?",
+      "range": {
+        "startLine": 688,
+        "startChar": 26,
+        "endLine": 688,
+        "endChar": 47
+      },
+      "revId": "d156b169d7f125886dd415d9772d52c4263a249b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

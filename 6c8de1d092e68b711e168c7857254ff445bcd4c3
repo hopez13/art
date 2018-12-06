@@ -214,6 +214,29 @@
     },
     {
       "key": {
+        "uuid": "c7dbd503_22842ba7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-06T14:01:25Z",
+      "side": 1,
+      "message": "Could we keep this function here and have it take `use_generational_cc` as argument, instead of inlining it in Heap::GrowForUtilization?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 1
+      },
+      "revId": "6c8de1d092e68b711e168c7857254ff445bcd4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c33339b1_2d9fe700",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
