@@ -22,6 +22,30 @@
       "revId": "77eea0898aca2881a87afd177a0422870c39a318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33b93901_812f340d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-07T16:10:57Z",
+      "side": 1,
+      "message": "I\u0027m working on a change that would let us start the runtime with partial boot image, opening the rest of dex files from BCP jars. So, we could build core.art with just core-oj and core-libart, making the oatdump tests faster. Maybe we can then enable all the tests.",
+      "parentUuid": "d647a73d_a44721df",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 47
+      },
+      "revId": "77eea0898aca2881a87afd177a0422870c39a318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
