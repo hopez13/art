@@ -70,6 +70,30 @@
       "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f66727d5_da84d960",
+        "filename": "compiler/debug/xz_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-07T11:16:17Z",
+      "side": 1,
+      "message": "Thanks, Igor. I was aware of pthread_once() but I did not know the c++ wrapper.",
+      "parentUuid": "c9dc5b59_a294bc10",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
