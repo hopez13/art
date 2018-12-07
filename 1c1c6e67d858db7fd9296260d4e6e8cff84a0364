@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a40c85c_bb10e4f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-07T15:57:41Z",
+      "side": 1,
+      "message": "This argument is bogus. JVMTI only works in debuggable apps. Dirty memory during debug is irrelevant, nobody optimizes that case.",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "1c1c6e67d858db7fd9296260d4e6e8cff84a0364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
