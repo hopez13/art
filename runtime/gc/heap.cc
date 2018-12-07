@@ -1072,7 +1072,7 @@ void Heap::RemoveSpace(space::Space* space) {
 void Heap::CalculateWeightedAllocatedBytes() {
   uint64_t current_process_cpu_time = ProcessCpuNanoTime();
   uint64_t bytes_allocated = GetBytesAllocated();
-  uint64_t weight = current_process_cpu_time - last_process_cpu_time_ns_;
+  double weight = current_process_cpu_time - last_process_cpu_time_ns_;
   weighted_allocated_bytes_ += weight * bytes_allocated;
   last_process_cpu_time_ns_ = current_process_cpu_time;
 }
