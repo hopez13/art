@@ -2,6 +2,851 @@
   "comments": [
     {
       "key": {
+        "uuid": "44eb9cdf_2efd12a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Is the plan to have those in this CL, or in a follow-up change?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 66
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d63f949d_1371f305",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "What\u0027s blocking us from using this?",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 51
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b00bee11_f8f64661",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Make these methods `override`.\n\n(I wonder if we could also make them `const` in `art::DexFileContainer` and its subclasses, including this one.)",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 39
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95c5620b_b9f838cb",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Do we have a convention to avoid name clashes in C libraries (as we can\u0027t use C++ namespaces)? It seems all exported C functions start with `ExtDexFile` here, but should we make that more explicit by having a more explicit prefix, like `ext_dex_file_`?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 12
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9839d3ac_5f762892",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ size_t* size",
+      "range": {
+        "startLine": 145,
+        "startChar": 68,
+        "endLine": 145,
+        "endChar": 80
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43fd1320_d9a3f672",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(str !\u003d nullptr);\n\nbefore using it?",
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd31d73e_47a47831",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*inout*/ size_t* size",
+      "range": {
+        "startLine": 158,
+        "startChar": 75,
+        "endLine": 158,
+        "endChar": 87
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a93aca_ca0a006f",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ const ExtDexFileString** ext_error_msg",
+      "range": {
+        "startLine": 159,
+        "startChar": 52,
+        "endLine": 159,
+        "endChar": 90
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68dd4eaf_b59d741c",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: All arguments on the same line (if they fit within the columns limit) or one per line.",
+      "range": {
+        "startLine": 158,
+        "startChar": 30,
+        "endLine": 159,
+        "endChar": 90
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12e4f6b_e7aa8d08",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "How about:\n\n  std::string loc_str(location);\n\n?",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 46
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa8b22c4_d3acac09",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cconst DexFile\u003e",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 6
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64885376_8459d100",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 197,
+        "startChar": 30,
+        "endLine": 199,
+        "endChar": 70
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "818d1281_646c3ba9",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 209,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 64
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fe88b22_311e1692",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ const ExtDexFileString** ext_error_msg",
+      "range": {
+        "startLine": 210,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 50
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e9af9be_8600460e",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "We usually use explicit casts:\n\n  static_cast\u003cint64_t\u003e(offset)",
+      "range": {
+        "startLine": 230,
+        "startChar": 61,
+        "endLine": 230,
+        "endChar": 76
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5846ec39_4a57e95b",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 254,
+        "startChar": 57,
+        "endLine": 254,
+        "endChar": 73
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ffd40c9_3bcfa191",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Ditto:\n\n  std::string loc_str(location);\n\n?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 46
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a185718f_0d5ffc32",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cconst DexFile\u003e",
+      "range": {
+        "startLine": 265,
+        "startChar": 2,
+        "endLine": 265,
+        "endChar": 6
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "274c43ce_99e4539b",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 265,
+        "startChar": 30,
+        "endLine": 267,
+        "endChar": 92
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13744d49_04c6b64a",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 276,
+        "startChar": 38,
+        "endLine": 277,
+        "endChar": 71
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac6e3ef3_a6260aca",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ ExtDexFileMethodInfo* method_info",
+      "range": {
+        "startLine": 277,
+        "startChar": 38,
+        "endLine": 277,
+        "endChar": 71
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e1aa21e_12d582cd",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "CompactDexFile::Header",
+      "range": {
+        "startLine": 287,
+        "startChar": 10,
+        "endLine": 287,
+        "endChar": 14
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa11db7f_9e30d679",
+        "filename": "libdexfile/external/dex_file_ext.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 306,
+        "startChar": 33,
+        "endLine": 307,
+        "endChar": 82
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ceb13fc_f8c41b3f",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "If `ExtDexFileFree` is just using `delete`, then you don\u0027t need to do a null check before: the C++ standard says that calling `delete` on a null pointer is a supported no-op.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a708031_ddb59546",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Nit: Fit on a single line.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54484230_7e4e3a10",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Rename as\n\n  AddMethodInfoCallback\n\n? (See my comment on `ExtDexFileMethodInfoCb` in libdexfile/external/include/art_api/ext_dex_file.h.)",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc25e7d_746882d1",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Maybe use a name other than `vector`, which is too similar to `std::vector`.",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfc1244c_aec59095",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "I don\u0027t think I\u0027ve ever seen this in the ART code base. We usually use `void*` as an opaque pointer. I think this might be confusing for the team. I\u0027d rather have the variable name hold the nature of the pointed contents.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aad895c5_66584019",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "As this is an official stable API, I\u0027d recommend document all of its functions.",
+      "range": {
+        "startLine": 43,
+        "startChar": 24,
+        "endLine": 43,
+        "endChar": 44
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c8c1e55_8ddb5c5b",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ size_t* size",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 80
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e956637a_dd8d3092",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 55,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e38c0e57_263d5161",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*inout*/ size_t* size",
+      "range": {
+        "startLine": 57,
+        "startChar": 75,
+        "endLine": 57,
+        "endChar": 87
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4225c325_92d46ec3",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ const ExtDexFileString** ext_error_msg",
+      "range": {
+        "startLine": 58,
+        "startChar": 52,
+        "endLine": 58,
+        "endChar": 86
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21eb92b4_f1cd7748",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: All arguments on the same line (if they fit within the columns limit) or one per line (likewise for other functions below).",
+      "range": {
+        "startLine": 57,
+        "startChar": 30,
+        "endLine": 58,
+        "endChar": 86
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a75ed260_b6819cd2",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ const ExtDexFileString** ext_error_msg",
+      "range": {
+        "startLine": 61,
+        "startChar": 26,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fad52ad_ccec1edc",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ ExtDexFileMethodInfo* method_info",
+      "range": {
+        "startLine": 64,
+        "startChar": 38,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "427b33ca_61fd8ec6",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "I guess \"Cb\" stands for \"call back\"? It was not obvious to me that `ExtDexFileMethodInfoCb` was an alias for a function pointer before I saw its definition. How about make this more explicit and rename it as `ExtDexFileMethodInfoCallback`?",
+      "range": {
+        "startLine": 66,
+        "startChar": 13,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35fc11ec_a7ed8e8b",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 12
@@ -69,6 +914,397 @@
       "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66fc6072_18af45a5",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Suggestion: You can move that logic into a `Swap` method (possibly private), and use it here and in the move assignment operator line 88.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 51
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd61261_fc217576",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Is this to avoid an unused-variable warning? If so, I think you should be able to use ATTRIBUTE_UNUSED instead.",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 10
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dde51a2e_85b1e30e",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Is this alias method needed?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 42
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3431a1dc_2e46b2dc",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "std::strncmp?",
+      "range": {
+        "startLine": 125,
+        "startChar": 22,
+        "endLine": 125,
+        "endChar": 33
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f5fd10_8b915e8b",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Interprets",
+      "range": {
+        "startLine": 149,
+        "startChar": 5,
+        "endLine": 149,
+        "endChar": 16
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05a4e9e4_bea2dac4",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ std::string* error_msg",
+      "range": {
+        "startLine": 160,
+        "startChar": 49,
+        "endLine": 160,
+        "endChar": 71
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23e2206_611e763c",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: All arguments on the same line (if they fit within the columns limit) or one per line.",
+      "range": {
+        "startLine": 158,
+        "startChar": 49,
+        "endLine": 160,
+        "endChar": 71
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeadb291_7cf05400",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "std::make_unique\u003cDexFile\u003e(ext_dex_file)",
+      "range": {
+        "startLine": 164,
+        "startChar": 13,
+        "endLine": 164,
+        "endChar": 64
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3cb40f9_19170ae9",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "*error_msg \u003d (ext_error_msg !\u003d nullptr) ? std::string(DexString(ext_error_msg)) : \"\";",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27d9dd80_56493c2c",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*out*/ std::string* error_msg",
+      "range": {
+        "startLine": 180,
+        "startChar": 45,
+        "endLine": 180,
+        "endChar": 67
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "566d32e3_7c88d74e",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: All arguments on the same line (if they fit within the columns limit) or one per line.",
+      "range": {
+        "startLine": 179,
+        "startChar": 45,
+        "endLine": 180,
+        "endChar": 67
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "596de492_4f3b6804",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "std::make_unique\u003cDexFile\u003e(ext_dex_file)",
+      "range": {
+        "startLine": 184,
+        "startChar": 13,
+        "endLine": 184,
+        "endChar": 64
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f502f0e_7a40584c",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "I think you could use\n\n  /*name\u003d*/ {}\n\nhere.",
+      "range": {
+        "startLine": 198,
+        "startChar": 18,
+        "endLine": 198,
+        "endChar": 29
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bf56a78_0e85209d",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*len\u003d*/",
+      "range": {
+        "startLine": 198,
+        "startChar": 15,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3a9ad45_733ab2e1",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "/*offset\u003d*/0",
+      "range": {
+        "startLine": 198,
+        "startChar": 12,
+        "endLine": 198,
+        "endChar": 13
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bbd32b9_bf6b716d",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "Style: All arguments on the same line (if they fit within the columns limit) or one per line.",
+      "range": {
+        "startLine": 206,
+        "startChar": 32,
+        "endLine": 207,
+        "endChar": 56
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21f30300_49587784",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T15:16:09Z",
+      "side": 1,
+      "message": "AddMethodInfoCallback?",
+      "range": {
+        "startLine": 218,
+        "startChar": 14,
+        "endLine": 218,
+        "endChar": 29
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
