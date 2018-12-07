@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5661e0f4_d933233b",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T11:06:51Z",
+      "side": 1,
+      "message": "I would just remove this. Comments on functions/methods are expected to precede their declarations.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "5a19b8577752aa712a847c313aeb93205011b783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2ba18e_92839dae",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T11:06:51Z",
+      "side": 1,
+      "message": "I think we should replace this literal zero with `kCardClean` (here and in the method\u0027s documentation).",
+      "range": {
+        "startLine": 184,
+        "startChar": 34,
+        "endLine": 184,
+        "endChar": 35
+      },
+      "revId": "5a19b8577752aa712a847c313aeb93205011b783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "959f60c5_670e25c8",
         "filename": "runtime/gc/accounting/card_table.h",
         "patchSetId": 1
@@ -13,6 +59,30 @@
       "writtenOn": "2018-12-07T10:01:38Z",
       "side": 1,
       "message": "Does it make sense to add a DCHECK to verify it?",
+      "range": {
+        "startLine": 101,
+        "startChar": 62,
+        "endLine": 101,
+        "endChar": 77
+      },
+      "revId": "5a19b8577752aa712a847c313aeb93205011b783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeba33e9_73c91927",
+        "filename": "runtime/gc/accounting/card_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T11:06:51Z",
+      "side": 1,
+      "message": "Yes, this seems like a good idea.",
+      "parentUuid": "959f60c5_670e25c8",
       "range": {
         "startLine": 101,
         "startChar": 62,
