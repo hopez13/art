@@ -94,6 +94,30 @@
       "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c70f8731_76c5e044",
+        "filename": "compiler/debug/xz_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-07T18:49:51Z",
+      "side": 1,
+      "message": "Any time. It\u0027s been a small hope of mine to one day \u0027discover\u0027 some ART code that would actually benefit from std::call_once, so I\u0027m glad we applied it here.",
+      "parentUuid": "f66727d5_da84d960",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "490f049f4d305fd00d626e0d2bae55f207d029c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
