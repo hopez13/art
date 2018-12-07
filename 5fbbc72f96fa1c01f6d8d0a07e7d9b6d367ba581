@@ -686,6 +686,29 @@
     },
     {
       "key": {
+        "uuid": "aa90d8d4_5bdf4472",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-07T15:29:59Z",
+      "side": 1,
+      "message": "So what is wrong with just:\n\nconst char* name;",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e956637a_dd8d3092",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 12
