@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35fc11ec_a7ed8e8b",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-07T15:01:36Z",
+      "side": 1,
+      "message": "Out of curiosity, who is using this?  (considering the amount of memory it allocates)",
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49eba85_460db192",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-07T15:01:36Z",
+      "side": 1,
+      "message": "That does feel like overkill.  Is reinventing std::string really necessary?  const char* ?",
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
