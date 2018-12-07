@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "32896efb_74584d77",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationContext.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-12-07T10:49:07Z",
+      "side": 1,
+      "message": "Done. It\u0027s not as clean as I\u0027d like though.",
+      "parentUuid": "84d75979_7a7eb3fb",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d16c54de_6af09120",
         "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c242d85c_5033daa6",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-12-07T10:49:07Z",
+      "side": 1,
+      "message": "Went with implicitMember as agreed offline.",
+      "parentUuid": "d16c54de_6af09120",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 82
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ef85bed5_4e8e77db",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-12-07T10:49:07Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5beb9993_1706a351",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 97
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab37ba17_13465d35",
         "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c38cab0d_065fd3b4",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-12-07T10:49:07Z",
+      "side": 1,
+      "message": "That is tricky as not every member that is synthetic (i.e. not in the source code) is marked as being synthetic. The JLS specification (https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html) says that:\n\"A construct emitted by a Java compiler must be marked as synthetic if it does not correspond to a construct declared explicitly or implicitly in source code, unless the emitted construct is a class initialization method (JVMS §2.9).\"\n\nThings like default constructors and Enum.values() methods are declared implicitly in the source code and so are not strictly synthetic.\n\nIf you have a better term than synthetic then I\u0027m happy to change the property name.",
+      "parentUuid": "ab37ba17_13465d35",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5901eaee_63efa178",
         "filename": "tools/class2greylist/test/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandlerTest.java",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebdd6698_fc2f3fd0",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandlerTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2018-12-07T10:49:07Z",
+      "side": 1,
+      "message": "It\u0027s possible but that\u0027s a lot more complex. I\u0027d have to search for it and there is the possibility that I could find multiple methods with the same name and parameters but different return types, e.g. covariant return types. I know you handle them specially in here already but I\u0027m concerned that there are other edge cases that could hit us. For a general solution I\u0027d have to be able to support this both with and without the return type which adds to the complexity.\n\nI\u0027d rather leave that to a follow up change if it becomes an issue. The number of entries that are affected should be quite small.",
+      "parentUuid": "5901eaee_63efa178",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 46
+      },
+      "revId": "cd635f1d541072f8848904637d311ee2b8d64903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
