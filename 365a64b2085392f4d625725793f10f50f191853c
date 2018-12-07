@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3df33aa_7722e1d3",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-07T09:48:19Z",
+      "side": 1,
+      "message": "Can this use RETURNS_CAPABILITY(lock_)?\n\nThe REQUIRES(GetLock()) pattern reads awkwardly. \n\nhttps://clang.llvm.org/docs/ThreadSafetyAnalysis.html#private-mutexes",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 19
+      },
+      "revId": "365a64b2085392f4d625725793f10f50f191853c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
