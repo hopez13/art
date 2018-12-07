@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0cd094a7_df6e648e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2955,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-07T08:02:49Z",
+      "side": 1,
+      "message": "40us sounds acceptable.",
+      "parentUuid": "9273e45b_55a8f119",
+      "range": {
+        "startLine": 2955,
+        "startChar": 0,
+        "endLine": 2955,
+        "endChar": 63
+      },
+      "revId": "33d0c3f05e9b0d10d29dc6c7c4ed222d5c72632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d5aafad_a24453df",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
