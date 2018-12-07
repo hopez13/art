@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "daae1c66_6fe4fa85",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3957,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T22:12:20Z",
+      "side": 1,
+      "message": "Arggh. Real type checking would be nice.",
+      "parentUuid": "5a7509c5_5f9d9f44",
+      "range": {
+        "startLine": 3957,
+        "startChar": 3,
+        "endLine": 3957,
+        "endChar": 17
+      },
+      "revId": "352370e3da6030ceef57311f8640d77afa604b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "133f1410_94092f3c",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "352370e3da6030ceef57311f8640d77afa604b9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d3fb46b_186a8f4c",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T22:12:20Z",
+      "side": 1,
+      "message": "I\u0027ll add comments. I expect performance sensitivity to either of these to be low, but they should be in the right ballpark.",
+      "parentUuid": "133f1410_94092f3c",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 0
+      },
+      "revId": "352370e3da6030ceef57311f8640d77afa604b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "17befe9b_6200ef48",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T22:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f9c4b95_6465a54c",
+      "range": {
+        "startLine": 281,
+        "startChar": 36,
+        "endLine": 281,
+        "endChar": 39
+      },
+      "revId": "352370e3da6030ceef57311f8640d77afa604b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f83e209_85fafff1",
         "filename": "test/175-alloc-big-bignums/src/Main.java",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2018-12-07T01:55:50Z",
       "side": 1,
       "message": "IIUC, this will allocate 10GB in total, but at any point in time there will be around only 1MB live native memory due to these allocations, right?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "352370e3da6030ceef57311f8640d77afa604b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf259ec_775f23e7",
+        "filename": "test/175-alloc-big-bignums/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T22:12:20Z",
+      "side": 1,
+      "message": "Yes. I\u0027ll document that.",
+      "parentUuid": "3f83e209_85fafff1",
       "range": {
         "startLine": 27,
         "startChar": 2,
