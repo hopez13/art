@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c739f63a_e01f28ae",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-07T15:10:56Z",
+      "side": 1,
+      "message": "simpleperf: http://aosp/836983\n\nAn alternative here is to expose a visitor callback instead of GetAllMethodInfos below that returns a vector. However then the callback either needs to access the C level things here directly, or there\u0027s a price of another wrapper for each callback call. In the end it gobbles up all symbols in a vector anyway.",
+      "parentUuid": "35fc11ec_a7ed8e8b",
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49eba85_460db192",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 12
@@ -33,6 +51,24 @@
       "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bf3dd3c_ec26c5fa",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-07T15:10:56Z",
+      "side": 1,
+      "message": "I\u0027m trying to reinvent as little as possible. Could strictly speaking get rid of the data() and size() accessors too and let callers go through an std::string_view cast, but well, thought it\u0027d be nicer this way.\n\nThis is necessary to allow the caller pass on these strings internally without copying them. malloc\u0027ed char* would in most cases mean an extra string copy below the API. Yabin had concerns about the string copying in GetAllMethodInfos.",
+      "parentUuid": "f49eba85_460db192",
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
