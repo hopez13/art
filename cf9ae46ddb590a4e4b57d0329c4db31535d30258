@@ -46,6 +46,30 @@
       "revId": "cf9ae46ddb590a4e4b57d0329c4db31535d30258",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b8c785f_7c54784d",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-07T12:29:18Z",
+      "side": 1,
+      "message": "Ping. Maybe it doesn\u0027t have to block this CL, but it would be good to know what the plan is for preinstall. agampe@?\n\nIf a chroot isn\u0027t used it doesn\u0027t seem too hard to introduce a %VERSION% expansion here. That is probably useful for other APEXes too that do need to support multiple versions being mounted.",
+      "parentUuid": "57b5f684_880df467",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "cf9ae46ddb590a4e4b57d0329c4db31535d30258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

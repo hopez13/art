@@ -491,6 +491,30 @@
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b6ccf46_7de72678",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-07T12:29:18Z",
+      "side": 1,
+      "message": "Since this will only be used by the binaries in the APEX I don\u0027t think we need paths for all the framework stuff here. Let\u0027s at least start with this and iterate.",
+      "parentUuid": "4d22582b_6d53bf3e",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
