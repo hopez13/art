@@ -547,10 +547,8 @@ if [ "${HOST}" = "y" ]; then
     if [ "${ANDROID_HOST_OUT:0:${#ANDROID_BUILD_TOP}+1}" = "${ANDROID_BUILD_TOP}/" ]; then
       framework_location="${ANDROID_HOST_OUT:${#ANDROID_BUILD_TOP}+1}/framework"
     else
-      echo "error: ANDROID_BUILD_TOP/ is not a prefix of ANDROID_HOST_OUT"
-      echo "ANDROID_BUILD_TOP=${ANDROID_BUILD_TOP}"
-      echo "ANDROID_HOST_OUT=${ANDROID_HOST_OUT}"
-      exit
+      # TODO: We want a relative path!
+      framework_location="${ANDROID_HOST_OUT}/framework"
     fi
     bpath_suffix="-hostdex"
 else
