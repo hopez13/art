@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b864b5fb_6ecee8f0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T11:31:51Z",
+      "side": 1,
+      "message": "Actually, I was thinking that you could introduce a variable (e.g. `art_runtime_time_zone_data`) for the time zone artifacts only, and have the prebuilts variable be defined as\n\n  prebuilts: art_runtime_time_zone_data\n      + [\"com.android.runtime.ld.config.txt\"]\n\ninside the device apex module definitions.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 1
+      },
+      "revId": "be90fadedf0543c33c485e714877bf5ff09bcbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
