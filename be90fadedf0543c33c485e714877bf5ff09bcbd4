@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "03692d4f_7ce7b231",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-07T11:34:57Z",
+      "side": 1,
+      "message": "Could you also mention bug 113373927 here? Thanks.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "be90fadedf0543c33c485e714877bf5ff09bcbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b864b5fb_6ecee8f0",
         "filename": "build/apex/Android.bp",
         "patchSetId": 3
