@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6aacf231_a490adae",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T19:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "984da048_feacb1fd",
+      "range": {
+        "startLine": 184,
+        "startChar": 34,
+        "endLine": 184,
+        "endChar": 56
+      },
+      "revId": "0c896f4f899aad4de04a357c2f3304fd8cc05c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e02563a6_c8503ab7",
         "filename": "runtime/gc/accounting/card_table.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "0c896f4f899aad4de04a357c2f3304fd8cc05c5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a61bb58_ba9f90a8",
+        "filename": "runtime/gc/accounting/card_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-07T19:55:17Z",
+      "side": 1,
+      "message": "I\u0027m not sure that helps. This function can\u0027t be used to change a kCardClean value, as a a result of the assumption below. If you passed a visitor that did so, we\u0027d actually sometime call modified(), and sometimes just wouldn\u0027t apply the visitor",
+      "parentUuid": "e02563a6_c8503ab7",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 37
+      },
+      "revId": "0c896f4f899aad4de04a357c2f3304fd8cc05c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
