@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66c330fb_8d162d32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-12-07T09:37:05Z",
+      "side": 1,
+      "message": "The idea is to add another level to the cascade. i.e. check in place A then check in place B. If place A doesn\u0027t exist we\u0027ll use place B. That should work on all devices. We can remove place B from the cascade when we know we\u0027ve moved everything.",
+      "parentUuid": "6fd1b0b8_a14ce0cc",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "e2a65216236e8d5d9fec0f386e54ba07ac54e7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc46f35a_8b925615",
         "filename": "build/apex/Android.bp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-06T19:26:12Z",
       "side": 1,
       "message": "Move these filenames into a Blueprint variable, and use it to replace these lines (108–110) as well as lines 141–143?",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 28
+      },
+      "revId": "e2a65216236e8d5d9fec0f386e54ba07ac54e7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90574a18_1dce1e41",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2018-12-07T09:37:05Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "bc46f35a_8b925615",
       "range": {
         "startLine": 108,
         "startChar": 8,
