@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83cfc95c_2bb0ce43",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-07T21:34:33Z",
+      "side": 1,
+      "message": "Ought to call out the use of signed ints for offsets and sizes, which might be controversial. For rationale see the Google style guide: http://go/cstyle#Integer_Types, subsection \"On Unsigned Integers\".\n\nI\u0027d prefer using signed ints if they aren\u0027t too small, but I wouldn\u0027t mix signed and unsigned in existing code. However since this external API is well isolated I thought it is ok here.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
