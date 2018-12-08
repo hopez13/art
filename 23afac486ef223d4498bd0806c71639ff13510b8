@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "dc325de1_0ba0b156",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Add a comment why we do a full clear here and why it\u0027s safe?",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 80
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d71e7fd_9d2ecf5e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -45,6 +68,201 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bdb4594_4650497e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Since the collector only marks the bitmap in the scanning, why is it worth doing this check during root visiting?",
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69874f62_42c76ecf",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 898,
+        "startChar": 43,
+        "endLine": 898,
+        "endChar": 63
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59858ed1_c9b5edbc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Is CheckReference not required here? The referent could be cross region.",
+      "range": {
+        "startLine": 1014,
+        "startChar": 0,
+        "endLine": 1014,
+        "endChar": 51
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09edeb70_243a2ef9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "With the marking phase, I think we want to switch to doing a test and set here for the bitmap? I think doing the marking here instead of in AddLiveBytesAndScanRef will reduce how often the same reference is pushed on the mark stack multiple times.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 3,
+        "endLine": 1044,
+        "endChar": 5
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b6380d7_014fc205",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "If RegionIdxForRef returns -1, you don\u0027t need to set contains_inter_region_idx_ true I think? The current logic seems like it would do that",
+      "range": {
+        "startLine": 1046,
+        "startChar": 30,
+        "endLine": 1046,
+        "endChar": 77
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fec7b44_1fa52bae",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Technically I think we only need to run this logic for region_space, but it seems like non_moving/large_object should be rare enough that it makes no difference in performance.",
+      "range": {
+        "startLine": 1099,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 5
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53f88643_ce4bef8c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Thread::Current might be slow, put it inside\nif (kIsDebugBuild)?",
+      "range": {
+        "startLine": 1130,
+        "startChar": 2,
+        "endLine": 1130,
+        "endChar": 35
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8152531d_64775adf",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Are there any problems from re-using the same mark bitmap for read barriers in the copying phase? I need to think about that more.",
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13c32633_53e61c95",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-08T00:37:04Z",
+      "side": 1,
+      "message": "Is it supported to have two phase without kEnableGenerationalConcurrentCopyingCollection? If so we probably want to add \"|| kTwoPhaseGc\" or something.",
+      "range": {
+        "startLine": 1264,
+        "startChar": 6,
+        "endLine": 1264,
+        "endChar": 52
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
