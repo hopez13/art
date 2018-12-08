@@ -515,6 +515,30 @@
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52ed64f7_f0282cbb",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-12-08T05:39:19Z",
+      "side": 1,
+      "message": "IIRC, /system/framework or /system/app were required in order to dlopen pre-compiled oat file by the zygote.\nIf dex2oat needs access to them, they should be put here.",
+      "parentUuid": "8b6ccf46_7de72678",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
