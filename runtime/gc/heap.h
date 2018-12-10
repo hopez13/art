@@ -397,11 +397,16 @@ class Heap {
     REQUIRES(!Locks::heap_bitmap_lock_)
     REQUIRES(Locks::mutator_lock_);
 
-  double GetWeightedAllocatedBytes() const {
-    return weighted_allocated_bytes_;
+  double GetPreGcWeightedAllocatedBytes() const {
+    return pre_gc_weighted_allocated_bytes_;
   }
 
-  void CalculateWeightedAllocatedBytes();
+  double GetPostGcWeightedAllocatedBytes() const {
+    return post_gc_weighted_allocated_bytes_;
+  }
+
+  void CalculatePreGcWeightedAllocatedBytes();
+  void CalculatePostGcWeightedAllocatedBytes();
   uint64_t GetTotalGcCpuTime();
 
   uint64_t GetProcessCpuStartTime() const {
@@ -1176,10 +1181,14 @@ class Heap {
   uint64_t process_cpu_start_time_ns_;
 
   // Last time GC started; meant to be used to measure the duration between two GCs.
-  uint64_t last_process_cpu_time_ns_;
+  uint64_t pre_gc_last_process_cpu_time_ns_;
 
   // allocated_bytes * (current_process_cpu_time - last_process_cpu_time)
-  double weighted_allocated_bytes_;
+  double pre_gc_weighted_allocated_bytes_;
+
+  // Same as pre_gc except they are recorded after GC
+  uint64_t post_gc_last_process_cpu_time_ns_;
+  double post_gc_weighted_allocated_bytes_;
 
   // If we ignore the max footprint it lets the heap grow until it hits the heap capacity, this is
   // useful for benchmarking since it reduces time spent in GC to a low %.
