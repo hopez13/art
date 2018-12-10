@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0233e1e7_23e78389",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T19:17:28Z",
+      "side": 1,
+      "message": "Nit: You can fit the first argument on the same line as the method\u0027s name:\n\n  double Heap::CalculateGcWeightedAllocatedBytes(uint64_t gc_last_process_cpu_time_ns,\n                                                 uint64_t current_process_cpu_time) const {",
+      "range": {
+        "startLine": 1074,
+        "startChar": 0,
+        "endLine": 1076,
+        "endChar": 46
+      },
+      "revId": "0170314f37a8fe9c137c33b789721d5c99244092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe31cdd0_bb7490da",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T19:17:28Z",
+      "side": 1,
+      "message": "post",
+      "range": {
+        "startLine": 1092,
+        "startChar": 38,
+        "endLine": 1092,
+        "endChar": 41
+      },
+      "revId": "0170314f37a8fe9c137c33b789721d5c99244092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b58d2d6_30664e45",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T19:17:28Z",
+      "side": 1,
+      "message": "I would add a blank line between 1174 and line 1175.",
+      "revId": "0170314f37a8fe9c137c33b789721d5c99244092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45bfd7c2_03d4b862",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T19:17:28Z",
+      "side": 1,
+      "message": "Nit: You can fit the first argument on the same line as the method\u0027s name:\n\n  double CalculateGcWeightedAllocatedBytes(uint64_t gc_last_process_cpu_time_ns,\n                                           uint64_t current_process_cpu_time) const;",
+      "range": {
+        "startLine": 866,
+        "startChar": 0,
+        "endLine": 868,
+        "endChar": 47
+      },
+      "revId": "0170314f37a8fe9c137c33b789721d5c99244092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b73507_c00c6e71",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T19:17:28Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 103
+      },
+      "revId": "0170314f37a8fe9c137c33b789721d5c99244092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
