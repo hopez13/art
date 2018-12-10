@@ -539,6 +539,30 @@
       "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2a059ab_c2551ae8",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-10T22:39:46Z",
+      "side": 1,
+      "message": "Noted. I\u0027m not sure about that, but as I said I think we can start with this and iterate - no need to block on it.",
+      "parentUuid": "52ed64f7_f0282cbb",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "f74f8634f4e7566f9f1a2c4d0d8a2fd6296f892a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
