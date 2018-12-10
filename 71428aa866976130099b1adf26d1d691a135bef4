@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f909f60_a9bdd08d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T18:27:01Z",
+      "side": 1,
+      "message": "I think you could factor common code here by introducing a helper method:\n\n  double Heap::CalculateGcWeightedAllocatedBytes(uint64_t gc_last_process_cpu_time_ns) const {\n    uint64_t current_process_cpu_time \u003d ProcessCpuNanoTime();\n    uint64_t bytes_allocated \u003d GetBytesAllocated();\n    double weight \u003d current_process_cpu_time - gc_last_process_cpu_time_ns;\n    return weight * bytes_allocated;\n  }\n  \n  void Heap::CalculatePreGcWeightedAllocatedBytes() {\n    pre_gc_weighted_allocated_bytes_ +\u003d\n      CalculateGcWeightedAllocatedBytes(pre_gc_last_process_cpu_time_ns_);\n    pre_gc_last_process_cpu_time_ns_ \u003d current_process_cpu_time;\n  }\n  \n  void Heap::CalculatePostGcWeightedAllocatedBytes() {\n    post_gc_weighted_allocated_bytes_ +\u003d\n      CalculateGcWeightedAllocatedBytes(post_gc_last_process_cpu_time_ns_)\n    post_gc_last_process_cpu_time_ns_ \u003d current_process_cpu_time;\n  }",
+      "range": {
+        "startLine": 1074,
+        "startChar": 0,
+        "endLine": 1088,
+        "endChar": 1
+      },
+      "revId": "71428aa866976130099b1adf26d1d691a135bef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e654dd5_2c177a89",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-10T18:27:01Z",
+      "side": 1,
+      "message": "I would move these new members closer to their \"pre\" counterparts, and adjust the respective comments to cover both the \"pre\" and \"post\" versions.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1191,
+        "endChar": 43
+      },
+      "revId": "71428aa866976130099b1adf26d1d691a135bef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
