@@ -22,6 +22,53 @@
       "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f056b49_01bbf83e",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-10T11:16:26Z",
+      "side": 1,
+      "message": "Does this cover all cases in the DEX format?\nhttps://source.android.com/devices/tech/dalvik/dex-format",
+      "parentUuid": "83cfc95c_2bb0ce43",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90d6c02_a72b6cef",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-10T11:16:26Z",
+      "side": 1,
+      "message": "Looks like a different header here.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
