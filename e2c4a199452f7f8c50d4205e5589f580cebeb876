@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c1754574_f4e8783d",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-10T21:59:57Z",
+      "side": 1,
+      "message": "If dex files actually can get larger than ~2.1 Gb then having a sign bit isn\u0027t an option. Is that the case?",
+      "parentUuid": "2f056b49_01bbf83e",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c90d6c02_a72b6cef",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 14
@@ -60,6 +84,30 @@
       "writtenOn": "2018-12-10T11:16:26Z",
       "side": 1,
       "message": "Looks like a different header here.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1760d78_d0e62199",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-10T21:59:57Z",
+      "side": 1,
+      "message": "Not sure what you mean. This namespace essentially corresponds to the art_api include directory. Can you please clarify?",
+      "parentUuid": "c90d6c02_a72b6cef",
       "range": {
         "startLine": 93,
         "startChar": 0,
