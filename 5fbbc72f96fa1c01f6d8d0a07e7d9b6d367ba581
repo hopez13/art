@@ -1330,6 +1330,30 @@
     },
     {
       "key": {
+        "uuid": "b3451263_bd576c99",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-10T22:22:42Z",
+      "side": 1,
+      "message": "This is more of an NDK API tip, where this issue has come up many times before, rather than an ART style tip.\n\nIf you want opaque types in C, you can just declare a struct without the definition\n\n  typedef struct ExtDexFileString ExtDexFileString_t;\n\nThen the implementation of this can just be\n\n  struct ExtDexFileString {\n     ...........\n  };\n\nvoid is not recommended due to lack of type safety.",
+      "parentUuid": "eb0682e2_89adfb52",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aad895c5_66584019",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 12
