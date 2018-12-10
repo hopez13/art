@@ -293,7 +293,6 @@ bool Jit::CompileMethod(ArtMethod* method, Thread* self, bool osr) {
 
 void Jit::DeleteThreadPool() {
   Thread* self = Thread::Current();
-  DCHECK(Runtime::Current()->IsShuttingDown(self));
   if (thread_pool_ != nullptr) {
     std::unique_ptr<ThreadPool> pool;
     {

@@ -346,6 +346,14 @@ Runtime::~Runtime() {
     // The saver will try to dump the profiles before being sopped and that
     // requires holding the mutator lock.
     jit_->StopProfileSaver();
+    // Delete the JIT itself, this needs to be done before the runtime is shutting done in the case
+    // where JIT worker's haven't yet attached. Threads can't attach when the runtime is shutting
+    // down.
+    ScopedTrace trace2("Delete jit");
+    VLOG(jit) << "Deleting jit thread pool";
+    // Delete thread pool before the thread list since we don't want to wait forever on the
+    // JIT compiler threads.
+    jit_->DeleteThreadPool();
   }
 
   {
@@ -383,13 +391,6 @@ Runtime::~Runtime() {
   // Make sure to let the GC complete if it is running.
   heap_->WaitForGcToComplete(gc::kGcCauseBackground, self);
   heap_->DeleteThreadPool();
-  if (jit_ != nullptr) {
-    ScopedTrace trace2("Delete jit");
-    VLOG(jit) << "Deleting jit thread pool";
-    // Delete thread pool before the thread list since we don't want to wait forever on the
-    // JIT compiler threads.
-    jit_->DeleteThreadPool();
-  }
 
   // Make sure our internal threads are dead before we start tearing down things they're using.
   GetRuntimeCallbacks()->StopDebugger();

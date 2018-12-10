@@ -101,9 +101,7 @@ class ThreadPool {
     return threads_.size();
   }
 
-  const std::vector<ThreadPoolWorker*>& GetWorkers() const {
-    return threads_;
-  }
+  const std::vector<ThreadPoolWorker*>& GetWorkers();
 
   // Broadcast to the workers and tell them to empty out the work queue.
   void StartWorkers(Thread* self) REQUIRES(!task_queue_lock_);
