@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0b1f9b8_83994cae",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-10T18:49:59Z",
+      "side": 1,
+      "message": "current_process_cpu_time is needed, so I pass it by as another argument.",
+      "parentUuid": "4f909f60_a9bdd08d",
+      "range": {
+        "startLine": 1074,
+        "startChar": 0,
+        "endLine": 1088,
+        "endChar": 1
+      },
+      "revId": "71428aa866976130099b1adf26d1d691a135bef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e654dd5_2c177a89",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "71428aa866976130099b1adf26d1d691a135bef4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b2bdfb7_1acfe434",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-10T18:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e654dd5_2c177a89",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1191,
+        "endChar": 43
+      },
+      "revId": "71428aa866976130099b1adf26d1d691a135bef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
