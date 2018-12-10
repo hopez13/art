@@ -16,6 +16,24 @@
       "revId": "c6068c7f07785f326090f2c3dc0d5679adbfcc69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90a85cf9_47d90ce1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-10T18:36:20Z",
+      "side": 1,
+      "message": "I moved the thread pool to only be alive during loading, will ensure it doesn\u0027t regress perf.",
+      "parentUuid": "20157aaa_e09ecdf5",
+      "revId": "c6068c7f07785f326090f2c3dc0d5679adbfcc69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
