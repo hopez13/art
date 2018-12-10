@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d13ebb06_3d30f5e5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-10T21:23:25Z",
+      "side": 1,
+      "message": "@vmarko: Any particular reason over an anonymous namespace?",
+      "parentUuid": "3fbae7e2_a78a5056",
+      "range": {
+        "startLine": 382,
+        "startChar": 6,
+        "endLine": 382,
+        "endChar": 24
+      },
+      "revId": "cc8e09c98a5a6aa42ccdd2dc57683186e03d0008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0873ca4_b9276551",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
