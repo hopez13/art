@@ -1354,6 +1354,30 @@
     },
     {
       "key": {
+        "uuid": "b82f381b_31bc2605",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-10T23:52:39Z",
+      "side": 1,
+      "message": "Good point, using undefined structs is much better. Changed to that (or rather undefined classes actually, since I\u0027m not aiming for pure C here, just C linkage).\n\nMore code had to move into the extern \"C\" part of dex_file_ext.cc, but I think it\u0027s worth it since I can get rid of all the static_casts in there. I\u0027ve checked that it doesn\u0027t leak any more symbols into the .so (not even local ones).",
+      "parentUuid": "b3451263_bd576c99",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "5fbbc72f96fa1c01f6d8d0a07e7d9b6d367ba581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aad895c5_66584019",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 12
