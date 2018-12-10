@@ -391,28 +391,16 @@ class ImageSpace::Loader {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
 
-    const bool create_thread_pool = true;
     std::unique_ptr<ThreadPool> thread_pool;
-    if (create_thread_pool) {
-      TimingLogger::ScopedTiming timing("CreateThreadPool", &logger);
-      ScopedThreadStateChange stsc(Thread::Current(), kNative);
-      constexpr size_t kStackSize = 64 * KB;
-      constexpr size_t kMaxRuntimeWorkers = 4u;
-      const size_t num_workers =
-          std::min(static_cast<size_t>(std::thread::hardware_concurrency()), kMaxRuntimeWorkers);
-      thread_pool.reset(new ThreadPool("Runtime", num_workers, /*create_peers=*/false, kStackSize));
-      thread_pool->StartWorkers(Thread::Current());
-    }
-
     std::unique_ptr<ImageSpace> space = Init(image_filename,
                                              image_location,
                                              oat_file,
                                              &logger,
-                                             thread_pool.get(),
+                                             &thread_pool,
                                              image_reservation,
                                              error_msg);
     if (thread_pool != nullptr) {
-      TimingLogger::ScopedTiming timing("CreateThreadPool", &logger);
+      TimingLogger::ScopedTiming timing("DestroyThreadPool", &logger);
       ScopedThreadStateChange stsc(Thread::Current(), kNative);
       thread_pool.reset();
     }
@@ -465,7 +453,7 @@ class ImageSpace::Loader {
                                           const char* image_location,
                                           const OatFile* oat_file,
                                           TimingLogger* logger,
-                                          ThreadPool* thread_pool,
+                                          std::unique_ptr<ThreadPool>* thread_pool,
                                           /*inout*/MemMap* image_reservation,
                                           /*out*/std::string* error_msg)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -542,6 +530,18 @@ class ImageSpace::Loader {
       return nullptr;
     }
 
+    const size_t kMinBlocks = 2;
+    if (thread_pool != nullptr && image_header->GetBlockCount() >= kMinBlocks) {
+      TimingLogger::ScopedTiming timing("CreateThreadPool", logger);
+      ScopedThreadStateChange stsc(Thread::Current(), kNative);
+      constexpr size_t kStackSize = 64 * KB;
+      constexpr size_t kMaxRuntimeWorkers = 4u;
+      const size_t num_workers =
+          std::min(static_cast<size_t>(std::thread::hardware_concurrency()), kMaxRuntimeWorkers);
+      thread_pool->reset(new ThreadPool("Image", num_workers, /*create_peers=*/false, kStackSize));
+      thread_pool->get()->StartWorkers(Thread::Current());
+    }
+
     // GetImageBegin is the preferred address to map the image. If we manage to map the
     // image at the image begin, the amount of fixup work required is minimized.
     // If it is pic we will retry with error_msg for the failure case. Pass a null error_msg to
@@ -554,7 +554,7 @@ class ImageSpace::Loader {
         *image_header,
         file->Fd(),
         logger,
-        thread_pool,
+        thread_pool != nullptr ? thread_pool->get() : nullptr,
         image_reservation,
         error_msg);
     if (!map.IsValid()) {
@@ -691,8 +691,7 @@ class ImageSpace::Loader {
 
       const uint64_t start = NanoTime();
       Thread* const self = Thread::Current();
-      const size_t kMinBlocks = 2;
-      const bool use_parallel = pool != nullptr && image_header.GetBlockCount() >= kMinBlocks;
+      const bool use_parallel = pool != nullptr;
       for (const ImageHeader::Block& block : image_header.GetBlocks(temp_map.Begin())) {
         auto function = [&](Thread*) {
           const uint64_t start2 = NanoTime();
