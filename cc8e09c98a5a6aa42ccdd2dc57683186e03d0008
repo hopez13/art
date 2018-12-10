@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ce28930_8b22ebdb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-10T11:59:49Z",
+      "side": 1,
+      "message": "I\u0027d prefer nested classes (ImageSpace::PatchObjectVisitor, etc.).",
+      "range": {
+        "startLine": 382,
+        "startChar": 6,
+        "endLine": 382,
+        "endChar": 24
+      },
+      "revId": "cc8e09c98a5a6aa42ccdd2dc57683186e03d0008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0873ca4_b9276551",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-10T11:59:49Z",
+      "side": 1,
+      "message": "Why reference? PatchObjectVisitor and PatchArtMethodVisitor hold these by value.",
+      "range": {
+        "startLine": 626,
+        "startChar": 2,
+        "endLine": 626,
+        "endChar": 37
+      },
+      "revId": "cc8e09c98a5a6aa42ccdd2dc57683186e03d0008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
