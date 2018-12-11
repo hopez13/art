@@ -142,6 +142,30 @@
       "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54405917_3278d5f5",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-11T17:02:17Z",
+      "side": 1,
+      "message": "At runtime, classes go through the verifier. Debuggable and JVMTI don\u0027t influence that part.\n\nI agree that more carve-outs would be bad, but as mentioned this check has been very helpful in finding the places where we have special behavior, and I don\u0027t think there are more to add in the future.",
+      "parentUuid": "d2409001_799a1b69",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
