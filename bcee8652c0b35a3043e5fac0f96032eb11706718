@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2daf55ac_21a0490a",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "Better documentation of the node is needed. You can use some text from the CL messaged.",
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b8bbb0b_d425a5ae",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "It\u0027s not clear from the name of the node what it is for. \u0027Memory\u0027 here means to access to the length in memory. People can read the name as it is something to check memory bounds.\nName options:\nHX86BoundsCheck, HX86ArrayBoundsCheck, HX86LengthFoldedBoundsCheck",
+      "range": {
+        "startLine": 218,
+        "startChar": 6,
+        "endLine": 218,
+        "endChar": 27
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c636887_001a995f",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "As I see in x86_memory_gen.cc it is \u0027is_string_char_at\u0027, the same as in HBoundsCheck. It would be better to be consistent with HBoundsCheck.",
+      "range": {
+        "startLine": 221,
+        "startChar": 46,
+        "endLine": 221,
+        "endChar": 55
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "368eba41_008b1fac",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "HBoundsCheck has SideEffects::None(), see comments to it for the reason. Shouldn\u0027t HX86BoundsCheckMemory have the same?",
+      "range": {
+        "startLine": 222,
+        "startChar": 61,
+        "endLine": 222,
+        "endChar": 88
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96ad7422_0d73c1d2",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "Consider removing this as it is not a useful comment.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 67
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab78447_64c4b523",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35f38a0b_2e0c0689",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-11T11:17:20Z",
+      "side": 1,
+      "message": "The code is copy-paste of the code in VisitBoundsCheck. Consider extracting it into a function.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "bcee8652c0b35a3043e5fac0f96032eb11706718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
