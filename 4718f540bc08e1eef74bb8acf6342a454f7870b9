@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbe13cd0_33e4d3de",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-11T22:17:52Z",
+      "side": 1,
+      "message": "Can you add a comment on why the delay?",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 679,
+        "endChar": 70
+      },
+      "revId": "4718f540bc08e1eef74bb8acf6342a454f7870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85bbeed5_cd5739f0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-11T22:17:52Z",
+      "side": 1,
+      "message": "Reading this comment makes the reader wonder why we put it in another task instead of just deleting here. Could you add a comment similar to the commit message?",
+      "range": {
+        "startLine": 696,
+        "startChar": 6,
+        "endLine": 696,
+        "endChar": 84
+      },
+      "revId": "4718f540bc08e1eef74bb8acf6342a454f7870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
