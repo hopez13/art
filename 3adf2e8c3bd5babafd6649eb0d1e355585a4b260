@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca02f6b7_0db8cbf0",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-11T00:36:53Z",
+      "side": 1,
+      "message": "nit: While this seems like a good pattern (it\u0027s been known to be called Hourglass interfaces: https://www.youtube.com/watch?v\u003dPVYdHDm0q6Y) it should probably be split up into a pure C file and a C++ file.",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d946bf54_9df7b0db",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-11T00:36:53Z",
+      "side": 1,
+      "message": "nit: \u0027class\u0027 is not a C abi, it is a C++ abi. For C abi, you could make this into a typedef or add \u0027struct ExtDexFileString\u0027 everywhere its used and make it into a struct.\n\nAlso where is the visibility for these symbols controlled, is it in bp file? We want to have these visibility(\"default\") instead of hidden.",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b23f3c_dfc876e3",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-11T00:36:53Z",
+      "side": 1,
+      "message": "nit: APIs with callbacks usually name this kind of parameter \u0027user_data\u0027",
+      "range": {
+        "startLine": 80,
+        "startChar": 93,
+        "endLine": 80,
+        "endChar": 96
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95233885_ca66c28a",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-11T00:36:53Z",
+      "side": 1,
+      "message": "nit: memcmp a strange choice for comparing strings",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d791ea87_037b5ba6",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-11T00:36:53Z",
+      "side": 1,
+      "message": "nit: consider unique_fd from android base",
+      "range": {
+        "startLine": 196,
+        "startChar": 45,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
