@@ -94,6 +94,30 @@
       "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ae0adda_08549cee",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-11T16:31:38Z",
+      "side": 1,
+      "message": "It does, which is why the latest version disables the check during AoT.",
+      "parentUuid": "52371389_2dd654a6",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
