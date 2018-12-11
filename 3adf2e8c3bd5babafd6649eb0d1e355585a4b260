@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8c90f10a_60ce2de8",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T11:55:18Z",
+      "side": 1,
+      "message": "\u003e and bool too\n\nI got rid of bool, just to avoid any headache in case we\u0027d like to support C clients later. Other than that my question stands.",
+      "parentUuid": "61c8eaaa_aaf18db9",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d946bf54_9df7b0db",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
