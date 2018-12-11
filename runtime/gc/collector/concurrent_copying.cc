@@ -860,6 +860,20 @@ class ConcurrentCopying::ImmuneSpaceScanObjVisitor {
   ConcurrentCopying* const collector_;
 };
 
+template <bool kNoUnEvac>
+void ConcurrentCopying::ScanDirtyObject(mirror::Object* obj) {
+  Scan<kNoUnEvac>(obj);
+  // Set the read-barrier state of a reference-type object to gray if its
+  // referent is not marked yet. This is to ensure that if GetReferent() is
+  // called, it triggers the read-barrier to process the referent before use.
+  mirror::Object* referent;
+  if (UNLIKELY((obj->GetClass<kVerifyNone, kWithoutReadBarrier>()->IsTypeOfReferenceClass() &&
+                (referent = obj->AsReference()->GetReferent<kWithoutReadBarrier>()) != nullptr &&
+                !IsInToSpace(referent)))) {
+    obj->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(), ReadBarrier::GrayState());
+  }
+}
+
 // Concurrently mark roots that are guarded by read barriers and process the mark stack.
 void ConcurrentCopying::MarkingPhase() {
   TimingLogger::ScopedTiming split("MarkingPhase", GetTimings());
@@ -924,7 +938,7 @@ void ConcurrentCopying::MarkingPhase() {
                 LOG(FATAL) << "Scanning " << obj << " not in unevac space";
               }
             }
-            Scan<true>(obj);
+            ScanDirtyObject</*kNoUnEvac*/ true>(obj);
           },
           accounting::CardTable::kCardDirty - 1);
     }
