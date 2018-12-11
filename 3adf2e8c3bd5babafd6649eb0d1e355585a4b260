@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b3ddac15_6530733d",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-11T17:13:24Z",
+      "side": 1,
+      "message": "I prefer having the separation too and have the C API work standalone. What you are aiming for is slightly more subtle \u003d\u003d more mental overhead + scope for error when someone changes the interface in future.\n\nIn the absence of other concerns, I might lean towards a library defined by C header with C++ header library for clients. Obviously it has some limitations, but it\u0027s fewer libraries and perhaps easier to reason about. I don\u0027t propose changing in this direction.",
+      "parentUuid": "8c90f10a_60ce2de8",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d946bf54_9df7b0db",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -84,6 +102,29 @@
       "side": 1,
       "message": "See above - I\u0027m not aiming for C compatibility, only C linkage and ABI. How does class vs struct affect the ABI? In C++ it\u0027s just a cosmetic difference (if I make ExtDexFile below a struct I\u0027d be forced to break the style guide in dex_file_ext.cc), and from an ABI pov I thought it\u0027d be an opaque pointer regardless (which avoiding a definition ensures).\n\n\u003e Also where is the visibility for these symbols controlled, is it in bp file?\n\nIt\u0027s in libdexfile_external.map.\n\n\u003e We want to have these visibility(\"default\") instead of hidden.\n\nThe functions are visible (aka global), yes.",
       "parentUuid": "d946bf54_9df7b0db",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe0c417_c4fd97db",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-11T17:13:24Z",
+      "side": 1,
+      "message": "A reader of this comment might think C string functions would be completely sane wrt to the return value.",
+      "range": {
+        "startLine": 46,
+        "startChar": 39,
+        "endLine": 46,
+        "endChar": 47
+      },
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -181,6 +222,30 @@
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e364ea7_7e3db2b8",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-11T17:13:24Z",
+      "side": 1,
+      "message": "Comment here and on the class about the representation being compatible with char data containing multiple NULs like std::string.",
+      "parentUuid": "af50e589_8ecef1db",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
