@@ -70,6 +70,30 @@
       "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52371389_2dd654a6",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-11T11:23:54Z",
+      "side": 1,
+      "message": "Does the transactional interpreter go through this path? If so, we may (or may not) come across some cases where compiling a partial boot image may hit this DCHECK().",
+      "parentUuid": "9173ed81_400c34cd",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 69
+      },
+      "revId": "2b07b3e0b0a146f450c53cd601a0d11f502894f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
