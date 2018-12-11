@@ -1141,4 +1141,125 @@ TEST_F(ProfileCompilationInfoTest, ClearDataAndSave) {
   ASSERT_TRUE(loaded_info.Equals(info));
 }
 
+TEST_F(ProfileCompilationInfoTest, PrepareForAggregationCounters) {
+  // Create a megamorphic inline cache.
+  ProfileCompilationInfo info;
+  ASSERT_EQ(
+      memcmp(info.GetVersion(),
+             ProfileCompilationInfo::kProfileVersion,
+             ProfileCompilationInfo::kProfileVersionSize),
+      0);
+
+  info.PrepareForAggregationCounters();
+
+  ASSERT_EQ(
+      memcmp(info.GetVersion(),
+             ProfileCompilationInfo::kProfileVersionWithCounters,
+             ProfileCompilationInfo::kProfileVersionSize),
+      0);
+  ASSERT_TRUE(info.StoresAggregationCounters());
+  ASSERT_EQ(info.GetAggregationCounter(), 0);
+}
+
+TEST_F(ProfileCompilationInfoTest, MergeWithAggregationCounters) {
+  // Create a megamorphic inline cache.
+  ProfileCompilationInfo info1;
+  info1.PrepareForAggregationCounters();
+
+  ProfileCompilationInfo info2;
+  ProfileCompilationInfo info3;
+
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
+  std::string location = dex->GetLocation();
+  int checksum = dex->GetLocationChecksum();
+
+  AddMethod(location, checksum, /* method_idx= */ 1, &info1);
+
+  AddMethod(location, checksum, /* method_idx= */ 2, &info1);
+  AddMethod(location, checksum, /* method_idx= */ 2, &info2);
+
+  AddMethod(location, checksum, /* method_idx= */ 3, &info1);
+  AddMethod(location, checksum, /* method_idx= */ 3, &info2);
+  AddMethod(location, checksum, /* method_idx= */ 3, &info3);
+
+  AddClass(location, checksum, dex::TypeIndex(1), &info1);
+
+  AddClass(location, checksum, dex::TypeIndex(2), &info1);
+  AddClass(location, checksum, dex::TypeIndex(2), &info2);
+
+  AddClass(location, checksum, dex::TypeIndex(3), &info1);
+  AddClass(location, checksum, dex::TypeIndex(3), &info2);
+  AddClass(location, checksum, dex::TypeIndex(3), &info3);
+
+  ASSERT_EQ(info1.GetAggregationCounter(), 0);
+  info1.MergeWith(info2);
+  ASSERT_EQ(info1.GetAggregationCounter(), 1);
+  info1.MergeWith(info3);
+  ASSERT_EQ(info1.GetAggregationCounter(), 2);
+
+  ASSERT_EQ(0, info1.GetMethodAggregationCounter(MethodReference(dex.get(), 1)));
+  ASSERT_EQ(1, info1.GetMethodAggregationCounter(MethodReference(dex.get(), 2)));
+  ASSERT_EQ(2, info1.GetMethodAggregationCounter(MethodReference(dex.get(), 3)));
+
+  ASSERT_EQ(0, info1.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(1))));
+  ASSERT_EQ(1, info1.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(2))));
+  ASSERT_EQ(2, info1.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(3))));
+}
+
+TEST_F(ProfileCompilationInfoTest, SaveAndLoadAggregationCounters) {
+  // Create a megamorphic inline cache.
+  ProfileCompilationInfo info1;
+  info1.PrepareForAggregationCounters();
+
+  ProfileCompilationInfo info2;
+  ProfileCompilationInfo info3;
+
+  std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
+  std::string location = dex->GetLocation();
+  int checksum = dex->GetLocationChecksum();
+
+  AddMethod(location, checksum, /* method_idx= */ 1, &info1);
+
+  AddMethod(location, checksum, /* method_idx= */ 2, &info1);
+  AddMethod(location, checksum, /* method_idx= */ 2, &info2);
+
+  AddMethod(location, checksum, /* method_idx= */ 3, &info1);
+  AddMethod(location, checksum, /* method_idx= */ 3, &info2);
+  AddMethod(location, checksum, /* method_idx= */ 3, &info3);
+
+  AddClass(location, checksum, dex::TypeIndex(1), &info1);
+
+  AddClass(location, checksum, dex::TypeIndex(2), &info1);
+  AddClass(location, checksum, dex::TypeIndex(2), &info2);
+
+  AddClass(location, checksum, dex::TypeIndex(3), &info1);
+  AddClass(location, checksum, dex::TypeIndex(3), &info2);
+  AddClass(location, checksum, dex::TypeIndex(3), &info3);
+
+  info1.MergeWith(info2);
+  info1.MergeWith(info3);
+
+  ScratchFile profile;
+
+  ASSERT_TRUE(info1.Save(GetFd(profile)));
+  ASSERT_EQ(0, profile.GetFile()->Flush());
+
+  // Check that we get back what we saved.
+  ProfileCompilationInfo loaded_info;
+  loaded_info.PrepareForAggregationCounters();
+  ASSERT_TRUE(profile.GetFile()->ResetOffset());
+  ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
+  ASSERT_TRUE(loaded_info.Equals(info1));
+
+  ASSERT_EQ(2, loaded_info.GetAggregationCounter());
+
+  ASSERT_EQ(0, loaded_info.GetMethodAggregationCounter(MethodReference(dex.get(), 1)));
+  ASSERT_EQ(1, loaded_info.GetMethodAggregationCounter(MethodReference(dex.get(), 2)));
+  ASSERT_EQ(2, loaded_info.GetMethodAggregationCounter(MethodReference(dex.get(), 3)));
+
+  ASSERT_EQ(0, loaded_info.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(1))));
+  ASSERT_EQ(1, loaded_info.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(2))));
+  ASSERT_EQ(2, loaded_info.GetClassAggregationCounter(TypeReference(dex.get(), dex::TypeIndex(3))));
+}
+
 }  // namespace art
