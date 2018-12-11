@@ -165,4 +165,12 @@ if [[ -n "$ART_TEST_CHROOT" ]]; then
   adb shell mkdir -p "$ART_TEST_CHROOT/dev"
   adb shell mount | grep -q "^tmpfs on $ART_TEST_CHROOT/dev type tmpfs " \
     || adb shell mount -o bind /dev "$ART_TEST_CHROOT/dev"
+
+  # Provide /apex/com.android.runtime/etc/icu in chroot as an alias of /system/usr/icu.
+  # This is hack until we have a cleaner way to deal with ICU data moving to the
+  # Android Runtime APEX (see
+  # https://android-review.googlesource.com/c/platform/bionic/+/824800/4/libc/bionic/icu.cpp)
+  adb shell mkdir -p "$ART_TEST_CHROOT/system/usr/icu"
+  adb shell mkdir -p "$ART_TEST_CHROOT/apex/com.android.runtime/etc"
+  adb shell "cd $ART_TEST_CHROOT/apex/com.android.runtime/etc/ && ln -s ../../../system/usr/icu icu"
 fi
