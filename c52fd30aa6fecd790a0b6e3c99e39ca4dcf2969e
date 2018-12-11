@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bb54227_70f2549a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-11T12:43:00Z",
+      "side": 1,
+      "message": "Can you add a comment why it\u0027s safe to do so? Ie how are we guarnateeing the taks the trhead pool are executing will complete.",
+      "range": {
+        "startLine": 418,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 5
+      },
+      "revId": "c52fd30aa6fecd790a0b6e3c99e39ca4dcf2969e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "057542f4_6ae761c3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-11T12:43:00Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 102
+      },
+      "revId": "c52fd30aa6fecd790a0b6e3c99e39ca4dcf2969e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
