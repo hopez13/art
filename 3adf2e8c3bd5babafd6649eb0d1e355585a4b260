@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "61c8eaaa_aaf18db9",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T10:59:22Z",
+      "side": 1,
+      "message": "If we are to provide the interface to C clients then yes. My aim isn\u0027t to do that though because afaik there\u0027s no need. That\u0027s also why I haven\u0027t bothered to make the function signatures strictly C compatible (I use class as you noted, and bool too).\n\nSo the question is, do we need to support C clients?",
+      "parentUuid": "ca02f6b7_0db8cbf0",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d946bf54_9df7b0db",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2018-12-11T00:36:53Z",
       "side": 1,
       "message": "nit: \u0027class\u0027 is not a C abi, it is a C++ abi. For C abi, you could make this into a typedef or add \u0027struct ExtDexFileString\u0027 everywhere its used and make it into a struct.\n\nAlso where is the visibility for these symbols controlled, is it in bp file? We want to have these visibility(\"default\") instead of hidden.",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecd5642c_c75eac5d",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T10:59:22Z",
+      "side": 1,
+      "message": "See above - I\u0027m not aiming for C compatibility, only C linkage and ABI. How does class vs struct affect the ABI? In C++ it\u0027s just a cosmetic difference (if I make ExtDexFile below a struct I\u0027d be forced to break the style guide in dex_file_ext.cc), and from an ABI pov I thought it\u0027d be an opaque pointer regardless (which avoiding a definition ensures).\n\n\u003e Also where is the visibility for these symbols controlled, is it in bp file?\n\nIt\u0027s in libdexfile_external.map.\n\n\u003e We want to have these visibility(\"default\") instead of hidden.\n\nThe functions are visible (aka global), yes.",
+      "parentUuid": "d946bf54_9df7b0db",
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "469d1206_1f536e7a",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T10:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18b23f3c_dfc876e3",
+      "range": {
+        "startLine": 80,
+        "startChar": 93,
+        "endLine": 80,
+        "endChar": 96
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95233885_ca66c28a",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "af50e589_8ecef1db",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T10:59:22Z",
+      "side": 1,
+      "message": "What would you suggest instead? Note that neither strcmp nor strncmp does the right thing here because I don\u0027t want to stop at NUL.",
+      "parentUuid": "95233885_ca66c28a",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d791ea87_037b5ba6",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -102,6 +186,30 @@
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfa149e6_545d24de",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-11T10:59:22Z",
+      "side": 1,
+      "message": "I don\u0027t want to take ownership of the fd here, so I think this is correct. If I were to use unique_fd it\u0027d be something like const unique_fd\u0026 then, but I don\u0027t think it\u0027s my business to force the caller to use unique_fd.",
+      "parentUuid": "d791ea87_037b5ba6",
+      "range": {
+        "startLine": 196,
+        "startChar": 45,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
