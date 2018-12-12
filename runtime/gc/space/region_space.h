@@ -512,7 +512,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
 
     // Return whether this region should be evacuated. Used by RegionSpace::SetFromSpace.
-    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode);
+    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode,
+                                         uint8_t evacuate_live_percent_threshold);
 
     void AddLiveBytes(size_t live_bytes) {
       DCHECK(IsInUnevacFromSpace());
