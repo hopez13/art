@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c71a8b18_6d59d3a5",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T17:43:53Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use different CompilerOptions for different compilations then? Or remove the baseline flag from CompileOptions?\n\nThe UNREACHABLE_INTRINSIC is a misnomer, given that we can now reach this code.",
+      "parentUuid": "2862c85a_00ea77b5",
+      "range": {
+        "startLine": 246,
+        "startChar": 6,
+        "endLine": 246,
+        "endChar": 44
+      },
+      "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a29f04e3_6dcfee59",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 1
