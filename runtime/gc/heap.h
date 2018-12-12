@@ -198,6 +198,7 @@ class Heap {
        size_t long_gc_threshold,
        bool ignore_target_footprint,
        bool use_tlab,
+       uint8_t evacuate_live_percent_threshold,
        bool verify_pre_gc_heap,
        bool verify_pre_sweeping_heap,
        bool verify_post_gc_heap,
@@ -545,6 +546,10 @@ class Heap {
 
   space::RegionSpace* GetRegionSpace() const {
     return region_space_;
+  }
+
+  uint8_t GetEvacuateLivePercentThreshold() const {
+    return evacuate_live_percent_threshold_;
   }
 
   // Implements java.lang.Runtime.maxMemory, returning the maximum amount of memory a program can
@@ -1222,6 +1227,12 @@ class Heap {
 
   // Boolean for if we are in low memory mode.
   const bool low_memory_mode_;
+
+  // If the evacuation logic (see `art::gc::space::RegionSpace::ShouldBeEvacuated`) needs to base
+  // its decision to evacuate a region on the amount of live bytes in that region, then use this
+  // value as a threshold to make this decision: if the percent of live bytes is lower than
+  // `evacuate_live_percent_threshold_`, the region is to be evacuated.
+  const uint8_t evacuate_live_percent_threshold_;
 
   // If we get a pause longer than long pause log threshold, then we print out the GC after it
   // finishes.
