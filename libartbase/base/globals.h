@@ -156,6 +156,12 @@ static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::k
 
 static constexpr bool kDefaultMustRelocate = true;
 
+// Default evacuate live-byte percent threshold value used in the RegionSpace's
+// evacuation logic (see `art::gc::space::RegionSpace::ShouldBeEvacuated`) in
+// the case where no threshold or an invalid threshold is provided via
+// `-Xgc:evacuate_live_percent_threshold`.
+static constexpr uint8_t kDefaultEvacuateLivePercentThreshold = 75U;
+
 // Size of a heap reference.
 static constexpr size_t kHeapReferenceSize = sizeof(uint32_t);
 
