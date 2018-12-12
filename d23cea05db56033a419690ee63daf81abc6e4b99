@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfeba17b_8df277ee",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-12T18:50:52Z",
+      "side": 1,
+      "message": "You\u0027re using two different meanings of \"reference\" here. Capitalizing the second might help.",
+      "range": {
+        "startLine": 166,
+        "startChar": 36,
+        "endLine": 166,
+        "endChar": 37
+      },
+      "revId": "d23cea05db56033a419690ee63daf81abc6e4b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
