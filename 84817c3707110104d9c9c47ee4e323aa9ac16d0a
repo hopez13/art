@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "008ae095_a0557dcf",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-12T17:31:56Z",
+      "side": 1,
+      "message": "It\u0027s used in two places, tracing immune space and processing marking stack. In the former case, IIUC, the cards corresponding to refs into region space are marked dirty already (, and will be processed in `GrayAllDirtyImmuneObjects`), so the code around `contains_inter_region_idx_` is not needed. Therefore, it may be clearer, if two different classes are introduced, instead of being merged as one.",
+      "range": {
+        "startLine": 995,
+        "startChar": 25,
+        "endLine": 995,
+        "endChar": 64
+      },
+      "revId": "84817c3707110104d9c9c47ee4e323aa9ac16d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c1388a_328669a7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-12T17:31:56Z",
+      "side": 1,
+      "message": "With `if (space-\u003eIsImageSpace() || space-\u003eIsZygoteSpace())` below, it seems that immune space is skipped.",
+      "range": {
+        "startLine": 1285,
+        "startChar": 5,
+        "endLine": 1285,
+        "endChar": 47
+      },
+      "revId": "84817c3707110104d9c9c47ee4e323aa9ac16d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
