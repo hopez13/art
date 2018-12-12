@@ -505,7 +505,8 @@ class ConcurrentCopying::FlipCallback : public Closure {
       cc->region_space_->SetFromSpace(
           cc->rb_table_,
           evac_mode,
-          /*clear_live_bytes=*/ !kEnableGenerationalConcurrentCopyingCollection);
+          /*clear_live_bytes=*/ !kEnableGenerationalConcurrentCopyingCollection,
+          cc->heap_->GetEvacuateLivePercentThreshold());
     }
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
