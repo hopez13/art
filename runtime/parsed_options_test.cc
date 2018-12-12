@@ -113,6 +113,41 @@ TEST_F(ParsedOptionsTest, ParsedOptions) {
   EXPECT_EQ("baz=qux", properties_list[1]);
 }
 
+TEST_F(ParsedOptionsTest, ParsedOptionsEvacuateLivePercentThreshold) {
+  RuntimeOptions options;
+  options.push_back(std::make_pair("-Xgc:evacuate_live_percent_threshold=50", nullptr));
+
+  RuntimeArgumentMap map;
+  bool parsed = ParsedOptions::Parse(options, false, &map);
+  ASSERT_TRUE(parsed);
+  ASSERT_NE(0u, map.Size());
+
+  using Opt = RuntimeArgumentMap;
+
+  EXPECT_TRUE(map.Exists(Opt::GcOption));
+
+  XGcOption xgc = map.GetOrDefault(Opt::GcOption);
+  ASSERT_EQ(50U, xgc.evacuate_live_percent_threshold_);
+}
+
+TEST_F(ParsedOptionsTest, ParsedOptionsInvalidEvacuateLivePercentThreshold) {
+  RuntimeOptions options;
+  options.push_back(std::make_pair("-Xgc:evacuate_live_percent_threshold=101", nullptr));
+
+  RuntimeArgumentMap map;
+  bool parsed = ParsedOptions::Parse(options, false, &map);
+  ASSERT_TRUE(parsed);
+  ASSERT_NE(0u, map.Size());
+
+  using Opt = RuntimeArgumentMap;
+
+  EXPECT_TRUE(map.Exists(Opt::GcOption));
+
+  XGcOption xgc = map.GetOrDefault(Opt::GcOption);
+  // Default evacuate live percent.
+  ASSERT_EQ(75U, xgc.evacuate_live_percent_threshold_);
+}
+
 TEST_F(ParsedOptionsTest, ParsedOptionsGc) {
   RuntimeOptions options;
   options.push_back(std::make_pair("-Xgc:SS", nullptr));

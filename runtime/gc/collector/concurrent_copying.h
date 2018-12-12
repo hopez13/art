@@ -65,6 +65,9 @@ class ConcurrentCopying : public GarbageCollector {
   // pages.
   static constexpr bool kGrayDirtyImmuneObjects = true;
 
+  // Default value if no or invalid threshold is provided.
+  static constexpr uint32_t kDefaultEvacuateLivePercentThreshold = 75U;
+
   explicit ConcurrentCopying(Heap* heap,
                              bool young_gen,
                              const std::string& name_prefix = "",

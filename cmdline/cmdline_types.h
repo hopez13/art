@@ -32,6 +32,7 @@
 #include "base/time_utils.h"
 #include "experimental_flags.h"
 #include "gc/collector_type.h"
+#include "gc/collector/concurrent_copying.h"
 #include "gc/space/large_object_space.h"
 #include "jdwp/jdwp.h"
 #include "jdwp_provider.h"
@@ -421,10 +422,21 @@ static gc::CollectorType ParseCollectorType(const std::string& option) {
   }
 }
 
+static uint8_t ParseEvacuateLivePercentThreshold(const std::string& option) {
+  if (option.find("evacuate_live_percent_threshold=") == 0u) {
+    int result = std::stoi(option.substr(option.find("=") + 1));
+    if (0 <= result && result <= 100)
+      return static_cast<uint8_t>(result);
+  }
+  return static_cast<uint8_t>(-1);
+}
+
 struct XGcOption {
   // These defaults are used when the command line arguments for -Xgc:
   // are either omitted completely or partially.
   gc::CollectorType collector_type_ = gc::kCollectorTypeDefault;
+  uint8_t evacuate_live_percent_threshold_ =
+    art::gc::collector::ConcurrentCopying::kDefaultEvacuateLivePercentThreshold;
   bool verify_pre_gc_heap_ = false;
   bool verify_pre_sweeping_heap_ = kIsDebugBuild;
   bool verify_post_gc_heap_ = false;
@@ -445,8 +457,11 @@ struct CmdlineType<XGcOption> : CmdlineTypeParser<XGcOption> {
     Split(option, ',', &gc_options);
     for (const std::string& gc_option : gc_options) {
       gc::CollectorType collector_type = ParseCollectorType(gc_option);
+      uint8_t evacuate_live_percent_threshold = ParseEvacuateLivePercentThreshold(gc_option);
       if (collector_type != gc::kCollectorTypeNone) {
         xgc.collector_type_ = collector_type;
+      } else if (evacuate_live_percent_threshold != static_cast<uint8_t>(-1)) {
+        xgc.evacuate_live_percent_threshold_ = evacuate_live_percent_threshold;
       } else if (gc_option == "preverify") {
         xgc.verify_pre_gc_heap_ = true;
       } else if (gc_option == "nopreverify") {
