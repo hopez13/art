@@ -22,6 +22,30 @@
       "revId": "996f42f6287f0732e8a039641b9a4922e244ec53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67e5c646_c2f29745",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-12T11:34:08Z",
+      "side": 1,
+      "message": "From https://linux.die.net/man/1/bash:\n\n : [arguments]\n        No  effect;  the command does nothing beyond expanding arguments and performing any\n        specified redirections.  The return status is zero.",
+      "parentUuid": "9369c231_e6e00866",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "996f42f6287f0732e8a039641b9a4922e244ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
