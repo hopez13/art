@@ -27,10 +27,6 @@ namespace art {
 namespace gc {
 namespace space {
 
-// If a region has live objects whose size is less than this percent
-// value of the region size, evaculate the region.
-static constexpr uint kEvacuateLivePercentThreshold = 75U;
-
 // Whether we protect the unused and cleared regions.
 static constexpr bool kProtectClearedRegions = true;
 
@@ -179,7 +175,8 @@ size_t RegionSpace::ToSpaceSize() {
   return num_regions * kRegionSize;
 }
 
-inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
+inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode,
+                                                   uint8_t evacuate_live_percent_threshold) {
   // Evacuation mode `kEvacModeNewlyAllocated` is only used during sticky-bit CC collections.
   DCHECK(kEnableGenerationalConcurrentCopyingCollection || (evac_mode != kEvacModeNewlyAllocated));
   DCHECK((IsAllocated() || IsLarge()) && IsInToSpace());
@@ -239,7 +236,7 @@ inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
         // Side node: live_percent == 0 does not necessarily mean
         // there's no live objects due to rounding (there may be a
         // few).
-        result = (live_bytes_ * 100U < kEvacuateLivePercentThreshold * bytes_allocated);
+        result = (live_bytes_ * 100U < evacuate_live_percent_threshold * bytes_allocated);
       } else {
         DCHECK(IsLarge());
         result = (live_bytes_ == 0U);
@@ -308,6 +305,8 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
   const size_t iter_limit = kUseTableLookupReadBarrier
       ? num_regions_
       : std::min(num_regions_, non_free_region_index_limit_);
+  const uint evacuate_live_percent_threshold =
+    art::Runtime::Current()->GetHeap()->GetEvacuateLivePercentThreshold();
   for (size_t i = 0; i < iter_limit; ++i) {
     Region* r = &regions_[i];
     RegionState state = r->State();
@@ -318,7 +317,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
         DCHECK((state == RegionState::kRegionStateAllocated ||
                 state == RegionState::kRegionStateLarge) &&
                type == RegionType::kRegionTypeToSpace);
-        bool should_evacuate = r->ShouldBeEvacuated(evac_mode);
+        bool should_evacuate = r->ShouldBeEvacuated(evac_mode, evacuate_live_percent_threshold);
         if (should_evacuate) {
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());

@@ -156,6 +156,9 @@ static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::k
 
 static constexpr bool kDefaultMustRelocate = true;
 
+// Default value if no or invalid threshold is provided.
+static constexpr uint8_t kDefaultEvacuateLivePercentThreshold = 75U;
+
 // Size of a heap reference.
 static constexpr size_t kHeapReferenceSize = sizeof(uint32_t);
 
