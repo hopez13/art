@@ -192,6 +192,7 @@ Heap::Heap(size_t initial_size,
            size_t long_gc_log_threshold,
            bool ignore_target_footprint,
            bool use_tlab,
+           uint8_t evacuate_live_percent_threshold,
            bool verify_pre_gc_heap,
            bool verify_pre_sweeping_heap,
            bool verify_post_gc_heap,
@@ -216,6 +217,7 @@ Heap::Heap(size_t initial_size,
       parallel_gc_threads_(parallel_gc_threads),
       conc_gc_threads_(conc_gc_threads),
       low_memory_mode_(low_memory_mode),
+      evacuate_live_percent_threshold_(evacuate_live_percent_threshold),
       long_pause_log_threshold_(long_pause_log_threshold),
       long_gc_log_threshold_(long_gc_log_threshold),
       process_cpu_start_time_ns_(ProcessCpuNanoTime()),
@@ -312,6 +314,8 @@ Heap::Heap(size_t initial_size,
     CHECK_EQ(foreground_collector_type_, kCollectorTypeCC);
     CHECK_EQ(background_collector_type_, kCollectorTypeCCBackground);
   }
+  CHECK(0u <= evacuate_live_percent_threshold_ && evacuate_live_percent_threshold_ <= 100)
+      << evacuate_live_percent_threshold_;
   verification_.reset(new Verification(this));
   CHECK_GE(large_object_threshold, kMinLargeObjectThreshold);
   ScopedTrace trace(__FUNCTION__);
