@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "2a1221cc_b529215c",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "I can see a benefit of that if we have a build target that compiles the header with C. I\u0027ll look into it, but I\u0027d prefer to descope it from this CL - it doesn\u0027t affect the API and the clients changed in this topic.\n\nWhether or not libdexfile_support should be a header-only lib I\u0027d say is a separate matter. There\u0027s not a lot in dex_file_supp.cc right now, but I think it could be nice to have the option to add code there in the future, and I don\u0027t see any real problem with it.",
+      "parentUuid": "b3ddac15_6530733d",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d946bf54_9df7b0db",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -108,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "ba587e79_0bfc0605",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "As noted in the other comment I intend to make it a C header in a later CL.",
+      "parentUuid": "ecd5642c_c75eac5d",
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfe0c417_c4fd97db",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 15
@@ -128,6 +164,30 @@
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64a54b24_d216d256",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe0c417_c4fd97db",
+      "range": {
+        "startLine": 46,
+        "startChar": 39,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +306,30 @@
       "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e48b280_858c8768",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "Done. (Not that I expect these strings to contain NULs, but I want to avoid making an assumption about it.)",
+      "parentUuid": "4e364ea7_7e3db2b8",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "3adf2e8c3bd5babafd6649eb0d1e355585a4b260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

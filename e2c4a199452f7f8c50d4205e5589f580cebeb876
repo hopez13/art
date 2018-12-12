@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f425d8bc_58d005ad",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "I assume this is ok then.",
+      "parentUuid": "c1754574_f4e8783d",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c90d6c02_a72b6cef",
         "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
         "patchSetId": 14
@@ -117,6 +141,30 @@
       "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52ea70f6_33a4315e",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-12T16:23:59Z",
+      "side": 1,
+      "message": "Closing.",
+      "parentUuid": "d1760d78_d0e62199",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
