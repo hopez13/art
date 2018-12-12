@@ -198,6 +198,7 @@ class Heap {
        size_t long_gc_threshold,
        bool ignore_target_footprint,
        bool use_tlab,
+       uint evacuate_live_percent_threshold,
        bool verify_pre_gc_heap,
        bool verify_pre_sweeping_heap,
        bool verify_post_gc_heap,
@@ -539,6 +540,10 @@ class Heap {
   // Returns the total number of bytes freed since the heap was created.
   uint64_t GetBytesFreedEver() const {
     return total_bytes_freed_ever_;
+  }
+
+  uint32_t GetEvacuateLivePercentThreshold() const {
+    return evacuate_live_percent_threshold_;
   }
 
   // Implements java.lang.Runtime.maxMemory, returning the maximum amount of memory a program can
@@ -1216,6 +1221,10 @@ class Heap {
 
   // Boolean for if we are in low memory mode.
   const bool low_memory_mode_;
+
+  // If a region has live objects whose size is less than this percent
+  // value of the region size, evaculate the region.
+  const uint32_t evacuate_live_percent_threshold_;
 
   // If we get a pause longer than long pause log threshold, then we print out the GC after it
   // finishes.

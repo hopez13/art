@@ -65,6 +65,10 @@ class ConcurrentCopying : public GarbageCollector {
   // pages.
   static constexpr bool kGrayDirtyImmuneObjects = true;
 
+  // If a region has live objects whose size is less than this percent
+  // value of the region size, evaculate the region.
+  static constexpr uint32_t kEvacuateLivePercentThreshold = 75U;
+
   explicit ConcurrentCopying(Heap* heap,
                              bool young_gen,
                              const std::string& name_prefix = "",
