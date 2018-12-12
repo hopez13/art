@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2862c85a_00ea77b5",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T16:30:10Z",
+      "side": 1,
+      "message": "The baseline flag for the JIT is not in the compiler options. For the JIT the compiler options is a shared state between all compilations, and for baseline we\u0027ll want to selectively decide whether we\u0027re compiling baseline or full.",
+      "parentUuid": "c0f37a16_fa3329b8",
+      "range": {
+        "startLine": 246,
+        "startChar": 6,
+        "endLine": 246,
+        "endChar": 44
+      },
+      "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a29f04e3_6dcfee59",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a1688f9_f792f8da",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T16:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a29f04e3_6dcfee59",
+      "range": {
+        "startLine": 230,
+        "startChar": 41,
+        "endLine": 230,
+        "endChar": 49
+      },
+      "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
