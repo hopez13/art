@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7342108d_c6f21467",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "Left-over debugging?",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 1
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3103e63b_4566f9aa",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "Can we avoid these?",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 41
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "148fbcd3_8e4b6ffb",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "main or inner? Can you add a comment what it means to be main (or inner) ?",
+      "range": {
+        "startLine": 269,
+        "startChar": 17,
+        "endLine": 269,
+        "endChar": 21
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58dee3d1_f8f48ffd",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "\"1 * KB\" would read better. Can you add a comment why 1KB?",
+      "range": {
+        "startLine": 272,
+        "startChar": 27,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "782d2c2f_73d016d3",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 69
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c6977d_3efa20c0",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 360,
+        "startChar": 3,
+        "endLine": 360,
+        "endChar": 73
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1518cf7e_4b32787f",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:19:56Z",
+      "side": 1,
+      "message": "Can we avoid that mutex? The fewer the mutexes, the better we live?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 98
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
