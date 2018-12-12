@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa58e419_0e7bfe23",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6554e1c9_b1158cdf",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 166,
+        "endChar": 57
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5350fd87_40c6670b",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "173d58e4_75e2de7e",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5350fd87_40c6670b",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 14
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12676fd1_7587acb6",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ba30e733_0eadf672",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12676fd1_7587acb6",
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "924749d5_ef9c3765",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2018-12-12T10:31:46Z",
       "side": 1,
       "message": "Why is this debug build and not a sanity check for the image? (If there\u0027s a sanity check already in some other place, can you point to it here?)",
+      "range": {
+        "startLine": 2529,
+        "startChar": 0,
+        "endLine": 2535,
+        "endChar": 5
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20dd36d4_5bbeb99b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "This overload is used by the dex2oat with the boot image and boot class path dex files from a successfully initialized Runtime. These dex files are actually opened from the boot image OatDexFiles that this check is looking at.",
+      "parentUuid": "924749d5_ef9c3765",
       "range": {
         "startLine": 2529,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "f286c571_38259d2a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "We DCHECK() that above. (The `if (kIsDebugBuild)` path.)",
+      "parentUuid": "93f32ed2_fa45e8dc",
+      "range": {
+        "startLine": 2538,
+        "startChar": 0,
+        "endLine": 2539,
+        "endChar": 68
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb62e9c_77e0c63a",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 4
@@ -131,6 +245,30 @@
       "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7730be7f_425b5329",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb62e9c_77e0c63a",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 99
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "69b9ada8_cf8ce91b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "We\u0027re loading boot image pieces based on the boot class path, so it\u0027s impossible to load more pieces than boot class path components.",
+      "parentUuid": "c1472e24_2432d5a7",
+      "range": {
+        "startLine": 1426,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 50
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6ef6142_bade7871",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -168,6 +330,30 @@
       "writtenOn": "2018-12-12T10:31:46Z",
       "side": 1,
       "message": "nit: add comments, eg: \"if the boot classpath option was passed through command line use that one, otherwise, take the one read from environment variable (?)\"",
+      "range": {
+        "startLine": 1430,
+        "startChar": 0,
+        "endLine": 1436,
+        "endChar": 7
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1eeb2ae_0da4519e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T16:20:57Z",
+      "side": 1,
+      "message": "Opt::BootClassPathDexList is not \"passed through command line\" (you cannot pass an opened DexFile). It\u0027s used by the dex2oat to pass dex files that have already been opened and will be compiled.\n\nNote that the Opt::BootClassPathDexList path is unused at the moment, it shall be used when compiling boot image extensions.",
+      "parentUuid": "c6ef6142_bade7871",
       "range": {
         "startLine": 1430,
         "startChar": 0,
