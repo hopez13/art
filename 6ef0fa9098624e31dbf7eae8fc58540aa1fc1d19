@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "541aea87_dc892b5f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-12T18:09:01Z",
+      "side": 1,
+      "message": "Then your question is really misplaced here; you should look at all the reasons why the image can be rejected in LoadFromFile() and functions called from there.",
+      "parentUuid": "42f2a5eb_e512822f",
+      "range": {
+        "startLine": 2538,
+        "startChar": 0,
+        "endLine": 2539,
+        "endChar": 68
+      },
+      "revId": "6ef0fa9098624e31dbf7eae8fc58540aa1fc1d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb62e9c_77e0c63a",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 4
