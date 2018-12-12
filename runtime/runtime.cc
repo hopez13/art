@@ -1237,6 +1237,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        runtime_options.GetOrDefault(Opt::LongGCLogThreshold),
                        runtime_options.Exists(Opt::IgnoreMaxFootprint),
                        runtime_options.GetOrDefault(Opt::UseTLAB),
+                       xgc_option.evacuate_live_percent_threshold_,
                        xgc_option.verify_pre_gc_heap_,
                        xgc_option.verify_pre_sweeping_heap_,
                        xgc_option.verify_post_gc_heap_,
