@@ -16,6 +16,24 @@
       "revId": "a93e0f61b14239c58e3168e7d1285819d9047906",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b86e8c1_6d9ccd86",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-12T22:58:16Z",
+      "side": 0,
+      "message": "Was failing when I moved thread pool deletion.",
+      "parentUuid": "decdc46a_0d05f20b",
+      "revId": "a93e0f61b14239c58e3168e7d1285819d9047906",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
