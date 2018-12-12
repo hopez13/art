@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1900a4db_9f369a6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T11:07:49Z",
+      "side": 1,
+      "message": "I\u0027m inferring this is for when aggregating multiple profiles into one, so we don\u0027t lose the information how many apps are using a method?\n\nCould you add a comment defining what that is? Also, can you comment somewhere that this profile version is *not* for production?",
+      "range": {
+        "startLine": 9,
+        "startChar": 47,
+        "endLine": 9,
+        "endChar": 67
+      },
+      "revId": "7d407eab2e6de9112f0f8fd077eeccd9d2e4326b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
