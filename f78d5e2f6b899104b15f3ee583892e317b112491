@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33e2c48a_80cca92f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-12T23:48:20Z",
+      "side": 1,
+      "message": "This looks like a terrible API. Why isn\u0027t the pool local to Init, and you pass a bool that says \"use thread pool?\" So I think you need to refactor more (since the pool no longer comes from Runtime).",
+      "range": {
+        "startLine": 675,
+        "startChar": 45,
+        "endLine": 675,
+        "endChar": 57
+      },
+      "revId": "f78d5e2f6b899104b15f3ee583892e317b112491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
