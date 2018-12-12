@@ -487,7 +487,8 @@ class ConcurrentCopying::FlipCallback : public Closure {
       TimingLogger::ScopedTiming split2("(Paused)SetFromSpace", cc->GetTimings());
       // Only change live bytes for full CC.
       cc->region_space_->SetFromSpace(
-          cc->rb_table_, evac_mode, /*clear_live_bytes=*/ !cc->young_gen_);
+          cc->rb_table_, evac_mode, /*clear_live_bytes=*/ !cc->young_gen_,
+          cc->heap_->GetEvacuateLivePercentThreshold());
     }
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {

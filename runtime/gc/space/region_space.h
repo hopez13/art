@@ -285,7 +285,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // from-space. Tag the rest as unevacuated from-space.
   void SetFromSpace(accounting::ReadBarrierTable* rb_table,
                     EvacMode evac_mode,
-                    bool clear_live_bytes)
+                    bool clear_live_bytes,
+                    uint8_t evacuate_live_percent_threshold)
       REQUIRES(!region_lock_);
 
   size_t FromSpaceSize() REQUIRES(!region_lock_);
@@ -512,7 +513,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
 
     // Return whether this region should be evacuated. Used by RegionSpace::SetFromSpace.
-    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode);
+    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode,
+                                         uint8_t evacuate_live_percent_threshold);
 
     void AddLiveBytes(size_t live_bytes) {
       DCHECK(IsInUnevacFromSpace());
