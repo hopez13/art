@@ -695,6 +695,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "\n");
 
   UsageMessage(stream, "The following unique to ART options are supported:\n");
+  UsageMessage(stream, "  -Xgc:evacuate_live_percent_threshold=N\n");
   UsageMessage(stream, "  -Xgc:[no]preverify_rosalloc\n");
   UsageMessage(stream, "  -Xgc:[no]postsweepingverify_rosalloc\n");
   UsageMessage(stream, "  -Xgc:[no]postverify_rosalloc\n");
