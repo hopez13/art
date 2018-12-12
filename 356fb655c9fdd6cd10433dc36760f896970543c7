@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d4a3cd30_c13ba527",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-12T21:42:44Z",
+      "side": 1,
+      "message": "\u003e Shouldn\u0027t we use different CompilerOptions for different compilations then?\n\nThat\u0027s one option, though if it\u0027s just because of the baseline flag may be too heavyweight?\n\n\u003e Or remove the baseline flag from CompileOptions?\n\nHow else would you do it for AOT?\n\n\u003e \n\u003e The UNREACHABLE_INTRINSIC is a misnomer, given that we can now reach this code.\n\nBaseline has always been able to reach it :) Do you want to call it UNREACHABLE_CODEGEN_INTRINSIC? (there is no baseline check there).",
+      "parentUuid": "c71a8b18_6d59d3a5",
+      "range": {
+        "startLine": 246,
+        "startChar": 6,
+        "endLine": 246,
+        "endChar": 44
+      },
+      "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a29f04e3_6dcfee59",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 1
