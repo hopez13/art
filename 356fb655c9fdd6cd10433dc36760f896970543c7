@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "8b80ebed_119d7504",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T09:39:41Z",
+      "side": 1,
+      "message": "(Note: I\u0027ve started this road when introducing baseline. Definitely doable, but there\u0027s quite a few of them, so wanted to measure the impact of it before committing to it).",
+      "parentUuid": "944bda7b_8f2237eb",
+      "range": {
+        "startLine": 246,
+        "startChar": 6,
+        "endLine": 246,
+        "endChar": 44
+      },
+      "revId": "356fb655c9fdd6cd10433dc36760f896970543c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a29f04e3_6dcfee59",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 1
