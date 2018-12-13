@@ -46,6 +46,30 @@
       "revId": "f78d5e2f6b899104b15f3ee583892e317b112491",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49da1f1d_aa53c417",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-13T18:39:44Z",
+      "side": 1,
+      "message": "Where\u0027s the follow-up? It\u0027s hard to judge this code without seeing it.",
+      "parentUuid": "16da4a66_5dbf7df5",
+      "range": {
+        "startLine": 675,
+        "startChar": 45,
+        "endLine": 675,
+        "endChar": 57
+      },
+      "revId": "f78d5e2f6b899104b15f3ee583892e317b112491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
