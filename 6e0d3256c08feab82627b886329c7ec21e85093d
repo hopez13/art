@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01ec54d1_f57f6888",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T06:52:01Z",
+      "side": 1,
+      "message": "Sorry for the late review. But I think this needs to be fixed. For correct post GC number, we shouldn\u0027t calculate post-GC count above at line 324. Instead, divide post_gc_weighted_allocated_bytes_ by (post_gc_last_process_cpu_time_ns_ - heap_-\u003eGetProcessCpuStartTime())",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 342,
+        "endChar": 68
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
