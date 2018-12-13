@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "233e983e_d47dc61e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41d9377a_8330669b",
+      "range": {
+        "startLine": 191,
+        "startChar": 18,
+        "endLine": 191,
+        "endChar": 23
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc325de1_0ba0b156",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af4be566_ddd614ef",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc325de1_0ba0b156",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 80
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "b53418d9_cd478457",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "After moving the marking logic in this field visitor (see below), the invariant is that everything in the mark stack is already marked. So, this function has been replaced with TestAndSet function.",
+      "parentUuid": "3bdb4594_4650497e",
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69874f62_42c76ecf",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -108,6 +174,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "104857be_c183a0ce",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "69874f62_42c76ecf",
+      "range": {
+        "startLine": 898,
+        "startChar": 43,
+        "endLine": 898,
+        "endChar": 63
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "6ad96214_7a0840ed",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "I have made the appropriate changes in the latest patch",
+      "parentUuid": "59858ed1_c9b5edbc",
+      "range": {
+        "startLine": 1014,
+        "startChar": 0,
+        "endLine": 1014,
+        "endChar": 51
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09edeb70_243a2ef9",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -154,6 +268,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a91b7ad7_8c986dfc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Good idea! Thanks.",
+      "parentUuid": "09edeb70_243a2ef9",
+      "range": {
+        "startLine": 1042,
+        "startChar": 3,
+        "endLine": 1044,
+        "endChar": 5
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "0d1ae9cc_e8b04adc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "You are right. I have fixed it in recent patch.",
+      "parentUuid": "4b6380d7_014fc205",
+      "range": {
+        "startLine": 1046,
+        "startChar": 30,
+        "endLine": 1046,
+        "endChar": 77
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fec7b44_1fa52bae",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -200,6 +362,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed791fd_5996f83d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Actually we need it in non-moving space as well, as it may contain references to from-space. And large-space objects will never reach here as they will not have inter-region refs (the only reference to class will be either in immune space or non-moving space.",
+      "parentUuid": "6fec7b44_1fa52bae",
+      "range": {
+        "startLine": 1099,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 5
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "2d22773c_63d240e6",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "I thought since \u0027self\u0027 will not be needed in non-debug build, the compiler will eliminate call to Thread::Current(). Anyways, I\u0027ll make the change as you suggested.",
+      "parentUuid": "53f88643_ce4bef8c",
+      "range": {
+        "startLine": 1130,
+        "startChar": 2,
+        "endLine": 1130,
+        "endChar": 35
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8152531d_64775adf",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -237,6 +447,24 @@
       "writtenOn": "2018-12-08T00:37:04Z",
       "side": 1,
       "message": "Are there any problems from re-using the same mark bitmap for read barriers in the copying phase? I need to think about that more.",
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcf1805f_983b44b2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "I didn\u0027t get what you mean here.",
+      "parentUuid": "8152531d_64775adf",
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -266,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "ba9ce447_db262c34",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "It is not supported to have 2-phase without generational CC. That\u0027s because 2-phase reuses latter\u0027s code.",
+      "parentUuid": "13c32633_53e61c95",
+      "range": {
+        "startLine": 1264,
+        "startChar": 6,
+        "endLine": 1264,
+        "endChar": 52
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "875091e3_f7fb40db",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -286,6 +538,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6705e188_12a0d11d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875091e3_f7fb40db",
+      "range": {
+        "startLine": 1348,
+        "startChar": 12,
+        "endLine": 1350,
+        "endChar": 27
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -312,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "acd8933e_6a7830a0",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69c131e2_5aff9344",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 231,
+        "endChar": 76
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eee3a43_85776acf",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 4
@@ -332,6 +632,30 @@
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93c49e09_c27c51cd",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-13T03:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eee3a43_85776acf",
+      "range": {
+        "startLine": 338,
+        "startChar": 24,
+        "endLine": 338,
+        "endChar": 30
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
