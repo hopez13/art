@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9d2f372_253f5782",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done, it was somewhat intentionally left over though...",
+      "parentUuid": "7342108d_c6f21467",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 1
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3103e63b_4566f9aa",
         "filename": "compiler/debug/elf_debug_writer.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "999f815d_6620edbf",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Obviously could do, but they simply the code bellow.  It is common pattern in the ELF builder.",
+      "parentUuid": "3103e63b_4566f9aa",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 41
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b4702dc1_27d6a10f",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "148fbcd3_8e4b6ffb",
+      "range": {
+        "startLine": 269,
+        "startChar": 17,
+        "endLine": 269,
+        "endChar": 21
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58dee3d1_f8f48ffd",
         "filename": "compiler/debug/elf_debug_writer.cc",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b763b1c_f76a40fb",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58dee3d1_f8f48ffd",
+      "range": {
+        "startLine": 272,
+        "startChar": 27,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "510db2a2_4dd08b23",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "782d2c2f_73d016d3",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 69
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c6977d_3efa20c0",
         "filename": "compiler/debug/elf_debug_writer.cc",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f7455a4e_2fefcc1d",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c6977d_3efa20c0",
+      "range": {
+        "startLine": 360,
+        "startChar": 3,
+        "endLine": 360,
+        "endChar": 73
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1518cf7e_4b32787f",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
@@ -160,6 +304,30 @@
       "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e949193b_ccc7aa93",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-13T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1518cf7e_4b32787f",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 98
+      },
+      "revId": "f14b0ac755552c5a6bcead5740a10b1c525e0bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
