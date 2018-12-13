@@ -691,32 +691,6 @@ class ImageSpace::Loader {
                                              &thread_pool,
                                              image_reservation,
                                              error_msg);
-    if (thread_pool != nullptr) {
-      // Delay the thread pool deletion to prevent the deletion slowing down the startup by causing
-      // preemption. TODO: Just do this in heap trim.
-      static constexpr uint64_t kThreadPoolDeleteDelay = MsToNs(5000);
-
-      class DeleteThreadPoolTask : public HeapTask {
-       public:
-        explicit DeleteThreadPoolTask(std::unique_ptr<ThreadPool>&& thread_pool)
-            : HeapTask(NanoTime() + kThreadPoolDeleteDelay), thread_pool_(std::move(thread_pool)) {}
-
-        void Run(Thread* self) override {
-          ScopedTrace trace("DestroyThreadPool");
-          ScopedThreadStateChange stsc(self, kNative);
-          thread_pool_.reset();
-        }
-
-       private:
-        std::unique_ptr<ThreadPool> thread_pool_;
-      };
-      gc::TaskProcessor* const processor = Runtime::Current()->GetHeap()->GetTaskProcessor();
-      // The thread pool is already done being used since Init has finished running. Deleting the
-      // thread pool is done async since it takes a non-trivial amount of time to do.
-      if (processor != nullptr) {
-        processor->AddTask(Thread::Current(), new DeleteThreadPoolTask(std::move(thread_pool)));
-      }
-    }
     if (space != nullptr) {
       uint32_t expected_reservation_size =
           RoundUp(space->GetImageHeader().GetImageSize(), kPageSize);
@@ -733,12 +707,14 @@ class ImageSpace::Loader {
         result = RelocateInPlace<PointerSize::k64>(*image_header,
                                                    space->GetMemMap()->Begin(),
                                                    space->GetLiveBitmap(),
+                                                   thread_pool.get(),
                                                    oat_file,
                                                    error_msg);
       } else {
         result = RelocateInPlace<PointerSize::k32>(*image_header,
                                                    space->GetMemMap()->Begin(),
                                                    space->GetLiveBitmap(),
+                                                   thread_pool.get(),
                                                    oat_file,
                                                    error_msg);
       }
@@ -766,6 +742,32 @@ class ImageSpace::Loader {
                image_header->GetImageMethod(ImageHeader::kSaveEverythingMethodForSuspendCheck));
 
       VLOG(image) << "ImageSpace::Loader::InitAppImage exiting " << *space.get();
+    }
+    if (thread_pool != nullptr) {
+      // Delay the thread pool deletion to prevent the deletion slowing down the startup by causing
+      // preemption. TODO: Just do this in heap trim.
+      static constexpr uint64_t kThreadPoolDeleteDelay = MsToNs(5000);
+
+      class DeleteThreadPoolTask : public HeapTask {
+       public:
+        explicit DeleteThreadPoolTask(std::unique_ptr<ThreadPool>&& thread_pool)
+            : HeapTask(NanoTime() + kThreadPoolDeleteDelay), thread_pool_(std::move(thread_pool)) {}
+
+        void Run(Thread* self) override {
+          ScopedTrace trace("DestroyThreadPool");
+          ScopedThreadStateChange stsc(self, kNative);
+          thread_pool_.reset();
+        }
+
+       private:
+        std::unique_ptr<ThreadPool> thread_pool_;
+      };
+      gc::TaskProcessor* const processor = Runtime::Current()->GetHeap()->GetTaskProcessor();
+      // The thread pool is already done being used since Init has finished running. Deleting the
+      // thread pool is done async since it takes a non-trivial amount of time to do.
+      if (processor != nullptr) {
+        processor->AddTask(Thread::Current(), new DeleteThreadPoolTask(std::move(thread_pool)));
+      }
     }
     if (VLOG_IS_ON(image)) {
       logger.Dump(LOG_STREAM(INFO));
@@ -1265,6 +1267,7 @@ class ImageSpace::Loader {
   static bool RelocateInPlace(ImageHeader& image_header,
                               uint8_t* target_base,
                               accounting::ContinuousSpaceBitmap* bitmap,
+                              ThreadPool* thread_pool,
                               const OatFile* app_oat_file,
                               std::string* error_msg) {
     DCHECK(error_msg != nullptr);
@@ -1313,13 +1316,73 @@ class ImageSpace::Loader {
       // Nothing to fix up.
       return true;
     }
+
+    Thread* const self = Thread::Current();
+    const bool use_parallel = thread_pool != nullptr;
+    auto add_or_run_task = [&](std::function<void(Thread*)>&& function) {
+      if (use_parallel) {
+        DCHECK(thread_pool != nullptr);
+        thread_pool->AddTask(self, new FunctionTask(std::move(function)));
+      } else {
+        function(self);
+      }
+    };
+
     ScopedDebugDisallowReadBarriers sddrb(Thread::Current());
     FixupObjectAdapter fixup_adapter(boot_image, app_image, app_oat);
     PatchObjectVisitor<kPointerSize, FixupObjectAdapter> patch_object_visitor(fixup_adapter);
+    add_or_run_task([=](Thread*) {
+      // Only touches objects in the app image, no need for mutator lock.
+      ScopedTrace trace("Fixup methods");
+      FixupArtMethodVisitor method_visitor(fixup_image,
+                                           kPointerSize,
+                                           boot_image,
+                                           app_image,
+                                           app_oat);
+      image_header.VisitPackedArtMethods(&method_visitor, target_base, kPointerSize);
+    });
+    // Create the bitmap outside the block so it stays in scope.
+    std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> visited_bitmap;
     if (fixup_image) {
+      add_or_run_task([=](Thread*) {
+        // Only touches objects in the app image, no need for mutator lock.
+        ScopedTrace trace("Fixup fields");
+        FixupArtFieldVisitor field_visitor(boot_image, app_image, app_oat);
+        image_header.VisitPackedArtFields(&field_visitor, target_base);
+      });
+      add_or_run_task([=](Thread*) {
+        ScopedTrace trace("Fixup imt");
+        image_header.VisitPackedImTables(fixup_adapter, target_base, kPointerSize);
+      });
+      add_or_run_task([=](Thread*) {
+        ScopedTrace trace("Fixup conflict tables");
+        image_header.VisitPackedImtConflictTables(fixup_adapter, target_base, kPointerSize);
+      });
+      // In the app image case, the image methods are actually in the boot image.
+      image_header.RelocateImageMethods(boot_image.Delta());
+      add_or_run_task([=](Thread*) {
+        // Fix up the intern table.
+        const auto& intern_table_section = image_header.GetInternedStringsSection();
+        if (intern_table_section.Size() > 0u) {
+          ScopedTrace trace("Fixup intern table");
+          ScopedObjectAccess soa(Thread::Current());
+          // Fixup the pointers in the newly written intern table to contain image addresses.
+          InternTable temp_intern_table;
+          // Note that we require that ReadFromMemory does not make an internal copy of the elements
+          // so that the VisitRoots() will update the memory directly rather than the copies.
+          FixupRootVisitor root_visitor(boot_image, app_image, app_oat);
+          temp_intern_table.AddTableFromMemory(target_base + intern_table_section.Offset(),
+                                               [&](InternTable::UnorderedSet& strings)
+              REQUIRES_SHARED(Locks::mutator_lock_) {
+            for (GcRoot<mirror::String>& root : strings) {
+              root = GcRoot<mirror::String>(fixup_adapter(root.Read<kWithoutReadBarrier>()));
+            }
+          }, /*is_boot_image=*/ false);
+        }
+      });
       // Two pass approach, fix up all classes first, then fix up non class-objects.
       // The visited bitmap is used to ensure that pointer arrays are not forwarded twice.
-      std::unique_ptr<gc::accounting::ContinuousSpaceBitmap> visited_bitmap(
+      visited_bitmap.reset(
           gc::accounting::ContinuousSpaceBitmap::Create("Relocate bitmap",
                                                         target_base,
                                                         image_header.GetImageSize()));
@@ -1372,74 +1435,37 @@ class ImageSpace::Loader {
           }
         }
       }
-
-      // Fixup objects may read fields in the boot image, use the mutator lock here for sanity.
-      // Though its probably not required.
-      TimingLogger::ScopedTiming timing("Fixup cobjects", &logger);
+      add_or_run_task([=](Thread*) {
+        // Fixup objects may read fields in the boot image, use the mutator lock here for sanity.
+        // Though its probably not required.
+        ScopedTrace trace("Fixup objects");
+        ScopedObjectAccess soa(Thread::Current());
+        // Need to update the image to be at the target base.
+        const ImageSection& objects_section = image_header.GetObjectsSection();
+        uintptr_t objects_begin = reinterpret_cast<uintptr_t>(target_base + objects_section.Offset());
+        uintptr_t objects_end = reinterpret_cast<uintptr_t>(target_base + objects_section.End());
+        bitmap->VisitMarkedRange(objects_begin, objects_end, fixup_object_visitor);
+      });
+    }
+    if (use_parallel) {
+      TimingLogger::ScopedTiming timing("Waiting for workers", &logger);
+      thread_pool->Wait(self, true, false);
+    }
+    if (fixup_image) {
+      TimingLogger::ScopedTiming timing("Fixup image roots and dex cache arrays", &logger);
       ScopedObjectAccess soa(Thread::Current());
-      // Need to update the image to be at the target base.
-      const ImageSection& objects_section = image_header.GetObjectsSection();
-      uintptr_t objects_begin = reinterpret_cast<uintptr_t>(target_base + objects_section.Offset());
-      uintptr_t objects_end = reinterpret_cast<uintptr_t>(target_base + objects_section.End());
-      bitmap->VisitMarkedRange(objects_begin, objects_end, fixup_object_visitor);
-      // Fixup image roots.
       CHECK(app_image.InSource(reinterpret_cast<uintptr_t>(
           image_header.GetImageRoots<kWithoutReadBarrier>().Ptr())));
       image_header.RelocateImageObjects(app_image.Delta());
       CHECK_EQ(image_header.GetImageBegin(), target_base);
-      // Fix up dex cache DexFile pointers.
+      // Fixing up dex caches depends on other phases already being done. For this reason, do it
+      // after the wait.
       auto* dex_caches = image_header.GetImageRoot<kWithoutReadBarrier>(ImageHeader::kDexCaches)->
           AsObjectArray<mirror::DexCache, kVerifyNone>();
       for (int32_t i = 0, count = dex_caches->GetLength(); i < count; ++i) {
         mirror::DexCache* dex_cache = dex_caches->Get<kVerifyNone, kWithoutReadBarrier>(i);
         CHECK(dex_cache != nullptr);
         patch_object_visitor.VisitDexCacheArrays(dex_cache);
-      }
-    }
-    {
-      // Only touches objects in the app image, no need for mutator lock.
-      TimingLogger::ScopedTiming timing("Fixup methods", &logger);
-      FixupArtMethodVisitor method_visitor(fixup_image,
-                                           kPointerSize,
-                                           boot_image,
-                                           app_image,
-                                           app_oat);
-      image_header.VisitPackedArtMethods(&method_visitor, target_base, kPointerSize);
-    }
-    if (fixup_image) {
-      {
-        // Only touches objects in the app image, no need for mutator lock.
-        TimingLogger::ScopedTiming timing("Fixup fields", &logger);
-        FixupArtFieldVisitor field_visitor(boot_image, app_image, app_oat);
-        image_header.VisitPackedArtFields(&field_visitor, target_base);
-      }
-      {
-        TimingLogger::ScopedTiming timing("Fixup imt", &logger);
-        image_header.VisitPackedImTables(fixup_adapter, target_base, kPointerSize);
-      }
-      {
-        TimingLogger::ScopedTiming timing("Fixup conflict tables", &logger);
-        image_header.VisitPackedImtConflictTables(fixup_adapter, target_base, kPointerSize);
-      }
-      // In the app image case, the image methods are actually in the boot image.
-      image_header.RelocateImageMethods(boot_image.Delta());
-      // Fix up the intern table.
-      const auto& intern_table_section = image_header.GetInternedStringsSection();
-      if (intern_table_section.Size() > 0u) {
-        TimingLogger::ScopedTiming timing("Fixup intern table", &logger);
-        ScopedObjectAccess soa(Thread::Current());
-        // Fixup the pointers in the newly written intern table to contain image addresses.
-        InternTable temp_intern_table;
-        // Note that we require that ReadFromMemory does not make an internal copy of the elements
-        // so that the VisitRoots() will update the memory directly rather than the copies.
-        FixupRootVisitor root_visitor(boot_image, app_image, app_oat);
-        temp_intern_table.AddTableFromMemory(target_base + intern_table_section.Offset(),
-                                             [&](InternTable::UnorderedSet& strings)
-            REQUIRES_SHARED(Locks::mutator_lock_) {
-          for (GcRoot<mirror::String>& root : strings) {
-            root = GcRoot<mirror::String>(fixup_adapter(root.Read<kWithoutReadBarrier>()));
-          }
-        }, /*is_boot_image=*/ false);
       }
     }
     if (VLOG_IS_ON(image)) {
