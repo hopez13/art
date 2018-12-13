@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d69a614_3f3ddca7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "A bit of comments about why using uint8::max and uint16 values could help.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 3
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87d0b7bd_7c0fb339",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "amount",
+      "range": {
+        "startLine": 1634,
+        "startChar": 19,
+        "endLine": 1634,
+        "endChar": 26
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2168bbb_5b05f67c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "amount",
+      "range": {
+        "startLine": 1677,
+        "startChar": 19,
+        "endLine": 1677,
+        "endChar": 26
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "164f22cc_a1f08588",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "amount",
+      "range": {
+        "startLine": 1689,
+        "startChar": 13,
+        "endLine": 1689,
+        "endChar": 20
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcb70a2e_73cb80d0",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddc73b12_afe5a492",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "The fact you\u0027re calling the same method with method_idx above, looks like something is wrong?",
+      "range": {
+        "startLine": 2157,
+        "startChar": 7,
+        "endLine": 2157,
+        "endChar": 31
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f73f4c3_d1967eb7",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "Can we change the profile magic instead?",
+      "range": {
+        "startLine": 452,
+        "startChar": 10,
+        "endLine": 452,
+        "endChar": 41
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf063478_6ce0ecc2",
+        "filename": "profman/profile_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-13T10:08:06Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "e67dea18d70fa890e17b7a0892c919afb78c7a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
