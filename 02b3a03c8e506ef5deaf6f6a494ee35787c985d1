@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6613cc0_10621188",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5568,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2018-12-13T11:48:04Z",
+      "side": 1,
+      "message": "So in this visitor array length is already not loaded in a register, but accessed directly via MemOperand. What does the new node do in addition to that?",
+      "range": {
+        "startLine": 5560,
+        "startChar": 0,
+        "endLine": 5568,
+        "endChar": 61
+      },
+      "revId": "02b3a03c8e506ef5deaf6f6a494ee35787c985d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
