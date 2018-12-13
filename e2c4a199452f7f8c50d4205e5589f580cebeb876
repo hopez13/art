@@ -189,6 +189,30 @@
       "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204994e3_87e386ba",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-13T18:01:47Z",
+      "side": 1,
+      "message": "Ah, ok. To be addressed in b/120978655 then.",
+      "parentUuid": "40189ca4_2691b3b7",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "e2c4a199452f7f8c50d4205e5589f580cebeb876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
