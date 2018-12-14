@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5798f50_e23c2557",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:48:01Z",
+      "side": 1,
+      "message": "Honestly, I haven\u0027t searched, as I initially thought `tree` was installed by default on most environments. I moved option `-l` to use `find`, which is expected to be installed in the vast majority of environments. I kept the `tree`-based version (as `-t`) as I find its output much better.",
+      "parentUuid": "a805dcf3_47e47834",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 70
+      },
+      "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb17906a_3dec385f",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff6dde84_f8010e02",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:48:01Z",
+      "side": 1,
+      "message": "Actually I think it\u0027s useful to see them in the output, as they\u0027re probably not expected.\n\n(BTW, the listing options are essentially here for debugging purposes.)",
+      "parentUuid": "fb17906a_3dec385f",
+      "range": {
+        "startLine": 97,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 51
+      },
+      "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "http://aosp/847272  ;)",
       "parentUuid": "27e793cf_853d7049",
+      "range": {
+        "startLine": 102,
+        "startChar": 58,
+        "endLine": 102,
+        "endChar": 67
+      },
+      "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15d11c6e_e6cfe71f",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:48:01Z",
+      "side": 1,
+      "message": "BTW, I made this change conditional in PS5 (I do not want to force people to install `tree` if they want to run this script).",
+      "parentUuid": "4bf7ffa0_175c49b7",
       "range": {
         "startLine": 102,
         "startChar": 58,
