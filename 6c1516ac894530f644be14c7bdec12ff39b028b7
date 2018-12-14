@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7782828f_f31cfab5",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-14T16:14:14Z",
+      "side": 1,
+      "message": "nit: ART style doc suggests putting each operand on a separate line. The code isn\u0027t perfect in following this:\n\n$ git grep \"^ *if .*,$\" | wc -l\n364\n\ngit grep \"^ *if .*($\" | wc -l\n50",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
