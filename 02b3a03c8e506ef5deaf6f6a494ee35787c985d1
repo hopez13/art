@@ -22,6 +22,30 @@
       "revId": "02b3a03c8e506ef5deaf6f6a494ee35787c985d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0fffb1f_2b099630",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5568,
+      "author": {
+        "id": 1407284
+      },
+      "writtenOn": "2018-12-14T08:24:42Z",
+      "side": 1,
+      "message": "I agree , Looks like it is already taken care. I will be abandoning the patch shortly for some investigation.",
+      "parentUuid": "d6613cc0_10621188",
+      "range": {
+        "startLine": 5560,
+        "startChar": 0,
+        "endLine": 5568,
+        "endChar": 61
+      },
+      "revId": "02b3a03c8e506ef5deaf6f6a494ee35787c985d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
