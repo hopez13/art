@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b3fa3bf1_807c3d07",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e62ad8f_1e8a60f1",
+      "range": {
+        "startLine": 426,
+        "startChar": 57,
+        "endLine": 426,
+        "endChar": 58
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b28dfae_1f367c23",
         "filename": "cmdline/cmdline_types.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32df3aba_96603fb2",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b28dfae_1f367c23",
+      "range": {
+        "startLine": 427,
+        "startChar": 57,
+        "endLine": 427,
+        "endChar": 58
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f45645a5_1f095a7b",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2235946_2e7e9403",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 36
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "298089d9_384768e6",
         "filename": "cmdline/cmdline_types.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d079e7f4_901c3d96",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "298089d9_384768e6",
+      "range": {
+        "startLine": 438,
+        "startChar": 2,
+        "endLine": 438,
+        "endChar": 10
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a991519c_3535ff99",
         "filename": "cmdline/cmdline_types.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-12-14T15:01:11Z",
       "side": 1,
       "message": "Maybe we could move this default value somewhere else to avoid including \"gc/collector/concurrent_copying.h\" in this file?",
+      "range": {
+        "startLine": 439,
+        "startChar": 4,
+        "endLine": 439,
+        "endChar": 72
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc3416bc_d1c99939",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "`libartbase/base/globals.h` could be an alternative, but not sure if this value is too GC-specific.",
+      "parentUuid": "a991519c_3535ff99",
       "range": {
         "startLine": 439,
         "startChar": 4,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f891bb07_2a35fb50",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151ca28c_fc59e5ac",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 52
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63cbaf5f_c38af0a2",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6795e811_145e13d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63cbaf5f_c38af0a2",
+      "range": {
+        "startLine": 195,
+        "startChar": 11,
+        "endLine": 195,
+        "endChar": 19
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8ce7eb5_b511fe67",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -177,6 +345,24 @@
       "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "045f3281_0327732f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ce7eb5_b511fe67",
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "50dab377_37ff9b35",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "babd44db_1c0cbd80",
+      "range": {
+        "startLine": 201,
+        "startChar": 7,
+        "endLine": 201,
+        "endChar": 11
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8f4e366_fd123fa1",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 2
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "3ef9c5d6_a4f366ae",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f4e366_fd123fa1",
+      "range": {
+        "startLine": 1225,
+        "startChar": 0,
+        "endLine": 1226,
+        "endChar": 52
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ebf3047_d67a2734",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 2
@@ -246,6 +480,30 @@
       "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42f33493_40484798",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ebf3047_d67a2734",
+      "range": {
+        "startLine": 179,
+        "startChar": 51,
+        "endLine": 179,
+        "endChar": 59
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -295,6 +553,54 @@
     },
     {
       "key": {
+        "uuid": "6e3bb2a8_3f7444bc",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b492d985_e576be5a",
+      "range": {
+        "startLine": 515,
+        "startChar": 61,
+        "endLine": 515,
+        "endChar": 69
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43668101_850eccad",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23aa8f4f_90146c8b",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 515,
+        "endChar": 103
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33bd5d1d_dcd2b283",
         "filename": "runtime/parsed_options_test.cc",
         "patchSetId": 2
@@ -309,6 +615,24 @@
       "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ce4cb16_b75a6420",
+        "filename": "runtime/parsed_options_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33bd5d1d_dcd2b283",
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
