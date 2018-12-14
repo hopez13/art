@@ -389,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "8b2af44d_095dea3a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-14T00:24:38Z",
+      "side": 1,
+      "message": "Ah yea, you are right",
+      "parentUuid": "8ed791fd_5996f83d",
+      "range": {
+        "startLine": 1099,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 5
+      },
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53f88643_ce4bef8c",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 4
@@ -465,6 +489,24 @@
       "side": 1,
       "message": "I didn\u0027t get what you mean here.",
       "parentUuid": "8152531d_64775adf",
+      "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ced68a0_bb4e133a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-14T00:24:38Z",
+      "side": 1,
+      "message": "This was the thing I discussed earlier in the week, it is already handled by done_scanning.",
+      "parentUuid": "fcf1805f_983b44b2",
       "revId": "23afac486ef223d4498bd0806c71639ff13510b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
