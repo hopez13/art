@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a805dcf3_47e47834",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2018-12-14T13:00:06Z",
+      "side": 1,
+      "message": "I\u0027m guessing we don\u0027t have a shell library for this stuff on AOSP? :(",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 70
+      },
+      "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb17906a_3dec385f",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2018-12-14T13:00:06Z",
+      "side": 1,
+      "message": "Maybe also: -type f\nWe probably don\u0027t really care about empty directories.",
+      "range": {
+        "startLine": 97,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 51
+      },
+      "revId": "cf209ce99a579e47cab9d5da466f0baf4c02e5a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
