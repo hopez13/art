@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e62ad8f_1e8a60f1",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Nit: 0u",
+      "range": {
+        "startLine": 426,
+        "startChar": 57,
+        "endLine": 426,
+        "endChar": 58
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b28dfae_1f367c23",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Nit: Add spaces around binary operator.",
+      "range": {
+        "startLine": 427,
+        "startChar": 57,
+        "endLine": 427,
+        "endChar": 58
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2235946_2e7e9403",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Nit:\n\n  0 \u003c\u003d result \u0026\u0026 result \u003c\u003d 100",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 36
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "298089d9_384768e6",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Change to uint8_t (here and in other places), as this is enough to encode all the values we need.",
+      "range": {
+        "startLine": 438,
+        "startChar": 2,
+        "endLine": 438,
+        "endChar": 10
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a991519c_3535ff99",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Maybe we could move this default value somewhere else to avoid including \"gc/collector/concurrent_copying.h\" in this file?",
+      "range": {
+        "startLine": 439,
+        "startChar": 4,
+        "endLine": 439,
+        "endChar": 72
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "151ca28c_fc59e5ac",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "This comment should say that this is the default value for the evacuate live percent threshold.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 52
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63cbaf5f_c38af0a2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 195,
+        "startChar": 11,
+        "endLine": 195,
+        "endChar": 19
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8ce7eb5_b511fe67",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "I\u0027d add\n\n  CHECK(0u \u003c\u003d evacuate_live_percent_threshold_ \u0026\u0026 evacuate_live_percent_threshold_ \u003c\u003d 100)\n      \u003c\u003c evacuate_live_percent_threshold_;\n\nhere.",
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "babd44db_1c0cbd80",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 201,
+        "startChar": 7,
+        "endLine": 201,
+        "endChar": 11
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8f4e366_fd123fa1",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "I\u0027d say something like this here: \"If the evacuation logic (see `art::gc::space::RegionSpace::ShouldBeEvacuated`) needs to base its decision to evacuate a region on the amount of live bytes in that region, then use this value as a threshold to make this decision: if the percent of live bytes is lower than `evacuate_live_percent_threshold_`, the region is to be evacuated.\"",
+      "range": {
+        "startLine": 1225,
+        "startChar": 0,
+        "endLine": 1226,
+        "endChar": 52
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ebf3047_d67a2734",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 179,
+        "startChar": 51,
+        "endLine": 179,
+        "endChar": 59
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b492d985_e576be5a",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 515,
+        "startChar": 61,
+        "endLine": 515,
+        "endChar": 69
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23aa8f4f_90146c8b",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 515,
+        "endChar": 103
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33bd5d1d_dcd2b283",
+        "filename": "runtime/parsed_options_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:01:11Z",
+      "side": 1,
+      "message": "Could you also add a test that checks that an invalid argument (e.g. 101) results in the default evacuate percent live threshold value being pushed into the argument map?",
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
