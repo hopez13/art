@@ -22,6 +22,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0f9e136_1f0490dd",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T18:54:03Z",
+      "side": 1,
+      "message": "The style:\n\n  function(\n    arg1, arg2, …, argN)\n\nis also accepted and quite common in ART\u0027s code base (both for function calls and function definitions).",
+      "parentUuid": "7782828f_f31cfab5",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
