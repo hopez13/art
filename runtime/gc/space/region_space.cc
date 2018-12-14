@@ -143,6 +143,55 @@ RegionSpace::RegionSpace(const std::string& name, MemMap&& mem_map)
   Protect();
 }
 
+template<typename Visitor>
+void RegionSpace::WalkNonLargeRegion(Visitor&& visitor, const Region* r) {
+  DCHECK(!r->IsLarge() && !r->IsLargeTail());
+  // For newly allocated and evacuated regions, live bytes will be -1.
+  uint8_t* pos = r->Begin();
+  uint8_t* top = r->Top();
+  const bool need_bitmap =
+      r->LiveBytes() != static_cast<size_t>(-1) &&
+          r->LiveBytes() != static_cast<size_t>(top - pos);
+  if (need_bitmap) {
+    GetLiveBitmap()->VisitMarkedRange(
+        reinterpret_cast<uintptr_t>(pos),
+        reinterpret_cast<uintptr_t>(top),
+        visitor);
+  } else {
+    while (pos < top) {
+      mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
+      if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+        visitor(obj);
+        pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
+      } else {
+        break;
+      }
+    }
+  }
+}
+
+uint64_t RegionSpace::GetLongestConsecutiveFreeBytes(const Region* r) {
+  if (r->IsFree()) {
+    return kRegionSize;
+  }
+  if (r->IsLarge() || r->IsLargeTail()) {
+    return 0;
+  }
+  uintptr_t result = 0;
+  uintptr_t last_object_end = reinterpret_cast<uintptr_t>(r->Begin());
+  auto visitor = [&](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+    uintptr_t current = reinterpret_cast<uintptr_t>(obj);
+    uintptr_t diff = current - last_object_end;
+    if (diff > result) {
+      result = diff;
+    }
+    auto object_end = reinterpret_cast<uintptr_t>(obj) + obj->SizeOf();
+    last_object_end = RoundUp(object_end, kAlignment);
+  };
+  WalkNonLargeRegion(visitor, r);
+  return static_cast<uint64_t>(result);
+}
+
 size_t RegionSpace::FromSpaceSize() {
   uint64_t num_regions = 0;
   MutexLock mu(Thread::Current(), region_lock_);
@@ -840,6 +889,11 @@ void RegionSpace::Region::Dump(std::ostream& os) const {
   if (live_bytes_ != static_cast<size_t>(-1)) {
     os << " ratio over allocated bytes="
        << (static_cast<float>(live_bytes_) / RoundUp(BytesAllocated(), kRegionSize));
+    auto region_space = art::Runtime::Current()->GetHeap()->GetRegionSpace();
+    auto longest_consecutive_free_bytes = region_space->GetLongestConsecutiveFreeBytes(this);
+    auto free_bytes = kRegionSize - live_bytes_;
+    os << " longest_free_bytes/total_free_bytes="
+       << static_cast<float>(longest_consecutive_free_bytes)/free_bytes;
   }
 
   os << " is_newly_allocated=" << std::boolalpha << is_newly_allocated_ << std::noboolalpha

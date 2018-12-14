@@ -640,6 +640,11 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     friend class RegionSpace;
   };
 
+  template<typename Visitor>
+  void WalkNonLargeRegion(Visitor&& visitor, const Region* r) NO_THREAD_SAFETY_ANALYSIS;
+
+  uint64_t GetLongestConsecutiveFreeBytes(const Region* r);
+
   Region* RefToRegion(mirror::Object* ref) REQUIRES(!region_lock_) {
     MutexLock mu(Thread::Current(), region_lock_);
     return RefToRegionLocked(ref);
