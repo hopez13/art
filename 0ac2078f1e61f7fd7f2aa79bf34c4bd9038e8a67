@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63726aef_e6dee305",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-14T19:31:13Z",
+      "side": 1,
+      "message": "I\u0027d recommend it being passed to the function from ConcurrentCopying where this function is called. Long scope resolution like this one doesn\u0027t look good. Since there is just one place from where SetFromSpace() is called, it shouldn\u0027t be easy.",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 309,
+        "endChar": 74
+      },
+      "revId": "0ac2078f1e61f7fd7f2aa79bf34c4bd9038e8a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
