@@ -46,6 +46,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "766fb994_8484908e",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-14T19:08:24Z",
+      "side": 1,
+      "message": "Thanks Roland, that\u0027s what I\u0027ve heard too. I can\u0027t find anything clear about it in the style guide though, so I\u0027ve added a request for clarification there.\n\nI\u0027d prefer if this was allowed, for the very pragmatic reason that clang-format doesn\u0027t support the other style (there\u0027s AllowAllParametersOfDeclarationOnNextLine[1] for function definitions, but strangely no corresponding setting for function calls).\n\n[1] https://clang.llvm.org/docs/ClangFormatStyleOptions.html",
+      "parentUuid": "c0f9e136_1f0490dd",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
