@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "54c668a0_64ee7bac",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T15:52:15Z",
+      "side": 1,
+      "message": "Yes, moving this constant there seems like a good idea. We already have some GC-related constants in that file.",
+      "parentUuid": "fc3416bc_d1c99939",
+      "range": {
+        "startLine": 439,
+        "startChar": 4,
+        "endLine": 439,
+        "endChar": 72
+      },
+      "revId": "2136e4b9a5200bc518c9897340e6abb0cfaf22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "151ca28c_fc59e5ac",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
