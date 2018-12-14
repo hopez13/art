@@ -283,6 +283,7 @@ int ExtDexFileOpenFromFd(int fd,
 
 int ExtDexFileGetMethodInfoForOffset(ExtDexFile* ext_dex_file,
                                      int64_t dex_offset,
+                                     int with_signature,
                                      /*out*/ ExtDexFileMethodInfo* method_info) {
   if (!ext_dex_file->dex_file_->IsInDataSection(ext_dex_file->dex_file_->Begin() + dex_offset)) {
     return false;  // The DEX offset is not within the bytecode of this dex file.
@@ -305,7 +306,7 @@ int ExtDexFileGetMethodInfoForOffset(ExtDexFile* ext_dex_file,
     method_info->offset = entry->offset;
     method_info->len = entry->len;
     method_info->name =
-        new ExtDexFileString{ext_dex_file->dex_file_->PrettyMethod(entry->index, false)};
+        new ExtDexFileString{ext_dex_file->dex_file_->PrettyMethod(entry->index, with_signature)};
     return true;
   }
 
