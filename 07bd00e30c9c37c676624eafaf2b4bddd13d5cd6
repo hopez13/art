@@ -22,6 +22,30 @@
       "revId": "07bd00e30c9c37c676624eafaf2b4bddd13d5cd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f199e73_ffd8745e",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T18:13:34Z",
+      "side": 1,
+      "message": "\u003e This is close, but I was actually more interested in live_bytes / RoundUp(BytesAllocated(), kRegionSize), as it is used in the evacuation decision. If we\u0027ve barely allocated in a region, it\u0027s still mostly empty.\n\nDone in PS7.\n\n\u003e If it\u0027s feasible to compute, I\u0027d also like to know \u003clength of longest free run\u003e / \u003cfree bytes in region\u003e .\n\u003e \n\u003e If we\u0027re spending a lot of time evacuating regions that have nearly all the empty space already contiguous, then it may be worth moving away from the pure copying strategy.\n\nSGTM. Albert, could you implement this suggestion in a follow-up CL?",
+      "parentUuid": "e794aa08_b37f9aa7",
+      "range": {
+        "startLine": 816,
+        "startChar": 10,
+        "endLine": 816,
+        "endChar": 63
+      },
+      "revId": "07bd00e30c9c37c676624eafaf2b4bddd13d5cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
