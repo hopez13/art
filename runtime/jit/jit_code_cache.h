@@ -246,13 +246,13 @@ class JitCodeCache {
   void MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_method)
       REQUIRES(!lock_) REQUIRES(Locks::mutator_lock_);
 
-  // Dynamically change whether we want to garbage collect code. Should only be used during JIT
-  // initialization or by tests.
-  void SetGarbageCollectCode(bool value) {
-    garbage_collect_code_ = value;
-  }
+  // Dynamically change whether we want to garbage collect code.
+  void SetGarbageCollectCode(bool value) REQUIRES(!lock_);
 
-  bool GetGarbageCollectCode() const {
+  bool GetGarbageCollectCode() REQUIRES(!lock_);
+
+  // Unsafe variant for debug checks.
+  bool GetGarbageCollectCodeUnsafe() const NO_THREAD_SAFETY_ANALYSIS {
     return garbage_collect_code_;
   }
 
@@ -263,6 +263,10 @@ class JitCodeCache {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void PostForkChildAction(bool is_system_server, bool is_zygote);
+
+  bool IsInZygoteExecSpace(const void* ptr) const {
+    return zygote_exec_pages_.HasAddress(ptr);
+  }
 
  private:
   JitCodeCache();
@@ -392,10 +396,6 @@ class JitCodeCache {
     return zygote_data_pages_.HasAddress(ptr);
   }
 
-  bool IsInZygoteExecSpace(const void* ptr) const {
-    return zygote_exec_pages_.HasAddress(ptr);
-  }
-
   bool IsWeakAccessEnabled(Thread* self) const;
   void WaitUntilInlineCacheAccessible(Thread* self)
       REQUIRES(!lock_)
@@ -451,7 +451,7 @@ class JitCodeCache {
   bool last_collection_increased_code_cache_ GUARDED_BY(lock_);
 
   // Whether we can do garbage collection. Not 'const' as tests may override this.
-  bool garbage_collect_code_;
+  bool garbage_collect_code_ GUARDED_BY(lock_);
 
   // The size in bytes of used memory for the data portion of the code cache.
   size_t used_memory_for_data_ GUARDED_BY(lock_);
