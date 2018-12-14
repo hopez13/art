@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "94c8afc7_69a01b3d",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T20:18:23Z",
+      "side": 1,
+      "message": "`GetUseGenerationalCC()` is used in two other methods (the one above and below) in `Region`; if it takes `RegionSpace` as an argument, I have to thread `RegionSpace` through them as well, which I think more cumbersome.",
+      "parentUuid": "b7eeb30d_2a3cab92",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 68
+      },
+      "revId": "6e3f0138deb88a10f28d20ba42d552e0ffee4040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52cfaf71_e3da8c45",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 13
