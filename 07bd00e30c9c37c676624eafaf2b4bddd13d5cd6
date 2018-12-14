@@ -46,6 +46,30 @@
       "revId": "07bd00e30c9c37c676624eafaf2b4bddd13d5cd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c60e433_b13e9cd5",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-14T20:06:39Z",
+      "side": 1,
+      "message": "Sure, will implement `\u003clength of longest free run\u003e / \u003cfree bytes in region\u003e` in another CL.",
+      "parentUuid": "7f199e73_ffd8745e",
+      "range": {
+        "startLine": 816,
+        "startChar": 10,
+        "endLine": 816,
+        "endChar": 63
+      },
+      "revId": "07bd00e30c9c37c676624eafaf2b4bddd13d5cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
