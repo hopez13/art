@@ -94,6 +94,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e0ffb48_fb4c4c69",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-14T20:03:46Z",
+      "side": 1,
+      "message": "One could argue that no arg is wrapped - the wrapping takes place _before_ the first arg. So the style guide could use a clarification anyway if it also applies before the args (and between them, but that\u0027s clear from the examples).\n\nI don\u0027t care that much about the style itself, but I do care about being able to teach it to clang-format, because I find it a significant convenience to not have to manually fiddle with line breaks and spaces. (In system/core there\u0027s a set clang-format style and a pre-upload format check on all files, which I think is rather nice.)",
+      "parentUuid": "81cb128b_2f4f02df",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
