@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd335301_0b5d4f1d",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-14T16:22:40Z",
+      "side": 1,
+      "message": "We need to be a bit more specific now that this constant is out of the GC code base. I\u0027d say something like this:\n\n  Default evacuate live-byte percent threshold value used in the RegionSpace\u0027s evacuation\n  logic (see `art::gc::space::RegionSpace::ShouldBeEvacuated`) in the case wheer no threshold\n  or an invalid threshold is provided via `-Xgc:evacuate_live_percent_threshold`.",
+      "range": {
+        "startLine": 159,
+        "startChar": 3,
+        "endLine": 159,
+        "endChar": 56
+      },
+      "revId": "120aea04d09e94c5ee87bbf32a577d51628d274f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
