@@ -249,27 +249,33 @@ inline void RegionSpace::WalkInternal(Visitor&& visitor) {
     } else if (r->IsLargeTail()) {
       // Do nothing.
     } else {
-      // For newly allocated and evacuated regions, live bytes will be -1.
-      uint8_t* pos = r->Begin();
-      uint8_t* top = r->Top();
-      const bool need_bitmap =
-          r->LiveBytes() != static_cast<size_t>(-1) &&
-          r->LiveBytes() != static_cast<size_t>(top - pos);
-      if (need_bitmap) {
-        GetLiveBitmap()->VisitMarkedRange(
-            reinterpret_cast<uintptr_t>(pos),
-            reinterpret_cast<uintptr_t>(top),
-            visitor);
+      WalkNonLargeRegion(visitor, r);
+    }
+  }
+}
+
+template<typename Visitor>
+inline void RegionSpace::WalkNonLargeRegion(Visitor&& visitor, const Region* r) {
+  DCHECK(!r->IsLarge() && !r->IsLargeTail());
+  // For newly allocated and evacuated regions, live bytes will be -1.
+  uint8_t* pos = r->Begin();
+  uint8_t* top = r->Top();
+  const bool need_bitmap =
+      r->LiveBytes() != static_cast<size_t>(-1) &&
+      r->LiveBytes() != static_cast<size_t>(top - pos);
+  if (need_bitmap) {
+    GetLiveBitmap()->VisitMarkedRange(
+        reinterpret_cast<uintptr_t>(pos),
+        reinterpret_cast<uintptr_t>(top),
+        visitor);
+  } else {
+    while (pos < top) {
+      mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
+      if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+        visitor(obj);
+        pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
       } else {
-        while (pos < top) {
-          mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
-          if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
-            visitor(obj);
-            pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
-          } else {
-            break;
-          }
-        }
+        break;
       }
     }
   }
