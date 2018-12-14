@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968817ba_58e02523",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-14T00:17:11Z",
+      "side": 1,
+      "message": "Nit: Maybe add the missing articles. \"In a full-heap GC cycle, the ...\", \"after the thread-flip\", \"for the next GC cycle\".",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 70
+      },
+      "revId": "774390246479862ddc334f394d979a511716e68d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
