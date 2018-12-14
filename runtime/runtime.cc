@@ -2626,12 +2626,24 @@ class UpdateEntryPointsClassVisitor : public ClassVisitor {
 
   bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
     auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+    Runtime* runtime = Runtime::Current();
+    jit::Jit* jit = runtime->GetJit();
     for (auto& m : klass->GetMethods(pointer_size)) {
       const void* code = m.GetEntryPointFromQuickCompiledCode();
-      if (Runtime::Current()->GetHeap()->IsInBootImageOatFile(code) &&
-          !m.IsNative() &&
-          !m.IsProxyMethod()) {
-        instrumentation_->UpdateMethodsCodeForJavaDebuggable(&m, GetQuickToInterpreterBridge());
+      if (!m.IsNative() && !m.IsProxyMethod()) {
+        // AOT code in the boot image and JIT code in the zygote space are not
+        // compiled debuggable.
+        if (runtime->GetHeap()->IsInBootImageOatFile(code) ||
+            (jit != nullptr && jit->GetCodeCache()->IsInZygoteExecSpace(code))) {
+          instrumentation_->UpdateMethodsCodeForJavaDebuggable(&m, GetQuickToInterpreterBridge());
+        }
+        // If zygote does method tracing, or in some configuration where
+        // the JIT zygote does GC, we also need to clear the saved entry point
+        // in the profiling info.
+        ProfilingInfo* info = m.GetProfilingInfo(kRuntimePointerSize);
+        if (info != nullptr) {
+          info->SetSavedEntryPoint(nullptr);
+        }
       }
     }
     return true;
