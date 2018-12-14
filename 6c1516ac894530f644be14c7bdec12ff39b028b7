@@ -70,6 +70,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81cb128b_2f4f02df",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2018-12-14T19:26:34Z",
+      "side": 1,
+      "message": "Our style guide\u0027s goal is to have simple logical rules [at least for formatting], we found in the beginning that there was a lot of arguing/confusion when there were too many special cases and so we tried really hard to generalize everything.\n\n------\n\nIn the style guide it says, \"If any of the arguments end up getting wrapped, then have one argument per line and they must all be aligned\" Did \u0027arg1\u0027 get wrapped in this case? Yes, so the rest of the arguments should also be wrapped.\n\nTherefore, I think I would agree with Orion, I cannot find this style\n\n  function(\n    arg1, arg2, …, argN)\n\nto be conformant to the style guide. It might be part of some code here and there but afaik that\u0027s not intentional.\n\nMost formatters I\u0027ve seen will do the right thing after pressing \u003cENTER\u003e after the commas and vertically align all the params.\n\n----------------\n\nThat being said if someone feels strongly about this, then make a \"suggestion\" on the doc and we can have a team discussion there.",
+      "parentUuid": "766fb994_8484908e",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
