@@ -118,6 +118,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31da8169_073a8698",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-16T17:59:37Z",
+      "side": 1,
+      "message": "Starting from Google clang-format, this will take care of the line in question:\n\n  AlignAfterOpenBracket: true\n  BinPackArguments: false\n  PenaltyBreakBeforeFirstCallParameter: 500",
+      "parentUuid": "5e0ffb48_fb4c4c69",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
