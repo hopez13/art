@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f14fd63_ae847d22",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-17T17:00:17Z",
+      "side": 1,
+      "message": "It might be cleaner to address this in ProcessCpuNanoTime().\n\nThe use cases don\u0027t need to be super exacting, gettimeofday would be a reasonable approximation if converted to a 64-bit nano second value.\n\nOS X got clock_gettime() in 10.12, but we\u0027ll need to support earlier anyway and differentiating gets elaborate.",
+      "range": {
+        "startLine": 633,
+        "startChar": 24,
+        "endLine": 633,
+        "endChar": 42
+      },
+      "revId": "e6ffced5c260ec2e128a769b1076607d44adfda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
