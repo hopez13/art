@@ -46,6 +46,30 @@
       "revId": "e6ffced5c260ec2e128a769b1076607d44adfda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bae51c6_15774583",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-17T17:45:20Z",
+      "side": 1,
+      "message": "BTW, the bots are running Darwin 14, which is OS X 10.10 (Yosemite):\n\n  HOST_OS_EXTRA\u003dDarwin-14.5.0-x86_64-10.10.5\n\nI\u0027ll just use `gettimeofday` as suggested by Orion (we already do that for the non-`Process*` variants).",
+      "parentUuid": "79eb9bf0_650dd7bc",
+      "range": {
+        "startLine": 633,
+        "startChar": 24,
+        "endLine": 633,
+        "endChar": 42
+      },
+      "revId": "e6ffced5c260ec2e128a769b1076607d44adfda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
