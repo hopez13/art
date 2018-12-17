@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "ba32d6a4_f7c0d393",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T22:21:14Z",
+      "side": 1,
+      "message": "Looks better. I would still like to see a comment along the lines I suggested, or at least a high level comment saying that you\u0027re trying to merge adjacent regions before calling VisitMarkedRange, so that the uint8_t* visit_block_end \u003d regions_[0].Begin(); initialization is less mysterious.",
+      "parentUuid": "a2beeb54_024af288",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d17ef0c_a515bb42",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 5

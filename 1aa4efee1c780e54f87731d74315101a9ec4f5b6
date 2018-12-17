@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b15ae69_f2897503",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T22:21:14Z",
+      "side": 1,
+      "message": "that were?",
+      "range": {
+        "startLine": 392,
+        "startChar": 72,
+        "endLine": 392,
+        "endChar": 75
+      },
+      "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4838bd36_715516d5",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T22:21:14Z",
+      "side": 1,
+      "message": "Why does that require NO_THREAD_SAFETY_ANALYSIS, as opposed to requiring that we don\u0027t hold region_lock_?",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 20
+      },
+      "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
