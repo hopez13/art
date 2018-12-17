@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60f01209_10c895ab",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-17T22:54:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b15ae69_f2897503",
+      "range": {
+        "startLine": 392,
+        "startChar": 72,
+        "endLine": 392,
+        "endChar": 75
+      },
+      "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4838bd36_715516d5",
         "filename": "runtime/gc/space/region_space.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-17T22:21:14Z",
       "side": 1,
       "message": "Why does that require NO_THREAD_SAFETY_ANALYSIS, as opposed to requiring that we don\u0027t hold region_lock_?",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 20
+      },
+      "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf03cc3_cd69e3a1",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2018-12-17T22:54:22Z",
+      "side": 1,
+      "message": "Actually my phrasing was not right. I meant to say that the function cannot acquire region_lock_ as \u0027visitor\u0027 may need to acquire it for allocation. I have re-worded in latest patch.",
+      "parentUuid": "4838bd36_715516d5",
       "range": {
         "startLine": 214,
         "startChar": 4,
