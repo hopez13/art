@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebd45c22_223a7514",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "unneeded",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39e4fc18_cddfbf48",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "Seems needlessly brittle. And it\u0027s technically not correct, since comparison is undefined outside the same object. For a 32-bit implementation that doesn\u0027t allocate across the middle of the address space, it may be valid to use signed comparisons for pointers. Can we make this uintptr_t and initialize to the maximum value?",
+      "range": {
+        "startLine": 292,
+        "startChar": 64,
+        "endLine": 292,
+        "endChar": 74
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3009d5f4_3c5886b9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "Nit: \"the marking phase\"\n\nGenerally adding more articles wouldn\u0027t hurt.",
+      "range": {
+        "startLine": 1434,
+        "startChar": 45,
+        "endLine": 1434,
+        "endChar": 53
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad44e6d5_a49173c0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "Nit: Probably better to use two lines.",
+      "range": {
+        "startLine": 1444,
+        "startChar": 25,
+        "endLine": 1446,
+        "endChar": 50
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3477662a_e80637fb",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "descriptive comment? \"Bit i is set if ...\"?",
+      "range": {
+        "startLine": 392,
+        "startChar": 2,
+        "endLine": 392,
+        "endChar": 74
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9660f869_c96ca961",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-17T18:21:19Z",
+      "side": 1,
+      "message": "I found the logic here hard to follow. I personally don\u0027t think the lambda helps here. Explicitly stating the loop invariant may help. Something along the lines of\n\n// [visit_block_begin, visit_block_end) still needs to be marked.\n// Everything before visit_block_begin has been processed.\n\nOtherwise initializing both ends of the interval to Begin() seems weird.",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 49
+      },
+      "revId": "1c32a85482d9399c5b697f6db4e92282775556bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
