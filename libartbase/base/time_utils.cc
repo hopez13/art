@@ -175,9 +175,14 @@ uint64_t ProcessCpuNanoTime() {
   timespec now;
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &now);
   return static_cast<uint64_t>(now.tv_sec) * UINT64_C(1000000000) + now.tv_nsec;
-#else
-  UNIMPLEMENTED(WARNING);
-  return -1;
+#else  // __APPLE__
+  // We cannot use clock_gettime() here. Return the process wall clock time
+  // (using art::NanoTime, which relies on gettimeofday()) as approximation of
+  // the process CPU time instead.
+  //
+  // Note: clock_gettime() is available from macOS 10.12 (Darwin 16), but we try
+  // to keep things simple here.
+  return NanoTime();
 #endif
 }
 
