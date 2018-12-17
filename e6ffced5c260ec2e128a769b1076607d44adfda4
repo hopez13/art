@@ -22,6 +22,30 @@
       "revId": "e6ffced5c260ec2e128a769b1076607d44adfda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79eb9bf0_650dd7bc",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-17T17:22:06Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll address this in `art::ProcessCpuNanoTime` directly.",
+      "parentUuid": "8f14fd63_ae847d22",
+      "range": {
+        "startLine": 633,
+        "startChar": 24,
+        "endLine": 633,
+        "endChar": 42
+      },
+      "revId": "e6ffced5c260ec2e128a769b1076607d44adfda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
