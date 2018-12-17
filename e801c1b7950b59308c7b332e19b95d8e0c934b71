@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a02546f_1b1d9f8d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2018-12-17T19:02:23Z",
+      "side": 1,
+      "message": "So this is a comment about using `ScotedTrace trace(__FUNCTION__)` in general, in addition to this specific case, but I think we should discourage this usage in our codebase.  1) If there is a similarly named function somewhere else we won\u0027t be able to distinguish them; 2) there are currently a bunch of slices for `operator()` because of calls like this, which doesn\u0027t add any information to the trace; 3) And for functions with parameters the types get added, creating very long and busy log lines.\n\nThis is just my opinion though, so do what you feel is best.",
+      "revId": "e801c1b7950b59308c7b332e19b95d8e0c934b71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
