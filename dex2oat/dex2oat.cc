@@ -629,7 +629,12 @@ class Dex2Oat final {
       runtime_(nullptr),
       thread_count_(sysconf(_SC_NPROCESSORS_CONF)),
       start_ns_(NanoTime()),
+#if defined(__linux__)
       start_cputime_ns_(ProcessCpuNanoTime()),
+#else
+      // ProcessCpuNanoTime() is not supported on Darwin.
+      start_cputime_ns_(-1),
+#endif
       strip_(false),
       oat_fd_(-1),
       input_vdex_fd_(-1),
@@ -2621,11 +2626,17 @@ class Dex2Oat final {
     // Note: driver creation can fail when loading an invalid dex file.
     LOG(INFO) << "dex2oat took "
               << PrettyDuration(NanoTime() - start_ns_)
+#if defined(__linux__)
               << " (" << PrettyDuration(ProcessCpuNanoTime() - start_cputime_ns_) << " cpu)"
+#endif
               << " (threads: " << thread_count_ << ") "
               << ((Runtime::Current() != nullptr && driver_ != nullptr) ?
                   driver_->GetMemoryUsageString(kIsDebugBuild || VLOG_IS_ON(compiler)) :
                   "");
+#if !defined(__linux__)
+    // ProcessCpuNanoTime() is not supported on Darwin.
+    UNUSED(start_cputime_ns_);
+#endif
   }
 
   std::string StripIsaFrom(const char* image_filename, InstructionSet isa) {
