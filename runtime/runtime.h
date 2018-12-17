@@ -792,6 +792,22 @@ class Runtime {
     return verifier_logging_threshold_ms_;
   }
 
+  // Atomically delete the thread pool if the reference count is 0.
+  bool DeleteThreadPool() REQUIRES(!Locks::runtime_thread_pool_lock_);
+
+  class ScopedThreadPoolUsage {
+   public:
+    ScopedThreadPoolUsage();
+    ~ScopedThreadPoolUsage();
+
+    ThreadPool* GetThreadPool() const {
+      return thread_pool_;
+    }
+
+   private:
+    ThreadPool* thread_pool_;
+  };
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -827,6 +843,10 @@ class Runtime {
   //       only aborting code should retrieve this data (via GetFaultMessageForAbortLogging
   //       friend).
   std::string GetFaultMessage();
+
+  ThreadPool* AcquireThreadPool() REQUIRES(!Locks::runtime_thread_pool_lock_);
+  void ReleaseThreadPool() REQUIRES(!Locks::runtime_thread_pool_lock_);
+  void WaitForThreadPoolWorkersToStart() REQUIRES(!Locks::runtime_thread_pool_lock_);
 
   // A pointer to the active runtime or null.
   static Runtime* instance_;
@@ -910,6 +930,10 @@ class Runtime {
   std::unique_ptr<jit::Jit> jit_;
   std::unique_ptr<jit::JitCodeCache> jit_code_cache_;
   std::unique_ptr<jit::JitOptions> jit_options_;
+
+  // Runtime thread pool.
+  std::unique_ptr<ThreadPool> thread_pool_ GUARDED_BY(Locks::runtime_thread_pool_lock_);
+  size_t thread_pool_ref_count_ GUARDED_BY(Locks::runtime_thread_pool_lock_);
 
   // Fault message, printed when we get a SIGSEGV. Stored as a native-heap object and accessed
   // lock-free, so needs to be atomic.
@@ -1115,6 +1139,7 @@ class Runtime {
 
   // Note: See comments on GetFaultMessage.
   friend std::string GetFaultMessageForAbortLogging();
+  friend class ScopedThreadPoolUsage;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };
