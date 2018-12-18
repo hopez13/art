@@ -93,6 +93,30 @@
       "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5743e128_9448ea13",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-18T01:46:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "faf03cc3_cd69e3a1",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 20
+      },
+      "revId": "1aa4efee1c780e54f87731d74315101a9ec4f5b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
