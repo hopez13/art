@@ -46,6 +46,30 @@
       "revId": "f1ecf94d7f8a1d47bf3ef624a6f24c7bd3061df6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "335c9f0c_b1736bb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-18T18:02:58Z",
+      "side": 1,
+      "message": "I am OK with removing it - nobody besides me after all used the zygote-started streaming tracing, anyways. But this sentence has a semantic meaning, namely that Resume *and* Pause were unused, and that\u0027s just wrong.\n\nSomething that reflects codebase reality would be:\n\n  \"Remove Trace.Pause and Trace.Resume. Resume was never wired up anywhere, and the zygote-tracing functionality is untested.\"",
+      "parentUuid": "60b1bb21_b77e790a",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "f1ecf94d7f8a1d47bf3ef624a6f24c7bd3061df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
