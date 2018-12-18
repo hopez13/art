@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "64e4302f_b913fb12",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-18T12:49:09Z",
+      "side": 1,
+      "message": "Albert, could you add a comment explaining the choice to fetch the \"Generational CC\" state from the Heap object rather than the RegionSpace object (basically, because accessing the Heap from a Region object is easier than accessing the RegionSpace)?",
+      "parentUuid": "94c8afc7_69a01b3d",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 68
+      },
+      "revId": "6e3f0138deb88a10f28d20ba42d552e0ffee4040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52cfaf71_e3da8c45",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 13
