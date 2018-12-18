@@ -22,6 +22,30 @@
       "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36d1043_c7697a6d",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-12-18T02:13:57Z",
+      "side": 1,
+      "message": "Very good catch.  Thanks.  Fixed.",
+      "parentUuid": "0eea4782_44d4ea63",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
