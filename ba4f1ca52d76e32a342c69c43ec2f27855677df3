@@ -70,6 +70,30 @@
       "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54c7e234_4e16797d",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2018-12-18T18:59:08Z",
+      "side": 1,
+      "message": "A great suggestion.  Unfortunately, libbase\u0027s Realpath isn\u0027t implemented for _WIN32 either.\nI refactored to avoid the path variable entirely.",
+      "parentUuid": "792cc7d1_d91b7314",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
