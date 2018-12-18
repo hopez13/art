@@ -70,6 +70,30 @@
       "revId": "f1ecf94d7f8a1d47bf3ef624a6f24c7bd3061df6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9666ef3a_e9fca8c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-18T18:10:28Z",
+      "side": 1,
+      "message": "This is context I did not have. Here\u0027s a standalone CL to remove Trace.Resume/Pause:\nhttps://android-review.googlesource.com/c/platform/art/+/853516",
+      "parentUuid": "335c9f0c_b1736bb5",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "f1ecf94d7f8a1d47bf3ef624a6f24c7bd3061df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
