@@ -25,6 +25,167 @@
     },
     {
       "key": {
+        "uuid": "b27439c0_08f9faf4",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "I think it should be put after \u0027#include \"memory_tool.h\"\u0027 to be in order.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 57
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a50b2733_37588a0a",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "Needs to be ordered alphabetically.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "923e9cc0_b58e2160",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "It needs to be corrected or removed.",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 19
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "887bf497_6c8143e7",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "The same as above",
+      "range": {
+        "startLine": 163,
+        "startChar": 10,
+        "endLine": 163,
+        "endChar": 19
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db81d618_6455894d",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 175,
+        "startChar": 10,
+        "endLine": 175,
+        "endChar": 19
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e468c671_c9c9ba1d",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "This path will be used on Windows.",
+      "range": {
+        "startLine": 213,
+        "startChar": 4,
+        "endLine": 213,
+        "endChar": 23
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66e29122_99b579f9",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2018-12-18T14:22:58Z",
+      "side": 1,
+      "message": "Is it forgotten to be removed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c457f6ed_ea4e6e26",
         "filename": "libdexfile/dex/dex_file_loader.cc",
         "patchSetId": 4
