@@ -46,6 +46,30 @@
       "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "792cc7d1_d91b7314",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-18T15:56:51Z",
+      "side": 1,
+      "message": "Could consider avoiding posix realpath and instead use libbase\u0027s Realpath, which works over std::string.",
+      "parentUuid": "e36d1043_c7697a6d",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "ba4f1ca52d76e32a342c69c43ec2f27855677df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
