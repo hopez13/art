@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6aea65d_dc25c661",
+        "filename": "libartbase/base/time_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-18T23:13:46Z",
+      "side": 1,
+      "message": "Probably should make this consistent with the others and make it defined(__linux__)?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 43
+      },
+      "revId": "d739c0a7a34c23211893f06ac3cefecf4d96a58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
