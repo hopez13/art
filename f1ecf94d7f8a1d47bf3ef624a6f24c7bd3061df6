@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f15c858_b19141d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-18T17:51:39Z",
+      "side": 1,
+      "message": "That\u0027s obviously not true, Pause was used. Just somewhat meaningless because either Resume was never correctly called or someone removed the Resume call.\n\n(I\u0027d rather the removal was in another [base] CL, but w/e. Alex owns tracing now.)",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "f1ecf94d7f8a1d47bf3ef624a6f24c7bd3061df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
