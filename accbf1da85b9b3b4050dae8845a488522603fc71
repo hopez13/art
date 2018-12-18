@@ -22,6 +22,29 @@
       "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c457f6ed_ea4e6e26",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-18T02:19:13Z",
+      "side": 1,
+      "message": "Actualy... malloc/delete mismatch will probably cause ASAN failures. Probably need to use new char[].",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 38
+      },
+      "revId": "accbf1da85b9b3b4050dae8845a488522603fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
