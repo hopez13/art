@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec7b788_409e2cf8",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-18T23:53:55Z",
+      "side": 1,
+      "message": "Is this deleted? Seems to be leaking. Recommend using unique_ptr.",
+      "range": {
+        "startLine": 297,
+        "startChar": 2,
+        "endLine": 297,
+        "endChar": 35
+      },
+      "revId": "1c34b71f7471b20b1ade5528416e1d63957e7395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c64481a_48cc1ba9",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-18T23:53:55Z",
+      "side": 1,
+      "message": "unique_ptr?",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 37
+      },
+      "revId": "1c34b71f7471b20b1ade5528416e1d63957e7395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1813e7ae_0dc736a7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-18T23:53:55Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 398,
+        "startChar": 2,
+        "endLine": 398,
+        "endChar": 36
+      },
+      "revId": "1c34b71f7471b20b1ade5528416e1d63957e7395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
