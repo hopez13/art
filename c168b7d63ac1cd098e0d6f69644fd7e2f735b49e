@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f07c573_a011d4fa",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-12-19T14:47:39Z",
+      "side": 1,
+      "message": "counter + value might still overflow here :)",
+      "parentUuid": "fb399dc1_488e3019",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e58a71c_20b73984",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64e48069_637bdfe8",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2018-12-19T14:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e58a71c_20b73984",
+      "range": {
+        "startLine": 2162,
+        "startChar": 6,
+        "endLine": 2162,
+        "endChar": 65
+      },
+      "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
