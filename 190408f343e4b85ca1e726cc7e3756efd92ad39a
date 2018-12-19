@@ -22,6 +22,30 @@
       "revId": "190408f343e4b85ca1e726cc7e3756efd92ad39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1000ad32_61f7070f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2644,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-19T09:22:49Z",
+      "side": 1,
+      "message": "Yeah, I started changing this method do account for JIT methods, but went another route. I\u0027ve put back the existing code for better history tracking.",
+      "parentUuid": "6426ff7c_ad7b22a8",
+      "range": {
+        "startLine": 2639,
+        "startChar": 0,
+        "endLine": 2644,
+        "endChar": 0
+      },
+      "revId": "190408f343e4b85ca1e726cc7e3756efd92ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
