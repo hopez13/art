@@ -459,6 +459,10 @@ class ProfMan final {
   // The methods reads the links from /proc/self/fd/ to find the original apk paths
   // and puts them in the dex_locations_ vector.
   bool ComputeDexLocationsFromApkFds() {
+#ifdef _WIN32
+    PLOG(ERROR) << "ComputeDexLocationsFromApkFds is unsupported on Windows.";
+    return false;
+#else
     // We can't use a char array of PATH_MAX size without exceeding the frame size.
     // So we use a vector as the buffer for the path.
     std::vector<char> buffer(PATH_MAX, 0);
@@ -474,11 +478,17 @@ class ProfMan final {
       dex_locations_.push_back(buffer.data());
     }
     return true;
+#endif
   }
 
   std::unique_ptr<const ProfileCompilationInfo> LoadProfile(const std::string& filename, int fd) {
     if (!filename.empty()) {
-      fd = open(filename.c_str(), O_RDWR | O_CLOEXEC);
+#ifdef _WIN32
+      int flags = O_RDWR;
+#else
+      int flags = O_RDWR | O_CLOEXEC;
+#endif
+      fd = open(filename.c_str(), flags);
       if (fd < 0) {
         LOG(ERROR) << "Cannot open " << filename << strerror(errno);
         return nullptr;
@@ -642,7 +652,12 @@ class ProfMan final {
   bool GetClassNamesAndMethods(const std::string& profile_file,
                                std::vector<std::unique_ptr<const DexFile>>* dex_files,
                                std::set<std::string>* out_lines) {
-    int fd = open(profile_file.c_str(), O_RDONLY | O_CLOEXEC);
+#ifdef _WIN32
+    int flags = O_RDONLY;
+#else
+    int flags = O_RDONLY | O_CLOEXEC;
+#endif
+    int fd = open(profile_file.c_str(), flags);
     if (!FdIsValid(fd)) {
       LOG(ERROR) << "Cannot open " << profile_file << strerror(errno);
       return false;
@@ -1023,7 +1038,12 @@ class ProfMan final {
     int fd = reference_profile_file_fd_;
     if (!FdIsValid(fd)) {
       CHECK(!reference_profile_file_.empty());
-      fd = open(reference_profile_file_.c_str(), O_CREAT | O_TRUNC | O_WRONLY | O_CLOEXEC, 0644);
+#ifdef _WIN32
+      int flags = O_CREAT | O_TRUNC | O_WRONLY;
+#else
+      int flags = O_CREAT | O_TRUNC | O_WRONLY | O_CLOEXEC;
+#endif
+      fd = open(reference_profile_file_.c_str(), flags, 0644);
       if (fd < 0) {
         LOG(ERROR) << "Cannot open " << reference_profile_file_ << strerror(errno);
         return kInvalidFd;
@@ -1156,9 +1176,12 @@ class ProfMan final {
       }
     }
     // ShouldGenerateTestProfile confirms !test_profile_.empty().
-    int profile_test_fd = open(test_profile_.c_str(),
-                               O_CREAT | O_TRUNC | O_WRONLY | O_CLOEXEC,
-                               0644);
+#ifdef _WIN32
+    int flags = O_CREAT | O_TRUNC | O_WRONLY;
+#else
+    int flags = O_CREAT | O_TRUNC | O_WRONLY | O_CLOEXEC;
+#endif
+    int profile_test_fd = open(test_profile_.c_str(), flags, 0644);
     if (profile_test_fd < 0) {
       LOG(ERROR) << "Cannot open " << test_profile_ << strerror(errno);
       return -1;
