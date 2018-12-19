@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6eccea2_75952ba2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-19T09:25:51Z",
+      "side": 1,
+      "message": "Sounds like this sort of functionality would be better place in some kind of dex2oat wrapper that would in turn be able to test the determinism?",
+      "range": {
+        "startLine": 385,
+        "startChar": 15,
+        "endLine": 386,
+        "endChar": 95
+      },
+      "revId": "8f2221c2b4f4e670c9174b7d9a60a2a7ac5cd129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
