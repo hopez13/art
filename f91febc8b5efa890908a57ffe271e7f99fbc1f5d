@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6e27188_ed90d4a7",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-19T21:11:54Z",
+      "side": 1,
+      "message": "It might be more convenient just to print longest_consecutive_free_bytes. They can clearly be computed from each other, but the ratio is really hard to interpret without also recomputing free_bytes. A ratio of 1 may mean that there\u0027s just a single small free object in the whole block.",
+      "range": {
+        "startLine": 868,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 72
+      },
+      "revId": "f91febc8b5efa890908a57ffe271e7f99fbc1f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10810caa_d29646e8",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2018-12-19T21:11:54Z",
+      "side": 1,
+      "message": "I would comment that this is in increasing address order, since that\u0027s critical here.",
+      "range": {
+        "startLine": 643,
+        "startChar": 2,
+        "endLine": 645,
+        "endChar": 32
+      },
+      "revId": "f91febc8b5efa890908a57ffe271e7f99fbc1f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
