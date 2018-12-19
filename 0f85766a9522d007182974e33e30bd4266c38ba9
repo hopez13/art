@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd588de1_38ff16e4",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-19T16:26:48Z",
+      "side": 1,
+      "message": "This seems odd, considering we are returning -1 line 432.",
+      "range": {
+        "startLine": 430,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 48
+      },
+      "revId": "0f85766a9522d007182974e33e30bd4266c38ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
