@@ -3790,7 +3790,7 @@ void Heap::ConcurrentGC(Thread* self, GcCause cause, bool force_full) {
   if (!Runtime::Current()->IsShuttingDown(self)) {
     // Wait for any GCs currently running to finish.
     if (WaitForGcToComplete(cause, self) == collector::kGcTypeNone) {
-      // If the we can't run the GC type we wanted to run, find the next appropriate one and try
+      // If we can't run the GC type we wanted to run, find the next appropriate one and try
       // that instead. E.g. can't do partial, so do full instead.
       collector::GcType next_gc_type = next_gc_type_;
       // If forcing full and next gc type is sticky, override with a non-sticky type.
@@ -3969,7 +3969,7 @@ static constexpr size_t kNewNativeDiscountFactor = 2;
 // If weighted java + native memory use exceeds our target by kStopForNativeFactor, and
 // newly allocated memory exceeds kHugeNativeAlloc, we wait for GC to complete to avoid
 // running out of memory.
-static constexpr float kStopForNativeFactor = 2.0;
+static constexpr float kStopForNativeFactor = 3.0;
 static constexpr size_t kHugeNativeAllocs = 200*1024*1024;
 
 // Return the ratio of the weighted native + java allocated bytes to its target value.
@@ -4009,7 +4009,7 @@ inline void Heap::CheckConcurrentGCForNative(Thread* self) {
         if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
           LOG(INFO) << "Stopping for native allocation, urgency: " << gc_urgency;
         }
-        WaitForGcToComplete(kGcCauseForAlloc, self);
+        WaitForGcToComplete(kGcCauseForNativeAlloc, self);
       }
     } else {
       CollectGarbageInternal(NonStickyGcType(), kGcCauseForNativeAlloc, false);

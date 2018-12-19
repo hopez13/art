@@ -1136,15 +1136,9 @@ class Heap {
   // collect. We collect when a weighted sum of Java memory plus native memory exceeds
   // the similarly weighted sum of the Java heap size target and this value.
   ALWAYS_INLINE size_t NativeAllocationGcWatermark() const {
-    // It probably makes most sense to use a constant multiple of target_footprint_ .
-    // This is a good indication of the live data size, together with the
-    // intended space-time trade-off, as expressed by SetTargetHeapUtilization.
-    // For a fixed target utilization, the amount of GC effort per native
-    // allocated byte remains roughly constant as the Java heap size changes.
-    // But we previously triggered on max_free_ native allocation which is often much
-    // smaller. To avoid unexpected growth, we partially keep that limit in place for now.
-    // TODO: Consider HeapGrowthMultiplier(). Maybe.
-    return std::min(target_footprint_.load(std::memory_order_relaxed), 2 * max_free_);
+    // We keep the traditional limit of max_free in place for small heaps,
+    // but allow it to be adjusted upward for large heaps to limit GC overhead.
+    return target_footprint_.load(std::memory_order_relaxed) / 8 + max_free_;
   }
 
   ALWAYS_INLINE void IncrementNumberOfBytesFreedRevoke(size_t freed_bytes_revoke);
