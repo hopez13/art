@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "683b5398_b2b535c5",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-19T22:58:17Z",
+      "side": 1,
+      "message": "This is to fix the problem in b/121149887. Do you know anything more right away that\u0027s needed by the binaries in the APEX?\n\nThe corresponding list in system is rather long (http://cs/android/system/core/rootdir/etc/ld.config.txt?l\u003d45-76):\n\nnamespace.default.permitted.paths  \u003d /system/${LIB}/drm\nnamespace.default.permitted.paths +\u003d /system/${LIB}/extractors\nnamespace.default.permitted.paths +\u003d /system/${LIB}/hw\nnamespace.default.permitted.paths +\u003d /%PRODUCT%/${LIB}\nnamespace.default.permitted.paths +\u003d /%PRODUCT_SERVICES%/${LIB}\n# These are where odex files are located. libart has to be able to dlopen the files\nnamespace.default.permitted.paths +\u003d /system/framework\nnamespace.default.permitted.paths +\u003d /system/app\nnamespace.default.permitted.paths +\u003d /system/priv-app\nnamespace.default.permitted.paths +\u003d /vendor/framework\nnamespace.default.permitted.paths +\u003d /vendor/app\nnamespace.default.permitted.paths +\u003d /vendor/priv-app\nnamespace.default.permitted.paths +\u003d /odm/framework\nnamespace.default.permitted.paths +\u003d /odm/app\nnamespace.default.permitted.paths +\u003d /odm/priv-app\nnamespace.default.permitted.paths +\u003d /oem/app\nnamespace.default.permitted.paths +\u003d /%PRODUCT%/framework\nnamespace.default.permitted.paths +\u003d /%PRODUCT%/app\nnamespace.default.permitted.paths +\u003d /%PRODUCT%/priv-app\nnamespace.default.permitted.paths +\u003d /%PRODUCT_SERVICES%/framework\nnamespace.default.permitted.paths +\u003d /%PRODUCT_SERVICES%/app\nnamespace.default.permitted.paths +\u003d /%PRODUCT_SERVICES%/priv-app\nnamespace.default.permitted.paths +\u003d /data\nnamespace.default.permitted.paths +\u003d /mnt/expand\nnamespace.default.permitted.paths +\u003d /apex/com.android.resolv/${LIB}",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 53
+      },
+      "revId": "9c42e71cb7204e0e930b75e702228a30ad604727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
