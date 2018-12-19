@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb399dc1_488e3019",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-19T09:32:31Z",
+      "side": 1,
+      "message": "return std::min(counter + value, std::numeric_limits\u003cuint16_t\u003e::max()) ?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e58a71c_20b73984",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-19T09:32:31Z",
+      "side": 1,
+      "message": "Add a helper? and share it with line 1637?",
+      "range": {
+        "startLine": 2162,
+        "startChar": 6,
+        "endLine": 2162,
+        "endChar": 65
+      },
+      "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5552789_b292fe3b",
+        "filename": "profman/profile_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-12-19T09:32:31Z",
+      "side": 1,
+      "message": "Can you also expand on why this check?",
+      "range": {
+        "startLine": 48,
+        "startChar": 36,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "c168b7d63ac1cd098e0d6f69644fd7e2f735b49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
