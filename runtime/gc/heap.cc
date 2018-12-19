@@ -666,9 +666,6 @@ Heap::Heap(size_t initial_size,
       concurrent_copying_collector_->SetRegionSpace(region_space_);
       if (kEnableGenerationalConcurrentCopyingCollection) {
         young_concurrent_copying_collector_->SetRegionSpace(region_space_);
-        // At this point, non-moving space should be created.
-        DCHECK(non_moving_space_ != nullptr);
-        concurrent_copying_collector_->CreateInterRegionRefBitmaps();
       }
       garbage_collectors_.push_back(concurrent_copying_collector_);
       if (kEnableGenerationalConcurrentCopyingCollection) {
@@ -2739,7 +2736,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
           // active_concurrent_copying_collector_. So we should not concurrency here.
           active_concurrent_copying_collector_ = (gc_type == collector::kGcTypeSticky) ?
               young_concurrent_copying_collector_ : concurrent_copying_collector_;
-          DCHECK(active_concurrent_copying_collector_->RegionSpace() == region_space_);
+          active_concurrent_copying_collector_->SetRegionSpace(region_space_);
         }
         collector = active_concurrent_copying_collector_;
         break;
