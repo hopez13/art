@@ -31,7 +31,11 @@ namespace art {
 class ScopedTrace {
  public:
   explicit ScopedTrace(const char* name) {
+#ifdef _WIN32
+    UNUSED(name);
+#else
     ATRACE_BEGIN(name);
+#endif
   }
   template <typename Fn>
   explicit ScopedTrace(Fn fn) {
