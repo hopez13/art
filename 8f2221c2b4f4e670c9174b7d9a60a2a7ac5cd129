@@ -22,6 +22,30 @@
       "revId": "8f2221c2b4f4e670c9174b7d9a60a2a7ac5cd129",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dff82ea0_638c21a9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2018-12-19T17:12:05Z",
+      "side": 1,
+      "message": "By placing the cmdline into a file in a easy to parse format its easier to modify it for testing (for example to test that linux_bionic and device runs are identical, which might need different paths).",
+      "parentUuid": "d6eccea2_75952ba2",
+      "range": {
+        "startLine": 385,
+        "startChar": 15,
+        "endLine": 386,
+        "endChar": 95
+      },
+      "revId": "8f2221c2b4f4e670c9174b7d9a60a2a7ac5cd129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
