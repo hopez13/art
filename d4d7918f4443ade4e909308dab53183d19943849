@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c31ef0e1_f6586507",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-20T18:10:54Z",
+      "side": 1,
+      "message": "This is really noisy!\n\nI choose to not fix the warning about the std::string_view operator not being explicit, because it\u0027d add quite a bit of boilerplate \"std::string(std::string_view(...))\" without any real benefit.",
+      "revId": "d4d7918f4443ade4e909308dab53183d19943849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
