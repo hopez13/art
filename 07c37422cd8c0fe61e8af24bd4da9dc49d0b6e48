@@ -70,6 +70,30 @@
       "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d25eb46_77da0b93",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-20T16:20:23Z",
+      "side": 1,
+      "message": "OK, will do that refactoring in another CL.",
+      "parentUuid": "69f6df36_de10cf8e",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 32
+      },
+      "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
