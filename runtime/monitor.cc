@@ -191,6 +191,7 @@ bool Monitor::Install(Thread* self) {
             : StackVisitor(thread,
                            nullptr,
                            StackVisitor::StackWalkKind::kIncludeInlinedFrames,
+                           StackMap::DexRegInfoKind::kPresent,
                            false),
               count_(0),
               method_(nullptr),
@@ -1415,6 +1416,9 @@ void Monitor::VisitLocks(StackVisitor* stack_visitor, void (*callback)(mirror::O
                          void* callback_context, bool abort_on_failure) {
   ArtMethod* m = stack_visitor->GetMethod();
   CHECK(m != nullptr);
+  // For optimized code we expect the DexRegisterMap to be of kPresent type - monitor information
+  // not be optimized out.
+  CHECK(stack_visitor->GetExpectedStackmapType() == StackMap::DexRegInfoKind::kPresent);
 
   // Native methods are an easy special case.
   // TODO: use the JNI implementation's table of explicit MonitorEnter calls and dump those too.

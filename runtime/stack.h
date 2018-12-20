@@ -122,6 +122,7 @@ class StackVisitor {
   StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
+               StackMap::DexRegInfoKind stackmap_type = StackMap::DexRegInfoKind::kPresent,
                bool check_suspended = true);
 
   bool GetRegisterIfAccessible(uint32_t reg, VRegKind kind, uint32_t* val) const
@@ -151,7 +152,9 @@ class StackVisitor {
                                       Context* context,
                                       StackWalkKind walk_kind,
                                       bool check_suspended = true,
-                                      bool include_transitions = false)
+                                      bool include_transitions = false,
+                                      StackMap::DexRegInfoKind stackmap_type =
+                                          StackMap::DexRegInfoKind::kPresent)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     class LambdaStackVisitor : public StackVisitor {
      public:
@@ -159,8 +162,9 @@ class StackVisitor {
                          Thread* thread,
                          Context* context,
                          StackWalkKind walk_kind,
-                         bool check_suspended = true)
-          : StackVisitor(thread, context, walk_kind, check_suspended), fn_(fn) {}
+                         StackMap::DexRegInfoKind stackmap_type,
+                         bool check_suspended)
+          : StackVisitor(thread, context, walk_kind, stackmap_type, check_suspended), fn_(fn) {}
 
       bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
         return fn_(this);
@@ -169,7 +173,7 @@ class StackVisitor {
      private:
       T fn_;
     };
-    LambdaStackVisitor visitor(fn, thread, context, walk_kind, check_suspended);
+    LambdaStackVisitor visitor(fn, thread, context, walk_kind, stackmap_type, check_suspended);
     visitor.template WalkStack<kCountTransitions>(include_transitions);
   }
 
@@ -257,6 +261,10 @@ class StackVisitor {
     return current_inline_frames_.back();
   }
 
+  StackMap::DexRegInfoKind GetExpectedStackmapType() const {
+    return expected_stackmap_type_;
+  }
+
   uintptr_t GetCurrentQuickFramePc() const {
     return cur_quick_frame_pc_;
   }
@@ -293,8 +301,9 @@ class StackVisitor {
   StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
+               StackMap::DexRegInfoKind stackmap_type,
                size_t num_frames,
-               bool check_suspended = true)
+               bool check_suspended)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsAccessibleRegister(uint32_t reg, bool is_float) const {
@@ -344,6 +353,7 @@ class StackVisitor {
   // We keep poping frames from the end as we visit the frames.
   CodeInfo current_code_info_;
   BitTableRange<InlineInfo> current_inline_frames_;
+  const StackMap::DexRegInfoKind expected_stackmap_type_;
 
  protected:
   Context* const context_;
