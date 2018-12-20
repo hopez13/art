@@ -46,6 +46,30 @@
       "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f6df36_de10cf8e",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-20T14:50:35Z",
+      "side": 1,
+      "message": "I see. Let\u0027s keep it in `RegionSpace` then (which makes sense, given that other `Walk*` methods are also part of `RegionSpace`).\n\nI think there\u0027s a small change you could make however (maybe in another CL): you should be able to turn `RegionSpace::GetNextObject` into a static member, as it does not seem to be using anything from its `RegionSpace` instance at the moment.",
+      "parentUuid": "5a11e6b2_ec9fa2a5",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 32
+      },
+      "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
