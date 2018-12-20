@@ -128,6 +128,7 @@ class StackMap : public BitTableAccessor<8> {
     OSR = 1,
     Debug = 2,
   };
+
   BIT_TABLE_HEADER(StackMap)
   BIT_TABLE_COLUMN(0, Kind)
   BIT_TABLE_COLUMN(1, PackedNativePc)
