@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a79eadc_22070242",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-20T13:44:27Z",
+      "side": 1,
+      "message": "This needs to be updated to reflect your changes from PS4 in RegionSpace::Region::Dump.",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "812a0fdfab9ab9e056ba89c20f7b9deca387ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec8c360a_7e3d9db6",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-20T13:44:27Z",
+      "side": 1,
+      "message": "While you\u0027re at it, could you add a comment just above this line:\n\n  // We need the region space bitmap to iterate over a region\u0027s objects\n  // if\n  // - its live bytes count is invalid (i.e. -1); or\n  // - its live bytes count is lower than the allocated bytes count.\n  //\n  // In both of the previous cases, we do not have the guarantee that\n  // all allocated objects are \"alive\" (i.e. valid), so we depend on\n  // the region space bitmap to identify which ones to visit.\n  //\n  // On the other hand, when all allocated bytes are known to be alive,\n  // we know that they form a range of consecutive objects (modulo\n  // object alignment constraints) that can be visited iteratively: we\n  // can compute the next object\u0027s location by using the current\n  // object\u0027s address and size (and object alignment constraints).\n\n?",
+      "range": {
+        "startLine": 263,
+        "startChar": 13,
+        "endLine": 263,
+        "endChar": 24
+      },
+      "revId": "812a0fdfab9ab9e056ba89c20f7b9deca387ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0673d71b_cacb5853",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-20T13:44:27Z",
+      "side": 1,
+      "message": "Now that I think about this: could this be turned into a method of RegionSpace::Region?",
+      "range": {
+        "startLine": 648,
+        "startChar": 2,
+        "endLine": 648,
+        "endChar": 59
+      },
+      "revId": "812a0fdfab9ab9e056ba89c20f7b9deca387ef4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
