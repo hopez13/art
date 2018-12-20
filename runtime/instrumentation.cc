@@ -269,7 +269,10 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   struct InstallStackVisitor final : public StackVisitor {
     InstallStackVisitor(Thread* thread_in, Context* context, uintptr_t instrumentation_exit_pc)
-        : StackVisitor(thread_in, context, kInstrumentationStackWalk),
+        : StackVisitor(thread_in,
+                       context,
+                       kInstrumentationStackWalk,
+                       /* needs_vreg_info= */ false),
           instrumentation_stack_(thread_in->GetInstrumentationStack()),
           instrumentation_exit_pc_(instrumentation_exit_pc),
           reached_existing_instrumentation_frames_(false), instrumentation_stack_depth_(0),
