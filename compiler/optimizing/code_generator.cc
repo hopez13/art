@@ -1036,6 +1036,19 @@ ScopedArenaVector<uint8_t> CodeGenerator::BuildStackMaps(const dex::CodeItem* co
   return stack_map;
 }
 
+// Returns stackmap dex register info kind - whether it is needed for the instruction.
+static StackMap::DexRegInfoKind GetDexRegInfoType(HInstruction* instruction, bool osr) {
+  HGraph* graph = instruction->GetBlock()->GetGraph();
+  bool needs_vreg_info = graph->HasMonitorOperations() ||
+                         graph->IsDebuggable() ||
+                         osr ||
+                         instruction->CanThrowIntoCatchBlock() ||
+                         instruction->IsDeoptimize();
+  return needs_vreg_info ?
+         StackMap::DexRegInfoKind::kPresent :
+         StackMap::DexRegInfoKind::kAbsent;
+}
+
 void CodeGenerator::RecordPcInfo(HInstruction* instruction,
                                  uint32_t dex_pc,
                                  SlowPathCode* slow_path,
@@ -1114,12 +1127,15 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
   StackMap::Kind kind = native_debug_info
       ? StackMap::Kind::Debug
       : (osr ? StackMap::Kind::OSR : StackMap::Kind::Default);
+  StackMap::DexRegInfoKind reg_info_kind = GetDexRegInfoType(instruction, osr);
   stack_map_stream->BeginStackMapEntry(outer_dex_pc,
                                        native_pc,
                                        register_mask,
                                        locations->GetStackMask(),
-                                       kind);
-  EmitEnvironment(environment, slow_path);
+                                       kind,
+                                       reg_info_kind);
+
+  EmitEnvironment(environment, slow_path, reg_info_kind);
   stack_map_stream->EndStackMapEntry();
 
   if (osr) {
@@ -1232,17 +1248,27 @@ void CodeGenerator::AddSlowPath(SlowPathCode* slow_path) {
   code_generation_data_->AddSlowPath(slow_path);
 }
 
-void CodeGenerator::EmitEnvironment(HEnvironment* environment, SlowPathCode* slow_path) {
+void CodeGenerator::EmitEnvironment(HEnvironment* environment,
+                                    SlowPathCode* slow_path,
+                                    StackMap::DexRegInfoKind reg_info_kind) {
   if (environment == nullptr) return;
 
   StackMapStream* stack_map_stream = GetStackMapStream();
+  bool needs_vreg_info = reg_info_kind == StackMap::DexRegInfoKind::kPresent;
   if (environment->GetParent() != nullptr) {
     // We emit the parent environment first.
-    EmitEnvironment(environment->GetParent(), slow_path);
+    EmitEnvironment(environment->GetParent(), slow_path, reg_info_kind);
     stack_map_stream->BeginInlineInfoEntry(environment->GetMethod(),
                                            environment->GetDexPc(),
-                                           environment->Size(),
+                                           needs_vreg_info ? environment->Size() : 0,
                                            &graph_->GetDexFile());
+  }
+
+  if (!needs_vreg_info) {
+    if (environment->GetParent() != nullptr) {
+      stack_map_stream->EndInlineInfoEntry();
+    }
+    return;
   }
 
   // Walk over the environment, and record the location of dex registers.

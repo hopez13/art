@@ -128,6 +128,14 @@ class StackMap : public BitTableAccessor<8> {
     OSR = 1,
     Debug = 2,
   };
+
+  // This enum defines a flag to control whether StackVisitor::GetVRegFromOptimizedCode should
+  // expect to have stackmaps with vreg location information kept intact.
+  enum class DexRegInfoKind {
+    kPresent,
+    kAbsent,
+  };
+
   BIT_TABLE_HEADER(StackMap)
   BIT_TABLE_COLUMN(0, Kind)
   BIT_TABLE_COLUMN(1, PackedNativePc)
