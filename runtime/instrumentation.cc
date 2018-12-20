@@ -269,7 +269,10 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   struct InstallStackVisitor final : public StackVisitor {
     InstallStackVisitor(Thread* thread_in, Context* context, uintptr_t instrumentation_exit_pc)
-        : StackVisitor(thread_in, context, kInstrumentationStackWalk),
+        : StackVisitor(thread_in,
+                       context,
+                       kInstrumentationStackWalk,
+                       StackMap::DexRegInfoKind::kNonPrecise),
           instrumentation_stack_(thread_in->GetInstrumentationStack()),
           instrumentation_exit_pc_(instrumentation_exit_pc),
           reached_existing_instrumentation_frames_(false), instrumentation_stack_depth_(0),
@@ -350,6 +353,9 @@ static void InstrumentationInstallStack(Thread* thread, void* arg)
                      << " dex pc: " << dex_pc;
           UNREACHABLE();
         }
+        // Dear Googlers, could you comment here whether it is safe and permitted to ignore the
+        // absence of "this" here please? With kNonPrecise stackmap. GetThisObject() will return
+        // nullptr.
         InstrumentationStackFrame instrumentation_frame(
             m->IsRuntimeMethod() ? nullptr : GetThisObject(),
             m,

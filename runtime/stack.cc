@@ -52,12 +52,14 @@ static constexpr bool kDebugStackWalk = false;
 StackVisitor::StackVisitor(Thread* thread,
                            Context* context,
                            StackWalkKind walk_kind,
+                           StackMap::DexRegInfoKind stackmap_type,
                            bool check_suspended)
-    : StackVisitor(thread, context, walk_kind, 0, check_suspended) {}
+    : StackVisitor(thread, context, walk_kind, stackmap_type, 0, check_suspended) {}
 
 StackVisitor::StackVisitor(Thread* thread,
                            Context* context,
                            StackWalkKind walk_kind,
+                           StackMap::DexRegInfoKind stackmap_type,
                            size_t num_frames,
                            bool check_suspended)
     : thread_(thread),
@@ -68,6 +70,7 @@ StackVisitor::StackVisitor(Thread* thread,
       cur_oat_quick_method_header_(nullptr),
       num_frames_(num_frames),
       cur_depth_(0),
+      expected_stackmap_type_(stackmap_type),
       context_(context),
       check_suspended_(check_suspended) {
   if (check_suspended_) {
@@ -215,10 +218,16 @@ bool StackVisitor::GetVRegFromOptimizedCode(ArtMethod* m, uint16_t vreg, VRegKin
   DexRegisterMap dex_register_map = IsInInlinedFrame()
       ? code_info.GetInlineDexRegisterMapOf(stack_map, current_inline_frames_.back())
       : code_info.GetDexRegisterMapOf(stack_map);
+
+  if (expected_stackmap_type_ == StackMap::DexRegInfoKind::kPrecise) {
+    // A precise stackmap is expected here.
+    CHECK_EQ(dex_register_map.size(), number_of_dex_registers) <<
+        "artser01: Precise stackmap needed\n";
+  }
+
   if (dex_register_map.empty()) {
     return false;
   }
-  DCHECK_EQ(dex_register_map.size(), number_of_dex_registers);
   DexRegisterLocation::Kind location_kind = dex_register_map[vreg].GetKind();
   switch (location_kind) {
     case DexRegisterLocation::Kind::kInStack: {
@@ -498,7 +507,12 @@ bool StackVisitor::GetNextMethodAndDexPc(ArtMethod** next_method, uint32_t* next
                          StackWalkKind walk_kind,
                          size_t num_frames,
                          size_t frame_height)
-        : StackVisitor(thread, nullptr, walk_kind, num_frames),
+        : StackVisitor(thread,
+                       nullptr,
+                       walk_kind,
+                       StackMap::DexRegInfoKind::kNonPrecise,
+                       num_frames,
+                       /* check_suspended */ true),
           frame_height_(frame_height),
           found_frame_(false),
           has_more_frames_(false),

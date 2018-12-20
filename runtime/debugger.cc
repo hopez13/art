@@ -3617,7 +3617,8 @@ bool Dbg::IsForcedInterpreterNeededForExceptionImpl(Thread* thread) {
       /* context= */ nullptr,
       art::StackVisitor::StackWalkKind::kIncludeInlinedFrames,
       /* check_suspended */ true,
-      /* include_transitions */ true);
+      /* include_transitions */ true,
+      StackMap::DexRegInfoKind::kPrecise);
   return needs_deoptimization;
 }
 

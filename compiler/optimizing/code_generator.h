@@ -759,7 +759,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   size_t GetStackOffsetOfSavedRegister(size_t index);
   void GenerateSlowPaths();
   void BlockIfInRegister(Location location, bool is_out = false) const;
-  void EmitEnvironment(HEnvironment* environment, SlowPathCode* slow_path);
+  void EmitEnvironment(HEnvironment* environment,
+                       SlowPathCode* slow_path,
+                       StackMap::DexRegInfoKind reg_info_kind =
+                           StackMap::DexRegInfoKind::kPrecise);
 
   OptimizingCompilerStats* stats_;
 

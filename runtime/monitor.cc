@@ -191,6 +191,7 @@ bool Monitor::Install(Thread* self) {
             : StackVisitor(thread,
                            nullptr,
                            StackVisitor::StackWalkKind::kIncludeInlinedFrames,
+                           StackMap::DexRegInfoKind::kPrecise,
                            false),
               count_(0),
               method_(nullptr),
@@ -1470,6 +1471,8 @@ void Monitor::VisitLocks(StackVisitor* stack_visitor, void (*callback)(mirror::O
     bool success = false;
     for (uint32_t dex_reg : dex_lock_info.dex_registers) {
       uint32_t value;
+      // Dear Gogglers, could you comment whether we can ignore the fact that in case of
+      // kNonPrecise stackmap monitor will not be visited?
       success = stack_visitor->GetVReg(m, dex_reg, kReferenceVReg, &value);
       if (success) {
         mirror::Object* o = reinterpret_cast<mirror::Object*>(value);
