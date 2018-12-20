@@ -22,6 +22,30 @@
       "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a11e6b2_ec9fa2a5",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2018-12-20T14:32:54Z",
+      "side": 1,
+      "message": "In its definition, `GetLiveBitmap` and `GetNextObject` are called, which both reside in `RegionSpace`, so moving `WalkNonLargeRegion` into `Region` means calling `GetRegionSpace` to get a ref to `RegionSpace` in its definition. Is it still worth it?",
+      "parentUuid": "44258835_4052c571",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 32
+      },
+      "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
