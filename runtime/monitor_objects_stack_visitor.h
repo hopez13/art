@@ -44,6 +44,7 @@ class MonitorObjectsStackVisitor : public StackVisitor {
       : StackVisitor(thread_in,
                      context,
                      StackVisitor::StackWalkKind::kIncludeInlinedFrames,
+                     /* needs_vreg_info= */ true,
                      check_suspended),
         frame_count(0u),
         dump_locks(dump_locks_in) {}

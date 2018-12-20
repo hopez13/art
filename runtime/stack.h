@@ -122,6 +122,7 @@ class StackVisitor {
   StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
+               bool needs_vreg_info = true,
                bool check_suspended = true);
 
   bool GetRegisterIfAccessible(uint32_t reg, VRegKind kind, uint32_t* val) const
@@ -151,7 +152,8 @@ class StackVisitor {
                                       Context* context,
                                       StackWalkKind walk_kind,
                                       bool check_suspended = true,
-                                      bool include_transitions = false)
+                                      bool include_transitions = false,
+                                      bool needs_vreg_info = true)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     class LambdaStackVisitor : public StackVisitor {
      public:
@@ -159,8 +161,9 @@ class StackVisitor {
                          Thread* thread,
                          Context* context,
                          StackWalkKind walk_kind,
-                         bool check_suspended = true)
-          : StackVisitor(thread, context, walk_kind, check_suspended), fn_(fn) {}
+                         bool needs_vreg_info,
+                         bool check_suspended)
+          : StackVisitor(thread, context, walk_kind, needs_vreg_info, check_suspended), fn_(fn) {}
 
       bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
         return fn_(this);
@@ -169,7 +172,7 @@ class StackVisitor {
      private:
       T fn_;
     };
-    LambdaStackVisitor visitor(fn, thread, context, walk_kind, check_suspended);
+    LambdaStackVisitor visitor(fn, thread, context, walk_kind, needs_vreg_info, check_suspended);
     visitor.template WalkStack<kCountTransitions>(include_transitions);
   }
 
@@ -257,6 +260,10 @@ class StackVisitor {
     return current_inline_frames_.back();
   }
 
+  bool NeedsVregInfo() const {
+    return needs_vreg_info_;
+  }
+
   uintptr_t GetCurrentQuickFramePc() const {
     return cur_quick_frame_pc_;
   }
@@ -293,8 +300,9 @@ class StackVisitor {
   StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
+               bool needs_vreg_info,
                size_t num_frames,
-               bool check_suspended = true)
+               bool check_suspended)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsAccessibleRegister(uint32_t reg, bool is_float) const {
@@ -344,6 +352,12 @@ class StackVisitor {
   // We keep poping frames from the end as we visit the frames.
   CodeInfo current_code_info_;
   BitTableRange<InlineInfo> current_inline_frames_;
+
+  // Flag whether the stack visitor expects and needs DexRegisterMap info in the stack maps for
+  // the optimized code; some derived StackVisitor do need this information and some don't. If set
+  // to 'true' a CHECK will be issued that vreg info is present when traversing optimized code
+  // stack frames.
+  const bool needs_vreg_info_;
 
  protected:
   Context* const context_;
