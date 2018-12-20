@@ -3665,7 +3665,11 @@ class ReferenceMapVisitor : public StackVisitor {
       REQUIRES_SHARED(Locks::mutator_lock_)
         // We are visiting the references in compiled frames, so we do not need
         // to know the inlined frames.
-      : StackVisitor(thread, context, StackVisitor::StackWalkKind::kSkipInlinedFrames),
+      : StackVisitor(thread,
+                     context,
+                     StackVisitor::StackWalkKind::kSkipInlinedFrames,
+                     (kPrecise ? StackMap::DexRegInfoKind::kPrecise :
+                                 StackMap::DexRegInfoKind::kNonPrecise)),
         visitor_(visitor) {}
 
   bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -3868,6 +3872,7 @@ class ReferenceMapVisitor : public StackVisitor {
             code_info(_code_info),
             dex_register_map(code_info.GetDexRegisterMapOf(map)),
             visitor(_visitor) {
+        CHECK_EQ(dex_register_map.size(), number_of_dex_registers);
       }
 
       // TODO: If necessary, we should consider caching a reverse map instead of the linear
