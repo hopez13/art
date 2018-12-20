@@ -142,6 +142,30 @@
       "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "831f555d_848d3858",
+        "filename": "libdexfile/external/include/art_api/ext_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2018-12-20T21:09:07Z",
+      "side": 1,
+      "message": "Thanks for the tip, but it doesn\u0027t behave the right way if one of the args get long and it should be formatted like this:\n\n  function(\n    really + really + really + really + long_argument_here,\n    foo,\n    bar)\n\nI\u0027ve filed https://bugs.llvm.org/show_bug.cgi?id\u003d40121 to add support to clang-format for the function call style you\u0027d like to see. For now I\u0027ve corrected the formatting manually.",
+      "parentUuid": "31da8169_073a8698",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "6c1516ac894530f644be14c7bdec12ff39b028b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
