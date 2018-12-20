@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44258835_4052c571",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-20T14:21:50Z",
+      "side": 1,
+      "message": "Likewise, I think this can be turned into a method of RegionSpace::Region (I should have mentioned this ealier, sorry).",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 32
+      },
+      "revId": "07c37422cd8c0fe61e8af24bd4da9dc49d0b6e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
