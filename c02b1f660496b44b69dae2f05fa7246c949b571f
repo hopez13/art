@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6435e3c9_cfca297d",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-21T16:11:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed7e0940_cdf32e5b",
+      "range": {
+        "startLine": 477,
+        "startChar": 4,
+        "endLine": 477,
+        "endChar": 18
+      },
+      "revId": "c02b1f660496b44b69dae2f05fa7246c949b571f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43bffcf6_6c9e4374",
         "filename": "tools/art",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-21T15:40:12Z",
       "side": 1,
       "message": "Surround with double quotes, to match the style from lines 486 and 487?",
+      "range": {
+        "startLine": 485,
+        "startChar": 9,
+        "endLine": 485,
+        "endChar": 47
+      },
+      "revId": "c02b1f660496b44b69dae2f05fa7246c949b571f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ad475f3_8a280194",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2018-12-21T16:11:42Z",
+      "side": 1,
+      "message": "In PS4 I have removed double quotes from those lines but kept them  in the \"Using predefined...\" Is that OK?",
+      "parentUuid": "43bffcf6_6c9e4374",
       "range": {
         "startLine": 485,
         "startChar": 9,
