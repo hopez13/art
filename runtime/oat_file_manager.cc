@@ -464,6 +464,8 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     context = ClassLoaderContext::CreateContextForClassLoader(class_loader, dex_elements);
   }
 
+  // FIXME: If the oat file was compiled with partial boot class path,
+  // perform collision check with the rest of the boot class path.
   OatFileAssistant oat_file_assistant(dex_location,
                                       kRuntimeISA,
                                       !runtime->IsAotCompiler(),
