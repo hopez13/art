@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eafa6d42_7d0d8f23",
+        "filename": "libartbase/base/mem_map_windows.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-21T02:08:28Z",
+      "side": 1,
+      "message": "This seems like it would be spammy? VLOG?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 99
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffe2199_352e1377",
+        "filename": "libartbase/base/systrace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-21T02:08:28Z",
+      "side": 1,
+      "message": "Is it worth adding a NOP ATRACE_BEGIN for Windows?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "263587ca_55562bae",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-21T02:08:28Z",
+      "side": 1,
+      "message": "Maybe we should add kIsWindowsBuild and use that where possible. That would help avoid broken builds.",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 486,
+        "endChar": 13
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
