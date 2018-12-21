@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12548573_442222e8",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-21T16:14:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem consistent with the original code and intent? Invert the condition?\n\nAlso allows to have all corner checking up-front:\n\n if (errno \u003d\u003d EAGAIN || errno \u003d\u003d EINTR) {\n }\n if (errno \u003d\u003d ETIMEDOUT) {\n }\n // logging",
+      "range": {
+        "startLine": 770,
+        "startChar": 10,
+        "endLine": 771,
+        "endChar": 19
+      },
+      "revId": "3138306a416d31d7870adfdc9a8247c1737b13ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47656ad4_84dc73ec",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-21T16:14:20Z",
+      "side": 1,
+      "message": "Remove else. bdc prefers early-exit style (which is also Google style).",
+      "range": {
+        "startLine": 772,
+        "startChar": 10,
+        "endLine": 772,
+        "endChar": 14
+      },
+      "revId": "3138306a416d31d7870adfdc9a8247c1737b13ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
