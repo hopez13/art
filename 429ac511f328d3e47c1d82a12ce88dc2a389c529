@@ -140,6 +140,30 @@
       "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53106807_c23952f9",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-21T16:01:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "04f8de9f_7e8c5e1c",
+      "range": {
+        "startLine": 386,
+        "startChar": 4,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
