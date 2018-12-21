@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a5898e9_e6450e9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-21T15:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "538a421b_cce1b814",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb80bff7_e8ac18b7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "893962dd_004b037b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-21T15:47:35Z",
+      "side": 1,
+      "message": "I was trying to explain a bit of the context.",
+      "parentUuid": "eb80bff7_e8ac18b7",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 57
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97d76b63_21b108d5",
         "filename": "runtime/jit/debugger_interface.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-12-21T15:06:43Z",
       "side": 1,
       "message": "Not being overly familiar with this code, it\u0027s not clear why going to a multimap is appropriate vs cleaning up an existing element and replacing.",
+      "range": {
+        "startLine": 386,
+        "startChar": 4,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04f8de9f_7e8c5e1c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2018-12-21T15:47:35Z",
+      "side": 1,
+      "message": "More context.... if there are three methods at 0x10010 0x10020 and 0x10030, their debug info will be packed and stored with address 0x10000 (i.e. represeing the range 0x10000-0x1FFFF).\n\nBut if fourth method is added at 0x10000 then there will be multiple entries.  One for the three grouped methods, and one for the new method.  On the next GC all of those will be repacked into single entry with four method.\n\nTL;DR: The multiple entries are expected, it was oversight on my part in the original CL.\n\nThe map key is only used to pack nearby methods together now.... I am somewhat considering dropping the key altogether.",
+      "parentUuid": "97d76b63_21b108d5",
       "range": {
         "startLine": 386,
         "startChar": 4,
