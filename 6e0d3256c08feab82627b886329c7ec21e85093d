@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "36e3a4fd_280a1816",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-21T16:23:35Z",
+      "side": 1,
+      "message": "I think we should rename this method as `UpdatePreGcWeightedAllocatedBytes`.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 11,
+        "endLine": 1082,
+        "endChar": 47
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12430361_c27e2c71",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-21T16:23:35Z",
+      "side": 1,
+      "message": "Likewise, I think this should be renamed as `UpdatePostGcWeightedAllocatedBytes`.",
+      "range": {
+        "startLine": 1089,
+        "startChar": 11,
+        "endLine": 1089,
+        "endChar": 48
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2e2b52_46fb68b3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-21T16:23:35Z",
+      "side": 1,
+      "message": "I think we should calculate `process_cpu_end_time` first, and pass it as an argument to `CalculatePreGcWeightedAllocatedBytes` and `CalculatePostGcWeightedAllocatedBytes` and have these method use this value instead of calling `ProcessCpuNanoTime()` again.",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 57
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01ec54d1_f57f6888",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -13,6 +82,30 @@
       "writtenOn": "2018-12-13T06:52:01Z",
       "side": 1,
       "message": "Sorry for the late review. But I think this needs to be fixed. For correct post GC number, we shouldn\u0027t calculate post-GC count above at line 324. Instead, divide post_gc_weighted_allocated_bytes_ by (post_gc_last_process_cpu_time_ns_ - heap_-\u003eGetProcessCpuStartTime())",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 342,
+        "endChar": 68
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b9533f_4bb6f542",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2018-12-21T16:23:35Z",
+      "side": 1,
+      "message": "This looks \"correct\" to me, in the sense that it is symmetric to how we calculate the pre-GC weighted allocated bytes metric.\n\nI think in fine the question is: should we include in those metrics the allocation activity that occurs before the first GC and the allocation activity that happens agyer the last GC?\n\nMy intuition is that:\n- if we consider the VM start-up as a \"end of GC\" event, then we should include the allocation activity happening before the first GC in the post-GC weighted allocation bytes metric (for the time interval between VM start-up and the end of the first GC);\n- if we consider the VM shut-down as a \"beginning of GC\" event, then we should include the allocation activity happening after the last GC in the pre-GC weighted allocation bytes metric (for the time interval between the beginning of the last GC and the VM shut-down).\n\nI don\u0027t have strong opinions on whether we should:\n- include the allocation activity happening before the first GC in the pre-GC metric;\n- include the allocation activity happening after the last GC in the post-GC metric;\nbut I think the behavior should be uniform for both.",
+      "parentUuid": "01ec54d1_f57f6888",
       "range": {
         "startLine": 341,
         "startChar": 4,
