@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "538a421b_cce1b814",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-21T15:06:43Z",
+      "side": 1,
+      "message": "grammar",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb80bff7_e8ac18b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-21T15:06:43Z",
+      "side": 1,
+      "message": "Seems like a factoid. How does this relate to the CL?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 57
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97d76b63_21b108d5",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2018-12-21T15:06:43Z",
+      "side": 1,
+      "message": "Not being overly familiar with this code, it\u0027s not clear why going to a multimap is appropriate vs cleaning up an existing element and replacing.",
+      "range": {
+        "startLine": 386,
+        "startChar": 4,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
