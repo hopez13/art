@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abcea249_9acda270",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-21T17:26:17Z",
+      "side": 1,
+      "message": "Could remove the conditional if we have done_scanning_ is always true when use_generational_cc_ is false.\n\nAlso I would consider adding a checkpoint after scanning to remove the need for the load acquire here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "bb8dcca3b37513e5038a15193493eb040374b104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94232319_2e67f2e4",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-21T17:26:17Z",
+      "side": 1,
+      "message": "Is this maybe the conditional that causes the slowdown?",
+      "range": {
+        "startLine": 175,
+        "startChar": 12,
+        "endLine": 175,
+        "endChar": 32
+      },
+      "revId": "bb8dcca3b37513e5038a15193493eb040374b104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
