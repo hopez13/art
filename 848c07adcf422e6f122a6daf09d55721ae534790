@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc90c907_4b0ec838",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-21T16:29:39Z",
+      "side": 1,
+      "message": "Could consider logging into an ostringstream so that the list becomes part of the abort message (so it shows up easier in reporting, e.g., APR tombstones usually don\u0027t have logcat).",
+      "range": {
+        "startLine": 777,
+        "startChar": 10,
+        "endLine": 784,
+        "endChar": 11
+      },
+      "revId": "848c07adcf422e6f122a6daf09d55721ae534790",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
