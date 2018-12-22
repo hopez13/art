@@ -133,6 +133,7 @@ static constexpr bool kEnableGenerationalConcurrentCopyingCollection = true;
 #else
 static constexpr bool kEnableGenerationalConcurrentCopyingCollection = false;
 #endif
+static constexpr bool kEnableTwoPhaseCC = kEnableGenerationalConcurrentCopyingCollection;
 
 // If true, enable the tlab allocator by default.
 #ifdef ART_USE_TLAB

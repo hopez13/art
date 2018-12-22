@@ -37,6 +37,7 @@ inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
     mirror::Object* ref,
     accounting::ContinuousSpaceBitmap* bitmap) {
   if (kEnableGenerationalConcurrentCopyingCollection
+      && (kEnableTwoPhaseCC || young_gen_)
       && !done_scanning_.load(std::memory_order_acquire)) {
     // Everything in the unevac space should be marked for young generation CC,
     // except for large objects.
@@ -245,7 +246,8 @@ inline bool ConcurrentCopying::IsMarkedInUnevacFromSpace(mirror::Object* from_re
   DCHECK(region_space_->IsInUnevacFromSpace(from_ref));
   if (kUseBakerReadBarrier && from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState()) {
     return true;
-  } else if (!kEnableGenerationalConcurrentCopyingCollection
+  } else if (!(kEnableGenerationalConcurrentCopyingCollection
+               && (kEnableTwoPhaseCC || young_gen_))
              || done_scanning_.load(std::memory_order_acquire)) {
     // If the card table scanning is not finished yet, then only read-barrier
     // state should be checked. Checking the mark bitmap is unreliable as there

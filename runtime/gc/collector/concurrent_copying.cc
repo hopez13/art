@@ -192,7 +192,7 @@ void ConcurrentCopying::RunPhases() {
     InitializePhase();
     // In case of forced evacuation, all regions are evacuated and hence no
     // need to compute live_bytes.
-    if (kEnableGenerationalConcurrentCopyingCollection && !young_gen_ && !force_evacuate_all_) {
+    if (kEnableTwoPhaseCC && !young_gen_ && !force_evacuate_all_) {
       MarkingPhase();
     }
   }
@@ -531,7 +531,8 @@ class ConcurrentCopying::FlipCallback : public Closure {
       cc->region_space_->SetFromSpace(
           cc->rb_table_,
           evac_mode,
-          /*clear_live_bytes=*/ !kEnableGenerationalConcurrentCopyingCollection);
+          /*clear_live_bytes=*/ !kEnableGenerationalConcurrentCopyingCollection
+          || !(kEnableTwoPhaseCC || cc->young_gen_));
     }
     cc->SwapStacks();
     if (ConcurrentCopying::kEnableFromSpaceAccountingCheck) {
@@ -540,7 +541,9 @@ class ConcurrentCopying::FlipCallback : public Closure {
       cc->from_space_num_bytes_at_first_pause_ = cc->region_space_->GetBytesAllocated();
     }
     cc->is_marking_ = true;
-    if (kIsDebugBuild && !kEnableGenerationalConcurrentCopyingCollection) {
+    if (kIsDebugBuild
+        && (!kEnableGenerationalConcurrentCopyingCollection
+            || !(kEnableTwoPhaseCC || cc->young_gen_))) {
       cc->region_space_->AssertAllRegionLiveBytesZeroOrCleared();
     }
     if (UNLIKELY(Runtime::Current()->IsActiveTransaction())) {
@@ -1446,20 +1449,22 @@ void ConcurrentCopying::CopyingPhase() {
                 }
               }
               ScanDirtyObject</*kNoUnEvac*/ true>(obj);
-            } else if (space != region_space_) {
-              DCHECK(space == heap_->non_moving_space_);
-              // We need to process un-evac references as they may be unprocessed,
-              // if they skipped the marking phase due to heap mutation.
-              ScanDirtyObject</*kNoUnEvac*/ false>(obj);
-              non_moving_space_inter_region_bitmap_->Clear(obj);
-            } else if (region_space_->IsInUnevacFromSpace(obj)) {
-              ScanDirtyObject</*kNoUnEvac*/ false>(obj);
-              region_space_inter_region_bitmap_->Clear(obj);
+            } else if (kEnableTwoPhaseCC) {
+              if (space != region_space_) {
+                DCHECK(space == heap_->non_moving_space_);
+                // We need to process un-evac references as they may be unprocessed,
+                // if they skipped the marking phase due to heap mutation.
+                ScanDirtyObject</*kNoUnEvac*/ false>(obj);
+                non_moving_space_inter_region_bitmap_->Clear(obj);
+              } else if (region_space_->IsInUnevacFromSpace(obj)) {
+                ScanDirtyObject</*kNoUnEvac*/ false>(obj);
+                region_space_inter_region_bitmap_->Clear(obj);
+              }
             }
           },
           accounting::CardTable::kCardAged);
 
-      if (!young_gen_) {
+      if (kEnableTwoPhaseCC && !young_gen_) {
         auto visitor = [this](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
                          // We don't need to process un-evac references as any unprocessed
                          // ones will be taken care of in the card-table scan above.
@@ -2889,7 +2894,8 @@ bool ConcurrentCopying::IsMarkedInNonMovingSpace(mirror::Object* from_ref) {
   DCHECK(!immune_spaces_.ContainsObject(from_ref)) << "ref=" << from_ref;
   if (kUseBakerReadBarrier && from_ref->GetReadBarrierStateAcquire() == ReadBarrier::GrayState()) {
     return true;
-  } else if (!kEnableGenerationalConcurrentCopyingCollection
+  } else if (!(kEnableGenerationalConcurrentCopyingCollection
+               && (kEnableTwoPhaseCC || young_gen_))
              || done_scanning_.load(std::memory_order_acquire)) {
     // Read the comment in IsMarkedInUnevacFromSpace()
     accounting::ContinuousSpaceBitmap* mark_bitmap = heap_->GetNonMovingSpace()->GetMarkBitmap();
