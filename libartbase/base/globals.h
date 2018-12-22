@@ -103,6 +103,7 @@ static constexpr bool kHostStaticBuildEnabled = true;
 static constexpr bool kHostStaticBuildEnabled = false;
 #endif
 
+static constexpr bool kEnableTwoPhaseCC = false;
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_GLOBALS_H_
