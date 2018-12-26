@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4484346c_e29c71c6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-26T21:51:53Z",
+      "side": 1,
+      "message": "This looks a bit hacky to me. Why not use a dedicated visitor when dumping is enabled? Do we care about the microseconds here?\n\n(Similarly, it isn\u0027t clear to me that the SkipClass part shouldn\u0027t be logged - right now it\u0027s silently swallowed.)",
+      "revId": "00dc79f1141775a4cd7c1c8f0f7fb746976a52eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
