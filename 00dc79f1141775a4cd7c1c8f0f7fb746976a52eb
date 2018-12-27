@@ -16,6 +16,24 @@
       "revId": "00dc79f1141775a4cd7c1c8f0f7fb746976a52eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9cda083_8fefcc21",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2018-12-27T21:27:47Z",
+      "side": 1,
+      "message": "I\u0027ll also count the skipped classes? The cost of the visitor should be minimal since the lock is only enabled for debug builds.",
+      "parentUuid": "4484346c_e29c71c6",
+      "revId": "00dc79f1141775a4cd7c1c8f0f7fb746976a52eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
