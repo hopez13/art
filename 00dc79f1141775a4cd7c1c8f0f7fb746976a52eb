@@ -34,6 +34,24 @@
       "revId": "00dc79f1141775a4cd7c1c8f0f7fb746976a52eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93db26d1_c0025d48",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2018-12-27T22:08:30Z",
+      "side": 1,
+      "message": "My comment was wrt/ sharing the class walk by using this existing visitor, instead of having its own visitor/stage at the end. It\u0027s OK for now, I guess.",
+      "parentUuid": "a9cda083_8fefcc21",
+      "revId": "00dc79f1141775a4cd7c1c8f0f7fb746976a52eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
