@@ -25,6 +25,11 @@
 #include "obj_ptr.h"
 #include "thread_pool.h"
 
+#if defined(__i386__) || defined(__x86_64__)
+#define AUTO_FAST_JNI_ENABLE
+#endif
+
+
 namespace art {
 
 class ArtMethod;
@@ -41,6 +46,9 @@ namespace jit {
 
 class JitCodeCache;
 class JitOptions;
+#ifdef AUTO_FAST_JNI_ENABLE
+class JniTask : public Task { };
+#endif
 
 static constexpr int16_t kJitCheckForOSR = -1;
 static constexpr int16_t kJitHotnessDisabled = -2;
@@ -302,6 +310,10 @@ class Jit {
 
   // Adjust state after forking.
   void PostZygoteFork();
+
+#ifdef AUTO_FAST_JNI_ENABLE
+  bool AddJniTask(Thread* self, JniTask* task);
+#endif
 
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
