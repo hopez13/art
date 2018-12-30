@@ -392,8 +392,7 @@ inline ArtMethod* Class::FindVirtualMethodForInterface(ArtMethod* method, size_t
 }
 
 inline ArtMethod* Class::FindVirtualMethodForVirtual(ArtMethod* method, size_t pointer_size) {
-  // Only miranda or default methods may come from interfaces and be used as a virtual.
-  DCHECK(!method->GetDeclaringClass()->IsInterface() || method->IsDefault() || method->IsMiranda());
+  DCHECK(!method->GetDeclaringClass()->IsInterface() || method->IsMiranda());
   // The argument method may from a super class.
   // Use the index to a potentially overridden one for this instance's class.
   return GetVTableEntry(method->GetMethodIndex(), pointer_size);

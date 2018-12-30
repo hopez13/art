@@ -21,7 +21,6 @@
 #include "utils.h"
 #include <numeric>
 #include "gtest/gtest.h"
-#include "runtime/experimental_flags.h"
 
 #define EXPECT_NULL(expected) EXPECT_EQ(reinterpret_cast<const void*>(expected), \
                                         reinterpret_cast<void*>(nullptr));
@@ -530,32 +529,22 @@ TEST_F(CmdlineParserTest, TestProfilerOptions) {
   }
 }  // TEST_F
 
-/* -Xexperimental:_ */
-TEST_F(CmdlineParserTest, TestExperimentalFlags) {
+/* -X[no]experimental-lambdas */
+TEST_F(CmdlineParserTest, TestExperimentalLambdas) {
   // Off by default
-  EXPECT_SINGLE_PARSE_DEFAULT_VALUE(ExperimentalFlags::kNone,
+  EXPECT_SINGLE_PARSE_DEFAULT_VALUE(false,
                                     "",
-                                    M::Experimental);
+                                    M::ExperimentalLambdas);
 
   // Disabled explicitly
-  EXPECT_SINGLE_PARSE_VALUE(ExperimentalFlags::kNone,
-                            "-Xexperimental:none",
-                            M::Experimental);
+  EXPECT_SINGLE_PARSE_VALUE(false,
+                            "-Xnoexperimental-lambdas",
+                            M::ExperimentalLambdas);
 
   // Enabled explicitly
-  EXPECT_SINGLE_PARSE_VALUE(ExperimentalFlags::kLambdas,
-                            "-Xexperimental:lambdas",
-                            M::Experimental);
-  // Enabled explicitly
-  EXPECT_SINGLE_PARSE_VALUE(ExperimentalFlags::kDefaultMethods,
-                            "-Xexperimental:default-methods",
-                            M::Experimental);
-
-  // Enabled both
-  EXPECT_SINGLE_PARSE_VALUE(ExperimentalFlags::kDefaultMethods | ExperimentalFlags::kLambdas,
-                            "-Xexperimental:default-methods "
-                            "-Xexperimental:lambdas",
-                            M::Experimental);
+  EXPECT_SINGLE_PARSE_VALUE(true,
+                            "-Xexperimental-lambdas",
+                            M::ExperimentalLambdas);
 }
 
 // -Xverify:_
