@@ -431,7 +431,7 @@ static void PeelByCount(HLoopInformation* loop_info,
                         InductionVarRange* induction_range) {
   for (int i = 0; i < count; i++) {
     // Perform peeling.
-    PeelUnrollSimpleHelper helper(loop_info, induction_range);
+    LoopClonerSimpleHelper helper(loop_info, induction_range);
     helper.DoPeeling();
   }
 }
@@ -451,6 +451,20 @@ static DataType::Type GetNarrowerType(HInstruction* a, HInstruction* b) {
     type = b->InputAt(0)->GetType();
   }
   return type;
+}
+
+// Unroll the loop once (unroll by two) and make the loop exit check for the second part
+// of the loop body unconditionally not taken.
+static void UnrollOnceAndRemoveLoopCheck(HLoopInformation* loop_info,
+                                         InductionVarRange* induction_range) {
+  LoopClonerSimpleHelper helper(loop_info, induction_range);
+  helper.DoUnrolling();
+
+  // Remove the redundant loop check after unrolling.
+  HIf* copy_hif =
+      helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+  int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+  copy_hif->ReplaceInput(loop_info->GetHeader()->GetGraph()->GetIntConstant(constant), 0u);
 }
 
 //
@@ -480,6 +494,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_runtime_test_b_(nullptr),
       vector_map_(nullptr),
       vector_permanent_map_(nullptr),
+      loop_black_list_(nullptr),
       vector_mode_(kSequential),
       vector_preheader_(nullptr),
       vector_header_(nullptr),
@@ -545,12 +560,16 @@ bool HLoopOptimization::LocalRun() {
         std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
     ScopedArenaSafeMap<HInstruction*, HInstruction*> perm(
         std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+    ScopedArenaSet<HBasicBlock*> black_list(
+        std::less<HBasicBlock*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+
     // Attach.
     iset_ = &iset;
     reductions_ = &reds;
     vector_refs_ = &refs;
     vector_map_ = &map;
     vector_permanent_map_ = &perm;
+    loop_black_list_ = &black_list;
     // Traverse.
     didLoopOpt = TraverseLoopsInnerToOuter(top_loop_);
     // Detach.
@@ -795,25 +814,21 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
     return false;
   }
 
+  int64_t trip_count = analysis_info->GetTripCount();
+  if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
+    return false;
+  }
+
   uint32_t unrolling_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
   if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
     return false;
   }
 
   if (generate_code) {
-    // TODO: support other unrolling factors.
-    DCHECK_EQ(unrolling_factor, 2u);
+    DCHECK_GE(unrolling_factor, 2u);
 
     // Perform unrolling.
-    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
-    PeelUnrollSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
-
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    UnrollOnceAndRemoveLoopCheck(analysis_info->GetLoopInfo(), &induction_range_);
   }
   return true;
 }
@@ -831,7 +846,7 @@ bool HLoopOptimization::TryPeelingForLoopInvariantExitsElimination(LoopAnalysisI
 
   if (generate_code) {
     // Perform peeling.
-    PeelUnrollSimpleHelper helper(loop_info, &induction_range_);
+    LoopClonerSimpleHelper helper(loop_info, &induction_range_);
     helper.DoPeeling();
 
     // Statically evaluate loop check after peeling for loop invariant condition.
@@ -886,6 +901,87 @@ bool HLoopOptimization::TryFullUnrolling(LoopAnalysisInfo* analysis_info, bool g
   return true;
 }
 
+bool HLoopOptimization::TryDynamicUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code) {
+  int64_t trip_count = analysis_info->GetTripCount();
+  if (!arch_loop_helper_->IsLoopPeelingEnabled() ||
+      trip_count != LoopAnalysisInfo::kUnknownTripCount) {
+    return false;
+  }
+  HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+  HBasicBlock* header = loop_info->GetHeader();
+  if (loop_black_list_->find(header) != loop_black_list_->end()) {
+    return false;
+  }
+
+  uint32_t unrolling_factor = 0;
+  if (!generate_code) {
+    unrolling_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
+    if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
+      return false;
+    } else {
+      // Storing unroll factor so that we don't need to recalculate it
+      // when this routine will be called again for same loop.
+      analysis_info->SetLoopUnrollFactor(unrolling_factor);
+      return true;
+    }
+  } else {
+    unrolling_factor = analysis_info->GetLoopUnrollFactor();
+    DCHECK_GE(unrolling_factor, 2u);
+  }
+
+  HBasicBlock* preheader = loop_info->GetPreHeader();
+  HInstruction* stc = induction_range_.GenerateTripCount(loop_info, graph_, preheader);
+  if (stc == nullptr) {
+    return false;
+  }
+
+  HInstruction* preheader_goto = preheader->GetLastInstruction();
+  DCHECK(preheader_goto->IsGoto());
+
+  HBasicBlock* another_header = nullptr;
+  {
+    // Perform unrolling.
+    LoopClonerSimpleHelper helper(loop_info, &induction_range_);
+    helper.DoVersioning();
+    another_header =  helper.GetBasicBlockMap()->Get(header);
+
+    loop_black_list_->insert(header);
+    loop_black_list_->insert(another_header);
+  }
+
+  uint32_t versioning_cnt = log2(unrolling_factor);
+  for (uint32_t iter=0; iter < versioning_cnt; iter++) {
+    // Unroll one of the loop versions.
+    UnrollOnceAndRemoveLoopCheck(another_header->GetLoopInformation(), &induction_range_);
+
+    // Don't unroll further if loop has become unclonable after previous unrolling
+    if (!LoopClonerHelper::IsLoopClonable(another_header->GetLoopInformation())) {
+      break;
+    }
+  }
+
+  // Replace unconditional GOTO in the original loop preheader to a HIf, checking whether
+  // the trip count is a multiple of a unroll factor.
+  preheader->RemoveInstruction(preheader_goto);
+
+  DataType::Type data_type = stc->GetType();
+  DCHECK(DataType::IsIntegralType(data_type));
+
+  HInstruction* constant_uf = graph_->GetConstant(data_type, unrolling_factor);
+  HInstruction* constant_zero = graph_->GetConstant(data_type, 0u);
+
+  HInstruction* rem = new (global_allocator_) HRem(data_type, stc, constant_uf, 0);
+  preheader->AddInstruction(rem);
+
+  HInstruction* cond = new (global_allocator_) HNotEqual(rem, constant_zero);
+  preheader->AddInstruction(cond);
+
+  HInstruction* hif = new (global_allocator_) HIf(cond);
+  preheader->AddInstruction(hif);
+
+  return true;
+}
+
 bool HLoopOptimization::TryPeelingAndUnrolling(LoopNode* node) {
   // Don't run peeling/unrolling if compiler_options_ is nullptr (i.e., running under tests)
   // as InstructionSet is needed.
@@ -905,18 +1001,20 @@ bool HLoopOptimization::TryPeelingAndUnrolling(LoopNode* node) {
 
   if (!TryFullUnrolling(&analysis_info, /*generate_code*/ false) &&
       !TryPeelingForLoopInvariantExitsElimination(&analysis_info, /*generate_code*/ false) &&
-      !TryUnrollingForBranchPenaltyReduction(&analysis_info, /*generate_code*/ false)) {
+      !TryUnrollingForBranchPenaltyReduction(&analysis_info, /*generate_code*/ false) &&
+      !TryDynamicUnrolling(&analysis_info, /*generate_code*/ false)) {
     return false;
   }
 
   // Run 'IsLoopClonable' the last as it might be time-consuming.
-  if (!PeelUnrollHelper::IsLoopClonable(loop_info)) {
+  if (!LoopClonerHelper::IsLoopClonable(loop_info)) {
     return false;
   }
 
   return TryFullUnrolling(&analysis_info) ||
          TryPeelingForLoopInvariantExitsElimination(&analysis_info) ||
-         TryUnrollingForBranchPenaltyReduction(&analysis_info);
+         TryUnrollingForBranchPenaltyReduction(&analysis_info)  ||
+         TryDynamicUnrolling(&analysis_info);
 }
 
 //
