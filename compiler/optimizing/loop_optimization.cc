@@ -795,25 +795,46 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
     return false;
   }
 
-  uint32_t unrolling_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
-  if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
-    return false;
+  uint32_t unrolling_factor = 0;
+  if (!generate_code) {
+    unrolling_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
+    if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
+      return false;
+    } else {
+      analysis_info->SetLoopUnrollFactor(unrolling_factor);
+    }
   }
 
   if (generate_code) {
-    // TODO: support other unrolling factors.
-    DCHECK_EQ(unrolling_factor, 2u);
+    unrolling_factor = analysis_info->GetLoopUnrollFactor();
+
+    // keeping old limitation for instruction set other than X86_64
+    if (compiler_options_->GetInstructionSet() == InstructionSet::kX86_64) {
+      DCHECK_GE(unrolling_factor, 2u);
+    } else {
+      // TODO: support other unrolling factors.
+      DCHECK_EQ(unrolling_factor, 2u);
+    }
 
     // Perform unrolling.
     HLoopInformation* loop_info = analysis_info->GetLoopInfo();
     PeelUnrollSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
 
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    // Performing partial loop unrolling with unknown iteration for X86_64
+    // preserve previous code flow intact for other instruction sets
+    int64_t trip_count = analysis_info->GetTripCount();
+    if ((compiler_options_->GetInstructionSet() == InstructionSet::kX86_64) &&
+       (trip_count == LoopAnalysisInfo::kUnknownTripCount)) {
+      helper.DoPartialUnrolling(trip_count, unrolling_factor);
+    } else {
+      helper.DoUnrolling();
+
+      // Remove the redundant loop check after unrolling.
+      HIf* copy_hif =
+          helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+      int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+      copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    }
   }
   return true;
 }
