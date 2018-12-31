@@ -483,6 +483,10 @@ class LoopClonerHelper : public ValueObject {
 
   HLoopInformation* GetRegionToBeAdjusted() const { return cloner_.GetRegionToBeAdjusted(); }
 
+  HInstruction* GetInstrCopy(HInstruction* orig_instr) const {
+    return cloner_.GetInstrCopy(orig_instr);
+  }
+
  protected:
   enum class TransformationKind {
     kPeeling,
@@ -515,6 +519,10 @@ class LoopClonerSimpleHelper : public ValueObject {
 
   const SuperblockCloner::HBasicBlockMap* GetBasicBlockMap() const { return &bb_map_; }
   const SuperblockCloner::HInstructionMap* GetInstructionMap() const { return &hir_map_; }
+
+  HInstruction* GetInstrCopy(HInstruction* orig_instr) const {
+    return helper_.GetInstrCopy(orig_instr);
+  }
 
  private:
   SuperblockCloner::HBasicBlockMap bb_map_;
