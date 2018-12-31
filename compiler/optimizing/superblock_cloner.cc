@@ -281,7 +281,8 @@ void SuperblockCloner::FindBackEdgesLocal(HBasicBlock* entry_block, ArenaBitVect
   }
 }
 
-void SuperblockCloner::RecalculateBackEdgesInfo(ArenaBitVector* outer_loop_bb_set) {
+// "keep_both_loops" for including both orig and copy loop bits
+void SuperblockCloner::RecalculateBackEdgesInfo(ArenaBitVector* outer_loop_bb_set, bool keep_both_loops) {
   HBasicBlock* block_entry = nullptr;
 
   if (outer_loop_ == nullptr) {
@@ -301,6 +302,10 @@ void SuperblockCloner::RecalculateBackEdgesInfo(ArenaBitVector* outer_loop_bb_se
 
     // Add newly created copy blocks.
     for (auto entry : *bb_map_) {
+      // Include orig loop as well when keep_both_loops is true
+      if (keep_both_loops)
+        outer_loop_bb_set->SetBit(entry.first->GetBlockId());
+
       outer_loop_bb_set->SetBit(entry.second->GetBlockId());
     }
 
@@ -362,13 +367,13 @@ GraphAnalysisResult SuperblockCloner::AnalyzeLoopsLocally(ArenaBitVector* outer_
   return kAnalysisSuccess;
 }
 
-void SuperblockCloner::CleanUpControlFlow() {
+void SuperblockCloner::CleanUpControlFlow(bool keep_both_loops) {
   // TODO: full control flow clean up for now, optimize it.
   graph_->ClearDominanceInformation();
 
   ArenaBitVector outer_loop_bb_set(
       arena_, graph_->GetBlocks().size(), false, kArenaAllocSuperblockCloner);
-  RecalculateBackEdgesInfo(&outer_loop_bb_set);
+  RecalculateBackEdgesInfo(&outer_loop_bb_set, keep_both_loops);
 
   // TODO: do it locally.
   graph_->SimplifyCFG();
@@ -490,10 +495,10 @@ void SuperblockCloner::RemapEdgesSuccessors() {
   }
 }
 
-void SuperblockCloner::AdjustControlFlowInfo() {
+void SuperblockCloner::AdjustControlFlowInfo(bool keep_both_loops) {
   ArenaBitVector outer_loop_bb_set(
       arena_, graph_->GetBlocks().size(), false, kArenaAllocSuperblockCloner);
-  RecalculateBackEdgesInfo(&outer_loop_bb_set);
+  RecalculateBackEdgesInfo(&outer_loop_bb_set, keep_both_loops);
 
   graph_->ClearDominanceInformation();
   // TODO: Do it locally.
@@ -930,14 +935,14 @@ void SuperblockCloner::Run() {
   }
 
   // Recalculate dominance and backedge information which is required by the next stage.
-  AdjustControlFlowInfo();
+  AdjustControlFlowInfo(false);
   // Fix data flow of the graph.
   ResolveDataFlow();
   FixSubgraphClosedSSAAfterCloning();
 }
 
-void SuperblockCloner::CleanUp() {
-  CleanUpControlFlow();
+void SuperblockCloner::CleanUp(bool keep_both_loops) {
+  CleanUpControlFlow(keep_both_loops);
 
   // Remove phis which have all inputs being same.
   // When a block has a single predecessor it must not have any phis. However after the
@@ -1015,6 +1020,188 @@ void SuperblockCloner::CloneBasicBlocks() {
                    std::endl;
     }
   }
+}
+
+// Make internal edges in copy loop as per internal edges in orig loop
+void SuperblockCloner::RedirectIntenalEdges() {
+  // Redirect internal edges.
+  for (uint32_t orig_block_id : orig_bb_set_.Indexes()) {
+    HBasicBlock* orig_block = GetBlockById(orig_block_id);
+
+    for (HBasicBlock* orig_succ : orig_block->GetSuccessors()) {
+      // Check for outgoing edge.
+      if (!IsInOrigBBSet(orig_succ)) {
+        continue;
+      }
+
+      // Due to construction all successors of copied block were set to original.
+      HBasicBlock* copy_block = GetBlockCopy(orig_block);
+      HBasicBlock* copy_succ = GetBlockCopy(orig_succ);
+
+      if (copy_block && copy_succ) {
+        copy_block->AddSuccessor(copy_succ);
+
+        size_t orig_index = orig_succ->GetPredecessorIndexOf(orig_block);
+        for (HInstructionIterator it(orig_succ->GetPhis()); !it.Done(); it.Advance()) {
+          HPhi* orig_phi = it.Current()->AsPhi();
+          HPhi* copy_phi = GetInstrCopy(orig_phi)->AsPhi();
+          HInstruction* orig_phi_input = orig_phi->InputAt(orig_index);
+          if (hir_map_->find(orig_phi_input) != hir_map_->end()) {
+            HInstruction* copy_phi_input = GetInstrCopy(orig_phi_input);
+            copy_phi->AddInput(copy_phi_input);
+          } else {
+            copy_phi->AddInput(orig_phi_input);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Append copy loop at exit of orig loop
+// as of now, we are handling only top tested loops
+bool SuperblockCloner::ReArrangeCopyLoop() {
+  HBasicBlock* orig_block = nullptr;
+  HBasicBlock* copy_block = nullptr;
+
+  for (auto entry : *bb_map_) {
+    orig_block = entry.first;
+    copy_block = entry.second;
+
+    if (orig_block->IsLoopHeader()) {
+      HLoopInformation* loop_info = orig_block->GetLoopInformation();
+      DCHECK(loop_info);
+      HBasicBlock* orig_back_edge = loop_info->GetBackEdges()[0];
+      DCHECK(IsInOrigBBSet(orig_back_edge));
+
+      HBasicBlock* copy_back_edge = GetBlockCopy(orig_back_edge);
+      DCHECK(copy_back_edge);
+
+      HInstruction* inst = orig_block->GetLastInstruction();
+      HIf* inst_if = inst->AsIf();
+      if (inst_if) {
+        HBasicBlock* true_succ = inst_if->IfTrueSuccessor();
+        HBasicBlock* false_succ = inst_if->IfFalseSuccessor();
+
+        HBasicBlock* orig_loop_exit = (true_succ == orig_back_edge)? false_succ : true_succ;
+
+        // add empty block between orig and copy loop,
+        // loop pre-header should not contain more than one successors
+        HGraph* graph = orig_block->GetGraph();
+        DCHECK(graph);
+        ArenaAllocator* allocator = graph->GetAllocator();
+        DCHECK(allocator);
+        HBasicBlock* new_block = new (allocator) HBasicBlock(graph);
+        DCHECK(new_block);
+        graph->AddBlock(new_block);
+        new_block->AddInstruction(new (allocator) HGoto(kNoDexPc));
+
+        orig_block->ReplaceSuccessor(orig_loop_exit, new_block);
+        new_block->SetDominator(orig_block);
+        orig_block->AddDominatedBlock(new_block);
+
+        new_block->AddSuccessor(copy_block);
+        copy_block->SetDominator(new_block);
+        new_block->AddDominatedBlock(copy_block);
+
+        // add exit successor for copy block
+        copy_block->AddSuccessor(orig_loop_exit);
+
+        // update predecessor/successor relation beween copy loop back-edge & copy loop_header
+        copy_block->SetLoopInformation(nullptr);
+        copy_block->AddBackEdge(copy_back_edge);
+        HLoopInformation* copy_loop_info = copy_block->GetLoopInformation();
+        copy_loop_info->SetHeader(copy_block);
+
+        // set SuspendCheck for copy loop
+        HInstruction* orig_sus_check = loop_info->GetSuspendCheck();
+        HSuspendCheck* copy_sus_check = GetInstrCopy(orig_sus_check)->AsSuspendCheck();
+        DCHECK(copy_sus_check);
+        copy_loop_info->SetSuspendCheck(copy_sus_check);
+
+        // first input of all PHIs of copy loop header, will be PHIs in orig loop
+        for (HInstructionIterator it(orig_block->GetPhis()); !it.Done(); it.Advance()) {
+          HPhi* orig_phi = it.Current()->AsPhi();
+          HPhi* copy_phi = GetInstrCopy(orig_phi)->AsPhi();
+          DCHECK(copy_phi);
+
+          // Copy phi doesn't yet have either orig_block as predecessor or the input that corresponds
+          // to orig_block, so add the input at the end of the list.
+          copy_phi->AddInput(orig_phi);
+        }
+
+        RedirectIntenalEdges();
+
+        // update dominator of copy loop back edge
+        HBasicBlock* orig_back_edge_dominator = orig_back_edge->GetDominator();
+        DCHECK(IsInOrigBBSet(orig_back_edge_dominator));
+        HBasicBlock* copy_back_edge_dominator = GetBlockCopy(orig_back_edge_dominator);
+        DCHECK(copy_back_edge_dominator);
+        copy_back_edge->SetDominator(copy_back_edge_dominator);
+
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+// Clone a group of connected blocks (i.e. loop) and append
+bool SuperblockCloner::CloneAndAppendLoop() {
+  DCHECK(bb_map_ != nullptr);
+  DCHECK(hir_map_ != nullptr);
+  DCHECK(remap_orig_internal_ != nullptr &&
+         remap_copy_internal_ != nullptr &&
+         remap_incoming_ != nullptr);
+  DCHECK(IsSubgraphClonable());
+  DCHECK(IsFastCase());
+
+  if (kSuperblockClonerLogging) {
+    DumpInputSets();
+  }
+
+  CollectLiveOutsAndCheckClonable(&live_outs_);
+
+  // Clone the basic blocks from the orig_bb_set_; data flow is invalid after the call and is to be
+  // adjusted.
+  CloneBasicBlocks();
+
+  // append copy loop at exit of orig loop
+  if (ReArrangeCopyLoop() == false)
+    return false;
+
+  // Adjust values of live_outs instructions
+  for (auto live_out_it = live_outs_.begin(); live_out_it != live_outs_.end(); ++live_out_it) {
+    HInstruction* value = live_out_it->first;
+
+    if (hir_map_->find(value) == hir_map_->end()) {
+      continue;
+    }
+    HInstruction* copy_value = GetInstrCopy(value);
+
+    const HUseList<HInstruction*>& uses = value->GetUses();
+    for (auto it = uses.begin(), end = uses.end(); it != end; /* ++it below */) {
+      HInstruction* user = it->GetUser();
+      size_t index = it->GetIndex();
+      // Increment `it` now because `*it` may disappear thanks to user->ReplaceInput().
+      ++it;
+      if (!IsInOrigBBSet(user->GetBlock()) && (user != copy_value)) {
+        user->ReplaceInput(copy_value, index);
+      }
+    }
+
+    const HUseList<HEnvironment*>& env_uses = value->GetEnvUses();
+    for (auto it = env_uses.begin(), e = env_uses.end(); it != e; /* ++it below */) {
+      HEnvironment* env = it->GetUser();
+      size_t index = it->GetIndex();
+      ++it;
+      if (!IsInOrigBBSet(env->GetHolder()->GetBlock()) && (env->GetHolder() != copy_value)) {
+        env->ReplaceInput(copy_value, index);
+      }
+    }
+  }
+  return true;
 }
 
 //
@@ -1123,12 +1310,565 @@ HBasicBlock* PeelUnrollHelper::DoPeelUnrollImpl(bool to_unroll) {
 
   cloner_.SetSuccessorRemappingInfo(&remap_orig_internal, &remap_copy_internal, &remap_incoming);
   cloner_.Run();
-  cloner_.CleanUp();
+  cloner_.CleanUp(false);
 
   // Check that loop info is preserved.
   DCHECK(loop_info_ == loop_header->GetLoopInformation());
 
   return loop_header;
+}
+
+// Main function for partial loop unrolling with unknown iterations
+// As of now, we are handling 2 blocks for unknown iterations
+HBasicBlock* PeelUnrollHelper::DoPartialUnrolling(int iterations ATTRIBUTE_UNUSED, int unroll_factor) {
+  // For now do peeling only for natural loops.
+  DCHECK(!loop_info_->IsIrreducible());
+
+  HBasicBlock* loop_header = loop_info_->GetHeader();
+  // Check that loop info is up-to-date.
+  DCHECK(loop_info_ == loop_header->GetLoopInformation());
+
+  HGraph* graph = loop_header->GetGraph();
+  DCHECK(graph);
+
+  // Identify loop induction variable
+  // Modify  loop iteration value as "(n - m) % unroll_factor"
+  // Add new instructions to loop preheader
+  HInstruction* phi_induc = AddLoopUnrollEpilogue(graph);
+  if (phi_induc == nullptr) {
+    return nullptr;
+  }
+
+  ArenaAllocator allocator(graph->GetAllocator()->GetArenaPool());
+
+  HEdgeSet remap_orig_internal(graph->GetAllocator()->Adapter(kArenaAllocSuperblockCloner));
+  HEdgeSet remap_copy_internal(graph->GetAllocator()->Adapter(kArenaAllocSuperblockCloner));
+  HEdgeSet remap_incoming(graph->GetAllocator()->Adapter(kArenaAllocSuperblockCloner));
+
+  CollectRemappingInfoForPeelUnroll(true,
+                                    loop_info_,
+                                    &remap_orig_internal,
+                                    &remap_copy_internal,
+                                    &remap_incoming);
+
+  cloner_.SetSuccessorRemappingInfo(&remap_orig_internal, &remap_copy_internal, &remap_incoming);
+
+  if (!(cloner_.CloneAndAppendLoop())) {
+    return nullptr;
+  }
+
+  // Modify loop induction condition for partial loop unrolling
+  ModifyLoopInductionPartialUnroll(graph, phi_induc, unroll_factor);
+
+  // initial value of copy loop's induction variable and
+  // replicate orig loop body instructions as per unroll_factor
+  AdjustLoops(graph, phi_induc, unroll_factor);
+
+  // cloner cleanup
+  cloner_.CleanUpControlFlow(true);
+
+  // Check that loop info is preserved.
+  DCHECK(loop_info_ == loop_header->GetLoopInformation());
+
+  return loop_header;
+}
+
+
+// Identify loop induction variable
+// Modify  loop iteration value as "(n - m) % unroll_factor"
+// Add new instructions to loop preheader
+HInstruction* PeelUnrollHelper::AddLoopUnrollEpilogue(HGraph* graph)  {
+  DCHECK(loop_info_ != nullptr);
+
+  // get allocator
+  ArenaAllocator* allocator = graph->GetAllocator();
+  DCHECK(allocator);
+
+  // get loop header & preheader
+  HBasicBlock* header = loop_info_->GetHeader();
+  HBasicBlock* preheader = loop_info_->GetPreHeader();
+  if ((header == nullptr) || (preheader == nullptr)) {
+    return nullptr;
+  }
+
+  HInstruction* init_induc_val = nullptr;
+  HInstruction* phi_induc = nullptr;
+  HInstruction* cond_val = nullptr;
+
+  // get index of back-edge block
+  HBasicBlock* body_blk = loop_info_->GetBackEdges()[0];
+  size_t back_edge_index = header->GetPredecessorIndexOf(body_blk);
+
+  // identify loop induction variable, induction condition and
+  // value against which induction variable is being checked
+  HIf* hif = header->GetLastInstruction()->AsIf();
+  inst_induction_cond = hif->InputAt(0);
+  DCHECK(inst_induction_cond);
+
+  HInputsRef inputs = inst_induction_cond->GetInputs();
+  for (size_t i = 0; i < inputs.size(); ++i) {
+    HInstruction* inst_input = inst_induction_cond->InputAt(i);
+    if (inst_input->IsPhi() && (inst_input->GetBlock() == header)) {
+      phi_induc = inst_induction_cond->InputAt(i)->AsPhi();
+      cond_val = inst_induction_cond->InputAt(1 - i);
+      induc_cond_val_index = 1 - i;
+      break;
+    }
+  }
+
+  if ((phi_induc == nullptr) || (cond_val == nullptr)) {
+    return nullptr;
+  }
+
+  // "cond_val" in header block means that it's  value is somehow
+  // dependant (& can't be determined) on previous loop iteration
+  if (cond_val->GetBlock() == header) {
+    return nullptr;
+  }
+
+  // initial value of loop induction variable
+  init_induc_val = phi_induc->InputAt(0);
+  if (init_induc_val == nullptr) {
+    return nullptr;
+  }
+
+  // get the type of cond_val and init_induc_val
+  DataType::Type cond_val_type = cond_val->GetType();
+  DataType::Type init_induc_type = init_induc_val->GetType();
+
+  // Don't support reference and void types for induction var
+  // init value and condition
+  if ((cond_val_type == DataType::Type::kReference) ||
+      (cond_val_type == DataType::Type::kVoid) ||
+      (init_induc_type == DataType::Type::kReference) ||
+      (init_induc_type == DataType::Type::kVoid) ||
+      (phi_induc->GetType() == DataType::Type::kReference) ||
+      (phi_induc->GetType() == DataType::Type::kVoid)) {
+    return nullptr;
+  }
+
+  // get the value of induction advancing variable
+  HInstruction* phi_input = phi_induc->InputAt(back_edge_index);
+  DCHECK(phi_input);
+  size_t iter_phi_ip = 0;
+  HInputsRef inputs_back_edge = phi_input->GetInputs();
+  for (iter_phi_ip = 0; iter_phi_ip < inputs_back_edge.size(); ++iter_phi_ip) {
+    HInstruction* inst_input = phi_input->InputAt(iter_phi_ip);
+
+    if ((inst_input == phi_induc) && (phi_input->IsBinaryOperation())) {
+      inst_induction_op = phi_input;
+      induc_op_phi_index = iter_phi_ip;
+      inst_induction_op_val = phi_input->InputAt(1 - iter_phi_ip);
+      break;
+    }
+  }
+
+  if ((inst_induction_op == nullptr) || (inst_induction_op_val == nullptr)) {
+    return nullptr;
+  }
+
+  // the value by which induction var is incremented/decremented,
+  // should either be in header or block dominating the header
+  HBasicBlock* inst_induction_op_val_blk = inst_induction_op_val->GetBlock();
+  if ((inst_induction_op_val_blk != header) && !(inst_induction_op_val_blk->Dominates(header))) {
+    return nullptr;
+  }
+
+  // Support Mul only If induction advancing variable is constant,
+  // otherwise support add, sub & Shl operations only
+  if (inst_induction_op_val->IsConstant()) {
+    if (!(inst_induction_op->IsAdd() || inst_induction_op->IsSub() ||
+          inst_induction_op->IsMul() || inst_induction_op->IsShl())) {
+      return nullptr;
+    }
+  } else {
+    if (!(inst_induction_op->IsAdd() || inst_induction_op->IsSub() ||
+          inst_induction_op->IsShl())) {
+      return nullptr;
+    }
+  }
+
+  return phi_induc;
+}
+
+/* Suppose loop looks like "for (i = a; i <comp_op> b; i <advance_op> c)"
+   For above loop, Add instructions for computation of "abs(b - a)" and "(abs(c) * unroll_factor)"
+   For add & sub operations, Execute partially unrolled loop only if "abs(b - a)"
+   (i.e. loop iterations) > "(abs(c) * unroll_factor)".
+   For Mul & Shl operations, Excecute partially unrolled loop only if "(c * unroll_factor)" > "b".
+*/
+void PeelUnrollHelper::ModifyLoopInductionPartialUnroll(HGraph* graph, HInstruction* phi_induc, int unroll_factor) {
+  // get allocator
+  ArenaAllocator* allocator = graph->GetAllocator();
+  DCHECK(allocator);
+
+  // get loop header & preheader
+  HBasicBlock* header = loop_info_->GetHeader();
+  HBasicBlock* preheader = loop_info_->GetPreHeader();
+  HInstruction* inst_cond_val = inst_induction_cond->InputAt(induc_cond_val_index);
+
+  HInstruction* inst_check_val = nullptr;
+  HInstruction* inst_unroll_factor2 = nullptr;
+  if (inst_induction_op->IsAdd() || inst_induction_op->IsSub() || inst_induction_op->IsShl()) {
+    DataType::Type inst_induction_op_val_type = inst_induction_op_val->GetType();
+    if (DataType::IsIntegralType(inst_induction_op_val_type)) {
+      inst_unroll_factor2 = graph->GetConstant(inst_induction_op_val->GetType(), unroll_factor);
+    } else if (inst_induction_op_val_type == DataType::Type::kFloat32) {
+      inst_unroll_factor2 = graph->GetFloatConstant(unroll_factor, kNoDexPc);
+    } else if (inst_induction_op_val_type == DataType::Type::kFloat64) {
+      inst_unroll_factor2 = graph->GetDoubleConstant(unroll_factor, kNoDexPc);
+    } else {
+      HInstruction* inst_unroll_factor = graph->GetConstant(DataType::Type::kInt32, unroll_factor);
+      inst_unroll_factor2 = new (allocator) HTypeConversion(inst_induction_op_val->GetType(), inst_unroll_factor, kNoDexPc);
+      // add instruction to loop preheader
+      preheader->InsertInstructionBefore(inst_unroll_factor2, preheader->GetLastInstruction());
+    }
+
+    HInstruction* inst_abs_induction_op_val = nullptr;
+    if (inst_induction_op->IsAdd() || inst_induction_op->IsSub()) {
+      inst_abs_induction_op_val = new (allocator) HAbs(inst_induction_op_val->GetType(), inst_induction_op_val, kNoDexPc);
+      // add instruction to loop preheader
+      preheader->InsertInstructionBefore(inst_abs_induction_op_val, preheader->GetLastInstruction());
+    } else {  // "Shl" case
+      inst_abs_induction_op_val = inst_induction_op_val;
+    }
+
+    inst_check_val = new (allocator) HMul(inst_induction_op_val->GetType(), inst_abs_induction_op_val, inst_unroll_factor2);
+    // add instruction to loop preheader
+    preheader->InsertInstructionBefore(inst_check_val, preheader->GetLastInstruction());
+  }
+
+  // for add, sub operations
+  HInstruction* inst_final_sub = nullptr;
+  // for mul, shl operations
+  HInstruction* inst_unrolled_advance_val = nullptr;
+
+  bool is_induc_advance_positive = false;
+  if (inst_induction_op_val->IsConstant()) {
+    int64_t induc_advance_val = 0;
+    if (inst_induction_op_val->IsIntConstant()) {
+      induc_advance_val = inst_induction_op_val->AsIntConstant()->GetValue();
+    } else if (inst_induction_op_val->IsLongConstant()) {
+      induc_advance_val = inst_induction_op_val->AsLongConstant()->GetValue();
+    } else if (inst_induction_op_val->IsFloatConstant()) {
+      induc_advance_val = (int64_t) (inst_induction_op_val->AsFloatConstant()->GetValue());
+    } else if (inst_induction_op_val->IsDoubleConstant()) {
+      induc_advance_val = (int64_t) (inst_induction_op_val->AsDoubleConstant()->GetValue());
+    }
+
+    if (induc_advance_val >= 0) {
+      if (inst_induction_op->IsAdd() || inst_induction_op->IsMul() || inst_induction_op->IsShl()) {
+        is_induc_advance_positive = true;
+      }
+    } else {
+      if (inst_induction_op->IsSub()) {
+        is_induc_advance_positive = true;
+      }
+    }
+
+    if (inst_induction_op->IsAdd() || inst_induction_op->IsSub()) {
+      if (is_induc_advance_positive) {
+        inst_final_sub = new (allocator) HSub(phi_induc->GetType(), inst_cond_val, phi_induc);
+      } else {
+        inst_final_sub = new (allocator) HSub(phi_induc->GetType(), phi_induc, inst_cond_val);
+      }
+    } else if (inst_induction_op->IsMul()) {
+      // calculate advance value for partially unrolled loop
+      int64_t val_pow = 1;
+      for (int iter = 0; iter < unroll_factor; iter++) {
+        val_pow = val_pow * induc_advance_val;
+      }
+
+      HInstruction* inst_val_pow = nullptr;
+      DataType::Type phi_induc_type = phi_induc->GetType();
+      if (DataType::IsIntegralType(phi_induc_type)) {
+        inst_val_pow = graph->GetConstant(phi_induc_type, val_pow);
+      } else if (phi_induc_type == DataType::Type::kFloat32) {
+        inst_val_pow = graph->GetFloatConstant(val_pow, kNoDexPc);
+      } else if (phi_induc_type == DataType::Type::kFloat64) {
+        inst_val_pow = graph->GetDoubleConstant(val_pow, kNoDexPc);
+      } else {
+        HInstruction* inst_val_pow1 = graph->GetConstant(DataType::Type::kInt32, val_pow);
+        inst_val_pow = new (allocator) HTypeConversion(phi_induc_type, inst_val_pow1, kNoDexPc);
+        // add instruction to loop preheader
+        preheader->InsertInstructionBefore(inst_val_pow, preheader->GetLastInstruction());
+      }
+
+      inst_unrolled_advance_val = new (allocator) HMul(phi_induc_type, phi_induc, inst_val_pow);
+      DCHECK(inst_unrolled_advance_val);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_unrolled_advance_val, inst_induction_cond);
+    } else if (inst_induction_op->IsShl()) {
+      inst_unrolled_advance_val = new (allocator) HShl(phi_induc->GetType(), phi_induc, inst_check_val);
+      DCHECK(inst_unrolled_advance_val);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_unrolled_advance_val, inst_induction_cond);
+    }
+  } else {  // only add, sub are supported when induction advancing variable isn't constant
+    is_induc_advance_positive = true;
+
+    if (inst_induction_op->IsAdd() || inst_induction_op->IsSub()) {
+      HInstruction* inst_new_comp = new (allocator) HGreaterThanOrEqual(phi_induc, inst_cond_val);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_new_comp, inst_induction_cond);
+
+      HInstruction* inst_sub1 = new (allocator) HSub(phi_induc->GetType(), inst_cond_val, phi_induc);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_sub1, inst_induction_cond);
+
+      HInstruction* inst_sub2 = new (allocator) HSub(phi_induc->GetType(), phi_induc, inst_cond_val);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_sub2, inst_induction_cond);
+
+      inst_final_sub = new (allocator) HSelect(inst_new_comp, inst_sub2, inst_sub1, kNoDexPc);
+    } else if (inst_induction_op->IsShl()) {
+      inst_unrolled_advance_val = new (allocator) HShl(phi_induc->GetType(), phi_induc, inst_check_val);
+      DCHECK(inst_unrolled_advance_val);
+      // add instruction to loop header
+      header->InsertInstructionBefore(inst_unrolled_advance_val, inst_induction_cond);
+    }
+  }
+
+  if (inst_induction_op->IsAdd() || inst_induction_op->IsSub()) {
+    DCHECK(inst_final_sub);
+    // add instruction to loop header
+    header->InsertInstructionBefore(inst_final_sub, inst_induction_cond);
+
+    HInstruction* inst_check_val2 = nullptr;
+    if (inst_check_val->GetType() != inst_final_sub->GetType()) {
+      inst_check_val2 = new (allocator) HTypeConversion(inst_final_sub->GetType(), inst_check_val, kNoDexPc);
+      // add instruction to loop preheader
+      preheader->InsertInstructionBefore(inst_check_val2, preheader->GetLastInstruction());
+    } else {
+      inst_check_val2 = inst_check_val;
+    }
+
+    if (inst_induction_cond->IsEqual() || inst_induction_cond->IsNotEqual()) {
+      HInstruction* inst_new_cond = nullptr;
+      inst_new_cond = new (allocator) HGreaterThan(inst_final_sub, inst_check_val2);
+      DCHECK(inst_new_cond);
+      header->InsertInstructionBefore(inst_new_cond, inst_induction_cond);
+
+      // Replace and remove.
+      inst_induction_cond->ReplaceWith(inst_new_cond);
+      inst_induction_cond->GetBlock()->RemoveInstruction(inst_induction_cond);
+    } else {
+      // replace old cond val with new cond val
+      if (is_induc_advance_positive) {
+        inst_induction_cond->ReplaceInput(inst_final_sub, induc_cond_val_index);
+        inst_induction_cond->ReplaceInput(inst_check_val2, 1 - induc_cond_val_index);
+      } else {
+        inst_induction_cond->ReplaceInput(inst_final_sub, 1 - induc_cond_val_index);
+        inst_induction_cond->ReplaceInput(inst_check_val2, induc_cond_val_index);
+      }
+    }
+  } else if ((inst_induction_op_val->IsConstant() && inst_induction_op->IsMul()) || inst_induction_op->IsShl()) {
+    if (inst_induction_cond->IsEqual() || inst_induction_cond->IsNotEqual()) {
+      HInstruction* inst_new_cond = nullptr;
+      inst_new_cond = new (allocator) HGreaterThan(inst_cond_val, inst_unrolled_advance_val);
+      DCHECK(inst_new_cond);
+      header->InsertInstructionBefore(inst_new_cond, inst_induction_cond);
+
+      // Replace and remove.
+      inst_induction_cond->ReplaceWith(inst_new_cond);
+      inst_induction_cond->GetBlock()->RemoveInstruction(inst_induction_cond);
+    } else {
+      // replace old cond val with new cond val
+      inst_induction_cond->ReplaceInput(inst_unrolled_advance_val, 1 - induc_cond_val_index);
+    }
+  }
+}
+
+// Modify orig loop induction variable condition,
+// initial value of copy loop's induction variable and
+// replicate orig loop body instructions as per unroll_factor
+bool PeelUnrollHelper::AdjustLoops(HGraph* graph, HInstruction* phi_induc, int unroll_factor)  {
+  DCHECK(loop_info_ != nullptr);
+  DCHECK(phi_induc != nullptr);
+  DCHECK(graph != nullptr);
+
+  // get allocator
+  ArenaAllocator* allocator = graph->GetAllocator();
+  DCHECK(allocator);
+
+  // get loop header
+  HBasicBlock* header = loop_info_->GetHeader();
+  // only one back edge.
+  HBasicBlock* body_blk = loop_info_->GetBackEdges()[0];
+
+  // check the value of induction variable operation i.e. "K" in "inst_induction_op <op> K"
+  DCHECK(inst_induction_cond);
+  DCHECK(inst_induction_op_val);
+
+  // for orig loop, copy and insert all instructions (insert new instructions in group)
+  HBasicBlock* copy_body_blk = cloner_.GetBlockCopy(body_blk);
+  DCHECK(copy_body_blk);
+
+  // add instruction mapping into map
+  HInstructionMap latest_instr_map(std::less<HInstruction*>(),
+      allocator->Adapter(kArenaAllocSuperblockCloner));
+
+  // vector to keep track of already moved instructions (avoid deadlock)
+  std::vector<HInstruction*> vec_instr_moved;
+  std::vector<HInstruction*> vec_instr_phi;
+  for (HInstructionIterator it(copy_body_blk->GetInstructions()); !it.Done(); ) {
+    HInstruction* instr = it.Current();
+    DCHECK(instr);
+
+    it.Advance();
+
+    if ((instr->GetInputs().size() > 1)) {
+      if (std::find(vec_instr_moved.begin(), vec_instr_moved.end(), instr) == vec_instr_moved.end()) {
+        vec_instr_moved.push_back(instr);
+
+        // add instruction mapping into map
+        // values will be used during resolution of cloned instruction inputs
+        HInstruction* instr_orig = cloner_.GetInstrOrig(instr);
+        for (HInstructionIterator it1(header->GetPhis()); !it1.Done(); it1.Advance()) {
+          HPhi* instr_phi = it1.Current()->AsPhi();
+          DCHECK(instr_phi);
+          HInputsRef inputs = instr_phi->GetInputs();
+          for (size_t i = 0; i < inputs.size(); ++i) {
+            HInstruction* phi_input = instr_phi->InputAt(i);
+            if (phi_input == instr_orig) {
+              latest_instr_map.FindOrAdd(instr_phi, instr_orig);
+              if (std::find(vec_instr_phi.begin(), vec_instr_phi.end(), instr_orig) == vec_instr_phi.end()) {
+                vec_instr_phi.push_back(instr_orig);
+              }
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Replicate instuctions in body block "unroll_factor - 1" times
+  // For instructions with PHI as 1st input, first store mapping in temp vector
+  // and then update in "latest_instr_map" at end of current iteration
+  std::map<HInstruction*, HInstruction*> temp_phi_map;
+  for (int iter = 1; iter < unroll_factor; iter++) {
+    for (HInstructionIterator it(copy_body_blk->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instr = it.Current();
+      DCHECK(instr);
+
+      // no need to duplicate Goto instruction
+      if (instr->IsGoto()) continue;
+
+      HInstruction* instr_orig = cloner_.GetInstrOrig(instr);
+      HInstruction* copy_instr = instr_orig->Clone(allocator);
+      DCHECK(copy_instr);
+
+      // insert new instruction before last "Goto" instruction
+      body_blk->InsertInstructionBefore(copy_instr, body_blk->GetLastInstruction());
+      if (instr_orig->HasEnvironment()) {
+        copy_instr->CopyEnvironmentFrom(instr_orig->GetEnvironment());
+      }
+
+      // copy_instr also has same inputs as instr_orig.
+      // as per our previous checks, "inst_induction_op" is binary operation
+      if (instr_orig == inst_induction_op) {
+        HInstruction* new_inst_induction_op_val = nullptr;
+        HInstruction* cur_unroll_val = nullptr;
+
+        // get constant (for current val of unroll factor) with proper type
+        DataType::Type inst_induction_op_val_type = inst_induction_op_val->GetType();
+        if (DataType::IsIntegralType(inst_induction_op_val_type)) {
+          cur_unroll_val = graph->GetConstant(inst_induction_op_val_type, (iter+1));
+        } else if (inst_induction_op_val_type == DataType::Type::kFloat32) {
+          cur_unroll_val = graph->GetFloatConstant((iter+1), kNoDexPc);
+        } else if (inst_induction_op_val_type == DataType::Type::kFloat64) {
+          cur_unroll_val = graph->GetDoubleConstant((iter+1), kNoDexPc);
+        } else {
+          HInstruction* inst_cur_unroll_val = graph->GetConstant(DataType::Type::kInt32, (iter+1));
+          cur_unroll_val = new (allocator) HTypeConversion(inst_induction_op_val_type, inst_cur_unroll_val, kNoDexPc);
+          DCHECK(cur_unroll_val);
+          body_blk->InsertInstructionBefore(cur_unroll_val, copy_instr);
+        }
+
+        new_inst_induction_op_val = new (allocator) HMul(inst_induction_op_val_type, inst_induction_op_val, cur_unroll_val);
+        DCHECK(new_inst_induction_op_val);
+
+        body_blk->InsertInstructionBefore(new_inst_induction_op_val, copy_instr);
+        // replace new value for induction operation
+        copy_instr->ReplaceInput(new_inst_induction_op_val, 1 - induc_op_phi_index);
+      } else {
+        // Iterate through inputs and replace inputs with latest relevent instruction
+        HInputsRef inputs = copy_instr->GetInputs();
+        for (size_t i = 0; i < inputs.size(); ++i) {
+          HInstruction* inst_input = copy_instr->InputAt(i);
+          if (latest_instr_map.find(inst_input) != latest_instr_map.end()) {
+            HInstruction* new_inst = latest_instr_map.Get(inst_input);
+            copy_instr->ReplaceInput(new_inst, i);
+          }
+        }
+      }
+
+      // Update map with latest value for instr_orig
+      if (latest_instr_map.find(instr_orig) != latest_instr_map.end()) {
+        latest_instr_map.Overwrite(instr_orig, copy_instr);
+      } else {
+        latest_instr_map.FindOrAdd(instr_orig, copy_instr);
+      }
+
+      if ((instr_orig->GetInputs().size() > 1) && (std::find(vec_instr_phi.begin(), vec_instr_phi.end(), instr_orig) != vec_instr_phi.end())) {
+        for (HInstructionIterator it2(header->GetPhis()); !it2.Done(); it2.Advance()) {
+          HPhi* instr_phi = it2.Current()->AsPhi();
+          DCHECK(instr_phi);
+          HInputsRef inputs_phi = instr_phi->GetInputs();
+          for (size_t i = 0; i < inputs_phi.size(); ++i) {
+            HInstruction* inst_input = instr_phi->InputAt(i);
+            if (inst_input == instr_orig) {
+              temp_phi_map.insert(std::pair<HInstruction*, HInstruction*>(instr_phi, copy_instr));
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    // update PHI mappings from "temp_phi_map" to "latest_instr_map" at end of iteration
+    std::map<HInstruction*, HInstruction*>::iterator phi_map_iter;
+    for (phi_map_iter = temp_phi_map.begin(); phi_map_iter != temp_phi_map.end(); ++phi_map_iter) {
+      if (latest_instr_map.find(phi_map_iter->first) != latest_instr_map.end()) {
+        latest_instr_map.Overwrite(phi_map_iter->first, phi_map_iter->second);
+      } else {
+        latest_instr_map.FindOrAdd(phi_map_iter->first, phi_map_iter->second);
+      }
+    }
+    temp_phi_map.clear();
+  }
+
+  vec_instr_phi.clear();
+
+  // update most recent values (in body block) of PHIs in header block
+  for (HInstructionIterator it(header->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* instr_phi = (it.Current())->AsPhi();
+    DCHECK(instr_phi);
+
+    size_t index = header->GetPredecessorIndexOf(body_blk);
+    HInstruction* old_input = instr_phi->InputAt(index);
+    DCHECK(old_input);
+
+    if (latest_instr_map.find(old_input) != latest_instr_map.end()) {
+      HInstruction* new_inst = latest_instr_map.Get(old_input);
+      DCHECK(new_inst);
+      instr_phi->ReplaceInput(new_inst, index);
+    }
+  }
+
+  // for copy loop, rearrange header's Phi's input as per predecessors order
+  HBasicBlock* copy_header_blk = cloner_.GetBlockCopy(header);
+  DCHECK(copy_header_blk);
+  graph->OrderLoopHeaderPredecessors(copy_header_blk);
+
+  // populate copy loop
+  HLoopInformation* loop_info = copy_header_blk->GetLoopInformation();
+  if (loop_info != nullptr) {
+    loop_info->Populate();
+  }
+
+  return true;
 }
 
 PeelUnrollSimpleHelper::PeelUnrollSimpleHelper(HLoopInformation* info,

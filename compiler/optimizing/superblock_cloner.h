@@ -168,7 +168,7 @@ class SuperblockCloner : public ValueObject {
 
   // Cleans up the graph after transformation: splits critical edges, recalculates control flow
   // information (back-edges, dominators, loop info, etc), eliminates redundant phis.
-  void CleanUp();
+  void CleanUp(bool keep_both_loops = false);
 
   // Returns a clone of a basic block (orig_block).
   //
@@ -219,6 +219,18 @@ class SuperblockCloner : public ValueObject {
     return outer_loop_;
   }
 
+  // Clone a group of connected blocks (i.e. loop) and
+  // append copy loop at exit of orig loop
+  bool CloneAndAppendLoop();
+
+  // Adjusts control flow (back edges, loops, dominators) for the local area defined by
+  // FindAndSetLocalAreaForAdjustments.
+  // "keep_both_loops" value true means keep both orig as well as copy loop
+  void AdjustControlFlowInfo(bool keep_both_loops = false);
+
+  // "keep_both_loops" value true means keep both orig as well as copy loop
+  void CleanUpControlFlow(bool keep_both_loops = false);
+
  private:
   // Fills the 'exits' vector with the subgraph exits.
   void SearchForSubgraphExits(ArenaVector<HBasicBlock*>* exits) const;
@@ -233,10 +245,6 @@ class SuperblockCloner : public ValueObject {
   // a phi input record (not value) and a block's predecessor) are adjusted at this stage: neither
   // phis' nor instructions' inputs values are resolved.
   void RemapEdgesSuccessors();
-
-  // Adjusts control flow (back edges, loops, dominators) for the local area defined by
-  // FindAndSetLocalAreaForAdjustments.
-  void AdjustControlFlowInfo();
 
   // Resolves Data Flow - adjusts phis' and instructions' inputs in order to have a valid graph in
   // the SSA form.
@@ -301,9 +309,10 @@ class SuperblockCloner : public ValueObject {
   //
 
   void FindBackEdgesLocal(HBasicBlock* entry_block, ArenaBitVector* local_set);
-  void RecalculateBackEdgesInfo(ArenaBitVector* outer_loop_bb_set);
+
+  // "keep_both_loops" value true means keep both orig as well as copy loop
+  void RecalculateBackEdgesInfo(ArenaBitVector* outer_loop_bb_set, bool keep_both_loops = false);
   GraphAnalysisResult AnalyzeLoopsLocally(ArenaBitVector* outer_loop_bb_set);
-  void CleanUpControlFlow();
 
   //
   // Helpers for ResolveDataFlow
@@ -323,6 +332,12 @@ class SuperblockCloner : public ValueObject {
   bool CheckRemappingInfoIsValid();
   void VerifyGraph();
   void DumpInputSets();
+
+  // Append copy loop at exit of orig loop
+  bool ReArrangeCopyLoop();
+
+  // Form internal edges in copy loop as per internal edges in orig loop
+  void RedirectIntenalEdges();
 
   HBasicBlock* GetBlockById(uint32_t block_id) const {
     DCHECK(block_id < graph_->GetBlocks().size());
@@ -383,9 +398,17 @@ class PeelUnrollHelper : public ValueObject {
   // Returns whether the loop can be peeled/unrolled.
   bool IsLoopClonable() const { return cloner_.IsSubgraphClonable(); }
 
-  HBasicBlock* DoPeeling() { return DoPeelUnrollImpl(/* to_unroll= */ false); }
-  HBasicBlock* DoUnrolling() { return DoPeelUnrollImpl(/* to_unroll= */ true); }
+  HBasicBlock* DoPeeling() { return DoPeelUnrollImpl(/* to_unroll */ false); }
+  HBasicBlock* DoUnrolling() { return DoPeelUnrollImpl(/* to_unroll */ true); }
   HLoopInformation* GetRegionToBeAdjusted() const { return cloner_.GetRegionToBeAdjusted(); }
+
+  // Main function for partial loop unrolling with unknown iterations
+  HBasicBlock* DoPartialUnrolling(int iterations, int unroll_factor);
+
+  // Support functions for partial loop unrolling with unknown iterations
+  HInstruction* AddLoopUnrollEpilogue(HGraph* graph);
+  bool AdjustLoops(HGraph* graph, HInstruction* inst, int unroll_factor);
+  void ModifyLoopInductionPartialUnroll(HGraph* graph, HInstruction* phi_induc, int unroll_factor);
 
  protected:
   // Applies loop peeling/unrolling for the loop specified by 'loop_info'.
@@ -396,6 +419,18 @@ class PeelUnrollHelper : public ValueObject {
  private:
   HLoopInformation* loop_info_;
   SuperblockCloner cloner_;
+
+  // variables for partial loop unrolling with unknown iterations
+  // loop termination condition
+  HInstruction* inst_induction_cond;
+  // loop induction variable advancing instruction
+  HInstruction* inst_induction_op;
+  // Instruction representing value by which induction variable is being advanced
+  HInstruction* inst_induction_op_val;
+  // index of loop terminating input in loop termination condition
+  size_t induc_cond_val_index;
+  // index of induction PHI in loop induction variable advancing instruction
+  size_t induc_op_phi_index;
 
   DISALLOW_COPY_AND_ASSIGN(PeelUnrollHelper);
 };
@@ -414,6 +449,12 @@ class PeelUnrollSimpleHelper : public ValueObject {
 
   const SuperblockCloner::HBasicBlockMap* GetBasicBlockMap() const { return &bb_map_; }
   const SuperblockCloner::HInstructionMap* GetInstructionMap() const { return &hir_map_; }
+
+  // Wrapper API for "DoPartialUnrolling" inside "PeelUnrollHelper"
+  HBasicBlock* DoPartialUnrolling(int iterations, int unroll_factor) {
+    return helper_.DoPartialUnrolling(iterations, unroll_factor);
+  }
+
 
  private:
   SuperblockCloner::HBasicBlockMap bb_map_;
