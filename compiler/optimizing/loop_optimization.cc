@@ -779,6 +779,92 @@ bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
 }
 
 
+// check data dependance in loop
+bool HLoopOptimization::CheckLoopDependance(HLoopInformation* loop_info) {
+  DCHECK(loop_info != nullptr);
+
+  bool has_array_set = false;
+  bool has_array_get = false;
+  // get loop header & preheader
+  HBasicBlock* header = loop_info->GetHeader();
+  if (header == nullptr) {
+    return false;
+  }
+
+  ScopedArenaSet<ArrayReference>* vector_refs = nullptr;
+  ScopedArenaSet<ArrayReference> refs(loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+  vector_refs = &refs;
+
+  for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
+    HBasicBlock* block = it.Current();
+    for (HInstructionIterator it1(block->GetInstructions()); !it1.Done(); it1.Advance()) {
+      HInstruction* instruction = it1.Current();
+      DCHECK(instruction);
+
+      if (instruction->IsArraySet()) {
+        DataType::Type type = instruction->AsArraySet()->GetComponentType();
+        HInstruction* base = instruction->InputAt(0);
+        HInstruction* index = instruction->InputAt(1);
+        // HInstruction* value = instruction->InputAt(2);
+        HInstruction* offset = nullptr;
+        has_array_set = true;
+
+        if (loop_info->IsDefinedOutOfTheLoop(base)) {
+          induction_range_.IsUnitStride(instruction, index, graph_, &offset);
+          vector_refs->insert(ArrayReference(base, offset, type, /*lhs*/ true));
+        }
+      } else if (instruction->IsArrayGet()) {
+        DataType::Type type = instruction->GetType();
+        has_array_get = true;
+
+        // Accept a right-hand-side array base[index] for
+        // matching vector type (exact match or signed/unsigned integral type of the same size),
+        // loop-invariant base,
+        // unit stride index,
+        HInstruction* base = instruction->InputAt(0);
+        HInstruction* index = instruction->InputAt(1);
+        HInstruction* offset = nullptr;
+
+        if (loop_info->IsDefinedOutOfTheLoop(base)) {
+          induction_range_.IsUnitStride(instruction, index, graph_, &offset);
+          vector_refs->insert(ArrayReference(base, offset, type, /*lhs*/ false));
+        }
+      }
+    }
+  }
+
+  // No need to check if either ArrayGet or ArraySet not present
+  if ((has_array_set == false) || (has_array_get == false)) {
+    return true;
+  }
+
+  // identify loop carried data dependence
+  for (auto i = vector_refs->begin(); i != vector_refs->end(); ++i) {
+    if (!(i->lhs)) {
+      continue;
+    }
+    // Scan over all next references.
+    for (auto j = vector_refs->begin(); j != vector_refs->end(); ++j) {
+      if (i->type == j->type && !(j->lhs)) {
+        // Found same-typed a[i+x] vs. b[i+y], where at least one is a write.
+        HInstruction* a = i->base;
+        HInstruction* b = j->base;
+        HInstruction* x_lhs = i->offset;
+        HInstruction* y_rhs = j->offset;
+        if (a == b) {
+          // Found a[i+x] vs. a[i+y]. Accept if x == y (loop-independent data dependence).
+          // Conservatively assume a loop-carried data dependence otherwise, and reject.
+          if (y_rhs != x_lhs) {
+            return false;
+          }
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
 
 //
 // Scalar loop peeling and unrolling: generic part methods.
@@ -796,19 +882,36 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
   }
 
   if (generate_code) {
-    // TODO: support other unrolling factors.
-    DCHECK_EQ(unrolling_factor, 2u);
+    // keeping old limitation for instruction set other than X86_64
+    if (compiler_options_->GetInstructionSet() != InstructionSet::kX86_64) {
+      // TODO: support other unrolling factors.
+      DCHECK_EQ(unrolling_factor, 2u);
+    }
 
     // Perform unrolling.
     HLoopInformation* loop_info = analysis_info->GetLoopInfo();
     PeelUnrollSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
 
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    // Performing partial loop unrolling with unknown iteration for X86_64
+    // preserve previous code flow intact for other instruction sets
+    int64_t trip_count = analysis_info->GetTripCount();
+    if ((compiler_options_->GetInstructionSet() == InstructionSet::kX86_64) &&
+       (trip_count == LoopAnalysisInfo::kUnknownTripCount)) {
+      // check loop carried data dependance
+      if (!CheckLoopDependance(loop_info)) {
+        return false;
+      }
+
+      helper.DoPartialUnrolling(trip_count, unrolling_factor);
+    } else {
+      helper.DoUnrolling();
+
+      // Remove the redundant loop check after unrolling.
+      HIf* copy_hif =
+          helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+      int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+      copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    }
   }
   return true;
 }
