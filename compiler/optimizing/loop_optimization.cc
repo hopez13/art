@@ -453,6 +453,20 @@ static DataType::Type GetNarrowerType(HInstruction* a, HInstruction* b) {
   return type;
 }
 
+// Unroll the loop once (unroll by two) and make the loop exit check for the second part
+// of the loop body unconditionally not taken.
+static void UnrollOnceAndRemoveLoopCheck(HLoopInformation* loop_info,
+                                         InductionVarRange* induction_range) {
+  LoopClonerSimpleHelper helper(loop_info, induction_range);
+  helper.DoUnrolling();
+
+  // Remove the redundant loop check after unrolling.
+  HIf* copy_hif =
+      helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+  int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+  copy_hif->ReplaceInput(loop_info->GetHeader()->GetGraph()->GetIntConstant(constant), 0u);
+}
+
 //
 // Public methods.
 //
@@ -480,6 +494,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_runtime_test_b_(nullptr),
       vector_map_(nullptr),
       vector_permanent_map_(nullptr),
+      loop_black_list_(nullptr),
       vector_mode_(kSequential),
       vector_preheader_(nullptr),
       vector_header_(nullptr),
@@ -545,12 +560,16 @@ bool HLoopOptimization::LocalRun() {
         std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
     ScopedArenaSafeMap<HInstruction*, HInstruction*> perm(
         std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+    ScopedArenaSet<HBasicBlock*> black_list(
+        std::less<HBasicBlock*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+
     // Attach.
     iset_ = &iset;
     reductions_ = &reds;
     vector_refs_ = &refs;
     vector_map_ = &map;
     vector_permanent_map_ = &perm;
+    loop_black_list_ = &black_list;
     // Traverse.
     didLoopOpt = TraverseLoopsInnerToOuter(top_loop_);
     // Detach.
@@ -630,6 +649,7 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
     } while (simplified_);
     // Optimize inner loop.
     if (node->inner == nullptr) {
+      induction_range_.ReVisit(node->loop_info);
       changed = OptimizeInnerLoop(node) || changed;
     }
   }
@@ -795,6 +815,11 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
     return false;
   }
 
+  int64_t trip_count = analysis_info->GetTripCount();
+  if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
+    return false;
+  }
+
   uint32_t unrolling_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
   if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
     return false;
@@ -805,15 +830,7 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
     DCHECK_EQ(unrolling_factor, 2u);
 
     // Perform unrolling.
-    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
-    LoopClonerSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
-
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    UnrollOnceAndRemoveLoopCheck(analysis_info->GetLoopInfo(), &induction_range_);
   }
   return true;
 }
@@ -886,6 +903,89 @@ bool HLoopOptimization::TryFullUnrolling(LoopAnalysisInfo* analysis_info, bool g
   return true;
 }
 
+bool HLoopOptimization::TryDynamicUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code) {
+  int64_t trip_count = analysis_info->GetTripCount();
+  if (!arch_loop_helper_->IsLoopPeelingEnabled() ||
+      trip_count != LoopAnalysisInfo::kUnknownTripCount) {
+    return false;
+  }
+  HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+  HBasicBlock* orig_header = loop_info->GetHeader();
+  if (loop_black_list_->find(orig_header) != loop_black_list_->end()) {
+    return false;
+  }
+
+  // For bottom tested loop, unrolling primitive adds instructions in-correctly in loop body.
+  // For now, don't perform dynamic unroll for bottom tested loop.
+  HBasicBlock* blk_back_edge_orig = loop_info->GetBackEdges()[0];
+  uint32_t count_inst_back = blk_back_edge_orig->GetInstructions().CountSize();
+  // Only GOTO instruction.
+  if (count_inst_back == 1) {
+    return false;
+  }
+
+  uint32_t unroll_factor = 0;
+  if (!generate_code) {
+    unroll_factor = arch_loop_helper_->GetScalarUnrollingFactor(analysis_info);
+    if (unroll_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
+      return false;
+    } else {
+      // Storing unroll factor so that we don't need to recalculate it
+      // when this routine will be called again for same loop.
+      analysis_info->SetLoopUnrollFactor(unroll_factor);
+      return true;
+    }
+  } else {
+    unroll_factor = analysis_info->GetLoopUnrollFactor();
+    DCHECK_GE(unroll_factor, 2u);
+  }
+
+  HBasicBlock* preheader = loop_info->GetPreHeader();
+  HInstruction* stc = induction_range_.GenerateTripCount(loop_info, graph_, preheader);
+  if (stc == nullptr) {
+    return false;
+  }
+
+  HBasicBlock* another_header = nullptr;
+  // Perform unrolling.
+  LoopClonerSimpleHelper helper(loop_info, &induction_range_);
+  helper.DoVersioning();
+  another_header =  helper.GetBasicBlockMap()->Get(orig_header);
+
+  loop_black_list_->insert(orig_header);
+  loop_black_list_->insert(another_header);
+
+  if (preheader->GetSuccessors().size() <= 1) {
+    return false;
+  }
+
+  uint32_t versioning_cnt = log2(unroll_factor);
+  uint32_t iter = 0;
+  for (iter=0; iter < versioning_cnt; ) {
+    // Unroll one of the loop versions.
+    UnrollOnceAndRemoveLoopCheck(another_header->GetLoopInformation(), &induction_range_);
+
+    iter++;
+
+    // Don't unroll further if loop has become unclonable after previous unrolling.
+    if (!LoopClonerHelper::IsLoopClonable(another_header->GetLoopInformation())) {
+      break;
+    }
+  }
+
+  if (iter != versioning_cnt) {
+    versioning_cnt = iter;
+    unroll_factor = pow(2, iter);
+  }
+
+  RearrangeLoopsForDynamicUnrolling(loop_info, preheader, &helper);
+
+  ModifyLoopInductionForDynamicUnrolling(unroll_factor, loop_info, preheader,
+                                         another_header, stc);
+
+  return true;
+}
+
 bool HLoopOptimization::TryPeelingAndUnrolling(LoopNode* node) {
   // Don't run peeling/unrolling if compiler_options_ is nullptr (i.e., running under tests)
   // as InstructionSet is needed.
@@ -905,7 +1005,8 @@ bool HLoopOptimization::TryPeelingAndUnrolling(LoopNode* node) {
 
   if (!TryFullUnrolling(&analysis_info, /*generate_code*/ false) &&
       !TryPeelingForLoopInvariantExitsElimination(&analysis_info, /*generate_code*/ false) &&
-      !TryUnrollingForBranchPenaltyReduction(&analysis_info, /*generate_code*/ false)) {
+      !TryUnrollingForBranchPenaltyReduction(&analysis_info, /*generate_code*/ false) &&
+      !TryDynamicUnrolling(&analysis_info, /*generate_code*/ false)) {
     return false;
   }
 
@@ -916,7 +1017,117 @@ bool HLoopOptimization::TryPeelingAndUnrolling(LoopNode* node) {
 
   return TryFullUnrolling(&analysis_info) ||
          TryPeelingForLoopInvariantExitsElimination(&analysis_info) ||
-         TryUnrollingForBranchPenaltyReduction(&analysis_info);
+         TryUnrollingForBranchPenaltyReduction(&analysis_info)  ||
+         TryDynamicUnrolling(&analysis_info);
+}
+
+// Append unrolled loop at exit of original loop and modify loops induction variables,
+// conditions for original & unrolled loops.
+void HLoopOptimization::RearrangeLoopsForDynamicUnrolling(HLoopInformation* loop_info,
+                                                          HBasicBlock* preheader,
+                                                          LoopClonerSimpleHelper* helper) {
+  DCHECK(loop_info);
+  DCHECK(preheader);
+
+  HBasicBlock* orig_header = loop_info->GetHeader();
+  HBasicBlock* another_header = helper->GetBasicBlockMap()->Get(orig_header);
+
+  // Append unrolled loop at exit of original loop.
+  HBasicBlock* blk_unrolled = (preheader->GetSuccessors()[1]->Dominates(another_header))?
+                               preheader->GetSuccessors()[1] : preheader->GetSuccessors()[0];
+  preheader->RemoveSuccessor(blk_unrolled);
+  blk_unrolled->RemovePredecessor(preheader);
+  preheader->RemoveDominatedBlock(blk_unrolled);
+
+  HBasicBlock* blk_back_edge_orig = loop_info->GetBackEdges()[0];
+  HBasicBlock* orig_loop_exit = (orig_header->GetSuccessors()[0]->Dominates(blk_back_edge_orig))?
+                                orig_header->GetSuccessors()[1] : orig_header->GetSuccessors()[0];
+  HBasicBlock* blk_next = orig_loop_exit->GetSingleSuccessor();
+
+  orig_header->ReplaceSuccessor(orig_loop_exit, blk_unrolled);
+  blk_unrolled->SetDominator(orig_header);
+  orig_header->AddDominatedBlock(blk_unrolled);
+  orig_loop_exit->DisconnectAndDelete();
+
+  if (blk_next->GetPredecessors().size() == 1) {
+    // Update dominator of "blk_next".
+    HBasicBlock* old_dom = blk_next->GetDominator();
+    HBasicBlock* blk_prev = blk_next->GetSinglePredecessor();
+    old_dom->RemoveDominatedBlock(blk_next);
+    blk_next->SetDominator(blk_prev);
+    blk_prev->AddDominatedBlock(blk_next);
+  }
+
+  // Set original loop PHIs as first input for copied loop PHIs.
+  for (HInstructionIterator it(orig_header->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* phi = it.Current()->AsPhi();
+    HInstruction* copy_phi = helper->GetInstrCopy(phi);
+    DCHECK(copy_phi);
+
+    copy_phi->ReplaceInput(phi, 0);
+  }
+}
+
+// Modify loop induction variables, conditions for original & unrolled loops.
+void HLoopOptimization::ModifyLoopInductionForDynamicUnrolling(uint32_t unroll_factor,
+                                                                HLoopInformation* loop_info,
+                                                                HBasicBlock* preheader,
+                                                                HBasicBlock* another_header,
+                                                                HInstruction* stc) {
+  uint32_t versioning_cnt = log2(unroll_factor);
+  HBasicBlock* orig_header = loop_info->GetHeader();
+  DataType::Type data_type = stc->GetType();
+  DCHECK(DataType::IsIntegralType(data_type));
+
+  HInstruction* const_uf = graph_->GetConstant(data_type, unroll_factor);
+  HInstruction* const_log_uf = graph_->GetConstant(data_type, versioning_cnt);
+  HInstruction* const_one = graph_->GetConstant(data_type, 1);
+  HInstruction* const_zero = graph_->GetConstant(data_type, 0);
+
+  // Updated iterations for original loop.
+  HInstruction* inst_tc_orig = new (global_allocator_) HRem(data_type, stc, const_uf, 0);
+  preheader->InsertInstructionBefore(inst_tc_orig, preheader->GetLastInstruction());
+
+  // Updated iterations for duynamic unrolled loop.
+  HInstruction* inst_tc_other  = new (global_allocator_) HShr(data_type, stc, const_log_uf);
+  preheader->InsertInstructionBefore(inst_tc_other, preheader->GetLastInstruction());
+
+  // Modify original loop induction var & condition.
+  HPhi* induc_orig = new (global_allocator_) HPhi(global_allocator_, kNoRegNumber, 0, data_type);
+  orig_header->AddPhi(induc_orig);
+  induc_orig->AddInput(const_zero);
+
+  HBasicBlock* blk_back_edge_orig = loop_info->GetBackEdges()[0];
+  HInstruction* induc_advance_orig = new (global_allocator_) HAdd(data_type,
+                                                                  induc_orig, const_one);
+  blk_back_edge_orig->InsertInstructionBefore(induc_advance_orig,
+                                              blk_back_edge_orig->GetLastInstruction());
+  induc_orig->AddInput(induc_advance_orig);
+
+  HInstruction* inst_comp_orig = new (global_allocator_) HGreaterThanOrEqual(induc_orig,
+                                                                             inst_tc_orig);
+  HInstruction* inst_last_orig_header = orig_header->GetLastInstruction();
+  orig_header->InsertInstructionBefore(inst_comp_orig, inst_last_orig_header);
+  inst_last_orig_header->ReplaceInput(inst_comp_orig, 0);
+
+  // Modify unrolled loop induction var & condition.
+  HPhi* induc_other = new (global_allocator_) HPhi(global_allocator_,
+                                                   kNoRegNumber, 0, data_type);
+  another_header->AddPhi(induc_other);
+  induc_other->AddInput(const_zero);
+
+  HBasicBlock* blk_back_edge_other = another_header->GetLoopInformation()->GetBackEdges()[0];
+  HInstruction* induc_advance_other = new (global_allocator_) HAdd(data_type,
+                                                                   induc_other, const_one);
+  blk_back_edge_other->InsertInstructionBefore(induc_advance_other,
+                                               blk_back_edge_other->GetLastInstruction());
+  induc_other->AddInput(induc_advance_other);
+
+  HInstruction* inst_comp_other = new (global_allocator_) HGreaterThanOrEqual(induc_other,
+                                                                              inst_tc_other);
+  HInstruction* inst_last_another_header = another_header->GetLastInstruction();
+  another_header->InsertInstructionBefore(inst_comp_other, inst_last_another_header);
+  inst_last_another_header->ReplaceInput(inst_comp_other, 0);
 }
 
 //
