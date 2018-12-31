@@ -189,6 +189,8 @@ class InductionVarRange {
    */
   HInstruction* GenerateTripCount(HLoopInformation* loop, HGraph* graph, HBasicBlock* block);
 
+  bool GetStride(HInstruction* instr, /*out*/ int64_t* stride_value);
+
  private:
   /*
    * Enum used in IsConstant() request.
