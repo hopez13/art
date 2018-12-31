@@ -234,6 +234,9 @@ class HLoopOptimization : public HOptimization {
   uint32_t MaxNumberPeeled();
   bool IsVectorizationProfitable(int64_t trip_count);
 
+  // Parial Loop unrolling helpers
+  bool CheckLoopDependance(HLoopInformation* loop_info);
+
   //
   // Helpers.
   //

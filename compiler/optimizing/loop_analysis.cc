@@ -178,11 +178,105 @@ class Arm64LoopHelper : public ArchDefaultLoopHelper {
   }
 };
 
+// Custom implementation of loop helper for X86_64 target. Enables heuristics for scalar loop
+// peeling and unrolling and supports SIMD loop unrolling.
+class X86_64LoopHelper : public ArchDefaultLoopHelper {
+  // Maximum possible unrolling factor.
+  static constexpr uint32_t kX86_64MaxUnrollFactor = 8;
+
+  // Loop's maximum instruction count. Loops with higher count will not be unrolled.
+  static constexpr uint32_t kX86_64HeuristicMaxBodySizeInstr = 20;
+
+  // Maximum total instruction count after unrolling. Loops with higher count will not be unrolled.
+  static constexpr uint32_t kX86_64UnrolledMaxBodySizeInstr = 28;
+
+  // Loop's maximum basic block count. Loops with higher count will not be partial unrolled (unknown iterations).
+  static constexpr uint32_t kX86_64UnknownIterMaxBodySizeBlocks = 2;
+
+  uint32_t IsUnrollingUnknownIterBeneficial(const LoopAnalysisInfo* analysis_info) const {
+    // No need to check whether loop has try-catch and irreducible
+    // as these are already checked inside "HLoopOptimization::Run()"
+
+    // No need to check for single exit as it is already checked
+    // inside "HLoopOptimization::TryUnrollingForBranchPenaltyReduction()"
+
+    // No need to check clonability of instructions as it is being checked.
+    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+    DCHECK(loop_info);
+
+    // Loop should have one back edge.
+    size_t num_back_edges = loop_info->NumberOfBackEdges();
+    if (num_back_edges > 1)
+      return 0;
+
+    // Loop should have one exit.
+    size_t num_exit = analysis_info->GetNumberOfExits();
+    if (num_exit > 1)
+      return 0;
+
+    // Loop shouldn't have more than 2 blocks (when trip count is unknown).
+    uint32_t num_blocks = analysis_info->GetNumberOfBasicBlocks();
+    if (num_blocks > kX86_64UnknownIterMaxBodySizeBlocks)
+      return 0;
+
+    // Loop should be top tested (i.e. last instruction of loop header should be IF)
+    HBasicBlock* header = loop_info->GetHeader();
+    DCHECK(header);
+    if (!(header->GetLastInstruction()->IsIf()))
+      return 0;
+
+    uint32_t num_inst = 0;
+    for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
+      HBasicBlock* block = it.Current();
+      DCHECK(block);
+      if (block == header) {
+        continue;
+      }
+      num_inst += block->GetInstructions().CountSize();
+    }
+
+    if (num_inst == 0)
+      return 0;
+
+    // calculate actual unroll factor
+    uint32_t unrolling_factor = kX86_64MaxUnrollFactor;
+    while (unrolling_factor > 1) {
+      if ((num_inst * unrolling_factor) <= kX86_64UnrolledMaxBodySizeInstr) {
+        break;
+      }
+      unrolling_factor = unrolling_factor/2;
+    }
+
+    return unrolling_factor;
+  }
+
+ public:
+  uint32_t GetScalarUnrollingFactor(const LoopAnalysisInfo* analysis_info) const override {
+    int64_t trip_count = analysis_info->GetTripCount();
+
+    // check if partial unroll with unknown iterations is fine
+    if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
+      uint32_t ret = IsUnrollingUnknownIterBeneficial(analysis_info);
+      // gate condition for loop unrolling with unknown iterations
+      if (ret <= 1) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+
+      return ret;
+    }
+
+    return ArchDefaultLoopHelper::GetScalarUnrollingFactor(analysis_info);
+  }
+};
+
 ArchNoOptsLoopHelper* ArchNoOptsLoopHelper::Create(InstructionSet isa,
                                                    ArenaAllocator* allocator) {
   switch (isa) {
     case InstructionSet::kArm64: {
       return new (allocator) Arm64LoopHelper;
+    }
+    case InstructionSet::kX86_64: {
+      return new (allocator) X86_64LoopHelper;
     }
     default: {
       return new (allocator) ArchDefaultLoopHelper;
