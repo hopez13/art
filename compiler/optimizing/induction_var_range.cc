@@ -415,6 +415,22 @@ HInstruction* InductionVarRange::GenerateTripCount(HLoopInformation* loop,
   return nullptr;
 }
 
+bool InductionVarRange::GetStride(HInstruction* instr, int64_t* stride_val) {
+  if ((instr == nullptr) || (instr->GetBlock() != nullptr)) {
+    return false;
+  }
+
+  HLoopInformation* loop = instr->GetBlock()->GetLoopInformation();
+  if (loop == nullptr) return false;
+
+  HInductionVarAnalysis::InductionInfo *trip =
+      induction_analysis_->LookupInfo(loop, instr);
+  if (trip != nullptr && !IsUnsafeTripCount(trip)) {
+    return NeedsTripCount(trip, stride_val);
+  }
+  return false;
+}
+
 //
 // Private class methods.
 //
