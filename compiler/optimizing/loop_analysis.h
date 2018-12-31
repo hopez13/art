@@ -48,6 +48,12 @@ class LoopAnalysisInfo : public ValueObject {
   size_t GetNumberOfInstructions() const { return instr_num_; }
   size_t GetNumberOfExits() const { return exits_num_; }
   size_t GetNumberOfInvariantExits() const { return invariant_exits_num_; }
+  size_t GetLoopUnrollFactor() const { return unroll_factor_; }
+
+  void SetLoopUnrollFactor(size_t factor) {
+    DCHECK_GE(factor, 2u);
+    unroll_factor_ = factor;
+  }
 
   bool HasInstructionsPreventingScalarPeeling() const {
     return has_instructions_preventing_scalar_peeling_;
@@ -85,6 +91,8 @@ class LoopAnalysisInfo : public ValueObject {
   // Whether the loop has instructions of primitive long type; unrolling these loop will
   // likely introduce spill/fills on 32-bit targets.
   bool has_long_type_instructions_;
+  // unrolling factor for loop
+  size_t unroll_factor_;
 
   // Corresponding HLoopInformation.
   HLoopInformation* loop_info_;

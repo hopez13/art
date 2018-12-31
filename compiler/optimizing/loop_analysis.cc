@@ -86,6 +86,8 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
   static constexpr uint32_t kScalarHeuristicMaxBodySizeBlocks = 6;
   // Maximum number of instructions to be created as a result of full unrolling.
   static constexpr uint32_t kScalarHeuristicFullyUnrolledMaxInstrThreshold = 35;
+  // Maximum number of basic blocks for partial loop unrolling with unknown iterations
+  static constexpr uint32_t kUnknownIterMaxBodySizeBlocks = 2;
 
   bool IsLoopNonBeneficialForScalarOpts(LoopAnalysisInfo* analysis_info) const override {
     return analysis_info->HasLongTypeInstructions() ||
@@ -96,11 +98,20 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
 
   uint32_t GetScalarUnrollingFactor(const LoopAnalysisInfo* analysis_info) const override {
     int64_t trip_count = analysis_info->GetTripCount();
-    // Unroll only loops with known trip count.
+    uint32_t desired_unrolling_factor = LoopAnalysisInfo::kNoUnrollingFactor;
+
+    // check if partial unroll with unknown iterations is fine
     if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
-      return LoopAnalysisInfo::kNoUnrollingFactor;
+      desired_unrolling_factor = IsUnrollingUnknownIterBeneficial(analysis_info);
+      // gate condition for loop unrolling with unknown iterations
+      if (desired_unrolling_factor <= 1) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+
+      return desired_unrolling_factor;
     }
-    uint32_t desired_unrolling_factor = kScalarMaxUnrollFactor;
+
+    desired_unrolling_factor = kScalarMaxUnrollFactor;
     if (trip_count < desired_unrolling_factor || trip_count % desired_unrolling_factor != 0) {
       return LoopAnalysisInfo::kNoUnrollingFactor;
     }
@@ -116,6 +127,105 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
     DCHECK_NE(trip_count, LoopAnalysisInfo::kUnknownTripCount);
     size_t instr_num = analysis_info->GetNumberOfInstructions();
     return (trip_count * instr_num < kScalarHeuristicFullyUnrolledMaxInstrThreshold);
+  }
+
+  virtual uint32_t GetUnrollingFactor(HLoopInformation* loop_info ATTRIBUTE_UNUSED,
+             HBasicBlock* header ATTRIBUTE_UNUSED) const {
+    return kScalarMaxUnrollFactor;
+  }
+
+  virtual uint32_t IsUnrollingUnknownIterBeneficial(const LoopAnalysisInfo* analysis_info) const {
+    // No need to check whether loop has try-catch and irreducible
+    // as these are already checked inside "HLoopOptimization::Run()"
+
+    // No need to check for single exit as it is already checked
+    // inside "HLoopOptimization::TryUnrollingForBranchPenaltyReduction()"
+
+    // No need to check clonability of instructions as it is being checked.
+    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+    DCHECK(loop_info);
+
+    // Loop should have one back edge.
+    size_t num_back_edges = loop_info->NumberOfBackEdges();
+    if (num_back_edges != 1)
+      return 0;
+
+    // Loop should have one exit.
+    size_t num_exit = analysis_info->GetNumberOfExits();
+    if (num_exit != 1)
+      return 0;
+
+    // Loop shouldn't have more than 2 blocks (when trip count is unknown).
+    uint32_t num_blocks = analysis_info->GetNumberOfBasicBlocks();
+    if (num_blocks != kUnknownIterMaxBodySizeBlocks)
+      return 0;
+
+    // Loop should be top tested (i.e. last instruction of loop header should be IF)
+    HBasicBlock* header = loop_info->GetHeader();
+    DCHECK(header);
+    if (!(header->GetLastInstruction()->IsIf()))
+      return 0;
+
+    HIf* hif = header->GetLastInstruction()->AsIf();
+    HInstruction* inst_cond = hif->InputAt(0);
+    DCHECK(inst_cond);
+
+    // Not supporting compound condition e.g. for(...; i < b && pqr < xyz; ...)
+    bool is_phi_input = false;
+    HInputsRef inputs = inst_cond->GetInputs();
+    for (size_t i = 0; i < inputs.size(); ++i) {
+      HInstruction* inst_input = inst_cond->InputAt(i);
+      if (inst_input->IsPhi() && (inst_input->GetBlock() == header)) {
+        is_phi_input = true;
+        break;
+      }
+    }
+
+    if (!is_phi_input) {
+      return 0;
+    }
+
+    // get index of back-edge block
+    HBasicBlock* body_blk = loop_info->GetBackEdges()[0];
+    size_t back_edge_index = header->GetPredecessorIndexOf(body_blk);
+
+    for (HInstructionIterator it(header->GetPhis()); !it.Done(); it.Advance()) {
+      HPhi* cur_phi = it.Current()->AsPhi();
+      DCHECK(cur_phi);
+
+      // sometime observed below case, which we don't need to process
+      if (cur_phi->InputCount() <= back_edge_index) continue;
+
+      // identifying and avoiding dependencies
+      HInputsRef phi_inputs = cur_phi->GetInputs();
+      for (size_t i = 0; i < phi_inputs.size(); ++i) {
+        HInstruction* phi_input = cur_phi->InputAt(i);
+        if (phi_input->IsPhi() && (phi_input->GetBlock() == header)) {
+          return 0;
+        }
+
+        // Difficult to handle while resolving inputs during instruction duplication.
+        if (i == back_edge_index) {
+          size_t iter_phi_ip = 0;
+          is_phi_input = false;
+          HInputsRef inputs_back_edge = phi_input->GetInputs();
+          for (iter_phi_ip = 0; iter_phi_ip < inputs_back_edge.size(); ++iter_phi_ip) {
+            HInstruction* inst_input = phi_input->InputAt(iter_phi_ip);
+            if (inst_input == cur_phi) {
+              is_phi_input = true;
+              break;
+            }
+          }
+
+          // difficult to maintain mapping when PHI isn't one of inputs of back-edge instruction
+          if (is_phi_input == false) {
+            return 0;
+          }
+        }
+      }
+    }
+
+    return GetUnrollingFactor(loop_info, header);
   }
 
  protected:
@@ -178,11 +288,56 @@ class Arm64LoopHelper : public ArchDefaultLoopHelper {
   }
 };
 
+// Custom implementation of loop helper for X86_64 target. Enables heuristics for scalar loop
+// peeling and unrolling and supports SIMD loop unrolling.
+class X86_64LoopHelper : public ArchDefaultLoopHelper {
+  // Maximum possible unrolling factor.
+  // TODO - identify maximum value based on architecture
+  static constexpr uint32_t kX86_64MaxUnrollFactor = 2;  // pow(2,2) = 4
+
+  // Maximum total instruction count after unrolling. Loops with higher count will not be unrolled.
+  // this variable is set according to utilize LSD (loop stream decoder) on IA
+  // For atom processor (silvermont & goldmont), LSD size is 28
+  // TODO - identify architecture and LSD size at runtime
+  static constexpr uint32_t kX86_64UnrolledMaxBodySizeInstr = 28;
+
+ public:
+  uint32_t GetUnrollingFactor(HLoopInformation* loop_info,
+              HBasicBlock* header) const override {
+    uint32_t num_inst = 0, num_inst1 = 0;
+    for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
+      HBasicBlock* block = it.Current();
+      DCHECK(block);
+      if (block == header) {
+        num_inst1 = block->GetInstructions().CountSize();
+      } else {
+        num_inst += block->GetInstructions().CountSize();
+      }
+    }
+
+    // calculate actual unroll factor
+    uint32_t unrolling_factor = kX86_64MaxUnrollFactor;
+    // "-1" for goto statement
+    uint32_t desired_size = kX86_64UnrolledMaxBodySizeInstr - num_inst1 - 1;
+    while (unrolling_factor > 0) {
+      if ((desired_size >> unrolling_factor) >= (num_inst - 1)) {
+        break;
+      }
+      unrolling_factor--;
+    }
+
+    return (1 << unrolling_factor);
+  }
+};
+
 ArchNoOptsLoopHelper* ArchNoOptsLoopHelper::Create(InstructionSet isa,
                                                    ArenaAllocator* allocator) {
   switch (isa) {
     case InstructionSet::kArm64: {
       return new (allocator) Arm64LoopHelper;
+    }
+    case InstructionSet::kX86_64: {
+      return new (allocator) X86_64LoopHelper;
     }
     default: {
       return new (allocator) ArchDefaultLoopHelper;
