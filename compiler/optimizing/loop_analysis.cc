@@ -98,11 +98,19 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
 
   uint32_t GetScalarUnrollingFactor(const LoopAnalysisInfo* analysis_info) const override {
     int64_t trip_count = analysis_info->GetTripCount();
-    // Unroll only loops with known trip count.
-    if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
-      return LoopAnalysisInfo::kNoUnrollingFactor;
-    }
     uint32_t desired_unrolling_factor = kScalarMaxUnrollFactor;
+
+    // Check if partial unroll with unknown iterations is fine.
+    if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
+      desired_unrolling_factor = IsUnrollingUnknownIterBeneficial(analysis_info);
+      // Gate condition for loop unrolling with unknown iterations.
+      if (desired_unrolling_factor <= 1) {
+        return LoopAnalysisInfo::kNoUnrollingFactor;
+      }
+
+      return desired_unrolling_factor;
+    }
+
     if (trip_count < desired_unrolling_factor || trip_count % desired_unrolling_factor != 0) {
       return LoopAnalysisInfo::kNoUnrollingFactor;
     }
@@ -118,6 +126,55 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
     DCHECK_NE(trip_count, LoopAnalysisInfo::kUnknownTripCount);
     size_t instr_num = analysis_info->GetNumberOfInstructions();
     return (trip_count * instr_num < kScalarHeuristicFullyUnrolledMaxInstrThreshold);
+  }
+
+  virtual uint32_t GetUnrollingFactor(HLoopInformation* loop_info ATTRIBUTE_UNUSED,
+             HBasicBlock* header ATTRIBUTE_UNUSED) const {
+    return kScalarMaxUnrollFactor;
+  }
+
+  // Identify whether partial loop unrolling for uncounted loop will be
+  // feasible & beneficial.
+  virtual uint32_t IsUnrollingUnknownIterBeneficial(const LoopAnalysisInfo* analysis_info) const {
+    // No need to check whether loop has try-catch and irreducible
+    // as these are already checked inside "HLoopOptimization::Run()".
+
+    // No need to check for single exit as it is already checked
+    // inside "HLoopOptimization::TryUnrollingForBranchPenaltyReduction()".
+
+    // No need to check clonability of instructions as it is being checked.
+    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+    DCHECK(loop_info);
+
+    // Loop should have one back edge.
+    size_t num_back_edges = loop_info->NumberOfBackEdges();
+    if (num_back_edges != 1) {
+      return 0;
+    }
+
+    // Loop should have one exit.
+    size_t num_exit = analysis_info->GetNumberOfExits();
+    if (num_exit != 1) {
+      return 0;
+    }
+
+    // Loop should be top tested (last instruction of loop header should be IF).
+    HBasicBlock* header = loop_info->GetHeader();
+    DCHECK(header);
+    if (!(header->GetLastInstruction()->IsIf())) {
+      return 0;
+    }
+
+    // For bottom tested loop, unrolling primitive adds instructions in-correctly in loop body.
+    // For now, don't perform dynamic unroll for bottom tested loop.
+    HBasicBlock* blk_back_edge = loop_info->GetBackEdges()[0];
+    uint32_t count_inst_back = blk_back_edge->GetInstructions().CountSize();
+    // Only GOTO instruction.
+    if (count_inst_back == 1) {
+      return 0;
+    }
+
+    return GetUnrollingFactor(loop_info, header);
   }
 
  protected:
@@ -300,20 +357,16 @@ class X86_64LoopHelper : public ArchDefaultLoopHelper {
   }
 
   // Maximum possible unrolling factor.
+  // TODO - identify maximum value based on architecture
   static constexpr uint32_t kX86_64MaxUnrollFactor = 2;  // pow(2,2) = 4
 
-  // According to Intel® 64 and IA-32 Architectures Optimization Reference Manual,
-  // avoid excessive loop unrolling to ensure LSD (loop stream decoder) is operating efficiently.
-  // This variable takes care that unrolled loop instructions should not exceed LSD size.
-  // For Intel Atom processors (silvermont & goldmont), LSD size is 28
+  // According to Intel 64 and 32 Architectures Optimization Reference Manual,
+  // avoid excessive loop unrolling to ensure LSD (loop stream decoder) is
+  // operating efficiently. This variable takes care that unrolled loop instructions
+  // should not exceed LSD size. For Intel Atom processors (silvermont & goldmont),
+  // LSD size is 28.
   // TODO - identify architecture and LSD size at runtime
-  static constexpr uint32_t kX86_64UnrolledMaxBodySizeInstr = 28;
-
-  // Loop's maximum basic block count. Loops with higher count will not be partial
-  // unrolled (unknown iterations).
-  static constexpr uint32_t kX86_64UnknownIterMaxBodySizeBlocks = 2;
-
-  uint32_t GetUnrollingFactor(HLoopInformation* loop_info, HBasicBlock* header) const;
+  static constexpr uint32_t kX86_64UnrolledMaxBodySizeInstr = 50;
 
  public:
   explicit X86_64LoopHelper(const CodeGenerator& codegen) : ArchDefaultLoopHelper(codegen) {}
@@ -357,55 +410,55 @@ class X86_64LoopHelper : public ArchDefaultLoopHelper {
 
     return unroll_factor;
   }
-};
 
-uint32_t X86_64LoopHelper::GetUnrollingFactor(HLoopInformation* loop_info,
-                                              HBasicBlock* header) const {
-  uint32_t num_inst = 0, num_inst_header = 0, num_inst_loop_body = 0;
-  for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
-    HBasicBlock* block = it.Current();
-    DCHECK(block);
-    num_inst = 0;
+  uint32_t GetUnrollingFactor(HLoopInformation* loop_info,
+                              HBasicBlock* header) const override {
+    uint32_t num_inst = 0, num_inst_header = 0, num_inst_loop_body = 0;
+    for (HBlocksInLoopIterator it(*loop_info); !it.Done(); it.Advance()) {
+      HBasicBlock* block = it.Current();
+      DCHECK(block);
+      num_inst = 0;
 
-    for (HInstructionIterator it1(block->GetInstructions()); !it1.Done(); it1.Advance()) {
-      HInstruction* inst = it1.Current();
-      DCHECK(inst);
+      for (HInstructionIterator it1(block->GetInstructions()); !it1.Done(); it1.Advance()) {
+        HInstruction* inst = it1.Current();
+        DCHECK(inst);
 
-      // SuspendCheck inside loop is handled with Goto.
-      // Ignoring SuspendCheck & Goto as partially unrolled loop body will have only one Goto.
-      // Instruction count for Goto is being handled during unroll factor calculation below.
-      if (inst->IsSuspendCheck() || inst->IsGoto()) {
-        continue;
+        // SuspendCheck inside loop is handled with Goto.
+        // Ignoring SuspendCheck & Goto as partially unrolled loop body will have only one Goto.
+        // Instruction count for Goto is being handled during unroll factor calculation below.
+        if (inst->IsSuspendCheck() || inst->IsGoto()) {
+          continue;
+        }
+
+        num_inst += GetMachineInstructionCount(inst);
       }
 
-      num_inst += GetMachineInstructionCount(inst);
+      if (block == header) {
+        num_inst_header = num_inst;
+      } else {
+        num_inst_loop_body += num_inst;
+      }
     }
 
-    if (block == header) {
-      num_inst_header = num_inst;
-    } else {
-      num_inst_loop_body += num_inst;
+    // Calculate actual unroll factor.
+    uint32_t unrolling_factor = kX86_64MaxUnrollFactor;
+    uint32_t unrolling_inst = kX86_64UnrolledMaxBodySizeInstr;
+    // "-3" for one Goto instruction.
+    uint32_t desired_size = unrolling_inst - num_inst_header - 3;
+    if (desired_size < (num_inst_loop_body << 1)) {
+      return 1;
     }
-  }
 
-  // Calculate actual unroll factor.
-  uint32_t unrolling_factor = kX86_64MaxUnrollFactor;
-  uint32_t unrolling_inst = kX86_64UnrolledMaxBodySizeInstr;
-  // "-3" for one Goto instruction.
-  uint32_t desired_size = unrolling_inst - num_inst_header - 3;
-  if (desired_size < (2 * num_inst_loop_body)) {
-    return 1;
-  }
-
-  while (unrolling_factor > 0) {
-    if ((desired_size >> unrolling_factor) >= num_inst_loop_body) {
-      break;
+    while (unrolling_factor > 0) {
+      if ((desired_size >> unrolling_factor) >= num_inst_loop_body) {
+        break;
+      }
+      unrolling_factor--;
     }
-    unrolling_factor--;
-  }
 
-  return (1 << unrolling_factor);
-}
+    return (1 << unrolling_factor);
+  }
+};
 
 ArchNoOptsLoopHelper* ArchNoOptsLoopHelper::Create(const CodeGenerator& codegen,
                                                    ArenaAllocator* allocator) {

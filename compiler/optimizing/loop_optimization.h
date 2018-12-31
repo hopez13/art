@@ -47,6 +47,11 @@ class HLoopOptimization : public HOptimization {
 
   static constexpr const char* kLoopOptimizationPassName = "loop_optimization";
 
+  // The maximum number of total instructions (trip_count * instruction_count),
+  // where the optimization of removing SuspendChecks from the loop header could
+  // be performed.
+  static constexpr int64_t kMaxTotalInstRemoveSuspendCheck = 128;
+
  private:
   /**
    * A single loop inside the loop hierarchy representation.
@@ -163,8 +168,54 @@ class HLoopOptimization : public HOptimization {
   // should be actually applied.
   bool TryFullUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code = true);
 
-  // Tries to apply scalar loop peeling and unrolling.
-  bool TryPeelingAndUnrolling(LoopNode* node);
+  // Performs dynamic loop unrolling by 2 for loops with unknown trip count:
+  //  - creates two versions of the loop, unrolls one of them.
+  //  - inserts a runtime trip count check: if it is even then the unrolled version will be
+  //    executed otherwise the original one.
+  bool TryDynamicUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code = true);
+
+  // Append unrolled loop at exit of original loop
+  void RearrangeLoopsForDynamicUnrolling(HLoopInformation* loop_info,
+                                         HBasicBlock* preheader,
+                                         LoopClonerSimpleHelper* helper);
+
+  // Modify loop induction variables, conditions for original & unrolled loops
+  void ModifyLoopInductionForDynamicUnrolling(uint32_t unroll_factor,
+                                               HLoopInformation* loop_info,
+                                               HBasicBlock* preheader,
+                                               HBasicBlock* another_header,
+                                               HInstruction* stc);
+
+  // Modify loop induction variable and termination condition of original loop
+  void ModifyInductionVarInOrigLoop(HLoopInformation* loop_info,
+                                    HBasicBlock* preheader,
+                                    HPhi* orig_header_phi,
+                                    HInstruction* inst_tc_orig,
+                                    HInstruction* stc,
+                                    int64_t stride_val,
+                                    uint32_t index_cond_val);
+
+  // Add PHIs & modify loop condition in original and unrolled loops
+  void AddInducVarInOrigAndUnrolledLoops(HLoopInformation* loop_info,
+                                         HBasicBlock* preheader,
+                                         HBasicBlock* another_header,
+                                         HInstruction* inst_tc_orig,
+                                         HInstruction* stc,
+                                         uint32_t unroll_factor);
+
+  // Tries to remove SuspendCheck for plain loops with a low trip count. The
+  // SuspendCheck in the codegen makes sure that the thread can be interrupted
+  // during execution for GC. Not being able to do so might decrease the
+  // responsiveness of GC when a very long loop or a long recursion is being
+  // executed. However, for plain loops with a small trip count, the removal of
+  // SuspendCheck should not affect the GC's responsiveness by a large margin.
+  // Consequently, since the thread won't be interrupted for plain loops, it is
+  // assumed that the performance might increase by removing SuspendCheck.
+  bool TryToRemoveSuspendCheckFromLoopHeader(LoopAnalysisInfo* analysis_info,
+                                             bool generate_code = true);
+
+  // Tries to apply scalar loop optimizations.
+  bool TryLoopScalarOpts(LoopNode* node);
 
   //
   // Vectorization analysis and synthesis.
@@ -335,6 +386,10 @@ class HLoopOptimization : public HOptimization {
   // Permanent mapping used during vectorization synthesis.
   // Contents reside in phase-local heap memory.
   ScopedArenaSafeMap<HInstruction*, HInstruction*>* vector_permanent_map_;
+
+  // Set of loops (headers) which shouldn't be checked again for optimizations.
+  // Used for stoping indefinite attempts to transform the same loop.
+  ScopedArenaSet<HBasicBlock*>* list_checked_loops_;
 
   // Temporary vectorization bookkeeping.
   VectorMode vector_mode_;  // synthesis mode
