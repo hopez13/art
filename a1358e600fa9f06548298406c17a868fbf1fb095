@@ -22,6 +22,30 @@
       "revId": "a1358e600fa9f06548298406c17a868fbf1fb095",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0232967b_ccce4ed0",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-02T16:37:27Z",
+      "side": 1,
+      "message": "This has been FATAL before and is intentional to actively show the issue in debug builds. Run your workload on a non-debug build and it won\u0027t be.",
+      "parentUuid": "86ce0325_7f148872",
+      "range": {
+        "startLine": 786,
+        "startChar": 47,
+        "endLine": 786,
+        "endChar": 53
+      },
+      "revId": "a1358e600fa9f06548298406c17a868fbf1fb095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
