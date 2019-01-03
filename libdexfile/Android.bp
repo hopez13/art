@@ -49,7 +49,7 @@ cc_defaults {
                  "libartbase",
                  "liblog",
                  // For atrace.
-                 "libcutils",
+                 "libartpalette",
                  // For common macros.
                  "libbase",
             ],
@@ -66,7 +66,7 @@ cc_defaults {
                  "libartbase",
                  "liblog",
                  // For atrace.
-                 "libcutils",
+                 "libartpalette",
                  // For common macros.
                  "libbase",
             ],
@@ -83,7 +83,7 @@ cc_defaults {
                  "libartbase",
                  "liblog",
                  // For atrace.
-                 "libcutils",
+                 "libartpalette",
                  // For common macros.
                  "libbase",
             ],
@@ -102,7 +102,7 @@ cc_defaults {
     name: "libdexfile_static_base_defaults",
     static_libs: [
         "libbase",
-        "libcutils",
+        "libartpalette",
         "liblog",
         "libz",
         "libziparchive",
