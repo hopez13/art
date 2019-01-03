@@ -47,11 +47,11 @@ cc_defaults {
             shared_libs: [
                  // For MemMap.
                  "libartbase",
-                 "liblog",
                  // For atrace.
-                 "libcutils",
+                 "libartpalette",
                  // For common macros.
                  "libbase",
+                 "liblog",
             ],
             export_shared_lib_headers: [
                 "libartbase",
@@ -60,15 +60,15 @@ cc_defaults {
         },
         not_windows: {
             shared_libs: [
-                "libziparchive",
+                // For MemMap.
+                "libartbase",
+                // For atrace.
+                "libartpalette",
+                // For common macros.
+                "libbase",
+                "liblog",
                 "libz",
-                 // For MemMap.
-                 "libartbase",
-                 "liblog",
-                 // For atrace.
-                 "libcutils",
-                 // For common macros.
-                 "libbase",
+                "libziparchive",
             ],
             export_shared_lib_headers: [
                 "libartbase",
@@ -77,15 +77,15 @@ cc_defaults {
         },
         windows: {
             static_libs: [
-                "libziparchive",
+                // For MemMap.
+                "libartbase",
+                // For atrace.
+                "libartpalette",
+                // For common macros.
+                "libbase",
+                "liblog",
                 "libz",
-                 // For MemMap.
-                 "libartbase",
-                 "liblog",
-                 // For atrace.
-                 "libcutils",
-                 // For common macros.
-                 "libbase",
+                "libziparchive",
             ],
             export_static_lib_headers: [
                 "libartbase",
@@ -101,8 +101,8 @@ cc_defaults {
 cc_defaults {
     name: "libdexfile_static_base_defaults",
     static_libs: [
+        "libartpalette",
         "libbase",
-        "libcutils",
         "liblog",
         "libz",
         "libziparchive",

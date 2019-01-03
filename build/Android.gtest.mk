@@ -384,6 +384,7 @@ ART_TEST_MODULES := \
     art_imgdiag_tests \
     art_libartbase_tests \
     art_libdexfile_tests \
+    art_libartpalette_tests \
     art_libprofile_tests \
     art_oatdump_tests \
     art_profman_tests \
