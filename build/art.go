@@ -289,6 +289,7 @@ func init() {
 	android.RegisterModuleType("art_cc_defaults", artDefaultsFactory)
 	android.RegisterModuleType("libart_cc_defaults", libartDefaultsFactory)
 	android.RegisterModuleType("libart_static_cc_defaults", libartStaticDefaultsFactory)
+	android.RegisterModuleType("libartpalette_cc_defaults", libartpaletteDefaultsFactory)
 	android.RegisterModuleType("art_global_defaults", artGlobalDefaultsFactory)
 	android.RegisterModuleType("art_debug_defaults", artDebugDefaultsFactory)
 
@@ -348,6 +349,20 @@ func artDefaultsFactory() android.Module {
 func libartDefaultsFactory() android.Module {
 	c := &codegenProperties{}
 	module := cc.DefaultsFactory(c)
+
+	return module
+}
+
+func libartStaticDefaultsFactory() android.Module {
+	c := &codegenProperties{}
+	module := cc.DefaultsFactory(c)
+
+	return module
+}
+
+func libartpaletteDefaultsFactory() android.Module {
+	c := &codegenProperties{}
+	module := cc.DefaultsFactory(c)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) {
 		codegen(ctx, c, true)
 
@@ -363,33 +378,6 @@ func libartDefaultsFactory() android.Module {
 		// TODO: express this in .bp instead b/79671158
 		if !envTrue(ctx, "ART_TARGET_LINUX") {
 			p.Target.Android.Shared_libs = []string{
-				"libmetricslogger",
-			}
-		}
-		ctx.AppendProperties(p)
-	})
-
-	return module
-}
-
-func libartStaticDefaultsFactory() android.Module {
-	c := &codegenProperties{}
-	module := cc.DefaultsFactory(c)
-	android.AddLoadHook(module, func(ctx android.LoadHookContext) {
-		codegen(ctx, c, true)
-
-		type props struct {
-			Target struct {
-				Android struct {
-					Static_libs []string
-				}
-			}
-		}
-
-		p := &props{}
-		// TODO: express this in .bp instead b/79671158
-		if !envTrue(ctx, "ART_TARGET_LINUX") {
-			p.Target.Android.Static_libs = []string{
 				"libmetricslogger",
 				"libstatssocket",
 			}
