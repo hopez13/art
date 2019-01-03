@@ -396,8 +396,8 @@ libart_cc_defaults {
         "libnativeloader",
         "libbacktrace",
         "liblog",
-        // For atrace, properties, ashmem, set_sched_policy.
-        "libcutils",
+        // For atrace, set_sched_policy.
+        "libpalette",
         // For common macros.
         "libbase",
     ],
@@ -424,12 +424,12 @@ libart_static_cc_defaults {
     static_libs: [
         "libbacktrace",
         "libbase",
-        "libcutils",
         "libdexfile_external",  // libunwindstack dependency
         "libdexfile_support",  // libunwindstack dependency
         "liblog",
         "libnativebridge",
         "libnativeloader",
+        "libpalette",
         "libunwindstack",
         "libz",
     ],
