@@ -59,6 +59,10 @@ class SemiSpace;
 }  // namespace collector
 }  // namespace gc
 
+namespace instrumentation {
+struct InstrumentationStackFrame;
+}  // namespace instrumentation
+
 namespace mirror {
 class Array;
 class Class;
