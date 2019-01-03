@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,15 @@
  * limitations under the License.
  */
 
-#include "thread.h"
+#include "palette/palette.h"
 
-#include <errno.h>
-#include <limits.h>
-#include <sys/resource.h>
-#include <sys/time.h>
+#include "gtest/gtest.h"
 
-#include <cutils/sched_policy.h>
-#include <utils/threads.h>
+class PaletteClientTest : public testing::Test {};
 
-#include "base/macros.h"
-
-namespace art {
-
-void Thread::SetUpAlternateSignalStack() {
-  // Bionic does this for us.
+TEST_F(PaletteClientTest, GetVersion) {
+  int32_t version = -1;
+  PaletteStatus status = PaletteGetVersion(&version);
+  EXPECT_EQ(PaletteStatus::kOkay, status);
+  EXPECT_GE(version, 0);
 }
-
-void Thread::TearDownAlternateSignalStack() {
-  // Bionic does this for us.
-}
-
-}  // namespace art
