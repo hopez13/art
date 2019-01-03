@@ -46,6 +46,30 @@
       "revId": "a1358e600fa9f06548298406c17a868fbf1fb095",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f8cdb6b_a606ef69",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-03T09:08:04Z",
+      "side": 1,
+      "message": "Hi Zhang, what are your thoughts? Can we remove the -1 and land this CL? Thanks",
+      "parentUuid": "0232967b_ccce4ed0",
+      "range": {
+        "startLine": 786,
+        "startChar": 47,
+        "endLine": 786,
+        "endChar": 53
+      },
+      "revId": "a1358e600fa9f06548298406c17a868fbf1fb095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
