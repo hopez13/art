@@ -28,7 +28,7 @@ cc_defaults {
                 "libdexfile",
                 "libartbase",
 	        // For atrace.
-                "libcutils",
+                "libartpalette",
                 "libbase",
             ],
             static_libs: [
@@ -44,7 +44,7 @@ cc_defaults {
                 "libdexfile",
                 "libartbase",
 	        // For atrace.
-                "libcutils",
+                "libartpalette",
                 "libziparchive",
                 "libz",
                 "libbase",
@@ -58,7 +58,7 @@ cc_defaults {
                 "libdexfile",
                 "libartbase",
 	        // For atrace.
-                "libcutils",
+                "libartpalette",
                 "libziparchive",
                 "libz",
                 "libbase",
@@ -78,7 +78,7 @@ cc_defaults {
     name: "libprofile_static_base_defaults",
     static_libs: [
         "libbase",
-        "libcutils",
+        "libartpalette",
         "libz",
         "libziparchive",
     ],
