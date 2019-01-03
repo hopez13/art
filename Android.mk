@@ -384,6 +384,7 @@ LOCAL_REQUIRED_MODULES := \
     libart-compiler \
     libopenjdkjvm \
     libopenjdkjvmti \
+    libpalette-system \
     profman \
     libadbconnection \
 
