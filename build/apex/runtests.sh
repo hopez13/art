@@ -151,6 +151,7 @@ function check_release_contents {
   check_library libart-dexlayout.so
   check_library libart.so
   check_library libartbase.so
+  check_library libartpalette.so
   check_library libdexfile.so
   check_library libopenjdkjvm.so
   check_library libopenjdkjvmti.so

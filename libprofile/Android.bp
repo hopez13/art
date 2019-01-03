@@ -25,11 +25,9 @@ cc_defaults {
         android: {
             shared_libs: [
                 "libartbase",
-                "libdexfile",
-                "libartbase",
-	        // For atrace.
-                "libcutils",
+                "libartpalette",
                 "libbase",
+                "libdexfile",
             ],
             static_libs: [
                 // ZipArchive support, the order matters here to get all symbols.
@@ -41,27 +39,23 @@ cc_defaults {
         not_windows: {
             shared_libs: [
                 "libartbase",
-                "libdexfile",
-                "libartbase",
-	        // For atrace.
-                "libcutils",
-                "libziparchive",
-                "libz",
+                "libartpalette",
                 "libbase",
+                "libdexfile",
+                "libz",
+                "libziparchive",
             ],
             export_shared_lib_headers: ["libbase"],
         },
         windows: {
-	    cflags: ["-Wno-thread-safety"],
+            cflags: ["-Wno-thread-safety"],
             static_libs: [
                 "libartbase",
-                "libdexfile",
-                "libartbase",
-	        // For atrace.
-                "libcutils",
-                "libziparchive",
-                "libz",
+                "libartpalette",
                 "libbase",
+                "libdexfile",
+                "libz",
+                "libziparchive",
             ],
             export_static_lib_headers: ["libbase"],
         },
@@ -77,8 +71,8 @@ cc_defaults {
 cc_defaults {
     name: "libprofile_static_base_defaults",
     static_libs: [
+        "libartpalette",
         "libbase",
-        "libcutils",
         "libz",
         "libziparchive",
     ],
@@ -119,11 +113,11 @@ art_cc_library {
     export_shared_lib_headers: ["libbase"],
     target: {
         windows: {
-	    enabled: true,
-	    shared: {
-	        enabled: false,
-	    },
-	},
+            enabled: true,
+            shared: {
+                enabled: false,
+            },
+        },
     }
 }
 
