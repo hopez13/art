@@ -22,6 +22,30 @@
       "revId": "7458a7afdfe3046d962ea13dd0f6b176283505b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58fb689c_1d3a1fec",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-03T19:57:47Z",
+      "side": 1,
+      "message": "Line 89 has an API requiring jobject, and a transitive include got kicked. (Forward-declaring jobject is a pain)\n\nPlainly, I\u0027d love to remove that API, but there are a handful of users. So...",
+      "parentUuid": "d5711c83_6bb462bb",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "7458a7afdfe3046d962ea13dd0f6b176283505b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
