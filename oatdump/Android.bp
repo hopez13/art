@@ -21,7 +21,7 @@ cc_defaults {
     srcs: ["oatdump.cc"],
     target: {
         android: {
-            shared_libs: ["libcutils"],
+            shared_libs: ["libartpalette"],
         },
     },
     // b/79417743, oatdump 32-bit tests failed with clang lld
@@ -102,6 +102,7 @@ art_cc_binary {
         "libart-disassembler",
         "libvixl",
     ],
+    group_static_libs: true,
 }
 
 art_cc_binary {
