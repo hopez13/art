@@ -129,6 +129,13 @@ function check_library {
     || die "Cannot find library '$1' in mounted image"
 }
 
+function check_no_library {
+  # TODO: Use $TARGET_ARCH (e.g. check whether it is "arm" or "arm64") to improve
+  # the precision of this test?
+  [[ ! -f "$mount_point/lib/$1" && ! -f "$mount_point/lib64/$1" ]] \
+    || die "Found unwanted library '$1' in mounted image"
+}
+
 # Check contents of APEX payload located in `$mount_point`.
 function check_release_contents {
   # Check that the mounted image contains a manifest.
@@ -151,6 +158,8 @@ function check_release_contents {
   check_library libart-dexlayout.so
   check_library libart.so
   check_library libartbase.so
+  check_library libartpalette.so
+  check_no_library libartpalette-system.so
   check_library libdexfile.so
   check_library libopenjdkjvm.so
   check_library libopenjdkjvmti.so
