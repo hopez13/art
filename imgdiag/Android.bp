@@ -32,7 +32,7 @@ cc_defaults {
     ],
     target: {
         android: {
-            shared_libs: ["libcutils"],
+            shared_libs: ["libartpalette"],
         },
         host: {
             shared_libs: ["libziparchive"],
