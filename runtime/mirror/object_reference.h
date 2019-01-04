@@ -18,7 +18,7 @@
 #define ART_RUNTIME_MIRROR_OBJECT_REFERENCE_H_
 
 #include "base/atomic.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"  // For Locks::mutator_lock_.
 #include "heap_poisoning.h"
 #include "obj_ptr.h"

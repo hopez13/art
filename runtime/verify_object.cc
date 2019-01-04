@@ -17,7 +17,7 @@
 #include "verify_object-inl.h"
 
 #include "base/bit_utils.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "gc/heap.h"
 #include "mirror/object-inl.h"
 #include "obj_ptr-inl.h"

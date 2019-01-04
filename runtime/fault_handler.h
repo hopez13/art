@@ -23,7 +23,7 @@
 
 #include <vector>
 
-#include "base/globals.h"  // For CanDoImplicitNullCheckOn.
+#include "runtime_globals.h"  // For CanDoImplicitNullCheckOn.
 #include "base/locks.h"  // For annotalysis.
 
 namespace art {

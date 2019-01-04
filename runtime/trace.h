@@ -27,7 +27,7 @@
 #include <vector>
 
 #include "base/atomic.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"
 #include "base/macros.h"
 #include "base/os.h"

@@ -21,7 +21,7 @@
 
 #include <android-base/logging.h>
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/macros.h"
 
 namespace art {

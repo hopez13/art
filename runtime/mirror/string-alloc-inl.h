@@ -22,7 +22,7 @@
 
 #include "array.h"
 #include "base/bit_utils.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "class.h"
 #include "class_root.h"
 #include "gc/heap-inl.h"
