@@ -17,7 +17,7 @@
 #include "dex_cache-inl.h"
 
 #include "art_method-inl.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "class_linker.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc/heap.h"

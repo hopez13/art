@@ -19,7 +19,7 @@
 
 #include <memory>
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"
 #include "base/mem_map.h"
 

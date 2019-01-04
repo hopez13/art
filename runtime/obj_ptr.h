@@ -20,7 +20,7 @@
 #include <ostream>
 #include <type_traits>
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"  // For Locks::mutator_lock_.
 #include "base/macros.h"
 

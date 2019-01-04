@@ -42,7 +42,7 @@
 #include "art_method-inl.h"
 #include "base/array_ref.h"
 #include "base/file_utils.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "base/os.h"

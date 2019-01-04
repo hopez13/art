@@ -20,7 +20,7 @@
 #include <sys/mman.h>  // For the PROT_* and MAP_* constants.
 
 #include "base/bit_utils.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"
 #include "base/mem_map.h"
 #include "gc/space/space.h"

@@ -22,7 +22,7 @@
 #include <vector>
 
 #include "base/atomic.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"
 #include "base/timing_logger.h"
 #include "jni.h"

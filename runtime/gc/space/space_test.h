@@ -20,7 +20,7 @@
 #include <stdint.h>
 #include <memory>
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "common_runtime_test.h"
 #include "handle_scope-inl.h"
 #include "mirror/array-inl.h"

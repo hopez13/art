@@ -17,7 +17,7 @@
 #ifndef ART_RUNTIME_GC_REFERENCE_PROCESSOR_H_
 #define ART_RUNTIME_GC_REFERENCE_PROCESSOR_H_
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/locks.h"
 #include "jni.h"
 #include "reference_queue.h"

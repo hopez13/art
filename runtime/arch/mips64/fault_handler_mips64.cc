@@ -21,7 +21,7 @@
 #include "arch/mips64/callee_save_frame_mips64.h"
 #include "art_method.h"
 #include "base/callee_save_type.h"
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/hex_dump.h"
 #include "base/logging.h"  // For VLOG.
 #include "base/macros.h"

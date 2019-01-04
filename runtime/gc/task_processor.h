@@ -20,7 +20,7 @@
 #include <memory>
 #include <set>
 
-#include "base/globals.h"
+#include "runtime_globals.h"
 #include "base/mutex.h"
 #include "thread_pool.h"
 
