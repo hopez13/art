@@ -3447,6 +3447,10 @@ mirror::Object* ConcurrentCopying::IsMarked(mirror::Object* from_ref) {
   return to_ref;
 }
 
+uint64_t  ConcurrentCopying::GetMarkStackSize() const {
+    return gc_mark_stack_->Capacity();
+}
+
 bool ConcurrentCopying::IsOnAllocStack(mirror::Object* ref) {
   // TODO: Explain why this is here. What release operation does it pair with?
   std::atomic_thread_fence(std::memory_order_acquire);

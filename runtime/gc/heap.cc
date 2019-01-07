@@ -169,6 +169,15 @@ static inline bool CareAboutPauseTimes() {
   return Runtime::Current()->InJankPerceptibleProcessState();
 }
 
+static constexpr size_t kMinHeapAddress = 4 * KB;
+
+uint64_t Heap::GetCardTableSize() const {
+  // See static CardTable* Create(const uint8_t* heap_begin, size_t heap_capacity);
+  // extra bytes for biased card table
+  size_t extra = 256u;
+  return (4 * GB - kMinHeapAddress) / accounting::CardTable::kCardSize + extra;
+}
+
 Heap::Heap(size_t initial_size,
            size_t growth_limit,
            size_t min_free,
@@ -578,7 +587,6 @@ Heap::Heap(size_t initial_size,
   UNUSED(heap_capacity);
   // Start at 4 KB, we can be sure there are no spaces mapped this low since the address range is
   // reserved by the kernel.
-  static constexpr size_t kMinHeapAddress = 4 * KB;
   card_table_.reset(accounting::CardTable::Create(reinterpret_cast<uint8_t*>(kMinHeapAddress),
                                                   4 * GB - kMinHeapAddress));
   CHECK(card_table_.get() != nullptr) << "Failed to create card table";
@@ -1110,6 +1118,32 @@ uint64_t Heap::GetTotalGcCpuTime() {
     sum += collector->GetTotalCpuTime();
   }
   return sum;
+}
+
+uint64_t Heap::GetCCRegionSpaceInterRegionBitmapSize() const {
+  return (concurrent_copying_collector_ == nullptr)
+    ? 0u
+    : concurrent_copying_collector_->GetRegionSpaceInterRegionBitmapSize();
+}
+
+uint64_t Heap::GetCCNonMovingSpaceInterRegionBitmapSize() const {
+  return (concurrent_copying_collector_ == nullptr)
+    ? 0u
+    : concurrent_copying_collector_->GetNonMovingSpaceInterRegionBitmapSize();
+}
+
+uint64_t Heap::GetCCMarkStackSize() const {
+  return (concurrent_copying_collector_ == nullptr)
+    ? 0u
+    : concurrent_copying_collector_->GetMarkStackSize();
+}
+
+uint64_t Heap::GetLiveStackSize() const {
+  return live_stack_->Capacity();
+}
+
+uint64_t Heap::GetAllocationStackSize() const {
+  return allocation_stack_->Capacity();
 }
 
 void Heap::DumpGcPerformanceInfo(std::ostream& os) {
