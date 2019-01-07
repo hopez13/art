@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "859e597b_3fa25399",
+        "filename": "libartbase/base/mem_map_windows.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-01-07T18:41:53Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "eafa6d42_7d0d8f23",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 99
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ffe2199_352e1377",
         "filename": "libartbase/base/systrace.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "aba3653c_5586b76f",
+        "filename": "libartbase/base/systrace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-01-07T18:41:53Z",
+      "side": 1,
+      "message": "Elliott pointed me to a simple change to stub out atrace in libcutils.",
+      "parentUuid": "0ffe2199_352e1377",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "263587ca_55562bae",
         "filename": "profman/profman.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-12-21T02:08:28Z",
       "side": 1,
       "message": "Maybe we should add kIsWindowsBuild and use that where possible. That would help avoid broken builds.",
+      "range": {
+        "startLine": 486,
+        "startChar": 7,
+        "endLine": 486,
+        "endChar": 13
+      },
+      "revId": "e602b3313e369ee79e0826fe8c1bb4a5bf807386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ef8f0b9_220f2a7d",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-01-07T18:41:53Z",
+      "side": 1,
+      "message": "I can add that, but the issue here is that O_CLOEXEC isn\u0027t defined by mingw headers.",
+      "parentUuid": "263587ca_55562bae",
       "range": {
         "startLine": 486,
         "startChar": 7,
