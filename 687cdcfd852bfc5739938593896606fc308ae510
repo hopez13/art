@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "535cb01a_f209eec5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "I\u0027d add that this first implementation is \"static\", as the cost of these data structures is considered uniform over the managed heap\u0027s life time.\n\nI think it would be useful to refine this implementation later (in a follow-up CL) to make the memory costs weighted by the time slice (duration) during which the corresponding data structure actually uses memory. For instance, the mark stack is only used when the GC is active; instead of attributing a uniform cost of its capacity to it, we could have a weighted sum of its peak use size for every GC cycle (weighted by the duration of the corresponding GC cycle).",
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d122037_f2e81ca9",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "I\u0027d add a comment here, saying that this is a conservative approximation, based on the mark stack\u0027s capacity.",
+      "range": {
+        "startLine": 165,
+        "startChar": 11,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd648a60_44411498",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "I think we should process the exceptional case first. Also, it\u0027s a good candidate for a ternary operator use:\n\n  return (concurrent_copying_collector_ \u003d\u003d nullptr)\n      ? 0u\n      : concurrent_copying_collector_-\u003eGetRegionSpaceInterRegionBitmapSize();\n\n(Likewise for similar cases below.)",
+      "range": {
+        "startLine": 1116,
+        "startChar": 0,
+        "endLine": 1119,
+        "endChar": 11
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57d40400_95190c30",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "size_t",
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f4e5898_dab2b2b0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 878,
+        "startChar": 4,
+        "endLine": 878,
+        "endChar": 8
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e9343b_d318837d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "Dumping memory footprint of GC data structures.",
+      "range": {
+        "startLine": 353,
+        "startChar": 7,
+        "endLine": 353,
+        "endChar": 33
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c071f8f_b81cd6bd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "Could you also add a method summing all of these sizes and print its result in the log too? I think that would be the metric we want to track on Golem.",
+      "range": {
+        "startLine": 354,
+        "startChar": 4,
+        "endLine": 354,
+        "endChar": 20
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4c8edb_f853a058",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "I\u0027d add \"Size of\" before all of these labels, e.g.:\n\n  \"Size of Heap::card_table_: \"",
+      "range": {
+        "startLine": 355,
+        "startChar": 9,
+        "endLine": 355,
+        "endChar": 30
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73359913_1e56a111",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "I think this should be put in its own method.",
+      "range": {
+        "startLine": 355,
+        "startChar": 34,
+        "endLine": 355,
+        "endChar": 55
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2332e18_2e91d6fe",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T13:36:54Z",
+      "side": 1,
+      "message": "Nit: Long lines.",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 131
+      },
+      "revId": "687cdcfd852bfc5739938593896606fc308ae510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
