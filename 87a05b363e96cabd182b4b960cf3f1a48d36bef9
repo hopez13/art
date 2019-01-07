@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1203df10_adb56d24",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-07T15:52:51Z",
+      "side": 1,
+      "message": "Nit: Seems strange to me to check this but not libjavacore, if you call out \"and their dependencies.\" libjavacrypto is technically not a dependency for ART libraries...",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 32
+      },
+      "revId": "87a05b363e96cabd182b4b960cf3f1a48d36bef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
