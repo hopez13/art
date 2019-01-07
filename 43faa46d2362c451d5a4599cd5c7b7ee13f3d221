@@ -22,6 +22,30 @@
       "revId": "43faa46d2362c451d5a4599cd5c7b7ee13f3d221",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c144cbe6_dc11911b",
+        "filename": "runtime/mirror/class-refvisitor-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-01-07T23:18:39Z",
+      "side": 0,
+      "message": "The actual array (the target of methods_) is immutable? Only the methods_ \"pointer\" cam be modified by another thread?\n\nWe declare it as\n\n uint64_t methods_;\n\nWe use uint64_t instead of uintptr_t so this can be consistently viewed as a Java object?",
+      "parentUuid": "e5f246b0_77cb3ed1",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "43faa46d2362c451d5a4599cd5c7b7ee13f3d221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
