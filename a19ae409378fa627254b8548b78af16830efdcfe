@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "780a580f_71aca56d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T16:08:27Z",
+      "side": 1,
+      "message": "/* extra bytes for biased card table */ 256",
+      "range": {
+        "startLine": 884,
+        "startChar": 29,
+        "endLine": 884,
+        "endChar": 32
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e14f56f3_074b743c",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T16:08:27Z",
+      "side": 1,
+      "message": "This should be:\n\n  (4 * GB - 4 * KB) / accounting::CardTable::kCardSize\n\nAlso, could you replace `4 * KB` with `kMinHeapAddress`? To do so, you\u0027ll have to\n1. move `kMinHeapAddress` out of `art::gc::Heap::Heap` (but still keep it in runtime/gc/heap.cc);\n2. move the definition of `art::gc::Heap::GetCardTableSize` to runtime/gc/heap.cc.",
+      "range": {
+        "startLine": 884,
+        "startChar": 11,
+        "endLine": 884,
+        "endChar": 26
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "967f4356_26426489",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T16:08:27Z",
+      "side": 1,
+      "message": "Could this method be made `const`?",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 244,
+        "endChar": 22
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
