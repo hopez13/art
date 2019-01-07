@@ -34,6 +34,8 @@
 
 namespace art {
 
+const char kErrorHelp[] = ". See go/hiddenapi-error for help.";
+
 static int original_argc;
 static char** original_argv;
 
@@ -134,7 +136,6 @@ class DexClass : public ClassAccessor {
   }
 
  private:
-  uint32_t GetAccessFlags() const { return GetClassDef().access_flags_; }
   bool HasAccessFlags(uint32_t mask) const { return (GetAccessFlags() & mask) == mask; }
 };
 
@@ -983,16 +984,26 @@ class HiddenApi final {
 
     std::map<std::string, hiddenapi::ApiList> api_flag_map;
 
-    for (std::string line; std::getline(api_file, line);) {
+    int line_number = 1;
+    for (std::string line; std::getline(api_file, line); line_number++) {
       std::vector<std::string> values = android::base::Split(line, ",");
-      CHECK_EQ(values.size(), 2u) << "Currently only signature and one flag are supported";
-
+      CHECK_GT(values.size(), 1u) << path << ":" << line_number << ": No flags found"
+          << kErrorHelp;
       const std::string& signature = values[0];
-      CHECK(api_flag_map.find(signature) == api_flag_map.end()) << "Duplicate entry: " << signature;
 
-      const std::string& flag_str = values[1];
+      CHECK(api_flag_map.find(signature) == api_flag_map.end()) << "Duplicate entry in " << path
+          << ": " << signature << kErrorHelp;
+
+      std::vector<std::string> flags(values.begin() + 1, values.end());
+
+      CHECK_EQ(flags.size(), 1u) << path << ":" << line_number
+          << ": Expected one flag, found " << flags.size() << ": "
+          << ::android::base::Join(flags, ",") << kErrorHelp;
+
+      const std::string& flag_str = flags[0];
       hiddenapi::ApiList membership = hiddenapi::ApiList::FromName(flag_str);
-      CHECK(membership.IsValid()) << "Unknown ApiList name: " << flag_str;
+      CHECK(membership.IsValid()) << path << ":" << line_number << ": Unknown ApiList name: "
+          << flag_str << kErrorHelp;
 
       api_flag_map.emplace(signature, membership);
     }
