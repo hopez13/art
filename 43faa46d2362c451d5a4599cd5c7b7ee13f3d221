@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5f246b0_77cb3ed1",
+        "filename": "runtime/mirror/class-refvisitor-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-01-07T17:37:23Z",
+      "side": 0,
+      "message": "I feel like it would be better to fix GetMethods to only read the methods_ pointer once. The problem seems to be the multiple reads allow races if the pointer changes in the middle of the GetMethods call. Would it be correct to fix the issue this way?",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 51
+      },
+      "revId": "43faa46d2362c451d5a4599cd5c7b7ee13f3d221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
