@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4079c78e_643bd28f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-07T18:17:30Z",
+      "side": 1,
+      "message": "Could you move this just above the definition of Heap::GetCCRegionSpaceInterRegionBitmapSize (line 1123)?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "8ce1aefb97df45a6be6f96a340018aff92efc8a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
