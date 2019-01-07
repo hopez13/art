@@ -291,6 +291,32 @@ Runtime::Runtime()
   }
 }
 
+void Runtime::DumpGcFootprint(std::ostream& os) {
+  os
+    << "Size of Heap::card_table_: " << heap_->GetCardTableSize() << "\n"
+    << "Size of Heap::mod_union_tables_: " << heap_->GetModUnionTablesSize() << "\n"
+    << "Size of Heap::live_stack_: " << heap_->GetLiveStackSize() << "\n"
+    << "Size of Heap::allocation_stack_: " << heap_->GetAllocationStackSize() << "\n"
+    << "Size of RegionSpace::regions_: " << heap_->GetRegionSpace()->GetRegionsSize() << "\n"
+    << "Size of RegionSpace::mark_bitmap_: " << heap_->GetRegionSpace()->GetMarkBitmapSize() << "\n"
+    << "Size of ConcurrentCopying::gc_mark_stack_: " << heap_->GetCCMarkStackSize() << "\n"
+    << "Size of ConcurrentCopying::region_space_inter_region_bitmap_: "
+          << heap_->GetCCRegionSpaceInterRegionBitmapSize() << "\n"
+    << "Size of ConcurrentCopying::non_moving_space_inter_region_bitmap_: "
+          << heap_->GetCCNonMovingSpaceInterRegionBitmapSize() << "\n";
+
+  uint64_t sum = heap_->GetCardTableSize()
+    + heap_->GetModUnionTablesSize()
+    + heap_->GetLiveStackSize()
+    + heap_->GetAllocationStackSize()
+    + heap_->GetRegionSpace()->GetRegionsSize()
+    + heap_->GetRegionSpace()->GetMarkBitmapSize()
+    + heap_->GetCCMarkStackSize()
+    + heap_->GetCCRegionSpaceInterRegionBitmapSize()
+    + heap_->GetCCNonMovingSpaceInterRegionBitmapSize();
+  os << "\nSize of all GC data structures: " << sum;
+}
+
 Runtime::~Runtime() {
   ScopedTrace trace("Runtime shutdown");
   if (is_native_bridge_loaded_) {
@@ -348,8 +374,9 @@ Runtime::~Runtime() {
         << " (" <<  PrettySize(pre_gc_weighted_allocated_bytes)  << ")";
     LOG_STREAM(INFO) << "Average bytes allocated at GC end, weighted by CPU time between GCs: "
         << static_cast<uint64_t>(post_gc_weighted_allocated_bytes)
-        << " (" <<  PrettySize(post_gc_weighted_allocated_bytes)  << ")"
-        << "\n";
+        << " (" <<  PrettySize(post_gc_weighted_allocated_bytes)  << ")";
+
+    DumpGcFootprint(LOG_STREAM(INFO));
   }
 
   WaitForThreadPoolWorkersToStart();

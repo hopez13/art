@@ -33,6 +33,7 @@
 #include "base/runtime_debug.h"
 #include "base/safe_map.h"
 #include "base/time_utils.h"
+#include "gc/accounting/mod_union_table-inl.h"
 #include "gc/collector/gc_type.h"
 #include "gc/collector/iteration.h"
 #include "gc/collector_type.h"
@@ -871,6 +872,26 @@ class Heap {
   const Verification* GetVerification() const;
 
   void PostForkChildAction(Thread* self);
+
+  uint64_t GetModUnionTablesSize() const {
+    size_t zygote_alloc_space_size = sizeof(gc::accounting::ModUnionTableToZygoteAllocspace);
+    size_t card_cache_size = sizeof(gc::accounting::ModUnionTableCardCache);
+    return zygote_alloc_space_size * (mod_union_tables_.size()-1) + card_cache_size;
+  }
+
+  uint64_t GetCardTableSize() const {
+    // See static CardTable* Create(const uint8_t* heap_begin, size_t heap_capacity);
+    return 4 * GB - 4 * KB + 256;
+  }
+
+  uint64_t GetCCRegionSpaceInterRegionBitmapSize() const;
+  uint64_t GetCCNonMovingSpaceInterRegionBitmapSize() const;
+  uint64_t GetCCMarkStackSize() const;
+
+  // Conservative approximation; returning the capacity of the stack.
+  uint64_t GetLiveStackSize() const;
+  // Conservative approximation; returning the capacity of the stack.
+  uint64_t GetAllocationStackSize() const;
 
  private:
   class ConcurrentGCTask;
