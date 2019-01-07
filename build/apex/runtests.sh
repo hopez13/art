@@ -146,12 +146,13 @@ function check_release_contents {
   # TODO: Check for it when it is also built for host.
   : check_binary oatdump
 
-  # Check that the mounted image contains ART libraries.
+  # Check that the mounted image contains ART libraries (and their dependencies).
   check_library libart-compiler.so
   check_library libart.so
   check_library libopenjdkjvm.so
   check_library libopenjdkjvmti.so
   check_library libadbconnection.so
+  check_library libjavacrypto.so
   # TODO: Should we check for these libraries too, even if they are not explicitly
   # listed as dependencies in the Android Runtime APEX module rule?
   check_library libartbase.so
@@ -186,7 +187,7 @@ function check_debug_contents {
   check_binary dexoptanalyzerd
   check_binary profmand
 
-  # Check that the mounted image contains ART debug libraries.
+  # Check that the mounted image contains ART debug libraries (and their dependencies).
   check_library libartd-compiler.so
   check_library libartd.so
   check_library libopenjdkd.so
