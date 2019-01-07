@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ab88644f_592bb42e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2019-01-07T16:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e14f56f3_074b743c",
+      "range": {
+        "startLine": 884,
+        "startChar": 11,
+        "endLine": 884,
+        "endChar": 26
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e892742_829edaf0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2019-01-07T16:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780a580f_71aca56d",
+      "range": {
+        "startLine": 884,
+        "startChar": 29,
+        "endLine": 884,
+        "endChar": 32
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "967f4356_26426489",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e5645dd_a33c6b43",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2019-01-07T16:16:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "967f4356_26426489",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 244,
+        "endChar": 22
+      },
+      "revId": "a19ae409378fa627254b8548b78af16830efdcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
