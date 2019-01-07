@@ -16,6 +16,24 @@
       "revId": "01046061175c4fd3f518aa51efbdcadff00b7900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6792419_66a88cad",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2019-01-07T21:42:11Z",
+      "side": 1,
+      "message": "Logistically, it\u0027s currently set to $OUT_DIR/soong/.temp, and it\u0027s wiped at the beginning of every build. So it\u0027s not unique per-product/variant, but the contents will never be shared (as we also only allow one user of an $OUT_DIR at a time).",
+      "parentUuid": "612e5d92_d1a7f5a1",
+      "revId": "01046061175c4fd3f518aa51efbdcadff00b7900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
