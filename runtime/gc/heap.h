@@ -33,6 +33,7 @@
 #include "base/runtime_debug.h"
 #include "base/safe_map.h"
 #include "base/time_utils.h"
+#include "gc/accounting/mod_union_table-inl.h"
 #include "gc/collector/gc_type.h"
 #include "gc/collector/iteration.h"
 #include "gc/collector_type.h"
@@ -543,6 +544,10 @@ class Heap {
     return total_bytes_freed_ever_;
   }
 
+  space::RegionSpace* GetRegionSpace() const {
+    return region_space_;
+  }
+
   // Implements java.lang.Runtime.maxMemory, returning the maximum amount of memory a program can
   // consume. For a regular VM this would relate to the -Xmx option and would return -1 if no Xmx
   // were specified. Android apps start with a growth limit (small heap size) which is
@@ -867,6 +872,19 @@ class Heap {
   const Verification* GetVerification() const;
 
   void PostForkChildAction(Thread* self);
+
+  uint64_t GetModUnionTablesSize() const {
+    auto zygote_alloc_space_size = sizeof(gc::accounting::ModUnionTableToZygoteAllocspace);
+    auto card_cache_size = sizeof(gc::accounting::ModUnionTableCardCache);
+    return zygote_alloc_space_size * (mod_union_tables_.size()-1) + card_cache_size;
+  }
+
+  uint64_t GetCCRegionSpaceInterRegionBitmapSize() const;
+  uint64_t GetCCNonMovingSpaceInterRegionBitmapSize() const;
+  uint64_t GetCCMarkStackSize() const;
+
+  uint64_t GetLiveStackSize() const;
+  uint64_t GetAllocationStackSize() const;
 
  private:
   class ConcurrentGCTask;

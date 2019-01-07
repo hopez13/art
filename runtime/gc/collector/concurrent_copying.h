@@ -152,6 +152,18 @@ class ConcurrentCopying : public GarbageCollector {
   mirror::Object* IsMarked(mirror::Object* from_ref) override
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  uint64_t GetRegionSpaceInterRegionBitmapSize() const {
+    DCHECK(region_space_inter_region_bitmap_ != nullptr);
+    return region_space_inter_region_bitmap_->Size();
+  }
+
+  uint64_t GetNonMovingSpaceInterRegionBitmapSize() const {
+    DCHECK(non_moving_space_inter_region_bitmap_ != nullptr);
+    return non_moving_space_inter_region_bitmap_->Size();
+  }
+
+  uint64_t GetMarkStackSize() const;
+
  private:
   void PushOntoMarkStack(Thread* const self, mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_)

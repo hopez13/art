@@ -367,6 +367,14 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     return time_;
   }
 
+  uint64_t GetMarkBitmapSize() const {
+    return mark_bitmap_->Size();
+  }
+
+  uint64_t GetRegionsSize() const {
+    return num_regions_ * sizeof(Region);
+  }
+
  private:
   RegionSpace(const std::string& name, MemMap&& mem_map);
 

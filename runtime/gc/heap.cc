@@ -1112,6 +1112,35 @@ uint64_t Heap::GetTotalGcCpuTime() {
   return sum;
 }
 
+uint64_t Heap::GetCCRegionSpaceInterRegionBitmapSize() const {
+  if (concurrent_copying_collector_ != nullptr) {
+    return concurrent_copying_collector_->GetRegionSpaceInterRegionBitmapSize();
+  }
+  return 0;
+}
+
+uint64_t Heap::GetCCNonMovingSpaceInterRegionBitmapSize() const {
+  if (concurrent_copying_collector_ != nullptr) {
+    return concurrent_copying_collector_->GetNonMovingSpaceInterRegionBitmapSize();
+  }
+  return 0;
+}
+
+uint64_t Heap::GetCCMarkStackSize() const {
+  if (concurrent_copying_collector_ != nullptr) {
+    return concurrent_copying_collector_->GetMarkStackSize();
+  }
+  return 0;
+}
+
+uint64_t Heap::GetLiveStackSize() const {
+  return live_stack_->Capacity();
+}
+
+uint64_t Heap::GetAllocationStackSize() const {
+  return allocation_stack_->Capacity();
+}
+
 void Heap::DumpGcPerformanceInfo(std::ostream& os) {
   // Dump cumulative timings.
   os << "Dumping cumulative Gc timings\n";

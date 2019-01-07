@@ -348,8 +348,19 @@ Runtime::~Runtime() {
         << " (" <<  PrettySize(pre_gc_weighted_allocated_bytes)  << ")";
     LOG_STREAM(INFO) << "Average bytes allocated at GC end, weighted by CPU time between GCs: "
         << static_cast<uint64_t>(post_gc_weighted_allocated_bytes)
-        << " (" <<  PrettySize(post_gc_weighted_allocated_bytes)  << ")"
-        << "\n";
+        << " (" <<  PrettySize(post_gc_weighted_allocated_bytes)  << ")";
+
+    // Dumping GC data structures
+    LOG_STREAM(INFO)
+      << "Heap::card_table_: " << 4 * GB - 4 * KB + 256 << "\n"
+      << "Heap::mod_union_tables_: " << heap_->GetModUnionTablesSize() << "\n"
+      << "Heap::live_stack_: " << heap_->GetLiveStackSize() << "\n"
+      << "Heap::allocation_stack_: " << heap_->GetAllocationStackSize() << "\n"
+      << "RegionSpace::regions_: " << heap_->GetRegionSpace()->GetRegionsSize() << "\n"
+      << "RegionSpace::mark_bitmap_: " << heap_->GetRegionSpace()->GetMarkBitmapSize() << "\n"
+      << "ConcurrentCopying::gc_mark_stack_: " << heap_->GetCCMarkStackSize() << "\n"
+      << "ConcurrentCopying::region_space_inter_region_bitmap_: " << heap_->GetCCRegionSpaceInterRegionBitmapSize() << "\n"
+      << "ConcurrentCopying::non_moving_space_inter_region_bitmap_: " << heap_->GetCCNonMovingSpaceInterRegionBitmapSize() << "\n";
   }
 
   WaitForThreadPoolWorkersToStart();
