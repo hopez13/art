@@ -164,6 +164,30 @@
       "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e17bb6e_2158bb11",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-08T09:13:40Z",
+      "side": 1,
+      "message": "Thanks for explaining David. Could you add some of that next to the definition of the multimap? The need for a multimap is often a bad smell IMO, so if we really need one, comments around it are worth it.",
+      "parentUuid": "53106807_c23952f9",
+      "range": {
+        "startLine": 386,
+        "startChar": 4,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "429ac511f328d3e47c1d82a12ce88dc2a389c529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
