@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d9bd029_467a01f0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-08T09:17:22Z",
+      "side": 1,
+      "message": "Please avoid these \u0027auto\u0027.",
+      "range": {
+        "startLine": 3089,
+        "startChar": 2,
+        "endLine": 3092,
+        "endChar": 6
+      },
+      "revId": "776a7c294f6356b314505369679bffc73f4a345e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
