@@ -18,6 +18,7 @@
 
 #include <sys/ucontext.h>
 
+#include "arch/instruction_set.h"
 #include "art_method.h"
 #include "base/enums.h"
 #include "runtime_globals.h"
