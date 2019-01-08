@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7463ada7_bcd5efee",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3451,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-01-08T02:01:46Z",
+      "side": 1,
+      "message": "Isn\u0027t this the capacity in number of elements, not bytes?\n\nI\u0027m also concerned that if we did this right, the number would be completely meaningless. Based on a quick look, it appears to me that we map the maximum size stack to start with, and count on this mostly not ever getting backed by physical memory?\n\nWe could presumably track the max used index. Is it worth it?\n\nIf we can\u0027t get meaningful data, I\u0027d prefer not to report it.",
+      "range": {
+        "startLine": 3451,
+        "startChar": 11,
+        "endLine": 3451,
+        "endChar": 37
+      },
+      "revId": "a1744e3da07b2af645bf5affb189e8cbba854949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec8d0ee7_33ad6785",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-01-08T02:01:46Z",
+      "side": 1,
+      "message": "I\u0027m generally opposed to these. The hardware implementation of the -\u003e operator includes an implicit CHECK for free :-)\n\nBut that may be controversial, I don\u0027t care a lot, and this probably makes it slightly easier to debug in some cases. It just makes it harder to read the code for small benefit.",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 57
+      },
+      "revId": "a1744e3da07b2af645bf5affb189e8cbba854949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
