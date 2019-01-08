@@ -592,6 +592,10 @@ void QuickExceptionHandler::DeoptimizeSingleFrame(DeoptimizationKind kind) {
 
   // Compiled code made an explicit deoptimization.
   ArtMethod* deopt_method = visitor.GetSingleFrameDeoptMethod();
+  SCOPED_TRACE << "Deoptimizing "
+               <<  deopt_method->PrettyMethod()
+               << ": " << GetDeoptimizationKindName(kind);
+  
   DCHECK(deopt_method != nullptr);
   if (VLOG_IS_ON(deopt) || kDebugExceptionDelivery) {
     LOG(INFO) << "Single-frame deopting: "

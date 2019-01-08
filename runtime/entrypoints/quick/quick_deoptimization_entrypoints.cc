@@ -41,13 +41,10 @@ NO_RETURN static void artDeoptimizeImpl(Thread* self, DeoptimizationKind kind, b
 
   self->AssertHasDeoptimizationContext();
   QuickExceptionHandler exception_handler(self, true);
-  {
-    ScopedTrace trace(std::string("Deoptimization ") + GetDeoptimizationKindName(kind));
-    if (single_frame) {
-      exception_handler.DeoptimizeSingleFrame(kind);
-    } else {
-      exception_handler.DeoptimizeStack();
-    }
+  if (single_frame) {
+    exception_handler.DeoptimizeSingleFrame(kind);
+  } else {
+    exception_handler.DeoptimizeStack();
   }
   uintptr_t return_pc = exception_handler.UpdateInstrumentationStack();
   if (exception_handler.IsFullFragmentDone()) {
