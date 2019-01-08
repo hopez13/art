@@ -22,6 +22,30 @@
       "revId": "77452ba868deaa24a1b7432eb31d88a56969f870",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "786872fa_1281b2a4",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-08T16:02:35Z",
+      "side": 1,
+      "message": "The date was incorrect in the CL that introduced this file (in 2014, see https://android-review.googlesource.com/c/platform/art/+/100955/). I took the opportunity of this change to fix it.\n\nOur policy is to used the year when a file was added to the source tree (we don\u0027t update it afterwards).",
+      "parentUuid": "c238aaed_2186cd9c",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "77452ba868deaa24a1b7432eb31d88a56969f870",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
