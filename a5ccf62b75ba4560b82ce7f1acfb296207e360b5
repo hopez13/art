@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db078322_84d91c89",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3986,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-08T14:29:18Z",
+      "side": 1,
+      "message": "Suggestion: Use `1 * GB` (from libartbase/base/globals.h).",
+      "range": {
+        "startLine": 3986,
+        "startChar": 44,
+        "endLine": 3986,
+        "endChar": 67
+      },
+      "revId": "a5ccf62b75ba4560b82ce7f1acfb296207e360b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
