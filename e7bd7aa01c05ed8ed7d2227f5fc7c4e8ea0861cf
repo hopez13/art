@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29d40639_33501f79",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-08T15:11:07Z",
+      "side": 0,
+      "message": "Would it be useful to pull up the code that\u0027s gone into DeoptimizeSingleFrame for both paths here? Or keep the ScopeTrace for DeoptimizeStack?",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 88
+      },
+      "revId": "e7bd7aa01c05ed8ed7d2227f5fc7c4e8ea0861cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
