@@ -73,6 +73,8 @@ elif [[ $mode == "target" ]]; then
     exit 1
   fi
   make_command="make $j_arg $extra_args $showcommands build-art-target-tests $common_targets"
+  # vogar requires the non *-testdex variants.
+  make_command+=" core-oj core-libart core-simple okhttp bouncycastle apache-xml conscrypt"
   make_command+=" libjavacrypto-target libnetd_client-target linker toybox toolbox sh"
   make_command+=" debuggerd su"
   make_command+=" libstdc++ "
