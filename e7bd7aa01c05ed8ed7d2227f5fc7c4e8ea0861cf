@@ -22,6 +22,30 @@
       "revId": "e7bd7aa01c05ed8ed7d2227f5fc7c4e8ea0861cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21ce180e_e8261584",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-08T15:40:03Z",
+      "side": 0,
+      "message": "I\u0027ve moved to only single-frame deopt, as the full frame is a debuggable feature that I don\u0027t see useful in a systrace.",
+      "parentUuid": "29d40639_33501f79",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 88
+      },
+      "revId": "e7bd7aa01c05ed8ed7d2227f5fc7c4e8ea0861cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
