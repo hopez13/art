@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c9111eec_abc15796",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "Maybe in a another change. I don\u0027t think that the ART Buildbot (which is the #1 user of these scripts) provides some good error handling mechanism when one of the step (e.g. \"setting up the device\" or \"syncing to device\") fails.",
+      "parentUuid": "9df2d29c_1d5eaa1c",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1b1495_608964cc",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e27e1d_a6775a52",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "This test is not an assertion (while the one from line 31 is), but merely a way to turn this script into a no-op when there is no chroot (which is here for historical reasons). I\u0027ve kept this check for consistency with other scripts. I\u0027ll eventually remove it.",
+      "parentUuid": "8d1b1495_608964cc",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "441ed099_1b5f0704",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2803220_cbe941f0",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 5
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "663ce861_166388a6",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2019-01-09T13:34:45Z",
       "side": 1,
       "message": "Out of curiosity, where is this done?",
+      "range": {
+        "startLine": 56,
+        "startChar": 41,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "053269f1_880eb042",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "In tools/buildbot-build.sh and tools/buildbot-sync.sh.",
+      "parentUuid": "663ce861_166388a6",
       "range": {
         "startLine": 56,
         "startChar": 41,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "33dd2d4a_31af348e",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "Done (I also simplified this line based on an offline comment from Orion).",
+      "parentUuid": "0092ac2c_699f09e1",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 92
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48758ea9_ab242e2c",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "22b44632_867f1223",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "We\u0027re trying to minimize error handling in these scripts to keep them simple. The APEX would unmounted by the tools/unmount-buildbot-apexes.sh script anyway.",
+      "parentUuid": "48758ea9_ab242e2c",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 71
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540065ae_a8c1959e",
         "filename": "tools/unmount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -148,6 +280,30 @@
       "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4433ad78_3e762515",
+        "filename": "tools/unmount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T14:49:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540065ae_a8c1959e",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
