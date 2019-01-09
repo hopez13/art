@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3dc6977_8ebca395",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-09T11:29:24Z",
+      "side": 1,
+      "message": "Annoying surely :) I\u0027ve added a comment.",
+      "parentUuid": "3a024bfb_9a0b0c1e",
+      "range": {
+        "startLine": 324,
+        "startChar": 10,
+        "endLine": 324,
+        "endChar": 39
+      },
+      "revId": "a54a21b77c6394a8063f2083403f39fb3dfe6dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6f5ae1f0_30357576",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-09T11:08:04Z",
       "side": 1,
       "message": "Add comment that this is true for multi-type catch blocks. It\u0027s currently only used for typing but who knows if someone tries to use this to find the actual catch-all block.",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 36
+      },
+      "revId": "a54a21b77c6394a8063f2083403f39fb3dfe6dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbb08133_8437fc04",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-09T11:29:24Z",
+      "side": 1,
+      "message": "I\u0027ve renamed the method to make it clear it\u0027s about the type index index, and not catch all.",
+      "parentUuid": "6f5ae1f0_30357576",
       "range": {
         "startLine": 917,
         "startChar": 0,
