@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9df2d29c_1d5eaa1c",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Perhaps add \"set -e\" around here so that the script doesn\u0027t continue if any of the adb commands fail.\n\nSame for the other scripts.",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1b1495_608964cc",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "This test is subsumed by the one below, and that one also has a better error message.\n\nIf you think this needs a separate check, a message would be in order here too for when the script is used manually.",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2803220_cbe941f0",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Nit: You don\u0027t really need this hack since the argument is in quotes.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 5
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "663ce861_166388a6",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Out of curiosity, where is this done?",
+      "range": {
+        "startLine": 56,
+        "startChar": 41,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0092ac2c_699f09e1",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Nit: Move this up before any work is done?",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 92
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48758ea9_ab242e2c",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Isn\u0027t it nicer to make these scripts idempotent? I.e. if there already is an apex mounted it\u0027s torn down here so that it can be mounted again.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 71
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "540065ae_a8c1959e",
+        "filename": "tools/unmount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T13:34:45Z",
+      "side": 1,
+      "message": "Same nit as above.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
