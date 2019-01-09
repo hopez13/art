@@ -76,11 +76,11 @@ class MappedFileContainer : public DexFileContainer {
 
 extern "C" {
 
-const ExtDexFileString* ExtDexFileMakeString(const char* str) {
-  if (str[0] == '\0') {
+const ExtDexFileString* ExtDexFileMakeString(const char* str, size_t size) {
+  if (size == 0) {
     return &art::empty_string;
   }
-  return new ExtDexFileString{str};
+  return new ExtDexFileString{std::string(str, size)};
 }
 
 const char* ExtDexFileGetString(const ExtDexFileString* ext_string, /*out*/ size_t* size) {
