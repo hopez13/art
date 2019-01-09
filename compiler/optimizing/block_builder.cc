@@ -315,8 +315,14 @@ void HBasicBlockBuilder::InsertTryBoundaryBlocks() {
     CatchHandlerIterator iterator(handlers_ptr);
     for (; iterator.HasNext(); iterator.Next()) {
       uint32_t address = iterator.GetHandlerAddress();
-      if (catch_blocks.find(address) != catch_blocks.end()) {
+      auto existing = catch_blocks.find(address);
+      if (existing != catch_blocks.end()) {
         // Catch block already processed.
+        TryCatchInformation* info = existing->second->GetTryCatchInformation();
+        if (iterator.GetHandlerTypeIndex() != info->GetCatchTypeIndex()) {
+          // The handler is for multiple types.
+          info->SetCatchAllTypeIndex();
+        }
         continue;
       }
 
@@ -337,7 +343,7 @@ void HBasicBlockBuilder::InsertTryBoundaryBlocks() {
 
       catch_blocks.Put(address, catch_block);
       catch_block->SetTryCatchInformation(
-        new (allocator_) TryCatchInformation(iterator.GetHandlerTypeIndex(), *dex_file_));
+          new (allocator_) TryCatchInformation(iterator.GetHandlerTypeIndex(), *dex_file_));
     }
     handlers_ptr = iterator.EndDataPointer();
   }
