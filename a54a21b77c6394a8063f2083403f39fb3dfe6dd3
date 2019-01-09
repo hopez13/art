@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a024bfb_9a0b0c1e",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-09T11:08:04Z",
+      "side": 1,
+      "message": "Would it be too difficult to find the common parent here?",
+      "range": {
+        "startLine": 324,
+        "startChar": 10,
+        "endLine": 324,
+        "endChar": 39
+      },
+      "revId": "a54a21b77c6394a8063f2083403f39fb3dfe6dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f5ae1f0_30357576",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-09T11:08:04Z",
+      "side": 1,
+      "message": "Add comment that this is true for multi-type catch blocks. It\u0027s currently only used for typing but who knows if someone tries to use this to find the actual catch-all block.",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 36
+      },
+      "revId": "a54a21b77c6394a8063f2083403f39fb3dfe6dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
