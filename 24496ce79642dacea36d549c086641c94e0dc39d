@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32175e20_fe6237bf",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-09T10:51:47Z",
+      "side": 1,
+      "message": "This could be inverted and moved to top of file, e.g. fast exit before trying to interact with device.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "24496ce79642dacea36d549c086641c94e0dc39d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e0c5000_25a07bb7",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-09T10:51:47Z",
+      "side": 1,
+      "message": "Maybe better placed within activate_system_package since the latter depends on apex_image_dir so there\u0027s currently an ordering constraint between the two.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 54
+      },
+      "revId": "24496ce79642dacea36d549c086641c94e0dc39d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
