@@ -22,6 +22,30 @@
       "revId": "5ab4a561cd139249180dfccc1e0d72c8b399a937",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "941932e7_9d8868bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-01-09T17:15:49Z",
+      "side": 1,
+      "message": "It\u0027s a fair point. The commit last time caused 3 issues:\n\n1) APEX was not working on emulator devices, though it was supposed to be. There\u0027s no presubmit for emulator devices. APEX on emulator is now fixed.\n2) Performance. We\u0027re aware of potential performance issues.\n3) The art chroot device environment didn\u0027t have anything like the runtime APEX. rpl@ is addressing that with https://android-review.googlesource.com/c/platform/art/+/864358\n\nAt no point were any \"real\" devices broken and treehugger stayed green but it seemed like (1) + (3) were not going to be fixed quickly and would cause inconvenience so I reverted. I think I\u0027d have ignored (1) by itself, but (3) was hard to ignore.\n\nWe\u0027re now almost one month later and all issues *should* now be addressed. I\u0027m just tidying up the changes in preparation for trying again. If I come up with any better way of testing environments I can\u0027t \"see\" I\u0027ll add them to the commit comment.",
+      "parentUuid": "618ccb3a_fe905c21",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "5ab4a561cd139249180dfccc1e0d72c8b399a937",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
