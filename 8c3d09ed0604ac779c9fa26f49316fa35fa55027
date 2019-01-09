@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6dc5637c_60522b1d",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-09T12:40:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2dec4d_ccceba29",
+      "range": {
+        "startLine": 324,
+        "startChar": 71,
+        "endLine": 324,
+        "endChar": 78
+      },
+      "revId": "8c3d09ed0604ac779c9fa26f49316fa35fa55027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08731e00_d570ea90",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-09T11:46:21Z",
       "side": 1,
       "message": "Replace with `dex::TypeIndex::Invalid()` to make this consistent with line 933?",
+      "range": {
+        "startLine": 898,
+        "startChar": 26,
+        "endLine": 898,
+        "endChar": 48
+      },
+      "revId": "8c3d09ed0604ac779c9fa26f49316fa35fa55027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75c8a6cc_a040764f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-09T12:40:43Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "08731e00_d570ea90",
       "range": {
         "startLine": 898,
         "startChar": 26,
