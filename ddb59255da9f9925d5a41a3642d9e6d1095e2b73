@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "22ea2494_7cc20312",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T15:45:09Z",
+      "side": 1,
+      "message": "\"set -e\" wouldn\u0027t make it any worse, would it? It ought to cut down a bit of cascade errors in the logs.\n\nBut if you think it\u0027s unrelated then fine.",
+      "parentUuid": "c9111eec_abc15796",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1b1495_608964cc",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -69,6 +87,24 @@
       "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1901de69_9b24cbd2",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T15:45:09Z",
+      "side": 1,
+      "message": "Yes, I noticed it didn\u0027t do \"exit 1\" here.\n\nEven if it\u0027s going away eventually, it still would help to explain why it exits.",
+      "parentUuid": "47e27e1d_a6775a52",
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -213,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "073367f9_b40aea7c",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T15:45:09Z",
+      "side": 1,
+      "message": "Nice, I was also wondering if there wasn\u0027t a prettier way to count the chars.",
+      "parentUuid": "33dd2d4a_31af348e",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 92
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48758ea9_ab242e2c",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 2
@@ -248,6 +308,30 @@
       "side": 1,
       "message": "We\u0027re trying to minimize error handling in these scripts to keep them simple. The APEX would unmounted by the tools/unmount-buildbot-apexes.sh script anyway.",
       "parentUuid": "48758ea9_ab242e2c",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 71
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c95884_38f94d87",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-09T15:45:09Z",
+      "side": 1,
+      "message": "Idempotency makes the scripts more robust and also more convenient. Sure there\u0027d be a bit more complexity in here (not much though, basically just a call to unmount-buildbot-apexes.sh instead of the echo/exit line) but less complexity for the user. Might even be possible to do away with unmount-buildbot-apexes.sh entirely (wasn\u0027t able to find where these buildbot scripts get called from).\n\nAnyway, I suppose that\u0027d be out of scope here.",
+      "parentUuid": "22b44632_867f1223",
       "range": {
         "startLine": 69,
         "startChar": 2,
