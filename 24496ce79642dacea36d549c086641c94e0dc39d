@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d966d607_6d44f685",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T12:52:05Z",
+      "side": 1,
+      "message": "Done (here and in tools/unmount-buildbot-apexes.sh).",
+      "parentUuid": "32175e20_fe6237bf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "24496ce79642dacea36d549c086641c94e0dc39d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e0c5000_25a07bb7",
         "filename": "tools/mount-buildbot-apexes.sh",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "24496ce79642dacea36d549c086641c94e0dc39d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c24397_a50edb3c",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-09T12:52:05Z",
+      "side": 1,
+      "message": "This script currently handles only one package, but will probably handle others in the future. I think it looks more natural to (attempt to) create that directory once.",
+      "parentUuid": "4e0c5000_25a07bb7",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 54
+      },
+      "revId": "24496ce79642dacea36d549c086641c94e0dc39d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
