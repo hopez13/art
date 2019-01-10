@@ -4399,5 +4399,24 @@ void Heap::PostForkChildAction(Thread* self) {
   }
 }
 
+uint8_t* Heap::AllocateContinuous(size_t bytes) {
+  if (region_space_ != nullptr) {
+    size_t bytes_allocated;
+    size_t usable_size;
+    size_t bytes_tl_bulk_allocated;
+    return reinterpret_cast<uint8_t*>(region_space_->Alloc(Thread::Current(),
+                                                           bytes,
+                                                           &bytes_allocated,
+                                                           &usable_size,
+                                                           &bytes_tl_bulk_allocated));
+  }
+  return nullptr;
+}
+
+void Heap::RegisterCopiedObjects(uint8_t* objects, size_t bytes) {
+  CHECK(region_space_ != nullptr);
+  region_space_->RegisterCopiedObjects(objects, bytes);
+}
+
 }  // namespace gc
 }  // namespace art

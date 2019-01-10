@@ -54,7 +54,7 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes,
                                                     /* out */ size_t* bytes_tl_bulk_allocated) {
   DCHECK_ALIGNED(num_bytes, kAlignment);
   mirror::Object* obj;
-  if (LIKELY(num_bytes <= kRegionSize)) {
+  if (LIKELY(!ShouldAllocateLargeObject(num_bytes))) {
     // Non-large object.
     obj = (kForEvac ? evac_region_ : current_region_)->Alloc(num_bytes,
                                                              bytes_allocated,

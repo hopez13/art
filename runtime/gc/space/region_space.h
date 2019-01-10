@@ -367,6 +367,9 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     return time_;
   }
 
+  // Register bulk copied objects by setting regions appropriately filled and as large / normal.
+  void RegisterCopiedObjects(uint8_t* objects, size_t bytes) REQUIRES(Locks::mutator_lock_);
+
  private:
   RegionSpace(const std::string& name, MemMap&& mem_map);
 
@@ -615,6 +618,10 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
 
     uint64_t GetLongestConsecutiveFreeBytes() const;
 
+    void SetState(RegionState state) {
+      state_ = state;
+    }
+
    private:
     size_t idx_;                        // The region's index in the region space.
     size_t live_bytes_;                 // The live bytes. Used to compute the live percent.
@@ -735,6 +742,10 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // region `r`. This is meant to detect dangling references to dead
   // objects earlier in debug mode.
   void PoisonDeadObjectsInUnevacuatedRegion(Region* r);
+
+  static bool ShouldAllocateLargeObject(size_t num_bytes) {
+    return num_bytes > kRegionSize;
+  }
 
   Mutex region_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
 

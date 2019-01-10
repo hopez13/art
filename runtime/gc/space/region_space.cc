@@ -940,6 +940,41 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
   return nullptr;
 }
 
+void RegionSpace::RegisterCopiedObjects(uint8_t* objects, size_t bytes) {
+  CHECK(IsAligned<kRegionSize>(objects));
+  MutexLock mu(Thread::Current(), region_lock_);
+  for (size_t offset = 0; offset < bytes; ) {
+    mirror::Object* const obj = reinterpret_cast<mirror::Object*>(objects + offset);
+    Region* regions = RefToRegionUnlocked(obj);
+    const size_t size = obj->SizeOf();
+    CHECK_LE(offset + size, bytes);
+    regions[0].SetNewlyAllocated();
+    if (ShouldAllocateLargeObject(size)) {
+      // Figure out.
+      // num_evac_regions_ is already updated from the initial allocation.
+      const size_t allocated = RoundUp(size, kRegionSize);
+      const size_t num_regions = allocated / kRegionSize;
+      // Make all of the top usable.
+      regions[0].SetState(RegionState::kRegionStateLarge);
+      regions[0].SetTop(regions->Begin() + allocated);
+      for (size_t i = 1; i < num_regions; ++i) {
+        regions[i].SetState(RegionState::kRegionStateLargeTail);
+        // UnfreeLargeTail(this, time_);
+        // Evac doesn't count as newly allocated.
+        regions[i].SetNewlyAllocated();
+      }
+      offset += allocated;
+    } else {
+      // Normal object region, mark as such.
+      regions[0].SetState(RegionState::kRegionStateAllocated);
+      // Increase the region top to match the size of the allocated objects.
+      regions[0].SetTop(regions[0].Begin() + std::min(kRegionSize, bytes - offset));
+      // TODO: We need to fill in objects allocated here.
+      offset += kRegionSize;
+    }
+  }
+}
+
 void RegionSpace::Region::MarkAsAllocated(RegionSpace* region_space, uint32_t alloc_time) {
   DCHECK(IsFree());
   alloc_time_ = alloc_time;

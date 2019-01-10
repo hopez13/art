@@ -881,6 +881,13 @@ class Heap {
 
   void PostForkChildAction(Thread* self);
 
+  // Allocate a continuous block of memory for placing objects inside. Returns null if there is no
+  // space or if the call is not supported with the current allocator.
+  uint8_t* AllocateContinuous(size_t bytes);
+
+  // Register objects that were copied into the heap so that the GC knows about them.
+  void RegisterCopiedObjects(uint8_t* objects, size_t bytes) REQUIRES(Locks::mutator_lock_);
+
  private:
   class ConcurrentGCTask;
   class CollectorTransitionTask;

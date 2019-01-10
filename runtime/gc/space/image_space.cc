@@ -689,11 +689,13 @@ class ImageSpace::Loader {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
 
+    uint8_t* objects_location = nullptr;
     std::unique_ptr<ImageSpace> space = Init(image_filename,
                                              image_location,
                                              oat_file,
                                              &logger,
                                              image_reservation,
+                                             &objects_location,
                                              error_msg);
     if (space != nullptr) {
       uint32_t expected_reservation_size =
@@ -711,12 +713,14 @@ class ImageSpace::Loader {
         result = RelocateInPlace<PointerSize::k64>(*image_header,
                                                    space->GetMemMap()->Begin(),
                                                    space->GetLiveBitmap(),
+                                                   objects_location,
                                                    oat_file,
                                                    error_msg);
       } else {
         result = RelocateInPlace<PointerSize::k32>(*image_header,
                                                    space->GetMemMap()->Begin(),
                                                    space->GetLiveBitmap(),
+                                                   objects_location,
                                                    oat_file,
                                                    error_msg);
       }
@@ -756,6 +760,7 @@ class ImageSpace::Loader {
                                           const OatFile* oat_file,
                                           TimingLogger* logger,
                                           /*inout*/MemMap* image_reservation,
+                                          /*out*/uint8_t** objects_location,
                                           /*out*/std::string* error_msg)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     CHECK(image_filename != nullptr);
@@ -831,9 +836,16 @@ class ImageSpace::Loader {
       return nullptr;
     }
 
+    if (image_header->IsAppImage()) {
+      DCHECK(objects_location != nullptr);
+      const ImageSection& objects_section = image_header->GetObjectsSection();
+      // Allocate space in the heap for extracting the image objects.
+      *objects_location = Runtime::Current()->GetHeap()->AllocateContinuous(objects_section.Size());
+    }
+
     // GetImageBegin is the preferred address to map the image. If we manage to map the
     // image at the image begin, the amount of fixup work required is minimized.
-    // If it is pic we will retry with error_msg for the2 failure case. Pass a null error_msg to
+    // If it is pic we will retry with error_msg for the failure case. Pass a null error_msg to
     // avoid reading proc maps for a mapping failure and slowing everything down.
     // For the boot image, we have already reserved the memory and we load the image
     // into the `image_reservation`.
@@ -844,6 +856,7 @@ class ImageSpace::Loader {
         file->Fd(),
         logger,
         image_reservation,
+        objects_location != nullptr ? *objects_location : nullptr,
         error_msg);
     if (!map.IsValid()) {
       DCHECK(!error_msg->empty());
@@ -934,6 +947,7 @@ class ImageSpace::Loader {
                               int fd,
                               TimingLogger* logger,
                               /*inout*/MemMap* image_reservation,
+                              /*out*/uint8_t* objects_location,
                               /*out*/std::string* error_msg) {
     TimingLogger::ScopedTiming timing("MapImageFile", logger);
     std::string temp_error_msg;
@@ -976,6 +990,8 @@ class ImageSpace::Loader {
       }
       memcpy(map.Begin(), &image_header, sizeof(ImageHeader));
 
+      const ImageSection& objects_section = image_header.GetObjectsSection();
+
       Runtime::ScopedThreadPoolUsage stpu;
       ThreadPool* const pool = stpu.GetThreadPool();
       const uint64_t start = NanoTime();
@@ -986,9 +1002,18 @@ class ImageSpace::Loader {
         auto function = [&](Thread*) {
           const uint64_t start2 = NanoTime();
           ScopedTrace trace("LZ4 decompress block");
-          bool result = block.Decompress(/*out_ptr=*/map.Begin(),
-                                         /*in_ptr=*/temp_map.Begin(),
-                                         error_msg);
+          bool result = false;
+          if (objects_location != nullptr && objects_section.Contains(block.GetImageOffset())) {
+            CHECK_LT(block.GetImageOffset() + block.GetImageSize(), objects_section.End());
+            // Decompress the block relative to the objects section.
+            result = block.Decompress(objects_location - objects_section.Offset(),
+                                      /*in_ptr=*/temp_map.Begin(),
+                                      error_msg);
+          } else {
+            result = block.Decompress(/*out_ptr=*/map.Begin(),
+                                      /*in_ptr=*/temp_map.Begin(),
+                                      error_msg);
+          }
           if (!result && error_msg != nullptr) {
             *error_msg = "Failed to decompress image block " + *error_msg;
           }
@@ -1198,6 +1223,7 @@ class ImageSpace::Loader {
   static bool RelocateInPlace(ImageHeader& image_header,
                               uint8_t* target_base,
                               accounting::ContinuousSpaceBitmap* bitmap,
+                              uint8_t* objects_location,
                               const OatFile* app_oat_file,
                               std::string* error_msg) {
     DCHECK(error_msg != nullptr);
@@ -1226,8 +1252,10 @@ class ImageSpace::Loader {
       return false;
     }
     const ImageSection& objects_section = image_header.GetObjectsSection();
-    // Where the app image objects are mapped to.
-    uint8_t* objects_location = target_base + objects_section.Offset();
+    if (objects_location == nullptr) {
+      // If the objects location is null, just default to inside of the image.
+      objects_location = target_base + objects_section.Offset();
+    }
     TimingLogger logger(__FUNCTION__, true, false);
     RelocationRange boot_image(image_header.GetBootImageBegin(),
                                boot_image_begin,
@@ -1828,6 +1856,7 @@ class ImageSpace::BootImageLoader {
                         /*oat_file=*/ nullptr,
                         logger,
                         image_reservation,
+                        /*objects_location=*/nullptr,
                         error_msg);
   }
 
