@@ -83,6 +83,12 @@ elif [[ $mode == "target" ]]; then
   fi
   # Build the Runtime APEX.
   make_command+=" com.android.runtime"
+  # Create a copy of the ICU .dat prebuilt files in /system/etc/icu on target,
+  # so that it can found even if the Runtime APEX is not available, by setting
+  # the environment variable `ART_TEST_ANDROID_RUNTIME_ROOT` to "/system" on
+  # device. This is a temporary change needed until both the ART Buildbot and
+  # Golem fully support the Runtime APEX (see b/121117762).
+  make_command+=" icu-data-art-test"
   mode_suffix="-target"
 fi
 
