@@ -22,6 +22,53 @@
       "revId": "dfe414561c4cfa45ff268745525951d888f0c751",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a48c6de_3bc2674a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-10T15:53:29Z",
+      "side": 1,
+      "message": "Indeed, imo the old API was just plain buggy in its asymmetry.",
+      "parentUuid": "eb246705_9c4b172a",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "dfe414561c4cfa45ff268745525951d888f0c751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "485b2b9e_646b0598",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-10T15:53:29Z",
+      "side": 1,
+      "message": "Note a small change here. I was able to get rid of this to avoid pulling in lots of ART internals. libartbase is still necessary for sizeof(art::DexFile::Header) -\u003e dex/dex_file.h -\u003e base/globals.h.",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 29
+      },
+      "revId": "dfe414561c4cfa45ff268745525951d888f0c751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
