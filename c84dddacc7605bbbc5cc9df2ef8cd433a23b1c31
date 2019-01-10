@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5cb8acb_6ad628cf",
+        "filename": "libdexfile/external/dex_file_ext_c_test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-10T13:13:24Z",
+      "side": 1,
+      "message": "This is C, so I can\u0027t include android-base/macros.h. I can expand it to the __attribute__ gibberish, but I\u0027d prefer to keep this since it\u0027s standard C and more readable.",
+      "parentUuid": "46201d43_6168b8ed",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "c84dddacc7605bbbc5cc9df2ef8cd433a23b1c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9cab80b_614b3a6d",
         "filename": "libdexfile/external/include/art_api/dex_file_external.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c84dddacc7605bbbc5cc9df2ef8cd433a23b1c31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aa9f06b_acd76653",
+        "filename": "libdexfile/external/include/art_api/dex_file_external.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-10T13:13:24Z",
+      "side": 1,
+      "message": "Yes, it\u0027s still included into C++. Or what do you mean?",
+      "parentUuid": "a9cab80b_614b3a6d",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "c84dddacc7605bbbc5cc9df2ef8cd433a23b1c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
