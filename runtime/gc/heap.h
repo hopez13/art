@@ -877,6 +877,10 @@ class Heap {
 
   void PostForkChildAction(Thread* self);
 
+  // Allocate a continuous block of memory for placing objects inside. Returns null if there is no
+  // space or if the call is not supported with the current allocator.
+  uint8_t* AllocateContinuous(size_t bytes);
+
  private:
   class ConcurrentGCTask;
   class CollectorTransitionTask;
