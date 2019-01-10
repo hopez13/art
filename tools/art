@@ -199,6 +199,7 @@ function run_dex2oat() {
     # (see run_art function)
     verbose_run ANDROID_DATA=$ANDROID_DATA                    \
           ANDROID_ROOT=$ANDROID_ROOT                          \
+          ANDROID_RUNTIME_ROOT=$ANDROID_RUNTIME_ROOT          \
           LD_LIBRARY_PATH=$LD_LIBRARY_PATH                    \
           PATH=$ANDROID_ROOT/bin:$PATH                        \
           LD_USE_LOAD_BIAS=1                                  \
@@ -399,7 +400,17 @@ done
 
 PROG_DIR="$(cd "${PROG_NAME%/*}" ; pwd -P)"
 ANDROID_ROOT="$(cd $PROG_DIR/..; pwd -P)"
-ANDROID_RUNTIME_ROOT=$ANDROID_ROOT/com.android.runtime
+# The Runtime APEX is not (yet) supported by the ART Buildot setup (see
+# b/121117762); however ICU code depends on `ANDROID_RUNTIME_ROOT` to find ICU
+# .dat files. As a (temporary) workaround, we
+# - make the ART Buildbot build script (art/tools/buildbot-build.sh) also
+#   generate the ICU .dat files in `/system/etc/icu` on device (these files
+#   are normally only put in the Runtime APEX on device);
+# - set `ANDROID_RUNTIME_ROOT` to `$ANDROID_ROOT` (i.e. "/system") here.
+#
+# TODO: Set `ANDROID_RUNTIME_ROOT` to "$ANDROID_ROOT/../apex/com.android.runtime"
+# when the Runtime APEX is fully supported on the ART Buildbot.
+ANDROID_RUNTIME_ROOT=$ANDROID_ROOT
 ART_BINARY_PATH=$ANDROID_ROOT/bin/$ART_BINARY
 
 if [ ! -x "$ART_BINARY_PATH" ]; then
