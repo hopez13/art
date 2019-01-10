@@ -344,6 +344,30 @@
     },
     {
       "key": {
+        "uuid": "61e6880a_4b2bfa34",
+        "filename": "tools/mount-buildbot-apexes.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-10T18:56:26Z",
+      "side": 1,
+      "message": "These scripts are used by the ART Buildbot (https://build.chromium.org/p/client.art/console) logic, which is defined in a Chrome infra build recipe (https://chromium.googlesource.com/chromium/tools/build/+/master/scripts/slave/recipes/art.py).",
+      "parentUuid": "54c95884_38f94d87",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 71
+      },
+      "revId": "ddb59255da9f9925d5a41a3642d9e6d1095e2b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540065ae_a8c1959e",
         "filename": "tools/unmount-buildbot-apexes.sh",
         "patchSetId": 2
