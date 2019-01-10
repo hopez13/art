@@ -18,6 +18,8 @@ art_runtime_base_native_shared_libs = [
     "libopenjdkjvm",
     "libopenjdkjvmti",
     "libadbconnection",
+    "libjavacrypto",
+    "libnativebridge",
 ]
 bionic_native_shared_libs = [
     "libc",
