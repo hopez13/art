@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46201d43_6168b8ed",
+        "filename": "libdexfile/external/dex_file_ext_c_test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-10T08:42:40Z",
+      "side": 1,
+      "message": "we use ATTRIBUTE_UNUSED for this.",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "c84dddacc7605bbbc5cc9df2ef8cd433a23b1c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9cab80b_614b3a6d",
+        "filename": "libdexfile/external/include/art_api/dex_file_external.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-10T08:42:40Z",
+      "side": 1,
+      "message": "Is this required?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "c84dddacc7605bbbc5cc9df2ef8cd433a23b1c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
