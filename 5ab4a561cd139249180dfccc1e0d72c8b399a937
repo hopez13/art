@@ -70,6 +70,30 @@
       "revId": "5ab4a561cd139249180dfccc1e0d72c8b399a937",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9c05aca_6d7eb8a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-01-10T14:14:36Z",
+      "side": 1,
+      "message": "FTR - I\u0027ve also added the vogar command lines I used to test developer environment changes to the libcore commit (where the test lives).\nLooks like http://b/122642227 is pointing out issues for some subset of the ART build-bot and other usual environments.",
+      "parentUuid": "8da3034b_acdf3ab2",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "5ab4a561cd139249180dfccc1e0d72c8b399a937",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
