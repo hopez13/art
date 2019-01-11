@@ -156,8 +156,12 @@ function check_release_contents {
   check_library libopenjdkjvmti.so
   check_library libprofile.so
   # Check that the mounted image contains Android Core libraries.
+  check_library "libexpat${host_suffix}.so"
+  check_library libjavacore.so
   check_library libjavacrypto.so
   check_library libopenjdk.so
+  check_library "libz${host_suffix}.so"
+  check_library libziparchive.so
   # Check that the mounted image contains additional required libraries.
   check_library libadbconnection.so
 
@@ -199,6 +203,13 @@ function check_debug_contents {
   check_library libprofiled.so
   # Check that the mounted image contains Android Core debug libraries.
   check_library libopenjdkd.so
+  # Check that the mounted image contains Android Core libraries.
+  check_library "libexpat${host_suffix}.so"
+  check_library libjavacore.so
+  check_library libjavacrypto.so
+  check_library libopenjdk.so
+  check_library "libz${host_suffix}.so"
+  check_library libziparchive.so
   # Check that the mounted image contains additional required debug libraries.
   check_library libadbconnectiond.so
 }
@@ -256,6 +267,7 @@ say "Processing APEX package $apex_module"
 
 work_dir=$(mktemp -d)
 mount_point="$work_dir/image"
+host_suffix=""
 
 trap finish_target EXIT
 
@@ -358,6 +370,7 @@ say "Processing APEX package $apex_module"
 
 work_dir=$(mktemp -d)
 mount_point="$work_dir/zip"
+host_suffix="-host"
 
 trap finish_host EXIT
 
