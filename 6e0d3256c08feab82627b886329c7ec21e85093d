@@ -115,6 +115,30 @@
       "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48aa9f8b_237ef6d1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1384552
+      },
+      "writtenOn": "2019-01-11T16:55:17Z",
+      "side": 1,
+      "message": "Addressed in https://android-review.googlesource.com/c/platform/art/+/868754",
+      "parentUuid": "f8b9533f_4bb6f542",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 342,
+        "endChar": 68
+      },
+      "revId": "6e0d3256c08feab82627b886329c7ec21e85093d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
