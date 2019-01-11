@@ -13,12 +13,13 @@ art_runtime_base_binaries_prefer32 = [
 ]
 // - Base requirements (libraries).
 art_runtime_base_native_shared_libs = [
+    "libadbconnection",
     "libart",
     "libart-compiler",
+    "libdexfile_external",
+    "libjavacrypto",
     "libopenjdkjvm",
     "libopenjdkjvmti",
-    "libadbconnection",
-    "libjavacrypto",
 ]
 bionic_native_shared_libs = [
     "libc",
@@ -35,12 +36,12 @@ art_runtime_debug_binaries_prefer32 = [
     "profmand",
 ]
 art_runtime_debug_native_shared_libs = [
+    "libadbconnectiond",
     "libartd",
     "libartd-compiler",
     "libopenjdkd",
     "libopenjdkjvmd",
     "libopenjdkjvmtid",
-    "libadbconnectiond",
 ]
 
 // Data files associated with bionic / managed core library APIs.
