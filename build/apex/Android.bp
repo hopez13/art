@@ -72,6 +72,11 @@ art_tools_host_only_binaries = [
     "hprof-conv",
     // ...
 ]
+libcore_native_shared_libs = [
+    "libjavacore",
+    "libopenjdk",
+    "libexpat"
+]
 
 art_tools_device_binaries = art_tools_common_binaries + art_tools_device_only_binaries
 art_tools_host_binaries = art_tools_common_binaries + art_tools_host_only_binaries
@@ -100,7 +105,8 @@ apex {
     compile_multilib: "both",
     manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
-        + bionic_native_shared_libs,
+        + bionic_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
@@ -129,7 +135,8 @@ apex {
     manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_debug_native_shared_libs
-        + bionic_native_shared_libs,
+        + bionic_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
@@ -163,7 +170,8 @@ art_apex {
     device_supported: false,
     manifest: "manifest.json",
     native_shared_libs: art_runtime_base_native_shared_libs
-        + art_runtime_debug_native_shared_libs,
+        + art_runtime_debug_native_shared_libs
+        + libcore_native_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
