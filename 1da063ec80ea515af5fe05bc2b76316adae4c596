@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "444de6f6_8ce5bdb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-11T17:39:49Z",
+      "side": 1,
+      "message": "This bug doesn\u0027t even contain PALette as a term. Is there maybe something more precise to make sense of this change?\n\nE.g., I thought PALette is more general than ART, so why is it here?",
+      "revId": "1da063ec80ea515af5fe05bc2b76316adae4c596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9652d651_16791054",
+        "filename": "libpalette/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-11T17:39:49Z",
+      "side": 1,
+      "message": "Double \"is\"",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "1da063ec80ea515af5fe05bc2b76316adae4c596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
