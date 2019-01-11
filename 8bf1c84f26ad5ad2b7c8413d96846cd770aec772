@@ -22,6 +22,30 @@
       "revId": "8bf1c84f26ad5ad2b7c8413d96846cd770aec772",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d990492e_45019af6",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-11T20:10:30Z",
+      "side": 1,
+      "message": "There\u0027s only one element in the initialisation list. What do you mean?",
+      "parentUuid": "efbddeed_732535a5",
+      "range": {
+        "startLine": 39,
+        "startChar": 42,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "8bf1c84f26ad5ad2b7c8413d96846cd770aec772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
