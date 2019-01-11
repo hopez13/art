@@ -102,6 +102,10 @@ art_cc_binary {
         "libart-disassembler",
         "libvixl",
     ],
+
+    // TODO(b/122885634): Remove this when the static lib ordering problem for
+    // APEX stubs has been fixed.
+    group_static_libs: true,
 }
 
 art_cc_binary {
