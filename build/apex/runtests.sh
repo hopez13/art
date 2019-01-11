@@ -183,6 +183,7 @@ function check_release_contents {
   check_library libartpalette.so
   check_no_library libartpalette-system.so
   check_library libdexfile.so
+  check_library libdexfile_external.so
   check_library libopenjdkjvm.so
   check_library libopenjdkjvmti.so
   check_library libprofile.so
