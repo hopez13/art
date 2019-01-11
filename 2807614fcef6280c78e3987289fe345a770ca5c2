@@ -16,6 +16,24 @@
       "revId": "2807614fcef6280c78e3987289fe345a770ca5c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e6abd1_597cede3",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-01-11T12:56:48Z",
+      "side": 1,
+      "message": "mast@: Feels like this one might not be temporary? If we have --android-root then it makes sense to have --android-runtime-root.\n\nIt\u0027s likely --android-root should go away at some point. When we\u0027re done, ART referencing ANDROID_ROOT at all would be a red flag as it indicates a dependency on something outside of the runtime APEX.",
+      "parentUuid": "11821290_64053870",
+      "revId": "2807614fcef6280c78e3987289fe345a770ca5c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
