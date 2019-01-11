@@ -49,10 +49,12 @@ static void XzCompressChunk(ArrayRef<const uint8_t> src, std::vector<uint8_t>* d
   CLzma2EncProps lzma2Props;
   Lzma2EncProps_Init(&lzma2Props);
   lzma2Props.lzmaProps.level = 1;  // Fast compression.
+  lzma2Props.lzmaProps.reduceSize = src.size();  // Size of data that will be compressed.
   Lzma2EncProps_Normalize(&lzma2Props);
   CXzProps props;
   XzProps_Init(&props);
   props.lzma2Props = lzma2Props;
+  props.reduceSize = lzma2Props.lzmaProps.reduceSize;
   // Implement the required interface for communication (written in C so no virtual methods).
   struct XzCallbacks : public ISeqInStream, public ISeqOutStream, public ICompressProgress {
     static SRes ReadImpl(const ISeqInStream* p, void* buf, size_t* size) {
@@ -87,6 +89,16 @@ static void XzCompressChunk(ArrayRef<const uint8_t> src, std::vector<uint8_t>* d
   CHECK_EQ(res, SZ_OK);
 }
 
+// Decompress the data back and check that we get the original.
+static void VerifyCompressed(ArrayRef<const uint8_t> expected, std::vector<uint8_t>* compressed) {
+  if (kIsDebugBuild) {
+    std::vector<uint8_t> decompressed;
+    XzDecompress(ArrayRef<const uint8_t>(*compressed), &decompressed);
+    DCHECK_EQ(decompressed.size(), expected.size());
+    DCHECK_EQ(memcmp(decompressed.data(), expected.data(), expected.size()), 0);
+  }
+}
+
 // Compress data while splitting it to smaller chunks to enable random-access reads.
 // The XZ file format supports this well, but the compression library does not.
 // Therefore compress the chunks separately and then glue them together manually.
@@ -96,6 +108,12 @@ static void XzCompressChunk(ArrayRef<const uint8_t> src, std::vector<uint8_t>* d
 // Where [index] is: [num_records] ([compressed_size] [uncompressed_size])* [crc32]
 //
 void XzCompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst) {
+  if (src.size() <= kChunkSize) {
+    XzCompressChunk(src, dst);
+    VerifyCompressed(src, dst);
+    return;
+  }
+
   uint8_t header[] = { 0xFD, '7', 'z', 'X', 'Z', 0, 0, 1, 0x69, 0x22, 0xDE, 0x36 };
   uint8_t footer[] = { 0, 1, 'Y', 'Z' };
   dst->insert(dst->end(), header, header + sizeof(header));
@@ -149,13 +167,7 @@ void XzCompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst) {
     dst->insert(dst->end(), tmp.begin(), tmp.end());
   }
 
-  // Decompress the data back and check that we get the original.
-  if (kIsDebugBuild) {
-    std::vector<uint8_t> decompressed;
-    XzDecompress(ArrayRef<const uint8_t>(*dst), &decompressed);
-    DCHECK_EQ(decompressed.size(), src.size());
-    DCHECK_EQ(memcmp(decompressed.data(), src.data(), src.size()), 0);
-  }
+  VerifyCompressed(src, dst);
 }
 
 void XzDecompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst) {
