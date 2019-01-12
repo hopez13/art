@@ -87,7 +87,7 @@ class SharedLibrary {
       self->GetJniEnv()->DeleteWeakGlobalRef(class_loader_);
     }
 
-    std::string error_msg;
+    const char* error_msg;
     if (!android::CloseNativeLibrary(handle_, needs_native_bridge_, &error_msg)) {
       LOG(WARNING) << "Error while unloading native library \"" << path_ << "\": " << error_msg;
     }
@@ -962,17 +962,18 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
   Locks::mutator_lock_->AssertNotHeld(self);
   const char* path_str = path.empty() ? nullptr : path.c_str();
   bool needs_native_bridge = false;
+  const char* nativeloader_error_msg;
   void* handle = android::OpenNativeLibrary(env,
                                             runtime_->GetTargetSdkVersion(),
                                             path_str,
                                             class_loader,
                                             library_path.get(),
                                             &needs_native_bridge,
-                                            error_msg);
-
+                                            &nativeloader_error_msg);
   VLOG(jni) << "[Call to dlopen(\"" << path << "\", RTLD_NOW) returned " << handle << "]";
 
   if (handle == nullptr) {
+    *error_msg = nativeloader_error_msg;
     VLOG(jni) << "dlopen(\"" << path << "\", RTLD_NOW) failed: " << *error_msg;
     return false;
   }
