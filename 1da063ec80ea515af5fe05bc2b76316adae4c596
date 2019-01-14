@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "edf2475e_cdc3f24d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-14T17:01:11Z",
+      "side": 1,
+      "message": "If \"PALette\" is a more general thing (which could become possible in the future with more modules, I guess), then calling the runtime PALette \"libpalette\" means a specific instance takes the generic term (especially since we cannot rename it in the future to the specific name libartpalette).\n\nUnless you were thinking libpalette-system will be a kitchen sink for everyone eventually (avoids linker overhead, I guess)?\n\n(Cf. libbase vs libartbase)",
+      "parentUuid": "6251b5e5_b2d7f744",
+      "revId": "1da063ec80ea515af5fe05bc2b76316adae4c596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9652d651_16791054",
         "filename": "libpalette/Android.bp",
         "patchSetId": 1
