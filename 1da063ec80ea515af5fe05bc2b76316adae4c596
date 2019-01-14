@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2171b9fa_fb158ac5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-14T16:34:29Z",
+      "side": 1,
+      "message": "To be more precise why I asked: if PAL can ever be general, it seems it would be better to call this (as the bug/docs kinda imply) libartpalette?",
+      "parentUuid": "721d9450_ab1f75ed",
+      "revId": "1da063ec80ea515af5fe05bc2b76316adae4c596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9652d651_16791054",
         "filename": "libpalette/Android.bp",
         "patchSetId": 1
