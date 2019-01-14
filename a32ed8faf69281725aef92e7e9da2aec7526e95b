@@ -70,6 +70,30 @@
       "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91217c38_0ee2b42e",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-01-14T12:35:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure, I\u0027m not really familiar with the host builds, sorry.\n\nI did it this way because runtests.sh currently assumes we\u0027re building host APEXes and that they contain the same libs as the device ones.  So if I drop these libs from the host APEX I\u0027ll need to make runtests.sh treat host and native differently (which is fine, I just want to make sure I\u0027m doing the right thing!)",
+      "parentUuid": "3897fc51_936f5c6f",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 14
+      },
+      "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
