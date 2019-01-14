@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6251b5e5_b2d7f744",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-14T16:57:13Z",
+      "side": 1,
+      "message": "Just to clarify before editing. You would prefer the library name \"libartpalette\" if it\u0027s more general (?). Putting ART in the name seems to suggest less general here.",
+      "parentUuid": "2171b9fa_fb158ac5",
+      "revId": "1da063ec80ea515af5fe05bc2b76316adae4c596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9652d651_16791054",
         "filename": "libpalette/Android.bp",
         "patchSetId": 1
