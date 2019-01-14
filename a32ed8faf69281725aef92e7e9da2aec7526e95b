@@ -46,6 +46,30 @@
       "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3897fc51_936f5c6f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-14T09:54:06Z",
+      "side": 1,
+      "message": "Does this script need this? I don\u0027t think we\u0027re planning to have an APEX on host - prebuilts at some stage.",
+      "parentUuid": "ab794d3a_b0e08561",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 14
+      },
+      "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
