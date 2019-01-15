@@ -162,6 +162,12 @@ function check_release_contents {
   check_library libopenjdk.so
   check_library "libz${host_suffix}.so"
   check_library libziparchive.so
+
+  check_library libicuuc${host_suffix}.so
+  check_library libicui18n${host_suffix}.so
+  check_library libandroidicu${host_suffix}.so
+  check_library libpac.so
+
   # Check that the mounted image contains additional required libraries.
   check_library libadbconnection.so
 
@@ -209,6 +215,11 @@ function check_debug_contents {
   check_library libopenjdk.so
   check_library "libz${host_suffix}.so"
   check_library libziparchive.so
+
+  check_library libicuuc${host_suffix}.so
+  check_library libicui18n${host_suffix}.so
+  check_library libandroidicu${host_suffix}.so
+  check_library libpac.so
   # Check that the mounted image contains additional required libraries.
   check_library libadbconnectiond.so
 }

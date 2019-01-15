@@ -78,7 +78,11 @@ libcore_native_shared_libs = [
     "libopenjdk",
     "libexpat",
     "libz",
-    "libziparchive"
+    "libziparchive",
+    "libicuuc",
+    "libicui18n",
+    "libandroidicu",
+    "libpac",
 ]
 
 art_tools_device_binaries = art_tools_common_binaries + art_tools_device_only_binaries
