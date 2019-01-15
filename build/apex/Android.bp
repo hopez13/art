@@ -91,7 +91,16 @@ libcore_native_shared_libs = [
     "libopenjdk",
     "libexpat",
     "libz",
-    "libziparchive"
+    "libziparchive",
+    "libicuuc",
+    "libicui18n",
+    "libandroidicu",
+]
+
+libcore_native_target_only_shared_libs = libcore_native_shared_libs + [
+    // TODO(b/122876336): Remove libpac.so once it's migrated to Webview.
+    // libpac is used by frameworks, not by ART host.
+    "libpac",
 ]
 
 // Java libraries
@@ -129,7 +138,7 @@ apex {
     java_libs: libcore_target_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs
         + bionic_native_shared_libs
-        + libcore_native_shared_libs,
+        + libcore_native_target_only_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
@@ -160,7 +169,7 @@ apex {
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_debug_native_shared_libs
         + bionic_native_shared_libs
-        + libcore_native_shared_libs
+        + libcore_native_target_only_shared_libs
         + libcore_debug_native_shared_libs,
     multilib: {
         both: {
