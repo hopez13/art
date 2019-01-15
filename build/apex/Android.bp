@@ -86,7 +86,11 @@ libcore_native_shared_libs = [
     "libopenjdk",
     "libexpat",
     "libz",
-    "libziparchive"
+    "libziparchive",
+    "libicuuc",
+    "libicui18n",
+    "libandroidicu",
+    "libpac",
 ]
 
 apex_key {
