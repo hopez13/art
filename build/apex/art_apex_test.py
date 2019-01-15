@@ -361,6 +361,9 @@ class ReleaseChecker:
     self._checker.check_library('libjavacore.so')
     self._checker.check_library('libopenjdk.so')
     self._checker.check_library('libziparchive.so')
+    self._checker.check_library('libicuuc.so')
+    self._checker.check_library('libicui18n.so')
+    self._checker.check_library('libandroidicu.so')
     # Check that the mounted image contains additional required libraries.
     self._checker.check_library('libadbconnection.so')
 
@@ -394,6 +397,7 @@ class ReleaseTargetChecker:
     # Check that the mounted image contains Android Core libraries.
     self._checker.check_library('libexpat.so')
     self._checker.check_library('libz.so')
+    self._checker.check_library('libpac.so')
 
 class ReleaseHostChecker:
   def __init__(self, checker):
