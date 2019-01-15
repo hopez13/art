@@ -14,15 +14,24 @@
  * limitations under the License.
  */
 
+#include <future>
 #include <regex>
+#include <optional>
 #include <sstream>
 #include <string>
 #include <vector>
+// TODO: It might be good to pull in boringssl for better checksum functions (sha1).
+#include <zlib.h>  // for adler32
 
+#include <dirent.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
 #include <android-base/logging.h>
+#include <android-base/unique_fd.h>
 
 #include "common_runtime_test.h"
 
@@ -38,6 +47,10 @@
 #include "runtime.h"
 
 namespace art {
+
+static constexpr const char* kDefaultDex2OatSuffix = "";
+static constexpr const char* kDex2Oat32Suffix = "32";
+static constexpr const char* kDex2Oat64Suffix = "64";
 
 struct ImageSizes {
   size_t art_size = 0;
@@ -114,6 +127,76 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     args.push_back(arg);
   }
 
+  // Compiles images at location given by scratch using the specified dex2oat
+  // (32 or 64) and the given extra args. Returns a map from a filename to the
+  // adler32 checksum of the entire file.
+  std::unordered_map<std::string, std::optional<uint32_t>> CompileImagesAndGetChecksums(
+      ScratchFile& scratch,
+      const std::string& dex2oat_suffix,
+      const std::vector<std::string>& extra_args) {
+    std::unordered_map<std::string, std::optional<uint32_t>> results;
+    size_t dirname_loc = scratch.GetFilename().rfind('/');
+    CHECK_NE(dirname_loc, std::string::npos) << "No directory " << scratch.GetFilename();
+    CHECK_LT(dirname_loc, scratch.GetFilename().size());
+
+    std::string scratch_dir_loc = scratch.GetFilename().substr(0, dirname_loc + 1);
+    CHECK(!scratch_dir_loc.empty()) << "No directory " << scratch.GetFilename();
+
+    std::string scratch_name = scratch.GetFilename().substr(dirname_loc + 1, std::string::npos);
+    CHECK(!scratch_name.empty()) << "No file " << scratch.GetFilename();
+
+    std::string error_msg;
+    if (!CompileBootImage(dex2oat_suffix, extra_args, scratch.GetFilename(), &error_msg)) {
+      LOG(ERROR) << "Failed to compile image " << scratch.GetFilename() << error_msg;
+    }
+
+    auto checksum_fn = [](DIR* dir, std::string file) -> std::optional<uint32_t> {
+      android::base::unique_fd fdfile(openat(dirfd(dir), file.c_str(), O_RDONLY | O_CLOEXEC));
+      std::string error;
+      struct stat st;
+      CHECK_EQ(fstat(fdfile, &st), 0) << "Failed to stat " << file;
+      MemMap map(MemMap::MapFile(st.st_size,
+                                 PROT_READ,
+                                 MAP_PRIVATE,
+                                 fdfile,
+                                 /* start = */ 0u,
+                                 /* low_4gb = */ false,
+                                 file.c_str(),
+                                 &error));
+      if (!map.IsValid()) {
+        return std::optional<uint32_t>{};
+      }
+      return std::optional {adler32(0u, map.Begin(), st.st_size)};
+    };
+
+    std::vector<std::pair<std::string, std::future<std::optional<uint32_t>>>> futures;
+    DIR* scratch_dir = opendir(scratch_dir_loc.c_str());
+    CHECK(scratch_dir != nullptr);
+
+    struct dirent* entry;
+    while ((entry = readdir(scratch_dir)) != nullptr) {
+      if (entry->d_type != DT_REG) {
+        continue;
+      }
+      if (strncmp(entry->d_name, scratch_name.c_str(), scratch_name.length()) != 0) {
+        // not a compilation artifact.
+        continue;
+      }
+      std::string name(entry->d_name);
+      futures.push_back(std::make_pair(name, std::async(checksum_fn, scratch_dir, name)));
+    }
+
+    for (auto& p : futures) {
+      results[p.first] = p.second.get();
+    }
+
+    // Clear image files since we compile the image multiple times and don't want to leave any
+    // artifacts behind.
+    closedir(scratch_dir);
+    ClearDirectory(scratch_dir_loc.c_str(), /*recursive*/ false);
+    return results;
+  }
+
   ImageSizes CompileImageAndGetSizes(const std::vector<std::string>& extra_args) {
     ImageSizes ret;
     ScratchFile scratch;
@@ -123,7 +206,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     }
     CHECK(!scratch_dir.empty()) << "No directory " << scratch.GetFilename();
     std::string error_msg;
-    if (!CompileBootImage(extra_args, scratch.GetFilename(), &error_msg)) {
+    if (!CompileBootImage(kDefaultDex2OatSuffix, extra_args, scratch.GetFilename(), &error_msg)) {
       LOG(ERROR) << "Failed to compile image " << scratch.GetFilename() << error_msg;
     }
     std::string art_file = scratch.GetFilename() + ".art";
@@ -145,12 +228,13 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     return ret;
   }
 
-  bool CompileBootImage(const std::vector<std::string>& extra_args,
+  bool CompileBootImage(const std::string& dex2oat_suffix,
+                        const std::vector<std::string>& extra_args,
                         const std::string& image_file_name_prefix,
                         std::string* error_msg) {
     Runtime* const runtime = Runtime::Current();
     std::vector<std::string> argv;
-    argv.push_back(runtime->GetCompilerExecutable());
+    argv.push_back(runtime->GetCompilerExecutable() + dex2oat_suffix);
     AddRuntimeArg(argv, "-Xms64m");
     AddRuntimeArg(argv, "-Xmx64m");
     std::vector<std::string> dex_files = GetLibCoreDexFileNames();
@@ -197,6 +281,33 @@ class Dex2oatImageTest : public CommonRuntimeTest {
     return res.StandardSuccess();
   }
 };
+
+TEST_F(Dex2oatImageTest, TestCompilerISA) {
+  if (kIsTargetBuild) {
+    // Test requires 32 & 64bit dex2oat binaries to run.
+    return;
+  }
+  if (!kIsDebugBuild) {
+    // 32 and 64 bit versions of dex2oat are only built for debug versions.
+    return;
+  }
+  ScratchFile scratch;
+  // Only want this for the directory.
+  scratch.Unlink();
+  std::unordered_map<std::string, std::optional<uint32_t>> res32 =
+    CompileImagesAndGetChecksums(scratch, kDex2Oat32Suffix, {"--avoid-storing-invocation"});
+  std::unordered_map<std::string, std::optional<uint32_t>> res64 =
+    CompileImagesAndGetChecksums(scratch, kDex2Oat64Suffix, {"--avoid-storing-invocation"});
+  scratch.Close();
+  EXPECT_GE(res64.size(), 0u);
+  EXPECT_EQ(res64.size(), res32.size());
+  for (auto& a : res32) {
+    auto other = res64.find(a.first);
+    EXPECT_TRUE(other != res64.end()) << "Could not find " << a.first;
+    EXPECT_EQ(a.second, other != res64.end() ? other->second : std::optional<uint32_t>())
+         << "Different for file " << a.first;
+  }
+}
 
 TEST_F(Dex2oatImageTest, TestModesAndFilters) {
   // This test crashes on the gtest-heap-poisoning configuration
