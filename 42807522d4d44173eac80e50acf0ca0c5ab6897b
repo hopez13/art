@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c7d8e40_01587518",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-15T13:29:33Z",
+      "side": 1,
+      "message": "Ideally, this should be implemented with an art-script-specific `--android-runtime-root` option, but we needed a quick fix for Golem. I\u0027ll clean that up later.",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "42807522d4d44173eac80e50acf0ca0c5ab6897b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
