@@ -46,6 +46,30 @@
       "revId": "3b5dd3e4211ea30906652b823891e19a43a32159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f38ff33_0ea60928",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-15T15:05:25Z",
+      "side": 0,
+      "message": "Indeed. I thought it\u0027d make sense to only test the external libraries, but that\u0027s obviously not the intention here (although libsigchain for some reason isn\u0027t included in the list above).",
+      "parentUuid": "8727cc5c_c77fa03a",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 195,
+        "endChar": 30
+      },
+      "revId": "3b5dd3e4211ea30906652b823891e19a43a32159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
