@@ -70,6 +70,30 @@
       "revId": "3b5dd3e4211ea30906652b823891e19a43a32159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e607fbb3_f5b732f2",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-15T20:05:49Z",
+      "side": 0,
+      "message": "I\u0027ve tried to check everything that made sense to me at the time I wrote this test, but this list of tested artifacts is probably not exhaustive; don\u0027t hesitate to add more tests cases (maybe in a additional CLs).\n\nWe\u0027ll eventually also need a dual test checking that these artifacts are *not* installed in /system. I think that should be the criterion in both tests: if something is moved (or is to be moved) to the Runtime APEX, them it should probably be tested in both tests.",
+      "parentUuid": "5f38ff33_0ea60928",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 195,
+        "endChar": 30
+      },
+      "revId": "3b5dd3e4211ea30906652b823891e19a43a32159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
