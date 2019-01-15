@@ -91,7 +91,14 @@ libcore_native_shared_libs = [
     "libopenjdk",
     "libexpat",
     "libz",
-    "libziparchive"
+    "libziparchive",
+    "libicuuc",
+    "libicui18n",
+    "libandroidicu",
+]
+
+libcore_native_non_host_shared_libs = libcore_native_shared_libs + [
+    "libpac", // libpac is used by frameworks only, and not used by ART host.
 ]
 
 // Java libraries
@@ -129,7 +136,7 @@ apex {
     java_libs: libcore_target_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs
         + bionic_native_shared_libs
-        + libcore_native_shared_libs,
+        + libcore_native_non_host_shared_libs,
     multilib: {
         both: {
             // TODO: Add logic to create a `dalvikvm` symlink to `dalvikvm32` or `dalvikvm64`
@@ -160,7 +167,7 @@ apex {
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_debug_native_shared_libs
         + bionic_native_shared_libs
-        + libcore_native_shared_libs
+        + libcore_native_non_host_shared_libs
         + libcore_debug_native_shared_libs,
     multilib: {
         both: {
