@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ca716cf_c1cd708b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-16T14:37:51Z",
+      "side": 1,
+      "message": "Nit: For better legibility, you can rewrite this commit title as:\n\n  Revert\"^2 \"RFC: ART: ARM64: Support SDOT/UDOT instructions.\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 66
+      },
+      "revId": "30148be07b272818e40b2b8a2e5c604e371a5b70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc977a63_98f024f6",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-16T14:37:51Z",
+      "side": 1,
+      "message": "This change seems independent from the SDOT/UDOT support addition; could you move it to another CL?",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 1
+      },
+      "revId": "30148be07b272818e40b2b8a2e5c604e371a5b70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
