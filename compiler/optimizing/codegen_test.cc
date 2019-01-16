@@ -850,6 +850,19 @@ TEST_F(CodegenTest, ARM64IsaVIXLFeaturesA53) {
   EXPECT_FALSE(features->Has(vixl::CPUFeatures::kAtomics));
 }
 
+// Check that ART ISA Features are propagated to VIXL for arm64 (using kryo385 as example).
+TEST_F(CodegenTest, ARM64IsaVIXLFeaturesKryo385) {
+  OverrideInstructionSetFeatures(InstructionSet::kArm64, "kryo385");
+  HGraph* graph = CreateGraph();
+  arm64::CodeGeneratorARM64 codegen(graph, *compiler_options_);
+  vixl::CPUFeatures* features = codegen.GetVIXLAssembler()->GetCPUFeatures();
+
+  EXPECT_TRUE(features->Has(vixl::CPUFeatures::kCRC32));
+  EXPECT_FALSE(features->Has(vixl::CPUFeatures::kDotProduct));
+  EXPECT_TRUE(features->Has(vixl::CPUFeatures::kFPHalf));
+  EXPECT_TRUE(features->Has(vixl::CPUFeatures::kAtomics));
+}
+
 #endif
 
 #ifdef ART_ENABLE_CODEGEN_mips
