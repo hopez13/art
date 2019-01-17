@@ -176,6 +176,8 @@ function check_release_contents {
   # Check that the mounted image contains additional required libraries.
   check_library libadbconnection.so
   check_library libnativebridge.so
+  check_library libnativehelper.so
+  check_library libnativeloader.so
 
   # TODO: Should we check for other libraries, such as:
   #
