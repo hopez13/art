@@ -13,11 +13,13 @@ art_runtime_base_binaries_prefer32 = [
 ]
 // - Base requirements (libraries).
 art_runtime_base_native_shared_libs = [
+    "libadbconnection",
     "libart",
     "libart-compiler",
+    "libnativehelper",
+    "libnativeloader",
     "libopenjdkjvm",
     "libopenjdkjvmti",
-    "libadbconnection",
 ]
 bionic_native_shared_libs = [
     "libc",
