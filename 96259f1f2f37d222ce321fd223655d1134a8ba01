@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "469790b7_647a6e87",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-01-18T11:38:35Z",
+      "side": 1,
+      "message": "oh, I have the answer here. So it is a file path to the dex cache.\n\nIIUC, one thing that worries me is that the path contains arch as /data/dalvik-cache/arm64/aaaa@bbbb@cccc.dex... , which means this can\u0027t be used as an ID that uniquely represent the caller. Perhaps we can just send the basename?",
+      "revId": "96259f1f2f37d222ce321fd223655d1134a8ba01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
