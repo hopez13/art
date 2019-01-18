@@ -118,6 +118,30 @@
       "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2570198d_2390f89c",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-01-18T16:12:09Z",
+      "side": 1,
+      "message": "+rpl to make sure we\u0027re on the same page as he added these to the host Apex build in http://r.android.com/812773",
+      "parentUuid": "5a94eaa1_ec10f33d",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 14
+      },
+      "revId": "a32ed8faf69281725aef92e7e9da2aec7526e95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
