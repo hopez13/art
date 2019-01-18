@@ -16,6 +16,24 @@
       "revId": "96259f1f2f37d222ce321fd223655d1134a8ba01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34f2250a_ff9a9149",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-01-18T11:39:24Z",
+      "side": 1,
+      "message": "Just saw your comment in the other CL. So it is just /apex/... path. Then fine.",
+      "parentUuid": "469790b7_647a6e87",
+      "revId": "96259f1f2f37d222ce321fd223655d1134a8ba01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
