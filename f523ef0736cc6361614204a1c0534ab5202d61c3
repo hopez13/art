@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "484ccfd3_70781e84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-18T11:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd046a63_09f7a2a3",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "f523ef0736cc6361614204a1c0534ab5202d61c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b757670_017421af",
         "filename": "runtime/jni/java_vm_ext.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f523ef0736cc6361614204a1c0534ab5202d61c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "653f8bf6_78b75fdc",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-18T11:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b757670_017421af",
+      "range": {
+        "startLine": 980,
+        "startChar": 44,
+        "endLine": 980,
+        "endChar": 105
+      },
+      "revId": "f523ef0736cc6361614204a1c0534ab5202d61c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
