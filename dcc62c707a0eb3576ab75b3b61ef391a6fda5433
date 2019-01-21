@@ -1,0 +1,584 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f18c347a_1e7ca9dc",
+        "filename": "libartbase/base/systrace.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also check the `PaletteStatus` returned by this function, and maybe log it if it is not `kOkay` (maybe in debug mode)? Ditto for other calls to PALette methods below.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f54798d7_bbf98e2a",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "I think I remember Colin saying that copyright headers were not necessary in Blueprint files.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ec57d3_7ac7476d",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Perhaps you could refactor the pattern:\n\n  Name ## Method\n\nused in this file using a macro:\n\n  #define PALETTE_METHOD_NAME(Name) Name ## Method\n\n? It\u0027s admittedly longer, but it might be easier to read. Up to you.",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85035076_ea4ab253",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Since this file is C++ code, I think you can drop this `enum` qualifier.",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 29
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58db1fea_1f724bf8",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "You could use the `DISALLOW_COPY_AND_ASSIGN` macro here (although it does not cover the move constructor nor the move assignment operator).",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 58
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3afc5852_dbdc8313",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Maybe replace with EXPECT_EQ?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67b393c1_dc02d309",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b245a2d_67501f64",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Maybe add a TODO to exercise the other PALette methods?",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d16593c_9922cd8c",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "As this API is expected to be stable, should we assign an explicit integer to each of these enum values (as in ProtoBuf definitions)?",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b0c5934_c259c7b1",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Maybe increase the indentation here?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a4829f_32577e48",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `int32_t`?",
+      "range": {
+        "startLine": 39,
+        "startChar": 17,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce9e82a9_feefda27",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `int32_t`?",
+      "range": {
+        "startLine": 53,
+        "startChar": 32,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44ab8e76_f477cae2",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Nit: Could you move this argument to the previous line, and re-align the other arguments?",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e0da02d_7e84621a",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Where is this defined? Shouldn\u0027t this be `PaletteStatus::kInvalidArgument`?",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4541f040_2d25fb5d",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `c_str`?",
+      "range": {
+        "startLine": 111,
+        "startChar": 81,
+        "endLine": 111,
+        "endChar": 87
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ca81e1e_63093d26",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Style: new_nice",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 13
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b5d1904_f3062005",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "/*out*/int32_t*",
+      "range": {
+        "startLine": 165,
+        "startChar": 56,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399c6b4b_7f225541",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Nit: Replace with a `for` loop.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 3
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f00e5fe_3b6ac477",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "/*out*/int32_t*",
+      "range": {
+        "startLine": 186,
+        "startChar": 39,
+        "endLine": 186,
+        "endChar": 47
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32e02c6_e899c8bc",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "/*out*/int32_t*",
+      "range": {
+        "startLine": 220,
+        "startChar": 52,
+        "endLine": 220,
+        "endChar": 60
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93bebf6e_b2452a54",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "/*out*/int32_t* enabled ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 229,
+        "startChar": 39,
+        "endLine": 229,
+        "endChar": 47
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2647f72_a7b81ac7",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "const char* name ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 233,
+        "startChar": 37,
+        "endLine": 233,
+        "endChar": 48
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "362d2676_4d74fe0d",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "const char* name ATTRIBUTE_UNUSED, int32_t value ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 241,
+        "startChar": 44,
+        "endLine": 241,
+        "endChar": 64
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a418e2fd_ae41ea55",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Style: new_priority (to be changed in runtime/thread.h too) – maybe in a clean-up CL.",
+      "range": {
+        "startLine": 4247,
+        "startChar": 35,
+        "endLine": 4247,
+        "endChar": 46
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f8b8e0_e1a996b2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Maybe add additional logging for the `kCheckErrno` return value here?",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e30ef1c_4bec07e7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T18:21:35Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 4253,
+        "startChar": 2,
+        "endLine": 4253,
+        "endChar": 98
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
