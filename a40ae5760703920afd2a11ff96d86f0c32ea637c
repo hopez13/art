@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3914c4f4_4334c684",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T15:57:38Z",
+      "side": 1,
+      "message": "Maybe also mention a device boot test?",
+      "revId": "a40ae5760703920afd2a11ff96d86f0c32ea637c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3fd7bb_4c23b378",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T15:57:38Z",
+      "side": 1,
+      "message": "This is already tested in `check_release_contents`; this function (`check_debug_contents`) is supposed to check debug artifacts that are part for the Debug APEX but are not in the Release APEX.",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 32
+      },
+      "revId": "a40ae5760703920afd2a11ff96d86f0c32ea637c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca388fe5_be60895c",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-21T15:57:38Z",
+      "side": 1,
+      "message": "Could you also add\n\n  host_suffix\u003d\"\"\n\nhere, so that it\u0027s used uniformly in all three \"test suites\"?",
+      "revId": "a40ae5760703920afd2a11ff96d86f0c32ea637c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
