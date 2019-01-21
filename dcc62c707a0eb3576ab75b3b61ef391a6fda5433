@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a71f33da_5083d3e3",
+        "filename": "libartbase/base/systrace.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "On non-Android targets, this returns kNotSupported, but can be changed.",
+      "parentUuid": "f18c347a_1e7ca9dc",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f54798d7_bbf98e2a",
         "filename": "libartpalette/Android.bp",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72847a5d_c9e62ea4",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "We have it for 44 of 46 bp files. Playing it safe.",
+      "parentUuid": "f54798d7_bbf98e2a",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,48 @@
     },
     {
       "key": {
+        "uuid": "0360e2fb_291d7a7a",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Interesting idea. Trying to implement it requires wrestling with pre-processor to keep the pasting working, e.g solvable with a JOIN macro along the lines of:\n\n#define PALETTE_METHOD_TYPE(Name) Name ## Method\n#define JOIN(a, b) a ## b\n\n...\nconst PALETTE_METHOD_TYPE(Name) JOIN(PALETTE_METHOD_TYPE(Name), _);\nPALETTE_METHOD_LIST(PALETTE_LOADER_METHOD_FIELD)\n\n#define PALETTE_LOADER_BIND_METHOD(Name, ...)                           \\\n    , JOIN(PALETTE_METHOD_TYPE(Name), _(reinterpret_cast\u003cPALETTE_METHOD_TYPE(Name)\u003e)(GetMethod(palette_lib_, #Name)))\n\nI\u0027m not sure it\u0027s more readable overall, but agree it\u0027s not super readable as-is.",
+      "parentUuid": "90ec57d3_7ac7476d",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d67db63f_5107cc28",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done. I think it helps to keep the redundant enum\u0027s to match the function declarations, but those are somewhat cryptically hidden.",
+      "parentUuid": "85035076_ea4ab253",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 29
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58db1fea_1f724bf8",
         "filename": "libartpalette/apex/palette.cc",
         "patchSetId": 7
@@ -108,6 +198,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e81196d1_79a0dd9a",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done, was avoiding dependencies, but not a big deal.",
+      "parentUuid": "58db1fea_1f724bf8",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 58
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "44306ab9_dc8e648e",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3afc5852_dbdc8313",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67b393c1_dc02d309",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 7
@@ -154,6 +292,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c713614c_a8615227",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done, but checking this really makes no sense if the first call failed.",
+      "parentUuid": "67b393c1_dc02d309",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +359,30 @@
     },
     {
       "key": {
+        "uuid": "27036d3b_a1f8c86a",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d16593c_9922cd8c",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0c5934_c259c7b1",
         "filename": "libartpalette/include/palette/palette_types.h",
         "patchSetId": 7
@@ -217,6 +403,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1574ce0_d48bdd59",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b0c5934_c259c7b1",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -243,6 +453,30 @@
     },
     {
       "key": {
+        "uuid": "25e1a851_c6b9164a",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99a4829f_32577e48",
+      "range": {
+        "startLine": 39,
+        "startChar": 17,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce9e82a9_feefda27",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -263,6 +497,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fed6a92_975b730e",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce9e82a9_feefda27",
+      "range": {
+        "startLine": 53,
+        "startChar": 32,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -289,6 +547,30 @@
     },
     {
       "key": {
+        "uuid": "d56ac79a_63047526",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ab8e76_f477cae2",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e0da02d_7e84621a",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -309,6 +591,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ad67ec_7fbc5a61",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done. Build configuration error, this code was ifdef\u0027ed out.",
+      "parentUuid": "1e0da02d_7e84621a",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -335,6 +641,30 @@
     },
     {
       "key": {
+        "uuid": "e52741f2_54dd4434",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4541f040_2d25fb5d",
+      "range": {
+        "startLine": 111,
+        "startChar": 81,
+        "endLine": 111,
+        "endChar": 87
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ca81e1e_63093d26",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -355,6 +685,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90f00fc0_7d7b90fa",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca81e1e_63093d26",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 13
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -381,6 +735,30 @@
     },
     {
       "key": {
+        "uuid": "12542a65_d7b01c57",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b5d1904_f3062005",
+      "range": {
+        "startLine": 165,
+        "startChar": 56,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "399c6b4b_7f225541",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -401,6 +779,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a799d157_11f1a7fd",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "399c6b4b_7f225541",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 3
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -427,6 +829,30 @@
     },
     {
       "key": {
+        "uuid": "542dc370_083d9907",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f00e5fe_3b6ac477",
+      "range": {
+        "startLine": 186,
+        "startChar": 39,
+        "endLine": 186,
+        "endChar": 47
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a32e02c6_e899c8bc",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -447,6 +873,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b472ed31_bd02b13b",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32e02c6_e899c8bc",
+      "range": {
+        "startLine": 220,
+        "startChar": 52,
+        "endLine": 220,
+        "endChar": 60
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -473,6 +923,30 @@
     },
     {
       "key": {
+        "uuid": "e8ae0abe_4f23a5de",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93bebf6e_b2452a54",
+      "range": {
+        "startLine": 229,
+        "startChar": 39,
+        "endLine": 229,
+        "endChar": 47
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2647f72_a7b81ac7",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 7
@@ -493,6 +967,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f98ac1ce_b2a7707c",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2647f72_a7b81ac7",
+      "range": {
+        "startLine": 233,
+        "startChar": 37,
+        "endLine": 233,
+        "endChar": 48
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -519,6 +1017,30 @@
     },
     {
       "key": {
+        "uuid": "fd54c6dc_c9e6faf1",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "362d2676_4d74fe0d",
+      "range": {
+        "startLine": 241,
+        "startChar": 44,
+        "endLine": 241,
+        "endChar": 64
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a418e2fd_ae41ea55",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -530,6 +1052,30 @@
       "writtenOn": "2019-01-21T18:21:35Z",
       "side": 1,
       "message": "Style: new_priority (to be changed in runtime/thread.h too) – maybe in a clean-up CL.",
+      "range": {
+        "startLine": 4247,
+        "startChar": 35,
+        "endLine": 4247,
+        "endChar": 46
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0fceec1_0c72a516",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a418e2fd_ae41ea55",
       "range": {
         "startLine": 4247,
         "startChar": 35,
@@ -559,6 +1105,24 @@
     },
     {
       "key": {
+        "uuid": "2aacb122_a2631afe",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4248,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2f8b8e0_e1a996b2",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e30ef1c_4bec07e7",
         "filename": "runtime/thread.cc",
         "patchSetId": 7
@@ -579,6 +1143,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3481c17e_ee22c610",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4253,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-21T22:34:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e30ef1c_4bec07e7",
+      "range": {
+        "startLine": 4253,
+        "startChar": 2,
+        "endLine": 4253,
+        "endChar": 98
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
