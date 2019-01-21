@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a553f339_d534c2c0",
+        "filename": "libartbase/base/logging.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2019-01-21T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cddfc491_192457fc",
+      "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ecd96e6_3a44881b",
         "filename": "runtime/Android.bp",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da0c8cb8_bbea7803",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2019-01-21T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ecd96e6_3a44881b",
+      "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9a28bc4a_91d2c378",
+        "filename": "runtime/binary_analyzer/binary_analyzer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2019-01-21T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef25c470_9e8c8364",
+      "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbaefaf0_c9d4cbd6",
         "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89b0f932_0c860022",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1275029
+      },
+      "writtenOn": "2019-01-21T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbaefaf0_c9d4cbd6",
+      "revId": "c73028a5cabffcf6b63a324f063fef83e1c7c759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
