@@ -183,6 +183,7 @@ function check_release_contents {
   check_library libziparchive.so
   # Check that the mounted image contains additional required libraries.
   check_library libadbconnection.so
+  check_library libnativebridge.so
 
   # TODO: Should we check for other libraries, such as:
   #
