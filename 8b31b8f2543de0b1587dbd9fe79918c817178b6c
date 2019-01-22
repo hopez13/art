@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "febc75a2_63c040c4",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-22T15:55:15Z",
+      "side": 1,
+      "message": "EXPECT_EQ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 11
+      },
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc976cb6_e1217bf8",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-22T15:55:15Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 11
+      },
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664005e7_4cc99788",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-22T15:55:15Z",
+      "side": 1,
+      "message": "You could introduce a constant:\n\n  #ifdef ART_TARGET_ANDROID\n  static constexpr bool kArtTargetAndroid \u003d true;\n  #else\n  static constexpr bool kArtTargetAndroid \u003d false;\n  #endif\n\nand replace this preprocessor-guarded block:\n\n  #ifdef ART_TARGET_ANDROID\n  // ...\n  #endif\n\nwith an if-guarded block:\n\n  if (kArtTargetAndroid) {\n    // ...\n  }\n\nwhich has the benefit of being checked by the compiler even if `ART_TARGET_ANDROID` is not defined.",
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2ef67782_58698ce2",
         "filename": "libartpalette/system/palette_impl.cc",
         "patchSetId": 9
@@ -18,6 +81,29 @@
         "startChar": 7,
         "endLine": 47,
         "endChar": 25
+      },
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ce3c071_eb5e4791",
+        "filename": "libartpalette/system/palette_impl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-22T15:55:15Z",
+      "side": 1,
+      "message": "Maybe add that this has no impact on the actual thread priority?",
+      "range": {
+        "startLine": 221,
+        "startChar": 3,
+        "endLine": 221,
+        "endChar": 38
       },
       "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
