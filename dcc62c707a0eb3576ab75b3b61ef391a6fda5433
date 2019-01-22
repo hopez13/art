@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "9b6441b1_4851ba19",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-22T21:51:06Z",
+      "side": 1,
+      "message": "Marking resolved as this was a good idea, but I couldn\u0027t make it work out very readably.",
+      "parentUuid": "0360e2fb_291d7a7a",
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58db1fea_1f724bf8",
         "filename": "libartpalette/apex/palette.cc",
         "patchSetId": 7
@@ -1085,6 +1103,30 @@
       "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416af234_19f91178",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-22T21:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0fceec1_0c72a516",
+      "range": {
+        "startLine": 4247,
+        "startChar": 35,
+        "endLine": 4247,
+        "endChar": 46
+      },
+      "revId": "dcc62c707a0eb3576ab75b3b61ef391a6fda5433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
