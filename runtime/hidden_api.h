@@ -260,6 +260,7 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kReferenceGetReferent:
       case Intrinsics::kMemoryPeekByte:
       case Intrinsics::kMemoryPokeByte:
+      case Intrinsics::kFP16ToFloat:
       case Intrinsics::kUnsafeCASInt:
       case Intrinsics::kUnsafeCASLong:
       case Intrinsics::kUnsafeCASObject:
