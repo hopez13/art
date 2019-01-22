@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69dde734_91a4b28c",
+        "filename": "test/580-fp16/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-01-22T18:18:56Z",
+      "side": 1,
+      "message": "Is it the case that converting FP16 to float and back is an identity function? Hopefully, it should be the case for everything except possibly NaNs?\n\nIn addition to running these individual test cases, could we just add a simple loop to test that for all 64K values?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "5104c33ff5498db1a9242183c98bb8591bb7fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
