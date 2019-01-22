@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc71b9c7_c71e71ab",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-22T11:53:56Z",
+      "side": 1,
+      "message": "It\u0027s not necessary to create a link from default to conscrypt here? If not, it could be worth a comment.",
+      "revId": "37498dea4db2e6110b5e320f081d31ca9e26c59b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "021f6310_ca1e25fd",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-22T11:53:56Z",
+      "side": 1,
+      "message": "As counterpart to http://r.android.com/879997, I suggest adding a comment that this should be in sync with the \"conscrypt\" namespace in the system ld.config.txt\u0027s.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 57
+      },
+      "revId": "37498dea4db2e6110b5e320f081d31ca9e26c59b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
