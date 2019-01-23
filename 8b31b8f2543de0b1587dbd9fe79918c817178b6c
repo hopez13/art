@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0fe9a7bf_ace35fdd",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-23T12:22:31Z",
+      "side": 1,
+      "message": "Yes, PS10 splits the implementation into two files palette_android.cc and palette_fake.cc so no longer needs the define.",
+      "parentUuid": "4b443355_52aec46f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "febc75a2_63c040c4",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 9
