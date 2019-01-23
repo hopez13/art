@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6528dc78_89c68b35",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-23T18:31:48Z",
+      "side": 1,
+      "message": "Can we move this to the build files instead? Like where we check if frameworks is available?\n\nThe problem isn\u0027t the buildbot, it\u0027s rather we\u0027re using a small manifest (master-art-host on go/ab is also affected, and it doesn\u0027t use buildbot-build.sh to build).",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 49
+      },
+      "revId": "452896aec24187268d4edfebb8587356649acef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
