@@ -252,10 +252,11 @@ public class Main {
     return a > b ? x : y;
   }
 
-  /// CHECK-START: int Main.IntMatCond_IntVarVar(int, int, int, int) register (after)
-  /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
-  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},{{z\d+}}]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: int Main.IntMatCond_IntVarVar(int, int, int, int) register (after)
+  // /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
+  // /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},{{z\d+}}]
+  // /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -264,15 +265,15 @@ public class Main {
   /// CHECK:               Select
   /// CHECK-NEXT:            csel le
 
-  /// CHECK-START-X86_64: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovle/ng
+  // /// CHECK-START-X86_64: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovle/ng
 
-  /// CHECK-START-X86: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovle/ng
+  // /// CHECK-START-X86: int Main.IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovle/ng
 
   public static int IntMatCond_IntVarVar(int a, int b, int x, int y) {
     if (doThrow) {
@@ -537,10 +538,11 @@ public class Main {
     return a < b ? x : y;
   }
 
-  /// CHECK-START: int Main.FloatLtMatCond_IntVarVar(float, float, int, int) register (after)
-  /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{f\d+}},{{f\d+}}]
-  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: int Main.FloatLtMatCond_IntVarVar(float, float, int, int) register (after)
+  // /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{f\d+}},{{f\d+}}]
+  // /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.FloatLtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -558,10 +560,11 @@ public class Main {
     return result + (a > b ? 0 : 1);
   }
 
-  /// CHECK-START: int Main.FloatGtMatCond_IntVarVar(float, float, int, int) register (after)
-  /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual [{{f\d+}},{{f\d+}}]
-  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: int Main.FloatGtMatCond_IntVarVar(float, float, int, int) register (after)
+  // /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual [{{f\d+}},{{f\d+}}]
+  // /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.FloatGtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               GreaterThanOrEqual
@@ -579,10 +582,11 @@ public class Main {
     return result + (a < b ? 0 : 1);
   }
 
-  /// CHECK-START: float Main.FloatGtMatCond_FloatVarVar(float, float, float, float) register (after)
-  /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual
-  /// CHECK-NEXT:       <<Sel:f\d+>>  Select [{{f\d+}},{{f\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     TypeConversion [<<Cond>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: float Main.FloatGtMatCond_FloatVarVar(float, float, float, float) register (after)
+  // /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual
+  // /// CHECK-NEXT:       <<Sel:f\d+>>  Select [{{f\d+}},{{f\d+}},<<Cond>>]
+  // /// CHECK-NEXT:                     TypeConversion [<<Cond>>]
 
   /// CHECK-START-ARM64: float Main.FloatGtMatCond_FloatVarVar(float, float, float, float) disassembly (after)
   /// CHECK:               GreaterThanOrEqual
@@ -600,25 +604,26 @@ public class Main {
     return result + (a < b ? 0 : 1);
   }
 
-  /// CHECK-START: int Main.BoolCond_0_m1(boolean) register (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: int Main.BoolCond_0_m1(boolean) register (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
 
-  /// CHECK-START-ARM64: int Main.BoolCond_0_m1(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     cmp {{w\d+}}, #0x0 (0)
-  /// CHECK-NEXT:                     csetm {{w\d+}}, eq
+  // /// CHECK-START-ARM64: int Main.BoolCond_0_m1(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK-NEXT:                     cmp {{w\d+}}, #0x0 (0)
+  // /// CHECK-NEXT:                     csetm {{w\d+}}, eq
 
-  /// CHECK-START-X86_64: int Main.BoolCond_0_m1(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovnz/ne
+  // /// CHECK-START-X86_64: int Main.BoolCond_0_m1(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovnz/ne
 
-  /// CHECK-START-X86: int Main.BoolCond_0_m1(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovnz/ne
+  // /// CHECK-START-X86: int Main.BoolCond_0_m1(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovnz/ne
 
   public static int BoolCond_0_m1(boolean cond) {
     if (doThrow) {
@@ -628,25 +633,26 @@ public class Main {
     return cond ? 0 : -1;
   }
 
-  /// CHECK-START: int Main.BoolCond_m1_0(boolean) register (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // TODO(b/123284765)
+  // /// CHECK-START: int Main.BoolCond_m1_0(boolean) register (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
 
-  /// CHECK-START-ARM64: int Main.BoolCond_m1_0(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     cmp {{w\d+}}, #0x0 (0)
-  /// CHECK-NEXT:                     csetm {{w\d+}}, ne
+  // /// CHECK-START-ARM64: int Main.BoolCond_m1_0(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK-NEXT:                     cmp {{w\d+}}, #0x0 (0)
+  // /// CHECK-NEXT:                     csetm {{w\d+}}, ne
 
-  /// CHECK-START-X86_64: int Main.BoolCond_m1_0(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovnz/ne
+  // /// CHECK-START-X86_64: int Main.BoolCond_m1_0(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovnz/ne
 
-  /// CHECK-START-X86: int Main.BoolCond_m1_0(boolean) disassembly (after)
-  /// CHECK:            <<Cond:z\d+>> ParameterValue
-  /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK:                          cmovnz/ne
+  // /// CHECK-START-X86: int Main.BoolCond_m1_0(boolean) disassembly (after)
+  // /// CHECK:            <<Cond:z\d+>> ParameterValue
+  // /// CHECK:                          Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  // /// CHECK:                          cmovnz/ne
 
   public static int BoolCond_m1_0(boolean cond) {
     if (doThrow) {
