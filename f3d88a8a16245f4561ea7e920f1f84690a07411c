@@ -22,6 +22,30 @@
       "revId": "f3d88a8a16245f4561ea7e920f1f84690a07411c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e963baf_1c3fed63",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-23T13:15:54Z",
+      "side": 1,
+      "message": "If the oat checksum is a prefix of the boot image checksum, we\u0027re OK. Though I think I want to make this temporary, see b/122937705.",
+      "parentUuid": "de6ed9c3_5429bde1",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 37
+      },
+      "revId": "f3d88a8a16245f4561ea7e920f1f84690a07411c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
