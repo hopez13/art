@@ -195,7 +195,10 @@ class MemberSignature {
 
   void WarnAboutAccess(AccessMethod access_method, ApiList list);
 
+  // DEPRECATED - Remove once new logging is validated, and use ReportAccess instead
   void LogAccessToEventLog(AccessMethod access_method, bool access_denied);
+
+  void ReportAccess(AccessMethod access_method, bool access_denied);
 
   // Calls back into managed code to notify VMRuntime.nonSdkApiUsageConsumer that
   // |member| was accessed. This is usually called when an API is on the black,

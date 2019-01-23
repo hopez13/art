@@ -204,6 +204,7 @@ inline static int32_t GetEnumValueForLog(AccessMethod access_method) {
 }
 #endif
 
+// DEPRECATED - Remove and use ReportAccess instead once new logging is validated
 void MemberSignature::LogAccessToEventLog(AccessMethod access_method, bool access_denied) {
 #ifdef ART_TARGET_ANDROID
   if (access_method == AccessMethod::kLinking || access_method == AccessMethod::kNone) {
@@ -230,6 +231,21 @@ void MemberSignature::LogAccessToEventLog(AccessMethod access_method, bool acces
   UNUSED(access_method);
   UNUSED(access_denied);
 #endif
+}
+
+void MemberSignature::ReportAccess(AccessMethod access_method, bool access_denied) {
+  if (access_method == AccessMethod::kLinking || access_method == AccessMethod::kNone) {
+    // Linking warnings come from static analysis/compilation of the bytecode
+    // and can contain false positives (i.e. code that is never run). We choose
+    // not to log these in the event log.
+    // None does not correspond to actual access, so should also be ignored.
+    return;
+  }
+
+  // TODO
+
+  UNUSED(access_method);
+  UNUSED(access_denied);
 }
 
 void MemberSignature::NotifyHiddenApiListener(AccessMethod access_method) {
@@ -410,11 +426,17 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
     // If event log sampling is enabled, report this violation.
     if (kIsTargetBuild && !kIsTargetLinux) {
       uint32_t eventLogSampleRate = runtime->GetHiddenApiEventLogSampleRate();
+      uint32_t newEventLogSampleRate = runtime->GetHiddenApiNewEventLogSampleRate();
       // Assert that RAND_MAX is big enough, to ensure sampling below works as expected.
       static_assert(RAND_MAX >= 0xffff, "RAND_MAX too small");
-      if (eventLogSampleRate != 0 &&
-          (static_cast<uint32_t>(std::rand()) & 0xffff) < eventLogSampleRate) {
-        member_signature.LogAccessToEventLog(access_method, deny_access);
+      if (eventLogSampleRate != 0 || newEventLogSampleRate != 0) {
+        uint32_t sampleValue = static_cast<uint32_t>(std::rand()) & 0xffff;
+        if (sampleValue < eventLogSampleRate) {
+          member_signature.LogAccessToEventLog(access_method, deny_access);
+        }
+        if (sampleValue < newEventLogSampleRate) {
+          member_signature.ReportAccess(access_method, deny_access);
+        }
       }
     }
 

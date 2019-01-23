@@ -97,6 +97,10 @@ static void VMRuntime_setHiddenApiAccessLogSamplingRate(JNIEnv*, jclass, jint ra
   Runtime::Current()->SetHiddenApiEventLogSampleRate(rate);
 }
 
+static void VMRuntime_setHiddenApiAccessNewLogSamplingRate(JNIEnv*, jclass, jint rate) {
+  Runtime::Current()->SetHiddenApiNewEventLogSampleRate(rate);
+}
+
 static jobject VMRuntime_newNonMovableArray(JNIEnv* env, jobject, jclass javaElementClass,
                                             jint length) {
   ScopedFastNativeObjectAccess soa(env);
@@ -709,6 +713,7 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(VMRuntime, hasBootImageSpaces, "()Z"),  // Could be CRITICAL.
   NATIVE_METHOD(VMRuntime, setHiddenApiExemptions, "([Ljava/lang/String;)V"),
   NATIVE_METHOD(VMRuntime, setHiddenApiAccessLogSamplingRate, "(I)V"),
+  NATIVE_METHOD(VMRuntime, setHiddenApiAccessNewLogSamplingRate, "(I)V"),
   NATIVE_METHOD(VMRuntime, getTargetHeapUtilization, "()F"),
   FAST_NATIVE_METHOD(VMRuntime, isDebuggerActive, "()Z"),
   FAST_NATIVE_METHOD(VMRuntime, isNativeDebuggable, "()Z"),
