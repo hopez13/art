@@ -571,6 +571,14 @@ class Runtime {
     return hidden_api_access_event_log_rate_;
   }
 
+  void SetHiddenApiAccessReportingRate(uint32_t rate) {
+    hidden_api_access_reporting_rate_ = rate;
+  }
+
+  uint32_t GetHiddenApiAccessReportingRate() const {
+    return hidden_api_access_reporting_rate_;
+  }
+
   const std::string& GetProcessPackageName() const {
     return process_package_name_;
   }
@@ -1097,6 +1105,10 @@ class Runtime {
   // How often to log hidden API access to the event log. An integer between 0
   // (never) and 0x10000 (always).
   uint32_t hidden_api_access_event_log_rate_;
+
+  // How often to report hidden API access (this will eventually replace hidden_api_access_event_log_rate_.
+  // An integer between 0 (never) and 0x10000 (always).
+  uint32_t hidden_api_access_reporting_rate_;
 
   // The package of the app running in this process.
   std::string process_package_name_;
