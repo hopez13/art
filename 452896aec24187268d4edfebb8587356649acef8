@@ -22,6 +22,30 @@
       "revId": "452896aec24187268d4edfebb8587356649acef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d55ff6d_f2843ef5",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-23T19:29:15Z",
+      "side": 1,
+      "message": "That DirectoryExists check now needs to go to Soong, sigh... I was hoping to avoid it like this but I guess I\u0027ll have to bite the bullet.",
+      "parentUuid": "6528dc78_89c68b35",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 49
+      },
+      "revId": "452896aec24187268d4edfebb8587356649acef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
