@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c46ebc4d_68ecc0a2",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-23T02:29:08Z",
+      "side": 1,
+      "message": "consider renaming this to something like checksumFn to highlight this is a function.",
+      "range": {
+        "startLine": 153,
+        "startChar": 9,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "37343ec16701edae903d8168e85e36b54d5d2583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40cb1dac_54a3ea08",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-23T02:29:08Z",
+      "side": 1,
+      "message": "use a name that will tell us which dir is this variable holding.",
+      "range": {
+        "startLine": 173,
+        "startChar": 9,
+        "endLine": 173,
+        "endChar": 12
+      },
+      "revId": "37343ec16701edae903d8168e85e36b54d5d2583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
