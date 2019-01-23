@@ -904,6 +904,13 @@ class HiddenApi final {
     if (argc > 0) {
       const StringPiece command(argv[0]);
       if (command == "encode") {
+        // Check environment variables.
+        // HIDDENAPI_NO_FORCE_ASSIGN_ALL is set by ART buildbots which do not have hiddenapi flags.
+        char* env_no_force_assign_all = getenv("HIDDENAPI_NO_FORCE_ASSIGN_ALL");
+        if (env_no_force_assign_all != nullptr && strcmp("true", env_no_force_assign_all) == 0) {
+          force_assign_all_ = false;
+        }
+        // Parse command line arguments
         for (int i = 1; i < argc; ++i) {
           const StringPiece option(argv[i]);
           if (option.starts_with("--input-dex=")) {
@@ -974,11 +981,8 @@ class HiddenApi final {
           auto fn_shared = [&](const DexMember& boot_member) {
             auto it = api_list.find(boot_member.GetApiEntry());
             bool api_list_found = (it != api_list.end());
-            // TODO: Fix ART buildbots and turn this into a CHECK.
-            if (force_assign_all_ && !api_list_found) {
-              LOG(WARNING) << "Could not find hiddenapi flags for dex entry: "
-                           << boot_member.GetApiEntry();
-            }
+            CHECK(!force_assign_all_ || api_list_found)
+                << "Could not find hiddenapi flags for dex entry: " << boot_member.GetApiEntry();
             builder.WriteFlags(api_list_found ? it->second : ApiList::Whitelist());
           };
           auto fn_field = [&](const ClassAccessor::Field& boot_field) {

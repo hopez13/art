@@ -63,6 +63,9 @@ done
 # Allow to build successfully in master-art.
 extra_args="SOONG_ALLOW_MISSING_DEPENDENCIES=true TEMPORARY_DISABLE_PATH_RESTRICTIONS=true"
 
+# Disable CHECK that all methods/fields have hiddenapi flags. Buildbot builds do not have them.
+extra_args+=" HIDDENAPI_NO_FORCE_ASSIGN_ALL=true"
+
 if [[ $mode == "host" ]]; then
   make_command="make $j_arg $extra_args $showcommands build-art-host-tests $common_targets"
   make_command+=" dx-tests"
