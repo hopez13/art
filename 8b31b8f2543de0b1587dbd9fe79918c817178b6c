@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ae80d840_180f2f91",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-23T13:16:48Z",
+      "side": 1,
+      "message": "I see; I was mislead because I didn\u0027t notice you kept `ART_TARGET_ANDROID` for art_libartpalette_tests` only.",
+      "parentUuid": "0fe9a7bf_ace35fdd",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "8b31b8f2543de0b1587dbd9fe79918c817178b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "febc75a2_63c040c4",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 9
