@@ -363,7 +363,8 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   Runtime::Current()->SetHiddenApiEnforcementPolicy(api_enforcement_policy);
   Runtime::Current()->SetDedupeHiddenApiWarnings(true);
   if (api_enforcement_policy != hiddenapi::EnforcementPolicy::kDisabled &&
-      Runtime::Current()->GetHiddenApiEventLogSampleRate() != 0) {
+      (Runtime::Current()->GetHiddenApiEventLogSampleRate() != 0 ||
+        Runtime::Current()->GetHiddenApiNewEventLogSampleRate() != 0)) {
     // Hidden API checks are enabled, and we are sampling access for the event log. Initialize the
     // random seed, to ensure the sampling is actually random. We do this post-fork, as doing it
     // pre-fork would result in the same sequence for every forked process.
