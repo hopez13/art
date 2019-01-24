@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08838971_569bcd22",
+        "filename": "runtime/oat_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-24T14:42:52Z",
+      "side": 1,
+      "message": "Could you keep the checks in the same order here as in the target case (lines 57–65)? Or better, factor out common parts:\n\n    EXPECT_EQ(std::string(kIsTargetBuild ? \"/system/framework/base.apk\" : \"/data/app/foo/base.apk\"),\n        OatFile::ResolveRelativeEncodedDexLocation(\n          \"/data/app/foo/base.apk\", \"/system/framework/base.apk\"));\n\n    EXPECT_EQ(std::string(kIsTargetBuild ? \"base.apk\" : \"/data/app/foo/sludge.apk\"),\n        OatFile::ResolveRelativeEncodedDexLocation(\n          \"/data/app/foo/sludge.apk\", \"base.apk\"));\n\n    EXPECT_EQ(std::string(kIsTargetBuild ? \"o/base.apk\" : \"/data/app/foo/base.apk\"),\n        OatFile::ResolveRelativeEncodedDexLocation(\n          \"/data/app/foo/base.apk\", \"o/base.apk\"));\n\n?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 67
+      },
+      "revId": "94704c291e0c769d29bab2679b70288d6171efe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
