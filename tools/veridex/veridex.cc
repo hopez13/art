@@ -224,7 +224,7 @@ class Veridex {
 
     HiddenApiFinder api_finder(hidden_api);
     api_finder.Run(app_resolvers);
-    api_finder.Dump(std::cout, &stats, !options.precise);
+    api_finder.Dump(std::cerr, &stats, !options.precise);
 
     if (options.precise) {
       PreciseHiddenApiFinder precise_api_finder(hidden_api);
