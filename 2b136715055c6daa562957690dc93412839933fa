@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39edda0_fa35faed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-24T19:08:24Z",
+      "side": 1,
+      "message": "Android commit style: Commit title (single line, short) + blank line + commit message.",
+      "revId": "2b136715055c6daa562957690dc93412839933fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d094a614_5367caa8",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-24T19:08:24Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 367,
+        "startChar": 7,
+        "endLine": 367,
+        "endChar": 8
+      },
+      "revId": "2b136715055c6daa562957690dc93412839933fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61a2aa24_2e63fe95",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-24T19:08:24Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "2b136715055c6daa562957690dc93412839933fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
