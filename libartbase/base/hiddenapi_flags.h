@@ -71,7 +71,7 @@ namespace helper {
  * versions are allowed to access it.
  */
 class ApiList {
- private:
+ public:
   // Number of bits reserved for Value in dex flags, and the corresponding bit mask.
   static constexpr uint32_t kValueBitSize = 3;
   static constexpr uint32_t kValueBitMask = helper::BitMask(kValueBitSize);
