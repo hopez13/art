@@ -144,6 +144,8 @@ class DexClass : public ClassAccessor {
           << JoinStringSet(GetInterfaceDescriptors()) << " (" << dex_file_.GetLocation()
           << ") and " << JoinStringSet(other.GetInterfaceDescriptors()) << " ("
           << other.dex_file_.GetLocation() << ")";
+      LOG(ERROR) << "Class duplication: " << GetDescriptor() << " in " << dex_file_.GetLocation()
+          << " and " << other.dex_file_.GetLocation();
     }
     return equals;
   }
