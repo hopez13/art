@@ -1283,7 +1283,7 @@ class SsaLivenessAnalysis : public ValueObject {
     // the exception handler to its location at the top of the catch block.
     if (env_holder->CanThrowIntoCatchBlock()) return true;
     HGraph* graph = instruction->GetBlock()->GetGraph();
-    if (graph->IsDebuggable()) return true;
+    if (graph->ShouldBeAsyncDeoptimizeable()) return true;
     // When compiling in OSR mode, all loops in the compiled method may be entered
     // from the interpreter via SuspendCheck; thus we need to preserve the environment.
     if (env_holder->IsSuspendCheck() && graph->IsCompilingOsr()) return true;

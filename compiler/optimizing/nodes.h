@@ -528,6 +528,13 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   bool IsDebuggable() const { return debuggable_; }
 
+  // Returns whether a graph should be compiled to be able to be deoptimized asynchronously.
+  // That requires that HEnvironments (not only the HDeoptimize one) must be kept preserved
+  // and their dex register maps must be emitted intact.
+  //
+  // Note: See Runtime::IsAsyncDeoptimizeable().
+  bool ShouldBeAsyncDeoptimizeable() const { return IsDebuggable(); }
+
   // Returns a constant of the given type and value. If it does not exist
   // already, it is created and inserted into the graph. This method is only for
   // integral types.
