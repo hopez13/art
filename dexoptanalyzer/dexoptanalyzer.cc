@@ -271,10 +271,13 @@ class DexoptAnalyzer final {
       }
     }
 
+    // Only oat files created by installd have the 'execute' SELinux permission.
+    // Try loading it executable, it cannot be used otherwise.
+    constexpr bool kLoadExecutable = true;
     std::unique_ptr<OatFileAssistant> oat_file_assistant;
     oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
                                                             isa_,
-                                                            /*load_executable=*/ false,
+                                                            kLoadExecutable,
                                                             /*only_load_system_executable=*/ false,
                                                             vdex_fd_,
                                                             oat_fd_,

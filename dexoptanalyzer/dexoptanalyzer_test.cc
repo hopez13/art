@@ -83,7 +83,7 @@ class DexoptAnalyzerTest : public DexoptTest {
     int dexoptanalyzerResult = Analyze(
         dex_file, compiler_filter, assume_profile_changed, class_loader_context);
     dexoptanalyzerResult = DexoptanalyzerToOatFileAssistant(dexoptanalyzerResult);
-    OatFileAssistant oat_file_assistant(dex_file.c_str(), kRuntimeISA, /*load_executable=*/ false);
+    OatFileAssistant oat_file_assistant(dex_file.c_str(), kRuntimeISA, /*load_executable=*/ true);
     int assistantResult = oat_file_assistant.GetDexOptNeeded(
         compiler_filter, assume_profile_changed, downgrade);
     EXPECT_EQ(assistantResult, dexoptanalyzerResult);
