@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "545713dc_3f449c4a",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T17:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ad64f22_c4140a62",
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f389b73f_7e6278f2",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 19
@@ -39,6 +57,30 @@
       "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72dba3d_d6452222",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T17:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f389b73f_7e6278f2",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 39
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "32b5c451_3e1c12ba",
+        "filename": "oatdump/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T17:17:08Z",
+      "side": 1,
+      "message": "The ordering is definitely out of wack here, hence the grouping. Looks like same issue was with oatdumpds before. Trying to rectify without this.",
+      "parentUuid": "fa397d1f_f0a0b796",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0aee26d5_da3a3857",
         "filename": "runtime/Android.bp",
         "patchSetId": 19
@@ -108,6 +174,30 @@
       "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc1d8d0_c9091e5d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T17:17:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0aee26d5_da3a3857",
+      "range": {
+        "startLine": 429,
+        "startChar": 8,
+        "endLine": 429,
+        "endChar": 24
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
