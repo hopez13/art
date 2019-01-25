@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "5ad64f22_c4140a62",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-25T15:29:47Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*access_denied\u003d*/ 1",
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f389b73f_7e6278f2",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-25T15:29:47Z",
+      "side": 1,
+      "message": "Nit:\n\n  /*access_denied\u003d*/ 0",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 39
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "542e539b_c6436b80",
         "filename": "libartpalette/include/palette/palette_method_list.h",
         "patchSetId": 19
