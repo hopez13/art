@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "542e539b_c6436b80",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-25T15:26:48Z",
+      "side": 1,
+      "message": "Perhaps superfluous when it\u0027s a pointer to const, but nvm.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa397d1f_f0a0b796",
+        "filename": "oatdump/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-25T15:26:48Z",
+      "side": 1,
+      "message": "An explanation for this would be useful for the future.\n\nJudging from http://b/122885634#comment6, Soong should put static libs in dependency order. I reckon that applies to cc_defaults relations as well, but I\u0027m not sure. If that\u0027s the case another approach should be to restructure the defaults to make them express the lib dependencies. Anyway, that\u0027s just a side note. Here I think just a clarifying comment suffices.",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aee26d5_da3a3857",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-25T15:26:48Z",
+      "side": 1,
+      "message": "Nit: As noted in another comment, I don\u0027t think the order matters here. If that\u0027s the case, can we please keep the list sorted alphabetically?",
+      "range": {
+        "startLine": 429,
+        "startChar": 8,
+        "endLine": 429,
+        "endChar": 24
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
