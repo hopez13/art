@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df15c511_21388016",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "Turn this into an early return rather than wrapping the entire function body",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 34
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9dde66_2ea32d01",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "Why Unchecked?",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8daf4bc_7932397e",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "We use underscore case for local variables. http://go/cstyle#General_Naming_Rules",
+      "range": {
+        "startLine": 190,
+        "startChar": 28,
+        "endLine": 190,
+        "endChar": 38
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dece63b1_b57072ab",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "ditto (viz signatureStr). I would instead check that Runtime returns a non-empty package name and return early if it does.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 38
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b86930f_993e83d1",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "offset by 4, or name \u0027signature_stringstream\u0027 something shorter so it fits on one line.",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 6
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed871c8e_acd3eb34",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "This will silently exit on errors. You could print a warning, but I\u0027d say this should never fail. If it does, we\u0027re in big trouble. You can make it a DCHECK - it will crash ART in development builds. We use it as assertions.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 40
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5609c538_8dd7c714",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "already checked at the top of the function",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 92
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30a241e2_62194154",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "Why ins\u0027t AccessMethod a parameter of this? You wouldn\u0027t need two methods.",
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a1d54e8_db0f50ed",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "offset by 4",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 6
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a33e36_3d4e653e",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-01-25T17:40:21Z",
+      "side": 1,
+      "message": "Unused?",
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
