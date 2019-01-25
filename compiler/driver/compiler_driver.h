@@ -342,6 +342,9 @@ class CompilerDriver {
                            bool only_startup_strings,
                            /*inout*/ TimingLogger* timings);
 
+  bool VdexVerifiedIsBootRedefintion(const std::vector<const DexFile*>& dex_files,
+                                     TimingLogger* timings);
+
   const CompilerOptions* const compiler_options_;
 
   std::unique_ptr<Compiler> compiler_;
