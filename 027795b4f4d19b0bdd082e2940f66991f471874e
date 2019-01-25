@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "785a593c_23437394",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f6c4c7f1_85f84015",
+      "range": {
+        "startLine": 59,
+        "startChar": 32,
+        "endLine": 60,
+        "endChar": 43
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b1ad959_f9e48630",
         "filename": "libartpalette/Android.bp",
         "patchSetId": 12
@@ -36,6 +60,24 @@
       "writtenOn": "2019-01-24T14:42:46Z",
       "side": 1,
       "message": "Suggest a C compilation test of palette.h, but doing it in a follow up is fine.",
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f09fce1_d2f4ff0c",
+        "filename": "libartpalette/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "b/123282725",
+      "parentUuid": "8b1ad959_f9e48630",
       "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -62,6 +104,30 @@
       "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a6b47f9_5fd266fc",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c33416_28c924eb",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 2
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "7060e5ae_1a332d08",
+        "filename": "libartpalette/libartpalette.map.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "092ab782_df7df451",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7936d18_79de2292",
         "filename": "libartpalette/system/palette_android.cc",
         "patchSetId": 12
@@ -122,6 +212,30 @@
       "writtenOn": "2019-01-24T14:42:46Z",
       "side": 1,
       "message": "If the intention is to allow extension of this API with more enum values, it wouldn\u0027t be easy for a caller to implement fallbacks based on this - it\u0027d only know that some enum in some tagged field isn\u0027t supported, and nothing was logged. That being the case, we could consider a bit higher level interface and just provide a bespoke function for MemberSignature::LogAccessToEventLog in hidden_api.cc.",
+      "range": {
+        "startLine": 79,
+        "startChar": 19,
+        "endLine": 79,
+        "endChar": 50
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436e16db_0b3e3ed3",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "Yes, this overly general. I\u0027ll revise shortly.",
+      "parentUuid": "b7936d18_79de2292",
       "range": {
         "startLine": 79,
         "startChar": 19,
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "3c57e3f4_e1240ecf",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "It\u0027s this or using group_static_libs for oatdumps otherwise the first linked version doesn\u0027t have all the symbols. I\u0027ve moved this CL to the latter.",
+      "parentUuid": "fa267ee2_67ea52be",
+      "range": {
+        "startLine": 435,
+        "startChar": 4,
+        "endLine": 435,
+        "endChar": 10
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97457e8f_b76aa1bd",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 12
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "3f9c1ed0_46b4eff7",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97457e8f_b76aa1bd",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 8
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b65866bc_f53ad8eb",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 12
@@ -200,6 +362,30 @@
       "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03ad9b3_aaf9a82f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-25T09:24:53Z",
+      "side": 1,
+      "message": "This isn\u0027t ART coding style. The API isn\u0027t marked to force the caller to check the return value, though I think it\u0027s open question whether it should be.",
+      "parentUuid": "b65866bc_f53ad8eb",
+      "range": {
+        "startLine": 227,
+        "startChar": 1,
+        "endLine": 227,
+        "endChar": 3
+      },
+      "revId": "027795b4f4d19b0bdd082e2940f66991f471874e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
