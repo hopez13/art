@@ -1367,6 +1367,8 @@ class Dex2Oat final {
           LOG(WARNING) << "Could not open vdex file in DexMetadata archive: " << error_msg;
         } else {
           input_vdex_file_ = std::make_unique<VdexFile>(std::move(input_file));
+          LOG(INFO) << "Doing fast verification with vdex from DexMetadata archive";
+          compiler_options_->SetIsFastSdkVerification(true);
         }
       }
     }
