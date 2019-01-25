@@ -93,6 +93,9 @@ struct WellKnownClasses {
 
   static jmethodID dalvik_system_BaseDexClassLoader_getLdLibraryPath;
   static jmethodID dalvik_system_VMRuntime_runFinalization;
+  static jmethodID dalvik_system_VMRuntime_hiddenApiUsedWithJNI;
+  static jmethodID dalvik_system_VMRuntime_hiddenApiUsedWithReflection;
+  static jmethodID dalvik_system_VMRuntime_log;
   static jmethodID java_lang_Boolean_valueOf;
   static jmethodID java_lang_Byte_valueOf;
   static jmethodID java_lang_Character_valueOf;

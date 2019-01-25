@@ -84,6 +84,8 @@ jclass WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer;
 
 jmethodID WellKnownClasses::dalvik_system_BaseDexClassLoader_getLdLibraryPath;
 jmethodID WellKnownClasses::dalvik_system_VMRuntime_runFinalization;
+jmethodID WellKnownClasses::dalvik_system_VMRuntime_hiddenApiUsedWithJNI;
+jmethodID WellKnownClasses::dalvik_system_VMRuntime_hiddenApiUsedWithReflection;
 jmethodID WellKnownClasses::java_lang_Boolean_valueOf;
 jmethodID WellKnownClasses::java_lang_Byte_valueOf;
 jmethodID WellKnownClasses::java_lang_Character_valueOf;
@@ -344,6 +346,8 @@ void WellKnownClasses::Init(JNIEnv* env) {
 
   dalvik_system_BaseDexClassLoader_getLdLibraryPath = CacheMethod(env, dalvik_system_BaseDexClassLoader, false, "getLdLibraryPath", "()Ljava/lang/String;");
   dalvik_system_VMRuntime_runFinalization = CacheMethod(env, dalvik_system_VMRuntime, true, "runFinalization", "(J)V");
+  dalvik_system_VMRuntime_hiddenApiUsedWithJNI = CacheMethod(env, dalvik_system_VMRuntime, true, "hiddenApiUsedWithJNI", "(Ljava/lang/String;Ljava/lang/String;Z)V");
+  dalvik_system_VMRuntime_hiddenApiUsedWithReflection = CacheMethod(env, dalvik_system_VMRuntime, true, "hiddenApiUsedWithReflection", "(Ljava/lang/String;Ljava/lang/String;Z)V");
   java_lang_ClassNotFoundException_init = CacheMethod(env, java_lang_ClassNotFoundException, false, "<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V");
   java_lang_ClassLoader_loadClass = CacheMethod(env, java_lang_ClassLoader, false, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
 
@@ -486,6 +490,8 @@ void WellKnownClasses::Clear() {
 
   dalvik_system_BaseDexClassLoader_getLdLibraryPath = nullptr;
   dalvik_system_VMRuntime_runFinalization = nullptr;
+  dalvik_system_VMRuntime_hiddenApiUsedWithJNI = nullptr;
+  dalvik_system_VMRuntime_hiddenApiUsedWithReflection = nullptr;
   java_lang_Boolean_valueOf = nullptr;
   java_lang_Byte_valueOf = nullptr;
   java_lang_Character_valueOf = nullptr;

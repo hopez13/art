@@ -29,15 +29,6 @@
 #include "thread-inl.h"
 #include "well_known_classes.h"
 
-#ifdef ART_TARGET_ANDROID
-#include <metricslogger/metrics_logger.h>
-using android::metricslogger::ComplexEventLogger;
-using android::metricslogger::ACTION_HIDDEN_API_ACCESSED;
-using android::metricslogger::FIELD_HIDDEN_API_ACCESS_METHOD;
-using android::metricslogger::FIELD_HIDDEN_API_ACCESS_DENIED;
-using android::metricslogger::FIELD_HIDDEN_API_SIGNATURE;
-#endif
-
 namespace art {
 namespace hiddenapi {
 
@@ -182,28 +173,6 @@ bool MemberSignature::MemberNameAndTypeMatch(const MemberSignature& other) {
   return member_name_ == other.member_name_ && type_signature_ == other.type_signature_;
 }
 
-#ifdef ART_TARGET_ANDROID
-// Convert an AccessMethod enum to a value for logging from the proto enum.
-// This method may look odd (the enum values are current the same), but it
-// prevents coupling the internal enum to the proto enum (which should never
-// be changed) so that we are free to change the internal one if necessary in
-// future.
-inline static int32_t GetEnumValueForLog(AccessMethod access_method) {
-  switch (access_method) {
-    case AccessMethod::kNone:
-      return android::metricslogger::ACCESS_METHOD_NONE;
-    case AccessMethod::kReflection:
-      return android::metricslogger::ACCESS_METHOD_REFLECTION;
-    case AccessMethod::kJNI:
-      return android::metricslogger::ACCESS_METHOD_JNI;
-    case AccessMethod::kLinking:
-      return android::metricslogger::ACCESS_METHOD_LINKING;
-    default:
-      DCHECK(false);
-  }
-}
-#endif
-
 void MemberSignature::LogAccessToEventLog(AccessMethod access_method, bool access_denied) {
 #ifdef ART_TARGET_ANDROID
   if (access_method == AccessMethod::kLinking || access_method == AccessMethod::kNone) {
@@ -213,19 +182,37 @@ void MemberSignature::LogAccessToEventLog(AccessMethod access_method, bool acces
     // None does not correspond to actual access, so should also be ignored.
     return;
   }
-  ComplexEventLogger log_maker(ACTION_HIDDEN_API_ACCESSED);
-  log_maker.AddTaggedData(FIELD_HIDDEN_API_ACCESS_METHOD, GetEnumValueForLog(access_method));
-  if (access_denied) {
-    log_maker.AddTaggedData(FIELD_HIDDEN_API_ACCESS_DENIED, 1);
+  Runtime* runtime = Runtime::Current();
+  if (!runtime->IsAotCompiler()) {
+    ScopedObjectAccessUnchecked soa(Thread::Current());
+    JNIEnvExt* env = soa.Env();
+    const std::string& package_name = Runtime::Current()->GetProcessPackageName();
+    ScopedLocalRef<jstring> packageStr(env, env->NewStringUTF(package_name.c_str()));
+    if (packageStr.get() == nullptr) {
+      env->ExceptionClear();
+      return;
+    }
+    std::ostringstream signature_stringstream;
+    Dump(signature_stringstream);
+    ScopedLocalRef<jstring> signatureStr(env,
+      env->NewStringUTF(signature_stringstream.str().c_str()));
+    if (signatureStr.get() == nullptr) {
+      env->ExceptionClear();
+      return;
+    }
+    if (access_method != AccessMethod::kReflection && access_method != AccessMethod::kJNI) {
+      // Unknown access method
+      return;
+    }
+    const jmethodID method_id = (access_method == AccessMethod::kReflection) ?
+      WellKnownClasses::dalvik_system_VMRuntime_hiddenApiUsedWithReflection :
+      WellKnownClasses::dalvik_system_VMRuntime_hiddenApiUsedWithJNI;
+    env->CallStaticVoidMethod(WellKnownClasses::dalvik_system_VMRuntime,
+      method_id, packageStr.get(), signatureStr.get(), access_denied);
+    if (env->ExceptionCheck()) {
+      env->ExceptionClear();
+    }
   }
-  const std::string& package_name = Runtime::Current()->GetProcessPackageName();
-  if (!package_name.empty()) {
-    log_maker.SetPackageName(package_name);
-  }
-  std::ostringstream signature_str;
-  Dump(signature_str);
-  log_maker.AddTaggedData(FIELD_HIDDEN_API_SIGNATURE, signature_str.str());
-  log_maker.Record();
 #else
   UNUSED(access_method);
   UNUSED(access_denied);
