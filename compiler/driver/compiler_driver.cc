@@ -1786,6 +1786,9 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
 
   bool compiler_only_verifies = !GetCompilerOptions().IsAnyCompilationEnabled();
 
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  Thread* self = Thread::Current();
+
   // We successfully validated the dependencies, now update class status
   // of verified classes. Note that the dependencies also record which classes
   // could not be fully verified; we could try again, but that would hurt verification
@@ -1797,6 +1800,26 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
         verifier_deps->GetUnverifiedClasses(*dex_file);
     for (ClassAccessor accessor : dex_file->GetClasses()) {
       if (unverified_classes.find(accessor.GetClassIdx()) == unverified_classes.end()) {
+        const char* descriptor = accessor.GetDescriptor();
+
+        if (GetCompilerOptions().IsFastSdkVerification()) {
+          StackHandleScope<1> hs_class(self);
+          Handle<mirror::Class> klass =
+              hs_class.NewHandle(class_linker->FindSystemClass(self, descriptor));
+          if (klass == nullptr) {
+            VLOG(compiler) << "Redefinition of boot class " << descriptor
+                << ". Ignoring its verification data";
+            self->ClearException();
+            // Make sure later compilation stages know they should not try to verify
+            // this class again.
+            LoadAndUpdateStatus(accessor,
+                                ClassStatus::kRetryVerificationAtRuntime,
+                                class_loader,
+                                soa.Self());
+            continue;
+          }
+        }
+
         if (compiler_only_verifies) {
           // Just update the compiled_classes_ map. The compiler doesn't need to resolve
           // the type.
