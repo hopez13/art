@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "892003d5_7ad3fc9a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df15c511_21388016",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 34
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b9dde66_2ea32d01",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a15a2fa2_e759553a",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Yup, I received a compile error if using just Thread::Current()-\u003eGetEnv() - I believe in env-\u003eExceptionClear() (tho I may be misremembering). Will try REQUIRES_SHARED instead.",
+      "parentUuid": "8b1e7652_b996dd66",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8daf4bc_7932397e",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "239cb86f_b89f3751",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d8daf4bc_7932397e",
+      "range": {
+        "startLine": 190,
+        "startChar": 28,
+        "endLine": 190,
+        "endChar": 38
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dece63b1_b57072ab",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -115,6 +187,30 @@
       "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2430eb_22ab95ea",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dece63b1_b57072ab",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 38
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "201fcc0b_6a4e6bc5",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "I believe the comment in a previous CL was to check for errors. I agree that we would be in huge trouble if this memory allocation fails, tho. So do you think I should just DCHECK(env-\u003eExceptionCheck()) and not return for release builds?",
+      "parentUuid": "ed871c8e_acd3eb34",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 40
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5609c538_8dd7c714",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -175,6 +295,30 @@
       "writtenOn": "2019-01-25T17:40:21Z",
       "side": 1,
       "message": "already checked at the top of the function",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 92
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6cc170_4d05213f",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "I\u0027m fairly sure we\u0027re never going to invent another type of access method, but I just wanted to use an abundance of caution.",
+      "parentUuid": "5609c538_8dd7c714",
       "range": {
         "startLine": 203,
         "startChar": 0,
@@ -204,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "eae877e5_a2fbc875",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "AccessMethod is an enum - so we would need to synchronise the meaning between the int value in hidden_api.h and VMRuntime.java.",
+      "parentUuid": "30a241e2_62194154",
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a1d54e8_db0f50ed",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -227,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "d6c03980_54d947f6",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1a1d54e8_db0f50ed",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 6
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38a33e36_3d4e653e",
         "filename": "runtime/well_known_classes.h",
         "patchSetId": 1
@@ -241,6 +427,24 @@
       "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbe60d38_94487985",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-01-25T19:11:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "38a33e36_3d4e653e",
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
