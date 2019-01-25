@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "8b1e7652_b996dd66",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-25T18:22:41Z",
+      "side": 1,
+      "message": "Same comment as on internal change. Don\u0027t use soa. Ask Thread directly for the env, i.e., line 188 should be Thread::Current()-\u003eGet...\n\n(And if you need the mutator lock [which it doesn\u0027t look like], annotate the declaration with the REQUIRES_SHARED, as I believe you\u0027re always called with it.)",
+      "parentUuid": "0b9dde66_2ea32d01",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8daf4bc_7932397e",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
