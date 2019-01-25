@@ -3286,6 +3286,7 @@ void ImageWriter::FixupDexCacheArray(DexCache* orig_dex_cache,
 }
 
 void ImageWriter::FixupDexCache(DexCache* orig_dex_cache, DexCache* copy_dex_cache) {
+  copy_dex_cache->SetDexCacheExt(nullptr);
   FixupDexCacheArray<mirror::StringDexCacheType>(orig_dex_cache,
                                                  copy_dex_cache,
                                                  DexCache::StringsOffset(),

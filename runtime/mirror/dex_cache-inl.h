@@ -287,6 +287,28 @@ inline void DexCache::ClearResolvedMethod(uint32_t method_idx, PointerSize ptr_s
   }
 }
 
+inline ArtMethod* DexCache::GetResolvedExternalMethod(uint32_t method_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+  DexCacheExt* ext = GetDexCacheExt();
+  if (ext != nullptr) {
+    MutexLock mu(Thread::Current(), ext->external_methods_lock);
+    auto it = ext->external_methods.find(method_idx);
+    if (it != ext->external_methods.end()) {
+      return it->second;
+    }
+  }
+  return nullptr;
+}
+
+inline void DexCache::SetResolvedExternalMethod(uint32_t method_idx, ArtMethod* resolved)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+  DexCacheExt* ext = GetDexCacheExt();
+  if (ext != nullptr) {
+    MutexLock mu(Thread::Current(), ext->external_methods_lock);
+    ext->external_methods[method_idx] = resolved;
+  }
+}
+
 template <typename T>
 NativeDexCachePair<T> DexCache::GetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
                                                      size_t idx,

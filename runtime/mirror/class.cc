@@ -619,6 +619,15 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
       }
     }
   }
+
+  // Lookup by name is expesive, so it has its own dynamically-sized runtime cache.
+  if (this_dex_cache != dex_cache) {
+    ArtMethod* method = dex_cache->GetResolvedExternalMethod(dex_method_idx);
+    if (method != nullptr) {
+      return method;
+    }
+  }
+
   // If not found, we need to search by name and signature.
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
@@ -635,6 +644,7 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
       const char* other_name = method.GetDexFile()->GetMethodName(
           method.GetDexMethodIndex(), &other_length);
       if (length == other_length && name == other_name && signature == method.GetSignature()) {
+        dex_cache->SetResolvedExternalMethod(dex_method_idx, &method);
         return &method;
       }
     }

@@ -20,10 +20,13 @@
 #include "array.h"
 #include "base/bit_utils.h"
 #include "base/locks.h"
+#include "base/mutex.h"
 #include "dex/dex_file_types.h"
 #include "gc_root.h"  // Note: must not use -inl here to avoid circular dependency.
 #include "object.h"
 #include "object_array.h"
+
+#include <unordered_map>
 
 namespace art {
 
@@ -45,6 +48,13 @@ class CallSite;
 class Class;
 class MethodType;
 class String;
+
+struct DexCacheExt {
+  Mutex external_methods_lock;
+  std::unordered_map<uint32_t, ArtMethod*> external_methods;
+
+  DexCacheExt() : external_methods_lock("Methods lock") { }
+};
 
 template <typename T> struct PACKED(8) DexCachePair {
   GcRoot<T> object;
@@ -213,6 +223,14 @@ class MANAGED DexCache final : public Object {
     return GetFieldObject<String>(OFFSET_OF_OBJECT_MEMBER(DexCache, location_));
   }
 
+  ALWAYS_INLINE DexCacheExt* GetDexCacheExt() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldPtr<DexCacheExt*>(OFFSET_OF_OBJECT_MEMBER(DexCache, dex_cache_ext));
+  }
+
+  ALWAYS_INLINE void SetDexCacheExt(DexCacheExt* ext) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return SetFieldPtr<false>(OFFSET_OF_OBJECT_MEMBER(DexCache, dex_cache_ext), ext);
+  }
+
   static constexpr MemberOffset StringsOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, strings_);
   }
@@ -302,6 +320,12 @@ class MANAGED DexCache final : public Object {
                                        PointerSize ptr_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
   ALWAYS_INLINE void ClearResolvedMethod(uint32_t method_idx, PointerSize ptr_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE ArtMethod* GetResolvedExternalMethod(uint32_t method_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE void SetResolvedExternalMethod(uint32_t method_idx, ArtMethod* resolved)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Pointer sized variant, used for patching.
@@ -559,6 +583,7 @@ class MANAGED DexCache final : public Object {
   uint32_t num_preresolved_strings_;
 
   uint64_t dex_file_;                // const DexFile*
+  uint64_t dex_cache_ext;            // DexCacheExt*
   uint64_t preresolved_strings_;     // GcRoot<mirror::String*> array with num_preresolved_strings
                                      // elements.
   uint64_t resolved_call_sites_;     // GcRoot<CallSite>* array with num_resolved_call_sites_

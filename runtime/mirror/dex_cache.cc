@@ -211,6 +211,7 @@ void DexCache::Init(const DexFile* dex_file,
   CHECK_EQ(num_resolved_call_sites != 0u, resolved_call_sites != nullptr);
 
   SetDexFile(dex_file);
+  SetDexCacheExt(new DexCacheExt());
   SetLocation(location);
   SetStrings(strings);
   SetResolvedTypes(resolved_types);
