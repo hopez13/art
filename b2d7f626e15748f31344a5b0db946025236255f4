@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "571c6210_7a15c18c",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-25T15:50:11Z",
+      "side": 1,
+      "message": "Why starting to test for this here? In my build I don\u0027t have this lib in the APEX.",
+      "range": {
+        "startLine": 174,
+        "startChar": 16,
+        "endLine": 174,
+        "endChar": 30
+      },
+      "revId": "b2d7f626e15748f31344a5b0db946025236255f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
