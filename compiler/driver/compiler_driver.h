@@ -342,6 +342,10 @@ class CompilerDriver {
                            bool only_startup_strings,
                            /*inout*/ TimingLogger* timings);
 
+  // Returns true if any of the given dex files define a class from the boot classpath.
+  bool DexFilesRedefineBootClasses(const std::vector<const DexFile*>& dex_files,
+                                   TimingLogger* timings);
+
   const CompilerOptions* const compiler_options_;
 
   std::unique_ptr<Compiler> compiler_;
