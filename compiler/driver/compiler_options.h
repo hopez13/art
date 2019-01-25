@@ -359,6 +359,14 @@ class CompilerOptions final {
     max_image_block_size_ = size;
   }
 
+  bool IsFastSdkVerification() const {
+    return is_fast_sdk_verification_;
+  }
+
+  void SetIsFastSdkVerification(bool value) {
+    is_fast_sdk_verification_ = value;
+  }
+
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -463,6 +471,9 @@ class CompilerOptions final {
   // Passing pass names which are not recognized by the compiler will result in
   // compiler-dependant behavior.
   const std::vector<std::string>* passes_to_run_;
+
+  // Whether or not the compilation uses a vdex file produced by sdk-based verification.
+  bool is_fast_sdk_verification_;
 
   friend class Dex2Oat;
   friend class DexToDexDecompilerTest;
