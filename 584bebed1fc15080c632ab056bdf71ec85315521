@@ -22,6 +22,30 @@
       "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efa78c9e_59c4ce3f",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-01-26T02:20:19Z",
+      "side": 1,
+      "message": "Unfortunately, not at this moment. :( \n\nAs I said briefly before, we need to \"synthesize\" ld.config.txt at build time from a higher-level description. This is getting crazier.",
+      "parentUuid": "49c61d57_aa538a89",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
