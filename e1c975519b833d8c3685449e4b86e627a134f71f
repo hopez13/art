@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d29c63f_917984d5",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-26T00:14:53Z",
+      "side": 1,
+      "message": "This isn\u0027t going to work, I hear. So eventually it\u0027s probably the right thing to do this via TEST_MAPPING, creating a test that depends on the fakelibs (but doesn\u0027t do anything).",
+      "revId": "e1c975519b833d8c3685449e4b86e627a134f71f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
