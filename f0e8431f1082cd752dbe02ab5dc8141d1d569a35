@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "875f2a20_1e577da9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-28T10:06:43Z",
+      "side": 1,
+      "message": "Not sure if that\u0027s the latest revision after Andreas comment on the bug, but that\u0027s still not correct I think. We need to bail if there\u0027s *any* class redefining a boot classpath class, as that class may be used by verified classes that do not redefine a boot class.",
+      "range": {
+        "startLine": 1768,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 29
+      },
+      "revId": "f0e8431f1082cd752dbe02ab5dc8141d1d569a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
