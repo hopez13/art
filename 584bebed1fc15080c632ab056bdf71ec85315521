@@ -141,6 +141,30 @@
       "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7179411_67255569",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-28T09:12:00Z",
+      "side": 1,
+      "message": "Because there\u0027s two links: default and platform. The paths of those two are enough, no need to add one to \u0027runtime\u0027 (AFAIU).",
+      "parentUuid": "927f2d4f_bdb130e4",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
