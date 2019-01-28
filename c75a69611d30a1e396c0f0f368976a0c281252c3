@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb422c4d_0cc712fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T17:44:58Z",
+      "side": 1,
+      "message": "Why? I read the test as \"check that app image dump works,\" even if it\u0027s not doing that as-is. Why would the oat_image_test just dump the oat file? Why would \"Image\" be in the test case name when it\u0027s not dumping that?",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "c75a69611d30a1e396c0f0f368976a0c281252c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
