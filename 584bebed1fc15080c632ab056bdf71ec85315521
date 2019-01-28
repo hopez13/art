@@ -117,6 +117,30 @@
       "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "927f2d4f_bdb130e4",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-01-28T01:10:28Z",
+      "side": 1,
+      "message": "Yeah, that also looks good. However, in that case, we have to make sure that all the dependencies of any executable in the runtime APEX to be accessible within one hop from the default namespace. This is because the namespace link is followed only once.\n\nBTW, why there isn\u0027t search.paths for the runtime namespace? Did you confirm that this works?",
+      "parentUuid": "7b524a83_ac0ef5db",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "584bebed1fc15080c632ab056bdf71ec85315521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
