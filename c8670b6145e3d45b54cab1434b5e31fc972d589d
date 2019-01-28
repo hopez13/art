@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "206dc14c_acec440e",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-01-28T11:11:22Z",
+      "side": 1,
+      "message": "Maybe DCHECK better then?",
+      "parentUuid": "3d6cc170_4d05213f",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 92
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30a241e2_62194154",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -360,6 +384,24 @@
       "side": 1,
       "message": "AccessMethod is an enum - so we would need to synchronise the meaning between the int value in hidden_api.h and VMRuntime.java.",
       "parentUuid": "30a241e2_62194154",
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7763a313_07059f64",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-01-28T11:11:22Z",
+      "side": 1,
+      "message": "I think that\u0027s pretty normal (sync\u0027ing enums) - the practice seems to be to put a comment in saying \"please keep in sync with (other place)\" in both locations",
+      "parentUuid": "eae877e5_a2fbc875",
       "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
