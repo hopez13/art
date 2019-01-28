@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "8400b369_9f1cde80",
+        "filename": "oatdump/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-28T10:39:39Z",
+      "side": 1,
+      "message": "Comment added. Having experimented, I\u0027m not convinced fixing this is straightforward. Some naive searching of soong source code didn\u0027t show up static lib dependency ordering. Suspect user error.",
+      "parentUuid": "34cc717b_d8561367",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "f155d88a4e86e5c06671c21897fa5a3efef92391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aee26d5_da3a3857",
         "filename": "runtime/Android.bp",
         "patchSetId": 19
