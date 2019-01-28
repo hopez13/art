@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "12c94c88_90bfd96b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T16:35:29Z",
+      "side": 1,
+      "message": "env-\u003eExceptionClear shouldn\u0027t require it (none of the functions on Env that are proper JNI spec functions should). Maybe you called clear on the Thread?",
+      "parentUuid": "a15a2fa2_e759553a",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8daf4bc_7932397e",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "I believe the comment in a previous CL was to check for errors. I agree that we would be in huge trouble if this memory allocation fails, tho. So do you think I should just DCHECK(env-\u003eExceptionCheck()) and not return for release builds?",
       "parentUuid": "ed871c8e_acd3eb34",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 40
+      },
+      "revId": "c8670b6145e3d45b54cab1434b5e31fc972d589d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "868626c9_85ad816c",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T16:35:29Z",
+      "side": 1,
+      "message": "Please do *not* use DCHECKs.\n\n1) OOMEs are not that rare (just look around buganizer).\n2) The follow-up calls all will crash with pending exception issues.\n\nI\u0027d prefer check-and-log-to-logcat-and-ignore-reporting (you don\u0027t have guarantees anyways because of sampling rate). But if you want to do a check, do a proper CHECK, not a DCHECK, so it at least crashes meaningfully.",
+      "parentUuid": "201fcc0b_6a4e6bc5",
       "range": {
         "startLine": 199,
         "startChar": 0,
