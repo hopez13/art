@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "396e2df1_aa8e818d",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T16:17:20Z",
+      "side": 1,
+      "message": "Makes the line overflow. :-)",
+      "parentUuid": "6388969c_72f70f89",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d587347_eaec31ca",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
@@ -197,6 +221,30 @@
     },
     {
       "key": {
+        "uuid": "bded8c72_51db3e1e",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T16:17:20Z",
+      "side": 1,
+      "message": "No. These bits also determine what the type is (dir and symlink).",
+      "parentUuid": "f66363b0_98e21427",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7287273b_2273ce9d",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
@@ -255,6 +303,30 @@
       "side": 1,
       "message": "Also maybe pull the lists of files out into some lists of constants for ease of updating?",
       "parentUuid": "30be2f25_dfb99db5",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 67
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f080252_bcc5e7f7",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T16:17:20Z",
+      "side": 1,
+      "message": "It\u0027s intended to be the same, I had to do a quick fix for libjavacrypto which was removed after copying the list.\n\nThis is at the moment intentionally explicit, to ease comparison with the runtests script. I\u0027d suggest removing this in a follow-up when the runtests.sh script is removed.",
+      "parentUuid": "b2b511ee_ab940f7c",
       "range": {
         "startLine": 170,
         "startChar": 4,
