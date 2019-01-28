@@ -19,7 +19,8 @@ namespace.default.search.paths = /apex/com.android.runtime/${LIB}
 namespace.default.asan.search.paths = /apex/com.android.runtime/${LIB}
 # odex files are in /system/framework. dalvikvm has to be able to dlopen the
 # files for CTS.
-namespace.default.permitted.paths = /system/framework
+namespace.default.permitted.paths  = /system/framework
+namespace.default.permitted.paths += /bionic/${LIB}
 namespace.default.links = platform
 # TODO(b/119867084): Restrict fallback to platform namespace to PALette library.
 namespace.default.link.platform.allow_all_shared_libs = true
