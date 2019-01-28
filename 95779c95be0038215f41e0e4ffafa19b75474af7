@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcda4ccc_11d345cb",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-28T17:24:21Z",
+      "side": 1,
+      "message": "It seems like we could do some refactoring to get rid of some of the functionality here that supports having multiple classes with the same name. Not sure if you\u0027re interested in that simplicity or if it would make sense indefinitely.",
+      "range": {
+        "startLine": 327,
+        "startChar": 18,
+        "endLine": 327,
+        "endChar": 32
+      },
+      "revId": "95779c95be0038215f41e0e4ffafa19b75474af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
