@@ -46,6 +46,30 @@
       "revId": "f0e8431f1082cd752dbe02ab5dc8141d1d569a35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cba6d2e8_f463560c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-28T21:42:46Z",
+      "side": 1,
+      "message": "Agree with Nicolas. A class does not need to be verified to be used as a dependent in verification. All we need is resolution/linking (and even that is somewhat an optimization we do).\n\nThe argument behind that is that if a dependent later fails verification, you are unable to provide an instance (for instance methods/fields) or pass static initialization (for class accessors) to run through the current class (and null is always legal as an instance, even for failed classes).",
+      "parentUuid": "eb9a7c35_8321e01d",
+      "range": {
+        "startLine": 1768,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 29
+      },
+      "revId": "f0e8431f1082cd752dbe02ab5dc8141d1d569a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
