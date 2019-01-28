@@ -2,6 +2,270 @@
   "comments": [
     {
       "key": {
+        "uuid": "f2231f69_cf42eb4f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "This feels hackish (and maybe brittle). Should we file a bug for proper testing support against Soong?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 87
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69389008_0fd7be0b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Could you factor parts common to `art-check-release-apex-gen` and `art-check-debug-apex-gen` with a `genrule_defaults` module?",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 17
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4e96d35_e93a47f8",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Add a copyright header.",
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6388969c_72f70f89",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "symlink?",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d587347_eaec31ca",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Use os.path.dirname instead?",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a09f6e37_93b9c62f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Use os.path.basename instead?",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe59809_f0cb78ac",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "I\u0027d add an example of expected output as comment, as the debugfs manual page does not contain any. E.g. for directory `bin` (Release APEX):\n\n  debugfs 1.44.4 (18-Aug-2018)\n  /12/040755/0/2000/.//\n  /2/040755/1000/1000/..//\n  /13/100755/0/2000/dalvikvm32/28456/\n  /14/100755/0/2000/dexoptanalyzer/20396/\n  /15/100755/0/2000/linker/1152724/\n  /16/100755/0/2000/dex2oat/563508/\n  /17/100755/0/2000/linker64/1605424/\n  /18/100755/0/2000/profman/85304/\n  /19/100755/0/2000/dalvikvm64/28576/",
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddbe4ed5_0368b598",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Use more classic delimiters (e.g. \\\u0027%s\\\u0027 or \"%s\")?",
+      "range": {
+        "startLine": 62,
+        "startChar": 53,
+        "endLine": 62,
+        "endChar": 57
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f66363b0_98e21427",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "perms?",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7287273b_2273ce9d",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 67,
+        "startChar": 43,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30be2f25_dfb99db5",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "Could have this section match what is done in `art/build/apex/runtests.sh`? Thanks.",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 67
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9992a64_de648321",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-28T11:29:51Z",
+      "side": 1,
+      "message": "nor?",
+      "range": {
+        "startLine": 224,
+        "startChar": 44,
+        "endLine": 224,
+        "endChar": 47
+      },
+      "revId": "4eb1c9b1dc7780ff556e6794a31bcf9d8227268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c0adc72a_9037d673",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 4
