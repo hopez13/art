@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3be1d72d_08067de6",
+        "filename": "openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-29T18:21:44Z",
+      "side": 1,
+      "message": "The API seems overly complicated. Why not just push a bool? Would elide the local ref. Any future reasons you see?",
+      "revId": "5462920633c948669dc6e28c61ef92cfeb0cce2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
