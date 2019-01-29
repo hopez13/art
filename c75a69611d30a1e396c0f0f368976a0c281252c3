@@ -22,6 +22,30 @@
       "revId": "c75a69611d30a1e396c0f0f368976a0c281252c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee6a411_d46e7bdd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-29T12:04:22Z",
+      "side": 1,
+      "message": "Don\u0027t know - that test I changed always used the core oat file, I had to adjust it due to changing oatdump_test.",
+      "parentUuid": "cb422c4d_0cc712fa",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "c75a69611d30a1e396c0f0f368976a0c281252c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
