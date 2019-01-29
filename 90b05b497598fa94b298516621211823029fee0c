@@ -70,6 +70,30 @@
       "revId": "90b05b497598fa94b298516621211823029fee0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6c29d1_9e7c71a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-29T22:21:12Z",
+      "side": 1,
+      "message": "I thought you meant some blocking relation between tickets.\n\nAdded 122885634 here now. (I\u0027ve had the habit to not add CLs to bugs unless they address those bugs, but I can do it this way too.)",
+      "parentUuid": "bfd451d4_e3c27834",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "90b05b497598fa94b298516621211823029fee0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
