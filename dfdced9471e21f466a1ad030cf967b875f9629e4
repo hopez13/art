@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9936f056_89307d96",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-29T12:32:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be moved at the top of this file (in its own conditional)?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "dfdced9471e21f466a1ad030cf967b875f9629e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
