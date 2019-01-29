@@ -694,6 +694,7 @@ def get_disabled_test_info():
     if check_env_vars(env_vars):
       for test in tests:
         if test not in RUN_TEST_SET:
+          print(RUN_TEST_SET)
           raise ValueError('%s is not a valid run-test' % (
               test))
         if test in disabled_test_info:
