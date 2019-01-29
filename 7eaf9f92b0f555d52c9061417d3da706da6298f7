@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77c394b5_a8a37e45",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-29T19:17:08Z",
+      "side": 1,
+      "message": "What about:\n\n  if not True in [args.host, args.target, args.debug, args.tree, args.list]:\n\n?",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 93
+      },
+      "revId": "7eaf9f92b0f555d52c9061417d3da706da6298f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
