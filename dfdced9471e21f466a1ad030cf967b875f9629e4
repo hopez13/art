@@ -22,6 +22,30 @@
       "revId": "dfdced9471e21f466a1ad030cf967b875f9629e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbf05ef9_5123fef4",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-01-29T13:00:57Z",
+      "side": 1,
+      "message": "Done. Given the kludgery it naively seemed better to group that in one place with comments, but happy with way.",
+      "parentUuid": "9936f056_89307d96",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "dfdced9471e21f466a1ad030cf967b875f9629e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
