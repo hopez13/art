@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15c202e9_80966593",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-01-29T17:18:06Z",
+      "side": 1,
+      "message": "More Python-y:-\nfor (key_, val) in sorted(map.items()):\n  new_path \u003d os.path.join(path, val.name)\n\n(maybe map.iteritems() on older versions of Python)",
+      "revId": "f103401f72a5c220e4c0eaa6d7db5c4d1065d7c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6833d8f8_4ea0ac9c",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2019-01-29T17:18:06Z",
+      "side": 1,
+      "message": "See above",
+      "revId": "f103401f72a5c220e4c0eaa6d7db5c4d1065d7c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
