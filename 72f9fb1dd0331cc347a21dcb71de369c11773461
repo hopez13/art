@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b68cba4_286e7753",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-29T23:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26ac6f37_96629681",
+      "range": {
+        "startLine": 1768,
+        "startChar": 0,
+        "endLine": 1769,
+        "endChar": 27
+      },
+      "revId": "72f9fb1dd0331cc347a21dcb71de369c11773461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42936f9f_66a69554",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-29T12:07:46Z",
       "side": 1,
       "message": "No - even on device vdex is unsafe.",
+      "range": {
+        "startLine": 1773,
+        "startChar": 0,
+        "endLine": 1776,
+        "endChar": 3
+      },
+      "revId": "72f9fb1dd0331cc347a21dcb71de369c11773461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98598d64_d6555576",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1776,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-29T23:19:32Z",
+      "side": 1,
+      "message": "Done :)",
+      "parentUuid": "42936f9f_66a69554",
       "range": {
         "startLine": 1773,
         "startChar": 0,
@@ -68,6 +116,30 @@
       "revId": "72f9fb1dd0331cc347a21dcb71de369c11773461",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb3a9374_dbfc139d",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-29T23:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab5e2031_f1d691b6",
+      "range": {
+        "startLine": 345,
+        "startChar": 19,
+        "endLine": 346,
+        "endChar": 29
+      },
+      "revId": "72f9fb1dd0331cc347a21dcb71de369c11773461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
