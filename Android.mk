@@ -574,6 +574,25 @@ build-art-host-tests:   build-art-host $(TEST_ART_RUN_TEST_DEPENDENCIES) $(ART_T
 build-art-target-tests:   build-art-target $(TEST_ART_RUN_TEST_DEPENDENCIES) $(ART_TEST_TARGET_RUN_TEST_DEPENDENCIES) $(ART_TEST_TARGET_GTEST_DEPENDENCIES) | $(TEST_ART_RUN_TEST_ORDERONLY_DEPENDENCIES)
 
 ########################################################################
+# Rules for stubs to use with verify-in-the-cloud.
+
+system_stub_dex := $(HOST_OUT_COMMON_INTERMEDIATES)/PACKAGING/core-hostdex_intermediates/classes.dex
+$(system_stub_dex): PRIVATE_MIN_SDK_VERSION := 1000
+$(system_stub_dex): $(call resolve-prebuilt-sdk-jar-path,system_current) | $(ZIP2ZIP) $(DX)
+	$(transform-classes.jar-to-dex)
+
+oahl_stub_dex := $(HOST_OUT_COMMON_INTERMEDIATES)/PACKAGING/oahl-hostdex_intermediates/classes.dex
+$(oahl_stub_dex): PRIVATE_MIN_SDK_VERSION := 1000
+$(oahl_stub_dex): $(call get-prebuilt-sdk-dir,current)/org.apache.http.legacy.jar | $(ZIP2ZIP) $(DX)
+	$(transform-classes.jar-to-dex)
+
+HOST_VERIFY_STUBS := $(system_stub_dex) $(oahl_stub_dex)
+# Phony rule to create all the stubs files.
+.PHONY: build-art-host-verify-stubs
+build-art-host-verify-stubs: build-art-host $(HOST_VERIFY_STUBS)
+
+
+########################################################################
 # targets to switch back and forth from libdvm to libart
 
 .PHONY: use-art
