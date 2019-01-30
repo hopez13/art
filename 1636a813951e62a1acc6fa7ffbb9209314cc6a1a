@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd7d4726_e3d733ee",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-30T16:18:56Z",
+      "side": 1,
+      "message": "Should be 17. (Also update timeout_dumper, please)\n\nProbably it\u0027s best if this is consistent with timeout_dumper, in general.\n\n(My long-term plan was to use timeout_dumper similar to how we tombstoned is used on device, and remove all symbolization from ART proper. The main issue are internal abort dumps, though.)",
+      "revId": "1636a813951e62a1acc6fa7ffbb9209314cc6a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
