@@ -82,6 +82,11 @@ art_tools_host_only_binaries = [
     // ...
 ]
 
+// Host-only libraries
+art_tools_host_only_libraries = [
+    "libnativebridge",
+]
+
 art_tools_device_binaries = art_tools_common_binaries + art_tools_device_only_binaries
 art_tools_host_binaries = art_tools_common_binaries + art_tools_host_only_binaries
 
@@ -198,6 +203,7 @@ art_apex {
     java_libs: libcore_target_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs
         + art_runtime_debug_native_shared_libs
+        + art_tools_host_only_libraries
         + libcore_native_shared_libs
         + libcore_debug_native_shared_libs,
     multilib: {
