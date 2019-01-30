@@ -88,6 +88,7 @@ TEST_F(OatDumpTest, TestSymbolizeStatic) {
 }
 
 TEST_F(OatDumpTest, TestExportDex) {
+  TEST_DISABLED_FOR_HEAP_POISONING();  // b/123562219.
   TEST_DISABLED_FOR_ARM_AND_MIPS();
   // Test is failing on target, b/77469384.
   TEST_DISABLED_FOR_TARGET();
@@ -106,6 +107,7 @@ TEST_F(OatDumpTest, TestExportDex) {
   ASSERT_TRUE(res.StandardSuccess());
 }
 TEST_F(OatDumpTest, TestExportDexStatic) {
+  TEST_DISABLED_FOR_HEAP_POISONING();  // b/123562219.
   TEST_DISABLED_FOR_ARM_AND_MIPS();
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
   std::string error_msg;
