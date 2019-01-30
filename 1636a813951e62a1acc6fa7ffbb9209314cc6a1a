@@ -34,6 +34,24 @@
       "revId": "1636a813951e62a1acc6fa7ffbb9209314cc6a1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b044f80_b8f35d7c",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-30T17:08:37Z",
+      "side": 1,
+      "message": "Well, I mean, you can\u0027t let it just die, you gotta notify your parent that it\u0027s time to SIGSTOP or w/e you and dump you (could maybe do this through an LD_PRELOAD)?\n\nUnless we want to move to a kernel-dump-like system for the host.\n\nThe corner case that is iffy is dumping on abort, because we do often want to extra info we can get from knowing our threads and what they\u0027re doing (locks etc).",
+      "parentUuid": "82d63582_9bf85d0d",
+      "revId": "1636a813951e62a1acc6fa7ffbb9209314cc6a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
