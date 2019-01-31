@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "228e6231_3bb8df6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-31T19:33:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b08e19e3_274da394",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "e2348cc7acfe33be4759571bfda6df04580eccb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14043529_da5c4d19",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2019-01-31T19:25:13Z",
       "side": 1,
       "message": "What about having one Checker instance per \"concrete\" checker? You would not need the `reset_errors` method anymore.",
+      "revId": "e2348cc7acfe33be4759571bfda6df04580eccb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "858e9b8a_874be1d2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-01-31T19:33:13Z",
+      "side": 1,
+      "message": "That would require recreating at each of the points below (or use a lambda, readability of which can be disputed). I prefer a pipeline instead, it\u0027s easier to read (especially with the follow-up CL which makes Checker creation complicated).",
+      "parentUuid": "14043529_da5c4d19",
       "revId": "e2348cc7acfe33be4759571bfda6df04580eccb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
