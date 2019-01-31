@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01cd1dfe_298236fa",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T19:52:51Z",
+      "side": 1,
+      "message": "Maybe put an \"abstract\" comment too?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 22
+      },
+      "revId": "0f5210c567c52014eb21d8a7fd143b9771ac6bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1805a1f1_6b6ffc99",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T19:52:51Z",
+      "side": 1,
+      "message": "Arch32Checker (for better greppability?)",
+      "range": {
+        "startLine": 265,
+        "startChar": 6,
+        "endLine": 265,
+        "endChar": 22
+      },
+      "revId": "0f5210c567c52014eb21d8a7fd143b9771ac6bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e830b959_7da7511b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T19:52:51Z",
+      "side": 1,
+      "message": "Arch64Checker (for better greppability?)",
+      "range": {
+        "startLine": 286,
+        "startChar": 6,
+        "endLine": 286,
+        "endChar": 22
+      },
+      "revId": "0f5210c567c52014eb21d8a7fd143b9771ac6bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fcd3664_fb94c4a2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T19:52:51Z",
+      "side": 1,
+      "message": "assert args.bitness \u003d\u003d \u0027multilib\u0027",
+      "revId": "0f5210c567c52014eb21d8a7fd143b9771ac6bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4c3aee3_94a9e1cb",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T19:52:51Z",
+      "side": 1,
+      "message": "Do you need to add this, despite \u0027auto\u0027 being set to be the default value line 645 (or is that just for the usage help)?",
+      "range": {
+        "startLine": 599,
+        "startChar": 2,
+        "endLine": 599,
+        "endChar": 23
+      },
+      "revId": "0f5210c567c52014eb21d8a7fd143b9771ac6bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
