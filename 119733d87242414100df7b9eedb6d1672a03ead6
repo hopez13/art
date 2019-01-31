@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d867d2b2_33336e90",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-01-31T17:25:45Z",
+      "side": 1,
+      "message": "Not that I want to stop landing this or anything, but isn\u0027t RTLD_GLOBAL better here? Although we don\u0027t expect other code to open it, it seems better to avoid multiple instances if it does.",
+      "range": {
+        "startLine": 79,
+        "startChar": 58,
+        "endLine": 79,
+        "endChar": 68
+      },
+      "revId": "119733d87242414100df7b9eedb6d1672a03ead6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
