@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5761ad51_9a586511",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T14:11:47Z",
+      "side": 1,
+      "message": "Maybe replace this with something like:\n\n  ok, error_message \u003d self.is_file(file)\n\nand replace `chk[0]` and `chk[1]` resp. with `ok` and `error_message`?",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 28
+      },
+      "revId": "a0242cf4a4d93a70ee497dcbb17200907befa85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e38388eb_11f7f514",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T14:11:47Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 43
+      },
+      "revId": "a0242cf4a4d93a70ee497dcbb17200907befa85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78302f92_3aca6cc4",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T14:11:47Z",
+      "side": 1,
+      "message": "Why using upper-case letters?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "a0242cf4a4d93a70ee497dcbb17200907befa85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
