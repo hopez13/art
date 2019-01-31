@@ -483,6 +483,21 @@ build-art-host:   $(HOST_OUT_EXECUTABLES)/art $(ART_HOST_DEPENDENCIES) $(HOST_CO
 build-art-target: $(TARGET_OUT_EXECUTABLES)/art $(ART_TARGET_DEPENDENCIES) $(TARGET_CORE_IMG_OUTS)
 
 ########################################################################
+# Workaround for not using symbolic links for linker and bionic libraries
+# in a minimal setup (eg buildbot or golem).. 
+########################################################################
+.PHONY: art-bionic-files
+art-bionic-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker
+	if [ -f $(TARGET_OUT)/bin/bootstrap/linker ]; then cp -f $(TARGET_OUT)/bin/bootstrap/linker $(TARGET_OUT)/bin/linker; fi
+	if [ -f $(TARGET_OUT)/bin/bootstrap/linker64 ]; then cp -f $(TARGET_OUT)/bin/bootstrap/linker64 $(TARGET_OUT)/bin/linker64; fi
+	if [ -f $(TARGET_OUT)/lib/bootstrap/libc.so ]; then cp -f $(TARGET_OUT)/lib/bootstrap/libc.so $(TARGET_OUT)/lib/libc.so; fi
+	if [ -f $(TARGET_OUT)/lib/bootstrap/libm.so ]; then cp -f $(TARGET_OUT)/lib/bootstrap/libm.so $(TARGET_OUT)/lib/libm.so; fi
+	if [ -f $(TARGET_OUT)/lib/bootstrap/libdl.so ]; then cp -f $(TARGET_OUT)/lib/bootstrap/libdl.so $(TARGET_OUT)/lib/libdl.so; fi
+	if [ -f $(TARGET_OUT)/lib64/bootstrap/libc.so ]; then cp -f $(TARGET_OUT)/lib64/bootstrap/libc.so $(TARGET_OUT)/lib64/libc.so; fi
+	if [ -f $(TARGET_OUT)/lib64/bootstrap/libm.so ]; then cp -f $(TARGET_OUT)/lib64/bootstrap/libm.so $(TARGET_OUT)/lib64/libm.so; fi
+	if [ -f $(TARGET_OUT)/lib64/bootstrap/libdl.so ]; then cp -f $(TARGET_OUT)/lib64/bootstrap/libdl.so $(TARGET_OUT)/lib64/libdl.so; fi
+
+########################################################################
 # Phony target for only building what go/lem requires for pushing ART on /data.
 
 .PHONY: build-art-target-golem
@@ -514,7 +529,8 @@ build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(TARGET_CORE_IMG_OUT_BASE).art \
                         $(TARGET_CORE_IMG_OUT_BASE)-interpreter.art \
                         libc.bootstrap libdl.bootstrap libm.bootstrap \
-                        icu-data-art-test
+                        icu-data-art-test \
+                        $(art-bionic-files)
 	# remove debug libraries from public.libraries.txt because golem builds
 	# won't have it.
 	sed -i '/libartd.so/d' $(TARGET_OUT)/etc/public.libraries.txt
