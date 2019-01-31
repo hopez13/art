@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34d32099_dcfe92ee",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-01-31T16:12:49Z",
+      "side": 1,
+      "message": "What about something like this:\n\n  PRIVATE_BIONIC_FILES :\u003d \\\n    bin/bootstrap/linker \\\n    bin/bootstrap/linker64 \\\n    lib/bootstrap/libc.so \\\n    lib/bootstrap/libm.so \\\n    lib/bootstrap/libdl.so \\\n    lib64/bootstrap/libc.so \\\n    lib64/bootstrap/libm.so \\\n    lib64/bootstrap/libdl.so \n  \n  .PHONY: art-bionic-files\n  art-bionic-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker\n  \tfor $$f in $(PRIVATE_BIONIC_FILES); do\n  \t  tf\u003d$(TARGET_OUT)/$$f\n  \t  [ -f $$tf ] \u0026\u0026 cp -f $$tf $(echo $$tf | sed \u0027s,bootstrap/,,\u0027)\n  \tdone\n  \n  PRIVATE_BIONIC_FILES :\u003d\n\n?",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 133
+      },
+      "revId": "b86cfce7e5a4c997fc8be69007687dac327b9f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
