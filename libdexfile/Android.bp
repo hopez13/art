@@ -251,6 +251,11 @@ art_cc_test {
 // Support library with a C++ API for accessing the libdexfile API for external
 // (non-ART) users. They should link to their own instance of this (either
 // statically or through linker namespaces).
+//
+// This library dlopens libdexfile_external on first use, so there is no build
+// time dependency on dex file logic. It's therefore safe to use from binaries
+// compiled without dex file support, given they won't encounter any dex file
+// stack frames.
 cc_library {
     name: "libdexfile_support",
     host_supported: true,
@@ -258,7 +263,7 @@ cc_library {
         "external/dex_file_supp.cc",
     ],
     header_libs: ["libdexfile_external_headers"],
-    shared_libs: ["libdexfile_external"],
+    shared_libs: ["liblog"],
     export_header_lib_headers: ["libdexfile_external_headers"],
 }
 
