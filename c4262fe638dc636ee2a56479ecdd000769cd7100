@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a50b8c8b_70475fbc",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-01-31T17:21:04Z",
+      "side": 1,
+      "message": "Hmmm... which makes me think... r11 is neither spilled neither mentioned as clobbered in the comment.  Is that right?",
+      "range": {
+        "startLine": 1665,
+        "startChar": 15,
+        "endLine": 1665,
+        "endChar": 19
+      },
+      "revId": "c4262fe638dc636ee2a56479ecdd000769cd7100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
