@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d790c14_c9f082d4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-31T01:23:15Z",
+      "side": 1,
+      "message": "I\u0027m using the klass for logging. So we kinda need it.",
+      "parentUuid": "8db760c9_b2327a61",
+      "range": {
+        "startLine": 1781,
+        "startChar": 0,
+        "endLine": 1783,
+        "endChar": 28
+      },
+      "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eea63df_be5b3b40",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 9
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "c487b535_acb6789c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-31T01:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eea63df_be5b3b40",
+      "range": {
+        "startLine": 1821,
+        "startChar": 38,
+        "endLine": 1821,
+        "endChar": 41
+      },
+      "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6f96661_ba188825",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-31T01:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37f3e95c_da50ece5",
+      "range": {
+        "startLine": 1821,
+        "startChar": 8,
+        "endLine": 1821,
+        "endChar": 13
+      },
+      "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a3109ab_8ba0b1cd",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 9
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "ca9ef0fe_0923f071",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-31T01:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3109ab_8ba0b1cd",
+      "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3355f322_553d92d5",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 9
@@ -99,6 +189,24 @@
       "writtenOn": "2019-01-30T11:22:40Z",
       "side": 1,
       "message": "Relying on production logs for testing always kind of bugged me :( Do you think we could at least make this a VLOG and grep for that in the test?",
+      "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b16211_649c2032",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-01-31T01:23:15Z",
+      "side": 1,
+      "message": "This one is not for testing (the one in compiler driver is). We have one on L1358 for the negative case and this for the positive. I think it would be good to be able to identify when we used the vdex.",
+      "parentUuid": "3355f322_553d92d5",
       "revId": "252321e981c79e4af8b44b18bdb4fcd28db4c7f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
