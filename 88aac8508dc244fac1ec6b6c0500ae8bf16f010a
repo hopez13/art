@@ -16,6 +16,24 @@
       "revId": "88aac8508dc244fac1ec6b6c0500ae8bf16f010a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab9847fa_2b1c57db",
+        "filename": "test/914-hello-obsolescence/src/art/Test914.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-01T12:58:19Z",
+      "side": 1,
+      "message": "Probably because that file is meant to also be used by CTS? Which makes me think maybe we cannot use libarttest ?",
+      "parentUuid": "ee879b09_232d9aac",
+      "revId": "88aac8508dc244fac1ec6b6c0500ae8bf16f010a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
