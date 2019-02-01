@@ -22,6 +22,30 @@
       "revId": "db48919b682fe237ae8198ed12d933705b442144",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "332ecb4c_3f4fb77b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-02-01T23:34:18Z",
+      "side": 0,
+      "message": "That is right, it will not be as slow anymore, especially since the fast path avoids checks except for TLAB refills.",
+      "parentUuid": "133253b6_60349f0c",
+      "range": {
+        "startLine": 2780,
+        "startChar": 3,
+        "endLine": 2781,
+        "endChar": 3
+      },
+      "revId": "db48919b682fe237ae8198ed12d933705b442144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
