@@ -16,6 +16,9 @@
 
 public class Main {
   public static void main(String[] args) throws Exception {
+    System.loadLibrary(args[0]);
     art.Test914.run();
   }
+
+  public static native void ensureJitCompiled(Class<?> cls, String method_name);
 }
