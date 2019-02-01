@@ -22,6 +22,30 @@
       "revId": "119733d87242414100df7b9eedb6d1672a03ead6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d671b9b6_37a07730",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-01T10:33:24Z",
+      "side": 1,
+      "message": "We can change this, but RTLD_LOCAL was chosen as supporting multiple instances is a non-goal:\n\n1) we don\u0027t want to support opening the palette system library from anywhere but this client library. The client library has singleton which will only load the system library part once.\n\n2) the palette system library is a stateless shim. (The fake version has some trivial state, but it\u0027s not a useful shipping configuration).",
+      "parentUuid": "d867d2b2_33336e90",
+      "range": {
+        "startLine": 79,
+        "startChar": 58,
+        "endLine": 79,
+        "endChar": 68
+      },
+      "revId": "119733d87242414100df7b9eedb6d1672a03ead6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
