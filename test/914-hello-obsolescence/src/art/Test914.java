@@ -17,6 +17,7 @@
 package art;
 
 import java.util.Base64;
+import java.lang.reflect.Method;
 
 public class Test914 {
 
@@ -26,6 +27,11 @@ public class Test914 {
       System.out.println("hello");
       r.run();
       System.out.println("goodbye");
+
+      // Test IMT conflict trampoline. This was broken for obsolete methods
+      // and this method becomes obsolete during one invocation. b/123693178
+      MyInterface iface = new MyImplementation();
+      iface.foo();
     }
   }
 
@@ -77,10 +83,31 @@ public class Test914 {
 
   public static void doTest(Transform t) {
     t.sayHi(() -> { System.out.println("Not doing anything here"); });
+    ensureJitCompiled(Transform.class, "sayHi");
     t.sayHi(() -> {
       System.out.println("transforming calling function");
       Redefinition.doCommonClassRedefinition(Transform.class, CLASS_BYTES, DEX_BYTES);
     });
     t.sayHi(() -> { System.out.println("Not doing anything here"); });
   }
+
+  public static void ensureJitCompiled(Class<?> cls, String method_name) {
+    try {
+      Class<?> mainClass = Class.forName("Main");
+      Method jit = mainClass.getMethod("ensureJitCompiled", Class.class, String.class);
+      jit.invoke(null, cls, method_name);
+    } catch (Exception e) {
+      throw new Error(e);
+    }
+  }
+}
+
+interface MyInterface {
+  void foo();
+  void fpP();  // Same IMT index as "foo", see ComputeModifiedUtf8Hash().
+}
+
+class MyImplementation implements MyInterface {
+  public void foo() {}
+  public void fpP() {}
 }
