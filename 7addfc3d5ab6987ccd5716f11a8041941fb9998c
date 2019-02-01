@@ -70,6 +70,24 @@
       "revId": "7addfc3d5ab6987ccd5716f11a8041941fb9998c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d288e8_415c6ea1",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-01T16:17:15Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m getting timeouts when I test locally, even with the full revert in http://r.android.com/q/topic:%22art-enable-apex-stubs%22+(status:open%20OR%20status:merged) (The revert is still necessary for the problems in the other tests on http://sponge/b342eb9c-4c14-48f1-b8e0-cd4c7863d60f, e.g. cameraservice_test.)",
+      "parentUuid": "1896e5cc_cd9af444",
+      "revId": "7addfc3d5ab6987ccd5716f11a8041941fb9998c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
