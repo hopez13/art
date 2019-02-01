@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "133253b6_60349f0c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-01T23:22:43Z",
+      "side": 0,
+      "message": "Removing this also partially fixes go/aog/123772350, though it\u0027s not necessary for that.\n\nAFAICT, if we remove this code, we repeatedly enter RequestConcurrentGC, which after a couple of calls does a CAS that fails. But we now presumably only do this now when we run out of a region, or allocate a large object or the like. It looks to me like this is probably no longer worth worrying about, unlike in 2014 when this was written. Mathieu?",
+      "range": {
+        "startLine": 2780,
+        "startChar": 3,
+        "endLine": 2781,
+        "endChar": 3
+      },
+      "revId": "db48919b682fe237ae8198ed12d933705b442144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
