@@ -224,6 +224,9 @@ class PointerArray : public Array {
   template<typename T, PointerSize kPtrSize, VerifyObjectFlags kVerifyFlags = kVerifyNone>
   T GetElementPtrSize(uint32_t idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  template<typename T, PointerSize kPtrSize, VerifyObjectFlags kVerifyFlags = kVerifyNone>
+  T GetElementPtrSizeUnchecked(uint32_t idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kVerifyNone>
   void** ElementAddress(size_t index, PointerSize ptr_size) REQUIRES_SHARED(Locks::mutator_lock_) {
