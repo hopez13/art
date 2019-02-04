@@ -283,6 +283,9 @@ class MANAGED DexCache final : public Object {
                             ObjPtr<mirror::String> resolved)
       ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void ClearPreResolvedStrings()
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Clear a string for a string_idx, used to undo string intern transactions to make sure
   // the string isn't kept live.
   void ClearString(dex::StringIndex string_idx) REQUIRES_SHARED(Locks::mutator_lock_);

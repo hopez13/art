@@ -1448,6 +1448,7 @@ class AppImageLoadingHelper {
 
   static void UpdateInternStrings(
       gc::space::ImageSpace* space,
+      bool update_preresolved_strings,
       const SafeMap<mirror::String*, mirror::String*>& intern_remap)
       REQUIRES_SHARED(Locks::mutator_lock_);
 };
@@ -1463,8 +1464,10 @@ void AppImageLoadingHelper::Update(
   ScopedTrace app_image_timing("AppImage:Updating");
 
   Thread* const self = Thread::Current();
-  gc::Heap* const heap = Runtime::Current()->GetHeap();
+  Runtime* const runtime = Runtime::Current();
+  gc::Heap* const heap = runtime->GetHeap();
   const ImageHeader& header = space->GetImageHeader();
+  bool load_app_image_startup_cache = runtime->LoadAppImageStartupCache();
   {
     // Register dex caches with the class loader.
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
@@ -1476,6 +1479,10 @@ void AppImageLoadingHelper::Update(
         WriterMutexLock mu2(self, *Locks::dex_lock_);
         CHECK(!class_linker->FindDexCacheDataLocked(*dex_file).IsValid());
         class_linker->RegisterDexFileLocked(*dex_file, dex_cache, class_loader.Get());
+      }
+
+      if (!load_app_image_startup_cache) {
+        dex_cache->GetPreResolvedStrings();
       }
 
       if (kIsDebugBuild) {
@@ -1544,11 +1551,13 @@ void AppImageLoadingHelper::Update(
 
 void AppImageLoadingHelper::UpdateInternStrings(
     gc::space::ImageSpace* space,
+    bool update_preresolved_strings,
     const SafeMap<mirror::String*, mirror::String*>& intern_remap) {
   const uint8_t* target_base = space->Begin();
   const ImageSection& sro_section =
       space->GetImageHeader().GetImageStringReferenceOffsetsSection();
   const size_t num_string_offsets = sro_section.Size() / sizeof(AppImageReferenceOffsetInfo);
+  InternTable* const intern_table = Runtime::Current()->GetInternTable();
 
   VLOG(image)
       << "ClassLinker:AppImage:InternStrings:imageStringReferenceOffsetCount = "
@@ -1581,24 +1590,32 @@ void AppImageLoadingHelper::UpdateInternStrings(
         WriteBarrier::ForEveryFieldWrite(dex_cache);
         dex_cache->GetStrings()[string_index].store(
             mirror::StringDexCachePair(it->second, source.index));
+      } else if (!update_preresolved_strings) {
+        dex_cache->GetStrings()[string_index].store(
+            mirror::StringDexCachePair(intern_table->InternStrong(referred_string), source.index));
       }
     } else if (HasDexCachePreResolvedStringNativeRefTag(base_offset)) {
-      base_offset = ClearDexCacheNativeRefTags(base_offset);
-      DCHECK_ALIGNED(base_offset, 2);
+      if (update_preresolved_strings) {
+        base_offset = ClearDexCacheNativeRefTags(base_offset);
+        DCHECK_ALIGNED(base_offset, 2);
 
-      ObjPtr<mirror::DexCache> dex_cache =
-          reinterpret_cast<mirror::DexCache*>(space->Begin() + base_offset);
-      uint32_t string_index = sro_base[offset_index].second;
+        ObjPtr<mirror::DexCache> dex_cache =
+            reinterpret_cast<mirror::DexCache*>(space->Begin() + base_offset);
+        uint32_t string_index = sro_base[offset_index].second;
 
-      ObjPtr<mirror::String> referred_string =
-          dex_cache->GetPreResolvedStrings()[string_index].Read();
-      DCHECK(referred_string != nullptr);
+        ObjPtr<mirror::String> referred_string =
+            dex_cache->GetPreResolvedStrings()[string_index].Read();
+        DCHECK(referred_string != nullptr);
 
-      auto it = intern_remap.find(referred_string.Ptr());
-      if (it != intern_remap.end()) {
-        // Because we are not using a helper function we need to mark the GC card manually.
-        WriteBarrier::ForEveryFieldWrite(dex_cache);
-        dex_cache->GetPreResolvedStrings()[string_index] = GcRoot<mirror::String>(it->second);
+        auto it = intern_remap.find(referred_string.Ptr());
+        if (it != intern_remap.end()) {
+          // Because we are not using a helper function we need to mark the GC card manually.
+          WriteBarrier::ForEveryFieldWrite(dex_cache);
+          dex_cache->GetPreResolvedStrings()[string_index] = GcRoot<mirror::String>(it->second);
+        } else if (!update_preresolved_strings) {
+          dex_cache->GetPreResolvedStrings()[string_index] = GcRoot<mirror::String>(
+              intern_table->InternStrong(referred_string));
+        }
       }
     } else {
       uint32_t raw_member_offset = sro_base[offset_index].second;
@@ -1621,6 +1638,13 @@ void AppImageLoadingHelper::UpdateInternStrings(
                                 /* kCheckTransaction= */ false,
                                 kVerifyNone,
                                 /* kIsVolatile= */ false>(member_offset, it->second);
+      } else if (!update_preresolved_strings) {
+        obj_ptr->SetFieldObject</* kTransactionActive= */ false,
+                                /* kCheckTransaction= */ false,
+                                kVerifyNone,
+                                /* kIsVolatile= */ false>(
+            member_offset,
+            intern_table->InternStrong(referred_string));
       }
     }
   }
@@ -1631,13 +1655,16 @@ void AppImageLoadingHelper::HandleAppImageStrings(gc::space::ImageSpace* space) 
   // the strings they point to.
   ScopedTrace timing("AppImage:InternString");
 
-  InternTable* const intern_table = Runtime::Current()->GetInternTable();
+  Runtime* const runtime = Runtime::Current();
+  InternTable* const intern_table = runtime->GetInternTable();
+
+  const bool load_startup_cache = runtime->LoadAppImageStartupCache();
 
   // Add the intern table, removing any conflicts. For conflicts, store the new address in a map
   // for faster lookup.
   // TODO: Optimize with a bitmap or bloom filter
   SafeMap<mirror::String*, mirror::String*> intern_remap;
-  intern_table->AddImageStringsToTable(space, [&](InternTable::UnorderedSet& interns)
+  auto func = [&](InternTable::UnorderedSet& interns)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::intern_table_lock_) {
     const size_t non_boot_image_strings = intern_table->CountInterns(
@@ -1680,14 +1707,23 @@ void AppImageLoadingHelper::HandleAppImageStrings(gc::space::ImageSpace* space) 
         CHECK(intern_table->LookupStrongLocked(string) == nullptr) << string->ToModifiedUtf8();
       }
     }
-  });
+  };
 
-  VLOG(image) << "AppImage:conflictingInternStrings = " << intern_remap.size();
+  bool update_intern_strings;
+  if (load_startup_cache) {
+    // Only add the intern table if we are using the startup cache. Otherwise,
+    // UpdateInternStrings adds the strings to the intern table.
+    intern_table->AddImageStringsToTable(space, func);
+    update_intern_strings = kIsDebugBuild || !intern_remap.empty();
+    VLOG(image) << "AppImage:conflictingInternStrings = " << intern_remap.size();
+  } else {
+    update_intern_strings = true;
+  }
 
   // For debug builds, always run the code below to get coverage.
-  if (kIsDebugBuild || !intern_remap.empty()) {
+  if (update_intern_strings) {
     // Slow path case is when there are conflicting intern strings to fix up.
-    UpdateInternStrings(space, intern_remap);
+    UpdateInternStrings(space, /*update_preresolved_strings=*/ load_startup_cache, intern_remap);
   }
 }
 
