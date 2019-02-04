@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcde62a0_6fa1ea0d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-04T13:44:29Z",
+      "side": 1,
+      "message": "How about GetPreferredMethod ?",
+      "range": {
+        "startLine": 1257,
+        "startChar": 12,
+        "endLine": 1257,
+        "endChar": 33
+      },
+      "revId": "857f5b5d97b5c355c8ae8697d355d4ab8f4d9a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08200157_7bfffc00",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-04T13:44:29Z",
+      "side": 1,
+      "message": "a situation where ?",
+      "range": {
+        "startLine": 1274,
+        "startChar": 24,
+        "endLine": 1274,
+        "endChar": 39
+      },
+      "revId": "857f5b5d97b5c355c8ae8697d355d4ab8f4d9a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3181fa_391b407d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-04T13:44:29Z",
+      "side": 1,
+      "message": "I\u0027d suggest doing a else below, and then share the creation of the ArtMethod at the end.",
+      "range": {
+        "startLine": 1341,
+        "startChar": 3,
+        "endLine": 1341,
+        "endChar": 87
+      },
+      "revId": "857f5b5d97b5c355c8ae8697d355d4ab8f4d9a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
