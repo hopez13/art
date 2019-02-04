@@ -22,6 +22,7 @@
 #include <vector>
 
 #include "base/array_ref.h"
+#include "base/mem_map.h"
 #include "base/mutex.h"
 #include "base/os.h"
 #include "base/safe_map.h"
@@ -123,6 +124,13 @@ class OatFile {
                                const std::string& location,
                                const char* abs_dex_location,
                                std::string* error_msg);
+
+  static OatFile* OpenFromVdex(const std::string& vdex_filename,
+                               const std::string& location,
+                               bool writable,
+                               bool low_4gb,
+                               MemMap& dex_data,
+                               /*out*/std::string* error_msg);
 
   virtual ~OatFile();
 
@@ -353,6 +361,11 @@ class OatFile {
  protected:
   OatFile(const std::string& filename, bool executable);
 
+  virtual bool IsClassVdexVerified(const OatDexFile&, dex::TypeIndex) const {
+    LOG(FATAL) << "Unsupported";
+    UNREACHABLE();
+  }
+
  private:
   // The oat file name.
   //
@@ -477,7 +490,7 @@ class OatDexFile final {
   }
 
   // Returns the OatClass for the class specified by the given DexFile class_def_index.
-  OatFile::OatClass GetOatClass(uint16_t class_def_index) const;
+  OatFile::OatClass GetOatClass(const DexFile& dex_file, uint16_t class_def_index) const;
 
   // Returns the offset to the OatClass information. Most callers should use GetOatClass.
   uint32_t GetOatClassOffset(uint16_t class_def_index) const;
@@ -541,12 +554,19 @@ class OatDexFile final {
              const uint32_t* oat_class_offsets_pointer,
              const DexLayoutSections* dex_layout_sections);
 
+  OatDexFile(const OatFile* oat_file,
+             const std::string& dex_file_location,
+             const std::string& canonical_dex_file_location,
+             uint32_t dex_file_checksum,
+             MemMap&& dex_file_mem_map);
+
   static void AssertAotCompiler();
 
   const OatFile* const oat_file_ = nullptr;
   const std::string dex_file_location_;
   const std::string canonical_dex_file_location_;
   const uint32_t dex_file_location_checksum_ = 0u;
+  const MemMap dex_file_mem_map_;
   const uint8_t* const dex_file_pointer_ = nullptr;
   const uint8_t* const lookup_table_data_ = nullptr;
   const IndexBssMapping* const method_bss_mapping_ = nullptr;

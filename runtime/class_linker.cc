@@ -4629,7 +4629,7 @@ bool ClassLinker::VerifyClassUsingOatFile(const DexFile& dex_file,
   }
 
   uint16_t class_def_index = klass->GetDexClassDefIndex();
-  oat_file_class_status = oat_dex_file->GetOatClass(class_def_index).GetStatus();
+  oat_file_class_status = oat_dex_file->GetOatClass(dex_file, class_def_index).GetStatus();
   if (oat_file_class_status >= ClassStatus::kVerified) {
     return true;
   }

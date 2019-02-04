@@ -201,6 +201,7 @@ else
   # We only run this package when not under gcstress as it can cause timeouts. See b/78228743.
   working_packages+=("libcore.libcore.icu")
 fi
+working_packages=("libcore.dalvik.system")
 
 # Disable network-related libcore tests that are failing on the following
 # devices running Android O, as a workaround for b/74725685:

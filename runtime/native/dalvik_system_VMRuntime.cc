@@ -693,6 +693,13 @@ static void VMRuntime_setProcessPackageName(JNIEnv* env,
   Runtime::Current()->SetProcessPackageName(package_name.c_str());
 }
 
+static void VMRuntime_setProcessDataDirectory(JNIEnv* env,
+                                              jclass klass ATTRIBUTE_UNUSED,
+                                              jstring java_dir_name) {
+  ScopedUtfChars dir_name(env, java_dir_name);
+  Runtime::Current()->SetProcessDataDirectory(dir_name.c_str());
+}
+
 static jboolean VMRuntime_hasBootImageSpaces(JNIEnv* env ATTRIBUTE_UNUSED,
                                              jclass klass ATTRIBUTE_UNUSED) {
   return Runtime::Current()->GetHeap()->HasBootImageSpace() ? JNI_TRUE : JNI_FALSE;
@@ -744,6 +751,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, setSystemDaemonThreadPriority, "()V"),
   NATIVE_METHOD(VMRuntime, setDedupeHiddenApiWarnings, "(Z)V"),
   NATIVE_METHOD(VMRuntime, setProcessPackageName, "(Ljava/lang/String;)V"),
+  NATIVE_METHOD(VMRuntime, setProcessDataDirectory, "(Ljava/lang/String;)V"),
 };
 
 void register_dalvik_system_VMRuntime(JNIEnv* env) {

@@ -17,6 +17,7 @@
 #include "vdex_file.h"
 
 #include <sys/mman.h>  // For the PROT_* and MAP_* constants.
+#include <sys/stat.h>  // For mkdir()
 
 #include <memory>
 #include <unordered_set>
@@ -33,6 +34,7 @@
 #include "dex/dex_file_loader.h"
 #include "dex_to_dex_decompiler.h"
 #include "quicken_info.h"
+#include "verifier/verifier_deps.h"
 
 namespace art {
 
@@ -316,6 +318,74 @@ ArrayRef<const uint8_t> VdexFile::GetQuickenedInfoOf(const DexFile& dex_file,
     return ArrayRef<const uint8_t>();
   }
   return GetQuickeningInfoAt(quickening_info, quickening_offset);
+}
+
+static bool CreateDirectories(const std::string& child_path) {
+  size_t last_slash_pos = child_path.find_last_of("/");
+  CHECK_NE(last_slash_pos, std::string::npos) << "Invalid path: " << child_path;
+  std::string parent_path = child_path.substr(0, last_slash_pos);
+  if (OS::DirectoryExists(parent_path.c_str())) {
+    return true;
+  } else if (CreateDirectories(parent_path)) {
+    return mkdir(parent_path.c_str(), 0700) == 0;
+  } else {
+    return false;
+  }
+}
+
+bool VdexFile::WriteToDisk(const std::string& path,
+                           const std::vector<const DexFile*>& dex_files,
+                           const verifier::VerifierDeps& verifier_deps,
+                           std::string* error_msg) {
+  std::vector<uint8_t> verifier_deps_data;
+  verifier_deps.Encode(dex_files, &verifier_deps_data);
+
+  VdexFile::VerifierDepsHeader deps_header(dex_files.size(),
+                                           verifier_deps_data.size(),
+                                           /* has_dex_section= */ false);
+
+  if (!CreateDirectories(path)) {
+    *error_msg = "Could not create directories for " + path;
+    return false;
+  }
+
+  std::unique_ptr<File> out(OS::CreateEmptyFileWriteOnly(path.c_str()));
+  if (out == nullptr) {
+    *error_msg = "Could not open " + path + " for writing";
+    return false;
+  }
+
+  if (!out->WriteFully(reinterpret_cast<const char*>(&deps_header), sizeof(deps_header))) {
+    *error_msg = "Could not write vdex header to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  for (const DexFile* dex_file : dex_files) {
+    const uint32_t* checksum_ptr = &dex_file->GetHeader().checksum_;
+    static_assert(sizeof(*checksum_ptr) == sizeof(VdexFile::VdexChecksum));
+    if (!out->WriteFully(reinterpret_cast<const char*>(checksum_ptr),
+                              sizeof(VdexFile::VdexChecksum))) {
+      *error_msg = "Could not write dex checksums to " + path;
+      out->Unlink();
+    return false;
+    }
+  }
+
+  if (!out->WriteFully(reinterpret_cast<const char*>(verifier_deps_data.data()),
+                       verifier_deps_data.size())) {
+    *error_msg = "Could not write verifier deps to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  if (out->FlushClose() != 0) {
+    *error_msg = "Could not flush and close " + path;
+    out->Unlink();
+    return false;
+  }
+
+  return true;
 }
 
 }  // namespace art

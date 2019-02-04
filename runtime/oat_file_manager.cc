@@ -48,6 +48,9 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
+#include "vdex_file.h"
+#include "verifier/method_verifier.h"
+#include "verifier/verifier_deps.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -640,6 +643,310 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   }
 
   return dex_files;
+}
+
+class ScopedThreadLocalVerifierDeps {
+ public:
+  ScopedThreadLocalVerifierDeps(Thread* self, verifier::VerifierDeps* new_deps)
+      : self_(self), old_deps_(self_->GetVerifierDeps()) {
+    self_->SetVerifierDeps(new_deps);
+  }
+
+  ~ScopedThreadLocalVerifierDeps() {
+    self_->SetVerifierDeps(old_deps_);
+  }
+
+ private:
+  Thread* const self_;
+  verifier::VerifierDeps* const old_deps_;
+};
+
+std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
+    MemMap&& dex_data,
+    jobject class_loader,
+    jobjectArray dex_elements ATTRIBUTE_UNUSED,
+    const OatFile** out_oat_file,
+    std::vector<std::string>* error_msgs) {
+  ScopedTrace trace(__FUNCTION__);
+  CHECK(dex_data.IsValid());
+  CHECK(error_msgs != nullptr);
+  CHECK(class_loader != nullptr);  // TODO: do not assume, apps can call with reflection
+
+  // Verify we aren't holding the mutator lock, which could starve GC if we
+  // have to generate or relocate an oat file.
+  Thread* const self = Thread::Current();
+  Locks::mutator_lock_->AssertNotHeld(self);
+  Runtime* const runtime = Runtime::Current();
+  std::string error_msg;
+
+  // TODO: Migrate to OatFileAssistant.
+  std::string dex_location = Runtime::Current()->GetProcessDataDirectory();
+  if (!dex_location.empty()) {
+    uint32_t dex_checksum = reinterpret_cast<const DexFile::Header*>(dex_data.Begin())->checksum_;
+    dex_location = StringPrintf("%s/Anonymous-DexFile@%u.dex", dex_location.c_str(), dex_checksum);
+  }
+
+  std::string vdex_path;
+  if (!dex_location.empty()) {
+    // std::unique_ptr<ClassLoaderContext> context =
+    //     ClassLoaderContext::CreateContextForClassLoader(class_loader, dex_elements);
+
+    std::string oat_path;
+    bool success = OatFileAssistant::DexLocationToOdexFilename(dex_location,
+                                                               kRuntimeISA,
+                                                               &oat_path,
+                                                               &error_msg);
+    CHECK(success) << error_msg;
+    vdex_path = GetVdexFilename(oat_path);
+  }
+
+  if (!vdex_path.empty() && OS::FileExists(vdex_path.c_str())) {
+    std::unique_ptr<OatFile> oat_file(OatFile::OpenFromVdex(vdex_path,
+                                                            dex_location,
+                                                            /* writable= */ false,
+                                                            /* low_4gb= */ false,
+                                                            dex_data,
+                                                            &error_msg));
+    if (oat_file.get() != nullptr) {
+      VLOG(class_linker) << "Registering " << oat_file->GetLocation();
+      const OatFile* source_oat_file = source_oat_file = RegisterOatFile(std::move(oat_file));
+      *out_oat_file = source_oat_file;
+
+      OatFileAssistant oat_file_assistant(dex_location.c_str(),
+                                          kRuntimeISA,
+                                          !Runtime::Current()->IsAotCompiler(),
+                                          only_use_system_oat_files_);
+
+      std::vector<std::unique_ptr<const DexFile>> dex_files =
+          oat_file_assistant.LoadDexFiles(*source_oat_file, dex_location.c_str());
+
+      // Register for tracking.
+      for (const auto& dex_file : dex_files) {
+        dex::tracking::RegisterDexFile(dex_file.get());
+      }
+
+      LOG(ERROR) << "LOADED FROM " << vdex_path;
+      return dex_files;
+    }
+
+    error_msgs->push_back("Could not load oat file for " + vdex_path + ": " + error_msg);
+  }
+
+  // Fall back to running out of the original dex file if we couldn't load any
+  // dex_files from the oat file.
+
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  {
+    static constexpr bool kVerifyChecksum = true;
+    const ArtDexFileLoader dex_file_loader;
+    std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(dex_location,
+                                                                 0,
+                                                                 std::move(dex_data),
+                                                                 runtime->IsVerificationEnabled(),
+                                                                 kVerifyChecksum,
+                                                                 &error_msg));
+    if (dex_file != nullptr) {
+      if (dex_file->DisableWrite()) {
+        dex_files.push_back(std::move(dex_file));
+      } else {
+        error_msgs->push_back("Failed to make dex file read-only");
+      }
+    } else {
+      error_msgs->push_back("Failed to open dex files from memory because: " + error_msg);
+    }
+  }
+
+  if (error_msgs->empty()) {
+    ScopedObjectAccess soa(self);
+    std::vector<const DexFile*> non_owning_dex_files = MakeNonOwningPointerVector(dex_files);
+    std::unique_ptr<verifier::VerifierDeps> verifier_deps(
+        new verifier::VerifierDeps(non_owning_dex_files));
+
+    ClassLinker* const class_linker = runtime->GetClassLinker();
+    const uint32_t target_sdk_version = runtime->GetTargetSdkVersion();
+
+    StackHandleScope<2> hs(self);
+    Handle<mirror::ClassLoader> h_loader(hs.NewHandle(
+        soa.Decode<mirror::ClassLoader>(class_loader)));
+
+    ScopedThreadLocalVerifierDeps verifier_deps_scope(self, verifier_deps.get());
+    for (const auto& dex_file : dex_files) {
+      ObjPtr<mirror::DexCache> dex_cache = class_linker->RegisterDexFile(*dex_file, h_loader.Get());
+      CHECK(dex_cache != nullptr);
+      // if (dex_cache == nullptr) {
+      //   self->AssertPendingException();
+      //   return;
+      // }
+      Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(dex_cache));
+      for (uint32_t cdef_idx = 0; cdef_idx < dex_file->NumClassDefs(); cdef_idx++) {
+        verifier::MethodVerifier::VerifyClass(self,
+                                              dex_file.get(),
+                                              h_dex_cache,
+                                              h_loader,
+                                              dex_file->GetClassDef(cdef_idx),
+                                              /* callbacks= */ nullptr,
+                                              /* allow_soft_failures= */ false,
+                                              verifier::HardFailLogMode::kLogWarning,
+                                              target_sdk_version,
+                                              &error_msg);
+      }
+    }
+
+    if (!VdexFile::WriteToDisk(vdex_path, non_owning_dex_files, *verifier_deps, &error_msg)) {
+      LOG(ERROR) << "Could not write vdex for " << vdex_path << ": " << error_msg;
+    }
+
+    LOG(ERROR) << "WROTE TO " << vdex_path;
+  }
+
+  return dex_files;
+
+  // OatFileAssistant oat_file_assistant(dex_location,
+  //                                     kRuntimeISA,
+  //                                     !runtime->IsAotCompiler(),
+  //                                     only_use_system_oat_files_);
+
+  // // Get the oat file on disk.
+  // std::unique_ptr<const OatFile> oat_file(oat_file_assistant.GetBestOatFile().release());
+  // VLOG(oat) << "OatFileAssistant(" << dex_location << ").GetBestOatFile()="
+  //           << reinterpret_cast<uintptr_t>(oat_file.get())
+  //           << " (executable=" << (oat_file != nullptr ? oat_file->IsExecutable() : false) << ")";
+
+  // const OatFile* source_oat_file = nullptr;
+  // CheckCollisionResult check_collision_result = CheckCollisionResult::kPerformedHasCollisions;
+  // if ((class_loader != nullptr || dex_elements != nullptr) && oat_file != nullptr) {
+  //   // Prevent oat files from being loaded if no class_loader or dex_elements are provided.
+  //   // This can happen when the deprecated DexFile.<init>(String) is called directly, and it
+  //   // could load oat files without checking the classpath, which would be incorrect.
+  //   // Take the file only if it has no collisions, or we must take it because of preopting.
+  //   check_collision_result = CheckCollision(oat_file.get(), context.get(), /*out*/ &error_msg);
+  //   bool accept_oat_file = AcceptOatFile(check_collision_result);
+  //   if (!accept_oat_file) {
+  //     // Failed the collision check. Print warning.
+  //     if (runtime->IsDexFileFallbackEnabled()) {
+  //       if (!oat_file_assistant.HasOriginalDexFiles()) {
+  //         // We need to fallback but don't have original dex files. We have to
+  //         // fallback to opening the existing oat file. This is potentially
+  //         // unsafe so we warn about it.
+  //         accept_oat_file = true;
+
+  //         LOG(WARNING) << "Dex location " << dex_location << " does not seem to include dex file. "
+  //                     << "Allow oat file use. This is potentially dangerous.";
+  //       } else {
+  //         // We have to fallback and found original dex files - extract them from an APK.
+  //         // Also warn about this operation because it's potentially wasteful.
+  //         LOG(WARNING) << "Found duplicate classes, falling back to extracting from APK : "
+  //                     << dex_location;
+  //         LOG(WARNING) << "NOTE: This wastes RAM and hurts startup performance.";
+  //       }
+  //     } else {
+  //       // TODO: We should remove this. The fact that we're here implies -Xno-dex-file-fallback
+  //       // was set, which means that we should never fallback. If we don't have original dex
+  //       // files, we should just fail resolution as the flag intended.
+  //       if (!oat_file_assistant.HasOriginalDexFiles()) {
+  //         accept_oat_file = true;
+  //       }
+
+  //       LOG(WARNING) << "Found duplicate classes, dex-file-fallback disabled, will be failing to "
+  //                       " load classes for " << dex_location;
+  //     }
+
+  //     LOG(WARNING) << error_msg;
+  //   }
+
+  //   if (accept_oat_file) {
+  //     VLOG(class_linker) << "Registering " << oat_file->GetLocation();
+  //     source_oat_file = RegisterOatFile(std::move(oat_file));
+  //     *out_oat_file = source_oat_file;
+  //   }
+  // }
+
+
+  // // Load the dex files from the oat file.
+  // if (source_oat_file != nullptr) {
+  //   bool added_image_space = false;
+  //   if (source_oat_file->IsExecutable()) {
+  //     ScopedTrace app_image_timing("AppImage:Loading");
+
+  //     // We need to throw away the image space if we are debuggable but the oat-file source of the
+  //     // image is not otherwise we might get classes with inlined methods or other such things.
+  //     std::unique_ptr<gc::space::ImageSpace> image_space;
+  //     if (ShouldLoadAppImage(check_collision_result,
+  //                           source_oat_file,
+  //                           context.get(),
+  //                           &error_msg)) {
+  //       image_space = oat_file_assistant.OpenImageSpace(source_oat_file);
+  //     }
+  //     if (image_space != nullptr) {
+  //       ScopedObjectAccess soa(self);
+  //       StackHandleScope<1> hs(self);
+  //       Handle<mirror::ClassLoader> h_loader(
+  //           hs.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader)));
+  //       // Can not load app image without class loader.
+  //       if (h_loader != nullptr) {
+  //         std::string temp_error_msg;
+  //         // Add image space has a race condition since other threads could be reading from the
+  //         // spaces array.
+  //         {
+  //           ScopedThreadSuspension sts(self, kSuspended);
+  //           gc::ScopedGCCriticalSection gcs(self,
+  //                                           gc::kGcCauseAddRemoveAppImageSpace,
+  //                                           gc::kCollectorTypeAddRemoveAppImageSpace);
+  //           ScopedSuspendAll ssa("Add image space");
+  //           runtime->GetHeap()->AddSpace(image_space.get());
+  //         }
+  //         {
+  //           ScopedTrace trace2(StringPrintf("Adding image space for location %s", dex_location));
+  //           added_image_space = runtime->GetClassLinker()->AddImageSpace(image_space.get(),
+  //                                                                       h_loader,
+  //                                                                       dex_elements,
+  //                                                                       dex_location,
+  //                                                                       /*out*/&dex_files,
+  //                                                                       /*out*/&temp_error_msg);
+  //         }
+  //         if (added_image_space) {
+  //           // Successfully added image space to heap, release the map so that it does not get
+  //           // freed.
+  //           image_space.release();  // NOLINT b/117926937
+
+  //           // Register for tracking.
+  //           for (const auto& dex_file : dex_files) {
+  //             dex::tracking::RegisterDexFile(dex_file.get());
+  //           }
+  //         } else {
+  //           LOG(INFO) << "Failed to add image file " << temp_error_msg;
+  //           dex_files.clear();
+  //           {
+  //             ScopedThreadSuspension sts(self, kSuspended);
+  //             gc::ScopedGCCriticalSection gcs(self,
+  //                                             gc::kGcCauseAddRemoveAppImageSpace,
+  //                                             gc::kCollectorTypeAddRemoveAppImageSpace);
+  //             ScopedSuspendAll ssa("Remove image space");
+  //             runtime->GetHeap()->RemoveSpace(image_space.get());
+  //           }
+  //           // Non-fatal, don't update error_msg.
+  //         }
+  //       }
+  //     }
+  //   }
+  //   if (!added_image_space) {
+  //     DCHECK(dex_files.empty());
+  //     dex_files = oat_file_assistant.LoadDexFiles(*source_oat_file, dex_location);
+
+  //     // Register for tracking.
+  //     for (const auto& dex_file : dex_files) {
+  //       dex::tracking::RegisterDexFile(dex_file.get());
+  //     }
+  //   }
+  //   if (dex_files.empty()) {
+  //     error_msgs->push_back("Failed to open dex files from " + source_oat_file->GetLocation());
+  //   } else {
+  //     // Opened dex files from an oat file, madvise them to their loaded state.
+  //     for (const std::unique_ptr<const DexFile>& dex_file : dex_files) {
+  //       OatDexFile::MadviseDexFile(*dex_file, MadviseState::kMadviseStateAtLoad);
+  //     }
+  //   }
+  // }
 }
 
 void OatFileManager::SetOnlyUseSystemOatFiles() {

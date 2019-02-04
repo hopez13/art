@@ -173,7 +173,7 @@ static inline VerifierDeps* GetMainVerifierDeps() {
   // end of verification will have all the per-thread VerifierDeps merged into it.
   CompilerCallbacks* callbacks = Runtime::Current()->GetCompilerCallbacks();
   if (callbacks == nullptr) {
-    return nullptr;
+    return Thread::Current()->GetVerifierDeps();
   }
   return callbacks->GetVerifierDeps();
 }
@@ -181,9 +181,6 @@ static inline VerifierDeps* GetMainVerifierDeps() {
 static inline VerifierDeps* GetThreadLocalVerifierDeps() {
   // During AOT, each thread has its own VerifierDeps, to avoid lock contention. At the end
   // of full verification, these VerifierDeps will be merged into the main one.
-  if (!Runtime::Current()->IsAotCompiler()) {
-    return nullptr;
-  }
   return Thread::Current()->GetVerifierDeps();
 }
 
@@ -706,6 +703,18 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
   }
 }
 
+void VerifierDeps::DecodeDexFileDeps(DexFileDeps& deps,
+                                     const uint8_t** data_start,
+                                     const uint8_t* data_end) {
+  DecodeStringVector(data_start, data_end, &deps.strings_);
+  DecodeSet(data_start, data_end, &deps.assignable_types_);
+  DecodeSet(data_start, data_end, &deps.unassignable_types_);
+  DecodeSet(data_start, data_end, &deps.classes_);
+  DecodeSet(data_start, data_end, &deps.fields_);
+  DecodeSet(data_start, data_end, &deps.methods_);
+  DecodeSet(data_start, data_end, &deps.unverified_classes_);
+}
+
 VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
                            ArrayRef<const uint8_t> data)
     : VerifierDeps(dex_files, /*output_only=*/ false) {
@@ -719,15 +728,27 @@ VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
   const uint8_t* data_end = data_start + data.size();
   for (const DexFile* dex_file : dex_files) {
     DexFileDeps* deps = GetDexFileDeps(*dex_file);
-    DecodeStringVector(&data_start, data_end, &deps->strings_);
-    DecodeSet(&data_start, data_end, &deps->assignable_types_);
-    DecodeSet(&data_start, data_end, &deps->unassignable_types_);
-    DecodeSet(&data_start, data_end, &deps->classes_);
-    DecodeSet(&data_start, data_end, &deps->fields_);
-    DecodeSet(&data_start, data_end, &deps->methods_);
-    DecodeSet(&data_start, data_end, &deps->unverified_classes_);
+    DecodeDexFileDeps(*deps, &data_start, data_end);
   }
   CHECK_LE(data_start, data_end);
+}
+
+std::vector<std::set<dex::TypeIndex>> VerifierDeps::ParseUnverifiedClasses(
+    size_t num_dex_files,
+    ArrayRef<const uint8_t> data) {
+  DCHECK(!data.empty());
+
+  std::vector<std::set<dex::TypeIndex>> unverified_classes_per_dex;
+  unverified_classes_per_dex.reserve(num_dex_files);
+
+  const uint8_t* data_start = data.data();
+  const uint8_t* data_end = data_start + data.size();
+  for (size_t i = 0; i < num_dex_files; ++i) {
+    DexFileDeps deps;
+    DecodeDexFileDeps(deps, &data_start, data_end);
+    unverified_classes_per_dex.push_back(std::move(deps.unverified_classes_));
+  }
+  return unverified_classes_per_dex;
 }
 
 bool VerifierDeps::Equals(const VerifierDeps& rhs) const {

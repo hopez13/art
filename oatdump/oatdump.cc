@@ -259,7 +259,7 @@ class OatSymbolizer final {
     for (size_t class_def_index = 0;
         class_def_index < dex_file->NumClassDefs();
         class_def_index++) {
-      const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(class_def_index);
+      const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(*dex_file, class_def_index);
       OatClassType type = oat_class.GetType();
       switch (type) {
         case kOatClassAllCompiled:
@@ -727,7 +727,7 @@ class OatDumper {
             OatDexFile::FindClassDef(*dex_file, descriptor, ComputeModifiedUtf8Hash(descriptor));
         if (class_def != nullptr) {
           uint16_t class_def_index = dex_file->GetIndexForClassDef(*class_def);
-          const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(class_def_index);
+          const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(*dex_file, class_def_index);
           size_t method_index = m->GetMethodIndex();
           return oat_class.GetOatMethod(method_index).GetQuickCode();
         }
@@ -841,7 +841,8 @@ class OatDumper {
       }
       offsets_.insert(reinterpret_cast<uintptr_t>(&dex_file->GetHeader()));
       for (ClassAccessor accessor : dex_file->GetClasses()) {
-        const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(accessor.GetClassDefIndex());
+        const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(
+            *dex_file, accessor.GetClassDefIndex());
         for (uint32_t class_method_index = 0;
             class_method_index < accessor.NumMethods();
             ++class_method_index) {
@@ -921,7 +922,7 @@ class OatDumper {
 
       const uint16_t class_def_index = accessor.GetClassDefIndex();
       uint32_t oat_class_offset = oat_dex_file.GetOatClassOffset(class_def_index);
-      const OatFile::OatClass oat_class = oat_dex_file.GetOatClass(class_def_index);
+      const OatFile::OatClass oat_class = oat_dex_file.GetOatClass(*dex_file, class_def_index);
       os << StringPrintf("%zd: %s (offset=0x%08x) (type_idx=%d)",
                          static_cast<ssize_t>(class_def_index),
                          descriptor,

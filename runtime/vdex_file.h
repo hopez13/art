@@ -31,6 +31,10 @@ namespace art {
 
 class DexFile;
 
+namespace verifier {
+class VerifierDeps;
+}  // namespace verifier
+
 // VDEX files contain extracted DEX files. The VdexFile class maps the file to
 // memory and provides tools for accessing its individual sections.
 //
@@ -58,6 +62,9 @@ class DexFile;
 
 class VdexFile {
  public:
+  using VdexChecksum = uint32_t;
+  using QuickeningTableOffsetType = uint32_t;
+
   struct VerifierDepsHeader {
    public:
     VerifierDepsHeader(uint32_t number_of_dex_files_,
@@ -84,6 +91,16 @@ class VdexFile {
 
     size_t GetSizeOfChecksumsSection() const {
       return sizeof(VdexChecksum) * GetNumberOfDexFiles();
+    }
+
+    const VdexChecksum* GetDexChecksumsArray() const {
+      return reinterpret_cast<const VdexChecksum*>(
+          reinterpret_cast<const uint8_t*>(this) + sizeof(VerifierDepsHeader));
+    }
+
+    VdexChecksum GetDexChecksumAtOffset(size_t idx) const {
+      DCHECK_LT(idx, GetNumberOfDexFiles());
+      return GetDexChecksumsArray()[idx];
     }
 
     static constexpr uint8_t kVdexInvalidMagic[] = { 'w', 'd', 'e', 'x' };
@@ -132,7 +149,7 @@ class VdexFile {
     uint32_t dex_shared_data_size_;
     uint32_t quickening_info_size_;
 
-    friend class VdexFile;  // For updatig quickening_info_size_.
+    friend class VdexFile;  // For updating quickening_info_size_.
   };
 
   size_t GetComputedFileSize() const {
@@ -149,9 +166,6 @@ class VdexFile {
 
   // Note: The file is called "primary" to match the naming with profiles.
   static const constexpr char* kVdexNameInDmFile = "primary.vdex";
-
-  typedef uint32_t VdexChecksum;
-  using QuickeningTableOffsetType = uint32_t;
 
   explicit VdexFile(MemMap&& mmap) : mmap_(std::move(mmap)) {}
 
@@ -299,6 +313,11 @@ class VdexFile {
   bool HasDexSection() const {
     return GetVerifierDepsHeader().HasDexSection();
   }
+
+  static bool WriteToDisk(const std::string& path,
+                          const std::vector<const DexFile*>& dex_files,
+                          const verifier::VerifierDeps& verifier_deps,
+                          std::string* error_msg);
 
  private:
   uint32_t GetQuickeningInfoTableOffset(const uint8_t* source_dex_begin) const;
