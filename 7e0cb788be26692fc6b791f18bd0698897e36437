@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a28d127_eb9317a1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-04T14:48:10Z",
+      "side": 1,
+      "message": "Ah didn\u0027t realize you were updating this too - I was hoping you could go with just:\nresult \u003d GetPreferredMethod().\n\nSo up to you which version you prefer, sorry for the noise.",
+      "range": {
+        "startLine": 1331,
+        "startChar": 6,
+        "endLine": 1331,
+        "endChar": 30
+      },
+      "revId": "7e0cb788be26692fc6b791f18bd0698897e36437",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
