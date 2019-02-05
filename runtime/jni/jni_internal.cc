@@ -442,8 +442,8 @@ static JavaVMExt* JavaVmExtFromEnv(JNIEnv* env) {
 
 template <bool kNative>
 static ArtMethod* FindMethod(ObjPtr<mirror::Class> c,
-                             const StringPiece& name,
-                             const StringPiece& sig)
+                             const std::string_view& name,
+                             const std::string_view& sig)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
   for (auto& method : c->GetMethods(pointer_size)) {
