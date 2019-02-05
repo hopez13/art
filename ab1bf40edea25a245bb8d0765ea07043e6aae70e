@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fa2fa4c_79786116",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7093,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-05T12:56:07Z",
+      "side": 1,
+      "message": "Can you add a comment why it\u0027s OK to call the unckecked version?",
+      "range": {
+        "startLine": 7093,
+        "startChar": 39,
+        "endLine": 7093,
+        "endChar": 65
+      },
+      "revId": "ab1bf40edea25a245bb8d0765ea07043e6aae70e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d89aca_2783c34e",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-05T12:56:07Z",
+      "side": 1,
+      "message": "Can you add a comment what is not being checked?",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 30
+      },
+      "revId": "ab1bf40edea25a245bb8d0765ea07043e6aae70e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
