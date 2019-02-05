@@ -56,6 +56,24 @@
       "revId": "79d609662abc29dc12fe7d57c0589f281db7671a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad5f27dc_942c006d",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T22:08:48Z",
+      "side": 1,
+      "message": "FYI, I think this can be done as a follow-up. These CLs are rather straightforwardly moving things over, it\u0027s easier to review this.",
+      "parentUuid": "be5201a4_49099fbf",
+      "revId": "79d609662abc29dc12fe7d57c0589f281db7671a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
