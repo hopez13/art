@@ -22,6 +22,30 @@
       "revId": "a2fed081e33bcc956ebc545aacd654ec6a32673d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "164c9547_a4714003",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T16:47:55Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/art/+/895597",
+      "parentUuid": "90ec4dd1_5d12bee8",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 24
+      },
+      "revId": "a2fed081e33bcc956ebc545aacd654ec6a32673d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
