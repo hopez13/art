@@ -21,6 +21,7 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/logging.h"  // For VLOG.
+#include "base/stringpiece.h"
 #include "base/utils.h"
 #include "class-inl.h"
 #include "class_ext.h"
@@ -389,14 +390,15 @@ void Class::SetReferenceInstanceOffsets(uint32_t new_reference_offsets) {
                     new_reference_offsets);
 }
 
-bool Class::IsInSamePackage(const StringPiece& descriptor1, const StringPiece& descriptor2) {
+bool Class::IsInSamePackage(const std::string_view& descriptor1,
+                            const std::string_view& descriptor2) {
   size_t i = 0;
   size_t min_length = std::min(descriptor1.size(), descriptor2.size());
   while (i < min_length && descriptor1[i] == descriptor2[i]) {
     ++i;
   }
-  if (descriptor1.find('/', i) != StringPiece::npos ||
-      descriptor2.find('/', i) != StringPiece::npos) {
+  if (descriptor1.find('/', i) != std::string_view::npos ||
+      descriptor2.find('/', i) != std::string_view::npos) {
     return false;
   } else {
     return true;
@@ -435,7 +437,7 @@ bool Class::IsThrowableClass() {
 
 template <typename SignatureType>
 static inline ArtMethod* FindInterfaceMethodWithSignature(ObjPtr<Class> klass,
-                                                          const StringPiece& name,
+                                                          const std::string_view& name,
                                                           const SignatureType& signature,
                                                           PointerSize pointer_size)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -478,13 +480,15 @@ static inline ArtMethod* FindInterfaceMethodWithSignature(ObjPtr<Class> klass,
   return nullptr;
 }
 
-ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
-                                      const StringPiece& signature,
+ArtMethod* Class::FindInterfaceMethod(const std::string_view& name,
+                                      const std::string_view& signature,
                                       PointerSize pointer_size) {
-  return FindInterfaceMethodWithSignature(this, name, signature, pointer_size);
+  // TODO: Change Signature::operator==() to accept std::string_view instead of StringPiece.
+  StringPiece sp_signature(signature.data(), signature.size());
+  return FindInterfaceMethodWithSignature(this, name, sp_signature, pointer_size);
 }
 
-ArtMethod* Class::FindInterfaceMethod(const StringPiece& name,
+ArtMethod* Class::FindInterfaceMethod(const std::string_view& name,
                                       const Signature& signature,
                                       PointerSize pointer_size) {
   return FindInterfaceMethodWithSignature(this, name, signature, pointer_size);
@@ -496,7 +500,7 @@ ArtMethod* Class::FindInterfaceMethod(ObjPtr<DexCache> dex_cache,
   // We always search by name and signature, ignoring the type index in the MethodId.
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
-  StringPiece name = dex_file.StringDataByIdx(method_id.name_idx_);
+  std::string_view name = dex_file.StringDataByIdx(method_id.name_idx_);
   const Signature signature = dex_file.GetMethodSignature(method_id);
   return FindInterfaceMethod(name, signature, pointer_size);
 }
@@ -537,7 +541,7 @@ static inline bool IsInheritedMethod(ObjPtr<mirror::Class> klass,
 
 template <typename SignatureType>
 static inline ArtMethod* FindClassMethodWithSignature(ObjPtr<Class> this_klass,
-                                                      const StringPiece& name,
+                                                      const std::string_view& name,
                                                       const SignatureType& signature,
                                                       PointerSize pointer_size)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -591,13 +595,15 @@ static inline ArtMethod* FindClassMethodWithSignature(ObjPtr<Class> this_klass,
 }
 
 
-ArtMethod* Class::FindClassMethod(const StringPiece& name,
-                                  const StringPiece& signature,
+ArtMethod* Class::FindClassMethod(const std::string_view& name,
+                                  const std::string_view& signature,
                                   PointerSize pointer_size) {
-  return FindClassMethodWithSignature(this, name, signature, pointer_size);
+  // TODO: Change Signature::operator==() to accept std::string_view instead of StringPiece.
+  StringPiece sp_signature(signature.data(), signature.size());
+  return FindClassMethodWithSignature(this, name, sp_signature, pointer_size);
 }
 
-ArtMethod* Class::FindClassMethod(const StringPiece& name,
+ArtMethod* Class::FindClassMethod(const std::string_view& name,
                                   const Signature& signature,
                                   PointerSize pointer_size) {
   return FindClassMethodWithSignature(this, name, signature, pointer_size);
@@ -624,7 +630,7 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
   const Signature signature = dex_file.GetMethodSignature(method_id);
-  StringPiece name;  // Delay strlen() until actually needed.
+  std::string_view name;  // Delay strlen() until actually needed.
   // If we do not have a dex_cache match, try to find the declared method in this class now.
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
     DCHECK(name.empty());
@@ -701,19 +707,21 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   return uninherited_method;  // Return the `uninherited_method` if any.
 }
 
-ArtMethod* Class::FindConstructor(const StringPiece& signature, PointerSize pointer_size) {
+ArtMethod* Class::FindConstructor(const std::string_view& signature, PointerSize pointer_size) {
+  // TODO: Change Signature::operator==() to accept std::string_view instead of StringPiece.
+  StringPiece sp_signature(signature.data(), signature.size());
   // Internal helper, never called on proxy classes. We can skip GetInterfaceMethodIfProxy().
   DCHECK(!IsProxyClass());
-  StringPiece name("<init>");
+  std::string_view name("<init>");
   for (ArtMethod& method : GetDirectMethodsSliceUnchecked(pointer_size)) {
-    if (method.GetName() == name && method.GetSignature() == signature) {
+    if (method.GetName() == name && method.GetSignature() == sp_signature) {
       return &method;
     }
   }
   return nullptr;
 }
 
-ArtMethod* Class::FindDeclaredDirectMethodByName(const StringPiece& name,
+ArtMethod* Class::FindDeclaredDirectMethodByName(const std::string_view& name,
                                                  PointerSize pointer_size) {
   for (auto& method : GetDirectMethods(pointer_size)) {
     ArtMethod* const np_method = method.GetInterfaceMethodIfProxy(pointer_size);
@@ -724,7 +732,7 @@ ArtMethod* Class::FindDeclaredDirectMethodByName(const StringPiece& name,
   return nullptr;
 }
 
-ArtMethod* Class::FindDeclaredVirtualMethodByName(const StringPiece& name,
+ArtMethod* Class::FindDeclaredVirtualMethodByName(const std::string_view& name,
                                                   PointerSize pointer_size) {
   for (auto& method : GetVirtualMethods(pointer_size)) {
     ArtMethod* const np_method = method.GetInterfaceMethodIfProxy(pointer_size);
@@ -813,8 +821,8 @@ ArtMethod* Class::FindClassInitializer(PointerSize pointer_size) {
 
 // Custom binary search to avoid double comparisons from std::binary_search.
 static ArtField* FindFieldByNameAndType(LengthPrefixedArray<ArtField>* fields,
-                                        const StringPiece& name,
-                                        const StringPiece& type)
+                                        const std::string_view& name,
+                                        const std::string_view& type)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (fields == nullptr) {
     return nullptr;
@@ -827,9 +835,9 @@ static ArtField* FindFieldByNameAndType(LengthPrefixedArray<ArtField>* fields,
     ArtField& field = fields->At(mid);
     // Fields are sorted by class, then name, then type descriptor. This is verified in dex file
     // verifier. There can be multiple fields with the same in the same class name due to proguard.
-    int result = StringPiece(field.GetName()).Compare(name);
+    int result = std::string_view(field.GetName()).compare(name);
     if (result == 0) {
-      result = StringPiece(field.GetTypeDescriptor()).Compare(type);
+      result = std::string_view(field.GetTypeDescriptor()).compare(type);
     }
     if (result < 0) {
       low = mid + 1;
@@ -853,7 +861,8 @@ static ArtField* FindFieldByNameAndType(LengthPrefixedArray<ArtField>* fields,
   return ret;
 }
 
-ArtField* Class::FindDeclaredInstanceField(const StringPiece& name, const StringPiece& type) {
+ArtField* Class::FindDeclaredInstanceField(const std::string_view& name,
+                                           const std::string_view& type) {
   // Binary search by name. Interfaces are not relevant because they can't contain instance fields.
   return FindFieldByNameAndType(GetIFieldsPtr(), name, type);
 }
@@ -869,7 +878,7 @@ ArtField* Class::FindDeclaredInstanceField(ObjPtr<DexCache> dex_cache, uint32_t 
   return nullptr;
 }
 
-ArtField* Class::FindInstanceField(const StringPiece& name, const StringPiece& type) {
+ArtField* Class::FindInstanceField(const std::string_view& name, const std::string_view& type) {
   // Is the field in this class, or any of its superclasses?
   // Interfaces are not relevant because they can't contain instance fields.
   for (ObjPtr<Class> c = this; c != nullptr; c = c->GetSuperClass()) {
@@ -893,8 +902,9 @@ ArtField* Class::FindInstanceField(ObjPtr<DexCache> dex_cache, uint32_t dex_fiel
   return nullptr;
 }
 
-ArtField* Class::FindDeclaredStaticField(const StringPiece& name, const StringPiece& type) {
-  DCHECK(type != nullptr);
+ArtField* Class::FindDeclaredStaticField(const std::string_view& name,
+                                         const std::string_view& type) {
+  DCHECK(!type.empty());
   return FindFieldByNameAndType(GetSFieldsPtr(), name, type);
 }
 
@@ -911,8 +921,8 @@ ArtField* Class::FindDeclaredStaticField(ObjPtr<DexCache> dex_cache, uint32_t de
 
 ArtField* Class::FindStaticField(Thread* self,
                                  ObjPtr<Class> klass,
-                                 const StringPiece& name,
-                                 const StringPiece& type) {
+                                 const std::string_view& name,
+                                 const std::string_view& type) {
   // Is the field in this class (or its interfaces), or any of its
   // superclasses (or their interfaces)?
   for (ObjPtr<Class> k = klass; k != nullptr; k = k->GetSuperClass()) {
@@ -962,8 +972,8 @@ ArtField* Class::FindStaticField(Thread* self,
 
 ArtField* Class::FindField(Thread* self,
                            ObjPtr<Class> klass,
-                           const StringPiece& name,
-                           const StringPiece& type) {
+                           const std::string_view& name,
+                           const std::string_view& type) {
   // Find a field using the JLS field resolution order
   for (ObjPtr<Class> k = klass; k != nullptr; k = k->GetSuperClass()) {
     // Is the field in this class?
