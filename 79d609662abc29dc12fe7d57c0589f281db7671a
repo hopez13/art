@@ -39,6 +39,23 @@
       "revId": "79d609662abc29dc12fe7d57c0589f281db7671a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be5201a4_49099fbf",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-02-05T21:35:00Z",
+      "side": 1,
+      "message": "Passing string_view by const lvalue reference is an anti-pattern:\n\n1) It\u0027s typing more characters\n2) It has virtually identical semantics\n3) It inhibits compiler optimizations by adding an extra memory indirection (a \"string_view\" can be as efficient as 2 registers).\n\nThere\u0027s some more details in absl::string_view, which is a google open source reimplementation of C++17 string_views:\n\nhttps://github.com/abseil/abseil-cpp/blob/master/absl/strings/string_view.h#L70",
+      "revId": "79d609662abc29dc12fe7d57c0589f281db7671a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
