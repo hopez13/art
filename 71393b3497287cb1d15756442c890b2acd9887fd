@@ -22,6 +22,30 @@
       "revId": "71393b3497287cb1d15756442c890b2acd9887fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c427b483_3d599fd3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T16:41:05Z",
+      "side": 1,
+      "message": "Considering we do the optimization for the MethodAndSig comparator, it seems we think it\u0027s valuable.\n\nThis likely only hits for core-oj and few other classes, but the common use of core-oj and number of its classes might make this worth it (considering no need to read strings and create signature), at least for boot image compilation.\n\nIf you prefer to remove it, I can do that, too.",
+      "parentUuid": "e8dc07e1_76106398",
+      "range": {
+        "startLine": 7112,
+        "startChar": 0,
+        "endLine": 7112,
+        "endChar": 60
+      },
+      "revId": "71393b3497287cb1d15756442c890b2acd9887fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
