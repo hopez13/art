@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8885eb3_3806a3c1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T00:20:47Z",
+      "side": 1,
+      "message": "? (vs line 1598)",
+      "range": {
+        "startLine": 1615,
+        "startChar": 19,
+        "endLine": 1615,
+        "endChar": 46
+      },
+      "revId": "a877ee3a913fcffa9f2274050afbeab8f8ad4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37e53c3_7dfe4ada",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T00:20:47Z",
+      "side": 1,
+      "message": "We need to stop using the Runtime as a dumping ground for flags, eventually. This, for example, should be a Heap flag.",
+      "revId": "a877ee3a913fcffa9f2274050afbeab8f8ad4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bd3d95b_d90fa8d1",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-05T00:20:47Z",
+      "side": 1,
+      "message": "Default missing (either here or the constructor).",
+      "range": {
+        "startLine": 1156,
+        "startChar": 7,
+        "endLine": 1156,
+        "endChar": 36
+      },
+      "revId": "a877ee3a913fcffa9f2274050afbeab8f8ad4843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
