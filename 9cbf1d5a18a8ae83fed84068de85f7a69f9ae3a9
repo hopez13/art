@@ -69,6 +69,30 @@
       "revId": "9cbf1d5a18a8ae83fed84068de85f7a69f9ae3a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31a1de02_7c3058e3",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-06T13:18:28Z",
+      "side": 1,
+      "message": "Actually, the char_traits\u003cchar\u003e treat the char as `unsigned char` for comparisons, so this is OK. I\u0027ll add some comments though.",
+      "parentUuid": "64606065_3b2993c9",
+      "range": {
+        "startLine": 838,
+        "startChar": 17,
+        "endLine": 838,
+        "endChar": 65
+      },
+      "revId": "9cbf1d5a18a8ae83fed84068de85f7a69f9ae3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
