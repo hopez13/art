@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa909a1f_a63a980f",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-06T16:27:31Z",
+      "side": 1,
+      "message": "I have a TODO in the header file description. You are probably right that it\u0027s rare, but it also wouldn\u0027t cost us anything to keep a set of the classes redefined when the vdex was generated (1 extra byte if the set is empty), so I\u0027d like to handle it.",
+      "parentUuid": "99af175d_23c70ab9",
+      "revId": "93590e014a4f976927a2fc9e8846b42911dd2aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06233dce_f8395cb0",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "93590e014a4f976927a2fc9e8846b42911dd2aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d3176f6_bac562ee",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-06T16:27:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06233dce_f8395cb0",
+      "range": {
+        "startLine": 297,
+        "startChar": 59,
+        "endLine": 298,
+        "endChar": 31
+      },
+      "revId": "93590e014a4f976927a2fc9e8846b42911dd2aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
