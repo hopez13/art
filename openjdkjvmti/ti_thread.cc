@@ -83,6 +83,13 @@ struct ThreadCallback : public art::ThreadLifecycleCallback {
   }
 
   void ThreadStart(art::Thread* self) override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    // Needs to be checked first because we might start these threads before we actually send the
+    // VMInit event.
+    if (self->IsSystemDaemon()) {
+      // System daemon threads are things like the finalizer or gc thread. It would be dangerous to
+      // allow agents to get in the way of these threads starting up.
+      return;
+    }
     if (!started) {
       // Runtime isn't started. We only expect at most the signal handler or JIT threads to be
       // started here.
