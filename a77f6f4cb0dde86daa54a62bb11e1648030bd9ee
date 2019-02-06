@@ -46,6 +46,30 @@
       "revId": "a77f6f4cb0dde86daa54a62bb11e1648030bd9ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b335c844_7eeaf9f6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-06T14:06:53Z",
+      "side": 1,
+      "message": "As Roland pointed out to me, style guide says C first, then C++.",
+      "parentUuid": "ce6d44f5_66ff4cf8",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 17
+      },
+      "revId": "a77f6f4cb0dde86daa54a62bb11e1648030bd9ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
