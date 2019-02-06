@@ -22,6 +22,30 @@
       "revId": "57addb7d4766826b7904d2b0c772a028d5105293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1138460_ccf8f96e",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-02-06T12:36:35Z",
+      "side": 1,
+      "message": "Elaborate... do we will still have those?\nI would assume that quicken methods would be in vdex file, so no OatQuickMethodHeader.",
+      "parentUuid": "06a62f9f_6146cf62",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "57addb7d4766826b7904d2b0c772a028d5105293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
