@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99af175d_23c70ab9",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-06T08:37:01Z",
+      "side": 1,
+      "message": "Add a note that we could encode this in the verifier deps, but this case should be so rare that we don\u0027t optimize for it.",
+      "revId": "93590e014a4f976927a2fc9e8846b42911dd2aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06233dce_f8395cb0",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-06T08:37:01Z",
+      "side": 1,
+      "message": "It\u0027s not just SDK stubs - it\u0027s when the vdex was created with another verison of the boot classpath (which happens after OTA).",
+      "range": {
+        "startLine": 297,
+        "startChar": 59,
+        "endLine": 298,
+        "endChar": 31
+      },
+      "revId": "93590e014a4f976927a2fc9e8846b42911dd2aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
