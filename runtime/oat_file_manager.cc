@@ -19,6 +19,7 @@
 #include <memory>
 #include <queue>
 #include <vector>
+#include <sys/stat.h>
 
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
@@ -48,6 +49,9 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
+#include "vdex_file.h"
+#include "verifier/method_verifier.h"
+#include "verifier/verifier_deps.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -640,6 +644,261 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   }
 
   return dex_files;
+}
+
+class ScopedThreadLocalVerifierDeps {
+ public:
+  ScopedThreadLocalVerifierDeps(Thread* self, verifier::VerifierDeps* new_deps)
+      : self_(self), old_deps_(self_->GetVerifierDeps()) {
+    self_->SetVerifierDeps(new_deps);
+  }
+
+  ~ScopedThreadLocalVerifierDeps() {
+    self_->SetVerifierDeps(old_deps_);
+  }
+
+ private:
+  Thread* const self_;
+  verifier::VerifierDeps* const old_deps_;
+};
+
+static std::vector<std::unique_ptr<const DexFile>> DisableWrite(
+    std::vector<std::unique_ptr<const DexFile>>& dex_files,
+    std::vector<std::string>* error_msgs) {
+  std::vector<std::unique_ptr<const DexFile>> result;
+  result.reserve(dex_files.size());
+
+  // Remove write permission from DexFile pages. We do this at the end because
+  // OatFile assigns OatDexFile pointer in the DexFile objects.
+  for (std::unique_ptr<const DexFile>& dex_file : dex_files) {
+    if (dex_file->DisableWrite()) {
+      result.push_back(std::move(dex_file));
+    } else {
+      error_msgs->push_back("Failed to make dex file " + dex_file->GetLocation() + " read-only");
+    }
+  }
+
+  return result;
+}
+
+static bool UnlinkLeastRecentlyUsedVdexIfNeeded(const std::string& vdex_path) {
+  if (OS::FileExists(vdex_path.c_str())) {
+    // File already exists and will be overwritten.
+    // This will not change the number of entries in the cache.
+    return true;
+  }
+
+  auto last_slash = vdex_path.rfind("/");
+  CHECK(last_slash != std::string::npos);
+  std::string vdex_dir = vdex_path.substr(0, last_slash + 1);
+
+  if (!OS::DirectoryExists(vdex_dir.c_str())) {
+    // Folder does not exist yet. Cache has zero entries.
+    return true;
+  }
+
+  std::vector<std::pair<time_t, std::string>> cache;
+
+  DIR* c_dir = opendir(vdex_dir.c_str());
+  if (c_dir == nullptr) {
+    PLOG(WARNING) << "Unable to open " << vdex_dir << " to delete unused vdex files";
+    return false;
+  }
+  for (struct dirent* de = readdir(c_dir); de != nullptr; de = readdir(c_dir)) {
+    if (de->d_type != DT_REG) {
+      continue;
+    }
+    std::string basename = de->d_name;
+    if (!OatFileAssistant::IsAnonymousVdexBasename(basename)) {
+      continue;
+    }
+    std::string fullname = vdex_dir + basename;
+
+    struct stat s;
+    int rc = TEMP_FAILURE_RETRY(stat(fullname.c_str(), &s));
+    if (rc == -1) {
+      PLOG(WARNING) << "Failed to stat() anonymous vdex file: " << fullname;
+      return false;
+    }
+
+    cache.push_back(std::make_pair(s.st_atime, fullname));
+  }
+  CHECK_EQ(0, closedir(c_dir)) << "Unable to close directory.";
+
+  if (cache.size() < OatFileManager::kInMemoryDexClassLoaderCacheSize) {
+    return true;
+  }
+
+  std::sort(cache.begin(),
+            cache.end(),
+            [](const auto& a, const auto& b) { return a.first < b.first; });
+  for (size_t i = OatFileManager::kInMemoryDexClassLoaderCacheSize - 1; i < cache.size(); ++i) {
+    if (unlink(cache[i].second.c_str()) != 0) {
+      PLOG(WARNING) << "Could not unlink anonymous vdex file " << cache[i].second;
+      return false;
+    }
+  }
+
+  return true;
+}
+
+std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
+    MemMap&& dex_data,
+    jobject class_loader,
+    jobjectArray dex_elements,
+    const OatFile** out_oat_file,
+    std::vector<std::string>* error_msgs) {
+  ScopedTrace trace(__FUNCTION__);
+  std::string error_msg;
+
+  CHECK(dex_data.IsValid());
+  CHECK(error_msgs != nullptr);
+
+  // Verify we aren't holding the mutator lock, which could starve GC if we
+  // have to generate or relocate an oat file.
+  Thread* const self = Thread::Current();
+  Locks::mutator_lock_->AssertNotHeld(self);
+  Runtime* const runtime = Runtime::Current();
+
+  // Create a vector of DexFile headers to come up with a dex location.
+  std::vector<const DexFile::Header*> dex_headers;
+  dex_headers.push_back(reinterpret_cast<const DexFile::Header*>(dex_data.Begin()));
+
+  // Determine to dex/vdex locations.
+  std::string dex_location;
+  std::string vdex_path;
+  bool has_vdex_path = false;
+  if (OatFileAssistant::DexFilesToAnonymousDexLocation(dex_headers, &dex_location)) {
+    has_vdex_path = OatFileAssistant::DexLocationToVdexFilename(dex_location,
+                                                                kRuntimeISA,
+                                                                &vdex_path,
+                                                                &error_msg);
+    DCHECK(has_vdex_path) << error_msg;
+  } else {
+    dex_location = StringPrintf("Anonymous-DexFile@%p-%p", dex_data.Begin(), dex_data.End());
+  }
+
+  // Load dex files.
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  {
+    static constexpr bool kVerifyChecksum = true;
+    const ArtDexFileLoader dex_file_loader;
+    std::unique_ptr<const DexFile> dex_file(dex_file_loader.Open(dex_location,
+                                                                 dex_headers[0]->checksum_,
+                                                                 std::move(dex_data),
+                                                                 runtime->IsVerificationEnabled(),
+                                                                 kVerifyChecksum,
+                                                                 &error_msg));
+    if (dex_file != nullptr) {
+      dex::tracking::RegisterDexFile(dex_file.get());  // Register for tracking.
+      dex_files.push_back(std::move(dex_file));
+    } else {
+      error_msgs->push_back("Failed to open dex files from memory: " + error_msg);
+    }
+  }
+
+  // `class_loader` can be null if called via reflection.
+  if (!has_vdex_path || !error_msgs->empty() || class_loader == nullptr) {
+    return DisableWrite(dex_files, error_msgs);
+  }
+
+  // If we have a vdex_path and there were no errors while loading the dex files,
+  // try to optimize by loading an existing vdex with verification data, or verify
+  // all classes now and create such vdex.
+  std::vector<const DexFile*> non_owning_dex_files = MakeNonOwningPointerVector(dex_files);
+
+  std::unique_ptr<ClassLoaderContext> context =
+      ClassLoaderContext::CreateContextForClassLoader(class_loader, dex_elements);
+  if (context == nullptr || !context->OpenDexFiles(kRuntimeISA, "")) {
+    return DisableWrite(dex_files, error_msgs);
+  }
+
+  std::unique_ptr<VdexFile> vdex_file = VdexFile::Open(vdex_path,
+                                                       /* writable= */ false,
+                                                       /* low_4gb= */ false,
+                                                       /* unquicken= */ false,
+                                                       &error_msg);
+
+  // If vdex file exists, check that it can be used and attempt to load it.
+  // TODO: if vdex boot classpath checksum or class loader context don't match,
+  // attempt to fast-verify and update the vdex instead of generating it from scratch.
+  if (vdex_file != nullptr &&
+      vdex_file->MatchesDexFileChecksums(non_owning_dex_files) &&
+      vdex_file->MatchesBootClassPathChecksums() &&
+      // Explain that we don't need a class loader collision check because
+      // there is no compiled code.
+      vdex_file->MatchesClassLoaderContext(*context.get())) {
+    std::unique_ptr<OatFile> oat_file(OatFile::OpenFromVdex(non_owning_dex_files,
+                                                            std::move(vdex_file),
+                                                            dex_location,
+                                                            &error_msg));
+    if (oat_file.get() != nullptr) {
+      VLOG(class_linker) << "Registering " << oat_file->GetLocation();
+      *out_oat_file = RegisterOatFile(std::move(oat_file));
+      return DisableWrite(dex_files, error_msgs);
+    }
+
+    LOG(WARNING) << "Could not initialize oat file from " << vdex_path << ": " + error_msg;
+  }
+
+  // If we did not manage to initialize classes from a vdex, verify all classes
+  // now and create a vdex.
+  verifier::VerifierDeps verifier_deps(non_owning_dex_files);
+  ClassLinker* const class_linker = runtime->GetClassLinker();
+  const uint32_t target_sdk_version = runtime->GetTargetSdkVersion();
+
+  ScopedObjectAccess soa(self);
+  StackHandleScope<3> hs(self);
+  Handle<mirror::ClassLoader> h_loader(hs.NewHandle(
+      soa.Decode<mirror::ClassLoader>(class_loader)));
+  ScopedThreadLocalVerifierDeps verifier_deps_scope(self, &verifier_deps);
+
+  // Iterate over all classes and run the verifier.
+  for (const auto& dex_file : non_owning_dex_files) {
+    if (class_linker->RegisterDexFile(*dex_file, h_loader.Get()) == nullptr) {
+      // OOME or InternalError (dexFile already registered with a different class loader).
+      self->AssertPendingException();
+      LOG(FATAL) << "Failed to register anonymous dex file " << dex_location << ": "
+          << self->GetException()->Dump();
+      UNREACHABLE();
+    }
+    for (uint32_t cdef_idx = 0; cdef_idx < dex_file->NumClassDefs(); cdef_idx++) {
+      bool verification_skipped;
+      const dex::ClassDef& cdef = dex_file->GetClassDef(cdef_idx);
+      const char* descriptor = dex_file->GetClassDescriptor(cdef);
+      Handle<mirror::Class> h_class(hs.NewHandle(class_linker->DefineClass(
+          self,
+          descriptor,
+          ComputeModifiedUtf8Hash(descriptor),
+          h_loader,
+          *dex_file,
+          cdef)));
+      verifier::MethodVerifier::VerifyClassForCompiler(
+          self,
+          *dex_file,
+          cdef_idx,
+          h_loader,
+          h_class,
+          /* callbacks= */ nullptr,
+          /* allow_soft_failures= */ false,
+          verifier::HardFailLogMode::kLogWarning,
+          target_sdk_version,
+          class_linker,
+          &verification_skipped,
+          &error_msg);
+    }
+  }
+
+  if (!UnlinkLeastRecentlyUsedVdexIfNeeded(vdex_path) ||
+      !VdexFile::WriteToDisk(vdex_path,
+                             non_owning_dex_files,
+                             verifier_deps,
+                             *context.get(),
+                             &error_msg)) {
+    LOG(ERROR) << "Could not write vdex for " << dex_location << ": " << error_msg;
+  }
+
+  return DisableWrite(dex_files, error_msgs);
 }
 
 void OatFileManager::SetOnlyUseSystemOatFiles() {

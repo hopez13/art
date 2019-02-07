@@ -718,7 +718,7 @@ class DexFile {
   }
 
   // Used by oat writer.
-  void SetOatDexFile(OatDexFile* oat_dex_file) const {
+  void SetOatDexFile(const OatDexFile* oat_dex_file) const {
     oat_dex_file_ = oat_dex_file;
   }
 
@@ -870,7 +870,7 @@ class DexFile {
   // If the dex file is a compact dex file. If false then the dex file is a standard dex file.
   const bool is_compact_dex_;
 
-  hiddenapi::Domain hiddenapi_domain_;
+  mutable hiddenapi::Domain hiddenapi_domain_;
 
   friend class DexFileLoader;
   friend class DexFileVerifierTest;
