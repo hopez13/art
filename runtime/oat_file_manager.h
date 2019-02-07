@@ -37,6 +37,7 @@ class ImageSpace;
 
 class ClassLoaderContext;
 class DexFile;
+class MemMap;
 class OatFile;
 
 // Class for dealing with oat file management.
@@ -99,9 +100,19 @@ class OatFileManager {
       /*out*/ std::vector<std::string>* error_msgs)
       REQUIRES(!Locks::oat_file_manager_lock_, !Locks::mutator_lock_);
 
+  std::vector<std::unique_ptr<const DexFile>> OpenDexFilesFromOat(
+      MemMap&& data,
+      jobject class_loader,
+      jobjectArray dex_elements,
+      /*out*/ const OatFile** out_oat_file,
+      /*out*/ std::vector<std::string>* error_msgs)
+      REQUIRES(!Locks::oat_file_manager_lock_, !Locks::mutator_lock_);
+
   void DumpForSigQuit(std::ostream& os);
 
   void SetOnlyUseSystemOatFiles();
+
+  static constexpr size_t kInMemoryDexClassLoaderCacheSize = 8u;
 
  private:
   enum class CheckCollisionResult {

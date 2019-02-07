@@ -1053,7 +1053,6 @@ class Thread {
   }
 
   verifier::VerifierDeps* GetVerifierDeps() const {
-    DCHECK(IsAotCompiler());
     return tlsPtr_.deps_or_stack_trace_sample.verifier_deps;
   }
 
@@ -1061,7 +1060,6 @@ class Thread {
   // entry in the thread is cleared before destruction of the actual VerifierDeps
   // object, or the thread.
   void SetVerifierDeps(verifier::VerifierDeps* verifier_deps) {
-    DCHECK(IsAotCompiler());
     DCHECK(verifier_deps == nullptr || tlsPtr_.deps_or_stack_trace_sample.verifier_deps == nullptr);
     tlsPtr_.deps_or_stack_trace_sample.verifier_deps = verifier_deps;
   }
