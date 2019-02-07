@@ -275,13 +275,15 @@ class DexoptAnalyzer final {
     }
 
     std::unique_ptr<OatFileAssistant> oat_file_assistant;
-    oat_file_assistant = std::make_unique<OatFileAssistant>(dex_file_.c_str(),
-                                                            isa_,
-                                                            /*load_executable=*/ false,
-                                                            /*only_load_system_executable=*/ false,
-                                                            vdex_fd_,
-                                                            oat_fd_,
-                                                            zip_fd_);
+    oat_file_assistant = std::make_unique<OatFileAssistant>(
+        dex_file_.c_str(),
+        isa_,
+        /*load_executable=*/ false,
+        /*only_load_system_executable=*/ false,
+        /*only_load_vdex_in_odex_position*/ false,
+        vdex_fd_,
+        oat_fd_,
+        zip_fd_);
     // Always treat elements of the bootclasspath as up-to-date.
     // TODO(calin): this check should be in OatFileAssistant.
     if (oat_file_assistant->IsInBootClassPath()) {

@@ -2825,6 +2825,7 @@ ObjPtr<mirror::Class> ClassLinker::FindClassInBaseDexClassLoaderClassPath(
   ObjPtr<mirror::Class> ret;
   auto define_class = [&](const DexFile* cp_dex_file) REQUIRES_SHARED(Locks::mutator_lock_) {
     const dex::ClassDef* dex_class_def = OatDexFile::FindClassDef(*cp_dex_file, descriptor, hash);
+
     if (dex_class_def != nullptr) {
       ObjPtr<mirror::Class> klass = DefineClass(soa.Self(),
                                                 descriptor,

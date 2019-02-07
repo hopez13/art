@@ -145,6 +145,111 @@ static void SafelyMarkAllRegistersAsConflicts(MethodVerifier* verifier, Register
   reg_line->MarkAllRegistersAsConflicts(verifier);
 }
 
+FailureKind MethodVerifier::VerifyClassForCompiler(Thread* self,
+                                                   const DexFile&dex_file,
+                                                   uint32_t class_def_index,
+                                                   Handle<mirror::ClassLoader> class_loader,
+                                                   Handle<mirror::Class> klass,
+                                                   CompilerCallbacks* callbacks,
+                                                   bool allow_soft_failures,
+                                                   HardFailLogMode log_level,
+                                                   uint32_t api_level,
+                                                   ClassLinker* class_linker,
+                                                   /* out */ bool *was_skipped,
+                                                   /* out */ std::string* error) {
+  const dex::ClassDef& class_def = dex_file.GetClassDef(class_def_index);
+  StackHandleScope<1> hs(self);
+  FailureKind failure_kind;
+  if (klass == nullptr) {
+    CHECK(self->IsExceptionPending());
+    self->ClearException();
+
+    /*
+     * At compile time, we can still structurally verify the class even if FindClass fails.
+     * This is to ensure the class is structurally sound for compilation. An unsound class
+     * will be rejected by the verifier and later skipped during compilation in the compiler.
+     */
+    Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
+        self, dex_file)));
+    failure_kind = MethodVerifier::VerifyClass(self,
+                                               &dex_file,
+                                               dex_cache,
+                                               class_loader,
+                                               class_def,
+                                               callbacks,
+                                               allow_soft_failures,
+                                               log_level,
+                                               api_level,
+                                               error);
+    if (failure_kind == FailureKind::kHardFailure) {
+      LOG(ERROR) << "Verification failed on class "
+                 << PrettyDescriptor(dex_file.GetClassDescriptor(class_def))
+                 << " because: " << *error;
+    }
+    return failure_kind;  // do not record verification status in VerifierDeps
+  }
+
+  if (&klass->GetDexFile() != &dex_file) {
+    // Skip a duplicate class (as the resolved class is from another, earlier dex file).
+    // Record the information that we skipped this class in the vdex.
+    // If the class resolved to a dex file not covered by the vdex, e.g. boot class path,
+    // it is considered external, dependencies on it will be recorded and the vdex will
+    // remain usable regardless of whether the class remains redefined or not (in the
+    // latter case, this class will be verify-at-runtime).
+    // On the other hand, if the class resolved to a dex file covered by the vdex, i.e.
+    // a different dex file within the same APK, this class will always be eclipsed by it.
+    // Recording that it was redefined is not necessary but will save class resolution
+    // time during fast-verify.
+    VerifierDeps::MaybeRecordClassRedefinition(dex_file, class_def);
+    *was_skipped = true;
+    return FailureKind::kNoFailure;  // Do not update state.
+  }
+
+  CHECK(klass->IsResolved()) << klass->PrettyClass();
+  failure_kind = class_linker->VerifyClass(self, klass, log_level);
+
+  if (klass->IsErroneous()) {
+    // ClassLinker::VerifyClass throws, which isn't useful in the compiler.
+    CHECK(self->IsExceptionPending());
+    self->ClearException();
+  }
+
+  CHECK(klass->ShouldVerifyAtRuntime() || klass->IsVerified() || klass->IsErroneous())
+      << klass->PrettyDescriptor() << ": state=" << klass->GetStatus();
+
+  // // Class has a meaningful status for the compiler now, record it.
+  // ClassReference ref(dex_file, class_def_index);
+  // manager_->GetCompiler()->RecordClassStatus(ref, klass->GetStatus());
+
+  // It is *very* problematic if there are resolution errors in the boot classpath.
+  //
+  // It is also bad if classes fail verification. For example, we rely on things working
+  // OK without verification when the decryption dialog is brought up. It is thus highly
+  // recommended to compile the boot classpath with
+  //   --abort-on-hard-verifier-error --abort-on-soft-verifier-error
+  // which is the default build system configuration.
+  if (kIsDebugBuild) {
+    if (class_loader == nullptr) {
+      if (!klass->IsResolved() || klass->IsErroneous()) {
+        LOG(FATAL) << "Boot classpath class " << klass->PrettyClass()
+                   << " failed to resolve/is erroneous: state= " << klass->GetStatus();
+        UNREACHABLE();
+      }
+    }
+    if (klass->IsVerified()) {
+      DCHECK_EQ(failure_kind, FailureKind::kNoFailure);
+    } else if (klass->ShouldVerifyAtRuntime()) {
+      DCHECK_EQ(failure_kind, FailureKind::kSoftFailure);
+    } else {
+      DCHECK_EQ(failure_kind, FailureKind::kHardFailure);
+    }
+  }
+
+  VerifierDeps::MaybeRecordVerificationStatus(dex_file, class_def, failure_kind);
+  self->AssertNoPendingException();
+  return failure_kind;
+}
+
 FailureKind MethodVerifier::VerifyClass(Thread* self,
                                         ObjPtr<mirror::Class> klass,
                                         CompilerCallbacks* callbacks,
