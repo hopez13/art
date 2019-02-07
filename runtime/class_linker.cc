@@ -2821,7 +2821,6 @@ ObjPtr<mirror::Class> ClassLinker::FindClassInBaseDexClassLoaderClassPath(
          IsInMemoryDexClassLoader(soa, class_loader) ||
          IsDelegateLastClassLoader(soa, class_loader))
       << "Unexpected class loader for descriptor " << descriptor;
-
   ObjPtr<mirror::Class> ret;
   auto define_class = [&](const DexFile* cp_dex_file) REQUIRES_SHARED(Locks::mutator_lock_) {
     const dex::ClassDef* dex_class_def = OatDexFile::FindClassDef(*cp_dex_file, descriptor, hash);

@@ -47,6 +47,9 @@ namespace art {
 
 using android::base::StringPrintf;
 
+static constexpr const char* kAnonymousDexPrefix = "Anonymous-DexFile@";
+static constexpr const char* kVdexExtension = ".vdex";
+
 std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStatus status) {
   switch (status) {
     case OatFileAssistant::kOatCannotOpen:
@@ -442,6 +445,19 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   return kOatUpToDate;
 }
 
+bool OatFileAssistant::DexFilesToAnonymousDexLocation(uint32_t location_checksum,
+                                                      std::string* dex_location) {
+  const std::string& data_dir = Runtime::Current()->GetProcessDataDirectory();
+  if (data_dir.empty() || Runtime::Current()->IsZygote()) {
+    *dex_location = StringPrintf("%s%u.dex", kAnonymousDexPrefix, location_checksum);
+    return false;
+  }
+
+  *dex_location =
+      StringPrintf("%s/%s%u.jar", data_dir.c_str(), kAnonymousDexPrefix, location_checksum);
+  return true;
+}
+
 static bool DexLocationToOdexNames(const std::string& location,
                                    InstructionSet isa,
                                    std::string* odex_filename,
@@ -519,6 +535,36 @@ bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
   // determining the oat file name from the dex location, not
   // GetDalvikCacheFilename.
   return GetDalvikCacheFilename(location.c_str(), cache_dir.c_str(), oat_filename, error_msg);
+}
+
+bool OatFileAssistant::DexLocationToVdexFilename(const std::string& location,
+                                                 InstructionSet isa,
+                                                 std::string* vdex_filename,
+                                                 std::string* error_msg) {
+  std::string odex_filename;
+  if (!DexLocationToOdexFilename(location, isa, &odex_filename, error_msg)) {
+    return false;
+  }
+
+  *vdex_filename = GetVdexFilename(odex_filename);
+  return true;
+}
+
+bool OatFileAssistant::IsAnonymousVdexBasename(const std::string& basename) {
+  DCHECK(basename.find("/") == std::string::npos);
+  // `basename` must have format: <kAnonymousDexPrefix><checksum><kVdexExtension>
+  if (basename.size() < strlen(kAnonymousDexPrefix) + strlen(kVdexExtension) + 1 ||
+      !android::base::StartsWith(basename.c_str(), kAnonymousDexPrefix) ||
+      !android::base::EndsWith(basename, kVdexExtension)) {
+    return false;
+  }
+  // Check that all characters between the prefix and extension are decimal digits.
+  for (size_t i = strlen(kAnonymousDexPrefix); i < basename.size() - strlen(kVdexExtension); ++i) {
+    if (!std::isdigit(basename[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {

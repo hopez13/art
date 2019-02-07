@@ -222,6 +222,15 @@ class OatFileAssistant {
   // Returns the status of the oat file for the dex location.
   OatStatus OatFileStatus();
 
+  static bool DexFilesToAnonymousDexLocation(uint32_t location_checksum, std::string* dex_location);
+
+  static bool DexLocationToVdexFilename(const std::string& location,
+                                        InstructionSet isa,
+                                        std::string* vdex_filename,
+                                        std::string* error_msg);
+
+  static bool IsAnonymousVdexBasename(const std::string& basename);
+
   // Constructs the odex file name for the given dex location.
   // Returns true on success, in which case odex_filename is set to the odex
   // file name.
@@ -309,6 +318,8 @@ class OatFileAssistant {
                int zip_fd = -1,
                int vdex_fd = -1,
                int oat_fd = -1);
+
+    void ResetVdexOnly(const std::string& oat_filename, bool use_fd, int vdex_fd = -1);
 
     // Release the loaded oat file for runtime use.
     // Returns null if the oat file hasn't been loaded or is out of date.
@@ -418,6 +429,9 @@ class OatFileAssistant {
 
   // Whether only oat files on /system are loaded executable.
   const bool only_load_system_executable_ = false;
+
+  const bool only_load_vdex_in_odex_location_ = false;
+
   // Whether the potential zip file only contains uncompressed dex.
   // Will be set during GetRequiredDexChecksums.
   bool zip_file_only_contains_uncompressed_dex_ = true;

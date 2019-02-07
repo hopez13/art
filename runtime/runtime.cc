@@ -418,6 +418,9 @@ Runtime::~Runtime() {
     // JIT compiler threads.
     jit_->DeleteThreadPool();
   }
+  if (oat_file_manager_ != nullptr) {
+    oat_file_manager_->DeleteThreadPool();
+  }
   DeleteThreadPool();
   CHECK(thread_pool_ == nullptr);
 
