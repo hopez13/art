@@ -23,6 +23,7 @@
 #include <vector>
 
 #include "base/array_ref.h"
+#include "base/mem_map.h"
 #include "base/mutex.h"
 #include "base/os.h"
 #include "base/safe_map.h"
@@ -123,6 +124,11 @@ class OatFile {
                                const std::string& location,
                                const char* abs_dex_location,
                                std::string* error_msg);
+
+  static OatFile* OpenFromVdex(const std::vector<const DexFile*>& dex_files,
+                               std::unique_ptr<VdexFile>&& vdex_file,
+                               const std::string& location,
+                               /*out*/std::string* error_msg);
 
   virtual ~OatFile();
 
@@ -356,6 +362,11 @@ class OatFile {
  protected:
   OatFile(const std::string& filename, bool executable);
 
+  virtual bool IsClassVdexVerified(const OatDexFile&, uint16_t) const {
+    LOG(FATAL) << "Unsupported";
+    UNREACHABLE();
+  }
+
  private:
   // The oat file name.
   //
@@ -544,6 +555,12 @@ class OatDexFile final {
              const IndexBssMapping* string_bss_mapping,
              const uint32_t* oat_class_offsets_pointer,
              const DexLayoutSections* dex_layout_sections);
+
+  OatDexFile(const OatFile* oat_file,
+             const DexFile* dex_file,
+             const std::string& dex_file_location,
+             const std::string& canonical_dex_file_location,
+             uint32_t dex_file_checksum);
 
   static void AssertAotCompiler();
 
