@@ -47,6 +47,9 @@ namespace art {
 
 using android::base::StringPrintf;
 
+static constexpr const char* kAnonymousDexPrefix = "Anonymous-DexFile@";
+static constexpr const char* kVdexExtension = ".vdex";
+
 std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStatus status) {
   switch (status) {
     case OatFileAssistant::kOatCannotOpen:
@@ -71,11 +74,13 @@ std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStat
 OatFileAssistant::OatFileAssistant(const char* dex_location,
                                    const InstructionSet isa,
                                    bool load_executable,
-                                   bool only_load_system_executable)
+                                   bool only_load_system_executable,
+                                   bool only_load_vdex_in_odex_location)
     : OatFileAssistant(dex_location,
                        isa,
                        load_executable,
                        only_load_system_executable,
+                       only_load_vdex_in_odex_location,
                        /*vdex_fd=*/ -1,
                        /*oat_fd=*/ -1,
                        /*zip_fd=*/ -1) {}
@@ -85,12 +90,14 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
                                    const InstructionSet isa,
                                    bool load_executable,
                                    bool only_load_system_executable,
+                                   bool only_load_vdex_in_odex_location,
                                    int vdex_fd,
                                    int oat_fd,
                                    int zip_fd)
     : isa_(isa),
       load_executable_(load_executable),
       only_load_system_executable_(only_load_system_executable),
+      only_load_vdex_in_odex_location_(only_load_vdex_in_odex_location),
       odex_(this, /*is_oat_location=*/ false),
       oat_(this, /*is_oat_location=*/ true),
       zip_fd_(zip_fd) {
@@ -115,12 +122,16 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
   std::string error_msg;
   std::string odex_file_name;
   if (DexLocationToOdexFilename(dex_location_, isa_, &odex_file_name, &error_msg)) {
-    odex_.Reset(odex_file_name, UseFdToReadFiles(), zip_fd, vdex_fd, oat_fd);
+    if (only_load_vdex_in_odex_location_) {
+      odex_.ResetVdexOnly(odex_file_name, UseFdToReadFiles(), vdex_fd);
+    } else {
+      odex_.Reset(odex_file_name, UseFdToReadFiles(), zip_fd, vdex_fd, oat_fd);
+    }
   } else {
     LOG(WARNING) << "Failed to determine odex file name: " << error_msg;
   }
 
-  if (!UseFdToReadFiles()) {
+  if (!only_load_vdex_in_odex_location_ && !UseFdToReadFiles()) {
     // Get the oat filename.
     std::string oat_file_name;
     if (DexLocationToOatFilename(dex_location_, isa_, &oat_file_name, &error_msg)) {
@@ -442,6 +453,29 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   return kOatUpToDate;
 }
 
+bool OatFileAssistant::DexFilesToAnonymousDexLocation(
+    const std::vector<const DexFile::Header*>& dex_headers,
+    std::string* dex_location) {
+  if (kIsDebugBuild) {
+    DCHECK(!dex_headers.empty());
+    for (const DexFile::Header* dex_header : dex_headers) {
+      DCHECK(dex_header != nullptr);
+    }
+  }
+
+  const std::string& data_dir = Runtime::Current()->GetProcessDataDirectory();
+  if (data_dir.empty()) {
+    return false;
+  }
+
+  uint32_t checksum = dex_headers.front()->checksum_;
+  CHECK_EQ(dex_headers.size(), 1u)
+      << "Implement adler32 checksum combining if ever used for more than 1 DexFile";
+
+  *dex_location = StringPrintf("%s/%s%u.dex", data_dir.c_str(), kAnonymousDexPrefix, checksum);
+  return true;
+}
+
 static bool DexLocationToOdexNames(const std::string& location,
                                    InstructionSet isa,
                                    std::string* odex_filename,
@@ -519,6 +553,36 @@ bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
   // determining the oat file name from the dex location, not
   // GetDalvikCacheFilename.
   return GetDalvikCacheFilename(location.c_str(), cache_dir.c_str(), oat_filename, error_msg);
+}
+
+bool OatFileAssistant::DexLocationToVdexFilename(const std::string& location,
+                                                 InstructionSet isa,
+                                                 std::string* vdex_filename,
+                                                 std::string* error_msg) {
+  std::string odex_filename;
+  if (!DexLocationToOdexFilename(location, isa, &odex_filename, error_msg)) {
+    return false;
+  }
+
+  *vdex_filename = GetVdexFilename(odex_filename);
+  return true;
+}
+
+bool OatFileAssistant::IsAnonymousVdexBasename(const std::string& basename) {
+  DCHECK(basename.find("/") == std::string::npos);
+  // `basename` must have format: <kAnonymousDexPrefix><checksum><kVdexExtension>
+  if (basename.size() < strlen(kAnonymousDexPrefix) + strlen(kVdexExtension) + 1 ||
+      !android::base::StartsWith(basename.c_str(), kAnonymousDexPrefix) ||
+      !android::base::EndsWith(basename, kVdexExtension)) {
+    return false;
+  }
+  // Check that all characters between the prefix and extension are decimal digits.
+  for (size_t i = strlen(kAnonymousDexPrefix); i < basename.size() - strlen(kVdexExtension); ++i) {
+    if (!std::isdigit(basename[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {
@@ -873,6 +937,14 @@ void OatFileAssistant::OatFileInfo::Reset() {
   load_attempted_ = false;
   file_.reset();
   status_attempted_ = false;
+}
+
+void OatFileAssistant::OatFileInfo::ResetVdexOnly(const std::string& oat_filename,
+                                                  bool use_fd,
+                                                  int vdex_fd) {
+  Reset(oat_filename, use_fd, /* zip_fd= */ -1, vdex_fd, /* oat_fd= */ -1);
+  // Override `load_attempted_` to always skip oat file loading.
+  load_attempted_ = true;
 }
 
 void OatFileAssistant::OatFileInfo::Reset(const std::string& filename,

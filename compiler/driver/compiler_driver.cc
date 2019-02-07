@@ -1536,23 +1536,6 @@ class ParallelCompilationManager {
   DISALLOW_COPY_AND_ASSIGN(ParallelCompilationManager);
 };
 
-// A fast version of SkipClass above if the class pointer is available
-// that avoids the expensive FindInClassPath search.
-static bool SkipClass(jobject class_loader, const DexFile& dex_file, ObjPtr<mirror::Class> klass)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  DCHECK(klass != nullptr);
-  const DexFile& original_dex_file = *klass->GetDexCache()->GetDexFile();
-  if (&dex_file != &original_dex_file) {
-    if (class_loader == nullptr) {
-      LOG(WARNING) << "Skipping class " << klass->PrettyDescriptor() << " from "
-                   << dex_file.GetLocation() << " previously found in "
-                   << original_dex_file.GetLocation();
-    }
-    return true;
-  }
-  return false;
-}
-
 static void CheckAndClearResolveException(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   CHECK(self->IsExceptionPending());
@@ -1616,8 +1599,8 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
       CheckAndClearResolveException(soa.Self());
       resolve_fields_and_methods = false;
     } else {
-      // We successfully resolved a class, should we skip it?
-      if (SkipClass(jclass_loader, dex_file, klass)) {
+      // We successfully resolved a class, should we skip it because it is a duplicate?
+      if (&dex_file != &klass->GetDexFile()) {
         return;
       }
       // We want to resolve the methods and fields eagerly.
@@ -1904,106 +1887,45 @@ class VerifyClassVisitor : public CompilationVisitor {
   void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) override {
     ScopedTrace trace(__FUNCTION__);
     ScopedObjectAccess soa(Thread::Current());
+
+    std::string error_msg;
+    bool verification_skipped = false;
+
+    ClassLinker* const class_linker = manager_->GetClassLinker();
     const DexFile& dex_file = *manager_->GetDexFile();
-    const dex::ClassDef& class_def = dex_file.GetClassDef(class_def_index);
-    const char* descriptor = dex_file.GetClassDescriptor(class_def);
-    ClassLinker* class_linker = manager_->GetClassLinker();
-    jobject jclass_loader = manager_->GetClassLoader();
-    StackHandleScope<3> hs(soa.Self());
+    const char* descriptor = dex_file.GetClassDescriptor(dex_file.GetClassDef(class_def_index));
+
+    StackHandleScope<2> hs(soa.Self());
     Handle<mirror::ClassLoader> class_loader(
-        hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
+        hs.NewHandle(soa.Decode<mirror::ClassLoader>(manager_->GetClassLoader())));
     Handle<mirror::Class> klass(
         hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor, class_loader)));
-    verifier::FailureKind failure_kind;
-    if (klass == nullptr) {
-      CHECK(soa.Self()->IsExceptionPending());
-      soa.Self()->ClearException();
 
-      /*
-       * At compile time, we can still structurally verify the class even if FindClass fails.
-       * This is to ensure the class is structurally sound for compilation. An unsound class
-       * will be rejected by the verifier and later skipped during compilation in the compiler.
-       */
-      Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
-          soa.Self(), dex_file)));
-      std::string error_msg;
-      failure_kind =
-          verifier::MethodVerifier::VerifyClass(soa.Self(),
-                                                &dex_file,
-                                                dex_cache,
-                                                class_loader,
-                                                class_def,
-                                                Runtime::Current()->GetCompilerCallbacks(),
-                                                true /* allow soft failures */,
-                                                log_level_,
-                                                sdk_version_,
-                                                &error_msg);
+    verifier::FailureKind failure_kind =
+        verifier::MethodVerifier::VerifyClassForCompiler(soa.Self(),
+                                                         dex_file,
+                                                         class_def_index,
+                                                         class_loader,
+                                                         klass,
+                                                         Runtime::Current()->GetCompilerCallbacks(),
+                                                         true /* allow soft failures */,
+                                                         log_level_,
+                                                         sdk_version_,
+                                                         class_linker,
+                                                         &verification_skipped,
+                                                         &error_msg);
+    if (!verification_skipped) {
       if (failure_kind == verifier::FailureKind::kHardFailure) {
-        LOG(ERROR) << "Verification failed on class " << PrettyDescriptor(descriptor)
-                   << " because: " << error_msg;
-        manager_->GetCompiler()->SetHadHardVerifierFailure();
-      } else if (failure_kind == verifier::FailureKind::kSoftFailure) {
-        manager_->GetCompiler()->AddSoftVerifierFailure();
-      } else {
-        // Force a soft failure for the VerifierDeps. This is a sanity measure, as
-        // the vdex file already records that the class hasn't been resolved. It avoids
-        // trying to do future verification optimizations when processing the vdex file.
-        DCHECK(failure_kind == verifier::FailureKind::kNoFailure) << failure_kind;
-        failure_kind = verifier::FailureKind::kSoftFailure;
-      }
-    } else if (&klass->GetDexFile() != &dex_file) {
-      // Skip a duplicate class (as the resolved class is from another, earlier dex file).
-      verifier::VerifierDeps::MaybeRecordClassRedefinition(dex_file, class_def);
-      return;  // Do not update state.
-    } else if (!SkipClass(jclass_loader, dex_file, klass.Get())) {
-      CHECK(klass->IsResolved()) << klass->PrettyClass();
-      failure_kind = class_linker->VerifyClass(soa.Self(), klass, log_level_);
-
-      if (klass->IsErroneous()) {
-        // ClassLinker::VerifyClass throws, which isn't useful in the compiler.
-        CHECK(soa.Self()->IsExceptionPending());
-        soa.Self()->ClearException();
         manager_->GetCompiler()->SetHadHardVerifierFailure();
       } else if (failure_kind == verifier::FailureKind::kSoftFailure) {
         manager_->GetCompiler()->AddSoftVerifierFailure();
       }
-
-      CHECK(klass->ShouldVerifyAtRuntime() || klass->IsVerified() || klass->IsErroneous())
-          << klass->PrettyDescriptor() << ": state=" << klass->GetStatus();
-
+    }
+    if (klass != nullptr) {
       // Class has a meaningful status for the compiler now, record it.
       ClassReference ref(manager_->GetDexFile(), class_def_index);
       manager_->GetCompiler()->RecordClassStatus(ref, klass->GetStatus());
-
-      // It is *very* problematic if there are resolution errors in the boot classpath.
-      //
-      // It is also bad if classes fail verification. For example, we rely on things working
-      // OK without verification when the decryption dialog is brought up. It is thus highly
-      // recommended to compile the boot classpath with
-      //   --abort-on-hard-verifier-error --abort-on-soft-verifier-error
-      // which is the default build system configuration.
-      if (kIsDebugBuild) {
-        if (manager_->GetCompiler()->GetCompilerOptions().IsBootImage()) {
-          if (!klass->IsResolved() || klass->IsErroneous()) {
-            LOG(FATAL) << "Boot classpath class " << klass->PrettyClass()
-                       << " failed to resolve/is erroneous: state= " << klass->GetStatus();
-            UNREACHABLE();
-          }
-        }
-        if (klass->IsVerified()) {
-          DCHECK_EQ(failure_kind, verifier::FailureKind::kNoFailure);
-        } else if (klass->ShouldVerifyAtRuntime()) {
-          DCHECK_EQ(failure_kind, verifier::FailureKind::kSoftFailure);
-        } else {
-          DCHECK_EQ(failure_kind, verifier::FailureKind::kHardFailure);
-        }
-      }
-    } else {
-      // Make the skip a soft failure, essentially being considered as verify at runtime.
-      failure_kind = verifier::FailureKind::kSoftFailure;
     }
-    verifier::VerifierDeps::MaybeRecordVerificationStatus(dex_file, class_def, failure_kind);
-    soa.Self()->AssertNoPendingException();
   }
 
  private:
@@ -2116,7 +2038,9 @@ class InitializeClassVisitor : public CompilationVisitor {
         hs.NewHandle(manager_->GetClassLinker()->FindClass(soa.Self(), descriptor, class_loader)));
 
     if (klass != nullptr) {
-      if (!SkipClass(manager_->GetClassLoader(), dex_file, klass.Get())) {
+      if (&dex_file != &klass->GetDexFile()) {
+        // Skip duplicate classes.
+      } else {
         TryInitializeClass(klass, class_loader);
       }
       manager_->GetCompiler()->stats_->AddClassStatus(klass->GetStatus());
@@ -2589,7 +2513,7 @@ static void CompileDexFile(CompilerDriver* driver,
     if (driver->GetCompilerOptions().GetVerificationResults()->IsClassRejected(ref)) {
       return;
     }
-    // Use a scoped object access to perform to the quick SkipClass check.
+    // Use a scoped object access to perform the quick class duplicate check.
     ScopedObjectAccess soa(Thread::Current());
     StackHandleScope<3> hs(soa.Self());
     Handle<mirror::ClassLoader> class_loader(
@@ -2601,8 +2525,6 @@ static void CompileDexFile(CompilerDriver* driver,
       soa.Self()->AssertPendingException();
       soa.Self()->ClearException();
       dex_cache = hs.NewHandle(class_linker->FindDexCache(soa.Self(), dex_file));
-    } else if (SkipClass(jclass_loader, dex_file, klass.Get())) {
-      return;
     } else if (&klass->GetDexFile() != &dex_file) {
       // Skip a duplicate class (as the resolved class is from another, earlier dex file).
       return;  // Do not update state.

@@ -2891,6 +2891,7 @@ ClassLinker::FindClassResult ClassLinker::FindClassInBaseDexClassLoaderClassPath
       return false;
     }
     const dex::ClassDef* dex_class_def = OatDexFile::FindClassDef(*cp_dex_file, descriptor, hash);
+
     if (dex_class_def != nullptr) {
       ret = FindClassResult(class_loader.Get(), *cp_dex_file, *dex_class_def);
       return false;  // Found a Class (or error == nullptr), stop visit.
