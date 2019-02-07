@@ -44,6 +44,7 @@ namespace art {
 
 static constexpr char kPathClassLoaderString[] = "PCL";
 static constexpr char kDelegateLastClassLoaderString[] = "DLC";
+static constexpr char kInMemoryDexClassLoaderString[] = "IMC";
 static constexpr char kClassLoaderOpeningMark = '[';
 static constexpr char kClassLoaderClosingMark = ']';
 static constexpr char kClassLoaderSharedLibraryOpeningMark = '{';
@@ -261,7 +262,9 @@ std::unique_ptr<ClassLoaderContext::ClassLoaderInfo> ClassLoaderContext::ParseCl
 // recognized.
 ClassLoaderContext::ClassLoaderType
 ClassLoaderContext::ExtractClassLoaderType(const std::string& class_loader_spec) {
-  const ClassLoaderType kValidTypes[] = {kPathClassLoader, kDelegateLastClassLoader};
+  const ClassLoaderType kValidTypes[] = { kPathClassLoader,
+                                          kDelegateLastClassLoader,
+                                          kInMemoryDexClassLoader };
   for (const ClassLoaderType& type : kValidTypes) {
     const char* type_str = GetClassLoaderTypeName(type);
     if (class_loader_spec.compare(0, strlen(type_str), type_str) == 0) {
@@ -613,6 +616,8 @@ static jclass GetClassLoaderClass(ClassLoaderContext::ClassLoaderType type) {
       return WellKnownClasses::dalvik_system_PathClassLoader;
     case ClassLoaderContext::kDelegateLastClassLoader:
       return WellKnownClasses::dalvik_system_DelegateLastClassLoader;
+    case ClassLoaderContext::kInMemoryDexClassLoader:
+      return WellKnownClasses::dalvik_system_InMemoryDexClassLoader;
     case ClassLoaderContext::kInvalidClassLoader: break;  // will fail after the switch.
   }
   LOG(FATAL) << "Invalid class loader type " << type;
@@ -763,6 +768,7 @@ const char* ClassLoaderContext::GetClassLoaderTypeName(ClassLoaderType type) {
   switch (type) {
     case kPathClassLoader: return kPathClassLoaderString;
     case kDelegateLastClassLoader: return kDelegateLastClassLoaderString;
+    case kInMemoryDexClassLoader: return kInMemoryDexClassLoaderString;
     default:
       LOG(FATAL) << "Invalid class loader type " << type;
       UNREACHABLE();
@@ -812,7 +818,9 @@ static bool CollectDexFilesFromSupportedClassLoader(ScopedObjectAccessAlreadyRun
                                                     Handle<mirror::ClassLoader> class_loader,
                                                     std::vector<const DexFile*>* out_dex_files)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-  CHECK(IsPathOrDexClassLoader(soa, class_loader) || IsDelegateLastClassLoader(soa, class_loader));
+  CHECK(IsPathOrDexClassLoader(soa, class_loader) ||
+        IsDelegateLastClassLoader(soa, class_loader) ||
+        IsInMemoryDexClassLoader(soa, class_loader));
 
   // All supported class loaders inherit from BaseDexClassLoader.
   // We need to get the DexPathList and loop through it.
@@ -931,6 +939,8 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
     type = kPathClassLoader;
   } else if (IsDelegateLastClassLoader(soa, class_loader)) {
     type = kDelegateLastClassLoader;
+  } else if (IsInMemoryDexClassLoader(soa, class_loader)) {
+    type = kInMemoryDexClassLoader;
   } else {
     LOG(WARNING) << "Unsupported class loader";
     return false;
