@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38601fe6_039bd5f6",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-07T09:52:29Z",
+      "side": 1,
+      "message": "Can you explain here why it\u0027s dangerous?",
+      "range": {
+        "startLine": 89,
+        "startChar": 75,
+        "endLine": 89,
+        "endChar": 96
+      },
+      "revId": "b10879c547f078989b4456a2225cc26f7e979ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "710dfa50_a0a75100",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-07T09:52:29Z",
+      "side": 1,
+      "message": "Since you\u0027re copying this, can you add a comment why we\u0027re doing this check after starting daemon threads? (and same for check line 881).",
+      "range": {
+        "startLine": 874,
+        "startChar": 0,
+        "endLine": 877,
+        "endChar": 3
+      },
+      "revId": "b10879c547f078989b4456a2225cc26f7e979ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
