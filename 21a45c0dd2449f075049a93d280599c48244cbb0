@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f61b89ed_18573776",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-02-08T16:14:28Z",
+      "side": 1,
+      "message": "To be picky, these are the native libraries that support the core java libraries.\nIf I wanted to talk about \"Core native libraries\" I\u0027d include bionic, but that\u0027s elsewhere.\n\nPerhaps swap the order of the variables and comment it as:\n\n// Native libraries that support the core Java libraries.",
+      "range": {
+        "startLine": 88,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "21a45c0dd2449f075049a93d280599c48244cbb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
