@@ -22,6 +22,30 @@
       "revId": "dd03f5ededc7198e27ebff630b126d48c2e51931",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfef1c3f_4126b6c5",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-02-11T19:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e17e0de1_80a52854",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "dd03f5ededc7198e27ebff630b126d48c2e51931",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
