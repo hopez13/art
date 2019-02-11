@@ -68,6 +68,30 @@
       "revId": "cb6365d495a13363a819b3490b4d37a545fda944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ed94a9_53a88223",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-02-11T15:32:31Z",
+      "side": 1,
+      "message": "I tried that to start with.  It somewhat blotted the CL.  I think it is better to rename this separately.",
+      "parentUuid": "26d1e2e5_9ee019c6",
+      "range": {
+        "startLine": 94,
+        "startChar": 17,
+        "endLine": 94,
+        "endChar": 29
+      },
+      "revId": "cb6365d495a13363a819b3490b4d37a545fda944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
