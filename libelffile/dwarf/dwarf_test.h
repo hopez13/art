@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_DEBUG_DWARF_DWARF_TEST_H_
-#define ART_COMPILER_DEBUG_DWARF_DWARF_TEST_H_
+#ifndef ART_LIBELFFILE_DWARF_DWARF_TEST_H_
+#define ART_LIBELFFILE_DWARF_DWARF_TEST_H_
 
 #include <dirent.h>
 #include <stdio.h>
@@ -27,11 +27,12 @@
 #include <string>
 
 #include "base/os.h"
+#include "stream/file_output_stream.h"
 #include "base/unix_file/fd_file.h"
 #include "common_compiler_test.h"
 #include "gtest/gtest.h"
-#include "linker/elf_builder.h"
-#include "linker/file_output_stream.h"
+#include "elf/elf_builder.h"
+#include "stream/file_output_stream.h"
 
 namespace art {
 namespace dwarf {
@@ -63,8 +64,8 @@ class DwarfTest : public CommonCompilerTest {
     InstructionSet isa =
         (sizeof(typename ElfTypes::Addr) == 8) ? InstructionSet::kX86_64 : InstructionSet::kX86;
     ScratchFile file;
-    linker::FileOutputStream output_stream(file.GetFile());
-    linker::ElfBuilder<ElfTypes> builder(isa, nullptr, &output_stream);
+    FileOutputStream output_stream(file.GetFile());
+    ElfBuilder<ElfTypes> builder(isa, &output_stream);
     builder.Start();
     if (!debug_info_data_.empty()) {
       builder.WriteSection(".debug_info", &debug_info_data_);
@@ -171,4 +172,4 @@ class DwarfTest : public CommonCompilerTest {
 }  // namespace dwarf
 }  // namespace art
 
-#endif  // ART_COMPILER_DEBUG_DWARF_DWARF_TEST_H_
+#endif  // ART_LIBELFFILE_DWARF_DWARF_TEST_H_
