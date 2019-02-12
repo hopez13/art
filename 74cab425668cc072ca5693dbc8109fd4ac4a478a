@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "688b3fda_d076954f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-12T18:23:32Z",
+      "side": 1,
+      "message": "Suggest keeping this list alphabetically sorted.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 20
+      },
+      "revId": "74cab425668cc072ca5693dbc8109fd4ac4a478a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3abc7e6_ab44931b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-12T18:23:32Z",
+      "side": 1,
+      "message": "Style: Another variable already uses \"device_only\".",
+      "range": {
+        "startLine": 100,
+        "startChar": 15,
+        "endLine": 100,
+        "endChar": 26
+      },
+      "revId": "74cab425668cc072ca5693dbc8109fd4ac4a478a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
