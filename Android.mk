@@ -489,12 +489,24 @@ PRIVATE_BIONIC_FILES := \
   lib64/bootstrap/libm.so \
   lib64/bootstrap/libdl.so 
 
-.PHONY: art-bionic-files
-art-bionic-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker
+APEX_FILES := \
+  lib/libnativebridge.so \
+  lib64/libnativebrdige.so \
+  lib/libdexfile_external.so \
+  lib64/libdexfile_external.so \
+  lib/libnativeloader.so \
+  lib64/libnativeloader.so
+
+.PHONY: standalone-apex-files
+standalone-apex-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker com.android.runtime.debug
 	for f in $(PRIVATE_BIONIC_FILES); do \
 	  tf=$(TARGET_OUT)/$$f; \
 	  if [ -f $$tf ]; then cp -f $$tf $$(echo $$tf | sed 's,bootstrap/,,'); fi; \
 	done
+	for f in $(APEX_FILES); do \
+	  tf=$(TARGET_OUT)/../apex/com.android.runtime.debug/$$f; \
+	  if [ -f $$tf ]; then cp -f $$tf $(TARGET_OUT)/$$f; fi; \
+  done
 
 ########################################################################
 # Phony target for only building what go/lem requires for pushing ART on /data.
@@ -529,7 +541,7 @@ build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(TARGET_CORE_IMG_OUT_BASE)-interpreter.art \
                         libc.bootstrap libdl.bootstrap libm.bootstrap \
                         icu-data-art-test \
-                        art-bionic-files
+                        standalone-apex-files
 	# remove debug libraries from public.libraries.txt because golem builds
 	# won't have it.
 	sed -i '/libartd.so/d' $(TARGET_OUT)/etc/public.libraries.txt
