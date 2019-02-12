@@ -20,12 +20,12 @@
 #include <cstdint>
 
 #include "base/array_ref.h"
-#include "debug/dwarf/debug_frame_opcode_writer.h"
-#include "debug/dwarf/debug_info_entry_writer.h"
-#include "debug/dwarf/debug_line_opcode_writer.h"
-#include "debug/dwarf/dwarf_constants.h"
-#include "debug/dwarf/register.h"
-#include "debug/dwarf/writer.h"
+#include "dwarf/debug_frame_opcode_writer.h"
+#include "dwarf/debug_info_entry_writer.h"
+#include "dwarf/debug_line_opcode_writer.h"
+#include "dwarf/dwarf_constants.h"
+#include "dwarf/register.h"
+#include "dwarf/writer.h"
 
 namespace art {
 namespace dwarf {

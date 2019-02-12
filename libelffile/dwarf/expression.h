@@ -20,8 +20,8 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "debug/dwarf/dwarf_constants.h"
-#include "debug/dwarf/writer.h"
+#include "dwarf/dwarf_constants.h"
+#include "dwarf/writer.h"
 
 namespace art {
 namespace dwarf {

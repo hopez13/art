@@ -20,14 +20,13 @@
 #include <elf.h>
 
 #include "base/array_ref.h"
-#include "debug/dwarf/headers.h"
+#include "dwarf/headers.h"
 #include "xz_utils.h"
 
 #include <map>
 #include <string_view>
 
 namespace art {
-namespace debug {
 
 // Trivial ELF file reader.
 //
@@ -172,6 +171,5 @@ class ElfDebugReader {
   DISALLOW_COPY_AND_ASSIGN(ElfDebugReader);
 };
 
-}  // namespace debug
 }  // namespace art
 #endif  // ART_COMPILER_DEBUG_ELF_DEBUG_READER_H_

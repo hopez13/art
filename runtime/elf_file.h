@@ -23,7 +23,7 @@
 
 #include "base/macros.h"
 #include "base/os.h"
-#include "elf_utils.h"
+#include "elf/elf_utils.h"
 
 namespace art {
 

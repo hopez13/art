@@ -18,9 +18,9 @@
 #define ART_COMPILER_DEBUG_DWARF_DEBUG_FRAME_OPCODE_WRITER_H_
 
 #include "base/bit_utils.h"
-#include "debug/dwarf/dwarf_constants.h"
-#include "debug/dwarf/register.h"
-#include "debug/dwarf/writer.h"
+#include "dwarf/dwarf_constants.h"
+#include "dwarf/register.h"
+#include "dwarf/writer.h"
 
 namespace art {
 namespace dwarf {

@@ -32,10 +32,10 @@
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "driver/compiler_options.h"
-#include "elf_utils.h"
-#include "linker/buffered_output_stream.h"
-#include "linker/elf_builder.h"
-#include "linker/file_output_stream.h"
+#include "elf/elf_builder.h"
+#include "elf/elf_utils.h"
+#include "stream/buffered_output_stream.h"
+#include "stream/file_output_stream.h"
 #include "thread-current-inl.h"
 #include "thread_pool.h"
 
@@ -120,6 +120,7 @@ class ElfWriterQuick final : public ElfWriter {
                                std::vector<uint8_t>* buffer);
 
  private:
+  InstructionSet isa_;
   const CompilerOptions& compiler_options_;
   File* const elf_file_;
   size_t rodata_size_;
@@ -149,6 +150,7 @@ std::unique_ptr<ElfWriter> CreateElfWriterQuick(const CompilerOptions& compiler_
 template <typename ElfTypes>
 ElfWriterQuick<ElfTypes>::ElfWriterQuick(const CompilerOptions& compiler_options, File* elf_file)
     : ElfWriter(),
+      isa_(compiler_options.GetInstructionSet()),
       compiler_options_(compiler_options),
       elf_file_(elf_file),
       rodata_size_(0u),
@@ -159,7 +161,6 @@ ElfWriterQuick<ElfTypes>::ElfWriterQuick(const CompilerOptions& compiler_options
       output_stream_(
           std::make_unique<BufferedOutputStream>(std::make_unique<FileOutputStream>(elf_file))),
       builder_(new ElfBuilder<ElfTypes>(compiler_options_.GetInstructionSet(),
-                                        compiler_options_.GetInstructionSetFeatures(),
                                         output_stream_.get())) {}
 
 template <typename ElfTypes>
@@ -243,10 +244,6 @@ void ElfWriterQuick<ElfTypes>::EndDataBimgRelRo(OutputStream* data_bimg_rel_ro) 
 
 template <typename ElfTypes>
 void ElfWriterQuick<ElfTypes>::WriteDynamicSection() {
-  if (builder_->GetIsa() == InstructionSet::kMips ||
-      builder_->GetIsa() == InstructionSet::kMips64) {
-    builder_->WriteMIPSabiflagsSection();
-  }
   builder_->WriteDynamicSection();
 }
 
@@ -256,7 +253,7 @@ void ElfWriterQuick<ElfTypes>::PrepareDebugInfo(const debug::DebugInfo& debug_in
     // Prepare the mini-debug-info in background while we do other I/O.
     Thread* self = Thread::Current();
     debug_info_task_ = std::make_unique<DebugInfoTask>(
-        builder_->GetIsa(),
+        isa_,
         compiler_options_.GetInstructionSetFeatures(),
         builder_->GetText()->GetAddress(),
         text_size_,

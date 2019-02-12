@@ -26,7 +26,6 @@ art_cc_defaults {
     srcs: [
         "compiled_method.cc",
         "debug/elf_debug_writer.cc",
-        "debug/xz_utils.cc",
         "dex/dex_to_dex_compiler.cc",
         "dex/inline_method_analyser.cc",
         "dex/verified_method.cc",
@@ -36,10 +35,6 @@ art_cc_defaults {
         "driver/compiler_driver.cc",
         "driver/compiler_options.cc",
         "driver/dex_compilation_unit.cc",
-        "linker/buffered_output_stream.cc",
-        "linker/file_output_stream.cc",
-        "linker/output_stream.cc",
-        "linker/vector_output_stream.cc",
         "jit/jit_compiler.cc",
         "jit/jit_logger.cc",
         "jni/quick/calling_convention.cc",
@@ -180,6 +175,9 @@ art_cc_defaults {
         },
     },
     generated_sources: ["art_compiler_operator_srcs"],
+    static_libs: [
+        "libelffile",
+    ],
     shared_libs: [
         "libbase",
     ],
@@ -354,7 +352,6 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     srcs: [
-        "debug/dwarf/dwarf_test.cc",
         "debug/src_map_elem_test.cc",
         "dex/dex_to_dex_decompiler_test.cc",
         "driver/compiled_method_storage_test.cc",
@@ -362,7 +359,6 @@ art_cc_test {
         "exception_test.cc",
         "jni/jni_compiler_test.cc",
         "linker/linker_patch_test.cc",
-        "linker/output_stream_test.cc",
         "optimizing/bounds_check_elimination_test.cc",
         "optimizing/superblock_cloner_test.cc",
         "optimizing/data_type_test.cc",
@@ -448,6 +444,10 @@ art_cc_test {
         "libnativehelper_header_only",
     ],
 
+    static_libs: [
+        "libelffile",
+    ],
+
     shared_libs: [
         "libprofiled",
         "libartd-compiler",
@@ -507,6 +507,9 @@ art_cc_test {
             ],
         },
     },
+    static_libs: [
+        "libelffile",
+    ],
     shared_libs: [
         "libartd-compiler",
         "libvixld",

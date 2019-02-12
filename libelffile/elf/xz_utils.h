@@ -22,12 +22,10 @@
 #include "base/array_ref.h"
 
 namespace art {
-namespace debug {
 
 void XzCompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst);
 void XzDecompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst);
 
-}  // namespace debug
 }  // namespace art
 
 #endif  // ART_COMPILER_DEBUG_XZ_UTILS_H_

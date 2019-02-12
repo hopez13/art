@@ -22,10 +22,10 @@
 
 #include "base/casts.h"
 #include "base/leb128.h"
-#include "debug/dwarf/debug_abbrev_writer.h"
-#include "debug/dwarf/dwarf_constants.h"
-#include "debug/dwarf/expression.h"
-#include "debug/dwarf/writer.h"
+#include "dwarf/debug_abbrev_writer.h"
+#include "dwarf/dwarf_constants.h"
+#include "dwarf/expression.h"
+#include "dwarf/writer.h"
 
 namespace art {
 namespace dwarf {
