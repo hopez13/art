@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa8e7bdf_e693477b",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-12T18:08:59Z",
+      "side": 1,
+      "message": "This name feels too generic. What about something like PRIVATE_RUNTIME_DEPENDENCY_LIBS?",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 10
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25456603_05910c57",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-12T18:08:59Z",
+      "side": 1,
+      "message": "libnativebridge",
+      "range": {
+        "startLine": 494,
+        "startChar": 8,
+        "endLine": 494,
+        "endChar": 23
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17b43ae7_22c98ba2",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-12T18:08:59Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 509,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 2
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
