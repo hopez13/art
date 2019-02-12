@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#ifndef ART_COMPILER_DEBUG_XZ_UTILS_INL_H_
+#define ART_COMPILER_DEBUG_XZ_UTILS_INL_H_
+
 #include "xz_utils.h"
 
 #include <vector>
@@ -31,7 +34,6 @@
 #include "XzEnc.h"
 
 namespace art {
-namespace debug {
 
 constexpr size_t kChunkSize = kPageSize;
 
@@ -130,5 +132,6 @@ void XzDecompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst) {
   dst->resize(dst_offset);
 }
 
-}  // namespace debug
 }  // namespace art
+
+#endif  // ART_COMPILER_DEBUG_XZ_UTILS_INL_H_
