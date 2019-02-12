@@ -26,7 +26,6 @@ art_cc_defaults {
     srcs: [
         "compiled_method.cc",
         "debug/elf_debug_writer.cc",
-        "debug/xz_utils.cc",
         "dex/dex_to_dex_compiler.cc",
         "dex/inline_method_analyser.cc",
         "dex/verified_method.cc",
@@ -36,10 +35,6 @@ art_cc_defaults {
         "driver/compiler_driver.cc",
         "driver/compiler_options.cc",
         "driver/dex_compilation_unit.cc",
-        "linker/buffered_output_stream.cc",
-        "linker/file_output_stream.cc",
-        "linker/output_stream.cc",
-        "linker/vector_output_stream.cc",
         "jit/jit_compiler.cc",
         "jit/jit_logger.cc",
         "jni/quick/calling_convention.cc",
@@ -180,16 +175,19 @@ art_cc_defaults {
         },
     },
     generated_sources: ["art_compiler_operator_srcs"],
+    whole_static_libs: ["libelffile"],
     shared_libs: [
         "libbase",
     ],
     include_dirs: ["art/disassembler"],
     header_libs: [
         "art_cmdlineparser_headers",  // For compiler_options.
+        "libelffile-headers",  // Needed so it can be exported.
         "libnativehelper_header_only",
     ],
 
     export_include_dirs: ["."],
+    export_header_lib_headers: ["libelffile-headers"],
 }
 
 cc_defaults {
