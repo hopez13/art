@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8dee2fce_a2d51169",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2019-02-12T18:26:22Z",
+      "side": 1,
+      "message": "Not sure why. But I got the following error with and without my change. \n$ out/host/linux-x86/bin/art-apex-tester\n--bitness\u003dauto, trying to autodetect. This may be incorrect!\n  Detected multilib",
+      "parentUuid": "d604137e_b3434f65",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 20
+      },
+      "revId": "898516f0ef3a16145afa9eb67bbce3df854fbfca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5dbc4578_5fa1fd4f",
         "filename": "build/apex/Android.bp",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2ddeb24c_786ccc26",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2019-02-12T18:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dbc4578_5fa1fd4f",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 35
+      },
+      "revId": "898516f0ef3a16145afa9eb67bbce3df854fbfca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f21b479_41c7facb",
         "filename": "build/apex/Android.bp",
         "patchSetId": 6
@@ -68,6 +116,30 @@
       "revId": "898516f0ef3a16145afa9eb67bbce3df854fbfca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce4042ca_30b31eee",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2019-02-12T18:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f21b479_41c7facb",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 77
+      },
+      "revId": "898516f0ef3a16145afa9eb67bbce3df854fbfca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
