@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d31c6c68_b007c03b",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-13T10:03:59Z",
+      "side": 1,
+      "message": "If the code here used the _LIST pattern, it\u0027d avoid the duplicate pairings that appear here and with the SET_DLFUNC_PTR block below. Up to you.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c1363c7_dc7e9492",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-13T10:03:59Z",
+      "side": 1,
+      "message": "Please add a comment on whether the consumer needs to use this or it\u0027s internal.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30c13295_724af123",
         "filename": "libdexfile/external/include/art_api/dex_file_support.h",
         "patchSetId": 4
@@ -18,6 +64,53 @@
         "startChar": 3,
         "endLine": 77,
         "endChar": 39
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efcea288_3b82c3b7",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-13T10:03:59Z",
+      "side": 1,
+      "message": "It touches static fields in both DexString and DexFile here.\n\nAs a strawman, it could be refactored with an internal singleton class holding those function pointers and this would remove the need for LoadLibdexfileExternal() and the explicit checks for nullptr in the factory methods for ExtDexFileString and DexFile.\n\nI think the current scheme suffices for the size of the task.",
+      "parentUuid": "30c13295_724af123",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d07175ff_01c78596",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-13T10:03:59Z",
+      "side": 1,
+      "message": "Please add a comment that instance methods are not invoked before an instance is created.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 5
       },
       "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
