@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3cd2957_53a86b50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "I thought Roland had one for apex testing in general, but couldn\u0027t find it. Roland, do you know which bug?",
+      "parentUuid": "c4b314f3_7b2473f4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7551a43b_4427dd38",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9a96dad_068473ee",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7551a43b_4427dd38",
+      "range": {
+        "startLine": 490,
+        "startChar": 26,
+        "endLine": 490,
+        "endChar": 27
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "79d332a4_809c4562",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa8e7bdf_e693477b",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 10
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25456603_05910c57",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2544c62c_4185015c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25456603_05910c57",
+      "range": {
+        "startLine": 494,
+        "startChar": 8,
+        "endLine": 494,
+        "endChar": 23
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87342fcd_c9d1fbcc",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2019-02-12T18:30:37Z",
       "side": 1,
       "message": "Don\u0027t we need the dependencies too? libdexfile_external.so depends on libdexfile.so that depends on libartbase.so and libartpalette.so.",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 26
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb7b9f40_2ca1dd54",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "Those are installed already due as explicilty requested by the build rules. The files listed here are the oes with stubs which will only be installed in the apex.",
+      "parentUuid": "87342fcd_c9d1fbcc",
       "range": {
         "startLine": 492,
         "startChar": 0,
@@ -137,6 +257,30 @@
       "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6135988_75f6c090",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17b43ae7_22c98ba2",
+      "range": {
+        "startLine": 509,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 2
+      },
+      "revId": "46f8e6a8d87109897744d130500ac818829c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
