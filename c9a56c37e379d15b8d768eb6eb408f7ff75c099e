@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30c13295_724af123",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-13T09:15:00Z",
+      "side": 1,
+      "message": "Just make this a static function of the class?",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
