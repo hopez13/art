@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "347498de_c4bd4557",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-13T12:57:33Z",
+      "side": 1,
+      "message": "\"For fatal initialization failure for when loading methods from SO\"",
+      "parentUuid": "3ce4259c_622d3e97",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d31c6c68_b007c03b",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
