@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "339db829_0edff97b",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T14:28:07Z",
+      "side": 1,
+      "message": "It\u0027s actually the other way around, but comment added.",
+      "parentUuid": "4db2cae4_287691d8",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d31c6c68_b007c03b",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
@@ -155,6 +179,30 @@
       "writtenOn": "2019-02-13T10:03:59Z",
       "side": 1,
       "message": "If the code here used the _LIST pattern, it\u0027d avoid the duplicate pairings that appear here and with the SET_DLFUNC_PTR block below. Up to you.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5251a3bb_8b154e3a",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T14:28:07Z",
+      "side": 1,
+      "message": "[Sorry, missed this comment last round.] You mean a higher-order macro? I considered it, but thought it wasn\u0027t worth the extra complexity in this case.",
+      "parentUuid": "d31c6c68_b007c03b",
       "range": {
         "startLine": 35,
         "startChar": 0,
