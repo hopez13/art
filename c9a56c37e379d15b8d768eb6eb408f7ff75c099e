@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9b9ccd3_7d307bb0",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-13T10:46:10Z",
+      "side": 1,
+      "message": "This name feels very generic; maybe use something more specific like `STATIC_LIBDEXFILE`?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "591ae05e_e29e0884",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-13T10:46:10Z",
+      "side": 1,
+      "message": "Could you add an explanation for this?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d31c6c68_b007c03b",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
@@ -22,6 +68,40 @@
       "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2bf3140_6d50c92f",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-13T10:46:10Z",
+      "side": 1,
+      "message": "I\u0027d insert a blank line between lines 68 and 69 to improve legibility.",
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebee1ca8_ba61074d",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-13T10:46:10Z",
+      "side": 1,
+      "message": "Ditto between lines 76 and 77.",
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
