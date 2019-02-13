@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f2a34d7_23684e67",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "It\u0027s set with a -D flag, so its scope is only this file. I see it as a pattern for doing conditionals for static compilation, following this example: http://cs/aosp-master/external/conscrypt/common/src/jni/main/cpp/conscrypt/jniload.cc?l\u003d50",
+      "parentUuid": "f9b9ccd3_7d307bb0",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "591ae05e_e29e0884",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-13T10:46:10Z",
       "side": 1,
       "message": "Could you add an explanation for this?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ce4259c_622d3e97",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "Sorry, what with it needs explaining?",
+      "parentUuid": "591ae05e_e29e0884",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "039392fa_bddfaefc",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2bf3140_6d50c92f",
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebee1ca8_ba61074d",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
@@ -102,6 +168,24 @@
       "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "701c9df5_97a9434e",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebee1ca8_ba61074d",
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -125,6 +209,30 @@
       "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4565724a_2919ca50",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1363c7_dc7e9492",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "76fc0dec_031cc60e",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "I agree with Orion. I also chose this approach because it minimises exposure of internal implementation details, since an anonymous namespace isn\u0027t useful in a header.",
+      "parentUuid": "efcea288_3b82c3b7",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d07175ff_01c78596",
         "filename": "libdexfile/external/include/art_api/dex_file_support.h",
         "patchSetId": 4
@@ -195,6 +327,30 @@
       "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656bff56_3441b14b",
+        "filename": "libdexfile/external/include/art_api/dex_file_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-13T12:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d07175ff_01c78596",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 5
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
