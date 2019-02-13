@@ -19,6 +19,7 @@
 
 #include <algorithm>
 #include <sstream>
+#include <vector>
 
 #include <android-base/logging.h>
 
@@ -134,6 +135,17 @@ struct FNVHash {
     return hash;
   }
 };
+
+// Perform logical OR on two bit vectors and assign back to LHS, i.e. `to_update |= other`.
+// Size of `other` must be less than or equal to size of `to_update`.
+static inline void BitVectorOr(std::vector<bool>& to_update, const std::vector<bool>& other) {
+  DCHECK_GE(to_update.size(), other.size());
+  std::transform(other.begin(),
+                 other.end(),
+                 to_update.begin(),
+                 to_update.begin(),
+                 std::logical_or<bool>());
+}
 
 // Returns a copy of the passed vector that doesn't memory-own its entries.
 template <typename T>
