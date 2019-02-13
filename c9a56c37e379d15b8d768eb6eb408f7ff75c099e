@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "a309af76_7346edfe",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-02-13T14:37:23Z",
+      "side": 1,
+      "message": "Yes, you can have a look at `FOR_EACH_CONCRETE_INSTRUCTION*` macros in art/compiler/optimizing/nodes.h (https://android.googlesource.com/platform/art/+/master/compiler/optimizing/nodes.h) for an example.",
+      "parentUuid": "5251a3bb_8b154e3a",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "c9a56c37e379d15b8d768eb6eb408f7ff75c099e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2bf3140_6d50c92f",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 4
