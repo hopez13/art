@@ -2164,6 +2164,8 @@ void CodeGeneratorARMVIXL::GenerateFrameEntry() {
 
 void CodeGeneratorARMVIXL::GenerateFrameExit() {
   if (HasEmptyFrame()) {
+    // Ensure that the CFI opcode list is not empty.
+    GetAssembler()->cfi().Nop();
     __ Bx(lr);
     return;
   }
