@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c084d248_7ee4029d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-14T11:46:34Z",
+      "side": 1,
+      "message": "Move to GenerateFrameEntry(). There can be multiple exits but only one entry.",
+      "revId": "ca4b3c8af776f6776e0a9524ab7d6a26dc6d78af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
