@@ -21,7 +21,7 @@ all_tests=()
 failing_tests=()
 
 function add_tests {
-  all_tests+=$(${ADB} shell "test -d $ART_TEST_CHROOT/$1 && chroot $ART_TEST_CHROOT find $1 -name \*_test")
+  all_tests+=$(${ADB} shell "test -d $ART_TEST_CHROOT/$1 && chroot $ART_TEST_CHROOT find $1 -type f -perm /ugo+x \! -name \*.so")
 }
 
 function fail {
@@ -32,6 +32,7 @@ add_tests "/data/nativetest"
 add_tests "/data/nativetest64"
 
 for i in $all_tests; do
+  echo $i
   ${ADB} shell "chroot $ART_TEST_CHROOT env LD_LIBRARY_PATH= ANDROID_ROOT='/system' ANDROID_RUNTIME_ROOT=/system $i" || fail $i
 done
 
