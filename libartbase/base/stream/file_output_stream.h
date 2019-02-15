@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_LINKER_FILE_OUTPUT_STREAM_H_
-#define ART_COMPILER_LINKER_FILE_OUTPUT_STREAM_H_
+#ifndef ART_LIBARTBASE_BASE_STREAM_FILE_OUTPUT_STREAM_H_
+#define ART_LIBARTBASE_BASE_STREAM_FILE_OUTPUT_STREAM_H_
 
 #include "base/os.h"
 
 #include "output_stream.h"
 
 namespace art {
-namespace linker {
 
 class FileOutputStream final : public OutputStream {
  public:
@@ -42,7 +41,6 @@ class FileOutputStream final : public OutputStream {
   DISALLOW_COPY_AND_ASSIGN(FileOutputStream);
 };
 
-}  // namespace linker
 }  // namespace art
 
-#endif  // ART_COMPILER_LINKER_FILE_OUTPUT_STREAM_H_
+#endif  // ART_LIBARTBASE_BASE_STREAM_FILE_OUTPUT_STREAM_H_

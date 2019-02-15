@@ -41,6 +41,8 @@
 #include "base/safe_map.h"
 #include "base/stats.h"
 #include "base/stl_util.h"
+#include "base/stream/buffered_output_stream.h"
+#include "base/stream/file_output_stream.h"
 #include "base/unix_file/fd_file.h"
 #include "class_linker-inl.h"
 #include "class_linker.h"
@@ -68,9 +70,7 @@
 #include "subtype_check.h"
 #include "index_bss_mapping.h"
 #include "interpreter/unstarted_runtime.h"
-#include "linker/buffered_output_stream.h"
 #include "linker/elf_builder.h"
-#include "linker/file_output_stream.h"
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
@@ -150,9 +150,9 @@ class OatSymbolizer final {
     if (elf_file == nullptr) {
       return false;
     }
-    std::unique_ptr<linker::BufferedOutputStream> output_stream =
-        std::make_unique<linker::BufferedOutputStream>(
-            std::make_unique<linker::FileOutputStream>(elf_file.get()));
+    std::unique_ptr<BufferedOutputStream> output_stream =
+        std::make_unique<BufferedOutputStream>(
+            std::make_unique<FileOutputStream>(elf_file.get()));
     builder_.reset(new linker::ElfBuilder<ElfTypes>(isa, features.get(), output_stream.get()));
 
     builder_->Start();

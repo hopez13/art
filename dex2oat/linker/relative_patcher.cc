@@ -16,6 +16,7 @@
 
 #include "linker/relative_patcher.h"
 
+#include "base/stream/output_stream.h"
 #include "debug/method_debug_info.h"
 #ifdef ART_ENABLE_CODEGEN_arm
 #include "linker/arm/relative_patcher_thumb2.h"
@@ -35,7 +36,6 @@
 #ifdef ART_ENABLE_CODEGEN_x86_64
 #include "linker/x86_64/relative_patcher_x86_64.h"
 #endif
-#include "linker/output_stream.h"
 
 namespace art {
 namespace linker {

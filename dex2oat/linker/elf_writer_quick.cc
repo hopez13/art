@@ -26,6 +26,8 @@
 #include "base/casts.h"
 #include "base/globals.h"
 #include "base/leb128.h"
+#include "base/stream/buffered_output_stream.h"
+#include "base/stream/file_output_stream.h"
 #include "base/utils.h"
 #include "compiled_method.h"
 #include "debug/elf_debug_writer.h"
@@ -33,9 +35,7 @@
 #include "driver/compiler_options.h"
 #include "elf.h"
 #include "elf_utils.h"
-#include "linker/buffered_output_stream.h"
 #include "linker/elf_builder.h"
-#include "linker/file_output_stream.h"
 #include "thread-current-inl.h"
 #include "thread_pool.h"
 

@@ -22,6 +22,7 @@
 
 #include "base/array_ref.h"
 #include "base/stl_util.h"
+#include "base/stream/vector_output_stream.h"
 #include "debug/dwarf/dwarf_constants.h"
 #include "debug/elf_compilation_unit.h"
 #include "debug/elf_debug_frame_writer.h"
@@ -34,7 +35,6 @@
 #include "debug/xz_utils.h"
 #include "elf.h"
 #include "linker/elf_builder.h"
-#include "linker/vector_output_stream.h"
 #include "oat.h"
 
 namespace art {
@@ -120,7 +120,7 @@ static std::vector<uint8_t> MakeMiniDebugInfoInternal(
     const DebugInfo& debug_info) {
   std::vector<uint8_t> buffer;
   buffer.reserve(KB);
-  linker::VectorOutputStream out("Mini-debug-info ELF file", &buffer);
+  VectorOutputStream out("Mini-debug-info ELF file", &buffer);
   std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
       new linker::ElfBuilder<ElfTypes>(isa, features, &out));
   builder->Start(/* write_program_headers= */ false);
@@ -184,7 +184,7 @@ std::vector<uint8_t> MakeElfFileForJIT(
   debug_info.compiled_methods = ArrayRef<const MethodDebugInfo>(&method_info, 1);
   std::vector<uint8_t> buffer;
   buffer.reserve(KB);
-  linker::VectorOutputStream out("Debug ELF file", &buffer);
+  VectorOutputStream out("Debug ELF file", &buffer);
   std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
       new linker::ElfBuilder<ElfTypes>(isa, features, &out));
   // No program headers since the ELF file is not linked and has no allocated sections.
@@ -250,7 +250,7 @@ std::vector<uint8_t> PackElfFileForJIT(
   std::vector<uint8_t> inner_elf_file;
   {
     inner_elf_file.reserve(1 * KB);  // Approximate size of ELF file with a single symbol.
-    linker::VectorOutputStream out("Mini-debug-info ELF file for JIT", &inner_elf_file);
+    VectorOutputStream out("Mini-debug-info ELF file for JIT", &inner_elf_file);
     std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
         new linker::ElfBuilder<ElfTypes>(isa, features, &out));
     builder->Start(/*write_program_headers=*/ false);
@@ -322,7 +322,7 @@ std::vector<uint8_t> PackElfFileForJIT(
     XzCompress(ArrayRef<const uint8_t>(inner_elf_file), &gnu_debugdata);
 
     outer_elf_file.reserve(KB + gnu_debugdata.size());
-    linker::VectorOutputStream out("Mini-debug-info ELF file for JIT", &outer_elf_file);
+    VectorOutputStream out("Mini-debug-info ELF file for JIT", &outer_elf_file);
     std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
         new linker::ElfBuilder<ElfTypes>(isa, features, &out));
     builder->Start(/*write_program_headers=*/ false);
@@ -346,7 +346,7 @@ std::vector<uint8_t> WriteDebugElfFileForClasses(
   CHECK_EQ(sizeof(ElfTypes::Addr), static_cast<size_t>(GetInstructionSetPointerSize(isa)));
   std::vector<uint8_t> buffer;
   buffer.reserve(KB);
-  linker::VectorOutputStream out("Debug ELF file", &buffer);
+  VectorOutputStream out("Debug ELF file", &buffer);
   std::unique_ptr<linker::ElfBuilder<ElfTypes>> builder(
       new linker::ElfBuilder<ElfTypes>(isa, features, &out));
   // No program headers since the ELF file is not linked and has no allocated sections.

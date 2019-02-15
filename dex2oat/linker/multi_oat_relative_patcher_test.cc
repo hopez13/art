@@ -16,11 +16,11 @@
 
 #include "multi_oat_relative_patcher.h"
 
+#include "base/stream/vector_output_stream.h"
 #include "compiled_method.h"
 #include "debug/method_debug_info.h"
 #include "gtest/gtest.h"
 #include "linker/linker_patch.h"
-#include "linker/vector_output_stream.h"
 
 namespace art {
 namespace linker {

@@ -24,12 +24,12 @@
 #include "base/array_ref.h"
 #include "base/globals.h"
 #include "base/macros.h"
+#include "base/stream/vector_output_stream.h"
 #include "compiled_method-inl.h"
 #include "dex/method_reference.h"
 #include "dex/string_reference.h"
 #include "driver/compiled_method_storage.h"
 #include "linker/relative_patcher.h"
-#include "linker/vector_output_stream.h"
 #include "oat.h"
 #include "oat_quick_method_header.h"
 
