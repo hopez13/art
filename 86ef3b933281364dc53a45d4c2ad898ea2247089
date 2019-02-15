@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3063469e_1cde24c0",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-15T15:55:17Z",
+      "side": 1,
+      "message": "avoid, I cannot infer the type locally here.",
+      "range": {
+        "startLine": 300,
+        "startChar": 39,
+        "endLine": 300,
+        "endChar": 43
+      },
+      "revId": "86ef3b933281364dc53a45d4c2ad898ea2247089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8bb6ff_2ec98208",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-15T15:55:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 305,
+        "startChar": 18,
+        "endLine": 305,
+        "endChar": 41
+      },
+      "revId": "86ef3b933281364dc53a45d4c2ad898ea2247089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
