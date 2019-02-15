@@ -507,12 +507,13 @@ art_cc_library {
     strip: {
         keep_symbols: true,
     },
-    whole_static_libs: [
-    ],
     shared_libs: [
         "libartbase",
         "libdexfile",
         "libprofile",
+    ],
+    required: [
+        "adbconnection",
     ],
     export_shared_lib_headers: [
         "libdexfile",
@@ -532,12 +533,13 @@ art_cc_library {
         "art_debug_defaults",
         "libart_defaults",
     ],
-    whole_static_libs: [
-    ],
     shared_libs: [
         "libartbased",
         "libdexfiled",
         "libprofiled",
+    ],
+    required: [
+        "adbconnectiond",
     ],
     export_shared_lib_headers: [
         "libdexfiled",

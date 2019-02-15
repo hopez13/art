@@ -13,7 +13,6 @@ art_runtime_base_binaries_prefer32 = [
 ]
 // - Base requirements (libraries).
 art_runtime_base_native_shared_libs = [
-    "libadbconnection",
     "libart",
     "libart-compiler",
     "libdexfile_external",
@@ -24,6 +23,7 @@ art_runtime_base_native_shared_libs = [
     "libopenjdkjvmti",
     // TODO(b/124439236): Clean up the following libraries once "required"
     // dependencies work with APEX libraries.
+    "libadbconnection",
     "libdt_fd_forward",
     "libdt_socket",
     "libjdwp",
