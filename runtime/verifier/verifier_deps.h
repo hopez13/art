@@ -307,6 +307,7 @@ class VerifierDeps {
   bool VerifyDexFile(Handle<mirror::ClassLoader> class_loader,
                      const DexFile& dex_file,
                      const DexFileDeps& deps,
+                     const std::vector<const DexFile*>& all_dex_files,
                      Thread* self,
                      /* out */ std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -322,6 +323,7 @@ class VerifierDeps {
                              const DexFile& dex_file,
                              const std::vector<bool>& verified_classes,
                              const std::vector<bool>& redefined_classes,
+                             const std::vector<const DexFile*>& all_dex_files,
                              Thread* self,
                              /* out */ std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);
