@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b3db4d0_8608342a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-18T15:54:08Z",
+      "side": 1,
+      "message": "Where do you want to use those streams?\n\n(Moving stuff from libart-compiler.so to libartbase.so means that more processes shall load the code. OTOH, that code is probably going to be in memory shared by multiple processes anyway.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "95a36a2b73eac455b7717848271d870574c4ee64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
