@@ -18,9 +18,9 @@
 #define ART_COMPILER_DEBUG_ELF_DEBUG_READER_H_
 
 #include "base/array_ref.h"
+#include "base/xz_utils.h"
 #include "debug/dwarf/headers.h"
 #include "elf.h"
-#include "xz_utils.h"
 
 namespace art {
 namespace debug {

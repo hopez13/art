@@ -17,12 +17,10 @@
 #include "xz_utils.h"
 
 #include <vector>
-#include <mutex>
 
 #include "base/array_ref.h"
 #include "base/bit_utils.h"
-#include "base/leb128.h"
-#include "dwarf/writer.h"
+#include "base/globals.h"
 
 // liblzma.
 #include "7zCrc.h"
@@ -31,7 +29,6 @@
 #include "XzEnc.h"
 
 namespace art {
-namespace debug {
 
 constexpr size_t kChunkSize = kPageSize;
 
@@ -130,5 +127,4 @@ void XzDecompress(ArrayRef<const uint8_t> src, std::vector<uint8_t>* dst) {
   dst->resize(dst_offset);
 }
 
-}  // namespace debug
 }  // namespace art
