@@ -160,6 +160,14 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Finds which dex file a class given by its descriptor resolves to.
+  bool FindClassDexFile(Thread* self,
+                        const char* descriptor,
+                        Handle<mirror::ClassLoader> class_loader,
+                        /* out */ const DexFile** result)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_);
+
   // Finds a class by its descriptor, loading it if necessary.
   // If class_loader is null, searches boot_class_path_.
   ObjPtr<mirror::Class> FindClass(Thread* self,
@@ -880,11 +888,35 @@ class ClassLinker {
 
   void FixupStaticTrampolines(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Finds a class in a Path- or DexClassLoader, loading it if necessary without using JNI. Hash
-  // function is supposed to be ComputeModifiedUtf8Hash(descriptor). Returns true if the
-  // class-loader chain could be handled, false otherwise, i.e., a non-supported class-loader
-  // was encountered while walking the parent chain (currently only BootClassLoader and
-  // PathClassLoader are supported).
+  struct FindClassResult {
+    ObjPtr<mirror::ClassLoader> class_loader_;
+    const DexFile* dex_file_;
+    const dex::ClassDef* class_def_;
+
+    FindClassResult() : class_loader_(nullptr), dex_file_(nullptr), class_def_(nullptr) {}
+
+    FindClassResult(ObjPtr<mirror::ClassLoader> class_loader,
+                    const DexFile& dex_file,
+                    const dex::ClassDef& class_def)
+        : class_loader_(class_loader),
+          dex_file_(&dex_file),
+          class_def_(&class_def) {}
+
+    bool IsValid() const {
+      if (dex_file_ != nullptr) {
+        DCHECK(class_def_ != nullptr);
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
+  // Finds a class in a Path- or Dex- or InMemoryDexClassLoader, loading it if necessary
+  // without using JNI. Hash function is supposed to be ComputeModifiedUtf8Hash(descriptor).
+  // Returns true if the class-loader chain could be handled, false otherwise, i.e.,
+  // a non-supported class-loader was encountered while walking the parent chain (currently
+  // only BootClassLoader and PathClassLoader are supported).
   bool FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
                                      Thread* self,
                                      const char* descriptor,
@@ -894,21 +926,30 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
+  bool FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                     Thread* self,
+                                     const char* descriptor,
+                                     size_t hash,
+                                     Handle<mirror::ClassLoader> class_loader,
+                                     /*out*/ FindClassResult* result)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_);
+
   bool FindClassInSharedLibraries(ScopedObjectAccessAlreadyRunnable& soa,
                                   Thread* self,
                                   const char* descriptor,
                                   size_t hash,
                                   Handle<mirror::ClassLoader> class_loader,
-                                  /*out*/ ObjPtr<mirror::Class>* result)
+                                  /*out*/ FindClassResult* result)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
   // Finds the class in the classpath of the given class loader. It only searches the class loader
   // dex files and does not recurse into its parent.
-  // The method checks that the provided class loader is either a PathClassLoader or a
-  // DexClassLoader.
+  // The method checks that the provided class loader is either a PathClassLoader,
+  // a DexClassLoader or an InMemoryDexClassLoader.
   // If the class is found the method returns the resolved class. Otherwise it returns null.
-  ObjPtr<mirror::Class> FindClassInBaseDexClassLoaderClassPath(
+  FindClassResult FindClassInBaseDexClassLoaderClassPath(
           ScopedObjectAccessAlreadyRunnable& soa,
           const char* descriptor,
           size_t hash,
@@ -918,9 +959,7 @@ class ClassLinker {
 
   // Finds the class in the boot class loader.
   // If the class is found the method returns the resolved class. Otherwise it returns null.
-  ObjPtr<mirror::Class> FindClassInBootClassLoaderClassPath(Thread* self,
-                                                            const char* descriptor,
-                                                            size_t hash)
+  FindClassResult FindClassInBootClassLoaderClassPath(const char* descriptor, size_t hash)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 

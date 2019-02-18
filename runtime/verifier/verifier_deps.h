@@ -303,7 +303,6 @@ class VerifierDeps {
   // If such class is found to be redefined at runtime, dependencies remain valid.
   bool VerifyInternalClasses(Handle<mirror::ClassLoader> class_loader,
                              const DexFile& dex_file,
-                             const std::set<dex::TypeIndex>& unverified_classes,
                              Thread* self,
                              /* out */ std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);

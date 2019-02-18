@@ -1086,35 +1086,30 @@ bool VerifierDeps::VerifyMethods(Handle<mirror::ClassLoader> class_loader,
 
 bool VerifierDeps::VerifyInternalClasses(Handle<mirror::ClassLoader> class_loader,
                                          const DexFile& dex_file,
-                                         const std::set<dex::TypeIndex>& unverified_classes,
                                          Thread* self,
                                          /* out */ std::string* error_msg) const {
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
 
   for (ClassAccessor accessor : dex_file.GetClasses()) {
-    std::string descriptor = accessor.GetDescriptor();
-    ObjPtr<mirror::Class> cls = FindClassAndClearException(class_linker,
-                                                           self,
-                                                           descriptor,
-                                                           class_loader);
-    if (UNLIKELY(cls == nullptr)) {
-      // Could not resolve class from the currently verified dex file.
-      // This can happen when the class fails to link. Check if this
-      // expected by looking in the `unverified_classes` set.
-      if (unverified_classes.find(accessor.GetClassDef().class_idx_) == unverified_classes.end()) {
-        *error_msg = "Failed to resolve internal class " + descriptor;
-        return false;
-      }
-      continue;
+    const char* descriptor = accessor.GetDescriptor();
+    const DexFile* resolved_dex_file = nullptr;
+    bool success =
+        class_linker->FindClassDexFile(self, descriptor, class_loader, &resolved_dex_file);
+    if (UNLIKELY(!success)) {
+      // Something prevented class linker from traversing the class loader hierarchy,
+      // probably an unsupported class loader. Fail verification.
+      *error_msg = std::string("Finding class ") + descriptor + " failed";
+      return false;
     }
 
     // Check that the class resolved into the same dex file. Otherwise there is
     // a different class with the same descriptor somewhere in one of the parent
     // class loaders.
-    if (&cls->GetDexFile() != &dex_file) {
-      *error_msg = "Class " + descriptor + " redefines a class in a parent class loader "
-          + "(dexFile expected=" + accessor.GetDexFile().GetLocation()
-          + ", actual=" + cls->GetDexFile().GetLocation() + ")";
+    if (resolved_dex_file != &dex_file) {
+      *error_msg = std::string("Class ") + descriptor
+          + " redefines a class in a parent class loader "
+          + "(dexFile expected=" + dex_file.GetLocation() + ", actual="
+          + (resolved_dex_file == nullptr ? "null" : resolved_dex_file->GetLocation()) + ")";
       return false;
     }
   }
@@ -1129,7 +1124,6 @@ bool VerifierDeps::VerifyDexFile(Handle<mirror::ClassLoader> class_loader,
                                  /* out */ std::string* error_msg) const {
   return VerifyInternalClasses(class_loader,
                                dex_file,
-                               deps.unverified_classes_,
                                self,
                                error_msg) &&
          VerifyAssignability(class_loader,
