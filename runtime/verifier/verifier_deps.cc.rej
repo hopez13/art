@@ -1,0 +1,11 @@
+--- runtime/verifier/verifier_deps.cc
++++ runtime/verifier/verifier_deps.cc
+@@ -62,7 +62,7 @@ void VerifierDeps::MergeWith(const VerifierDeps& other,
+     MergeSets(my_deps->classes_, other_deps.classes_);
+     MergeSets(my_deps->fields_, other_deps.fields_);
+     MergeSets(my_deps->methods_, other_deps.methods_);
+-    MergeSets(my_deps->unverified_classes_, other_deps.unverified_classes_);
++    BitVectorOr(my_deps->verified_classes_, other_deps.verified_classes_);
+   }
+ }
+ 
