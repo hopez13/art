@@ -487,7 +487,11 @@ class VerifierDepsTest : public CommonCompilerTest {
     StackHandleScope<1> hs(soa.Self());
     Handle<mirror::ClassLoader> new_class_loader =
         hs.NewHandle<mirror::ClassLoader>(soa.Decode<mirror::ClassLoader>(second_loader));
-    return decoded_deps.ValidateDependencies(new_class_loader, soa.Self(), error_msg);
+
+    return decoded_deps.ValidateDependencies(soa.Self(),
+                                             new_class_loader,
+                                             std::vector<const DexFile*>(),
+                                             error_msg);
   }
 
   std::unique_ptr<verifier::VerifierDeps> verifier_deps_;
