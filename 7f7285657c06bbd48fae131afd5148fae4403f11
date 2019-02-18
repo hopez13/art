@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "605fc948_227c47f5",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-02-18T11:37:27Z",
+      "side": 1,
+      "message": "Yes, there is no reliable way to go back one instruction for variable sized instructions.\nSo heuristically subtracting 1 (the smallest instruction size) seems \"reasonable\" from libunwind.",
+      "parentUuid": "a8f2bb47_e146f6aa",
+      "range": {
+        "startLine": 304,
+        "startChar": 62,
+        "endLine": 304,
+        "endChar": 73
+      },
+      "revId": "7f7285657c06bbd48fae131afd5148fae4403f11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b0d047e5_0b0b9c7d",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 2
