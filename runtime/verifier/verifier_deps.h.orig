@@ -66,15 +66,10 @@ class VerifierDeps {
   // same set of dex files.
   void MergeWith(std::unique_ptr<VerifierDeps> other, const std::vector<const DexFile*>& dex_files);
 
-  // Record the verification status of the class defined in `class_def`.
+  // Record the verification status of the class at `type_idx`.
   static void MaybeRecordVerificationStatus(const DexFile& dex_file,
                                             const dex::ClassDef& class_def,
                                             FailureKind failure_kind)
-      REQUIRES(!Locks::verifier_deps_lock_);
-
-  // Record that class defined in `class_def` was not verified because it redefines
-  // a class with the same descriptor which takes precedence in class resolution.
-  static void MaybeRecordClassRedefinition(const DexFile& dex_file, const dex::ClassDef& class_def)
       REQUIRES(!Locks::verifier_deps_lock_);
 
   // Record the outcome `klass` of resolving type `type_idx` from `dex_file`.
@@ -127,10 +122,6 @@ class VerifierDeps {
 
   const std::vector<bool>& GetVerifiedClasses(const DexFile& dex_file) const {
     return GetDexFileDeps(dex_file)->verified_classes_;
-  }
-
-  const std::vector<bool>& GetRedefinedClasses(const DexFile& dex_file) const {
-    return GetDexFileDeps(dex_file)->redefined_classes_;
   }
 
   bool OutputOnly() const {
@@ -194,9 +185,7 @@ class VerifierDeps {
   // Data structure representing dependencies collected during verification of
   // methods inside one DexFile.
   struct DexFileDeps {
-    explicit DexFileDeps(size_t num_class_defs)
-        : verified_classes_(num_class_defs),
-          redefined_classes_(num_class_defs) {}
+    explicit DexFileDeps(size_t num_class_defs) : verified_classes_(num_class_defs) {}
 
     // Vector of strings which are not present in the corresponding DEX file.
     // These are referred to with ids starting with `NumStringIds()` of that DexFile.
@@ -214,10 +203,6 @@ class VerifierDeps {
 
     // List of classes that were not fully verified in that dex file.
     std::vector<bool> verified_classes_;
-
-    // List of classes that were not verified and were treated as external
-    // because their descriptor resolved into a different dex file.
-    std::vector<bool> redefined_classes_;
 
     bool Equals(const DexFileDeps& rhs) const;
   };
@@ -307,7 +292,6 @@ class VerifierDeps {
   bool VerifyDexFile(Handle<mirror::ClassLoader> class_loader,
                      const DexFile& dex_file,
                      const DexFileDeps& deps,
-                     const std::vector<const DexFile*>& all_dex_files,
                      Thread* self,
                      /* out */ std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -317,13 +301,12 @@ class VerifierDeps {
   // created against SDK stubs and the app redefines a non-public class on
   // boot classpath, or simply if a class is added during an OTA. In such cases,
   // dependencies do not include the dependencies on the presumed-internal class
-  // and verification must fail unless the class was recorded to have been
-  // redefined during dependencies' generation too.
+  // and verification must fail.
+  // TODO(dbrazdil): Encode a set of redefined classes during full verification.
+  // If such class is found to be redefined at runtime, dependencies remain valid.
   bool VerifyInternalClasses(Handle<mirror::ClassLoader> class_loader,
                              const DexFile& dex_file,
                              const std::vector<bool>& verified_classes,
-                             const std::vector<bool>& redefined_classes,
-                             const std::vector<const DexFile*>& all_dex_files,
                              Thread* self,
                              /* out */ std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -367,7 +350,6 @@ class VerifierDeps {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Map from DexFiles into dependencies collected from verification of their methods.
-  // Kept as a vector of pairs to preserve DexFile order.
   std::map<const DexFile*, std::unique_ptr<DexFileDeps>> dex_deps_;
 
   // Output only signifies if we are using the verifier deps to verify or just to generate them.
