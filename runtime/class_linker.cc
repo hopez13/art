@@ -2687,7 +2687,7 @@ bool ClassLinker::FindClassInSharedLibraries(ScopedObjectAccessAlreadyRunnable& 
                                              const char* descriptor,
                                              size_t hash,
                                              Handle<mirror::ClassLoader> class_loader,
-                                             /*out*/ ObjPtr<mirror::Class>* result) {
+                                             /*out*/ FindClassResult* result) {
   ArtField* field =
       jni::DecodeArtField(WellKnownClasses::dalvik_system_BaseDexClassLoader_sharedLibraryLoaders);
   ObjPtr<mirror::Object> raw_shared_libraries = field->GetObject(class_loader.Get());
@@ -2701,10 +2701,16 @@ bool ClassLinker::FindClassInSharedLibraries(ScopedObjectAccessAlreadyRunnable& 
   MutableHandle<mirror::ClassLoader> temp_loader = hs.NewHandle<mirror::ClassLoader>(nullptr);
   for (int32_t i = 0; i < shared_libraries->GetLength(); ++i) {
     temp_loader.Assign(shared_libraries->Get(i));
-    if (!FindClassInBaseDexClassLoader(soa, self, descriptor, hash, temp_loader, result)) {
+    if (!FindClassInBaseDexClassLoader(soa,
+                                       self,
+                                       descriptor,
+                                       hash,
+                                       temp_loader,
+                                       /* stop_at_dex_files= */ nullptr,
+                                       result)) {
       return false;  // One of the shared libraries is not supported.
     }
-    if (*result != nullptr) {
+    if (result->IsValid()) {
       return true;  // Found the class up the chain.
     }
   }
@@ -2717,9 +2723,52 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
                                                 size_t hash,
                                                 Handle<mirror::ClassLoader> class_loader,
                                                 /*out*/ ObjPtr<mirror::Class>* result) {
+  FindClassResult raw_result;
+  if (!FindClassInBaseDexClassLoader(soa,
+                                     self,
+                                     descriptor,
+                                     hash,
+                                     class_loader,
+                                     /* stop_at_dex_files= */ nullptr,
+                                     &raw_result)) {
+    return false;
+  }
+  if (raw_result.IsValid()) {
+    ObjPtr<mirror::Class> boot_class = nullptr;
+    if (raw_result.class_loader_ == nullptr) {
+      boot_class = LookupClass(self, descriptor, hash, nullptr);
+    }
+
+    if (boot_class != nullptr) {
+      *result = EnsureResolved(self, descriptor, boot_class);
+    } else {
+      StackHandleScope<1> hs(self);
+      Handle<mirror::ClassLoader> h_loader(hs.NewHandle(raw_result.class_loader_));
+      *result = DefineClass(self,
+                            descriptor,
+                            hash,
+                            h_loader,
+                            *raw_result.dex_file_,
+                            *raw_result.class_def_);
+    }
+    if (*result == nullptr) {
+      CHECK(self->IsExceptionPending()) << descriptor;
+      self->ClearException();
+    }
+  }
+  return true;
+}
+
+bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                                Thread* self,
+                                                const char* descriptor,
+                                                size_t hash,
+                                                Handle<mirror::ClassLoader> class_loader,
+                                                const std::vector<const DexFile*>* stop_at_dex_files,
+                                                /*out*/ FindClassResult* result) {
   // Termination case: boot class loader.
   if (IsBootClassLoader(soa, class_loader.Get())) {
-    *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
+    *result = FindClassInBootClassLoaderClassPath(descriptor, hash);
     return true;
   }
 
@@ -2732,22 +2781,32 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
-    if (!FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result)) {
+    if (!FindClassInBaseDexClassLoader(soa,
+                                       self,
+                                       descriptor,
+                                       hash,
+                                       h_parent,
+                                       /* stop_at_dex_files= */ nullptr,
+                                       result)) {
       return false;  // One of the parents is not supported.
     }
-    if (*result != nullptr) {
+    if (result->IsValid()) {
       return true;  // Found the class up the chain.
     }
 
     if (!FindClassInSharedLibraries(soa, self, descriptor, hash, class_loader, result)) {
       return false;  // One of the shared library loader is not supported.
     }
-    if (*result != nullptr) {
+    if (result->IsValid()) {
       return true;  // Found the class in a shared library.
     }
 
     // Search the current class loader classpath.
-    *result = FindClassInBaseDexClassLoaderClassPath(soa, descriptor, hash, class_loader);
+    *result = FindClassInBaseDexClassLoaderClassPath(soa,
+                                                     descriptor,
+                                                     hash,
+                                                     class_loader,
+                                                     stop_at_dex_files);
     return true;
   }
 
@@ -2757,87 +2816,82 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     //    - shared libraries
     //    - class loader dex files
     //    - parent
-    *result = FindClassInBootClassLoaderClassPath(self, descriptor, hash);
-    if (*result != nullptr) {
+    *result = FindClassInBootClassLoaderClassPath(descriptor, hash);
+    if (result->IsValid()) {
       return true;  // The class is part of the boot class path.
     }
 
     if (!FindClassInSharedLibraries(soa, self, descriptor, hash, class_loader, result)) {
       return false;  // One of the shared library loader is not supported.
     }
-    if (*result != nullptr) {
+    if (result->IsValid()) {
       return true;  // Found the class in a shared library.
     }
 
-    *result = FindClassInBaseDexClassLoaderClassPath(soa, descriptor, hash, class_loader);
-    if (*result != nullptr) {
+    *result = FindClassInBaseDexClassLoaderClassPath(soa,
+                                                     descriptor,
+                                                     hash,
+                                                     class_loader,
+                                                     /* stop_at_dex_files= */ nullptr);
+    if (result->IsValid()) {
       return true;  // Found the class in the current class loader
     }
 
     // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
-    return FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result);
+    return FindClassInBaseDexClassLoader(soa,
+                                         self,
+                                         descriptor,
+                                         hash,
+                                         h_parent,
+                                         /* stop_at_dex_files= */ nullptr,
+                                         result);
   }
 
   // Unsupported class loader.
-  *result = nullptr;
+  *result = FindClassResult();
   return false;
 }
 
 // Finds the class in the boot class loader.
 // If the class is found the method returns the resolved class. Otherwise it returns null.
-ObjPtr<mirror::Class> ClassLinker::FindClassInBootClassLoaderClassPath(Thread* self,
-                                                                       const char* descriptor,
-                                                                       size_t hash) {
-  ObjPtr<mirror::Class> result = nullptr;
+ClassLinker::FindClassResult ClassLinker::FindClassInBootClassLoaderClassPath(
+    const char* descriptor,
+    size_t hash) {
   ClassPathEntry pair = FindInClassPath(descriptor, hash, boot_class_path_);
   if (pair.second != nullptr) {
-    ObjPtr<mirror::Class> klass = LookupClass(self, descriptor, hash, nullptr);
-    if (klass != nullptr) {
-      result = EnsureResolved(self, descriptor, klass);
-    } else {
-      result = DefineClass(self,
-                           descriptor,
-                           hash,
-                           ScopedNullHandle<mirror::ClassLoader>(),
-                           *pair.first,
-                           *pair.second);
-    }
-    if (result == nullptr) {
-      CHECK(self->IsExceptionPending()) << descriptor;
-      self->ClearException();
-    }
+    return FindClassResult(nullptr, *pair.first, *pair.second);
   }
-  return result;
+  return FindClassResult();
 }
 
-ObjPtr<mirror::Class> ClassLinker::FindClassInBaseDexClassLoaderClassPath(
+template<typename T>
+static bool Contains(const std::vector<T>& vec, const T& elem) {
+  return std::find(vec.begin(), vec.end(), elem) != vec.end();
+}
+
+ClassLinker::FindClassResult ClassLinker::FindClassInBaseDexClassLoaderClassPath(
     ScopedObjectAccessAlreadyRunnable& soa,
     const char* descriptor,
     size_t hash,
-    Handle<mirror::ClassLoader> class_loader) {
+    Handle<mirror::ClassLoader> class_loader,
+    const std::vector<const DexFile*>* stop_at_dex_files) {
   DCHECK(IsPathOrDexClassLoader(soa, class_loader) ||
          IsInMemoryDexClassLoader(soa, class_loader) ||
          IsDelegateLastClassLoader(soa, class_loader))
       << "Unexpected class loader for descriptor " << descriptor;
 
-  ObjPtr<mirror::Class> ret;
+  FindClassResult ret;
   auto define_class = [&](const DexFile* cp_dex_file) REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (stop_at_dex_files != nullptr && Contains(*stop_at_dex_files, cp_dex_file)) {
+      // We have encountered one of the dex files in `stop_at_dex_files`. Stop iterating
+      // at this point. This is an optimization for VerifierDeps::VerifyInternalClasses.
+      return false;
+    }
     const dex::ClassDef* dex_class_def = OatDexFile::FindClassDef(*cp_dex_file, descriptor, hash);
     if (dex_class_def != nullptr) {
-      ObjPtr<mirror::Class> klass = DefineClass(soa.Self(),
-                                                descriptor,
-                                                hash,
-                                                class_loader,
-                                                *cp_dex_file,
-                                                *dex_class_def);
-      if (klass == nullptr) {
-        CHECK(soa.Self()->IsExceptionPending()) << descriptor;
-        soa.Self()->ClearException();
-        // TODO: Is it really right to break here, and not check the other dex files?
-      }
-      ret = klass;
+      ret = FindClassResult(class_loader.Get(), *cp_dex_file, *dex_class_def);
       return false;  // Found a Class (or error == nullptr), stop visit.
     }
     return true;  // Continue with the next DexFile.
@@ -2845,6 +2899,41 @@ ObjPtr<mirror::Class> ClassLinker::FindClassInBaseDexClassLoaderClassPath(
 
   VisitClassLoaderDexFiles(soa, class_loader, define_class);
   return ret;
+}
+
+bool ClassLinker::FindClassDexFile(Thread* self,
+                                   const char* descriptor,
+                                   Handle<mirror::ClassLoader> class_loader,
+                                   const std::vector<const DexFile*>& stop_at_dex_files,
+                                   /* out */ const DexFile** result) {
+  DCHECK_NE(*descriptor, '\0') << "Descriptor is empty string";
+  DCHECK_EQ(descriptor[0], 'L') << "Primitive and array classes not supported: " << descriptor;
+  DCHECK(self != nullptr);
+  self->AssertNoPendingException();
+  const size_t hash = ComputeModifiedUtf8Hash(descriptor);
+
+  // Find the class in the loaded classes table.
+  ObjPtr<mirror::Class> klass = LookupClass(self, descriptor, hash, class_loader.Get());
+  if (klass != nullptr) {
+    *result = &klass->GetDexFile();
+    return true;
+  }
+
+  // Search the class hierarchy.
+  FindClassResult lookup_result;
+  ScopedObjectAccessUnchecked soa(self);
+  if (!FindClassInBaseDexClassLoader(soa,
+                                     self,
+                                     descriptor,
+                                     hash,
+                                     class_loader,
+                                     &stop_at_dex_files,
+                                     &lookup_result)) {
+    return false;
+  }
+
+  *result = lookup_result.dex_file_;
+  return true;
 }
 
 ObjPtr<mirror::Class> ClassLinker::FindClass(Thread* self,
