@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8f2bb47_e146f6aa",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-18T09:35:11Z",
+      "side": 1,
+      "message": "Doesn\u0027t it subtract 1 on x86, no matter the instruction size?",
+      "range": {
+        "startLine": 304,
+        "startChar": 62,
+        "endLine": 304,
+        "endChar": 73
+      },
+      "revId": "7f7285657c06bbd48fae131afd5148fae4403f11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0d047e5_0b0b9c7d",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-18T09:35:11Z",
+      "side": 1,
+      "message": "The instruction length on x86 is up to 15 bytes, right? So this does not match the comment above.",
+      "range": {
+        "startLine": 306,
+        "startChar": 75,
+        "endLine": 306,
+        "endChar": 76
+      },
+      "revId": "7f7285657c06bbd48fae131afd5148fae4403f11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
