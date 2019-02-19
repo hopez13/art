@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e98c1c_1e8d2d06",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T21:33:36Z",
+      "side": 1,
+      "message": "Uhm, this could lead to an ODR violation with libartd-compiler?",
+      "range": {
+        "startLine": 447,
+        "startChar": 4,
+        "endLine": 449,
+        "endChar": 6
+      },
+      "revId": "94ba32c36c0c72148eff99462401d710d7813923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a1904ca_f59e049c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T21:33:36Z",
+      "side": 1,
+      "message": "Sort.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "94ba32c36c0c72148eff99462401d710d7813923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a87a3364_f872c98c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T21:33:36Z",
+      "side": 1,
+      "message": "Sort.",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "94ba32c36c0c72148eff99462401d710d7813923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
