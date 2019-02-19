@@ -23,6 +23,7 @@
 #include <android-base/logging.h>
 
 #include "base/bit_utils.h"
+#include "base/macros.h"
 #include "dex/method_reference.h"
 
 namespace art {
@@ -271,7 +272,8 @@ class LinkerPatch {
   friend bool operator==(const LinkerPatch& lhs, const LinkerPatch& rhs);
   friend bool operator<(const LinkerPatch& lhs, const LinkerPatch& rhs);
 };
-std::ostream& operator<<(std::ostream& os, const LinkerPatch::Type& type);
+std::ostream& operator<<(std::ostream& os, const LinkerPatch::Type& type)
+    DEFINED_IN(LIBART_COMPILER);
 
 inline bool operator==(const LinkerPatch& lhs, const LinkerPatch& rhs) {
   return lhs.literal_offset_ == rhs.literal_offset_ &&

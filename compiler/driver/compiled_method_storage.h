@@ -68,7 +68,8 @@ class CompiledMethodStorage {
   // If the code has not been set, returns empty data.
   // If `debug_name` is not null, stores the associated debug name in `*debug_name`.
   ArrayRef<const uint8_t> GetThunkCode(const linker::LinkerPatch& linker_patch,
-                                       /*out*/ std::string* debug_name = nullptr);
+                                       /*out*/ std::string* debug_name = nullptr)
+      DEFINED_IN(LIBART_COMPILER);
 
   // Sets the code and debug name associated with the given patch.
   void SetThunkCode(const linker::LinkerPatch& linker_patch,

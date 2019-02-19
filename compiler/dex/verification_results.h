@@ -41,8 +41,8 @@ class VerifiedMethod;
 // Used by CompilerCallbacks to track verification information from the Runtime.
 class VerificationResults {
  public:
-  explicit VerificationResults(const CompilerOptions* compiler_options);
-  ~VerificationResults();
+  explicit VerificationResults(const CompilerOptions* compiler_options) DEFINED_IN(LIBART_COMPILER);
+  ~VerificationResults() DEFINED_IN(LIBART_COMPILER);
 
   void ProcessVerifiedMethod(verifier::MethodVerifier* method_verifier)
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -55,12 +55,14 @@ class VerificationResults {
       REQUIRES(!verified_methods_lock_);
 
   void AddRejectedClass(ClassReference ref) REQUIRES(!rejected_classes_lock_);
-  bool IsClassRejected(ClassReference ref) const REQUIRES(!rejected_classes_lock_);
+  bool IsClassRejected(ClassReference ref) const REQUIRES(!rejected_classes_lock_)
+      DEFINED_IN(LIBART_COMPILER);
 
   bool IsCandidateForCompilation(MethodReference& method_ref, const uint32_t access_flags) const;
 
   // Add a dex file to enable using the atomic map.
-  void AddDexFile(const DexFile* dex_file) REQUIRES(!verified_methods_lock_);
+  void AddDexFile(const DexFile* dex_file) REQUIRES(!verified_methods_lock_)
+      DEFINED_IN(LIBART_COMPILER);
 
  private:
   // Verified methods. The method array is fixed to avoid needing a lock to extend it.

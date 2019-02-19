@@ -30,7 +30,7 @@ enum Whence {
   kSeekCurrent = SEEK_CUR,
   kSeekEnd = SEEK_END,
 };
-std::ostream& operator<<(std::ostream& os, const Whence& rhs);
+std::ostream& operator<<(std::ostream& os, const Whence& rhs) DEFINED_IN(LIBART_COMPILER);
 
 class OutputStream {
  public:

@@ -19,6 +19,7 @@
 
 #include "base/bit_field.h"
 #include "base/bit_utils.h"
+#include "base/macros.h"
 #include "base/mutex.h"
 
 namespace art {
@@ -57,7 +58,7 @@ class IntrinsicObjects {
 
   static ObjPtr<mirror::ObjectArray<mirror::Object>> AllocateBootImageLiveObjects(
       Thread* self,
-      ClassLinker* class_linker) REQUIRES_SHARED(Locks::mutator_lock_);
+      ClassLinker* class_linker) REQUIRES_SHARED(Locks::mutator_lock_) DEFINED_IN(LIBART_COMPILER);
 
   // Functions for retrieving data for Integer.valueOf().
   static ObjPtr<mirror::ObjectArray<mirror::Object>> GetIntegerValueOfCache(
@@ -65,10 +66,10 @@ class IntrinsicObjects {
       REQUIRES_SHARED(Locks::mutator_lock_);
   static ObjPtr<mirror::Object> GetIntegerValueOfObject(
       ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects,
-      uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_);
+      uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) DEFINED_IN(LIBART_COMPILER);
   static MemberOffset GetIntegerValueOfArrayDataOffset(
       ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) DEFINED_IN(LIBART_COMPILER);
 
  private:
   static constexpr size_t kPatchTypeBits =

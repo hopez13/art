@@ -115,7 +115,7 @@ void JitCompiler::ParseCompilerOptions() {
   }
 }
 
-extern "C" void* jit_load() {
+extern "C" DEFINED_IN(LIBART_COMPILER) void* jit_load() {
   VLOG(jit) << "Create jit compiler";
   auto* const jit_compiler = JitCompiler::Create();
   CHECK(jit_compiler != nullptr);
@@ -123,12 +123,12 @@ extern "C" void* jit_load() {
   return jit_compiler;
 }
 
-extern "C" void jit_unload(void* handle) {
+extern "C" DEFINED_IN(LIBART_COMPILER) void jit_unload(void* handle) {
   DCHECK(handle != nullptr);
   delete reinterpret_cast<JitCompiler*>(handle);
 }
 
-extern "C" bool jit_compile_method(
+extern "C" DEFINED_IN(LIBART_COMPILER) bool jit_compile_method(
     void* handle, ArtMethod* method, Thread* self, bool baseline, bool osr)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   auto* jit_compiler = reinterpret_cast<JitCompiler*>(handle);
@@ -136,7 +136,8 @@ extern "C" bool jit_compile_method(
   return jit_compiler->CompileMethod(self, method, baseline, osr);
 }
 
-extern "C" void jit_types_loaded(void* handle, mirror::Class** types, size_t count)
+extern "C" DEFINED_IN(LIBART_COMPILER) void jit_types_loaded(
+    void* handle, mirror::Class** types, size_t count)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   auto* jit_compiler = reinterpret_cast<JitCompiler*>(handle);
   DCHECK(jit_compiler != nullptr);
@@ -156,13 +157,13 @@ extern "C" void jit_types_loaded(void* handle, mirror::Class** types, size_t cou
   }
 }
 
-extern "C" void jit_update_options(void* handle) {
+extern "C" DEFINED_IN(LIBART_COMPILER) void jit_update_options(void* handle) {
   JitCompiler* jit_compiler = reinterpret_cast<JitCompiler*>(handle);
   DCHECK(jit_compiler != nullptr);
   jit_compiler->ParseCompilerOptions();
 }
 
-extern "C" bool jit_generate_debug_info(void* handle) {
+extern "C" DEFINED_IN(LIBART_COMPILER) bool jit_generate_debug_info(void* handle) {
   JitCompiler* jit_compiler = reinterpret_cast<JitCompiler*>(handle);
   DCHECK(jit_compiler != nullptr);
   return jit_compiler->GetCompilerOptions().GetGenerateDebugInfo();

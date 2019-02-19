@@ -28,6 +28,7 @@
 #include "base/array_ref.h"
 #include "base/bit_utils.h"
 #include "base/hash_set.h"
+#include "base/macros.h"
 #include "base/mutex.h"
 #include "base/os.h"
 #include "base/quasi_atomic.h"
@@ -90,7 +91,7 @@ enum EntryPointCallingConvention {
   kQuickAbi
 };
 
-class CompilerDriver {
+class DEFINED_IN(LIBART_COMPILER) CompilerDriver {
  public:
   // Create a compiler targeting the requested "instruction_set".
   // "image" should be true if image specific optimizations should be

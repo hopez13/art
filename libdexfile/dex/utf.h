@@ -30,7 +30,7 @@
  *
  * See http://en.wikipedia.org/wiki/UTF-8#Modified_UTF-8 for the details.
  */
-namespace art {
+namespace art DEFINED_IN(LIBARTBASE) {
 
 /*
  * Returns the number of UTF-16 characters in the given modified UTF-8 string.

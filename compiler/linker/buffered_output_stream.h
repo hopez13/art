@@ -19,16 +19,16 @@
 
 #include <memory>
 
-#include "output_stream.h"
-
 #include "base/globals.h"
+#include "base/macros.h"
+#include "output_stream.h"
 
 namespace art {
 namespace linker {
 
-class BufferedOutputStream final : public OutputStream {
+class DEFINED_IN(LIBART_COMPILER) BufferedOutputStream final : public OutputStream {
  public:
-  explicit BufferedOutputStream(std::unique_ptr<OutputStream> out);
+  explicit BufferedOutputStream(std::unique_ptr<OutputStream> out) DEFINED_IN(LIBART_COMPILER);
 
   ~BufferedOutputStream() override;
 

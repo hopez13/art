@@ -24,6 +24,7 @@
 #include "arch/instruction_set.h"
 #include "base/bit_field.h"
 #include "base/bit_utils.h"
+#include "base/macros.h"
 
 namespace art {
 
@@ -55,13 +56,14 @@ class CompiledCode {
   // To align an offset from a page-aligned value to make it suitable
   // for code storage. For example on ARM, to ensure that PC relative
   // valu computations work out as expected.
-  size_t AlignCode(size_t offset) const;
-  static size_t AlignCode(size_t offset, InstructionSet instruction_set);
+  size_t AlignCode(size_t offset) const DEFINED_IN(LIBART_COMPILER);
+  static size_t AlignCode(size_t offset, InstructionSet instruction_set)
+      DEFINED_IN(LIBART_COMPILER);
 
   // returns the difference between the code address and a usable PC.
   // mainly to cope with kThumb2 where the lower bit must be set.
-  size_t CodeDelta() const;
-  static size_t CodeDelta(InstructionSet instruction_set);
+  size_t CodeDelta() const DEFINED_IN(LIBART_COMPILER);
+  static size_t CodeDelta(InstructionSet instruction_set) DEFINED_IN(LIBART_COMPILER);
 
   // Returns a pointer suitable for invoking the code at the argument
   // code_pointer address.  Mainly to cope with kThumb2 where the

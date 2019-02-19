@@ -17,16 +17,16 @@
 #ifndef ART_COMPILER_LINKER_FILE_OUTPUT_STREAM_H_
 #define ART_COMPILER_LINKER_FILE_OUTPUT_STREAM_H_
 
+#include "base/macros.h"
 #include "base/os.h"
-
 #include "output_stream.h"
 
 namespace art {
 namespace linker {
 
-class FileOutputStream final : public OutputStream {
+class DEFINED_IN(LIBART_COMPILER) FileOutputStream final : public OutputStream {
  public:
-  explicit FileOutputStream(File* file);
+  explicit FileOutputStream(File* file) DEFINED_IN(LIBART_COMPILER);
 
   ~FileOutputStream() override {}
 

@@ -38,6 +38,12 @@ template <typename ElfTypes>
 void WriteDebugInfo(
     linker::ElfBuilder<ElfTypes>* builder,
     const DebugInfo& debug_info);
+extern template DEFINED_IN(LIBART_COMPILER) void WriteDebugInfo<ElfTypes32>(
+    linker::ElfBuilder<ElfTypes32>* builder,
+    const DebugInfo& debug_info);
+extern template DEFINED_IN(LIBART_COMPILER) void WriteDebugInfo<ElfTypes64>(
+    linker::ElfBuilder<ElfTypes64>* builder,
+    const DebugInfo& debug_info);
 
 std::vector<uint8_t> MakeMiniDebugInfo(
     InstructionSet isa,
@@ -46,7 +52,7 @@ std::vector<uint8_t> MakeMiniDebugInfo(
     size_t text_section_size,
     uint64_t dex_section_address,
     size_t dex_section_size,
-    const DebugInfo& debug_info);
+    const DebugInfo& debug_info) DEFINED_IN(LIBART_COMPILER);
 
 std::vector<uint8_t> MakeElfFileForJIT(
     InstructionSet isa,

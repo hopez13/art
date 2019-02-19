@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_DEX_QUICK_COMPILER_CALLBACKS_H_
 #define ART_COMPILER_DEX_QUICK_COMPILER_CALLBACKS_H_
 
+#include "base/macros.h"
 #include "compiler_callbacks.h"
 #include "verifier/verifier_deps.h"
 
@@ -26,7 +27,7 @@ class CompilerDriver;
 class DexFile;
 class VerificationResults;
 
-class QuickCompilerCallbacks final : public CompilerCallbacks {
+class DEFINED_IN(LIBART_COMPILER) QuickCompilerCallbacks final : public CompilerCallbacks {
  public:
   explicit QuickCompilerCallbacks(CompilerCallbacks::CallbackMode mode)
       : CompilerCallbacks(mode), dex_files_(nullptr) {}

@@ -37,6 +37,10 @@ cc_defaults {
         "dex/type_lookup_table.cc",
         "dex/utf.cc",
     ],
+    cflags: [
+        "-fvisibility=protected",
+        "-DBUILDING_LIBDEXFILE=1",
+    ],
 
     target: {
         android: {

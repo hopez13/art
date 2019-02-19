@@ -102,4 +102,36 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define LOCKABLE CAPABILITY("mutex")
 #define SHARED_LOCKABLE SHARED_CAPABILITY("mutex")
 
+#ifdef BUILDING_LIBARTBASE
+#define DEFINED_IN_LIBARTBASE __attribute__((visibility("protected")))
+#else
+#define DEFINED_IN_LIBARTBASE __attribute__((visibility("default")))
+#endif
+
+#ifdef BUILDING_LIBART
+#define DEFINED_IN_LIBART __attribute__((visibility("protected")))
+#else
+#define DEFINED_IN_LIBART __attribute__((visibility("default")))
+#endif
+
+#ifdef BUILDING_LIBART_COMPILER
+#define DEFINED_IN_LIBART_COMPILER __attribute__((visibility("protected")))
+#else
+#define DEFINED_IN_LIBART_COMPILER __attribute__((visibility("default")))
+#endif
+
+#ifdef BUILDING_LIBDEXFILE
+#define DEFINED_IN_LIBDEXFILE __attribute__((visibility("protected")))
+#else
+#define DEFINED_IN_LIBDEXFILE __attribute__((visibility("default")))
+#endif
+
+#ifdef BUILDING_LIBPROFILE
+#define DEFINED_IN_LIBPROFILE __attribute__((visibility("protected")))
+#else
+#define DEFINED_IN_LIBPROFILE __attribute__((visibility("default")))
+#endif
+
+#define DEFINED_IN(module) DEFINED_IN_##module
+
 #endif  // ART_LIBARTBASE_BASE_MACROS_H_

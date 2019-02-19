@@ -246,6 +246,10 @@ art_cc_binary {
     static_libs: [
         "libart-dex2oat",
     ],
+    cflags: [
+        "-fvisibility=hidden",
+        "-DBUILDING_LIBART_DEX2OAT=1",
+    ],
 
     pgo: {
         // Additional cflags just for dex2oat during PGO instrumentation

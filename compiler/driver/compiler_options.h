@@ -77,8 +77,8 @@ class CompilerOptions final {
     kAppImage,            // Creating app image.
   };
 
-  CompilerOptions();
-  ~CompilerOptions();
+  CompilerOptions() DEFINED_IN(LIBART_COMPILER);
+  ~CompilerOptions() DEFINED_IN(LIBART_COMPILER);
 
   CompilerFilter::Filter GetCompilerFilter() const {
     return compiler_filter_;
@@ -283,9 +283,9 @@ class CompilerOptions final {
     return image_classes_;
   }
 
-  bool IsImageClass(const char* descriptor) const;
+  bool IsImageClass(const char* descriptor) const DEFINED_IN(LIBART_COMPILER);
 
-  const VerificationResults* GetVerificationResults() const;
+  const VerificationResults* GetVerificationResults() const DEFINED_IN(LIBART_COMPILER);
 
   const VerifiedMethod* GetVerifiedMethod(const DexFile* dex_file, uint32_t method_idx) const;
 
@@ -360,8 +360,10 @@ class CompilerOptions final {
   }
 
  private:
-  bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
-  bool ParseRegisterAllocationStrategy(const std::string& option, std::string* error_msg);
+  bool ParseDumpInitFailures(const std::string& option, std::string* error_msg)
+      DEFINED_IN(LIBART_COMPILER);
+  bool ParseRegisterAllocationStrategy(const std::string& option, std::string* error_msg)
+      DEFINED_IN(LIBART_COMPILER);
 
   CompilerFilter::Filter compiler_filter_;
   size_t huge_method_threshold_;

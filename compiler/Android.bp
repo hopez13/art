@@ -180,6 +180,10 @@ art_cc_defaults {
         },
     },
     generated_sources: ["art_compiler_operator_srcs"],
+    cflags: [
+        "-fvisibility=hidden",
+        "-DBUILDING_LIBART_COMPILER=1",
+    ],
     shared_libs: [
         "libbase",
     ],

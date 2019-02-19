@@ -90,7 +90,6 @@ art_global_defaults {
         "-Wredundant-decls",
         "-Wshadow",
         "-Wunused",
-        "-fvisibility=protected",
 
         // Warn about thread safety violations with clang.
         "-Wthread-safety",
