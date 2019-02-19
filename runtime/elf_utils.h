@@ -17,14 +17,47 @@
 #ifndef ART_RUNTIME_ELF_UTILS_H_
 #define ART_RUNTIME_ELF_UTILS_H_
 
+#include <elf.h>
 #include <sys/cdefs.h>
 
 #include <android-base/logging.h>
 
-// Explicitly include our own elf.h to avoid Linux and other dependencies.
-#include "./elf.h"
-
 namespace art {
+
+struct ElfTypes32 {
+  typedef Elf32_Addr Addr;
+  typedef Elf32_Off Off;
+  typedef Elf32_Half Half;
+  typedef Elf32_Word Word;
+  typedef Elf32_Sword Sword;
+  typedef Elf32_Ehdr Ehdr;
+  typedef Elf32_Shdr Shdr;
+  typedef Elf32_Sym Sym;
+  typedef Elf32_Rel Rel;
+  typedef Elf32_Rela Rela;
+  typedef Elf32_Phdr Phdr;
+  typedef Elf32_Dyn Dyn;
+};
+
+struct ElfTypes64 {
+  typedef Elf64_Addr Addr;
+  typedef Elf64_Off Off;
+  typedef Elf64_Half Half;
+  typedef Elf64_Word Word;
+  typedef Elf64_Sword Sword;
+  typedef Elf64_Xword Xword;
+  typedef Elf64_Sxword Sxword;
+  typedef Elf64_Ehdr Ehdr;
+  typedef Elf64_Shdr Shdr;
+  typedef Elf64_Sym Sym;
+  typedef Elf64_Rel Rel;
+  typedef Elf64_Rela Rela;
+  typedef Elf64_Phdr Phdr;
+  typedef Elf64_Dyn Dyn;
+};
+
+#define ELF_ST_BIND(x) ((x) >> 4)
+#define ELF_ST_TYPE(x) ((x) & 0xf)
 
 // Architecture dependent flags for the ELF header.
 #define EF_ARM_EABI_VER5 0x05000000
@@ -32,12 +65,13 @@ namespace art {
 #define EF_MIPS_ARCH_32R2 0x70000000
 #define EF_MIPS_ARCH_32R6 0x90000000
 #define EF_MIPS_ARCH_64R6 0xa0000000
+#define SHT_MIPS_ABIFLAGS 0x7000002a
+#define PT_MIPS_ABIFLAGS 0x70000003
+
 
 #define EI_ABIVERSION 8
 #define EM_ARM 40
 #define EF_MIPS_NOREORDER 1
-#define EF_MIPS_PIC 2
-#define EF_MIPS_CPIC 4
 #define STV_DEFAULT 0
 
 #define EM_AARCH64 183

@@ -17,13 +17,13 @@
 #ifndef ART_RUNTIME_ELF_FILE_H_
 #define ART_RUNTIME_ELF_FILE_H_
 
+#include <elf.h>
 #include <memory>
 #include <string>
 
 #include "base/macros.h"
 #include "base/os.h"
-// Explicitly include our own elf.h to avoid Linux and other dependencies.
-#include "./elf.h"
+#include "elf_utils.h"
 
 namespace art {
 

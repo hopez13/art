@@ -16,6 +16,7 @@
 
 #include "elf_debug_writer.h"
 
+#include <elf.h>
 #include <type_traits>
 #include <unordered_map>
 #include <vector>
@@ -32,7 +33,6 @@
 #include "debug/elf_symtab_writer.h"
 #include "debug/method_debug_info.h"
 #include "debug/xz_utils.h"
-#include "elf.h"
 #include "linker/elf_builder.h"
 #include "linker/vector_output_stream.h"
 #include "oat.h"

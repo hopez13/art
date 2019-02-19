@@ -16,8 +16,9 @@
 
 #include "elf_writer_quick.h"
 
-#include <openssl/sha.h>
+#include <elf.h>
 #include <memory>
+#include <openssl/sha.h>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -31,7 +32,6 @@
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "driver/compiler_options.h"
-#include "elf.h"
 #include "elf_utils.h"
 #include "linker/buffered_output_stream.h"
 #include "linker/elf_builder.h"

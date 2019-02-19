@@ -17,13 +17,12 @@
 #ifndef ART_RUNTIME_ELF_FILE_IMPL_H_
 #define ART_RUNTIME_ELF_FILE_IMPL_H_
 
+#include <elf.h>
 #include <map>
 #include <memory>
 #include <type_traits>
 #include <vector>
 
-// Explicitly include our own elf.h to avoid Linux and other dependencies.
-#include "./elf.h"
 #include "base/mem_map.h"
 
 namespace art {
