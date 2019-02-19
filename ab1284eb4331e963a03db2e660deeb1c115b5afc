@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3eaaa30_ff4be358",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:09:21Z",
+      "side": 1,
+      "message": "Is there a reason this is defined here? From a cursory glance, everything it calls is or could be public, and there\u0027s one user, so move it there, maybe?",
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440ca0bd_af2ee265",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:09:21Z",
+      "side": 1,
+      "message": "Missing DCHECK.",
+      "range": {
+        "startLine": 167,
+        "startChar": 5,
+        "endLine": 167,
+        "endChar": 56
+      },
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f555477b_a4679e1c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:09:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this isn\u0027t consistent with the other functions and returns a FindClassResult.",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 6
+      },
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fca67d16_2de50e81",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:09:21Z",
+      "side": 1,
+      "message": "Yuck.",
+      "range": {
+        "startLine": 172,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 77
+      },
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "881ef714_d358a12c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:09:21Z",
+      "side": 1,
+      "message": "Needs a statement in the commit message about runtime performance. You can\u0027t return your struct in a register (while it\u0027s possible with ObjPtr, which fits into two).",
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
