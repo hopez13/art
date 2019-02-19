@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fb42f7a0_97e023e2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-19T17:05:02Z",
+      "side": 1,
+      "message": "\"JIT is\"",
+      "range": {
+        "startLine": 592,
+        "startChar": 16,
+        "endLine": 592,
+        "endChar": 20
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8bfad9b_d0eba53d",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -35,6 +58,52 @@
         "startChar": 2,
         "endLine": 635,
         "endChar": 75
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f532559_6f7fac81",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-19T17:05:02Z",
+      "side": 1,
+      "message": "CHECK(dex_cache !\u003d nullptr) \u003c\u003c ...",
+      "range": {
+        "startLine": 694,
+        "startChar": 4,
+        "endLine": 694,
+        "endChar": 29
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad105f1e_5d92bb60",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-19T17:05:02Z",
+      "side": 1,
+      "message": "This looks unrelated.",
+      "range": {
+        "startLine": 290,
+        "startChar": 58,
+        "endLine": 290,
+        "endChar": 74
       },
       "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
