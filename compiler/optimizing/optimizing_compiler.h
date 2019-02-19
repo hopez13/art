@@ -24,10 +24,12 @@ namespace art {
 
 class ArtMethod;
 class Compiler;
-class CompilerDriver;
+class CompilerOptions;
+class CompiledMethodStorage;
 class DexFile;
 
-Compiler* CreateOptimizingCompiler(CompilerDriver* driver);
+Compiler* CreateOptimizingCompiler(const CompilerOptions& compiler_options,
+                                   CompiledMethodStorage* storage);
 
 bool EncodeArtMethodInInlineInfo(ArtMethod* method);
 
