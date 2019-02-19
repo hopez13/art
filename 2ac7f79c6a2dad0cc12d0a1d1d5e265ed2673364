@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b01f2a66_9e8ad232",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-19T18:15:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3bf06b78_dcd2b998",
+      "range": {
+        "startLine": 592,
+        "startChar": 16,
+        "endLine": 592,
+        "endChar": 20
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8bfad9b_d0eba53d",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -237,6 +261,30 @@
       "side": 1,
       "message": "It\u0027s an optimization to be able to pick up the newly compiled system server .odex file in /data, but non-executable. Would you prefer a standalone CL for this?",
       "parentUuid": "ad105f1e_5d92bb60",
+      "range": {
+        "startLine": 290,
+        "startChar": 58,
+        "endLine": 290,
+        "endChar": 74
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f130f5d_782b383d",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-19T18:15:41Z",
+      "side": 1,
+      "message": "Your description does not match the function names around here, such as SetOnlyUseSystemOatFiles(). I would not expect that to allow using .odex from /data even as non-executable.",
+      "parentUuid": "67c0a5a2_8ea1a9d6",
       "range": {
         "startLine": 290,
         "startChar": 58,
