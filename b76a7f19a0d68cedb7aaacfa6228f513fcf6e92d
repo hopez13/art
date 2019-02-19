@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "2bd99a77_69e8585d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-19T19:20:04Z",
+      "side": 1,
+      "message": "Can you add some comments about the consequences of recording it (and mention the subtlety of redefined within or outside the apk).",
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cd6ec51_bda29056",
         "filename": "compiler/verifier_deps_test.cc",
         "patchSetId": 4
@@ -88,6 +105,29 @@
     },
     {
       "key": {
+        "uuid": "e3df02e4_240f6934",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-19T19:20:04Z",
+      "side": 1,
+      "message": "Please add a comment how the encoding looks like.",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 3
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e469af4_4e728ba6",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 4
@@ -104,6 +144,29 @@
         "startChar": 28,
         "endLine": 215,
         "endChar": 51
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7154085c_7f556866",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-19T19:20:04Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 215,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 69
       },
       "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
