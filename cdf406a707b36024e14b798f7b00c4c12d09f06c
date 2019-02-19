@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "254deef2_d1407ea1",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-19T13:36:42Z",
+      "side": 1,
+      "message": "At least a comment on the expected ending.\n\nEntirely subjective, but could combine both:\n\n-name \u0027*_test*\u0027 \\! -name \u0027*.so\u0027.",
+      "parentUuid": "d028ef9d_0f6775b3",
+      "range": {
+        "startLine": 24,
+        "startChar": 113,
+        "endLine": 24,
+        "endChar": 127
+      },
+      "revId": "cdf406a707b36024e14b798f7b00c4c12d09f06c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f72258c_ecdd00d2",
         "filename": "tools/run-gtests.sh",
         "patchSetId": 6
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, but left in place intentionally. I think it\u0027s useful and worth the extra line per test.",
       "parentUuid": "4f72258c_ecdd00d2",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "cdf406a707b36024e14b798f7b00c4c12d09f06c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfcf2f7d_33a4f179",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-19T13:36:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1bfd8d08_6d51c067",
       "range": {
         "startLine": 35,
         "startChar": 2,
