@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "dcb538b2_d9f2119a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T18:05:07Z",
+      "side": 1,
+      "message": "We don\u0027t have any --zygote testing in run-tests atm (old bug, still open). Not sure that it works, at all. That\u0027s why I was contemplating whether something orthogonal makes it easier to test (though I guess you\u0027d also have to fix up a profile for the core images to make this in any way functional). Your choice.",
+      "parentUuid": "fb0ca7e2_2f5da87f",
+      "range": {
+        "startLine": 635,
+        "startChar": 2,
+        "endLine": 635,
+        "endChar": 75
+      },
+      "revId": "2ac7f79c6a2dad0cc12d0a1d1d5e265ed2673364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9f532559_6f7fac81",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
