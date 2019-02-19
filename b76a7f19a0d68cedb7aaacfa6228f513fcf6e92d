@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2aaac7_5de30381",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:14:02Z",
+      "side": 1,
+      "message": "Is this true? The code looks like it was inverted - which is also reflected by the name change.",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256e1870_3b65e8b8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1802,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:14:02Z",
+      "side": 1,
+      "message": "Stale comment.",
+      "range": {
+        "startLine": 1802,
+        "startChar": 25,
+        "endLine": 1802,
+        "endChar": 35
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd6ec51_bda29056",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:14:02Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense.",
+      "range": {
+        "startLine": 449,
+        "startChar": 10,
+        "endLine": 451,
+        "endChar": 32
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "653c64d3_4580232e",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:14:02Z",
+      "side": 1,
+      "message": "Please don\u0027t add here. This file is transitively included almost everywhere, so you increase compile-time for a single user.",
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e469af4_4e728ba6",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-19T19:14:02Z",
+      "side": 1,
+      "message": "Stale?",
+      "range": {
+        "startLine": 215,
+        "startChar": 28,
+        "endLine": 215,
+        "endChar": 51
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
