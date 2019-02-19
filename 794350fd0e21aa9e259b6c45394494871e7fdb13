@@ -16,6 +16,24 @@
       "revId": "794350fd0e21aa9e259b6c45394494871e7fdb13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40a4ce61_d06208d8",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-19T18:00:03Z",
+      "side": 0,
+      "message": "I noticed this while debugging with --verbose:oat. Ditto, do you prefer a standalone CL?",
+      "parentUuid": "03a4385e_e89e56f8",
+      "revId": "794350fd0e21aa9e259b6c45394494871e7fdb13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
