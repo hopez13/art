@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "097708fb_0f0ecac6",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-19T19:30:10Z",
+      "side": 1,
+      "message": "Please also add this in ld.config.legacy.txt, ld.config.vndk_lite.txt, and art/build/apex/ld.config.txt.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 58
+      },
+      "revId": "6686f3cbcd00e949978d5404ef49f4e331604a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
