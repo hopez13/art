@@ -22,6 +22,30 @@
       "revId": "5104c33ff5498db1a9242183c98bb8591bb7fa15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa62b7d_250aa09e",
+        "filename": "test/580-fp16/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2019-02-19T17:47:33Z",
+      "side": 1,
+      "message": "Thanks Hans. I think it is a good idea.\nI have tested toHalf(toFloat(x)) function, and I have espectially considered four different cases:\n  1) NaN values.\n  2) Demornal values.\n  3) Rounding cases.\n  4) All other values.\nI found except for NaN handling, it is an identity function: toHalf(toFloat(x)) \u003d\u003d x. \nAgain, thanks to its 16-bits, it is actually very fast to check all input values for toHalf(toFloat(x)) \u003d\u003d x; and I have simplified the tests with this method like you suggested.",
+      "parentUuid": "69dde734_91a4b28c",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "5104c33ff5498db1a9242183c98bb8591bb7fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
