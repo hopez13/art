@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d028ef9d_0f6775b3",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-19T11:35:06Z",
+      "side": 1,
+      "message": "I think that\u0027s too permissive - consider \"libsomething_test.so\".\n\nSince find on the device doesn\u0027t support -regex, afaics the only alternative to this is \"\\( -name \\*_test -o -name \\*_tests \\)\". Do you think that\u0027s better?",
+      "parentUuid": "bc310804_99d225e0",
+      "range": {
+        "startLine": 24,
+        "startChar": 113,
+        "endLine": 24,
+        "endChar": 127
+      },
+      "revId": "cdf406a707b36024e14b798f7b00c4c12d09f06c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f72258c_ecdd00d2",
         "filename": "tools/run-gtests.sh",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "cdf406a707b36024e14b798f7b00c4c12d09f06c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bfd8d08_6d51c067",
+        "filename": "tools/run-gtests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-02-19T11:35:06Z",
+      "side": 1,
+      "message": "Yes, but left in place intentionally. I think it\u0027s useful and worth the extra line per test.",
+      "parentUuid": "4f72258c_ecdd00d2",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "cdf406a707b36024e14b798f7b00c4c12d09f06c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
