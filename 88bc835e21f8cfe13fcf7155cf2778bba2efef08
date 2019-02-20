@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ea6f4a1_dd7e4c7f",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T17:19:09Z",
+      "side": 1,
+      "message": "This includes boot classpath right? How about renaming it to avoid the actual classpath confusion? Eg lookup_order?",
+      "range": {
+        "startLine": 323,
+        "startChar": 56,
+        "endLine": 323,
+        "endChar": 65
+      },
+      "revId": "88bc835e21f8cfe13fcf7155cf2778bba2efef08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
