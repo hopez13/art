@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3894ec10_0be1c813",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:47:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e9fa99_e05d2325",
+      "range": {
+        "startLine": 432,
+        "startChar": 43,
+        "endLine": 432,
+        "endChar": 44
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5119bb83_59d863c0",
         "filename": "libartbase/base/stl_util.h",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087aee03_928e0337",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:47:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5119bb83_59d863c0",
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8cc8f7c0_ed635e94",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:47:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bc7605b_48ca0d79",
+      "range": {
+        "startLine": 215,
+        "startChar": 39,
+        "endLine": 215,
+        "endChar": 47
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77cb9736_8a41c281",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 5
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "87c23c21_cdf7a1a5",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:47:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cb9736_8a41c281",
+      "range": {
+        "startLine": 219,
+        "startChar": 39,
+        "endLine": 219,
+        "endChar": 47
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f863576c_781d31b2",
         "filename": "test/719-dm-verify-redefinition/run",
         "patchSetId": 5
@@ -108,6 +198,30 @@
       "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587931d8_751dbedc",
+        "filename": "test/719-dm-verify-redefinition/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:47:27Z",
+      "side": 1,
+      "message": "Sry, this is wrong. There should be just one exec",
+      "parentUuid": "f863576c_781d31b2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
