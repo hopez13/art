@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c8afddc1_a00754c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-20T17:17:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2aaac7_5de30381",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "256e1870_3b65e8b8",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -151,6 +175,30 @@
       "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b646a8b6_e79fdac3",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-20T17:17:28Z",
+      "side": 1,
+      "message": "Looks better, thanks. (\"doesn\u0027t make sense\" came from a misreading, but this is legible now.)",
+      "parentUuid": "177094f0_075e81e1",
+      "range": {
+        "startLine": 449,
+        "startChar": 10,
+        "endLine": 451,
+        "endChar": 32
+      },
+      "revId": "b76a7f19a0d68cedb7aaacfa6228f513fcf6e92d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
