@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4e9fa99_e05d2325",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T17:16:49Z",
+      "side": 1,
+      "message": "\u0026",
+      "range": {
+        "startLine": 432,
+        "startChar": 43,
+        "endLine": 432,
+        "endChar": 44
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bc7605b_48ca0d79",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T17:16:49Z",
+      "side": 1,
+      "message": "indices",
+      "range": {
+        "startLine": 215,
+        "startChar": 39,
+        "endLine": 215,
+        "endChar": 47
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77cb9736_8a41c281",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T17:16:49Z",
+      "side": 1,
+      "message": "indices",
+      "range": {
+        "startLine": 219,
+        "startChar": 39,
+        "endLine": 219,
+        "endChar": 47
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f863576c_781d31b2",
+        "filename": "test/719-dm-verify-redefinition/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T17:16:49Z",
+      "side": 1,
+      "message": "Add a comment why the second run. Also, this will silence the failure of the first run, so should you do a \u0026\u0026 check?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "5a99d33bea8c62a2dfadd5a2e8fa2ad3db33a1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
