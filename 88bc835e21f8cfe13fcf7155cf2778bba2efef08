@@ -22,6 +22,30 @@
       "revId": "88bc835e21f8cfe13fcf7155cf2778bba2efef08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb08bd3a_4096176e",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T17:27:33Z",
+      "side": 1,
+      "message": "It doesn\u0027t include boot classpath. The function is invoked twice - once on boot classpath and once on the flattened class loader context (and that one is in no particular order because the dex files were sorted by SafeMap according to their pointer value). I\u0027m happy to rename this to IsInDexFiles and classpath-\u003edex_files.",
+      "parentUuid": "7ea6f4a1_dd7e4c7f",
+      "range": {
+        "startLine": 323,
+        "startChar": 56,
+        "endLine": 323,
+        "endChar": 65
+      },
+      "revId": "88bc835e21f8cfe13fcf7155cf2778bba2efef08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
