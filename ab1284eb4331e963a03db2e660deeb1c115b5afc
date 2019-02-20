@@ -125,6 +125,30 @@
       "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c6a7ca_ecae186b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-02-20T14:17:09Z",
+      "side": 1,
+      "message": "Not a fan either but duplicating is possibly even uglier, especially now that BaseDexClassLoader supports multiple inheritance. Any change here would have to be replicated in the vdex logic too.",
+      "parentUuid": "c2189e97_fee4f71d",
+      "range": {
+        "startLine": 969,
+        "startChar": 45,
+        "endLine": 969,
+        "endChar": 62
+      },
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
