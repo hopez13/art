@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ed71107_938ce37c",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-20T10:27:28Z",
+      "side": 1,
+      "message": "Remove?\nI can see these defined in bionic/libc/kernel/uapi/linux/elf.h .",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "cf0c01abfa91e7c68c31fe8bff9c94d873b4b6d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7a6e5f4_d9558f0d",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-20T10:27:28Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "cf0c01abfa91e7c68c31fe8bff9c94d873b4b6d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
