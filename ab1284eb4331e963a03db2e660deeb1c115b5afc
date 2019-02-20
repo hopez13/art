@@ -149,6 +149,30 @@
       "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ebd9e4_24a935ae",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-20T14:24:36Z",
+      "side": 1,
+      "message": "As discussed, maybe you can re-use the flattening of dex files logic?",
+      "parentUuid": "b0c6a7ca_ecae186b",
+      "range": {
+        "startLine": 969,
+        "startChar": 45,
+        "endLine": 969,
+        "endChar": 62
+      },
+      "revId": "ab1284eb4331e963a03db2e660deeb1c115b5afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
