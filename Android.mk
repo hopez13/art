@@ -387,6 +387,7 @@ LOCAL_REQUIRED_MODULES := \
     dexoptanalyzer \
     libart \
     libart-compiler \
+    libartpalette-system \
     libopenjdkjvm \
     libopenjdkjvmti \
     profman \
