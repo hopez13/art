@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c77c382d_27b2942d",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-02-20T13:44:54Z",
+      "side": 1,
+      "message": "not clear to me that this will have an effect on the device builds, as I don\u0027t see art-runtime depended on by anything in PRODUCT_PACKAGES",
+      "revId": "aa17a4355016f7ffad01a40c7387291384580756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
