@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "033ce3e1_bc5aac84",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-02-21T22:51:24Z",
+      "side": 1,
+      "message": "Yes. Having them there is useful since the android libjdwp has support for android-specific properties and so on.\n\nWe probably don\u0027t need adbconnection or libdt_fd_forward though.",
+      "parentUuid": "db72ebbf_ee1ad9c9",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 44
+      },
+      "revId": "ce8045018b462a923b3ce9f69202bc042fae60f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17edf3db_75fce7f8",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "ce8045018b462a923b3ce9f69202bc042fae60f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdfa9b3f_763ff65b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-02-21T22:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17edf3db_75fce7f8",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 44
+      },
+      "revId": "ce8045018b462a923b3ce9f69202bc042fae60f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
