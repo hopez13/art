@@ -46,6 +46,9 @@ class Class;
 class MethodType;
 class String;
 
+struct DexCacheExt {
+};
+
 template <typename T> struct PACKED(8) DexCachePair {
   GcRoot<T> object;
   uint32_t index;
@@ -211,6 +214,14 @@ class MANAGED DexCache final : public Object {
 
   String* GetLocation() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetFieldObject<String>(OFFSET_OF_OBJECT_MEMBER(DexCache, location_));
+  }
+
+  ALWAYS_INLINE DexCacheExt* GetDexCacheExt() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldPtr<DexCacheExt*>(OFFSET_OF_OBJECT_MEMBER(DexCache, dex_cache_ext_));
+  }
+
+  ALWAYS_INLINE void SetDexCacheExt(DexCacheExt* ext) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return SetFieldPtr<false>(OFFSET_OF_OBJECT_MEMBER(DexCache, dex_cache_ext_), ext);
   }
 
   static constexpr MemberOffset StringsOffset() {
@@ -564,6 +575,7 @@ class MANAGED DexCache final : public Object {
   uint32_t num_preresolved_strings_;
 
   uint64_t dex_file_;                // const DexFile*
+  uint64_t dex_cache_ext_;           // DexCacheExt*
   uint64_t preresolved_strings_;     // GcRoot<mirror::String*> array with num_preresolved_strings
                                      // elements.
   uint64_t resolved_call_sites_;     // GcRoot<CallSite>* array with num_resolved_call_sites_
