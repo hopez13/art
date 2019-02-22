@@ -2436,6 +2436,12 @@ class Dex2Oat final {
       boot_class_path_locations += android::base::Join(dex_locations_, ':');
       raw_options.push_back(std::make_pair(boot_class_path_locations, nullptr));
     } else {
+      const char* dex2oat_bootclasspath = getenv("DEX2OATBOOTCLASSPATH");
+      if (dex2oat_bootclasspath != nullptr) {
+        std::string boot_class_path = "-Xbootclasspath:";
+        boot_class_path += dex2oat_bootclasspath;
+        raw_options.push_back(std::make_pair(boot_class_path, nullptr));
+      }
       std::string boot_image_option = "-Ximage:";
       boot_image_option += boot_image_filename_;
       raw_options.push_back(std::make_pair(boot_image_option, nullptr));
