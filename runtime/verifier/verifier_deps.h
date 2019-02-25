@@ -23,8 +23,7 @@
 
 #include "base/array_ref.h"
 #include "base/locks.h"
-#include "dex/dex_file_structs.h"
-#include "dex/dex_file_types.h"
+#include "dex/dex_file.h"
 #include "handle.h"
 #include "obj_ptr.h"
 #include "thread.h"
@@ -58,7 +57,10 @@ namespace verifier {
 // changes in the classpath.
 class VerifierDeps {
  public:
-  explicit VerifierDeps(const std::vector<const DexFile*>& dex_files);
+  // Construct VerifierDeps for the given `dex_files`. If `ignore_external_deps` is
+  // set, only verification status of internal classes will be recorded.
+  VerifierDeps(const std::vector<const DexFile*>& dex_files,
+               bool ignore_external_deps = false);
 
   VerifierDeps(const std::vector<const DexFile*>& dex_files, ArrayRef<const uint8_t> data);
 
@@ -137,6 +139,13 @@ class VerifierDeps {
   bool OutputOnly() const {
     return output_only_;
   }
+
+  // Parses raw VerifierDeps data to extract bitvectors of which class def indices
+  // were verified or not. The given `dex_files` must match the order and count of
+  // dex files used to create the VerifierDeps.
+  static std::vector<std::vector<bool>> ParseVerifiedClasses(
+      const std::vector<const DexFile*>& dex_files,
+      ArrayRef<const uint8_t> data);
 
  private:
   static constexpr uint16_t kUnresolvedMarker = static_cast<uint16_t>(-1);
@@ -226,7 +235,14 @@ class VerifierDeps {
     bool Equals(const DexFileDeps& rhs) const;
   };
 
-  VerifierDeps(const std::vector<const DexFile*>& dex_files, bool output_only);
+  VerifierDeps(const std::vector<const DexFile*>& dex_files,
+               bool output_only,
+               bool ignore_external_deps);
+
+  // Helper function to share DexFileDeps decoding code.
+  static void DecodeDexFileDeps(DexFileDeps& deps,
+                                const uint8_t** data_start,
+                                const uint8_t* data_end);
 
   // Finds the DexFileDep instance associated with `dex_file`, or nullptr if
   // `dex_file` is not reported as being compiled.
@@ -380,6 +396,9 @@ class VerifierDeps {
 
   // Output only signifies if we are using the verifier deps to verify or just to generate them.
   const bool output_only_;
+
+  // If set to true, only the verification status of internal classes will be recorded.
+  const bool ignore_external_deps_;
 
   friend class VerifierDepsTest;
   ART_FRIEND_TEST(VerifierDepsTest, StringToId);
