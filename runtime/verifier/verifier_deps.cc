@@ -36,8 +36,11 @@
 namespace art {
 namespace verifier {
 
-VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files, bool output_only)
-    : output_only_(output_only) {
+VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
+                           bool output_only,
+                           bool ignore_external_deps)
+    : output_only_(output_only),
+      ignore_external_deps_(ignore_external_deps) {
   for (const DexFile* dex_file : dex_files) {
     DCHECK(GetDexFileDeps(*dex_file) == nullptr);
     std::unique_ptr<DexFileDeps> deps(new DexFileDeps(dex_file->NumClassDefs()));
@@ -45,8 +48,9 @@ VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files, bool ou
   }
 }
 
-VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files)
-    : VerifierDeps(dex_files, /*output_only=*/ true) {}
+VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
+                           bool ignore_external_deps)
+    : VerifierDeps(dex_files, /*output_only=*/ true, ignore_external_deps) {}
 
 // Perform logical OR on two bit vectors and assign back to LHS, i.e. `to_update |= other`.
 // Size of the two vectors must be equal.
@@ -189,7 +193,7 @@ static inline VerifierDeps* GetMainVerifierDeps() {
   // end of verification will have all the per-thread VerifierDeps merged into it.
   CompilerCallbacks* callbacks = Runtime::Current()->GetCompilerCallbacks();
   if (callbacks == nullptr) {
-    return nullptr;
+    return Thread::Current()->GetVerifierDeps();
   }
   return callbacks->GetVerifierDeps();
 }
@@ -197,9 +201,6 @@ static inline VerifierDeps* GetMainVerifierDeps() {
 static inline VerifierDeps* GetThreadLocalVerifierDeps() {
   // During AOT, each thread has its own VerifierDeps, to avoid lock contention. At the end
   // of full verification, these VerifierDeps will be merged into the main one.
-  if (!Runtime::Current()->IsAotCompiler()) {
-    return nullptr;
-  }
   return Thread::Current()->GetVerifierDeps();
 }
 
@@ -295,6 +296,10 @@ bool VerifierDeps::IsInClassPath(ObjPtr<mirror::Class> klass) const {
 void VerifierDeps::AddClassResolution(const DexFile& dex_file,
                                       dex::TypeIndex type_idx,
                                       ObjPtr<mirror::Class> klass) {
+  if (ignore_external_deps_) {
+    return;
+  }
+
   DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
   if (dex_deps == nullptr) {
     // This invocation is from verification of a dex file which is not being compiled.
@@ -313,6 +318,10 @@ void VerifierDeps::AddClassResolution(const DexFile& dex_file,
 void VerifierDeps::AddFieldResolution(const DexFile& dex_file,
                                       uint32_t field_idx,
                                       ArtField* field) {
+  if (ignore_external_deps_) {
+    return;
+  }
+
   DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
   if (dex_deps == nullptr) {
     // This invocation is from verification of a dex file which is not being compiled.
@@ -335,6 +344,10 @@ void VerifierDeps::AddFieldResolution(const DexFile& dex_file,
 void VerifierDeps::AddMethodResolution(const DexFile& dex_file,
                                        uint32_t method_idx,
                                        ArtMethod* method) {
+  if (ignore_external_deps_) {
+    return;
+  }
+
   DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
   if (dex_deps == nullptr) {
     // This invocation is from verification of a dex file which is not being compiled.
@@ -413,6 +426,10 @@ void VerifierDeps::AddAssignability(const DexFile& dex_file,
                                     ObjPtr<mirror::Class> source,
                                     bool is_strict,
                                     bool is_assignable) {
+  if (ignore_external_deps_) {
+    return;
+  }
+
   // Test that the method is only called on reference types.
   // Note that concurrent verification of `destination` and `source` may have
   // set their status to erroneous. However, the tests performed below rely
@@ -661,6 +678,11 @@ static inline void DecodeSet(const uint8_t** in, const uint8_t* end, std::set<T>
   }
 }
 
+// Encodes std::vector<bool> assuming that `sparse_value` occurs infrequently.
+// The encoding is a series of uleb128 values. First value is N, followed by N
+// indices at which `sparse_value` occurred in the vector. Size of the vector and
+// whether true/false is the sparse value are not encoded and assumed to be
+// determinable from elsewhere.
 static inline void EncodeUint16SparseBitVector(std::vector<uint8_t>* out,
                                                const std::vector<bool>& vector,
                                                bool sparse_value) {
@@ -735,9 +757,28 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
   }
 }
 
+void VerifierDeps::DecodeDexFileDeps(DexFileDeps& deps,
+                                     const uint8_t** data_start,
+                                     const uint8_t* data_end) {
+  DecodeStringVector(data_start, data_end, &deps.strings_);
+  DecodeSet(data_start, data_end, &deps.assignable_types_);
+  DecodeSet(data_start, data_end, &deps.unassignable_types_);
+  DecodeSet(data_start, data_end, &deps.classes_);
+  DecodeSet(data_start, data_end, &deps.fields_);
+  DecodeSet(data_start, data_end, &deps.methods_);
+  DecodeUint16SparseBitVector(data_start,
+                              data_end,
+                              &deps.verified_classes_,
+                              /* sparse_value= */ false);
+  DecodeUint16SparseBitVector(data_start,
+                              data_end,
+                              &deps.redefined_classes_,
+                              /* sparse_value= */ true);
+}
+
 VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
                            ArrayRef<const uint8_t> data)
-    : VerifierDeps(dex_files, /*output_only=*/ false) {
+    : VerifierDeps(dex_files, /*output_only=*/ false, /*ignore_external_deps=*/ false) {
   if (data.empty()) {
     // Return eagerly, as the first thing we expect from VerifierDeps data is
     // the number of created strings, even if there is no dependency.
@@ -748,22 +789,28 @@ VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
   const uint8_t* data_end = data_start + data.size();
   for (const DexFile* dex_file : dex_files) {
     DexFileDeps* deps = GetDexFileDeps(*dex_file);
-    DecodeStringVector(&data_start, data_end, &deps->strings_);
-    DecodeSet(&data_start, data_end, &deps->assignable_types_);
-    DecodeSet(&data_start, data_end, &deps->unassignable_types_);
-    DecodeSet(&data_start, data_end, &deps->classes_);
-    DecodeSet(&data_start, data_end, &deps->fields_);
-    DecodeSet(&data_start, data_end, &deps->methods_);
-    DecodeUint16SparseBitVector(&data_start,
-                                data_end,
-                                &deps->verified_classes_,
-                                /* sparse_value= */ false);
-    DecodeUint16SparseBitVector(&data_start,
-                                data_end,
-                                &deps->redefined_classes_,
-                                /* sparse_value= */ true);
+    DecodeDexFileDeps(*deps, &data_start, data_end);
   }
   CHECK_LE(data_start, data_end);
+}
+
+std::vector<std::vector<bool>> VerifierDeps::ParseVerifiedClasses(
+    const std::vector<const DexFile*>& dex_files,
+    ArrayRef<const uint8_t> data) {
+  DCHECK(!data.empty());
+  DCHECK(!dex_files.empty());
+
+  std::vector<std::vector<bool>> verified_classes_per_dex;
+  verified_classes_per_dex.reserve(dex_files.size());
+
+  const uint8_t* data_start = data.data();
+  const uint8_t* data_end = data_start + data.size();
+  for (const DexFile* dex_file : dex_files) {
+    DexFileDeps deps(dex_file->NumClassDefs());
+    DecodeDexFileDeps(deps, &data_start, data_end);
+    verified_classes_per_dex.push_back(std::move(deps.verified_classes_));
+  }
+  return verified_classes_per_dex;
 }
 
 bool VerifierDeps::Equals(const VerifierDeps& rhs) const {
