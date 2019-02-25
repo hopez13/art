@@ -99,6 +99,24 @@ class PcToRegisterLineTable {
 // The verifier
 class MethodVerifier {
  public:
+  // Verify a class. The provided `klass` handle should be the result of
+  // ClassLinker::FindClass. The function will check whether the class is
+  // a redefinition of a different class will record redefinition/verification
+  // status in VerifierDeps.
+  static FailureKind VerifyClassForCompiler(Thread* self,
+                                            const DexFile& dex_file,
+                                            uint32_t class_def_index,
+                                            Handle<mirror::ClassLoader> class_loader,
+                                            Handle<mirror::Class> klass,
+                                            CompilerCallbacks* callbacks,
+                                            bool allow_soft_failures,
+                                            HardFailLogMode log_level,
+                                            uint32_t api_level,
+                                            ClassLinker* class_linker,
+                                            /* out */ bool* was_skipped,
+                                            /* out */ std::string* error)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Verify a class. Returns "kNoFailure" on success.
   static FailureKind VerifyClass(Thread* self,
                                  ObjPtr<mirror::Class> klass,

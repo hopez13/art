@@ -718,7 +718,7 @@ class DexFile {
   }
 
   // Used by oat writer.
-  void SetOatDexFile(OatDexFile* oat_dex_file) const {
+  void SetOatDexFile(const OatDexFile* oat_dex_file) const {
     oat_dex_file_ = oat_dex_file;
   }
 
@@ -737,6 +737,8 @@ class DexFile {
   virtual uint32_t CalculateChecksum() const;
   static uint32_t CalculateChecksum(const uint8_t* begin, size_t size);
   static uint32_t ChecksumMemoryRange(const uint8_t* begin, size_t size);
+
+  static constexpr uint32_t kNumNonChecksumBytes = OFFSETOF_MEMBER(DexFile::Header, signature_);
 
   // Returns a human-readable form of the method at an index.
   std::string PrettyMethod(uint32_t method_idx, bool with_signature = true) const;
