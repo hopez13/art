@@ -28,6 +28,7 @@
 #include "base/unix_file/fd_file.h"
 #include "compiler_filter.h"
 #include "class_loader_context.h"
+#include "dex/dex_file.h"
 #include "oat_file.h"
 
 namespace art {
@@ -221,6 +222,21 @@ class OatFileAssistant {
   //
   // Returns the status of the oat file for the dex location.
   OatStatus OatFileStatus();
+
+  // Computes the location checksum, dex location and vdex filename by combining
+  // the checksums of the individual dex files. If the data directory of the process
+  // is known, creates an absolute path in that directory and tries to infer path
+  // of a corresponding vdex file. Otherwise only creates a basename dex_location
+  // from the combined checksums. Returns true if all out-arguments have been set.
+  static bool AnonymousDexVdexLocation(const std::vector<const DexFile::Header*>& dex_headers,
+                                       InstructionSet isa,
+                                       /* out */ uint32_t* location_checksum,
+                                       /* out */ std::string* dex_location,
+                                       /* out */ std::string* vdex_filename);
+
+  // Returns true if a filename (given as basename) is a name of a vdex for
+  // anonymous dex file(s) created by AnonymousDexVdexLocation.
+  static bool IsAnonymousVdexBasename(const std::string& basename);
 
   // Constructs the odex file name for the given dex location.
   // Returns true on success, in which case odex_filename is set to the odex

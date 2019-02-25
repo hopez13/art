@@ -27,12 +27,17 @@
 #include "base/leb128.h"
 #include "base/stl_util.h"
 #include "base/unix_file/fd_file.h"
+#include "class_linker.h"
+#include "class_loader_context.h"
 #include "dex/art_dex_file_loader.h"
 #include "dex/class_accessor-inl.h"
-#include "dex/dex_file.h"
 #include "dex/dex_file_loader.h"
 #include "dex_to_dex_decompiler.h"
+#include "gc/heap.h"
+#include "gc/space/image_space.h"
 #include "quicken_info.h"
+#include "runtime.h"
+#include "verifier/verifier_deps.h"
 
 namespace art {
 
@@ -61,9 +66,13 @@ bool VdexFile::VerifierDepsHeader::HasDexSection() const {
 
 VdexFile::VerifierDepsHeader::VerifierDepsHeader(uint32_t number_of_dex_files,
                                                  uint32_t verifier_deps_size,
-                                                 bool has_dex_section)
+                                                 bool has_dex_section,
+                                                 uint32_t bootclasspath_checksums_size,
+                                                 uint32_t class_loader_context_size)
     : number_of_dex_files_(number_of_dex_files),
-      verifier_deps_size_(verifier_deps_size) {
+      verifier_deps_size_(verifier_deps_size),
+      bootclasspath_checksums_size_(bootclasspath_checksums_size),
+      class_loader_context_size_(class_loader_context_size) {
   memcpy(magic_, kVdexMagic, sizeof(kVdexMagic));
   memcpy(verifier_deps_version_, kVerifierDepsVersion, sizeof(kVerifierDepsVersion));
   if (has_dex_section) {
@@ -316,6 +325,129 @@ ArrayRef<const uint8_t> VdexFile::GetQuickenedInfoOf(const DexFile& dex_file,
     return ArrayRef<const uint8_t>();
   }
   return GetQuickeningInfoAt(quickening_info, quickening_offset);
+}
+
+static std::string ComputeBootClassPathChecksumString() {
+  Runtime* const runtime = Runtime::Current();
+  return gc::space::ImageSpace::GetBootClassPathChecksums(
+          runtime->GetHeap()->GetBootImageSpaces(),
+          runtime->GetClassLinker()->GetBootClassPath());
+}
+
+static std::string ComputeClassLoaderContextString(const ClassLoaderContext& context) {
+  return context.EncodeContextForOatFile(/* base_dir= */ "");
+}
+
+bool VdexFile::WriteToDisk(const std::string& path,
+                           const std::vector<const DexFile*>& dex_files,
+                           const verifier::VerifierDeps& verifier_deps,
+                           const std::string& class_loader_context,
+                           std::string* error_msg) {
+  std::vector<uint8_t> verifier_deps_data;
+  verifier_deps.Encode(dex_files, &verifier_deps_data);
+
+  std::string boot_checksum = ComputeBootClassPathChecksumString();
+  DCHECK_NE(boot_checksum, "");
+
+  VdexFile::VerifierDepsHeader deps_header(dex_files.size(),
+                                           verifier_deps_data.size(),
+                                           /* has_dex_section= */ false,
+                                           boot_checksum.size(),
+                                           class_loader_context.size());
+
+  std::unique_ptr<File> out(OS::CreateEmptyFileWriteOnly(path.c_str()));
+  if (out == nullptr) {
+    *error_msg = "Could not open " + path + " for writing";
+    return false;
+  }
+
+  if (!out->WriteFully(reinterpret_cast<const char*>(&deps_header), sizeof(deps_header))) {
+    *error_msg = "Could not write vdex header to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  for (const DexFile* dex_file : dex_files) {
+    const uint32_t* checksum_ptr = &dex_file->GetHeader().checksum_;
+    static_assert(sizeof(*checksum_ptr) == sizeof(VdexFile::VdexChecksum));
+    if (!out->WriteFully(reinterpret_cast<const char*>(checksum_ptr),
+                         sizeof(VdexFile::VdexChecksum))) {
+      *error_msg = "Could not write dex checksums to " + path;
+      out->Unlink();
+    return false;
+    }
+  }
+
+  if (!out->WriteFully(reinterpret_cast<const char*>(verifier_deps_data.data()),
+                       verifier_deps_data.size())) {
+    *error_msg = "Could not write verifier deps to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  if (!out->WriteFully(boot_checksum.c_str(), boot_checksum.size())) {
+    *error_msg = "Could not write boot classpath checksum to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  if (!out->WriteFully(class_loader_context.c_str(), class_loader_context.size())) {
+    *error_msg = "Could not write class loader context to " + path;
+    out->Unlink();
+    return false;
+  }
+
+  if (out->FlushClose() != 0) {
+    *error_msg = "Could not flush and close " + path;
+    out->Unlink();
+    return false;
+  }
+
+  return true;
+}
+
+bool VdexFile::MatchesDexFileChecksums(const std::vector<const DexFile::Header*>& dex_headers)
+    const {
+  const VerifierDepsHeader& header = GetVerifierDepsHeader();
+  if (dex_headers.size() != header.GetNumberOfDexFiles()) {
+    LOG(WARNING) << "Mismatch of number of dex files in vdex (expected="
+        << header.GetNumberOfDexFiles() << ", actual=" << dex_headers.size() << ")";
+    return false;
+  }
+  const VdexChecksum* checksums = header.GetDexChecksumsArray();
+  for (size_t i = 0; i < dex_headers.size(); ++i) {
+    if (checksums[i] != dex_headers[i]->checksum_) {
+      LOG(WARNING) << "Mismatch of dex file checksum in vdex (index=" << i << ")";
+      return false;
+    }
+  }
+  return true;
+}
+
+bool VdexFile::MatchesBootClassPathChecksums() const {
+  ArrayRef<const uint8_t> data = GetBootClassPathChecksumData();
+  std::string vdex(reinterpret_cast<const char*>(data.data()), data.size());
+  std::string runtime = ComputeBootClassPathChecksumString();
+  if (vdex == runtime) {
+    return true;
+  } else {
+    LOG(WARNING) << "Mismatch of boot class path checksum in vdex (expected="
+        << vdex << ", actual=" << runtime << ")";
+    return false;
+  }
+}
+
+bool VdexFile::MatchesClassLoaderContext(const ClassLoaderContext& context) const {
+  ArrayRef<const uint8_t> data = GetClassLoaderContextData();
+  std::string vdex(reinterpret_cast<const char*>(data.data()), data.size());
+  std::string runtime = ComputeClassLoaderContextString(context);
+  if (vdex == runtime) {
+    return true;
+  } else {
+    LOG(WARNING) << "Mismatch of class loader context in vdex (expected="
+        << vdex << ", actual=" << runtime << ")";
+    return false;
+  }
 }
 
 }  // namespace art
