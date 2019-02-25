@@ -65,7 +65,7 @@ uint32_t DexFile::CalculateChecksum() const {
 }
 
 uint32_t DexFile::CalculateChecksum(const uint8_t* begin, size_t size) {
-  const uint32_t non_sum_bytes = OFFSETOF_MEMBER(DexFile::Header, signature_);
+  const uint32_t non_sum_bytes = DexFile::kNumNonChecksumBytes;
   return ChecksumMemoryRange(begin + non_sum_bytes, size - non_sum_bytes);
 }
 
