@@ -274,10 +274,11 @@ std::unique_ptr<ImageHeader> ImageSpace::ReadImageHeader(const char* image_locat
                         &dalvik_cache_exists,
                         &has_cache,
                         &is_global_cache)) {
+    if (has_cache) {
+      return ReadSpecificImageHeader(cache_filename.c_str(), error_msg);
+    }
     if (has_system) {
       return ReadSpecificImageHeader(system_filename.c_str(), error_msg);
-    } else if (has_cache) {
-      return ReadSpecificImageHeader(cache_filename.c_str(), error_msg);
     }
   }
 
@@ -2076,20 +2077,7 @@ bool ImageSpace::LoadBootImage(
   // Collect all the errors.
   std::vector<std::string> error_msgs;
 
-  // Step 1: Check if we have an existing image in /system.
-
-  if (loader.HasSystem()) {
-    std::string local_error_msg;
-    if (loader.LoadFromSystem(extra_reservation_size,
-                              boot_image_spaces,
-                              extra_reservation,
-                              &local_error_msg)) {
-      return true;
-    }
-    error_msgs.push_back(local_error_msg);
-  }
-
-  // Step 2: Check if we have an existing image in the dalvik cache.
+  // Step 1: Check if we have an existing image in the dalvik cache.
   if (loader.HasCache()) {
     std::string local_error_msg;
     if (loader.LoadFromDalvikCache(/*validate_oat_file=*/ true,
@@ -2097,6 +2085,19 @@ bool ImageSpace::LoadBootImage(
                                    boot_image_spaces,
                                    extra_reservation,
                                    &local_error_msg)) {
+      return true;
+    }
+    error_msgs.push_back(local_error_msg);
+  }
+
+  // Step 2: Check if we have an existing image in /system.
+
+  if (loader.HasSystem()) {
+    std::string local_error_msg;
+    if (loader.LoadFromSystem(extra_reservation_size,
+                              boot_image_spaces,
+                              extra_reservation,
+                              &local_error_msg)) {
       return true;
     }
     error_msgs.push_back(local_error_msg);
@@ -2281,7 +2282,7 @@ std::string ImageSpace::GetBootClassPathChecksums(const std::vector<std::string>
   }
 
   DCHECK(has_system || has_cache);
-  const std::string& filename = has_system ? system_filename : cache_filename;
+  const std::string& filename = has_cache ? cache_filename : system_filename;
   std::unique_ptr<ImageHeader> header = ReadSpecificImageHeader(filename.c_str(), error_msg);
   if (header == nullptr) {
     return std::string();
