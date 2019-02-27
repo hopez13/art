@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf824515_fcb61b6e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-27T16:24:27Z",
+      "side": 1,
+      "message": "This appears to prioritize compilation of non-startup methods from earlier files on the BCP over startup methods of later files on the BCP. Do we want prioritized JIT task queues?",
+      "range": {
+        "startLine": 709,
+        "startChar": 36,
+        "endLine": 709,
+        "endChar": 75
+      },
+      "revId": "e5729756f4d82090fd8bb5cf8b75da6bd393ac36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
