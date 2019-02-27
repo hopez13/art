@@ -220,6 +220,26 @@ apex {
     certificate: ":com.android.runtime.debug.certificate",
 }
 
+apex {
+    name: "com.android.runtime.debug.v2",
+    defaults: ["com.android.runtime-defaults"],
+    native_shared_libs: art_runtime_debug_native_shared_libs
+        + libcore_debug_native_shared_libs,
+    multilib: {
+        prefer32: {
+            binaries: art_runtime_debug_binaries_prefer32
+                + art_runtime_debug_binaries_prefer32_device,
+        },
+        first: {
+            binaries: art_tools_device_binaries,
+        }
+    },
+    certificate: ":com.android.runtime.debug.certificate",
+    manifest: "manifest2.json",
+    file_contexts: "com.android.runtime.debug",
+    installable: false,
+}
+
 // TODO: Do this better. art_apex will disable host builds when
 // HOST_PREFER_32_BIT is set. We cannot simply use com.android.runtime.debug
 // because binaries have different multilib classes and 'multilib: {}' isn't
