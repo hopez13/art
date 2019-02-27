@@ -29,8 +29,6 @@ namespace art {
 
 using android::base::StringPrintf;
 
-constexpr uint8_t OatHeader::kOatMagic[4];
-constexpr uint8_t OatHeader::kOatVersion[4];
 constexpr const char OatHeader::kTrueValue[];
 constexpr const char OatHeader::kFalseValue[];
 
@@ -88,8 +86,8 @@ OatHeader::OatHeader(InstructionSet instruction_set,
   static_assert(sizeof(version_) == sizeof(kOatVersion),
                 "Oat version and version_ have different lengths.");
 
-  memcpy(magic_, kOatMagic, sizeof(kOatMagic));
-  memcpy(version_, kOatVersion, sizeof(kOatVersion));
+  magic_ = kOatMagic;
+  version_ = kOatVersion;
 
   CHECK_NE(instruction_set, InstructionSet::kNone);
 
@@ -98,10 +96,10 @@ OatHeader::OatHeader(InstructionSet instruction_set,
 }
 
 bool OatHeader::IsValid() const {
-  if (memcmp(magic_, kOatMagic, sizeof(kOatMagic)) != 0) {
+  if (magic_ != kOatMagic) {
     return false;
   }
-  if (memcmp(version_, kOatVersion, sizeof(kOatVersion)) != 0) {
+  if (version_ != kOatVersion) {
     return false;
   }
   if (!IsAligned<kPageSize>(executable_offset_)) {
@@ -114,13 +112,13 @@ bool OatHeader::IsValid() const {
 }
 
 std::string OatHeader::GetValidationErrorMessage() const {
-  if (memcmp(magic_, kOatMagic, sizeof(kOatMagic)) != 0) {
+  if (magic_ != kOatMagic) {
     static_assert(sizeof(kOatMagic) == 4, "kOatMagic has unexpected length");
     return StringPrintf("Invalid oat magic, expected 0x%x%x%x%x, got 0x%x%x%x%x.",
                         kOatMagic[0], kOatMagic[1], kOatMagic[2], kOatMagic[3],
                         magic_[0], magic_[1], magic_[2], magic_[3]);
   }
-  if (memcmp(version_, kOatVersion, sizeof(kOatVersion)) != 0) {
+  if (version_ != kOatVersion) {
     static_assert(sizeof(kOatVersion) == 4, "kOatVersion has unexpected length");
     return StringPrintf("Invalid oat version, expected 0x%x%x%x%x, got 0x%x%x%x%x.",
                         kOatVersion[0], kOatVersion[1], kOatVersion[2], kOatVersion[3],
@@ -135,9 +133,17 @@ std::string OatHeader::GetValidationErrorMessage() const {
   return "";
 }
 
+void OatHeader::CheckOatVersion(std::array<uint8_t, 4> version) {
+  if (version != kOatVersion) {
+    LOG(FATAL) << StringPrintf("Invalid oat version, expected 0x%x%x%x%x, got 0x%x%x%x%x.",
+                               kOatVersion[0], kOatVersion[1], kOatVersion[2], kOatVersion[3],
+                               version[0], version[1], version[2], version[3]);
+  }
+}
+
 const char* OatHeader::GetMagic() const {
   CHECK(IsValid());
-  return reinterpret_cast<const char*>(magic_);
+  return reinterpret_cast<const char*>(magic_.data());
 }
 
 uint32_t OatHeader::GetChecksum() const {
