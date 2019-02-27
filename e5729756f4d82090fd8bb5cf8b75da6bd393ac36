@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "5f4f3dd8_b771a790",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-27T16:56:53Z",
+      "side": 1,
+      "message": "Could hot_methods and post_startup_methods be replaced by combined_other_methods?",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 695,
+        "endChar": 68
+      },
+      "revId": "e5729756f4d82090fd8bb5cf8b75da6bd393ac36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f4ab86f2_bf2542ad",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
@@ -134,6 +157,30 @@
         "startChar": 34,
         "endLine": 709,
         "endChar": 77
+      },
+      "revId": "e5729756f4d82090fd8bb5cf8b75da6bd393ac36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae29d4f4_55178237",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-02-27T16:56:53Z",
+      "side": 1,
+      "message": "Is it worthwhile to compile all the start up methods from the BCP before starting to compile the combined other methods from the BCP?",
+      "parentUuid": "78754bf2_41a388cc",
+      "range": {
+        "startLine": 709,
+        "startChar": 36,
+        "endLine": 709,
+        "endChar": 75
       },
       "revId": "e5729756f4d82090fd8bb5cf8b75da6bd393ac36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
