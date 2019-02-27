@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8100f122_bbedb55c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2011,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-02-27T15:25:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this will prevent the issue. OatHeader::kOatVersion will probably be dynamically linked to the symbol in libart.so and the check will pass even if libart-compiler.so (which produces stack maps, for example) was compiled against a different version.",
+      "range": {
+        "startLine": 2011,
+        "startChar": 2,
+        "endLine": 2011,
+        "endChar": 53
+      },
+      "revId": "080e04d8a0394bac37131816e697288f35275b5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
