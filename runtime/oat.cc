@@ -135,6 +135,14 @@ std::string OatHeader::GetValidationErrorMessage() const {
   return "";
 }
 
+void OatHeader::CheckOatVersion(const uint8_t version[sizeof(kOatVersion)]) {
+  if (memcmp(version, kOatVersion, sizeof(kOatVersion)) != 0) {
+    LOG(FATAL) << StringPrintf("Invalid oat version, expected 0x%x%x%x%x, got 0x%x%x%x%x.",
+                               kOatVersion[0], kOatVersion[1], kOatVersion[2], kOatVersion[3],
+                               version[0], version[1], version[2], version[3]);
+  }
+}
+
 const char* OatHeader::GetMagic() const {
   CHECK(IsValid());
   return reinterpret_cast<const char*>(magic_);

@@ -55,6 +55,7 @@ class PACKED(4) OatHeader {
 
   bool IsValid() const;
   std::string GetValidationErrorMessage() const;
+  static void CheckOatVersion(const uint8_t version[sizeof(kOatVersion)]);
   const char* GetMagic() const;
   uint32_t GetChecksum() const;
   void SetChecksum(uint32_t checksum);
