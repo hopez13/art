@@ -563,14 +563,18 @@ class JitCompileTask final : public Task {
 
   JitCompileTask(ArtMethod* method, TaskKind kind) : method_(method), kind_(kind), klass_(nullptr) {
     ScopedObjectAccess soa(Thread::Current());
-    // Add a global ref to the class to prevent class unloading until compilation is done.
-    klass_ = soa.Vm()->AddGlobalRef(soa.Self(), method_->GetDeclaringClass());
-    CHECK(klass_ != nullptr);
+    if (method->GetDeclaringClass()->GetClassLoader() != nullptr) {
+      // Add a global ref to the class to prevent class unloading until compilation is done.
+      klass_ = soa.Vm()->AddGlobalRef(soa.Self(), method_->GetDeclaringClass());
+      CHECK(klass_ != nullptr);
+    }
   }
 
   ~JitCompileTask() {
-    ScopedObjectAccess soa(Thread::Current());
-    soa.Vm()->DeleteGlobalRef(soa.Self(), klass_);
+    if (klass_ != nullptr) {
+      ScopedObjectAccess soa(Thread::Current());
+      soa.Vm()->DeleteGlobalRef(soa.Self(), klass_);
+    }
   }
 
   void Run(Thread* self) override {
@@ -682,7 +686,7 @@ void Jit::AddNonAotBootMethodsToQueue(Thread* self) {
     std::set<uint16_t> hot_methods;
     std::set<uint16_t> startup_methods;
     std::set<uint16_t> post_startup_methods;
-    std::set<uint16_t> combined_methods;
+    std::set<uint16_t> combined_other_methods;
     if (!profile_info.GetClassesAndMethods(*dex_file,
                                            &class_types,
                                            &hot_methods,
@@ -693,25 +697,35 @@ void Jit::AddNonAotBootMethodsToQueue(Thread* self) {
     }
     dex_cache.Assign(class_linker->FindDexCache(self, *dex_file));
     CHECK(dex_cache != nullptr) << "Could not find dex cache for " << dex_file->GetLocation();
+
+    // Create a set for non-startup methods. We will compile those last.
+    combined_other_methods = hot_methods;
+    combined_other_methods.insert(post_startup_methods.begin(), post_startup_methods.end());
     for (uint16_t method_idx : startup_methods) {
-      ArtMethod* method = class_linker->ResolveMethodWithoutInvokeType(
-          method_idx, dex_cache, null_handle);
-      if (method == nullptr) {
-        self->ClearException();
-        continue;
-      }
-      if (!method->IsCompilable() || !method->IsInvokable()) {
-        continue;
-      }
-      const void* entry_point = method->GetEntryPointFromQuickCompiledCode();
-      if (class_linker->IsQuickToInterpreterBridge(entry_point) ||
-          class_linker->IsQuickGenericJniStub(entry_point)) {
-        if (!method->IsNative()) {
-          // The compiler requires a ProfilingInfo object for non-native methods.
-          ProfilingInfo::Create(self, method, /* retry_allocation= */ true);
+      combined_other_methods.erase(method_idx);
+    }
+
+    for (const auto& collection : { startup_methods, combined_other_methods }) {
+      for (uint16_t method_idx : collection) {
+        ArtMethod* method = class_linker->ResolveMethodWithoutInvokeType(
+            method_idx, dex_cache, null_handle);
+        if (method == nullptr) {
+          self->ClearException();
+          continue;
         }
-        thread_pool_->AddTask(self,
-            new JitCompileTask(method, JitCompileTask::TaskKind::kCompile));
+        if (!method->IsCompilable() || !method->IsInvokable()) {
+          continue;
+        }
+        const void* entry_point = method->GetEntryPointFromQuickCompiledCode();
+        if (class_linker->IsQuickToInterpreterBridge(entry_point) ||
+            class_linker->IsQuickGenericJniStub(entry_point)) {
+          if (!method->IsNative()) {
+            // The compiler requires a ProfilingInfo object for non-native methods.
+            ProfilingInfo::Create(self, method, /* retry_allocation= */ true);
+          }
+          thread_pool_->AddTask(self,
+              new JitCompileTask(method, JitCompileTask::TaskKind::kCompile));
+        }
       }
     }
   }
