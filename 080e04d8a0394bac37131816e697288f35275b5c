@@ -46,6 +46,30 @@
       "revId": "080e04d8a0394bac37131816e697288f35275b5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c61f14c_c9b1e2ea",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2011,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-02-27T16:33:56Z",
+      "side": 1,
+      "message": "Though I agree it is clearly working.\n\nIf I just remove the definition of kOatVertsion in oat.cc the code still compiles.  Which I find also odd.\n\nHow about using std::array instead without definition in oat.cc.  Would that follow odr rules?",
+      "parentUuid": "2b29f1e7_fff7845a",
+      "range": {
+        "startLine": 2011,
+        "startChar": 2,
+        "endLine": 2011,
+        "endChar": 53
+      },
+      "revId": "080e04d8a0394bac37131816e697288f35275b5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
