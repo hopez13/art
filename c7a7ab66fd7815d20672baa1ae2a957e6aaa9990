@@ -141,6 +141,30 @@
       "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6445a36_fd3b1e91",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-28T16:35:02Z",
+      "side": 1,
+      "message": "I see, thanks! Could you add that rationale here? Something like:\n\n# This directory has special permissions to.... It\u0027s also used by A/B OTAs, but those are prefixed by a slot.\nROOT_DIR \u003d /data/ota",
+      "parentUuid": "0f492586_db47b9dc",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
