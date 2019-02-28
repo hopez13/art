@@ -220,6 +220,14 @@ class AtomicStack {
     return false;
   }
 
+  void* MemMapBegin() const {
+    return mem_map_.BaseBegin();
+  }
+
+  size_t MemMapSize() const {
+    return mem_map_.BaseSize();
+  }
+
  private:
   AtomicStack(const std::string& name, size_t growth_limit, size_t capacity)
       : name_(name),

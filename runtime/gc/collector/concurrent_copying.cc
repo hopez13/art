@@ -2528,6 +2528,44 @@ void ConcurrentCopying::SweepLargeObjects(bool swap_bitmaps) {
   }
 }
 
+void ConcurrentCopying::CaptureRssAtPeak() {
+  using range_t = std::pair<uint64_t, uint64_t>;
+  uint64_t start;
+  uint64_t end;
+  if (Runtime::Current()->GetDumpGCPerformanceOnShutdown()) {
+  std::list<range_t> gc_ranges;
+  // TODO: Add non-moving as well as large object spaces and their bitmaps.
+  // Java heap (region space)
+  DCHECK(IsAligned<kPageSize>(region_space_->Limit()));
+  gc_ranges.emplace_back(range_t(reinterpret_cast<uint64_t>(region_space_->Begin()),
+                                 reinterpret_cast<uint64_t>(region_space_->Limit())));
+  // mark bitmap
+  gc_ranges.emplace_back(range_t(reinterpret_cast<uint64_t>(region_space_bitmap_->Begin()),
+                                 reinterpret_cast<uint64_t>(region_space_bitmap_->Begin())
+                                 + RoundUp(region_space_bitmap_->Size(), kPageSize)));
+  // card table
+  start = reinterpret_cast<uint64_t>(heap_->GetCardTable()->MemMapBegin());
+  // MemMapSize is already page aligned
+  DCHECK(IsAligned<kPageSize>(heap_->GetCardTable()->MemMapSize()));
+  end = start + heap_->GetCardTable()->MemMapSize();
+  gc_ranges.emplace_back(range_t(start, end));
+  // inter-region refs
+  if (use_generational_cc_ && !young_gen_) {
+    // region space
+    start = reinterpret_cast<uint64_t>(region_space_inter_region_bitmap_->Begin());
+    end = start + RoundUp(region_space_inter_region_bitmap_->Size(), kPageSize);
+    gc_ranges.emplace_back(range_t(start, end));
+    // non-moving space
+    start = reinterpret_cast<uint64_t>(non_moving_space_inter_region_bitmap_->Begin());
+    end = start + RoundUp(non_moving_space_inter_region_bitmap_->Size(), kPageSize);
+    gc_ranges.emplace_back(range_t(start, end));
+  }
+  // Extract RSS. Please note that this function also updates the cummulative
+  // RSS counter.
+  ExtractRssFromSmaps(&gc_ranges);
+  }
+}
+
 void ConcurrentCopying::ReclaimPhase() {
   TimingLogger::ScopedTiming split("ReclaimPhase", GetTimings());
   if (kVerboseMode) {
@@ -2551,6 +2589,11 @@ void ConcurrentCopying::ReclaimPhase() {
     }
     CheckEmptyMarkStack();
   }
+
+  // Capture RSS at the time when memory usage is at its peak. All GC related
+  // memroy ranges like java heap, card table, bitmap etc. are taken into
+  // account.
+  CaptureRssAtPeak();
 
   {
     // Record freed objects.
