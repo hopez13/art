@@ -262,10 +262,10 @@ static ALWAYS_INLINE bool CanUpdateRuntimeFlags(ArtMethod* method) {
 }
 
 template<typename T>
-static ALWAYS_INLINE void MaybeWhitelistMember(Runtime* runtime, T* member)
+static ALWAYS_INLINE void MaybeChangeAccessFlags(Runtime* runtime, T* member, uint32_t flag)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (CanUpdateRuntimeFlags(member) && runtime->ShouldDedupeHiddenApiWarnings()) {
-    member->SetAccessFlags(member->GetAccessFlags() | kAccPublicApi);
+    member->SetAccessFlags(member->GetAccessFlags() | flag);
   }
 }
 
@@ -353,11 +353,18 @@ uint32_t GetDexFlags(T* member) REQUIRES_SHARED(Locks::mutator_lock_) {
 template<typename T>
 void MaybeReportCorePlatformApiViolation(T* member,
                                          const AccessContext& caller_context,
-                                         AccessMethod access_method) {
-  if (access_method != AccessMethod::kNone) {
-    MemberSignature sig(member);
-    LOG(ERROR) << "CorePlatformApi violation: " << Dumpable<MemberSignature>(sig)
-               << " from " << caller_context << " using " << access_method;
+                                         AccessMethod access_method,
+                                         EnforcementPolicy policy) {
+  if (access_method == AccessMethod::kNone) {
+    return;
+  }
+
+  MemberSignature sig(member);
+  LOG(ERROR) << "CorePlatformApi violation: " << Dumpable<MemberSignature>(sig)
+             << " from " << caller_context << " using " << access_method;
+
+  if (policy != EnforcementPolicy::kEnabled) {
+    MaybeChangeAccessFlags(Runtime::Current(), member, kAccCorePlatformApi);
   }
 }
 
@@ -382,7 +389,7 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
     // Avoid re-examining the exemption list next time.
     // Note this results in no warning for the member, which seems like what one would expect.
     // Exemptions effectively adds new members to the whitelist.
-    MaybeWhitelistMember(runtime, member);
+    MaybeChangeAccessFlags(runtime, member, kAccPublicApi);
     return false;
   }
 
@@ -412,7 +419,7 @@ bool ShouldDenyAccessToMemberImpl(T* member, ApiList api_list, AccessMethod acce
     // If this access was not denied, move the member into whitelist and skip
     // the warning the next time the member is accessed.
     if (!deny_access) {
-      MaybeWhitelistMember(runtime, member);
+      MaybeChangeAccessFlags(runtime, member, kAccPublicApi);
     }
   }
 
@@ -424,10 +431,12 @@ template uint32_t GetDexFlags<ArtField>(ArtField* member);
 template uint32_t GetDexFlags<ArtMethod>(ArtMethod* member);
 template void MaybeReportCorePlatformApiViolation(ArtField* member,
                                                   const AccessContext& caller_context,
-                                                  AccessMethod access_method);
+                                                  AccessMethod access_method,
+                                                  EnforcementPolicy policy);
 template void MaybeReportCorePlatformApiViolation(ArtMethod* member,
                                                   const AccessContext& caller_context,
-                                                  AccessMethod access_method);
+                                                  AccessMethod access_method,
+                                                  EnforcementPolicy policy);
 template bool ShouldDenyAccessToMemberImpl<ArtField>(ArtField* member,
                                                      ApiList api_list,
                                                      AccessMethod access_method);

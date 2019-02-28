@@ -80,8 +80,7 @@ class AccessContext {
   ObjPtr<mirror::Class> GetClass() const { return klass_; }
   const DexFile* GetDexFile() const { return dex_file_; }
   Domain GetDomain() const { return domain_; }
-
-  bool IsUntrustedDomain() const { return domain_ == Domain::kApplication; }
+  bool IsApplicationDomain() const { return domain_ == Domain::kApplication; }
 
   // Returns true if this domain is always allowed to access the domain of `callee`.
   bool CanAlwaysAccess(const AccessContext& callee) const {
@@ -215,7 +214,8 @@ uint32_t GetDexFlags(T* member) REQUIRES_SHARED(Locks::mutator_lock_);
 template<typename T>
 void MaybeReportCorePlatformApiViolation(T* member,
                                          const AccessContext& caller_context,
-                                         AccessMethod access_method)
+                                         AccessMethod access_method,
+                                         EnforcementPolicy policy)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 template<typename T>
@@ -374,7 +374,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   const AccessContext callee_context(member->GetDeclaringClass());
 
   // Non-boot classpath callers should have exited early.
-  DCHECK(!callee_context.IsUntrustedDomain());
+  DCHECK(!callee_context.IsApplicationDomain());
 
   // Check if the caller is always allowed to access members in the callee context.
   if (caller_context.CanAlwaysAccess(callee_context)) {
@@ -385,7 +385,7 @@ inline bool ShouldDenyAccessToMember(T* member,
   // not part of core platform API.
   switch (caller_context.GetDomain()) {
     case Domain::kApplication: {
-      DCHECK(!callee_context.IsUntrustedDomain());
+      DCHECK(!callee_context.IsApplicationDomain());
 
       // Exit early if access checks are completely disabled.
       EnforcementPolicy policy = Runtime::Current()->GetHiddenApiEnforcementPolicy();
@@ -418,7 +418,8 @@ inline bool ShouldDenyAccessToMember(T* member,
       }
 
       // Access checks are not disabled, report the violation.
-      // detail::MaybeReportCorePlatformApiViolation(member, caller_context, access_method);
+      // This may also add kAccCorePlatformApi to access flags to not warn again.
+      detail::MaybeReportCorePlatformApiViolation(member, caller_context, access_method, policy);
 
       // Deny access if the policy is enabled.
       return policy == EnforcementPolicy::kEnabled;
