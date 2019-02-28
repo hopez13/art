@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db1cec5_8ff41150",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-02-28T01:32:10Z",
+      "side": 1,
+      "message": "nit: could be helpful to define these error at the top in some variables. If we do get them it might make things easier to spot. Up to you though...",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
