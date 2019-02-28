@@ -35,6 +35,9 @@
 #include "runtime.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
+#ifdef ART_TARGET_ANDROID
+#include <meminfo/procmeminfo.h>
+#endif
 
 namespace art {
 namespace gc {
@@ -80,9 +83,66 @@ void GarbageCollector::ResetCumulativeStatistics() {
   total_thread_cpu_time_ns_ = 0u;
   total_time_ns_ = 0u;
   total_freed_objects_ = 0u;
+  total_rss_kb_ = 0u;
   total_freed_bytes_ = 0;
   MutexLock mu(Thread::Current(), pause_histogram_lock_);
   pause_histogram_.Reset();
+}
+
+uint64_t GarbageCollector::ExtractRssFromSmaps(
+    std::list<std::pair<uint64_t, uint64_t>>* gc_ranges) {
+  uint64_t rss = 0;
+  CHECK(!gc_ranges->empty());
+#ifdef ART_TARGET_ANDROID
+  using range_t = std::pair<uint64_t, uint64_t>;
+    // Sort gc_ranges
+    gc_ranges->sort([](const range_t& a, const range_t& b) {
+      return a.first < b.first;
+    });
+    // Merge gc_ranges. It's necessary because kernel may merge contiguous
+    // regions if there prorperties match.
+    for (auto it = gc_ranges->begin(); it != gc_ranges->end(); it++) {
+      auto next_it = it;
+      next_it++;
+      while (next_it != gc_ranges->end()) {
+        if (it->second == next_it->first) {
+          it->second = next_it->second;
+          next_it = gc_ranges->erase(next_it);
+        } else {
+          break;
+        }
+      }
+    }
+    android::meminfo::ProcMemInfo smaps_data(/*pid*/0);
+    const std::vector<android::meminfo::Vma>& smaps_ranges = smaps_data.Smaps("/proc/self/smaps");
+    // smaps ranges should be already sorted
+    if (kIsDebugBuild) {
+      uint64_t addr = 0;
+      for (const auto& it : smaps_ranges) {
+        DCHECK_LT(addr, it.start);
+        addr = it.start;
+      }
+    }
+    auto smaps_ranges_it = smaps_ranges.cbegin();
+    auto gc_ranges_it = gc_ranges->cbegin();
+    while (smaps_ranges_it != smaps_ranges.cend() && gc_ranges_it != gc_ranges->cend()) {
+      while (smaps_ranges_it->start < gc_ranges_it->first) {
+        smaps_ranges_it++;
+        // If we have a gc range, it must exist in smaps_ranges
+        DCHECK(smaps_ranges_it != smaps_ranges.cend());
+      }
+      // If we have a gc range, it must exist in smaps_ranges
+      DCHECK_EQ(smaps_ranges_it->start, gc_ranges_it->first);
+      while (smaps_ranges_it != smaps_ranges.cend()
+             && smaps_ranges_it->end <= gc_ranges_it->second) {
+        total_rss_kb_ += smaps_ranges_it->usage.rss;
+        smaps_ranges_it++;
+      }
+      gc_ranges_it++;
+    }
+    total_rss_kb_ += rss;
+#endif
+  return rss;
 }
 
 void GarbageCollector::Run(GcCause gc_cause, bool clear_soft_references) {
@@ -239,6 +299,7 @@ void GarbageCollector::DumpPerformanceInfo(std::ostream& os) {
   double cpu_seconds = NsToMs(GetTotalCpuTime()) / 1000.0;
   os << GetName() << " total time: " << PrettyDuration(total_ns)
      << " mean time: " << PrettyDuration(total_ns / iterations) << "\n"
+     << " mean peak rss: " << PrettySize(total_rss_kb_ * 1024 / iterations) << "\n"
      << GetName() << " freed: " << freed_objects
      << " objects with total size " << PrettySize(freed_bytes) << "\n"
      << GetName() << " throughput: " << freed_objects / seconds << "/s / "
