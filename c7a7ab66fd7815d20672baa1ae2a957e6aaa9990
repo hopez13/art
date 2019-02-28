@@ -22,6 +22,29 @@
       "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c228a07_c8c9ec0f",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-02-28T09:29:28Z",
+      "side": 1,
+      "message": "Is that directory structure required by something else? If not, is \u0027OTA\u0027 the terminology mainline uses for updates?",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
