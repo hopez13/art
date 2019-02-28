@@ -22,6 +22,30 @@
       "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5f369a0_d410fa9e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T16:56:19Z",
+      "side": 1,
+      "message": "Your concern is specific to this library or reading from /proc/self/smaps? Because if it\u0027s just the library, I can go back to my original plan of reading smaps directly and extracting the needed info.",
+      "parentUuid": "54884712_1ca56bf9",
+      "range": {
+        "startLine": 344,
+        "startChar": 10,
+        "endLine": 344,
+        "endChar": 20
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
