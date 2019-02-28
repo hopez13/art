@@ -118,6 +118,121 @@
       "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ae6fbd_5717325e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-28T18:19:51Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like a very informative type. It\u0027s also not the right size on 32 bit. Void * seems more natural. Maybe uintptr_t. But meminfo.h does it this way, so I can go either way if we\u0027re keeping it. Maybe at least define range_t constructors from two T* and a T* plus byte size to avoid the casts all over the place?",
+      "range": {
+        "startLine": 2532,
+        "startChar": 28,
+        "endLine": 2532,
+        "endChar": 46
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a07d95_1a01ab7a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2600,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-28T18:19:51Z",
+      "side": 1,
+      "message": "Nit: delete?",
+      "range": {
+        "startLine": 2600,
+        "startChar": 18,
+        "endLine": 2600,
+        "endChar": 54
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e452b0_7d791ee1",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-28T18:19:51Z",
+      "side": 1,
+      "message": "std::less if you switch to void *.",
+      "range": {
+        "startLine": 100,
+        "startChar": 21,
+        "endLine": 100,
+        "endChar": 22
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a489b3a_aa10cd5d",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-28T18:19:51Z",
+      "side": 1,
+      "message": "their properties",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 35
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26a42795_478cbdc5",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-02-28T18:19:51Z",
+      "side": 1,
+      "message": "Is there a good argument that smaps_ranges can\u0027t be merged with non-gc ranges?",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 61
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
