@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be752066_a35aa5df",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-28T16:24:49Z",
+      "side": 1,
+      "message": "I\u0027ll compile a list eventually and put it into a README.md or so. Having names here doesn\u0027t really help, IMO, because the output looks more complicated and you have to do decoding steps anyways.",
+      "parentUuid": "2db1cec5_8ff41150",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c228a07_c8c9ec0f",
         "filename": "build/apex/art_preinstall_hook.sh",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07180bab_ebdcdacf",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-28T16:24:49Z",
+      "side": 1,
+      "message": "Neither. The ota folder is used for A/B updates, and reuse has been approved because behavior is so similar.",
+      "parentUuid": "8c228a07_c8c9ec0f",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
