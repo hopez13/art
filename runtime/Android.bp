@@ -344,6 +344,7 @@ libart_cc_defaults {
             ],
             static_libs: [
                 "libz",  // For adler32.
+	        "libmeminfo",
             ],
             cflags: [
                 // ART is allowed to link to libicuuc directly
