@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "82e1eaf8_52e22108",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "The code in the library that I\u0027m interested in is fairly independent. It only depends on kernel (for smaps file) and c++ library. I have moved libmeminfo to static_libs.\n\nIf it is still a concern, then I can implement the needed functionality in runtime by directly reading smaps.",
+      "parentUuid": "dbaf7fca_b7fdb1ab",
+      "range": {
+        "startLine": 344,
+        "startChar": 10,
+        "endLine": 344,
+        "endChar": 20
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9ae6fbd_5717325e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -141,6 +165,30 @@
       "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3169107_851b9ad0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9ae6fbd_5717325e",
+      "range": {
+        "startLine": 2532,
+        "startChar": 28,
+        "endLine": 2532,
+        "endChar": 46
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "3e157002_98983072",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2600,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17a07d95_1a01ab7a",
+      "range": {
+        "startLine": 2600,
+        "startChar": 18,
+        "endLine": 2600,
+        "endChar": 54
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85e452b0_7d791ee1",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 3
@@ -187,6 +259,30 @@
       "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d370108f_c59f780f",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85e452b0_7d791ee1",
+      "range": {
+        "startLine": 100,
+        "startChar": 21,
+        "endLine": 100,
+        "endChar": 22
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -213,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "6f636b33_7f444e07",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a489b3a_aa10cd5d",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 35
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26a42795_478cbdc5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 3
@@ -233,6 +353,30 @@
       "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac8a3c4_a59a4a4d",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-02-28T21:31:20Z",
+      "side": 1,
+      "message": "All properties of adjoining memory mappings need to match for merging. That includes the name as well. All the gc_ranges are anonymous and named. So they cannot merge with non-gc ranges.",
+      "parentUuid": "26a42795_478cbdc5",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 61
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
