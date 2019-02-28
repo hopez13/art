@@ -3568,6 +3568,10 @@ collector::GcType Heap::WaitForGcToCompleteLocked(GcCause cause, Thread* self) {
 }
 
 void Heap::DumpForSigQuit(std::ostream& os) {
+  if (Runtime::Current()->GetDumpGCPerformanceOnShutdown()) {
+    os << "For a complete set of GC metrics, enable runtime option -XX:DumpGCPerformanceOnShutdown"
+       << "\n";
+  }
   os << "Heap: " << GetPercentFree() << "% free, " << PrettySize(GetBytesAllocated()) << "/"
      << PrettySize(GetTotalMemory()) << "; " << GetObjectsAllocated() << " objects\n";
   DumpGcPerformanceInfo(os);
