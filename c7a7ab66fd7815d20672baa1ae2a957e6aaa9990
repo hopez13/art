@@ -117,6 +117,30 @@
       "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f492586_db47b9dc",
+        "filename": "build/apex/art_preinstall_hook.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-02-28T16:30:27Z",
+      "side": 1,
+      "message": "Security. I need approval to give this script a domain with permissions to write somewhere.\n\nA/B updates are prefixed by their slot. So yes, there\u0027s no overlap.",
+      "parentUuid": "12c287ff_78eb4f72",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "c7a7ab66fd7815d20672baa1ae2a957e6aaa9990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
