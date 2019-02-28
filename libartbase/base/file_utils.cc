@@ -65,6 +65,11 @@ namespace art {
 using android::base::StringPrintf;
 
 static constexpr const char* kClassesDex = "classes.dex";
+static constexpr const char* kRuntimeApexEnvVar = "ANDROID_RUNTIME_ROOT";
+static constexpr const char* kConscryptApexEnvVar = "ANDROID_CONSCRYPT_ROOT";
+static constexpr const char* kApexDefaultPath = "/apex/";
+static constexpr const char* kRuntimeApexDefaultPath = "/apex/com.android.runtime";
+static constexpr const char* kConscryptApexDefaultPath = "/apex/com.android.conscrypt";
 
 bool ReadFileToString(const std::string& file_name, std::string* result) {
   File file(file_name, O_RDONLY, false);
@@ -282,15 +287,29 @@ std::string ReplaceFileExtension(const std::string& filename, const std::string&
   }
 }
 
-bool LocationIsOnRuntimeModule(const char* full_path) {
+static bool IsModuleLocation(const char* full_path,
+                             const char* module_path_env_var_name,
+                             const char* module_path_default) {
   std::string error_msg;
-  const char* runtime_path = GetAndroidDirSafe("ANDROID_RUNTIME_ROOT",
-                                               "/apex/com.android.runtime",
-                                               &error_msg);
-  if (runtime_path == nullptr) {
+  const char* module_path = GetAndroidDirSafe(module_path_env_var_name,
+                                              module_path_default,
+                                              &error_msg);
+  if (module_path == nullptr) {
     return false;
   }
-  return android::base::StartsWith(full_path, runtime_path);
+  return android::base::StartsWith(full_path, module_path);
+}
+
+bool LocationIsOnRuntimeModule(const char* full_path) {
+  return IsModuleLocation(full_path, kRuntimeApexEnvVar, kRuntimeApexDefaultPath);
+}
+
+bool LocationIsOnConscryptModule(const char* full_path) {
+  return IsModuleLocation(full_path, kConscryptApexEnvVar, kConscryptApexDefaultPath);
+}
+
+bool LocationIsOnApex(const char* full_path) {
+  return android::base::StartsWith(full_path, kApexDefaultPath);
 }
 
 bool LocationIsOnSystem(const char* path) {
