@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import dalvik.system.InMemoryDexClassLoader;
 import dalvik.system.PathClassLoader;
 import dalvik.system.VMRuntime;
 import java.io.File;
@@ -52,6 +51,9 @@ public class Main {
     // As a side effect, we also cannot test Platform->Platform and later
     // Platform->CorePlatform as the former succeeds in verifying linkage usages
     // that should fail in the latter.
+    // We also cannot use InMemoryDexClassLoader because it runs verification in
+    // a background thread and being able to dynamically change the configuration
+    // (like list of exemptions) would require proper thread synchronization.
 
     // Run test with both parent and child dex files loaded with class loaders.
     // The expectation is that hidden members in parent should be visible to
@@ -104,7 +106,7 @@ public class Main {
     // Load child dex if it is not in boot class path.
     ClassLoader childLoader = null;
     if (childDomain == DexDomain.Application) {
-      childLoader = new InMemoryDexClassLoader(readDexFile(DEX_CHILD), parentLoader);
+      childLoader = new PathClassLoader(DEX_CHILD, parentLoader);
     } else {
       if (parentLoader != BOOT_CLASS_LOADER) {
         throw new IllegalStateException(
