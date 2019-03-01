@@ -88,6 +88,8 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("  Command \"list\": dump lists of public and private API");
   UsageError("    --boot-dex=<filename>: dex file which belongs to boot class path");
   UsageError("    --public-stub-classpath=<filenames>:");
+  UsageError("    --system-stub-classpath=<filenames>:");
+  UsageError("    --test-stub-classpath=<filenames>:");
   UsageError("    --core-platform-stub-classpath=<filenames>:");
   UsageError("        colon-separated list of dex/apk files which form API stubs of boot");
   UsageError("        classpath. Multiple classpaths can be specified");
@@ -906,7 +908,15 @@ class HiddenApi final {
           } else if (StartsWith(option, "--public-stub-classpath=")) {
             stub_classpaths_.push_back(std::make_pair(
                 std::string(option.substr(strlen("--public-stub-classpath="))),
-                ApiList::Whitelist()));
+                ApiList::PublicApi()));
+          } else if (StartsWith(option, "--system-stub-classpath=")) {
+            stub_classpaths_.push_back(std::make_pair(
+                std::string(option.substr(strlen("--system-stub-classpath="))),
+                ApiList::SystemApi()));
+          } else if (StartsWith(option, "--test-stub-classpath=")) {
+            stub_classpaths_.push_back(std::make_pair(
+                std::string(option.substr(strlen("--test-stub-classpath="))),
+                ApiList::TestApi()));
           } else if (StartsWith(option, "--core-platform-stub-classpath=")) {
             stub_classpaths_.push_back(std::make_pair(
                 std::string(option.substr(strlen("--core-platform-stub-classpath="))),

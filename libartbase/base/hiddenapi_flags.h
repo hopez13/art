@@ -99,10 +99,13 @@ class ApiList {
   // These are used for domain-specific API.
   enum class DomainApi : uint32_t {
     kCorePlatformApi = kValueBitSize,
+    kPublicApi = kValueBitSize + 1,
+    kSystemApi = kValueBitSize + 2,
+    kTestApi = kValueBitSize + 3,
 
     // Special values
     kMin =             kCorePlatformApi,
-    kMax =             kCorePlatformApi,
+    kMax =             kTestApi,
   };
 
   // Bit mask of all domain API flags.
@@ -131,6 +134,9 @@ class ApiList {
   // Names corresponding to DomainApis.
   static constexpr const char* kDomainApiNames[] {
     "core-platform-api",
+    "public-api",
+    "system-api",
+    "test-api",
   };
 
   // Maximum SDK versions allowed to access ApiList of given Value.
@@ -181,6 +187,9 @@ class ApiList {
   static ApiList GreylistMaxO() { return ApiList(Value::kGreylistMaxO); }
   static ApiList GreylistMaxP() { return ApiList(Value::kGreylistMaxP); }
   static ApiList CorePlatformApi() { return ApiList(DomainApi::kCorePlatformApi); }
+  static ApiList PublicApi() { return ApiList(Value::kWhitelist, helper::ToBit(DomainApi::kPublicApi)); }
+  static ApiList SystemApi() { return ApiList(Value::kWhitelist, helper::ToBit(DomainApi::kSystemApi)); }
+  static ApiList TestApi() { return ApiList(Value::kWhitelist, helper::ToBit(DomainApi::kTestApi)); }
 
   uint32_t GetDexFlags() const { return dex_flags_; }
   uint32_t GetIntValue() const { return helper::ToUint(GetValue()) - helper::ToUint(Value::kMin); }
@@ -287,7 +296,7 @@ class ApiList {
         } else {
           os << ",";
         }
-        os << kDomainApiNames[i];
+        os << kDomainApiNames[i - helper::ToUint(DomainApi::kMin)];
       }
     }
 
