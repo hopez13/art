@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "3f905846_c5f48ad5",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-01T16:40:16Z",
+      "side": 1,
+      "message": "To avoid these restrictions, I\u0027ll do the smaps parsing myself in ART and remove the dependency on libmeminfo. That should be ok, right?",
+      "parentUuid": "4767bae1_7e7d436c",
+      "range": {
+        "startLine": 344,
+        "startChar": 10,
+        "endLine": 344,
+        "endChar": 20
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f9ae6fbd_5717325e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
