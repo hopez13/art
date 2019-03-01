@@ -39,6 +39,7 @@
 #include "gc/scoped_gc_critical_section.h"
 #include "gc/space/image_space.h"
 #include "handle_scope-inl.h"
+#include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
 #include "mirror/object-inl.h"
@@ -48,6 +49,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "thread_list.h"
+#include "thread_pool.h"
 #include "well_known_classes.h"
 
 namespace art {
@@ -640,6 +642,131 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   }
 
   return dex_files;
+}
+
+class BackgroundVerificationTask final : public Task {
+ public:
+  BackgroundVerificationTask(const std::vector<const DexFile*>& dex_files, jobject class_loader)
+      : dex_files_(dex_files) {
+    Thread* const self = Thread::Current();
+    ScopedObjectAccess soa(self);
+    class_loader_ = soa.Vm()->AddGlobalRef(self, soa.Decode<mirror::ClassLoader>(class_loader));
+    CHECK(class_loader_ != nullptr);
+  }
+
+  ~BackgroundVerificationTask() {
+    Thread* const self = Thread::Current();
+    ScopedObjectAccess soa(self);
+    soa.Vm()->DeleteGlobalRef(self, class_loader_);
+  }
+
+  void Run(Thread* self) override {
+    ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+
+    // Make sure all dex files are registered.
+    for (const DexFile* dex_file : dex_files_) {
+      ScopedObjectAccess soa(self);
+      StackHandleScope<1> hs(self);
+      Handle<mirror::ClassLoader> h_loader(hs.NewHandle(
+          soa.Decode<mirror::ClassLoader>(class_loader_)));
+      if (class_linker->RegisterDexFile(*dex_file, h_loader.Get()) == nullptr) {
+        // OOME or InternalError (dexFile already registered with a different class loader).
+        self->AssertPendingException();
+        LOG(FATAL) << "Failed to register anonymous dex file " << dex_file->GetLocation() << ": "
+            << self->GetException()->Dump();
+        UNREACHABLE();
+      }
+    }
+
+    // Iterate over all classes and verify them.
+    for (const DexFile* dex_file : dex_files_) {
+      for (uint32_t cdef_idx = 0; cdef_idx < dex_file->NumClassDefs(); cdef_idx++) {
+        ScopedObjectAccess soa(self);
+        StackHandleScope<2> hs(self);
+        Handle<mirror::ClassLoader> h_loader(hs.NewHandle(
+            soa.Decode<mirror::ClassLoader>(class_loader_)));
+        Handle<mirror::Class> h_class(hs.NewHandle<mirror::Class>(class_linker->FindClass(
+            self,
+            dex_file->GetClassDescriptor(dex_file->GetClassDef(cdef_idx)),
+            h_loader)));
+
+        if (h_class == nullptr) {
+          CHECK(self->IsExceptionPending());
+          self->ClearException();
+          continue;
+        }
+
+        if (&h_class->GetDexFile() != dex_file) {
+          // There is a different class in the class path or a parent class loader
+          // with the same descriptor. This `h_class` is not resolvable, skip it.
+          continue;
+        }
+
+        CHECK(h_class->IsResolved()) << h_class->PrettyDescriptor();
+        class_linker->VerifyClass(self, h_class);
+        if (h_class->IsErroneous()) {
+          // ClassLinker::VerifyClass throws, which isn't useful here.
+          CHECK(soa.Self()->IsExceptionPending());
+          soa.Self()->ClearException();
+        }
+
+        CHECK(h_class->ShouldVerifyAtRuntime() || h_class->IsVerified() || h_class->IsErroneous())
+            << h_class->PrettyDescriptor() << ": state=" << h_class->GetStatus();
+      }
+    }
+  }
+
+  void Finalize() override {
+    delete this;
+  }
+
+ private:
+  const std::vector<const DexFile*> dex_files_;
+  jobject class_loader_;
+
+  DISALLOW_COPY_AND_ASSIGN(BackgroundVerificationTask);
+};
+
+void OatFileManager::RunBackgroundVerification(const std::vector<const DexFile*>& dex_files,
+                                               jobject class_loader) {
+  Thread* const self = Thread::Current();
+
+  if (verification_thread_pool_ == nullptr) {
+    verification_thread_pool_.reset(new ThreadPool("Verification thread pool", 1));
+    verification_thread_pool_->StartWorkers(self);
+  }
+
+  verification_thread_pool_->AddTask(self, new BackgroundVerificationTask(dex_files, class_loader));
+}
+
+void OatFileManager::DeleteThreadPool() {
+  Thread* self = Thread::Current();
+  DCHECK(Runtime::Current()->IsShuttingDown(self));
+  if (verification_thread_pool_ != nullptr) {
+    std::unique_ptr<ThreadPool> pool;
+    {
+      ScopedSuspendAll ssa(__FUNCTION__);
+      // Clear verification_thread_pool_ field while the threads are suspended.
+      pool = std::move(verification_thread_pool_);
+    }
+
+    // When running sanitized, let all tasks finish to not leak. Otherwise just clear the queue.
+    if (!kRunningOnMemoryTool) {
+      pool->StopWorkers(self);
+      pool->RemoveAllTasks(self);
+    }
+    // We could just suspend all threads, but we know those threads
+    // will finish in a short period, so it's not worth adding a suspend logic
+    // here. Besides, this is only done for shutdown.
+    pool->Wait(self, false, false);
+  }
+}
+
+void OatFileManager::WaitForBackgroundVerificationTasks() {
+  Thread* const self = Thread::Current();
+  if (verification_thread_pool_ != nullptr) {
+    verification_thread_pool_->Wait(self, /* do_work= */ true, /* may_hold_locks= */ false);
+  }
 }
 
 void OatFileManager::SetOnlyUseSystemOatFiles() {
