@@ -25,6 +25,7 @@
 #include "base/bit_utils.h"
 #include "base/dumpable.h"
 #include "base/macros.h"
+#include "base/hiddenapi_stubs.h"
 
 namespace art {
 namespace hiddenapi {
@@ -207,6 +208,10 @@ class ApiList {
                         /* out */ ApiList* out_api_list) {
     ApiList api_list;
     for (std::vector<std::string>::iterator it = begin; it != end; it++) {
+      // Ignore flags which are not relevant at runtime
+      if (HiddenApiStubs::IsIgnoredApiFlag(*it)) {
+        continue;
+      }
       ApiList current = FromName(*it);
       if (current.IsEmpty() || !api_list.CanCombineWith(current)) {
         return false;

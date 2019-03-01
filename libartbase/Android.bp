@@ -29,6 +29,7 @@ cc_defaults {
         "base/file_utils.cc",
         "base/hex_dump.cc",
         "base/hiddenapi_flags.cc",
+        "base/hiddenapi_stubs.cc",
         "base/logging.cc",
         "base/malloc_arena_pool.cc",
         "base/membarrier.cc",
