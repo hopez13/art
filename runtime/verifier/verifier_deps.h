@@ -72,6 +72,9 @@ class VerifierDeps {
                                             FailureKind failure_kind)
       REQUIRES(!Locks::verifier_deps_lock_);
 
+  void RecordClassVerified(const DexFile& dex_file, const dex::ClassDef& class_def)
+      REQUIRES(!Locks::verifier_deps_lock_);
+
   // Record that class defined in `class_def` was not verified because it redefines
   // a class with the same descriptor which takes precedence in class resolution.
   static void MaybeRecordClassRedefinition(const DexFile& dex_file, const dex::ClassDef& class_def)
