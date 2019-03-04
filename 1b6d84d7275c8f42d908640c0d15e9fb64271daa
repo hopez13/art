@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f17219f_bbebe1ea",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-04T11:53:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e997c38a_9605345b",
+      "range": {
+        "startLine": 366,
+        "startChar": 2,
+        "endLine": 366,
+        "endChar": 46
+      },
+      "revId": "1b6d84d7275c8f42d908640c0d15e9fb64271daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3e85f3f_30bb1ddd",
         "filename": "runtime/hidden_api.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "1b6d84d7275c8f42d908640c0d15e9fb64271daa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5198eccd_3951a37d",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-04T11:53:57Z",
+      "side": 1,
+      "message": "Rephrased",
+      "parentUuid": "d3e85f3f_30bb1ddd",
+      "range": {
+        "startLine": 421,
+        "startChar": 47,
+        "endLine": 421,
+        "endChar": 62
+      },
+      "revId": "1b6d84d7275c8f42d908640c0d15e9fb64271daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
