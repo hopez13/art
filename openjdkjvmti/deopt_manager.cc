@@ -356,6 +356,47 @@ void DeoptManager::PerformGlobalUndeoptimization(art::Thread* self) {
       kDeoptManagerInstrumentationKey);
 }
 
+jvmtiError DeoptManager::AddDeoptimizeThreadMethods(art::ScopedObjectAccess& soa, jthread jtarget) {
+  art::Locks::thread_list_lock_->ExclusiveLock(soa.Self());
+  art::Thread* target = nullptr;
+  jvmtiError err = OK;
+  if (!ThreadUtil::GetNativeThread(jtarget, soa, &target, &err)) {
+    art::Locks::thread_list_lock_->ExclusiveUnlock(soa.Self());
+    return err;
+  }
+  // We don't need additional locking here because we hold the Thread_list_lock_.
+  target->SetForceInterpreterCount(target->ForceInterpreterCount() + 1);
+  if (target->ForceInterpreterCount() == 1) {
+    struct DeoptClosure : public art::Closure {
+     public:
+      explicit DeoptClosure(DeoptManager* man) : man_(man) {}
+      void Run(art::Thread* self) override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+        man_->DeoptimizeThread(self);
+      }
+
+     private:
+      DeoptManager* man_;
+    };
+    DeoptClosure c(this);
+    target->RequestSynchronousCheckpoint(&c);
+  } else {
+    art::Locks::thread_list_lock_->ExclusiveUnlock(soa.Self());
+  }
+  return OK;
+}
+
+jvmtiError DeoptManager::RemoveDeoptimizeThreadMethods(art::ScopedObjectAccess& soa, jthread jtarget) {
+  art::MutexLock mu(soa.Self(), *art::Locks::thread_list_lock_);
+  art::Thread* target = nullptr;
+  jvmtiError err = OK;
+  if (!ThreadUtil::GetNativeThread(jtarget, soa, &target, &err)) {
+    return err;
+  }
+  // We don't need additional locking here because we hold the Thread_list_lock_.
+  DCHECK_GT(target->ForceInterpreterCount(), 0u);
+  target->DecrementForceInterpreterCount();
+  return OK;
+}
 
 void DeoptManager::RemoveDeoptimizationRequester() {
   art::Thread* self = art::Thread::Current();
