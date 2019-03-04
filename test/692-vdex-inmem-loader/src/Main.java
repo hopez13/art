@@ -40,9 +40,15 @@ public class Main {
     return new ClassLoader[] { clA, clB };
   }
 
-  private static void test(ClassLoader loader, boolean invokeMethod) throws Exception {
+  private static void test(ClassLoader loader,
+                           boolean expectedHasVdexFile,
+                           boolean invokeMethod) throws Exception {
+    // If ART created a vdex file, it must have verified all the classes.
+    boolean expectedClassesVerified = expectedHasVdexFile;
+
     waitForVerifier();
-    check(true, areClassesVerified(loader), "areClassesVerified");
+    check(expectedClassesVerified, areClassesVerified(loader), "areClassesVerified");
+    check(expectedHasVdexFile, hasVdexFile(loader), "areClassesVerified");
 
     if (invokeMethod) {
       loader.loadClass("art.ClassB").getDeclaredMethod("printHello").invoke(null);
@@ -53,19 +59,28 @@ public class Main {
     System.loadLibrary(args[0]);
     ClassLoader[] loaders = null;
 
-    // Test loading both dex files in a single class loader.
-    // Background verification task should verify all their classes.
-    test(singleLoader(), /*invokeMethod*/true);
+    // Data directory not set. Background verification job should not have run
+    // and vdex should not have been created.
+    test(singleLoader(), /*hasVdex*/false, /*invokeMethod*/true);
+
+    // Set data directory for this process.
+    setProcessDataDir(DEX_LOCATION);
+
+    // Data directory is now set. Background verification job should have run,
+    // should have verified classes and written results to a vdex.
+    test(singleLoader(), /*hasVdex*/true, /*invokeMethod*/true);
 
     // Test loading the two dex files with seperate class loaders.
     // Background verification task should still verify all classes.
     loaders = multiLoader();
-    test(loaders[0], /*invokeMethod*/false);
-    test(loaders[1], /*invokeMethod*/true);
+    test(loaders[0], /*hasVdex*/true, /*invokeMethod*/false);
+    test(loaders[1], /*hasVdex*/true, /*invokeMethod*/true);
   }
 
+  private static native void setProcessDataDir(String path);
   private static native void waitForVerifier();
   private static native boolean areClassesVerified(ClassLoader loader);
+  private static native boolean hasVdexFile(ClassLoader loader);
 
   // Defined in 674-hiddenapi.
   private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
