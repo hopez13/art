@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5323577_593ceccd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-04T10:20:42Z",
+      "side": 1,
+      "message": "Nit: add a comment like \"We only do this when dump...onshutdown flag is set, because ... otherwise it\u0027s expensive... and we don\u0027t need to collect it in the general case\" ?\n\nWould it make sense to always collect it so it\u0027s available on bug reports, and phenotype experiments?",
+      "range": {
+        "startLine": 2533,
+        "startChar": 26,
+        "endLine": 2533,
+        "endChar": 56
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e27593f7_ca53a09e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-04T10:20:42Z",
+      "side": 1,
+      "message": "This will get printed for each process on a bug report, maybe avoid?",
+      "range": {
+        "startLine": 3571,
+        "startChar": 0,
+        "endLine": 3574,
+        "endChar": 3
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

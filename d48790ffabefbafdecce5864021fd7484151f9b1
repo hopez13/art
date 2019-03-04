@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "ea68c3be_bd2969b6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-04T10:20:42Z",
+      "side": 1,
+      "message": "Yes, doing the parsing yourself sounds better than adding a new dependency - though the parsing needs to make sure it\u0027s portable (ie it will work in future versions of Android).\n\nMoving to mincore sounds even better :)",
+      "parentUuid": "5ae3196c_e46105ad",
+      "range": {
+        "startLine": 344,
+        "startChar": 10,
+        "endLine": 344,
+        "endChar": 20
+      },
+      "revId": "d48790ffabefbafdecce5864021fd7484151f9b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9ae6fbd_5717325e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
