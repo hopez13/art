@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fcf6956_046e62b8",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-04T13:54:45Z",
+      "side": 1,
+      "message": "Please don\u0027t add them here. I mentioned on Friday that these should not have a runtime representation. When you add them here, it will automatically set aside bits in the dex file access flags and we don\u0027t want that.\n\nI think it\u0027s better to just get rid of using the ApiList in data structure in `hiddenapi list` in general. It made sense when that command could only produce flags that also exist at runtime, but now that won\u0027t be the case. We\u0027ll have to live with the core-platform-api flag name duplication.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 35
+      },
+      "revId": "cdb7c055c81d6c7917f7e79f8e4e453ae8216880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
