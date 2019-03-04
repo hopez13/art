@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc01e2c8_19f8ce86",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-04T18:40:18Z",
+      "side": 1,
+      "message": "I\u0027ll add the comment in next patch.\n\nThis whole operation is taking ~2ms on average, which is way more expensive as compared to other counters we update. If you say, I can make it unconditional. It\u0027s as interesting as other metrics in the GC perf dump.",
+      "parentUuid": "a5323577_593ceccd",
+      "range": {
+        "startLine": 2533,
+        "startChar": 26,
+        "endLine": 2533,
+        "endChar": 56
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e27593f7_ca53a09e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2019-03-04T10:20:42Z",
       "side": 1,
       "message": "This will get printed for each process on a bug report, maybe avoid?",
+      "range": {
+        "startLine": 3571,
+        "startChar": 0,
+        "endLine": 3574,
+        "endChar": 3
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ab418ba_0f1507dc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3574,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-04T18:40:18Z",
+      "side": 1,
+      "message": "I was just looking for a way to inform that some metrics (only this one as of now) are computed only when the flag is enabled. Would it be enough if I just leave a comment about this in DumpGcPerformanceInfo()?",
+      "parentUuid": "e27593f7_ca53a09e",
       "range": {
         "startLine": 3571,
         "startChar": 0,
