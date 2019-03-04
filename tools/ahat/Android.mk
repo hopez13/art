@@ -18,21 +18,6 @@ LOCAL_PATH := $(call my-dir)
 
 include art/build/Android.common_path.mk
 
-# --- ahat.jar ----------------
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src/main)
-LOCAL_JAR_MANIFEST := etc/ahat.mf
-LOCAL_JAVA_RESOURCE_FILES := $(LOCAL_PATH)/etc/style.css
-LOCAL_JAVACFLAGS := -Xdoclint:all/protected
-LOCAL_IS_HOST_MODULE := true
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := ahat
-
-# Make this available on the classpath of the general-tests tradefed suite.
-# It is used by libcore tests that run there.
-LOCAL_COMPATIBILITY_SUITE := general-tests
-
-include $(BUILD_HOST_JAVA_LIBRARY)
 AHAT_JAR := $(LOCAL_BUILT_MODULE)
 
 # --- api check for ahat.jar ----------
