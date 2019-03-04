@@ -539,6 +539,12 @@ void VerifierDeps::MaybeRecordVerificationStatus(const DexFile& dex_file,
   }
 }
 
+void VerifierDeps::RecordClassVerified(const DexFile& dex_file, const dex::ClassDef& class_def) {
+  DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
+  DCHECK_EQ(dex_deps->verified_classes_.size(), dex_file.NumClassDefs());
+  dex_deps->verified_classes_[dex_file.GetIndexForClassDef(class_def)] = true;
+}
+
 void VerifierDeps::MaybeRecordClassResolution(const DexFile& dex_file,
                                               dex::TypeIndex type_idx,
                                               ObjPtr<mirror::Class> klass) {
