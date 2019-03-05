@@ -151,6 +151,8 @@ class ThreadList {
   void ForEach(void (*callback)(Thread*, void*), void* context)
       REQUIRES(Locks::thread_list_lock_);
 
+  void ForEach(Closure* cls) REQUIRES(Locks::thread_list_lock_);
+
   // Add/remove current thread from list.
   void Register(Thread* self)
       REQUIRES(Locks::runtime_shutdown_lock_)
