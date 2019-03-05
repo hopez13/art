@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd8f2c26_bf70535e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "Would be good to compare the hiddenapi-flags.cvs before and after to make sure nothing has changed.",
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "827fb9fd_76cef542",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "nit: Move closer to users. I should really split this file into three: encode/list/common.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aa47754_3b327a3b",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "I\u0027m more guilty of overloading terms than anyone, but let\u0027s try to put more context in the name - ApiStubsKind?",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba0d0e14_0aaee1d1",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "kPublicApi, kSystemApi, ...",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e28a1d_73e5a820",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "nit: Sry, I know I suggested a list of strings, but now that I\u0027m looking at it, the typical way we do this is a function with a switch case on the enum value and returning a const char*/string_view.",
+      "range": {
+        "startLine": 53,
+        "startChar": 44,
+        "endLine": 53,
+        "endChar": 57
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "952b9483_1779d945",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "Haven\u0027t reviewed the python script changes yet, but I would expect this to fail if you keep the new flags in \u0027hiddenapi-flags.csv\u0027.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 72
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b49c37_0f4ec93f",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "Use const char* or string_view to avoid copying, or (preferably) make it a set on the enum values and convert to string later.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 35,
+        "endLine": 1043,
+        "endChar": 47
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c02726d4_eb50a123",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "Double comment",
+      "range": {
+        "startLine": 1052,
+        "startChar": 7,
+        "endLine": 1052,
+        "endChar": 9
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "756bb9ef_fbcaac64",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-05T15:05:10Z",
+      "side": 1,
+      "message": "nit: Let\u0027s stick with ApiType. Otherwise it\u0027s not clear why you don\u0027t need a reference here. We use \u0027auto\u0027 just for long, complicated types.",
+      "range": {
+        "startLine": 1062,
+        "startChar": 12,
+        "endLine": 1062,
+        "endChar": 16
+      },
+      "revId": "f60fe19c85593c75b8e25da979e5fcf196827458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
