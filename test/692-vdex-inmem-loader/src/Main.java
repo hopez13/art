@@ -43,10 +43,13 @@ public class Main {
   private static void test(ClassLoader loader,
                            boolean expectedClassesVerified,
                            boolean expectedHasVdexFile,
+                           boolean expectedBackedByOat,
                            boolean invokeMethod) throws Exception {
     waitForVerifier();
     check(expectedClassesVerified, areClassesVerified(loader), "areClassesVerified");
     check(expectedHasVdexFile, hasVdexFile(loader), "areClassesVerified");
+    check(expectedBackedByOat, isBackedByOatFile(loader), "isBackedByOatFile");
+    check(expectedBackedByOat, areClassesPreverified(loader), "areClassesPreverified");
 
     if (invokeMethod) {
       loader.loadClass("art.ClassB").getDeclaredMethod("printHello").invoke(null);
@@ -59,26 +62,56 @@ public class Main {
 
     // Data directory not set. Background verification job should not have run
     // and vdex should not have been created.
-    test(singleLoader(), /*verified*/ false, /*hasVdex*/false, /*invokeMethod*/true);
+    test(singleLoader(), /*verified*/ false, /*hasVdex*/ false, /*backedByOat*/ false,
+        /*invokeMethod*/ true);
 
     // Set data directory for this process.
     setProcessDataDir(DEX_LOCATION);
 
     // Data directory is now set. Background verification job should have run,
     // should have verified classes and written results to a vdex.
-    test(singleLoader(), /*verified*/ true, /*hasVdex*/true, /*invokeMethod*/true);
+    test(singleLoader(), /*verified*/ true, /*hasVdex*/ true, /*backedByOat*/ false,
+        /*invokeMethod*/ true);
+
+    test(singleLoader(), /*verified*/ false, /*hasVdex*/ true, /*backedByOat*/ true,
+        /*invokeMethod*/ true);
 
     // Test loading the two dex files with seperate class loaders.
     // Background verification task should still verify all classes.
     loaders = multiLoader();
-    test(loaders[0], /*verified*/ true, /*hasVdex*/true, /*invokeMethod*/false);
-    test(loaders[1], /*verified*/ true, /*hasVdex*/true, /*invokeMethod*/true);
+    test(loaders[0], /*verified*/ true, /*hasVdex*/ true, /*backedByOat*/ false,
+        /*invokeMethod*/ false);
+    test(loaders[1], /*verified*/ true, /*hasVdex*/ true, /*backedByOat*/ false,
+        /*invokeMethod*/ true);
+
+    loaders = multiLoader();
+    test(loaders[0], /*verified*/ false, /*hasVdex*/ true, /*backedByOat*/ true,
+        /*invokeMethod*/ false);
+    test(loaders[1], /*verified*/ false, /*hasVdex*/ true, /*backedByOat*/ true,
+        /*invokeMethod*/ true);
+
+    // Change boot classpath checksum.
+    appendToBootClassLoader(DEX_EXTRA, /*isCorePlatform*/ false);
+
+    loaders = multiLoader();
+    test(loaders[0], /*verified*/ true, /*hasVdex*/ true, /*backedByOat*/ false,
+        /*invokeMethod*/ false);
+    test(loaders[1], /*verified*/ true, /*hasVdex*/ true, /*backedByOat*/ false,
+        /*invokeMethod*/ true);
+
+    loaders = multiLoader();
+    test(loaders[0], /*verified*/ false, /*hasVdex*/ true, /*backedByOat*/ true,
+        /*invokeMethod*/ false);
+    test(loaders[1], /*verified*/ false, /*hasVdex*/ true, /*backedByOat*/ true,
+        /*invokeMethod*/ true);
   }
 
   private static native void setProcessDataDir(String path);
   private static native void waitForVerifier();
   private static native boolean areClassesVerified(ClassLoader loader);
   private static native boolean hasVdexFile(ClassLoader loader);
+  private static native boolean isBackedByOatFile(ClassLoader loader);
+  private static native boolean areClassesPreverified(ClassLoader loader);
 
   // Defined in 674-hiddenapi.
   private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
