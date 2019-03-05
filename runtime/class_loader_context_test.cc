@@ -61,6 +61,13 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
         context, index, ClassLoaderContext::kDelegateLastClassLoader, classpath);
   }
 
+  void VerifyClassLoaderIMC(ClassLoaderContext* context,
+                            size_t index,
+                            const std::string& classpath) {
+    VerifyClassLoaderInfo(
+        context, index, ClassLoaderContext::kInMemoryDexClassLoader, classpath);
+  }
+
   void VerifyClassLoaderSharedLibraryPCL(ClassLoaderContext* context,
                                          size_t loader_index,
                                          size_t shared_library_index,
@@ -88,6 +95,15 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
         classpath);
   }
 
+  void VerifyClassLoaderSharedLibraryIMC(ClassLoaderContext* context,
+                                         size_t loader_index,
+                                         size_t shared_library_index,
+                                         const std::string& classpath) {
+    VerifyClassLoaderInfoSL(
+        context, loader_index, shared_library_index, ClassLoaderContext::kInMemoryDexClassLoader,
+        classpath);
+  }
+
   void VerifyClassLoaderPCLFromTestDex(ClassLoaderContext* context,
                                        size_t index,
                                        const std::string& test_name) {
@@ -100,6 +116,13 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
                                        const std::string& test_name) {
     VerifyClassLoaderFromTestDex(
         context, index, ClassLoaderContext::kDelegateLastClassLoader, test_name);
+  }
+
+  void VerifyClassLoaderIMCFromTestDex(ClassLoaderContext* context,
+                                       size_t index,
+                                       const std::string& test_name) {
+    VerifyClassLoaderFromTestDex(
+        context, index, ClassLoaderContext::kInMemoryDexClassLoader, test_name);
   }
 
   enum class LocationCheck {
@@ -249,17 +272,20 @@ TEST_F(ClassLoaderContextTest, ParseValidSharedLibraryContext) {
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextPCL) {
-  std::unique_ptr<ClassLoaderContext> context =
-      ClassLoaderContext::Create("PCL[a.dex]");
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("PCL[a.dex]");
   VerifyContextSize(context.get(), 1);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex");
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextDLC) {
-  std::unique_ptr<ClassLoaderContext> context =
-      ClassLoaderContext::Create("DLC[a.dex]");
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("DLC[a.dex]");
   VerifyContextSize(context.get(), 1);
   VerifyClassLoaderDLC(context.get(), 0, "a.dex");
+}
+
+TEST_F(ClassLoaderContextTest, ParseInvalidContextIMC) {
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("IMC[a.dex]");
+  ASSERT_TRUE(context == nullptr);
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextChain) {
@@ -467,6 +493,19 @@ TEST_F(ClassLoaderContextTest, OpenInvalidDexFilesMix) {
   std::unique_ptr<ClassLoaderContext> context =
       ClassLoaderContext::Create("PCL[does_not_exist.dex];DLC[" + dex_name + "]");
   ASSERT_FALSE(context->OpenDexFiles(InstructionSet::kArm, ""));
+}
+
+TEST_F(ClassLoaderContextTest, OpenDexFilesForIMCFails) {
+  std::unique_ptr<ClassLoaderContext> context;
+  std::string dex_name = GetTestDexFileName("Main");
+
+  context = ParseContextWithChecksums("PCL[" + dex_name + "*111]");
+  VerifyContextSize(context.get(), 1);
+  ASSERT_TRUE(context->OpenDexFiles(InstructionSet::kArm, "."));
+
+  context = ParseContextWithChecksums("IMC[" + dex_name + "*111]");
+  VerifyContextSize(context.get(), 1);
+  ASSERT_FALSE(context->OpenDexFiles(InstructionSet::kArm, "."));
 }
 
 TEST_F(ClassLoaderContextTest, CreateClassLoader) {
@@ -1058,14 +1097,14 @@ TEST_F(ClassLoaderContextTest, CreateContextForClassLoader) {
   //    ClassLoaderB (DelegateLastClassLoader)
   //       ^
   //       |
-  //    ClassLoaderC (PathClassLoader)
+  //    ClassLoaderC (InMemoryDexClassLoader)
   //       ^
   //       |
   //    ClassLoaderD (DelegateLastClassLoader)
 
   jobject class_loader_a = LoadDexInPathClassLoader("ForClassLoaderA", nullptr);
   jobject class_loader_b = LoadDexInDelegateLastClassLoader("ForClassLoaderB", class_loader_a);
-  jobject class_loader_c = LoadDexInPathClassLoader("ForClassLoaderC", class_loader_b);
+  jobject class_loader_c = LoadDexInInMemoryDexClassLoader("ForClassLoaderC", class_loader_b);
   jobject class_loader_d = LoadDexInDelegateLastClassLoader("ForClassLoaderD", class_loader_c);
 
   std::unique_ptr<ClassLoaderContext> context = CreateContextForClassLoader(class_loader_d);
@@ -1074,11 +1113,10 @@ TEST_F(ClassLoaderContextTest, CreateContextForClassLoader) {
   VerifyContextSize(context.get(), 4);
 
   VerifyClassLoaderDLCFromTestDex(context.get(), 0, "ForClassLoaderD");
-  VerifyClassLoaderPCLFromTestDex(context.get(), 1, "ForClassLoaderC");
+  VerifyClassLoaderIMCFromTestDex(context.get(), 1, "ForClassLoaderC");
   VerifyClassLoaderDLCFromTestDex(context.get(), 2, "ForClassLoaderB");
   VerifyClassLoaderPCLFromTestDex(context.get(), 3, "ForClassLoaderA");
 }
-
 
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextFirstElement) {
   std::string context_spec = "PCL[]";
@@ -1091,44 +1129,47 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextFirstElement) {
 }
 
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatch) {
-  std::string context_spec = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890]";
+  std::string context_spec = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890];IMC[d.dex*111]";
   std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
   // Pretend that we successfully open the dex files to pass the DCHECKS.
   // (as it's much easier to test all the corner cases without relying on actual dex files).
   PretendContextOpenedDexFiles(context.get());
 
-  VerifyContextSize(context.get(), 2);
+  VerifyContextSize(context.get(), 3);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex:b.dex");
   VerifyClassLoaderDLC(context.get(), 1, "c.dex");
+  VerifyClassLoaderIMC(context.get(), 2, "d.dex");
 
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
             ClassLoaderContext::VerificationResult::kVerifies);
 
-  std::string wrong_class_loader_type = "PCL[a.dex*123:b.dex*456];PCL[c.dex*890]";
+  std::string wrong_class_loader_type = "PCL[a.dex*123:b.dex*456];PCL[c.dex*890];IMC[d.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_class_loader_type),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_class_loader_order = "DLC[c.dex*890];PCL[a.dex*123:b.dex*456]";
+  std::string wrong_class_loader_order = "IMC[d.dex*111];DLC[c.dex*890];PCL[a.dex*123:b.dex*456]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_class_loader_order),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_classpath_order = "PCL[b.dex*456:a.dex*123];DLC[c.dex*890]";
+  std::string wrong_classpath_order = "PCL[b.dex*456:a.dex*123];DLC[c.dex*890];IMC[d.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_classpath_order),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_checksum = "PCL[a.dex*999:b.dex*456];DLC[c.dex*890]";
+  std::string wrong_checksum = "PCL[a.dex*999:b.dex*456];DLC[c.dex*890];IMC[d.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_checksum),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_extra_class_loader = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890];PCL[d.dex*321]";
+  std::string wrong_extra_class_loader =
+      "PCL[a.dex*123:b.dex*456];DLC[c.dex*890];IMC[d.dex*111];PCL[e.dex*321]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_extra_class_loader),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_extra_classpath = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890:d.dex*321]";
+  std::string wrong_extra_classpath =
+      "PCL[a.dex*123:b.dex*456];DLC[c.dex*890:d.dex*321];IMC[d.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_extra_classpath),
             ClassLoaderContext::VerificationResult::kMismatch);
 
-  std::string wrong_spec = "PCL[a.dex*999:b.dex*456];DLC[";
+  std::string wrong_spec = "PCL[a.dex*999:b.dex*456];DLC[c.dex*890];IMC[";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_spec),
             ClassLoaderContext::VerificationResult::kMismatch);
 }
@@ -1147,55 +1188,56 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchSpecial) {
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchWithSL) {
   std::string context_spec =
       "PCL[a.dex*123:b.dex*456]{PCL[d.dex*321];PCL[e.dex*654]#PCL[f.dex*098:g.dex*999]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
   // Pretend that we successfully open the dex files to pass the DCHECKS.
   // (as it's much easier to test all the corner cases without relying on actual dex files).
   PretendContextOpenedDexFiles(context.get());
 
-  VerifyContextSize(context.get(), 2);
+  VerifyContextSize(context.get(), 3);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex:b.dex");
   VerifyClassLoaderDLC(context.get(), 1, "c.dex");
   VerifyClassLoaderSharedLibraryPCL(context.get(), 0, 0, "d.dex");
   VerifyClassLoaderSharedLibraryPCL(context.get(), 0, 1, "f.dex:g.dex");
+  VerifyClassLoaderIMC(context.get(), 2, "h.dex");
 
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
             ClassLoaderContext::VerificationResult::kVerifies);
 
   std::string wrong_class_loader_type =
       "PCL[a.dex*123:b.dex*456]{DLC[d.dex*321];PCL[e.dex*654]#PCL[f.dex*098:g.dex*999]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_class_loader_type),
             ClassLoaderContext::VerificationResult::kMismatch);
 
   std::string wrong_class_loader_order =
       "PCL[a.dex*123:b.dex*456]{PCL[f.dex#098:g.dex#999}#PCL[d.dex*321];PCL[e.dex*654]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_class_loader_order),
             ClassLoaderContext::VerificationResult::kMismatch);
 
   std::string wrong_classpath_order =
       "PCL[a.dex*123:b.dex*456]{PCL[d.dex*321];PCL[e.dex*654]#PCL[g.dex*999:f.dex*098]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_classpath_order),
             ClassLoaderContext::VerificationResult::kMismatch);
 
   std::string wrong_checksum =
       "PCL[a.dex*123:b.dex*456]{PCL[d.dex*333];PCL[e.dex*654]#PCL[g.dex*999:f.dex*098]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_checksum),
             ClassLoaderContext::VerificationResult::kMismatch);
 
   std::string wrong_extra_class_loader =
       "PCL[a.dex*123:b.dex*456]"
       "{PCL[d.dex*321];PCL[e.dex*654]#PCL[f.dex*098:g.dex*999];PCL[i.dex#444]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_extra_class_loader),
             ClassLoaderContext::VerificationResult::kMismatch);
 
   std::string wrong_extra_classpath =
       "PCL[a.dex*123:b.dex*456]{PCL[d.dex*321:i.dex#444];PCL[e.dex*654]#PCL[f.dex*098:g.dex*999]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(wrong_extra_classpath),
             ClassLoaderContext::VerificationResult::kMismatch);
 }
@@ -1203,7 +1245,7 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchWithSL) {
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchAfterEncoding) {
   jobject class_loader_a = LoadDexInPathClassLoader("ForClassLoaderA", nullptr);
   jobject class_loader_b = LoadDexInDelegateLastClassLoader("ForClassLoaderB", class_loader_a);
-  jobject class_loader_c = LoadDexInPathClassLoader("ForClassLoaderC", class_loader_b);
+  jobject class_loader_c = LoadDexInInMemoryDexClassLoader("ForClassLoaderC", class_loader_b);
   jobject class_loader_d = LoadDexInDelegateLastClassLoader("ForClassLoaderD", class_loader_c);
 
   std::unique_ptr<ClassLoaderContext> context = CreateContextForClassLoader(class_loader_d);
