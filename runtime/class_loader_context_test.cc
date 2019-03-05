@@ -61,6 +61,13 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
         context, index, ClassLoaderContext::kDelegateLastClassLoader, classpath);
   }
 
+  void VerifyClassLoaderIMC(ClassLoaderContext* context,
+                            size_t index,
+                            const std::string& classpath) {
+    VerifyClassLoaderInfo(
+        context, index, ClassLoaderContext::kInMemoryDexClassLoader, classpath);
+  }
+
   void VerifyClassLoaderSharedLibraryPCL(ClassLoaderContext* context,
                                          size_t loader_index,
                                          size_t shared_library_index,
@@ -88,6 +95,15 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
         classpath);
   }
 
+  void VerifyClassLoaderSharedLibraryIMC(ClassLoaderContext* context,
+                                         size_t loader_index,
+                                         size_t shared_library_index,
+                                         const std::string& classpath) {
+    VerifyClassLoaderInfoSL(
+        context, loader_index, shared_library_index, ClassLoaderContext::kInMemoryDexClassLoader,
+        classpath);
+  }
+
   void VerifyClassLoaderPCLFromTestDex(ClassLoaderContext* context,
                                        size_t index,
                                        const std::string& test_name) {
@@ -100,6 +116,13 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
                                        const std::string& test_name) {
     VerifyClassLoaderFromTestDex(
         context, index, ClassLoaderContext::kDelegateLastClassLoader, test_name);
+  }
+
+  void VerifyClassLoaderIMCFromTestDex(ClassLoaderContext* context,
+                                       size_t index,
+                                       const std::string& test_name) {
+    VerifyClassLoaderFromTestDex(
+        context, index, ClassLoaderContext::kInMemoryDexClassLoader, test_name);
   }
 
   enum class LocationCheck {
@@ -249,17 +272,22 @@ TEST_F(ClassLoaderContextTest, ParseValidSharedLibraryContext) {
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextPCL) {
-  std::unique_ptr<ClassLoaderContext> context =
-      ClassLoaderContext::Create("PCL[a.dex]");
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("PCL[a.dex]");
   VerifyContextSize(context.get(), 1);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex");
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextDLC) {
-  std::unique_ptr<ClassLoaderContext> context =
-      ClassLoaderContext::Create("DLC[a.dex]");
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("DLC[a.dex]");
   VerifyContextSize(context.get(), 1);
   VerifyClassLoaderDLC(context.get(), 0, "a.dex");
+}
+
+TEST_F(ClassLoaderContextTest, ParseInvalidContextIMC) {
+  // IMC is treated as an unknown class loader unless a checksum is provided.
+  // This is because the dex location is always bogus.
+  std::unique_ptr<ClassLoaderContext> context = ClassLoaderContext::Create("IMC[a.dex]");
+  ASSERT_TRUE(context == nullptr);
 }
 
 TEST_F(ClassLoaderContextTest, ParseValidContextChain) {
@@ -408,7 +436,6 @@ TEST_F(ClassLoaderContextTest, OpenValidDexFilesRelative) {
     return;
   }
 
-
   std::unique_ptr<ClassLoaderContext> context =
       ClassLoaderContext::Create(
           "PCL[" + multidex_name + ":" + myclass_dex_name + "];" +
@@ -467,6 +494,19 @@ TEST_F(ClassLoaderContextTest, OpenInvalidDexFilesMix) {
   std::unique_ptr<ClassLoaderContext> context =
       ClassLoaderContext::Create("PCL[does_not_exist.dex];DLC[" + dex_name + "]");
   ASSERT_FALSE(context->OpenDexFiles(InstructionSet::kArm, ""));
+}
+
+TEST_F(ClassLoaderContextTest, OpenDexFilesForIMCFails) {
+  std::unique_ptr<ClassLoaderContext> context;
+  std::string dex_name = GetTestDexFileName("Main");
+
+  context = ParseContextWithChecksums("PCL[" + dex_name + "*111]");
+  VerifyContextSize(context.get(), 1);
+  ASSERT_TRUE(context->OpenDexFiles(InstructionSet::kArm, "."));
+
+  context = ParseContextWithChecksums("IMC[" + dex_name + "*111]");
+  VerifyContextSize(context.get(), 1);
+  ASSERT_FALSE(context->OpenDexFiles(InstructionSet::kArm, "."));
 }
 
 TEST_F(ClassLoaderContextTest, CreateClassLoader) {
@@ -1079,6 +1119,34 @@ TEST_F(ClassLoaderContextTest, CreateContextForClassLoader) {
   VerifyClassLoaderPCLFromTestDex(context.get(), 3, "ForClassLoaderA");
 }
 
+TEST_F(ClassLoaderContextTest, CreateContextForClassLoaderIMC) {
+  // The chain is
+  //    ClassLoaderA (PathClassLoader)
+  //       ^
+  //       |
+  //    ClassLoaderB (InMemoryDexClassLoader)
+  //       ^
+  //       |
+  //    ClassLoaderC (InMemoryDexClassLoader)
+  //       ^
+  //       |
+  //    ClassLoaderD (DelegateLastClassLoader)
+
+  jobject class_loader_a = LoadDexInPathClassLoader("ForClassLoaderA", nullptr);
+  jobject class_loader_b = LoadDexInInMemoryDexClassLoader("ForClassLoaderB", class_loader_a);
+  jobject class_loader_c = LoadDexInInMemoryDexClassLoader("ForClassLoaderC", class_loader_b);
+  jobject class_loader_d = LoadDexInDelegateLastClassLoader("ForClassLoaderD", class_loader_c);
+
+  std::unique_ptr<ClassLoaderContext> context = CreateContextForClassLoader(class_loader_d);
+
+  VerifyContextForClassLoader(context.get());
+  VerifyContextSize(context.get(), 4);
+
+  VerifyClassLoaderDLCFromTestDex(context.get(), 0, "ForClassLoaderD");
+  VerifyClassLoaderIMCFromTestDex(context.get(), 1, "ForClassLoaderC");
+  VerifyClassLoaderIMCFromTestDex(context.get(), 2, "ForClassLoaderB");
+  VerifyClassLoaderPCLFromTestDex(context.get(), 3, "ForClassLoaderA");
+}
 
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextFirstElement) {
   std::string context_spec = "PCL[]";
@@ -1091,15 +1159,16 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextFirstElement) {
 }
 
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatch) {
-  std::string context_spec = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890]";
+  std::string context_spec = "PCL[a.dex*123:b.dex*456];DLC[c.dex*890];IMC[d.dex*111]";
   std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
   // Pretend that we successfully open the dex files to pass the DCHECKS.
   // (as it's much easier to test all the corner cases without relying on actual dex files).
   PretendContextOpenedDexFiles(context.get());
 
-  VerifyContextSize(context.get(), 2);
+  VerifyContextSize(context.get(), 3);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex:b.dex");
   VerifyClassLoaderDLC(context.get(), 1, "c.dex");
+  VerifyClassLoaderIMC(context.get(), 2, "d.dex");
 
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
             ClassLoaderContext::VerificationResult::kVerifies);
@@ -1147,17 +1216,18 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchSpecial) {
 TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchWithSL) {
   std::string context_spec =
       "PCL[a.dex*123:b.dex*456]{PCL[d.dex*321];PCL[e.dex*654]#PCL[f.dex*098:g.dex*999]}"
-      ";DLC[c.dex*890]";
+      ";DLC[c.dex*890];IMC[h.dex*111]";
   std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
   // Pretend that we successfully open the dex files to pass the DCHECKS.
   // (as it's much easier to test all the corner cases without relying on actual dex files).
   PretendContextOpenedDexFiles(context.get());
 
-  VerifyContextSize(context.get(), 2);
+  VerifyContextSize(context.get(), 3);
   VerifyClassLoaderPCL(context.get(), 0, "a.dex:b.dex");
   VerifyClassLoaderDLC(context.get(), 1, "c.dex");
   VerifyClassLoaderSharedLibraryPCL(context.get(), 0, 0, "d.dex");
   VerifyClassLoaderSharedLibraryPCL(context.get(), 0, 1, "f.dex:g.dex");
+  VerifyClassLoaderIMC(context.get(), 2, "h.dex");
 
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
             ClassLoaderContext::VerificationResult::kVerifies);
@@ -1204,6 +1274,29 @@ TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchAfterEncoding) {
   jobject class_loader_a = LoadDexInPathClassLoader("ForClassLoaderA", nullptr);
   jobject class_loader_b = LoadDexInDelegateLastClassLoader("ForClassLoaderB", class_loader_a);
   jobject class_loader_c = LoadDexInPathClassLoader("ForClassLoaderC", class_loader_b);
+  jobject class_loader_d = LoadDexInDelegateLastClassLoader("ForClassLoaderD", class_loader_c);
+
+  std::unique_ptr<ClassLoaderContext> context = CreateContextForClassLoader(class_loader_d);
+
+  std::string context_with_no_base_dir = context->EncodeContextForOatFile("");
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_with_no_base_dir),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string dex_location = GetTestDexFileName("ForClassLoaderA");
+  size_t pos = dex_location.rfind('/');
+  ASSERT_NE(std::string::npos, pos);
+  std::string parent = dex_location.substr(0, pos);
+
+  std::string context_with_base_dir = context->EncodeContextForOatFile(parent);
+  ASSERT_NE(context_with_base_dir, context_with_no_base_dir);
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_with_base_dir),
+            ClassLoaderContext::VerificationResult::kVerifies);
+}
+
+TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchAfterEncodingIMC) {
+  jobject class_loader_a = LoadDexInPathClassLoader("ForClassLoaderA", nullptr);
+  jobject class_loader_b = LoadDexInInMemoryDexClassLoader("ForClassLoaderB", class_loader_a);
+  jobject class_loader_c = LoadDexInInMemoryDexClassLoader("ForClassLoaderC", class_loader_b);
   jobject class_loader_d = LoadDexInDelegateLastClassLoader("ForClassLoaderD", class_loader_c);
 
   std::unique_ptr<ClassLoaderContext> context = CreateContextForClassLoader(class_loader_d);
