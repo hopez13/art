@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee3d6388_dc72efa2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "Nit:\n\nI think char* is conventional here, since the C standard explicitly says that sizeof(char) \u003d\u003d sizeof(unsigned char) \u003d\u003d 1.\n\nI think you can infer that sizeof(uint8_t) is also 1, if it exists, but that\u0027s more subtle.",
+      "range": {
+        "startLine": 2540,
+        "startChar": 31,
+        "endLine": 2540,
+        "endChar": 37
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "218d88e5_6dec93e2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand the logic here, but it may be correct. If it\u0027s LiveBitmap, you set it to something else, otherwise you set it to LiveBitmap? This seems a bit strange, and a comment might help.",
+      "range": {
+        "startLine": 2559,
+        "startChar": 6,
+        "endLine": 2560,
+        "endChar": 59
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08597ba5_28dad187",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2620,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "memory",
+      "range": {
+        "startLine": 2620,
+        "startChar": 5,
+        "endLine": 2620,
+        "endChar": 11
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2ff10cb_dd1ca5a7",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "I\u0027m less sure here than for freed_bytes, but it still seems like we should try for better resolution, and let the Histogram mechanism adjust the scale, as intended.",
+      "range": {
+        "startLine": 71,
+        "startChar": 47,
+        "endLine": 71,
+        "endChar": 48
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb516e68_52aaf8af",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "the kernel",
+      "range": {
+        "startLine": 104,
+        "startChar": 45,
+        "endLine": 104,
+        "endChar": 51
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ab51462_c9f4b3c6",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "their",
+      "range": {
+        "startLine": 105,
+        "startChar": 16,
+        "endLine": 105,
+        "endChar": 21
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f44db845_280ceee1",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "replace with \"differ in name\"?",
+      "range": {
+        "startLine": 106,
+        "startChar": 40,
+        "endLine": 107,
+        "endChar": 16
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b4319b6_f06d29f7",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-05T23:23:28Z",
+      "side": 1,
+      "message": "This seems to be locally frowned upon. Use \u003d\u003d 0.",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "c7866f6a5c6a0b79cbca0a4e5a53ec5a60463c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
