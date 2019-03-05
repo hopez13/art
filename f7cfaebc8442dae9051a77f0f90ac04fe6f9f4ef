@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "55f5fbae_11a0c75c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-05T11:04:13Z",
+      "side": 1,
+      "message": "If you think the performance cost outweighs getting the data, that works for me.",
+      "parentUuid": "221cc97c_e75e9654",
+      "range": {
+        "startLine": 2533,
+        "startChar": 26,
+        "endLine": 2533,
+        "endChar": 56
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e27593f7_ca53a09e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 9
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I have moved the message from here to the line where we print this metric in the GC perf dump. I think we should inform how to get this metric in the output. Besides, it\u0027s better to print a meaningful message than just \u00270\u0027 :)",
       "parentUuid": "5ab418ba_0f1507dc",
+      "range": {
+        "startLine": 3571,
+        "startChar": 0,
+        "endLine": 3574,
+        "endChar": 3
+      },
+      "revId": "f7cfaebc8442dae9051a77f0f90ac04fe6f9f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84809c3a_fa9eb922",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-05T11:04:13Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to inform really - the people interested in that data is us, and we kind of know or can easily discover how to get it.",
+      "parentUuid": "b86c30a3_b893684b",
       "range": {
         "startLine": 3571,
         "startChar": 0,
