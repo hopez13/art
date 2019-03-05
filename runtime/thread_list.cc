@@ -1519,6 +1519,12 @@ void ThreadList::Unregister(Thread* self) {
   Locks::thread_exit_cond_->Broadcast(nullptr);
 }
 
+void ThreadList::ForEach(Closure* closure) {
+  ForEach([](Thread* thread, void* ctx) {
+    reinterpret_cast<Closure*>(ctx)->Run(thread);
+  }, closure);
+}
+
 void ThreadList::ForEach(void (*callback)(Thread*, void*), void* context) {
   for (const auto& thread : list_) {
     callback(thread, context);
