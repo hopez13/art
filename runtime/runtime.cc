@@ -586,6 +586,7 @@ void Runtime::Abort(const char* msg) {
 
   // Ensure that we don't have multiple threads trying to abort at once,
   // which would result in significantly worse diagnostics.
+  ScopedThreadStateChange(Thread::Current(), ThreadState::kWaitingForAbort);
   MutexLock mu(Thread::Current(), *Locks::abort_lock_);
 
   // Get any pending output out of the way.
