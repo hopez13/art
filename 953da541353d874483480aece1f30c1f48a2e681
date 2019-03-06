@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f9be5d_b6180843",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-06T14:10:42Z",
+      "side": 0,
+      "message": "Presumably this is broken now, and it may not be something that is caught by treehugger. Can you verify the api check still works by adding a new public method somewhere in ahat (perhaps change the constructor to src/main/com/android/ahat/Main.java from private to public) and verify build fails with a message saying you updated the ahat API?",
+      "revId": "953da541353d874483480aece1f30c1f48a2e681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

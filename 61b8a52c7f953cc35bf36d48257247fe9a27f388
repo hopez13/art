@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f55491f_0ed660cc",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-06T14:10:42Z",
+      "side": 1,
+      "message": "Why is this commented out? Remove it if not necessary?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af7e58ff_24a821e7",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-06T14:10:42Z",
+      "side": 1,
+      "message": "Why is this commented out?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf8f412_6fcc0ea5",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-06T14:10:42Z",
+      "side": 1,
+      "message": "What does $(LOCAL_BUILT_MODULE) refer to now? Does it still resolve to the compiled ahat.jar file?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
