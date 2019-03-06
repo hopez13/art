@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1f3448b_f2b44400",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-03-06T11:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f10f65d_6cd44dac",
+      "range": {
+        "startLine": 1023,
+        "startChar": 6,
+        "endLine": 1023,
+        "endChar": 72
+      },
+      "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef71313c_6c91eca3",
         "filename": "tools/hiddenapi/hiddenapi.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "993b23f4_ebe4f563",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-03-06T11:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef71313c_6c91eca3",
+      "range": {
+        "startLine": 1029,
+        "startChar": 6,
+        "endLine": 1029,
+        "endChar": 18
+      },
+      "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "041c9f60_39e9cd4f",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-03-06T11:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebb8eb4_402b3662",
+      "range": {
+        "startLine": 1030,
+        "startChar": 30,
+        "endLine": 1030,
+        "endChar": 34
+      },
+      "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f138fb88_f686bf1b",
         "filename": "tools/hiddenapi/hiddenapi.cc",
         "patchSetId": 3
@@ -85,6 +157,24 @@
       "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a71f6386_9d6913b9",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-03-06T11:10:25Z",
+      "side": 1,
+      "message": "I think the comment belongs further up, next to values.erase(..) . I think I refactored the filtering method and accidentally forgot to move the comment as well before committing.",
+      "parentUuid": "f138fb88_f686bf1b",
+      "revId": "e777dd2b167f22611f69530904efa7f4bcd627e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
