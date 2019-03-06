@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b44fc122_7f6b3716",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-06T00:11:00Z",
+      "side": 1,
+      "message": "I rather you didn\u0027t add a function for a single user. That\u0027s just proliferation of technical debt. Use GetList if the function pointer version above is too unwieldy.\n\n(If you really needed to introduce something, I\u0027d rather you introduce something that also accepts lambdas [introduce thread_list-inl.h])",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 64
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b38ba64a_d6430f6f",
+        "filename": "tools/dump-jvmti-state/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-06T00:11:00Z",
+      "side": 1,
+      "message": "9",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab8902b_0dc15acd",
+        "filename": "tools/dump-jvmti-state/dump-jvmti.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-06T00:11:00Z",
+      "side": 1,
+      "message": "9",
+      "range": {
+        "startLine": 1,
+        "startChar": 20,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
