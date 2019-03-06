@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a804cca_cef52a89",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-06T21:14:34Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "b44fc122_7f6b3716",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 64
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b38ba64a_d6430f6f",
         "filename": "tools/dump-jvmti-state/Android.bp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d7e8bde8_64cabed7",
+        "filename": "tools/dump-jvmti-state/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-06T21:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b38ba64a_d6430f6f",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ab8902b_0dc15acd",
         "filename": "tools/dump-jvmti-state/dump-jvmti.cc",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7655f229_c66e781f",
+        "filename": "tools/dump-jvmti-state/dump-jvmti.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-06T21:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ab8902b_0dc15acd",
+      "range": {
+        "startLine": 1,
+        "startChar": 20,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "46cfe0c2e6a448b407533cc782784284f74ef065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
