@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a1671f5_8f91b1d1",
+        "filename": "openjdkjvmti/deopt_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-06T00:01:21Z",
+      "side": 1,
+      "message": "When passing them around, it\u0027s common to make them AccessUnchecked.",
+      "range": {
+        "startLine": 104,
+        "startChar": 45,
+        "endLine": 104,
+        "endChar": 63
+      },
+      "revId": "6468fe719a434526968da6fddcf99fac0629e3d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
