@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01aced76_2cfcdeb5",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-03-06T12:41:12Z",
+      "side": 1,
+      "message": "Since test \u0026 system APIs are supersets of public, we need to calculate the diff somewhere (i.e. identify APIs that are only test and only system).\n\nNot sure if it makes sense to do that in here or somewhere else? (I note the logic in generate_hiddenapi_lists.py takes care of this already by virtue of an if/else, but it would be nice to make that more explicit somewhere)",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 40
+      },
+      "revId": "7e01c27e928ab0405425c15f9b1c75049da55963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
