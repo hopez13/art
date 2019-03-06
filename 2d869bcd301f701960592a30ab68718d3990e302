@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c099f7f1_84a10033",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-06T21:39:54Z",
+      "side": 1,
+      "message": "Oh, this should return kAccCorePlatformApi. Thanks for the cc, I think I should go over these and check they\u0027re all correct (and add a DCHECK for that too). This has changed recently.",
+      "revId": "2d869bcd301f701960592a30ab68718d3990e302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
