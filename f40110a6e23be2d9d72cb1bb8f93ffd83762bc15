@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "77bfb7f9_64b33f86",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T18:03:15Z",
+      "side": 1,
+      "message": "Just noticed that both are calling OpenDexFilesFromOat, but with a different source. So I think that\u0027s OK and we can hide any secondary dex file optimization within the oat file assistant.",
+      "parentUuid": "e399113e_ad5a5a19",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 87
+      },
+      "revId": "f40110a6e23be2d9d72cb1bb8f93ffd83762bc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78f330e6_83896b5f",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 3
