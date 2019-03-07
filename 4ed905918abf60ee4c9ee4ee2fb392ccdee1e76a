@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "365a12aa_82f16fa1",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T10:33:28Z",
+      "side": 1,
+      "message": "Could we move this file to art/tools/hiddenapi (and the .cc file too)? libartbase is included by all ART executables and this code is only used by hiddenapi.cc.",
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2dd5085_ad31d2c7",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T10:33:28Z",
+      "side": 1,
+      "message": "I think we should also make this FLAG_PUBLIC_API. WDYT, Mathew?",
+      "range": {
+        "startLine": 204,
+        "startChar": 34,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
