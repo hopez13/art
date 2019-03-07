@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e399113e_ad5a5a19",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T17:37:47Z",
+      "side": 1,
+      "message": "Yes, but I\u0027m not sure to what extent it will actually be useful. We can also generate a vdex and we can also use it to back an OatFile. But the only time that helps anything is secondary dex files loaded after the first time and before background job. Is that worth it?",
+      "parentUuid": "2268a98b_45bfd131",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 87
+      },
+      "revId": "f40110a6e23be2d9d72cb1bb8f93ffd83762bc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78f330e6_83896b5f",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 3
