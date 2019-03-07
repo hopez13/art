@@ -37,6 +37,116 @@
     },
     {
       "key": {
+        "uuid": "e05f9b68_6a0747ef",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T11:22:09Z",
+      "side": 1,
+      "message": "Ah, ok. If it\u0027s shared, then keep it here.",
+      "parentUuid": "ff4e344d_d000514f",
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "239cdf28_025fbc6a",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T11:22:09Z",
+      "side": 1,
+      "message": "How about just ApiStubs? It\u0027s already in the hiddenapi namespace. And the enum above can be nested ApiStubs::Kind.",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9415e10f_bbbe0f91",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T11:22:09Z",
+      "side": 1,
+      "message": "all private?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 64
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e9eb55e_f028d3d9",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T11:22:09Z",
+      "side": 1,
+      "message": "Just ToString",
+      "range": {
+        "startLine": 40,
+        "startChar": 32,
+        "endLine": 40,
+        "endChar": 43
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6f1b9d5_663a28c7",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-07T11:22:09Z",
+      "side": 1,
+      "message": "This moves the logic of \"ignored flags\" to this file. How about you convert this to \u0027bool IsStubsFlag(const string_view\u0026)\u0027. And then the parsing logic in ApiList can just check that the flag it failed to parse is one of these and not fail because of it.\n\nIt also means that here you just compare the argument against your four strings, instead of having to allocate a set for it.",
+      "range": {
+        "startLine": 53,
+        "startChar": 14,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2dd5085_ad31d2c7",
         "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
         "patchSetId": 5
