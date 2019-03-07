@@ -167,6 +167,30 @@
       "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15be6c60_c876cddc",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-03-07T11:29:11Z",
+      "side": 1,
+      "message": "Yes, it should be treated the same as the regular SDK methods.",
+      "parentUuid": "f2dd5085_ad31d2c7",
+      "range": {
+        "startLine": 204,
+        "startChar": 34,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
