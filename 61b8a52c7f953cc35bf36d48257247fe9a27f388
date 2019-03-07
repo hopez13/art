@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfc7e13a_48e103aa",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1344584
+      },
+      "writtenOn": "2019-03-07T00:23:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f55491f_0ed660cc",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af7e58ff_24a821e7",
         "filename": "tools/ahat/Android.bp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b273cdad_db513965",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1344584
+      },
+      "writtenOn": "2019-03-07T00:23:14Z",
+      "side": 1,
+      "message": "`java_library_host` does not allow test suites. The build ensures that the tests that depend on this java_library_host module will find it.",
+      "parentUuid": "af7e58ff_24a821e7",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf8f412_6fcc0ea5",
         "filename": "tools/ahat/Android.mk",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f896a88b_52475bdd",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1344584
+      },
+      "writtenOn": "2019-03-07T00:23:14Z",
+      "side": 1,
+      "message": "Please see the response to the second comment.",
+      "parentUuid": "caf8f412_6fcc0ea5",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

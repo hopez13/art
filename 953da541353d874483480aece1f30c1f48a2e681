@@ -16,6 +16,24 @@
       "revId": "953da541353d874483480aece1f30c1f48a2e681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad6b3221_3a2d46ce",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1344584
+      },
+      "writtenOn": "2019-03-07T00:23:14Z",
+      "side": 0,
+      "message": "I have tried both what you suggested, which is compatible change, and making com.android.ahat.heapdump.AhatInstance.getImmediateDominator private, with is incompatible change. Before my changes to Android.mk \u0026 Android.bp these API change do not exhibit any warnings when running \u0027m ahat\u0027 or \u0027m checkapi\u0027. With the latest round of the changes to Android.bp (i.e., adding `check_api` attribute the `ahat-docs` rule), running \u0027m checkapi\u0027 produces warnings but the build succeeds. These are warnings but not errors is checkapi tool\u0027s problem, it should set return code. IMHO the proposed change (moving API checking to Android.bp) is better, and fixing checkapi tool is a separate problem. Note that the proposed change eliminates the need to have `ahat-update-api` target -- after the change running \u0027m ahat-docs-update-current-api\u0027 will update API (and once checkapi is fixed, the build will tell the user to do that).",
+      "parentUuid": "11f9be5d_b6180843",
+      "revId": "953da541353d874483480aece1f30c1f48a2e681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
