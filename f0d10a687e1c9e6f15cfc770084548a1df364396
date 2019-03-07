@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08ef55a5_ff6fbbd1",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T18:35:11Z",
+      "side": 1,
+      "message": "Maybe but I\u0027m planning to fully remove everything in Dbg:: and runtime/jdwp in the near future.\n\nTo ensure that these don\u0027t get lost I\u0027d like to keep them out of there.\n\nAlso the Dbg:: methods are pretty tightly wound up with the old debugger which this IsForcedInterpreter stuff is totally (and intentionally) separate from.",
+      "parentUuid": "26e22a58_3b359187",
+      "range": {
+        "startLine": 326,
+        "startChar": 15,
+        "endLine": 326,
+        "endChar": 95
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edcae480_a0ca1131",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b949c5_bbcb9f85",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T18:35:11Z",
+      "side": 1,
+      "message": "see above. I want to get rid of that stuff.",
+      "parentUuid": "edcae480_a0ca1131",
+      "range": {
+        "startLine": 805,
+        "startChar": 46,
+        "endLine": 805,
+        "endChar": 81
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ca5e9d36_d03e312c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3574,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T18:35:11Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "fa4249c8_af5877bc",
+      "range": {
+        "startLine": 3574,
+        "startChar": 11,
+        "endLine": 3574,
+        "endChar": 48
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86469271_06c9e382",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f0c7d320_f75b70bf",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T18:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86469271_06c9e382",
+      "range": {
+        "startLine": 1572,
+        "startChar": 7,
+        "endLine": 1572,
+        "endChar": 11
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58159996_58d26cc5",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc48b12_e33e1073",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T18:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58159996_58d26cc5",
+      "range": {
+        "startLine": 1573,
+        "startChar": 37,
+        "endLine": 1573,
+        "endChar": 53
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
