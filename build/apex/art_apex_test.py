@@ -723,6 +723,8 @@ class DebugTargetChecker:
     # package we need to look out for dependencies that should go through
     # exported library stubs (until b/128708192 is fixed).
     self._checker.check_optional_native_library('libvixld')  # Only on ARM/ARM64
+    self._checker.check_optional_native_library('libartd-simulator')
+    self._checker.check_optional_native_library('libartd-simulator-container')
     self._checker.check_prefer64_library('libmeminfo')
     self._checker.check_prefer64_library('libprocinfo')
 
@@ -759,7 +761,6 @@ class TestingTargetChecker:
 
     # Check ART test (internal) libraries.
     self._checker.check_native_library('libart-gtest')
-    self._checker.check_native_library('libartd-simulator-container')
 
     # Check ART test tools.
     self._checker.check_executable('signal_dumper')
