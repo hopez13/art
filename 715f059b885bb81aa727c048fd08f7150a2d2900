@@ -257,6 +257,23 @@
       "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35de6131_07547e3a",
+        "filename": "tools/simple-force-redefine/forceredefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-07T20:56:41Z",
+      "side": 1,
+      "message": "Is there a reason to postpone this? It makes the whole setup complicated and requires you to \"globally\" store an fstream.",
+      "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
