@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26e22a58_3b359187",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T15:27:17Z",
+      "side": 1,
+      "message": "Sounds like this logic should be in Dbg::IsForcedInterpreterNeededForCalling ?",
+      "range": {
+        "startLine": 326,
+        "startChar": 15,
+        "endLine": 326,
+        "endChar": 95
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edcae480_a0ca1131",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T15:27:17Z",
+      "side": 1,
+      "message": "Ditto about checking in this method instead.",
+      "range": {
+        "startLine": 805,
+        "startChar": 46,
+        "endLine": 805,
+        "endChar": 81
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa4249c8_af5877bc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T15:27:17Z",
+      "side": 1,
+      "message": "Ditto about doing the check here.",
+      "range": {
+        "startLine": 3574,
+        "startChar": 11,
+        "endLine": 3574,
+        "endChar": 48
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86469271_06c9e382",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T15:27:17Z",
+      "side": 1,
+      "message": "Not a boolean, it\u0027s a counter.",
+      "range": {
+        "startLine": 1572,
+        "startChar": 7,
+        "endLine": 1572,
+        "endChar": 11
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58159996_58d26cc5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-07T15:27:17Z",
+      "side": 1,
+      "message": "Update",
+      "range": {
+        "startLine": 1573,
+        "startChar": 37,
+        "endLine": 1573,
+        "endChar": 53
+      },
+      "revId": "f0d10a687e1c9e6f15cfc770084548a1df364396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
