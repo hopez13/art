@@ -381,6 +381,17 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
           .IntoKey(M::VerifierMissingKThrowFatal)
+      .Define("--simulate-isa=_")
+          .WithType<InstructionSet>()
+          .WithValueMap({{"none",   InstructionSet::kNone},
+                         {"arm",    InstructionSet::kArm},
+                         {"arm64",  InstructionSet::kArm64},
+                         {"thumb2", InstructionSet::kThumb2},
+                         {"x86",    InstructionSet::kX86},
+                         {"x86_64", InstructionSet::kX86_64},
+                         {"mips",   InstructionSet::kMips},
+                         {"mips64", InstructionSet::kMips64}})
+          .IntoKey(M::SimulateInstructionSet)
       .Ignore({
           "-ea", "-da", "-enableassertions", "-disableassertions", "--runtime-arg", "-esa",
           "-dsa", "-enablesystemassertions", "-disablesystemassertions", "-Xrs", "-Xint:_",
@@ -711,6 +722,8 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   //                      "requires -Xexperimental:agent, some features might not be supported)\n");
   UsageMessage(stream, "  -agentpath:library_path=options (Experimental feature, requires\n"
                        "    -Xexperimental:agent, some features might not be supported)\n");
+  UsageMessage(stream, "  --simulate-isa=isa \n"
+                       "     ('none', 'arm', 'arm64', 'x64', 'x86_64', 'mips', 'mips64')\n");
   UsageMessage(stream, "\n");
 
   UsageMessage(stream, "The following extended options are supported:\n");

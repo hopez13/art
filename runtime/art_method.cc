@@ -20,13 +20,14 @@
 #include <cstddef>
 
 #include "android-base/stringprintf.h"
-
 #include "arch/context.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/stl_util.h"
 #include "class_linker-inl.h"
 #include "class_root.h"
+#include "code_simulator.h"
+#include "code_simulator_container.h"
 #include "debugger.h"
 #include "dex/class_accessor-inl.h"
 #include "dex/descriptors_names.h"
@@ -99,6 +100,11 @@ ArtMethod* ArtMethod::GetSingleImplementation(PointerSize pointer_size) {
     return this;
   }
   return reinterpret_cast<ArtMethod*>(GetDataPtrSize(pointer_size));
+}
+
+bool ArtMethod::CanBeSimulated() REQUIRES_SHARED(Locks::mutator_lock_) {
+  CodeSimulatorContainer* simulator = Thread::Current()->GetSimulator();
+  return simulator->Get()->CanSimulate(this);
 }
 
 ArtMethod* ArtMethod::FromReflectedMethod(const ScopedObjectAccessAlreadyRunnable& soa,
@@ -366,11 +372,15 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
             << "Don't call compiled code when -Xint " << PrettyMethod();
       }
 
-      if (!IsStatic()) {
+      if (Runtime::SimulatorMode() && CanBeSimulated()) {
+        CodeSimulatorContainer* simulator = Thread::Current()->GetSimulator();
+        simulator->Get()->Invoke(this, args, args_size, self, result, shorty, IsStatic());
+      } else if (!IsStatic()) {
         (*art_quick_invoke_stub)(this, args, args_size, self, result, shorty);
       } else {
         (*art_quick_invoke_static_stub)(this, args, args_size, self, result, shorty);
       }
+
       if (UNLIKELY(self->GetException() == Thread::GetDeoptimizationException())) {
         // Unusual case where we were running generated code and an
         // exception was thrown to force the activations to be removed from the
@@ -585,6 +595,10 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
   DCHECK_NE(pc, reinterpret_cast<uintptr_t>(GetQuickInstrumentationExitPc()));
 
   if (IsRuntimeMethod()) {
+    return nullptr;
+  }
+
+  if (Runtime::SimulatorMode()) {
     return nullptr;
   }
 

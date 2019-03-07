@@ -70,6 +70,7 @@
 #include "base/utils.h"
 #include "class_linker-inl.h"
 #include "class_root.h"
+#include "code_simulator_container.h"
 #include "compiler_callbacks.h"
 #include "debugger.h"
 #include "dex/art_dex_file_loader.h"
@@ -232,6 +233,7 @@ Runtime::Runtime()
       imt_conflict_method_(nullptr),
       imt_unimplemented_method_(nullptr),
       instruction_set_(InstructionSet::kNone),
+      simulate_isa_(InstructionSet::kNone),
       compiler_callbacks_(nullptr),
       is_zygote_(false),
       is_primary_zygote_(false),
@@ -1342,6 +1344,12 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 
   image_space_loading_order_ = runtime_options.GetOrDefault(Opt::ImageSpaceLoadingOrder);
 
+  instruction_set_ = runtime_options.GetOrDefault(Opt::ImageInstructionSet);
+  SetInstructionSet(instruction_set_);
+
+  InstructionSet simulate_isa = runtime_options.GetOrDefault(Opt::SimulateInstructionSet);
+  SetSimulateISA(simulate_isa);
+
   heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
                        runtime_options.GetOrDefault(Opt::HeapMinFree),
@@ -1354,7 +1362,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        GetBootClassPath(),
                        GetBootClassPathLocations(),
                        image_location_,
-                       instruction_set_,
+                       GetQuickCodeISA(),
                        // Override the collector type to CC if the read barrier config.
                        kUseReadBarrier ? gc::kCollectorTypeCC : xgc_option.collector_type_,
                        kUseReadBarrier ? BackgroundGcOption(gc::kCollectorTypeCCBackground)
@@ -1603,7 +1611,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     }
 
     // TODO: Should we move the following to InitWithoutImage?
-    SetInstructionSet(instruction_set_);
     for (uint32_t i = 0; i < kCalleeSaveSize; i++) {
       CalleeSaveType type = CalleeSaveType(i);
       if (!HasCalleeSaveMethod(type)) {
@@ -2345,6 +2352,24 @@ void Runtime::BroadcastForNewSystemWeaks(bool broadcast_for_checkpoint) {
   }
 }
 
+InstructionSet Runtime::GetQuickCodeISA() {
+  Runtime* runtime = Runtime::Current();
+  if (runtime == nullptr) {
+    return kRuntimeISA;
+  }
+
+  // In simulator mode, image ISA should align with simulator.
+  if (SimulatorMode()) {
+    return runtime->GetSimulateISA();
+  }
+
+  // Otherwise, image ISA should align with runtime.
+  if (runtime->GetInstructionSet() == InstructionSet::kNone) {
+    return kRuntimeISA;
+  }
+  return runtime->GetInstructionSet();
+}
+
 void Runtime::SetInstructionSet(InstructionSet instruction_set) {
   instruction_set_ = instruction_set;
   switch (instruction_set) {
@@ -2367,6 +2392,16 @@ void Runtime::SetInstructionSet(InstructionSet instruction_set) {
 
 void Runtime::ClearInstructionSet() {
   instruction_set_ = InstructionSet::kNone;
+}
+
+void Runtime::SetSimulateISA(InstructionSet instruction_set) {
+  DCHECK(GetInstructionSet() != InstructionSet::kNone) << "Simulator ISA set before runtime ISA.";
+  if (instruction_set == InstructionSet::kNone) {
+    return;
+  }
+  CodeSimulatorContainer simulator(instruction_set);
+  DCHECK(simulator.CanSimulate()) << "Fail to set simulator isa: " << instruction_set;
+  simulate_isa_ = instruction_set;
 }
 
 void Runtime::SetCalleeSaveMethod(ArtMethod* method, CalleeSaveType type) {
@@ -2605,8 +2640,12 @@ void Runtime::AddCurrentRuntimeFeaturesAsDex2OatArguments(std::vector<std::strin
   // Make the dex2oat instruction set match that of the launching runtime. If we have multiple
   // architecture support, dex2oat may be compiled as a different instruction-set than that
   // currently being executed.
+  // In simulator mode, the dex2oat instruction set should match the simulator, so that we can
+  // compile for simulating ISA.
+  InstructionSet target_isa =
+      (simulate_isa_ == InstructionSet::kNone) ? kRuntimeISA : simulate_isa_;
   std::string instruction_set("--instruction-set=");
-  instruction_set += GetInstructionSetString(kRuntimeISA);
+  instruction_set += GetInstructionSetString(target_isa);
   argv->push_back(instruction_set);
 
   if (InstructionSetFeatures::IsRuntimeDetectionSupported()) {

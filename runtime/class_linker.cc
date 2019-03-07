@@ -2358,6 +2358,18 @@ bool ClassLinker::AddImageSpace(
     }, space->Begin(), image_pointer_size_);
   }
 
+  // Set entry point to interpreter if in Simulator mode.
+  if (Runtime::SimulatorMode()) {
+    header.VisitPackedArtMethods([&] (ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (!method.IsRuntimeMethod() && !method.IsResolutionMethod()) {
+          DCHECK(method.GetDeclaringClass() != nullptr);
+          method.SetEntryPointFromQuickCompiledCodePtrSize(
+              method.IsNative() ? GetQuickGenericJniStub() : GetQuickToInterpreterBridge(),
+              image_pointer_size_);
+        }
+    }, space->Begin(), image_pointer_size_);
+  }
+
   ClassTable* class_table = nullptr;
   {
     WriterMutexLock mu(self, *Locks::classlinker_classes_lock_);
@@ -3618,6 +3630,11 @@ const void* ClassLinker::GetQuickOatCodeFor(ArtMethod* method) {
   if (method->IsProxyMethod()) {
     return GetQuickProxyInvokeHandler();
   }
+
+  if (Runtime::SimulatorMode() && !method->CanBeSimulated()) {
+    return method->IsNative() ? GetQuickGenericJniStub() : GetQuickToInterpreterBridge();
+  }
+
   const void* code = method->GetOatMethodQuickCode(GetImagePointerSize());
   if (code != nullptr) {
     return code;
@@ -3642,6 +3659,11 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   if (UNLIKELY(method->IsNative() || method->IsProxyMethod())) {
     return false;
+  }
+
+  if (Runtime::SimulatorMode()) {
+    // In simulator mode, the simulated method will not use interpreter entry point.
+    return !method->CanBeSimulated();
   }
 
   if (quick_code == nullptr) {
@@ -3747,7 +3769,7 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
       quick_code = jit->GetCodeCache()->GetSavedEntryPointOfPreCompiledMethod(method);
     }
     // Check whether the method is native, in which case it's generic JNI.
-    if (quick_code == nullptr && method->IsNative()) {
+    if ((Runtime::SimulatorMode() || quick_code == nullptr) && method->IsNative()) {
       quick_code = GetQuickGenericJniStub();
     } else if (ShouldUseInterpreterEntrypoint(method, quick_code)) {
       // Use interpreter entry point.
@@ -3801,7 +3823,7 @@ static void LinkCode(ClassLinker* class_linker,
   // Note: this mimics the logic in image_writer.cc that installs the resolution
   // stub only if we have compiled code and the method needs a class initialization
   // check.
-  if (quick_code == nullptr) {
+  if (quick_code == nullptr || Runtime::SimulatorMode()) {
     method->SetEntryPointFromQuickCompiledCode(
         method->IsNative() ? GetQuickGenericJniStub() : GetQuickToInterpreterBridge());
   } else if (enter_interpreter) {
