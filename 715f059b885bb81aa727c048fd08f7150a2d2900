@@ -274,6 +274,24 @@
       "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8cebbd1_2c7a5fda",
+        "filename": "tools/simple-force-redefine/forceredefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-03-07T20:59:43Z",
+      "side": 1,
+      "message": "I wanted to make it so that you could send line-by-line instructions with a fifo (potentially a while after the actual agent attach) but that turned out to be more work than I wanted to do (I put a todo above).\n\nAlso doing it here means we don\u0027t need to deal with pausing any actual app threads.",
+      "parentUuid": "35de6131_07547e3a",
+      "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
