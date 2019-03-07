@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "38c599d9_12d618f2",
+        "filename": "tools/ahat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-07T15:26:45Z",
+      "side": 1,
+      "message": "In that case, can you remove lines 37-39, rather than have something commented out?",
+      "parentUuid": "b273cdad_db513965",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "61b8a52c7f953cc35bf36d48257247fe9a27f388",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf8f412_6fcc0ea5",
         "filename": "tools/ahat/Android.mk",
         "patchSetId": 1

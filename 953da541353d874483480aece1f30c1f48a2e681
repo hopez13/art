@@ -34,6 +34,24 @@
       "revId": "953da541353d874483480aece1f30c1f48a2e681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "167dc4c8_f55d0782",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-07T15:26:45Z",
+      "side": 0,
+      "message": "Funny, I swear the check api logic in the makefile used to work. It must have bit rotten. Moving the check-api stuff to Android.bp sounds good to me. Thanks for looking into this.",
+      "parentUuid": "ad6b3221_3a2d46ce",
+      "revId": "953da541353d874483480aece1f30c1f48a2e681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
