@@ -538,6 +538,8 @@ class ReleaseChecker:
     self._checker.check_native_library('libart-compiler')
     self._checker.check_native_library('libart-dexlayout')
     self._checker.check_native_library('libart-disassembler')
+    self._checker.check_native_library('libart-simulator')
+    self._checker.check_native_library('libart-simulator-container')
     self._checker.check_native_library('libartbase')
     self._checker.check_native_library('libartpalette')
     self._checker.check_native_library('libdexfile')
@@ -684,6 +686,8 @@ class DebugChecker:
     self._checker.check_native_library('libartd-compiler')
     self._checker.check_native_library('libartd-dexlayout')
     self._checker.check_native_library('libartd-disassembler')
+    self._checker.check_native_library('libartd-simulator')
+    self._checker.check_native_library('libartd-simulator-container')
     self._checker.check_native_library('libdexfiled')
     self._checker.check_native_library('libopenjdkjvmd')
     self._checker.check_native_library('libopenjdkjvmtid')
@@ -759,7 +763,6 @@ class TestingTargetChecker:
 
     # Check ART test (internal) libraries.
     self._checker.check_native_library('libart-gtest')
-    self._checker.check_native_library('libartd-simulator-container')
 
     # Check ART test tools.
     self._checker.check_executable('signal_dumper')
