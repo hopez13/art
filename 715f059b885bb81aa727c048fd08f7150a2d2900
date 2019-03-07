@@ -292,6 +292,24 @@
       "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3afa9e2_51075940",
+        "filename": "tools/simple-force-redefine/forceredefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-07T21:03:14Z",
+      "side": 1,
+      "message": "Sure, but I would expect a huge map to have problems, anyways (and small files should be trivial pause). As-is, you technically need synchronization on the map because the reading could be parallel with class-loading (and std containers aren\u0027t thread-safe).",
+      "parentUuid": "b8cebbd1_2c7a5fda",
+      "revId": "715f059b885bb81aa727c048fd08f7150a2d2900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
