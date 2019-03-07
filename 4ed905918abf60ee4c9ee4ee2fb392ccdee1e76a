@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ff4e344d_d000514f",
+        "filename": "libartbase/base/hiddenapi_stubs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-03-07T10:57:54Z",
+      "side": 1,
+      "message": "The reason why I put these files here is because tools/veridex/hidden_api.cc also does flag validation using hiddenapi::ApiList::FromNames (situated in libartbase/base/hiddenapi_flags.h). It only fails on certain targets that run the veridex tool - so the alternative would\u0027ve meant duplicating the validation logic in veridex",
+      "parentUuid": "365a12aa_82f16fa1",
+      "revId": "4ed905918abf60ee4c9ee4ee2fb392ccdee1e76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2dd5085_ad31d2c7",
         "filename": "tools/class2greylist/src/com/android/class2greylist/Class2Greylist.java",
         "patchSetId": 5
