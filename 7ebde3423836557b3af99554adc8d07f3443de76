@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "046da317_68b66227",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-08T22:45:30Z",
+      "side": 1,
+      "message": "Nit: Use std::max(freed_bytes / KB, 0L) ?",
+      "range": {
+        "startLine": 168,
+        "startChar": 34,
+        "endLine": 168,
+        "endChar": 72
+      },
+      "revId": "7ebde3423836557b3af99554adc8d07f3443de76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
