@@ -471,7 +471,8 @@ std::vector<ImageWriter::HeapReferencePointerInfo> ImageWriter::CollectStringRef
           size_t string_info_collected = 0;
 
           ObjPtr<mirror::DexCache> dex_cache = object->AsDexCache();
-          DCHECK_LE(visitor.GetDexCacheStringRefCount(), dex_cache->NumStrings());
+          DCHECK_LE(visitor.GetDexCacheStringRefCount(),
+                    std::max(dex_cache->NumPreResolvedStrings(), dex_cache->NumStrings()));
 
           for (uint32_t index = 0; index < dex_cache->NumStrings(); ++index) {
             // GetResolvedString() can't be used here due to the circular
