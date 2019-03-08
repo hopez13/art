@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52a9fafb_f8410470",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-08T15:12:09Z",
+      "side": 0,
+      "message": "If this doesn\u0027t return you the full path then it sucks - could we make it so?",
+      "range": {
+        "startLine": 546,
+        "startChar": 38,
+        "endLine": 546,
+        "endChar": 61
+      },
+      "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27008705_e4124c72",
+        "filename": "libartbase/base/hiddenapi_domain.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-08T15:12:09Z",
+      "side": 1,
+      "message": "I think given I know the problem, I find the lazy computation kind of silly :( We should know the actual location from the start as we\u0027re opening the jar anyway, so having to assign a domain lazily sounds off.",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "ea389392eed4862eab932e9904048f5067ddd7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
