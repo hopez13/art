@@ -68,7 +68,14 @@ class AccessContext {
       REQUIRES_SHARED(Locks::mutator_lock_)
       : klass_(nullptr),
         dex_file_(GetDexFileFromDexCache(dex_cache)),
-        domain_(ComputeDomain(class_loader, dex_file_)) {}
+        domain_(ComputeDomain(dex_file_, class_loader)) {}
+
+  // Initialize from class loader and dex file (only used by tests).
+  AccessContext(ObjPtr<mirror::ClassLoader> class_loader, const DexFile* dex_file)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      : klass_(nullptr),
+        dex_file_(dex_file),
+        domain_(ComputeDomain(dex_file_, class_loader)) {}
 
   // Initialize from Class.
   explicit AccessContext(ObjPtr<mirror::Class> klass)
@@ -97,26 +104,18 @@ class AccessContext {
     return is_trusted ? Domain::kCorePlatform : Domain::kApplication;
   }
 
-  static Domain ComputeDomain(ObjPtr<mirror::ClassLoader> class_loader, const DexFile* dex_file)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+  static Domain ComputeDomain(const DexFile* dex_file, ObjPtr<mirror::ClassLoader> class_loader) {
     if (dex_file == nullptr) {
       return ComputeDomain(/* is_trusted= */ class_loader.IsNull());
     }
 
-    Domain dex_domain = dex_file->GetHiddenapiDomain();
-    if (class_loader.IsNull() && dex_domain == Domain::kApplication) {
-      LOG(WARNING) << "DexFile " << dex_file->GetLocation()
-          << " is in boot classpath but is assigned the application domain";
-      dex_file->SetHiddenapiDomain(Domain::kPlatform);
-      dex_domain = Domain::kPlatform;
-    }
-    return dex_domain;
+    return dex_file->GetHiddenapiDomain();
   }
 
   static Domain ComputeDomain(ObjPtr<mirror::Class> klass, const DexFile* dex_file)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     // Check other aspects of the context.
-    Domain domain = ComputeDomain(klass->GetClassLoader(), dex_file);
+    Domain domain = ComputeDomain(dex_file, klass->GetClassLoader());
 
     if (domain == Domain::kApplication &&
         klass->ShouldSkipHiddenApiChecks() &&
@@ -355,6 +354,8 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
     return method->GetAccessFlags() & kAccHiddenapiBits;
   }
 }
+
+void InitializeDexFileDomain(const DexFile& dex_file, ObjPtr<mirror::ClassLoader> class_loader);
 
 // Returns true if access to `member` should be denied in the given context.
 // The decision is based on whether the caller is in a trusted context or not.
