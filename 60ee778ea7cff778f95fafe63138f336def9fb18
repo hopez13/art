@@ -94,6 +94,30 @@
       "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54ef518c_44c0fce7",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-08T15:46:21Z",
+      "side": 0,
+      "message": "Is the CHECK valid? I think we should really find a way to have the API returned the exact same values whether you are backed by an oat file or not.",
+      "parentUuid": "d8a7ab24_b4b3f2ca",
+      "range": {
+        "startLine": 546,
+        "startChar": 38,
+        "endLine": 546,
+        "endChar": 61
+      },
+      "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
