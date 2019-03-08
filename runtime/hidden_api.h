@@ -70,6 +70,13 @@ class AccessContext {
         dex_file_(GetDexFileFromDexCache(dex_cache)),
         domain_(ComputeDomain(class_loader, dex_file_)) {}
 
+  // Initialize from class loader and dex file (only used by tests).
+  AccessContext(ObjPtr<mirror::ClassLoader> class_loader, const DexFile* dex_file)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      : klass_(nullptr),
+        dex_file_(dex_file),
+        domain_(ComputeDomain(class_loader, dex_file_)) {}
+
   // Initialize from Class.
   explicit AccessContext(ObjPtr<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -93,6 +100,8 @@ class AccessContext {
     return dex_cache.IsNull() ? nullptr : dex_cache->GetDexFile();
   }
 
+  static Domain DetermineDomainFromPath(const DexFile* dex_file, bool is_boot_class_path);
+
   static Domain ComputeDomain(bool is_trusted) {
     return is_trusted ? Domain::kCorePlatform : Domain::kApplication;
   }
@@ -104,12 +113,14 @@ class AccessContext {
     }
 
     Domain dex_domain = dex_file->GetHiddenapiDomain();
-    if (class_loader.IsNull() && dex_domain == Domain::kApplication) {
-      LOG(WARNING) << "DexFile " << dex_file->GetLocation()
-          << " is in boot classpath but is assigned the application domain";
-      dex_file->SetHiddenapiDomain(Domain::kPlatform);
-      dex_domain = Domain::kPlatform;
+
+    // Lazily determine the dex file's domain if this is the first time it is being used.
+    if (dex_domain == Domain::kUnassigned) {
+      dex_domain = DetermineDomainFromPath(dex_file, /*is_boot_class_path=*/ class_loader.IsNull());
+      DCHECK(dex_domain != Domain::kUnassigned);
+      dex_file->SetHiddenapiDomain(dex_domain);
     }
+
     return dex_domain;
   }
 
@@ -447,6 +458,11 @@ inline bool ShouldDenyAccessToMember(T* member,
 
     case Domain::kCorePlatform: {
       LOG(FATAL) << "CorePlatform domain should be allowed to access all domains";
+      UNREACHABLE();
+    }
+
+    case Domain::kUnassigned: {
+      LOG(FATAL) << "Caller should always have a domain assigned";
       UNREACHABLE();
     }
   }

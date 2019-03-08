@@ -28,6 +28,10 @@ enum class Domain {
   kCorePlatform = 0,
   kPlatform,
   kApplication,
+
+  // Default value. Will be lazily resolved on first access check.
+  // Keep last to make sure it is less trusted than any other domain.
+  kUnassigned,
 };
 
 inline bool IsDomainMoreTrustedThan(Domain domainA, Domain domainB) {
