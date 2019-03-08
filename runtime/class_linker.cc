@@ -3765,6 +3765,8 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   if (initialize_oat_file_data) {
     oat_file->InitializeRelocations();
   }
+  hiddenapi::InitializeDexFileDomain(dex_file, class_loader);
+
   jweak dex_cache_jweak = vm->AddWeakGlobalRef(self, dex_cache);
   dex_cache->SetDexFile(&dex_file);
   DexCacheData data;
