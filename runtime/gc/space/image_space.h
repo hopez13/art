@@ -165,6 +165,8 @@ class ImageSpace : public MemMapSpace {
   // De-initialize the image-space by undoing the effects in Init().
   virtual ~ImageSpace();
 
+  void ReleaseMetadata();
+
  protected:
   // Tries to initialize an ImageSpace from the given image path, returning null on error.
   //
