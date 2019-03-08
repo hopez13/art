@@ -22,6 +22,30 @@
       "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d0c31b4_dbddf3d0",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-08T15:17:11Z",
+      "side": 0,
+      "message": "It\u0027s in the OatDexFile - we have the pointer here but the type is just a forward declaration.",
+      "parentUuid": "52a9fafb_f8410470",
+      "range": {
+        "startLine": 546,
+        "startChar": 38,
+        "endLine": 546,
+        "endChar": 61
+      },
+      "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
