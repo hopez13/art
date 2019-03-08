@@ -70,6 +70,30 @@
       "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a7ab24_b4b3f2ca",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-08T15:33:11Z",
+      "side": 0,
+      "message": "What we could do is put an override of this in OatDexFIle, but it would duplicate this code.",
+      "parentUuid": "bac93ae2_8b9e0095",
+      "range": {
+        "startLine": 546,
+        "startChar": 38,
+        "endLine": 546,
+        "endChar": 61
+      },
+      "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
