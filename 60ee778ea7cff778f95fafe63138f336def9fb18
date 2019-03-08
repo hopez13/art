@@ -46,6 +46,30 @@
       "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac93ae2_8b9e0095",
+        "filename": "libdexfile/dex/art_dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-08T15:29:19Z",
+      "side": 0,
+      "message": "I\u0027ve tried setting the dex location to the OatDexFile canonical location when the DexFile is being created, but there are CHECKs against it.",
+      "parentUuid": "7d0c31b4_dbddf3d0",
+      "range": {
+        "startLine": 546,
+        "startChar": 38,
+        "endLine": 546,
+        "endChar": 61
+      },
+      "revId": "60ee778ea7cff778f95fafe63138f336def9fb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
