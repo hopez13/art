@@ -2422,6 +2422,23 @@ void ImageSpace::DumpSections(std::ostream& os) const {
   }
 }
 
+void ImageSpace::ReleaseMetadata() {
+  const ImageSection& metadata = GetImageHeader().GetMetadataSection();
+  VLOG(image) << "Releasing " << metadata.Size() << " image metadata bytes";
+  // Clear dex cache pointers.
+  ObjPtr<mirror::ObjectArray<mirror::DexCache>> dex_caches =
+      GetImageHeader().GetImageRoot(ImageHeader::kDexCaches)->AsObjectArray<mirror::DexCache>();
+  for (size_t len = dex_caches->GetLength(), i = 0; i < len; ++i) {
+    dex_caches->Get(i)->ClearPreResolvedStrings();
+  }
+  // Avoid using ZeroAndReleasePages since the zero fill might not be word atomic.
+  uint8_t* const page_begin = AlignUp(Begin() + metadata.Offset(), kPageSize);
+  uint8_t* const page_end = AlignDown(Begin() + metadata.End(), kPageSize);
+  if (page_begin < page_end) {
+    CHECK_NE(madvise(page_begin, page_end - page_begin, MADV_DONTNEED), -1) << "madvise failed";
+  }
+}
+
 }  // namespace space
 }  // namespace gc
 }  // namespace art
