@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "826a24a3_ec249028",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-08T23:09:49Z",
+      "side": 1,
+      "message": "What is this doing?",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32782c1a_74beda39",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-08T23:09:49Z",
+      "side": 1,
+      "message": "How is it checking if it\u0027s \"really clean\" without doing an mmap of boot.art as the original comment suggested?\n\nDid we add some new invariant that everything in \u0027runtime-\u003eGetHeap()-\u003eGetBootImageSpaces()\u0027 are clean?",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0879954e_1ff0479e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-08T23:09:49Z",
+      "side": 1,
+      "message": "nit: /*out*/",
+      "range": {
+        "startLine": 1240,
+        "startChar": 42,
+        "endLine": 1240,
+        "endChar": 59
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ab0f369_b96c3807",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-08T23:09:49Z",
+      "side": 1,
+      "message": "nit: could use std::optional\u003csize_t\u003e here",
+      "range": {
+        "startLine": 1250,
+        "startChar": 14,
+        "endLine": 1250,
+        "endChar": 30
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24962214_3eaf59ac",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-08T23:09:49Z",
+      "side": 1,
+      "message": "nit: return std::optional\u003cbacktrace_map_t\u003e ?",
+      "range": {
+        "startLine": 1446,
+        "startChar": 58,
+        "endLine": 1446,
+        "endChar": 91
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
