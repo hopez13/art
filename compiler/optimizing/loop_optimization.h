@@ -82,7 +82,10 @@ class HLoopOptimization : public HOptimization {
     kNoReduction     = 1 << 9,   // no reduction
     kNoSAD           = 1 << 10,  // no sum of absolute differences (SAD)
     kNoWideSAD       = 1 << 11,  // no sum of absolute differences (SAD) with operand widening
+<<<<<<< HEAD   (4e91ee Fix pylint warnings in art_apex_test)
     kNoDotProd       = 1 << 12,  // no dot product
+=======
+>>>>>>> BRANCH (242cf1 Snap for 5180536 from 1f5f55bfaa13923bc5483a6f9d8189ed4edc74)
   };
 
   /*

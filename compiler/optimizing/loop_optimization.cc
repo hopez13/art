@@ -1525,8 +1525,14 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
                       nullptr,
                       HVecOperation::ToProperType(type, is_unsigned));
       }
+<<<<<<< HEAD   (4e91ee Fix pylint warnings in art_apex_test)
       return true;
     }
+=======
+      default:
+        return false;
+    }  // switch
+>>>>>>> BRANCH (242cf1 Snap for 5180536 from 1f5f55bfaa13923bc5483a6f9d8189ed4edc74)
   }
   return false;
 }
@@ -1977,11 +1983,65 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
       GENERATE_VEC(
         new (global_allocator_) HVecUShr(global_allocator_, opa, opb, type, vector_length_, dex_pc),
         new (global_allocator_) HUShr(org_type, opa, opb, dex_pc));
+<<<<<<< HEAD   (4e91ee Fix pylint warnings in art_apex_test)
     case HInstruction::kAbs:
       DCHECK(opb == nullptr);
       GENERATE_VEC(
         new (global_allocator_) HVecAbs(global_allocator_, opa, type, vector_length_, dex_pc),
         new (global_allocator_) HAbs(org_type, opa, dex_pc));
+=======
+    case HInstruction::kInvokeStaticOrDirect: {
+      HInvokeStaticOrDirect* invoke = org->AsInvokeStaticOrDirect();
+      if (vector_mode_ == kVector) {
+        switch (invoke->GetIntrinsic()) {
+          case Intrinsics::kMathAbsInt:
+          case Intrinsics::kMathAbsLong:
+          case Intrinsics::kMathAbsFloat:
+          case Intrinsics::kMathAbsDouble:
+            DCHECK(opb == nullptr);
+            vector = new (global_allocator_)
+                HVecAbs(global_allocator_, opa, type, vector_length_, dex_pc);
+            break;
+          default:
+            LOG(FATAL) << "Unsupported SIMD intrinsic " << org->GetId();
+            UNREACHABLE();
+        }  // switch invoke
+      } else {
+        // In scalar code, simply clone the method invoke, and replace its operands with the
+        // corresponding new scalar instructions in the loop. The instruction will get an
+        // environment while being inserted from the instruction map in original program order.
+        DCHECK(vector_mode_ == kSequential);
+        size_t num_args = invoke->GetNumberOfArguments();
+        HInvokeStaticOrDirect* new_invoke = new (global_allocator_) HInvokeStaticOrDirect(
+            global_allocator_,
+            num_args,
+            invoke->GetType(),
+            invoke->GetDexPc(),
+            invoke->GetDexMethodIndex(),
+            invoke->GetResolvedMethod(),
+            invoke->GetDispatchInfo(),
+            invoke->GetInvokeType(),
+            invoke->GetTargetMethod(),
+            invoke->GetClinitCheckRequirement());
+        HInputsRef inputs = invoke->GetInputs();
+        size_t num_inputs = inputs.size();
+        DCHECK_LE(num_args, num_inputs);
+        DCHECK_EQ(num_inputs, new_invoke->GetInputs().size());  // both invokes agree
+        for (size_t index = 0; index < num_inputs; ++index) {
+          HInstruction* new_input = index < num_args
+              ? vector_map_->Get(inputs[index])
+              : inputs[index];  // beyond arguments: just pass through
+          new_invoke->SetArgumentAt(index, new_input);
+        }
+        new_invoke->SetIntrinsic(invoke->GetIntrinsic(),
+                                 kNeedsEnvironmentOrCache,
+                                 kNoSideEffects,
+                                 kNoThrow);
+        vector = new_invoke;
+      }
+      break;
+    }
+>>>>>>> BRANCH (242cf1 Snap for 5180536 from 1f5f55bfaa13923bc5483a6f9d8189ed4edc74)
     default:
       break;
   }  // switch

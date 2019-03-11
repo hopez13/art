@@ -95,9 +95,14 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
       // even going back from boot image methods to the same oat file. However, this is
       // not currently implemented in the compiler. Therefore crossing dex file boundary
       // indicates that the inlined definition is not the same as the one used at runtime.
+<<<<<<< HEAD   (4e91ee Fix pylint warnings in art_apex_test)
       bool target_sdk_at_least_p =
           IsSdkVersionSetAndAtLeast(Runtime::Current()->GetTargetSdkVersion(), SdkVersion::kP);
       LOG(target_sdk_at_least_p ? FATAL : WARNING)
+=======
+      bool target_sdk_pre_p = Runtime::Current()->GetTargetSdkVersion() < 28;
+      LOG(target_sdk_pre_p ? WARNING : FATAL)
+>>>>>>> BRANCH (242cf1 Snap for 5180536 from 1f5f55bfaa13923bc5483a6f9d8189ed4edc74)
           << "Inlined method resolution crossed dex file boundary: from "
           << method->PrettyMethod()
           << " in " << method->GetDexFile()->GetLocation() << "/"
