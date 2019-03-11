@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ee1ef11_e43b0d6e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-11T11:38:35Z",
+      "side": 1,
+      "message": "Moving to the last byte of the current element before the \"++i\" moves to the first byte of the next element.",
+      "parentUuid": "826a24a3_ec249028",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32782c1a_74beda39",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06905b1f_7ff98a2d",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-11T11:38:35Z",
+      "side": 1,
+      "message": "Checking for the dirty flag in /proc/kpageflags.\n\nRight after creating the Runtime with a boot image and no relocation (imgdiag is compiler-like), the boot image is clean. Maybe we should call ImageSpace::LoadBootImage() directly without creating the Runtime but that would require additional refactoring to pass explicitly a few more things that ImageSpace currently gets from Runtime::Current().",
+      "parentUuid": "32782c1a_74beda39",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "63aff77a_a58e770a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-11T11:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0879954e_1ff0479e",
+      "range": {
+        "startLine": 1240,
+        "startChar": 42,
+        "endLine": 1240,
+        "endChar": 59
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ab0f369_b96c3807",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "55bc9614_ebb94cbf",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-11T11:38:35Z",
+      "side": 1,
+      "message": "Done. Note that std::optional\u003c\u003e::value() is specified to potentially throw and we\u0027re not using exceptions, so I\u0027m going to avoid that and use value_or() instead.",
+      "parentUuid": "4ab0f369_b96c3807",
+      "range": {
+        "startLine": 1250,
+        "startChar": 14,
+        "endLine": 1250,
+        "endChar": 30
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24962214_3eaf59ac",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -102,6 +186,30 @@
       "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e37a210_1043cc16",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-11T11:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24962214_3eaf59ac",
+      "range": {
+        "startLine": 1446,
+        "startChar": 58,
+        "endLine": 1446,
+        "endChar": 91
+      },
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
