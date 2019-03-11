@@ -22,6 +22,30 @@
       "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "670c067a_7bc0f088",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-11T15:56:10Z",
+      "side": 1,
+      "message": "It ensures that the symbols are kept alive and exported for users of libart-compiler. Otherwise the linker can remove them.\n\nThe intention is to include the library so that it is as if the cc files were compiled as part of it.",
+      "parentUuid": "c9f4ac30_31dfc21d",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 9
+      },
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
