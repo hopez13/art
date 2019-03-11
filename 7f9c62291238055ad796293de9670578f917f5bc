@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1abf1346_9328a85b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this can throw if we priorly assert that first_dirty_page.has_value. is this guarding for non-debug builds of imgdiag?",
+      "range": {
+        "startLine": 1261,
+        "startChar": 40,
+        "endLine": 1261,
+        "endChar": 69
+      },
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4d9c394_99da828a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "nit: if you set the return type on the lambda, you can use \u0027return *map\u0027 here and \u0027return std::nullopt\u0027 on L1462",
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a30a051_62a6e6fa",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "nit: personally I would weakly prefer to use the overloaded operators \u0027!maybe_boot_map\u0027, \u0027maybe_boot_map-\u003ewhatever\u0027, etc, since this adds unnecessary syntactic noise. optionals are first class in many programming languages. that being said I understand if you want to stick with the longer form. \n\nanother thought is: using \u0027maybe_boot_map !\u003d std::nullopt\u0027 is still more readable than \u0027!maybe_boot_map.has_value()\u0027 by treating optionals more like a pointer to stack-allocated memory.",
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "02a8607b_88147b98",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "Aha, thanks, it makes sense now with the DCHECK_ALIGNED_PARAM and the updated comment.",
+      "parentUuid": "0ee1ef11_e43b0d6e",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32782c1a_74beda39",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -69,6 +87,41 @@
       "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba95e2bf_7c1efba9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "I guess the logic doesn\u0027t seem too different from before. I was just trying to understand what warranted the change in the comment from \"not truly clean\" to \"is really clean\" ?",
+      "parentUuid": "06905b1f_7ff98a2d",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef13fbf_cc4e679c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-11T18:38:12Z",
+      "side": 1,
+      "message": "Why does it need to read the ImageSpaces now, but it wasn\u0027t doing it before?",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
