@@ -22,6 +22,30 @@
       "revId": "327497e303903f300b01f77f2259fd5b61238ee3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac4c977_f39c176d",
+        "filename": "dex2oat/common_compiler_driver_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T14:49:08Z",
+      "side": 1,
+      "message": "The previous, already submitted CL, mistakenly used 2018 despite the fact that the file was created in 2019.",
+      "parentUuid": "44fb1775_d8da1aed",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "327497e303903f300b01f77f2259fd5b61238ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
