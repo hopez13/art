@@ -224,6 +224,21 @@ class Libraries {
     STLDeleteValues(&libraries_);
   }
 
+  void UnloadAllNativeLibraries() {
+    Thread* self = Thread::Current();
+    std::vector<SharedLibrary*> unload_libraries;
+    {
+      MutexLock mu(self, *Locks::jni_libraries_lock_);
+      for (auto it = libraries_.begin(); it != libraries_.end(); ++it) {
+        SharedLibrary* const library = it->second;
+        if (library->GetClassLoader() == nullptr) {
+          unload_libraries.push_back(library);
+        }
+      }
+    }
+    UnloadLibraries(self, unload_libraries);
+  }
+
   // NO_THREAD_SAFETY_ANALYSIS since this may be called from Dumpable. Dumpable can't be annotated
   // properly due to the template. The caller should be holding the jni_libraries_lock_.
   void Dump(std::ostream& os) const NO_THREAD_SAFETY_ANALYSIS {
@@ -337,8 +352,15 @@ class Libraries {
     }
     ScopedThreadSuspension sts(self, kNative);
     // Do this without holding the jni libraries lock to prevent possible deadlocks.
-    using JNI_OnUnloadFn = void(*)(JavaVM*, void*);
+    UnloadLibraries(self, unload_libraries);
     for (auto library : unload_libraries) {
+      delete library;
+    }
+  }
+
+  static void UnloadLibraries(Thread* self, const std::vector<SharedLibrary*>& libraries) {
+    using JNI_OnUnloadFn = void(*)(JavaVM*, void*);
+    for (SharedLibrary* library : libraries) {
       void* const sym = library->FindSymbol("JNI_OnUnload", nullptr);
       if (sym == nullptr) {
         VLOG(jni) << "[No JNI_OnUnload found in \"" << library->GetPath() << "\"]";
@@ -347,7 +369,6 @@ class Libraries {
         JNI_OnUnloadFn jni_on_unload = reinterpret_cast<JNI_OnUnloadFn>(sym);
         jni_on_unload(self->GetJniEnv()->GetVm(), nullptr);
       }
-      delete library;
     }
   }
 
@@ -854,6 +875,10 @@ void JavaVMExt::DumpReferenceTables(std::ostream& os) {
 
 void JavaVMExt::UnloadNativeLibraries() {
   libraries_.get()->UnloadNativeLibraries();
+}
+
+void JavaVMExt::UnloadAllNativeLibraries() {
+  libraries_.get()->UnloadAllNativeLibraries();
 }
 
 bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
