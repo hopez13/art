@@ -394,6 +394,10 @@ Runtime::~Runtime() {
                                             WellKnownClasses::java_lang_Daemons_stop);
   }
 
+  // Unload all native libraries that are still open.
+  java_vm_->UnloadAllNativeLibraries();
+
+  // Shutdown any trace running.
   Trace::Shutdown();
 
   // Report death. Clients me require a working thread, still, so do it before GC completes and
