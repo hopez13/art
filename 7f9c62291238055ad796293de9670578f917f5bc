@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d00e684a_03a9b11f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T09:42:41Z",
+      "side": 1,
+      "message": "I don\u0027t want the compiler to generate a path that can throw, not even if we were compiling with -O0. (That\u0027s also the reason why I\u0027m avoiding std::vector\u003c\u003e::at() and any other \"at()\".)",
+      "parentUuid": "1abf1346_9328a85b",
+      "range": {
+        "startLine": 1261,
+        "startChar": 40,
+        "endLine": 1261,
+        "endChar": 69
+      },
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4d9c394_99da828a",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "e3ec799f_25e544a9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T09:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4d9c394_99da828a",
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a30a051_62a6e6fa",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 5
@@ -56,6 +98,24 @@
       "revId": "7f9c62291238055ad796293de9670578f917f5bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53b7584b_82eb627d",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T09:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a30a051_62a6e6fa",
+      "revId": "7f9c62291238055ad796293de9670578f917f5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

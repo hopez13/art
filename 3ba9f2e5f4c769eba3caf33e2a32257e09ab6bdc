@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "ae00e41e_6cfa72af",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T09:42:41Z",
+      "side": 1,
+      "message": "I don\u0027t know if or when the boot image was somewhat dirty in the past, maybe due to some initialization, but it\u0027s clean now. You wrote the \"Not truly clean\" comment and if you don\u0027t remember why, I don\u0027t think it\u0027s worth our time to investigate.",
+      "parentUuid": "ba95e2bf_7c1efba9",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef13fbf_cc4e679c",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
@@ -122,6 +140,24 @@
       "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9952b680_12730879",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T09:42:41Z",
+      "side": 1,
+      "message": "This is the new check described in the commit message:\n\n  Check that the loaded boot image is really clean.\n\nWe didn\u0027t do that check before.",
+      "parentUuid": "6ef13fbf_cc4e679c",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
