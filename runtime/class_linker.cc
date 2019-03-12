@@ -3733,13 +3733,15 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   std::string dex_file_location = dex_file.GetLocation();
   CHECK_GE(dex_file_location.length(), dex_cache_length)
       << dex_cache_location << " " << dex_file.GetLocation();
-  // Take suffix.
-  const std::string dex_file_suffix = dex_file_location.substr(
-      dex_file_location.length() - dex_cache_length,
-      dex_cache_length);
-  // Example dex_cache location is SettingsProvider.apk and
-  // dex file location is /system/priv-app/SettingsProvider/SettingsProvider.apk
-  CHECK_EQ(dex_cache_location, dex_file_suffix);
+  // Check suffix, doesn't work for preopt.
+  if (kIsTargetBuild) {
+    const std::string dex_file_suffix = dex_file_location.substr(
+        dex_file_location.length() - dex_cache_length,
+        dex_cache_length);
+    // Example dex_cache location is SettingsProvider.apk and
+    // dex file location is /system/priv-app/SettingsProvider/SettingsProvider.apk
+    CHECK_EQ(dex_cache_location, dex_file_suffix);
+  }
   const OatFile* oat_file =
       (dex_file.GetOatDexFile() != nullptr) ? dex_file.GetOatDexFile()->GetOatFile() : nullptr;
   // Clean up pass to remove null dex caches; null dex caches can occur due to class unloading
