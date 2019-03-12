@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c85a284f_14d38c78",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-12T19:56:16Z",
+      "side": 1,
+      "message": "You mean align up in the image writer? I don\u0027t see why that\u0027s better than just madvising the largest aligned portion of the metadata.",
+      "parentUuid": "597ac0a7_5cfc6839",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb8d05e6_4af29f6f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2792,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-12T19:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92dd9815_e12bd5cb",
+      "range": {
+        "startLine": 2792,
+        "startChar": 10,
+        "endLine": 2792,
+        "endChar": 41
+      },
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
