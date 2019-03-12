@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "14c9f0d7_228f7c96",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-12T20:54:00Z",
+      "side": 1,
+      "message": "This comment came from sehr@ during a refactoring. It might be incorrect.\n\nThe original comment that I made referred to imgdiag doing a memcmp of imgdiag\u0027s boot.art vs the remote target process boot.art\n\nSince we first initialize a Runtime and do some other stuff, it\u0027s possible that the local copy of boot.art would already be non-clean.\n\n---------\n\nI agree the new comment makes more sense than before.",
+      "parentUuid": "ae00e41e_6cfa72af",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef13fbf_cc4e679c",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
