@@ -1,1 +1,4 @@
-Invalid inline cache in profile file.
+profman E 03-13 05:01:30 40487 40487 profile_compilation_info.cc:2105] Invalid method index 65534. num_method_ids=7
+profman E 03-13 05:01:30 40487 40487 profile_compilation_info.cc:2116] Invalid method index 65534. num_method_ids=7
+dex2oatd E 03-13 05:01:31 40505 40505 profile_compilation_info.cc:1255] Invalid inline cache in profile file. dex location=/tmp/test-art-g4me8_12/tmp6zou90b_/707-checker-invalid-profile.jar method_id=1 dex_profile_index=0 type_index=65534 NumTypeIds=6
+dex2oatd E 03-13 05:01:31 40693 40693 profile_compilation_info.cc:1255] Invalid inline cache in profile file. dex location=/tmp/test-art-g4me8_12/tmp6zou90b_/707-checker-invalid-profile.jar method_id=1 dex_profile_index=0 type_index=65534 NumTypeIds=6

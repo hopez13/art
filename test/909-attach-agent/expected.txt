@@ -5,6 +5,7 @@ Created env for kArtTiVersion
 Attached Agent for test 909-attach-agent
 Created env for kArtTiVersion
 Goodbye!
+JNI_OnUnload called
 JNI_OnLoad called
 Hello, world!
 Attached Agent for test 909-attach-agent
@@ -12,6 +13,7 @@ Created env for kArtTiVersion
 Attached Agent for test 909-attach-agent
 Created env for kArtTiVersion
 Goodbye!
+JNI_OnUnload called
 JNI_OnLoad called
 Hello, world!
 Attached Agent for test 909-attach-agent
@@ -21,8 +23,10 @@ Attached Agent for test 909-attach-agent
 Created env for kArtTiVersion
 version 0x30010000 is not valid!Unable to create env for JVMTI_VERSION_1_0
 Goodbye!
+JNI_OnUnload called
 JNI_OnLoad called
 Hello, world!
 Can't attach agent, process is not debuggable.
 Can't attach agent, process is not debuggable.
 Goodbye!
+JNI_OnUnload called

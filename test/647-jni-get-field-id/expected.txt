@@ -24,3 +24,4 @@ Test that MyClassLoader.loadClass("Bad.Class") shall not be called.
   Error message for Bad/Class: Invalid descriptor: Bad/Class.
   Error message for Bad.Class: Invalid descriptor: Bad.Class.
   Error message for LBad.Class;: Invalid descriptor: LBad.Class;.
+JNI_OnUnload called
