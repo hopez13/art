@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "cfcb4412_5705a606",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-12T23:12:57Z",
+      "side": 1,
+      "message": "Wouldn\u0027t that potentially save (a little bit of) memory, as you\u0027re not sharing a resident page with stuff that doesn\u0027t have to be? I\u0027m fine with this as-is, but I think invariants are nice and should be considered for a follow-up.",
+      "parentUuid": "c85a284f_14d38c78",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
