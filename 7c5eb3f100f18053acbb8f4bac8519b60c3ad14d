@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31796359_fb203f73",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-03-12T15:40:06Z",
+      "side": 1,
+      "message": "Are 2 passes over the library list necessary?\n\nInvokeJniUnloadLibrary(library);\ndelete library;\n\n?",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 5
+      },
+      "revId": "7c5eb3f100f18053acbb8f4bac8519b60c3ad14d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39da7819_2fbc99cc",
+        "filename": "runtime/two_runtimes_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-03-12T15:40:06Z",
+      "side": 1,
+      "message": "This test creates two runtimes consecutively to check that state is setup and cleaned-up correctly each time. [or somesuch]",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "7c5eb3f100f18053acbb8f4bac8519b60c3ad14d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
