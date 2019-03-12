@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "597ac0a7_5cfc6839",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T17:19:01Z",
+      "side": 1,
+      "message": "Assert that the next section starts at page boundary and round up.",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92dd9815_e12bd5cb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2792,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-12T17:19:01Z",
+      "side": 1,
+      "message": "Why are you not clearing the references in associated DexCaches?\n\nThe code shall keep reading from the pre-resolved strings array. To save memory, you\u0027re now relying on this read to come from the shared zero page. If we changed the app image configuration to use --image-format\u003duncompressed, we would actually reload those pages from the disk and crash when using these un-relocated references.",
+      "range": {
+        "startLine": 2792,
+        "startChar": 10,
+        "endLine": 2792,
+        "endChar": 41
+      },
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
