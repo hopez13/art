@@ -108,6 +108,11 @@ class JavaVMExt : public JavaVM {
   void UnloadNativeLibraries()
       REQUIRES(!Locks::jni_libraries_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  
+  // Unload all native libraries.
+  void UnloadAllNativeLibraries()
+      REQUIRES(!Locks::jni_libraries_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   /**
    * Returns a pointer to the code for the native method 'm', found

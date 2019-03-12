@@ -393,7 +393,9 @@ Runtime::~Runtime() {
     self->GetJniEnv()->CallStaticVoidMethod(WellKnownClasses::java_lang_Daemons,
                                             WellKnownClasses::java_lang_Daemons_stop);
   }
-
+  
+  // Unload all native libraries that are still open.
+  java_vm_->UnloadAllNativeLibraries();
   Trace::Shutdown();
 
   // Report death. Clients me require a working thread, still, so do it before GC completes and
