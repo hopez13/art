@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da804af9_7dd21a38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-12T20:36:14Z",
+      "side": 1,
+      "message": "No. This change was suggested by vmarko, and explicitly validates the system version if it is _not_ the first one attempted. The data version is always validated.",
+      "parentUuid": "3648a334_78b521ff",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "bbdf2235244cd84d6d3c78e650c1bad8582b0b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9707e86a_03ff65fe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
