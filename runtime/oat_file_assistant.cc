@@ -616,7 +616,9 @@ OatFileAssistant::OatFileInfo& OatFileAssistant::GetBestInfo() {
     return odex_;
   }
 
-  // We cannot write to the odex location. This must be a system app.
+  // We cannot write to the odex location, need to consider different user:
+  // - If we are zygote or installd, this must be a system app.
+  // - If we are third app, the dex file may be the data app's base.apk
 
   // If the oat location is usable take it.
   if (oat_.IsUseable()) {
@@ -632,8 +634,9 @@ OatFileAssistant::OatFileInfo& OatFileAssistant::GetBestInfo() {
 
   // The oat file is not usable and the odex file is not up to date.
   // However we have access to the original dex file which means we can make
-  // the oat location up to date.
-  if (HasOriginalDexFiles()) {
+  // the oat location up to date if we can write /data/dalvik-cache/<isa>.
+  if (HasOriginalDexFiles() &&
+      access(GetDalvikCache(GetInstructionSetString(isa_)).c_str(), W_OK) == 0) {
     return oat_;
   }
 
