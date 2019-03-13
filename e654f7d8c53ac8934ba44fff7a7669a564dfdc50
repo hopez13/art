@@ -70,6 +70,30 @@
       "revId": "e654f7d8c53ac8934ba44fff7a7669a564dfdc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8f41419_a8a947f3",
+        "filename": "openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1167564
+      },
+      "writtenOn": "2019-03-13T07:53:06Z",
+      "side": 1,
+      "message": "Thanks for clarifying.\nThen, is patch set 2 acceptable?\nA thread of kWaitingForAbort state just waits for locking abort_lock_.\nThe state is immediately resumed after abort_lock_ is locked.",
+      "parentUuid": "4e230c87_2dedba33",
+      "range": {
+        "startLine": 406,
+        "startChar": 19,
+        "endLine": 406,
+        "endChar": 26
+      },
+      "revId": "e654f7d8c53ac8934ba44fff7a7669a564dfdc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
