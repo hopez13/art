@@ -94,6 +94,30 @@
       "revId": "e654f7d8c53ac8934ba44fff7a7669a564dfdc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a20e9898_5465e695",
+        "filename": "openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-13T15:15:16Z",
+      "side": 1,
+      "message": "Yes, that matches the use, and is acceptable to me. Could have also removed the \"waiting\" and made it kNativeForAbort, for example.",
+      "parentUuid": "d8f41419_a8a947f3",
+      "range": {
+        "startLine": 406,
+        "startChar": 19,
+        "endLine": 406,
+        "endChar": 26
+      },
+      "revId": "e654f7d8c53ac8934ba44fff7a7669a564dfdc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
