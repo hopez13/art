@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00889ea9_34001e61",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-13T07:28:41Z",
+      "side": 1,
+      "message": "You need to run a checkpoint between this and the madvise(), otherwise another thread can use an already retrieved pointer to the metadata after the madvise().\n\nI think we should move the ClearPreResolvedString() call to a separate loop in the Runtime::NotifyStartupCompleted(). ImageSpace should not request checkpoints.",
+      "range": {
+        "startLine": 2432,
+        "startChar": 24,
+        "endLine": 2432,
+        "endChar": 47
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b58b60ef_a955f748",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-13T07:28:41Z",
+      "side": 1,
+      "message": "This check is unnecessary now, just rely on \"preresolved_strings !\u003d nullptr\". However, that will make the `DCHECK_EQ(num_preresolved_strings, GetDexFile()-\u003eNumStringIds());` racy, so we should remove that as well.\n\n(But if you don\u0027t mind the tiny performance hit, you can keep it as is, it\u0027s functionally correct.)",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a7b9f5_9430a7d2",
+        "filename": "test/1003-metadata-section-strings/build",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-13T07:28:41Z",
+      "side": 1,
+      "message": "Either construct the entire profile here, or move this to the `profile` file.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35aba78_a0cdbdad",
+        "filename": "test/1003-metadata-section-strings/build",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-13T07:28:41Z",
+      "side": 1,
+      "message": "cat \u003e${other_file} \u003c\u003cEOF\n...\nEOF\n\nMakes the java code easier to read as it removes the clutter from each line.\nSame below.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 37
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

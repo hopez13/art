@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "0b2a92a5_0a8b953a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-13T07:28:41Z",
+      "side": 1,
+      "message": "Right now the padding is empty, there is nothing between the metadata section and the bitmap section which starts at a page boundary.",
+      "parentUuid": "43a5f714_f0d28130",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
