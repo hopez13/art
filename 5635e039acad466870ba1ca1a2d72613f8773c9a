@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "43a5f714_f0d28130",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T03:33:59Z",
+      "side": 1,
+      "message": "App images are currently private dirty so I\u0027m not sure how we could avoid the alignment padding taking up the RAM in this case. Maybe with reordering the sections or something.",
+      "parentUuid": "cfcb4412_5705a606",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
