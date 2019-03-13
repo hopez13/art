@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b7fd735_cfb7a6b1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T19:00:48Z",
+      "side": 1,
+      "message": "Can we consider doing that in another CL? I believe the current code is correct in the case where there is racy reads with the madvise. In the case where a null is read, the null check will call it fall back to the other dex cache.",
+      "parentUuid": "00889ea9_34001e61",
+      "range": {
+        "startLine": 2432,
+        "startChar": 24,
+        "endLine": 2432,
+        "endChar": 47
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b58b60ef_a955f748",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "871e5f61_ea632a8c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T19:00:48Z",
+      "side": 1,
+      "message": "The redundant check is to deal with the writes reordering for clearing the cache causing the DCHECK to fail. I\u0027ll change it in a follow up?",
+      "parentUuid": "b58b60ef_a955f748",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "99c890a8_074ad5bc",
+        "filename": "test/1003-metadata-section-strings/build",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T19:00:48Z",
+      "side": 1,
+      "message": "Sorry, this is stale code. I\u0027ll remove it.",
+      "parentUuid": "12a7b9f5_9430a7d2",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b35aba78_a0cdbdad",
         "filename": "test/1003-metadata-section-strings/build",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e96d6f02_06ca57ba",
+        "filename": "test/1003-metadata-section-strings/build",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T19:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b35aba78_a0cdbdad",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 37
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

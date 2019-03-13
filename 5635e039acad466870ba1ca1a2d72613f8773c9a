@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "b531e8c5_60ee3b09",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-13T19:00:48Z",
+      "side": 1,
+      "message": "We would need to modify the image writer to include the padding of the metadata section. Since this requires modifying the image format version, we should consider it in a separate CL.",
+      "parentUuid": "0b2a92a5_0a8b953a",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
