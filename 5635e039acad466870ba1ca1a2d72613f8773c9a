@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "4238d302_37b02e67",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-14T09:29:20Z",
+      "side": 1,
+      "message": "The ImageWriter already adds a padding after the metadata. No modification required there. See ImageWriter::CreateHeader().",
+      "parentUuid": "b531e8c5_60ee3b09",
+      "revId": "5635e039acad466870ba1ca1a2d72613f8773c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "92dd9815_e12bd5cb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3

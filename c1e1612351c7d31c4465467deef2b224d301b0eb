@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f62df4de_8b5e268b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-14T09:29:20Z",
+      "side": 1,
+      "message": "No, it\u0027s not correct. Thread 1 reads both NumPreResolvedStrings() and GetPreResolvedStrings(), then Thread 2 clears them and madvise()s away the memory and then Thread 1 tries to read that memory. As I said before, this is broken for --image-format\u003duncompressed, and working in a weird way for --image-format\u003dlz4/lz4hc.",
+      "parentUuid": "9b7fd735_cfb7a6b1",
+      "range": {
+        "startLine": 2432,
+        "startChar": 24,
+        "endLine": 2432,
+        "endChar": 47
+      },
+      "revId": "c1e1612351c7d31c4465467deef2b224d301b0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b58b60ef_a955f748",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 5
