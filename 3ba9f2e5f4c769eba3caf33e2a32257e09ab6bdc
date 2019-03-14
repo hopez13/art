@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "93b86bdb_465d1c8c",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-14T17:56:17Z",
+      "side": 1,
+      "message": "Actually, the boot image is not really clean, every DexCache object has the dex_file_ written. However, pages mmapped from file as MAP_PRIVATE start with flags 0x100000 (NOPAGE) and move to\n\n  - read: 0x40000086c (REFERENCED|UPTODATE|LRU|ACTIVE|MMAP|MAPPEDTODISK)\n  - write: 0x5848 (UPTODATE|ACTIVE|MMAP|ANON|SWAPCACHE), sometimes 0x5868 (|LRU).\n\nStrangely, the DIRTY flag is not set (at least when read from the same process), so this check erroneously passes.\n\nAnyway, I\u0027m soon going to change imgdiag to load the boot image without creating the runtime.",
+      "parentUuid": "14c9f0d7_228f7c96",
+      "revId": "3ba9f2e5f4c769eba3caf33e2a32257e09ab6bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef13fbf_cc4e679c",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 2
