@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afdef764_869ef78e",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-14T11:03:05Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 411,
+        "startChar": 2,
+        "endLine": 411,
+        "endChar": 56
+      },
+      "revId": "f1c01465fcb9deaa9070f7b73caeab01ae7c2c32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "367bb553_b33cc18b",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-14T11:03:05Z",
+      "side": 1,
+      "message": "This needs cleanup: soa.Env()-\u003eDeleteGlobalRef(class_loader). It would be better to have ObjPtr\u003cmirror::ClassLoader\u003e here and use the other overload of ClassLinker::CreateWellKnownClassLoader().",
+      "range": {
+        "startLine": 452,
+        "startChar": 2,
+        "endLine": 452,
+        "endChar": 22
+      },
+      "revId": "f1c01465fcb9deaa9070f7b73caeab01ae7c2c32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
