@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "771b7170_6ab50744",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-15T18:48:38Z",
+      "side": 1,
+      "message": "I don\u0027t think that can happen if there is no suspend point between the time where the reference is loaded and the time where it is compared with null (I think this precision should be part of the comment, BTW), as in that case it should not be seen by the GC at all (it should not be recorded as a stack root).",
+      "parentUuid": "0750706e_a518a166",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0cd869ee_70b40e65",
         "filename": "runtime/read_barrier_option.h",
         "patchSetId": 2
