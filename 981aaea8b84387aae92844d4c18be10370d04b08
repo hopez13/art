@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4737a7d_372b0ae3",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2019-03-15T10:05:02Z",
+      "side": 1,
+      "message": "Does this do a reasonable thing when running in 32 bit mode? Should you clamp \u0027bytes\u0027 here like the Java code used to, or update RegisterNativeAllocation to take a 64 bit type instead of size_t?",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 281,
+        "endChar": 81
+      },
+      "revId": "981aaea8b84387aae92844d4c18be10370d04b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
