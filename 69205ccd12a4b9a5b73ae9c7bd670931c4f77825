@@ -188,6 +188,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac22a617_b2ff160a",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-15T23:24:08Z",
+      "side": 1,
+      "message": "Sorry I mis-phrased that. I should have said something like \"participating in a handshake\". I don\u0027t think this can happen if from-space objects remain valid, and nothing is reclaimed until a handshake that occurs after marking is done. In that case we\u0027d be weakening the invariant to \"Any references to white objects must have been obtained since the last suspend point, and will be dropped before the next one.\"",
+      "parentUuid": "608b4e07_ec373887",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
