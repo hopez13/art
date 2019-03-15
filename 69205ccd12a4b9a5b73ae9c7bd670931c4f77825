@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cf6375e_fea97e73",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T18:16:19Z",
+      "side": 1,
+      "message": "Consider the following scenario while GC is going on:\n1) Mutator1 reads the reference to a non-moving object without the read barrier. So it\u0027s on its stack now.\n2) Assume that it was the last reference to that object on the heap. Now another mutator2 comes and set the reference to null.\n3) GC thread now traces the holder object as it was in the mark stack. But since the reference is null, it is unmarked.\n4) GC finishes, and since the object is unmarked, it will be reclaimed.\n5) Mutator1 assigns the reference that is on the stack to some reference on the heap.\n\nAnd we have a heap corruption.",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 68
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0750706e_a518a166",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T18:16:19Z",
+      "side": 1,
+      "message": "Even if we assume that the reference that is read (during GC) for comparison with null is not used for any other purpose, but it will be in some register for the comparison. At this point if the mutator gets scheduled out by the kernel, then we could run into a situation where by the end of GC we will have a reference in a register to heap which could have anything in there, and if the mutator doesn\u0027t get scheduled till next GC cycle, then we will try to mark the referent during thread flip.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cd869ee_70b40e65",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T18:16:19Z",
+      "side": 1,
+      "message": "I believe the same thing applies here to the load of reference to the holder here that applied to my comment above to (2).",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
