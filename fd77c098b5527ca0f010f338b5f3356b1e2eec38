@@ -70,6 +70,30 @@
       "revId": "fd77c098b5527ca0f010f338b5f3356b1e2eec38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0bb286a_d65a33a7",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-15T16:36:04Z",
+      "side": 1,
+      "message": "It just means we won\u0027t detect core platform API violations because the whole boot class path will be in the platform domain.",
+      "parentUuid": "fea282c7_dad9dd93",
+      "range": {
+        "startLine": 84,
+        "startChar": 21,
+        "endLine": 84,
+        "endChar": 34
+      },
+      "revId": "fd77c098b5527ca0f010f338b5f3356b1e2eec38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
