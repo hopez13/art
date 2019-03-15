@@ -140,6 +140,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0eec380_b8301d68",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-15T22:53:39Z",
+      "side": 1,
+      "message": "By step (2), you mean that Mutator2 removes the reference that Mutator1 followed to find the holder object?\n\nIf (4) is possible without Mutator1 executing a suspend point, then I agree. Otherwise this would all need to happen between suspend points.",
+      "parentUuid": "4db601c1_3ecb8f08",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
