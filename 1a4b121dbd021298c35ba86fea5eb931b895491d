@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39d4bb7_5ed96603",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-15T10:49:50Z",
+      "side": 1,
+      "message": "Thanks. The OatFileManager API I came up with for FSI isn\u0027t great, I have it in my TODO list to clean this up.",
+      "range": {
+        "startLine": 295,
+        "startChar": 7,
+        "endLine": 295,
+        "endChar": 59
+      },
+      "revId": "1a4b121dbd021298c35ba86fea5eb931b895491d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
