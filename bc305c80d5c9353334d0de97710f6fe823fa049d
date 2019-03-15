@@ -22,6 +22,30 @@
       "revId": "bc305c80d5c9353334d0de97710f6fe823fa049d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46235bb7_1aa531ba",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-15T12:31:38Z",
+      "side": 1,
+      "message": "Not here. In your case you prioritized IsSystemFramework over IsRuntimeModule. But kApplication is the fallthrough (if you will) when no known location matched.",
+      "parentUuid": "45211437_38c75bfe",
+      "range": {
+        "startLine": 579,
+        "startChar": 42,
+        "endLine": 579,
+        "endChar": 46
+      },
+      "revId": "bc305c80d5c9353334d0de97710f6fe823fa049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
