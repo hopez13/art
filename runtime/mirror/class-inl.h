@@ -806,8 +806,8 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
 
 template<VerifyObjectFlags kVerifyFlags>
 inline bool Class::IsClassClass() {
-  // OK to look at from-space copies since java.lang.Class.class is not movable.
-  // See b/114413743
+  // OK to look at from-space copies since java.lang.Class.class is neither movable
+  // nor reclaimable. See ReadBarrierOption.
   ObjPtr<Class> java_lang_Class = GetClass<kVerifyFlags, kWithoutReadBarrier>();
   return this == java_lang_Class;
 }

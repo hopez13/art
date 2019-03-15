@@ -139,8 +139,8 @@ inline bool Object::InstanceOf(ObjPtr<Class> klass) {
 
 template<VerifyObjectFlags kVerifyFlags>
 inline bool Object::IsClass() {
-  // OK to look at from-space copies since java.lang.Class.class is not movable.
-  // See b/114413743
+  // OK to look at from-space copies since java.lang.Class.class is neither movable
+  // nor reclaimable. See ReadBarrierOption.
   ObjPtr<Class> klass = GetClass<kVerifyFlags, kWithoutReadBarrier>();
   ObjPtr<Class> java_lang_Class = klass->GetClass<kVerifyFlags, kWithoutReadBarrier>();
   return klass == java_lang_Class;
