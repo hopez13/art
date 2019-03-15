@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45211437_38c75bfe",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-15T12:00:03Z",
+      "side": 1,
+      "message": "You mean target bots? The problem is what I commented in my CL:\n\"... because the runtime module location in a testing environment could be /system.\"\n\nI\u0027ve fixed it by changing the check order for knowing the domain (see go/aog/924613). Can you do the same?",
+      "range": {
+        "startLine": 579,
+        "startChar": 42,
+        "endLine": 579,
+        "endChar": 46
+      },
+      "revId": "bc305c80d5c9353334d0de97710f6fe823fa049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
