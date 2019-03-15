@@ -164,6 +164,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "608b4e07_ec373887",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T23:04:12Z",
+      "side": 1,
+      "message": "\u003e By step (2), you mean that Mutator2 removes the reference that Mutator1 followed to find the holder object?\n\u003e \n\nYes. It was a typo on my end. I meant to say that mutator2 set that reference to null (or some other reference).\n\n\u003e If (4) is possible without Mutator1 executing a suspend point, then I agree. Otherwise this would all need to happen between suspend points.\n\nThe only time when we mark objects referred by the stack is while flipping threads prior to marking. The scenario I\u0027m presenting is all happening after the GC marking has started. Therefore, I\u0027m not sure why you think having a suspend point makes a difference. With the scenario, we have created a white reference on the stack. As soon as marking is finished everything white will be reclaimed, and therefore, as per my understanding, any attempts to load fields of the holder after GC is finished are fatal.\n\n\nIn general, one of the invariants of read-barrier based algorithm that we have is that thread stacks will always refer to non-white objects once marking has started. This invariant is broken by removing the read-barrier.",
+      "parentUuid": "c0eec380_b8301d68",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
