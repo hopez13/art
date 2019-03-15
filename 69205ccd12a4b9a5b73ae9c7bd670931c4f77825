@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "75feb053_8b53562b",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T19:26:16Z",
+      "side": 1,
+      "message": "Makes sense. Basically, you are saying that the register will be cleared before the next suspend point and hence will not be visible to GC, right?",
+      "parentUuid": "771b7170_6ab50744",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0cd869ee_70b40e65",
         "filename": "runtime/read_barrier_option.h",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2019-03-15T18:16:19Z",
       "side": 1,
       "message": "I believe the same thing applies here to the load of reference to the holder here that applied to my comment above to (2).",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db601c1_3ecb8f08",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-15T19:26:16Z",
+      "side": 1,
+      "message": "In light of Roland\u0027s comment to the above comment thread, I\u0027d change my comment here a bit.\n\nConsider the following scenario:\n\nAssumption: There is only one reference to the holder object in some other object (holder\u0027s holder) on the heap.\n\n1) Mutator1 read the holder reference without read-barrier and stores it on its stack and gets scheduled out.\n2) Mutator2 sets the reference to the holder object in the holder\u0027s holder object, before it got traced by GC thread\n3) GC thread traces holder\u0027s holder but doesn\u0027t find reference to holder\n4) GC marking finishes, and the holder is reclaimed\n5) Mutator1 tries to read any constant field in the holder.",
+      "parentUuid": "0cd869ee_70b40e65",
       "range": {
         "startLine": 31,
         "startChar": 6,
