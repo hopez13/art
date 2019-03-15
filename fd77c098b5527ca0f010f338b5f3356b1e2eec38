@@ -22,6 +22,30 @@
       "revId": "fd77c098b5527ca0f010f338b5f3356b1e2eec38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e354f31_3f734d63",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-15T16:21:39Z",
+      "side": 1,
+      "message": "Never. We don\u0027t have a way how to distinguish between core jars and the rest when there is no apex.",
+      "parentUuid": "66da3795_b43689f1",
+      "range": {
+        "startLine": 84,
+        "startChar": 21,
+        "endLine": 84,
+        "endChar": 34
+      },
+      "revId": "fd77c098b5527ca0f010f338b5f3356b1e2eec38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
