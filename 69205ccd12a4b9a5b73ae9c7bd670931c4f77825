@@ -212,6 +212,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c603e9d0_29411fa9",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-16T00:44:07Z",
+      "side": 1,
+      "message": "After discussion with Hans here is some more clarity on this handshake that he is proposing:\n\nAt the GC\u0027s end, handshake is just another checkpoint that we already perform several times during marking-phase for capturing thread-local mark stacks. This handshake requires doing another checkpoint *after* marking to ensure that all mutators have reached there nearest suspend points.\n\nOn the mutators\u0027 end, it must guarantee that no non-black loaded reference (which indirectly means reference loaded without read-barrier) should survive past the next suspend point. By survive I mean that neither it should be made global (for example by storing in another object on the heap), nor should it stay on the thread-stack beyond the suspend point.\n\nHans, have I covered everything we discussed here?",
+      "parentUuid": "ac22a617_b2ff160a",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
