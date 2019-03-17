@@ -46,6 +46,30 @@
       "revId": "981aaea8b84387aae92844d4c18be10370d04b08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c95df2_04a5f273",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-03-17T03:11:36Z",
+      "side": 1,
+      "message": "Why not change RegisterNativeAllocation to take a jlong instead?\n\n\"I can\u0027t believe we would ever\" based on assumptions about memory sizes sounds suspiciously like the kind of code trap of the kind that comes back to bite one 10+ years in the future.",
+      "parentUuid": "171c5ca4_1c03bc32",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 281,
+        "endChar": 81
+      },
+      "revId": "981aaea8b84387aae92844d4c18be10370d04b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
