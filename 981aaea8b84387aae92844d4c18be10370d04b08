@@ -70,6 +70,30 @@
       "revId": "981aaea8b84387aae92844d4c18be10370d04b08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af624fe_66f7eb05",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-17T05:51:44Z",
+      "side": 1,
+      "message": "The GC code now fairly consistently uses size_t to represent the total size of simultaneously live objects, which is the C++ type intended for this. So I think PS2 gets this right.\n\nI agree that it needed to be fixed as in PS2. I think this is more of a short-term issue. On 64-bit+ platforms, size_t will hold any non-negative jlong, so we should be fine, even with the original code.",
+      "parentUuid": "40c95df2_04a5f273",
+      "range": {
+        "startLine": 281,
+        "startChar": 75,
+        "endLine": 281,
+        "endChar": 81
+      },
+      "revId": "981aaea8b84387aae92844d4c18be10370d04b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
