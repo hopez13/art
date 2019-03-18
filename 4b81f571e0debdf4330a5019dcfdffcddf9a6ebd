@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d99c79d8_f0660fee",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T12:54:27Z",
+      "side": 1,
+      "message": "This is an extremely ugly hack. Why is running an empty checkpoint such a big problem?",
+      "revId": "4b81f571e0debdf4330a5019dcfdffcddf9a6ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
