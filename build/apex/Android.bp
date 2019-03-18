@@ -205,6 +205,7 @@ apex {
 // eng build.
 apex {
     name: "com.android.runtime.debug",
+    apex_name: "com.android.runtime",
     defaults: ["com.android.runtime-defaults"],
     native_shared_libs: art_runtime_debug_native_shared_libs
         + libcore_debug_native_shared_libs,
