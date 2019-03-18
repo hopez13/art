@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8bba2ea_1f48e452",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-18T17:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffa63078_01916cf4",
+      "range": {
+        "startLine": 2433,
+        "startChar": 2,
+        "endLine": 2433,
+        "endChar": 30
+      },
+      "revId": "d09a9f38002d67c1a737133841897139fec08c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "325c96f6_0c58121f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "d09a9f38002d67c1a737133841897139fec08c63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcef6af6_a36e80bd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-18T17:06:33Z",
+      "side": 1,
+      "message": "It\u0027s here to prevent races, I added a comment.",
+      "parentUuid": "325c96f6_0c58121f",
+      "range": {
+        "startLine": 2434,
+        "startChar": 2,
+        "endLine": 2442,
+        "endChar": 3
+      },
+      "revId": "d09a9f38002d67c1a737133841897139fec08c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
