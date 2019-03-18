@@ -70,6 +70,30 @@
       "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b572c2fa_b85ed854",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-03-18T11:05:25Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand. That is what this change does.\n\nI think the ideal solution is to merge *.debug and *.release to a single module definition with conditionals in it.\n\napex_art { // a new module type\n    name: \"com.android.runtime\",\n    native_shared_libraries: [...],\n    product: {\n        runtime_apex_debuggable: {\n            native_shared_libraries: [...],\n        },\n    },\n}",
+      "parentUuid": "581ac1f7_67c82297",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
