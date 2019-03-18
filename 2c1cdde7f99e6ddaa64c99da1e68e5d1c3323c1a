@@ -22,6 +22,30 @@
       "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb76c5a_9ae61c17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-03-18T10:36:12Z",
+      "side": 1,
+      "message": "Unfortunately, no. The build rules are anyway generated regardless of which one is selected for installation (i.e added to PRODUCT_PACKAGES). And the build system complains when it finds multiple rules for the same target.\n\nFor the devices using the release version, developers could replace \u0027com.android.runtime\u0027 with \u0027com.android.runtime.release\u0027 in the stack trace, which I admit that it\u0027s not ideal...",
+      "parentUuid": "fa58a6db_ed6199ef",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
