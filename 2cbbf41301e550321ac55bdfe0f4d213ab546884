@@ -22,6 +22,30 @@
       "revId": "2cbbf41301e550321ac55bdfe0f4d213ab546884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7797e961_e1f596ed",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-18T16:46:29Z",
+      "side": 1,
+      "message": "Good question, but my conclusion is no. According to the standard, this context logically calls for copy-initialization, which applies \"standard conversions\", which applies \"integral conversions\" (in addition to \"integral promotions\"). Integral conversions can convert between arbitrary integral types, discarding information as necessary.\n\nTo be honest, I was counting on TreeHugger to check my intuition here.",
+      "parentUuid": "927651c9_fe05d570",
+      "range": {
+        "startLine": 281,
+        "startChar": 11,
+        "endLine": 281,
+        "endChar": 12
+      },
+      "revId": "2cbbf41301e550321ac55bdfe0f4d213ab546884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
