@@ -46,6 +46,30 @@
       "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "581ac1f7_67c82297",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-18T10:47:41Z",
+      "side": 1,
+      "message": "Could we hardcode the symbol directory to the apex actual name on device (ie com.android.runtime)?",
+      "parentUuid": "1cb76c5a_9ae61c17",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
