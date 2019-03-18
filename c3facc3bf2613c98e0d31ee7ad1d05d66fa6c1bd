@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e56ff83_7c81d7bf",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T09:51:04Z",
+      "side": 1,
+      "message": "I generally avoid DCHECK_EQ() for pointers. (Though, exceptionally, it would be reasonable here.)",
+      "parentUuid": "2364b359_20d0a90c",
+      "range": {
+        "startLine": 1231,
+        "startChar": 2,
+        "endLine": 1231,
+        "endChar": 8
+      },
+      "revId": "c3facc3bf2613c98e0d31ee7ad1d05d66fa6c1bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1b1a113_4d9de2f3",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "c3facc3bf2613c98e0d31ee7ad1d05d66fa6c1bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae09c6f5_c6a0cc8c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T09:51:04Z",
+      "side": 1,
+      "message": "I did think about it and decided against it in order to keep the inline function smaller.",
+      "parentUuid": "c1b1a113_4d9de2f3",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1233,
+        "endChar": 1
+      },
+      "revId": "c3facc3bf2613c98e0d31ee7ad1d05d66fa6c1bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
