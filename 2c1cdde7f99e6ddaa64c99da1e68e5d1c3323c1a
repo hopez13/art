@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa58a6db_ed6199ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-18T10:24:09Z",
+      "side": 1,
+      "message": "This is unfortunate :( Note: one device build only builds one apex kind. We\u0027re not going to generate two apexes for a build (eg sailfish only builds the release version, walleye only builds the debug version). Can this information be used for still having symbols?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
