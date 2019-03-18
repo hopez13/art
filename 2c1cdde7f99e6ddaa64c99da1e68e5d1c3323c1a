@@ -94,6 +94,30 @@
       "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "931b3fec_4aec8f28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-18T11:10:22Z",
+      "side": 1,
+      "message": "I mean, the apex name in its manifest (?) is com.android.runtime. Can we at build just pick this up and generate the debug symbols at this location, always?",
+      "parentUuid": "b572c2fa_b85ed854",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
