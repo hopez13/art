@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffa63078_01916cf4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T16:57:01Z",
+      "side": 1,
+      "message": "Wrong comment.",
+      "range": {
+        "startLine": 2433,
+        "startChar": 2,
+        "endLine": 2433,
+        "endChar": 30
+      },
+      "revId": "d09a9f38002d67c1a737133841897139fec08c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "325c96f6_0c58121f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T16:57:01Z",
+      "side": 1,
+      "message": "Is this here to prevent races with another app image being loaded between the DisablePreResolvedStrings() and ReleaseMetadata() loops in Runtime::NotifyStartupCompleted()? Can that happen? If not, why not simply assert that those caches do not have pre-resolved strings?",
+      "range": {
+        "startLine": 2434,
+        "startChar": 2,
+        "endLine": 2442,
+        "endChar": 3
+      },
+      "revId": "d09a9f38002d67c1a737133841897139fec08c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
