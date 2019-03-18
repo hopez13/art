@@ -332,6 +332,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43ac200_26d7eeb2",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-18T16:13:10Z",
+      "side": 1,
+      "message": "Firstly, I apologize for missing the checkpoint at the end of marking. We do have the checkpoint to inform all the mutators that marking is finished and hence to update their marking registers.\n\nComing to the scenario that @vmarko is pointing out. It will not arise simply because Thread 1 can never load a from-space reference with read-barriers around. That\u0027s what these read-barriers guarantee.\n\nI should also point out that the checkpoint at the end of marking phase is not sufficient. It has to be matched by a guarantee from the compiler that references loaded without read-barrier do not survive across the next suspend point, as I described in my previous comment. Also, the same guarantee would be required for vmarko@\u0027s first proposal above of loading a reference to a non-moving object without read-barrier.",
+      "parentUuid": "3f9f0f87_9f77c24c",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
