@@ -361,6 +361,7 @@ endif
 
 LOCAL_MODULE := com.android.runtime
 LOCAL_REQUIRED_MODULES := $(TARGET_RUNTIME_APEX)
+LOCAL_POST_INSTALL_CMD := ln -sf $(TARGET_RUNTIME_APEX) $(TARGET_OUT_UNSTRIPPED)/apex/com.android.runtime
 ifneq ($(HOST_OS),darwin)
   LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
 endif
