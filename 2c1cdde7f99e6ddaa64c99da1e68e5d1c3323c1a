@@ -118,6 +118,30 @@
       "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e04fa24_f045fa50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-03-18T11:17:28Z",
+      "side": 1,
+      "message": "We usually don\u0027t read the input file (like the manifest) when generating the build rules. Even if we do, the problem still persists; the two apexes will give same name com.android.runtime and this will create two rules for the same symbol path $(PRODUCT_OUT)/symbol/apex/com.android.runtime/lib/libSomething.so",
+      "parentUuid": "931b3fec_4aec8f28",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "2c1cdde7f99e6ddaa64c99da1e68e5d1c3323c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
