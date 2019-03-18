@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a88e9673_f43d535d",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-18T20:46:21Z",
+      "side": 1,
+      "message": "I have following questions about your definition of un-reclaimable non-moving space object:\n\n1) Are such objects only found in zygote and/or image spaces, or can be in the non-moving space too?\n2) Is there a guarantee that if no mutator grays these objects (and hence doesn\u0027t push them to mark-stacks), then GC-thread will be able to reach such objects during graph traversal? In absence of such guarantee, we cannot ensure that they are not reclaimed?\n3) Is there a guarantee that such objects will not have any region-space objects? Because if they can, then we have a data consistency issue in the following scenario:\n\na) Thread 1 loads a un-reclaimable non-moving object obj1 without a read-barrier\nb) Thread 1 loads a region-space object reference A from obj1. This load may not trigger a read-barrier as the holder, i.e. obj1, is not gray. Therefore, A may be in from-space\nc) Thread 1 gets scheduled out.\nd) GC-thread marks black obj1, and therefore replaces A with its to-space copy A\u0027.\ne) Thread 2 modifies some field, say f in A\u0027. This f could be even a primitive field.\nf) Thread 1 resumes and accesses filed f via A.f, which has an old value.\n\nAll this may happen before Thread 1 reaches its next suspend point.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 80
+      },
+      "revId": "678fc749aca4919a3021cb4132bd3d940433b9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
