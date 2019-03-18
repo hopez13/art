@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afd5c0b9_9ae23166",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T12:09:01Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll refine this bullet point and the similar bullet point below. I\u0027ll also add another one on reading for comparison involving non-moving space objects.",
+      "parentUuid": "5cf6375e_fea97e73",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 68
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0750706e_a518a166",
         "filename": "runtime/read_barrier_option.h",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da5009c_ea427a4e",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T12:09:01Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll add another sentence about liveness at the next suspend point.",
+      "parentUuid": "75feb053_8b53562b",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -251,6 +299,30 @@
       "side": 1,
       "message": "Yes, thanks. That\u0027s right. It\u0027s unclear to me whether the benefit is worth this additional handshake/checkpoint. It may be. I was hoping that we already had it for another reason.",
       "parentUuid": "c603e9d0_29411fa9",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f9f0f87_9f77c24c",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T12:09:01Z",
+      "side": 1,
+      "message": "There must be a checkpoint (\"handshake\") between the end of the GC marking phase and actual reclaiming of the memory to tell threads to stop marking. If this was done without a checkpoint, then the marking itself would have been broken anyway:\n\n  - Thread 1 loads a from-space reference R and gets descheduled,\n  - Thread 2 replaces the reference with another value,\n  - GC Thread finishes marking without ever seeing R,\n  - GC Thread tells other threads to stop marking without a checkpoint,\n  - Thread 1 resumes, determines that we\u0027re not marking and keeps from-space reference R,\n  - Thread 1 reads something from reclaimed memory through R.",
+      "parentUuid": "e0258825_e4e84186",
       "range": {
         "startLine": 31,
         "startChar": 6,
