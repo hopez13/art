@@ -356,6 +356,30 @@
       "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f44d0db7_fde21fc0",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-18T16:43:33Z",
+      "side": 1,
+      "message": "My scenario is about the theoretical situation without the checkpoint which I show to be broken, i.e. read barrier would not be able to guarantee the necessary invariants because the implementation _has_ to load the from-space reference to start with. To be a bit more specific, just consider what would happen if Thread 1 was descheduled in the middle of the read barrier implementation, in ReadBarrier::BarrierForRoot\u003cT, kWithReadBarrier\u003e(...) between\n\n  MirrorType* ref \u003d root-\u003eAsMirrorPtr();\n\nand\n\n    if (self !\u003d nullptr \u0026\u0026 self-\u003eGetIsGcMarking())\n\nwith kUseBakerReadBarrier \u003d true.\n\nAnd I have already added another sentence about the liveness at the next suspend point, see PS3 and later.",
+      "parentUuid": "a43ac200_26d7eeb2",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "69205ccd12a4b9a5b73ae9c7bd670931c4f77825",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
