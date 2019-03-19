@@ -463,6 +463,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
     : HOptimization(graph, name, stats),
       compiler_options_(compiler_options),
       induction_range_(induction_analysis),
+      induction_var_sim_(induction_analysis),
       loop_allocator_(nullptr),
       global_allocator_(graph_->GetAllocator()),
       top_loop_(nullptr),
@@ -773,9 +774,24 @@ bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
 }
 
 bool HLoopOptimization::OptimizeInnerLoop(LoopNode* node) {
-  return TryOptimizeInnerLoopFinite(node) || TryPeelingAndUnrolling(node);
+  if (!TryOptimizeInnerLoopFinite(node)) {
+    bool simplified = TryInductionVarSimplification(node);
+    if (simplified) {
+      return TryOptimizeInnerLoopFinite(node) || TryPeelingAndUnrolling(node);
+    } else {
+      return TryPeelingAndUnrolling(node);
+    }
+  }
+  return true;
 }
 
+bool HLoopOptimization::TryInductionVarSimplification(LoopNode* node) {
+  HLoopInformation* loop_info = node->loop_info;
+  if (!induction_var_sim_.SimplifyLoop(loop_info))
+    return false;
+  induction_range_.ReVisit(node->loop_info);
+  return true;
+}
 
 
 //
