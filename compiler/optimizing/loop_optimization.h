@@ -20,6 +20,7 @@
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "induction_var_range.h"
+#include "iv_simplifier.h"
 #include "loop_analysis.h"
 #include "nodes.h"
 #include "optimization.h"
@@ -165,6 +166,7 @@ class HLoopOptimization : public HOptimization {
   // Tries to apply scalar loop peeling and unrolling.
   bool TryPeelingAndUnrolling(LoopNode* node);
 
+  bool TryInductionVarSimplification(LoopNode* node);
   //
   // Vectorization analysis and synthesis.
   //
@@ -267,6 +269,9 @@ class HLoopOptimization : public HOptimization {
 
   // Range information based on prior induction variable analysis.
   InductionVarRange induction_range_;
+
+  // Perform Induction Var Simplification
+  IvStrengthReduction induction_var_sim_;
 
   // Phase-local heap memory allocator for the loop optimizer. Storage obtained
   // through this allocator is immediately released when the loop optimizer is done.
