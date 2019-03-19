@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb9ca503_2be72f66",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Is it intentional that these libraries only exist in lib64 in the multilib debug APEX?",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 61
+      },
+      "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

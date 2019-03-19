@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbc9db2c_70055d75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "The missing checks have to be here since the file lists need to be complete. The renames could be moved, but it\u0027d be extra effort and now Orion has already reviewed the bits affected by them. (FWIW I\u0027ve got even more refactoring split off from this that will come in a later CL.)",
+      "parentUuid": "cb4ed22d_c495d0d5",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66843447_9ad76168",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3be42009_6b842c34",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Ah, indeed.",
+      "parentUuid": "66843447_9ad76168",
+      "range": {
+        "startLine": 187,
+        "startChar": 10,
+        "endLine": 187,
+        "endChar": 25
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bc2972ee_8434210b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5c5db8b_50366258",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 29
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c81d8f3f_a59f3ab9",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "139b64d3_ec40e6ae",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c81d8f3f_a59f3ab9",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 8
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d33ec7cb_f6814ca6",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dab4b3b3_44ab0c67",
+      "range": {
+        "startLine": 240,
+        "startChar": 4,
+        "endLine": 240,
+        "endChar": 8
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1f305de_2111f3a9",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1263823c_9ee30e9d",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Yes. Rephrased.",
+      "parentUuid": "d1f305de_2111f3a9",
+      "range": {
+        "startLine": 251,
+        "startChar": 25,
+        "endLine": 253,
+        "endChar": 55
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "3a8480f9_6fd3a11b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "I wanted the same order of these functions in all the classes, for the sake of consistency.",
+      "parentUuid": "51dc01cd_b9aada30",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 29
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8d82911_b1df3b2f",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -186,6 +354,47 @@
     },
     {
       "key": {
+        "uuid": "405aa924_4c9d8cbf",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Thanks. Do we know the convention then? This is to cope with \"linker\" and \"linker64\", and I don\u0027t know which one is intended to exist then. For now I\u0027m inclined to just go with this, if we\u0027re not actually building such packages yet.",
+      "parentUuid": "c8d82911_b1df3b2f",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 75
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7cda035_e1444a97",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Please also vet the added file checks - I intend to follow up on this one because it seems wrong to me, but there might be others too. (The dex2oatd32 binary in DebugChecker below also looks a bit weird.)",
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e0462438_c0c8cc76",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -200,6 +409,24 @@
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50d669d4_dd134e20",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Ok, noted for future CL.",
+      "parentUuid": "e0462438_c0c8cc76",
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +450,30 @@
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8ce0b1f_c88fb731",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-19T15:26:05Z",
+      "side": 1,
+      "message": "Done, I think.\n\nSo we have 64 bit-only builds? How do I build them?",
+      "parentUuid": "db346923_344ebea4",
+      "range": {
+        "startLine": 489,
+        "startChar": 4,
+        "endLine": 489,
+        "endChar": 44
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
