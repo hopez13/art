@@ -73,6 +73,8 @@ art_cc_defaults {
         "optimizing/locations.cc",
         "optimizing/loop_analysis.cc",
         "optimizing/loop_optimization.cc",
+        "optimizing/iv_simplifier.cc",
+        "optimizing/inliner.cc",
         "optimizing/nodes.cc",
         "optimizing/optimization.cc",
         "optimizing/optimizing_compiler.cc",
