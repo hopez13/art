@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ec21a2_b446ccbe",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T15:00:38Z",
+      "side": 1,
+      "message": "Maybe mention that this is a 4-byte UTF-8 sequence expected to produce an UTF-16 surrogate pair?",
+      "range": {
+        "startLine": 392,
+        "startChar": 36,
+        "endLine": 392,
+        "endChar": 58
+      },
+      "revId": "6ad4944c4308f6246c2412ac1584e4c8c4b2526d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
