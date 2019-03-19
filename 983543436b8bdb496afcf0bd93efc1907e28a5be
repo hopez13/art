@@ -22,6 +22,30 @@
       "revId": "983543436b8bdb496afcf0bd93efc1907e28a5be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47fc0d5a_54eb8a1c",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-19T13:50:54Z",
+      "side": 1,
+      "message": "It\u0027s the assigned dex location and I agree it is meaningless here but requires less special-casing for IMC - currently we just don\u0027t let contexts with IMC open dex files, the spec parsing/encoding has no special cases.\n\nNote that these are contexts encoded for dex2oat (without checksums). The same context encoded for oat file header would have dex location checksums.",
+      "parentUuid": "cbc0926a_58f32697",
+      "range": {
+        "startLine": 290,
+        "startChar": 38,
+        "endLine": 290,
+        "endChar": 43
+      },
+      "revId": "983543436b8bdb496afcf0bd93efc1907e28a5be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
