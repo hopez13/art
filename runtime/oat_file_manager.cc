@@ -644,7 +644,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
 
 void OatFileManager::SetOnlyUseSystemOatFiles() {
   ReaderMutexLock mu(Thread::Current(), *Locks::oat_file_manager_lock_);
-  CHECK_EQ(oat_files_.size(), GetBootOatFiles().size());
+  //CHECK_EQ(oat_files_.size(), GetBootOatFiles().size());
   only_use_system_oat_files_ = true;
 }
 
