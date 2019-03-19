@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "362f97c1_06a92ae1",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T10:56:16Z",
+      "side": 1,
+      "message": "Maybe also mention ClassLinker::InitWithoutImage?",
+      "revId": "678fc749aca4919a3021cb4132bd3d940433b9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af27f054_78304ec5",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T10:56:16Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 143,
+        "startChar": 22,
+        "endLine": 143,
+        "endChar": 43
+      },
+      "revId": "678fc749aca4919a3021cb4132bd3d940433b9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a88e9673_f43d535d",
         "filename": "runtime/read_barrier_option.h",
         "patchSetId": 7
