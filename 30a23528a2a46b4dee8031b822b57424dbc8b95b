@@ -46,6 +46,70 @@
       "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724d6810_f01f4492",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-19T15:55:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "670c067a_7bc0f088",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 9
+      },
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eabc72ff_448c563b",
+        "filename": "libelffile/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-19T15:55:22Z",
+      "side": 1,
+      "message": "What about libelffiled?",
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a17889_f791af18",
+        "filename": "libelffile/elf/xz_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-19T15:55:22Z",
+      "side": 1,
+      "message": "This is a .cc file.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
