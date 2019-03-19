@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cb4ed22d_c495d0d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T14:16:46Z",
+      "side": 1,
+      "message": "Could this refactoring be moved to separate CL, if the changes are not too much entangled with the new verifications?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66843447_9ad76168",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -133,6 +156,69 @@
         "startChar": 0,
         "endLine": 278,
         "endChar": 29
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8d82911_b1df3b2f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T14:16:46Z",
+      "side": 1,
+      "message": "This may happen in the future: https://android-developers.googleblog.com/2019/01/get-your-apps-ready-for-64-bit.html",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 75
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0462438_c0c8cc76",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T14:16:46Z",
+      "side": 1,
+      "message": "Scripts are not technically \"binaries\". Maybe we should rename `check_binary` to `check_executable` (in another CL)?",
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db346923_344ebea4",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-19T14:16:46Z",
+      "side": 1,
+      "message": "I think this will break on an ARM64-only targets, like the one we use for ARM64 ART testing (see https://android.googlesource.com/device/generic/art/+/refs/heads/master/armv8/).",
+      "range": {
+        "startLine": 489,
+        "startChar": 4,
+        "endLine": 489,
+        "endChar": 44
       },
       "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
