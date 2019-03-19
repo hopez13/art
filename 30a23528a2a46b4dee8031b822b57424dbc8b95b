@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "c5b8847d_8c8084db",
+        "filename": "libelffile/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-19T16:45:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eabc72ff_448c563b",
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4a17889_f791af18",
         "filename": "libelffile/elf/xz_utils.cc",
         "patchSetId": 6
@@ -110,6 +128,30 @@
       "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83766aa9_9aaff3b3",
+        "filename": "libelffile/elf/xz_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-19T16:45:23Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "c4a17889_f791af18",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "30a23528a2a46b4dee8031b822b57424dbc8b95b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
