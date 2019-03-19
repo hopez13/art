@@ -311,6 +311,9 @@ std::string PrintableString(const char* utf) {
       if (trailing != 0) {
         // All high surrogates will need escaping.
         StringAppendF(&result, "\\u%04x", trailing);
+        // Account for the surrogate pair.
+        ++i;
+        DCHECK_LT(i, char_count);
       }
     }
   }
