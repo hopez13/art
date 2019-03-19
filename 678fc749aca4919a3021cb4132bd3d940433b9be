@@ -22,6 +22,30 @@
       "revId": "678fc749aca4919a3021cb4132bd3d940433b9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc9a3beb_cfbd4865",
+        "filename": "runtime/read_barrier_option.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-19T10:36:30Z",
+      "side": 1,
+      "message": "1) Not necessarily, but I wouldn\u0027t expect many such objects outside the boot image. App images can theoretically be unloaded, so they do not qualify. When running without boot image, java.lang.Class.class is allocated in a non-moving space and  it can never be unloaded, but I\u0027m not aware of any other objects that would qualify. (Though very long strongly interned strings and huge classes defined by boot class loader could end up in LOS, i.e. non-moveable space, and always reachable, i.e. un-reclaimable.)\n\n2) Full graph traversal shall always reach un-reclaimable objects, without the need to walk thread-local roots (i.e. without relying on threads to re-publish the object). That\u0027s my definition of un-reclaimable. Boot class path classes can be reached through the boot class loader\u0027s ClassTable and strongly interned strings can be reached through the InternTable. There are a few other objects reachable through the boot image\u0027s roots array.\n\n3) No, there isn\u0027t. Which makes me think I should change \"non-moving space\" to \"immune space\" and rely on https://android-review.googlesource.com/250116 , adding that reference to the comments. That would preclude skipping read barrier in b). Note that compiled code does not contain read barriers for boot image classes, strings and objects for Integer.valueOf() intrinsic (reachable through the aforementioned image roots), so it relies on this behavior.\n\nWhat\u0027s the relationship between non-moving spaces and immune spaces? Are all immune spaces also non-moving spaces? Are there any non-moving spaces that are not immune spaces?",
+      "parentUuid": "a88e9673_f43d535d",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 80
+      },
+      "revId": "678fc749aca4919a3021cb4132bd3d940433b9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
