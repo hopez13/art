@@ -22,6 +22,30 @@
       "revId": "6ad4944c4308f6246c2412ac1584e4c8c4b2526d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b577c0d_dab1d6f0",
+        "filename": "libdexfile/dex/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-19T15:06:29Z",
+      "side": 1,
+      "message": "That\u0027s essentially what the line above says (and the code below documents). UTF-8 and Modified-UTF-8 differ only in surrogate pair encoding and null character encoding.",
+      "parentUuid": "a3ec21a2_b446ccbe",
+      "range": {
+        "startLine": 392,
+        "startChar": 36,
+        "endLine": 392,
+        "endChar": 58
+      },
+      "revId": "6ad4944c4308f6246c2412ac1584e4c8c4b2526d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
