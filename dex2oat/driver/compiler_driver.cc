@@ -707,20 +707,32 @@ void CompilerDriver::ResolveConstStrings(const std::vector<const DexFile*>& dex_
         // now this is single-threaded for simplicity.
         // TODO: Collect the relevant string indices in parallel, then allocate them sequentially
         // in a stable order.
-        for (const DexInstructionPcPair& inst : method.GetInstructions()) {
-          switch (inst->Opcode()) {
+        CodeItemInstructionAccessor instructions = method.GetInstructions();
+        if (!instructions.HasCodeItem()) {
+          continue;
+        }
+        SafeDexInstructionIterator it(instructions.begin(), instructions.end());
+        for (; !it.IsErrorState() && it < instructions.end(); ++it) {
+          // In case the instruction goes past the end of the code item, make sure to not process
+          // it.
+          if (std::next(it).IsErrorState()) {
+            break;
+          }
+          switch (it->Opcode()) {
             case Instruction::CONST_STRING:
             case Instruction::CONST_STRING_JUMBO: {
-              dex::StringIndex string_index((inst->Opcode() == Instruction::CONST_STRING)
-                  ? inst->VRegB_21c()
-                  : inst->VRegB_31c());
-              ObjPtr<mirror::String> string = class_linker->ResolveString(string_index, dex_cache);
-              CHECK(string != nullptr) << "Could not allocate a string when forcing determinism";
-              if (only_startup_strings) {
-                dex_cache->GetPreResolvedStrings()[string_index.index_] =
-                    GcRoot<mirror::String>(string);
+              dex::StringIndex string_index((it->Opcode() == Instruction::CONST_STRING)
+                  ? it->VRegB_21c()
+                  : it->VRegB_31c());
+              if (string_index.index_ < dex_cache->GetDexFile()->NumStringIds()) {
+                ObjPtr<mirror::String> string = class_linker->ResolveString(string_index, dex_cache);
+                CHECK(string != nullptr) << "Could not allocate a string when forcing determinism";
+                if (only_startup_strings) {
+                  dex_cache->GetPreResolvedStrings()[string_index.index_] =
+                      GcRoot<mirror::String>(string);
+                }
+                ++num_instructions;
               }
-              ++num_instructions;
               break;
             }
 
