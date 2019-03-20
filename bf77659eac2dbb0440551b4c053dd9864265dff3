@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f800528c_5784ac06",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-03-20T17:48:35Z",
+      "side": 1,
+      "message": "It breaks a sorted order. See, file names are sorted here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "bf77659eac2dbb0440551b4c053dd9864265dff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3472d5c3_c6607c22",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-03-20T17:48:35Z",
+      "side": 1,
+      "message": "It looks like wrong copyright. We cannot review the CL with this copyright.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "bf77659eac2dbb0440551b4c053dd9864265dff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c8b1ba_4a84594e",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-03-20T17:48:35Z",
+      "side": 1,
+      "message": "It looks like wrong copyright. We cannot review the CL with this copyright.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 2
+      },
+      "revId": "bf77659eac2dbb0440551b4c053dd9864265dff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
