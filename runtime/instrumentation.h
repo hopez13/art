@@ -17,10 +17,12 @@
 #ifndef ART_RUNTIME_INSTRUMENTATION_H_
 #define ART_RUNTIME_INSTRUMENTATION_H_
 
+#include <functional>
 #include <stdint.h>
 #include <list>
 #include <memory>
 #include <unordered_set>
+#include <optional>
 
 #include "arch/instruction_set.h"
 #include "base/enums.h"
@@ -60,6 +62,8 @@ enum InterpreterHandlerTable {
 // application's performance.
 static constexpr bool kDeoptimizeForAccurateMethodEntryExitListeners = true;
 
+using OptionalFrame = std::optional<std::reference_wrapper<const ShadowFrame>>;
+
 // Instrumentation event listener API. Registered listeners will get the appropriate call back for
 // the events they are listening for. The call backs supply the thread, method and dex_pc the event
 // occurred upon. The thread may or may not be Thread::Current().
@@ -77,7 +81,8 @@ struct InstrumentationListener {
                             Handle<mirror::Object> this_object,
                             ArtMethod* method,
                             uint32_t dex_pc,
-                            Handle<mirror::Object> return_value)
+                            OptionalFrame frame,
+                            MutableHandle<mirror::Object>& return_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Call-back for when a method is exited. The implementor should either handler-ize the return
@@ -87,7 +92,8 @@ struct InstrumentationListener {
                             Handle<mirror::Object> this_object,
                             ArtMethod* method,
                             uint32_t dex_pc,
-                            const JValue& return_value)
+                            OptionalFrame frame,
+                            JValue& return_value)
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
   // Call-back for when a method is popped due to an exception throw. A method will either cause a
@@ -380,10 +386,10 @@ class Instrumentation {
 
   bool IsActive() const REQUIRES_SHARED(Locks::mutator_lock_) {
     return have_dex_pc_listeners_ || have_method_entry_listeners_ || have_method_exit_listeners_ ||
-        have_field_read_listeners_ || have_field_write_listeners_ ||
-        have_exception_thrown_listeners_ || have_method_unwind_listeners_ ||
-        have_branch_listeners_ || have_watched_frame_pop_listeners_ ||
-        have_exception_handled_listeners_;
+           have_field_read_listeners_ || have_field_write_listeners_ ||
+           have_exception_thrown_listeners_ || have_method_unwind_listeners_ ||
+           have_branch_listeners_ || have_watched_frame_pop_listeners_ ||
+           have_exception_handled_listeners_;
   }
 
   // Inform listeners that a method has been entered. A dex PC is provided as we may install
@@ -397,14 +403,16 @@ class Instrumentation {
   }
 
   // Inform listeners that a method has been exited.
+  template<typename T>
   void MethodExitEvent(Thread* thread,
                        mirror::Object* this_object,
                        ArtMethod* method,
                        uint32_t dex_pc,
-                       const JValue& return_value) const
+                       OptionalFrame frame,
+                       T& return_value) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     if (UNLIKELY(HasMethodExitListeners())) {
-      MethodExitEventImpl(thread, this_object, method, dex_pc, return_value);
+      MethodExitEventImpl(thread, this_object, method, dex_pc, frame, return_value);
     }
   }
 
@@ -554,11 +562,13 @@ class Instrumentation {
                             ArtMethod* method,
                             uint32_t dex_pc) const
       REQUIRES_SHARED(Locks::mutator_lock_);
+  template <typename T>
   void MethodExitEventImpl(Thread* thread,
                            ObjPtr<mirror::Object> this_object,
                            ArtMethod* method,
                            uint32_t dex_pc,
-                           const JValue& return_value) const
+                           OptionalFrame frame,
+                           T& return_value) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   void DexPcMovedEventImpl(Thread* thread,
                            ObjPtr<mirror::Object> this_object,

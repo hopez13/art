@@ -51,24 +51,18 @@ class InstructionHandler {
  public:
   ALWAYS_INLINE WARN_UNUSED bool CheckForceReturn()
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
-      DCHECK(PrevFrameWillRetry(self, shadow_frame))
-          << "Pop frame forced without previous frame ready to retry instruction!";
-      DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
-      if (UNLIKELY(NeedsMethodExitEvent(instrumentation))) {
-        SendMethodExitEvents(self,
-                             instrumentation,
-                             shadow_frame,
-                             shadow_frame.GetThisObject(Accessor().InsSize()),
-                             shadow_frame.GetMethod(),
-                             inst->GetDexPc(Insns()),
-                             JValue());
-      }
-      ctx->result = JValue(); /* Handled in caller. */
+    if (PerformNonStandardReturn(
+            self,
+            shadow_frame,
+            ctx->result,
+            instrumentation,
+            shadow_frame.GetThisObject(Accessor().InsSize()),
+            inst->GetDexPc(Insns()))) {
       exit_interpreter_loop = true;
       return false;
+    } else {
+      return true;
     }
-    return true;
   }
 
   NO_INLINE WARN_UNUSED bool HandlePendingExceptionWithInstrumentationImpl(
@@ -290,39 +284,6 @@ class InstructionHandler {
       if (UNLIKELY(!thr.IsNull())) {
         self->SetException(thr.Get());
       }
-      return true;
-    }
-  }
-
-  static bool NeedsMethodExitEvent(const instrumentation::Instrumentation* ins)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    return ins->HasMethodExitListeners() || ins->HasWatchedFramePopListeners();
-  }
-
-  // Sends the normal method exit event.
-  // Returns true if the events succeeded and false if there is a pending exception.
-  NO_INLINE static bool SendMethodExitEvents(
-      Thread* self,
-      const instrumentation::Instrumentation* instrumentation,
-      const ShadowFrame& frame,
-      ObjPtr<mirror::Object> thiz,
-      ArtMethod* method,
-      uint32_t dex_pc,
-      const JValue& result)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    bool had_event = false;
-    // We don't send method-exit if it's a pop-frame. We still send frame_popped though.
-    if (UNLIKELY(instrumentation->HasMethodExitListeners() && !frame.GetForcePopFrame())) {
-      had_event = true;
-      instrumentation->MethodExitEvent(self, thiz.Ptr(), method, dex_pc, result);
-    }
-    if (UNLIKELY(frame.NeedsNotifyPop() && instrumentation->HasWatchedFramePopListeners())) {
-      had_event = true;
-      instrumentation->WatchedFramePopped(self, frame);
-    }
-    if (UNLIKELY(had_event)) {
-      return !self->IsExceptionPending();
-    } else {
       return true;
     }
   }
@@ -567,6 +528,8 @@ class InstructionHandler {
         HANDLE_PENDING_EXCEPTION();
       }
     }
+    StackHandleScope<1> hs(self);
+    MutableHandle<mirror::Object> h_result(hs.NewHandle(obj_result));
     result.SetL(obj_result);
     if (UNLIKELY(NeedsMethodExitEvent(instrumentation) &&
                  !SendMethodExitEvents(self,
@@ -575,13 +538,13 @@ class InstructionHandler {
                                        shadow_frame.GetThisObject(Accessor().InsSize()),
                                        shadow_frame.GetMethod(),
                                        inst->GetDexPc(Insns()),
-                                       result))) {
+                                       h_result))) {
       if (!HandlePendingExceptionWithInstrumentation(nullptr)) {
         return;
       }
     }
-    // Re-load since it might have moved during the MethodExitEvent.
-    result.SetL(shadow_frame.GetVRegReference(ref_idx));
+    // Re-load since it might have moved or been replaced during the MethodExitEvent.
+    result.SetL(h_result.Get());
     if (ctx->interpret_one_instruction) {
       /* Signal mterp to return to caller */
       shadow_frame.SetDexPC(dex::kDexNoIndex);

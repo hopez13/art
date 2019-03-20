@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_INTERPRETER_INTERPRETER_COMMON_H_
 #define ART_RUNTIME_INTERPRETER_INTERPRETER_COMMON_H_
 
+#include "android-base/macros.h"
+#include "instrumentation.h"
 #include "interpreter.h"
 #include "interpreter_intrinsics.h"
 
@@ -131,6 +133,47 @@ bool UseFastInterpreterToInterpreterInvoke(ArtMethod* method)
 NO_INLINE bool CheckStackOverflow(Thread* self, size_t frame_size)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+
+// Sends the normal method exit event.
+// Returns true if the events succeeded and false if there is a pending exception.
+template <typename T> NO_INLINE bool SendMethodExitEvents(
+    Thread* self,
+    const instrumentation::Instrumentation* instrumentation,
+    ShadowFrame& frame,
+    ObjPtr<mirror::Object> thiz,
+    ArtMethod* method,
+    uint32_t dex_pc,
+    T& result) REQUIRES_SHARED(Locks::mutator_lock_);
+
+static inline ALWAYS_INLINE WARN_UNUSED bool
+NeedsMethodExitEvent(const instrumentation::Instrumentation* ins)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return ins->HasMethodExitListeners() || ins->HasWatchedFramePopListeners();
+}
+
+static inline ALWAYS_INLINE WARN_UNUSED bool PerformNonStandardReturn(
+      Thread* self,
+      ShadowFrame& frame,
+      JValue& result,
+      const instrumentation::Instrumentation* instrumentation,
+      ObjPtr<mirror::Object> thiz,
+      uint32_t dex_pc) REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (UNLIKELY(frame.GetForcePopFrame())) {
+    DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
+    if (UNLIKELY(self->IsExceptionPending())) {
+      LOG(WARNING) << "Suppressing exception for non-standard method exit: "
+                   << self->GetException()->Dump();
+      self->ClearException();
+    }
+    result = JValue();
+    if (UNLIKELY(NeedsMethodExitEvent(instrumentation))) {
+      SendMethodExitEvents(self, instrumentation, frame, thiz, frame.GetMethod(), dex_pc, result);
+    }
+    return true;
+  }
+  return false;
+}
+
 // Handles all invoke-XXX/range instructions except for invoke-polymorphic[/range].
 // Returns true on success, otherwise throws an exception and returns false.
 template<InvokeType type, bool is_range, bool do_access_check, bool is_mterp, bool is_quick = false>
@@ -188,6 +231,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
   } else {
     called_method = FindMethodToCall<type, do_access_check>(
         method_idx, resolved_method, &receiver, sf_method, self);
+    DCHECK(called_method == nullptr || (type == kStatic || !receiver.IsNull()));
   }
   if (UNLIKELY(called_method == nullptr)) {
     CHECK(self->IsExceptionPending());
