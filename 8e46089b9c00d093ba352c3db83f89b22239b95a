@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e0dcc20_6aae6cd3",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "You can keep this unchanged. Omitting dex register mapping in stack maps is already supported.",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ffcccd_d3dab3cc",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "This argument is effectively unused. Remove?",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d2737f7_becd133d",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "This move looks reasonable, but changes behavior and makes it CHECK.\nIs that intentional change? That is, are you sure it is ok?\nThe old code looks like the DCHECK was after the condition on purpose.\nI approve of the change, but I need convincing it is ok...\nAt the very least, it should be kept as DCHECK only.",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea030e71_2c256b8e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9462d82_9a4dd843",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "Out of curiosity - is this ever called from visitors with DexRegInfoKing::kAbsent.\n\nIf not, we can do the check unconditionally and drop expected_stackmap_type_ altogether.\n\nThe addition of the field is about half of this CL... and I am still not sure why we need it.",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c35aff_4ba58f86",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-20T15:00:42Z",
+      "side": 1,
+      "message": "Nit: IMHO, we don\u0027t need enum... you can sometimes convert back and forth between \u0027bool needs_dex_reg_info\u0027 and this enum. Actually, just the bool seems fine to me.  In my opinion, I don\u0027t feel strongly about it.",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
