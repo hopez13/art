@@ -275,9 +275,11 @@ static inline JValue Execute(
                                         method,
                                         0);
       if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
-        // The caller will retry this invoke. Just return immediately without any value.
+        // The caller will retry this invoke or ignore the result. Just return immediately without
+        // any value.
         DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
-        DCHECK(PrevFrameWillRetry(self, shadow_frame));
+        // DCHECK(PrevFrameWillRetry(self, shadow_frame));
+        // instrumentation->NonStandardMethodExit(self, shadow_frame);
         return JValue();
       }
       if (UNLIKELY(self->IsExceptionPending())) {

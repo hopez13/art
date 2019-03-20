@@ -18,6 +18,7 @@
 #define ART_OPENJDKJVMTI_EVENTS_H_
 
 #include <bitset>
+#include <unordered_map>
 #include <vector>
 
 #include <android-base/logging.h>
@@ -25,6 +26,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "jvmti.h"
+#include "managed_stack.h"
 #include "thread.h"
 
 namespace openjdkjvmti {
@@ -74,7 +76,9 @@ enum class ArtJvmtiEvent : jint {
     kVmObjectAlloc = JVMTI_EVENT_VM_OBJECT_ALLOC,
     kClassFileLoadHookRetransformable = JVMTI_MAX_EVENT_TYPE_VAL + 1,
     kDdmPublishChunk = JVMTI_MAX_EVENT_TYPE_VAL + 2,
-    kMaxEventTypeVal = kDdmPublishChunk,
+    // Internal event we use to implement the ForceEarlyReturn functions.
+    kForceEarlyReturnUpdateReturnValue = JVMTI_MAX_EVENT_TYPE_VAL + 3,
+    kMaxEventTypeVal = kForceEarlyReturnUpdateReturnValue,
 };
 
 using ArtJvmtiEventDdmPublishChunk = void (*)(jvmtiEnv *jvmti_env,
@@ -245,6 +249,11 @@ class EventHandler {
   inline void DispatchEventOnEnv(ArtJvmTiEnv* env, art::Thread* thread, Args... args) const
       REQUIRES(!envs_lock_);
 
+  // TODO Rename this.
+  void AddDelayedNonStandardExitEvent(const art::ShadowFrame* frame, bool is_object, jvalue val)
+      REQUIRES_SHARED(art::Locks::mutator_lock_)
+          REQUIRES(art::Locks::user_code_suspension_lock_, art::Locks::thread_list_lock_);
+
  private:
   jvmtiError SetupTraceListener(JvmtiMethodTraceListener* listener,
                                 ArtJvmtiEvent event,
@@ -341,6 +350,8 @@ class EventHandler {
   // continue to listen to this event even if it has been disabled.
   // TODO We could remove the listeners once all jvmtiEnvs have drained their shadow-frame vectors.
   bool frame_pop_enabled;
+
+  friend class JvmtiMethodTraceListener;
 };
 
 }  // namespace openjdkjvmti

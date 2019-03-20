@@ -32,6 +32,7 @@
 #ifndef ART_OPENJDKJVMTI_TI_STACK_H_
 #define ART_OPENJDKJVMTI_TI_STACK_H_
 
+#include "events.h"
 #include "jni.h"
 #include "jvmti.h"
 
@@ -41,8 +42,15 @@
 
 namespace openjdkjvmti {
 
+namespace impl {
+class SetupMethodExitEvents;
+}  // namespace impl
+
 class StackUtil {
  public:
+  static void Setup();
+  static void Shutdown();
+
   static jvmtiError GetAllStackTraces(jvmtiEnv* env,
                                       jint max_frame_count,
                                       jvmtiStackInfo** stack_info_ptr,
@@ -83,6 +91,17 @@ class StackUtil {
   static jvmtiError NotifyFramePop(jvmtiEnv* env, jthread thread, jint depth);
 
   static jvmtiError PopFrame(jvmtiEnv* env, jthread thread);
+
+  template <typename T>
+  static jvmtiError ForceEarlyReturn(
+      jvmtiEnv* env, EventHandler* event_handler, jthread thread, T value);
+
+ private:
+  static art::Mutex* force_early_return_lock_
+      ACQUIRED_BEFORE(art::Locks::instrument_entrypoints_lock_);
+  static art::ConditionVariable* force_early_return_cond_var_;
+
+  friend class impl::SetupMethodExitEvents;
 };
 
 struct FindFrameAtDepthVisitor : art::StackVisitor {
