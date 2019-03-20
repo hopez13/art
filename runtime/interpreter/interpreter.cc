@@ -270,22 +270,44 @@ static inline JValue Execute(
     ArtMethod *method = shadow_frame.GetMethod();
 
     if (UNLIKELY(instrumentation->HasMethodEntryListeners())) {
+      // TODO BUllshit
       instrumentation->MethodEnterEvent(self,
                                         shadow_frame.GetThisObject(accessor.InsSize()),
                                         method,
                                         0);
       if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
-        // The caller will retry this invoke. Just return immediately without any value.
+        // The caller will retry this invoke or ignore the result. Just return immediately without
+        // any value.
         DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
-        DCHECK(PrevFrameWillRetry(self, shadow_frame));
-        return JValue();
+        JValue ret = JValue();
+        bool res = PerformNonStandardReturn(self,
+                                            shadow_frame,
+                                            ret,
+                                            instrumentation,
+                                            shadow_frame.GetThisObject(accessor.InsSize()),
+                                            0);
+        DCHECK(res) << "Expected to perform non-standard return!";
+        return ret;
       }
       if (UNLIKELY(self->IsExceptionPending())) {
         instrumentation->MethodUnwindEvent(self,
                                            shadow_frame.GetThisObject(accessor.InsSize()),
                                            method,
                                            0);
-        return JValue();
+        if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
+          // The caller will retry this invoke or ignore the result. Just return immediately without
+          // any value.
+          DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
+          JValue ret = JValue();
+          bool res = PerformNonStandardReturn(self,
+                                              shadow_frame,
+                                              ret,
+                                              instrumentation,
+                                              shadow_frame.GetThisObject(accessor.InsSize()),
+                                              0);
+          DCHECK(res) << "Expected to perform non-standard return!";
+          return ret;
+        }
       }
     }
 

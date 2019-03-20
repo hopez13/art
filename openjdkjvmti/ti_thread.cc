@@ -224,11 +224,23 @@ jvmtiError ThreadUtil::GetCurrentThread(jvmtiEnv* env ATTRIBUTE_UNUSED, jthread*
   return ERR(NONE);
 }
 
+ScopedSuppressException::ScopedSuppressException(art::Thread* self) : self_(self), hs_(self_), excp_(hs_.NewHandle<art::mirror::Throwable>(self_->GetException())) {
+  self_->ClearException();
+}
+
+ScopedSuppressException::~ScopedSuppressException() {
+  CHECK(!self_->IsExceptionPending()) << self_;
+  if (!excp_.IsNull()) {
+    self_->SetException(excp_.Get());
+  }
+}
+
 // Get the native thread. The spec says a null object denotes the current thread.
 bool ThreadUtil::GetNativeThread(jthread thread,
                                  const art::ScopedObjectAccessAlreadyRunnable& soa,
                                  /*out*/ art::Thread** thr,
                                  /*out*/ jvmtiError* err) {
+  ScopedSuppressException sse(soa.Self());
   if (thread == nullptr) {
     *thr = art::Thread::Current();
     return true;
