@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "90b61610_80ccb8f8",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-20T21:08:54Z",
+      "side": 1,
+      "message": "There\u0027s a hikey arm64-only build in AOSP.",
+      "parentUuid": "405aa924_4c9d8cbf",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 75
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7cda035_e1444a97",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
