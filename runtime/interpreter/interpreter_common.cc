@@ -416,7 +416,6 @@ bool DoIPutQuick(const ShadowFrame& shadow_frame, const Instruction* inst, uint1
     if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
       // Don't actually set the field. The next instruction will force us to pop.
       DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
-      DCHECK(PrevFrameWillRetry(self, shadow_frame));
       return true;
     }
   }

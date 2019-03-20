@@ -16,6 +16,7 @@
 
 #include "instrumentation.h"
 
+#include "android-base/macros.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "class_linker-inl.h"
@@ -50,6 +51,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
       received_exception_thrown_event(false),
       received_exception_handled_event(false),
       received_branch_event(false),
+      received_non_standard_exit_event(false),
       received_watched_frame_pop(false) {}
 
   virtual ~TestInstrumentationListener() {}
@@ -66,7 +68,8 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
                     Handle<mirror::Object> this_object ATTRIBUTE_UNUSED,
                     ArtMethod* method ATTRIBUTE_UNUSED,
                     uint32_t dex_pc ATTRIBUTE_UNUSED,
-                    Handle<mirror::Object> return_value ATTRIBUTE_UNUSED)
+                    instrumentation::OptionalFrame frame ATTRIBUTE_UNUSED,
+                    MutableHandle<mirror::Object>& return_value ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(Locks::mutator_lock_) {
     received_method_exit_object_event = true;
   }
@@ -75,7 +78,8 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
                     Handle<mirror::Object> this_object ATTRIBUTE_UNUSED,
                     ArtMethod* method ATTRIBUTE_UNUSED,
                     uint32_t dex_pc ATTRIBUTE_UNUSED,
-                    const JValue& return_value ATTRIBUTE_UNUSED)
+                    instrumentation::OptionalFrame frame ATTRIBUTE_UNUSED,
+                    JValue& return_value ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(Locks::mutator_lock_) {
     received_method_exit_event = true;
   }
@@ -162,6 +166,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
     received_exception_thrown_event = false;
     received_exception_handled_event = false;
     received_branch_event = false;
+    received_non_standard_exit_event = false;
     received_watched_frame_pop = false;
   }
 
@@ -176,6 +181,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
   bool received_exception_thrown_event;
   bool received_exception_handled_event;
   bool received_branch_event;
+  bool received_non_standard_exit_event;
   bool received_watched_frame_pop;
 
  private:
@@ -520,7 +526,7 @@ TEST_F(InstrumentationTest, MethodExitObjectEvent) {
   Runtime* const runtime = Runtime::Current();
   ClassLinker* class_linker = runtime->GetClassLinker();
   StackHandleScope<1> hs(soa.Self());
-  Handle<mirror::ClassLoader> loader(hs.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader)));
+  MutableHandle<mirror::ClassLoader> loader(hs.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader)));
   ObjPtr<mirror::Class> klass = class_linker->FindClass(soa.Self(), "LInstrumentation;", loader);
   ASSERT_TRUE(klass != nullptr);
   ArtMethod* method =

@@ -29,9 +29,13 @@
  * questions.
  */
 
+#include "android-base/thread_annotations.h"
+#include "base/locks.h"
+#include "base/mutex.h"
 #include "events-inl.h"
 
 #include <array>
+#include <functional>
 #include <sys/time.h>
 
 #include "arch/context.h"
@@ -40,14 +44,18 @@
 #include "art_method-inl.h"
 #include "deopt_manager.h"
 #include "dex/dex_file_types.h"
+#include "events.h"
 #include "gc/allocation_listener.h"
 #include "gc/gc_pause_listener.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "handle_scope-inl.h"
 #include "instrumentation.h"
+#include "interpreter/shadow_frame.h"
 #include "jni/jni_env_ext-inl.h"
 #include "jni/jni_internal.h"
+#include "jvalue-inl.h"
+#include "jvalue.h"
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
 #include "monitor-inl.h"
@@ -55,6 +63,7 @@
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
+#include "thread.h"
 #include "thread-inl.h"
 #include "thread_list.h"
 #include "ti_phase.h"
@@ -569,7 +578,33 @@ static void SetupGcPauseTracking(JvmtiGcPauseListener* listener, ArtJvmtiEvent e
 
 class JvmtiMethodTraceListener final : public art::instrumentation::InstrumentationListener {
  public:
-  explicit JvmtiMethodTraceListener(EventHandler* handler) : event_handler_(handler) {}
+  explicit JvmtiMethodTraceListener(EventHandler* handler)
+      : event_handler_(handler), non_standard_exits_lock_("JVMTI NonStandard Exits list lock",
+                                                          art::LockLevel::kGenericBottomLock) {}
+
+  void AddDelayedNonStandardExitEvent(const art::ShadowFrame* frame, bool is_object, jvalue val)
+      REQUIRES_SHARED(art::Locks::mutator_lock_)
+          REQUIRES(art::Locks::user_code_suspension_lock_, art::Locks::thread_list_lock_) {
+    art::Thread* self = art::Thread::Current();
+    jobject to_cleanup = nullptr;
+    jobject new_val = is_object ? self->GetJniEnv()->NewGlobalRef(val.l) : nullptr;
+    {
+      art::MutexLock mu(self, non_standard_exits_lock_);
+      NonStandardExitEventInfo saved{ nullptr, { .j = 0 } };
+      if (is_object) {
+        saved.return_val_obj_ = new_val;
+        saved.return_val_.l = saved.return_val_obj_;
+      } else {
+        saved.return_val_.j = val.j;
+      }
+      // only objects need cleanup.
+      if (UNLIKELY(is_object && non_standard_exits_.find(frame) != non_standard_exits_.end())) {
+        to_cleanup = non_standard_exits_.find(frame)->second.return_val_obj_;
+      }
+      non_standard_exits_.insert_or_assign(frame, saved);
+    }
+    self->GetJniEnv()->DeleteGlobalRef(to_cleanup);
+  }
 
   // Call-back for when a method is entered.
   void MethodEntered(art::Thread* self,
@@ -592,10 +627,18 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
                     art::Handle<art::mirror::Object> this_object ATTRIBUTE_UNUSED,
                     art::ArtMethod* method,
                     uint32_t dex_pc ATTRIBUTE_UNUSED,
-                    art::Handle<art::mirror::Object> return_value)
+                    art::instrumentation::OptionalFrame frame,
+                    art::MutableHandle<art::mirror::Object>& return_value)
       REQUIRES_SHARED(art::Locks::mutator_lock_) override {
-    if (!method->IsRuntimeMethod() &&
-        event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMethodExit)) {
+    if (method->IsRuntimeMethod()) {
+      return;
+    }
+    if (frame.has_value()) {
+      DCHECK(!frame->get().GetSkipMethodExitEvents());
+      LOG(WARNING) << "Not updating objects yet!";
+      // TODO do stuff.
+    }
+    if (event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMethodExit)) {
       DCHECK_EQ(
           method->GetInterfaceMethodIfProxy(art::kRuntimePointerSize)->GetReturnTypePrimitive(),
           art::Primitive::kPrimNot) << method->PrettyMethod();
@@ -619,10 +662,26 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
                     art::Handle<art::mirror::Object> this_object ATTRIBUTE_UNUSED,
                     art::ArtMethod* method,
                     uint32_t dex_pc ATTRIBUTE_UNUSED,
-                    const art::JValue& return_value)
+                    art::instrumentation::OptionalFrame frame,
+                    art::JValue& return_value)
       REQUIRES_SHARED(art::Locks::mutator_lock_) override {
-    if (!method->IsRuntimeMethod() &&
-        event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMethodExit)) {
+    if (method->IsRuntimeMethod()) {
+      return;
+    }
+    if (frame.has_value()) {
+      DCHECK(!frame->get().GetSkipMethodExitEvents());
+      {
+        art::MutexLock mu(self, non_standard_exits_lock_);
+        const art::ShadowFrame* sframe = &frame.value().get();
+        const auto it = non_standard_exits_.find(sframe);
+        if (it != non_standard_exits_.end()) {
+          return_value.SetJ(it->second.return_val_.j);
+          non_standard_exits_.erase(it);
+        }
+      }
+      // TODO Remove the kForceEarlyReturn event.
+    }
+    if (event_handler_->IsEventEnabledAnywhere(ArtJvmtiEvent::kMethodExit)) {
       DCHECK_NE(
           method->GetInterfaceMethodIfProxy(art::kRuntimePointerSize)->GetReturnTypePrimitive(),
           art::Primitive::kPrimNot) << method->PrettyMethod();
@@ -672,6 +731,47 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
       }
     }
   }
+
+#if 0
+  void NonStandardMethodExit(art::Thread* self, const art::ShadowFrame& frame)
+      REQUIRES_SHARED(art::Locks::mutator_lock_) override {
+    // We need to send any MethodExit events caused by a ForceReturn<...> call.
+    // event_handler_->SendDelayedNonStandardExitEvents(thread, frame);
+    jobject ref = nullptr;
+    jvalue val{};
+    {
+      art::MutexLock mu(self, non_standard_exits_lock_);
+      auto it = non_standard_exits_.find(&frame);
+      if (it == non_standard_exits_.end()) {
+        // Nothing to do.
+        return;
+      }
+      if (it->second.return_val_obj_ != nullptr) {
+        ref = it->second.return_val_obj_;
+      } else {
+        val = it->second.return_val_;
+      }
+      non_standard_exits_.erase(it);
+    }
+    art::ScopedNullHandle<art::mirror::Object> null_thiz;
+    if (ref == nullptr) {
+      MethodExited(self,
+                   /*this - UNUSED*/ null_thiz,
+                   frame.GetMethod(),
+                   /*dex_pc - UNUSED*/ art::DexFile::kDexNoIndex32,
+                   art::JValue::FromPrimitive(val.j));
+    } else {
+      art::StackHandleScope<1> hs(self);
+      art::Handle<art::mirror::Object> obj(hs.NewHandle(self->DecodeJObject(ref)));
+      self->GetJniEnv()->DeleteGlobalRef(ref);
+      MethodExited(self,
+                   /*this - UNUSED*/ null_thiz,
+                   frame.GetMethod(),
+                   /*dex_pc - UNUSED*/ art::DexFile::kDexNoIndex32,
+                   obj);
+    }
+  }
+#endif
 
   // Call-back for when the dex pc moves in a method.
   void DexPcMoved(art::Thread* self,
@@ -942,13 +1042,29 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
   }
 
  private:
+  struct NonStandardExitEventInfo {
+    // if non-null is a GlobalReference to the returned value.
+    jobject return_val_obj_;
+    // The return-value to be passed to the MethodExit event.
+    jvalue return_val_;
+  };
+
   EventHandler* const event_handler_;
+
+  mutable art::Mutex non_standard_exits_lock_
+      ACQUIRED_BEFORE(art::Locks::instrument_entrypoints_lock_);
+
+  std::unordered_map<const art::ShadowFrame*, NonStandardExitEventInfo> non_standard_exits_
+      GUARDED_BY(non_standard_exits_lock_);
 };
 
 static uint32_t GetInstrumentationEventsFor(ArtJvmtiEvent event) {
   switch (event) {
     case ArtJvmtiEvent::kMethodEntry:
       return art::instrumentation::Instrumentation::kMethodEntered;
+    case ArtJvmtiEvent::kForceEarlyReturnUpdateReturnValue:
+      // TODO We want to do this but supporting only having a single one is difficult.
+      // return art::instrumentation::Instrumentation::kMethodExited;
     case ArtJvmtiEvent::kMethodExit:
       return art::instrumentation::Instrumentation::kMethodExited |
              art::instrumentation::Instrumentation::kMethodUnwind;
@@ -995,6 +1111,7 @@ static DeoptRequirement GetDeoptRequirement(ArtJvmtiEvent event, jthread thread)
     case ArtJvmtiEvent::kFieldAccess:
     case ArtJvmtiEvent::kSingleStep:
     case ArtJvmtiEvent::kFramePop:
+    case ArtJvmtiEvent::kForceEarlyReturnUpdateReturnValue:
       return thread == nullptr ? DeoptRequirement::kFull : DeoptRequirement::kThread;
     default:
       LOG(FATAL) << "Unexpected event type!";
@@ -1055,6 +1172,20 @@ jvmtiError EventHandler::SetupTraceListener(JvmtiMethodTraceListener* listener,
     DCHECK(event == ArtJvmtiEvent::kBreakpoint || event == ArtJvmtiEvent::kSingleStep);
     ArtJvmtiEvent other = event == ArtJvmtiEvent::kBreakpoint ? ArtJvmtiEvent::kSingleStep
                                                               : ArtJvmtiEvent::kBreakpoint;
+    if (IsEventEnabledAnywhere(other)) {
+      // The event needs to be kept around/is already enabled by the other jvmti event that uses the
+      // same instrumentation event.
+      return OK;
+    }
+  }
+  // TODO Combine.
+  if ((new_events & art::instrumentation::Instrumentation::kMethodExited) != 0) {
+    DCHECK(event == ArtJvmtiEvent::kMethodExit ||
+           event == ArtJvmtiEvent::kForceEarlyReturnUpdateReturnValue)
+        << "event = " << static_cast<uint32_t>(event);
+    ArtJvmtiEvent other = event == ArtJvmtiEvent::kMethodExit
+                              ? ArtJvmtiEvent::kForceEarlyReturnUpdateReturnValue
+                              : ArtJvmtiEvent::kMethodExit;
     if (IsEventEnabledAnywhere(other)) {
       // The event needs to be kept around/is already enabled by the other jvmti event that uses the
       // same instrumentation event.
@@ -1178,6 +1309,7 @@ jvmtiError EventHandler::HandleEventType(ArtJvmtiEvent event, jthread thread, bo
     case ArtJvmtiEvent::kExceptionCatch:
     case ArtJvmtiEvent::kBreakpoint:
     case ArtJvmtiEvent::kSingleStep:
+    case ArtJvmtiEvent::kForceEarlyReturnUpdateReturnValue:
       return SetupTraceListener(method_trace_listener_.get(), event, thread, enable);
     case ArtJvmtiEvent::kMonitorContendedEnter:
     case ArtJvmtiEvent::kMonitorContendedEntered:
@@ -1326,6 +1458,10 @@ void EventHandler::HandleBreakpointEventsChanged(bool added) {
   } else {
     DeoptManager::Get()->RemoveDeoptimizationRequester();
   }
+}
+
+void EventHandler::AddDelayedNonStandardExitEvent(const art::ShadowFrame *frame, bool is_object, jvalue val) {
+  method_trace_listener_->AddDelayedNonStandardExitEvent(frame, is_object, val);
 }
 
 void EventHandler::Shutdown() {
