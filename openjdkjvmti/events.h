@@ -18,6 +18,7 @@
 #define ART_OPENJDKJVMTI_EVENTS_H_
 
 #include <bitset>
+#include <unordered_map>
 #include <vector>
 
 #include <android-base/logging.h>
@@ -25,6 +26,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "jvmti.h"
+#include "managed_stack.h"
 #include "thread.h"
 
 namespace openjdkjvmti {
@@ -245,6 +247,10 @@ class EventHandler {
   inline void DispatchEventOnEnv(ArtJvmTiEnv* env, art::Thread* thread, Args... args) const
       REQUIRES(!envs_lock_);
 
+  void AddDelayedNonStandardExitEvent(const art::ShadowFrame* frame, bool is_object, jvalue val)
+      REQUIRES_SHARED(art::Locks::mutator_lock_)
+          REQUIRES(art::Locks::user_code_suspension_lock_, art::Locks::thread_list_lock_);
+
  private:
   jvmtiError SetupTraceListener(JvmtiMethodTraceListener* listener,
                                 ArtJvmtiEvent event,
@@ -341,6 +347,8 @@ class EventHandler {
   // continue to listen to this event even if it has been disabled.
   // TODO We could remove the listeners once all jvmtiEnvs have drained their shadow-frame vectors.
   bool frame_pop_enabled;
+
+  friend class JvmtiMethodTraceListener;
 };
 
 }  // namespace openjdkjvmti

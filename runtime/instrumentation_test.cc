@@ -16,6 +16,7 @@
 
 #include "instrumentation.h"
 
+#include "android-base/macros.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "class_linker-inl.h"
@@ -50,6 +51,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
       received_exception_thrown_event(false),
       received_exception_handled_event(false),
       received_branch_event(false),
+      received_non_standard_exit_event(false),
       received_watched_frame_pop(false) {}
 
   virtual ~TestInstrumentationListener() {}
@@ -78,6 +80,12 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
                     const JValue& return_value ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(Locks::mutator_lock_) {
     received_method_exit_event = true;
+  }
+
+  void NonStandardMethodExit(Thread* thread ATTRIBUTE_UNUSED,
+                             const ShadowFrame& frame ATTRIBUTE_UNUSED)
+      override REQUIRES_SHARED(Locks::mutator_lock_) {
+    received_non_standard_exit_event = true;
   }
 
   void MethodUnwind(Thread* thread ATTRIBUTE_UNUSED,
@@ -162,6 +170,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
     received_exception_thrown_event = false;
     received_exception_handled_event = false;
     received_branch_event = false;
+    received_non_standard_exit_event = false;
     received_watched_frame_pop = false;
   }
 
@@ -176,6 +185,7 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
   bool received_exception_thrown_event;
   bool received_exception_handled_event;
   bool received_branch_event;
+  bool received_non_standard_exit_event;
   bool received_watched_frame_pop;
 
  private:
@@ -370,6 +380,8 @@ class InstrumentationTest : public CommonRuntimeTest {
         return instr->HasExceptionHandledListeners();
       case instrumentation::Instrumentation::kBranch:
         return instr->HasBranchListeners();
+      case instrumentation::Instrumentation::kNonStandardMethodExit:
+        return instr->HasNonStandardExitListeners();
       case instrumentation::Instrumentation::kWatchedFramePop:
         return instr->HasWatchedFramePopListeners();
       default:
@@ -420,6 +432,9 @@ class InstrumentationTest : public CommonRuntimeTest {
       case instrumentation::Instrumentation::kBranch:
         instr->Branch(self, method, dex_pc, -1);
         break;
+      case instrumentation::Instrumentation::kNonStandardMethodExit:
+        instr->NonStandardMethodExit(self, frame);
+        break;
       case instrumentation::Instrumentation::kWatchedFramePop:
         instr->WatchedFramePopped(self, frame);
         break;
@@ -460,6 +475,8 @@ class InstrumentationTest : public CommonRuntimeTest {
         return listener.received_exception_handled_event;
       case instrumentation::Instrumentation::kBranch:
         return listener.received_branch_event;
+      case instrumentation::Instrumentation::kNonStandardMethodExit:
+        return listener.received_non_standard_exit_event;
       case instrumentation::Instrumentation::kWatchedFramePop:
         return listener.received_watched_frame_pop;
       default:
@@ -563,6 +580,10 @@ TEST_F(InstrumentationTest, DexPcMovedEvent) {
 
 TEST_F(InstrumentationTest, FieldReadEvent) {
   TestEvent(instrumentation::Instrumentation::kFieldRead);
+}
+
+TEST_F(InstrumentationTest, NonStandardMethodExit) {
+  TestEvent(instrumentation::Instrumentation::kNonStandardMethodExit);
 }
 
 TEST_F(InstrumentationTest, WatchedFramePop) {

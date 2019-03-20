@@ -223,6 +223,8 @@ class Trace final : public instrumentation::InstrumentationListener {
               uint32_t dex_pc,
               int32_t dex_pc_offset)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!unique_methods_lock_) override;
+  void NonStandardMethodExit(Thread* thread, const ShadowFrame& frame)
+      REQUIRES_SHARED(Locks::mutator_lock_) override;
   void WatchedFramePop(Thread* thread, const ShadowFrame& frame)
       REQUIRES_SHARED(Locks::mutator_lock_) override;
   // Reuse an old stack trace if it exists, otherwise allocate a new one.

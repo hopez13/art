@@ -52,8 +52,8 @@ class InstructionHandler {
   ALWAYS_INLINE WARN_UNUSED bool CheckForceReturn()
       REQUIRES_SHARED(Locks::mutator_lock_) {
     if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
-      DCHECK(PrevFrameWillRetry(self, shadow_frame))
-          << "Pop frame forced without previous frame ready to retry instruction!";
+      // DCHECK(PrevFrameWillRetry(self, shadow_frame))
+      //     << "Pop frame forced without previous frame ready to retry instruction!";
       DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
       if (UNLIKELY(NeedsMethodExitEvent(instrumentation))) {
         SendMethodExitEvents(self,
@@ -296,7 +296,8 @@ class InstructionHandler {
 
   static bool NeedsMethodExitEvent(const instrumentation::Instrumentation* ins)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    return ins->HasMethodExitListeners() || ins->HasWatchedFramePopListeners();
+    return ins->HasMethodExitListeners() || ins->HasWatchedFramePopListeners() ||
+           ins->HasNonStandardExitListeners();
   }
 
   // Sends the normal method exit event.
@@ -315,6 +316,10 @@ class InstructionHandler {
     if (UNLIKELY(instrumentation->HasMethodExitListeners() && !frame.GetForcePopFrame())) {
       had_event = true;
       instrumentation->MethodExitEvent(self, thiz.Ptr(), method, dex_pc, result);
+    }
+    if (UNLIKELY(instrumentation->HasNonStandardExitListeners() && frame.GetForcePopFrame())) {
+      had_event = true;
+      instrumentation->NonStandardMethodExit(self, frame);
     }
     if (UNLIKELY(frame.NeedsNotifyPop() && instrumentation->HasWatchedFramePopListeners())) {
       had_event = true;
@@ -411,17 +416,24 @@ class InstructionHandler {
   }
 
   ALWAYS_INLINE void MOVE_RESULT() REQUIRES_SHARED(Locks::mutator_lock_) {
-    shadow_frame.SetVReg(inst->VRegA_11x(inst_data), ResultRegister()->GetI());
+    if (LIKELY(!shadow_frame.GetForceSkipMoveResult())) {
+      shadow_frame.SetVReg(inst->VRegA_11x(inst_data), ResultRegister()->GetI());
+    }
     inst = inst->Next_1xx();
   }
 
   ALWAYS_INLINE void MOVE_RESULT_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
-    shadow_frame.SetVRegLong(inst->VRegA_11x(inst_data), ResultRegister()->GetJ());
+    if (LIKELY(!shadow_frame.GetForceSkipMoveResult())) {
+      shadow_frame.SetVRegLong(inst->VRegA_11x(inst_data), ResultRegister()->GetJ());
+    }
     inst = inst->Next_1xx();
   }
 
   ALWAYS_INLINE void MOVE_RESULT_OBJECT() REQUIRES_SHARED(Locks::mutator_lock_) {
-    shadow_frame.SetVRegReference(inst->VRegA_11x(inst_data), ResultRegister()->GetL());
+    if (LIKELY(!shadow_frame.GetForceSkipMoveResult())) {
+      shadow_frame.SetVRegReference(inst->VRegA_11x(inst_data), ResultRegister()->GetL());
+      // TODO Check that the reference is reasonable.
+    }
     inst = inst->Next_1xx();
   }
 

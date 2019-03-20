@@ -414,7 +414,7 @@ bool DoIPutQuick(const ShadowFrame& shadow_frame, const Instruction* inst, uint1
     if (UNLIKELY(shadow_frame.GetForcePopFrame())) {
       // Don't actually set the field. The next instruction will force us to pop.
       DCHECK(Runtime::Current()->AreNonStandardExitsEnabled());
-      DCHECK(PrevFrameWillRetry(self, shadow_frame));
+      instrumentation->NonStandardMethodExit(self, shadow_frame);
       return true;
     }
   }
@@ -489,6 +489,7 @@ bool MoveToExceptionHandler(Thread* self,
     if (shadow_frame.GetForcePopFrame()) {
       // We will check in the caller for GetForcePopFrame again. We need to bail out early to
       // prevent an ExceptionHandledEvent from also being sent before popping.
+      instrumentation->NonStandardMethodExit(self, shadow_frame);
       return true;
     }
   }
