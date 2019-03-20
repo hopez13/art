@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include "android-base/macros.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "instrumentation.h"
 #include "runtime.h"
@@ -111,6 +112,9 @@ class Tracer final : public art::instrumentation::InstrumentationListener {
               int32_t dex_pc_offset ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(art::Locks::mutator_lock_) { }
 
+  void NonStandardMethodExit(art::Thread* thread ATTRIBUTE_UNUSED,
+                             const art::ShadowFrame& frame ATTRIBUTE_UNUSED)
+      override REQUIRES_SHARED(art::Locks::mutator_lock_) { }
   void WatchedFramePop(art::Thread* thread ATTRIBUTE_UNUSED,
                        const art::ShadowFrame& frame ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(art::Locks::mutator_lock_) { }

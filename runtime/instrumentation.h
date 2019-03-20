@@ -90,6 +90,10 @@ struct InstrumentationListener {
                             const JValue& return_value)
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
+  // Call-back for when a method is exited in a non-standard manner.
+  virtual void NonStandardMethodExit(Thread* thread, const ShadowFrame& frame)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+
   // Call-back for when a method is popped due to an exception throw. A method will either cause a
   // MethodExited call-back or a MethodUnwind call-back when its activation is removed.
   virtual void MethodUnwind(Thread* thread,
@@ -187,6 +191,7 @@ class Instrumentation {
     kFieldWritten = 0x20,
     kExceptionThrown = 0x40,
     kBranch = 0x80,
+    kNonStandardMethodExit = 0x100,
     kWatchedFramePop = 0x200,
     kExceptionHandled = 0x400,
   };
@@ -370,6 +375,10 @@ class Instrumentation {
     return have_branch_listeners_;
   }
 
+  bool HasNonStandardExitListeners() const REQUIRES_SHARED(Locks::mutator_lock_) {
+    return have_non_standard_exit_listeners_;
+  }
+
   bool HasWatchedFramePopListeners() const REQUIRES_SHARED(Locks::mutator_lock_) {
     return have_watched_frame_pop_listeners_;
   }
@@ -383,7 +392,7 @@ class Instrumentation {
         have_field_read_listeners_ || have_field_write_listeners_ ||
         have_exception_thrown_listeners_ || have_method_unwind_listeners_ ||
         have_branch_listeners_ || have_watched_frame_pop_listeners_ ||
-        have_exception_handled_listeners_;
+        have_non_standard_exit_listeners_ || have_exception_handled_listeners_;
   }
 
   // Inform listeners that a method has been entered. A dex PC is provided as we may install
@@ -447,6 +456,15 @@ class Instrumentation {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     if (UNLIKELY(HasFieldWriteListeners())) {
       FieldWriteEventImpl(thread, this_object, method, dex_pc, field, field_value);
+    }
+  }
+
+  // Inform listeners that a method has been exited in a non-standard manner (only supported by the
+  // interpreter).
+  void NonStandardMethodExit(Thread* thread,
+                             const ShadowFrame& frame) const REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (UNLIKELY(HasNonStandardExitListeners())) {
+      NonStandardMethodExitImpl(thread, frame);
     }
   }
 
@@ -567,6 +585,8 @@ class Instrumentation {
       REQUIRES_SHARED(Locks::mutator_lock_);
   void BranchImpl(Thread* thread, ArtMethod* method, uint32_t dex_pc, int32_t offset) const
       REQUIRES_SHARED(Locks::mutator_lock_);
+  void NonStandardMethodExitImpl(Thread* thread, const ShadowFrame& frame) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
   void WatchedFramePopImpl(Thread* thread, const ShadowFrame& frame) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   void FieldReadEventImpl(Thread* thread,
@@ -643,6 +663,10 @@ class Instrumentation {
   // Do we have any exception thrown listeners? Short-cut to avoid taking the instrumentation_lock_.
   bool have_exception_thrown_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
+  // Do we have any non-standard exit listeners? Short-cut to avoid taking the
+  // instrumentation_lock_.
+  bool have_non_standard_exit_listeners_ GUARDED_BY(Locks::mutator_lock_);
+
   // Do we have any frame pop listeners? Short-cut to avoid taking the instrumentation_lock_.
   bool have_watched_frame_pop_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
@@ -676,6 +700,7 @@ class Instrumentation {
   std::list<InstrumentationListener*> field_read_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> field_write_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> exception_thrown_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> non_standard_exit_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> watched_frame_pop_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> exception_handled_listeners_ GUARDED_BY(Locks::mutator_lock_);
 

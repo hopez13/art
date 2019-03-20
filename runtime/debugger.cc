@@ -23,12 +23,14 @@
 #include <set>
 #include <vector>
 
+#include "android-base/macros.h"
 #include "android-base/stringprintf.h"
 
 #include "arch/context.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
+#include "base/memory_tool.h"
 #include "base/safe_map.h"
 #include "base/strlcpy.h"
 #include "base/time_utils.h"
@@ -270,6 +272,11 @@ class DebugInstrumentationListener final : public instrumentation::Instrumentati
   void WatchedFramePop(Thread* thread ATTRIBUTE_UNUSED,
                        const ShadowFrame& frame ATTRIBUTE_UNUSED) override {
     LOG(ERROR) << "Unexpected WatchedFramePop event in debugger";
+  }
+
+  void NonStandardMethodExit(Thread* thread ATTRIBUTE_UNUSED,
+                             const ShadowFrame& frame ATTRIBUTE_UNUSED) override {
+    LOG(ERROR) << "Unexpected NonStandardMethodExit event in debugger";
   }
 
  private:

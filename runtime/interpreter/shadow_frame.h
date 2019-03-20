@@ -23,6 +23,7 @@
 
 #include "base/locks.h"
 #include "base/macros.h"
+#include "jvalue.h"
 #include "lock_count_data.h"
 #include "read_barrier.h"
 #include "stack_reference.h"
@@ -38,7 +39,6 @@ class ArtMethod;
 class ShadowFrame;
 template<class MirrorType> class ObjPtr;
 class Thread;
-union JValue;
 
 // Forward declaration. Just calls the destructor.
 struct ShadowFrameDeleter;
@@ -57,6 +57,10 @@ class ShadowFrame {
     kForcePopFrame  = 1 << 1,
     // We have been asked to re-execute the last instruction.
     kForceRetryInst = 1 << 2,
+    // We have been asked to skip the next (move-result-*) instruction.
+    kForceSkipMoveResultInstruction = 1 << 3,
+    // We have been asked to skip the next (move-result-*) instruction.
+    kSkipMethodExitEvent = 1 << 4,
   };
 
  public:
@@ -356,6 +360,22 @@ class ShadowFrame {
 
   void SetNotifyPop(bool notify) {
     UpdateFrameFlag(notify, FrameFlags::kNotifyFramePop);
+  }
+
+  // bool GetSkipMethodExitEvent() const {
+  //   return GetFrameFlag(FrameFlags::kSkipMethodExitEvent);
+  // }
+  //
+  // void SetSkipMethodExitEvent(bool enable) {
+  //   UpdateFrameFlag(enable, FrameFlags::kSkipMethodExitEvent);
+  // }
+
+  bool GetForceSkipMoveResult() const {
+    return GetFrameFlag(FrameFlags::kForceSkipMoveResultInstruction);
+  }
+
+  void SetForceSkipMoveResult(bool enable) {
+    UpdateFrameFlag(enable, FrameFlags::kForceSkipMoveResultInstruction);
   }
 
   bool GetForcePopFrame() const {

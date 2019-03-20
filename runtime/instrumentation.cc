@@ -161,6 +161,7 @@ Instrumentation::Instrumentation()
       have_field_read_listeners_(false),
       have_field_write_listeners_(false),
       have_exception_thrown_listeners_(false),
+      have_non_standard_exit_listeners_(false),
       have_watched_frame_pop_listeners_(false),
       have_branch_listeners_(false),
       have_exception_handled_listeners_(false),
@@ -588,6 +589,11 @@ void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t ev
                            exception_thrown_listeners_,
                            listener,
                            &have_exception_thrown_listeners_);
+  PotentiallyAddListenerTo(kNonStandardMethodExit,
+                           events,
+                           non_standard_exit_listeners_,
+                           listener,
+                           &have_non_standard_exit_listeners_);
   PotentiallyAddListenerTo(kWatchedFramePop,
                            events,
                            watched_frame_pop_listeners_,
@@ -670,6 +676,11 @@ void Instrumentation::RemoveListener(InstrumentationListener* listener, uint32_t
                                 exception_thrown_listeners_,
                                 listener,
                                 &have_exception_thrown_listeners_);
+  PotentiallyRemoveListenerFrom(kNonStandardMethodExit,
+                                events,
+                                non_standard_exit_listeners_,
+                                listener,
+                                &have_non_standard_exit_listeners_);
   PotentiallyRemoveListenerFrom(kWatchedFramePop,
                                 events,
                                 watched_frame_pop_listeners_,
@@ -1197,6 +1208,14 @@ void Instrumentation::BranchImpl(Thread* thread,
   for (InstrumentationListener* listener : branch_listeners_) {
     if (listener != nullptr) {
       listener->Branch(thread, method, dex_pc, offset);
+    }
+  }
+}
+
+void Instrumentation::NonStandardMethodExitImpl(Thread* thread, const ShadowFrame& frame) const {
+  for (InstrumentationListener* listener : watched_frame_pop_listeners_) {
+    if (listener != nullptr) {
+      listener->NonStandardMethodExit(thread, frame);
     }
   }
 }

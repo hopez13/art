@@ -29,6 +29,7 @@
  * questions.
  */
 
+#include "base/mutex.h"
 #include "events-inl.h"
 
 #include <array>
@@ -671,6 +672,12 @@ class JvmtiMethodTraceListener final : public art::instrumentation::Instrumentat
         self->SetException(old_exception.Get());
       }
     }
+  }
+
+  void NonStandardMethodExit(art::Thread* thread, const art::ShadowFrame& frame)
+      REQUIRES_SHARED(art::Locks::mutator_lock_) override {
+    // We need to send any MethodExit events caused by a ForceReturn<...> call.
+    // event_handler_->SendDelayedNonStandardExitEvents(thread, frame);
   }
 
   // Call-back for when the dex pc moves in a method.

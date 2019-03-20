@@ -18,6 +18,7 @@
 #define ART_OPENJDKJVMTI_EVENTS_H_
 
 #include <bitset>
+#include <unordered_map>
 #include <vector>
 
 #include <android-base/logging.h>
@@ -25,6 +26,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "jvmti.h"
+#include "managed_stack.h"
 #include "thread.h"
 
 namespace openjdkjvmti {
@@ -245,11 +247,27 @@ class EventHandler {
   inline void DispatchEventOnEnv(ArtJvmTiEnv* env, art::Thread* thread, Args... args) const
       REQUIRES(!envs_lock_);
 
+#if 0
+  void AddDelayedNonStandardExitEvent(const art::ShadowFrame* frame, bool is_object, jvalue val);
+#endif
+
  private:
+#if 0
+  struct NonStandardExitEventInfo {
+    // TODO Make Scoped!
+    // if non-null is a GlobalReference to the returned value.
+    jobject return_val_obj_;
+    // The return-value to be passed to the MethodExit event.
+    jvalue return_val_;
+  };
+
+  void SendDelayedNonStandardExitEvents(art::Thread* self, const art::ShadowFrame& frame);
+#endif
+
   jvmtiError SetupTraceListener(JvmtiMethodTraceListener* listener,
                                 ArtJvmtiEvent event,
                                 jthread thread,
-                                bool enable);
+                                bool enable) REQUIRES_SHARED(art::Locks::mutator_lock_);
 
   // Specifically handle the FramePop event which it might not always be possible to turn off.
   jvmtiError SetupFramePopTraceListener(jthread thread, bool enable);
@@ -337,10 +355,15 @@ class EventHandler {
   std::unique_ptr<JvmtiMonitorListener> monitor_listener_;
   std::unique_ptr<JvmtiParkListener> park_listener_;
 
+  std::unordered_map<const art::ShadowFrame*, NonStandardExitEventInfo> non_standard_exits_
+      GUARDED_BY(envs_lock_);
+
   // True if frame pop has ever been enabled. Since we store pointers to stack frames we need to
   // continue to listen to this event even if it has been disabled.
   // TODO We could remove the listeners once all jvmtiEnvs have drained their shadow-frame vectors.
   bool frame_pop_enabled;
+
+  friend class JvmtiMethodTraceListener;
 };
 
 }  // namespace openjdkjvmti

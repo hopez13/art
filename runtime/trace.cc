@@ -19,6 +19,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
+#include "android-base/macros.h"
 #include "android-base/stringprintf.h"
 
 #include "art_method-inl.h"
@@ -781,6 +782,11 @@ void Trace::Branch(Thread* /*thread*/, ArtMethod* method,
                    uint32_t /*dex_pc*/, int32_t /*dex_pc_offset*/)
       REQUIRES_SHARED(Locks::mutator_lock_) {
   LOG(ERROR) << "Unexpected branch event in tracing" << ArtMethod::PrettyMethod(method);
+}
+
+void Trace::NonStandardMethodExit(Thread* thread ATTRIBUTE_UNUSED,
+                                  const ShadowFrame& frame ATTRIBUTE_UNUSED) {
+  LOG(ERROR) << "Unexpected NonStandardMethodExit event in tracing";
 }
 
 void Trace::WatchedFramePop(Thread* self ATTRIBUTE_UNUSED,
