@@ -18,14 +18,17 @@
 #define ART_OPENJDKJVMTI_EVENTS_H_
 
 #include <bitset>
+#include <unordered_map>
 #include <vector>
 
 #include <android-base/logging.h>
 #include <android-base/thread_annotations.h>
 
+#include "android-base/thread_annotations.h"
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "jvmti.h"
+#include "managed_stack.h"
 #include "thread.h"
 
 namespace openjdkjvmti {
@@ -73,10 +76,25 @@ enum class ArtJvmtiEvent : jint {
     kGarbageCollectionFinish = JVMTI_EVENT_GARBAGE_COLLECTION_FINISH,
     kObjectFree = JVMTI_EVENT_OBJECT_FREE,
     kVmObjectAlloc = JVMTI_EVENT_VM_OBJECT_ALLOC,
+    // Internal event to mark a ClassFileLoadHook as one created with the can_retransform_classes
+    // capability.
     kClassFileLoadHookRetransformable = JVMTI_MAX_EVENT_TYPE_VAL + 1,
     kDdmPublishChunk = JVMTI_MAX_EVENT_TYPE_VAL + 2,
-    kMaxEventTypeVal = kDdmPublishChunk,
+    kMaxNormalEventTypeVal = kDdmPublishChunk,
+
+    // All that follow are events used to implement internal JVMTI functions. They are not settable
+    // directly by agents.
+    kMinInternalEventTypeVal = kMaxNormalEventTypeVal + 1,
+
+    // Internal event we use to implement the ForceEarlyReturn functions.
+    kForceEarlyReturnUpdateReturnValue = kMinInternalEventTypeVal,
+    kMaxInternalEventTypeVal = kForceEarlyReturnUpdateReturnValue,
+
+    kMaxEventTypeVal = kMaxInternalEventTypeVal,
 };
+
+constexpr jint kInternalEventCount = static_cast<jint>(ArtJvmtiEvent::kMaxInternalEventTypeVal) -
+                                     static_cast<jint>(ArtJvmtiEvent::kMinInternalEventTypeVal) + 1;
 
 using ArtJvmtiEventDdmPublishChunk = void (*)(jvmtiEnv *jvmti_env,
                                               JNIEnv* jni_env,
@@ -198,6 +216,13 @@ class EventHandler {
     return global_mask.Test(event);
   }
 
+  // Sets an internal event. Unlike normal JVMTI events internal events are not associated with any
+  // particular jvmtiEnv and are refcounted.
+  jvmtiError SetInternalEvent(jthread target,
+                              ArtJvmtiEvent event,
+                              jvmtiEventMode mode)
+      REQUIRES(!envs_lock_, !art::Locks::mutator_lock_);
+
   jvmtiError SetEvent(ArtJvmTiEnv* env,
                       jthread thread,
                       ArtJvmtiEvent event,
@@ -245,6 +270,11 @@ class EventHandler {
   ALWAYS_INLINE
   inline void DispatchEventOnEnv(ArtJvmTiEnv* env, art::Thread* thread, Args... args) const
       REQUIRES(!envs_lock_);
+
+  // TODO Rename this.
+  void AddDelayedNonStandardExitEvent(const art::ShadowFrame* frame, bool is_object, jvalue val)
+      REQUIRES_SHARED(art::Locks::mutator_lock_)
+          REQUIRES(art::Locks::user_code_suspension_lock_, art::Locks::thread_list_lock_);
 
  private:
   jvmtiError SetupTraceListener(JvmtiMethodTraceListener* listener,
@@ -319,6 +349,8 @@ class EventHandler {
 
   bool OtherMonitorEventsEnabledAnywhere(ArtJvmtiEvent event);
 
+  int32_t& InternalEventRefcount(ArtJvmtiEvent event) REQUIRES(envs_lock_);
+
   // List of all JvmTiEnv objects that have been created, in their creation order. It is a std::list
   // since we mostly access it by iterating over the entire thing, only ever append to the end, and
   // need to be able to remove arbitrary elements from it.
@@ -342,6 +374,11 @@ class EventHandler {
   // continue to listen to this event even if it has been disabled.
   // TODO We could remove the listeners once all jvmtiEnvs have drained their shadow-frame vectors.
   bool frame_pop_enabled;
+
+  std::array<int32_t, kInternalEventCount> internal_event_refcount_
+      GUARDED_BY(envs_lock_);
+
+  friend class JvmtiMethodTraceListener;
 };
 
 }  // namespace openjdkjvmti
