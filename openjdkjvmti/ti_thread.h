@@ -39,6 +39,7 @@
 
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "handle.h"
 #include "thread.h"
 
 namespace art {
@@ -46,6 +47,9 @@ class ArtField;
 class ScopedObjectAccessAlreadyRunnable;
 class Thread;
 class Closure;
+namespace mirror {
+class Throwable;
+}  // namespace mirror
 }  // namespace art
 
 namespace openjdkjvmti {
@@ -61,6 +65,17 @@ class SCOPED_CAPABILITY ScopedNoUserCodeSuspension {
 
  private:
   art::Thread* self_;
+};
+
+class ScopedSuppressException {
+ public:
+  explicit ScopedSuppressException(art::Thread* self) REQUIRES_SHARED(art::Locks::mutator_lock_);
+  ~ScopedSuppressException() REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+ private:
+  art::Thread* self_;
+  art::StackHandleScope<1> hs_;
+  art::Handle<art::mirror::Throwable> excp_;
 };
 
 // The struct that we store in the art::Thread::custom_tls_ that maps the jvmtiEnvs to the data

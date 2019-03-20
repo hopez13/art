@@ -3568,10 +3568,6 @@ void Thread::QuickDeliverException() {
       if (penultimate_frame == nullptr) {
         penultimate_frame = FindDebuggerShadowFrame(penultimate_visitor.GetFrameId());
       }
-      DCHECK(penultimate_frame != nullptr &&
-             penultimate_frame->GetForceRetryInstruction())
-          << "Force pop frame without retry instruction found. penultimate frame is null: "
-          << (penultimate_frame == nullptr ? "true" : "false");
     }
     force_deopt = force_frame_pop || force_retry_instr;
   }
