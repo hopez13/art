@@ -22,6 +22,30 @@
       "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f6d788_459e3b03",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-20T21:14:37Z",
+      "side": 1,
+      "message": "We\u0027re using 64-bit-only binaries for tools shipped with the debug APEX, so I assume those are dependencies pulled in there? Though I don\u0027t understand what needs libjsoncpp.",
+      "parentUuid": "fb9ca503_2be72f66",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 61
+      },
+      "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
