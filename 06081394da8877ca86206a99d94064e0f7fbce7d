@@ -46,6 +46,30 @@
       "revId": "06081394da8877ca86206a99d94064e0f7fbce7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17064a45_1de0da6b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-21T19:24:32Z",
+      "side": 1,
+      "message": "…or maybe we never shipped oatdumpd in any Runtime APEX. I\u0027m adding it to the Debug APEX.",
+      "parentUuid": "52fd07da_f02fe332",
+      "range": {
+        "startLine": 178,
+        "startChar": 22,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "06081394da8877ca86206a99d94064e0f7fbce7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
