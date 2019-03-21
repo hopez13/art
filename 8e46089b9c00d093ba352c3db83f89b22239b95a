@@ -427,6 +427,24 @@
       "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7978ab8a_98355d9f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-21T17:09:26Z",
+      "side": 1,
+      "message": "That\u0027s not the style we went for in ART, and I think we may now have a clang rule for having /* foobar\u003d */ for boolean arguments.",
+      "parentUuid": "65857437_9f4fb6ec",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
