@@ -22,6 +22,30 @@
       "revId": "06081394da8877ca86206a99d94064e0f7fbce7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52fd07da_f02fe332",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-21T17:00:56Z",
+      "side": 1,
+      "message": "Yes. I think we used to ship oatdumpd with the Debug APEX, but it seems it was removed (recently?). I need to check why.",
+      "parentUuid": "2b82b5b6_ec923e9e",
+      "range": {
+        "startLine": 178,
+        "startChar": 22,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "06081394da8877ca86206a99d94064e0f7fbce7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
