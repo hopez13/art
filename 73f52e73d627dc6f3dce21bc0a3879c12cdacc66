@@ -208,6 +208,24 @@
     },
     {
       "key": {
+        "uuid": "69f37e4f_c680c4c4",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-03-21T14:15:48Z",
+      "side": 1,
+      "message": "I also suggest using induction variable strength reduction in naming instead of simplification to highlight the intent of the optimization pass. Induction variable simplification is usually a set of optimizations, where strength reduction is one of them.\n\nBefore reviewing the implementation it\u0027s worth to discuss the motivation of the optimization (use cases, benchmarking results etc.), requirements and the design of the optimization pass. This will help to understand whether you are trying to optimize common cases or only some particular cases.",
+      "parentUuid": "925c9293_91d8ab8a",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa8e64df_726c2d38",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
