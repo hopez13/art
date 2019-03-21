@@ -70,6 +70,30 @@
       "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e7157ea_4e9abc00",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-21T20:01:29Z",
+      "side": 1,
+      "message": "The Debug Runtime APEX is used in (most) userdebug builds. As a general effort we try to have userdebug builds be as close as possible to user builds, so I\u0027d be in favor to keep similar checks.",
+      "parentUuid": "5165d551_ed153fd8",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 61
+      },
+      "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
