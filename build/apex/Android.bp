@@ -175,7 +175,7 @@ apex_defaults {
             binaries: art_runtime_base_binaries_prefer32,
         },
         first: {
-            binaries: [],
+            binaries: art_tools_device_binaries,
         }
     },
     binaries: [
@@ -213,9 +213,6 @@ apex {
             binaries: art_runtime_debug_binaries_prefer32
                 + art_runtime_debug_binaries_prefer32_device,
         },
-        first: {
-            binaries: art_tools_device_binaries,
-        }
     },
     certificate: ":com.android.runtime.debug.certificate",
 }
