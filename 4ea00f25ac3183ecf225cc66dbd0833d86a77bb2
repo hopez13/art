@@ -34,6 +34,24 @@
       "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e619f8f_e07216f4",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-21T22:35:34Z",
+      "side": 1,
+      "message": "Yes, it was a test (you can see the old presubmit runs). I figure this fixes that and maintains performance. If you want a different solution, happy to implement one. Although, I\u0027d like to get this CL in if possible.",
+      "parentUuid": "fd42fe73_e085243a",
+      "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
