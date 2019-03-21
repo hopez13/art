@@ -94,6 +94,30 @@
       "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0476b70_b1453438",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-21T21:00:26Z",
+      "side": 1,
+      "message": "Ok, that\u0027s a valid point, let\u0027s keep it then. I also added a bit of commentary to the dependency lists for both release and debug packages to give some rationale, which hopefully will be helpful when dealing with breakages.",
+      "parentUuid": "7e7157ea_4e9abc00",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 61
+      },
+      "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
