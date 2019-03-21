@@ -445,6 +445,24 @@
       "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bafb9ff_5c1f1efb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T18:27:38Z",
+      "side": 1,
+      "message": "Switched to bool.",
+      "parentUuid": "7978ab8a_98355d9f",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
