@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "288192a0_f4015bd8",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-21T14:24:44Z",
+      "side": 1,
+      "message": "Thanks, tested on that too, and modified the prefer32 check accordingly.",
+      "parentUuid": "90b61610_80ccb8f8",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 75
+      },
+      "revId": "c851e222c22d42b56aec442437803806d7e35d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7cda035_e1444a97",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1

@@ -46,6 +46,30 @@
       "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5165d551_ed153fd8",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-21T14:24:44Z",
+      "side": 1,
+      "message": "Ok, thanks.\n\n\u003e Though I don\u0027t understand what needs libjsoncpp.\n\nMe neither, I haven\u0027t looked into it.\n\nI\u0027m not sure we should even bother vetting the dependencies in the debug APEX - it won\u0027t ever be distributed so we don\u0027t need to check for invalid and unintentional dependencies like we do in the release package. There\u0027s a cost in maintaining this tight check, e.g. discussions and pondering like in this case, but I can\u0027t say I understand what the gain is, like what possible problems we hope to avoid.\n\nIf there is none, I suggest we drop the nonexistence check for libs in the debug APEX, like is already the case for the host APEX. Thoughts?",
+      "parentUuid": "00f6d788_459e3b03",
+      "range": {
+        "startLine": 540,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 61
+      },
+      "revId": "0844ccc5b5c739d8cff2d46c7e9c5963a052ec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
