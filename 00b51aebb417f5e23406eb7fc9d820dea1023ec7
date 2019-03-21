@@ -22,6 +22,30 @@
       "revId": "00b51aebb417f5e23406eb7fc9d820dea1023ec7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dee5e49_272f92ae",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-21T17:48:51Z",
+      "side": 1,
+      "message": "Because of https://cs.corp.google.com/android/art/runtime/dex2oat_environment_test.h?l\u003d45 .",
+      "parentUuid": "ab6f1ab0_da298eb9",
+      "range": {
+        "startLine": 205,
+        "startChar": 40,
+        "endLine": 205,
+        "endChar": 99
+      },
+      "revId": "00b51aebb417f5e23406eb7fc9d820dea1023ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
