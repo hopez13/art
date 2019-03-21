@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d819e55c_ffd59f8b",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b134e81b_5246d351",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1046,
+        "endChar": 53
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a462e2f4_4c020b7a",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b79be7c6_388c0aaf",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a462e2f4_4c020b7a",
+      "range": {
+        "startLine": 1269,
+        "startChar": 0,
+        "endLine": 1270,
+        "endChar": 5
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e0dcc20_6aae6cd3",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 5
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "639bb83b_10984465",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "In StackMapStream::BeginInlineInfoEntry there is a \"DCHECK_EQ(expected_num_dex_registers_, current_dex_registers_.size());\" which will fire if the number of dex registers is not adjusted.\n\nI guess that you meant the following case:\n    if (instruction \u003d\u003d nullptr) {\n    // For stack overflow checks and native-debug-info entries without dex register\n    // mapping (i.e. start of basic block or start of slow path).\n\nBut EmitEnvironment (and then BeginInlineInfoEntry) is not called there.",
+      "parentUuid": "6e0dcc20_6aae6cd3",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48ffcccd_d3dab3cc",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 5
@@ -76,6 +142,30 @@
       "writtenOn": "2019-03-20T15:00:42Z",
       "side": 1,
       "message": "This argument is effectively unused. Remove?",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "682aac24_46b11d92",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "what do you mean? it is used in CodeGenerator::RecordPcInfo.",
+      "parentUuid": "48ffcccd_d3dab3cc",
       "range": {
         "startLine": 72,
         "startChar": 51,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "2e55760f_3dad5524",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "There was a bit of confusion with function name and which particular function to use:\n\nThe whole non-precise stackmaps optimization is not legal for:\n - debuggable graph\n - if we can asynchronously deoptimize (not on HDeoptimize instruction)\n\nIsAsyncDeoptimizable actually guards both cases.",
+      "parentUuid": "71d0af1a_ffdbdcc1",
+      "range": {
+        "startLine": 72,
+        "startChar": 29,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d2737f7_becd133d",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 5
@@ -122,6 +236,24 @@
       "writtenOn": "2019-03-20T15:00:42Z",
       "side": 1,
       "message": "This move looks reasonable, but changes behavior and makes it CHECK.\nIs that intentional change? That is, are you sure it is ok?\nThe old code looks like the DCHECK was after the condition on purpose.\nI approve of the change, but I need convincing it is ok...\nAt the very least, it should be kept as DCHECK only.",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccec476e_e649e84f",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "Could you give an example when this might not be true? I have taken a look into CodeGenerator::RecordCatchBlockInfo / CodeGenerator::RecordPcInfo and it looks like for DexRegisterLocation::Kind::kNone a vector entry is always created.\n\nThe only case when dex_reg_num is zero and not consistent with the method\u0027s dex register num is stack overflow checks and native-debug-info (see RecordPcInfo).\n\nAs for DCHECK vs CHECK: below we already do some CHECK in the loop; would it be to big overhead to have one extra runtime check before the loop to have more robust validation?",
+      "parentUuid": "1d2737f7_becd133d",
       "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "fd0d9813_da923b6a",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "Same comment as for catch block.",
+      "parentUuid": "ea030e71_2c256b8e",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9462d82_9a4dd843",
         "filename": "runtime/stack.cc",
         "patchSetId": 5
@@ -162,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "0fe6f49a_3cde19cc",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "KAbsent is used for those StackVisitors (non-precise ReferenceMapVisitor; Instrumentation InstallStack) which may use GetVReg() but allow it to be absent; kPresent is currently used by default as a conservative assumption.",
+      "parentUuid": "a9462d82_9a4dd843",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "506775cb_11317634",
         "filename": "runtime/stack.h",
         "patchSetId": 5
@@ -173,6 +341,30 @@
       "writtenOn": "2019-03-20T19:20:13Z",
       "side": 1,
       "message": "This just confirms to me a boolean can actually be more readable. There\u0027s nothing of a type of kind here. A \"bool dex_registers_in_stack_maps\" conveys things enough for me.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 57
+      },
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9fa1f73_6fb62487",
+        "filename": "runtime/stack.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "I have put some comments in the other file with the motivation for enum, it is mostly about readability and being less brittle.",
+      "parentUuid": "506775cb_11317634",
       "range": {
         "startLine": 356,
         "startChar": 2,
@@ -214,6 +406,24 @@
       "side": 1,
       "message": "+1.",
       "parentUuid": "55c35aff_4ba58f86",
+      "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65857437_9f4fb6ec",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T17:05:05Z",
+      "side": 1,
+      "message": "The reasons I have put enum instead of a bool:\n1. code readability and discoverability: no need for \"/* parameter */ true \" patterns; one is able to easily search all the places where parameter is specified (for instance all the stack visitor with kAbsent).\n2. Some potential nasty implicit type conversions and arguments misuse bugs: stack visitor already has some bool and int parameters (some of them are default); it is very easy to miss them.\n\nIn general enum classes vs bool might be a good idea and I believe in this particular case due to code complexity it makes the client code less bug-prone.",
+      "parentUuid": "0674421c_74e08c32",
       "revId": "8e46089b9c00d093ba352c3db83f89b22239b95a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
