@@ -71,6 +71,103 @@
     },
     {
       "key": {
+        "uuid": "601f195c_79f39ed6",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "Here and elsewhere in the CL: please could you pay more attention to the code style and indentation (https://google.github.io/styleguide/cppguide.html).",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f982f5c_3d02cce6",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "here and elsewhere: commented out code.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 123
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fef2caa_a57372ea",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "ART specific containers with arena allocator should be used.",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5503a63d_728df4dd",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "There is a lot of patterns like \"if (something ) return false;\" in the code; could you describe in one place as a comment for which type of loops the optimization is applied?\n\nSomething like:\nLoops with \u003cthis\u003e CFG structure, which have only \u003cthis\u003e operations in the body, etc.",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "415b7ec4_764ce677",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "It seems the traversing the loop instructions might be non-optimal: you visit instructions over and over again, check the loop header structure type (which is invariant) in a loop.",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ee4e837_785713d6",
         "filename": "compiler/optimizing/iv_simplifier.h",
         "patchSetId": 3
@@ -94,6 +191,23 @@
     },
     {
       "key": {
+        "uuid": "925c9293_91d8ab8a",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "Please provide a highlevel comment on the class: overview of the algorithm, links \u0026 references.",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa8e64df_726c2d38",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -111,6 +225,40 @@
         "endLine": 785,
         "endChar": 14
       },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e092cbe_a84b74ec",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "Here and below: please describe data flow for the checker - instruction arguments.",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32517f01_2ba17257",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-21T13:56:34Z",
+      "side": 1,
+      "message": "This transformation is illegal as java implements strict IEEE 754; floating point operations are not associative/distributive.",
       "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
