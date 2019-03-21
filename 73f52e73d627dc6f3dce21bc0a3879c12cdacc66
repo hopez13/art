@@ -91,6 +91,29 @@
       "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa8e64df_726c2d38",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-03-21T13:14:35Z",
+      "side": 1,
+      "message": "Could you please explain why you put loop optimizations in this order?",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 14
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
