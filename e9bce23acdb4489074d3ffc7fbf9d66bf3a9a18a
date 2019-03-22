@@ -46,6 +46,30 @@
       "revId": "e9bce23acdb4489074d3ffc7fbf9d66bf3a9a18a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47de9e76_8535eeaf",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-22T16:54:48Z",
+      "side": 1,
+      "message": "Also, \u0026 would imply taking an address of constexpr in the caller which is kind of messy as far as the spec is concerned.  I think it would be fine, but I feel little better if we copy it by value.",
+      "parentUuid": "f1e5c50d_780222e1",
+      "range": {
+        "startLine": 136,
+        "startChar": 32,
+        "endLine": 136,
+        "endChar": 54
+      },
+      "revId": "e9bce23acdb4489074d3ffc7fbf9d66bf3a9a18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
