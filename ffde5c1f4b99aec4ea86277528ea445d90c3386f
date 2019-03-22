@@ -22,6 +22,30 @@
       "revId": "ffde5c1f4b99aec4ea86277528ea445d90c3386f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3658b940_4c2401c4",
+        "filename": "tools/titrace/titrace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-03-22T21:41:50Z",
+      "side": 1,
+      "message": "nit: Please add something like \"This is used to implement the userdebug \u0027debug-anything\u0027  behavior.\" ?",
+      "parentUuid": "f72a70d2_3617376d",
+      "range": {
+        "startLine": 245,
+        "startChar": 55,
+        "endLine": 245,
+        "endChar": 65
+      },
+      "revId": "ffde5c1f4b99aec4ea86277528ea445d90c3386f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
