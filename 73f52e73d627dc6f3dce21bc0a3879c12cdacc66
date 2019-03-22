@@ -217,6 +217,24 @@
     },
     {
       "key": {
+        "uuid": "ac04bc98_dc3cb869",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:37:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5503a63d_728df4dd",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "415b7ec4_764ce677",
         "filename": "compiler/optimizing/iv_simplifier.cc",
         "patchSetId": 3
@@ -228,6 +246,24 @@
       "writtenOn": "2019-03-21T13:56:34Z",
       "side": 1,
       "message": "It seems the traversing the loop instructions might be non-optimal: you visit instructions over and over again, check the loop header structure type (which is invariant) in a loop.",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19c49a1c_f12c0367",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:37:21Z",
+      "side": 1,
+      "message": "For each phi which is a basic induction variable in the header, I\u0027m checking for a pair \u003cphi, ins\u003e where ins is instruction in the loop body if the pair is a candidate for this optimization. So, for each basic induction variable, I\u0027ll be visiting all  the instructions, which are binary operations in the loop.",
+      "parentUuid": "415b7ec4_764ce677",
       "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
