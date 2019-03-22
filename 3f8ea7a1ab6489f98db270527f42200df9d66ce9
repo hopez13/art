@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "357abff9_2d972c0d",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-22T14:50:45Z",
+      "side": 1,
+      "message": "I was referring to the Android build target flavor, which can either be \"user\", \"userdebug\" or \"eng\". In line 532, you mentioned \"userdebug/eng\" builds, so I thought it would make sense to mention \"user\" builds line 531.",
+      "parentUuid": "3070eec7_22733f14",
+      "range": {
+        "startLine": 531,
+        "startChar": 63,
+        "endLine": 531,
+        "endChar": 70
+      },
+      "revId": "3f8ea7a1ab6489f98db270527f42200df9d66ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d7a3ed_b32d86f9",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 5
