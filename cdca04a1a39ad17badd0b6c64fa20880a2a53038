@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd63ac3b_6ccf1705",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-22T20:54:46Z",
+      "side": 1,
+      "message": "The new visitor uses a reference.",
+      "parentUuid": "29b3e007_36a5c8a4",
+      "range": {
+        "startLine": 667,
+        "startChar": 27,
+        "endLine": 667,
+        "endChar": 28
+      },
+      "revId": "cdca04a1a39ad17badd0b6c64fa20880a2a53038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2fc01373_e93fdeda",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cdca04a1a39ad17badd0b6c64fa20880a2a53038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461c4c29_aea031d2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-22T20:54:46Z",
+      "side": 1,
+      "message": "Visitor passes down reference.",
+      "parentUuid": "2fc01373_e93fdeda",
+      "range": {
+        "startLine": 1563,
+        "startChar": 52,
+        "endLine": 1563,
+        "endChar": 53
+      },
+      "revId": "cdca04a1a39ad17badd0b6c64fa20880a2a53038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
