@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3070eec7_22733f14",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-22T14:33:07Z",
+      "side": 1,
+      "message": "The build type is \"release\", so I think it\u0027s pretty clear as-is. I\u0027m actually not sure what your suggestion conveys.",
+      "parentUuid": "5f655073_1cf28609",
+      "range": {
+        "startLine": 531,
+        "startChar": 63,
+        "endLine": 531,
+        "endChar": 70
+      },
+      "revId": "3f8ea7a1ab6489f98db270527f42200df9d66ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d7a3ed_b32d86f9",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 5
@@ -92,6 +116,54 @@
       "revId": "3f8ea7a1ab6489f98db270527f42200df9d66ce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c5426a_7ae86b7b",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-22T14:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65468a7d_9dcd0ca8",
+      "range": {
+        "startLine": 533,
+        "startChar": 56,
+        "endLine": 533,
+        "endChar": 60
+      },
+      "revId": "3f8ea7a1ab6489f98db270527f42200df9d66ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee9fd222_709b3c35",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-22T14:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d98cf3f7_8d2b175e",
+      "range": {
+        "startLine": 533,
+        "startChar": 66,
+        "endLine": 533,
+        "endChar": 80
+      },
+      "revId": "3f8ea7a1ab6489f98db270527f42200df9d66ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
