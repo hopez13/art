@@ -22,6 +22,30 @@
       "revId": "e9bce23acdb4489074d3ffc7fbf9d66bf3a9a18a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e5c50d_780222e1",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-22T16:47:22Z",
+      "side": 1,
+      "message": "4 bytes are better sent by value (in register in most ABIs).",
+      "parentUuid": "40eb0096_7803790b",
+      "range": {
+        "startLine": 136,
+        "startChar": 32,
+        "endLine": 136,
+        "endChar": 54
+      },
+      "revId": "e9bce23acdb4489074d3ffc7fbf9d66bf3a9a18a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
