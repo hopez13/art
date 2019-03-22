@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89364d11_2f6c196a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-22T23:13:00Z",
+      "side": 1,
+      "message": "I believe you need to pass barrier to the closure so that Pass() can be called on it in the Run function.",
+      "range": {
+        "startLine": 2808,
+        "startChar": 0,
+        "endLine": 2813,
+        "endChar": 8
+      },
+      "revId": "11f9ec10379a5634bbb3a5aeaf289633202df114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a4756d_f122bc05",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2815,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-22T23:13:00Z",
+      "side": 1,
+      "message": "Directly declare it here?",
+      "range": {
+        "startLine": 2815,
+        "startChar": 6,
+        "endLine": 2815,
+        "endChar": 32
+      },
+      "revId": "11f9ec10379a5634bbb3a5aeaf289633202df114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
