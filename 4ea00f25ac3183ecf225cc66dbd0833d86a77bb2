@@ -52,6 +52,24 @@
       "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab3537a1_79cb5394",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T10:17:51Z",
+      "side": 1,
+      "message": "Can you paste a link to the failure?\n\nWhy would it fix performance? The if is always taken in a non-test setup after your CL adding shared libraries in zygote.",
+      "parentUuid": "5e619f8f_e07216f4",
+      "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
