@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "178aab13_e7f68740",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "601f195c_79f39ed6",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f982f5c_3d02cce6",
         "filename": "compiler/optimizing/iv_simplifier.cc",
         "patchSetId": 3
@@ -111,6 +129,30 @@
     },
     {
       "key": {
+        "uuid": "8c16a0b9_8df0bc04",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f982f5c_3d02cce6",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 123
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fef2caa_a57372ea",
         "filename": "compiler/optimizing/iv_simplifier.cc",
         "patchSetId": 3
@@ -122,6 +164,30 @@
       "writtenOn": "2019-03-21T13:56:34Z",
       "side": 1,
       "message": "ART specific containers with arena allocator should be used.",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e479e2c_04c5fac8",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "Done. Used ArenaSafeMap.",
+      "parentUuid": "0fef2caa_a57372ea",
       "range": {
         "startLine": 289,
         "startChar": 2,
@@ -191,6 +257,30 @@
     },
     {
       "key": {
+        "uuid": "6d1e8c3a_99211579",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee4e837_785713d6",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "925c9293_91d8ab8a",
         "filename": "compiler/optimizing/iv_simplifier.h",
         "patchSetId": 3
@@ -226,6 +316,24 @@
     },
     {
       "key": {
+        "uuid": "0e4c10c7_8f90654d",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "Hi,\nThank you. Is IvStrengthReduction fine ? \n\nMotivation: A common use case of operator strength reduction is to replace multiplication with addition. In this optimization, we target replacing multiplications involving basic induction variables in loops with their addition equivalents.\n\nLink for idea of the optimization : https://www.cs.cmu.edu/afs/cs/academic/class/15745-s16/www/lectures/L10-Strength-Reduction.pdf\n\nBenchmark Results: \nBinarytrees - 9% improvement \nChameneosredux - 9% improvemnt\n\nAnd is there any way I can upload a document here ? If so please let me know.",
+      "parentUuid": "69f37e4f_c680c4c4",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa8e64df_726c2d38",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -237,6 +345,30 @@
       "writtenOn": "2019-03-21T13:14:35Z",
       "side": 1,
       "message": "Could you please explain why you put loop optimizations in this order?",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 14
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48838fac_d912c539",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T09:01:59Z",
+      "side": 1,
+      "message": "If a trivial loop can be evaluated using TryOptimizeInnerLoopFinite(node), then this optimization is not required. If it is not a trivial loop and cannot be eliminated, then we give chance for InductionVarSimplifictaion(). After InductionVarSimplification, the loop can become trivial, so we give chance to TryOptimizeInnerLoop() or PeelingAndUnrolling(). If InductionVarSimplification() was not able to simplify, then we run PeelingAndUnrolling() as it was before",
+      "parentUuid": "fa8e64df_726c2d38",
       "range": {
         "startLine": 777,
         "startChar": 0,
