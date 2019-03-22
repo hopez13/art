@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "239a8369_f5e64a17",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "Why can that not happen? libcore seems to not know whether the file is backed or not.",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e2da45b_0b119ce2",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "Comment why you need a global ref.",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 36
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c89bea_b14bc1bb",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "shouldn\u0027t they already be? If not, please comment, and explain why they need to be registered.",
+      "range": {
+        "startLine": 666,
+        "startChar": 3,
+        "endLine": 666,
+        "endChar": 46
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd8d631_6bb89479",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "Why isn\u0027t this local? Can you create a pool per bg verfication request?",
+      "range": {
+        "startLine": 734,
+        "startChar": 6,
+        "endLine": 734,
+        "endChar": 31
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a38d67de_bc795f77",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "nit: add comment",
+      "range": {
+        "startLine": 735,
+        "startChar": 79,
+        "endLine": 735,
+        "endChar": 83
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06b24bf3_ac1a51d7",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-22T11:29:57Z",
+      "side": 1,
+      "message": "nit: add a comment that this is only for unit tests.",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 44
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
