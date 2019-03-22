@@ -482,6 +482,24 @@
     },
     {
       "key": {
+        "uuid": "6ac26142_0961e892",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T10:53:14Z",
+      "side": 1,
+      "message": "Sorry I did not understand. I wanted to convey with this checker that before this optimization, there was MUL inside loop and after this optimization and dead code elimination, the MUL inside loop gets eliminated. Can you please tell me what is the data flow for checker arguments that I need to add?",
+      "parentUuid": "0e092cbe_a84b74ec",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32517f01_2ba17257",
         "filename": "test/000-checker-ind-var-ele/src/Main.java",
         "patchSetId": 3
@@ -496,6 +514,24 @@
       "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c4686d_d85f8f0c",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-22T10:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32517f01_2ba17257",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
