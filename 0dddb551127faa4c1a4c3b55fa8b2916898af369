@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c04ba12f_dee5b89f",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "Calin, how come \u0027e.dex\u0027 is not verified below?",
+      "range": {
+        "startLine": 1233,
+        "startChar": 47,
+        "endLine": 1233,
+        "endChar": 61
+      },
+      "revId": "0dddb551127faa4c1a4c3b55fa8b2916898af369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

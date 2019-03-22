@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10e16141_45b1df89",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39385e2f_5a7f5562",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 79
+      },
+      "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4141b4c9_92be8520",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2019-03-22T13:37:46Z",
       "side": 1,
       "message": "add \"(though we keep them to simplify the parsing)\". Can\u0027t we have a magic marker for those? eg \"IMC.dex\"",
+      "range": {
+        "startLine": 168,
+        "startChar": 80,
+        "endLine": 168,
+        "endChar": 81
+      },
+      "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "200fb6d9_1056cce6",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "comment: Done\nmagic location: Would it be easier if we just set dex location of all in-mem dex files to \"\u003cunknown\u003e\"? Or do you want a special case just in the context? Btw, dex location of in-mem files cannot be set by users. It is always computed by ART.",
+      "parentUuid": "4141b4c9_92be8520",
       "range": {
         "startLine": 168,
         "startChar": 80,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bc62f2b9_61038e59",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f709557_4904842c",
+      "range": {
+        "startLine": 287,
+        "startChar": 82,
+        "endLine": 287,
+        "endChar": 85
+      },
+      "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d34c7142_5b02443d",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ac0e85e8_1be98e4b",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d34c7142_5b02443d",
+      "range": {
+        "startLine": 1131,
+        "startChar": 68,
+        "endLine": 1131,
+        "endChar": 85
+      },
+      "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c77b95c1_5198f46d",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 7
@@ -114,6 +210,30 @@
       "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f353887_2fd4922d",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-22T16:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c77b95c1_5198f46d",
+      "range": {
+        "startLine": 1190,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 39
+      },
+      "revId": "916cf150774dbd2e1faa21a15f1510b8c36de2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
