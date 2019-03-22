@@ -2802,10 +2802,24 @@ void Runtime::NotifyStartupCompleted() {
       }
     }
     // Request empty checkpoint to make sure no threads are accessing the section when we madvise
-    // it.
+    // it. Avoid using RunEmptyCheckpoint since only one concurrent caller is supported. We could
+    // add a GC critical section here but that may cause significant jank if the GC is running.
     {
-      ScopedThreadStateChange tsc(Thread::Current(), kSuspended);
-      GetThreadList()->RunEmptyCheckpoint();
+      Barrier barrier(0);
+      size_t threads_running_checkpoint = 0;
+      class EmptyClosure : public Closure {
+       public:
+        void Run(Thread* self ATTRIBUTE_UNUSED) override {}
+      };
+      EmptyClosure closure;
+      threads_running_checkpoint = GetThreadList()->RunCheckpoint(&closure);
+      // Now that we have run our checkpoint, move to a suspended state and wait
+      // for other threads to run the checkpoint.
+      Thread* self = Thread::Current();
+      ScopedThreadSuspension sts(self, kSuspended);
+      if (threads_running_checkpoint != 0) {
+        barrier.Increment(self, threads_running_checkpoint);
+      }
     }
     for (gc::space::ContinuousSpace* space : GetHeap()->GetContinuousSpaces()) {
       if (space->IsImageSpace()) {
