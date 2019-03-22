@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c605daf_b4f0f2ba",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-22T16:14:47Z",
+      "side": 1,
+      "message": "This became necessary when oatdump was added to the release package in http://r.android.com/931978.\n\nI cannot find any direct symbol dependencies from oatdump to these libs. I haven\u0027t looked further into why they end up being included, but I\u0027d like to descope that from this CL so I just added a TODO here.",
+      "range": {
+        "startLine": 471,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 52
+      },
+      "revId": "3a7183fbe22a8326576605194c9ad78d0a261d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
