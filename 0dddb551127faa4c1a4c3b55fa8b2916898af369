@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3daa2420_ce1a643b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-25T17:19:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b0f4a1_1faa61f4",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 33
+      },
+      "revId": "0dddb551127faa4c1a4c3b55fa8b2916898af369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c04ba12f_dee5b89f",
         "filename": "runtime/class_loader_context_test.cc",
         "patchSetId": 9
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Hmm, no idea :). Looks like an oversight.",
       "parentUuid": "c04ba12f_dee5b89f",
+      "range": {
+        "startLine": 1233,
+        "startChar": 47,
+        "endLine": 1233,
+        "endChar": 61
+      },
+      "revId": "0dddb551127faa4c1a4c3b55fa8b2916898af369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3230a1fc_d14b3fd4",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-25T17:19:02Z",
+      "side": 1,
+      "message": "It\u0027s just annoying to get to that one - it\u0027s in the first shared-lib, but then parent of \u0027d.dex\u0027... I\u0027ll leave it as is,",
+      "parentUuid": "c519e1b6_bff224e4",
       "range": {
         "startLine": 1233,
         "startChar": 47,
