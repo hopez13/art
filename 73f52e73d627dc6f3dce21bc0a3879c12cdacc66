@@ -318,6 +318,24 @@
     },
     {
       "key": {
+        "uuid": "1ae8a5aa_481f27ae",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T19:15:16Z",
+      "side": 1,
+      "message": "Could you briefly describe the algorithm separately from the code?  \n\nfor example: why don\u0027t you traverse the induction phi\u0027s users instead?",
+      "parentUuid": "19c49a1c_f12c0367",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ee4e837_785713d6",
         "filename": "compiler/optimizing/iv_simplifier.h",
         "patchSetId": 3
@@ -418,6 +436,24 @@
     },
     {
       "key": {
+        "uuid": "ff895c6c_e8f56498",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T19:15:16Z",
+      "side": 1,
+      "message": "1. In the link you have shared there is only one slide about the \"Strength reduction\" which doesn\u0027t give mush information. Could you point to a white paper / book or similar? This will help people to easily agree on naming, algorithm and implementation details.\n\n2. Could you provide more data on benchmarking results, e.g.:\n  - Not only top improvements but geomean/S-curve, any performance degradations.\n  - code size impact.\n  - compile time impact.",
+      "parentUuid": "0e4c10c7_8f90654d",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa8e64df_726c2d38",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -465,6 +501,30 @@
     },
     {
       "key": {
+        "uuid": "c39b700b_31b967bc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T19:15:16Z",
+      "side": 1,
+      "message": "Are you sure that it is safe to call TryOptimizeInnerLoopFinite again after called itself and after TryInductionVarSimplification? that you don\u0027t need to adjust some info, e.g. induction analysis info?",
+      "parentUuid": "48838fac_d912c539",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 14
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e092cbe_a84b74ec",
         "filename": "test/000-checker-ind-var-ele/src/Main.java",
         "patchSetId": 3
@@ -500,6 +560,24 @@
     },
     {
       "key": {
+        "uuid": "2dbd1a9d_88e8058f",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T19:15:16Z",
+      "side": 1,
+      "message": "I just suggested to describe the test in more details by specifying the regexp arguments for those Adds and Muls, like you did here \"Add [\u003c\u003cPhi2\u003e\u003e,\u003c\u003cInc2\u003e\u003e]\".",
+      "parentUuid": "6ac26142_0961e892",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "32517f01_2ba17257",
         "filename": "test/000-checker-ind-var-ele/src/Main.java",
         "patchSetId": 3
@@ -529,6 +607,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "32517f01_2ba17257",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0664c157_d07e540f",
+        "filename": "test/000-checker-ind-var-ele/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T19:15:16Z",
+      "side": 1,
+      "message": "I mean that your transformation must not be applied for floating point types.",
+      "parentUuid": "b7c4686d_d85f8f0c",
       "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
