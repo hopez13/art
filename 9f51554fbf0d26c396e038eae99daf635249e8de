@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "1c9b32f3_e4f586ee",
+        "filename": "runtime/stack.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-25T14:12:59Z",
+      "side": 1,
+      "message": "Ah right, I read it the other way around. I find that flag pretty odd then - each stack frame may have a different answer for this, and it\u0027s too late if a stack visitor *needs* all frames to have a vreg info.",
+      "parentUuid": "9ba68fd9_dc0804ab",
+      "range": {
+        "startLine": 263,
+        "startChar": 7,
+        "endLine": 263,
+        "endChar": 20
+      },
+      "revId": "9f51554fbf0d26c396e038eae99daf635249e8de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de4df8e3_d3571eac",
         "filename": "runtime/stack.h",
         "patchSetId": 7
