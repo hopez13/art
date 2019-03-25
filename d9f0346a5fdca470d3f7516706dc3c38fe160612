@@ -70,6 +70,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78f2c89e_02a1cd08",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-25T18:21:28Z",
+      "side": 1,
+      "message": "I might have misunderstood our previous chats on that. Due to my understanding the only cases when GetVRegFromOptimizedCode can be called on \"non-debuggable\" method\u0027s frame is for InstrumentationInstallStack - and for this visitor needs_vreg_info is \u0027false\u0027 thus no check.\n\nDo you mean that something else (like openjdkjvmti) can do that? Could you share what those cases are please?",
+      "parentUuid": "808bbb7f_88869ef1",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
