@@ -46,6 +46,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808bbb7f_88869ef1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-25T17:51:08Z",
+      "side": 1,
+      "message": "No, my comment wasn\u0027t about debug/ndebug, but about the \"debuggable\" flag passed to the runtime. GetVRegFromOptimizedCode might be called on a method at a point where the vreg_info isn\u0027t there.",
+      "parentUuid": "e775c169_695249e4",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
