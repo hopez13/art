@@ -260,6 +260,8 @@ class Runtime {
     return boot_class_path_locations_.empty() ? boot_class_path_ : boot_class_path_locations_;
   }
 
+  bool HasExplicitBootClassPathLocations() const { return !boot_class_path_locations_.empty(); }
+
   const std::string& GetClassPathString() const {
     return class_path_string_;
   }

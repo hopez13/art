@@ -1076,6 +1076,14 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
                        error_msg)) {
       return false;
     }
+    if (kIsDebugBuild) {
+      if (runtime->HasExplicitBootClassPathLocations()) {
+        for (const auto& dex_file : dex_files) {
+          DCHECK_EQ(DexFileLoader::GetBaseLocation(dex_file->GetLocation()),
+                    boot_class_path_locations[i]);
+        }
+      }
+    }
     // Append opened dex files at the end.
     boot_dex_files_.insert(boot_dex_files_.end(),
                            std::make_move_iterator(dex_files.begin()),
@@ -2030,6 +2038,7 @@ bool ClassLinker::AddImageSpace(
     // TODO: Only store qualified paths.
     // If non qualified, qualify it.
     dex_file_location = OatFile::ResolveRelativeEncodedDexLocation(dex_location, dex_file_location);
+
     std::unique_ptr<const DexFile> dex_file = OpenOatDexFile(oat_file,
                                                              dex_file_location.c_str(),
                                                              error_msg);
