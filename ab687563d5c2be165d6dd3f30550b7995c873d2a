@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6daaa35e_bbebd58f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-26T14:52:05Z",
+      "side": 1,
+      "message": "We\u0027re not de-duplicating code for JIT.",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44b24edf_61104ce0",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-26T14:52:05Z",
+      "side": 1,
+      "message": "Add shorty.",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
