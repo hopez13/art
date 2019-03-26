@@ -106,6 +106,24 @@
       "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f494f3a9_a270ca5d",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-26T22:39:00Z",
+      "side": 1,
+      "message": "PS4 had test 677 failing, would doing if(kIsTargetBuild) still cause it to fail on the target then?",
+      "parentUuid": "6ffcf68c_b6321674",
+      "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
