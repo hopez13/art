@@ -46,6 +46,30 @@
       "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f161fea_ddd9ea31",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:59:01Z",
+      "side": 1,
+      "message": "Pardon my naïveté but how can this race? From looking at the code of RegisterDexFile it looks like it acquires locks appropriately. If user loads a class, this should just get the registered DexCache. DexFile_defineClassNative does this too (minus the LOG(FATAL)) so what you\u0027re saying is that you could race two class loads?",
+      "parentUuid": "f132c835_40f2fdce",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
