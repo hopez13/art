@@ -1077,6 +1077,14 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
                        error_msg)) {
       return false;
     }
+    // Assert that if absolute boot classpath locations were provided, they were
+    // assigned to the loaded dex files.
+    if (kIsDebugBuild && IsAbsoluteLocation(boot_class_path_locations[i])) {
+      for (const auto& dex_file : dex_files) {
+        DCHECK_EQ(DexFileLoader::GetBaseLocation(dex_file->GetLocation()),
+                  boot_class_path_locations[i]);
+      }
+    }
     // Append opened dex files at the end.
     boot_dex_files_.insert(boot_dex_files_.end(),
                            std::make_move_iterator(dex_files.begin()),
@@ -2027,12 +2035,10 @@ bool ClassLinker::AddImageSpace(
 
   for (int32_t i = 0; i < dex_caches->GetLength(); i++) {
     ObjPtr<mirror::DexCache> dex_cache = dex_caches->Get(i);
-    std::string dex_file_location(dex_cache->GetLocation()->ToModifiedUtf8());
-    // TODO: Only store qualified paths.
-    // If non qualified, qualify it.
-    dex_file_location = OatFile::ResolveRelativeEncodedDexLocation(dex_location, dex_file_location);
+    std::string dex_file_location = dex_cache->GetLocation()->ToModifiedUtf8();
+    DCHECK_EQ(dex_location, DexFile::GetBaseLocation(dex_file_location));
     std::unique_ptr<const DexFile> dex_file = OpenOatDexFile(oat_file,
-                                                             dex_file_location.c_str(),
+                                                             dex_file_location,
                                                              error_msg);
     if (dex_file == nullptr) {
       return false;
