@@ -337,8 +337,19 @@ class OatFile {
   // to "/data/app/foo/base.apk", "/data/app/foo/base.apk!classes2.dex", etc.
   // Relative encoded dex locations that don't match the given abs_dex_location
   // are left unchanged.
-  static std::string ResolveRelativeEncodedDexLocation(
-      const char* abs_dex_location, const std::string& rel_dex_location);
+  //
+  // The output argument `dex_file_name` contains the path that should be used
+  // if the dex file needs to be opened. The file name and location would differ
+  // e.g. when cross compiling on host for target. Dex files should be opened
+  // using `dex_file_name` but assigned the return value as their location.
+  //
+  // Note that the `rel_dex_location` parameter is passed in as a pointer so as
+  // to make it harder for callers to accidentally pass in a temporary object.
+  // This is because the return value is either a reference to `dex_file_name`
+  // or `rel_dex_location`.
+  static const std::string& ResolveRelativeEncodedDexLocation(const char* abs_dex_location,
+                                                              const std::string* rel_dex_location,
+                                                              /* out */ std::string* dex_file_name);
 
   // Finds the associated oat class for a dex_file and descriptor. Returns an invalid OatClass on
   // error and sets found to false.

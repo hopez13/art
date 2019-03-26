@@ -560,10 +560,17 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
     oat += dex_file_location_size;
 
     // Location encoded in the oat file. We will use this for multidex naming,
-    // see ResolveRelativeEncodedDexLocation.
+    // see ResolveRelativeEncodedDexLocation. Make sure its lifetime is a superset
+    // of the lifetime of `dex_file_location`.
     std::string oat_dex_file_location(dex_file_location_data, dex_file_location_size);
-    std::string dex_file_location =
-        ResolveRelativeEncodedDexLocation(abs_dex_location, oat_dex_file_location);
+    // If `oat_dex_file_location` is relative (so that the oat file can be moved to
+    // a different folder), resolve to absolute location. Also resolve the file name
+    // in case dex files need to be opened from disk. The file name and location
+    // differ when cross-compiling on host for target.
+    std::string dex_file_name;
+    const std::string& dex_file_location = ResolveRelativeEncodedDexLocation(abs_dex_location,
+                                                                             &oat_dex_file_location,
+                                                                             &dex_file_name);
 
     uint32_t dex_file_checksum;
     if (UNLIKELY(!ReadOatDexFileData(*this, &oat, &dex_file_checksum))) {
@@ -618,7 +625,7 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
                                            error_msg,
                                            uncompressed_dex_files_.get());
         } else {
-          loaded = dex_file_loader.Open(dex_file_location.c_str(),
+          loaded = dex_file_loader.Open(dex_file_name.c_str(),
                                         dex_file_location,
                                         /*verify=*/ false,
                                         /*verify_checksum=*/ false,
@@ -792,30 +799,28 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
       return false;
     }
 
-    std::string canonical_location =
-        DexFileLoader::GetDexCanonicalLocation(dex_file_location.c_str());
-
     // Create the OatDexFile and add it to the owning container.
-    OatDexFile* oat_dex_file = new OatDexFile(this,
-                                              dex_file_location,
-                                              canonical_location,
-                                              dex_file_checksum,
-                                              dex_file_pointer,
-                                              lookup_table_data,
-                                              method_bss_mapping,
-                                              type_bss_mapping,
-                                              string_bss_mapping,
-                                              class_offsets_pointer,
-                                              dex_layout_sections);
+    OatDexFile* oat_dex_file = new OatDexFile(
+        this,
+        dex_file_location,
+        DexFileLoader::GetDexCanonicalLocation(dex_file_name.c_str()),
+        dex_file_checksum,
+        dex_file_pointer,
+        lookup_table_data,
+        method_bss_mapping,
+        type_bss_mapping,
+        string_bss_mapping,
+        class_offsets_pointer,
+        dex_layout_sections);
     oat_dex_files_storage_.push_back(oat_dex_file);
 
     // Add the location and canonical location (if different) to the oat_dex_files_ table.
     // Note: we use the dex_file_location_data storage for the view, as oat_dex_file_location
     // is just a temporary string.
     std::string_view key(dex_file_location_data, dex_file_location_size);
+    std::string_view canonical_key(oat_dex_file->GetCanonicalDexFileLocation());
     oat_dex_files_.Put(key, oat_dex_file);
-    if (canonical_location != oat_dex_file_location) {
-      std::string_view canonical_key(oat_dex_file->GetCanonicalDexFileLocation());
+    if (canonical_key != key) {
       oat_dex_files_.Put(canonical_key, oat_dex_file);
     }
   }
@@ -1382,29 +1387,75 @@ bool ElfOatFile::ElfFileOpen(File* file,
 // General OatFile code //
 //////////////////////////
 
-std::string OatFile::ResolveRelativeEncodedDexLocation(
-      const char* abs_dex_location, const std::string& rel_dex_location) {
-  if (abs_dex_location != nullptr) {
-    std::string base = DexFileLoader::GetBaseLocation(rel_dex_location);
-    // Add :classes<N>.dex used for secondary multidex files.
-    std::string multidex_suffix = DexFileLoader::GetMultiDexSuffix(rel_dex_location);
-    if (!kIsTargetBuild) {
-      // For host, we still do resolution as the rel_dex_location might be absolute
-      // for a target dex (for example /system/foo/foo.apk).
-      return std::string(abs_dex_location) + multidex_suffix;
-    } else if (rel_dex_location[0] != '/') {
-      // Check if the base is a suffix of the provided abs_dex_location.
-      std::string target_suffix = ((rel_dex_location[0] != '/') ? "/" : "") + base;
-      std::string abs_location(abs_dex_location);
-      if (abs_location.size() > target_suffix.size()) {
-        size_t pos = abs_location.size() - target_suffix.size();
-        if (abs_location.compare(pos, std::string::npos, target_suffix) == 0) {
-          return abs_location + multidex_suffix;
-        }
-      }
+static bool IsLocationSuffix(const std::string& abs_location, const std::string& base) {
+  std::string target_suffix = "/" + base;
+  if (abs_location.size() <= target_suffix.size()) {
+    return false;
+  }
+
+  size_t pos = abs_location.size() - target_suffix.size();
+  return abs_location.compare(pos, std::string::npos, target_suffix) == 0;
+}
+
+const std::string& OatFile::ResolveRelativeEncodedDexLocation(
+    const char* abs_dex_location,
+    const std::string* rel_dex_location,
+    /* out */ std::string* dex_file_name) {
+  DCHECK(rel_dex_location != nullptr);
+
+  // Note that in this context `abs_dex_location` may not always be absolute
+  // and `rel_dex_location` may not always be relative. It simply means that
+  // we will try to resolve `rel_dex_location` into an absolute location using
+  // `abs_dex_location` for the base directory if needed.
+
+  if (abs_dex_location == nullptr) {
+    *dex_file_name = *rel_dex_location;
+    return *dex_file_name;
+  }
+
+  std::string abs_location(abs_dex_location);
+  std::string abs_location_multidex =
+      abs_dex_location + DexFileLoader::GetMultiDexSuffix(*rel_dex_location);
+
+  // Check if `rel_dex_location` is absolute.
+  if (IsAbsoluteLocation(*rel_dex_location)) {
+    if (kIsTargetBuild) {
+      // On target build use `rel_dex_location` for both dex file name and dex location.
+      *dex_file_name = *rel_dex_location;
+      return *dex_file_name;
+    } else {
+      // On host build assume we're cross-compiling and use `abs_dex_location` as a file
+      // name (for loading files) and `rel_dex_location` as the dex location. If we're
+      // not cross-compiling and `rel_dex_location` is absolute, the two locations should
+      // be equal.
+      *dex_file_name = abs_location_multidex;
+      return *rel_dex_location;
     }
   }
-  return rel_dex_location;
+
+  // Check if the relative `rel_dex_location` is a suffix of `abs_dex_location`.
+  // This typically happens for oat files which only encode the `basename`
+  // of the oat file for easy relocation.
+  // Example:
+  //   abs_dex_location = "/data/app/myapp/MyApplication.apk"
+  //   rel_dex_location = "MyApplication.apk!classes2.dex"
+  if (IsLocationSuffix(abs_location, DexFileLoader::GetBaseLocation(*rel_dex_location))) {
+    // Take the multidex suffix of `rel_dex_location` and append it to `abs_dex_location`.
+    *dex_file_name = abs_location_multidex;
+    return *dex_file_name;
+  }
+
+  // `rel_dex_location` is relative and not suffix of `abs_location`.
+  // This should only happen for tests.
+  if (kIsTargetBuild) {
+    // On target use `rel_dex_location`.
+    *dex_file_name = *rel_dex_location;
+    return *dex_file_name;
+  } else {
+    // On host use `abs_dex_location` with the appropriate multidex suffix.
+    *dex_file_name = abs_location_multidex;
+    return *dex_file_name;
+  }
 }
 
 static void CheckLocation(const std::string& location) {
