@@ -1105,10 +1105,6 @@ std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoa
   return result;
 }
 
-static bool IsAbsoluteLocation(const std::string& location) {
-  return !location.empty() && location[0] == '/';
-}
-
 ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderContextMatch(
     const std::string& context_spec,
     bool verify_names,
