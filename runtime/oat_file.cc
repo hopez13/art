@@ -564,6 +564,9 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
     std::string oat_dex_file_location(dex_file_location_data, dex_file_location_size);
     std::string dex_file_location =
         ResolveRelativeEncodedDexLocation(abs_dex_location, oat_dex_file_location);
+    std::string dex_file_name = (kIsTargetBuild || abs_dex_location == nullptr)
+        ? dex_file_location
+        : std::string(abs_dex_location) + DexFileLoader::GetMultiDexSuffix(dex_file_location);
 
     uint32_t dex_file_checksum;
     if (UNLIKELY(!ReadOatDexFileData(*this, &oat, &dex_file_checksum))) {
@@ -618,7 +621,7 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
                                            error_msg,
                                            uncompressed_dex_files_.get());
         } else {
-          loaded = dex_file_loader.Open(dex_file_location.c_str(),
+          loaded = dex_file_loader.Open(dex_file_name.c_str(),
                                         dex_file_location,
                                         /*verify=*/ false,
                                         /*verify_checksum=*/ false,
@@ -1384,23 +1387,17 @@ bool ElfOatFile::ElfFileOpen(File* file,
 
 std::string OatFile::ResolveRelativeEncodedDexLocation(
       const char* abs_dex_location, const std::string& rel_dex_location) {
-  if (abs_dex_location != nullptr) {
+  if ((abs_dex_location != nullptr) && (rel_dex_location[0] != '/')) {
     std::string base = DexFileLoader::GetBaseLocation(rel_dex_location);
     // Add :classes<N>.dex used for secondary multidex files.
     std::string multidex_suffix = DexFileLoader::GetMultiDexSuffix(rel_dex_location);
-    if (!kIsTargetBuild) {
-      // For host, we still do resolution as the rel_dex_location might be absolute
-      // for a target dex (for example /system/foo/foo.apk).
-      return std::string(abs_dex_location) + multidex_suffix;
-    } else if (rel_dex_location[0] != '/') {
-      // Check if the base is a suffix of the provided abs_dex_location.
-      std::string target_suffix = ((rel_dex_location[0] != '/') ? "/" : "") + base;
-      std::string abs_location(abs_dex_location);
-      if (abs_location.size() > target_suffix.size()) {
-        size_t pos = abs_location.size() - target_suffix.size();
-        if (abs_location.compare(pos, std::string::npos, target_suffix) == 0) {
-          return abs_location + multidex_suffix;
-        }
+    // Check if the base is a suffix of the provided abs_dex_location.
+    std::string target_suffix = ((rel_dex_location[0] != '/') ? "/" : "") + base;
+    std::string abs_location(abs_dex_location);
+    if (abs_location.size() > target_suffix.size()) {
+      size_t pos = abs_location.size() - target_suffix.size();
+      if (abs_location.compare(pos, std::string::npos, target_suffix) == 0) {
+        return abs_location + multidex_suffix;
       }
     }
   }
