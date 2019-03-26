@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0907f600_07a34f03",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-26T15:00:52Z",
+      "side": 1,
+      "message": "We aren\u0027t?  Why not?  Don\u0027t we need to compile just one trampoline per unique signature?\n\nAlso, do we care that much?  The native method should be the next frame on the stack.",
+      "parentUuid": "acb392d9_5dd0a239",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
