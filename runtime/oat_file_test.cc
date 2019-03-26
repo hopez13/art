@@ -52,7 +52,7 @@ TEST_F(OatFileTest, ResolveRelativeEncodedDexLocation) {
         "/data/app/foo/base.apk", "base.apk!classes11.dex"));
 
   // Host and target differ in their way of handling locations
-  // that are prefix of one another, due to boot image files.
+  // that are not prefix of one another, due to boot image files.
   if (kIsTargetBuild) {
     EXPECT_EQ(std::string("/system/framework/base.apk"),
         OatFile::ResolveRelativeEncodedDexLocation(
