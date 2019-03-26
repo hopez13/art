@@ -562,8 +562,11 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
     // Location encoded in the oat file. We will use this for multidex naming,
     // see ResolveRelativeEncodedDexLocation.
     std::string oat_dex_file_location(dex_file_location_data, dex_file_location_size);
-    std::string dex_file_location =
+    std::string dex_file_name =
         ResolveRelativeEncodedDexLocation(abs_dex_location, oat_dex_file_location);
+    // ResolveRelativeEncodedDexLocation will always pick `abs_dex_location` on host.
+    // We still want to use `oat_dex_file_location` as the dex location though.
+    const std::string& dex_file_location = kIsTargetBuild ? dex_file_name : oat_dex_file_location;
 
     uint32_t dex_file_checksum;
     if (UNLIKELY(!ReadOatDexFileData(*this, &oat, &dex_file_checksum))) {
@@ -618,7 +621,7 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
                                            error_msg,
                                            uncompressed_dex_files_.get());
         } else {
-          loaded = dex_file_loader.Open(dex_file_location.c_str(),
+          loaded = dex_file_loader.Open(dex_file_name.c_str(),
                                         dex_file_location,
                                         /*verify=*/ false,
                                         /*verify_checksum=*/ false,
@@ -792,8 +795,7 @@ bool OatFileBase::Setup(int zip_fd, const char* abs_dex_location, std::string* e
       return false;
     }
 
-    std::string canonical_location =
-        DexFileLoader::GetDexCanonicalLocation(dex_file_location.c_str());
+    std::string canonical_location = DexFileLoader::GetDexCanonicalLocation(dex_file_name.c_str());
 
     // Create the OatDexFile and add it to the owning container.
     OatDexFile* oat_dex_file = new OatDexFile(this,
