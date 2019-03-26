@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "1119fa9d_28ab3dfb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-03-26T15:11:43Z",
+      "side": 1,
+      "message": "I am happy with it as is - the name is similar to the \"art_quick_generic_jni_trampoline\" and I like that consistency.\n\nI am willing to give in to peer pressure and add shortly in some form - though I am not sure how to format it exactly.\n\nI think the ransom boolean properties are overkill.",
+      "parentUuid": "8eb2abae_9e6e83da",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
