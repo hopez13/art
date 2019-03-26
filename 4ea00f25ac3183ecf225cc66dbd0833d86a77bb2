@@ -88,6 +88,24 @@
       "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ffcf68c_b6321674",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-26T09:46:37Z",
+      "side": 1,
+      "message": "Ah then please do if (kIsTargetBuild) { ... }.",
+      "parentUuid": "bf96a8df_3a305ba0",
+      "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
