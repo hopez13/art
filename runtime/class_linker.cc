@@ -1076,6 +1076,14 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
                        error_msg)) {
       return false;
     }
+    if (kIsDebugBuild) {
+      if (!boot_class_path_locations[i].empty() && boot_class_path_locations[i][0] == '/') {
+        for (const auto& dex_file : dex_files) {
+          DCHECK_EQ(DexFileLoader::GetBaseLocation(dex_file->GetLocation()),
+                    boot_class_path_locations[i]);
+        }
+      }
+    }
     // Append opened dex files at the end.
     boot_dex_files_.insert(boot_dex_files_.end(),
                            std::make_move_iterator(dex_files.begin()),
