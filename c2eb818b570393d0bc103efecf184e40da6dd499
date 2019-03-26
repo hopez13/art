@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d92b2d18_c030c422",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-26T17:22:40Z",
+      "side": 1,
+      "message": "I take it this list need to be updated whenever an exported library is added to the apex build rules in art/build/apex/Android.bp. It\u0027s unfortunate to have yet another place with duplicated config, but I suppose it\u0027s hard to avoid. As a stop gap measure, can you please add some commentary to the Android.bp file to remind devs that this needs updating?",
+      "revId": "c2eb818b570393d0bc103efecf184e40da6dd499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
