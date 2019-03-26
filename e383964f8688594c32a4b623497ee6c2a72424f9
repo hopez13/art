@@ -118,6 +118,30 @@
       "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd8dd4f_dc59186a",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-26T17:41:28Z",
+      "side": 1,
+      "message": "Well, Vladimir decided not to crash and throw that exception for the \"regular\" case. I think it makes sense to be consistent, but at least we discussed it, that\u0027s the important part.",
+      "parentUuid": "43e60280_98934e74",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
