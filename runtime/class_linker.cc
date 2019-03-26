@@ -1076,6 +1076,14 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
                        error_msg)) {
       return false;
     }
+    // Assert that if absolute boot classpath locations were provided, they were
+    // assigned to the loaded dex files.
+    if (kIsDebugBuild && IsAbsolutePath(boot_class_path_locations[i])) {
+      for (const auto& dex_file : dex_files) {
+        DCHECK_EQ(DexFileLoader::GetBaseLocation(dex_file->GetLocation()),
+                  boot_class_path_locations[i]);
+      }
+    }
     // Append opened dex files at the end.
     boot_dex_files_.insert(boot_dex_files_.end(),
                            std::make_move_iterator(dex_files.begin()),
