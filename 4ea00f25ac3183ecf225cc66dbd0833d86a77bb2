@@ -70,6 +70,24 @@
       "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf96a8df_3a305ba0",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-26T02:26:18Z",
+      "side": 1,
+      "message": "It\u0027s the failure from PS4 in git_master-art-host. You\u0027re right, it only \u0027fixes performance\u0027 in cases that don\u0027t matter right now.",
+      "parentUuid": "ab3537a1_79cb5394",
+      "revId": "4ea00f25ac3183ecf225cc66dbd0833d86a77bb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
