@@ -336,6 +336,24 @@
     },
     {
       "key": {
+        "uuid": "972b91d7_f211b7a1",
+        "filename": "compiler/optimizing/iv_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-26T14:37:46Z",
+      "side": 1,
+      "message": "Strength Reduction In Induction Variables\nAlgorithm: Main Modules\n \nFor-each phi in the header, \nS1) CheckPhiCandidate() - Find out if a phi is a basic induction        variable\nPhi must have 2 inputs\nIt should be a basic induction variable i.e, loop condition must be based on this phi\nIt should be incremented by a constant amount\n For-each instruction in the loop blocks,\nS2) IsCandidateForReduction(to_check, phi) - populates the candidate map\nto_check - instruction to check\nphi - the basic induction variable\nCandidate Map: Contains entries pertaining to derived induction variables denoted in the form of a tuple \u003ci, a, b\u003e for derived induction variable j \u003d i*a+b where i is the basic induction variable.\nFor addition operation, one operand must be a member of SCC and the other must be constant\nFor Subtraction operation, left operand must be a member of the SCC and the other must be a constant\nFor multiplication, one operand must be a phi and other must be a  constant\nIf the above criterion is satisfied, we put an entry in the candidate map as follows for example if i is a basic induction variable and there is a statement in the loop as j \u003d c*i, then an entry is placed in the map [ j, \u003ci, c, 0\u003e ] and for j\u003d j+c, an entry is placed as [j,\u003ci,1,c\u003e].\nHigh level algorithm for above function is given below:\n\n \n\nfor each basic induction variable i,\nfor each variable k with a single assignment to k within L, of the form k \u003d j ± b or k \u003d j * b where b is a constant, j is an induction variable,\ndo {\nif (j is a basic i.v.) {\n   then associate to k, the triple (j,1,±b) in the ﬁrst case and (j,b,0) in the second case.\n} \nelse {\n // j is a derived induction variable\n let j be associated with the triple (i,c,d) \n associate (i,c,d±b) with k in the ﬁrst case and (i,b*c,b*d) in the second case \n}\n\nS3) PerformReduction()- Remove Multiplication from the loop\n For each entry in the candidate map,\u003cj, \u003ci, a, b\u003e\u003e\nInsert into the preheader s \u003d a*i+b;\nReplace the definition of j in loop with j\u003d s\nImmediately after biv_increment statement, insert s\u003ds+a*c.",
+      "parentUuid": "1ae8a5aa_481f27ae",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ee4e837_785713d6",
         "filename": "compiler/optimizing/iv_simplifier.h",
         "patchSetId": 3
@@ -454,6 +472,24 @@
     },
     {
       "key": {
+        "uuid": "ce99df79_f96b8868",
+        "filename": "compiler/optimizing/iv_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-26T14:37:46Z",
+      "side": 1,
+      "message": "Hi,\n1. Unfortunately, I could not find any white paper for this optimization. Got the idea from the classroom lecture of link shared in above comment. \n2.I did not evaluate code size impact and compile time.\nThese are the benchmarks that we ran for evaluation.\nBenchmark Name\t        \tResult %\t\nSPECjvm2008-1T\t\n        compiler.compiler\t1.01\t\n\tcompiler.sunflow\t0.08\t\n\tcompress\t        -0.53\t\n\tcrypto.aes\t        0.04\t\n\tcrypto.rsa\t        -0.06\t\n\tcrypto.signverify\t0.09\t\n\tmpegaudio\t        -0.03\t\n\tscimark.fft.small\t0.2\t\n\tscimark.fft.large\t-5.4\t(varinace\u003d3.8%)\n\tscimark.lu.small\t0.35\t\n\tscimark.lu.large\t0\t\n\tscimark_montecarlo\t0\t\n\tscimark.sor.small\t-0.04\t\n\tscimark.sor.large\t-0.34\t\n\tscimark.sparse.small\t0.1\t\n\tscimark.sparse.large\t0.09\t\n\tserial\t                0.45\t\n\tsunflow\t                0.83\t\n\txml.transform\t        -1.19\t\n\txml.validation\t        2.29\t\nSPECjvm2008-4T\t\n        compiler.compiler\t-0.16\t\n\tcompiler.sunflow\t1.7\t\n\tcompress\t        0.32\t\n\tcrypto.aes\t        -0.06\t\n\tcrypto.rsa\t        -0.02\t\n\tcrypto.signverify\t 0.17\t\n\tmpegaudio\t         0.12\t\n\tscimark.fft.small\t-0.05\t\n\tscimark.fft.large\t-7.28\t\n\tscimark.lu.small\t0\t\n\tscimark.lu.large\t1.43\t\n\tscimark_montecarlo\t0\t\n\tscimark.sor.small\t0.01\t\n\tscimark.sor.large\t0.24\t\n\tscimark.sparse.small\t0.04\t\n\tscimark.sparse.large\t-1.63\t\n\tserial\t                 0.02\t\n\tsunflow\t                 0.72\t\n\txml.transform\t         0.06\t\n\txml.validation\t         -0.35\t\nDhrystone\t\t         -0.98\t(variance\u003d2.1%)\nJGF\t\n        ArithRuntime\t         0.01\t\n\tCastRuntime\t         0\t\n\tMathRuntime\t        -0.02\t\nBinary Trees\t\t        10\t\nChameneosredux\t\t        10\t\nMandleBrot\t\t        1.19\t\nSpecJbb2005\t\t        0.76\t\nVellamo-3.2.6\t\n        Browser\t                -0.74\t\n\tMetal\t                0.16\t\n\tMultiCore\t        -1.37\t\nAnTuTu-6.1.4\t\t        -0.37",
+      "parentUuid": "ff895c6c_e8f56498",
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa8e64df_726c2d38",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -513,6 +549,30 @@
       "side": 1,
       "message": "Are you sure that it is safe to call TryOptimizeInnerLoopFinite again after called itself and after TryInductionVarSimplification? that you don\u0027t need to adjust some info, e.g. induction analysis info?",
       "parentUuid": "48838fac_d912c539",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 14
+      },
+      "revId": "73f52e73d627dc6f3dce21bc0a3879c12cdacc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e804ca_afce33b0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-03-26T14:37:46Z",
+      "side": 1,
+      "message": "It is safe because \n1. We are calling TryOptimizeInnerLoopFinite() second time only if the loop structure was not simplified the first time. If it was an empty or a trivial loop whose subsequent index uses can be replaced with the last value and loop can be removed possibly after unrolling its body, we anyway are not calling TryOptimizeInnerLoopFinite() or TryInductionVarSimplification() for the second time.\n2. InductionVarSimplification() does not affect the trip count of the loop and  other basic properties which are used by peeling and unrolling such as instr_num_, bb_num_, invariant_exits_num_, exits_num_ are anyway being calculated in loop_analysis::CalculateLoopBasicProperties(). So I thought, we need not compute induction analysis info again for the loop. But to be on the safer side, I will recompute the induction analysis info.\n3. In the other case where the InductionVarSimplification() was unsuccessful, flow remains the same.",
+      "parentUuid": "c39b700b_31b967bc",
       "range": {
         "startLine": 777,
         "startChar": 0,
