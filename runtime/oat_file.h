@@ -334,7 +334,10 @@ class OatFile {
   // Initialize relocation sections (.data.bimg.rel.ro and .bss).
   void InitializeRelocations() const;
 
-  // Returns the absolute dex location for the encoded relative dex location.
+  // Constructs the absolute dex location and/or dex file name for the encoded
+  // relative dex location (`rel_dex_location`). These differ when cross compiling
+  // as we want to open dex files using the dex file name (host path) and assign
+  // the target path as its dex location.
   //
   // If not null, abs_dex_location is used to resolve the absolute dex
   // location of relative dex locations encoded in the oat file.
@@ -343,8 +346,13 @@ class OatFile {
   // to "/data/app/foo/base.apk", "/data/app/foo/base.apk!classes2.dex", etc.
   // Relative encoded dex locations that don't match the given abs_dex_location
   // are left unchanged.
-  static std::string ResolveRelativeEncodedDexLocation(
-      const char* abs_dex_location, const std::string& rel_dex_location);
+  //
+  // Computation of both `dex_file_location` and `dex_file_name` can be skipped
+  // by setting the corresponding out parameter to `nullptr`.
+  static void ResolveRelativeEncodedDexLocation(const char* abs_dex_location,
+                                                const std::string& rel_dex_location,
+                                                /* out */ std::string* dex_file_location,
+                                                /* out */ std::string* dex_file_name = nullptr);
 
   // Finds the associated oat class for a dex_file and descriptor. Returns an invalid OatClass on
   // error and sets found to false.
