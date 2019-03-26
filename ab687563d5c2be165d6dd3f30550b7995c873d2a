@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8eb2abae_9e6e83da",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-26T15:06:02Z",
+      "side": 1,
+      "message": "My bad. We _are_ deduplicating and the key is (shorty, is_static, is_fast_native, is_critical_native, is_synchronized). So, how much of the key do we want to expose?",
+      "parentUuid": "0907f600_07a34f03",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
