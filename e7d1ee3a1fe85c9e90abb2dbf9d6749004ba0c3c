@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5e0c2794_cb922ffc",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "This is only called from InMemoryDexClassLoader constructor and at this point those dex files are never backed by an oat file. In a later CL I add a check in libcore to only call this when not backed by an oat file (there is a DexFile.isBackedByOat method)",
+      "parentUuid": "239a8369_f5e64a17",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e2da45b_0b119ce2",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31192185_1295047e",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2da45b_0b119ce2",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 36
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b1cf84ce_fa347e57",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "No, it\u0027s done lazily on first call to defineClass(). Comment added.",
+      "parentUuid": "05c89bea_b14bc1bb",
+      "range": {
+        "startLine": 666,
+        "startChar": 3,
+        "endLine": 666,
+        "endChar": 46
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cd8d631_6bb89479",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2019-03-22T11:29:57Z",
       "side": 1,
       "message": "Why isn\u0027t this local? Can you create a pool per bg verfication request?",
+      "range": {
+        "startLine": 734,
+        "startChar": 6,
+        "endLine": 734,
+        "endChar": 31
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68164273_cd798c88",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "I don\u0027t want to spawn a potentially unlimited number of threads. One should be enough and this will queue the jobs automatically.",
+      "parentUuid": "4cd8d631_6bb89479",
       "range": {
         "startLine": 734,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9a5f1e40_fd88014b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38d67de_bc795f77",
+      "range": {
+        "startLine": 735,
+        "startChar": 79,
+        "endLine": 735,
+        "endChar": 83
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06b24bf3_ac1a51d7",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28f9441_f3d4d9d1",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T15:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06b24bf3_ac1a51d7",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 44
+      },
+      "revId": "e7d1ee3a1fe85c9e90abb2dbf9d6749004ba0c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
