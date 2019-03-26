@@ -94,6 +94,30 @@
       "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43e60280_98934e74",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T17:39:13Z",
+      "side": 1,
+      "message": "Ah, that\u0027s what you mean. If they move the elements to a different class loader, this will indeed crash. That was intended on my part because the use cases we have seen do not instantiate InMemDexCL but call DexPathList.makeInMemoryDexElements via reflection and I\u0027m preserving that (makeInMemoryDexElements will not invoke the bg thread).\n\nDo you think it\u0027s too harsh to crash here? There will be a race and if the bg thread wins it, the app won\u0027t be able to define any classes from that class loader anyway. LOG(FATAL) makes it clear that something is not right.",
+      "parentUuid": "d174ef80_c6d32feb",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
