@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "acb392d9_5dd0a239",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-26T14:55:23Z",
+      "side": 1,
+      "message": "I\u0027m torn between consistency and information. The \"trampoline\" corresponds to a Java activation. If possible, native and Java stack should match.",
+      "parentUuid": "6daaa35e_bbebd58f",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
