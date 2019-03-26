@@ -142,6 +142,30 @@
       "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f31f9ecb_46500017",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-26T17:45:55Z",
+      "side": 1,
+      "message": "I thought I was being consistent with this:\nhttps://cs.corp.google.com/aosp-master/art/runtime/entrypoints/entrypoint_utils-inl.h?rcl\u003d338403c9000a4ff8fbb73fd107fce25801345626\u0026l\u003d99\n\ni.e. make sure legacy apps don\u0027t crash (makeInMemoryDexElements) and crash for new users.",
+      "parentUuid": "cbd8dd4f_dc59186a",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
