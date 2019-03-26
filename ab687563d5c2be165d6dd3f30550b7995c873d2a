@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "fc30b080_302edfa8",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-26T15:40:31Z",
+      "side": 1,
+      "message": "As discussed offline, we should either add all the information or none. If no one else has any objections, you can submit as is.",
+      "parentUuid": "1119fa9d_28ab3dfb",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
@@ -105,6 +123,24 @@
       "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45b8074f_2f00daef",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-26T15:40:31Z",
+      "side": 1,
+      "message": "See discussion in the other file.",
+      "parentUuid": "44b24edf_61104ce0",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
