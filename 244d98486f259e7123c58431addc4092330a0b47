@@ -22,6 +22,30 @@
       "revId": "244d98486f259e7123c58431addc4092330a0b47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96a51b99_5f846099",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1167564
+      },
+      "writtenOn": "2019-03-26T00:39:45Z",
+      "side": 1,
+      "message": "I considered about it.\nBut Dex2Oat doesn\u0027t call Runtime::Start().\nSo Runtime::IsStarted() returns false even after runtime is ready.",
+      "parentUuid": "31fbf78e_2a7154fa",
+      "range": {
+        "startLine": 590,
+        "startChar": 27,
+        "endLine": 590,
+        "endChar": 34
+      },
+      "revId": "244d98486f259e7123c58431addc4092330a0b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
