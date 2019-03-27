@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74e4fac3_691fadf4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T09:26:00Z",
+      "side": 1,
+      "message": "Add a comment what this check is for.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 5
+      },
+      "revId": "6e370d53d6da72de2aa59a98f9f5b00359ba5a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2568aabc_8d5a6032",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T09:26:00Z",
+      "side": 1,
+      "message": "Add a comment: dex_file_name is the location we are actually going to open.",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 566,
+        "endChar": 83
+      },
+      "revId": "6e370d53d6da72de2aa59a98f9f5b00359ba5a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
