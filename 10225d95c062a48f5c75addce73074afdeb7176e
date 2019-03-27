@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee6d50a9_a3309bf9",
+        "filename": "runtime/mirror/method_handles_lookup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-27T17:06:42Z",
+      "side": 1,
+      "message": "Added to https://android-review.googlesource.com/934222 .",
+      "parentUuid": "b3b658ff_a88714cf",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 103
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3c15a79_134d4df5",
         "filename": "runtime/mirror/method_type.cc",
         "patchSetId": 2
