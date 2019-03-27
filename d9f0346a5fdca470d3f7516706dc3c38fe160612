@@ -94,6 +94,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56638a0_febc27fa",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T12:57:58Z",
+      "side": 1,
+      "message": "I feel like this isn\u0027t the place to do such checks - I\u0027d much rather have a kIsDebugBuild sanity check in the constructor of the stack walker which will walk the stack and ensure that if needs_vreg_info_ is passed (should this really be called \"expect_stack_maps_to_contain_vregs\" ?) then walks the stack and verifies they all contain vreg info ?",
+      "parentUuid": "78f2c89e_02a1cd08",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
