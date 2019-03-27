@@ -46,6 +46,29 @@
       "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87d6d756_d065d764",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T16:52:07Z",
+      "side": 1,
+      "message": "Is think there\u0027s some element of \"Are we cross compiling\" in that logic, yet we\u0027re doing a ton of dancing to get there. Would knowing whether we\u0027re cross compiling help the readability?",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 36
+      },
+      "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
