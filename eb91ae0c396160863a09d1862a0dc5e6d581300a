@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7241403_260ef27e",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T16:54:22Z",
+      "side": 1,
+      "message": "DexPath ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 45,
+        "endLine": 56,
+        "endChar": 53
+      },
+      "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98d9bf18_a38d82ea",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T16:54:22Z",
+      "side": 1,
+      "message": "Add a comment what is the dex location for the in memory dex file here? Why isn\u0027t it the magic marker?",
+      "range": {
+        "startLine": 1065,
+        "startChar": 32,
+        "endLine": 1065,
+        "endChar": 62
+      },
+      "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
