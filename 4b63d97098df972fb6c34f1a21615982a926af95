@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e63673cc_55d251e2",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-27T19:46:53Z",
+      "side": 0,
+      "message": "This reverts aosp/932857 too. Shouldn\u0027t this assignment just be changed to LOCAL_REQUIRED_MODULES to functionally revert only aosp/931900?",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 27
+      },
+      "revId": "4b63d97098df972fb6c34f1a21615982a926af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
