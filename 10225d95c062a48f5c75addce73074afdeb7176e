@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "0b8bb779_7b454271",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-27T17:03:43Z",
+      "side": 1,
+      "message": "Cleanup CL: https://android-review.googlesource.com/934222",
+      "parentUuid": "de2efc35_683c0f6d",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d01d3375_5958b117",
         "filename": "runtime/mirror/var_handle_test.cc",
         "patchSetId": 2
