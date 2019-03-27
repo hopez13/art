@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b3b658ff_a88714cf",
+        "filename": "runtime/mirror/method_handles_lookup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-27T16:51:25Z",
+      "side": 1,
+      "message": "Line is too long",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 103
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3c15a79_134d4df5",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-03-27T16:51:25Z",
+      "side": 1,
+      "message": "Not required on definition.",
+      "range": {
+        "startLine": 98,
+        "startChar": 35,
+        "endLine": 98,
+        "endChar": 73
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de2efc35_683c0f6d",
         "filename": "runtime/mirror/method_type.cc",
         "patchSetId": 2
