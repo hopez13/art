@@ -234,6 +234,30 @@
       "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aab2a283_72b8cd55",
+        "filename": "runtime/mirror/var_handle_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-03-27T17:45:53Z",
+      "side": 1,
+      "message": "Fewer characters, still not convinced about clarity or the naming as these test the method type corresponding to the access mode matches expectations. \"test_mode\" doesn\u0027t reflect this.",
+      "parentUuid": "8ea6ad10_c58ee5c1",
+      "range": {
+        "startLine": 520,
+        "startChar": 9,
+        "endLine": 520,
+        "endChar": 18
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
