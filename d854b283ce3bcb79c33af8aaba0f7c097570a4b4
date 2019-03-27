@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "26cf9882_ee3423ba",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T17:10:29Z",
+      "side": 1,
+      "message": "Can dex_file_name be abs_dex_location ?\nThen you\u0027re back to dex_file_location doing some magic in ResolveRelativeEncodedDexLocation.",
+      "range": {
+        "startLine": 568,
+        "startChar": 16,
+        "endLine": 568,
+        "endChar": 29
+      },
+      "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb48a34e_406c7412",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 8
