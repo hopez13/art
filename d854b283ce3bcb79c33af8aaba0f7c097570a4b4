@@ -69,6 +69,30 @@
       "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9f78a58_ec62312c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-27T17:06:10Z",
+      "side": 1,
+      "message": "I\u0027ve been thinking that having a --preopt command line flag would at least make it possible to distinguish between host4host and host-preopt modes. host4host should be fairly similar to target.\n\nBut this whole thing is a *bit* of a mess, IMHO. The term \"location\" can mean a lot of different things in different places. Giving that more structure would go a long way.",
+      "parentUuid": "87d6d756_d065d764",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 36
+      },
+      "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
