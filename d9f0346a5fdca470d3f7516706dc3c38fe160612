@@ -142,6 +142,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50233b3b_f95c4b9a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-27T18:00:29Z",
+      "side": 1,
+      "message": "It seems that what you are suggesting will cause 2 stack frames traversal instead of one and also will bring some implications that stack should be ready to be walked not when \"WalkStack\" is called but at the constructor time.\n\nWhat about checking the stackmap when visiting a particular frame? Something like having a wrapper function and call it instead of VisitFrame in WalkStack?\n\n  // A wrapper for VisitFrame function which conditionally checks the presence of vreg info for\n  // quick frames. See comments for needs_vreg_info_.\n  bool VisitFrameWrapper() REQUIRES_SHARED(Locks::mutator_lock_) {\n    // Check that vreg info is present for the frame.\n    if (kIsDebugBuild \u0026\u0026 needs_vreg_info_) {\n      CheckFrameForVRegInfo();\n    }\n    return VisitFrame();\n  }\n\nThe next step would be to have DebuggableStackVisitor class to replace that needs_vreg_info_ flag.",
+      "parentUuid": "4f844c0d_faf44cb3",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
