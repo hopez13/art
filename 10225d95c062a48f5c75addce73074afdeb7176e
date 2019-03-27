@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de2efc35_683c0f6d",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-27T16:15:56Z",
+      "side": 1,
+      "message": "I\u0027d suggest rewriting this (and other similar declarations below) as:\n\n  const ObjPtr\u003cObjectArray\u003cClass\u003e\u003e\n\nas that\u0027s the style in use in ART (possibly in a follow-up clean-up CL).",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
