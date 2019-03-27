@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "688a5f17_6384aa94",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-27T09:44:17Z",
+      "side": 1,
+      "message": "Also, does this affect 137-cfi?",
+      "parentUuid": "fc30b080_302edfa8",
+      "revId": "ab687563d5c2be165d6dd3f30550b7995c873d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "44b24edf_61104ce0",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 1
