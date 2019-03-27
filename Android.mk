@@ -441,12 +441,12 @@ endif
 
 include $(BUILD_PHONY_PACKAGE)
 
-# The art-tools package depends on helpers and tools that are useful for developers. Similar
-# dependencies exist for the APEX builds for these tools (see build/apex/Android.bp).
+# The art-tools package depends on helpers and tools that are useful for developers and on-device
+# investigations.
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := art-tools
-LOCAL_HOST_REQUIRED_MODULES := \
+LOCAL_REQUIRED_MODULES := \
     ahat \
     dexdiag \
     dexdump \
