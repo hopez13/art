@@ -22,6 +22,30 @@
       "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3862046_4c11c562",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-27T16:22:24Z",
+      "side": 1,
+      "message": "All three of these variables contain the multidex suffix. I was actually considering making the DCHECK in ClassLinker even stricter and checking that it\u0027s there.",
+      "parentUuid": "bb48a34e_406c7412",
+      "range": {
+        "startLine": 577,
+        "startChar": 14,
+        "endLine": 577,
+        "endChar": 35
+      },
+      "revId": "d854b283ce3bcb79c33af8aaba0f7c097570a4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
