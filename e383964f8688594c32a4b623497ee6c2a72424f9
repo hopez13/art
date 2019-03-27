@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8ad258ef_d6124747",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T09:51:19Z",
+      "side": 1,
+      "message": "Why isn\u0027t a handle good enough?",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 98
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc296793_edfe00b4",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 10
@@ -157,6 +180,30 @@
       "side": 1,
       "message": "I thought I was being consistent with this:\nhttps://cs.corp.google.com/aosp-master/art/runtime/entrypoints/entrypoint_utils-inl.h?rcl\u003d338403c9000a4ff8fbb73fd107fce25801345626\u0026l\u003d99\n\ni.e. make sure legacy apps don\u0027t crash (makeInMemoryDexElements) and crash for new users.",
       "parentUuid": "cbd8dd4f_dc59186a",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb85a59a_6172d995",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-27T09:51:19Z",
+      "side": 1,
+      "message": "I\u0027d argue a failing RegisterDexFile shouldn\u0027t crash, or we should be consistent and have the crash happen inside RegisterDexfile.",
+      "parentUuid": "f31f9ecb_46500017",
       "range": {
         "startLine": 675,
         "startChar": 7,
