@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "a2134ec3_ad9a2eb7",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-03-27T17:03:24Z",
+      "side": 1,
+      "message": "Drop",
+      "range": {
+        "startLine": 98,
+        "startChar": 35,
+        "endLine": 98,
+        "endChar": 73
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "de2efc35_683c0f6d",
         "filename": "runtime/mirror/method_type.cc",
         "patchSetId": 2
@@ -64,6 +87,29 @@
         "startChar": 2,
         "endLine": 99,
         "endChar": 34
+      },
+      "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d01d3375_5958b117",
+        "filename": "runtime/mirror/var_handle_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-03-27T17:03:24Z",
+      "side": 1,
+      "message": "Helper method rather than cut-and-pasting lambda?\n\nTesting method type rather than mode.",
+      "range": {
+        "startLine": 520,
+        "startChar": 9,
+        "endLine": 520,
+        "endChar": 18
       },
       "revId": "10225d95c062a48f5c75addce73074afdeb7176e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
