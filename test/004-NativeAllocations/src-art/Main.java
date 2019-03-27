@@ -23,6 +23,7 @@ public class Main {
     static Object deadlockLock = new Object();
     static VMRuntime runtime = VMRuntime.getRuntime();
     static volatile boolean aboutToDeadlock = false;
+    static final long MAX_EXPECTED_GC_DURATION_MS = 2000;
 
     // Save ref as a static field to ensure it doesn't get GC'd before the
     // referent is enqueued.
@@ -61,14 +62,14 @@ public class Main {
             // Sleep a little bit to ensure not all of the calls to
             // registerNativeAllocation complete while GC is in the process of
             // running.
-            Thread.sleep(maxExpectedGcDurationMs / allocationCount);
+            Thread.sleep(MAX_EXPECTED_GC_DURATION_MS / allocationCount);
         }
 
         // Wait up to maxExpectedGcDurationMs to give GC a chance to finish
         // running. If the reference isn't enqueued after that, then it is
         // pretty unlikely (though technically still possible) that GC was
         // triggered as intended.
-        if (queue.remove(maxExpectedGcDurationMs) == null) {
+        if (queue.remove(MAX_EXPECTED_GC_DURATION_MS) == null) {
             throw new RuntimeException("GC failed to complete");
         }
 
@@ -78,15 +79,18 @@ public class Main {
         }
     }
 
-    // Call registerNativeAllocation repeatedly at a high rate to trigger the
-    // case of blocking registerNativeAllocation.
+    // Call registerNativeAllocation repeatedly at a high rate to trigger the case of blocking
+    // registerNativeAllocation. Stop before we risk exhausting the finalizer timeout.
     private static void triggerBlockingRegisterNativeAllocation() throws Exception {
+        final long startTime = System.currentTimeMillis();
+        final long finalizerTimeoutMs = VMRuntime.getRuntime().getFinalizerTimeoutMs();
+        final long quittingTime = startTime + finalizerTimeoutMs - 2 * MAX_EXPECTED_GC_DURATION_MS;
         long maxMem = Runtime.getRuntime().maxMemory();
         int size = (int)(maxMem / 5);
         int allocationCount = 10;
 
         long total = 0;
-        for (int i = 0; i < allocationCount; ++i) {
+        for (int i = 0; i < allocationCount && System.currentTimeMillis() < quittingTime; ++i) {
             runtime.registerNativeAllocation(size);
             total += size;
         }
