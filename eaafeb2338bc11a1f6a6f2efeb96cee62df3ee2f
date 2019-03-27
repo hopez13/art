@@ -22,6 +22,30 @@
       "revId": "eaafeb2338bc11a1f6a6f2efeb96cee62df3ee2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a4ce10_fd00fcc5",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-03-27T15:04:07Z",
+      "side": 1,
+      "message": "To make it more descriptive. I can\u0027t say I understand what \"first\" is supposed to mean in this context - I had to look at the implementations repeatedly to find out.",
+      "parentUuid": "be12a06d_f54685b9",
+      "range": {
+        "startLine": 559,
+        "startChar": 24,
+        "endLine": 559,
+        "endChar": 32
+      },
+      "revId": "eaafeb2338bc11a1f6a6f2efeb96cee62df3ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
