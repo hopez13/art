@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a84ff827_92ff66ea",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-28T15:41:44Z",
+      "side": 1,
+      "message": "Isn\u0027t this reserved for AOT verification?",
+      "range": {
+        "startLine": 716,
+        "startChar": 14,
+        "endLine": 716,
+        "endChar": 46
+      },
+      "revId": "34f323338f90743afc5daf8a6b3400975f816389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
