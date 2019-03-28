@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d85d34b_b18e2cb3",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-28T15:23:11Z",
+      "side": 1,
+      "message": "Ehhh... We don\u0027t have a HandleScope that would do that.",
+      "parentUuid": "8ad258ef_d6124747",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 98
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc296793_edfe00b4",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 10
