@@ -42,6 +42,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_reference.h"
+#include "mirror/reference-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
@@ -583,8 +584,10 @@ class ConcurrentCopying::VerifyGrayImmuneObjectsVisitor {
   void operator()(ObjPtr<mirror::Object> obj, MemberOffset offset, bool /* is_static */)
       const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
-    CheckReference(obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset),
-                   obj, offset);
+    CheckReference(
+        obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset).Ptr(),
+        obj,
+        offset);
   }
 
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref) const
@@ -629,7 +632,7 @@ class ConcurrentCopying::VerifyGrayImmuneObjectsVisitor {
       } else {
         // Make sure the large object class is immune since we will never scan the large object.
         CHECK(collector_->immune_spaces_.ContainsObject(
-            ref->GetClass<kVerifyNone, kWithoutReadBarrier>()));
+            ref->GetClass<kVerifyNone, kWithoutReadBarrier>().Ptr()));
       }
     }
   }
@@ -667,7 +670,7 @@ class ConcurrentCopying::VerifyNoMissingCardMarkVisitor {
       REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
     if (offset.Uint32Value() != mirror::Object::ClassOffset().Uint32Value()) {
      CheckReference(obj->GetFieldObject<mirror::Object, kDefaultVerifyFlags, kWithoutReadBarrier>(
-         offset), offset.Uint32Value());
+         offset).Ptr(), offset.Uint32Value());
     }
   }
   void operator()(ObjPtr<mirror::Class> klass,
@@ -1046,7 +1049,8 @@ class ConcurrentCopying::ComputeLiveBytesAndMarkRefFieldsVisitor {
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
     DCHECK_EQ(collector_->RegionSpace()->RegionIdxForRef(obj), obj_region_idx_);
     DCHECK(kHandleInterRegionRefs || collector_->immune_spaces_.ContainsObject(obj));
-    CheckReference(obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset));
+    CheckReference(
+        obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset).Ptr());
   }
 
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref) const
@@ -1369,9 +1373,9 @@ void ConcurrentCopying::ScanDirtyObject(mirror::Object* obj) {
   // referent is not marked yet. This is to ensure that if GetReferent() is
   // called, it triggers the read-barrier to process the referent before use.
   if (UNLIKELY((obj->GetClass<kVerifyNone, kWithoutReadBarrier>()->IsTypeOfReferenceClass()))) {
-    mirror::Object* referent =
+    ObjPtr<mirror::Object> referent =
         obj->AsReference<kVerifyNone, kWithoutReadBarrier>()->GetReferent<kWithoutReadBarrier>();
-    if (referent != nullptr && !IsInToSpace(referent)) {
+    if (referent != nullptr && !IsInToSpace(referent.Ptr())) {
       obj->AtomicSetReadBarrierState(ReadBarrier::NonGrayState(), ReadBarrier::GrayState());
     }
   }
@@ -1856,10 +1860,10 @@ class ConcurrentCopying::VerifyNoFromSpaceRefsFieldVisitor {
                   MemberOffset offset,
                   bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
-    mirror::Object* ref =
+    ObjPtr<mirror::Object> ref =
         obj->GetFieldObject<mirror::Object, kDefaultVerifyFlags, kWithoutReadBarrier>(offset);
     VerifyNoFromSpaceRefsVisitor visitor(collector_);
-    visitor(ref, offset, obj.Ptr());
+    visitor(ref.Ptr(), offset, obj.Ptr());
   }
   void operator()(ObjPtr<mirror::Class> klass,
                   ObjPtr<mirror::Reference> ref) const
@@ -1951,9 +1955,9 @@ class ConcurrentCopying::AssertToSpaceInvariantFieldVisitor {
                   MemberOffset offset,
                   bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
-    mirror::Object* ref =
+    ObjPtr<mirror::Object> ref =
         obj->GetFieldObject<mirror::Object, kDefaultVerifyFlags, kWithoutReadBarrier>(offset);
-    collector_->AssertToSpaceInvariant(obj.Ptr(), offset, ref);
+    collector_->AssertToSpaceInvariant(obj.Ptr(), offset, ref.Ptr());
   }
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
@@ -2236,10 +2240,10 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
         << " runtime->sentinel=" << Runtime::Current()->GetSentinel().Read<kWithoutReadBarrier>();
   }
 #ifdef USE_BAKER_OR_BROOKS_READ_BARRIER
-  mirror::Object* referent = nullptr;
+  ObjPtr<mirror::Object> referent = nullptr;
   if (UNLIKELY((to_ref->GetClass<kVerifyNone, kWithoutReadBarrier>()->IsTypeOfReferenceClass() &&
                 (referent = to_ref->AsReference()->GetReferent<kWithoutReadBarrier>()) != nullptr &&
-                !IsInToSpace(referent)))) {
+                !IsInToSpace(referent.Ptr())))) {
     // Leave this reference gray in the queue so that GetReferent() will trigger a read barrier. We
     // will change it to non-gray later in ReferenceQueue::DisableReadBarrierForReference.
     DCHECK(to_ref->AsReference()->GetPendingNext() != nullptr)
@@ -3091,7 +3095,7 @@ inline void ConcurrentCopying::Process(mirror::Object* obj, MemberOffset offset)
   DCHECK(!kNoUnEvac || use_generational_cc_);
   DCHECK_EQ(Thread::Current(), thread_running_gc_);
   mirror::Object* ref = obj->GetFieldObject<
-      mirror::Object, kVerifyNone, kWithoutReadBarrier, false>(offset);
+      mirror::Object, kVerifyNone, kWithoutReadBarrier, false>(offset).Ptr();
   mirror::Object* to_ref = Mark</*kGrayImmuneObject=*/false, kNoUnEvac, /*kFromGCThread=*/true>(
       thread_running_gc_,
       ref,
@@ -3314,7 +3318,7 @@ mirror::Object* ConcurrentCopying::Copy(Thread* const self,
   DCHECK(region_space_->IsInFromSpace(from_ref));
   // If the class pointer is null, the object is invalid. This could occur for a dangling pointer
   // from a previous GC that is either inside or outside the allocated region.
-  mirror::Class* klass = from_ref->GetClass<kVerifyNone, kWithoutReadBarrier>();
+  ObjPtr<mirror::Class> klass = from_ref->GetClass<kVerifyNone, kWithoutReadBarrier>();
   if (UNLIKELY(klass == nullptr)) {
     // Remove memory protection from the region space and log debugging information.
     region_space_->Unprotect();

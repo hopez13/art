@@ -30,6 +30,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-inl.h"
+#include "mirror/reference-inl.h"
 #include "space_bitmap-inl.h"
 #include "thread.h"
 
@@ -82,7 +83,7 @@ class RememberedSetReferenceVisitor {
 
   void operator()(ObjPtr<mirror::Class> klass, ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
-    if (target_space_->HasAddress(ref->GetReferent())) {
+    if (target_space_->HasAddress(ref->GetReferent().Ptr())) {
       *contains_reference_to_target_space_ = true;
       collector_->DelayReferenceReferent(klass, ref);
     }

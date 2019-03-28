@@ -88,7 +88,7 @@ static mirror::Class* SafeGetClass(mirror::Object* obj) REQUIRES_SHARED(Locks::m
   CHECK_NE(-1, rc);
 
   if (kVerifySafeImpls) {
-    mirror::Class* actual_class = obj->GetClass<kVerifyNone>();
+    ObjPtr<mirror::Class> actual_class = obj->GetClass<kVerifyNone>();
     CHECK_EQ(actual_class, cls.AsMirrorPtr());
   }
 

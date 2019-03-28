@@ -92,7 +92,7 @@ struct MappingData {
   std::set<size_t> dirty_page_set;
 };
 
-static std::string GetClassDescriptor(mirror::Class* klass)
+static std::string GetClassDescriptor(ObjPtr<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   CHECK(klass != nullptr);
 
@@ -396,19 +396,19 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
   void VisitEntry(mirror::Object* entry)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     // Unconditionally store the class descriptor in case we need it later
-    mirror::Class* klass = entry->GetClass();
-    class_data_[klass].descriptor = GetClassDescriptor(klass);
+    ObjPtr<mirror::Class> klass = entry->GetClass();
+    class_data_[klass.Ptr()].descriptor = GetClassDescriptor(klass);
   }
 
   void AddCleanEntry(mirror::Object* entry)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    class_data_[entry->GetClass()].AddCleanObject();
+    class_data_[entry->GetClass().Ptr()].AddCleanObject();
   }
 
   void AddFalseDirtyEntry(mirror::Object* entry)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     RegionCommon<mirror::Object>::AddFalseDirtyEntry(entry);
-    class_data_[entry->GetClass()].AddFalseDirtyObject(entry);
+    class_data_[entry->GetClass().Ptr()].AddFalseDirtyObject(entry);
   }
 
   void AddDirtyEntry(mirror::Object* entry, mirror::Object* entry_remote)
@@ -417,7 +417,7 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
     ++different_entries_;
     dirty_entry_bytes_ += entry_size;
     // Log dirty count and objects for class objects only.
-    mirror::Class* klass = entry->GetClass();
+    ObjPtr<mirror::Class> klass = entry->GetClass();
     if (klass->IsClassClass()) {
       // Increment counts for the fields that are dirty
       const uint8_t* current = reinterpret_cast<const uint8_t*>(entry);
@@ -429,7 +429,7 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
       }
       dirty_entries_.push_back(entry);
     }
-    class_data_[klass].AddDirtyObject(entry, entry_remote);
+    class_data_[klass.Ptr()].AddDirtyObject(entry, entry_remote);
   }
 
   void DiffEntryContents(mirror::Object* entry,
@@ -439,7 +439,7 @@ class RegionSpecializedBase<mirror::Object> : public RegionCommon<mirror::Object
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const char* tabs = "    ";
     // Attempt to find fields for all dirty bytes.
-    mirror::Class* klass = entry->GetClass();
+    ObjPtr<mirror::Class> klass = entry->GetClass();
     if (entry->IsClass()) {
       os_ << tabs
           << "Class " << mirror::Class::PrettyClass(entry->AsClass()) << " " << entry << "\n";

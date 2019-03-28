@@ -112,7 +112,7 @@ inline void Heap::VisitObjectsInternal(Visitor&& visitor) {
   for (auto* it = allocation_stack_->Begin(), *end = allocation_stack_->End(); it < end; ++it) {
     mirror::Object* const obj = it->AsMirrorPtr();
 
-    mirror::Class* kls = nullptr;
+    ObjPtr<mirror::Class> kls = nullptr;
     if (obj != nullptr && (kls = obj->GetClass()) != nullptr) {
       // Below invariant is safe regardless of what space the Object is in.
       // For speed reasons, only perform it when Rosalloc could possibly be used.
@@ -134,7 +134,7 @@ inline void Heap::VisitObjectsInternal(Visitor&& visitor) {
         //
         // Either way dereferencing while its not-null is safe because it will
         // always point to another valid pointer or to null.
-        mirror::Class* klsClass = kls->GetClass();
+        ObjPtr<mirror::Class> klsClass = kls->GetClass();
 
         if (klsClass == nullptr) {
           continue;

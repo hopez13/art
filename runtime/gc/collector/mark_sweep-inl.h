@@ -36,8 +36,7 @@ inline void MarkSweep::ScanObjectVisit(mirror::Object* obj,
   DCHECK(IsMarked(obj)) << "Scanning unmarked object " << obj << "\n" << heap_->DumpSpaces();
   obj->VisitReferences(visitor, ref_visitor);
   if (kCountScannedTypes) {
-    mirror::Class* klass = obj->GetClass<kVerifyNone>();
-    uint32_t class_flags = klass->GetClassFlags();
+    uint32_t class_flags = obj->GetClass<kVerifyNone>()->GetClassFlags();
     if ((class_flags & mirror::kClassFlagNoReferenceFields) != 0) {
       ++no_reference_class_count_;
     } else if (class_flags == mirror::kClassFlagNormal) {

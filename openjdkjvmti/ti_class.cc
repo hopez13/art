@@ -487,7 +487,7 @@ struct ClassCallback : public art::ClassLoadCallback {
       void operator()(art::ObjPtr<art::mirror::Class> klass ATTRIBUTE_UNUSED,
                       art::ObjPtr<art::mirror::Reference> reference) const
           REQUIRES_SHARED(art::Locks::mutator_lock_) {
-        art::mirror::Object* val = reference->GetReferent();
+        art::ObjPtr<art::mirror::Object> val = reference->GetReferent();
         if (val == input_) {
           reference->SetReferent<false>(output_);
         }
