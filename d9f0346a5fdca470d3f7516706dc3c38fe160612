@@ -166,6 +166,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c237517_9844c398",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-28T12:45:42Z",
+      "side": 1,
+      "message": "I wouldn\u0027t want to complexify an already complicated code for this. Maybe it\u0027s just OK to not do the checks, a lot of the code here is best effort, and the burden should be on the caller to ensure it runs on oat files that have the full vregs.",
+      "parentUuid": "50233b3b_f95c4b9a",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
