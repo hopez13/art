@@ -50,7 +50,7 @@ inline uint32_t Object::ClassSize(PointerSize pointer_size) {
 }
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
-inline Class* Object::GetClass() {
+inline ObjPtr<Class> Object::GetClass() {
   return GetFieldObject<Class, kVerifyFlags, kReadBarrierOption>(ClassOffset());
 }
 
@@ -594,11 +594,11 @@ template<class T,
          VerifyObjectFlags kVerifyFlags,
          ReadBarrierOption kReadBarrierOption,
          bool kIsVolatile>
-inline T* Object::GetFieldObject(MemberOffset field_offset) {
+inline ObjPtr<T> Object::GetFieldObject(MemberOffset field_offset) {
   Verify<kVerifyFlags>();
   uint8_t* raw_addr = reinterpret_cast<uint8_t*>(this) + field_offset.Int32Value();
   HeapReference<T>* objref_addr = reinterpret_cast<HeapReference<T>*>(raw_addr);
-  T* result = ReadBarrier::Barrier<T, kIsVolatile, kReadBarrierOption>(
+  ObjPtr<T> result = ReadBarrier::Barrier<T, kIsVolatile, kReadBarrierOption>(
       this,
       field_offset,
       objref_addr);
@@ -607,7 +607,7 @@ inline T* Object::GetFieldObject(MemberOffset field_offset) {
 }
 
 template<class T, VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
-inline T* Object::GetFieldObjectVolatile(MemberOffset field_offset) {
+inline ObjPtr<T> Object::GetFieldObjectVolatile(MemberOffset field_offset) {
   return GetFieldObject<T, kVerifyFlags, kReadBarrierOption, true>(field_offset);
 }
 

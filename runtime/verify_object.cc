@@ -34,8 +34,8 @@ void VerifyObjectImpl(ObjPtr<mirror::Object> obj) {
     // print the diagnostic message.
     bool failed = !IsAligned<kObjectAlignment>(obj.Ptr());
     if (!failed) {
-      mirror::Class* c = obj->GetClass<kVerifyNone>();
-      failed = failed || !IsAligned<kObjectAlignment>(c);
+      ObjPtr<mirror::Class> c = obj->GetClass<kVerifyNone>();
+      failed = failed || !IsAligned<kObjectAlignment>(c.Ptr());
       failed = failed || !VerifyClassClass(c);
     }
     if (UNLIKELY(failed)) {

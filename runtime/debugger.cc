@@ -484,7 +484,7 @@ static JDWP::JdwpTag BasicTagFromClass(ObjPtr<mirror::Class> klass)
   return BasicTagFromDescriptor(descriptor);
 }
 
-static JDWP::JdwpTag TagFromClass(const ScopedObjectAccessUnchecked& soa, mirror::Class* c)
+static JDWP::JdwpTag TagFromClass(const ScopedObjectAccessUnchecked& soa, ObjPtr<mirror::Class> c)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   CHECK(c != nullptr);
   if (c->IsArrayClass()) {

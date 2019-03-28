@@ -263,7 +263,7 @@ void AllocRecordObjectMap::RecordAllocation(Thread* self,
   trace.SetTid(self->GetTid());
 
   // Add the record.
-  Put(obj->Ptr(), AllocRecord(byte_count, (*obj)->GetClass(), std::move(trace)));
+  Put(obj->Ptr(), AllocRecord(byte_count, (*obj)->GetClass().Ptr(), std::move(trace)));
   DCHECK_LE(Size(), alloc_record_max_);
 }
 

@@ -20,6 +20,7 @@
 #include "reference.h"
 
 #include "obj_ptr-inl.h"
+#include "object-inl.h"
 #include "runtime.h"
 
 namespace art {
@@ -30,9 +31,25 @@ inline uint32_t Reference::ClassSize(PointerSize pointer_size) {
   return Class::ComputeClassSize(false, vtable_entries, 2, 0, 0, 0, 0, pointer_size);
 }
 
+template<ReadBarrierOption kReadBarrierOption>
+inline ObjPtr<Object> Reference::GetReferent() {
+  return GetFieldObjectVolatile<Object, kDefaultVerifyFlags, kReadBarrierOption>(
+      ReferentOffset());
+}
+
 template<bool kTransactionActive>
 inline void Reference::SetReferent(ObjPtr<Object> referent) {
   SetFieldObjectVolatile<kTransactionActive>(ReferentOffset(), referent);
+}
+
+template<bool kTransactionActive>
+inline void Reference::ClearReferent() {
+  SetFieldObjectVolatile<kTransactionActive>(ReferentOffset(), nullptr);
+}
+
+template <ReadBarrierOption kReadBarrierOption>
+inline ObjPtr<Reference> Reference::GetPendingNext() {
+  return GetFieldObject<Reference, kDefaultVerifyFlags, kReadBarrierOption>(PendingNextOffset());
 }
 
 inline void Reference::SetPendingNext(ObjPtr<Reference> pending_next) {
@@ -43,9 +60,17 @@ inline void Reference::SetPendingNext(ObjPtr<Reference> pending_next) {
   }
 }
 
+inline HeapReference<Object>* Reference::GetReferentReferenceAddr() {
+  return GetFieldObjectReferenceAddr<kDefaultVerifyFlags>(ReferentOffset());
+}
+
 template<bool kTransactionActive>
 inline void FinalizerReference::SetZombie(ObjPtr<Object> zombie) {
   return SetFieldObjectVolatile<kTransactionActive>(ZombieOffset(), zombie);
+}
+
+inline ObjPtr<Object> FinalizerReference::GetZombie() {
+  return GetFieldObjectVolatile<Object>(ZombieOffset());
 }
 
 }  // namespace mirror

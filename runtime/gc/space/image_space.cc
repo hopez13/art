@@ -53,6 +53,7 @@
 #include "mirror/executable-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
+#include "mirror/reference-inl.h"
 #include "oat_file.h"
 #include "runtime.h"
 #include "space-inl.h"
@@ -424,7 +425,7 @@ class ImageSpace::PatchObjectVisitor final {
     // Use the sizeof(Object) to determine where these reference fields start;
     // this is the same as `class_class->GetFirstReferenceInstanceFieldOffset()`
     // after patching but the j.l.Class may not have been patched yet.
-    mirror::Class* class_class = klass->GetClass<kVerifyNone, kWithoutReadBarrier>();
+    ObjPtr<mirror::Class> class_class = klass->GetClass<kVerifyNone, kWithoutReadBarrier>();
     size_t num_reference_instance_fields = class_class->NumReferenceInstanceFields<kVerifyNone>();
     DCHECK_NE(num_reference_instance_fields, 0u);
     static_assert(IsAligned<kHeapReferenceSize>(sizeof(mirror::Object)), "Size alignment check.");
@@ -1076,12 +1077,13 @@ class ImageSpace::Loader {
                                   bool is_static ATTRIBUTE_UNUSED) const
         NO_THREAD_SAFETY_ANALYSIS {
       // Space is not yet added to the heap, don't do a read barrier.
-      mirror::Object* ref = obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(
-          offset);
+      ObjPtr<mirror::Object> ref =
+          obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
       if (ref != nullptr) {
         // Use SetFieldObjectWithoutWriteBarrier to avoid card marking since we are writing to the
         // image.
-        obj->SetFieldObjectWithoutWriteBarrier<false, true, kVerifyNone>(offset, forward_(ref));
+        obj->SetFieldObjectWithoutWriteBarrier<false, true, kVerifyNone>(offset,
+                                                                         forward_(ref.Ptr()));
       }
     }
 
@@ -1089,11 +1091,11 @@ class ImageSpace::Loader {
     void operator()(ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,
                     ObjPtr<mirror::Reference> ref) const
         REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
-      mirror::Object* obj = ref->GetReferent<kWithoutReadBarrier>();
+      ObjPtr<mirror::Object> obj = ref->GetReferent<kWithoutReadBarrier>();
       if (obj != nullptr) {
         ref->SetFieldObjectWithoutWriteBarrier<false, true, kVerifyNone>(
             mirror::Reference::ReferentOffset(),
-            forward_(obj));
+            forward_(obj.Ptr()));
       }
     }
 
@@ -1556,7 +1558,7 @@ class ImageSpace::BootImageLoader {
     RelocateVisitor relocate_visitor(diff);
     PatchRelocateVisitor patch_object_visitor(relocate_visitor, relocate_visitor);
 
-    mirror::Class* dcheck_class_class = nullptr;  // Used only for a DCHECK().
+    ObjPtr<mirror::Class> dcheck_class_class = nullptr;  // Used only for a DCHECK().
     for (const std::unique_ptr<ImageSpace>& space : spaces) {
       // First patch the image header. The `diff` is OK for patching 32-bit fields but
       // the 64-bit method fields in the ImageHeader may need a negative `delta`.
@@ -1611,7 +1613,7 @@ class ImageSpace::BootImageLoader {
           patched_objects->Set(klass);
           patch_object_visitor.VisitClass(klass);
           if (kIsDebugBuild) {
-            mirror::Class* class_class = klass->GetClass<kVerifyNone, kWithoutReadBarrier>();
+            ObjPtr<mirror::Class> class_class = klass->GetClass<kVerifyNone, kWithoutReadBarrier>();
             if (dcheck_class_class == nullptr) {
               dcheck_class_class = class_class;
             } else {

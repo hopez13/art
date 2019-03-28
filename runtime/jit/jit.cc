@@ -867,7 +867,7 @@ void Jit::InvokeVirtualOrInterface(ObjPtr<mirror::Object> this_object,
   DCHECK(this_object != nullptr);
   ProfilingInfo* info = caller->GetProfilingInfo(kRuntimePointerSize);
   if (info != nullptr) {
-    info->AddInvokeInfo(dex_pc, this_object->GetClass());
+    info->AddInvokeInfo(dex_pc, this_object->GetClass().Ptr());
   }
 }
 

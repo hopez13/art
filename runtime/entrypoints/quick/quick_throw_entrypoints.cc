@@ -145,7 +145,7 @@ extern "C" NO_RETURN void artThrowClassCastExceptionForObject(mirror::Object* ob
                                                               Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(obj != nullptr);
-  artThrowClassCastException(dest_type, obj->GetClass(), self);
+  artThrowClassCastException(dest_type, obj->GetClass().Ptr(), self);
 }
 
 extern "C" NO_RETURN void artThrowArrayStoreException(mirror::Object* array, mirror::Object* value,

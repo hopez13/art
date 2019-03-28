@@ -272,7 +272,7 @@ class CheckReferenceVisitor {
   // Extra parameters are required since we use this same visitor signature for checking objects.
   void operator()(mirror::Object* obj, MemberOffset offset, bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::heap_bitmap_lock_, Locks::mutator_lock_) {
-    mirror::Object* ref = obj->GetFieldObject<mirror::Object>(offset);
+    mirror::Object* ref = obj->GetFieldObject<mirror::Object>(offset).Ptr();
     if (ref != nullptr &&
         mod_union_table_->ShouldAddReference(ref) &&
         references_.find(ref) == references_.end()) {

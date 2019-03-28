@@ -872,7 +872,7 @@ extern "C" mirror::Object* artIGetObjectFromMterp(mirror::Object* obj,
     ThrowNullPointerExceptionFromInterpreter();
     return nullptr;
   }
-  return obj->GetFieldObject<mirror::Object>(MemberOffset(field_offset));
+  return obj->GetFieldObject<mirror::Object>(MemberOffset(field_offset)).Ptr();
 }
 
 /*

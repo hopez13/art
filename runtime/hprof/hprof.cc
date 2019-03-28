@@ -1164,7 +1164,7 @@ void Hprof::DumpHeapObject(mirror::Object* obj) {
     current_heap_ = heap_type;
   }
 
-  mirror::Class* c = obj->GetClass();
+  ObjPtr<mirror::Class> c = obj->GetClass();
   if (c == nullptr) {
     // This object will bother HprofReader, because it has a null
     // class, so just don't dump it. It could be
@@ -1174,9 +1174,9 @@ void Hprof::DumpHeapObject(mirror::Object* obj) {
     if (obj->IsClass()) {
       DumpHeapClass(obj->AsClass().Ptr());
     } else if (c->IsArrayClass()) {
-      DumpHeapArray(obj->AsArray().Ptr(), c);
+      DumpHeapArray(obj->AsArray().Ptr(), c.Ptr());
     } else {
-      DumpHeapInstanceObject(obj, c, visitor.GetRoots());
+      DumpHeapInstanceObject(obj, c.Ptr(), visitor.GetRoots());
     }
   }
 
@@ -1280,7 +1280,7 @@ void Hprof::DumpHeapClass(mirror::Class* klass) {
   //
   // Note: we report Class' and Object's instance fields here, too. This is for visibility reasons.
   //       (b/38167721)
-  mirror::Class* class_class = klass->GetClass();
+  ObjPtr<mirror::Class> class_class = klass->GetClass();
 
   DCHECK(class_class->GetSuperClass()->IsObjectClass());
   const size_t static_fields_reported = class_class->NumInstanceFields()

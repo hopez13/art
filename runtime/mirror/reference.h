@@ -62,21 +62,14 @@ class MANAGED Reference : public Object {
     return OFFSET_OF_OBJECT_MEMBER(Reference, referent_);
   }
   template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  Object* GetReferent() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObjectVolatile<Object, kDefaultVerifyFlags, kReadBarrierOption>(
-        ReferentOffset());
-  }
+  ObjPtr<Object> GetReferent() REQUIRES_SHARED(Locks::mutator_lock_);
   template<bool kTransactionActive>
   void SetReferent(ObjPtr<Object> referent) REQUIRES_SHARED(Locks::mutator_lock_);
   template<bool kTransactionActive>
-  void ClearReferent() REQUIRES_SHARED(Locks::mutator_lock_) {
-    SetFieldObjectVolatile<kTransactionActive>(ReferentOffset(), nullptr);
-  }
+  void ClearReferent() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  Reference* GetPendingNext() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObject<Reference, kDefaultVerifyFlags, kReadBarrierOption>(PendingNextOffset());
-  }
+  ObjPtr<Reference> GetPendingNext() REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetPendingNext(ObjPtr<Reference> pending_next) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -98,9 +91,7 @@ class MANAGED Reference : public Object {
 
  private:
   // Note: This avoids a read barrier, it should only be used by the GC.
-  HeapReference<Object>* GetReferentReferenceAddr() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObjectReferenceAddr<kDefaultVerifyFlags>(ReferentOffset());
-  }
+  HeapReference<Object>* GetReferentReferenceAddr() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
   HeapReference<Reference> pending_next_;
@@ -124,9 +115,7 @@ class MANAGED FinalizerReference : public Reference {
   template<bool kTransactionActive>
   void SetZombie(ObjPtr<Object> zombie) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  Object* GetZombie() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObjectVolatile<Object>(ZombieOffset());
-  }
+  ObjPtr<Object> GetZombie() REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
   HeapReference<FinalizerReference> next_;

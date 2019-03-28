@@ -60,8 +60,8 @@ TEST_F(VerificationTest, IsValidHeapObjectAddress) {
       reinterpret_cast<const void*>(reinterpret_cast<uintptr_t>(string.Get()) + 1);
   EXPECT_TRUE(v->IsAddressInHeapSpace(unaligned_address));
   EXPECT_FALSE(v->IsValidHeapObjectAddress(unaligned_address));
-  EXPECT_TRUE(v->IsValidHeapObjectAddress(string->GetClass()));
-  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass());
+  EXPECT_TRUE(v->IsValidHeapObjectAddress(string->GetClass().Ptr()));
+  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass().Ptr());
   // Not actually a valid object but the verification can't know that. Guaranteed to be inside a
   // heap space.
   EXPECT_TRUE(v->IsValidHeapObjectAddress(
@@ -79,7 +79,7 @@ TEST_F(VerificationTest, IsValidClassOrNotInHeap) {
   EXPECT_FALSE(v->IsValidClass(reinterpret_cast<const void*>(1)));
   EXPECT_FALSE(v->IsValidClass(reinterpret_cast<const void*>(4)));
   EXPECT_FALSE(v->IsValidClass(nullptr));
-  EXPECT_TRUE(v->IsValidClass(string->GetClass()));
+  EXPECT_TRUE(v->IsValidClass(string->GetClass().Ptr()));
   EXPECT_FALSE(v->IsValidClass(string.Get()));
 }
 
@@ -95,7 +95,7 @@ TEST_F(VerificationTest, IsValidClassInHeap) {
   Handle<mirror::String> string(
       hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), "test")));
   const Verification* const v = Runtime::Current()->GetHeap()->GetVerification();
-  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass());
+  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass().Ptr());
   EXPECT_FALSE(v->IsValidClass(reinterpret_cast<const void*>(uint_klass - kObjectAlignment)));
   EXPECT_FALSE(v->IsValidClass(reinterpret_cast<const void*>(&uint_klass)));
 }
@@ -129,8 +129,8 @@ TEST_F(VerificationTest, DumpValidObjectInfo) {
       hs.NewHandle(AllocObjectArray<mirror::Object>(soa.Self(), 256)));
   const Verification* const v = runtime->GetHeap()->GetVerification();
   LOG(INFO) << v->DumpObjectInfo(string.Get(), "test");
-  LOG(INFO) << v->DumpObjectInfo(string->GetClass(), "obj");
-  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass());
+  LOG(INFO) << v->DumpObjectInfo(string->GetClass().Ptr(), "obj");
+  const uintptr_t uint_klass = reinterpret_cast<uintptr_t>(string->GetClass().Ptr());
   LOG(INFO) << v->DumpObjectInfo(reinterpret_cast<const void*>(uint_klass - kObjectAlignment),
                                  "obj");
   LOG(INFO) << v->DumpObjectInfo(reinterpret_cast<const void*>(&uint_klass), "obj");
@@ -158,7 +158,8 @@ TEST_F(VerificationTest, LogHeapCorruption) {
   arr->Set(0, string.Get());
   // Test normal cases.
   v->LogHeapCorruption(arr.Get(), ObjArray::DataOffset(kHeapReferenceSize), string.Get(), false);
-  v->LogHeapCorruption(string.Get(), mirror::Object::ClassOffset(), string->GetClass(), false);
+  v->LogHeapCorruption(
+      string.Get(), mirror::Object::ClassOffset(), string->GetClass().Ptr(), false);
   // Test null holder cases.
   v->LogHeapCorruption(nullptr, MemberOffset(0), string.Get(), false);
   v->LogHeapCorruption(nullptr, MemberOffset(0), arr.Get(), false);

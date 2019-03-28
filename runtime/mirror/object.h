@@ -92,7 +92,7 @@ class MANAGED LOCKABLE Object {
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE Class* GetClass() REQUIRES_SHARED(Locks::mutator_lock_);
+  ALWAYS_INLINE ObjPtr<Class> GetClass() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   void SetClass(ObjPtr<Class> new_klass) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -275,13 +275,13 @@ class MANAGED LOCKABLE Object {
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
            bool kIsVolatile = false>
-  ALWAYS_INLINE T* GetFieldObject(MemberOffset field_offset)
+  ALWAYS_INLINE ObjPtr<T> GetFieldObject(MemberOffset field_offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<class T,
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE T* GetFieldObjectVolatile(MemberOffset field_offset)
+  ALWAYS_INLINE ObjPtr<T> GetFieldObjectVolatile(MemberOffset field_offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<bool kTransactionActive,

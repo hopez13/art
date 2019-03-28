@@ -1157,7 +1157,7 @@ class ClinitImageUpdate {
                   MemberOffset field_offset,
                   bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    mirror::Object* ref = object->GetFieldObject<mirror::Object>(field_offset);
+    ObjPtr<mirror::Object> ref = object->GetFieldObject<mirror::Object>(field_offset);
     if (ref != nullptr) {
       VisitClinitClassesObject(ref);
     }
@@ -1238,16 +1238,16 @@ class ClinitImageUpdate {
     linker->VisitClasses(&visitor);
   }
 
-  void VisitClinitClassesObject(mirror::Object* object) const
+  void VisitClinitClassesObject(ObjPtr<mirror::Object> object) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(object != nullptr);
-    if (marked_objects_.find(object) != marked_objects_.end()) {
+    if (marked_objects_.find(object.Ptr()) != marked_objects_.end()) {
       // Already processed.
       return;
     }
 
     // Mark it.
-    marked_objects_.insert(object);
+    marked_objects_.insert(object.Ptr());
 
     if (object->IsClass()) {
       // Add to the TODO list since MaybeAddToImageClasses may cause thread suspension. Thread

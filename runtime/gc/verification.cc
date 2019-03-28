@@ -20,6 +20,7 @@
 #include <sstream>
 
 #include "art_field-inl.h"
+#include "base/casts.h"
 #include "base/file_utils.h"
 #include "base/logging.h"
 #include "mirror/class-inl.h"
@@ -27,6 +28,13 @@
 
 namespace art {
 namespace gc {
+
+// Don't use ObjPtr for things that might not be aligned like the invalid reference.
+static mirror::Class* ReadClass(mirror::Object* object) REQUIRES_SHARED(Locks::mutator_lock_) {
+  mirror::HeapReference<mirror::Object>* class_ref =
+      object->GetFieldObjectReferenceAddr<kVerifyNone>(mirror::Class::ClassOffset());
+  return down_cast<mirror::Class*>(class_ref->AsMirrorPtr());
+}
 
 std::string Verification::DumpRAMAroundAddress(uintptr_t addr, uintptr_t bytes) const {
   const uintptr_t dump_start = addr - bytes;
@@ -55,7 +63,7 @@ std::string Verification::DumpObjectInfo(const void* addr, const char* tag) cons
   oss << tag << "=" << addr;
   if (IsValidHeapObjectAddress(addr)) {
     mirror::Object* obj = reinterpret_cast<mirror::Object*>(const_cast<void*>(addr));
-    mirror::Class* klass = obj->GetClass<kVerifyNone, kWithoutReadBarrier>();
+    mirror::Class* klass = ReadClass(obj);
     oss << " klass=" << klass;
     if (IsValidClass(klass)) {
       oss << "(" << klass->PrettyClass() << ")";
@@ -98,7 +106,7 @@ void Verification::LogHeapCorruption(ObjPtr<mirror::Object> holder,
   oss << DumpObjectInfo(ref, "ref") << "\n";
   oss << DumpObjectInfo(holder.Ptr(), "holder");
   if (holder != nullptr) {
-    mirror::Class* holder_klass = holder->GetClass<kVerifyNone, kWithoutReadBarrier>();
+    mirror::Class* holder_klass = ReadClass(holder.Ptr());
     if (IsValidClass(holder_klass)) {
       oss << " field_offset=" << offset.Uint32Value();
       ArtField* field = holder->FindFieldByOffset(offset);
@@ -138,14 +146,14 @@ bool Verification::IsValidClass(const void* addr) const {
     return false;
   }
   mirror::Class* klass = reinterpret_cast<mirror::Class*>(const_cast<void*>(addr));
-  mirror::Class* k1 = klass->GetClass<kVerifyNone, kWithoutReadBarrier>();
+  mirror::Class* k1 = ReadClass(klass);
   if (!IsValidHeapObjectAddress(k1)) {
     return false;
   }
   // `k1` should be class class, take the class again to verify.
   // Note that this check may not be valid for the no image space since the class class might move
   // around from moving GC.
-  mirror::Class* k2 = k1->GetClass<kVerifyNone, kWithoutReadBarrier>();
+  mirror::Class* k2 = ReadClass(k1);
   if (!IsValidHeapObjectAddress(k2)) {
     return false;
   }
@@ -163,7 +171,7 @@ class Verification::BFSFindReachable {
   void operator()(mirror::Object* obj, MemberOffset offset, bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     ArtField* field = obj->FindFieldByOffset(offset);
-    Visit(obj->GetFieldObject<mirror::Object>(offset),
+    Visit(obj->GetFieldObject<mirror::Object>(offset).Ptr(),
           field != nullptr ? field->GetName() : "");
   }
 
