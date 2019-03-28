@@ -1536,7 +1536,7 @@ bool Heap::IsLiveObjectLocked(ObjPtr<mirror::Object> obj,
     return false;
   }
   if (bump_pointer_space_ != nullptr && bump_pointer_space_->HasAddress(obj.Ptr())) {
-    mirror::Class* klass = obj->GetClass<kVerifyNone>();
+    ObjPtr<mirror::Class> klass = obj->GetClass<kVerifyNone>();
     if (obj == klass) {
       // This case happens for java.lang.Class.
       return true;
@@ -1637,9 +1637,11 @@ void Heap::VerifyObjectBody(ObjPtr<mirror::Object> obj) {
     return;
   }
   CHECK_ALIGNED(obj.Ptr(), kObjectAlignment) << "Object isn't aligned";
-  mirror::Class* c = obj->GetFieldObject<mirror::Class, kVerifyNone>(mirror::Object::ClassOffset());
+  ObjPtr<mirror::Class> c =
+      obj->GetFieldObject<mirror::Class, kVerifyNone>(mirror::Object::ClassOffset());
   CHECK(c != nullptr) << "Null class in object " << obj;
-  CHECK_ALIGNED(c, kObjectAlignment) << "Class " << c << " not aligned in object " << obj;
+  CHECK_ALIGNED(c.Ptr(), kObjectAlignment)
+      << "Class " << c.Ptr() << " not aligned in object " << obj;
   CHECK(VerifyClassClass(c));
 
   if (verify_object_mode_ > kVerifyObjectModeFast) {
@@ -1936,7 +1938,7 @@ uint64_t Heap::GetBytesAllocatedEver() const {
 static bool MatchesClass(mirror::Object* obj,
                          Handle<mirror::Class> h_class,
                          bool use_is_assignable_from) REQUIRES_SHARED(Locks::mutator_lock_) {
-  mirror::Class* instance_class = obj->GetClass();
+  ObjPtr<mirror::Class> instance_class = obj->GetClass();
   CHECK(instance_class != nullptr);
   ObjPtr<mirror::Class> klass = h_class.Get();
   if (use_is_assignable_from) {
@@ -1995,7 +1997,7 @@ void Heap::GetReferringObjects(VariableSizedHandleScope& scope,
                     MemberOffset offset,
                     bool is_static ATTRIBUTE_UNUSED) const
         REQUIRES_SHARED(Locks::mutator_lock_) {
-      mirror::Object* ref = obj->GetFieldObject<mirror::Object>(offset);
+      ObjPtr<mirror::Object> ref = obj->GetFieldObject<mirror::Object>(offset);
       if (ref == object_.Get() && (max_count_ == 0 || referring_objects_.size() < max_count_)) {
         referring_objects_.push_back(scope_.NewHandle(obj));
       }
@@ -2974,7 +2976,9 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
  private:
   // TODO: Fix the no thread safety analysis.
   // Returns false on failure.
-  bool VerifyReference(mirror::Object* obj, mirror::Object* ref, MemberOffset offset) const
+  bool VerifyReference(ObjPtr<mirror::Object> obj,
+                       ObjPtr<mirror::Object> ref,
+                       MemberOffset offset) const
       NO_THREAD_SAFETY_ANALYSIS {
     if (ref == nullptr || IsLive(ref)) {
       // Verify that the reference is live.
@@ -2991,20 +2995,21 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
       accounting::CardTable* card_table = heap_->GetCardTable();
       accounting::ObjectStack* alloc_stack = heap_->allocation_stack_.get();
       accounting::ObjectStack* live_stack = heap_->live_stack_.get();
-      uint8_t* card_addr = card_table->CardFromAddr(obj);
+      uint8_t* card_addr = card_table->CardFromAddr(obj.Ptr());
       LOG(ERROR) << "Object " << obj << " references dead object " << ref << " at offset "
                  << offset << "\n card value = " << static_cast<int>(*card_addr);
-      if (heap_->IsValidObjectAddress(obj->GetClass())) {
+      if (heap_->IsValidObjectAddress(obj->GetClass().Ptr())) {
         LOG(ERROR) << "Obj type " << obj->PrettyTypeOf();
       } else {
-        LOG(ERROR) << "Object " << obj << " class(" << obj->GetClass() << ") not a heap address";
+        LOG(ERROR)
+            << "Object " << obj << " class(" << obj->GetClass().Ptr() << ") not a heap address";
       }
 
       // Attempt to find the class inside of the recently freed objects.
       space::ContinuousSpace* ref_space = heap_->FindContinuousSpaceFromObject(ref, true);
       if (ref_space != nullptr && ref_space->IsMallocSpace()) {
         space::MallocSpace* space = ref_space->AsMallocSpace();
-        mirror::Class* ref_class = space->FindRecentFreedObject(ref);
+        mirror::Class* ref_class = space->FindRecentFreedObject(ref.Ptr());
         if (ref_class != nullptr) {
           LOG(ERROR) << "Reference " << ref << " found as a recently freed object with class "
                      << ref_class->PrettyClass();
@@ -3013,22 +3018,22 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
         }
       }
 
-      if (ref->GetClass() != nullptr && heap_->IsValidObjectAddress(ref->GetClass()) &&
-          ref->GetClass()->IsClass()) {
+      ObjPtr<mirror::Class> klass = ref->GetClass();
+      if (klass != nullptr && heap_->IsValidObjectAddress(klass.Ptr()) && klass->IsClass()) {
         LOG(ERROR) << "Ref type " << ref->PrettyTypeOf();
       } else {
         LOG(ERROR) << "Ref " << ref << " class(" << ref->GetClass()
                    << ") is not a valid heap address";
       }
 
-      card_table->CheckAddrIsInCardTable(reinterpret_cast<const uint8_t*>(obj));
+      card_table->CheckAddrIsInCardTable(reinterpret_cast<const uint8_t*>(obj.Ptr()));
       void* cover_begin = card_table->AddrFromCard(card_addr);
       void* cover_end = reinterpret_cast<void*>(reinterpret_cast<size_t>(cover_begin) +
           accounting::CardTable::kCardSize);
       LOG(ERROR) << "Card " << reinterpret_cast<void*>(card_addr) << " covers " << cover_begin
           << "-" << cover_end;
       accounting::ContinuousSpaceBitmap* bitmap =
-          heap_->GetLiveBitmap()->GetContinuousSpaceBitmap(obj);
+          heap_->GetLiveBitmap()->GetContinuousSpaceBitmap(obj.Ptr());
 
       if (bitmap == nullptr) {
         LOG(ERROR) << "Object " << obj << " has no bitmap";
@@ -3037,19 +3042,19 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
         }
       } else {
         // Print out how the object is live.
-        if (bitmap->Test(obj)) {
+        if (bitmap->Test(obj.Ptr())) {
           LOG(ERROR) << "Object " << obj << " found in live bitmap";
         }
-        if (alloc_stack->Contains(const_cast<mirror::Object*>(obj))) {
+        if (alloc_stack->Contains(obj.Ptr())) {
           LOG(ERROR) << "Object " << obj << " found in allocation stack";
         }
-        if (live_stack->Contains(const_cast<mirror::Object*>(obj))) {
+        if (live_stack->Contains(obj.Ptr())) {
           LOG(ERROR) << "Object " << obj << " found in live stack";
         }
-        if (alloc_stack->Contains(const_cast<mirror::Object*>(ref))) {
+        if (alloc_stack->Contains(ref.Ptr())) {
           LOG(ERROR) << "Ref " << ref << " found in allocation stack";
         }
-        if (live_stack->Contains(const_cast<mirror::Object*>(ref))) {
+        if (live_stack->Contains(ref.Ptr())) {
           LOG(ERROR) << "Ref " << ref << " found in live stack";
         }
         // Attempt to see if the card table missed the reference.
@@ -3060,10 +3065,10 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
       }
 
       // Search to see if any of the roots reference our object.
-      RootMatchesObjectVisitor visitor1(obj);
+      RootMatchesObjectVisitor visitor1(obj.Ptr());
       Runtime::Current()->VisitRoots(&visitor1);
       // Search to see if any of the roots reference our reference.
-      RootMatchesObjectVisitor visitor2(ref);
+      RootMatchesObjectVisitor visitor2(ref.Ptr());
       Runtime::Current()->VisitRoots(&visitor2);
     }
     return false;
@@ -3198,7 +3203,7 @@ class VerifyReferenceCardVisitor {
   // annotalysis on visitors.
   void operator()(mirror::Object* obj, MemberOffset offset, bool is_static) const
       NO_THREAD_SAFETY_ANALYSIS {
-    mirror::Object* ref = obj->GetFieldObject<mirror::Object>(offset);
+    ObjPtr<mirror::Object> ref = obj->GetFieldObject<mirror::Object>(offset);
     // Filter out class references since changing an object's class does not mark the card as dirty.
     // Also handles large objects, since the only reference they hold is a class reference.
     if (ref != nullptr && !ref->IsClass()) {
@@ -3213,7 +3218,7 @@ class VerifyReferenceCardVisitor {
         // Card should be either kCardDirty if it got re-dirtied after we aged it, or
         // kCardDirty - 1 if it didnt get touched since we aged it.
         accounting::ObjectStack* live_stack = heap_->live_stack_.get();
-        if (live_stack->ContainsSorted(ref)) {
+        if (live_stack->ContainsSorted(ref.Ptr())) {
           if (live_stack->ContainsSorted(obj)) {
             LOG(ERROR) << "Object " << obj << " found in live stack";
           }

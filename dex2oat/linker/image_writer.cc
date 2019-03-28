@@ -211,7 +211,7 @@ bool ImageWriter::IsInBootOatFile(const void* ptr) const {
 static void ClearDexFileCookies() REQUIRES_SHARED(Locks::mutator_lock_) {
   auto visitor = [](Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(obj != nullptr);
-    Class* klass = obj->GetClass();
+    ObjPtr<Class> klass = obj->GetClass();
     if (klass == WellKnownClasses::ToClass(WellKnownClasses::dalvik_system_DexFile)) {
       ArtField* field = jni::DecodeArtField(WellKnownClasses::dalvik_system_DexFile_cookie);
       // Null out the cookie to enable determinism. b/34090128
@@ -1321,9 +1321,9 @@ class ImageWriter::PruneObjectReferenceVisitor {
                                  MemberOffset offset,
                                  bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    mirror::Object* ref =
+    ObjPtr<mirror::Object> ref =
         obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
-    if (ref == nullptr || visited_->find(ref) != visited_->end()) {
+    if (ref == nullptr || visited_->find(ref.Ptr()) != visited_->end()) {
       return;
     }
 
@@ -1341,12 +1341,12 @@ class ImageWriter::PruneObjectReferenceVisitor {
           image_writer_->PruneAppImageClassInternal(ref->AsClass(), early_exit_, visited_);
     } else {
       // Record the object visited in case of circular reference.
-      visited_->emplace(ref);
+      visited_->emplace(ref.Ptr());
       *result_ = *result_ ||
           image_writer_->PruneAppImageClassInternal(klass, early_exit_, visited_);
       ref->VisitReferences(*this, *this);
       // Clean up before exit for next call of this function.
-      visited_->erase(ref);
+      visited_->erase(ref.Ptr());
     }
   }
 
@@ -1431,14 +1431,14 @@ bool ImageWriter::PruneAppImageClassInternal(
     MemberOffset field_offset = klass->GetFirstReferenceStaticFieldOffset(
         Runtime::Current()->GetClassLinker()->GetImagePointerSize());
     for (size_t i = 0u; i < num_static_fields; ++i) {
-      mirror::Object* ref = klass->GetFieldObject<mirror::Object>(field_offset);
+      ObjPtr<mirror::Object> ref = klass->GetFieldObject<mirror::Object>(field_offset);
       if (ref != nullptr) {
         if (ref->IsClass()) {
           result = result || PruneAppImageClassInternal(ref->AsClass(),
                                                         &my_early_exit,
                                                         visited);
         } else {
-          mirror::Class* type = ref->GetClass();
+          ObjPtr<mirror::Class> type = ref->GetClass();
           result = result || PruneAppImageClassInternal(type,
                                                         &my_early_exit,
                                                         visited);
@@ -2219,9 +2219,9 @@ class ImageWriter::VisitReferencesVisitor {
                                  MemberOffset offset,
                                  bool is_static ATTRIBUTE_UNUSED) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    mirror::Object* ref =
+    ObjPtr<mirror::Object> ref =
         obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
-    obj->SetFieldObject</*kTransactionActive*/false>(offset, VisitReference(ref));
+    obj->SetFieldObject</*kTransactionActive*/false>(offset, VisitReference(ref.Ptr()));
   }
 
   ALWAYS_INLINE void operator() (ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,

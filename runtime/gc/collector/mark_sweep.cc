@@ -701,7 +701,7 @@ class MarkSweep::MarkStackTask : public Task {
                     MemberOffset offset,
                     bool is_static ATTRIBUTE_UNUSED) const
         REQUIRES_SHARED(Locks::mutator_lock_) {
-      Mark(obj->GetFieldObject<mirror::Object>(offset));
+      Mark(obj->GetFieldObject<mirror::Object>(offset).Ptr());
     }
 
     void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root) const
@@ -1356,7 +1356,7 @@ class MarkVisitor {
       Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
       Locks::heap_bitmap_lock_->AssertExclusiveHeld(Thread::Current());
     }
-    mark_sweep_->MarkObject(obj->GetFieldObject<mirror::Object>(offset), obj, offset);
+    mark_sweep_->MarkObject(obj->GetFieldObject<mirror::Object>(offset).Ptr(), obj, offset);
   }
 
   void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root) const
