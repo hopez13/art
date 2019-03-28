@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55e5e28b_8209f2ec",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-28T13:02:18Z",
+      "side": 1,
+      "message": "This refers to ClassLoaderInfo::classpath which is parsed from IMC[classpath*checksum]",
+      "parentUuid": "d7241403_260ef27e",
+      "range": {
+        "startLine": 56,
+        "startChar": 45,
+        "endLine": 56,
+        "endChar": 53
+      },
+      "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98d9bf18_a38d82ea",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b33a409f_10bb2354",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-28T13:02:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98d9bf18_a38d82ea",
+      "range": {
+        "startLine": 1065,
+        "startChar": 32,
+        "endLine": 1065,
+        "endChar": 62
+      },
+      "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
