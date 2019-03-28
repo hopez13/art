@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "64149dec_4ca0e658",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-28T13:20:38Z",
+      "side": 1,
+      "message": "Happy to rename this if you feel strongly about it. I named it after the thing that it\u0027s stored in - the classpath. You want to name it after the thing it came from - that\u0027s technically the dex *location*, not file path. So... kInMemoryDexClassLoaderDexLocationMagic?",
+      "parentUuid": "8aa4c769_f20d9df0",
+      "range": {
+        "startLine": 56,
+        "startChar": 45,
+        "endLine": 56,
+        "endChar": 53
+      },
+      "revId": "eb91ae0c396160863a09d1862a0dc5e6d581300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98d9bf18_a38d82ea",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 3
