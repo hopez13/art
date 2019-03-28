@@ -32,6 +32,7 @@
 #include "handle_scope-inl.h"
 #include "jni/jni_internal.h"
 #include "mirror/object_array-alloc-inl.h"
+#include "mirror/class_loader-inl.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "oat_file_assistant.h"
 #include "obj_ptr-inl.h"

@@ -29,7 +29,7 @@ inline bool VerifyClassClass(ObjPtr<mirror::Class> c) {
     return false;
   }
   // Note: We pass in flags to ensure that the accessors don't call VerifyObject.
-  mirror::Class* c_c = c->GetClass<kVerifyNone>();
+  ObjPtr<mirror::Class> c_c = c->GetClass<kVerifyNone>();
   return c_c != nullptr && c_c == c_c->GetClass<kVerifyNone>();
 }
 

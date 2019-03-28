@@ -28,6 +28,7 @@
 #include "mirror/class-inl.h"
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
+#include "mirror/reference-inl.h"
 #include "mirror/string-inl.h"
 #include "runtime-inl.h"
 #include "thread.h"
@@ -142,7 +143,7 @@ void ReferenceTable::Dump(std::ostream& os, Table& entries) {
       DCHECK(!runtime->IsClearedJniWeakGlobal(obj2));
       // Sort by class...
       if (obj1->GetClass() != obj2->GetClass()) {
-        return obj1->GetClass() < obj2->GetClass();
+        return obj1->GetClass().Ptr() < obj2->GetClass().Ptr();
       }
       // ...then by size...
       const size_t size1 = obj1->SizeOf();

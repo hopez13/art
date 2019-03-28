@@ -92,7 +92,7 @@ class MANAGED LOCKABLE Object {
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE Class* GetClass() REQUIRES_SHARED(Locks::mutator_lock_);
+  ALWAYS_INLINE ObjPtr<Class> GetClass() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   void SetClass(ObjPtr<Class> new_klass) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -130,7 +130,7 @@ class MANAGED LOCKABLE Object {
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   size_t SizeOf() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  Object* Clone(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
+  ObjPtr<Object> Clone(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
   int32_t IdentityHashCode()
@@ -275,13 +275,13 @@ class MANAGED LOCKABLE Object {
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
            bool kIsVolatile = false>
-  ALWAYS_INLINE T* GetFieldObject(MemberOffset field_offset)
+  ALWAYS_INLINE ObjPtr<T> GetFieldObject(MemberOffset field_offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<class T,
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE T* GetFieldObjectVolatile(MemberOffset field_offset)
+  ALWAYS_INLINE ObjPtr<T> GetFieldObjectVolatile(MemberOffset field_offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<bool kTransactionActive,
@@ -758,9 +758,9 @@ class MANAGED LOCKABLE Object {
   // A utility function that copies an object in a read barrier and write barrier-aware way.
   // This is internally used by Clone() and Class::CopyOf(). If the object is finalizable,
   // it is the callers job to call Heap::AddFinalizerReference.
-  static Object* CopyObject(ObjPtr<mirror::Object> dest,
-                            ObjPtr<mirror::Object> src,
-                            size_t num_bytes)
+  static ObjPtr<Object> CopyObject(ObjPtr<mirror::Object> dest,
+                                   ObjPtr<mirror::Object> src,
+                                   size_t num_bytes)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags, Primitive::Type kType>
