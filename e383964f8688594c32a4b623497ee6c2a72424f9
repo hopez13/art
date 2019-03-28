@@ -213,6 +213,30 @@
       "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a28341da_d11e9c43",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-03-28T15:07:55Z",
+      "side": 1,
+      "message": "Okay, two against one. I\u0027ll make this print an error and skip the dex file instead. If this thread wins, then defineClass() will throw InternalError.",
+      "parentUuid": "cb85a59a_6172d995",
+      "range": {
+        "startLine": 675,
+        "startChar": 7,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "e383964f8688594c32a4b623497ee6c2a72424f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
