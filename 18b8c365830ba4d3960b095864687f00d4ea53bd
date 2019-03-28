@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b69ca6e_7e3b4415",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-28T22:37:56Z",
+      "side": 1,
+      "message": "SetProperties seems too generic name for setting just one property. I\u0027d suggest renaming the function, if that\u0027s not too much work.",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 64
+      },
+      "revId": "18b8c365830ba4d3960b095864687f00d4ea53bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c005efde_74dc7342",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-03-28T22:37:56Z",
+      "side": 1,
+      "message": "Is it needed here when you are anyway checking it in SetProperties()?",
+      "range": {
+        "startLine": 616,
+        "startChar": 6,
+        "endLine": 616,
+        "endChar": 90
+      },
+      "revId": "18b8c365830ba4d3960b095864687f00d4ea53bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
