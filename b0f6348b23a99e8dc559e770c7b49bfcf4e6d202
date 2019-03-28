@@ -45,6 +45,29 @@
       "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f275d87_1c6d75d6",
+        "filename": "test/004-NativeAllocations/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-03-28T13:01:36Z",
+      "side": 1,
+      "message": "What is the rationale behind this constant?",
+      "range": {
+        "startLine": 87,
+        "startChar": 67,
+        "endLine": 87,
+        "endChar": 68
+      },
+      "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
