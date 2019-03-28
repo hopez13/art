@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dd55ced_5dfef12d",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-03-28T16:13:49Z",
+      "side": 1,
+      "message": "This copy-pasted comment seems to imply that we\u0027re probably leaking. :(",
+      "range": {
+        "startLine": 742,
+        "startChar": 4,
+        "endLine": 742,
+        "endChar": 96
+      },
+      "revId": "436328c297327f214743f5f15a5b97ec2e63aaea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
