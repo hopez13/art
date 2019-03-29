@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "41bb61b0_50455ae8",
+        "filename": "test/004-NativeAllocations/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-29T18:22:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b1202be_94650780",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7772a48_0d5f78c1",
         "filename": "test/004-NativeAllocations/src-art/Main.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "04a8503a_1901c700",
+        "filename": "test/004-NativeAllocations/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-29T18:22:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7772a48_0d5f78c1",
+      "range": {
+        "startLine": 68,
+        "startChar": 22,
+        "endLine": 68,
+        "endChar": 45
+      },
+      "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f275d87_1c6d75d6",
         "filename": "test/004-NativeAllocations/src-art/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2019-03-28T13:01:36Z",
       "side": 1,
       "message": "What is the rationale behind this constant?",
+      "range": {
+        "startLine": 87,
+        "startChar": 67,
+        "endLine": 87,
+        "endChar": 68
+      },
+      "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f807f365_748864c6",
+        "filename": "test/004-NativeAllocations/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-29T18:22:30Z",
+      "side": 1,
+      "message": "It was essentially a slop factor, so that we could be more conservative here, and account for registerNativeFree cost. But that should be really cheap, and it looks cleaner without the 2, so I removed it.",
+      "parentUuid": "9f275d87_1c6d75d6",
       "range": {
         "startLine": 87,
         "startChar": 67,
