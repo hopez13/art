@@ -140,6 +140,30 @@
       "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bd32bca_50753ad0",
+        "filename": "test/004-NativeAllocations/src-art/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-03-29T18:26:28Z",
+      "side": 1,
+      "message": "Marking resolved.",
+      "parentUuid": "f807f365_748864c6",
+      "range": {
+        "startLine": 87,
+        "startChar": 67,
+        "endLine": 87,
+        "endChar": 68
+      },
+      "revId": "b0f6348b23a99e8dc559e770c7b49bfcf4e6d202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
