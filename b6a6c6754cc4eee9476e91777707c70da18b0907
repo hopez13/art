@@ -39,6 +39,86 @@
       "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c33f0b_f7a4d974",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-29T12:45:35Z",
+      "side": 1,
+      "message": "This reads confusing. Could you avoid passing it, and making the OS::FileExists check in the caller? Alternatively, call this \"vdex_file_to_add\", or something?",
+      "range": {
+        "startLine": 677,
+        "startChar": 68,
+        "endLine": 677,
+        "endChar": 77
+      },
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6951766_ebc726ce",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-29T12:45:35Z",
+      "side": 1,
+      "message": "Add a comment what the code below is for.",
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be01630d_5297523b",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-29T12:45:35Z",
+      "side": 1,
+      "message": "I don\u0027t understand this, and why it explains the first part of the sentence.",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d28a5ca_b3cc6e64",
+        "filename": "test/693-vdex-inmem-loader-evict/src-secondary/gen.sh",
+        "patchSetId": 16
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-03-29T12:45:35Z",
+      "side": 1,
+      "message": "Add a comment what this script is for.",
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
