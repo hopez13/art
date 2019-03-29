@@ -190,6 +190,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5f62550_45dfcf3a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-03-29T15:17:29Z",
+      "side": 1,
+      "message": "The issue with a \"burden on caller\" approach is that it breaks the design idea that the client code when calling GetVReg() (or similar)  doesn\u0027t have to care whether it is dealing with quick or interpreter frame; the StackVisitor class offers some level of abstraction. For instance: deoptimization and OSR visitors would be easy to have a DCHECK, but Monitor::VisitLocks method doesn\u0027t really care about the frame type.\n\nAnyway if you believe it is already too complicated to have any extra changes around the visitor we could just have unchecked accesses. If we proceed with further optimizations on stack map and HEnvironments we could consider more safe and easy checks (e.g. saving a type bit in the encoded stackmap itself).",
+      "parentUuid": "5c237517_9844c398",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
