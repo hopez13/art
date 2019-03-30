@@ -22,6 +22,30 @@
       "revId": "8b5af2c1fb1f3b54ec4eb8c3188a7f7105466b6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c88bff03_b5971e08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-03-30T17:42:32Z",
+      "side": 1,
+      "message": "Oh, yeah, they\u0027re excluded by the boot file size. The loop needs to be skipping the first elements.",
+      "parentUuid": "88ecaa7e_11a22e4b",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 127
+      },
+      "revId": "8b5af2c1fb1f3b54ec4eb8c3188a7f7105466b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
