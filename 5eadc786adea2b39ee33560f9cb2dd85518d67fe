@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf5cc96c_f657ffd7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2040,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T09:47:46Z",
+      "side": 1,
+      "message": "I don\u0027t think so, assuming \u0027store\u0027 means in oat files. That said, agampe@ mentioned that the original intent was to be able to move oat files to SD card. Would be worth investigating whether we still need that or not.",
+      "parentUuid": "0ba1d75c_a2b18b92",
+      "range": {
+        "startLine": 2040,
+        "startChar": 0,
+        "endLine": 2040,
+        "endChar": 40
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9f3bcb7_2a1ce3d2",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "aa8d850e_c86ff0d9",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T09:47:46Z",
+      "side": 1,
+      "message": "Maybe I was over-optimizing to be able to return the reference. Creating two strings okay?",
+      "parentUuid": "b46be41d_76feaa11",
+      "range": {
+        "startLine": 346,
+        "startChar": 1,
+        "endLine": 347,
+        "endChar": 72
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "45e7b586_1113e25c",
         "filename": "runtime/oat_file.h",
         "patchSetId": 13
@@ -105,6 +153,30 @@
       "writtenOn": "2019-04-01T08:41:18Z",
       "side": 1,
       "message": "Could you return two strings as out parameters? I find this easier to read.",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17347f93_ea65f34f",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T09:47:46Z",
+      "side": 1,
+      "message": "Needed to return the reference. Without it can have two out-params.",
+      "parentUuid": "45e7b586_1113e25c",
       "range": {
         "startLine": 348,
         "startChar": 9,
