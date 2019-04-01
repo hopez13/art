@@ -70,6 +70,30 @@
       "revId": "8f453547a9885178cde5d7e5a4027d7d984375a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bed9ef9b_5dd9af86",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T13:47:54Z",
+      "side": 1,
+      "message": "Ok, changed to if-\u003ereturn",
+      "parentUuid": "630076a8_229516b1",
+      "range": {
+        "startLine": 721,
+        "startChar": 1,
+        "endLine": 721,
+        "endChar": 51
+      },
+      "revId": "8f453547a9885178cde5d7e5a4027d7d984375a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
