@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ba1d75c_a2b18b92",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:41:18Z",
+      "side": 1,
+      "message": "Is that obsolete?",
+      "range": {
+        "startLine": 2040,
+        "startChar": 0,
+        "endLine": 2040,
+        "endChar": 40
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f3bcb7_2a1ce3d2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:41:18Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 2041,
+        "startChar": 28,
+        "endLine": 2041,
+        "endChar": 29
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af4d53a8_79c5eab5",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:41:18Z",
+      "side": 1,
+      "message": "What if we\u0027re not?",
+      "range": {
+        "startLine": 1425,
+        "startChar": 23,
+        "endLine": 1425,
+        "endChar": 52
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46be41d_76feaa11",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:41:18Z",
+      "side": 1,
+      "message": "This reads as a broken API.",
+      "range": {
+        "startLine": 346,
+        "startChar": 1,
+        "endLine": 347,
+        "endChar": 72
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45e7b586_1113e25c",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:41:18Z",
+      "side": 1,
+      "message": "Could you return two strings as out parameters? I find this easier to read.",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
