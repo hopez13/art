@@ -234,6 +234,30 @@
       "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc13f62_94f31b29",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T12:20:59Z",
+      "side": 1,
+      "message": "That\u0027s what I implied with \"broken API\" ) Should it be a std:string** instead?",
+      "parentUuid": "17347f93_ea65f34f",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
