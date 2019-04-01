@@ -306,6 +306,30 @@
       "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e97b2c11_934b445d",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T13:52:05Z",
+      "side": 1,
+      "message": "Oh, you meant a double pointer... That wouldn\u0027t solve anything, would it? The caller would still need to be careful about the lifetime of `rel_dex_location`.",
+      "parentUuid": "913481be_33a31a47",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
