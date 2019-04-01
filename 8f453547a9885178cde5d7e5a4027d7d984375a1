@@ -22,6 +22,30 @@
       "revId": "8f453547a9885178cde5d7e5a4027d7d984375a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "757333f7_f0a58e24",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T13:22:39Z",
+      "side": 1,
+      "message": "That\u0027s what I had initially and it is clearly more defensive, but can it actually happen? I don\u0027t know that much about the shutdown semantics - would we not wait for Java threads to suspend before entering the shutdown routine?",
+      "parentUuid": "6684a755_8933395a",
+      "range": {
+        "startLine": 721,
+        "startChar": 1,
+        "endLine": 721,
+        "endChar": 51
+      },
+      "revId": "8f453547a9885178cde5d7e5a4027d7d984375a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
