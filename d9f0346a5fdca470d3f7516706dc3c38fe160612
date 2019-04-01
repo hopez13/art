@@ -214,6 +214,30 @@
       "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d330d708_cb61ccf3",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T08:36:09Z",
+      "side": 1,
+      "message": "Ack. But please keep the current CHECKs and don\u0027t move them to DCHECKs. A debug build will behave the same as non-debug in that respect. If those checks are now obsolete, please replace them with a comment why we\u0027re not doing the check.",
+      "parentUuid": "d5f62550_45dfcf3a",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 3
+      },
+      "revId": "d9f0346a5fdca470d3f7516706dc3c38fe160612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
