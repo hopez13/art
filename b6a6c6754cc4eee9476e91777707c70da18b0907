@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc2101fb_cc10887c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Spent some time looking at this but I\u0027m still not sure 100% what\u0027s going on here. perfprofd_test uses statically linked libart and for static builds we substitute libsigchain with libsigchain_dummy (see line 404 of this file). That dependency has always been there but it seems that perfprofd_test must have avoided it somehow until now (dead code elimination?). Something in my CL tripped it and it now won\u0027t build without it.\n\nSince this is a legitimate dependency and it looks like it was just avoided until now, I\u0027m not gonna go further than this to try to keep avoiding it.",
+      "parentUuid": "65c4b3ec_8e161011",
+      "range": {
+        "startLine": 432,
+        "startChar": 9,
+        "endLine": 432,
+        "endChar": 26
+      },
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb5fd3eb_30c17b0c",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 16
@@ -39,6 +63,24 @@
       "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "815e4299_c4c95b07",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb5fd3eb_30c17b0c",
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "42c7c21d_5174a393",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2c33f0b_f7a4d974",
+      "range": {
+        "startLine": 677,
+        "startChar": 68,
+        "endLine": 677,
+        "endChar": 77
+      },
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6951766_ebc726ce",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 16
@@ -79,6 +145,24 @@
       "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d2fa31a_89217e98",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6951766_ebc726ce",
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "735c497d_b79d5c7d",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be01630d_5297523b",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d28a5ca_b3cc6e64",
         "filename": "test/693-vdex-inmem-loader-evict/src-secondary/gen.sh",
         "patchSetId": 16
@@ -119,6 +227,24 @@
       "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbb7fddb_29ec4881",
+        "filename": "test/693-vdex-inmem-loader-evict/src-secondary/gen.sh",
+        "patchSetId": 16
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T15:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d28a5ca_b3cc6e64",
+      "revId": "b6a6c6754cc4eee9476e91777707c70da18b0907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
