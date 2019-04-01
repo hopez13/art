@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "05677c5f_51e4589a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T11:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f3bcb7_2a1ce3d2",
+      "range": {
+        "startLine": 2041,
+        "startChar": 28,
+        "endLine": 2041,
+        "endChar": 29
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af4d53a8_79c5eab5",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 13
@@ -92,6 +116,30 @@
       "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0c2ba79_1c68cb23",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-01T11:56:59Z",
+      "side": 1,
+      "message": "Expanded the comment",
+      "parentUuid": "af4d53a8_79c5eab5",
+      "range": {
+        "startLine": 1425,
+        "startChar": 23,
+        "endLine": 1425,
+        "endChar": 52
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
