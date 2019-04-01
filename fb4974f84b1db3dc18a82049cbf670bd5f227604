@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ec3462a_b46c5865",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T09:32:38Z",
+      "side": 1,
+      "message": "We can drop this now.",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 649,
+        "endChar": 25
+      },
+      "revId": "fb4974f84b1db3dc18a82049cbf670bd5f227604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "646c686a_e7bdf378",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-01T09:32:38Z",
+      "side": 1,
+      "message": "... as they may be in another directory for tests.",
+      "range": {
+        "startLine": 650,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 30
+      },
+      "revId": "fb4974f84b1db3dc18a82049cbf670bd5f227604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
