@@ -330,6 +330,30 @@
       "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce28bac4_9824c4a9",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-02T13:26:12Z",
+      "side": 1,
+      "message": "Yeah, but that makes it a bit more explicit than a return value? You can even call the parameter \"dex_file_location_storage\" ?",
+      "parentUuid": "e97b2c11_934b445d",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
