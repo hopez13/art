@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c3d1409_276ea8fb",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-02T17:45:21Z",
+      "side": 1,
+      "message": "Does this always invalidate `klass`? I\u0027d expect this ObjPtr to be invalidated only if a GC happens during the allocation.\n\nAlso maybe set `klass` to `nullptr` right after line 154 to express that it should not be used past this point?",
+      "range": {
+        "startLine": 154,
+        "startChar": 81,
+        "endLine": 154,
+        "endChar": 99
+      },
+      "revId": "4d53214c4b241dea39038cc984c93be87104f084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
