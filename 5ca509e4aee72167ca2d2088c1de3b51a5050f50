@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c350e49c_8f6df0aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-02T15:56:51Z",
+      "side": 1,
+      "message": "Do we compile any methods if we do not have a profile?",
+      "revId": "5ca509e4aee72167ca2d2088c1de3b51a5050f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db3ce3db_0d25abbb",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-02T15:56:51Z",
+      "side": 1,
+      "message": "No-op?",
+      "revId": "5ca509e4aee72167ca2d2088c1de3b51a5050f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
