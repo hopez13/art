@@ -585,12 +585,8 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
     }
 
     if (background_collector_type_ == gc::kCollectorTypeNone) {
-      if (collector_type_ != gc::kCollectorTypeGSS) {
-        background_collector_type_ = low_memory_mode_ ?
-            gc::kCollectorTypeSS : gc::kCollectorTypeHomogeneousSpaceCompact;
-      } else {
-        background_collector_type_ = collector_type_;
-      }
+      background_collector_type_ = low_memory_mode_ ?
+          gc::kCollectorTypeSS : gc::kCollectorTypeHomogeneousSpaceCompact;
     }
 
     args.Set(M::BackgroundGc, BackgroundGcOption { background_collector_type_ });
