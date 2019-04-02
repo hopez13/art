@@ -434,6 +434,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libbacktrace')
     self._checker.check_native_library('libbase')
     self._checker.check_native_library('libc++')
+    self._checker.check_native_library('libcutils')
     self._checker.check_native_library('libdt_fd_forward')
     self._checker.check_native_library('libdt_socket')
     self._checker.check_native_library('libjdwp')
@@ -447,9 +448,6 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.asan*')
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
-
-    # TODO(b/124293228): Figure out why we get this.
-    self._checker.check_native_library('libcutils')
 
 
 class ReleaseTargetChecker:
@@ -497,8 +495,6 @@ class ReleaseTargetChecker:
     self._checker.check_native_library('libpac')
     self._checker.check_native_library('libtombstoned_client')
     self._checker.check_native_library('libz')
-
-    # TODO(b/124293228): Figure out why we get these.
     self._checker.check_prefer64_library('libmeminfo')
     self._checker.check_prefer64_library('libprocinfo')
 
