@@ -22,6 +22,30 @@
       "revId": "49eb0828b0b4398f379086a88bdce4aa26fd3f52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25de9f07_a648f246",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-02T11:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2514254c_e638d98e",
+      "range": {
+        "startLine": 725,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 88
+      },
+      "revId": "49eb0828b0b4398f379086a88bdce4aa26fd3f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
