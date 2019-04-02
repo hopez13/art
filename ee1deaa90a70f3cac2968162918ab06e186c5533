@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bce088ab_69fb5caa",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-02T13:36:19Z",
+      "side": 1,
+      "message": "We already have a SideEffectsAnalysis, can you find another name?",
+      "range": {
+        "startLine": 268,
+        "startChar": 6,
+        "endLine": 268,
+        "endChar": 24
+      },
+      "revId": "ee1deaa90a70f3cac2968162918ab06e186c5533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
