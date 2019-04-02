@@ -354,6 +354,30 @@
       "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95694666_b42f7875",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-02T17:24:56Z",
+      "side": 1,
+      "message": "I\u0027ve been playing around and can\u0027t find an ideal solution. Check out the latest PS - I at least make `rel_dex_location` a pointer to make it harder to pass in a temporary object.",
+      "parentUuid": "ce28bac4_9824c4a9",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 27
+      },
+      "revId": "5eadc786adea2b39ee33560f9cb2dd85518d67fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
