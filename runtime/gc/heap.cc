@@ -653,10 +653,7 @@ Heap::Heap(size_t initial_size,
     if (MayUseCollector(kCollectorTypeSS) || MayUseCollector(kCollectorTypeGSS) ||
         MayUseCollector(kCollectorTypeHomogeneousSpaceCompact) ||
         use_homogeneous_space_compaction_for_oom_) {
-      // TODO: Clean this up.
-      const bool generational = foreground_collector_type_ == kCollectorTypeGSS;
-      semi_space_collector_ = new collector::SemiSpace(this, generational,
-                                                       generational ? "generational" : "");
+      semi_space_collector_ = new collector::SemiSpace(this);
       garbage_collectors_.push_back(semi_space_collector_);
     }
     if (MayUseCollector(kCollectorTypeCC)) {
@@ -2323,7 +2320,7 @@ void Heap::ChangeCollector(CollectorType collector_type) {
 class ZygoteCompactingCollector final : public collector::SemiSpace {
  public:
   ZygoteCompactingCollector(gc::Heap* heap, bool is_running_on_memory_tool)
-      : SemiSpace(heap, false, "zygote collector"),
+      : SemiSpace(heap, "zygote collector"),
         bin_live_bitmap_(nullptr),
         bin_mark_bitmap_(nullptr),
         is_running_on_memory_tool_(is_running_on_memory_tool) {}
