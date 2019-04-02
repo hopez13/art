@@ -109,7 +109,10 @@
 
     /* Cache alignment for function entry */
 MACRO0(ALIGN_FUNCTION_ENTRY)
-    .balign 16
+    // Prefix the code with 0xFFs just in case we incorrectly read OatQuickMethodHeader here.
+    .byte 0xFF, 0xFF, 0xFF, 0xFF
+    // Cache alignment for function entry.
+    .balign 16, 0xFF
 END_MACRO
 
 // TODO: we might need to use SYMBOL() here to add the underscore prefix
