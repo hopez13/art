@@ -113,7 +113,10 @@
 
     /* Cache alignment for function entry */
 MACRO0(ALIGN_FUNCTION_ENTRY)
-    .balign 16
+    // Prefix the code with 0xFFs just in case we incorrectly read OatQuickMethodHeader here.
+    .byte 0xFF, 0xFF, 0xFF, 0xFF
+    // Cache alignment for function entry.
+    .balign 16, 0xFF
 END_MACRO
 
 MACRO2(DEFINE_FUNCTION_CUSTOM_CFA, c_name, cfa_offset)

@@ -40,14 +40,20 @@
 #define wMR w20
 #endif
 
-.macro ENTRY name
+.macro ENTRY_ALIGNED name, alignment
     .type \name, #function
     .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
     .global \name
-    /* Cache alignment for function entry */
-    .balign 16
+    // Prefix the code with 0xFFs just in case we incorrectly read OatQuickMethodHeader here.
+    .byte 0xFF, 0xFF, 0xFF, 0xFF
+    // Cache alignment for function entry.
+    .balign \alignment, 0xFF  // NB: 0 is causes nop-fill, so zero-fill is not possible.
 \name:
     .cfi_startproc
+.endm
+
+.macro ENTRY name
+    ENTRY_ALIGNED \name, 16
 .endm
 
 .macro END name
