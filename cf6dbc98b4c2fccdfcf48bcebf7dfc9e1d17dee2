@@ -22,6 +22,30 @@
       "revId": "cf6dbc98b4c2fccdfcf48bcebf7dfc9e1d17dee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a7ba45_10083255",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-03T16:22:40Z",
+      "side": 1,
+      "message": "I don\u0027t think this will go away in the near future (as long as we keep the current libnativeloader logic): we are building a subset of the public libraries expected on a standard Android system, in order to minimize the number of dependencies required for ART standalone testing. This means we have to curate our own public.libraries.txt file in the chroot environment.",
+      "parentUuid": "a2be4179_43c8c81a",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 68
+      },
+      "revId": "cf6dbc98b4c2fccdfcf48bcebf7dfc9e1d17dee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
