@@ -16,6 +16,24 @@
       "revId": "2d869bcd301f701960592a30ab68718d3990e302",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33ea3d05_3897b94d",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2019-04-03T13:46:54Z",
+      "side": 1,
+      "message": "Hi David,\nI\u0027ve tried to go through all intrinsics listed in this function, and according to my understanding:\n\nShould return kAccCorePlatformApi:\n  Intrinsics::kStringNewStringFromBytes\n  Intrinsics::kStringNewStringFromChars\n  Intrinsics::kStringNewStringFromString\n  Intrinsics::kMemoryPeekByte\n  Intrinsics::kMemoryPeekIntNative\n  Intrinsics::kMemoryPeekLongNative\n  Intrinsics::kMemoryPeekShortNative\n  Intrinsics::kMemoryPokeByte\n  Intrinsics::kMemoryPokeIntNative\n  Intrinsics::kMemoryPokeLongNative\n  Intrinsics::kMemoryPokeShortNative\n  Intrinsics::kFP16ToFloat\n\n\nShould return kAccPublicApi:\n  Intrinsics::kSystemArrayCopyChar\n\n\nShould return 0:\n  Intrinsics::kStringGetCharsNoCheck\n  Intrinsics::kReferenceGetReferent\n\n\nNot sure about methods in \u0027java.lang.invoke.VarHandle\u0027 and \u0027sun.misc.Unsafe\u0027:\n  Intrinsics::kVarHandleFullFence\n  Intrinsics::kVarHandleAcquireFence\n  Intrinsics::kVarHandleReleaseFence\n  Intrinsics::kVarHandleLoadLoadFence\n  Intrinsics::kVarHandleStoreStoreFence\n  Intrinsics::kVarHandleCompareAndExchange\n  Intrinsics::kVarHandleCompareAndExchangeAcquire\n  Intrinsics::kVarHandleCompareAndExchangeRelease\n  Intrinsics::kVarHandleCompareAndSet\n  Intrinsics::kVarHandleGet\n  Intrinsics::kVarHandleGetAcquire\n  Intrinsics::kVarHandleGetAndAdd\n  Intrinsics::kVarHandleGetAndAddAcquire\n  Intrinsics::kVarHandleGetAndAddRelease\n  Intrinsics::kVarHandleGetAndBitwiseAnd\n  Intrinsics::kVarHandleGetAndBitwiseAndAcquire\n  Intrinsics::kVarHandleGetAndBitwiseAndRelease\n  Intrinsics::kVarHandleGetAndBitwiseOr\n  Intrinsics::kVarHandleGetAndBitwiseOrAcquire\n  Intrinsics::kVarHandleGetAndBitwiseOrRelease\n  Intrinsics::kVarHandleGetAndBitwiseXor\n  Intrinsics::kVarHandleGetAndBitwiseXorAcquire\n  Intrinsics::kVarHandleGetAndBitwiseXorRelease\n  Intrinsics::kVarHandleGetAndSet\n  Intrinsics::kVarHandleGetAndSetAcquire\n  Intrinsics::kVarHandleGetAndSetRelease\n  Intrinsics::kVarHandleGetOpaque\n  Intrinsics::kVarHandleGetVolatile\n  Intrinsics::kVarHandleSet\n  Intrinsics::kVarHandleSetOpaque\n  Intrinsics::kVarHandleSetRelease\n  Intrinsics::kVarHandleSetVolatile\n  Intrinsics::kVarHandleWeakCompareAndSet\n  Intrinsics::kVarHandleWeakCompareAndSetAcquire\n  Intrinsics::kVarHandleWeakCompareAndSetPlain\n  Intrinsics::kVarHandleWeakCompareAndSetRelease\n  Intrinsics::kUnsafeCASInt\n  Intrinsics::kUnsafeCASLong\n  Intrinsics::kUnsafeCASObject\n  Intrinsics::kUnsafeGet\n  Intrinsics::kUnsafeGetAndAddInt\n  Intrinsics::kUnsafeGetAndAddLong\n  Intrinsics::kUnsafeGetAndSetInt\n  Intrinsics::kUnsafeGetAndSetLong\n  Intrinsics::kUnsafeGetAndSetObject\n  Intrinsics::kUnsafeGetLong\n  Intrinsics::kUnsafeGetLongVolatile\n  Intrinsics::kUnsafeGetObject\n  Intrinsics::kUnsafeGetObjectVolatile\n  Intrinsics::kUnsafeGetVolatile\n  Intrinsics::kUnsafePut\n  Intrinsics::kUnsafePutLong\n  Intrinsics::kUnsafePutLongOrdered\n  Intrinsics::kUnsafePutLongVolatile\n  Intrinsics::kUnsafePutObject\n  Intrinsics::kUnsafePutObjectOrdered\n  Intrinsics::kUnsafePutObjectVolatile\n  Intrinsics::kUnsafePutOrdered\n  Intrinsics::kUnsafePutVolatile\n  Intrinsics::kUnsafeLoadFence\n  Intrinsics::kUnsafeStoreFence\n  Intrinsics::kUnsafeFullFence\n\n\nPlease let me know your thoughts.\n\nThanks\nXueliang",
+      "parentUuid": "c099f7f1_84a10033",
+      "revId": "2d869bcd301f701960592a30ab68718d3990e302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
