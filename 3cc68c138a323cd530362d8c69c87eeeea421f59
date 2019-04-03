@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df518f06_9d5d8300",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:03:56Z",
+      "side": 1,
+      "message": "if (kIsDebugBuild)",
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a1723a7_77608f9d",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:03:56Z",
+      "side": 1,
+      "message": "Can you add some more context who would do that?",
+      "range": {
+        "startLine": 67,
+        "startChar": 49,
+        "endLine": 67,
+        "endChar": 92
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "181a7b49_bd97733a",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:03:56Z",
+      "side": 1,
+      "message": "I don\u0027t quite get this comment.",
+      "range": {
+        "startLine": 70,
+        "startChar": 33,
+        "endLine": 70,
+        "endChar": 88
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ff1d31_1b0f4e27",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:03:56Z",
+      "side": 1,
+      "message": "Add a comment: TODO: Remove IsOptimized calls.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b8edf79_963d67c9",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:03:56Z",
+      "side": 1,
+      "message": "nit: add top-level comment what IsValid means for a OatQuickMethodHeader.",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "3cc68c138a323cd530362d8c69c87eeeea421f59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
