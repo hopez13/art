@@ -46,6 +46,30 @@
       "revId": "cf6dbc98b4c2fccdfcf48bcebf7dfc9e1d17dee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e566ead4_38a057ba",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-03T16:37:17Z",
+      "side": 1,
+      "message": "That\u0027s because libnativeloader complains if the text files mentions libraries that don\u0027t exist, I take it.\n\nBut then at least we\u0027ll be able to (or even forced to) delete libart.so and all the other internal libraries in it, right?\n\nBtw, I found the reason why libnativeloader is so picky with missing libraries: [1] It\u0027d be nice to make it more lenient when we compile it for testing, but not sure what that might entail.\n\n[1] http://cs/aosp-master/system/core/libnativeloader/native_loader.cpp?l\u003d484-485\u0026rcl\u003dcd68bda4ec03652d66dc43839a2b3a451d6037fd",
+      "parentUuid": "e2a7ba45_10083255",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 68
+      },
+      "revId": "cf6dbc98b4c2fccdfcf48bcebf7dfc9e1d17dee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
