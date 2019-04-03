@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82146908_35e75eed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "Can dex_file_location and dex_cache_location really be different here?",
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9bef9c0_33dd1620",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "You could just pass null here, and handle null in the calleee (or make arg default to null)?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 72,
+        "endLine": 1216,
+        "endChar": 90
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4c501a0_82c689b3",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "nit: add a comment what case this covers.",
+      "range": {
+        "startLine": 1411,
+        "startChar": 0,
+        "endLine": 1414,
+        "endChar": 3
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b73802_8e85d8ec",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "without the multidex suffix..",
+      "range": {
+        "startLine": 1436,
+        "startChar": 45,
+        "endLine": 1436,
+        "endChar": 46
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "928caa47_c20bd9f8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "so the oat and dex files can move to different directories.",
+      "range": {
+        "startLine": 1438,
+        "startChar": 5,
+        "endLine": 1438,
+        "endChar": 40
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44bf2810_b3b3d5fe",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "Add a comment why target and host need to be different? (Given it\u0027s for tests, can we just fix the tests to a unified way?)",
+      "range": {
+        "startLine": 1451,
+        "startChar": 2,
+        "endLine": 1456,
+        "endChar": 43
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f9fc820_2a41f7fa",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "You\u0027re not explaining what rel_dex_location is for ?",
+      "range": {
+        "startLine": 346,
+        "startChar": 19,
+        "endLine": 346,
+        "endChar": 37
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0211127b_96c04539",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "Because they have to do \u0027\u0026\u0027 ? (which can apply to non-temporary objects as well)",
+      "range": {
+        "startLine": 347,
+        "startChar": 16,
+        "endLine": 347,
+        "endChar": 77
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "040baddc_7e20e083",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-03T08:44:13Z",
+      "side": 1,
+      "message": "Also add a comment what abs_dex_location is.",
+      "range": {
+        "startLine": 350,
+        "startChar": 74,
+        "endLine": 350,
+        "endChar": 91
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
