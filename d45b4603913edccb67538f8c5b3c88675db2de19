@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e0d2ffd_efc2f711",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-03T10:44:20Z",
+      "side": 1,
+      "message": "Do not include this part (and avoid the leading \u0027:\u0027 below) if there is no image.",
+      "range": {
+        "startLine": 2284,
+        "startChar": 36,
+        "endLine": 2284,
+        "endChar": 94
+      },
+      "revId": "d45b4603913edccb67538f8c5b3c88675db2de19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
