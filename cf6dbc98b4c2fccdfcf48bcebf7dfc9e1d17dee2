@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2be4179_43c8c81a",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-03T15:31:51Z",
+      "side": 1,
+      "message": "Wasn\u0027t aware this file is also a thing to keep in sync for tests to work.\n\nDo I understand correctly the need for this will go away when b/129534335 is fixed? If so, maybe add a TODO comment for that here?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 68
+      },
+      "revId": "cf6dbc98b4c2fccdfcf48bcebf7dfc9e1d17dee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
