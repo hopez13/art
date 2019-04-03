@@ -34,6 +34,24 @@
       "revId": "2d869bcd301f701960592a30ab68718d3990e302",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3979031e_87b75291",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-03T15:29:47Z",
+      "side": 1,
+      "message": "Hey, yeah, that would make sense. I have another change in flight that should make the DCHECK in art_method.cc catch violations automatically. Will hopefully get to it this week.",
+      "parentUuid": "33ea3d05_3897b94d",
+      "revId": "2d869bcd301f701960592a30ab68718d3990e302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
