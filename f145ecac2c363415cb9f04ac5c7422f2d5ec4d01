@@ -22,6 +22,30 @@
       "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca17aa26_9002da6e",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-03T10:41:41Z",
+      "side": 1,
+      "message": "I agree, but at this point, I would rather avoid hard-crashing the process.\n\nI keep fixing them, but the cases where we use random piece of memory as OatMethodHeader keep coming up.  I don\u0027t have confidence that I found all of them.",
+      "parentUuid": "ccb3025b_336f5155",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 62
+      },
+      "revId": "f145ecac2c363415cb9f04ac5c7422f2d5ec4d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
