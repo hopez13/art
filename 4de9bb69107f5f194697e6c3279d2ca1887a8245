@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d41c950_6692358b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-04-03T15:25:16Z",
+      "side": 1,
+      "message": "It looks like this will break the compat bugbot here:\nhttp://google3/wireless/android/nexus/bugbot/bugbotv2/module/module_compat.py?l\u003d78\u0026rcl\u003d210122845\n\nDo you mind also creating a CL to ensure it will parse the new format? (even if that is just updating the test)",
+      "revId": "4de9bb69107f5f194697e6c3279d2ca1887a8245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
