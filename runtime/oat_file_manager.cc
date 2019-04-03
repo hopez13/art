@@ -29,6 +29,7 @@
 #include "base/file_utils.h"
 #include "base/logging.h"  // For VLOG.
 #include "base/mutex-inl.h"
+#include "base/sdk_version.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "class_linker.h"
@@ -969,6 +970,11 @@ void OatFileManager::RunBackgroundVerification(const std::vector<const DexFile*>
     // Threads created by ThreadPool ("runtime threads") are not allowed to load
     // classes when debuggable to match class-initialization semantics
     // expectations. Do not verify in the background.
+    return;
+  }
+
+  if (!IsSdkVersionSetAndAtLeast(Runtime::Current()->GetTargetSdkVersion(), SdkVersion::kQ)) {
+    // Do not run for legacy apps as they may depend on the previous class loader behaviour.
     return;
   }
 
