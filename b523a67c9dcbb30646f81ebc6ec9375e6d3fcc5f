@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df9b009d_39b0c6e4",
+        "filename": "runtime/interpreter/mterp/arm64/array.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-04T16:12:28Z",
+      "side": 1,
+      "message": "The array index is technically signed but negative values cannot pass the range check below. So I don\u0027t care if we keep UXTW instead of SXTW.",
+      "range": {
+        "startLine": 78,
+        "startChar": 24,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "b523a67c9dcbb30646f81ebc6ec9375e6d3fcc5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
