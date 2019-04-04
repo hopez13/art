@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7cb9e0d_77a5b8fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-04T11:34:54Z",
+      "side": 1,
+      "message": "The documentation says\n\n  if [...] || m \u003d\u003d t2 then UNPREDICTABLE;\n\nand therefore it may be OK on some ARM CPUs and broken on others. Please update the commit message to reflect this.",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "900055613ebc651125f4dfe82d7cc72350e80862",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
