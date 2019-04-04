@@ -52,6 +52,21 @@ namespace openjdkjvmti {
 
 class EventHandler;
 
+// Gains the user_code_suspension_lock_ and ensures that the code will not suspend for user-code.
+class SCOPED_CAPABILITY ScopedNoUserCodeSuspension {
+ public:
+  explicit ScopedNoUserCodeSuspension(art::Thread* self)
+      ACQUIRE(art::Locks::user_code_suspension_lock_);
+  ~ScopedNoUserCodeSuspension() RELEASE(art::Locks::user_code_suspension_lock_);
+
+ private:
+  art::Thread* self_;
+};
+
+#define ScopedNoUserCodeSuspension(anon) \
+  static_assert(false, \
+                "ScopedNoUserCodeSuspension must be given a name to live for the whole scope!")
+
 // The struct that we store in the art::Thread::custom_tls_ that maps the jvmtiEnvs to the data
 // stored with that thread. This is needed since different jvmtiEnvs are not supposed to share TLS
 // data but we only have a single slot in Thread objects to store data.
