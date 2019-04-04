@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "03f36cc1_c95330e8",
+        "filename": "runtime/gc/collector_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-04T12:21:45Z",
+      "side": 1,
+      "message": "Could you also amend test/testrunner/target_config.py to have GSS configurations fall back to the SS collector?\n\nI\u0027ll remove the GSS configurations from the Android Build master-art-host configuration.",
+      "range": {
+        "startLine": 72,
+        "startChar": 6,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "dba6e32eda4ce774f91e64036b9b51f9aa665b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dca30e8_8f3507a3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
