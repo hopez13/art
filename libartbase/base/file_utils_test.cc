@@ -79,6 +79,13 @@ TEST_F(FileUtilsTest, GetAndroidRootSafe) {
   ASSERT_EQ(0, setenv("ANDROID_ROOT", "/this/is/obviously/bogus", /* overwrite */ 1));
   EXPECT_EQ(GetAndroidRootSafe(&error_msg), "");
 
+  // Disabled on target for now, as we cannot reliably use
+  // `GetRootContainingLibartbase` to find the Android Runtime Root on target
+  // yet (see comment in `GetAndroidRuntimeRootSafe`).
+  //
+  // TODO(b/129534335): Re-enable this part of the test on target when the only
+  // instance of libartbase is the one from the Runtime APEX.
+  if (!kIsTargetBuild) {
   // Unset ANDROID_ROOT and see that it still returns something (as libart code is running).
   ASSERT_EQ(0, unsetenv("ANDROID_ROOT"));
   std::string android_root3 = GetAndroidRootSafe(&error_msg);
@@ -92,6 +99,7 @@ TEST_F(FileUtilsTest, GetAndroidRootSafe) {
 #else
   EXPECT_STRNE(real_root3.get(), "") << error_msg;
 #endif
+  }
 
   // Reset ANDROID_ROOT, as other things may depend on it.
   ASSERT_EQ(0, setenv("ANDROID_ROOT", android_root_env.c_str(), /* overwrite */ 1));
