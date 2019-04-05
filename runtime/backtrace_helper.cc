@@ -18,11 +18,12 @@
 
 #if defined(__linux__)
 
-#include <backtrace/Backtrace.h>
-#include <backtrace/BacktraceMap.h>
-
-#include <unistd.h>
+#include <mutex>
 #include <sys/types.h>
+#include <unistd.h>
+
+#include "unwindstack/Unwinder.h"
+#include "unwindstack/RegsGetLocal.h"
 
 #include "thread-inl.h"
 
@@ -39,41 +40,59 @@ namespace art {
 // gcstress this isn't a huge deal.
 #if defined(__linux__)
 
-static const char* kBacktraceCollectorTlsKey = "BacktraceCollectorTlsKey";
+struct UnwindHelper : public TLSData {
+  static constexpr const char* kTlsKey = "UnwindHelper::kTlsKey";
 
-struct BacktraceMapHolder : public TLSData {
-  BacktraceMapHolder() : map_(BacktraceMap::Create(getpid())) {}
+  explicit UnwindHelper(size_t max_depth) {
+    Init(max_depth);
+  }
 
-  std::unique_ptr<BacktraceMap> map_;
+  void Init(size_t max_depth) {
+    maps_.reset(new unwindstack::LocalMaps());
+    CHECK(maps_->Parse());
+    memory_.reset(new unwindstack::MemoryLocal());
+    jit_.reset(new unwindstack::JitDebug(memory_));
+    dex_.reset(new unwindstack::DexFiles(memory_));
+    unwinder_.reset(new unwindstack::Unwinder(max_depth, maps_.get(), memory_));
+    unwinder_->SetJitDebug(jit_.get(), unwindstack::Regs::CurrentArch());
+    unwinder_->SetDexFiles(dex_.get(), unwindstack::Regs::CurrentArch());
+    unwinder_->SetResolveNames(false);
+    unwindstack::Elf::SetCachingEnabled(true);
+  }
+
+  static UnwindHelper* Get(Thread* self, size_t max_depth) {
+    UnwindHelper* unwinder_holder =
+        reinterpret_cast<UnwindHelper*>(self->GetCustomTLS(UnwindHelper::kTlsKey));
+    if (unwinder_holder == nullptr) {
+      unwinder_holder = new UnwindHelper(max_depth);
+      self->SetCustomTLS(UnwindHelper::kTlsKey, unwinder_holder);
+    }
+    return unwinder_holder;
+  }
+
+  unwindstack::Unwinder* Unwinder() { return unwinder_.get(); }
+
+ private:
+  std::unique_ptr<unwindstack::LocalMaps> maps_;
+  std::shared_ptr<unwindstack::Memory> memory_;
+  std::unique_ptr<unwindstack::JitDebug> jit_;
+  std::unique_ptr<unwindstack::DexFiles> dex_;
+  std::unique_ptr<unwindstack::Unwinder> unwinder_;
 };
 
-static BacktraceMap* GetMap(Thread* self) {
-  BacktraceMapHolder* map_holder =
-      reinterpret_cast<BacktraceMapHolder*>(self->GetCustomTLS(kBacktraceCollectorTlsKey));
-  if (map_holder == nullptr) {
-    map_holder = new BacktraceMapHolder;
-    // We don't care about the function names. Turning this off makes everything significantly
-    // faster.
-    map_holder->map_->SetResolveNames(false);
-    // Only created and queried on Thread::Current so no sync needed.
-    self->SetCustomTLS(kBacktraceCollectorTlsKey, map_holder);
-  }
-
-  return map_holder->map_.get();
-}
-
 void BacktraceCollector::Collect() {
-  std::unique_ptr<Backtrace> backtrace(Backtrace::Create(BACKTRACE_CURRENT_PROCESS,
-                                                         BACKTRACE_CURRENT_THREAD,
-                                                         GetMap(Thread::Current())));
-  backtrace->SetSkipFrames(true);
-  if (!backtrace->Unwind(skip_count_, nullptr)) {
-    return;
-  }
-  for (Backtrace::const_iterator it = backtrace->begin();
-       max_depth_ > num_frames_ && it != backtrace->end();
-       ++it) {
-    out_frames_[num_frames_++] = static_cast<uintptr_t>(it->pc);
+  unwindstack::Unwinder* unwinder = UnwindHelper::Get(Thread::Current(), max_depth_)->Unwinder();
+  std::unique_ptr<unwindstack::Regs> regs(unwindstack::Regs::CreateFromLocal());
+  RegsGetLocal(regs.get());
+  unwinder->SetRegs(regs.get());
+  unwinder->Unwind();
+  num_frames_ = 0;
+  if (unwinder->NumFrames() > skip_count_) {
+    for (auto it = unwinder->frames().begin() + skip_count_;
+         max_depth_ > num_frames_ && it != unwinder->frames().end();
+         ++it) {
+      out_frames_[num_frames_++] = static_cast<uintptr_t>(it->pc);
+    }
   }
 }
 
