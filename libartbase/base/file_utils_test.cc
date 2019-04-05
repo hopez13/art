@@ -79,6 +79,8 @@ TEST_F(FileUtilsTest, GetAndroidRootSafe) {
   ASSERT_EQ(0, setenv("ANDROID_ROOT", "/this/is/obviously/bogus", /* overwrite */ 1));
   EXPECT_EQ(GetAndroidRootSafe(&error_msg), "");
 
+  // Disabled for now, as the corresponding logic in art::GetAndroidRootSafe is disabled.
+#if 0
   // Unset ANDROID_ROOT and see that it still returns something (as libart code is running).
   ASSERT_EQ(0, unsetenv("ANDROID_ROOT"));
   std::string android_root3 = GetAndroidRootSafe(&error_msg);
@@ -91,6 +93,7 @@ TEST_F(FileUtilsTest, GetAndroidRootSafe) {
   EXPECT_STREQ(real_root.get(), real_root3.get()) << error_msg;
 #else
   EXPECT_STRNE(real_root3.get(), "") << error_msg;
+#endif
 #endif
 
   // Reset ANDROID_ROOT, as other things may depend on it.

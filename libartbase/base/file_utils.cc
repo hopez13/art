@@ -110,7 +110,23 @@ std::string GetAndroidRootSafe(std::string* error_msg) {
     return android_root_from_env;
   }
 
-  // Check where libart is from, and derive from there. Only do this for non-Mac.
+  // The code below is problematic on target, as libartbase is now supposed to
+  // be installed under the Runtime APEX, i.e. `ANDROID_RUNTIME_ROOT/lib(64)`
+  // (e.g. `/apex/com.android.runtime/lib`). We could perhaps consider using
+  // this logic to implement `GetAndroidRuntimeRootSafe` instead, provided that
+  // libartbase is accessible from the binary calling this function (which is
+  // not clear, as libartbase is not supposed to be visible outside the Runtime
+  // APEX).
+  //
+  // Note that the code below is fine on host, as libartbase is installed in
+  // `$ANDROID_ROOT/lib`, e.g. `out/host/linux-x86/lib`. This could however
+  // change in the future, if we decided to install ART artifacts in a different
+  // location, e.g. within a "Runtime APEX" directory.
+  //
+  // Disable this logic for now, until we have a clear plan regarding linking
+  // ART libraries to binaries outside the Runtime APEX (see also b/129534335).
+#if 0
+  // Check where libartbase is from, and derive from there. Only do this for non-Mac.
 #ifndef __APPLE__
   {
     Dl_info info;
@@ -126,6 +142,7 @@ std::string GetAndroidRootSafe(std::string* error_msg) {
       }
     }
   }
+#endif
 #endif
 
   // Try the default path.
