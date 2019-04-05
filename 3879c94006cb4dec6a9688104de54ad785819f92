@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "348e45d9_39303e39",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-05T15:21:28Z",
+      "side": 1,
+      "message": "GetAndroidRoot otoh returns std::string. All three should perhaps be consistent?",
+      "parentUuid": "b8fe30e1_d53ee629",
+      "range": {
+        "startLine": 180,
+        "startChar": 12,
+        "endLine": 180,
+        "endChar": 37
+      },
+      "revId": "3879c94006cb4dec6a9688104de54ad785819f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1adf6e17_a6a5c8ac",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 1
@@ -45,6 +69,29 @@
       "revId": "3879c94006cb4dec6a9688104de54ad785819f92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10419080_13748660",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-05T15:21:28Z",
+      "side": 1,
+      "message": "Add error_msg to the message here when it fails?",
+      "range": {
+        "startLine": 108,
+        "startChar": 59,
+        "endLine": 108,
+        "endChar": 60
+      },
+      "revId": "3879c94006cb4dec6a9688104de54ad785819f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
