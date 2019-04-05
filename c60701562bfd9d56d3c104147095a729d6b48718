@@ -46,6 +46,30 @@
       "revId": "c60701562bfd9d56d3c104147095a729d6b48718",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d5b7933_e7db1395",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-05T18:38:14Z",
+      "side": 1,
+      "message": "I\u0027d rather at least not regress host and put a comment on and make is !kIsTargetBuild.\n\n(Definitely do not use \"#if 0,\" use \"if ((false))\" to at least type-check it to stop bit-rot.)\n\nCan you stack the other changes when ready so that this can be reviewed together?",
+      "parentUuid": "58a3feff_4c437bfa",
+      "range": {
+        "startLine": 127,
+        "startChar": 19,
+        "endLine": 127,
+        "endChar": 55
+      },
+      "revId": "c60701562bfd9d56d3c104147095a729d6b48718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
