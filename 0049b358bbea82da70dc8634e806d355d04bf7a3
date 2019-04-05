@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3394d90e_49423999",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-05T16:17:20Z",
+      "side": 1,
+      "message": "Since it tests for failure here, error_msg won\u0027t be set when the call is successful. Probably better to not show it since it can show a stale error message from an earlier call.",
+      "range": {
+        "startLine": 119,
+        "startChar": 54,
+        "endLine": 119,
+        "endChar": 67
+      },
+      "revId": "0049b358bbea82da70dc8634e806d355d04bf7a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
