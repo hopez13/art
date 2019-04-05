@@ -22,6 +22,29 @@
       "revId": "3879c94006cb4dec6a9688104de54ad785819f92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1adf6e17_a6a5c8ac",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-05T15:17:51Z",
+      "side": 1,
+      "message": "Subsumed by check above and below, but okay as-is. Maybe fits on 1-line.",
+      "range": {
+        "startLine": 356,
+        "startChar": 9,
+        "endLine": 356,
+        "endChar": 30
+      },
+      "revId": "3879c94006cb4dec6a9688104de54ad785819f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
