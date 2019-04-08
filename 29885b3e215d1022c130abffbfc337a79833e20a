@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e69af41_fc9aa483",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1026966
+      },
+      "writtenOn": "2019-04-08T17:23:06Z",
+      "side": 1,
+      "message": "Sorry for the late comment. I was on vacation last week.\n\nWould this hide classes only in updatable-media.jar? or all the bootclasspath classes under android.media?\n(Pre-Q classes, e.g. android.media.MediaExtractor, still live in framework.jar.)",
+      "range": {
+        "startLine": 3019,
+        "startChar": 33,
+        "endLine": 3019,
+        "endChar": 48
+      },
+      "revId": "29885b3e215d1022c130abffbfc337a79833e20a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
