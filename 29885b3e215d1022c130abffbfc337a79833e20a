@@ -22,6 +22,30 @@
       "revId": "29885b3e215d1022c130abffbfc337a79833e20a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a3dfd1_78b98356",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-08T17:32:58Z",
+      "side": 1,
+      "message": "All classes under android.media.\n\nNote that we prevent app class loaders from defining those classes during AOT compiation, boot classpath jars are not subject to this restriction, see line 3052 below. And framework.jar is part of the boot classpath, therefore allowed to define anything in these reserved packages.",
+      "parentUuid": "0e69af41_fc9aa483",
+      "range": {
+        "startLine": 3019,
+        "startChar": 33,
+        "endLine": 3019,
+        "endChar": 48
+      },
+      "revId": "29885b3e215d1022c130abffbfc337a79833e20a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
