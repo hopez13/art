@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94c6ee8c_a71d680d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-09T15:29:52Z",
+      "side": 1,
+      "message": "Fix tracing shutdown",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "62e477542755789b5f83b7c30c4c7dd3945f54b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c51f60e_3297ae9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-09T15:29:52Z",
+      "side": 1,
+      "message": "Suggest something along these lines (used locally):\n\nTest: adb shell am start -S -W --start-profiler  \\\n       /data/local/tmp/test.trace --sampling 1   \\\n       -a \\android.intent.action.MAIN            \\\n       -n com.android.calendar/com.android.calendar.AllInOneActivity \u0026\u0026 \\\n  sleep 5 \u0026\u0026 \\\n  adb shell am profile stop com.android.calendar \u0026\u0026 \\\n  adb pull /data/local/tmp/test.trace \\\n  And inspecting test.trace.",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 12
+      },
+      "revId": "62e477542755789b5f83b7c30c4c7dd3945f54b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
