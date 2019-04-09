@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "8bc9c151_92900a49",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-04-09T20:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c5ba23_5fc4792b",
+      "range": {
+        "startLine": 36,
+        "startChar": 65,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "3aba08e5ad23fbbc45ddbfb92602aa7827b015f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "155c9ecc_9395e457",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-04-09T20:24:54Z",
+      "side": 1,
+      "message": "A macro means we don\u0027t have a \u0027read\u0027 of the guarded field without a lock.",
+      "parentUuid": "c6f9957f_1986f47e",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 12
+      },
+      "revId": "3aba08e5ad23fbbc45ddbfb92602aa7827b015f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "801e5e2c_30cb7181",
         "filename": "runtime/runtime_callbacks.h",
         "patchSetId": 2
@@ -62,6 +110,24 @@
       "revId": "3aba08e5ad23fbbc45ddbfb92602aa7827b015f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5752796_6c4e907f",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-04-09T20:24:54Z",
+      "side": 1,
+      "message": "IDK c++17 maybe?",
+      "parentUuid": "801e5e2c_30cb7181",
+      "revId": "3aba08e5ad23fbbc45ddbfb92602aa7827b015f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
