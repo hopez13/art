@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1744ca5d_b1a6851b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Hmm, good point. Looking at all instances of dex cache init, it should always be the dex file\u0027s location. So that should now be the same as the location in the oat file. Let\u0027s add a DCHECK and see what happens.",
+      "parentUuid": "82146908_35e75eed",
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9bef9c0_33dd1620",
         "filename": "runtime/class_loader_context.cc",
         "patchSetId": 16
@@ -30,6 +48,30 @@
       "writtenOn": "2019-04-03T08:44:13Z",
       "side": 1,
       "message": "You could just pass null here, and handle null in the calleee (or make arg default to null)?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 72,
+        "endLine": 1216,
+        "endChar": 90
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7125edea_566b3653",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "No, the resolution may construct the location in `tmp_dex_file_name` and return a reference to it. Anyway, this is now moot.",
+      "parentUuid": "d9bef9c0_33dd1620",
       "range": {
         "startLine": 1216,
         "startChar": 72,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "91fbf659_b59600d0",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c501a0_82c689b3",
+      "range": {
+        "startLine": 1411,
+        "startChar": 0,
+        "endLine": 1414,
+        "endChar": 3
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b73802_8e85d8ec",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 16
@@ -85,6 +151,30 @@
       "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f3b7d8_8a2fb73a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4b73802_8e85d8ec",
+      "range": {
+        "startLine": 1436,
+        "startChar": 45,
+        "endLine": 1436,
+        "endChar": 46
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "3e9e0cc8_81bcd8ed",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "928caa47_c20bd9f8",
+      "range": {
+        "startLine": 1438,
+        "startChar": 5,
+        "endLine": 1438,
+        "endChar": 40
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44bf2810_b3b3d5fe",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 16
@@ -131,6 +245,30 @@
       "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa4ef833_bd596420",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44bf2810_b3b3d5fe",
+      "range": {
+        "startLine": 1451,
+        "startChar": 2,
+        "endLine": 1456,
+        "endChar": 43
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "041f6dc7_79ac8fcc",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f9fc820_2a41f7fa",
+      "range": {
+        "startLine": 346,
+        "startChar": 19,
+        "endLine": 346,
+        "endChar": 37
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0211127b_96c04539",
         "filename": "runtime/oat_file.h",
         "patchSetId": 16
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "a56d3cff_56553738",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0211127b_96c04539",
+      "range": {
+        "startLine": 347,
+        "startChar": 16,
+        "endLine": 347,
+        "endChar": 77
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "040baddc_7e20e083",
         "filename": "runtime/oat_file.h",
         "patchSetId": 16
@@ -200,6 +386,30 @@
       "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08674d22_c3c4ab32",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-10T14:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040baddc_7e20e083",
+      "range": {
+        "startLine": 350,
+        "startChar": 74,
+        "endLine": 350,
+        "endChar": 91
+      },
+      "revId": "a41a5721a64e931d593b089af8b242063ff6fe9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
