@@ -1488,6 +1488,9 @@ extern "C" const void* artQuickResolutionTrampoline(
         // Class is still initializing, go to oat and grab code (trampoline must be left in place
         // until class is initialized to stop races between threads).
         code = linker->GetQuickOatCodeFor(called);
+        if (code == nullptr && Runtime::Current()->GetJit() != nullptr) {
+          code = Runtime::Current()->GetJit()->GetCodeCache()->GetZygoteSavedEntryPoint(called);
+        }
       } else {
         // No trampoline for non-static methods.
         code = called->GetEntryPointFromQuickCompiledCode();
