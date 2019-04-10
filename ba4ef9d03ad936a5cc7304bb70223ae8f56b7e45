@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b278a53e_d3bbdd4a",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-10T14:03:26Z",
+      "side": 1,
+      "message": "It would be possible to avoid this by setting up a namespace specifically for loading the oat files, similar to classloader-namespace in libnativeloader.so. Would it be worthwhile opening a ticket for that?",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
