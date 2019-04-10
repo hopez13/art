@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ee510e6_89fe1b71",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-10T12:06:24Z",
+      "side": 1,
+      "message": "I think we can update the entrypoint for non-static methods.",
+      "range": {
+        "startLine": 1112,
+        "startChar": 17,
+        "endLine": 1112,
+        "endChar": 18
+      },
+      "revId": "f00dd66f7ad4b22fb7b2b0f647054aabe1b2ecf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
