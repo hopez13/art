@@ -20,7 +20,18 @@ public class Main {
     if (!hasJit()) {
       return;
     }
-    Foo.$noinline$hotMethod();
+    synchronized (Foo.class) {
+      Foo.$noinline$hotMethod();
+      while (!Main.hasJitCompiledEntrypoint(Foo.class, "$noinline$hotMethod")) {
+        Foo.$noinline$hotMethod();
+        try {
+          // Sleep to give a chance for the JIT to compile `hotMethod`.
+          Thread.sleep(100);
+        } catch (Exception e) {
+          // Ignore
+        }
+      }
+    }
   }
 
   public native static boolean hasJitCompiledEntrypoint(Class<?> cls, String methodName);
@@ -34,18 +45,5 @@ class Foo {
     }
   }
 
-  static {
-    array = new Object[10000];
-    while (!Main.hasJitCompiledEntrypoint(Foo.class, "$noinline$hotMethod")) {
-      Foo.$noinline$hotMethod();
-      try {
-        // Sleep to give a chance for the JIT to compile `hotMethod`.
-        Thread.sleep(100);
-      } catch (Exception e) {
-        // Ignore
-      }
-    }
-  }
-
-  static Object[] array;
+  static Object[] array = new Object[10000];
 }
