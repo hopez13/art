@@ -46,6 +46,30 @@
       "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c201cb8_4f34dccf",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-04-10T14:56:46Z",
+      "side": 1,
+      "message": "Yes, dynamically creating a linker namespace is also possible... provided that the dependency to something in the namespace is not static (i.e. DT_NEEDED from the main so)",
+      "parentUuid": "ef4d1f9c_9c0e1956",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
