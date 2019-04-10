@@ -545,6 +545,19 @@ const void* JitCodeCache::FindCompiledCodeForInstrumentation(ArtMethod* method) 
   return info->GetSavedEntryPoint();
 }
 
+const void* JitCodeCache::GetZygoteSavedEntryPoint(ArtMethod* method) const {
+  if (!Runtime::Current()->IsUsingDefaultBootImageLocation() &&
+      // Currently only applies to boot classpath
+      method->GetDeclaringClass()->GetClassLoader() == nullptr &&
+      method->GetProfilingInfo(kRuntimePointerSize) != nullptr) {
+    const void* entry_point = method->GetProfilingInfo(kRuntimePointerSize)->GetSavedEntryPoint();
+    if (IsInZygoteExecSpace(entry_point)) {
+      return entry_point;
+    }
+  }
+  return nullptr;
+}
+
 class ScopedCodeCacheWrite : ScopedTrace {
  public:
   explicit ScopedCodeCacheWrite(const JitCodeCache* const code_cache)
@@ -1096,9 +1109,19 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       if (osr) {
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
-      } else {
+      } else if (method->GetDeclaringClass()->IsInitialized()) {
         Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
             method, method_header->GetEntryPoint());
+      } else {
+        // This situation currently only occurs in the jit-zygote mode.
+        DCHECK(Runtime::Current()->IsZygote());
+        DCHECK(!Runtime::Current()->IsUsingDefaultBootImageLocation());
+        DCHECK(method->GetProfilingInfo(kRuntimePointerSize) != nullptr);
+        DCHECK(method->GetDeclaringClass()->GetClassLoader() == nullptr);
+        // Save the entrypoint, so it can be fethed later once the class is
+        // initialized.
+        method->GetProfilingInfo(kRuntimePointerSize)->SetSavedEntryPoint(
+            method_header->GetEntryPoint());
       }
     }
     VLOG(jit)
