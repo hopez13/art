@@ -94,6 +94,30 @@
       "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cd324b6_5d976862",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-10T17:58:59Z",
+      "side": 1,
+      "message": "\u003e provided that the dependency to something in the namespace is not static (i.e. DT_NEEDED from the main so)\n\nNo, I think it only applies to the android_dlopen_ext call in art/runtime/oat_file.cc?l\u003d1052.\n\n\u003e What about APEX updates and oat files in /data?\n\nThe default namespace has\n\nnamespace.default.permitted.paths +\u003d /data\n\nA constructed namespace would need the same thing.",
+      "parentUuid": "dfacfb94_5058e182",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
