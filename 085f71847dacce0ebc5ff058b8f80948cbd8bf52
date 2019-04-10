@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7997394e_35ae95a3",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-10T13:08:11Z",
+      "side": 1,
+      "message": "I\u0027m trying to understand this, which means I need to understand the difference between GetAndroidRoot and GetAndroidRuntimeRoot on host. The documentation strings in file_utils.h aren\u0027t very revealing for that, so if you have a good understanding I think it would be helpful to give them a look-over. Then if the docs would focus more on what they\u0027re intended to be used for rather than how they\u0027re derived it\u0027d be even better.\n\n(I\u0027d guess the two functions would return the same thing on host, but then I wonder why this function can\u0027t use GetRootContainingLibartbase.)",
+      "range": {
+        "startLine": 226,
+        "startChar": 43,
+        "endLine": 226,
+        "endChar": 57
+      },
+      "revId": "085f71847dacce0ebc5ff058b8f80948cbd8bf52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
