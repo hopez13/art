@@ -3373,6 +3373,8 @@ void ClassLinker::FixupStaticTrampolines(ObjPtr<mirror::Class> klass) {
     if (has_oat_class) {
       OatFile::OatMethod oat_method = oat_class.GetOatMethod(method_index);
       quick_code = oat_method.GetQuickCode();
+    } else if (Runtime::Current()->GetJit() != nullptr) {
+      quick_code = Runtime::Current()->GetJit()->GetCodeCache()->GetZygoteSavedEntryPoint(method);
     }
     // Check whether the method is native, in which case it's generic JNI.
     if (quick_code == nullptr && method->IsNative()) {
