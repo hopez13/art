@@ -22,6 +22,30 @@
       "revId": "40594870058427d6d1090f18c216f9dd155421e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edecf32e_5651913f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-04-11T15:50:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4724f5ec_c87e5720",
+      "range": {
+        "startLine": 319,
+        "startChar": 47,
+        "endLine": 319,
+        "endChar": 51
+      },
+      "revId": "40594870058427d6d1090f18c216f9dd155421e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
