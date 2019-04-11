@@ -118,6 +118,30 @@
       "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "525297e9_7de669f6",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-11T12:57:53Z",
+      "side": 1,
+      "message": "Thanks for the input. I\u0027ve opened b/130340935 and updated the TODO in the comment. PTAL.",
+      "parentUuid": "9cd324b6_5d976862",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "ba4ef9d03ad936a5cc7304bb70223ae8f56b7e45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
