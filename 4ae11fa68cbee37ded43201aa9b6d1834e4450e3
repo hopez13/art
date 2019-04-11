@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e6e9ef29_10dc746e",
+        "filename": "test/694-clinit-jit/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T09:03:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c80b79b_884562b3",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "4ae11fa68cbee37ded43201aa9b6d1834e4450e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbca21dd_4bada175",
         "filename": "test/694-clinit-jit/src/Main.java",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2019-04-11T08:59:48Z",
       "side": 1,
       "message": "Does this need to be 42?",
+      "range": {
+        "startLine": 69,
+        "startChar": 17,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "4ae11fa68cbee37ded43201aa9b6d1834e4450e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a11b8a5a_6a13840f",
+        "filename": "test/694-clinit-jit/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T09:03:24Z",
+      "side": 1,
+      "message": "No :) Returning 0 instead.",
+      "parentUuid": "dbca21dd_4bada175",
       "range": {
         "startLine": 69,
         "startChar": 17,
