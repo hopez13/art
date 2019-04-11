@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "946a3e79_327b9405",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-11T16:41:55Z",
+      "side": 1,
+      "message": "At the moment, say dex2oatd, depends on both libraries at the same time.  Just executing dex2oatd can mix functions from different builds... which might disagree on layout.  The fact that dex2oatd currently runs at all is miracle and luck ... mostly thanks to the fact we don\u0027t diverge in the class layout much between builds ... and the paces where we do, don\u0027t seem to cause fatal corruptions.\n\nNow... you could probably do some sand-boxing to ensure you can have different versions/builds of libart running in the same process, but presumably such sandboxing should also sandbox this check.  So all is good.\n\nEither way, fixing and preventing random memory corruptions in all debug builds is higher priority.",
+      "parentUuid": "ec27b395_e77dc599",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80b57a86_9ccf8f5b",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 1
