@@ -22,6 +22,30 @@
       "revId": "e76724060187a26c432381318eedf16d1abf7d0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6490556_51a16a05",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-11T21:05:23Z",
+      "side": 1,
+      "message": "libcore isn\u0027t involved here. The commit message steps include a reboot, so a standard startup flag in AndroidRuntime seems sufficient.",
+      "parentUuid": "ff47c1b6_28edb6d8",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "e76724060187a26c432381318eedf16d1abf7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
