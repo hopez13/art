@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1f2c2e4_ca25e9a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T10:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d60fca_be50fc6c",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce724865_9804c403",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -36,6 +60,24 @@
       "writtenOn": "2019-04-11T10:17:10Z",
       "side": 1,
       "message": "I think we should allow compilation, just avoid updating the entrypoint.\n\nThe resolution stub should be updated to find and use the compiled code from the `JitCodeCache::method_code_map_` (we\u0027ll need to mark the code as used if doing JIT GC). ClassLinker::FixupStaticTrampolines() should be similarly updated to look up the JIT-compiled code and set the entrypoint.",
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "931ef121_0dc14f96",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T10:26:53Z",
+      "side": 1,
+      "message": "As discussed, I see this as a short term solution. Long-term I\u0027d like to revamp how the code cache works.",
+      "parentUuid": "ce724865_9804c403",
       "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -85,6 +127,30 @@
       "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb96dfd_1880faa9",
+        "filename": "test/694-clinit-jit/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T10:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95dbc6bd_30046e46",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
