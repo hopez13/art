@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de572331_274ce182",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-11T17:50:30Z",
+      "side": 1,
+      "message": "Refactoring opportunity (maybe in a follow-up CL): introduce and use a method `art::gc::collector::Iteration::GetTotalFreedObjects` returning this sum.",
+      "range": {
+        "startLine": 2256,
+        "startChar": 33,
+        "endLine": 2257,
+        "endChar": 55
+      },
+      "revId": "2883d513c9c6106bbc097fe53154b2f0a58fd85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce4f7c7b_d0bd6199",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-11T17:50:30Z",
+      "side": 1,
+      "message": "Ditto: introduce and use a method `art::gc::collector::Iteration::GetTotalFreedBytes` returning this sum.",
+      "range": {
+        "startLine": 2258,
+        "startChar": 31,
+        "endLine": 2259,
+        "endChar": 60
+      },
+      "revId": "2883d513c9c6106bbc097fe53154b2f0a58fd85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
