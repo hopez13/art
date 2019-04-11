@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce724865_9804c403",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T10:17:10Z",
+      "side": 1,
+      "message": "I think we should allow compilation, just avoid updating the entrypoint.\n\nThe resolution stub should be updated to find and use the compiled code from the `JitCodeCache::method_code_map_` (we\u0027ll need to mark the code as used if doing JIT GC). ClassLinker::FixupStaticTrampolines() should be similarly updated to look up the JIT-compiled code and set the entrypoint.",
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e716fe5c_d321ffbc",
+        "filename": "test/655-jit-clinit/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T10:17:10Z",
+      "side": 1,
+      "message": "With the changes suggested in the JitCodeCache, we should have 2 tests here. One that waits until a virtual method hasJitCompiledEntrypoint(). And another one that waits until a static method hasJitCompiledCode(), asserts !hasJitCompiledEntrypoint(), leaves the static initializer and asserts hasJitCompiledEntrypoint().",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95dbc6bd_30046e46",
+        "filename": "test/694-clinit-jit/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T10:17:10Z",
+      "side": 1,
+      "message": "If you want to test compiled code of this method, you should mark it $noinline$.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
