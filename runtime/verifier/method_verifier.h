@@ -59,6 +59,7 @@ class MethodVerifier;
 class RegisterLine;
 using RegisterLineArenaUniquePtr = std::unique_ptr<RegisterLine, RegisterLineArenaDelete>;
 class RegType;
+struct ScopedLog;
 
 // We don't need to store the register data for many instructions, because we either only need
 // it at branch points (for verification) or GC points and branches (for verification +
@@ -126,7 +127,7 @@ class MethodVerifier {
   std::ostream& Fail(VerifyError error);
 
   // Log for verification information.
-  std::ostream& LogVerifyInfo();
+  ScopedLog&& LogVerifyInfo();
 
   // Dump the failures encountered by the verifier.
   std::ostream& DumpFailures(std::ostream& os);
