@@ -27,6 +27,10 @@
 #include "proxy_test.h"
 #include "well_known_classes.h"
 
+#ifdef ART_TARGET_ANDROID
+#include <android-base/properties.h>
+#endif
+
 namespace art {
 
 using hiddenapi::detail::MemberSignature;
@@ -607,6 +611,67 @@ TEST_F(HiddenApiTest, DexDomain_SystemFrameworkDir_MultiDex) {
 
   dex_files.clear();
   ASSERT_EQ(0, remove(system_framework_multi_location_path.c_str()));
+}
+
+struct ScopedCorePlatfromApiPolicy {
+  explicit ScopedCorePlatfromApiPolicy(const std::string& new_value) {
+#ifdef ART_TARGET_ANDROID
+    old_value_ = android::base::GetProperty(
+        hiddenapi::kCorePlatformApiEnforcementPolicyPropertyName, "");
+    bool success = android::base::SetProperty(
+        hiddenapi::kCorePlatformApiEnforcementPolicyPropertyName, new_value);
+    CHECK(success);
+#else  // ART_TARGET_ANDROID
+    UNUSED(new_value);
+    UNUSED(old_value_);
+#endif  // ART_TARGET_ANDROID
+  }
+
+  ~ScopedCorePlatfromApiPolicy() {
+#ifdef ART_TARGET_ANDROID
+    bool success = android::base::SetProperty(
+        hiddenapi::kCorePlatformApiEnforcementPolicyPropertyName, old_value_);
+    CHECK(success);
+#endif  // ART_TARGET_ANDROID
+  }
+
+  std::string old_value_;
+};
+
+TEST_F(HiddenApiTest, CorePlatformApiPolicyParsing_EmptyString) {
+  // Empty string results in using default values: disabled on target, just-warn on host.
+  ScopedCorePlatfromApiPolicy policy("");
+  ASSERT_EQ(hiddenapi::ParseCorePlatformApiEnforcementPolicy(),
+            kIsTargetBuild ? hiddenapi::EnforcementPolicy::kDisabled
+                           : hiddenapi::EnforcementPolicy::kJustWarn);
+}
+
+TEST_F(HiddenApiTest, CorePlatformApiPolicyParsing_InvalidString) {
+  // Invalid string results in using default values: disabled on target, just-warn on host.
+  ScopedCorePlatfromApiPolicy policy("foo");
+  ASSERT_EQ(hiddenapi::ParseCorePlatformApiEnforcementPolicy(),
+            kIsTargetBuild ? hiddenapi::EnforcementPolicy::kDisabled
+                           : hiddenapi::EnforcementPolicy::kJustWarn);
+}
+
+TEST_F(HiddenApiTest, CorePlatformApiPolicyParsing_Disabled) {
+  ScopedCorePlatfromApiPolicy policy("disabled");
+  ASSERT_EQ(hiddenapi::ParseCorePlatformApiEnforcementPolicy(),
+            kIsTargetBuild ? hiddenapi::EnforcementPolicy::kDisabled
+                           : hiddenapi::EnforcementPolicy::kJustWarn);
+}
+
+TEST_F(HiddenApiTest, CorePlatformApiPolicyParsing_JustWarn) {
+  ScopedCorePlatfromApiPolicy policy("just-warn");
+  ASSERT_EQ(hiddenapi::ParseCorePlatformApiEnforcementPolicy(),
+            hiddenapi::EnforcementPolicy::kJustWarn);
+}
+
+TEST_F(HiddenApiTest, CorePlatformApiPolicyParsing_Enabled) {
+  ScopedCorePlatfromApiPolicy policy("enabled");
+  ASSERT_EQ(hiddenapi::ParseCorePlatformApiEnforcementPolicy(),
+            kIsTargetBuild ? hiddenapi::EnforcementPolicy::kEnabled
+                           : hiddenapi::EnforcementPolicy::kJustWarn);
 }
 
 }  // namespace art

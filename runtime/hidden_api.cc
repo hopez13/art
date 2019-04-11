@@ -31,6 +31,10 @@
 #include "thread-inl.h"
 #include "well_known_classes.h"
 
+#ifdef ART_TARGET_ANDROID
+#include <android-base/properties.h>
+#endif
+
 namespace art {
 namespace hiddenapi {
 
@@ -72,6 +76,50 @@ static inline std::ostream& operator<<(std::ostream& os, const AccessContext& va
   }
   return os;
 }
+
+#ifdef ART_TARGET_ANDROID
+static bool EnforcementPolicyFromString(const std::string& api_policy_str,
+                                        /* out */ EnforcementPolicy* api_policy) {
+  if (api_policy_str == "disabled") {
+    *api_policy = EnforcementPolicy::kDisabled;
+    return true;
+  } else if (api_policy_str == "just-warn") {
+    *api_policy = EnforcementPolicy::kJustWarn;
+    return true;
+  } else if (api_policy_str == "enabled") {
+    *api_policy = EnforcementPolicy::kEnabled;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+EnforcementPolicy ParseCorePlatformApiEnforcementPolicy() {
+  // Core platform API is disabled on target by default, unless enabled with
+  // a system property. This is to avoid any performance penalty from the access
+  // checks in production.
+  EnforcementPolicy policy = hiddenapi::EnforcementPolicy::kDisabled;
+
+  std::string property_str = android::base::GetProperty(
+      kCorePlatformApiEnforcementPolicyPropertyName, "");
+
+  if (!property_str.empty()) {
+    if (!EnforcementPolicyFromString(property_str, &policy)) {
+      LOG(WARNING) << "Core platform API enforcement policy name \"" << property_str
+                   << "\" is not valid";
+    } else {
+      LOG(INFO) << "Core platform API reporting started: policy=" << property_str;
+    }
+  }
+
+  return policy;
+}
+#else  // ART_TARGET_ANDROID
+EnforcementPolicy ParseCorePlatformApiEnforcementPolicy() {
+  // Warn on core platform API violations on host.
+  return hiddenapi::EnforcementPolicy::kJustWarn;
+}
+#endif  // ART_TARGET_ANDROID
 
 static Domain DetermineDomainFromLocation(const std::string& dex_location,
                                           ObjPtr<mirror::ClassLoader> class_loader) {
