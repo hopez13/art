@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a848430_6e355be7",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-11T16:15:27Z",
+      "side": 1,
+      "message": "Why? The problem is test-specific, so don\u0027t make it a global check. We haven\u0027t given up on things like multiple runtimes in the same process, yet.",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80b57a86_9ccf8f5b",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 1
