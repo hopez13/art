@@ -45,6 +45,15 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   return static_cast<EnforcementPolicy>(api_policy_int);
 }
 
+// Name of system property which can be used to configure core platform API enforcement
+// policy. It is in the 'persist.debug.*' namespace so it can be set by any user and it
+// survives reboots. The latter is needed because the property is read in the zygote only.
+inline constexpr const char* kCorePlatformApiEnforcementPolicyPropertyName =
+    "persist.debug.dalvik.vm.core_platform_api_policy";
+
+// Returns the core platform API enforcement policy, parsed from a system property.
+EnforcementPolicy ParseCorePlatformApiEnforcementPolicy();
+
 // Hidden API access method
 // Thist must be kept in sync with VMRuntime.HiddenApiUsageLogger.ACCESS_METHOD_*
 enum class AccessMethod {
