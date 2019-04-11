@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "fd34d79b_d5bed895",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-11T17:05:27Z",
+      "side": 1,
+      "message": "What do you mean holding it wrong?  dex2oatd ELF file depends on the libraries.  The linker will load them. \n\nIf you ever implement sandboxing, you are free to remove this check.  Although I would prefer if you replaced it with equivalent check to ensure libartbase \u0026 libartbased are not loaded at the same time within a sandbox.",
+      "parentUuid": "81a41da2_81f2c533",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80b57a86_9ccf8f5b",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 1
