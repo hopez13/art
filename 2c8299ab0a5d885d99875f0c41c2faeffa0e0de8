@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "686c163e_677e4b0c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T10:36:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "931ef121_0dc14f96",
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e716fe5c_d321ffbc",
         "filename": "test/655-jit-clinit/src/Main.java",
         "patchSetId": 8
@@ -104,6 +122,30 @@
       "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14fbed96_85b9b59d",
+        "filename": "test/655-jit-clinit/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T10:36:49Z",
+      "side": 1,
+      "message": "Not done because the suggested changes in JitCodeCache are not being implemented in this CL.",
+      "parentUuid": "e716fe5c_d321ffbc",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "2c8299ab0a5d885d99875f0c41c2faeffa0e0de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
