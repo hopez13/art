@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "840161de_8e94a139",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-11T16:18:40Z",
+      "side": 1,
+      "message": "I don\u0027t follow what you mean. Having libartbase.so and libartbased.so in the same process is recipe for disaster, and the random memory corruptions took me long time to track down to this cause.",
+      "parentUuid": "0a848430_6e355be7",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80b57a86_9ccf8f5b",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 1
