@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9bb996a7_6c4455ab",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-11T14:12:49Z",
+      "side": 1,
+      "message": "That wouldn\u0027t catch the case where for some reason dlopen returns nullptr for both.\nE.g. it took me a while to realize that I need the RTLD_NOW or else it always returns nullptr.",
+      "parentUuid": "80b57a86_9ccf8f5b",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69dcae19_7084fe0e",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-04-11T14:08:05Z",
       "side": 1,
       "message": "I\u0027d prefer the old code with minor modification that selects the lib name based on kIsDebugBuild.",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9598c860_ca118d65",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-11T14:12:49Z",
+      "side": 1,
+      "message": "That is not possible here ... there is only one dexfile_support libarary.\n\nI.e. imagine this code being inlined in libunwind ... since there no libunwindd, this needs to be runtime choice.",
+      "parentUuid": "69dcae19_7084fe0e",
       "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
