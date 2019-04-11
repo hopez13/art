@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff47c1b6_28edb6d8",
+        "filename": "runtime/hidden_api.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-11T21:01:46Z",
+      "side": 1,
+      "message": "ART is agnostic of system properties. Instead can you plug something similar than the dance we do between framework/libcore/art for hidden api logging?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "e76724060187a26c432381318eedf16d1abf7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
