@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80b57a86_9ccf8f5b",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T14:08:05Z",
+      "side": 1,
+      "message": "What about\n\n  const char* wrong_libartbase \u003d kIsDebugBuild ? \"libartbase.so\" : \"libartbased.so\";\n  CHECK(dlopen(wrong_libartbase, RTLD_NOW | RTLD_NOLOAD) \u003d\u003d nullptr);",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69dcae19_7084fe0e",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-11T14:08:05Z",
+      "side": 1,
+      "message": "I\u0027d prefer the old code with minor modification that selects the lib name based on kIsDebugBuild.",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
