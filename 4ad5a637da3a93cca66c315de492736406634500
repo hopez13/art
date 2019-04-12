@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6dbefcac_e958a989",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T15:17:56Z",
+      "side": 1,
+      "message": "I thought the same... doesn\u0027t seem to be the case.\nI am not sure what it means exactly.\nSo I will stick to just moving it as is.",
+      "parentUuid": "c13140c4_163f6387",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 19
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d78bdcb8_09587436",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "4ad5a637da3a93cca66c315de492736406634500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b48696a_09142d10",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T15:17:56Z",
+      "side": 1,
+      "message": "Right... ups!",
+      "parentUuid": "d78bdcb8_09587436",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0adc9ac8_9dfc8e51",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T15:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dcc260c_46f3cee5",
+      "range": {
+        "startLine": 31,
+        "startChar": 32,
+        "endLine": 31,
+        "endChar": 91
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bdea0f0_c8806d39",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7b8f6f31_2342e3c4",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T15:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bdea0f0_c8806d39",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 92
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41017269_b372b46f",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 6
@@ -108,6 +204,24 @@
       "revId": "4ad5a637da3a93cca66c315de492736406634500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2534abf0_22a3e2f6",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T15:17:56Z",
+      "side": 1,
+      "message": "I wouldn\u0027t necessarily trust visibility attribute here.\nEven dlsym proved unreliable to detect all cases.\ndlopen is the only one I found to work reliably and it seems obvious to reader.",
+      "parentUuid": "41017269_b372b46f",
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
