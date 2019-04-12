@@ -16,6 +16,24 @@
       "revId": "33951705982c9017bba745a79a37ffe68cf2dc96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "577b17f8_64ac9b8c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-04-12T12:34:38Z",
+      "side": 1,
+      "message": "GetQuickOatCodeFor can return the interpreter entryoint or the generic JNI entrypoint. It looked easier to check for JIT and null first, compared to checking for AOT then checking if that returned something else thatn interpreter/genericjni entrypoint.",
+      "parentUuid": "b5991dc7_5e7b141f",
+      "revId": "33951705982c9017bba745a79a37ffe68cf2dc96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
