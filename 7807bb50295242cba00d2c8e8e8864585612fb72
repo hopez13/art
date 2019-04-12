@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3652dbe4_9c6ea2cc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "What dangling reference? info_messages_ is a method_verifier field, and LogVerifyInfo is supposed to not cache things across the lifetime of a verifier instance.",
+      "parentUuid": "07356a92_009381a8",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9557ef9d_d1b8d506",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -47,6 +65,30 @@
       "writtenOn": "2019-04-12T20:35:17Z",
       "side": 1,
       "message": "Is it intentional to cause a flush? using \\n is faster than endl",
+      "range": {
+        "startLine": 1820,
+        "startChar": 71,
+        "endLine": 1820,
+        "endChar": 80
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c16192_60604313",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "I\u0027d rather use the canonical endl, even if it flushes (which should do nothing on an ostringstream, anyways). If you\u0027re strongly opinionated, I\u0027ll change.",
+      "parentUuid": "9557ef9d_d1b8d506",
       "range": {
         "startLine": 1820,
         "startChar": 71,
@@ -82,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "fa8d671a_ec98c2a9",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cb56a42_79b44ea0",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "431d98be_f6dae298",
         "filename": "runtime/verifier/scoped_log.h",
         "patchSetId": 1
@@ -102,6 +168,30 @@
       "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4848224a_97ea7b4f",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "431d98be_f6dae298",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -145,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "0fdff61b_44833ff1",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "Wasn\u0027t required by any users, so thought to keep this minimal. Will add if you think it adds benefit in this case.",
+      "parentUuid": "3187be0f_641414c7",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82ef5d0d_9b53a77d",
         "filename": "runtime/verifier/scoped_log.h",
         "patchSetId": 1
@@ -162,6 +270,24 @@
     },
     {
       "key": {
+        "uuid": "57ad23e0_276bcff3",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82ef5d0d_9b53a77d",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ef53761_221c37bc",
         "filename": "runtime/verifier/scoped_log.h",
         "patchSetId": 1
@@ -176,6 +302,24 @@
       "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf88865a_969bd6b9",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-04-12T22:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef53761_221c37bc",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
