@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d3fcf63_ca95d5db",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-12T09:20:31Z",
+      "side": 1,
+      "message": "Ping.",
+      "parentUuid": "0ad52f2f_a2966021",
+      "range": {
+        "startLine": 399,
+        "startChar": 9,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "e0d8ae10ac39b64fd1cc767f4bfc63e463112181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30bb37ef_ce8ec13a",
         "filename": "runtime/backtrace_helper.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e0d8ae10ac39b64fd1cc767f4bfc63e463112181",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4b87a3_842cb6cc",
+        "filename": "runtime/backtrace_helper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-12T09:20:31Z",
+      "side": 1,
+      "message": "PS4 has no unnecessary indirection.",
+      "parentUuid": "30bb37ef_ce8ec13a",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "e0d8ae10ac39b64fd1cc767f4bfc63e463112181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
