@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5991dc7_5e7b141f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-12T12:32:50Z",
+      "side": 1,
+      "message": "Why did you decide to check for JITted code before AOT-compiled code?",
+      "revId": "33951705982c9017bba745a79a37ffe68cf2dc96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
