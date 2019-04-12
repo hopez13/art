@@ -46,6 +46,30 @@
       "revId": "085f71847dacce0ebc5ff058b8f80948cbd8bf52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "181ba5b7_072f6674",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T12:33:33Z",
+      "side": 1,
+      "message": "Thanks for the explanations, very helpful!\n\n\u003e Another thing which is a bit confusing is that the ART binaries (and libraries) on host are *not* under the Android Runtime Root: they are still in the Android Root.\n\nWell, another way of looking at it is that the two roots are the same on host, and it\u0027s just a few libcore files that are in another special location. That said, I think it\u0027s worthwhile to discuss whether we should have the same split on host.",
+      "parentUuid": "0c4f9545_da9f44cc",
+      "range": {
+        "startLine": 226,
+        "startChar": 43,
+        "endLine": 226,
+        "endChar": 57
+      },
+      "revId": "085f71847dacce0ebc5ff058b8f80948cbd8bf52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
