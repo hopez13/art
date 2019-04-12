@@ -22,6 +22,30 @@
       "revId": "acbd490663dbe4750834cafdde016831632367b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "896e0e20_e2606b61",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-04-12T12:21:38Z",
+      "side": 1,
+      "message": "I tried that but std::initializer_list is not considered a constant expression.",
+      "parentUuid": "9c15aba7_319190c1",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 11
+      },
+      "revId": "acbd490663dbe4750834cafdde016831632367b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
