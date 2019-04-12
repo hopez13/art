@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5f746ce3_1b0c96bb",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-12T09:51:53Z",
+      "side": 1,
+      "message": "Sorry, yes, it is.  We still use it in other places in ART (to be removed later).",
+      "parentUuid": "9d3fcf63_ca95d5db",
+      "range": {
+        "startLine": 399,
+        "startChar": 9,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "e0d8ae10ac39b64fd1cc767f4bfc63e463112181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30bb37ef_ce8ec13a",
         "filename": "runtime/backtrace_helper.cc",
         "patchSetId": 1
