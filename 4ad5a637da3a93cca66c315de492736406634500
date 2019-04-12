@@ -94,6 +94,23 @@
     },
     {
       "key": {
+        "uuid": "41017269_b372b46f",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-04-12T14:47:20Z",
+      "side": 1,
+      "message": "Another option is to define a function\n\n  __attribute__(visibility(\"default\")) void CheckDebugBuild(bool is_debug_build) {\n    CHECK_EQ(kIsDebugBuild, is_debug_build);\n  }\n\nand call `CheckDebugBuild(kIsDebugBuild)` from this constructor.",
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63895e17_bbfa3cb8",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 6
