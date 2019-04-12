@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab9f2920_a28a2705",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "nit: {} better than ()",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07356a92_009381a8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "Doesn\u0027t this return a dangling reference?\n\nand regardless, returning \u0027Foo\u0026\u0026\u0027 is anti-pattern, it should be\n\n   ScopedLog MethodVerifier::LogVerifyInfo() {\n      ....\n      return ret; // implicit move\n   }",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9557ef9d_d1b8d506",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "Is it intentional to cause a flush? using \\n is faster than endl",
+      "range": {
+        "startLine": 1820,
+        "startChar": 71,
+        "endLine": 1820,
+        "endChar": 80
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cb56a42_79b44ea0",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "431d98be_f6dae298",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "nit: ScopedNewLine seems more appropriate",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2b1331b_6e680e28",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "redundant",
+      "range": {
+        "startLine": 27,
+        "startChar": 53,
+        "endLine": 27,
+        "endChar": 65
+      },
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3187be0f_641414c7",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "nit: operator\u003d(ScopedLog\u0026\u0026) ?",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ef5d0d_9b53a77d",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "Should this have DCHECK(active) or \u0027if (active)\u0027 ?",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef53761_221c37bc",
+        "filename": "runtime/verifier/scoped_log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-12T20:35:17Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
