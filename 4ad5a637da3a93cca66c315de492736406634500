@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c13140c4_163f6387",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-12T14:46:56Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with this, but does `not_windows` include `android`? If so, are lines 72–76 superfluous?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 19
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78bdcb8_09587436",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-12T14:46:56Z",
+      "side": 1,
+      "message": "Style: Namespaces do not add an extra level of indentation.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dcc260c_46f3cee5",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-12T14:46:56Z",
+      "side": 1,
+      "message": "Style: Add parentheses around expression.",
+      "range": {
+        "startLine": 31,
+        "startChar": 32,
+        "endLine": 31,
+        "endChar": 91
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bdea0f0_c8806d39",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-12T14:46:56Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 92
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63895e17_bbfa3cb8",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-12T14:46:56Z",
+      "side": 1,
+      "message": "Style: Add parentheses around expression.",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 56,
+        "endChar": 85
+      },
+      "revId": "4ad5a637da3a93cca66c315de492736406634500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
