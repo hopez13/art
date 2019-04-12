@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e0a7647_789b949a",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "Isn\u0027t it a good idea to also check that the library found to be loaded agrees with kIsDebugBuild?",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2144b2fd_e40742d7",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "This library needs to be an APEX exported library which means quite a bit of fiddling in ld.config.txt\u0027s, the apex build rules, etc - see go/apex-native-libraries-guide. I can take care of that though.\n\nAmong other things it means we\u0027ll need additional links to libdexfiled_external.so in ld.config.txt\u0027s, even though it won\u0027t be present in all builds. Afaik that shouldn\u0027t cause any concrete problems though.",
+      "range": {
+        "startLine": 288,
+        "startChar": 4,
+        "endLine": 288,
+        "endChar": 33
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd417ce4_99463baf",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "Doesn\u0027t this mean the debug variant gets pulled into all targets? We don\u0027t want it in \"user\" builds, right?",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "528fca30_61e8c8fe",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "The support library isn\u0027t always in the \"runtime\" linker namespace, and when it isn\u0027t I don\u0027t think this is visible to RTLD_NOLOAD even when it is loaded. It works for the circular dependency from libart(?) to libunwindstack because it then remains within the runtime namespace throughout.\n\nFrom a local perspective this might get called without any ART libraries already loaded, and how do we decide the right variant then? Otoh, given that we only get called when dex stack frames are visited, is it safe to assume ART libraries already have been loaded? Then we could find out which variant of them we\u0027ve got.\n\nIf so we still have the problem of how to do it. For RTLD_NOLOAD to work we need to check a library that is visible in any namespace where libdexfile_support is used. That means (at least) that the check library is exported[1], and so far none of the d/non-d libraries are. The only exception is libdexfile_external itself as of this CL.\n\nSo an approach could be to a) ensure one of libdexfile_external(d) gets loaded whenever a dex stack frame is created, and b) only try the RTLD_NOLOAD here and fail if none of them are found.\n\nI suppose #a means loading libdexfile_external from libdexfile. (That would of course make the separation between libdexfile and libdexfile_external entirely pointless and make the case for uniting them even stronger than this CL already does).\n\n[1] http://cs/aosp-master/art/build/apex/Android.bp?l\u003d27-30\u0026rcl\u003d8d83419b14dd6c43cbd8829d72cd6f7ce0c41719",
+      "range": {
+        "startLine": 56,
+        "startChar": 27,
+        "endLine": 56,
+        "endChar": 75
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2de23b_e4f25b23",
+        "filename": "tools/public.libraries.buildbot.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "This is a prerequisite but not the other way around. Can it be a separate CL?",
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "ca49dac7_bc62cea1",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-12T18:44:03Z",
+      "side": 1,
+      "message": "Not to be beating a dead horse here, but in cases like this when there\u0027s an assumption devs very reasonably might have, there should either be a check like this or there should be tests that ensure the opposite actually works. Having it in a poorly understood neither-state is the worst.",
+      "parentUuid": "4b060802_c907b6a7",
+      "revId": "cc6ba8f5141bae8cea00bcbb878be5d936bf3f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80b57a86_9ccf8f5b",
         "filename": "libartbase/base/globals.cc",
         "patchSetId": 1
