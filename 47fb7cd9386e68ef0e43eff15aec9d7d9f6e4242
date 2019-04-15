@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6eea4944_e55fd936",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-15T21:23:56Z",
+      "side": 1,
+      "message": "True, but I was thinking of package dependencies rather than linker ones.\n\nThere\u0027s b/124476339 about making \"required\" pull in packages into APEXes. I suppose this could be a counter-argument to that, although I\u0027d still prefer \"required\" did it, to avoid having to list those deps explicitly in the APEX.\n\nDoes it work to have a \"debug: { required: [\"libdexfiled_external\"] }\"?",
+      "parentUuid": "cc26f9d7_56a69811",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "528fca30_61e8c8fe",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 7
