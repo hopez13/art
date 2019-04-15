@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db5b7225_8e906d34",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-15T15:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e0a7647_789b949a",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2144b2fd_e40742d7",
         "filename": "libdexfile/Android.bp",
         "patchSetId": 7
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "cc26f9d7_56a69811",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-15T15:12:28Z",
+      "side": 1,
+      "message": "I think required means \"also build this\", but there is no ELF/linker dependency added.",
+      "parentUuid": "dd417ce4_99463baf",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "528fca30_61e8c8fe",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 7
@@ -91,6 +139,30 @@
       "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b494297_1e45533c",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-15T15:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "528fca30_61e8c8fe",
+      "range": {
+        "startLine": 56,
+        "startChar": 27,
+        "endLine": 56,
+        "endChar": 75
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
