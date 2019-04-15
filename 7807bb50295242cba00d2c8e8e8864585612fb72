@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0c816eb2_6a13c7b8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2019-04-15T20:30:53Z",
+      "side": 1,
+      "message": "https://en.cppreference.com/w/cpp/language/reference#Dangling_references\n\nThe lifetime of \u0027ret\u0027 is over once the function scope is over, but the rvalue reference remains accessible.",
+      "parentUuid": "3652dbe4_9c6ea2cc",
+      "revId": "7807bb50295242cba00d2c8e8e8864585612fb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9557ef9d_d1b8d506",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
