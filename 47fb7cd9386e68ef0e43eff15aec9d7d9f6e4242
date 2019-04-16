@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "458fcc1c_32e79899",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-16T13:54:13Z",
+      "side": 1,
+      "message": "Given the discussion in dex_file_supp.cc, I think it\u0027s correct to keep the \"required\" on the non-debug variant. That\u0027s the one it\u0027ll load, while the other is only checked for.",
+      "parentUuid": "fb45a2bd_e75133ab",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "528fca30_61e8c8fe",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 7

@@ -46,6 +46,53 @@
       "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c88f18d_c8a8c2de",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-16T13:54:13Z",
+      "side": 1,
+      "message": "Ok. If the runtime is loaded later then the check in globals.cc will cause a fatal instead. Maybe worth mentioning there that this could be the reason.",
+      "parentUuid": "a861d0b2_d0b1c207",
+      "range": {
+        "startLine": 57,
+        "startChar": 73,
+        "endLine": 57,
+        "endChar": 90
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7d8eddb_ca460f38",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-16T13:54:13Z",
+      "side": 1,
+      "message": "The repeated dlopen\u0027s here makes the logic a bit cumbersome. Consider loading the debug variant with RTLD_NOLOAD and keep the handle, only falling back to the non-debug one if that fails.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
