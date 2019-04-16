@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "fb45a2bd_e75133ab",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-16T09:32:34Z",
+      "side": 1,
+      "message": "Actually, as long as there is shared_libs dependency from libart{d,}, I think this is not needed at all?",
+      "parentUuid": "6eea4944_e55fd936",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "528fca30_61e8c8fe",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 7

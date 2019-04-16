@@ -22,6 +22,30 @@
       "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a861d0b2_d0b1c207",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-16T09:32:34Z",
+      "side": 1,
+      "message": "I believe debuggerd does not load ART runtime at all.  But it does need to backtrace through dex.",
+      "parentUuid": "9103969d_e476714e",
+      "range": {
+        "startLine": 57,
+        "startChar": 73,
+        "endLine": 57,
+        "endChar": 90
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
