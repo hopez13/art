@@ -93,6 +93,30 @@
       "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18627312_cf878e72",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-16T15:52:21Z",
+      "side": 1,
+      "message": "That is what I started with.  But if you want to keep the so_name for log messages, it gets messy.  And at least two dlopens are needed anyway.",
+      "parentUuid": "e7d8eddb_ca460f38",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

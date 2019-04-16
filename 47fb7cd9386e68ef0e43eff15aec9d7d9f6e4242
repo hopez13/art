@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "ef12e7c4_f258c436",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-16T15:52:21Z",
+      "side": 1,
+      "message": "As far as I can tell this has practical purpose if the libraries are build by art.\nSo I really don\u0027t mind which of the three variants you pick.",
+      "parentUuid": "458fcc1c_32e79899",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "47fb7cd9386e68ef0e43eff15aec9d7d9f6e4242",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "528fca30_61e8c8fe",
         "filename": "libdexfile/external/dex_file_supp.cc",
         "patchSetId": 7
