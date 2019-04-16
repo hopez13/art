@@ -22,6 +22,30 @@
       "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29863620_f7f6e6d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-16T17:56:44Z",
+      "side": 1,
+      "message": "No, in my case it happened when libarttestd.so (used in some ART run-tests) was loaded via java.lang.System.loadLibrary (which uses dlopen); libarttestd.so was dynamically linked to libc.so but could the linker could not find it.",
+      "parentUuid": "0310f3b3_ecc3b3f3",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
