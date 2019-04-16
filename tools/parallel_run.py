@@ -1,0 +1,67 @@
+#!/usr/bin/python3
+"""
+Run a command using multiple cores in parallel. Stop when one exits zero and save the log from
+that run.
+"""
+
+import argparse
+import concurrent.futures
+import contextlib
+import itertools
+import os
+import os.path
+import shutil
+import subprocess
+import tempfile
+
+
+def run_one(cmd, tmpfile):
+  """Run the command and log result to tmpfile. Return both the file name and returncode."""
+  with open(tmpfile, "x") as fd:
+    return tmpfile, subprocess.run(cmd, stdout=fd).returncode
+
+@contextlib.contextmanager
+def nowait(ppe):
+  """Run a ProcessPoolExecutor and shutdown without waiting."""
+  try:
+    yield ppe
+  finally:
+    ppe.shutdown(False)
+
+def main():
+  parser = argparse.ArgumentParser(
+      description="Run a command using multiple cores and save non-zero exit log"
+  )
+  parser.add_argument("--jobs", "-j", type=int, help="max number of jobs. default 60", default=60)
+  parser.add_argument("cmd", help="command to run")
+  parser.add_argument("--out", type=str, help="where to put result", default="out_log")
+  args = parser.parse_args()
+  cnt = 0
+  ids = itertools.count(0)
+  with tempfile.TemporaryDirectory() as td:
+    print("Temporary files in {}".format(td))
+    with nowait(concurrent.futures.ProcessPoolExecutor(args.jobs)) as p:
+      fs = set()
+      while True:
+        for idx, _ in zip(ids, range(cnt, cnt + (args.jobs - len(fs)))):
+          fs.add(p.submit(run_one, args.cmd, os.path.join(td, "run_log." + str(idx))))
+        ws = concurrent.futures.wait(fs, return_when=concurrent.futures.FIRST_COMPLETED)
+        fs = ws.not_done
+        done = list(map(lambda a: a.result(), ws.done))
+        cnt += len(done)
+        print("{} runs".format(cnt))
+        failed = [d for d,r in done if r != 0]
+        succ = [d for d,r in done if r == 0]
+        for f in succ:
+          os.remove(f)
+        if len(failed) != 0:
+          if len(failed) != 1:
+            for f,idx in zip(failed, range(len(failed))):
+              shutil.copyfile(f, args.out+"."+str(idx))
+          else:
+            shutil.copyfile(failed[0], args.out)
+          break
+
+
+if __name__ == '__main__':
+  main()
