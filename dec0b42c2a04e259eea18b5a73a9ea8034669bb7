@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0310f3b3_ecc3b3f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-16T17:25:46Z",
+      "side": 1,
+      "message": "This applies to explicit dlopen calls, right? Why is libc loaded that way?",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
