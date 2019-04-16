@@ -117,6 +117,30 @@
       "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da13eae_5ee8f0ed",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-16T17:49:02Z",
+      "side": 1,
+      "message": "Isn\u0027t something like this straightforward enough?\n\n  // First check if the debug library is already loaded because [...]\n  const char* so_name \u003d \"libdexfiled_external.so\";\n  void* handle \u003d dlopen(so_name, RTLD_NOLOAD | RTLD_NOW | RTLD_NODELETE);\n  if (handle \u003d\u003d nullptr) {\n    // We\u0027re either running in non-debug mode, or the runtime hasn\u0027t\n    // been loaded at all. Load the non-debug library in either case.\n    so_name \u003d \"libdexfile_external.so\";\n    handle \u003d dlopen(so_name, RTLD_NOW | RTLD_GLOBAL | RTLD_NODELETE);\n  }\n\n(Saves one dlopen call in the debug case, although I can\u0027t say I care about that very much.)",
+      "parentUuid": "18627312_cf878e72",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
