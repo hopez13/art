@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80d37325_d82a9224",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-17T17:55:37Z",
+      "side": 1,
+      "message": "using the APEX boot image",
+      "range": {
+        "startLine": 1043,
+        "startChar": 25,
+        "endLine": 1043,
+        "endChar": 57
+      },
+      "revId": "b7eba4df8b2ccd210617ea9be44ce02457c94843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09fb7b03_35f7323a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-17T17:55:37Z",
+      "side": 1,
+      "message": "Nit: I\u0027d move this to a string constant.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 56,
+        "endLine": 1155,
+        "endChar": 84
+      },
+      "revId": "b7eba4df8b2ccd210617ea9be44ce02457c94843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b1b3ec2_cbcd4240",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-17T17:55:37Z",
+      "side": 1,
+      "message": "Nit: IsUsingApexBootImageLocation",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 31
+      },
+      "revId": "b7eba4df8b2ccd210617ea9be44ce02457c94843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98644ca_4a02f44a",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-17T17:55:37Z",
+      "side": 1,
+      "message": "Ditto: is_using_apex_image_location_",
+      "range": {
+        "startLine": 949,
+        "startChar": 7,
+        "endLine": 949,
+        "endChar": 36
+      },
+      "revId": "b7eba4df8b2ccd210617ea9be44ce02457c94843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
