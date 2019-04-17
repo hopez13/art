@@ -1039,12 +1039,14 @@ static size_t OpenBootDexFiles(ArrayRef<const std::string> dex_filenames,
       LOG(WARNING) << "Skipping non-existent dex file '" << dex_filename << "'";
       continue;
     }
+    bool verify = Runtime::Current()->IsVerificationEnabled();
     // In the case we're not using the default boot image, we don't have support yet
     // on reading vdex files of boot classpath. So just assume all boot classpath
     // dex files have been verified (this should always be the case as the default boot
     // image has been generated at build time).
-    bool verify = Runtime::Current()->IsVerificationEnabled() &&
-        (kIsDebugBuild || Runtime::Current()->IsUsingDefaultBootImageLocation());
+    if (Runtime::Current()->IsUsingApexImageLocation() && !kIsDebugBuild) {
+      verify = false;
+    }
     if (!dex_file_loader.Open(dex_filename,
                               dex_location,
                               verify,
@@ -1150,8 +1152,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   image_location_ = runtime_options.GetOrDefault(Opt::Image);
   {
     std::string error_msg;
-    is_using_default_boot_image_location_ =
-        (image_location_.compare(GetDefaultBootImageLocation(&error_msg)) == 0);
+    is_using_apex_image_location_ = (image_location_ == "/system/framework/apex.art");
   }
 
   SetInstructionSet(runtime_options.GetOrDefault(Opt::ImageInstructionSet));
