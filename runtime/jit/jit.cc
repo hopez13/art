@@ -742,6 +742,22 @@ void Jit::AddNonAotBootMethodsToQueue(Thread* self) {
       }
     }
   }
+
+  struct CompileJniMethodsVisitor : public art::ClassVisitor {
+    bool operator()(art::ObjPtr<art::mirror::Class> klass)
+        override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      if (klass->GetClassLoader() == nullptr && klass->IsInitialized()) {
+        for (ArtMethod& method : klass->GetDirectMethods(kRuntimePointerSize)) {
+          if (method.IsNative()) {
+            Runtime::Current()->GetJit()->CompileMethod(
+              &method, Thread::Current(), /* baseline= */ false, /* osr= */ false);
+          }
+        }
+      }
+      return true;
+    }
+  } visitor;
+  class_linker->VisitClasses(&visitor);
 }
 
 static bool IgnoreSamplesForMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
