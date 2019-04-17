@@ -46,6 +46,30 @@
       "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ed4f0c4_f05674fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-17T12:57:11Z",
+      "side": 1,
+      "message": "So libarttestd.so was dlopen\u0027ed from the classloader-namespace namespace, and it just had a normal NEEDED dependency on libc which failed?\n\nIf so, I\u0027m surprised that visibility makes a difference. From the docs on [1]:\n\n\"If visible is false (default), /.../ Shared libraries can only be loaded into this namespace if (1) they are requested by another linker namespace that has a fallback link to this namespace or (2) they are requested by other shared libraries or executables in this namespace.\"\n\nThe way I read that, the libc dependency ought to be covered by (1). Perhaps the classloader-namespace is configured wrong?\n\n[1] https://source.android.com/devices/architecture/vndk/linker-namespace",
+      "parentUuid": "29863620_f7f6e6d8",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
