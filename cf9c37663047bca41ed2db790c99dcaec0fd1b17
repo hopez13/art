@@ -141,6 +141,30 @@
       "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "763d5087_75b5320f",
+        "filename": "libdexfile/external/dex_file_supp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-17T11:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8da13eae_5ee8f0ed",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "cf9c37663047bca41ed2db790c99dcaec0fd1b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
