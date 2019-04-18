@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d39f360d_03ec6084",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2042,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2019-04-18T22:34:14Z",
+      "side": 1,
+      "message": "Could this be `DCHECK(class_loader !\u003d nullptr || dex_location \u003d\u003d DexFileLoader::GetBaseLocation(dex_file_location));`\n\nOtherwise we have to rely on the compiler to remove the empty branch, which I guess it should do pretty reliably, but maybe we want to be explicit about it?",
+      "revId": "d2746a8d319e97efb158b86212a57bfc19f81f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
