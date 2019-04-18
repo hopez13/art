@@ -42,6 +42,7 @@
 #include "dex/dex_file_annotations.h"
 #include "dex/modifiers.h"
 #include "events-inl.h"
+#include "gc/collector_type.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "jit/jit.h"
@@ -49,6 +50,7 @@
 #include "mirror/class-inl.h"
 #include "mirror/object_array-inl.h"
 #include "nativehelper/scoped_local_ref.h"
+#include "read_barrier_config.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "scoped_thread_state_change.h"
@@ -477,7 +479,39 @@ void DeoptManager::AddDeoptimizationRequester() {
   }
 }
 
+struct ScopedPreventGcStackWalks {
+ public:
+  explicit ScopedPreventGcStackWalks(art::Thread* self) ACQUIRE(art::Roles::uninterruptible_)
+      : self_(self), gccs_(self_, "Prevent GcStack walks") {
+    art::gc::Heap* heap = art::Runtime::Current()->GetHeap();
+    if (art::kUseReadBarrier) {
+      heap->IncrementDisableThreadFlip(self_);
+    } else {
+      heap->IncrementDisableMovingGC(self_);
+    }
+    old_reason_ = gccs_.Enter(art::gc::GcCause::kGcCauseDebugger,
+                              art::gc::CollectorType::kCollectorTypeDebugger);
+  }
+  ~ScopedPreventGcStackWalks() RELEASE(art::Roles::uninterruptible_) {
+    art::gc::Heap* heap = art::Runtime::Current()->GetHeap();
+    gccs_.Exit(old_reason_);
+    if (art::kUseReadBarrier) {
+      heap->DecrementDisableThreadFlip(self_);
+    } else {
+      heap->DecrementDisableMovingGC(self_);
+    }
+  }
+
+ private:
+  art::Thread* self_;
+  art::gc::GCCriticalSection gccs_;
+  char const* old_reason_;
+};
+
 void DeoptManager::DeoptimizeThread(art::Thread* target) {
+  // We might or might not be running on the target thread (self) so get Thread::Current
+  // directly.
+  ScopedPreventGcStackWalks spgsw(art::Thread::Current());
   art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
 }
 
