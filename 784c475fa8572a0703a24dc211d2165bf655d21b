@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab392777_79d6cbbb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-04-18T21:22:24Z",
+      "side": 1,
+      "message": "How about simply\n\nconst double total_cpu_seconds \u003d GetTotalGcCpuTime() / 1.0e9;\n\nand similarly for the preceding line.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 4,
+        "endLine": 1084,
+        "endChar": 97
+      },
+      "revId": "784c475fa8572a0703a24dc211d2165bf655d21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
