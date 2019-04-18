@@ -258,9 +258,10 @@ class DexLayoutTest : public CommonArtTest {
 
   // Runs FullPlainOutput test.
   bool FullPlainOutputExec(std::string* error_msg) {
+    // TODO: dexdump2 -> dexdump ?
     ScratchFile dexdump_output;
     const std::string& dexdump_filename = dexdump_output.GetFilename();
-    std::string dexdump = GetAndroidRuntimeBinDir() + "/dexdump";
+    std::string dexdump = GetAndroidRuntimeBinDir() + "/dexdump2";
     EXPECT_TRUE(OS::FileExists(dexdump.c_str())) << dexdump << " should be a valid file path";
 
     ScratchFile dexlayout_output;
