@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508c9cf2_14e46ad2",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-04-18T18:13:30Z",
+      "side": 1,
+      "message": "Maybe `const size_t`, if we don\u0027t plan to update it?",
+      "range": {
+        "startLine": 1449,
+        "startChar": 2,
+        "endLine": 1449,
+        "endChar": 8
+      },
+      "revId": "963c0003f3684f4ad1aee9f22b50e3f228696c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
