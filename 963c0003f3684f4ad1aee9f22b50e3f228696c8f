@@ -46,6 +46,30 @@
       "revId": "963c0003f3684f4ad1aee9f22b50e3f228696c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36906d3b_c3a940f6",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-04-19T00:10:59Z",
+      "side": 1,
+      "message": "I\u0027ll add const.\n\nI renamed this a few times already. I have very mixed feelings about something as long as blocking_gc_threshold_native_allocs. It\u0027s not just a variable name; it should really also match the flag name.",
+      "parentUuid": "7872b235_6402b1de",
+      "range": {
+        "startLine": 1449,
+        "startChar": 2,
+        "endLine": 1449,
+        "endChar": 8
+      },
+      "revId": "963c0003f3684f4ad1aee9f22b50e3f228696c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
