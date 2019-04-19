@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48acddef_032b4b12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-04-19T01:40:02Z",
+      "side": 1,
+      "message": "Was trying to retain continuity with Orion\u0027s change, but it causes more problems than it fixes. Removed.",
+      "parentUuid": "8e9ee065_491b963e",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 68
+      },
+      "revId": "9213b44dea0e84aab19efff56dfdb043f312e230",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c1fe44c_9fbda7db",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-04-19T01:34:59Z",
       "side": 1,
       "message": "If this is cherry pick you may want to add \u0027Merged-In: ChangeId\u0027 as well",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "9213b44dea0e84aab19efff56dfdb043f312e230",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea33c742_84d604b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2019-04-19T01:40:02Z",
+      "side": 1,
+      "message": "Not needed either, since I am starting with this CL.",
+      "parentUuid": "9c1fe44c_9fbda7db",
       "range": {
         "startLine": 18,
         "startChar": 0,
