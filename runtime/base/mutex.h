@@ -191,8 +191,9 @@ class LOCKABLE Mutex : public BaseMutex {
     AssertNotHeldExclusive(self);
   }
 
-  // Id associated with exclusive owner. No memory ordering semantics if called from a thread other
-  // than the owner.
+  // Id associated with exclusive owner. No memory ordering semantics if called from a thread
+  // other than the owner. A reliable way to determine whether we hold the lock; any other
+  // information may be invalidated before we return.
   pid_t GetExclusiveOwnerTid() const;
 
   // Returns how many times this Mutex has been locked, it is better to use AssertHeld/NotHeld.
@@ -209,12 +210,31 @@ class LOCKABLE Mutex : public BaseMutex {
 
  private:
 #if ART_USE_FUTEXES
-  // 0 is unheld, 1 is held.
-  AtomicInteger state_;
+  // Low order bit: 0 is unheld, 1 is held.
+  // High order bits: Number of waiting contenders.
+  AtomicInteger state_and_contenders_;
+
+  static constexpr int32_t kHeldMask = 1;
+
+  static constexpr int32_t kContenderShift = 1;
+
+  void increment_contenders() {
+    state_and_contenders_.fetch_add(1 << kContenderShift);
+  }
+
+  void decrement_contenders() {
+    state_and_contenders_.fetch_sub(1 << kContenderShift);
+  }
+
+  int32_t get_contenders() {
+    // Result is guaranteed to include any contention added by this thread; otherwise approximate.
+    // Treat contenders as unsigned because we're paranoid about overflow; should never matter.
+    return static_cast<uint32_t>(state_and_contenders_.load(std::memory_order_relaxed))
+        >> kContenderShift;
+  }
+
   // Exclusive owner.
   Atomic<pid_t> exclusive_owner_;
-  // Number of waiting contenders.
-  AtomicInteger num_contenders_;
 #else
   pthread_mutex_t mutex_;
   Atomic<pid_t> exclusive_owner_;  // Guarded by mutex_. Asynchronous reads are OK.
@@ -420,7 +440,7 @@ class ConditionVariable {
   AtomicInteger sequence_;
   // Number of threads that have come into to wait, not the length of the waiters on the futex as
   // waiters may have been requeued onto guard_. Guarded by guard_.
-  volatile int32_t num_waiters_;
+  int32_t num_waiters_;
 
   void RequeueWaiters(int32_t count);
 #else
