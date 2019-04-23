@@ -22,6 +22,30 @@
       "revId": "b780543f727b8769562d90b721e79b25035e3a23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08c1b672_a3233cff",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-04-23T18:03:24Z",
+      "side": 1,
+      "message": "In the exceptional \u0027going to be suspended\u0027 case (line 1034 - 1038) using MutexLock would cause the locks to be released out of order WRT the thread_list_lock_.\n\nWe need to use the thread_list_lock_ directly because RequestSynchronousCheckpoint needs to be function that releases it.\n\nReally we should make MutexLock movable like std::unique_lock but that would probably break the annotation analysis and is too big of a change to make here.",
+      "parentUuid": "37d35fa8_37cb6c43",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 64
+      },
+      "revId": "b780543f727b8769562d90b721e79b25035e3a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
