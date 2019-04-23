@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37d35fa8_37cb6c43",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-04-23T17:57:53Z",
+      "side": 1,
+      "message": "Why not use the MutexLock here still?",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 64
+      },
+      "revId": "b780543f727b8769562d90b721e79b25035e3a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
