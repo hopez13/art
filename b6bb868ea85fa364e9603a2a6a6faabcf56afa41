@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31b62c7a_344f6633",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-23T20:32:21Z",
+      "side": 1,
+      "message": "kContenderIncrement",
+      "range": {
+        "startLine": 378,
+        "startChar": 21,
+        "endLine": 378,
+        "endChar": 41
+      },
+      "revId": "b6bb868ea85fa364e9603a2a6a6faabcf56afa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23f50427_aa985e76",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-23T20:32:21Z",
+      "side": 1,
+      "message": "kHeldMask",
+      "range": {
+        "startLine": 428,
+        "startChar": 81,
+        "endLine": 428,
+        "endChar": 82
+      },
+      "revId": "b6bb868ea85fa364e9603a2a6a6faabcf56afa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b2e326b_fd677aaa",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-23T20:32:21Z",
+      "side": 1,
+      "message": "// Wake one contender.",
+      "range": {
+        "startLine": 486,
+        "startChar": 12,
+        "endLine": 486,
+        "endChar": 14
+      },
+      "revId": "b6bb868ea85fa364e9603a2a6a6faabcf56afa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d803880e_0f7cf876",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-23T20:32:21Z",
+      "side": 1,
+      "message": "Man page suggests INT_MAX, might be clearer still with kAllWaiters, kOneWaiter.",
+      "range": {
+        "startLine": 533,
+        "startChar": 63,
+        "endLine": 533,
+        "endChar": 65
+      },
+      "revId": "b6bb868ea85fa364e9603a2a6a6faabcf56afa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23738f20_eeaa2ac0",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-23T20:32:21Z",
+      "side": 1,
+      "message": "Should this describe the reliable way described?\nSafeGetTid(self) \u003d\u003d GetExclusiveOwnerTid()?",
+      "range": {
+        "startLine": 195,
+        "startChar": 27,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "revId": "b6bb868ea85fa364e9603a2a6a6faabcf56afa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
