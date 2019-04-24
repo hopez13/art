@@ -1495,7 +1495,7 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
   {
     ScopedThreadSuspension sts(self, kSuspended);
     MutexLock mu(self, lock_);
-    if (!garbage_collect_code_) {
+    if (!garbage_collect_code_ || Runtime::Current()->IsZygote()) {
       IncreaseCodeCacheCapacity();
       return;
     } else if (WaitForPotentialCollectionToComplete(self)) {
