@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "189202ec_f87de8b7",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-04-24T08:08:54Z",
+      "side": 1,
+      "message": "s/1/kHeldMask/. Sorry, missed this earlier.",
+      "range": {
+        "startLine": 395,
+        "startChar": 81,
+        "endLine": 395,
+        "endChar": 82
+      },
+      "revId": "9257ba80a833639e62c2572130a20e744615275c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
