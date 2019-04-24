@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d4b9623_1ea2916d",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2019-04-24T17:21:31Z",
+      "side": 1,
+      "message": "This is an assertion that following an ExclusiveLock the lock state is locked. The reading of the code now looks like a mask comparison (I\u0027m not sure the code was that much clearer before). A comment would likely help were this paranoid check ever to fail.",
+      "range": {
+        "startLine": 395,
+        "startChar": 68,
+        "endLine": 395,
+        "endChar": 90
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bcccb14_74a97f87",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2019-04-24T17:21:31Z",
+      "side": 1,
+      "message": "This has become a magic constant with no comment explaining its meaning. Perhaps you need kStateHeld and kStateUnheld ?",
+      "range": {
+        "startLine": 421,
+        "startChar": 36,
+        "endLine": 421,
+        "endChar": 38
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "731c2f7e_3d919343",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2019-04-24T17:21:31Z",
+      "side": 1,
+      "message": "Similar constant issue.",
+      "range": {
+        "startLine": 478,
+        "startChar": 44,
+        "endLine": 478,
+        "endChar": 45
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
