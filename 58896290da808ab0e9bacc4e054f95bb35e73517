@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f3abd851_d792b58a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-04-24T21:17:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d4b9623_1ea2916d",
+      "range": {
+        "startLine": 395,
+        "startChar": 68,
+        "endLine": 395,
+        "endChar": 90
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bcccb14_74a97f87",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "64ab9483_9bb109fb",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-04-24T21:17:00Z",
+      "side": 1,
+      "message": "That seemed excessive to me. It\u0027s just a bit representing a boolean value \"held\". I made the usage more consistent, always checking that bit for \u003d\u003d 0 or !\u003d 0, and commented the first two such usages.",
+      "parentUuid": "3bcccb14_74a97f87",
+      "range": {
+        "startLine": 421,
+        "startChar": 36,
+        "endLine": 421,
+        "endChar": 38
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "731c2f7e_3d919343",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62372f2a_0edfe34a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-04-24T21:17:00Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "731c2f7e_3d919343",
+      "range": {
+        "startLine": 478,
+        "startChar": 44,
+        "endLine": 478,
+        "endChar": 45
+      },
+      "revId": "58896290da808ab0e9bacc4e054f95bb35e73517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
