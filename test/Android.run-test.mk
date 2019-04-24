@@ -72,6 +72,11 @@ ART_TEST_HOST_RUN_TEST_DEPENDENCIES := \
   $(ART_HOST_OUT_SHARED_LIBRARIES)/libopenjdkjvmtid$(ART_HOST_SHLIB_EXTENSION) \
   $(HOST_CORE_DEX_LOCATIONS) \
 
+# Workaround for b/131233847, b/131167818.
+ART_TEST_HOST_RUN_TEST_DEPENDENCIES += \
+  $(HOST_OUT)/usr/share/zoneinfo/tzdata \
+  $(HOST_OUT)/usr/share/zoneinfo/tz_version \
+
 ifneq ($(HOST_PREFER_32_BIT),true)
 ART_TEST_HOST_RUN_TEST_DEPENDENCIES += \
   $(OUT_DIR)/$(ART_TEST_LIST_host_$(2ND_ART_HOST_ARCH)_libtiagent) \
