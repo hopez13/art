@@ -17,18 +17,47 @@
 public class Main {
   public static void main(String[] args) {
     System.loadLibrary(args[0]);
+    while (runTests(true));
+    runTests(false);
+  }
+
+  public static boolean runTests(boolean warmup) {
+    if (warmup) {
+      return isInInterpreter("runTests");
+    }
+
     new SubMain();
-    if ($noinline$returnInt() != 53) {
+
+    int i = $noinline$magicValue();
+    long l = $noinline$magicValue();
+    float f = $noinline$magicValue();
+    double d = $noinline$magicValue();
+
+    if ($noinline$returnInt(53) != 53) {
       throw new Error("Unexpected return value");
     }
-    if ($noinline$returnFloat() != 42.2f) {
+    if ($noinline$returnFloat(42.2f) != 42.2f) {
       throw new Error("Unexpected return value");
     }
-    if ($noinline$returnDouble() != Double.longBitsToDouble(0xF000000000001111L)) {
+    if ($noinline$returnDouble(Double.longBitsToDouble(0xF000000000001111L)) !=
+        Double.longBitsToDouble(0xF000000000001111L)) {
       throw new Error("Unexpected return value ");
     }
-    if ($noinline$returnLong() != 0xFFFF000000001111L) {
+    if ($noinline$returnLong(0xFFFF000000001111L) != 0xFFFF000000001111L) {
       throw new Error("Unexpected return value");
+    }
+
+    if (i != $noinline$magicValue()) {
+      throw new Error("Corrupted int local variable in caller");
+    }
+    if (l != $noinline$magicValue()) {
+      throw new Error("Corrupted long local variable in caller");
+    }
+    if (f != $noinline$magicValue()) {
+      throw new Error("Corrupted float local variable in caller");
+    }
+    if (d != $noinline$magicValue()) {
+      throw new Error("Corrupted double local variable in caller");
     }
 
     try {
@@ -58,9 +87,14 @@ public class Main {
 
     $opt$noinline$testOsrInlineLoop(null);
     System.out.println("b28210356 passed.");
+    return true;
   }
 
-  public static int $noinline$returnInt() {
+  public static int $noinline$magicValue() {
+    return 42;
+  }
+
+  public static int $noinline$returnInt(int result) {
     // If we are running in non-JIT mode, or were unlucky enough to get this method
     // already JITted, skip the wait for OSR code.
     boolean interpreting = isInInterpreter("$noinline$returnInt");
@@ -71,10 +105,10 @@ public class Main {
       while (!isInOsrCode("$noinline$returnInt")) {}
     }
     System.out.println(i);
-    return 53;
+    return result;
   }
 
-  public static float $noinline$returnFloat() {
+  public static float $noinline$returnFloat(float result) {
     // If we are running in non-JIT mode, or were unlucky enough to get this method
     // already JITted, skip the wait for OSR code.
     boolean interpreting = isInInterpreter("$noinline$returnFloat");
@@ -85,10 +119,10 @@ public class Main {
       while (!isInOsrCode("$noinline$returnFloat")) {}
     }
     System.out.println(i);
-    return 42.2f;
+    return result;
   }
 
-  public static double $noinline$returnDouble() {
+  public static double $noinline$returnDouble(double result) {
     // If we are running in non-JIT mode, or were unlucky enough to get this method
     // already JITted, skip the wait for OSR code.
     boolean interpreting = isInInterpreter("$noinline$returnDouble");
@@ -99,10 +133,10 @@ public class Main {
       while (!isInOsrCode("$noinline$returnDouble")) {}
     }
     System.out.println(i);
-    return Double.longBitsToDouble(0xF000000000001111L);
+    return result;
   }
 
-  public static long $noinline$returnLong() {
+  public static long $noinline$returnLong(long result) {
     // If we are running in non-JIT mode, or were unlucky enough to get this method
     // already JITted, skip the wait for OSR code.
     boolean interpreting = isInInterpreter("$noinline$returnLong");
@@ -113,7 +147,7 @@ public class Main {
       while (!isInOsrCode("$noinline$returnLong")) {}
     }
     System.out.println(i);
-    return 0xFFFF000000001111L;
+    return result;
   }
 
   public static void $noinline$deopt() {
