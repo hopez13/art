@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6c9eb403_15942131",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-26T16:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5971f15b_517fb3c9",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "43cf6abed6433e08875fb10d0da2595518906486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7234ef08_992e153a",
         "filename": "test/570-checker-osr-locals/src/Main.java",
         "patchSetId": 5
