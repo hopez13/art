@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e00ee86_91822be6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-26T14:39:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed9de6a_c0508778",
+      "range": {
+        "startLine": 993,
+        "startChar": 14,
+        "endLine": 993,
+        "endChar": 18
+      },
+      "revId": "6c21c31f95875035497fce9dc3655023c9f4e585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fe57872_60ca8893",
         "filename": "test/570-checker-osr-locals/src/Main.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8dac246f_006db6fa",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-26T14:39:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fe57872_60ca8893",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 38
+      },
+      "revId": "6c21c31f95875035497fce9dc3655023c9f4e585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1af21b0f_ea3625d1",
         "filename": "test/570-checker-osr-locals/src/Main.java",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "6c21c31f95875035497fce9dc3655023c9f4e585",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b79edc4_01aacf17",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-26T14:39:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af21b0f_ea3625d1",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 18
+      },
+      "revId": "6c21c31f95875035497fce9dc3655023c9f4e585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
