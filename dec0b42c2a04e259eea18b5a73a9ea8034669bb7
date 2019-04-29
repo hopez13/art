@@ -70,6 +70,30 @@
       "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc2cea2_ccab92a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-29T15:15:12Z",
+      "side": 1,
+      "message": "The reason this is necessary isn\u0027t because of dlopen, but to make the namespaces available to android_link_namespaces, as Jiyong explained in http://b/130293232#comment7.\n\nI\u0027ve got http://r.android.com/952236 with a larger change that supersedes this CL.",
+      "parentUuid": "2ed4f0c4_f05674fa",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "dec0b42c2a04e259eea18b5a73a9ea8034669bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
