@@ -228,7 +228,8 @@
     },
     {
         "tests": ["802-deoptimization",
-                 "570-checker-osr"],
+                 "570-checker-osr",
+                 "570-checker-osr-locals"],
         "description": ["This test dynamically enables tracing to force a",
                         "deoptimization. This makes the test meaningless",
                         "when already tracing, and writes an error message",
