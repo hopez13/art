@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05da1102_1144bafe",
+        "filename": "compiler/optimizing/superblock_cloner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-04-29T13:04:30Z",
+      "side": 1,
+      "message": "The code injects some details on how induction ranges are updated. I am not sure they are needed here. Maybe it\u0027s better to have a wrapper method: SuperblockCloner::UpdateInductionRangeInfoOf(user, value, phi)?",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 0
+      },
+      "revId": "a85f689f615525206e37b0898b85e8629c8ecb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "962a0a7c_6ac7a89b",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1308278
+      },
+      "writtenOn": "2019-04-29T13:04:30Z",
+      "side": 1,
+      "message": "Maybe this is more informative:\n\nAs a result of cloning, the induction range analysis information can be invalidated and must be updated. If not null, the cloner updates it for changed instructions.",
+      "range": {
+        "startLine": 345,
+        "startChar": 5,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "a85f689f615525206e37b0898b85e8629c8ecb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
