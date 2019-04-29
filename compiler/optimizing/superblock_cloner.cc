@@ -17,6 +17,7 @@
 #include "superblock_cloner.h"
 
 #include "common_dominator.h"
+#include "induction_var_range.h"
 #include "graph_checker.h"
 
 #include <iostream>
@@ -599,6 +600,9 @@ void SuperblockCloner::ConstructSubgraphClosedSSA() {
       ++it;
       if (!IsInOrigBBSet(user->GetBlock())) {
         user->ReplaceInput(phi, index);
+        if (induction_range_ != nullptr) {
+          induction_range_->Replace(user, value, phi);
+        }
       }
     }
 
@@ -776,7 +780,8 @@ void SuperblockCloner::DumpInputSets() {
 SuperblockCloner::SuperblockCloner(HGraph* graph,
                                    const HBasicBlockSet* orig_bb_set,
                                    HBasicBlockMap* bb_map,
-                                   HInstructionMap* hir_map)
+                                   HInstructionMap* hir_map,
+                                   InductionVarRange* induction_range)
   : graph_(graph),
     arena_(graph->GetAllocator()),
     orig_bb_set_(arena_, orig_bb_set->GetSizeOf(), true, kArenaAllocSuperblockCloner),
@@ -785,6 +790,7 @@ SuperblockCloner::SuperblockCloner(HGraph* graph,
     remap_incoming_(nullptr),
     bb_map_(bb_map),
     hir_map_(hir_map),
+    induction_range_(induction_range),
     outer_loop_(nullptr),
     outer_loop_bb_set_(arena_, orig_bb_set->GetSizeOf(), true, kArenaAllocSuperblockCloner),
     live_outs_(std::less<HInstruction*>(),
@@ -1078,7 +1084,7 @@ HLoopInformation* FindCommonLoop(HLoopInformation* loop1, HLoopInformation* loop
 }
 
 bool PeelUnrollHelper::IsLoopClonable(HLoopInformation* loop_info) {
-  PeelUnrollHelper helper(loop_info, nullptr, nullptr);
+  PeelUnrollHelper helper(loop_info, nullptr, nullptr, nullptr);
   return helper.IsLoopClonable();
 }
 
@@ -1119,12 +1125,13 @@ HBasicBlock* PeelUnrollHelper::DoPeelUnrollImpl(bool to_unroll) {
   return loop_header;
 }
 
-PeelUnrollSimpleHelper::PeelUnrollSimpleHelper(HLoopInformation* info)
+PeelUnrollSimpleHelper::PeelUnrollSimpleHelper(HLoopInformation* info,
+                                               InductionVarRange* induction_range)
   : bb_map_(std::less<HBasicBlock*>(),
             info->GetHeader()->GetGraph()->GetAllocator()->Adapter(kArenaAllocSuperblockCloner)),
     hir_map_(std::less<HInstruction*>(),
              info->GetHeader()->GetGraph()->GetAllocator()->Adapter(kArenaAllocSuperblockCloner)),
-    helper_(info, &bb_map_, &hir_map_) {}
+    helper_(info, &bb_map_, &hir_map_, induction_range) {}
 
 }  // namespace art
 
