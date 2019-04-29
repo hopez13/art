@@ -70,6 +70,30 @@
       "revId": "8afc64fdadc49dbc250924e36aed2ff62a80558d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dac406e_7c89011f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-04-29T14:13:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1475caba_ca69e8da",
+      "range": {
+        "startLine": 233,
+        "startChar": 25,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "8afc64fdadc49dbc250924e36aed2ff62a80558d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
