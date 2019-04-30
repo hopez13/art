@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fba1557_d6146a84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-30T16:37:37Z",
+      "side": 1,
+      "message": "These tests are admittedly a bit lame. I think we need http://r.android.com/921093 to run tests in a proper namespace setup where this matters.\n\nThis is however necessary to keep Soong from adding a system dependency on libpartalette.so, caught by http://r.android.com/942716: https://android-build.googleplex.com/builds/where-is-my-cl/android-review/942716?revision\u003d10\u0026revisionAttempt\u003d1",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "2d5de829bfbcf4ce854c52895ca821f07847669c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fb9cc32_1bbc469b",
+        "filename": "libartbase/base/globals.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-04-30T16:37:37Z",
+      "side": 1,
+      "message": "Another follow-up to http://r.android.com/943476, adding a note that I believe can save debugging effort.",
+      "revId": "2d5de829bfbcf4ce854c52895ca821f07847669c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
