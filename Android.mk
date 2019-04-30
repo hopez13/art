@@ -386,15 +386,29 @@ include $(BUILD_PHONY_PACKAGE)
 # Note that installation of the symlink is triggered by the apex_manifest.json
 # file which is the file that is guaranteed to be created regardless of the
 # value of TARGET_FLATTEN_APEX.
+#
+# b/132413565: Also, when TARGET_FLATTEN_APEX, an empty directory
+# /system/apex/com.android.runtime is created. After the entire
+# /system/apex is mounted on /apex, the flattened runtime APEX
+# (either com.android.runtime.debug or *.release) is mounted on the empty
+# directory so that the APEX is accessible via the canonical path
+# /apex/com.android.runtime
 ifeq ($(TARGET_FLATTEN_APEX),true)
 runtime_apex_manifest_file := $(PRODUCT_OUT)/system/apex/$(TARGET_RUNTIME_APEX)/apex_manifest.json
 else
 runtime_apex_manifest_file := $(PRODUCT_OUT)/apex/$(TARGET_RUNTIME_APEX)/apex_manifest.json
 endif
 
-$(runtime_apex_manifest_file): $(TARGET_OUT_UNSTRIPPED)/apex/com.android.runtime
-$(TARGET_OUT_UNSTRIPPED)/apex/com.android.runtime :
-	$(hide) ln -sf $(TARGET_RUNTIME_APEX) $@
+runtime_apex_symlink_timestamp := $(call intermediates-dir-for,FAKE,com.android.runtime)/symlink.timestamp
+$(runtime_apex_manifest_file): $(runtime_apex_symlink_timestamp)
+$(runtime_apex_manifest_file): PRIVATE_LINK_NAME := $(TARGET_OUT_UNSTRIPPED)/apex/com.android.runtime
+$(runtime_apex_symlink_timestamp):
+	$(hide) mkdir -p $(dir $(PRIVATE_LINK_NAME))
+	$(hide) ln -sf $(TARGET_RUNTIME_APEX) $(PRIVATE_LINK_NAME)
+ifeq ($(TARGET_FLATTEN_APEX),true)
+	$(hide) mkdir -p $(TARGET_OUT)/apex/com.android.runtime
+endif
+	$(hide) touch $@
 
 runtime_apex_manifest_file :=
 
