@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59c46a41_adc30c6f",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2019-04-30T00:01:01Z",
+      "side": 1,
+      "message": "Symlinks aren\u0027t supported directly in the build graph -- they must be side effects of some other action (like it was before this change). This is because ninja always walks the symlink when determining whether it\u0027s up to date, and there are times during the build where this is a broken symlink ($TARGET_RUNTIME_APEX hasn\u0027t been created), and even later the timestamp will come from the directory being pointed to, which doesn\u0027t necessarily match anything relevant to this symlink. This may show up as a constant rebuilding of the apex_manifest.json file, and anything that depends on it.\n\nI am looking at adding symlink support to ninja, but this has been tripping some other checks I\u0027m looking at adding.",
+      "revId": "72da9855659cd7c1b0780453e74ff56a72c10828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
