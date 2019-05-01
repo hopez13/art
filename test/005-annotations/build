@@ -41,4 +41,5 @@ export JAVAC=javac_wrapper
 
 ######################################################################
 
+export D8_FLAGS=--intermediate
 ./default-build "$@"
