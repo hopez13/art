@@ -101,6 +101,15 @@ elif [[ $mode == "target" ]]; then
   # TODO(b/121117762): Remove this when the ART Buildbot and Golem have full
   # support for the Runtime APEX.
   make_command+=" icu-data-art-test"
+  # Create a copy of the timezones prebuilt files in /system/etc/tz on target,
+  # so that it can be found even if the Runtime APEX is not available, by
+  # setting the environment variable `ART_TEST_ANDROID_RUNTIME_ROOT` to
+  # "/system" on device. This is a temporary change needed until both the ART
+  # Buildbot and Golem fully support the Runtime APEX.
+  #
+  # TODO(b/121117762): Remove this when the ART Buildbot and Golem have full
+  # support for the Runtime APEX.
+  make_command+=" tzdata-art-test tzlookup.xml-art-test tz_version-art-test"
   mode_suffix="-target"
 fi
 
