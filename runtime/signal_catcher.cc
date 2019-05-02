@@ -103,19 +103,14 @@ bool SignalCatcher::ShouldHalt() {
 }
 
 void SignalCatcher::Output(const std::string& s) {
-#if defined(ART_TARGET_ANDROID)
   ScopedThreadStateChange tsc(Thread::Current(), kWaitingForSignalCatcherOutput);
   PaletteStatus status = PaletteTombstonedMessage(s.data(), s.size());
   if (status == PaletteStatus::kOkay) {
     LOG(INFO) << "Wrote stack traces to tombstoned";
   } else {
-    CHECK(status == PaletteStatus::kCheckErrno);
+    CHECK(status == PaletteStatus::kFailedCheckLog);
     LOG(ERROR) << "Failed to write stack traces to tombstoned";
-    LOG(INFO) << s;
   }
-#else
-  LOG(INFO) << s;
-#endif
 }
 
 void SignalCatcher::HandleSigQuit() {
