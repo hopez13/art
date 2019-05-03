@@ -22,6 +22,30 @@
       "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98b868df_3a698c1e",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-03T17:44:16Z",
+      "side": 1,
+      "message": "We do need to have extra slots at the end since we subtract kBitsPerIntPtrT, otherwise it might not all get freed at once and cause problems.",
+      "parentUuid": "2232a5ad_64f511c3",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
