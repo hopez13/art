@@ -94,6 +94,30 @@
       "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94a8a0d2_0c0eee17",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-03T20:27:05Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "1a0277ed_43acf328",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
