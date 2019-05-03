@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2232a5ad_64f511c3",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-03T17:40:59Z",
+      "side": 1,
+      "message": "I might be missing something here and it may not be a big deal, but shouldn\u0027t we compute the buffer_size required in memory tool case and then use max(buffer_size, memory_tool_buffer_size) as buffer_size?",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
