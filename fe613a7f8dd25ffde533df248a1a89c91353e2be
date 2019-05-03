@@ -22,6 +22,30 @@
       "revId": "fe613a7f8dd25ffde533df248a1a89c91353e2be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e42ce30_db9dcc61",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-03T16:05:35Z",
+      "side": 0,
+      "message": "I don\u0027t think so, SweepWalk is only called once per space.",
+      "parentUuid": "9db56436_23299e47",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 43
+      },
+      "revId": "fe613a7f8dd25ffde533df248a1a89c91353e2be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

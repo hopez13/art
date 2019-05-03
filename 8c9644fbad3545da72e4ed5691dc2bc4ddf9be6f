@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a9aba555_588462c5",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-03T16:05:35Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll delete. It\u0027s stale from when I was zeroing the buffer_size in the if statement.",
+      "parentUuid": "f625d913_aee3b64e",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 63
+      },
+      "revId": "8c9644fbad3545da72e4ed5691dc2bc4ddf9be6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7180d3f_c9d487e1",
         "filename": "runtime/gc/space/memory_tool_malloc_space-inl.h",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "8c9644fbad3545da72e4ed5691dc2bc4ddf9be6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b585e98_9a83f6a1",
+        "filename": "runtime/gc/space/memory_tool_malloc_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-03T16:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7180d3f_c9d487e1",
+      "range": {
+        "startLine": 254,
+        "startChar": 88,
+        "endLine": 254,
+        "endChar": 98
+      },
+      "revId": "8c9644fbad3545da72e4ed5691dc2bc4ddf9be6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
