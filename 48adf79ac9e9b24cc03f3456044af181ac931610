@@ -46,6 +46,30 @@
       "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb5b49a4_afefd432",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-03T17:47:16Z",
+      "side": 1,
+      "message": "OK. But then can\u0027t we use max(buffer_size, memory_tool_buffer_size + kBitsPerIntPtrT), instead of buffer_size + memory_tool_buffer_size?",
+      "parentUuid": "98b868df_3a698c1e",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "48adf79ac9e9b24cc03f3456044af181ac931610",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
