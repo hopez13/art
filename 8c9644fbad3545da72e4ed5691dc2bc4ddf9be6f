@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f625d913_aee3b64e",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-03T15:39:05Z",
+      "side": 1,
+      "message": "Is this really necessary? In the end, this is an overflow check (because of line 172), doesn\u0027t seem to add value?",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 63
+      },
+      "revId": "8c9644fbad3545da72e4ed5691dc2bc4ddf9be6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7180d3f_c9d487e1",
+        "filename": "runtime/gc/space/memory_tool_malloc_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-03T15:39:05Z",
+      "side": 1,
+      "message": "Linter says typo",
+      "range": {
+        "startLine": 254,
+        "startChar": 88,
+        "endLine": 254,
+        "endChar": 98
+      },
+      "revId": "8c9644fbad3545da72e4ed5691dc2bc4ddf9be6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
