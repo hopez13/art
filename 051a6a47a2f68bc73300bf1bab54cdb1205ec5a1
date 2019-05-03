@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6b534be_dcc27218",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-03T19:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231065a9_290b2151",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "051a6a47a2f68bc73300bf1bab54cdb1205ec5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956f4bf6_49dceeb7",
         "filename": "openjdkjvmti/ti_method.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Looking at the internal code, this is OK.",
       "parentUuid": "956f4bf6_49dceeb7",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 50
+      },
+      "revId": "051a6a47a2f68bc73300bf1bab54cdb1205ec5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53ac4b1a_266ac166",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-03T19:37:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90275c0d_87eaf70f",
       "range": {
         "startLine": 696,
         "startChar": 8,
