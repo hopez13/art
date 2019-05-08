@@ -45,9 +45,11 @@ class Tracer final : public art::instrumentation::InstrumentationListener {
 
   void MethodEntered(art::Thread* thread ATTRIBUTE_UNUSED,
                      art::Handle<art::mirror::Object> this_object ATTRIBUTE_UNUSED,
-                     art::ArtMethod* method ATTRIBUTE_UNUSED,
+                     art::ArtMethod* method,
                      uint32_t dex_pc ATTRIBUTE_UNUSED)
-      override REQUIRES_SHARED(art::Locks::mutator_lock_) { }
+      override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+        LOG(INFO) << art::ArtMethod::PrettyMethod(method, true);
+      }
 
   void MethodExited(art::Thread* thread ATTRIBUTE_UNUSED,
                     art::Handle<art::mirror::Object> this_object ATTRIBUTE_UNUSED,
