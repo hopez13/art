@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d3c9e8b_492e3d1b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5312,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T09:56:45Z",
+      "side": 1,
+      "message": "DBC: doesn\u0027t look possible based on duration_ns being unsigned and having to be greater-than the logging threshold.",
+      "range": {
+        "startLine": 5312,
+        "startChar": 36,
+        "endLine": 5312,
+        "endChar": 52
+      },
+      "revId": "1671535ac0fc6736ba3dbb4664d95859e4c47700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
