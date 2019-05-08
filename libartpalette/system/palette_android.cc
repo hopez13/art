@@ -126,7 +126,9 @@ enum PaletteStatus PaletteTombstonedMessage(/*in*/const char* msg, size_t msg_le
     status = PaletteStatus::kFailedCheckLog;
   }
 
-  if (TEMP_FAILURE_RETRY(fsync(output_fd)) == -1) {
+  if (TEMP_FAILURE_RETRY(fsync(output_fd)) == -1 && errno != EINVAL) {
+    // Ignore EINVAL so we don't report failure if we just tried to flush a pipe
+    // or socket.
     PLOG(ERROR) << "Failed to fsync tombstoned output";
     TEMP_FAILURE_RETRY(ftruncate(output_fd, 0));
     TEMP_FAILURE_RETRY(fsync(output_fd));
