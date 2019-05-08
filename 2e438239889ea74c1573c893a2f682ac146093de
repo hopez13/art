@@ -22,6 +22,30 @@
       "revId": "2e438239889ea74c1573c893a2f682ac146093de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82313a1e_e8c788dd",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-08T08:45:50Z",
+      "side": 1,
+      "message": "This is dealt with in https://android-review.googlesource.com/943485 .",
+      "parentUuid": "f0ffa4b7_09c9347d",
+      "range": {
+        "startLine": 2852,
+        "startChar": 27,
+        "endLine": 2852,
+        "endChar": 33
+      },
+      "revId": "2e438239889ea74c1573c893a2f682ac146093de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
