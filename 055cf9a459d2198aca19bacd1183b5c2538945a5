@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15c6eb4a_5c835220",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 0,
+      "message": "Isn\u0027t this closer to the old behaviour? http://cs/aosp-master/art/runtime/signal_catcher.cc?l\u003d123\u0026rcl\u003d98ea9d9d82ab078ca10fa7f8e02eddda94cf1d98",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 8
+      },
+      "revId": "055cf9a459d2198aca19bacd1183b5c2538945a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

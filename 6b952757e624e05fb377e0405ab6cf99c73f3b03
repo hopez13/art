@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d496655c_0b67a3b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "Just FYI, another useful test I learned about recently is \"adb bugreport\", because the output_fd is a pipe in that case. Anyway, I\u0027m now testing that in http://r.android.com/958218, so not necessary here.\n\n(On a side note, this really ought to have some decent E2E tests, but that\u0027s more work than can be stuffed into these CLs.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b0ad054_64008418",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "Style nit: \",\" at the end, perhaps.",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb7ff5ae_eab2af16",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "Since the scope of the function has changed from \"send a string to tombstoned\" to something more on the level of \"send this crash report/thread dump to a suitable destination\", can we change the name to reflect that?",
+      "range": {
+        "startLine": 109,
+        "startChar": 26,
+        "endLine": 109,
+        "endChar": 43
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9afb31c2_baea055d",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "Maybe log an error before this?",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab495c96_6f3bbacc",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "A difference from the old code is that it did truncate, flush and close here, all without reporting their errors. Should avoid some cascade error noise.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 48
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fde2ba2_2b9a3179",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T15:05:23Z",
+      "side": 1,
+      "message": "There are two differences here from before http://r.android.com/941388:\n\n- tsc was only compiled in for ART_TARGET_ANDROID.\n\n- tsc was acquired only after tombstoned_connect (another thing I messed up in my CL).\n\nThe semantics and assumptions around ScopedThreadStateChange aren\u0027t clear enough to me to understand the effects of that. Is it ok?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 81
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
