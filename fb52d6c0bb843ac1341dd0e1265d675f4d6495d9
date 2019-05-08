@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d34450c5_de54552a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-08T14:36:39Z",
+      "side": 1,
+      "message": "Please add\n\n  Bug: 122937705\n\nand maybe also a note that this is needed only for devices that ship without boot image in /system.",
+      "revId": "fb52d6c0bb843ac1341dd0e1265d675f4d6495d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cc3967_30081ea6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-08T14:36:39Z",
+      "side": 1,
+      "message": "Line too long. Break after \u0027\u003d\u0027.",
+      "revId": "fb52d6c0bb843ac1341dd0e1265d675f4d6495d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
