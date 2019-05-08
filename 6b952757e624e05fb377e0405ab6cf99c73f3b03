@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "b06a0f4f_15188314",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-08T21:15:04Z",
+      "side": 1,
+      "message": "Sure, but my point was to log something before the long dump, to make it a bit more clear why it appears. It\u0027s subjective whether that\u0027d be an improvement or not though.",
+      "parentUuid": "6345b4f2_048785a5",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab495c96_6f3bbacc",
         "filename": "libartpalette/system/palette_android.cc",
         "patchSetId": 5
