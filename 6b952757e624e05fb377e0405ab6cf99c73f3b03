@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2072b52e_9a0c4973",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "Thanks, yes, that was underappreciated here until your fix  http://r.android.com/958218.",
+      "parentUuid": "d496655c_0b67a3b6",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b0ad054_64008418",
         "filename": "libartpalette/include/palette/palette_types.h",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b4c08d5_84885899",
+        "filename": "libartpalette/include/palette/palette_types.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b0ad054_64008418",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "372dfa68_87b14fcd",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7ff5ae_eab2af16",
+      "range": {
+        "startLine": 109,
+        "startChar": 26,
+        "endLine": 109,
+        "endChar": 43
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9afb31c2_baea055d",
         "filename": "libartpalette/system/palette_android.cc",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6345b4f2_048785a5",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "As noted on line 118, tombstoned_connect() logs the failure reason.",
+      "parentUuid": "9afb31c2_baea055d",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "077ae3fa_5972c8b7",
+        "filename": "libartpalette/system/palette_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "Changed to conditionally log.",
+      "parentUuid": "ab495c96_6f3bbacc",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 48
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fde2ba2_2b9a3179",
         "filename": "runtime/signal_catcher.cc",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f0c4228_fcb9e8eb",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-05-08T16:42:48Z",
+      "side": 1,
+      "message": "tsc is scoping a Java thread state change.\n\nIt is orthogonal to tombstoned_connect().\n\nAs-is, we\u0027re driving the thread states in a consistent manner between Android and elsewhere which could be seen as better (even though it\u0027ll negatively impact the crash velocity).",
+      "parentUuid": "1fde2ba2_2b9a3179",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 81
+      },
+      "revId": "6b952757e624e05fb377e0405ab6cf99c73f3b03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
