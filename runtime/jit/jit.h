@@ -21,6 +21,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "base/timing_logger.h"
+#include "handle.h"
 #include "jit/profile_saver_options.h"
 #include "obj_ptr.h"
 #include "thread_pool.h"
@@ -29,6 +30,7 @@ namespace art {
 
 class ArtMethod;
 class ClassLinker;
+class DexFile;
 class OatDexFile;
 struct RuntimeArgumentMap;
 union JValue;
@@ -36,6 +38,7 @@ union JValue;
 namespace mirror {
 class Object;
 class Class;
+class ClassLoader;
 }   // namespace mirror
 
 namespace jit {
@@ -304,9 +307,15 @@ class Jit {
   // Adjust state after forking.
   void PostZygoteFork();
 
-  // In case the boot classpath is not fully AOTed, add methods from the boot profile to the
-  // compilation queue.
-  void AddNonAotBootMethodsToQueue(Thread* self);
+  // Compile methods from the given profile.
+  void CompileMethodsFromProfile(Thread* self,
+                                 const std::vector<const DexFile*>& dex_files,
+                                 const std::string& profile_location,
+                                 Handle<mirror::ClassLoader> class_loader,
+                                 bool add_to_queue);
+
+  void RegisterDexFiles(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                        ObjPtr<mirror::ClassLoader> class_loader);
 
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
