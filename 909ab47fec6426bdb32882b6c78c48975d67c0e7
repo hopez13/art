@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "1af8c0bd_c6d256ca",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-09T20:44:53Z",
+      "side": 1,
+      "message": "The TEMP_FAILURE_RETRY doesn\u0027t capture the case that a partial buffer is read (which is legal, as mentioned in the pread docs: \"Note that it is not an error for a successful call to transfer fewer bytes than requested (see read(2) and write(2)).\").\n\nSwitch to android::base::ReadFileToString, maybe?",
+      "parentUuid": "c805d48d_ca1afe00",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 26
+      },
+      "revId": "909ab47fec6426bdb32882b6c78c48975d67c0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc17ca63_fbe1e981",
         "filename": "libartbase/base/common_art_test.cc",
         "patchSetId": 1
