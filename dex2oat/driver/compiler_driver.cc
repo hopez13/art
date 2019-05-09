@@ -2198,6 +2198,10 @@ class InitializeClassVisitor : public CompilationVisitor {
             Runtime* const runtime = Runtime::Current();
             // Run the class initializer in transaction mode.
             runtime->EnterTransactionMode(is_app_image, klass.Get());
+
+            // It's OK to clear the exception here since the compiler is supposed to be fault
+            // tolerant and will silently not initialize classes that have exceptions.
+            soa.Self()->ClearException();
             bool success = manager_->GetClassLinker()->EnsureInitialized(soa.Self(), klass, true,
                                                                          true);
             // TODO we detach transaction from runtime to indicate we quit the transactional
@@ -2245,6 +2249,11 @@ class InitializeClassVisitor : public CompilationVisitor {
             }
           }
         }
+        // Clear exception in case EnsureInitialized has caused one in the code above.
+        // It's OK to clear the exception here since the compiler is supposed to be fault
+        // tolerant and will silently not initialize classes that have exceptions.
+        soa.Self()->ClearException();
+
         // If the class still isn't initialized, at least try some checks that initialization
         // would do so they can be skipped at runtime.
         if (!klass->IsInitialized() &&
