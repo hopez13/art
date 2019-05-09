@@ -16,6 +16,144 @@
       "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f46ff829_3846c6a1",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "This is a bit sketchy and creates a pretty hard coupling of expectations. \nLet\u0027s chat on the goals here. I think there might be better alternatives.",
+      "range": {
+        "startLine": 672,
+        "startChar": 8,
+        "endLine": 672,
+        "endChar": 47
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e41b2bc_2f2d4ecb",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "Maybe rename this to something more suggestive? This registration is essentially lunching compilation tasks.",
+      "range": {
+        "startLine": 707,
+        "startChar": 10,
+        "endLine": 707,
+        "endChar": 26
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3f47e23_7b0270b7",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "Remind me, do we have an upper limit for the code cache? Could we grow arbitrary large here?",
+      "range": {
+        "startLine": 1032,
+        "startChar": 19,
+        "endLine": 1032,
+        "endChar": 40
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "457ffe12_6429a4f6",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "Replace location with file or path. Our use of \"location\" in runtime code is too overloaded.\n\nHere, and in other places you use it.",
+      "range": {
+        "startLine": 313,
+        "startChar": 60,
+        "endLine": 313,
+        "endChar": 68
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d1db51d_07184131",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "document",
+      "range": {
+        "startLine": 315,
+        "startChar": 38,
+        "endLine": 315,
+        "endChar": 50
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda7e1c2_fba2dde8",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2019-05-09T21:14:36Z",
+      "side": 1,
+      "message": "Add docs on what the registration does.",
+      "range": {
+        "startLine": 317,
+        "startChar": 7,
+        "endLine": 317,
+        "endChar": 23
+      },
+      "revId": "a5dc33ca28c525fed3901f1a11d4745a8f4c1054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
