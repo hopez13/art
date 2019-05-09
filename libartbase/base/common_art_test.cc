@@ -19,8 +19,12 @@
 #include <dirent.h>
 #include <dlfcn.h>
 #include <fcntl.h>
+#include <linux/limits.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <cstdio>
+#include <filesystem>
+#include "android-base/logging.h"
 #include "nativehelper/scoped_local_ref.h"
 
 #include "android-base/stringprintf.h"
@@ -126,11 +130,38 @@ void CommonArtTestImpl::SetUpAndroidRootEnvVars() {
     if (android_host_out_from_env == nullptr) {
       // Not set by build server, so default to the usual value of
       // ANDROID_HOST_OUT.
-      std::string android_host_out = android_build_top_from_env;
+      std::string android_host_out;
 #if defined(__linux__)
-      android_host_out += "/out/host/linux-x86";
+      // Fallback
+      android_host_out = std::string(android_build_top_from_env) + "/out/host/linux-x86";
+      // Look at how we were invoked
+      art::File file("/proc/self/cmdline", O_RDONLY, false);
+      char buf[PATH_MAX + 1];
+      buf[PATH_MAX] = '\0';
+      int end;
+      if ((end = file.Read(buf, sizeof(buf) - 1, 0)) > 0) {
+        // /proc/self/cmdline is the programs 'argv' with elements delimited by '\0'. This means
+        // that interpteting it as a string is enough to get the executable we want (since it's the
+        // first element).
+        std::string cmdpath(buf);
+        std::filesystem::path path(cmdpath);
+        // If the path is relative then prepend the android_build_top_from_env to it
+        if (path.is_relative()) {
+          path = std::filesystem::path(android_build_top_from_env).append(cmdpath);
+          DCHECK(path.is_absolute()) << path;
+        }
+        // Walk up until we find the linux-x86 directory or we hit the root directory.
+        while (path.has_parent_path() && path.parent_path() != path &&
+               path.filename() != std::filesystem::path("linux-x86")) {
+          path = path.parent_path();
+        }
+        // If we found a linux-x86 directory path is now android_host_out
+        if (path.filename() == std::filesystem::path("linux-x86")) {
+          android_host_out = path.string();
+        }
+      }
 #elif defined(__APPLE__)
-      android_host_out += "/out/host/darwin-x86";
+      android_host_out = std::string(android_build_top_from_env) + "/out/host/darwin-x86";
 #else
 #error unsupported OS
 #endif
