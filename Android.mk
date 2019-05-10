@@ -320,6 +320,7 @@ endif
 
 #######################
 # Android Runtime APEX.
+LOCAL_PATH := $(art_path)
 
 include $(CLEAR_VARS)
 
@@ -361,6 +362,9 @@ endif
 LOCAL_MODULE := com.android.runtime
 LOCAL_REQUIRED_MODULES := $(TARGET_RUNTIME_APEX)
 LOCAL_REQUIRED_MODULES += art_apex_boot_integrity
+ifeq ($(TARGET_FLATTEN_APEX),true)
+LOCAL_REQUIRED_MODULES += com.android.runtime.mountpoint
+endif
 
 # Clear locally used variable.
 art_target_include_debug_build :=
@@ -374,6 +378,15 @@ ifneq ($(HOST_OS),darwin)
   LOCAL_REQUIRED_MODULES += $(APEX_TEST_MODULE)
 endif
 include $(BUILD_PHONY_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.android.runtime.mountpoint
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := build/apex/com.android.runtime.mountpoint
+LOCAL_MODULE_PATH := $(TARGET_OUT)/apex
+LOCAL_MODULE_FILENAME := com.android.runtime
+include $(BUILD_PREBUILT)
 
 # Create canonical name -> file name symlink in the symbol directory
 # The symbol files for the debug or release variant are installed to
