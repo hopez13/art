@@ -38,6 +38,10 @@ class StringBuilderAppend::Builder {
   void operator()(ObjPtr<mirror::Object> obj, size_t usable_size) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool HasConcurrentModification() const {
+    return has_concurrent_modification_;
+  }
+
  private:
   static size_t Uint64Length(uint64_t value);
 
@@ -70,6 +74,15 @@ class StringBuilderAppend::Builder {
                                 CharType* data,
                                 ObjPtr<mirror::String> str) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  static uint16_t* AppendChars(ObjPtr<mirror::String> new_string,
+                               uint16_t* data,
+                               ObjPtr<mirror::CharArray> chars,
+                               size_t length) REQUIRES_SHARED(Locks::mutator_lock_);
+  static uint8_t* AppendChars(ObjPtr<mirror::String> new_string,
+                              uint8_t* data,
+                              ObjPtr<mirror::CharArray> chars,
+                              size_t length) REQUIRES_SHARED(Locks::mutator_lock_);
+
   template <typename CharType>
   static CharType* AppendInt64(ObjPtr<mirror::String> new_string,
                                CharType* data,
@@ -93,8 +106,18 @@ class StringBuilderAppend::Builder {
   // References are moved to the handle scope during CalculateLengthWithFlag().
   StackHandleScope<kMaxArgs> hs_;
 
+  // For non-null StringBuilders, we store the CharArray in `hs_` and record
+  // the length we see in CalculateLengthWithFlag(). This prevents buffer overflows
+  // from racy code concurrently modifying the StringBuilder.
+  uint32_t string_builder_lengths_[kMaxArgs];
+  size_t num_non_null_string_builders_ = 0u;
+
   // The length and flag to store when the AppendBuilder is used as a pre-fence visitor.
   int32_t length_with_flag_ = 0u;
+
+  // Record whether we found concurrent modification of a char[]'s value between
+  // CalculateLengthWithFlag() and copying the contents.
+  bool has_concurrent_modification_ = false;
 };
 
 inline size_t StringBuilderAppend::Builder::Uint64Length(uint64_t value)  {
@@ -180,6 +203,34 @@ inline CharType* StringBuilderAppend::Builder::AppendString(ObjPtr<mirror::Strin
   return data + length;
 }
 
+inline uint16_t* StringBuilderAppend::Builder::AppendChars(ObjPtr<mirror::String> new_string,
+                                                           uint16_t* data,
+                                                           ObjPtr<mirror::CharArray> chars,
+                                                           size_t length) {
+  DCHECK_LE(length, RemainingSpace(new_string, data));
+  DCHECK_LE(dchecked_integral_cast<int32_t>(length), chars->GetLength());
+  memcpy(data, chars->GetData(), length * sizeof(uint16_t));
+  return data + length;
+}
+
+inline uint8_t* StringBuilderAppend::Builder::AppendChars(ObjPtr<mirror::String> new_string,
+                                                          uint8_t* data,
+                                                          ObjPtr<mirror::CharArray> chars,
+                                                          size_t length) {
+  DCHECK_LE(length, RemainingSpace(new_string, data));
+  DCHECK_LE(dchecked_integral_cast<int32_t>(length), chars->GetLength());
+  for (size_t i = 0; i != length; ++i) {
+    uint16_t value = chars->GetWithoutChecks(i);
+    if (UNLIKELY(!mirror::String::IsASCII(value))) {
+      // A character has changed from ASCII to non-ASCII between CalculateLengthWithFlag()
+      // and copying the data. This can happen only with concurrent modification.
+      return nullptr;
+    }
+    data[i] = value;
+  }
+  return data + length;
+}
+
 template <typename CharType>
 inline CharType* StringBuilderAppend::Builder::AppendInt64(ObjPtr<mirror::String> new_string,
                                                            CharType* data,
@@ -212,6 +263,43 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
   for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
     DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
     switch (static_cast<Argument>(f & kArgMask)) {
+      case Argument::kStringBuilder: {
+        ObjPtr<mirror::Object> sb = reinterpret_cast32<mirror::Object*>(*current_arg);
+        if (sb != nullptr) {
+          int32_t count = sb->GetField32(MemberOffset(/*FIXME do not hardcode*/ 12));
+          if (count < 0) {
+            // Message from AbstractStringBuilder.getChars() -> SIOOB.<init>(int).
+            std::string message = "String index out of range: " + std::to_string(count);
+            hs_.Self()->ThrowNewException("Ljava/lang/StringIndexOutOfBoundsException;",
+                                          message.c_str());
+            return -1;
+          }
+          Handle<mirror::CharArray> value = hs_.NewHandle(
+              sb->GetFieldObject<mirror::CharArray>(MemberOffset(/*FIXME do not hardcode*/ 8)));
+          if (value == nullptr) {
+            // Message from AbstractStringBuilder.getChars() -> System.arraycopy().
+            // Thrown even if `count == 0`.
+            hs_.Self()->ThrowNewException("Ljava/lang/NullPointerException;", "src == null");
+            return -1;
+          }
+          if (value->GetLength() < count) {
+            hs_.Self()->ThrowNewExceptionF(
+                "Ljava/lang/ArrayIndexOutOfBoundsException;",
+                "Invalid AbstractStringBuilder, count = %d, value.length = %d",
+                count,
+                value->GetLength());
+            return -1;
+          }
+          string_builder_lengths_[num_non_null_string_builders_] = static_cast<uint32_t>(count);
+          length += count;
+          compressible = compressible && mirror::String::AllASCII(value->GetData(), count);
+          ++num_non_null_string_builders_;
+        } else {
+          hs_.NewHandle<mirror::CharArray>(nullptr);
+          length += kNullLength;
+        }
+        break;
+      }
       case Argument::kString: {
         Handle<mirror::String> str =
             hs_.NewHandle(reinterpret_cast32<mirror::String*>(*current_arg));
@@ -220,6 +308,19 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
           compressible = compressible && str->IsCompressed();
         } else {
           length += kNullLength;
+        }
+        break;
+      }
+      case Argument::kCharArray: {
+        Handle<mirror::CharArray> array =
+            hs_.NewHandle(reinterpret_cast32<mirror::CharArray*>(*current_arg));
+        if (array != nullptr) {
+          length += array->GetLength();
+          compressible = compressible &&
+              mirror::String::AllASCII(array->GetData(), array->GetLength());
+        } else {
+          ThrowNullPointerException("Attempt to get length of null array");
+          return -1;
         }
         break;
       }
@@ -244,8 +345,6 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
         break;
       }
 
-      case Argument::kStringBuilder:
-      case Argument::kCharArray:
       case Argument::kObject:
       case Argument::kFloat:
       case Argument::kDouble:
@@ -276,16 +375,52 @@ template <typename CharType>
 inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_string,
                                                     CharType* data) const {
   size_t handle_index = 0u;
+  size_t current_non_null_string_builder = 0u;
   const uint32_t* current_arg = args_;
   for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
     DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
     switch (static_cast<Argument>(f & kArgMask)) {
+      case Argument::kStringBuilder: {
+        ObjPtr<mirror::CharArray> array =
+            ObjPtr<mirror::CharArray>::DownCast(hs_.GetReference(handle_index));
+        ++handle_index;
+        if (array != nullptr) {
+          DCHECK_LE(current_non_null_string_builder, num_non_null_string_builders_);
+          size_t length = string_builder_lengths_[current_non_null_string_builder];
+          ++current_non_null_string_builder;
+          data = AppendChars(new_string, data, array, length);
+          if (std::is_same<uint8_t, CharType>::value && data == nullptr) {
+            const_cast<Builder*>(this)->has_concurrent_modification_ = true;
+            return;
+          }
+          DCHECK(data != nullptr);
+        } else {
+          data = AppendLiteral(new_string, data, kNull);
+        }
+        break;
+      }
       case Argument::kString: {
         ObjPtr<mirror::String> str =
             ObjPtr<mirror::String>::DownCast(hs_.GetReference(handle_index));
         ++handle_index;
         if (str != nullptr) {
           data = AppendString(new_string, data, str);
+        } else {
+          data = AppendLiteral(new_string, data, kNull);
+        }
+        break;
+      }
+      case Argument::kCharArray: {
+        ObjPtr<mirror::CharArray> array =
+            ObjPtr<mirror::CharArray>::DownCast(hs_.GetReference(handle_index));
+        ++handle_index;
+        if (array != nullptr) {
+          data = AppendChars(new_string, data, array, array->GetLength());
+          if (std::is_same<uint8_t, CharType>::value && data == nullptr) {
+            const_cast<Builder*>(this)->has_concurrent_modification_ = true;
+            return;
+          }
+          DCHECK(data != nullptr);
         } else {
           data = AppendLiteral(new_string, data, kNull);
         }
@@ -316,8 +451,6 @@ inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_s
         break;
       }
 
-      case Argument::kStringBuilder:
-      case Argument::kCharArray:
       case Argument::kFloat:
       case Argument::kDouble:
         LOG(FATAL) << "Unimplemented arg format: 0x" << std::hex
@@ -331,6 +464,7 @@ inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_s
     ++current_arg;
     DCHECK_LE(handle_index, hs_.NumberOfReferences());
   }
+  DCHECK_EQ(current_non_null_string_builder, num_non_null_string_builders_) << std::hex << format_;
   DCHECK_EQ(RemainingSpace(new_string, data), 0u) << std::hex << format_;
 }
 
@@ -358,6 +492,13 @@ ObjPtr<mirror::String> StringBuilderAppend::AppendF(uint32_t format,
   ObjPtr<mirror::String> result = mirror::String::Alloc</*kIsInstrumented=*/ true>(
       self, length_with_flag, allocator_type, builder);
 
+  if (UNLIKELY(builder.HasConcurrentModification())) {
+    if (!self->IsExceptionPending()) {
+      self->ThrowNewException("Ljava/util/ConcurrentModificationException;",
+                              "Concurrent modification during StringBuilder append.");
+    }
+    return nullptr;
+  }
   return result;
 }
 
