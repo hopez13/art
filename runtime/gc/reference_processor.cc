@@ -289,8 +289,17 @@ class ClearedReferenceTask : public HeapTask {
   const jobject cleared_references_;
 };
 
-void ReferenceProcessor::EnqueueClearedReferences(Thread* self) {
+static class SingletonNoOpTask : public Task {
+ public:
+  void Run(Thread *self ATTRIBUTE_UNUSED) override { }
+  void Finalize() override { }
+} SINGLETON_NOOP_TASK;
+
+Task* ReferenceProcessor::CollectClearedReferences(Thread* self) {
   Locks::mutator_lock_->AssertNotHeld(self);
+  // By default we don't actually need to do anything. Just return this no-op task to avoid having
+  // to put in ifs.
+  Task* result = &SINGLETON_NOOP_TASK;
   // When a runtime isn't started there are no reference queues to care about so ignore.
   if (!cleared_references_.IsEmpty()) {
     if (LIKELY(Runtime::Current()->IsStarted())) {
@@ -306,12 +315,12 @@ void ReferenceProcessor::EnqueueClearedReferences(Thread* self) {
         Runtime::Current()->GetHeap()->GetTaskProcessor()->AddTask(
             self, new ClearedReferenceTask(cleared_references));
       } else {
-        ClearedReferenceTask task(cleared_references);
-        task.Run(self);
+        result = new ClearedReferenceTask(cleared_references);
       }
     }
     cleared_references_.Clear();
   }
+  return result;
 }
 
 void ReferenceProcessor::ClearReferent(ObjPtr<mirror::Reference> ref) {
