@@ -2544,9 +2544,8 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
           arg = StringBuilderAppend::Argument::kString;
           break;
         case Intrinsics::kStringBuilderAppendCharArray:
-          // TODO: Unimplemented, StringBuilder.append(char[]) can throw NPE and we would
-          // not have the correct stack trace for it.
-          return false;
+          arg = StringBuilderAppend::Argument::kCharArray;
+          break;
         case Intrinsics::kStringBuilderAppendBoolean:
           arg = StringBuilderAppend::Argument::kBoolean;
           break;
@@ -2577,11 +2576,9 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
           DCHECK(input_type != nullptr);
           if (input_type.Get() == GetClassRoot<mirror::String>()) {
             arg = StringBuilderAppend::Argument::kString;
+          } else if (input_type->DescriptorEquals("Ljava/lang/StringBuilder;")) {
+            arg = StringBuilderAppend::Argument::kStringBuilder;
           } else {
-            // TODO: Check and implement for StringBuilder. We could find the StringBuilder's
-            // internal char[] inconsistent with the length, or the string compression
-            // of the result could be compromised with a concurrent modification, and
-            // we would need to throw appropriate exceptions.
             return false;
           }
           break;
