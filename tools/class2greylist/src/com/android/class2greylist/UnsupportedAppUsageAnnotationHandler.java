@@ -11,9 +11,15 @@ import org.apache.bcel.classfile.FieldOrMethod;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.classfile.SimpleElementValue;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import javax.management.RuntimeErrorException;
 
 /**
  * Processes {@code UnsupportedAppUsage} annotations to generate greylist
@@ -32,11 +38,16 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
     private static final String EXPECTED_SIGNATURE_PROPERTY = "expectedSignature";
     private static final String MAX_TARGET_SDK_PROPERTY = "maxTargetSdk";
     private static final String IMPLICIT_MEMBER_PROPERTY = "implicitMember";
+    private static final String PUBLIC_ALTERNATIVES_PROPERTY = "publicAlternatives";
 
     private final Status mStatus;
     private final Predicate<ClassMember> mClassMemberFilter;
     private final Map<Integer, String> mSdkVersionToFlagMap;
     private final AnnotationConsumer mAnnotationConsumer;
+    private List<ApiComponents> mPotentialPublicAlternatives;
+
+    private static final Pattern LINK_TAG_PATTERN = Pattern.compile("\\{@link ([^\\}]+)\\}");
+    private static final Pattern CODE_TAG_PATTERN = Pattern.compile("\\{@code ([^\\}]+)\\}");
 
     /**
      * Represents a member of a class file (a field or method).
@@ -66,6 +77,12 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
         this(status, annotationConsumer,
                 member -> !(member.isBridgeMethod && publicApis.contains(member.signature)),
                 sdkVersionToFlagMap);
+        StringCursor.ErrorReporter errorReporter = (error) -> {
+            throw new RuntimeException("Error parsing public apis!" + error);
+        };
+        mPotentialPublicAlternatives = publicApis.stream()
+                .map(api -> ApiComponents.fromDexSignature(api, errorReporter))
+                .collect(Collectors.toList());
     }
 
     @VisibleForTesting
@@ -85,7 +102,7 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
             AnnotatedMemberContext memberContext = (AnnotatedMemberContext) context;
             FieldOrMethod member = memberContext.member;
             isBridgeMethod = (member instanceof Method) &&
-                (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
+                    (member.getAccessFlags() & Const.ACC_BRIDGE) != 0;
             if (isBridgeMethod) {
                 mStatus.debug("Member is a bridge method");
             }
@@ -94,6 +111,8 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
         String signature = context.getMemberDescriptor();
         Integer maxTargetSdk = null;
         String implicitMemberSignature = null;
+        String publicAlternativesString = null;
+        StringCursor.ErrorReporter errorReporter = (error) -> context.reportError(error);
 
         for (ElementValuePair property : annotation.getElementValuePairs()) {
             switch (property.getNameString()) {
@@ -102,8 +121,8 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
                     // Don't enforce for bridge methods; they're generated so won't match.
                     if (!isBridgeMethod && !signature.equals(expected)) {
                         context.reportError("Expected signature does not match generated:\n"
-                                        + "Expected:  %s\n"
-                                        + "Generated: %s", expected, signature);
+                                + "Expected:  %s\n"
+                                + "Generated: %s", expected, signature);
                         return;
                     }
                     break;
@@ -121,23 +140,27 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
                     implicitMemberSignature = property.getValue().stringifyValue();
                     if (context instanceof AnnotatedClassContext) {
                         signature = String.format("L%s;->%s",
-                            context.getClassDescriptor(), implicitMemberSignature);
+                                context.getClassDescriptor(), implicitMemberSignature);
                     } else {
                         context.reportError(
-                            "Expected annotation with an %s property to be on a class but is on %s",
-                            IMPLICIT_MEMBER_PROPERTY,
-                            signature);
+                                "Expected annotation with an %s property to be on a class but is "
+                                        + "on %s",
+                                IMPLICIT_MEMBER_PROPERTY,
+                                signature);
                         return;
                     }
+                    break;
+                case PUBLIC_ALTERNATIVES_PROPERTY:
+                    publicAlternativesString = property.getValue().stringifyValue();
                     break;
             }
         }
 
         if (context instanceof AnnotatedClassContext && implicitMemberSignature == null) {
             context.reportError(
-                "Missing property %s on annotation on class %s",
-                IMPLICIT_MEMBER_PROPERTY,
-                signature);
+                    "Missing property %s on annotation on class %s",
+                    IMPLICIT_MEMBER_PROPERTY,
+                    signature);
             return;
         }
 
@@ -148,6 +171,42 @@ public class UnsupportedAppUsageAnnotationHandler extends AnnotationHandler {
                     maxTargetSdk,
                     mSdkVersionToFlagMap.keySet());
             return;
+        }
+
+        // Verify that all public alternatives are valid.
+        if (publicAlternativesString != null && mPotentialPublicAlternatives != null) {
+            // Grab all instances of type {@link foo}
+            Matcher matcher = LINK_TAG_PATTERN.matcher(publicAlternativesString);
+            boolean hasAlternative = false;
+            while (matcher.find()) {
+                hasAlternative = true;
+                String alternativeString = matcher.group(1);
+                ApiComponents alternative = ApiComponents.fromLinkTag(alternativeString,
+                        signature, errorReporter);
+                if (!mPotentialPublicAlternatives.contains(alternative)) {
+                    List<ApiComponents> almostMatches = mPotentialPublicAlternatives.stream()
+                            .filter(api -> api.equalIgnoringParam(alternative))
+                            .collect(Collectors.toList());
+                    if (almostMatches.size() == 0) {
+                        context.reportError("Alternative " + alternativeString
+                                + " returned no public API matches");
+                    } else if (almostMatches.size() > 1) {
+                        context.reportError("Alternative " + alternativeString
+                                + " returned multiple matches: " + almostMatches);
+                    }
+                }
+            }
+            // No {@link ...} alternatives exist; try looking for {@code ...}
+            if (!hasAlternative) {
+                if (!CODE_TAG_PATTERN.matcher(publicAlternativesString).find()) {
+                    context.reportError("Hidden API has a public alternative annotation "
+                            + "field, but no concrete explanations. Please provide either a "
+                            + "reference to an SDK method using javadoc syntax, e.g. "
+                            + "{@link foo.bar.Baz#bat}, or a small code snippet if the alternative "
+                            + "is part of a support library or third party library, e.g. "
+                            + "{@code foo.bar.Baz bat = new foo.bar.Baz(); bat.doSomething();}.");
+                }
+            }
         }
 
         // Consume this annotation if it matches the predicate.
