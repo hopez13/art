@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6541bd_2f563e4b",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-14T16:05:52Z",
+      "side": 1,
+      "message": "SelfDeletingTask",
+      "range": {
+        "startLine": 292,
+        "startChar": 40,
+        "endLine": 292,
+        "endChar": 44
+      },
+      "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e44bca73_998d5faa",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-14T16:05:52Z",
+      "side": 1,
+      "message": "Change to SelfDeletingTask to signal that Finalize should be called.\n\n(It\u0027s a bit yucky that there\u0027s mixed ownership, but I don\u0027t think allocation the singleton task on the heap is great, either.)",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
