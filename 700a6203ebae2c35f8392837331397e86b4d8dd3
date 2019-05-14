@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d40f6079_0e21eda2",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-14T21:14:24Z",
+      "side": 1,
+      "message": "I\u0027m surprised that it didn\u0027t cause any problems earlier. Anyways, fixed in latest patch. PTAL",
+      "parentUuid": "b4187cd4_9a4b0435",
+      "range": {
+        "startLine": 451,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 78
+      },
+      "revId": "700a6203ebae2c35f8392837331397e86b4d8dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe72aed3_2572f9d8",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "700a6203ebae2c35f8392837331397e86b4d8dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b96747_a77eef39",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-14T21:14:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe72aed3_2572f9d8",
+      "range": {
+        "startLine": 466,
+        "startChar": 20,
+        "endLine": 466,
+        "endChar": 39
+      },
+      "revId": "700a6203ebae2c35f8392837331397e86b4d8dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
