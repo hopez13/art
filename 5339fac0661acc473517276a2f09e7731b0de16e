@@ -22,6 +22,30 @@
       "revId": "5339fac0661acc473517276a2f09e7731b0de16e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f36735e6_3fdfb6ae",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-14T22:49:33Z",
+      "side": 1,
+      "message": "clear_block_{begin, end} being nullptr at this point is only possible if all the regions allocated since last GC cycle are large objects. Otherwise, there will definitely be some regions to be cleared and hence the issue cannot arise.\nAnyways, I\u0027ll add the condition here too.",
+      "parentUuid": "e58a8a4a_8569c73d",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 74
+      },
+      "revId": "5339fac0661acc473517276a2f09e7731b0de16e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
