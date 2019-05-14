@@ -46,6 +46,30 @@
       "revId": "86b7e6f541a08778607d802bf0612ef41ef34210",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbd62e8e_92c452ff",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-05-14T13:18:50Z",
+      "side": 1,
+      "message": "I argued a bit more around this in the other CL http://r.android.com/960693: I think in these configs consistency is quite important to reduce the special cases and moving parts - essentially the namespace config for a certain lib directory should ALWAYS be the same. Then there\u0027s the failure mode if some library in /system (incorrectly) manages to grow a dependency on an ICU lib - we wouldn\u0027t see that problem for a platform binary with Victors other CL, it\u0027d only fail here and that\u0027s not a good way to uncover it.",
+      "parentUuid": "5fd9c5cd_d0bc7669",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 58
+      },
+      "revId": "86b7e6f541a08778607d802bf0612ef41ef34210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
