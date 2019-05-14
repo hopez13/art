@@ -46,6 +46,30 @@
       "revId": "5339fac0661acc473517276a2f09e7731b0de16e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8cde1c3_8b02146e",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-05-14T23:10:39Z",
+      "side": 1,
+      "message": "Agreed. It\u0027s very unlikely outside of an odd test. I\u0027m fine with or without the comment.",
+      "parentUuid": "f36735e6_3fdfb6ae",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 74
+      },
+      "revId": "5339fac0661acc473517276a2f09e7731b0de16e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
