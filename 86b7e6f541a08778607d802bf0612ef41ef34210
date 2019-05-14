@@ -22,6 +22,30 @@
       "revId": "86b7e6f541a08778607d802bf0612ef41ef34210",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd9c5cd_d0bc7669",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-05-14T00:23:10Z",
+      "side": 1,
+      "message": "Hmm, I think it should better be in the linker config for apps only. It\u0027s an exceptional case and I think an exception should be treated as an exception, and shouldn\u0027t be generalized.",
+      "parentUuid": "8be3d1d9_887d8ac2",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 58
+      },
+      "revId": "86b7e6f541a08778607d802bf0612ef41ef34210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
