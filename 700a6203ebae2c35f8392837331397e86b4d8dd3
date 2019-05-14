@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4187cd4_9a4b0435",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-05-14T20:14:09Z",
+      "side": 1,
+      "message": "How does this avoid pushing an initial pair with nullptr?",
+      "range": {
+        "startLine": 451,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 78
+      },
+      "revId": "700a6203ebae2c35f8392837331397e86b4d8dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe72aed3_2572f9d8",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-05-14T20:14:09Z",
+      "side": 1,
+      "message": "This reads badly, due to existing bad naming, I think. It seems that UnevacFromSpace should be subset of FromSpace. Maybe later add a comment to its definition, and add an /* evacuated */ comment to the if?",
+      "range": {
+        "startLine": 466,
+        "startChar": 20,
+        "endLine": 466,
+        "endChar": 39
+      },
+      "revId": "700a6203ebae2c35f8392837331397e86b4d8dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
