@@ -93,6 +93,30 @@
       "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a25590_3ed16664",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-14T16:40:31Z",
+      "side": 1,
+      "message": "But SelfDeletingTask specifies that you must *not* call delete on it (because that\u0027s part of Finalize) - which is critical here because of your singleton.",
+      "parentUuid": "adb283dc_ec1aceba",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
