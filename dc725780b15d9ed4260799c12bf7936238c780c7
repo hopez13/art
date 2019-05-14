@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46525da1_2f14c178",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-14T16:38:30Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "9f6541bd_2f563e4b",
+      "range": {
+        "startLine": 292,
+        "startChar": 40,
+        "endLine": 292,
+        "endChar": 44
+      },
+      "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e44bca73_998d5faa",
         "filename": "runtime/gc/reference_processor.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb283dc_ec1aceba",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-14T16:38:30Z",
+      "side": 1,
+      "message": "I want to return a singleton task that is statically allocated if there is nothing to do.\n\nAnyway Task* already has to call Finalize according to it\u0027s spec comments: https://android.googlesource.com/platform/art/+/refs/heads/master/runtime/thread_pool.h#49",
+      "parentUuid": "e44bca73_998d5faa",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "dc725780b15d9ed4260799c12bf7936238c780c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
