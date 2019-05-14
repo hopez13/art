@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af25cb3b_8e97f039",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-14T13:16:10Z",
+      "side": 1,
+      "message": "nit: \"used for boot image compilation. We don\u0027t want that environment variable to affect the behavior of this test\" ?",
+      "range": {
+        "startLine": 127,
+        "startChar": 54,
+        "endLine": 127,
+        "endChar": 55
+      },
+      "revId": "48fbf998bc89df0440f2fbd93ddb53aa9446d7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
