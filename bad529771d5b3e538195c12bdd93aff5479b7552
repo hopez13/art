@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8afb4ab_fb28ce97",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-14T15:32:41Z",
+      "side": 1,
+      "message": "Is this safe? The getenv spec says the string may be overwritten by unsetenv.",
+      "revId": "bad529771d5b3e538195c12bdd93aff5479b7552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
