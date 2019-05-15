@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74c2d0ae_59060656",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "The x86-64 calling convention is to pass the first argument in RDI.",
+      "parentUuid": "6e030c09_e97278ce",
+      "range": {
+        "startLine": 4890,
+        "startChar": 22,
+        "endLine": 4890,
+        "endChar": 25
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8adb22f8_07591efb",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3a9d2b6_4381e14c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "Done with GetClassRoot() instead of WellKnownClasses.",
+      "parentUuid": "8adb22f8_07591efb",
+      "range": {
+        "startLine": 2569,
+        "startChar": 14,
+        "endLine": 2569,
+        "endChar": 64
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "37e19de5_68210fc5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "Removed the \"else if\" from this CL, updated the TODO comment.",
+      "parentUuid": "a8e01ba5_85329a32",
+      "range": {
+        "startLine": 2571,
+        "startChar": 21,
+        "endLine": 2571,
+        "endChar": 78
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecf4fb8f_75f65d06",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 7
@@ -91,6 +163,30 @@
       "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8880fa2_9d6f1c73",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "Maybe (probably not), that\u0027s why I\u0027m not doing \"DCHECK(seen_constructor_fence)\" after the loop. This DCHECK() makes sure we do not see the constructor call before the fence (part of NEW_INSTANCE rather than the constructor call) because we\u0027re processing uses in reverse order, see above (lines 2520-2521).",
+      "parentUuid": "ecf4fb8f_75f65d06",
+      "range": {
+        "startLine": 2606,
+        "startChar": 0,
+        "endLine": 2606,
+        "endChar": 38
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2890bd28_605615b2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6902,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "I\u0027m only writing to the object I\u0027m going to allocate. This instruction does not affect any heap location visible to the code other than through the result.",
+      "parentUuid": "95cbc92c_32370d1c",
+      "range": {
+        "startLine": 6902,
+        "startChar": 25,
+        "endLine": 6902,
+        "endChar": 33
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5991d25c_4abf2c07",
         "filename": "runtime/string_builder_append.cc",
         "patchSetId": 7
@@ -137,6 +257,30 @@
       "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db24187d_768212a3",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-15T10:18:08Z",
+      "side": 1,
+      "message": "I wanted to pass \"false\" but 130-hprof was failing with\n\n    heap-inl.h:192] Check failed: !IsAllocTrackingEnabled()\n\nand I assume something like \"testrunner.py --trace\" would have more tests hitting this.",
+      "parentUuid": "5991d25c_4abf2c07",
+      "range": {
+        "startLine": 358,
+        "startChar": 56,
+        "endLine": 358,
+        "endChar": 81
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
