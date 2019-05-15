@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff901be6_70c9c03b",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-15T16:50:47Z",
+      "side": 1,
+      "message": "Why not just use a vector?",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 12
+      },
+      "revId": "2a16314f45d817fdc5d121cd50261b20f38315b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d8a6a2e_c59ad167",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-15T16:50:47Z",
+      "side": 1,
+      "message": "Nit: I think the style is to do \"auto\u0026 iter\"",
+      "range": {
+        "startLine": 498,
+        "startChar": 13,
+        "endLine": 498,
+        "endChar": 19
+      },
+      "revId": "2a16314f45d817fdc5d121cd50261b20f38315b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
