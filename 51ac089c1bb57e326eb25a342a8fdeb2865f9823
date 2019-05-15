@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e030c09_e97278ce",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "RAX?",
+      "range": {
+        "startLine": 4890,
+        "startChar": 22,
+        "endLine": 4890,
+        "endChar": 25
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8adb22f8_07591efb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "Why not comparing with the mirror class / WellKnownClass?",
+      "range": {
+        "startLine": 2569,
+        "startChar": 14,
+        "endLine": 2569,
+        "endChar": 64
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e01ba5_85329a32",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "Add a WellKnownClass?",
+      "range": {
+        "startLine": 2571,
+        "startChar": 21,
+        "endLine": 2571,
+        "endChar": 78
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecf4fb8f_75f65d06",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "Do we expect that optimizations may remove the fence?",
+      "range": {
+        "startLine": 2606,
+        "startChar": 0,
+        "endLine": 2606,
+        "endChar": 38
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95cbc92c_32370d1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6902,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "You\u0027re writing to heap too, no?",
+      "range": {
+        "startLine": 6902,
+        "startChar": 25,
+        "endLine": 6902,
+        "endChar": 33
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5991d25c_4abf2c07",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-15T07:20:08Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 358,
+        "startChar": 56,
+        "endLine": 358,
+        "endChar": 81
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
