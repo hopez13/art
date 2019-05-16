@@ -22,6 +22,30 @@
       "revId": "3e9948b9dfdd3f4eb32254eca9360c00167a6281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ccb2fa3_08e3ba39",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-16T17:12:27Z",
+      "side": 1,
+      "message": "The implementation of AddToDexClassLoaderInMemory uses it actually. Since it cannot succeed on darwin we won\u0027t even return the extension for it.\n\ndone",
+      "parentUuid": "217ceafd_c9f832ec",
+      "range": {
+        "startLine": 351,
+        "startChar": 5,
+        "endLine": 351,
+        "endChar": 9
+      },
+      "revId": "3e9948b9dfdd3f4eb32254eca9360c00167a6281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
