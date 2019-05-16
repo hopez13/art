@@ -22,6 +22,30 @@
       "revId": "366d9efe3310944e98a74ec7885c588017caff59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0b993f8_b3cdad70",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-16T23:35:27Z",
+      "side": 1,
+      "message": "No we need it since otherwise GetSystemClassLoader will DCHECK fail since it might be after the SystemClassLoader has been cleared by runtime shutdown.",
+      "parentUuid": "bc0716ee_0aad8dd1",
+      "range": {
+        "startLine": 384,
+        "startChar": 3,
+        "endLine": 386,
+        "endChar": 3
+      },
+      "revId": "366d9efe3310944e98a74ec7885c588017caff59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
