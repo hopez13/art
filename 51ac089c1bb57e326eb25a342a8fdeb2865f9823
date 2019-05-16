@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "9369d40b_a7b40ce5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6902,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-16T10:08:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9d7d8e_e02777b9",
+      "range": {
+        "startLine": 6902,
+        "startChar": 25,
+        "endLine": 6902,
+        "endChar": 33
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5991d25c_4abf2c07",
         "filename": "runtime/string_builder_append.cc",
         "patchSetId": 7
@@ -344,6 +368,30 @@
       "side": 1,
       "message": "Should the default of mirror::String::Alloc be true then? It reads odd to see the knowledge of whether we\u0027re instrumented in unrelated places.",
       "parentUuid": "db24187d_768212a3",
+      "range": {
+        "startLine": 358,
+        "startChar": 56,
+        "endLine": 358,
+        "endChar": 81
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f5de40c_b6af3ec7",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-16T10:08:02Z",
+      "side": 1,
+      "message": "If we add a default argument, then it should be \"true\". For the moment, we require an explicit argument.",
+      "parentUuid": "e6e784a5_94f1d1d4",
       "range": {
         "startLine": 358,
         "startChar": 56,
