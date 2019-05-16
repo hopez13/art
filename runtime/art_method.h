@@ -586,6 +586,8 @@ class ArtMethod final {
 
   ALWAYS_INLINE const char* GetName() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ALWAYS_INLINE std::string_view GetNameView() REQUIRES_SHARED(Locks::mutator_lock_);
+
   ObjPtr<mirror::String> ResolveNameString() REQUIRES_SHARED(Locks::mutator_lock_);
 
   const dex::CodeItem* GetCodeItem() REQUIRES_SHARED(Locks::mutator_lock_);
