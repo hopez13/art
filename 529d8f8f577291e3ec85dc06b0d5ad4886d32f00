@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0bb81e7_ba4d19f5",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-16T15:55:26Z",
+      "side": 1,
+      "message": "This method has not changed, right?",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50cd5aef_cdaf5a4c",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-16T15:55:26Z",
+      "side": 1,
+      "message": "This may return null, which will then crash.",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18bf04c5_bcc5467d",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-16T15:55:26Z",
+      "side": 1,
+      "message": "Out of curiosity: What happens if you rename this to GetNameData - does that lead us many more optimization opportunists?",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a44f3f49_8230045c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-16T15:55:26Z",
+      "side": 1,
+      "message": "This is just copy-paste of the block above, right?\nCan we share the copy-pasted code somehow?",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
