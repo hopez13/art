@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1d09c34d_924c9a82",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-16T07:35:41Z",
+      "side": 1,
+      "message": "Ah yes, the other archs \"first argument register is also return register\" confused me here.",
+      "parentUuid": "74c2d0ae_59060656",
+      "range": {
+        "startLine": 4890,
+        "startChar": 22,
+        "endLine": 4890,
+        "endChar": 25
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8adb22f8_07591efb",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 7
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "bb9d7d8e_e02777b9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 6902,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-16T07:35:41Z",
+      "side": 1,
+      "message": "I see, could you add that as a comment? The information that the object just got allocated isn\u0027t explicit in the definition of HStringBuilderAppend.",
+      "parentUuid": "2890bd28_605615b2",
+      "range": {
+        "startLine": 6902,
+        "startChar": 25,
+        "endLine": 6902,
+        "endChar": 33
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5991d25c_4abf2c07",
         "filename": "runtime/string_builder_append.cc",
         "patchSetId": 7
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "I wanted to pass \"false\" but 130-hprof was failing with\n\n    heap-inl.h:192] Check failed: !IsAllocTrackingEnabled()\n\nand I assume something like \"testrunner.py --trace\" would have more tests hitting this.",
       "parentUuid": "5991d25c_4abf2c07",
+      "range": {
+        "startLine": 358,
+        "startChar": 56,
+        "endLine": 358,
+        "endChar": 81
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6e784a5_94f1d1d4",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-16T07:35:41Z",
+      "side": 1,
+      "message": "Should the default of mirror::String::Alloc be true then? It reads odd to see the knowledge of whether we\u0027re instrumented in unrelated places.",
+      "parentUuid": "db24187d_768212a3",
       "range": {
         "startLine": 358,
         "startChar": 56,
