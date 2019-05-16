@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56152e01_5b0e100e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-16T16:36:37Z",
+      "side": 1,
+      "message": "We enter OSR code only at HSuspendCheck, right? So this should be\n\n  (osr \u0026\u0026 instruction-\u003eIsSuspendCheck()) .\n\nSee also SsaLivenessAnalysis::ShouldBeLiveForEnvironment().",
+      "range": {
+        "startLine": 1059,
+        "startChar": 9,
+        "endLine": 1059,
+        "endChar": 12
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ecef948_2bddc577",
+        "filename": "test/543-env-long-ref/env_long_ref.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-16T16:36:37Z",
+      "side": 1,
+      "message": "Maybe \"GetCurrentQuickFrame() !\u003d nullptr\" as in the other test?",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 63
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a5e055_7373fcfc",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-16T16:36:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 193,
+        "startChar": 28,
+        "endLine": 193,
+        "endChar": 62
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
