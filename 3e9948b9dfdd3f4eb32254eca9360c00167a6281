@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "217ceafd_c9f832ec",
+        "filename": "openjdkjvmti/ti_extension.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-16T07:28:56Z",
+      "side": 1,
+      "message": "Could you say which part? I assume the memfd_create is deep down into the add_extension call?",
+      "range": {
+        "startLine": 351,
+        "startChar": 5,
+        "endLine": 351,
+        "endChar": 9
+      },
+      "revId": "3e9948b9dfdd3f4eb32254eca9360c00167a6281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
