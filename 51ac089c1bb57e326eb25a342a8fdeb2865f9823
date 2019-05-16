@@ -401,6 +401,30 @@
       "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63cfed2_50542705",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-16T10:11:09Z",
+      "side": 1,
+      "message": "Ack - can you add a comment then, just saying that passing true is required for tracing configs. (could be a FIXME to answer later)",
+      "parentUuid": "6f5de40c_b6af3ec7",
+      "range": {
+        "startLine": 358,
+        "startChar": 56,
+        "endLine": 358,
+        "endChar": 81
+      },
+      "revId": "51ac089c1bb57e326eb25a342a8fdeb2865f9823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
