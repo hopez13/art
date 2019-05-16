@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f3592837_7e702efd",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-05-16T18:21:42Z",
+      "side": 1,
+      "message": "Right. Originally I tried to just replace this all with string_view, but that was a more invasive change than I wanted to make.\n\nI reverted back to the old one.",
+      "parentUuid": "e0bb81e7_ba4d19f5",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50cd5aef_cdaf5a4c",
         "filename": "libdexfile/dex/dex_file-inl.h",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f16643_61f47ca2",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-05-16T18:21:42Z",
+      "side": 1,
+      "message": "To be on the safe side, I not have this returning string_view(\"\") if data is null.",
+      "parentUuid": "50cd5aef_cdaf5a4c",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d7340b1f_f55deed5",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-05-16T18:21:42Z",
+      "side": 1,
+      "message": "Good question. I\u0027ll investigate (although maybe as a followup CL)",
+      "parentUuid": "18bf04c5_bcc5467d",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a44f3f49_8230045c",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b488795_3afa4a17",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-05-16T18:21:42Z",
+      "side": 1,
+      "message": "Yes. I\u0027ve factored it out into a common method now.",
+      "parentUuid": "a44f3f49_8230045c",
+      "revId": "529d8f8f577291e3ec85dc06b0d5ad4886d32f00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
