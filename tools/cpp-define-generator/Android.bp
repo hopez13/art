@@ -48,6 +48,7 @@ cc_genrule {
 
 cc_library_headers {
     name: "cpp-define-generator-definitions",
+    visibility: ["//art:__subpackages__"],
     host_supported: true,
     export_include_dirs: ["."],
 }

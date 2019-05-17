@@ -16,6 +16,12 @@
 
 art_cc_defaults {
     name: "libelffile-defaults",
+    visibility: [
+        "//art:__subpackages__",
+        // TODO(b/133140750): Clean this up.
+        "//system/extras/perfprofd",
+        "//system/extras/perfprofd/tests",
+    ],
     host_supported: true,
     export_include_dirs: ["."],
     srcs: [

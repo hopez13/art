@@ -15,6 +15,7 @@
 
 cc_defaults {
     name: "libopenjdkjvm_defaults",
+    visibility: ["//libcore"],
     defaults: ["art_defaults"],
     host_supported: true,
     srcs: ["OpenjdkJvm.cc"],

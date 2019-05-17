@@ -1,0 +1,9 @@
+// If you're looking for global ART Soong modules, please see build/Android.bp.
+
+package {
+    // TODO(b/130796911): Implement visibility that applies on defaults modules
+    // themselves. Cannot use default_visibility here until then, because we
+    // have no way of overriding visibility on defaults modules used elsewhere,
+    // e.g. perfprofd uses libart_static_defaults.
+    //default_visibility: ["//art:__subpackages__"],
+}

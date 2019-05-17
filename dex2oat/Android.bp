@@ -169,6 +169,10 @@ cc_defaults {
 
 cc_library_headers {
     name: "dex2oat_headers",
+    visibility: [
+        "//art:__subpackages__",
+        "//frameworks/native/cmds/installd",
+    ],
     host_supported: true,
     export_include_dirs: ["include"],
 }
@@ -239,6 +243,9 @@ art_cc_binary {
     defaults: [
         "dex2oat-defaults",
         "dex2oat-pgo-defaults",
+    ],
+    visibility: [
+        "//system/apex/tests",
     ],
     shared_libs: [
         "libprofile",

@@ -17,6 +17,7 @@
 // TODO: this header library depends on libart. Find a way to express that.
 cc_library_headers {
     name: "art_cmdlineparser_headers",
+    visibility: ["//art:__subpackages__"],
     host_supported: true,
     export_include_dirs: ["."],
 }

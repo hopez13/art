@@ -15,6 +15,7 @@
 // Fuzzer tool.
 cc_binary_host {
     name: "jfuzz",
+    visibility: ["//visibility:private"],
     srcs: ["jfuzz.cc"],
     cflags: [
         "-O0",

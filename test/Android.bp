@@ -16,6 +16,7 @@
 
 art_cc_defaults {
     name: "art_test_defaults",
+    visibility: ["//art:__subpackages__"],
     host_supported: true,
     target: {
         android_arm: {
@@ -368,6 +369,9 @@ art_cc_test_library {
 
 cc_library_static {
     name: "libctstiagent",
+    visibility: [
+        "//cts/hostsidetests/jvmti:__subpackages__",
+    ],
     defaults: ["libtiagent-base-defaults"],
     host_supported: false,
     srcs: [

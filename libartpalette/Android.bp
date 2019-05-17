@@ -16,6 +16,13 @@
 
 cc_defaults {
     name: "libartpalette_defaults",
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/base/startop/view_compiler",
+        "//system/extras/perfprofd",
+        "//system/extras/perfprofd/tests",
+        "//system/extras/simpleperf",
+    ],
     defaults: ["art_defaults"],
     host_supported: true,
     export_include_dirs: ["include"],

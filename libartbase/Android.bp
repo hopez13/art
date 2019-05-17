@@ -17,6 +17,16 @@
 cc_defaults {
     name: "libartbase_defaults",
     defaults: ["art_defaults"],
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/base/packages/NetworkStack/tests/unit",
+        "//frameworks/base/startop/view_compiler",
+        "//frameworks/base/tests/net",
+        "//frameworks/base/tests/net/smoketest",
+        "//system/extras/perfprofd",
+        "//system/extras/perfprofd/tests",
+        "//system/extras/simpleperf",
+    ],
     host_supported: true,
     srcs: [
         "arch/instruction_set.cc",
@@ -166,6 +176,11 @@ gensrcs {
 art_cc_library {
     name: "libartbase",
     defaults: ["libartbase_defaults"],
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//packages/modules/NetworkStack/tests/integration",
+        "//packages/modules/NetworkStack/tests/unit",
+    ],
     // Leave the symbols in the shared library so that stack unwinders can
     // produce meaningful name resolution.
     strip: {
@@ -275,6 +290,7 @@ art_cc_test {
 
 cc_library_headers {
     name: "art_libartbase_headers",
+    visibility: ["//art:__subpackages__"],
     host_supported: true,
     export_include_dirs: ["."],
     shared_libs: ["libbase"],
