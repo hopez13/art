@@ -67,4 +67,22 @@ int memfd_create(const char* name ATTRIBUTE_UNUSED, unsigned int flags ATTRIBUTE
 
 #endif  // __NR_memfd_create
 
+// This is a wrapper that will attempt to simulate memfd_create if normal running fails.
+int memfd_create_compat(const char* name, unsigned int flags) {
+  int res = memfd_create(name, flags);
+  if (res >= 0) {
+    return res;
+  }
+  // Try to create an anonymous file with tmpfile that we can use instead.
+  if (flags == 0) {
+    FILE* file = tmpfile();
+    if (file != nullptr) {
+      int nfd = dup(fileno(file));
+      fclose(file);
+      return nfd;
+    }
+  }
+  return res;
+}
+
 }  // namespace art
