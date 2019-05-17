@@ -486,6 +486,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   CheckCollisionResult check_collision_result = CheckCollisionResult::kPerformedHasCollisions;
   std::string error_msg;
   if ((class_loader != nullptr || dex_elements != nullptr) && oat_file != nullptr) {
+    ScopedTrace trace2("Inspecting oats");
     // Prevent oat files from being loaded if no class_loader or dex_elements are provided.
     // This can happen when the deprecated DexFile.<init>(String) is called directly, and it
     // could load oat files without checking the classpath, which would be incorrect.
