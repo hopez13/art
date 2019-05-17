@@ -17,6 +17,17 @@
 cc_defaults {
     name: "libdexfile_defaults",
     defaults: ["art_defaults"],
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/base/media/jni",
+        "//frameworks/base/packages/NetworkStack/tests/unit",
+        "//frameworks/base/startop/view_compiler",
+        "//frameworks/base/tests/net",
+        "//frameworks/base/tests/net/smoketest",
+        "//system/extras/perfprofd",
+        "//system/extras/perfprofd/tests",
+        "//system/extras/simpleperf",
+    ],
     host_supported: true,
     srcs: [
         "dex/art_dex_file_loader.cc",
@@ -242,6 +253,7 @@ art_cc_test {
 
 cc_library_headers {
     name: "libdexfile_external_headers",
+    visibility: ["//visibility:public"],
     host_supported: true,
     vendor_available: true,
     recovery_available: true,
@@ -258,6 +270,7 @@ cc_library_headers {
 
 cc_defaults {
     name: "libdexfile_external-defaults",
+    visibility: ["//visibility:public"],
     host_supported: true,
     srcs: [
         "external/dex_file_ext.cc",
@@ -323,6 +336,7 @@ art_cc_test {
 // stack frames.
 cc_library {
     name: "libdexfile_support",
+    visibility: ["//visibility:public"],
     host_supported: true,
     vendor_available: true,
     recovery_available: true,
@@ -362,6 +376,7 @@ art_cc_test {
 
 cc_library_static {
     name: "libdexfile_support_static",
+    visibility: ["//visibility:public"],
     host_supported: true,
     defaults: ["libdexfile_static_defaults"],
     srcs: [

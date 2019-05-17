@@ -16,6 +16,12 @@
 
 cc_library {
     name: "libsigchain",
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/base/cmds/app_process",
+        "//frameworks/native/services/gpuservice",
+        "//frameworks/native/services/surfaceflinger",
+    ],
 
     host_supported: true,
     defaults: ["art_defaults"],
@@ -46,6 +52,12 @@ cc_library {
 // need the real functionality of the sig chain but need to please the linker.
 cc_library_static {
     name: "libsigchain_dummy",
+    visibility: [
+        // TODO(b/133140750): Clean this up.
+        "//system/extras/perfprofd",
+        "//system/extras/perfprofd/tests",
+    ],
+
     host_supported: true,
     defaults: ["art_defaults"],
     srcs: ["sigchain_dummy.cc"],

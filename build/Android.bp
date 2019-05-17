@@ -58,6 +58,12 @@ art_global_defaults {
     // Additional flags are computed by art.go
 
     name: "art_defaults",
+
+    // The /art tree has a top level package rule with this default, but we
+    // include it here too so that it gets merged with other visibility rules in
+    // modules extending the defaults.
+    visibility: ["//art:__subpackages__"],
+
     cflags: [
         // Base set of cflags used by all things ART.
         "-fno-rtti",
@@ -199,6 +205,7 @@ art_global_defaults {
 
 art_debug_defaults {
     name: "art_debug_defaults",
+    visibility: ["//art:__subpackages__"],
     cflags: [
         "-DDYNAMIC_ANNOTATIONS_ENABLED=1",
         "-DVIXL_DEBUG",
