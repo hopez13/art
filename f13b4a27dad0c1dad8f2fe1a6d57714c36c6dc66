@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5c09483_45390ffb",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-17T18:37:06Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem relevant. Is ReleaseFileForUse doing anything? Otherwise, this is covered by GetBestInfo, no?",
+      "revId": "f13b4a27dad0c1dad8f2fe1a6d57714c36c6dc66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
