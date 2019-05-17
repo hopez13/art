@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f423b3d_cebcfa3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-17T19:51:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32ea29f9_c0d08131",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "1d10da5551268efaef2a7a321b21460d26fc39d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f940e40_b3f99888",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "1d10da5551268efaef2a7a321b21460d26fc39d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dd013bb_70afd62e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-05-17T19:51:29Z",
+      "side": 1,
+      "message": "Can do that later, most other slices are already not including the class name, but maybe we should include it.",
+      "parentUuid": "3f940e40_b3f99888",
+      "revId": "1d10da5551268efaef2a7a321b21460d26fc39d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
