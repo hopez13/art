@@ -16,6 +16,7 @@
 
 cc_library_headers {
     name: "dt_fd_forward_export",
+    visibility: ["//art:__subpackages__"],
     export_include_dirs: ["."],
     host_supported: true,
     device_supported: true,

@@ -16,6 +16,7 @@
 
 art_cc_binary {
     name: "dalvikvm",
+    visibility: ["//art:__subpackages__"],
     host_supported: true,
     compile_multilib: "both",
 
