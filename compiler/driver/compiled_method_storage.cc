@@ -223,6 +223,9 @@ CompiledMethodStorage::ThunkMapKey CompiledMethodStorage::GetThunkMapKey(
     case linker::LinkerPatch::Type::kCallRelative:
       // No custom values.
       break;
+    case linker::LinkerPatch::Type::kCallEntrypoint:
+      custom_value1 = linker_patch.EntrypointOffset();
+      break;
     default:
       LOG(FATAL) << "Unexpected patch type: " << linker_patch.GetType();
       UNREACHABLE();
