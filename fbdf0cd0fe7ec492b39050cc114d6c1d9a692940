@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "700e42d9_75079173",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-05-17T13:06:53Z",
+      "side": 1,
+      "message": "It looks a bit weird but I just reused the definition value of osr below: \n  bool osr \u003d\n      instruction-\u003eIsSuspendCheck() \u0026\u0026\n      (info !\u003d nullptr) \u0026\u0026\n      graph_-\u003eIsCompilingOsr() \u0026\u0026\n      (inlining_depth \u003d\u003d 0);",
+      "parentUuid": "56152e01_5b0e100e",
+      "range": {
+        "startLine": 1059,
+        "startChar": 9,
+        "endLine": 1059,
+        "endChar": 12
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ecef948_2bddc577",
         "filename": "test/543-env-long-ref/env_long_ref.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-16T16:36:37Z",
       "side": 1,
       "message": "Maybe \"GetCurrentQuickFrame() !\u003d nullptr\" as in the other test?",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 63
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6d743e6_05dd5f37",
+        "filename": "test/543-env-long-ref/env_long_ref.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-05-17T13:06:53Z",
+      "side": 1,
+      "message": "Is it always equivalent BTW (even in case of debuggers and openjdkvmti?",
+      "parentUuid": "5ecef948_2bddc577",
       "range": {
         "startLine": 38,
         "startChar": 29,
