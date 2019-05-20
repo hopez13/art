@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6dd8265d_bcf2ed21",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-20T02:56:49Z",
+      "side": 1,
+      "message": "nit: can you add a comment around this check? (here and other archs)",
+      "range": {
+        "startLine": 2389,
+        "startChar": 2,
+        "endLine": 2389,
+        "endChar": 72
+      },
+      "revId": "f74f0332c8e063ceb629b9626f233f7215785cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
