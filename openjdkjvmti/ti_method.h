@@ -94,6 +94,12 @@ class MethodUtil {
 
   static jvmtiError GetLocalInstance(jvmtiEnv* env, jthread thread, jint depth, jobject* data);
 
+  // Calculates the types of every slot at every PC. Type information is more limited than normal.
+  static jvmtiError GetSlotTypeTable(jvmtiEnv* env,
+                                     jmethodID method,
+                                     jint* entry_count_ptr,
+                                     jvmtiLocalVariableEntry** table_ptr);
+
  private:
   static jvmtiError SetLocalVariableGeneric(jvmtiEnv* env,
                                             jthread thread,

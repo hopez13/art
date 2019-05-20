@@ -118,6 +118,12 @@ class MethodVerifier {
                                              uint32_t api_level)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  static MethodVerifier* PerformVerification(Thread* self,
+                                             ArtMethod* method,
+                                             Handle<mirror::DexCache> dex_cache,
+                                             Handle<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   const DexFile& GetDexFile() const {
     DCHECK(dex_file_ != nullptr);
     return *dex_file_;
@@ -335,6 +341,8 @@ class MethodVerifier {
   // instruction. Aput-object operations implicitly check for array-store exceptions, similar to
   // check-cast.
   bool has_check_casts_;
+
+  bool fill_register_lines_;
 
   // Link, for the method verifier root linked list.
   MethodVerifier* link_;
