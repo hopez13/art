@@ -31,6 +31,7 @@
 
 #include <vector>
 
+#include "jvmti.h"
 #include "ti_extension.h"
 
 #include "art_jvmti.h"
@@ -41,6 +42,7 @@
 #include "ti_dump.h"
 #include "ti_heap.h"
 #include "ti_logging.h"
+#include "ti_method.h"
 #include "ti_monitor.h"
 #include "ti_search.h"
 
