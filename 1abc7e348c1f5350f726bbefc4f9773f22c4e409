@@ -22,6 +22,30 @@
       "revId": "1abc7e348c1f5350f726bbefc4f9773f22c4e409",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4076a9b_87b71ba6",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1335232
+      },
+      "writtenOn": "2019-05-20T18:18:42Z",
+      "side": 1,
+      "message": "Yes, I think this is a good idea. I thought about doing that in this CL, but that seemed like a more extensive change than I wanted to make just yet. I will follow up on this though.",
+      "parentUuid": "c094a1b6_6138b207",
+      "range": {
+        "startLine": 267,
+        "startChar": 14,
+        "endLine": 267,
+        "endChar": 29
+      },
+      "revId": "1abc7e348c1f5350f726bbefc4f9773f22c4e409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
