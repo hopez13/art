@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0ca981d_d43afec0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95eb547d_c2ebd056",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "That\u0027s not fully true. Same below.",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "602a5a21_ec9defbe",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "Infer? From or With?",
+      "range": {
+        "startLine": 627,
+        "startChar": 13,
+        "endLine": 627,
+        "endChar": 32
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd40a666_d721a395",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "Unless there\u0027s a follow-up, I don\u0027t see why you should add the fill-register-lines thing. We already have a mode for an interesting dex pc (check the lock stuff).\n\nIn fact, if that\u0027s all you want to implement, verifier details like register lines shouldn\u0027t be leaked. At most RegType (though that\u0027s already not great).",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 68
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d73442c6_d2a5df78",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "Better name and docs necessary.\n\n(Otherwise make the method private and the client a friend. We\u0027ve been hesitant to open the verifier generically.)",
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d1c7c6_5def19b4",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "Since you\u0027re touching the API, see if you can remove this.",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c83fa7_a90d4c9a",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T18:45:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be here. Move to the internal class.",
+      "range": {
+        "startLine": 345,
+        "startChar": 2,
+        "endLine": 345,
+        "endChar": 28
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
