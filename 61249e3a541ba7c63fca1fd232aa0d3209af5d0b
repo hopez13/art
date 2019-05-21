@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "64f29d69_4bdac314",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T23:07:06Z",
+      "side": 1,
+      "message": "yeah but to ensure there is a reg-line there we\u0027d need to pass down the PC and everything pretty deep due to the way we create the reg-line-cache. It honestly doesn\u0027t seem worth it for a fallback mode.",
+      "parentUuid": "8e91c989_95fd9311",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 68
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d73442c6_d2a5df78",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 3
@@ -308,6 +332,30 @@
       "side": 1,
       "message": "Sure, but it also just runs the verifier, with a specific set of parameters...",
       "parentUuid": "35e81ec1_199375a6",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b311a3b_0002e077",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T23:07:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you\u0027re suggesting?",
+      "parentUuid": "ffbf4e34_0c88eff9",
       "range": {
         "startLine": 264,
         "startChar": 2,
