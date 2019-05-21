@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b8b2325_55dc9c90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ca981d_d43afec0",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95eb547d_c2ebd056",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30c62efc_c5cfa7a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "You are right but we cannot always tell the difference (when it\u0027s from constants like these tests) so I think it\u0027s acceptable to always just accept both. Changed description slightly.",
+      "parentUuid": "95eb547d_c2ebd056",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c45099a8_b1f32285",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "602a5a21_ec9defbe",
+      "range": {
+        "startLine": 627,
+        "startChar": 13,
+        "endLine": 627,
+        "endChar": 32
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd40a666_d721a395",
         "filename": "openjdkjvmti/ti_method.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "915295f4_482cdea0",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "We don\u0027t know if this will be an \u0027interesting\u0027 PC. We could have just single-stepped a few instructions and tried to do SetLocalVariable there. We\u0027d need to perform a probe to get the nearest previous \u0027interesting\u0027 line and (if I read the verifier correct) it\u0027s not quite right since things like a line of moves could end up with the type being wrong on this exact pc.",
+      "parentUuid": "bd40a666_d721a395",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 68
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d73442c6_d2a5df78",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 3
@@ -108,6 +204,24 @@
       "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9935015_3dc95f34",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d73442c6_d2a5df78",
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "35e81ec1_199375a6",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "It\u0027s used by dex2oat/verifier_deps_test.cc",
+      "parentUuid": "06d1c7c6_5def19b4",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0c83fa7_a90d4c9a",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 3
@@ -154,6 +292,30 @@
       "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d04ee0b_3b56f775",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-21T21:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c83fa7_a90d4c9a",
+      "range": {
+        "startLine": 345,
+        "startChar": 2,
+        "endLine": 345,
+        "endChar": 28
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
