@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "8e91c989_95fd9311",
+        "filename": "openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T23:02:10Z",
+      "side": 1,
+      "message": "\"Interesting\" in the context of the verifier just means \"ensure there\u0027s a reg line here.\" So all the other comments don\u0027t really matter, it just ensures that you\u0027ll get a result for the call here.",
+      "parentUuid": "915295f4_482cdea0",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 68
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d73442c6_d2a5df78",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 3
@@ -260,6 +284,30 @@
       "side": 1,
       "message": "It\u0027s used by dex2oat/verifier_deps_test.cc",
       "parentUuid": "06d1c7c6_5def19b4",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "61249e3a541ba7c63fca1fd232aa0d3209af5d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffbf4e34_0c88eff9",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-21T23:02:10Z",
+      "side": 1,
+      "message": "Sure, but it also just runs the verifier, with a specific set of parameters...",
+      "parentUuid": "35e81ec1_199375a6",
       "range": {
         "startLine": 264,
         "startChar": 2,
