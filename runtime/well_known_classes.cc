@@ -118,6 +118,9 @@ jmethodID WellKnownClasses::libcore_reflect_AnnotationFactory_createAnnotation;
 jmethodID WellKnownClasses::libcore_reflect_AnnotationMember_init;
 jmethodID WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
 jmethodID WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
+jmethodID WellKnownClasses::sun_misc_FloatingDecimal_getBinaryToASCIIConverter_D;
+jmethodID WellKnownClasses::sun_misc_FloatingDecimal_getBinaryToASCIIConverter_F;
+jmethodID WellKnownClasses::sun_misc_FloatingDecimal_BinaryToASCIIConverter_getChars;
 
 jfieldID WellKnownClasses::dalvik_system_DexFile_cookie;
 jfieldID WellKnownClasses::dalvik_system_DexFile_fileName;
@@ -159,6 +162,8 @@ jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_data;
 jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_length;
 jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_offset;
 jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_type;
+jfieldID WellKnownClasses::sun_misc_FloatingDecimal_ExceptionalBinaryToASCIIBuffer_image;
+jfieldID WellKnownClasses::sun_misc_FloatingDecimal_BinaryToASCIIConverter_buffer;
 
 static jclass CacheClass(JNIEnv* env, const char* jni_class_name) {
   ScopedLocalRef<jclass> c(env, env->FindClass(jni_class_name));
@@ -374,6 +379,26 @@ void WellKnownClasses::Init(JNIEnv* env) {
   org_apache_harmony_dalvik_ddmc_DdmServer_broadcast = CacheMethod(env, org_apache_harmony_dalvik_ddmc_DdmServer, true, "broadcast", "(I)V");
   org_apache_harmony_dalvik_ddmc_DdmServer_dispatch = CacheMethod(env, org_apache_harmony_dalvik_ddmc_DdmServer, true, "dispatch", "(I[BII)Lorg/apache/harmony/dalvik/ddmc/Chunk;");
 
+  ScopedLocalRef<jclass> floating_decimal(env, env->FindClass("sun/misc/FloatingDecimal"));
+  ScopedLocalRef<jclass> exceptional_b2a_buffer(
+      env, env->FindClass("sun/misc/FloatingDecimal$ExceptionalBinaryToASCIIBuffer"));
+  ScopedLocalRef<jclass> b2a_buffer(
+      env, env->FindClass("sun/misc/FloatingDecimal$BinaryToASCIIBuffer"));
+  sun_misc_FloatingDecimal_getBinaryToASCIIConverter_D = CacheMethod(
+      env,
+      floating_decimal.get(),
+      /*is_static=*/ true,
+      "getBinaryToASCIIConverter",
+      "(D)Lsun/misc/FloatingDecimal$BinaryToASCIIConverter;");
+  sun_misc_FloatingDecimal_getBinaryToASCIIConverter_F = CacheMethod(
+      env,
+      floating_decimal.get(),
+      /*is_static=*/ true,
+      "getBinaryToASCIIConverter",
+      "(F)Lsun/misc/FloatingDecimal$BinaryToASCIIConverter;");
+  sun_misc_FloatingDecimal_BinaryToASCIIConverter_getChars =
+      CacheMethod(env, b2a_buffer.get(), /*is_static=*/ false, "getChars", "([C)I");
+
   dalvik_system_BaseDexClassLoader_pathList = CacheField(env, dalvik_system_BaseDexClassLoader, false, "pathList", "Ldalvik/system/DexPathList;");
   dalvik_system_BaseDexClassLoader_sharedLibraryLoaders = CacheField(env, dalvik_system_BaseDexClassLoader, false, "sharedLibraryLoaders", "[Ljava/lang/ClassLoader;");
   dalvik_system_DexFile_cookie = CacheField(env, dalvik_system_DexFile, false, "mCookie", "Ljava/lang/Object;");
@@ -414,6 +439,10 @@ void WellKnownClasses::Init(JNIEnv* env) {
   org_apache_harmony_dalvik_ddmc_Chunk_length = CacheField(env, org_apache_harmony_dalvik_ddmc_Chunk, false, "length", "I");
   org_apache_harmony_dalvik_ddmc_Chunk_offset = CacheField(env, org_apache_harmony_dalvik_ddmc_Chunk, false, "offset", "I");
   org_apache_harmony_dalvik_ddmc_Chunk_type = CacheField(env, org_apache_harmony_dalvik_ddmc_Chunk, false, "type", "I");
+  sun_misc_FloatingDecimal_ExceptionalBinaryToASCIIBuffer_image = CacheField(
+      env, exceptional_b2a_buffer.get(), /*is_static=*/ false, "image", "Ljava/lang/String;");
+  sun_misc_FloatingDecimal_BinaryToASCIIConverter_buffer =
+      CacheField(env, b2a_buffer.get(), /*is_static=*/ false, "buffer", "[C");
 
   java_lang_Boolean_valueOf = CachePrimitiveBoxingMethod(env, 'Z', "java/lang/Boolean");
   java_lang_Byte_valueOf = CachePrimitiveBoxingMethod(env, 'B', "java/lang/Byte");
@@ -524,6 +553,9 @@ void WellKnownClasses::Clear() {
   libcore_reflect_AnnotationMember_init = nullptr;
   org_apache_harmony_dalvik_ddmc_DdmServer_broadcast = nullptr;
   org_apache_harmony_dalvik_ddmc_DdmServer_dispatch = nullptr;
+  sun_misc_FloatingDecimal_getBinaryToASCIIConverter_D = nullptr;
+  sun_misc_FloatingDecimal_getBinaryToASCIIConverter_F = nullptr;
+  sun_misc_FloatingDecimal_BinaryToASCIIConverter_getChars = nullptr;
 
   dalvik_system_BaseDexClassLoader_pathList = nullptr;
   dalvik_system_DexFile_cookie = nullptr;
@@ -562,6 +594,8 @@ void WellKnownClasses::Clear() {
   org_apache_harmony_dalvik_ddmc_Chunk_length = nullptr;
   org_apache_harmony_dalvik_ddmc_Chunk_offset = nullptr;
   org_apache_harmony_dalvik_ddmc_Chunk_type = nullptr;
+  sun_misc_FloatingDecimal_ExceptionalBinaryToASCIIBuffer_image = nullptr;
+  sun_misc_FloatingDecimal_BinaryToASCIIConverter_buffer = nullptr;
 }
 
 ObjPtr<mirror::Class> WellKnownClasses::ToClass(jclass global_jclass) {

@@ -20,9 +20,12 @@
 #include "base/logging.h"
 #include "common_throws.h"
 #include "gc/heap.h"
+#include "jni/jni_internal.h"
+#include "mirror/array-inl.h"
 #include "mirror/string-alloc-inl.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
+#include "well_known_classes.h"
 
 namespace art {
 
@@ -60,6 +63,11 @@ class StringBuilderAppend::Builder {
     return new_string->GetLength() - (data - new_string->GetValue());
   }
 
+  template <typename CharType>
+  CharType* AppendFpArg(ObjPtr<mirror::String> new_string,
+                        CharType* data,
+                        size_t fp_arg_index) const REQUIRES_SHARED(Locks::mutator_lock_);
+
   template <typename CharType, size_t size>
   static CharType* AppendLiteral(ObjPtr<mirror::String> new_string,
                                  CharType* data,
@@ -74,6 +82,8 @@ class StringBuilderAppend::Builder {
   static CharType* AppendInt64(ObjPtr<mirror::String> new_string,
                                CharType* data,
                                int64_t value) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  int32_t ConvertFpArgs() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <typename CharType>
   void StoreData(ObjPtr<mirror::String> new_string, CharType* data) const
@@ -92,6 +102,12 @@ class StringBuilderAppend::Builder {
 
   // References are moved to the handle scope during CalculateLengthWithFlag().
   StackHandleScope<kMaxArgs> hs_;
+
+  // We convert float/double values using sun.misc.FloatingDecimal which uses
+  // a thread-local converter under the hood. As we may have more than one
+  // float/double argument, we need to copy the data out of the converter.
+  uint8_t converted_fp_args_[kMaxArgs][26];  // 26 is the maximum number of characters.
+  int32_t converted_fp_arg_lengths_[kMaxArgs];
 
   // The length and flag to store when the AppendBuilder is used as a pre-fence visitor.
   int32_t length_with_flag_ = 0u;
@@ -140,6 +156,18 @@ inline size_t StringBuilderAppend::Builder::Uint64Length(uint64_t value)  {
   DCHECK_LT(log10_value_estimate, std::size(bounds));
   size_t adjustment = (value > bounds[log10_value_estimate]) ? 2u : 1u;
   return log10_value_estimate + adjustment;
+}
+
+template <typename CharType>
+inline CharType* StringBuilderAppend::Builder::AppendFpArg(ObjPtr<mirror::String> new_string,
+                                                           CharType* data,
+                                                           size_t fp_arg_index) const {
+  DCHECK_LE(fp_arg_index, std::size(converted_fp_args_));
+  const uint8_t* src = converted_fp_args_[fp_arg_index];
+  size_t length = converted_fp_arg_lengths_[fp_arg_index];
+  DCHECK_LE(length, std::size(converted_fp_args_[0]));
+  DCHECK_LE(length, RemainingSpace(new_string, data));
+  return std::copy_n(src, length, data);
 }
 
 template <typename CharType, size_t size>
@@ -204,10 +232,127 @@ inline CharType* StringBuilderAppend::Builder::AppendInt64(ObjPtr<mirror::String
   return data + length;
 }
 
+int32_t StringBuilderAppend::Builder::ConvertFpArgs() {
+  int32_t fp_args_length = 0u;
+  uint32_t* current_arg = const_cast<uint32_t*>(args_);  // Needed for ArtMethod::Invoke().
+  size_t fp_arg_index = 0u;
+  for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
+    DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
+    JValue result;
+    bool fp_arg = false;
+    switch (static_cast<Argument>(f & kArgMask)) {
+      case Argument::kString:
+      case Argument::kBoolean:
+      case Argument::kChar:
+      case Argument::kInt:
+        break;
+      case Argument::kLong: {
+        current_arg = AlignUp(current_arg, sizeof(int64_t));
+        ++current_arg;  // Skip the low word, let the common code skip the high word.
+        break;
+      }
+      case Argument::kFloat: {
+        fp_arg = true;
+        ArtMethod* to_string = jni::DecodeArtMethod(
+            WellKnownClasses::sun_misc_FloatingDecimal_getBinaryToASCIIConverter_F);
+        to_string->Invoke(hs_.Self(), current_arg, /*args_size=*/ 4u, &result, /*shorty=*/ "LF");
+        break;
+      }
+      case Argument::kDouble: {
+        current_arg = AlignUp(current_arg, sizeof(int64_t));
+        fp_arg = true;
+        ArtMethod* to_string = jni::DecodeArtMethod(
+            WellKnownClasses::sun_misc_FloatingDecimal_getBinaryToASCIIConverter_D);
+        to_string->Invoke(hs_.Self(), current_arg, /*args_size=*/ 8u, &result, /*shorty=*/ "LD");
+        ++current_arg;  // Skip the low word, let the common code skip the high word.
+        break;
+      }
+      case Argument::kStringBuilder:
+      case Argument::kCharArray:
+      case Argument::kObject:
+        LOG(FATAL) << "Unimplemented arg format: 0x" << std::hex
+            << (f & kArgMask) << " full format: 0x" << std::hex << format_;
+        UNREACHABLE();
+      default:
+        LOG(FATAL) << "Unexpected arg format: 0x" << std::hex
+            << (f & kArgMask) << " full format: 0x" << std::hex << format_;
+        UNREACHABLE();
+    }
+    if (fp_arg) {
+      ObjPtr<mirror::Object> converter = result.GetL();
+      if (converter != nullptr) {
+        DCHECK(!hs_.Self()->IsExceptionPending());
+        ArtField* a2b_converter_buffer = jni::DecodeArtField(
+            WellKnownClasses::sun_misc_FloatingDecimal_BinaryToASCIIConverter_buffer);
+        if (converter->GetClass() == a2b_converter_buffer->GetDeclaringClass()) {
+          // Call `converter.getLength(converter.buffer)`.
+          StackHandleScope<1u> hs2(hs_.Self());
+          Handle<mirror::CharArray> buffer =
+              hs2.NewHandle(a2b_converter_buffer->GetObj<mirror::CharArray>(converter));
+          DCHECK(buffer != nullptr);
+          ArtMethod* get_chars = jni::DecodeArtMethod(
+              WellKnownClasses::sun_misc_FloatingDecimal_BinaryToASCIIConverter_getChars);
+          uint32_t args[2] = {
+              reinterpret_cast32<uint32_t>(converter.Ptr()),
+              reinterpret_cast32<uint32_t>(buffer.Get()),
+          };
+          get_chars->Invoke(hs_.Self(), args, sizeof(args), &result, "IL");
+          if (LIKELY(!hs_.Self()->IsExceptionPending())) {
+            // The converted string is now in the front of the buffer.
+            int32_t length  = result.GetI();
+            DCHECK_GT(length, 0);
+            DCHECK_LE(static_cast<size_t>(length), std::size(converted_fp_args_[0]));
+            DCHECK_LE(result.GetI(), buffer->GetLength());
+            DCHECK(mirror::String::AllASCII(buffer->GetData(), result.GetI()));
+            std::copy_n(buffer->GetData(), length, converted_fp_args_[fp_arg_index]);
+            converted_fp_arg_lengths_[fp_arg_index] = length;
+            fp_args_length += length;
+          }
+        } else {
+          ArtField* exceptional_a2b_buffer_image = jni::DecodeArtField(
+              WellKnownClasses::sun_misc_FloatingDecimal_ExceptionalBinaryToASCIIBuffer_image);
+          DCHECK(converter->GetClass() == exceptional_a2b_buffer_image->GetDeclaringClass());
+          ObjPtr<mirror::String> converted =
+              exceptional_a2b_buffer_image->GetObj<mirror::String>(converter);
+          DCHECK(converted != nullptr);
+          int32_t length = converted->GetLength();
+          if (mirror::kUseStringCompression) {
+            DCHECK(converted->IsCompressed());
+            memcpy(converted_fp_args_[fp_arg_index], converted->GetValueCompressed(), length);
+          } else {
+            DCHECK(mirror::String::AllASCII(converted->GetValue(), length));
+            std::copy_n(converted->GetValue(), length, converted_fp_args_[fp_arg_index]);
+          }
+          converted_fp_arg_lengths_[fp_arg_index] = length;
+          fp_args_length += length;
+        }
+      }
+
+      if (UNLIKELY(hs_.Self()->IsExceptionPending())) {
+        // Rethrow the OOME or SOE at the StringBuilder.toString() location.
+        ObjPtr<mirror::Throwable> exception = hs_.Self()->GetException();
+        hs_.Self()->ClearException();
+        DCHECK(exception->GetClass()->DescriptorEquals("Ljava/lang/OutOfMemoryError;") ||
+               exception->GetClass()->DescriptorEquals("Ljava/lang/StackOverflowError;"));
+        std::string temp;
+        const char* descriptor = exception->GetClass()->GetDescriptor(&temp);
+        hs_.Self()->ThrowNewWrappedException(descriptor, /*msg=*/ nullptr);
+        return -1;
+      }
+
+      ++fp_arg_index;
+    }
+    ++current_arg;
+    DCHECK_LE(fp_arg_index, kMaxArgs);
+  }
+  return fp_args_length;
+}
+
 inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
   static_assert(static_cast<size_t>(Argument::kEnd) == 0u, "kEnd must be 0.");
   bool compressible = mirror::kUseStringCompression;
   uint64_t length = 0u;
+  bool has_fp_args = false;
   const uint32_t* current_arg = args_;
   for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
     DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
@@ -243,12 +388,18 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
         ++current_arg;  // Skip the low word, let the common code skip the high word.
         break;
       }
+      case Argument::kFloat:
+        has_fp_args = true;  // Conversion shall be performed in a separate pass.
+        break;
+      case Argument::kDouble:
+        has_fp_args = true;  // Conversion shall be performed in a separate pass.
+        current_arg = AlignUp(current_arg, sizeof(int64_t));
+        ++current_arg;  // Skip the low word, let the common code skip the high word.
+        break;
 
       case Argument::kStringBuilder:
       case Argument::kCharArray:
       case Argument::kObject:
-      case Argument::kFloat:
-      case Argument::kDouble:
         LOG(FATAL) << "Unimplemented arg format: 0x" << std::hex
             << (f & kArgMask) << " full format: 0x" << std::hex << format_;
         UNREACHABLE();
@@ -259,6 +410,16 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
     }
     ++current_arg;
     DCHECK_LE(hs_.NumberOfReferences(), kMaxArgs);
+  }
+
+  if (UNLIKELY(has_fp_args)) {
+    // Call Java helpers to convert FP args.
+    int32_t fp_args_length = ConvertFpArgs();
+    if (fp_args_length == -1) {
+      return -1;
+    }
+    DCHECK_GT(fp_args_length, 0);
+    length += fp_args_length;
   }
 
   if (length > std::numeric_limits<int32_t>::max()) {
@@ -276,6 +437,7 @@ template <typename CharType>
 inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_string,
                                                     CharType* data) const {
   size_t handle_index = 0u;
+  size_t fp_arg_index = 0u;
   const uint32_t* current_arg = args_;
   for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
     DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
@@ -315,11 +477,18 @@ inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_s
         ++current_arg;  // Skip the low word, let the common code skip the high word.
         break;
       }
+      case Argument::kDouble:
+        current_arg = AlignUp(current_arg, sizeof(int64_t));
+        ++current_arg;  // Skip the low word, let the common code skip the high word.
+        FALLTHROUGH_INTENDED;
+      case Argument::kFloat: {
+        data = AppendFpArg(new_string, data, fp_arg_index);
+        ++fp_arg_index;
+        break;
+      }
 
       case Argument::kStringBuilder:
       case Argument::kCharArray:
-      case Argument::kFloat:
-      case Argument::kDouble:
         LOG(FATAL) << "Unimplemented arg format: 0x" << std::hex
             << (f & kArgMask) << " full format: 0x" << std::hex << format_;
         UNREACHABLE();
@@ -330,6 +499,7 @@ inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_s
     }
     ++current_arg;
     DCHECK_LE(handle_index, hs_.NumberOfReferences());
+    DCHECK_LE(fp_arg_index, std::size(converted_fp_args_));
   }
   DCHECK_EQ(RemainingSpace(new_string, data), 0u) << std::hex << format_;
 }

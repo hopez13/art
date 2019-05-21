@@ -22,6 +22,7 @@
 #include "base/mutex.h"
 #include "handle.h"
 #include "handle_wrapper.h"
+#include "mirror/object_reference-inl.h"
 #include "obj_ptr-inl.h"
 #include "thread-current-inl.h"
 #include "verify_object.h"
@@ -142,7 +143,8 @@ inline HandleWrapperObjPtr<T> FixedSizeHandleScope<kNumReferences>::NewHandleWra
 }
 
 template<size_t kNumReferences>
-inline void FixedSizeHandleScope<kNumReferences>::SetReference(size_t i, mirror::Object* object) {
+inline void FixedSizeHandleScope<kNumReferences>::SetReference(size_t i,
+                                                               ObjPtr<mirror::Object> object) {
   if (kDebugLocking) {
     Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
   }

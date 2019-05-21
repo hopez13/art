@@ -127,6 +127,9 @@ struct WellKnownClasses {
   static jmethodID libcore_reflect_AnnotationMember_init;
   static jmethodID org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
   static jmethodID org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
+  static jmethodID sun_misc_FloatingDecimal_getBinaryToASCIIConverter_D;
+  static jmethodID sun_misc_FloatingDecimal_getBinaryToASCIIConverter_F;
+  static jmethodID sun_misc_FloatingDecimal_BinaryToASCIIConverter_getChars;
 
   static jfieldID dalvik_system_BaseDexClassLoader_pathList;
   static jfieldID dalvik_system_BaseDexClassLoader_sharedLibraryLoaders;
@@ -162,6 +165,8 @@ struct WellKnownClasses {
   static jfieldID java_nio_ByteBuffer_offset;
   static jfieldID java_nio_DirectByteBuffer_capacity;
   static jfieldID java_nio_DirectByteBuffer_effectiveDirectAddress;
+  static jfieldID sun_misc_FloatingDecimal_ExceptionalBinaryToASCIIBuffer_image;
+  static jfieldID sun_misc_FloatingDecimal_BinaryToASCIIConverter_buffer;
 
   static jfieldID java_util_Collections_EMPTY_LIST;
   static jfieldID libcore_util_EmptyArray_STACK_TRACE_ELEMENT;

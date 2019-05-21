@@ -187,7 +187,7 @@ class PACKED(4) FixedSizeHandleScope : public HandleScope {
   ALWAYS_INLINE MutableHandle<MirrorType> NewHandle(ObjPtr<MirrorType> object)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ALWAYS_INLINE void SetReference(size_t i, mirror::Object* object)
+  ALWAYS_INLINE void SetReference(size_t i, ObjPtr<mirror::Object> object)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   size_t RemainingSlots() const {
