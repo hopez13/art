@@ -46,6 +46,30 @@
       "revId": "e48fd0b4780efadc6b3433fe7a56aa5be2a84325",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81cb94cd_54da7517",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-22T21:54:24Z",
+      "side": 1,
+      "message": "That\u0027s describing the current state, but what if someone introduces a new api level check that affects hard failures?\n\nI would think consistency of verification results outweighs any other consideration. At least putting a comment about why you think passing \u00270\u0027 is OK would be nice for the next person that reads/debugs this code.",
+      "parentUuid": "ff7457df_afe4ffd5",
+      "range": {
+        "startLine": 5354,
+        "startChar": 38,
+        "endLine": 5354,
+        "endChar": 57
+      },
+      "revId": "e48fd0b4780efadc6b3433fe7a56aa5be2a84325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
