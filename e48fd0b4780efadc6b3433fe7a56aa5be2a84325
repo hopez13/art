@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb88e70d_5592b8c7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-05-22T21:29:01Z",
+      "side": 1,
+      "message": "Why is passing \"0\" OK here? Shouldn\u0027t you fetch it from somewhere or pass it to CalculateVerificationInfo?",
+      "range": {
+        "startLine": 5354,
+        "startChar": 38,
+        "endLine": 5354,
+        "endChar": 57
+      },
+      "revId": "e48fd0b4780efadc6b3433fe7a56aa5be2a84325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
