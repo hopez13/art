@@ -22,6 +22,30 @@
       "revId": "e48fd0b4780efadc6b3433fe7a56aa5be2a84325",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff7457df_afe4ffd5",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5354,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-22T21:48:18Z",
+      "side": 1,
+      "message": "AIUI this just changes how we check for soft-failures related to access checks. Since we aren\u0027t doing the actual verification and completely ignore soft-failures we don\u0027t actually care here.\n\nI could pass Runtime::Current()-\u003eGetTargetSDK() but it wouldn\u0027t change anything (except making it harder to test).",
+      "parentUuid": "cb88e70d_5592b8c7",
+      "range": {
+        "startLine": 5354,
+        "startChar": 38,
+        "endLine": 5354,
+        "endChar": 57
+      },
+      "revId": "e48fd0b4780efadc6b3433fe7a56aa5be2a84325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
