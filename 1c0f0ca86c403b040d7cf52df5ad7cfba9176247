@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5020b507_3bb8bb43",
+        "filename": "test/1967-get-set-local-bad-slot/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-22T17:17:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16632691_93c28dc5",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1c0f0ca86c403b040d7cf52df5ad7cfba9176247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7086ab1_7be6bf36",
         "filename": "test/1967-get-set-local-bad-slot/src/art/Test1967.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2019-05-22T17:10:56Z",
       "side": 1,
       "message": "Technically line too long. (And technically that isn\u0027t Java style line-breaking)",
+      "revId": "1c0f0ca86c403b040d7cf52df5ad7cfba9176247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4174474e_c1c5efb7",
+        "filename": "test/1967-get-set-local-bad-slot/src/art/Test1967.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-22T17:17:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7086ab1_7be6bf36",
       "revId": "1c0f0ca86c403b040d7cf52df5ad7cfba9176247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
