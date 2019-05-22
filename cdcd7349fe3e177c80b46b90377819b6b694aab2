@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "005cb602_8c3692cf",
+        "filename": "test/1963-add-to-dex-classloader-in-memory/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-22T00:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d32f90d_ac0407c2",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "cdcd7349fe3e177c80b46b90377819b6b694aab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26492c0d_5e1319f7",
         "filename": "test/1963-add-to-dex-classloader-in-memory/check_memfd_create.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cdcd7349fe3e177c80b46b90377819b6b694aab2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96922b40_227378b3",
+        "filename": "test/1963-add-to-dex-classloader-in-memory/check_memfd_create.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-22T00:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26492c0d_5e1319f7",
+      "range": {
+        "startLine": 59,
+        "startChar": 11,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "cdcd7349fe3e177c80b46b90377819b6b694aab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
