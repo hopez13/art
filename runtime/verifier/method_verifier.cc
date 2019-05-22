@@ -5351,6 +5351,9 @@ MethodVerifier* MethodVerifier::CalculateVerificationInfo(
                                       /* verify_to_dump= */ false,
                                       /* allow_thread_suspension= */ false,
                                       /* fill_register_lines= */ true,
+                                      // Just use the verifier at the highest possible skd-version.
+                                      // This might affect what soft-verifier errors are reported.
+                                      // Callers can then filter out relevant errors if needed.
                                       /* api_level = */ 0));
   verifier->Verify();
   if (VLOG_IS_ON(verifier)) {
