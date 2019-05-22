@@ -1,0 +1,399 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad67221f_3158c2b2",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "Nit: empty line before, or // for a single line comment",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91e5e794_3d280ea6",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "empty line after",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8815248_ce664dc3",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "Your other @return statements end with a fullstop",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4576f4_0f3278c4",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "This is called a \"class descriptor\". It is always fully qualified, so no need to say that.",
+      "range": {
+        "startLine": 93,
+        "startChar": 15,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f9581e9_b2661ff8",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "This will be rather slow. Why not consumeUntil(\";\") and then String.replace the slashes?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 47
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ddb01e9_67469773",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "031f89f7_473952e7",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "Missing @return",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32795426_d983d265",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "nit: I find the name confusing because JNI type can be an array type too, but this is a helper method for parseSingleJNIMethodParameterType which strips the array dimensions first. Why not name them the other way round?\n\nparseSingleJNIMethodParameterType -\u003e parseJniType\nparseJniType -\u003e either parseJniType_Impl (to signal that it\u0027s only a helper) or parseJniTypeWithoutArrayDimensions",
+      "range": {
+        "startLine": 128,
+        "startChar": 26,
+        "endLine": 128,
+        "endChar": 38
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e4c45b_c6d19738",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 151,
+        "startChar": 85,
+        "endLine": 151,
+        "endChar": 86
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4306fd24_24ed8a54",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "what does intrinsic mean here?",
+      "range": {
+        "startLine": 159,
+        "startChar": 32,
+        "endLine": 159,
+        "endChar": 41
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "220bafe5_79b47ff5",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "fits on previous line",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8c36630_1e78808b",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "Some of your param/return descriptions start with a capital, some don\u0027t.",
+      "range": {
+        "startLine": 183,
+        "startChar": 17,
+        "endLine": 183,
+        "endChar": 18
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09858e79_9389e43e",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "extraneous comma",
+      "range": {
+        "startLine": 200,
+        "startChar": 75,
+        "endLine": 200,
+        "endChar": 76
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17ed9299_c455394e",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "what does \u0027sp\u0027 stand for?",
+      "range": {
+        "startLine": 245,
+        "startChar": 28,
+        "endLine": 245,
+        "endChar": 30
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bbe6c15_5070c668",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "Very nice. Makes the code way more readable!",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b9e16f_40df8f83",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "I still think you should put this into static{}",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 71
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad5b10d_455b0d9d",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "I still think this should print the matches too",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 87
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb375ab6_d052be26",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/ApiComponentsTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "I still think there is no point in having one method per property you want to test. Merge into one method where you test all the properties:\n\n  api \u003d fromDexSignature(METHOD_SIGNATURE_WITHOUT_PARAMS)\n  assertThat(api.getPackageName...\n  assertThat(api.getClassName...\n  assertThat(api.getMemberName...\n  etc...",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2810184_b0505d27",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/ApiComponentsTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-22T03:48:05Z",
+      "side": 1,
+      "message": "double empty line",
+      "revId": "7db161dce2d0e2dd39c0536a84e9fb92e48e272a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
