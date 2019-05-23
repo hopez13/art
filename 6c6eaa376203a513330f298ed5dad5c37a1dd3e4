@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f748e49d_5e9c7644",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T12:46:29Z",
+      "side": 1,
+      "message": "Calls a function in dex_instruction-inl.h, so this definition should also be in that file.",
+      "range": {
+        "startLine": 296,
+        "startChar": 38,
+        "endLine": 298,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "196b1570_d39034ca",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T12:46:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 403,
+        "startChar": 38,
+        "endLine": 405,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fd3e48_d1e600ac",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T12:46:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 455,
+        "startChar": 38,
+        "endLine": 457,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2902588b_b6518fea",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T12:46:29Z",
+      "side": 1,
+      "message": "One line is enough.",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 52
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7885a007_f74e70ec",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T12:46:29Z",
+      "side": 1,
+      "message": "B()\n\nThere are many other instances you can replace, search for \"inst-\u003eVReg\".",
+      "range": {
+        "startLine": 634,
+        "startChar": 34,
+        "endLine": 634,
+        "endChar": 51
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
