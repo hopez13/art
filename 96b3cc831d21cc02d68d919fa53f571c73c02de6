@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a76a9c1_3862501c",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-05-23T13:33:22Z",
+      "side": 1,
+      "message": "Should be initialised to null? (I\u0027m not a Java expert)",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "96b3cc831d21cc02d68d919fa53f571c73c02de6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
