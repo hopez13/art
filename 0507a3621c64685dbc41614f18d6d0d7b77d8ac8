@@ -22,6 +22,30 @@
       "revId": "0507a3621c64685dbc41614f18d6d0d7b77d8ac8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8859e473_bf980e90",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-23T16:23:04Z",
+      "side": 1,
+      "message": "Template argument deduction for MirrorType would fail, the implicit conversion constructor is irrelevant:\n\nart/runtime/interpreter/interpreter_common.cc:485:42: error: no matching member function for call to \u0027NewHandle\u0027\n  Handle\u003cmirror::Throwable\u003e exception(hs.NewHandle(self-\u003eGetException()));\n                                      ~~~^~~~~~~~~\nart/runtime/handle_scope.h:184:43: note: candidate template ignored: could not match \u0027ObjPtr\u003ctype-parameter-0-0\u003e\u0027 against \u0027art::mirror::Throwable *\u0027",
+      "parentUuid": "77627a6e_a44bbcae",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 1
+      },
+      "revId": "0507a3621c64685dbc41614f18d6d0d7b77d8ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
