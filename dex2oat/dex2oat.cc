@@ -2537,6 +2537,16 @@ class Dex2Oat final {
       LOG(ERROR) << "Failed to parse runtime options";
       return false;
     }
+
+    using Opt = RuntimeArgumentMap;
+    key_value_store_->Put(
+        OatHeader::kHiddenApiPolicy,
+        hiddenapi::EnforcementPolicyToString(runtime_options->GetOrDefault(Opt::HiddenApiPolicy)));
+    key_value_store_->Put(
+        OatHeader::kCorePlatformApiPolicy ,
+        hiddenapi::EnforcementPolicyToString(runtime_options->GetOrDefault(
+            Opt::CorePlatformApiPolicy)));
+
     return true;
   }
 

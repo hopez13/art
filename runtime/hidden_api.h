@@ -46,6 +46,28 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   return static_cast<EnforcementPolicy>(api_policy_int);
 }
 
+inline constexpr const char* EnforcementPolicyToString(EnforcementPolicy policy) {
+  switch (policy) {
+    case EnforcementPolicy::kDisabled:
+      return "disabled";
+    case EnforcementPolicy::kJustWarn:
+      return "just-warn";
+    case EnforcementPolicy::kEnabled:
+      return "enabled";
+  }
+}
+
+inline constexpr EnforcementPolicy EnforcementPolicyFromString(const std::string_view& policy) {
+  if (policy == EnforcementPolicyToString(EnforcementPolicy::kDisabled)) {
+    return EnforcementPolicy::kDisabled;
+  } else if (policy == EnforcementPolicyToString(EnforcementPolicy::kJustWarn)) {
+    return EnforcementPolicy::kJustWarn;
+  } else {
+    CHECK_EQ(policy, EnforcementPolicyToString(EnforcementPolicy::kEnabled));
+    return EnforcementPolicy::kDisabled;
+  }
+}
+
 // Hidden API access method
 // Thist must be kept in sync with VMRuntime.HiddenApiUsageLogger.ACCESS_METHOD_*
 enum class AccessMethod {

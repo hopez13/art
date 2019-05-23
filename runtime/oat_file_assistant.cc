@@ -39,6 +39,7 @@
 #include "exec_utils.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
+#include "hidden_api.h"
 #include "image.h"
 #include "oat.h"
 #include "runtime.h"
@@ -396,6 +397,16 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   constexpr bool kRuntimeIsCC = kUseReadBarrier;
   if (is_cc != kRuntimeIsCC) {
     return kOatCannotOpen;
+  }
+
+  const hiddenapi::EnforcementPolicy oat_hidden_api_policy =
+      file.GetOatHeader().GetHiddenApiPolicy();
+  const hiddenapi::EnforcementPolicy runtime_hidden_api_policy =
+      Runtime::Current()->GetHiddenApiEnforcementPolicy();
+  if (oat_hidden_api_policy != runtime_hidden_api_policy) {
+    LOG(ERROR) << "OAT_MISMATCH oat=" << hiddenapi::EnforcementPolicyToString(oat_hidden_api_policy)
+        << ", runtime=" << hiddenapi::EnforcementPolicyToString(runtime_hidden_api_policy)
+        << ", file=" << file.GetLocation();
   }
 
   // Verify the dex checksum.
