@@ -46,6 +46,28 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   return static_cast<EnforcementPolicy>(api_policy_int);
 }
 
+inline constexpr const char* EnforcementPolicyToString(EnforcementPolicy policy) {
+  switch (policy) {
+    case EnforcementPolicy::kDisabled:
+      return "disabled";
+    case EnforcementPolicy::kJustWarn:
+      return "just-warn";
+    case EnforcementPolicy::kEnabled:
+      return "enabled";
+  }
+}
+
+inline constexpr EnforcementPolicy EnforcementPolicyFromString(const std::string_view& policy) {
+  if (policy == EnforcementPolicyToString(EnforcementPolicy::kDisabled)) {
+    return EnforcementPolicy::kDisabled;
+  } else if (policy == EnforcementPolicyToString(EnforcementPolicy::kJustWarn)) {
+    return EnforcementPolicy::kJustWarn;
+  } else {
+    CHECK_EQ(policy, EnforcementPolicyToString(EnforcementPolicy::kEnabled));
+    return EnforcementPolicy::kDisabled;
+  }
+}
+
 // Hidden API access method
 // Thist must be kept in sync with VMRuntime.HiddenApiUsageLogger.ACCESS_METHOD_*
 enum class AccessMethod {
@@ -366,6 +388,8 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
     return method->GetAccessFlags() & kAccHiddenapiBits;
   }
 }
+
+Domain DetermineDomainFromLocation(const std::string& dex_location, bool is_in_boot_classpath);
 
 // Called by class linker when a new dex file has been registered. Assigns
 // the AccessContext domain to the newly-registered dex file based on its

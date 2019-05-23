@@ -73,8 +73,8 @@ static inline std::ostream& operator<<(std::ostream& os, const AccessContext& va
   return os;
 }
 
-static Domain DetermineDomainFromLocation(const std::string& dex_location,
-                                          ObjPtr<mirror::ClassLoader> class_loader) {
+Domain DetermineDomainFromLocation(const std::string& dex_location,
+                                   bool is_in_boot_classpath) {
   // If running with APEX, check `path` against known APEX locations.
   // These checks will be skipped on target buildbots where ANDROID_RUNTIME_ROOT
   // is set to "/system".
@@ -93,7 +93,7 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
     return Domain::kPlatform;
   }
 
-  if (class_loader.IsNull()) {
+  if (is_in_boot_classpath) {
     LOG(WARNING) << "DexFile " << dex_location
         << " is in boot class path but is not in a known location";
     return Domain::kPlatform;
@@ -103,7 +103,7 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
 }
 
 void InitializeDexFileDomain(const DexFile& dex_file, ObjPtr<mirror::ClassLoader> class_loader) {
-  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), class_loader);
+  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), class_loader.IsNull());
 
   // Assign the domain unless a more permissive domain has already been assigned.
   // This may happen when DexFile is initialized as trusted.
