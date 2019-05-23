@@ -24,6 +24,7 @@
 #include "arch/instruction_set_features.h"
 #include "base/bit_utils.h"
 #include "base/strlcpy.h"
+#include "hidden_api.h"
 
 namespace art {
 
@@ -376,6 +377,10 @@ bool OatHeader::IsConcurrentCopying() const {
 
 bool OatHeader::IsNativeDebuggable() const {
   return IsKeyEnabled(OatHeader::kNativeDebuggableKey);
+}
+
+hiddenapi::EnforcementPolicy OatHeader::GetHiddenApiPolicy() const {
+  return hiddenapi::EnforcementPolicyFromString(GetStoreValueByKey(kHiddenApiPolicy));
 }
 
 CompilerFilter::Filter OatHeader::GetCompilerFilter() const {

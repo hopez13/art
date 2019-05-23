@@ -74,7 +74,7 @@ static inline std::ostream& operator<<(std::ostream& os, const AccessContext& va
 }
 
 static Domain DetermineDomainFromLocation(const std::string& dex_location,
-                                          ObjPtr<mirror::ClassLoader> class_loader) {
+                                          bool is_boot_classpath) {
   // If running with APEX, check `path` against known APEX locations.
   // These checks will be skipped on target buildbots where ANDROID_RUNTIME_ROOT
   // is set to "/system".
@@ -93,7 +93,7 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
     return Domain::kPlatform;
   }
 
-  if (class_loader.IsNull()) {
+  if (is_boot_classpath) {
     LOG(WARNING) << "DexFile " << dex_location
         << " is in boot class path but is not in a known location";
     return Domain::kPlatform;
@@ -103,12 +103,37 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
 }
 
 void InitializeDexFileDomain(const DexFile& dex_file, ObjPtr<mirror::ClassLoader> class_loader) {
-  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), class_loader);
+  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), class_loader.IsNull());
 
   // Assign the domain unless a more permissive domain has already been assigned.
   // This may happen when DexFile is initialized as trusted.
   if (IsDomainMoreTrustedThan(dex_domain, dex_file.GetHiddenapiDomain())) {
     dex_file.SetHiddenapiDomain(dex_domain);
+  }
+}
+
+static bool AreEnforcementPoliciesCompatible(EnforcementPolicy oat_policy,
+                                             EnforcementPolicy runtime_policy) {
+  bool oat_enforcing = (oat_policy == EnforcementPolicy::kEnabled);
+  bool runtime_enforcing = (runtime_policy == EnforcementPolicy::kEnabled);
+  return !runtime_enforcing || oat_enforcing;
+}
+
+bool ShouldAcceptOatFile(const OatHeader& oat_header,
+                         const std::string& dex_location,
+                         bool is_boot_classpath) {
+  switch (DetermineDomainFromLocation(dex_location, is_boot_classpath)) {
+    case Domain::kApplication:
+      return AreEnforcementPoliciesCompatible(
+          oat_header.GetHiddenApiPolicy(),
+          Runtime::Current()->GetHiddenApiEnforcementPolicy());
+    case Domain::kPlatform:
+      return AreEnforcementPoliciesCompatible(
+          EnforcementPolicy::kDisabled,
+          Runtime::Current()->GetCorePlatformApiEnforcementPolicy());
+    case Domain::kCorePlatform:
+      // Nothing to check. Core platform can always access all domains.
+      return true;
   }
 }
 
