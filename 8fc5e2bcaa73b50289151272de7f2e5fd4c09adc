@@ -114,6 +114,29 @@
       "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c7228f9_bf978413",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1463094
+      },
+      "writtenOn": "2019-05-23T10:42:10Z",
+      "side": 1,
+      "message": "Could you document some functions in this class (and the entire class), consumeUntil was particularly unclear to me.",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
