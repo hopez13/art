@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "73a6734d_a469f002",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cb261d0_27d06fdd",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0be9080_f03f22fe",
         "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "817498f4_7cc061ed",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0be9080_f03f22fe",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cab27816_fb9c3639",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Actually, the check is redundant, as this constructor is private and I already handle missing package and class name in fromLinkTag and fromDexSignature.",
+      "parentUuid": "f6e405a4_7c5d0c71",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e59bfe28_cd2a91da",
         "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c18e34c_713eda19",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59bfe28_cd2a91da",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "904c0cb2_5d633de7",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bccd9116_dfbd22f9",
+      "range": {
+        "startLine": 41,
+        "startChar": 78,
+        "endLine": 42,
+        "endChar": 21
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c7228f9_bf978413",
         "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45ca14d6_3a0cf827",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-05-23T11:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c7228f9_bf978413",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
