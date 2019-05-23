@@ -40,6 +40,7 @@
 #include "exec_utils.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
+#include "hidden_api.h"
 #include "image.h"
 #include "oat.h"
 #include "runtime.h"
@@ -400,6 +401,16 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   constexpr bool kRuntimeIsCC = kUseReadBarrier;
   if (is_cc != kRuntimeIsCC) {
     return kOatCannotOpen;
+  }
+
+  if (!hiddenapi::ShouldAcceptOatFile(file.GetOatHeader(), dex_location_, IsInBootClassPath())) {
+      LOG(ERROR) << "OAT_MISMATCH"
+          << " oat=" << file.GetOatHeader().GetStoreValueByKey(OatHeader::kHiddenApiPolicy)
+          << ", runtime=" << hiddenapi::EnforcementPolicyToString(
+              Runtime::Current()->GetHiddenApiEnforcementPolicy())
+          << ", dex_file=" << dex_location_
+          << ", oat_file=" << file.GetLocation();
+      return kOatCannotOpen;
   }
 
   // Verify the dex checksum.
