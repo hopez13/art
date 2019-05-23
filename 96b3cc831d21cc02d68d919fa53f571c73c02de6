@@ -22,6 +22,30 @@
       "revId": "96b3cc831d21cc02d68d919fa53f571c73c02de6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44abe6ef_7b1885a7",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T13:35:41Z",
+      "side": 1,
+      "message": "Java guarantees zero initial values",
+      "parentUuid": "8a76a9c1_3862501c",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "96b3cc831d21cc02d68d919fa53f571c73c02de6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
