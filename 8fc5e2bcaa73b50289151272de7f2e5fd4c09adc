@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cb261d0_27d06fdd",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T01:59:47Z",
+      "side": 1,
+      "message": "Comment that you cache the toString return value as a performance optimization (I presume)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0be9080_f03f22fe",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T01:59:47Z",
+      "side": 1,
+      "message": "I\u0027ll leave this up to your judgement, but constructors are typically not used for doing work. The customary way of doing this is to do this inside toString() when mToString is null, i.e. compute and cache lazily.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6e405a4_7c5d0c71",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T01:59:47Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be outside of the IF? If so, sounds like there is a missing test case?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e59bfe28_cd2a91da",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T01:59:47Z",
+      "side": 1,
+      "message": "@Override",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bccd9116_dfbd22f9",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-05-23T01:59:47Z",
+      "side": 1,
+      "message": "Fits on one line",
+      "range": {
+        "startLine": 41,
+        "startChar": 78,
+        "endLine": 42,
+        "endChar": 21
+      },
+      "revId": "8fc5e2bcaa73b50289151272de7f2e5fd4c09adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
