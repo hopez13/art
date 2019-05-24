@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6472b0ae_b088d677",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-24T13:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f748e49d_5e9c7644",
+      "range": {
+        "startLine": 296,
+        "startChar": 38,
+        "endLine": 298,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "196b1570_d39034ca",
         "filename": "libdexfile/dex/dex_instruction.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85d5aca4_f8da7eb5",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-24T13:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "196b1570_d39034ca",
+      "range": {
+        "startLine": 403,
+        "startChar": 38,
+        "endLine": 405,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "64e96bf1_06820778",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-24T13:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41fd3e48_d1e600ac",
+      "range": {
+        "startLine": 455,
+        "startChar": 38,
+        "endLine": 457,
+        "endChar": 3
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2902588b_b6518fea",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ebe4820b_87ce41bc",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-24T13:38:08Z",
+      "side": 1,
+      "message": "I am aware.  I would like to add simple Set/Get forwarding helpers in followup CL and thus remove \"shadow_frame.\" as well.  I would like to reformat the lines at that point.",
+      "parentUuid": "2902588b_b6518fea",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 52
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7885a007_f74e70ec",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94473505_fe000696",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-24T13:38:08Z",
+      "side": 1,
+      "message": "That is intentional.  The Set/Get should be a no-brainier.\n\nAll other use cases might need a little more look so I would like to do them in separate CL.\n\nThe inst-\u003eVReg functions have diverse return types (sign,size), which might affect semantics.",
+      "parentUuid": "7885a007_f74e70ec",
+      "range": {
+        "startLine": 634,
+        "startChar": 34,
+        "endLine": 634,
+        "endChar": 51
+      },
+      "revId": "6c6eaa376203a513330f298ed5dad5c37a1dd3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
