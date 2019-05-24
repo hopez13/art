@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e803ffe3_5fcc2db8",
+        "filename": "tools/class2greylist/test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2019-05-24T09:48:32Z",
+      "side": 1,
+      "message": "The conversion is done by the androidmk which copies the header from the .mk file. Convention when doing this is to preserve the copyright header verbatim from the original.",
+      "parentUuid": "cc615c56_0554971d",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "a50702d09056bc94912a8577d9f106fcf08b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96eec8b3_e731a5db",
         "filename": "tools/class2greylist/test/Android.bp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "a50702d09056bc94912a8577d9f106fcf08b0581",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8add1a12_e3103677",
+        "filename": "tools/class2greylist/test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2019-05-24T09:48:32Z",
+      "side": 1,
+      "message": "Again, copied direct from the .mk file. Will leave it up to the owners to resolve.",
+      "parentUuid": "96eec8b3_e731a5db",
+      "range": {
+        "startLine": 18,
+        "startChar": 46,
+        "endLine": 18,
+        "endChar": 49
+      },
+      "revId": "a50702d09056bc94912a8577d9f106fcf08b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
