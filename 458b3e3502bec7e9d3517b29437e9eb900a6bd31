@@ -1,0 +1,740 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f00b924_037fcd49",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "since you have a ClassAndPackageName class below, you could use it here too.",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c3a24d4_34931d39",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "how often is toString called? Is this necessary?",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a937a865_2d7d82e9",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "if you want, you can chain these as append returns this:\nnew StringBuilder()\n  .append(\".\")\n  .append(mClassName)\n  ...\n  .toString();",
+      "range": {
+        "startLine": 51,
+        "startChar": 15,
+        "endLine": 51,
+        "endChar": 21
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34209ee6_792a423f",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "for immutable POD classes like this, I would suggest making these public and ditching the getters.\n\n(note, that also means dropping the mPrefix IIRC)",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 15
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e495a13_36d27a0a",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "this could be a static contructor on PackageAndClassName:\n\nPackageAndClassName.fromQualifiedClass(qualifiedClass)",
+      "range": {
+        "startLine": 106,
+        "startChar": 39,
+        "endLine": 106,
+        "endChar": 53
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c9067d_7546dd04",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "peek()?\n\n(maybe you don\u0027t then need the rollback method?)\n\nI would do?\n\nIf (sc.peek() !\u003d \u0027L\u0027) {\n  // throw\n}\nnext(); // consume \u0027L\u0027",
+      "range": {
+        "startLine": 124,
+        "startChar": 15,
+        "endLine": 124,
+        "endChar": 22
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dfaf5c2_2133ee77",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "as an alternative: you could add a find(String) method to the StringCursor, which finds the position of char but does not move the cursor. Then this becomes:\n\nint semiPos \u003d sc.find(\";\");\nif (semiPos \u003d\u003d -1) {\n  // error\n}\njniFormattedClassName \u003d sc.consume(semiPos);\n\nWhich makes the StringCursor class method more orthogonal, so maybe neater.",
+      "range": {
+        "startLine": 129,
+        "startChar": 42,
+        "endLine": 129,
+        "endChar": 54
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74f7c1dc_0f1be9f3",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "you could include the position if you add a position() method to StringCursor.\n\nFor bonus points, you can also put a \"^\" under the correct position in the signature.]\n\nAlso, should be use error reporting consistent with StringCursor here? (i.e. report using an interface? Moot point if you switch to using exceptions in there too)",
+      "range": {
+        "startLine": 167,
+        "startChar": 26,
+        "endLine": 167,
+        "endChar": 42
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73048a10_b0b7ac06",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "method name is not consistent with what the javadoc says it does?",
+      "range": {
+        "startLine": 181,
+        "startChar": 26,
+        "endLine": 181,
+        "endChar": 38
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9175aae8_5f494b02",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "inconsistent exception type compared to parseJniTypeWithoutArrayDimensions above",
+      "range": {
+        "startLine": 206,
+        "startChar": 22,
+        "endLine": 206,
+        "endChar": 46
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4945963b_ad011a72",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "I think you want some indent here.",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 8
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84cb2c17_9120cf60",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "maybe better to move ErrorReporter to the top level, since it\u0027s used by more than just StringCursor?\n\nLooking again, it may be better to also make AnnotationContext implement this interface, avoiding the need for a lamdba in the annotation handler.",
+      "range": {
+        "startLine": 227,
+        "startChar": 12,
+        "endLine": 227,
+        "endChar": 38
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe6c7203_43e0f126",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "\"Expected \u0027-\u003e\u0027 at position x\"",
+      "range": {
+        "startLine": 239,
+        "startChar": 48,
+        "endLine": 239,
+        "endChar": 71
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36877b45_ecae6f37",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "for completeness, you could:\n- consume the \":\"\n- read a type\n\nthen assert that no characters remain in the cursor (i.e. there is no junk at the end)",
+      "range": {
+        "startLine": 245,
+        "startChar": 8,
+        "endLine": 245,
+        "endChar": 9
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67af0c7f_66ab28ba",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "an error here implies a bug in the tool, rather than a user actionable problem? So maybe better just to throw on error when parsing a dex signature?",
+      "range": {
+        "startLine": 260,
+        "startChar": 78,
+        "endLine": 260,
+        "endChar": 91
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9497460_43bac46f",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "what\u0027s the behaviour if there is no \"#\" ? (make sure we get a decent error)",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 268,
+        "endChar": 62
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f18e34f_5d9f68aa",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "I don\u0027t think we get \":\" in doclava refs?",
+      "range": {
+        "startLine": 283,
+        "startChar": 39,
+        "endLine": 283,
+        "endChar": 40
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e523c472_0974fb7e",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "you could write this as an implementation of Comparator instead (java.util.Comparator)",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 37
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02f580ab_21c244a9",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "this feels like a code bug in the caller implementation, rather than an error that should be reported to the user. Better just to throw RuntimeException directly here?\n\n(if you do leave it as is, you need to add a return statement after in case the report impl does not throw)",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bf9330_0af87327",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "need end of string checking? (or maybe ok just to let charAt do this for us)\n\nNote: the EOS checking here is directly analogous to the error check in rollback() above. They should have consistent handling. Same for consume(int) below.\n\nnit: I would call this \"next\"",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 23
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae093090_c3b4d377",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "\"len\" ? (or \"n\"?)",
+      "range": {
+        "startLine": 73,
+        "startChar": 30,
+        "endLine": 73,
+        "endChar": 31
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee1184e0_6be4dad4",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "better as a throw RuntimeException?",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5a53a67_dc9229f7",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "maybe \"search\" or \"scan\"?",
+      "range": {
+        "startLine": 89,
+        "startChar": 18,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa3b8d22_cef3800a",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "if you use \"next\" above, this could be \"hasNext\" which is more consistent with the Java iterator interface.\n\n(I would suggest implementing Iterator\u003cChar\u003e but that contains both more and less than you need, to probably not worth the effort)",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 29
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1a9a8bf_72870afe",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "will the error message include the signature that we were unable to parse?",
+      "range": {
+        "startLine": 80,
+        "startChar": 52,
+        "endLine": 80,
+        "endChar": 57
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d90b4bc_d8c8c92b",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "\": \" in place of \"!\"",
+      "range": {
+        "startLine": 81,
+        "startChar": 65,
+        "endLine": 81,
+        "endChar": 67
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b04275e8_988dc287",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "can we move all the logic in here into a separate class (or at least method)?",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 10
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce4a9d6c_0debd9f0",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "Feels like all this logic would be better off in an ApiResolver class (or similar)\n\nAn instance of that would contain all the public SDK methods, and would do the partial matching logic. That would also allow you to unit test that logic more easily than inlining it below.",
+      "range": {
+        "startLine": 186,
+        "startChar": 16,
+        "endLine": 186,
+        "endChar": 74
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ebfea4_55135ea3",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "Joiner.on(\", \").join(almostMatches)\n\nhttps://google.github.io/guava/releases/16.0/api/docs/com/google/common/base/Joiner.html",
+      "range": {
+        "startLine": 195,
+        "startChar": 67,
+        "endLine": 195,
+        "endChar": 80
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07a95f2_6e061b08",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/UnsupportedAppUsageAnnotationHandler.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "I like this.\n\nBut: it may turn out to be too restrictive. Maybe add a comment like: \"if this is too restrictive for your use case, please contact compat-team@\" (or use a go link instead of an email if you prefer).\n\nI don\u0027t want to risk people putting irrelevant @link or @code tags in just to satisfy this requirement.",
+      "range": {
+        "startLine": 202,
+        "startChar": 28,
+        "endLine": 202,
+        "endChar": 39
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c440979_91d9c355",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/ApiComponentsTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "let\u0027s add some error case testing too. e.g. no \"#\" in a link tag, etc.",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "000e4ed6_29a6948e",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/ApiComponentsTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-24T08:50:57Z",
+      "side": 1,
+      "message": "it may make your tests clearer to inline these, even if it results in some dupication.",
+      "range": {
+        "startLine": 25,
+        "startChar": 32,
+        "endLine": 25,
+        "endChar": 63
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
