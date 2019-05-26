@@ -22,6 +22,30 @@
       "revId": "4e143df0053c045276be80a3e978d950901e1a71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81d242f0_f9ec3662",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-26T19:44:52Z",
+      "side": 1,
+      "message": "0.087% for arm64/boot-framework.oat and\n0.069% for arm/boot-framework.oat\n\nI am intentionally trying to go for the simpler version (rather than squeezing out every single bit).\n\nLong term, I would actually like to keep the flags field anyway, and fold more things into it - e.g. whether each bit table is empty / deduped (which would implicitly cover this case as well), and remove the need to encode those cases specially downstreams.",
+      "parentUuid": "e77521c1_f9455367",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "4e143df0053c045276be80a3e978d950901e1a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
