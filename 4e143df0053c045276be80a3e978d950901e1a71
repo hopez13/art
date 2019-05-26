@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e77521c1_f9455367",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-26T19:35:36Z",
+      "side": 1,
+      "message": "Can you be more precise here, e.g., give before and after for the 64-bit boot classpath code + system server?\n\nIt would be interesting to understand whether it makes sense to \"complicate\" the format, i.e., fold the single bit of the flag into the frame size (which should in most cases be below 64, I think).",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "4e143df0053c045276be80a3e978d950901e1a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
