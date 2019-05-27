@@ -41,6 +41,10 @@
 
 #include <ucontext.h>
 
+#if defined(__ANDROID__)
+#include "cutils/properties.h"
+#endif
+
 // libsigchain provides an interception layer for signal handlers, to allow ART and others to give
 // their signal handlers the first stab at handling signals before passing them on to user code.
 //
@@ -334,11 +338,30 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   }
 }
 
+#if defined(__ANDROID__)
+int SkipAddSignalHandler() {
+  char getprop_debug[PROPERTY_VALUE_MAX];
+
+  property_get("debug.skip.addsignal", getprop_debug, "false");
+  if (strcmp(getprop_debug, "false")) {
+    log("Ignoring signal registration in app\n");
+    return 1;
+  }
+  return 0;
+}
+#endif
+
 template <typename SigactionType>
 static int __sigaction(int signal, const SigactionType* new_action,
                        SigactionType* old_action,
                        int (*linked)(int, const SigactionType*,
                                      SigactionType*)) {
+
+#if defined(__ANDROID__)
+  if (SkipAddSignalHandler())
+    return 0;
+#endif
+
   // If this signal has been claimed as a signal chain, record the user's
   // action but don't pass it on to the kernel.
   // Note that we check that the signal number is in range here.  An out of range signal

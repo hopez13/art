@@ -34,7 +34,7 @@ cc_library {
         },
 
         android: {
-            whole_static_libs: ["libasync_safe"],
+            whole_static_libs: ["libasync_safe", "libcutils"],
         },
     },
 }
