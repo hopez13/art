@@ -2875,4 +2875,8 @@ bool Runtime::GetStartupCompleted() const {
   return startup_completed_.load(std::memory_order_seq_cst);
 }
 
+void Runtime::SetSignalHookDebuggable(bool value) {
+  SkipAddSignalHandler(value);
+}
+
 }  // namespace art
