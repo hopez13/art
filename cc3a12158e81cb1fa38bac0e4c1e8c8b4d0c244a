@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2d0c1b6_4453a5b9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-28T20:56:34Z",
+      "side": 1,
+      "message": "Maybe put this in thread.h and make it public?",
+      "range": {
+        "startLine": 2136,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 33
+      },
+      "revId": "cc3a12158e81cb1fa38bac0e4c1e8c8b4d0c244a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
