@@ -22,6 +22,30 @@
       "revId": "cc3a12158e81cb1fa38bac0e4c1e8c8b4d0c244a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bf6a3c_e013e2ca",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-28T21:16:20Z",
+      "side": 1,
+      "message": "Maybe in a follow-up, as-is it\u0027s single-use and I want to focus on this fix.",
+      "parentUuid": "a2d0c1b6_4453a5b9",
+      "range": {
+        "startLine": 2136,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 33
+      },
+      "revId": "cc3a12158e81cb1fa38bac0e4c1e8c8b4d0c244a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
