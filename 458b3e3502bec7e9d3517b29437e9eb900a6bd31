@@ -848,6 +848,30 @@
     },
     {
       "key": {
+        "uuid": "ff1e5cfa_233af9ff",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "Comparator will work for both. But fine as is too if you prefer - Comparator could be considered overkill.",
+      "parentUuid": "d9035026_eb3dacc8",
+      "range": {
+        "startLine": 298,
+        "startChar": 19,
+        "endLine": 298,
+        "endChar": 37
+      },
+      "revId": "458b3e3502bec7e9d3517b29437e9eb900a6bd31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02f580ab_21c244a9",
         "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
         "patchSetId": 7

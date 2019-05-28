@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20255ed2_2f225e16",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "Adding a peek(int) method may make this a but neater\n\n(fine as is too, if you prefer)",
+      "range": {
+        "startLine": 198,
+        "startChar": 16,
+        "endLine": 198,
+        "endChar": 23
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd75db35_1729489d",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "As a follow up: since it\u0027s a repeated pattern to use IAE in this way, you could add a custom exception with a constructor:\n\n  SignatureSyntaxError(String expected, int position, String original)\n\nor something along those lines. Also has the benefir that you can assert things about position etc. in your tests.",
+      "range": {
+        "startLine": 199,
+        "startChar": 22,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e8c2d09_20cfd536",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiComponents.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "Could be phrased: \"Expected : or -\u003e at position x ...\"",
+      "range": {
+        "startLine": 211,
+        "startChar": 52,
+        "endLine": 211,
+        "endChar": 97
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db778ead_be3a0348",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/ApiResolver.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "will this allow you to specify *just* a class if it\u0027s in the same package?",
+      "range": {
+        "startLine": 67,
+        "startChar": 25,
+        "endLine": 67,
+        "endChar": 88
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54892d8f_43998c99",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/PackageAndClassName.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "final",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad187282_6048a156",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/PackageAndClassName.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "final",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35a83880_8f74cd22",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/PackageAndClassName.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "If either of these can ever be null, you should use Objects.equals()",
+      "range": {
+        "startLine": 52,
+        "startChar": 14,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4f5d216_aef285bb",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "is this a code error, or problem with the input data?\n\nIf a code error, an exception may make more sense.",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 38
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "defaae8c_b2384193",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/StringCursor.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "consume?",
+      "range": {
+        "startLine": 67,
+        "startChar": 44,
+        "endLine": 67,
+        "endChar": 48
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94ae7ed4_5c7cd087",
+        "filename": "tools/class2greylist/test/src/com/android/class2greylist/ApiComponentsTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-28T15:22:44Z",
+      "side": 1,
+      "message": "would be good to add some tests for error cases, and assert things about the error message.\n\nMay be helpful:\nhttps://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html#assertThrows-java.lang.Class-org.junit.jupiter.api.function.Executable-java.lang.String-\nhttps://www.baeldung.com/junit-assert-exception\n\nFine to do as a follow up, especially if you use a specific exception to store the position etc.",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
