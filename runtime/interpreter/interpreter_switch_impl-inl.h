@@ -37,6 +37,9 @@
 namespace art {
 namespace interpreter {
 
+#undef ALWAYS_INLINE
+#define ALWAYS_INLINE NO_INLINE
+
 // Short-lived helper class which executes single DEX bytecode.  It is inlined by compiler.
 //
 // The function names must match the names from dex_instruction_list.h and have no arguments.
@@ -2560,16 +2563,16 @@ class InstructionHandler {
   const uint16_t* Insns() { return ctx->accessor.Insns(); }
   JValue* ResultRegister() { return &ctx->result_register; }
 
-  ALWAYS_INLINE int32_t A() { return inst->VRegA(kFormat, inst_data); }
-  ALWAYS_INLINE int32_t B() { return inst->VRegB(kFormat, inst_data); }
-  ALWAYS_INLINE int32_t C() { return inst->VRegC(kFormat); }
+  inline int32_t A() { return inst->VRegA(kFormat, inst_data); }
+  inline int32_t B() { return inst->VRegB(kFormat, inst_data); }
+  inline int32_t C() { return inst->VRegC(kFormat); }
 
   SwitchImplContext* const ctx;
   const instrumentation::Instrumentation* const instrumentation;
   Thread* const self;
   ShadowFrame& shadow_frame;
   uint32_t const dex_pc;
-  const Instruction*& inst;
+  const Instruction* volatile & inst;
   uint16_t const inst_data;
   bool& exit_interpreter_loop;
 };
