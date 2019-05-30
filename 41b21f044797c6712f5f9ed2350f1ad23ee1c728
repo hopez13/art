@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00bf24d2_e01f39d7",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-30T17:53:01Z",
+      "side": 1,
+      "message": "I really wish we had UFCS to let us avoid this type of thing.\n\nI wonder if it might be useful to try to add these functions to Handle\u003c...\u003e in some way.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 78
+      },
+      "revId": "41b21f044797c6712f5f9ed2350f1ad23ee1c728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
