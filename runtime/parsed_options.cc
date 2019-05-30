@@ -74,9 +74,12 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       std::make_unique<RuntimeParser::Builder>();
 
   HiddenapiPolicyValueMap hiddenapi_policy_valuemap =
-      {{"disabled",  hiddenapi::EnforcementPolicy::kDisabled},
-       {"just-warn", hiddenapi::EnforcementPolicy::kJustWarn},
-       {"enabled",   hiddenapi::EnforcementPolicy::kEnabled}};
+      {{ hiddenapi::EnforcementPolicyToString(hiddenapi::EnforcementPolicy::kDisabled),
+         hiddenapi::EnforcementPolicy::kDisabled },
+       { hiddenapi::EnforcementPolicyToString(hiddenapi::EnforcementPolicy::kJustWarn),
+         hiddenapi::EnforcementPolicy::kJustWarn },
+       { hiddenapi::EnforcementPolicyToString(hiddenapi::EnforcementPolicy::kEnabled),
+         hiddenapi::EnforcementPolicy::kEnabled }};
   DCHECK_EQ(hiddenapi_policy_valuemap.size(),
             static_cast<size_t>(hiddenapi::EnforcementPolicy::kMax) + 1);
 

@@ -26,6 +26,10 @@
 
 namespace art {
 
+namespace hiddenapi {
+enum class EnforcementPolicy;
+}  // namespace hiddenapi
+
 enum class InstructionSet;
 class InstructionSetFeatures;
 
@@ -44,6 +48,8 @@ class PACKED(4) OatHeader {
   static constexpr const char* kBootClassPathChecksumsKey = "bootclasspath-checksums";
   static constexpr const char* kConcurrentCopying = "concurrent-copying";
   static constexpr const char* kCompilationReasonKey = "compilation-reason";
+  static constexpr const char* kHiddenApiEnforcementPolicy = "hidden-api-policy";
+  static constexpr const char* kCorePlatformApiEnforcementPolicy = "core-platform-api-policy";
 
   static constexpr const char kTrueValue[] = "true";
   static constexpr const char kFalseValue[] = "false";
@@ -99,6 +105,8 @@ class PACKED(4) OatHeader {
   bool IsNativeDebuggable() const;
   CompilerFilter::Filter GetCompilerFilter() const;
   bool IsConcurrentCopying() const;
+  hiddenapi::EnforcementPolicy GetHiddenApiEnforcementPolicy() const;
+  hiddenapi::EnforcementPolicy GetCorePlatformApiEnforcementPolicy() const;
 
  private:
   bool KeyHasValue(const char* key, const char* value, size_t value_size) const;
