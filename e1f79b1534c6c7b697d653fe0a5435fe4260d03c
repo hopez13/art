@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "76310e0d_486620aa",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-30T17:14:38Z",
+      "side": 1,
+      "message": "Let\u0027s take inst_data for example... important in all opcodes to have handy in a register.\n\nLet\u0027s say you call arbitrary non-inline C++ method on InstructionHandler (which will have \u0027this\u0027 arg).\n\nLet\u0027s say the C++ method will take pointer of inst_data and store it somewhere else.\n\nThen whenever other opaque C++ method is called, it might have accesses this pointer, and overwritten the inst_data.\n\nWhich means any code accessing after the opaque method must reload it.\n\nThere isn\u0027t all that much the compiler can do really - except try to minimize the reloads.\n\n\nWith the current implementation this is not an issue ... as long as everything is inlined, no reload is ever necessary.  However, as soon as you start introducing NO_INLINE method, it can go downhill very quick if you don\u0027t structure the code caregully.",
+      "parentUuid": "aece9d75_e2997cc5",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18558453_63547928",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 3
