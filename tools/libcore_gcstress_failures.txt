@@ -21,7 +21,8 @@
   modes: [host],
   names: ["libcore.java.lang.ref.ReferenceQueueTest#testRemoveWithDelayedResultAndTimeout",
           "org.apache.harmony.luni.tests.internal.net.www.protocol.http.HttpURLConnectionTest#testGetOutputStream",
-          "org.apache.harmony.luni.tests.internal.net.www.protocol.http.HttpURLConnectionTest#testProxyAuthorization"]
+          "org.apache.harmony.luni.tests.internal.net.www.protocol.http.HttpURLConnectionTest#testProxyAuthorization",
+         "libcore.java.lang.StringTest#testFastPathString_wellFormedUtf8Sequence"]
 },
 {
   description: "Timeouts.",
