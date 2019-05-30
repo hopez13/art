@@ -147,7 +147,11 @@ class OatFileAssistant {
                       bool profile_changed = false,
                       bool downgrade = false,
                       ClassLoaderContext* context = nullptr,
-                      const std::vector<int>& context_fds = std::vector<int>());
+                      const std::vector<int>& context_fds = std::vector<int>(),
+                      hiddenapi::EnforcementPolicy target_hidden_api_policy =
+                          Runtime::Current()->GetHiddenApiEnforcementPolicy(),
+                      hiddenapi::EnforcementPolicy target_core_platform_api_policy =
+                          Runtime::Current()->GetHiddenApiEnforcementPolicy());
 
   // Returns true if there is up-to-date code for this dex location,
   // irrespective of the compiler filter of the up-to-date code.
@@ -294,8 +298,11 @@ class OatFileAssistant {
     DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
                                  bool profile_changed,
                                  bool downgrade,
+                                 bool is_in_boot_class_path,
                                  ClassLoaderContext* context,
-                                 const std::vector<int>& context_fds);
+                                 const std::vector<int>& context_fds,
+                                 hiddenapi::EnforcementPolicy target_hidden_api_policy,
+                                 hiddenapi::EnforcementPolicy target_core_platform_api_policy);
 
     // Returns the loaded file.
     // Loads the file if needed. Returns null if the file failed to load.
@@ -337,6 +344,12 @@ class OatFileAssistant {
     bool CompilerFilterIsOkay(CompilerFilter::Filter target, bool profile_changed, bool downgrade);
 
     bool ClassLoaderContextIsOkay(ClassLoaderContext* context, const std::vector<int>& context_fds);
+
+    // Returns true if the oat file was generated with a compatible API enforcement
+    // policy configuration.
+    bool ApiEnforcementPolicyIsOkay(hiddenapi::EnforcementPolicy target_hidden_api_policy,
+                                    hiddenapi::EnforcementPolicy target_core_platform_api_policy,
+                                    bool is_in_boot_class_path);
 
     // Release the loaded oat file.
     // Returns null if the oat file hasn't been loaded.

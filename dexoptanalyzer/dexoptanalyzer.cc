@@ -29,6 +29,7 @@
 #include "compiler_filter.h"
 #include "class_loader_context.h"
 #include "dex/dex_file.h"
+#include "hidden_api.h"
 #include "noop_compiler_callbacks.h"
 #include "oat_file_assistant.h"
 #include "runtime.h"

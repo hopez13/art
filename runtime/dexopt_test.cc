@@ -56,7 +56,8 @@ bool DexoptTest::Dex2Oat(const std::vector<std::string>& args, std::string* erro
   Runtime* runtime = Runtime::Current();
   if (runtime->GetHiddenApiEnforcementPolicy() == hiddenapi::EnforcementPolicy::kEnabled) {
     argv.push_back("--runtime-arg");
-    argv.push_back("-Xhidden-api-policy:enabled");
+    argv.push_back(std::string("-Xhidden-api-policy:") +
+        hiddenapi::EnforcementPolicyToString(hiddenapi::EnforcementPolicy::kEnabled));
   }
 
   if (!kIsTargetBuild) {
@@ -74,11 +75,19 @@ void DexoptTest::GenerateOatForTest(const std::string& dex_location,
                                     CompilerFilter::Filter filter,
                                     bool with_alternate_image,
                                     const char* compilation_reason,
+                                    hiddenapi::EnforcementPolicy hidden_api_policy,
+                                    hiddenapi::EnforcementPolicy core_platform_api_policy,
                                     const std::vector<std::string>& extra_args) {
   std::vector<std::string> args;
   args.push_back("--dex-file=" + dex_location);
   args.push_back("--oat-file=" + oat_location);
   args.push_back("--compiler-filter=" + CompilerFilter::NameOfFilter(filter));
+  args.push_back("--runtime-arg");
+  args.push_back(std::string("-Xhidden-api-policy:") +
+      hiddenapi::EnforcementPolicyToString(hidden_api_policy));
+  args.push_back("--runtime-arg");
+  args.push_back(std::string("-Xcore-platform-api-policy:") +
+      hiddenapi::EnforcementPolicyToString(core_platform_api_policy));
   args.push_back("--runtime-arg");
 
   // Use -Xnorelocate regardless of the relocate argument.
@@ -148,6 +157,8 @@ void DexoptTest::GenerateOdexForTest(const std::string& dex_location,
                      filter,
                      /*with_alternate_image=*/ false,
                      compilation_reason,
+                     Runtime::Current()->GetHiddenApiEnforcementPolicy(),
+                     Runtime::Current()->GetCorePlatformApiEnforcementPolicy(),
                      extra_args);
 }
 
@@ -162,6 +173,20 @@ void DexoptTest::GenerateOatForTest(const char* dex_location,
                      oat_location,
                      filter,
                      with_alternate_image);
+}
+
+void DexoptTest::GenerateOatForTest(const std::string& dex_location,
+                                    const std::string& oat_location,
+                                    CompilerFilter::Filter filter,
+                                    hiddenapi::EnforcementPolicy hidden_api_policy,
+                                    hiddenapi::EnforcementPolicy core_platform_api_policy) {
+  GenerateOatForTest(dex_location,
+                     oat_location,
+                     filter,
+                     /* with_alternate_image= */ false,
+                     /* compilation_reason= */ nullptr,
+                     hidden_api_policy,
+                     core_platform_api_policy);
 }
 
 void DexoptTest::GenerateOatForTest(const char* dex_location, CompilerFilter::Filter filter) {

@@ -4152,8 +4152,11 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   if (initialize_oat_file_data) {
     oat_file->InitializeRelocations();
   }
-  // Let hiddenapi assign a domain to the newly registered dex file.
-  hiddenapi::InitializeDexFileDomain(dex_file, class_loader);
+  // Let hiddenapi assign a domain to the newly registered dex file.]
+  {
+    ScopedObjectAccessUnchecked soa(self);
+    hiddenapi::InitializeDexFileDomain(dex_file, IsBootClassLoader(soa, class_loader));
+  }
 
   jweak dex_cache_jweak = vm->AddWeakGlobalRef(self, dex_cache);
   dex_cache->SetDexFile(&dex_file);

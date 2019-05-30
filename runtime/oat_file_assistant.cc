@@ -40,11 +40,14 @@
 #include "exec_utils.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
+#include "hidden_api.h"
 #include "image.h"
 #include "oat.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "vdex_file.h"
+
+#include "stack.h"
 
 namespace art {
 
@@ -184,17 +187,23 @@ bool OatFileAssistant::IsInBootClassPath() {
   return false;
 }
 
-int OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target,
-                                      bool profile_changed,
-                                      bool downgrade,
-                                      ClassLoaderContext* class_loader_context,
-                                      const std::vector<int>& context_fds) {
+int OatFileAssistant::GetDexOptNeeded(
+    CompilerFilter::Filter target,
+    bool profile_changed,
+    bool downgrade,
+    ClassLoaderContext* class_loader_context,
+    const std::vector<int>& context_fds,
+    hiddenapi::EnforcementPolicy target_hidden_api_policy,
+    hiddenapi::EnforcementPolicy target_core_platform_api_policy) {
   OatFileInfo& info = GetBestInfo();
   DexOptNeeded dexopt_needed = info.GetDexOptNeeded(target,
                                                     profile_changed,
                                                     downgrade,
+                                                    IsInBootClassPath(),
                                                     class_loader_context,
-                                                    context_fds);
+                                                    context_fds,
+                                                    target_hidden_api_policy,
+                                                    target_core_platform_api_policy);
   if (info.IsOatLocation() || dexopt_needed == kDex2OatFromScratch) {
     return dexopt_needed;
   }
@@ -799,15 +808,21 @@ OatFileAssistant::DexOptNeeded OatFileAssistant::OatFileInfo::GetDexOptNeeded(
     CompilerFilter::Filter target,
     bool profile_changed,
     bool downgrade,
+    bool is_in_boot_class_path,
     ClassLoaderContext* context,
-    const std::vector<int>& context_fds) {
+    const std::vector<int>& context_fds,
+    hiddenapi::EnforcementPolicy target_hidden_api_policy,
+    hiddenapi::EnforcementPolicy target_core_platform_api_policy) {
 
   bool filter_okay = CompilerFilterIsOkay(target, profile_changed, downgrade);
   bool class_loader_context_okay = ClassLoaderContextIsOkay(context, context_fds);
+  bool api_policy_okay = ApiEnforcementPolicyIsOkay(target_hidden_api_policy,
+                                                    target_core_platform_api_policy,
+                                                    is_in_boot_class_path);
 
   // Only check the filter and relocation if the class loader context is ok.
   // If it is not, we will return kDex2OatFromScratch as the compilation needs to be redone.
-  if (class_loader_context_okay) {
+  if (class_loader_context_okay && api_policy_okay) {
     if (filter_okay && Status() == kOatUpToDate) {
       // The oat file is in good shape as is.
       return kNoDexOptNeeded;
@@ -888,6 +903,24 @@ bool OatFileAssistant::OatFileInfo::CompilerFilterIsOkay(
   }
   return downgrade ? !CompilerFilter::IsBetter(current, target) :
     CompilerFilter::IsAsGoodAs(current, target);
+}
+
+bool OatFileAssistant::OatFileInfo::ApiEnforcementPolicyIsOkay(
+    hiddenapi::EnforcementPolicy target_hidden_api_policy,
+    hiddenapi::EnforcementPolicy target_core_platform_api_policy,
+    const bool is_in_boot_classpath) {
+  const OatFile* file = GetFile();
+  if (file == nullptr) {
+    VLOG(oat) << "API enforcement policy check ignored: no oat file";
+    return true;
+  }
+
+  return hiddenapi::ShouldAcceptOatFile(*file,
+                                        oat_file_assistant_->dex_location_,
+                                        filename_,
+                                        is_in_boot_classpath,
+                                        target_hidden_api_policy,
+                                        target_core_platform_api_policy);
 }
 
 bool OatFileAssistant::OatFileInfo::ClassLoaderContextIsOkay(ClassLoaderContext* context,

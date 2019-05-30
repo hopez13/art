@@ -1507,6 +1507,199 @@ TEST_F(OatFileAssistantTest, SystemFrameworkDir) {
   EXPECT_EQ(0, remove(oat_location.c_str()));
 }
 
+// Choose one compiler filter to compile oat files with. It doesn't matter what it is
+// as long as it is used consistently.
+static constexpr CompilerFilter::Filter kApiPolicyTestCompilerFilter = CompilerFilter::kSpeed;
+
+static std::vector<hiddenapi::EnforcementPolicy> GetMatchingEnforcementPolicies(bool is_enforcing) {
+  return is_enforcing
+      ? std::vector<hiddenapi::EnforcementPolicy>(
+          { hiddenapi::EnforcementPolicy::kEnabled })
+      : std::vector<hiddenapi::EnforcementPolicy>(
+          { hiddenapi::EnforcementPolicy::kJustWarn, hiddenapi::EnforcementPolicy::kDisabled });
+}
+
+static bool IsDexOptNeeded(OatFileAssistant& assistant,
+                           bool hidden_api_enabled,
+                           bool core_platform_api_enabled) {
+  bool is_first = true;
+  int result = 0;
+  for (auto core_platform_api_policy : GetMatchingEnforcementPolicies(core_platform_api_enabled)) {
+    for (auto hidden_api_policy : GetMatchingEnforcementPolicies(hidden_api_enabled)) {
+      int cur_result = assistant.GetDexOptNeeded(
+          kApiPolicyTestCompilerFilter,
+          /* profile_changed= */ false,
+          /* downgrade= */ false,
+          /* context= */ nullptr,
+          /* context_fds= */ std::vector<int>(),
+          hidden_api_policy,
+          core_platform_api_policy);
+      if (is_first) {
+        result = cur_result;
+        is_first = false;
+      } else {
+        // Make sure that all invocations returned the same result.
+        CHECK_EQ(result, cur_result);
+      }
+    }
+  }
+  return OatFileAssistant::kNoDexOptNeeded != result;
+}
+
+class OatFileAssistantApiPolicyTest
+    : public DexoptTest, public ::testing::WithParamInterface<std::tuple<unsigned, unsigned>> {
+};
+
+TEST_P(OatFileAssistantApiPolicyTest, ApplicationDomain) {
+  hiddenapi::EnforcementPolicy hidden_api_policy =
+      hiddenapi::EnforcementPolicyFromInt(std::get<0>(GetParam()));
+  hiddenapi::EnforcementPolicy core_platform_api_policy =
+      hiddenapi::EnforcementPolicyFromInt(std::get<1>(GetParam()));
+
+  bool hidden_api_enforcing = (hidden_api_policy == hiddenapi::EnforcementPolicy::kEnabled);
+  bool core_platform_api_enforcing =
+      (core_platform_api_policy == hiddenapi::EnforcementPolicy::kEnabled);
+
+  std::string test_file_prefix =
+      std::string("/ApiPolicyTest_ApplicationDomain_") +
+      hiddenapi::EnforcementPolicyToString(hidden_api_policy) + "_" +
+      hiddenapi::EnforcementPolicyToString(core_platform_api_policy);
+
+  std::string dex_location = GetScratchDir() + test_file_prefix + ".jar";
+  std::string oat_location = GetScratchDir() + test_file_prefix + ".oat";
+  std::string vdex_location = GetScratchDir() + test_file_prefix + ".vdex";
+  std::string system_dex_location = GetAndroidRoot() + "/framework" + test_file_prefix + ".jar";
+  EXPECT_TRUE(LocationIsOnSystemFramework(system_dex_location.c_str()));
+
+  Copy(GetDexSrc1(), dex_location);
+  Copy(GetDexSrc1(), system_dex_location);
+
+  // Compile dex file with `dex_location` and given API enforcement policies.
+  GenerateOatForTest(dex_location.c_str(),
+                     oat_location.c_str(),
+                     kApiPolicyTestCompilerFilter,
+                     hidden_api_policy,
+                     core_platform_api_policy);
+
+  android::base::unique_fd vdex_fd(open(vdex_location.c_str(), O_RDONLY | O_CLOEXEC));
+  android::base::unique_fd oat_fd(open(oat_location.c_str(), O_RDONLY | O_CLOEXEC));
+
+  // Check expectations about dexopt-needed with varying target API enforcement policies.
+  {
+    android::base::unique_fd zip_fd(open(dex_location.c_str(), O_RDONLY | O_CLOEXEC));
+    OatFileAssistant oat_file_assistant(dex_location.c_str(),
+                                        kRuntimeISA,
+                                        false,
+                                        false,
+                                        vdex_fd.get(),
+                                        oat_fd.get(),
+                                        zip_fd.get());
+    EXPECT_EQ(hidden_api_enforcing || core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, false, false));
+    EXPECT_EQ(!hidden_api_enforcing || core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, true, false));
+    EXPECT_EQ(hidden_api_enforcing || !core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, false, true));
+    EXPECT_EQ(!hidden_api_enforcing || !core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, true, true));
+  }
+
+  // Check that if API domain changes (from application domain to platform domain
+  // by changing dex location to /system/), dexopt is always needed.
+  {
+    android::base::unique_fd zip_fd(open(system_dex_location.c_str(), O_RDONLY | O_CLOEXEC));
+    OatFileAssistant oat_file_assistant(system_dex_location.c_str(),
+                                        kRuntimeISA,
+                                        false,
+                                        false,
+                                        vdex_fd.get(),
+                                        oat_fd.get(),
+                                        zip_fd.get());
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, false, false));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, true, false));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, false, true));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, true, true));
+  }
+}
+
+TEST_P(OatFileAssistantApiPolicyTest, PlatformDomain) {
+  hiddenapi::EnforcementPolicy hidden_api_policy =
+      hiddenapi::EnforcementPolicyFromInt(std::get<0>(GetParam()));
+  hiddenapi::EnforcementPolicy core_platform_api_policy =
+      hiddenapi::EnforcementPolicyFromInt(std::get<1>(GetParam()));
+  bool core_platform_api_enforcing =
+      (core_platform_api_policy == hiddenapi::EnforcementPolicy::kEnabled);
+
+  std::string test_file_prefix =
+      std::string("/ApiPolicyTest_PlatformDomain_") +
+      hiddenapi::EnforcementPolicyToString(hidden_api_policy) + "_" +
+      hiddenapi::EnforcementPolicyToString(core_platform_api_policy);
+
+  std::string dex_location = GetScratchDir() + test_file_prefix + ".jar";
+  std::string oat_location = GetScratchDir() + test_file_prefix + ".oat";
+  std::string vdex_location = GetScratchDir() + test_file_prefix + ".vdex";
+  std::string system_dex_location = GetAndroidRoot() + "/framework" + test_file_prefix + ".jar";
+  EXPECT_TRUE(LocationIsOnSystemFramework(system_dex_location.c_str()));
+
+  Copy(GetDexSrc1(), dex_location);
+  Copy(GetDexSrc1(), system_dex_location);
+
+  // Compile dex file with `system_dex_location` and given API enforcement policies.
+  GenerateOatForTest(system_dex_location.c_str(),
+                     oat_location.c_str(),
+                     kApiPolicyTestCompilerFilter,
+                     hidden_api_policy,
+                     core_platform_api_policy);
+
+  android::base::unique_fd vdex_fd(open(vdex_location.c_str(), O_RDONLY | O_CLOEXEC));
+  android::base::unique_fd oat_fd(open(oat_location.c_str(), O_RDONLY | O_CLOEXEC));
+
+  // Check expectations about dexopt-needed with varying target API enforcement policies.
+  // Only core platform API enforcement policy configuration should matter.
+  {
+    android::base::unique_fd zip_fd(open(system_dex_location.c_str(), O_RDONLY | O_CLOEXEC));
+    OatFileAssistant oat_file_assistant(system_dex_location.c_str(),
+                                        kRuntimeISA,
+                                        false,
+                                        false,
+                                        vdex_fd.get(),
+                                        oat_fd.get(),
+                                        zip_fd.get());
+    EXPECT_EQ(core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, false, false));
+    EXPECT_EQ(core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, true, false));
+    EXPECT_EQ(!core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, false, true));
+    EXPECT_EQ(!core_platform_api_enforcing,
+              IsDexOptNeeded(oat_file_assistant, true, true));
+  }
+
+  // Check that if API domain changes (from platform domain to application domain
+  // by changing dex location to not /system/), dexopt is always needed.
+  {
+    android::base::unique_fd zip_fd(open(dex_location.c_str(), O_RDONLY | O_CLOEXEC));
+    OatFileAssistant oat_file_assistant(dex_location.c_str(),
+                                        kRuntimeISA,
+                                        false,
+                                        false,
+                                        vdex_fd.get(),
+                                        oat_fd.get(),
+                                        zip_fd.get());
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, false, false));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, true, false));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, false, true));
+    EXPECT_TRUE(IsDexOptNeeded(oat_file_assistant, true, true));
+  }
+}
+
+INSTANTIATE_TEST_SUITE_P(
+    AllPolicyCombinations,
+    OatFileAssistantApiPolicyTest,
+    ::testing::Combine(
+        ::testing::Range(0u, static_cast<unsigned>(hiddenapi::EnforcementPolicy::kMax) + 1),
+        ::testing::Range(0u, static_cast<unsigned>(hiddenapi::EnforcementPolicy::kMax) + 1)));
+
 // TODO: More Tests:
 //  * Test class linker falls back to unquickened dex for DexNoOat
 //  * Test class linker falls back to unquickened dex for MultiDexNoOat
