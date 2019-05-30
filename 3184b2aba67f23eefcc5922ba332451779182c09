@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0d188d7_ecc0941b",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-30T15:46:30Z",
+      "side": 1,
+      "message": "I wonder whether we should put this into a non-ALWAYS_INLINE method. It\u0027s definitely cold code, normally.",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 19
+      },
+      "revId": "3184b2aba67f23eefcc5922ba332451779182c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
