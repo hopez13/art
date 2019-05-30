@@ -37,6 +37,7 @@
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_loader.h"
 #include "handle_scope-inl.h"
+#include "hidden_api.h"
 #include "jit/debugger_interface.h"
 #include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
@@ -527,6 +528,7 @@ static jint GetDexOptNeeded(JNIEnv* env,
                             const char* instruction_set,
                             const char* compiler_filter_name,
                             const char* class_loader_context,
+                            hiddenapi::EnforcementPolicy hiddenapi_policy,
                             bool profile_changed,
                             bool downgrade) {
   if ((filename == nullptr) || !OS::FileExists(filename)) {
@@ -579,7 +581,9 @@ static jint GetDexOptNeeded(JNIEnv* env,
   return oat_file_assistant.GetDexOptNeeded(filter,
                                             profile_changed,
                                             downgrade,
-                                            context.get());
+                                            context.get(),
+                                            /* context_fds= */ std::vector<int>(),
+                                            hiddenapi_policy);
 }
 
 static jstring DexFile_getDexFileStatus(JNIEnv* env,
@@ -665,6 +669,7 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
                                     jstring javaInstructionSet,
                                     jstring javaTargetCompilerFilter,
                                     jstring javaClassLoaderContext,
+                                    jint javaHiddenApiPolicy,
                                     jboolean newProfile,
                                     jboolean downgrade) {
   ScopedUtfChars filename(env, javaFilename);
@@ -687,11 +692,19 @@ static jint DexFile_getDexOptNeeded(JNIEnv* env,
     return -1;
   }
 
+  // All integer values corresponding to EnforcementPolicy enum values are non-negative.
+  // Treat any negative number as "not-set" and replace it with the enforcement policy
+  // of the current process.
+  hiddenapi::EnforcementPolicy hiddenapi_policy = (javaHiddenApiPolicy < 0)
+      ? Runtime::Current()->GetHiddenApiEnforcementPolicy()
+      : hiddenapi::EnforcementPolicyFromInt(javaHiddenApiPolicy);
+
   return GetDexOptNeeded(env,
                          filename.c_str(),
                          instruction_set.c_str(),
                          target_compiler_filter.c_str(),
                          class_loader_context.c_str(),
+                         hiddenapi_policy,
                          newProfile == JNI_TRUE,
                          downgrade == JNI_TRUE);
 }
@@ -910,7 +923,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(DexFile, getClassNameList, "(Ljava/lang/Object;)[Ljava/lang/String;"),
   NATIVE_METHOD(DexFile, isDexOptNeeded, "(Ljava/lang/String;)Z"),
   NATIVE_METHOD(DexFile, getDexOptNeeded,
-                "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)I"),
+                "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZZ)I"),
   NATIVE_METHOD(DexFile, openDexFileNative,
                 "(Ljava/lang/String;"
                 "Ljava/lang/String;"
