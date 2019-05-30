@@ -73,8 +73,13 @@ static inline std::ostream& operator<<(std::ostream& os, const AccessContext& va
   return os;
 }
 
+static inline std::ostream& operator<<(std::ostream& os, const EnforcementPolicy& value) {
+  os << EnforcementPolicyToString(value);
+  return os;
+}
+
 static Domain DetermineDomainFromLocation(const std::string& dex_location,
-                                          ObjPtr<mirror::ClassLoader> class_loader) {
+                                          bool is_boot_classpath) {
   // If running with APEX, check `path` against known APEX locations.
   // These checks will be skipped on target buildbots where ANDROID_ART_ROOT
   // is set to "/system".
@@ -93,7 +98,7 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
     return Domain::kPlatform;
   }
 
-  if (class_loader.IsNull()) {
+  if (is_boot_classpath) {
     LOG(WARNING) << "DexFile " << dex_location
         << " is in boot class path but is not in a known location";
     return Domain::kPlatform;
@@ -102,14 +107,85 @@ static Domain DetermineDomainFromLocation(const std::string& dex_location,
   return Domain::kApplication;
 }
 
-void InitializeDexFileDomain(const DexFile& dex_file, ObjPtr<mirror::ClassLoader> class_loader) {
-  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), class_loader);
+void InitializeDexFileDomain(const DexFile& dex_file, bool is_boot_classpath) {
+  Domain dex_domain = DetermineDomainFromLocation(dex_file.GetLocation(), is_boot_classpath);
 
   // Assign the domain unless a more permissive domain has already been assigned.
   // This may happen when DexFile is initialized as trusted.
   if (IsDomainMoreTrustedThan(dex_domain, dex_file.GetHiddenapiDomain())) {
     dex_file.SetHiddenapiDomain(dex_domain);
   }
+}
+
+// Returns true if an oat file compiled with `oat_policy` can run in a process
+// with `runtime_policy` configuration. Policies are considered "compatible" if
+// they have the same Java semantics, i.e. whether access is granted or whether
+// an Exception/Error is thrown when the policy is violated. The 'just-warn' policy
+// is therefore equivalent to 'disabled' policy as neither is enforcing.
+static bool AreEnforcementPoliciesCompatible(EnforcementPolicy oat_policy,
+                                             EnforcementPolicy runtime_policy) {
+  bool oat_enforcing = (oat_policy == EnforcementPolicy::kEnabled);
+  bool runtime_enforcing = (runtime_policy == EnforcementPolicy::kEnabled);
+  return runtime_enforcing == oat_enforcing;
+}
+
+bool ShouldAcceptOatFile(const OatFile& oat_file,
+                         const std::string& dex_location,
+                         const std::string& oat_location,
+                         bool is_boot_classpath,
+                         EnforcementPolicy runtime_hidden_api_policy,
+                         EnforcementPolicy runtime_core_platform_api_policy) {
+  const OatHeader& oat_header = oat_file.GetOatHeader();
+  Domain dex_domain = DetermineDomainFromLocation(dex_location, is_boot_classpath);
+
+  switch (dex_domain) {
+    case Domain::kApplication:
+      // Access from application domain to (core) platform domain is controlled by
+      // hidden API enforcement policy.
+      if (!AreEnforcementPoliciesCompatible(oat_header.GetHiddenApiEnforcementPolicy(),
+                                            runtime_hidden_api_policy)) {
+        LOG(WARNING) << "Hidden API enforcement policy check failed: "
+            << (is_boot_classpath ? "boot classpath " : "")
+            << "oat file " << oat_location << " was compiled with policy \""
+            << oat_header.GetHiddenApiEnforcementPolicy()
+            << "\" while the target runtime policy is \""
+            << runtime_hidden_api_policy << "\"";
+        return false;
+      }
+      FALLTHROUGH_INTENDED;
+    case Domain::kPlatform:
+      // Access from platform domain to core platform domain is controlled by
+      // core platform API enforcement policy.
+      if (!AreEnforcementPoliciesCompatible(oat_header.GetCorePlatformApiEnforcementPolicy(),
+                                            runtime_core_platform_api_policy)) {
+        LOG(WARNING) << "Core platform API enforcement policy check failed: "
+            << (is_boot_classpath ? "boot classpath " : "")
+            << "oat file " << oat_location << " was compiled with policy \""
+            << oat_header.GetCorePlatformApiEnforcementPolicy()
+            << "\" while the target runtime policy is \""
+            << runtime_core_platform_api_policy << "\"";
+        return false;
+      }
+      FALLTHROUGH_INTENDED;
+    case Domain::kCorePlatform:
+      // Nothing to check. Core platform can always access all other domains.
+      break;
+  }
+
+  // Check that all oat dex files share the same domain as `dex location`.
+  for (const OatDexFile* oat_dex_file : oat_file.GetOatDexFiles()) {
+    const std::string& oat_dex_location = oat_dex_file->GetDexFileLocation();
+    Domain oat_dex_domain = DetermineDomainFromLocation(oat_dex_location, is_boot_classpath);
+    if (dex_domain != oat_dex_domain) {
+      LOG(WARNING) << "API domain check failed: "
+          << (is_boot_classpath ? "boot classpath " : "")
+          << "oat dex file location " << oat_dex_location
+          << " has a different API domain from dex location " << dex_location;
+      return false;
+    }
+  }
+
+  return true;
 }
 
 namespace detail {
@@ -197,7 +273,7 @@ void MemberSignature::Dump(std::ostream& os) const {
 }
 
 void MemberSignature::WarnAboutAccess(AccessMethod access_method,
-                                      hiddenapi::ApiList list,
+                                      ApiList list,
                                       bool access_denied) {
   LOG(WARNING) << "Accessing hidden " << (type_ == kField ? "field " : "method ")
                << Dumpable<MemberSignature>(*this) << " (" << list << ", " << access_method

@@ -43,6 +43,10 @@ class DexoptTest : public Dex2oatEnvironmentTest {
                           CompilerFilter::Filter filter,
                           bool with_alternate_image,
                           const char* compilation_reason = nullptr,
+                          hiddenapi::EnforcementPolicy hidden_api_policy =
+                              Runtime::Current()->GetHiddenApiEnforcementPolicy(),
+                          hiddenapi::EnforcementPolicy core_platform_api_policy =
+                              Runtime::Current()->GetCorePlatformApiEnforcementPolicy(),
                           const std::vector<std::string>& extra_args = {});
 
   // Generate an odex file for the purposes of test.
@@ -50,13 +54,19 @@ class DexoptTest : public Dex2oatEnvironmentTest {
                            const std::string& odex_location,
                            CompilerFilter::Filter filter,
                            const char* compilation_reason = nullptr,
-                          const std::vector<std::string>& extra_args = {});
+                           const std::vector<std::string>& extra_args = {});
 
   // Generate an oat file for the given dex location in its oat location (under
   // the dalvik cache).
   void GenerateOatForTest(const char* dex_location,
                           CompilerFilter::Filter filter,
                           bool with_alternate_image);
+
+  void GenerateOatForTest(const std::string& dex_location,
+                          const std::string& oat_location,
+                          CompilerFilter::Filter filter,
+                          hiddenapi::EnforcementPolicy hidden_api_policy,
+                          hiddenapi::EnforcementPolicy core_platform_api_policy);
 
   // Generate a standard oat file in the oat location.
   void GenerateOatForTest(const char* dex_location, CompilerFilter::Filter filter);

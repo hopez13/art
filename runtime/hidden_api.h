@@ -28,6 +28,9 @@
 #include "runtime.h"
 
 namespace art {
+
+class OatFile;
+
 namespace hiddenapi {
 
 // Hidden API enforcement policy
@@ -44,6 +47,28 @@ inline EnforcementPolicy EnforcementPolicyFromInt(int api_policy_int) {
   DCHECK_GE(api_policy_int, 0);
   DCHECK_LE(api_policy_int, static_cast<int>(EnforcementPolicy::kMax));
   return static_cast<EnforcementPolicy>(api_policy_int);
+}
+
+inline constexpr const char* EnforcementPolicyToString(EnforcementPolicy policy) {
+  switch (policy) {
+    case EnforcementPolicy::kDisabled:
+      return "disabled";
+    case EnforcementPolicy::kJustWarn:
+      return "just-warn";
+    case EnforcementPolicy::kEnabled:
+      return "enabled";
+  }
+}
+
+inline constexpr EnforcementPolicy EnforcementPolicyFromString(const std::string_view& policy) {
+  if (policy == EnforcementPolicyToString(EnforcementPolicy::kDisabled)) {
+    return EnforcementPolicy::kDisabled;
+  } else if (policy == EnforcementPolicyToString(EnforcementPolicy::kJustWarn)) {
+    return EnforcementPolicy::kJustWarn;
+  } else {
+    CHECK_EQ(policy, EnforcementPolicyToString(EnforcementPolicy::kEnabled));
+    return EnforcementPolicy::kEnabled;
+  }
 }
 
 // Hidden API access method
@@ -375,7 +400,18 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
 // Called by class linker when a new dex file has been registered. Assigns
 // the AccessContext domain to the newly-registered dex file based on its
 // location and class loader.
-void InitializeDexFileDomain(const DexFile& dex_file, ObjPtr<mirror::ClassLoader> class_loader);
+void InitializeDexFileDomain(const DexFile& dex_file, bool is_boot_classpath);
+
+// Returns whether an oat file was compiled with enforcement policies compatible
+// with the runtime configuration.
+// NB: Hidden API enforcement policy is specified with an argument because system server
+// may check if dexopt is needed from its own process on behalf of an app process.
+bool ShouldAcceptOatFile(const OatFile& oat_file,
+                         const std::string& dex_location,
+                         const std::string& oat_location,
+                         bool is_boot_classpath,
+                         EnforcementPolicy runtime_hidden_api_policy,
+                         EnforcementPolicy runtime_core_platform_api_policy);
 
 // Returns true if access to `member` should be denied in the given context.
 // The decision is based on whether the caller is in a trusted context or not.
