@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f68ed3d8_ffad7160",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-30T17:03:40Z",
+      "side": 1,
+      "message": "Args \u003d variables live in registers and clang is happy.\nInstance \u003d variables are access via \u0027this\u0027 pointer so they must be push to stack.\nEven thought the call is never executed, forcing things to live on stack has wider consequences beyond this statement. \n\nI think it is C++\u0027s fault.  It is one of those \"someone might took pointer to your variable in the call and modified it later\".  So C++ semantics requires whole lot of extra re-loading from memory to be sure.\n\nAnyway, regression fixed in last PS, with the addition of the static.",
+      "parentUuid": "b9a4da87_47937733",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18558453_63547928",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 3
