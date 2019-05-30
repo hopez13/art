@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "8789ebb5_47e0e684",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-30T17:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21155de6_cf78e5d5",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18558453_63547928",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 3
@@ -165,6 +189,30 @@
       "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8378f28a_65af5302",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-05-30T17:12:41Z",
+      "side": 1,
+      "message": "Looking closer at how the VisitMonitors is implemented it should be fine. I was hesitant since DoMonitorExit has suspend points in it.\n\nDone.",
+      "parentUuid": "18558453_63547928",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 21
+      },
+      "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
