@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "47202203_c70bf0d2",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-05-30T17:07:12Z",
+      "side": 1,
+      "message": "I am hoping to gradually refactor the switch interpreter into a state where it is not stressing the compiler so much, and to make it less fragile in cases like this.  I do agree that the regression was non-obvious.",
+      "parentUuid": "f68ed3d8_ffad7160",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "e1f79b1534c6c7b697d653fe0a5435fe4260d03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18558453_63547928",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 3
