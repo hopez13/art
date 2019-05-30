@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "f85934a3_453bf96a",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/PackageAndClassName.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-05-30T13:58:02Z",
+      "side": 1,
+      "message": "ok; it may be cleaner to create a new instance of PackageAndClassName in those cases, but ok as is too",
+      "parentUuid": "dd2811d6_dce8abe4",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "412659ca29a32006324c2172a5724365aeeeea20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ad187282_6048a156",
         "filename": "tools/class2greylist/src/com/android/class2greylist/PackageAndClassName.java",
         "patchSetId": 9
