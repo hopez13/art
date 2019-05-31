@@ -226,6 +226,7 @@ class Instruction {
       return static_cast<size_t>(result);
     }
   }
+  ALWAYS_INLINE static constexpr size_t SizeInCodeUnits(Format format);
 
   // Code units required to calculate the size of the instruction.
   size_t CodeUnitsRequiredForSizeComputation() const {
