@@ -46,6 +46,29 @@
       "revId": "ff8ec2d2ca6fddee15031c4b1da4824011f27076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7679fa91_7c69856c",
+        "filename": "test/1946-list-descriptors/src-art/art/Test1946.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-31T17:48:42Z",
+      "side": 1,
+      "message": "Isn\u0027t this superfluous now? Just make it an equals instead of containsAll?",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 63
+      },
+      "revId": "ff8ec2d2ca6fddee15031c4b1da4824011f27076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
