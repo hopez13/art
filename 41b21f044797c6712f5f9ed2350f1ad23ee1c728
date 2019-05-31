@@ -22,6 +22,30 @@
       "revId": "41b21f044797c6712f5f9ed2350f1ad23ee1c728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bdff12e_527f8202",
+        "filename": "openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-05-31T08:40:21Z",
+      "side": 1,
+      "message": "That\u0027s possible with std::enable_if\u003c\u003e but I\u0027m not too eager to add them.\n\nAnother option could be a free function found by the argument-dependent name lookup. I\u0027m not too keen on that either.",
+      "parentUuid": "00bf24d2_e01f39d7",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 78
+      },
+      "revId": "41b21f044797c6712f5f9ed2350f1ad23ee1c728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
