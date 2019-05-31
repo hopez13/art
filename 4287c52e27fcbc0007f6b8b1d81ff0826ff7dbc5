@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c48b092_50642530",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3382,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-31T21:01:09Z",
+      "side": 1,
+      "message": "serves?",
+      "range": {
+        "startLine": 3382,
+        "startChar": 36,
+        "endLine": 3382,
+        "endChar": 43
+      },
+      "revId": "4287c52e27fcbc0007f6b8b1d81ff0826ff7dbc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0459d0bc_1dbcc285",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-05-31T21:01:09Z",
+      "side": 1,
+      "message": "This is a bit unclear. Can you please elaborate a bit more?",
+      "range": {
+        "startLine": 162,
+        "startChar": 38,
+        "endLine": 163,
+        "endChar": 53
+      },
+      "revId": "4287c52e27fcbc0007f6b8b1d81ff0826ff7dbc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
