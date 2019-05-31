@@ -93,6 +93,30 @@
       "revId": "ff8ec2d2ca6fddee15031c4b1da4824011f27076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ea5ab65_80e8018c",
+        "filename": "test/1946-list-descriptors/src-art/art/Test1946.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-05-31T17:55:08Z",
+      "side": 1,
+      "message": "I looked into the implementation, and yeah, looks like the equals implementation isn\u0027t optimized and does containsAll, anyways.",
+      "parentUuid": "3a16b31d_331808d7",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 63
+      },
+      "revId": "ff8ec2d2ca6fddee15031c4b1da4824011f27076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
