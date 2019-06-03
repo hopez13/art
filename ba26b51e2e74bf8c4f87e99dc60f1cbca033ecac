@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60379bb0_cc180b37",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2019-06-03T17:48:44Z",
+      "side": 1,
+      "message": "Here we skip via return, but we don\u0027t see to have a similar return in the next skipping section. Am I missing something?",
+      "range": {
+        "startLine": 563,
+        "startChar": 10,
+        "endLine": 563,
+        "endChar": 17
+      },
+      "revId": "ba26b51e2e74bf8c4f87e99dc60f1cbca033ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
