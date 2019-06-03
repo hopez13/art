@@ -3830,6 +3830,7 @@ bool MethodVerifier<kVerifierDebug>::HandleMoveException(const Instruction* inst
       }
       if (common_super == nullptr && first_unresolved != nullptr) {
         // Only had unresolved types, this block is unreachable.
+        Fail(VERIFY_ERROR_UNRESOLVED_CATCH) << "Unresolved catch handler, unreachable code";
         return *first_unresolved;
       }
     }
@@ -5565,6 +5566,10 @@ std::ostream& MethodVerifier::Fail(VerifyError error) {
       have_pending_hard_failure_ = true;
       break;
     }
+
+    case VERIFY_ERROR_UNRESOLVED_CATCH:
+      // Nothing to do, just remember the failure type.
+      break;
   }
   failures_.push_back(error);
   std::string location(StringPrintf("%s: [0x%X] ", dex_file_->PrettyMethod(dex_method_idx_).c_str(),
