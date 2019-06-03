@@ -1,0 +1,492 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d447dc7_0609ff4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "This needs way better documentation.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a71f4816_6adff3b7",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Strange indent.",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 34
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92baa0a3_048cdbfb",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1410,
+        "startChar": 100,
+        "endLine": 1410,
+        "endChar": 101
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "768af36e_5b76cd72",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 1436,
+        "startChar": 0,
+        "endLine": 1436,
+        "endChar": 14
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17a5f1c9_d41c33ec",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 283,
+        "startChar": 6,
+        "endLine": 283,
+        "endChar": 10
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49a321b_de5b3eec",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why not anonymous?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 10,
+        "endLine": 1107,
+        "endChar": 14
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521fb4ee_2c830de7",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Something is incorrectly annotated here. You can\u0027t acquire and assert you\u0027re already holding it.\n\nNote that constructors behave as if they\u0027re annotated NO_THREAD_SAFETY_ANALYSIS, so you have to be extra careful. Considering your fields aren\u0027t const, it may be worth it to to use a static function an move-assignment operator instead (or an Init function called by the constructor).",
+      "range": {
+        "startLine": 1121,
+        "startChar": 4,
+        "endLine": 1122,
+        "endChar": 70
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a39657a7_eb503939",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Should be annotated as REQUIRES(!)",
+      "range": {
+        "startLine": 1136,
+        "startChar": 48,
+        "endLine": 1136,
+        "endChar": 74
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "014c8689_d96addfe",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Wrong indent.",
+      "range": {
+        "startLine": 1288,
+        "startChar": 4,
+        "endLine": 1288,
+        "endChar": 8
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87d1c7ef_11f8df77",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why are you not using l here?",
+      "range": {
+        "startLine": 1301,
+        "startChar": 16,
+        "endLine": 1301,
+        "endChar": 17
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8ae588_69dfbaab",
+        "filename": "openjdkjvmti/ti_thread.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "What does \"suppress\" meaning? Maybe \"Stash\" might be a better name. There\u0027s also a version of this in thread.cc, consider unifying.",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e58c3d8b_6d21d8b1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why not call the version above?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 6,
+        "endLine": 1220,
+        "endChar": 7
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ecee375_27194fa9",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Document what an OptionalFrame is/means.",
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd56f152_2ec8ca7b",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Unnecessary change.",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 12
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fcf8190_5dad735a",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Superfluous.",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df55a2a9_6df05024",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "If it is NO_INLINE why put it in the header.",
+      "range": {
+        "startLine": 157,
+        "startChar": 7,
+        "endLine": 157,
+        "endChar": 16
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d40f5e9a_53707d86",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Can remove again?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f208667_22c24278",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "You should defer these into the function. I wouldn\u0027t trust Clang to understand that they are side-effect free.",
+      "range": {
+        "startLine": 64,
+        "startChar": 48,
+        "endLine": 65,
+        "endChar": 72
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e73d3e_7bbf300b",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "ART code style is no else here.",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 12
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50659b7c_efb6d6dc",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2527,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why isn\u0027t this local to CheckForceReturn?",
+      "range": {
+        "startLine": 2526,
+        "startChar": 2,
+        "endLine": 2527,
+        "endChar": 95
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce269c89_25c47846",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fbb8b88_a4494f68",
+        "filename": "runtime/trace.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-03T18:34:17Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
