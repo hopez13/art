@@ -22,6 +22,30 @@
       "revId": "3aa6096abc6142aa229b488e648e0dd28cdf6490",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1ccd594_9a6f8d35",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/NoAlternativesSpecifiedError.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-06-03T10:47:45Z",
+      "side": 1,
+      "message": "Might as well take care of this, since I\u0027ve come this far :).",
+      "parentUuid": "8de10598_671207f9",
+      "range": {
+        "startLine": 25,
+        "startChar": 33,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "3aa6096abc6142aa229b488e648e0dd28cdf6490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
