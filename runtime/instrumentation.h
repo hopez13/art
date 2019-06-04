@@ -78,7 +78,7 @@ struct InstrumentationListener {
                             ArtMethod* method,
                             uint32_t dex_pc,
                             Handle<mirror::Object> return_value)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
   // Call-back for when a method is exited. The implementor should either handler-ize the return
   // value (if appropriate) or use the alternate MethodExited callback instead if they need to
@@ -118,7 +118,7 @@ struct InstrumentationListener {
                             uint32_t dex_pc,
                             ArtField* field,
                             Handle<mirror::Object> field_value)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
   // Call-back for when we write into a field.
   virtual void FieldWritten(Thread* thread,
