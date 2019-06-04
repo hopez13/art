@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "87d1e810_7f4b97ee",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-04T19:09:58Z",
+      "side": 1,
+      "message": "I find using moves like that confusing and error-prone in C++ and I\u0027d like to avoid it.\n\nAlso are you sure. IIRC i got some errors when writing this.",
+      "parentUuid": "683369fc_e249857f",
+      "range": {
+        "startLine": 1121,
+        "startChar": 4,
+        "endLine": 1122,
+        "endChar": 70
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a39657a7_eb503939",
         "filename": "openjdkjvmti/ti_stack.cc",
         "patchSetId": 13
@@ -520,6 +544,30 @@
     },
     {
       "key": {
+        "uuid": "386cc6f1_11bf4ad9",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-04T19:09:58Z",
+      "side": 1,
+      "message": "neither is actually read so it should be equivalent.",
+      "parentUuid": "dbc8e9f6_63f1c905",
+      "range": {
+        "startLine": 1301,
+        "startChar": 16,
+        "endLine": 1301,
+        "endChar": 17
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8ae588_69dfbaab",
         "filename": "openjdkjvmti/ti_thread.h",
         "patchSetId": 13
@@ -626,6 +674,30 @@
       "side": 1,
       "message": "I don\u0027t see the argument here. Shared code is good, and there isn\u0027t a ton of handles. Correctly factored you have exactly your result handle as the only addition.",
       "parentUuid": "dc964a12_234cfebd",
+      "range": {
+        "startLine": 1216,
+        "startChar": 6,
+        "endLine": 1220,
+        "endChar": 7
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d809b62c_35c67c36",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-04T19:09:58Z",
+      "side": 1,
+      "message": "Ah sorry I was confused about which \u0027above\u0027 you meant. Done.",
+      "parentUuid": "1806f5b2_27c0a0f0",
       "range": {
         "startLine": 1216,
         "startChar": 6,
