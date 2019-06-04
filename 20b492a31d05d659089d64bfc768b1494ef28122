@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "80084532_39df992f",
+        "filename": "openjdkjvmti/ti_stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-04T19:23:51Z",
+      "side": 1,
+      "message": "https://clang.llvm.org/docs/ThreadSafetyAnalysis.html, section \"No checking inside constructors and destructors.\"\n\nConsidering you missed the negative require and were not stopped at the tscl_mu below, I\u0027m pretty sure it was not and is not checking (or the flags for this lib are misconfigured).",
+      "parentUuid": "87d1e810_7f4b97ee",
+      "range": {
+        "startLine": 1121,
+        "startChar": 4,
+        "endLine": 1122,
+        "endChar": 70
+      },
+      "revId": "20b492a31d05d659089d64bfc768b1494ef28122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a39657a7_eb503939",
         "filename": "openjdkjvmti/ti_stack.cc",
         "patchSetId": 13
