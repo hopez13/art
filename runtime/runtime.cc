@@ -2385,6 +2385,7 @@ bool Runtime::IsActiveTransaction() const {
 void Runtime::EnterTransactionMode() {
   DCHECK(IsAotCompiler());
   DCHECK(!IsActiveTransaction());
+  GetClassLinker()->MakeInitializedClassesVisiblyInitialized(Thread::Current(), /*wait=*/ true);
   preinitialization_transactions_.push_back(std::make_unique<Transaction>());
 }
 
