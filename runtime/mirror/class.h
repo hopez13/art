@@ -174,7 +174,7 @@ class MANAGED Class final : public Object {
   // Returns true if the class is initialized.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsInitialized() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetStatus<kVerifyFlags>() == ClassStatus::kInitialized;
+    return GetStatus<kVerifyFlags>() >= ClassStatus::kInitialized;
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
