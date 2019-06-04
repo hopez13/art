@@ -116,7 +116,11 @@ static bool GenerateImage(const std::string& image_filename,
   // We should clean up so we are more likely to have room for the image.
   if (Runtime::Current()->IsZygote()) {
     LOG(INFO) << "Pruning dalvik-cache since we are generating an image and will need to recompile";
-    PruneDalvikCache(image_isa);
+    if (IsOdexStored(image_isa)) {
+      UnlinkOdexStored(image_isa);
+    } else {
+      PruneDalvikCache(image_isa);
+    }
   }
 
   std::vector<std::string> arg_vector;
@@ -2019,7 +2023,11 @@ bool ImageSpace::LoadBootImage(
     bool check_space = CheckSpace(dalvik_cache, &local_error_msg);
     if (!check_space) {
       LOG(WARNING) << local_error_msg << " Preemptively pruning the dalvik cache.";
-      PruneDalvikCache(image_isa);
+      if (IsOdexStored(image_isa)) {
+        LOG(INFO) << "Don't prune dalvikcache when there is ./stored marker.";
+      } else {
+        PruneDalvikCache(image_isa);
+      }
 
       // Re-evaluate the image.
       loader.FindImageFiles();

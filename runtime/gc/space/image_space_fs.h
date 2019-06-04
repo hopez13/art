@@ -104,6 +104,23 @@ static void PruneDalvikCache(InstructionSet isa) {
   }
 }
 
+static bool IsOdexStored(const InstructionSet isa) {
+  const std::string isa_subdir = GetDalvikCache(GetInstructionSetString(isa));
+  const std::string stored_marker = isa_subdir + "/.stored";
+
+  return OS::FileExists(stored_marker.c_str());
+}
+
+static void UnlinkOdexStored(const InstructionSet isa) {
+  const std::string isa_subdir = GetDalvikCache(GetInstructionSetString(isa));
+  const std::string stored_marker = isa_subdir + "/.stored";
+
+  if (unlink(stored_marker.c_str()) != 0) {
+    PLOG(ERROR) << "Unable to unlink " << stored_marker;
+  }
+  return;
+}
+
 // We write out an empty file to the zygote's ISA specific cache dir at the start of
 // every zygote boot and delete it when the boot completes. If we find a file already
 // present, it usually means the boot didn't complete. We wipe the entire dalvik
