@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "331daeca_e43a7c63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-06-05T17:15:26Z",
+      "side": 1,
+      "message": "Actually target.android64 semantics are a little strange (https://android.googlesource.com/platform/build/soong/+/933d2a8e636d6f126619be3a70e292c74777f248/android/arch.go?pli\u003d1#1347), and target.host64 shouldn\u0027t have different semantics.  Since you don\u0027t support darwin you could write this as:\n\ntarget: {\n    android: {\n        // Compile dex2oatd as a single binary (with no suffix).\n        compile_multilib: \"prefer32\",\n    },\n    host: {\n        // Compile dex2oatd as multilib binaries + symlink.\n        compile_multilib: \"both\",\n        symlink_preferred_arch: true,\n    },\n    linux_glibc_x86: {\n        suffix: \"32\",\n    },\n    linux_glibc_x86_64: {\n        suffix: \"64\",\n    },\n}",
+      "parentUuid": "b50373ab_5ea30744",
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acfc2205_78369423",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
