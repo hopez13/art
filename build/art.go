@@ -286,6 +286,7 @@ func init() {
 	android.RegisterModuleType("art_cc_library", artLibrary)
 	android.RegisterModuleType("art_cc_library_static", artStaticLibrary)
 	android.RegisterModuleType("art_cc_binary", artBinary)
+	android.RegisterModuleType("art_cc_binary_host", artBinaryHost)
 	android.RegisterModuleType("art_cc_test", artTest)
 	android.RegisterModuleType("art_cc_test_library", artTestLibrary)
 	android.RegisterModuleType("art_cc_defaults", artDefaultsFactory)
@@ -384,6 +385,15 @@ func artStaticLibrary() android.Module {
 
 func artBinary() android.Module {
 	binary, _ := cc.NewBinary(android.HostAndDeviceSupported)
+	module := binary.Init()
+
+	android.AddLoadHook(module, customLinker)
+	android.AddLoadHook(module, prefer32Bit)
+	return module
+}
+
+func artBinaryHost() android.Module {
+	binary, _ := cc.NewBinary(android.HostSupported)
 	module := binary.Init()
 
 	android.AddLoadHook(module, customLinker)
