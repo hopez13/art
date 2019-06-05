@@ -422,7 +422,7 @@ class InstructionHandler {
       return false;
     }
     BRANCH_INSTRUMENTATION(offset);
-    inst = inst->RelativeAt(offset);
+    AdvanceDexPc(offset);
     HandleBackwardBranch(offset);
     return true;
   }
@@ -441,8 +441,7 @@ class InstructionHandler {
       result = -1;
     }
     SetVReg(A(), result);
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   // Returns the same result as the function above. It only differs for NaN values.
@@ -457,8 +456,7 @@ class InstructionHandler {
       result = 1;
     }
     SetVReg(A(), result);
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
 #pragma clang diagnostic pop
@@ -471,7 +469,7 @@ class InstructionHandler {
       HandleBackwardBranch(offset);
     } else {
       BRANCH_INSTRUMENTATION(2);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -489,7 +487,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       (this->*setVReg)(A(), array->GetWithoutChecks(index));
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -507,7 +505,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       array->template SetWithoutChecks<transaction_active>(index, value);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -557,80 +555,67 @@ class InstructionHandler {
   }
 
   ALWAYS_INLINE bool NOP() REQUIRES_SHARED(Locks::mutator_lock_) {
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_WIDE_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_WIDE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_RESULT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), ResultRegister()->GetI());
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_RESULT_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), ResultRegister()->GetJ());
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_RESULT_OBJECT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), ResultRegister()->GetL());
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MOVE_EXCEPTION() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -638,8 +623,7 @@ class InstructionHandler {
     DCHECK(exception != nullptr) << "No pending exception on MOVE_EXCEPTION instruction";
     SetVRegReference(A(), exception);
     self->ClearException();
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool RETURN_VOID_NO_BARRIER() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -723,8 +707,7 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_16() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -734,8 +717,7 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -745,8 +727,7 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_HIGH16() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -756,32 +737,27 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_WIDE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), B());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_WIDE_32() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), B());
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), inst->WideVRegB());
-    inst = inst->Next_51l();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_WIDE_HIGH16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), static_cast<uint64_t>(B()) << 48);
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool CONST_STRING() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -790,7 +766,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), s);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -801,7 +777,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), s);
-      inst = inst->Next_3xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -816,7 +792,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), c);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -830,7 +806,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), mh);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -844,7 +820,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), mt);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -893,7 +869,7 @@ class InstructionHandler {
         ThrowClassCastException(c, obj->GetClass());
         HANDLE_PENDING_EXCEPTION();
       } else {
-        inst = inst->Next_2xx();
+        AdvanceDexPc();
       }
     }
     return true;
@@ -910,7 +886,7 @@ class InstructionHandler {
     } else {
       ObjPtr<mirror::Object> obj = GetVRegReference(B());
       SetVReg(A(), (obj != nullptr && obj->InstanceOf(c)) ? 1 : 0);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -922,7 +898,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVReg(A(), array->AsArray()->GetLength());
-      inst = inst->Next_1xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -954,7 +930,7 @@ class InstructionHandler {
         HANDLE_PENDING_EXCEPTION();
       }
       SetVRegReference(A(), obj);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -971,7 +947,7 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), obj);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     }
     return true;
   }
@@ -1004,8 +980,7 @@ class InstructionHandler {
     if (transaction_active) {
       RecordArrayElementsInTransaction(obj->AsArray(), payload->element_count);
     }
-    inst = inst->Next_3xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool THROW() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1187,7 +1162,7 @@ class InstructionHandler {
     ObjPtr<mirror::ObjectArray<mirror::Object>> array = a->AsObjectArray<mirror::Object>();
     if (array->CheckIsValidIndex(index) && array->CheckAssignable(val)) {
       array->SetWithoutChecks<transaction_active>(index, val);
-      inst = inst->Next_2xx();
+      AdvanceDexPc();
     } else {
       HANDLE_PENDING_EXCEPTION();
     }
@@ -1444,154 +1419,130 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool NEG_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), -GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool NOT_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), ~GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool NEG_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), -GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool NOT_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), ~GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool NEG_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), -GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool NEG_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), -GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool LONG_TO_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool LONG_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool LONG_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool FLOAT_TO_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     float val = GetVRegFloat(B());
     int32_t result = art_float_to_integral<int32_t, float>(val);
     SetVReg(A(), result);
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool FLOAT_TO_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     float val = GetVRegFloat(B());
     int64_t result = art_float_to_integral<int64_t, float>(val);
     SetVRegLong(A(), result);
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool FLOAT_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DOUBLE_TO_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     double val = GetVRegDouble(B());
     int32_t result = art_float_to_integral<int32_t, double>(val);
     SetVReg(A(), result);
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DOUBLE_TO_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     double val = GetVRegDouble(B());
     int64_t result = art_float_to_integral<int64_t, double>(val);
     SetVRegLong(A(), result);
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DOUBLE_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_BYTE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<int8_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_CHAR() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint16_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool INT_TO_SHORT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<int16_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1608,56 +1559,47 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool SHL_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) << (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) >> (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool USHR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint32_t>(GetVReg(B())) >> (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool AND_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & GetVReg(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | GetVReg(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ GetVReg(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeAdd(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeSub(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeMul(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1674,119 +1616,100 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) & GetVRegLong(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) | GetVRegLong(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) ^ GetVRegLong(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHL_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) << (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) >> (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool USHR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), static_cast<uint64_t>(GetVRegLong(B())) >> (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) + GetVRegFloat(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) - GetVRegFloat(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) * GetVRegFloat(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) / GetVRegFloat(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool REM_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), fmodf(GetVRegFloat(B()), GetVRegFloat(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) + GetVRegDouble(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) - GetVRegDouble(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) * GetVRegDouble(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) / GetVRegDouble(C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool REM_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), fmod(GetVRegDouble(B()), GetVRegDouble(C())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeAdd(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeSub(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeMul(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1806,64 +1729,55 @@ class InstructionHandler {
   ALWAYS_INLINE bool SHL_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) << (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) >> (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool USHR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, static_cast<uint32_t>(GetVReg(vregA)) >> (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool AND_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) & GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) | GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) ^ GetVReg(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeAdd(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeSub(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeMul(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1883,131 +1797,112 @@ class InstructionHandler {
   ALWAYS_INLINE bool AND_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) & GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) | GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) ^ GetVRegLong(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHL_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) << (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) >> (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool USHR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, static_cast<uint64_t>(GetVRegLong(vregA)) >> (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) + GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) - GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) * GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) / GetVRegFloat(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool REM_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, fmodf(GetVRegFloat(vregA), GetVRegFloat(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) + GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SUB_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) - GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) * GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) / GetVRegDouble(B()));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool REM_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, fmod(GetVRegDouble(vregA), GetVRegDouble(B())));
-    inst = inst->Next_1xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool RSUB_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(C(), GetVReg(B())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -2024,38 +1919,32 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool ADD_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool RSUB_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(C(), GetVReg(B())));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool MUL_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool DIV_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -2072,38 +1961,32 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool OR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool XOR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ C());
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHL_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) << (C() & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool SHR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) >> (C() & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool USHR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint32_t>(GetVReg(B())) >> (C() & 0x1f));
-    inst = inst->Next_2xx();
-    return true;
+    return AdvanceDexPc();
   }
 
   ALWAYS_INLINE bool UNUSED_3E() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -2210,6 +2093,14 @@ class InstructionHandler {
   void SetVRegReference(size_t i, ObjPtr<mirror::Object> val)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     shadow_frame.SetVRegReference(i, val);
+  }
+
+  // Go to the next instruction. Advances to the next (fall-through) instruction by default.
+  ALWAYS_INLINE bool AdvanceDexPc(int32_t offset = Instruction::SizeInCodeUnits(kFormat)) {
+    // TODO: Consider doing OSR here on backward branches (and return false from this method).
+    inst = inst->RelativeAt(offset);
+    DCHECK_LT(inst->GetDexPc(Insns()), Accessor().InsnsSizeInCodeUnits());
+    return true;
   }
 
   SwitchImplContext* const ctx;
