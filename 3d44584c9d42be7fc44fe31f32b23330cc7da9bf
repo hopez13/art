@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b50373ab_5ea30744",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-06-05T17:06:05Z",
+      "side": 1,
+      "message": "For symlink_preferred_arch we can just add `android:\"arch_variant\"` to the property definition.  multilib can\u0027t be embedded in host because they are both created at runtime alongside eachother.  We already support target.android32 and target.android64, I can easily add the same for target.host32 and target.host64.",
+      "parentUuid": "11af56c9_d01279a3",
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acfc2205_78369423",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
