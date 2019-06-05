@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11af56c9_d01279a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T14:58:34Z",
+      "side": 1,
+      "message": "AFAIU, you cannot conditionally use multilib suffixes (nor symlink_preferred_arch). Ideally, we wanted to have something like that:\n\n  target: {\n      android: {\n        // Compile dex2oatd as a single binary (with no suffix).\n        compile_multilib: \"prefer32\",\n      },\n      host: {\n          // Compile dex2oatd as multilib binaries + symlink.\n          compile_multilib: \"both\",\n          multilib: {\n              lib32: {\n                  suffix: \"32\",\n              },\n              lib64: {\n                  suffix: \"64\",\n              },\n          },\n          symlink_preferred_arch: true,\n      },\n  }",
+      "parentUuid": "f97c9576_1028d948",
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acfc2205_78369423",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
