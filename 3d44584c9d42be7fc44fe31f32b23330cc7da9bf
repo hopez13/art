@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c35166db_0d2822a8",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T17:34:25Z",
+      "side": 1,
+      "message": "Done in PS4.",
+      "parentUuid": "acfc2205_78369423",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 29
+      },
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b3b9a11_4f958dde",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 2
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "13cce06c_5a8b9009",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T17:34:25Z",
+      "side": 1,
+      "message": "Done in PS4.",
+      "parentUuid": "8b3b9a11_4f958dde",
+      "range": {
+        "startLine": 302,
+        "startChar": 11,
+        "endLine": 302,
+        "endChar": 19
+      },
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45293fab_88514367",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 2
@@ -139,6 +187,30 @@
       "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38ae6025_cf2edf9a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T17:34:25Z",
+      "side": 1,
+      "message": "I\u0027m not aware of a \"host-only\" property for `cc_binary` / `art_cc_binary` module types, so I don\u0027t think this is possible.",
+      "parentUuid": "45293fab_88514367",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 18
+      },
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
