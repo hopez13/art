@@ -280,8 +280,8 @@ art_cc_binary {
     },
 }
 
-art_cc_binary {
-    name: "dex2oatd",
+art_cc_defaults {
+    name: "dex2oatd-defaults",
     defaults: [
         "art_debug_defaults",
         "dex2oat-defaults",
@@ -300,12 +300,40 @@ art_cc_binary {
     static_libs: [
         "libartd-dex2oat",
     ],
+}
+
+art_cc_binary {
+    name: "dex2oatd-device",
+    stem: "dex2oatd",
+    host_supported: false,
+    defaults: [
+        "dex2oatd-defaults",
+    ],
     target: {
         android: {
             static_libs: [
                 "libz",
             ],
+            compile_multilib: "prefer32",
         },
+    },
+}
+
+// The host dex2oatd binary is defined as separate module from the target
+// dex2oatd binary above so that we can use different build strategies on
+// target and host:
+// - target dex2oatd is compiled as a "prefer32" module, producing a
+//   single 32-bit (or potentially 64-bit) binary ("dex2oatd");
+// - host dex2oatd is compiled as a multilib module, producing both 32- and
+//   64-bit binaries ("dex2oatd32" and "dex2oatd64") as well as a symlink
+//   ("dex2oatd") pointing to one of these binaries (the "primary target").
+art_cc_binary_host {
+    name: "dex2oatd-host",
+    stem: "dex2oatd",
+    defaults: [
+        "dex2oatd-defaults",
+    ],
+    target: {
         host: {
             shared_libs: [
                 "libz",
