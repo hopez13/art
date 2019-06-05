@@ -135,7 +135,6 @@ class InstructionHandler {
     int32_t displacement =
         static_cast<int32_t>(shadow_frame.GetDexPC()) - static_cast<int32_t>(dex_pc);
     SetNextInstruction(inst->RelativeAt(displacement));
-    inst = inst->RelativeAt(displacement);
     return false;  // Stop executing this opcode and continue in the exception handler.
   }
 
@@ -148,15 +147,13 @@ class InstructionHandler {
     //    address (for 'this' argument). Make a copy of the handler just for the slow path.
     //  * The modifiable fields should also be in registers, so we don't want to store their
     //    address even in the handler copy. Make a copy of them just for the call as well.
-    const Instruction* inst2 = inst;
-    const Instruction* next2 = next;
-    bool exit2 = exit_interpreter_loop;
+    const Instruction* next_copy = next;
+    bool exit_copy = exit_interpreter_loop;
     InstructionHandler<do_access_check, transaction_active, kFormat> handler_copy(
-        ctx, instrumentation, self, shadow_frame, dex_pc, inst2, inst_data, next2, exit2);
+        ctx, instrumentation, self, shadow_frame, dex_pc, inst, inst_data, next_copy, exit_copy);
     bool result = handler_copy.HandlePendingExceptionWithInstrumentationImpl(instr);
-    inst = inst2;
-    next = next2;
-    exit_interpreter_loop = exit2;
+    next = next_copy;
+    exit_interpreter_loop = exit_copy;
     return result;
   }
 
@@ -191,7 +188,6 @@ class InstructionHandler {
       }
     } else {
       SetNextInstruction(next_inst);
-      inst = next_inst;
     }
     return true;
   }
@@ -208,7 +204,6 @@ class InstructionHandler {
       }
     } else {
       SetNextInstruction(next_inst);
-      inst = next_inst;
     }
     return true;
   }
@@ -297,7 +292,7 @@ class InstructionHandler {
     if (IsBackwardBranch(offset)) {
       HotnessUpdate();
       /* Record new dex pc early to have consistent suspend point at loop header. */
-      shadow_frame.SetDexPC(inst->GetDexPc(Insns()));
+      shadow_frame.SetDexPC(next->GetDexPc(Insns()));
       self->AllowThreadSuspension();
     }
   }
@@ -429,7 +424,6 @@ class InstructionHandler {
     }
     BRANCH_INSTRUMENTATION(offset);
     SetNextInstruction(inst->RelativeAt(offset));
-    inst = inst->RelativeAt(offset);
     HandleBackwardBranch(offset);
     return true;
   }
@@ -448,7 +442,6 @@ class InstructionHandler {
       result = -1;
     }
     SetVReg(A(), result);
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -464,7 +457,6 @@ class InstructionHandler {
       result = 1;
     }
     SetVReg(A(), result);
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -475,11 +467,9 @@ class InstructionHandler {
     if (cond) {
       BRANCH_INSTRUMENTATION(offset);
       SetNextInstruction(inst->RelativeAt(offset));
-      inst = inst->RelativeAt(offset);
       HandleBackwardBranch(offset);
     } else {
       BRANCH_INSTRUMENTATION(2);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -497,7 +487,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       (this->*setVReg)(A(), array->GetWithoutChecks(index));
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -515,7 +504,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       array->template SetWithoutChecks<transaction_active>(index, value);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -565,79 +553,66 @@ class InstructionHandler {
   }
 
   ALWAYS_INLINE bool NOP() REQUIRES_SHARED(Locks::mutator_lock_) {
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()));
-    inst = inst->Next_3xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_WIDE_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_WIDE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()));
-    inst = inst->Next_3xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT_FROM16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_OBJECT_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), GetVRegReference(B()));
-    inst = inst->Next_3xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_RESULT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), ResultRegister()->GetI());
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_RESULT_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), ResultRegister()->GetJ());
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MOVE_RESULT_OBJECT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegReference(A(), ResultRegister()->GetL());
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -646,7 +621,6 @@ class InstructionHandler {
     DCHECK(exception != nullptr) << "No pending exception on MOVE_EXCEPTION instruction";
     SetVRegReference(A(), exception);
     self->ClearException();
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -731,7 +705,6 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -742,7 +715,6 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -753,7 +725,6 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_3xx();
     return true;
   }
 
@@ -764,31 +735,26 @@ class InstructionHandler {
     if (val == 0) {
       SetVRegReference(dst, nullptr);
     }
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool CONST_WIDE_16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), B());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool CONST_WIDE_32() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), B());
-    inst = inst->Next_3xx();
     return true;
   }
 
   ALWAYS_INLINE bool CONST_WIDE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), inst->WideVRegB());
-    inst = inst->Next_51l();
     return true;
   }
 
   ALWAYS_INLINE bool CONST_WIDE_HIGH16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), static_cast<uint64_t>(B()) << 48);
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -798,7 +764,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), s);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -809,7 +774,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), s);
-      inst = inst->Next_3xx();
     }
     return true;
   }
@@ -824,7 +788,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), c);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -838,7 +801,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), mh);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -852,7 +814,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), mt);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -900,8 +861,6 @@ class InstructionHandler {
       if (UNLIKELY(obj != nullptr && !obj->InstanceOf(c))) {
         ThrowClassCastException(c, obj->GetClass());
         HANDLE_PENDING_EXCEPTION();
-      } else {
-        inst = inst->Next_2xx();
       }
     }
     return true;
@@ -918,7 +877,6 @@ class InstructionHandler {
     } else {
       ObjPtr<mirror::Object> obj = GetVRegReference(B());
       SetVReg(A(), (obj != nullptr && obj->InstanceOf(c)) ? 1 : 0);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -930,7 +888,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVReg(A(), array->AsArray()->GetLength());
-      inst = inst->Next_1xx();
     }
     return true;
   }
@@ -962,7 +919,6 @@ class InstructionHandler {
         HANDLE_PENDING_EXCEPTION();
       }
       SetVRegReference(A(), obj);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -979,7 +935,6 @@ class InstructionHandler {
       HANDLE_PENDING_EXCEPTION();
     } else {
       SetVRegReference(A(), obj);
-      inst = inst->Next_2xx();
     }
     return true;
   }
@@ -1012,7 +967,6 @@ class InstructionHandler {
     if (transaction_active) {
       RecordArrayElementsInTransaction(obj->AsArray(), payload->element_count);
     }
-    inst = inst->Next_3xx();
     return true;
   }
 
@@ -1052,7 +1006,6 @@ class InstructionHandler {
     int32_t offset = DoPackedSwitch(inst, shadow_frame, inst_data);
     BRANCH_INSTRUMENTATION(offset);
     SetNextInstruction(inst->RelativeAt(offset));
-    inst = inst->RelativeAt(offset);
     HandleBackwardBranch(offset);
     return true;
   }
@@ -1061,7 +1014,6 @@ class InstructionHandler {
     int32_t offset = DoSparseSwitch(inst, shadow_frame, inst_data);
     BRANCH_INSTRUMENTATION(offset);
     SetNextInstruction(inst->RelativeAt(offset));
-    inst = inst->RelativeAt(offset);
     HandleBackwardBranch(offset);
     return true;
   }
@@ -1197,7 +1149,6 @@ class InstructionHandler {
     ObjPtr<mirror::ObjectArray<mirror::Object>> array = a->AsObjectArray<mirror::Object>();
     if (array->CheckIsValidIndex(index) && array->CheckAssignable(val)) {
       array->SetWithoutChecks<transaction_active>(index, val);
-      inst = inst->Next_2xx();
     } else {
       HANDLE_PENDING_EXCEPTION();
     }
@@ -1454,73 +1405,61 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool NEG_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), -GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool NOT_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), ~GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool NEG_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), -GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool NOT_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), ~GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool NEG_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), -GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool NEG_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), -GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool LONG_TO_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool LONG_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool LONG_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1528,7 +1467,6 @@ class InstructionHandler {
     float val = GetVRegFloat(B());
     int32_t result = art_float_to_integral<int32_t, float>(val);
     SetVReg(A(), result);
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1536,13 +1474,11 @@ class InstructionHandler {
     float val = GetVRegFloat(B());
     int64_t result = art_float_to_integral<int64_t, float>(val);
     SetVRegLong(A(), result);
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool FLOAT_TO_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1550,7 +1486,6 @@ class InstructionHandler {
     double val = GetVRegDouble(B());
     int32_t result = art_float_to_integral<int32_t, double>(val);
     SetVReg(A(), result);
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1558,49 +1493,41 @@ class InstructionHandler {
     double val = GetVRegDouble(B());
     int64_t result = art_float_to_integral<int64_t, double>(val);
     SetVRegLong(A(), result);
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool DOUBLE_TO_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_BYTE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<int8_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_CHAR() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint16_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool INT_TO_SHORT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<int16_t>(GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), GetVReg(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -1618,55 +1545,46 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool SHL_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) << (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) >> (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool USHR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint32_t>(GetVReg(B())) >> (GetVReg(C()) & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool AND_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & GetVReg(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | GetVReg(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ GetVReg(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeAdd(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeSub(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), SafeMul(GetVRegLong(B()), GetVRegLong(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -1684,118 +1602,99 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) & GetVRegLong(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) | GetVRegLong(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) ^ GetVRegLong(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHL_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) << (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), GetVRegLong(B()) >> (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool USHR_LONG() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegLong(A(), static_cast<uint64_t>(GetVRegLong(B())) >> (GetVReg(C()) & 0x3f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) + GetVRegFloat(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) - GetVRegFloat(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) * GetVRegFloat(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool DIV_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), GetVRegFloat(B()) / GetVRegFloat(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool REM_FLOAT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegFloat(A(), fmodf(GetVRegFloat(B()), GetVRegFloat(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) + GetVRegDouble(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) - GetVRegDouble(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) * GetVRegDouble(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool DIV_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), GetVRegDouble(B()) / GetVRegDouble(C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool REM_DOUBLE() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVRegDouble(A(), fmod(GetVRegDouble(B()), GetVRegDouble(C())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeAdd(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeSub(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, SafeMul(GetVReg(vregA), GetVReg(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1816,63 +1715,54 @@ class InstructionHandler {
   ALWAYS_INLINE bool SHL_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) << (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) >> (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool USHR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, static_cast<uint32_t>(GetVReg(vregA)) >> (GetVReg(B()) & 0x1f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool AND_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) & GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) | GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_INT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVReg(vregA, GetVReg(vregA) ^ GetVReg(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeAdd(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeSub(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, SafeMul(GetVRegLong(vregA), GetVRegLong(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
@@ -1893,130 +1783,111 @@ class InstructionHandler {
   ALWAYS_INLINE bool AND_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) & GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) | GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) ^ GetVRegLong(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHL_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) << (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, GetVRegLong(vregA) >> (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool USHR_LONG_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegLong(vregA, static_cast<uint64_t>(GetVRegLong(vregA)) >> (GetVReg(B()) & 0x3f));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) + GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) - GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) * GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool DIV_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, GetVRegFloat(vregA) / GetVRegFloat(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool REM_FLOAT_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegFloat(vregA, fmodf(GetVRegFloat(vregA), GetVRegFloat(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) + GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool SUB_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) - GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) * GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool DIV_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, GetVRegDouble(vregA) / GetVRegDouble(B()));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool REM_DOUBLE_2ADDR() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint4_t vregA = A();
     SetVRegDouble(vregA, fmod(GetVRegDouble(vregA), GetVRegDouble(B())));
-    inst = inst->Next_1xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool RSUB_INT() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(C(), GetVReg(B())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -2034,37 +1905,31 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_INT_LIT16() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool ADD_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeAdd(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool RSUB_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeSub(C(), GetVReg(B())));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool MUL_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), SafeMul(GetVReg(B()), C()));
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -2082,37 +1947,31 @@ class InstructionHandler {
 
   ALWAYS_INLINE bool AND_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) & C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool OR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) | C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool XOR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) ^ C());
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHL_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) << (C() & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool SHR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), GetVReg(B()) >> (C() & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
   ALWAYS_INLINE bool USHR_INT_LIT8() REQUIRES_SHARED(Locks::mutator_lock_) {
     SetVReg(A(), static_cast<uint32_t>(GetVReg(B())) >> (C() & 0x1f));
-    inst = inst->Next_2xx();
     return true;
   }
 
@@ -2181,7 +2040,7 @@ class InstructionHandler {
                                    Thread* self,
                                    ShadowFrame& shadow_frame,
                                    uint16_t dex_pc,
-                                   const Instruction*& inst,
+                                   const Instruction* inst,
                                    uint16_t inst_data,
                                    const Instruction*& next,
                                    bool& exit_interpreter_loop)
@@ -2235,7 +2094,7 @@ class InstructionHandler {
   Thread* const self;
   ShadowFrame& shadow_frame;
   uint32_t const dex_pc;
-  const Instruction*& inst;
+  const Instruction* const inst;
   uint16_t const inst_data;
   const Instruction*& next;
 
@@ -2266,7 +2125,7 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
   uint32_t dex_pc = shadow_frame.GetDexPC();
   const auto* const instrumentation = Runtime::Current()->GetInstrumentation();
   const uint16_t* const insns = accessor.Insns();
-  const Instruction* inst = Instruction::At(insns + dex_pc);
+  const Instruction* next = Instruction::At(insns + dex_pc);
   uint16_t inst_data;
 
   DCHECK(!shadow_frame.GetForceRetryInstruction())
@@ -2274,12 +2133,12 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
 
   bool const interpret_one_instruction = ctx->interpret_one_instruction;
   while (true) {
+    const Instruction* const inst = next;
     dex_pc = inst->GetDexPc(insns);
     shadow_frame.SetDexPC(dex_pc);
     TraceExecution(shadow_frame, inst, dex_pc);
     inst_data = inst->Fetch16(0);
     {
-      const Instruction* next = nullptr;
       bool exit_loop = false;
       InstructionHandler<do_access_check, transaction_active, Instruction::kInvalidFormat> handler(
           ctx, instrumentation, self, shadow_frame, dex_pc, inst, inst_data, next, exit_loop);
@@ -2296,8 +2155,7 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
     switch (inst->Opcode(inst_data)) {
 #define OPCODE_CASE(OPCODE, OPCODE_NAME, NAME, FORMAT, i, a, e, v)                                \
       case OPCODE: {                                                                              \
-        size_t inst_size = Instruction::SizeInCodeUnits(Instruction::FORMAT);                     \
-        const Instruction* next = inst->RelativeAt(inst_size);                                    \
+        next = inst->RelativeAt(Instruction::SizeInCodeUnits(Instruction::FORMAT));               \
         bool exit_loop = false;                                                                   \
         InstructionHandler<do_access_check, transaction_active, Instruction::FORMAT> handler(     \
             ctx, instrumentation, self, shadow_frame, dex_pc, inst, inst_data, next, exit_loop);  \
@@ -2305,7 +2163,6 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
         if (UNLIKELY(exit_loop)) {                                                                \
           return;                                                                                 \
         }                                                                                         \
-        DCHECK_EQ(next, inst) << NAME;                                                            \
         break;                                                                                    \
       }
 DEX_INSTRUCTION_LIST(OPCODE_CASE)
@@ -2316,7 +2173,7 @@ DEX_INSTRUCTION_LIST(OPCODE_CASE)
     }
   }
   // Record where we stopped.
-  shadow_frame.SetDexPC(inst->GetDexPc(insns));
+  shadow_frame.SetDexPC(next->GetDexPc(insns));
   ctx->result = ctx->result_register;
   return;
 }  // NOLINT(readability/fn_size)
