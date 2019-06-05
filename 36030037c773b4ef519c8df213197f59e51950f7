@@ -22,6 +22,30 @@
       "revId": "36030037c773b4ef519c8df213197f59e51950f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f095b1f5_0623d4b6",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-05T14:42:08Z",
+      "side": 1,
+      "message": "Or maybe add an inner function for the recursion?",
+      "parentUuid": "2f342974_783033b0",
+      "range": {
+        "startLine": 624,
+        "startChar": 17,
+        "endLine": 624,
+        "endChar": 21
+      },
+      "revId": "36030037c773b4ef519c8df213197f59e51950f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
