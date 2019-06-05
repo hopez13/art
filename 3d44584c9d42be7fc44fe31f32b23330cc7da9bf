@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b0e4fad6_a6ecf704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T17:54:30Z",
+      "side": 1,
+      "message": "Would this also work with Bionic on host? (We also build the Runtime host APEX with Bionic.)",
+      "parentUuid": "331daeca_e43a7c63",
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "acfc2205_78369423",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 2
@@ -226,6 +244,30 @@
       "side": 1,
       "message": "You can make a cc_binary host-only with:\n\ncc_binary {\n    host_supported: true,\n    device_supported: false,\n    ...\n}",
       "parentUuid": "38ae6025_cf2edf9a",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 18
+      },
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7cf6259_e512bcd9",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-05T17:54:30Z",
+      "side": 1,
+      "message": "Thanks for the tip!",
+      "parentUuid": "8c96b3ff_33bf8070",
       "range": {
         "startLine": 327,
         "startChar": 0,
