@@ -68,7 +68,7 @@ art_runtime_debug_binaries_prefer32_device = [
     "dex2oatd",
 ]
 art_runtime_debug_binaries_both_host = [
-    "dex2oatd",
+    "dex2oatd-host",
 ]
 
 // - Debug variants (libraries).
