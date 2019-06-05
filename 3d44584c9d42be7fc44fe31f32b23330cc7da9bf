@@ -211,6 +211,30 @@
       "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c96b3ff_33bf8070",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2019-06-05T17:36:11Z",
+      "side": 1,
+      "message": "You can make a cc_binary host-only with:\n\ncc_binary {\n    host_supported: true,\n    device_supported: false,\n    ...\n}",
+      "parentUuid": "38ae6025_cf2edf9a",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 18
+      },
+      "revId": "3d44584c9d42be7fc44fe31f32b23330cc7da9bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
