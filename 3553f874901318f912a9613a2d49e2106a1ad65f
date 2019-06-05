@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abab242b_3904faa8",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-05T14:25:21Z",
+      "side": 1,
+      "message": "The comment on L318 might be clearer still if \"compile_multilib: prefer32\" was in the art_cc_binary target rather than the defaults (along similar lines as dex2oatd-host here).",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 18
+      },
+      "revId": "3553f874901318f912a9613a2d49e2106a1ad65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
