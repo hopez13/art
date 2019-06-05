@@ -541,7 +541,6 @@ class DebugChecker:
     # Check debug binaries for ART.
     self._checker.check_executable('dexoptanalyzerd')
     self._checker.check_executable('profmand')
-    self._checker.check_symlinked_prefer32_executable('dex2oatd')
 
     # Check internal libraries for ART.
     self._checker.check_native_library('libadbconnectiond')
@@ -567,6 +566,7 @@ class DebugTargetChecker:
 
   def run(self):
     # Check ART debug binaries.
+    self._checker.check_executable('dex2oatd')
     self._checker.check_executable('oatdumpd')
 
     # Check ART internal libraries.
