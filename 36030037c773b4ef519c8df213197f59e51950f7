@@ -70,6 +70,30 @@
       "revId": "36030037c773b4ef519c8df213197f59e51950f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76b8ea17_07b09090",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-05T15:02:27Z",
+      "side": 1,
+      "message": "Whatever you prefer. You and Martin basically own this file now...\n\nInner function makes sense to me. I was going for most simple, not necessarily very pythonic (and I think it\u0027s a development artifact).\n\nBut if you touch it, you should change the file consistently (e.g., Tree, too). So consider a follow-up CL.",
+      "parentUuid": "b5b64160_abd440fa",
+      "range": {
+        "startLine": 624,
+        "startChar": 17,
+        "endLine": 624,
+        "endChar": 21
+      },
+      "revId": "36030037c773b4ef519c8df213197f59e51950f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
