@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6e2596_d03e576b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-06T13:25:31Z",
+      "side": 1,
+      "message": "I added (and verified) this to ensure this CL would not break Bionic host builds.\n\nI also wanted to verify:\n\n- `art/test/testrunner/run_build_test_target.py -j50 art-linux-bionic-x64`; and\n- `art/test/testrunner/run_build_test_target.py -j50 art-linux-bionic-x64-zipapex`\n\nbut tests were failing for an apparently different reason locally, even without this CL.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 123
+      },
+      "revId": "1c94c1be4026abc05a84fa819a52dc4fc8376664",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
