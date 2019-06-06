@@ -121,10 +121,6 @@ class InstructionHandler {
     if (!MoveToExceptionHandler(self, shadow_frame, instr)) {
       /* Structured locking is to be enforced for abnormal termination, too. */
       DoMonitorCheckOnExit<do_assignability_check>(self, &shadow_frame);
-      if (ctx->interpret_one_instruction) {
-        /* Signal mterp to return to caller */
-        shadow_frame.SetDexPC(dex::kDexNoIndex);
-      }
       ctx->result = JValue(); /* Handled in caller. */
       exit_interpreter_loop = true;
       return false;  // Return to caller.
@@ -263,10 +259,6 @@ class InstructionHandler {
                                             dex_pc,
                                             offset,
                                             &result)) {
-      if (ctx->interpret_one_instruction) {
-        /* OSR has completed execution of the method.  Signal mterp to return to caller */
-        shadow_frame.SetDexPC(dex::kDexNoIndex);
-      }
       ctx->result = result;
       exit_interpreter_loop = true;
       return false;
@@ -413,10 +405,6 @@ class InstructionHandler {
       if (!HandlePendingExceptionWithInstrumentation(nullptr)) {
         return false;
       }
-    }
-    if (ctx->interpret_one_instruction) {
-      /* Signal mterp to return to caller */
-      shadow_frame.SetDexPC(dex::kDexNoIndex);
     }
     ctx->result = result;
     exit_interpreter_loop = true;
@@ -715,10 +703,6 @@ class InstructionHandler {
     }
     // Re-load since it might have moved during the MethodExitEvent.
     result.SetL(GetVRegReference(ref_idx));
-    if (ctx->interpret_one_instruction) {
-      /* Signal mterp to return to caller */
-      shadow_frame.SetDexPC(dex::kDexNoIndex);
-    }
     ctx->result = result;
     exit_interpreter_loop = true;
     return true;
@@ -2272,7 +2256,6 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
   DCHECK(!shadow_frame.GetForceRetryInstruction())
       << "Entered interpreter from invoke without retry instruction being handled!";
 
-  bool const interpret_one_instruction = ctx->interpret_one_instruction;
   while (true) {
     dex_pc = inst->GetDexPc(insns);
     shadow_frame.SetDexPC(dex_pc);
@@ -2287,15 +2270,13 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
         if (UNLIKELY(exit_loop)) {
           return;
         }
-        if (UNLIKELY(interpret_one_instruction)) {
-          break;
-        }
         continue;
       }
     }
     switch (inst->Opcode(inst_data)) {
 #define OPCODE_CASE(OPCODE, OPCODE_NAME, NAME, FORMAT, i, a, e, v)                                \
       case OPCODE: {                                                                              \
+        DCHECK(!ctx->interpret_one_instruction) << NAME;                                          \
         size_t inst_size = Instruction::SizeInCodeUnits(Instruction::FORMAT);                     \
         const Instruction* next = inst->RelativeAt(inst_size);                                    \
         bool exit_loop = false;                                                                   \
@@ -2310,9 +2291,6 @@ ATTRIBUTE_NO_SANITIZE_ADDRESS void ExecuteSwitchImplCpp(SwitchImplContext* ctx) 
       }
 DEX_INSTRUCTION_LIST(OPCODE_CASE)
 #undef OPCODE_CASE
-    }
-    if (UNLIKELY(interpret_one_instruction)) {
-      break;
     }
   }
   // Record where we stopped.
