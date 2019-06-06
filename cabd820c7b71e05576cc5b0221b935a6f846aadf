@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0319a3de_c42dffdc",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-06T23:13:50Z",
+      "side": 1,
+      "message": "nit: I don\u0027t really like the names inst2, exit2 and next2. Maybe inst_copy, next_inst_new and exit_interp_loop_new",
+      "range": {
+        "startLine": 153,
+        "startChar": 9,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "cabd820c7b71e05576cc5b0221b935a6f846aadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
