@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2358b7c1_c3583bf5",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:58:05Z",
+      "side": 1,
+      "message": "Is that a no-op? Also, it seems line 2485 will cover the transition to visibly initialized.",
+      "range": {
+        "startLine": 2268,
+        "startChar": 0,
+        "endLine": 2271,
+        "endChar": 5
+      },
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f105cb3_698a80f9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:58:05Z",
+      "side": 1,
+      "message": "nit: I\u0027d put high level comment on this class, especially it looks like it applies to both AOT and runtime setups?",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 51
+      },
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfb56b6f_e12c042f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:58:05Z",
+      "side": 1,
+      "message": "I guess this depends on whether array classes carry static state? Which the answer is no?",
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4df0583f_a09d345c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:58:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5161,
+        "startChar": 0,
+        "endLine": 5161,
+        "endChar": 65
+      },
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e88f410_74fb5701",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:58:05Z",
+      "side": 1,
+      "message": "Nit: add a comment that we need this counter, as the list of classes may be just 1, and we can still hit the kMakeVisiblyInitializedCounterTriggerCount if the thread is looping over the same clinit check.",
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
