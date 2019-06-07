@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "0057b158_0dd729ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:15:21Z",
+      "side": 1,
+      "message": "Add motivation.",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "cabd820c7b71e05576cc5b0221b935a6f846aadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d319ca5_bb59e35f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:15:21Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 11,
+        "startChar": 31,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "cabd820c7b71e05576cc5b0221b935a6f846aadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db07f033_452c4628",
+        "filename": "libdexfile/dex/dex_instruction-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:15:21Z",
+      "side": 1,
+      "message": "Could drop all returns but the last one. Same below.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "cabd820c7b71e05576cc5b0221b935a6f846aadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c718dafa_8b5fae76",
+        "filename": "libdexfile/dex/dex_instruction.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-07T08:15:21Z",
+      "side": 1,
+      "message": "Add high-level comment.",
+      "revId": "cabd820c7b71e05576cc5b0221b935a6f846aadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0319a3de_c42dffdc",
         "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
         "patchSetId": 5
