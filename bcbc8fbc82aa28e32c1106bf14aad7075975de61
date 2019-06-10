@@ -22,6 +22,30 @@
       "revId": "bcbc8fbc82aa28e32c1106bf14aad7075975de61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f1b94c2_aeec7a47",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-10T10:27:33Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the DCHECK just below. jtizygote is another wording for using the apex boot image.",
+      "parentUuid": "071e03c8_6d8fa603",
+      "range": {
+        "startLine": 837,
+        "startChar": 8,
+        "endLine": 837,
+        "endChar": 71
+      },
+      "revId": "bcbc8fbc82aa28e32c1106bf14aad7075975de61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
