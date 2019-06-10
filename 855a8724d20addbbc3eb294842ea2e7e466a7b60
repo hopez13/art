@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a469441_15058d8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-10T15:19:38Z",
+      "side": 1,
+      "message": "Does the problematic implementation only applies to the boot image? If not, it looks like we could craft a Java run test for this?",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
