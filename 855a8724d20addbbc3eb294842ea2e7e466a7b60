@@ -22,6 +22,30 @@
       "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15190b64_b3b614d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-10T16:28:14Z",
+      "side": 1,
+      "message": "Mathieu, would we pre-initialize a class in app image if it contained \u003cclinit\u003e for\n\n  public static final String s1 \u003d \"aaaa\";\n  public static final String s2 \u003d new String(\"aaaa\");\n\n?",
+      "parentUuid": "8a469441_15058d8d",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
