@@ -704,10 +704,6 @@ class ImageWriter final {
     return image_infos_[oat_index];
   }
 
-  // Find an already strong interned string in the other images or in the boot image. Used to
-  // remove duplicates in the multi image and app image case.
-  mirror::String* FindInternedString(mirror::String* string) REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Return true if there already exists a native allocation for an object.
   bool NativeRelocationAssigned(void* ptr) const;
 

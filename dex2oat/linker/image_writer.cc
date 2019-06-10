@@ -254,6 +254,14 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
   }
 
   {
+    // All remaining weak interns are referenced. Promote them to strong interns. Whether a
+    // string was strongly or weakly interned, we shall make it strongly interned in the image.
+    TimingLogger::ScopedTiming t("PromoteInterns", timings);
+    ScopedObjectAccess soa(self);
+    Runtime::Current()->GetInternTable()->PromoteWeakToStrong();
+  }
+
+  {
     // Preload deterministic contents to the dex cache arrays we're going to write.
     ScopedObjectAccess soa(self);
     ObjPtr<mirror::ClassLoader> class_loader = GetAppClassLoader();
@@ -1824,31 +1832,6 @@ void ImageWriter::DumpImageClasses() {
   }
 }
 
-mirror::String* ImageWriter::FindInternedString(mirror::String* string) {
-  Thread* const self = Thread::Current();
-  for (const ImageInfo& image_info : image_infos_) {
-    const ObjPtr<mirror::String> found = image_info.intern_table_->LookupStrong(self, string);
-    DCHECK(image_info.intern_table_->LookupWeak(self, string) == nullptr)
-        << string->ToModifiedUtf8();
-    if (found != nullptr) {
-      return found.Ptr();
-    }
-  }
-  if (!compiler_options_.IsBootImage()) {
-    Runtime* const runtime = Runtime::Current();
-    ObjPtr<mirror::String> found = runtime->GetInternTable()->LookupStrong(self, string);
-    // If we found it in the runtime intern table it could either be in the boot image or interned
-    // during app image compilation. If it was in the boot image return that, otherwise return null
-    // since it belongs to another image space.
-    if (found != nullptr && runtime->GetHeap()->ObjectIsInBootImageSpace(found.Ptr())) {
-      return found.Ptr();
-    }
-    DCHECK(runtime->GetInternTable()->LookupWeak(self, string) == nullptr)
-        << string->ToModifiedUtf8();
-  }
-  return nullptr;
-}
-
 ObjPtr<mirror::ObjectArray<mirror::Object>> ImageWriter::CollectDexCaches(Thread* self,
                                                                           size_t oat_index) const {
   std::unordered_set<const DexFile*> image_dex_files;
@@ -1968,17 +1951,18 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
     return obj;
   }
   if (!IsImageBinSlotAssigned(obj)) {
-    // We want to intern all strings but also assign offsets for the source string. Since the
-    // pruning phase has already happened, if we intern a string to one in the image we still
-    // end up copying an unreachable string.
     if (obj->IsString()) {
-      // Need to check if the string is already interned in another image info so that we don't have
-      // the intern tables of two different images contain the same string.
-      mirror::String* interned = FindInternedString(obj->AsString().Ptr());
-      if (interned == nullptr) {
-        // Not in another image space, insert to our table.
-        interned =
-            GetImageInfo(oat_index).intern_table_->InternStrongImageString(obj->AsString()).Ptr();
+      ObjPtr<mirror::String> str = obj->AsString();
+      InternTable* intern_table = Runtime::Current()->GetInternTable();
+      Thread* const self = Thread::Current();
+      if (intern_table->LookupStrong(self, str) == str) {
+        DCHECK(std::none_of(image_infos_.begin(),
+                            image_infos_.end(),
+                            [=](ImageInfo& info) REQUIRES_SHARED(Locks::mutator_lock_) {
+                              return info.intern_table_->LookupStrong(self, str) != nullptr;
+                            }));
+        ObjPtr<mirror::String> interned =
+            GetImageInfo(oat_index).intern_table_->InternStrongImageString(str);
         DCHECK_EQ(interned, obj);
       }
     } else if (obj->IsDexCache()) {
@@ -2113,13 +2097,6 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
     }
     AssignImageBinSlot(obj, oat_index);
     work_stack.emplace(obj, oat_index);
-  }
-  if (obj->IsString()) {
-    // Always return the interned string if there exists one.
-    mirror::String* interned = FindInternedString(obj->AsString().Ptr());
-    if (interned != nullptr) {
-      return interned;
-    }
   }
   return obj;
 }
