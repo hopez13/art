@@ -46,6 +46,76 @@
       "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c360aa9_f3f7f2a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-10T16:39:56Z",
+      "side": 1,
+      "message": "Right now we would not pre-initialize the class.",
+      "parentUuid": "15190b64_b3b614d6",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2eee7a9_b608e35b",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-10T16:39:56Z",
+      "side": 1,
+      "message": "We should also eventually fix the string reference offsets to only be added for interned strings since these are interned during app image loading.",
+      "range": {
+        "startLine": 416,
+        "startChar": 8,
+        "endLine": 416,
+        "endChar": 66
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67d5dae_8ec5d00d",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-10T16:39:56Z",
+      "side": 1,
+      "message": "Delete?",
+      "range": {
+        "startLine": 278,
+        "startChar": 40,
+        "endLine": 278,
+        "endChar": 78
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
