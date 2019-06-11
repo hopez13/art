@@ -22,6 +22,30 @@
       "revId": "a688dfc256b7075901a965688da0a8c13f6f8494",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c38589a2_19166723",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-11T17:31:28Z",
+      "side": 1,
+      "message": "Can\u0027t easily. That would require an implementation mapping strings to signal numbers. While bionic exposes something from its BSD heritage, glibc does not, and the toybox code isn\u0027t librarized.",
+      "parentUuid": "667442f4_1790a858",
+      "range": {
+        "startLine": 574,
+        "startChar": 78,
+        "endLine": 574,
+        "endChar": 80
+      },
+      "revId": "a688dfc256b7075901a965688da0a8c13f6f8494",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
