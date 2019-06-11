@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "667442f4_1790a858",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-11T17:10:50Z",
+      "side": 1,
+      "message": "Maybe replace this with\n\n  TERM\n\n(here and elsewhere)?",
+      "range": {
+        "startLine": 574,
+        "startChar": 78,
+        "endLine": 574,
+        "endChar": 80
+      },
+      "revId": "a688dfc256b7075901a965688da0a8c13f6f8494",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
