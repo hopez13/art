@@ -46,6 +46,30 @@
       "revId": "a063f918e340c08704744f78ab3e4e9f437a6c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edeb0a8_cd3505f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-11T17:54:29Z",
+      "side": 1,
+      "message": "Uh no. The CtsJdwpTestCases will only run the adbconnection/libjdwp version of the tests unless one sets the property dalvik.vm.jdwp-provider\u003dinternal",
+      "parentUuid": "e33a6989_3096e784",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "a063f918e340c08704744f78ab3e4e9f437a6c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
