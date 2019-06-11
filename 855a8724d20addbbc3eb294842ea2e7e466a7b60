@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cd877b03_75685c9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-11T16:26:38Z",
+      "side": 1,
+      "message": "I\u0027ve added an \"inactive\" regression test that would fail without this CL if the NoClinitInDependency() check is commented out in InitializeClassVisitor::TryInitializeClass().",
+      "parentUuid": "4c360aa9_f3f7f2a9",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2eee7a9_b608e35b",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d5cc19b8_979194f5",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-11T16:26:38Z",
+      "side": 1,
+      "message": "Sounds like it should be fixed straight away, otherwise we would introduce an inconsistency between the recorded interned string references and the interned strings section.\n\nDone.",
+      "parentUuid": "a2eee7a9_b608e35b",
+      "range": {
+        "startLine": 416,
+        "startChar": 8,
+        "endLine": 416,
+        "endChar": 66
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c67d5dae_8ec5d00d",
         "filename": "runtime/intern_table.cc",
         "patchSetId": 1
@@ -116,6 +164,30 @@
       "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddb65a02_79c2e9db",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-11T16:26:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c67d5dae_8ec5d00d",
+      "range": {
+        "startLine": 278,
+        "startChar": 40,
+        "endLine": 278,
+        "endChar": 78
+      },
+      "revId": "855a8724d20addbbc3eb294842ea2e7e466a7b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
