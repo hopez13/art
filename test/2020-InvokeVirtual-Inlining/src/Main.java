@@ -1,0 +1,68 @@
+class Main {
+    final static int iterations = 10;
+
+    public static void assertIntEquals(int expected, int result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
+    }
+
+    public static void assertDoubleEquals(double expected, double result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
+    }
+
+    public static void assertFloatEquals(float expected, float result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
+    }
+
+    public static void assertLongEquals(long expected, long result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Test test = new Test();
+        long workJ = 2;
+        long workK = 3;
+        float workJ1 = 10.0f;
+        float workK1 = 15.0f;
+        int workJ2 = 10;
+        int workK2 = 15;
+        long workJ3 = 0xFAEFFFAB;
+        long workK3 = 0xF8E9DCBA;
+
+        for (long i = 0; i < iterations; i++) {
+            workJ = test.simple_method_mul(workJ, workK) + i;
+        }
+        assertLongEquals(workJ, 132855);
+
+        for (float i = 0.0f; i < iterations; i++) {
+            workJ1 = test.simple_method_rem(workJ1, workK1) + i;
+        }
+        assertFloatEquals(workJ1, 14.0f);
+
+        workJ2--;
+
+        try {
+            throw new Exception("Test");
+        } catch (Exception e) {
+            workJ++;
+        }
+
+        for (int i = 0; i < iterations; i++) {
+            workJ2 = test.simple_method_int(workJ2, workK2) + i;
+        }
+        assertIntEquals(workJ2, 152);
+
+        for (long i = 0; i < iterations; i++) {
+            workJ3 = test.simple_method_xor(workJ3, workK3) + i;
+        }
+        assertLongEquals(workJ3, 118891342);
+    }
+}
