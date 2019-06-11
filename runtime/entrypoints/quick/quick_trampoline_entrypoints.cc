@@ -965,6 +965,7 @@ extern "C" uint64_t artQuickProxyInvokeHandler(
                            soa.Decode<mirror::Object>(rcvr_jobj),
                            proxy_method,
                            0,
+                           {},
                            result);
   }
   return result.GetJ();
@@ -2302,11 +2303,7 @@ void BuildGenericJniFrameVisitor::FinalizeHandleScope(Thread* self) {
   }
 }
 
-#if defined(__arm__) || defined(__aarch64__)
-extern "C" const void* artFindNativeMethod();
-#else
 extern "C" const void* artFindNativeMethod(Thread* self);
-#endif
 
 static uint64_t artQuickGenericJniEndJNIRef(Thread* self,
                                             uint32_t cookie,
@@ -2421,11 +2418,7 @@ extern "C" TwoWordReturn artQuickGenericJniTrampoline(Thread* self, ArtMethod** 
   // pointer.
   DCHECK(nativeCode != nullptr);
   if (nativeCode == GetJniDlsymLookupStub()) {
-#if defined(__arm__) || defined(__aarch64__)
-    nativeCode = artFindNativeMethod();
-#else
     nativeCode = artFindNativeMethod(self);
-#endif
 
     if (nativeCode == nullptr) {
       DCHECK(self->IsExceptionPending());    // There should be an exception pending now.
