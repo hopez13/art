@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2169621a_261c6453",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-11T18:01:53Z",
+      "side": 1,
+      "message": "Why is the equality test required, maybe we could turn that into a DCHECK instead?",
+      "range": {
+        "startLine": 1347,
+        "startChar": 40,
+        "endLine": 1347,
+        "endChar": 66
+      },
+      "revId": "47cd0246495803c56921cbcff06b3f24536f99d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
