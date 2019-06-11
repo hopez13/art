@@ -289,6 +289,22 @@ libart_cc_defaults {
                 "arch/x86/thread_x86.cc",
                 "arch/x86/fault_handler_x86.cc",
             ],
+            avx: {
+                srcs: [
+                    ":libart_mterp.x86.avx",
+                ],
+                exclude_srcs: [
+                    ":libart_mterp.x86",
+                ],
+            },
+            avx2: {
+                srcs: [
+                    ":libart_mterp.x86.avx",
+                ],
+                exclude_srcs: [
+                    ":libart_mterp.x86",
+                ],
+            },
         },
         x86_64: {
             srcs: [
@@ -305,6 +321,22 @@ libart_cc_defaults {
                 "monitor_pool.cc",
                 "arch/x86/fault_handler_x86.cc",
             ],
+            avx: {
+                srcs: [
+                    ":libart_mterp.x86_64.avx",
+                ],
+                exclude_srcs: [
+                    ":libart_mterp.x86_64",
+                ],
+            },
+            avx2: {
+                srcs: [
+                    ":libart_mterp.x86_64.avx",
+                ],
+                exclude_srcs: [
+                    ":libart_mterp.x86_64",
+                ],
+            },
         },
         mips: {
             srcs: [
@@ -726,7 +758,10 @@ genrule {
 genrule {
     name: "libart_mterp.x86",
     out: ["mterp_x86.S"],
-    srcs: ["interpreter/mterp/x86/*.S"],
+    srcs: [
+        "interpreter/mterp/x86/sse/*.S",
+        "interpreter/mterp/x86/*.S",
+    ],
     tool_files: [
         "interpreter/mterp/gen_mterp.py",
         "interpreter/mterp/common/gen_setup.py",
@@ -737,7 +772,38 @@ genrule {
 genrule {
     name: "libart_mterp.x86_64",
     out: ["mterp_x86_64.S"],
-    srcs: ["interpreter/mterp/x86_64/*.S"],
+    srcs: [
+        "interpreter/mterp/x86_64/sse/*.S",
+        "interpreter/mterp/x86_64/*.S",
+    ],
+    tool_files: [
+        "interpreter/mterp/gen_mterp.py",
+        "interpreter/mterp/common/gen_setup.py",
+    ],
+    cmd: "$(location interpreter/mterp/gen_mterp.py) $(out) $(in)",
+}
+
+genrule {
+    name: "libart_mterp.x86.avx",
+    out: ["mterp_x86.S"],
+    srcs: [
+        "interpreter/mterp/x86/avx/*.S",
+        "interpreter/mterp/x86/*.S",
+    ],
+    tool_files: [
+        "interpreter/mterp/gen_mterp.py",
+        "interpreter/mterp/common/gen_setup.py",
+    ],
+    cmd: "$(location interpreter/mterp/gen_mterp.py) $(out) $(in)",
+}
+
+genrule {
+    name: "libart_mterp.x86_64.avx",
+    out: ["mterp_x86_64.S"],
+    srcs: [
+        "interpreter/mterp/x86_64/avx/*.S",
+        "interpreter/mterp/x86_64/*.S",
+    ],
     tool_files: [
         "interpreter/mterp/gen_mterp.py",
         "interpreter/mterp/common/gen_setup.py",
