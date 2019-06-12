@@ -22,6 +22,30 @@
       "revId": "47cd0246495803c56921cbcff06b3f24536f99d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70ca187f_73ec4e9a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-12T08:44:01Z",
+      "side": 1,
+      "message": "InternTable::StringHashEquals compares using String::Equals, so the find() for a non-interned key can return the interned entry with identical contents.",
+      "parentUuid": "2169621a_261c6453",
+      "range": {
+        "startLine": 1347,
+        "startChar": 40,
+        "endLine": 1347,
+        "endChar": 66
+      },
+      "revId": "47cd0246495803c56921cbcff06b3f24536f99d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
