@@ -75,4 +75,8 @@ TEST_F(RuntimeTest, AbortFromUnattachedThread) {
   }, ::testing::KilledBySignal(SIGABRT), kDeathRegex);
 }
 
+TEST_F(RuntimeTest, TestLogFatal) {
+  LOG(FATAL) << "Dummy";
+}
+
 }  // namespace art
