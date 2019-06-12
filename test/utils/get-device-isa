@@ -15,9 +15,8 @@
 # limitations under the License.
 
 usage() {
-  cat >2 <<EOF
-Determine the 32- or 64-bit architecture of a device and print the path to
-native libraries installed on the device for testing purposes.
+  cat >&2 <<EOF
+Determine and print the 32- or 64-bit architecture of a device.
 
 Usage:
   $0 --32    Select the 32-bit architecture
@@ -36,11 +35,9 @@ ARCHITECTURES_64="(arm64|x86_64|mips64|none)"
 case "$1" in
   (--32)
     ARCHITECTURES_PATTERN="${ARCHITECTURES_32}"
-    TEST_DIRECTORY="nativetest"
     ;;
   (--64)
     ARCHITECTURES_PATTERN="${ARCHITECTURES_64}"
-    TEST_DIRECTORY="nativetest64"
     ;;
   (*) usage;;
 esac
@@ -53,23 +50,23 @@ ISA_adb_invocation=
 ISA_outcome=
 # We iterate a few times to workaround an adb issue. b/32655576
 for i in {1..10}; do
-  ISA_adb_invocation=$(adb shell ls -F /data/dalvik-cache)
+  ISA_adb_invocation=$(adb shell ls /data/dalvik-cache)
   ISA_outcome=$?
   ISA=$(echo $ISA_adb_invocation | grep -Ewo "${ARCHITECTURES_PATTERN}")
-  if [ x"$ISA" != "x" ]; then
+  if [[ -n "$ISA" ]]; then
     break;
   fi
 done
-if [ x"$ISA" = "x" ]; then
-  echo >2 "Unable to determine architecture"
+if [[ -z "$ISA" ]]; then
+  echo >&2 "Unable to determine architecture"
   # Print a few things for helping diagnosing the problem.
-  echo >2 "adb invocation output: $ISA_adb_invocation"
-  echo >2 "adb invocation outcome: $ISA_outcome"
-  echo >2 $(adb shell ls -F /data/dalvik-cache)
-  echo >2 $(adb shell ls /data/dalvik-cache)
-  echo >2 ${ARCHITECTURES_PATTERN}
-  echo >2 $(adb shell ls -F /data/dalvik-cache | grep -Ewo "${ARCHITECTURES_PATTERN}")
+  echo >&2 "adb invocation output: $ISA_adb_invocation"
+  echo >&2 "adb invocation outcome: $ISA_outcome"
+  echo >&2 $(adb shell ls -F /data/dalvik-cache)
+  echo >&2 $(adb shell ls /data/dalvik-cache)
+  echo >&2 ${ARCHITECTURES_PATTERN}
+  echo >&2 $(adb shell ls -F /data/dalvik-cache | grep -Ewo "${ARCHITECTURES_PATTERN}")
   exit 1
 fi
 
-echo "/data/${TEST_DIRECTORY}/art/${ISA}"
+echo "$ISA"

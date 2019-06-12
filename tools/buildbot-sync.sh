@@ -39,7 +39,7 @@ if [[ -z "$ART_TEST_CHROOT" ]]; then
   exit 1
 fi
 
-if [[ x$(build/soong/soong_ui.bash --dumpvar-mode TARGET_FLATTEN_APEX) != xtrue ]]; then
+if [[ "$(build/soong/soong_ui.bash --dumpvar-mode TARGET_FLATTEN_APEX)" != "true" ]]; then
   echo -e "${red}This script only works when  APEX packages are flattened, but the build" \
     "configuration is set up to use non-flattened APEX packages.${nc}"
   echo -e "${magenta}You can force APEX flattening by setting the environment variable" \
@@ -145,6 +145,15 @@ echo -e "${green}Activating Runtime APEX...${nc}"
 adb shell rm -rf "$ART_TEST_CHROOT/apex/com.android.runtime"
 adb shell cp -a "$ART_TEST_CHROOT/system/apex/com.android.runtime.debug" \
   "$ART_TEST_CHROOT/apex/com.android.runtime"
+
+echo -e "${green}Activating Time Zone Data APEX...${nc}"
+# Manually "activate" the flattened Time Zone Data APEX by syncing it to the
+# /apex directory in the chroot.
+#
+# TODO: Likewise, handle the case of build targets using non-flatted APEX
+# packages.
+adb shell rm -rf "$ART_TEST_CHROOT/apex/com.android.tzdata"
+adb shell cp -a "$ART_TEST_CHROOT/system/apex/com.android.tzdata" "$ART_TEST_CHROOT/apex/"
 
 # Adjust the linker configuration file (if needed).
 #
