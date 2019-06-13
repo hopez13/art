@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5188bcf7_35ade6c4",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationPropertyWriter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-06-13T16:13:53Z",
+      "side": 1,
+      "message": "From the Python csv module docs:\n\ncsv.QUOTE_MINIMAL:\nInstructs writer objects to only quote those fields which contain special characters such as delimiter, quotechar or any of the characters in lineterminator.\n\nSounds like this also needs to replace \u0027\\r\u0027 and \u0027\\n\u0027 which are the default characters in `lineterminator`?\n\nTBH, I\u0027d prefer to quote everything to (a) reduce number of things that need to stay in sync between this file and merge_csv.py, and (b) to make the file a little more human readable. But maybe you think there are other reasons why not to do that?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 40
+      },
+      "revId": "fed5466acb62ac842c68493246fd53068a47034e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
