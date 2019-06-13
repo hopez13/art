@@ -736,6 +736,15 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // Update method_header pointer to executable code region.
     method_header = region->GetExecutableAddress(method_header);
 
+    // Lock the executable pages in memory to avoid cache hygiene issue (b/132205399).
+    uint8_t* mlock_begin = AlignDown(reinterpret_cast<uint8_t*>(method_header), kPageSize);
+    size_t mlock_size = AlignUp(reinterpret_cast<uint8_t*>(method_header), kPageSize) - mlock_begin;
+    if (mlock(mlock_begin, mlock_size) != 0) {
+      PLOG(ERROR) << "Failed to lock executable pages";
+      region->FreeCode(nox_memory);
+      return nullptr;
+    }
+
     // Both instruction and data caches need flushing to the point of unification where both share
     // a common view of memory. Flushing the data cache ensures the dirty cachelines from the
     // newly added code are written out to the point of unification. Flushing the instruction
@@ -771,6 +780,9 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     // platforms lacking the appropriate support.
     art::membarrier(art::MembarrierCommand::kPrivateExpeditedSyncCore);
 
+    if (munlock(mlock_begin, mlock_size) != 0) {
+      PLOG(FATAL) << "Failed to unlock executable pages";
+    }
     number_of_compilations_++;
   }
 
@@ -794,6 +806,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
 
     // Discard the code if any single-implementation assumptions are now invalid.
     if (!single_impl_still_valid) {
+      // TODO: Free allocated memory (?).
       VLOG(jit) << "JIT discarded jitted code due to invalid single-implementation assumptions.";
       return nullptr;
     }
