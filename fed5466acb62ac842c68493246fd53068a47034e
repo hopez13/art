@@ -22,6 +22,30 @@
       "revId": "fed5466acb62ac842c68493246fd53068a47034e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2f28647_dd047c3f",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationPropertyWriter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2019-06-13T16:28:36Z",
+      "side": 1,
+      "message": "I was worried it would blow up the csv size; however, I tried it locally, and merge_csv.py strips the redundant quotes, so you\u0027re right. Will quote everything.",
+      "parentUuid": "5188bcf7_35ade6c4",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 40
+      },
+      "revId": "fed5466acb62ac842c68493246fd53068a47034e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
