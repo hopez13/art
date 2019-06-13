@@ -606,7 +606,8 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
           // Only some allocated bytes are live in this unevac region.
           // This should only happen for an allocated non-large region.
           DCHECK(r->IsAllocated()) << r->State();
-          if (kPoisonDeadObjectsInUnevacuatedRegions) {
+          // YoungGen collector doesnt see any new dead objects in Unevac regions
+          if (kPoisonDeadObjectsInUnevacuatedRegions && clear_bitmap/*!young_gen*/) {
             PoisonDeadObjectsInUnevacuatedRegion(r);
           }
         }
