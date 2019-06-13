@@ -22,6 +22,30 @@
       "revId": "f1bd5f3dc7a99a62818b03dd78510a416b3c10bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b81feb9f_82a08f3e",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-13T14:42:26Z",
+      "side": 0,
+      "message": "Nevermind, we still need `ART_TEST_ANDROID_RUNTIME_ROOT\u003d\"/system\"` for the ICU data file (lines 95–103).",
+      "parentUuid": "f465d589_8be9d2cc",
+      "range": {
+        "startLine": 106,
+        "startChar": 22,
+        "endLine": 107,
+        "endChar": 58
+      },
+      "revId": "f1bd5f3dc7a99a62818b03dd78510a416b3c10bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
