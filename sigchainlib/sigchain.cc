@@ -100,8 +100,10 @@ static decltype(&sigprocmask64) linked_sigprocmask64;
 
 template<typename T>
 static void lookup_next_symbol(T* output, T wrapper, const char* name) {
+  log("lookup_next_symbol %s trying RTLD_NEXT", name);
   void* sym = dlsym(RTLD_NEXT, name);  // NOLINT glibc triggers cert-dcl16-c with RTLD_NEXT.
   if (sym == nullptr) {
+    log("lookup_next_symbol %s trying RTLD_DEFAULT", name);
     sym = dlsym(RTLD_DEFAULT, name);
     if (sym == wrapper || sym == sigaction) {
       fatal("Unable to find next %s in signal chain", name);
@@ -507,4 +509,3 @@ extern "C" void EnsureFrontOfChain(int signal) {
 }
 
 }   // namespace art
-
