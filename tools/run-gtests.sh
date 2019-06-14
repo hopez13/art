@@ -32,6 +32,7 @@ function fail {
 
 add_tests "/data/nativetest"
 add_tests "/data/nativetest64"
+all_tests="/data/nativetest/art/arm/art_runtime_tests/jit_memory_region_test"
 
 for i in $all_tests; do
   echo $i
