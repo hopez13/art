@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90646cf5_ea51c585",
+        "filename": "tools/class2greylist/src/com/android/class2greylist/AnnotationPropertyWriter.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2019-06-14T10:14:15Z",
+      "side": 1,
+      "message": "I was going to suggest we use a standard csv library now; there are probably a bunch of corner cases introduced by the publicAlternatives (e.g. does it work for newlines in the text?)\n\nBut there isn\u0027t a csv library present in AOSP. The recommended one seems to be apache csv: http://commons.apache.org/csv/\n\nIf you\u0027re feeling super keen, we could import this into the AOSP tree (there\u0027s a process for doing do, I\u0027ve done it once before but forget the details; see external/apache-commons-bcel in the tree).\n\nThis is probably ok for now though - if it copes with newlines in the text.",
+      "range": {
+        "startLine": 48,
+        "startChar": 26,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "9461be5dc348713f6d66e95ba75cbb8af51269e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
