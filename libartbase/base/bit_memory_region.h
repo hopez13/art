@@ -115,17 +115,18 @@ class BitMemoryRegion final : public ValueObject {
     if (bit_length == 0) {
       return 0;
     }
+    // Load naturally-aligned value which contains the least significant bit.
+    // Then load extra value containing the most significant bit and join the two.
+    // Care is needed to avoid loading more memory than necessary (to avoid SIGSEGV).
+    // Care is also needed to avoid undefined shifts (e.g. 1 << 64 for 64-bit arch).
     Result* data = reinterpret_cast<Result*>(data_);
     size_t width = BitSizeOf<Result>();
-    Result clear = (std::numeric_limits<Result>::max() << 1) << (bit_length - 1);
     size_t index = (bit_start_ + bit_offset) / width;
     size_t shift = (bit_start_ + bit_offset) % width;
     Result value = data[index] >> shift;
-    size_t finished_bits = width - shift;
-    if (finished_bits < bit_length) {
-      value |= data[index + 1] << finished_bits;
-    }
-    return value & ~clear;
+    Result extra = data[index + (shift + (bit_length - 1)) / width];
+    Result clear = (std::numeric_limits<Result>::max() << 1) << (bit_length - 1);
+    return (value | (extra << ((width-shift)&(width-1)))) & ~clear;
   }
 
   // Store `bit_length` bits in `data` starting at given `bit_offset`.
