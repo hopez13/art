@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "78cbd986_af254888",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-17T17:00:39Z",
+      "side": 1,
+      "message": "This seems unnecessary, this information is duplicated in the bit_table_flags.",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 33
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d5bdf0a_9bf995d5",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
@@ -19,6 +42,69 @@
         "endLine": 259,
         "endChar": 38
       },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d93ac3c0_6c74acdf",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-17T17:00:39Z",
+      "side": 1,
+      "message": "The for-loop body is quite unreadable when you mix `i` and `out` this way here. It made me think that there\u0027s an off-by-one error in the slow path, but you actually increment `i` in the middle of the loop...",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 41
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33361df4_c1ea9de8",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-17T17:00:39Z",
+      "side": 1,
+      "message": "... and therefore this use of the post-increment operator should not be allowed. The increment should definitely be on its own line.",
+      "range": {
+        "startLine": 263,
+        "startChar": 50,
+        "endLine": 263,
+        "endChar": 53
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55d4d56e_af6fc9de",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-17T17:00:39Z",
+      "side": 1,
+      "message": "if (... \u003d\u003d ...) { compare the low kNumBitTables bits } else ...",
       "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
