@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d5bdf0a_9bf995d5",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-17T15:26:45Z",
+      "side": 1,
+      "message": "Please document. Is that actually needed somewhere?",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 38
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3572b794_8fc1db08",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
