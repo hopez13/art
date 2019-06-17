@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "465e78fc_6573a97d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-17T16:19:28Z",
+      "side": 1,
+      "message": "I mean I have seen cases in the past the the linux device that golem uses gives completely different results than \"real\" phone hardware.",
+      "parentUuid": "725c9341_c0433607",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "ce93cd024b803d143caea557f1da664bb066f95c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9de200e1_e323a63e",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
