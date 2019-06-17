@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05ea4672_717ea621",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-17T08:27:43Z",
+      "side": 1,
+      "message": "Can you add a comment about sealing and removing write permission?",
+      "revId": "3bf309bb72ab136c4f4f7ba8c49165862fa117ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e20962_95e6d867",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-17T08:27:43Z",
+      "side": 1,
+      "message": "Presumably this only shows up for testing on non-Android environments.\nkNotSupported might be more appropriate here and below?",
+      "range": {
+        "startLine": 83,
+        "startChar": 9,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "3bf309bb72ab136c4f4f7ba8c49165862fa117ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e97b90b7_a1db14d2",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-17T08:27:43Z",
+      "side": 1,
+      "message": "Test for mremap() too.",
+      "revId": "3bf309bb72ab136c4f4f7ba8c49165862fa117ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
