@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab3d555_d34acd69",
+        "filename": "test/2019-constantcalculationsinking/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-17T07:14:04Z",
+      "side": 1,
+      "message": "Can you check that in the Java code as well, eg:\nassertEquals(value, 619960)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "30c88d977d3dc1c7c3e4645f2a7db63386f65d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cca33dd1_c469f9d8",
+        "filename": "test/2019-constantcalculationsinking/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-17T07:14:04Z",
+      "side": 1,
+      "message": "extra whitespace",
+      "range": {
+        "startLine": 1,
+        "startChar": 38,
+        "endLine": 1,
+        "endChar": 40
+      },
+      "revId": "30c88d977d3dc1c7c3e4645f2a7db63386f65d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7326296b_dc2f808c",
+        "filename": "test/2019-constantcalculationsinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-17T07:14:04Z",
+      "side": 1,
+      "message": "Please remove extra whitespaces in this file.",
+      "range": {
+        "startLine": 26,
+        "startChar": 19,
+        "endLine": 26,
+        "endChar": 166
+      },
+      "revId": "30c88d977d3dc1c7c3e4645f2a7db63386f65d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "229d29d2_0b2ec2ce",
+        "filename": "test/2019-constantcalculationsinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-17T07:14:04Z",
+      "side": 1,
+      "message": "Replace tabs with spaces.",
+      "revId": "30c88d977d3dc1c7c3e4645f2a7db63386f65d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60669269_416b21c0",
+        "filename": "test/2019-constantcalculationsinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-17T07:14:04Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "revId": "30c88d977d3dc1c7c3e4645f2a7db63386f65d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
