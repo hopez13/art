@@ -152,6 +152,7 @@ libcore_native_shared_libs = [
     "libandroidio",
     // TODO(b/124476339): Clean up the following libraries once "required"
     // dependencies work with APEX libraries.
+    "libandroidicuinit",
     "libexpat",
     "libicui18n",
     "libicuuc",
