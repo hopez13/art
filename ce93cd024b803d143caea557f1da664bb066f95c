@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a226ddec_dc8dd66f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-17T16:11:26Z",
+      "side": 1,
+      "message": "Yes, but:\n1) I started the runs, but golem will take a while to get around to it.\n2) I think golem is not excellently representative for micro-optimizations like this.  I trust the measurements on the phone more.",
+      "parentUuid": "a8c30a32_1bcafed6",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "ce93cd024b803d143caea557f1da664bb066f95c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9de200e1_e323a63e",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
