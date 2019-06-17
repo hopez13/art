@@ -550,6 +550,8 @@ PRIVATE_RUNTIME_DEPENDENCY_LIBS := \
   lib64/libnativeloader.so \
   lib/libandroidio.so \
   lib64/libandroidio.so \
+  lib/libandroidicuinit.so \
+  lib64/libandroidicuinit.so \
 
 # Copy some libraries into `$(TARGET_OUT)/lib(64)` (the
 # `/system/lib(64)` directory to be sync'd to the target) for ART testing
