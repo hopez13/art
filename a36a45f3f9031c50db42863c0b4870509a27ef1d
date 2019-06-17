@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0087b0fe_612415ad",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-17T17:54:19Z",
+      "side": 1,
+      "message": "Correct. Alas, having here ensures it can be read in single load instruction, which turns out to matter for performance.\n\nI will revisit and remeasure it later.",
+      "parentUuid": "78cbd986_af254888",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 33
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d5bdf0a_9bf995d5",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2019-06-17T17:00:39Z",
       "side": 1,
       "message": "The for-loop body is quite unreadable when you mix `i` and `out` this way here. It made me think that there\u0027s an off-by-one error in the slow path, but you actually increment `i` in the middle of the loop...",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 41
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b14e600d_b4e8f9a4",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-17T17:54:19Z",
+      "side": 1,
+      "message": "Yeah... I know. Not the best piece of code...\n...which is why it all dies in the next CL.",
+      "parentUuid": "d93ac3c0_6c74acdf",
       "range": {
         "startLine": 262,
         "startChar": 4,
