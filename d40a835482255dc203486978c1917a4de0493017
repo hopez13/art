@@ -22,6 +22,30 @@
       "revId": "d40a835482255dc203486978c1917a4de0493017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7581176c_b922916a",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-18T16:10:54Z",
+      "side": 1,
+      "message": "It\u0027s mostly a random number that seems to work OK. class defs aren\u0027t really restricted.\n\nI\u0027ll make it a constant, though, I guess.",
+      "parentUuid": "a6b9744e_ed447c71",
+      "range": {
+        "startLine": 2956,
+        "startChar": 63,
+        "endLine": 2956,
+        "endChar": 69
+      },
+      "revId": "d40a835482255dc203486978c1917a4de0493017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
