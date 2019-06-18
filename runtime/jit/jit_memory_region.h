@@ -43,13 +43,12 @@ class JitMemoryRegion {
       : used_memory_for_code_(0),
         used_memory_for_data_(0) {}
 
-  void InitializeState(size_t initial_capacity, size_t max_capacity)
+  bool Initialize(size_t initial_capacity,
+                  size_t max_capacity,
+                  bool rwx_memory_allowed,
+                  bool is_zygote,
+                  std::string* error_msg)
       REQUIRES(Locks::jit_lock_);
-
-  bool InitializeMappings(bool rwx_memory_allowed, bool is_zygote, std::string* error_msg)
-      REQUIRES(Locks::jit_lock_);
-
-  void InitializeSpaces() REQUIRES(Locks::jit_lock_);
 
   // Try to increase the current capacity of the code cache. Return whether we
   // succeeded at doing so.
