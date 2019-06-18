@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "686ba29f_8bc4211a",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-18T12:45:21Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/983810 PS3.",
+      "parentUuid": "0d5bdf0a_9bf995d5",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 38
+      },
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d93ac3c0_6c74acdf",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 1
@@ -225,6 +249,24 @@
       "writtenOn": "2019-06-17T17:00:39Z",
       "side": 1,
       "message": "if (... \u003d\u003d ...) { compare the low kNumBitTables bits } else ...",
+      "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6edf8de7_daa2bb8f",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-18T12:45:21Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/983810 PS3.\n\nI added explicit check calling the HasBitTable helper to check the bits.",
+      "parentUuid": "55d4d56e_af6fc9de",
       "revId": "a36a45f3f9031c50db42863c0b4870509a27ef1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
