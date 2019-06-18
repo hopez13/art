@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d146e825_65184f57",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-06-18T16:05:16Z",
+      "side": 1,
+      "message": "Is this necessary? (Given that neither libandroidicu nor libjavacore are mentioned here it\u0027d surprise me if this lib needs to be.)",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 30
+      },
+      "revId": "76c671b4df1c9ce69f6424d1f763f6f0f20214e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508b227b_3a32d95b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-06-18T16:05:16Z",
+      "side": 1,
+      "message": "The library should be pulled in through dependencies, so this line shouldn\u0027t be necessary. Please remove it.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 24
+      },
+      "revId": "76c671b4df1c9ce69f6424d1f763f6f0f20214e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
