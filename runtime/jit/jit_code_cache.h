@@ -74,7 +74,13 @@ namespace jit {
 
 class MarkCodeClosure;
 
-using CodeCacheBitmap = gc::accounting::MemoryRangeBitmap<kJitCodeAlignment>;
+// Number of bytes represented by a bit in the CodeCacheBitmap. Value is reasonable for all
+// architectures.
+static constexpr int kJitCodeAccountingBytes = 16;
+
+// Type of bitmap used for tracking live functions in the JIT code cache for the purposes
+// of garbage collecting code.
+using CodeCacheBitmap = gc::accounting::MemoryRangeBitmap<kJitCodeAccountingBytes>;
 
 class JitCodeCache {
  public:
