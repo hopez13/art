@@ -57,7 +57,7 @@ class JitMemoryRegion {
 
   // Set the footprint limit of the code cache.
   void SetFootprintLimit(size_t new_footprint) REQUIRES(Locks::jit_lock_);
-  uint8_t* AllocateCode(size_t code_size) REQUIRES(Locks::jit_lock_);
+  uint8_t* AllocateCode(size_t code_size, size_t alignment) REQUIRES(Locks::jit_lock_);
   void FreeCode(uint8_t* code) REQUIRES(Locks::jit_lock_);
   uint8_t* AllocateData(size_t data_size) REQUIRES(Locks::jit_lock_);
   void FreeData(uint8_t* data) REQUIRES(Locks::jit_lock_);
