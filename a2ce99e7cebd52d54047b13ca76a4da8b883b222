@@ -22,6 +22,30 @@
       "revId": "a2ce99e7cebd52d54047b13ca76a4da8b883b222",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "814716cb_e894506d",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-18T12:35:36Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/983810 PS3.",
+      "parentUuid": "78a03b0c_0f283ef6",
+      "range": {
+        "startLine": 78,
+        "startChar": 56,
+        "endLine": 78,
+        "endChar": 58
+      },
+      "revId": "a2ce99e7cebd52d54047b13ca76a4da8b883b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
