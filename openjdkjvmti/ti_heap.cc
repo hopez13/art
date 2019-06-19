@@ -27,6 +27,7 @@
 #include "gc_root-inl.h"
 #include "java_frame_root_info.h"
 #include "jni/jni_env_ext.h"
+#include "jni/jni_id_manager.h"
 #include "jni/jni_internal.h"
 #include "jvmti_weak_table-inl.h"
 #include "mirror/class.h"
@@ -1378,6 +1379,7 @@ jvmtiError HeapUtil::FollowReferences(jvmtiEnv* env,
   }
   {
     art::ScopedObjectAccess soa(self);      // Now we know we have the shared lock.
+    art::jni::ScopedEnableSuspendAllJniIdQueries sjni;  // make sure we can get JNI ids.
     art::ScopedThreadSuspension sts(self, art::kWaitingForVisitObjects);
     art::ScopedSuspendAll ssa("FollowReferences");
 

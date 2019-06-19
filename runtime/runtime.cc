@@ -15,6 +15,8 @@
  */
 
 #include "runtime.h"
+#include "jni/jni_id_manager.h"
+#include "jni_id_type.h"
 
 // sys/mount.h has to come before linux/fs.h due to redefinition of MS_RDONLY, MS_BIND, etc
 #include <sys/mount.h>
@@ -1179,6 +1181,8 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
 
   oat_file_manager_ = new OatFileManager;
 
+  jni_id_manager_ = new jni::JniIdManager;
+
   Thread::SetSensitiveThreadHook(runtime_options.GetOrDefault(Opt::HookIsSensitiveThread));
   Monitor::Init(runtime_options.GetOrDefault(Opt::LockProfThreshold),
                 runtime_options.GetOrDefault(Opt::StackDumpLockProfThreshold));
@@ -1299,6 +1303,15 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   experimental_flags_ = runtime_options.GetOrDefault(Opt::Experimental);
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
   madvise_random_access_ = runtime_options.GetOrDefault(Opt::MadviseRandomAccess);
+
+  if (!runtime_options.Exists(Opt::OpaqueJniIds)) {
+    jni_ids_indirection_ = JniIdType::kDefault;
+  } else {
+    jni_ids_indirection_ = *runtime_options.Get(Opt::OpaqueJniIds) ? JniIdType::kIndicies
+                                                                   : JniIdType::kPointer;
+  }
+
+  LOG(WARNING) << "Opaque JNI ids is " << jni_ids_indirection_;
 
   plugins_ = runtime_options.ReleaseOrDefault(Opt::Plugins);
   agent_specs_ = runtime_options.ReleaseOrDefault(Opt::AgentPath);
