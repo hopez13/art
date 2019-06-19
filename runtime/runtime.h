@@ -37,6 +37,8 @@
 #include "gc_root.h"
 #include "instrumentation.h"
 #include "jdwp_provider.h"
+#include "jni_id_type.h"
+#include "jni/jni_id_manager.h"
 #include "obj_ptr.h"
 #include "offsets.h"
 #include "process_state.h"
@@ -273,6 +275,10 @@ class Runtime {
 
   ClassLinker* GetClassLinker() const {
     return class_linker_;
+  }
+
+  jni::JniIdManager* GetJniIdManager() const {
+    return jni_id_manager_;
   }
 
   size_t GetDefaultStackSize() const {
@@ -830,6 +836,10 @@ class Runtime {
     return jdwp_provider_;
   }
 
+  bool JniIdsAreIndicies() const {
+    return jni_ids_indirection_ != JniIdType::kPointer;
+  }
+
   uint32_t GetVerifierLoggingThresholdMs() const {
     return verifier_logging_threshold_ms_;
   }
@@ -995,6 +1005,8 @@ class Runtime {
   ClassLinker* class_linker_;
 
   SignalCatcher* signal_catcher_;
+
+  jni::JniIdManager* jni_id_manager_;
 
   std::unique_ptr<JavaVMExt> java_vm_;
 
@@ -1178,6 +1190,11 @@ class Runtime {
 
   // The jdwp provider we were configured with.
   JdwpProvider jdwp_provider_;
+
+  // True if jmethodID and jfieldID are opaque indicies. When false (the default) these are simply
+  // pointers. This is either .. TODO
+  // Set by -Xopaque-jni-ids:{true,false}.
+  JniIdType jni_ids_indirection_;
 
   // Saved environment.
   class EnvSnapshot {
