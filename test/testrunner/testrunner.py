@@ -138,6 +138,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['cdex_level'] = {'cdex-none', 'cdex-fast'}
   VARIANT_TYPE_DICT['relocate'] = {'relocate', 'no-relocate'}
   VARIANT_TYPE_DICT['jni'] = {'jni', 'forcecopy', 'checkjni'}
+  VARIANT_TYPE_DICT['jni_ids'] = {'index-ids', 'pointer-ids'}
   VARIANT_TYPE_DICT['address_sizes'] = {'64', '32'}
   VARIANT_TYPE_DICT['jvmti'] = {'no-jvmti', 'jvmti-stress', 'redefine-stress', 'trace-stress',
                                 'field-stress', 'step-stress'}
@@ -181,6 +182,7 @@ def setup_test_env():
       'trace': {'ntrace'},
       'gc': {'cms'},
       'jni': {'checkjni'},
+      'jni_ids': {'pointer-ids'},
       'image': {'picimage'},
       'debuggable': {'ndebuggable'},
       'run': {'debug'},
@@ -321,6 +323,7 @@ def run_tests(tests):
                                  user_input_variants['prebuild'], user_input_variants['compiler'],
                                  user_input_variants['relocate'], user_input_variants['trace'],
                                  user_input_variants['gc'], user_input_variants['jni'],
+                                 user_input_variants['jni_ids'],
                                  user_input_variants['image'],
                                  user_input_variants['debuggable'], user_input_variants['jvmti'],
                                  user_input_variants['cdex_level'])
@@ -333,14 +336,14 @@ def run_tests(tests):
   uncombinated_config = iter_config(tests, uncombinated_target_input_variants, { 'run': [''],
       'prebuild': [''], 'compiler': [''],
       'relocate': [''], 'trace': [''],
-      'gc': [''], 'jni': [''],
+      'gc': [''], 'jni': [''], 'jni_ids': [''],
       'image': [''],
       'debuggable': [''], 'jvmti': [''],
       'cdex_level': ['']})
 
   def start_combination(executor, config_tuple, global_options, address_size):
       test, target, run, prebuild, compiler, relocate, trace, gc, \
-      jni, image, debuggable, jvmti, cdex_level = config_tuple
+      jni, jni_ids, image, debuggable, jvmti, cdex_level = config_tuple
 
       # NB The order of components here should match the order of
       # components in the regex parser in parse_test_name.
@@ -353,6 +356,7 @@ def run_tests(tests):
       test_name += trace + '-'
       test_name += gc + '-'
       test_name += jni + '-'
+      test_name += jni_ids + '-'
       test_name += image + '-'
       test_name += debuggable + '-'
       test_name += jvmti + '-'
@@ -360,7 +364,7 @@ def run_tests(tests):
       test_name += test
       test_name += address_size
 
-      variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni,
+      variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni, jni_ids,
                      image, debuggable, jvmti, cdex_level, address_size}
 
       options_test = global_options
@@ -430,6 +434,9 @@ def run_tests(tests):
         options_test += ' --runtime-option -Xjniopts:forcecopy'
       elif jni == 'checkjni':
         options_test += ' --runtime-option -Xcheck:jni'
+
+      if jni_ids == 'index-ids':
+        options_test += ' --runtime-option -Xopaque-jni-ids:true'
 
       if image == 'no-image':
         options_test += ' --no-image'
@@ -797,7 +804,7 @@ def parse_test_name(test_name):
   It supports two types of test_name:
   1) Like 001-HelloWorld. In this case, it will just verify if the test actually
   exists and if it does, it returns the testname.
-  2) Like test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-001-HelloWorld32
+  2) Like test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-pointer-ids-picimage-ndebuggable-001-HelloWorld32
   In this case, it will parse all the variants and check if they are placed
   correctly. If yes, it will set the various VARIANT_TYPES to use the
   variants required to run the test. Again, it returns the test_name
@@ -820,6 +827,7 @@ def parse_test_name(test_name):
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['trace']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['gc']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['jni']) + ')-'
+  regex += '(' + '|'.join(VARIANT_TYPE_DICT['jni_ids']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['image']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['debuggable']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['jvmti']) + ')-'
@@ -836,12 +844,13 @@ def parse_test_name(test_name):
     _user_input_variants['trace'].add(match.group(6))
     _user_input_variants['gc'].add(match.group(7))
     _user_input_variants['jni'].add(match.group(8))
-    _user_input_variants['image'].add(match.group(9))
-    _user_input_variants['debuggable'].add(match.group(10))
-    _user_input_variants['jvmti'].add(match.group(11))
-    _user_input_variants['cdex_level'].add(match.group(12))
-    _user_input_variants['address_sizes'].add(match.group(14))
-    return {match.group(13)}
+    _user_input_variants['jni_ids'].add(match.group(9))
+    _user_input_variants['image'].add(match.group(10))
+    _user_input_variants['debuggable'].add(match.group(11))
+    _user_input_variants['jvmti'].add(match.group(12))
+    _user_input_variants['cdex_level'].add(match.group(13))
+    _user_input_variants['address_sizes'].add(match.group(15))
+    return {match.group(14)}
   raise ValueError(test_name + " is not a valid test")
 
 
