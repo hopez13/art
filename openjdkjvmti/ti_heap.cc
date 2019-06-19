@@ -21,12 +21,15 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "class_linker.h"
+#include "class_root.h"
 #include "dex/primitive.h"
 #include "gc/heap-visit-objects-inl.h"
 #include "gc/heap.h"
 #include "gc_root-inl.h"
+#include "handle_scope.h"
 #include "java_frame_root_info.h"
 #include "jni/jni_env_ext.h"
+#include "jni/jni_id_manager.h"
 #include "jni/jni_internal.h"
 #include "jvmti_weak_table-inl.h"
 #include "mirror/class.h"
@@ -36,9 +39,11 @@
 #include "object_tagging.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
+#include "scoped_thread_state_change.h"
 #include "stack.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "well_known_classes.h"
 
 namespace openjdkjvmti {
 
@@ -646,6 +651,18 @@ struct HeapFilter {
 }  // namespace
 
 void HeapUtil::Register() {
+  if (art::Runtime::Current()->JniIdsAreIndicies()) {
+    // Ensure that the Class class has all the needed fields for method/field ids already. Otherwise
+    // we can get into trivial infinite loops with heap events by trying to get the class-name of
+    // the allocating method. See test 904 for an example of code that could hit this issue.
+    // art::ScopedObjectAccess soa(art::Thread::Current());
+    // art::StackHandleScope<1> hs(soa.Self());
+    // art::Handle<art::mirror::Class> class_class(
+    //     hs.NewHandle(art::GetClassRoot(art::ClassRoot::kJavaLangClass)));
+    // class_class->GetOrCreateInstanceFieldIds();
+    // class_class->GetOrCreateStaticFieldIds();
+    // class_class->GetOrCreateMethodIds();
+  }
   art::Runtime::Current()->AddSystemWeakHolder(&gIndexCachingTable);
 }
 
@@ -1378,6 +1395,7 @@ jvmtiError HeapUtil::FollowReferences(jvmtiEnv* env,
   }
   {
     art::ScopedObjectAccess soa(self);      // Now we know we have the shared lock.
+    art::jni::ScopedEnableSuspendAllJniIdQueries sjni;  // make sure we can get JNI ids.
     art::ScopedThreadSuspension sts(self, art::kWaitingForVisitObjects);
     art::ScopedSuspendAll ssa("FollowReferences");
 

@@ -78,6 +78,7 @@ enum LockLevel : uint8_t {
   kJniFunctionTableLock,
   kJniWeakGlobalsLock,
   kJniGlobalsLock,
+  kJniIdLock,
   kReferenceQueueSoftReferencesLock,
   kReferenceQueuePhantomReferencesLock,
   kReferenceQueueFinalizerReferencesLock,
@@ -353,8 +354,10 @@ class Locks {
   // Guards the magic global variables used by native tools (e.g. libunwind).
   static Mutex* native_debug_interface_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
 
+  static ReaderWriterMutex* jni_id_lock_ ACQUIRED_AFTER(native_debug_interface_lock_);
+
   // Have an exclusive logging thread.
-  static Mutex* logging_lock_ ACQUIRED_AFTER(native_debug_interface_lock_);
+  static Mutex* logging_lock_ ACQUIRED_AFTER(jni_id_lock_);
 
   // List of mutexes that we expect a thread may hold when accessing weak refs. This is used to
   // avoid a deadlock in the empty checkpoint while weak ref access is disabled (b/34964016). If we

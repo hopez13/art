@@ -18,7 +18,9 @@
 #define ART_RUNTIME_JNI_JNI_ENV_EXT_H_
 
 #include <jni.h>
+#include <vector>
 
+#include "android-base/thread_annotations.h"
 #include "base/locks.h"
 #include "base/macros.h"
 #include "indirect_reference_table.h"
@@ -199,7 +201,7 @@ class JNIEnvExt : public JNIEnv {
   // If we are a JNI env for a daemon thread with a deleted runtime.
   bool runtime_deleted_;
 
-  friend class JNI;
+  template<bool kEnableIndexIds> friend class JNI;
   friend class ScopedJniEnvLocalRefState;
   friend class Thread;
   ART_FRIEND_TEST(JniInternalTest, JNIEnvExtOffsets);
