@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f61e07dc_c2b2f496",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-06-19T12:18:36Z",
+      "side": 1,
+      "message": "I think you\u0027re right. I originally started looking for occurrences of libandroidio as an indication of where I should add things. Later I decided that libicuuc was a better proxy/exemplar of what I was doing but I must have missed this one.",
+      "parentUuid": "d146e825_65184f57",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 30
+      },
+      "revId": "76c671b4df1c9ce69f6424d1f763f6f0f20214e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b227b_3a32d95b",
         "filename": "build/apex/Android.bp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "76c671b4df1c9ce69f6424d1f763f6f0f20214e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "838d1d1f_f76a17aa",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2019-06-19T12:18:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b227b_3a32d95b",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 24
+      },
+      "revId": "76c671b4df1c9ce69f6424d1f763f6f0f20214e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
