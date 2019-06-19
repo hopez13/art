@@ -22,6 +22,7 @@
 #include "dex_cache.h"
 #include "object.h"
 #include "object_array.h"
+#include "offsets.h"
 #include "string.h"
 
 namespace art {
@@ -45,6 +46,32 @@ class MANAGED ClassExt : public Object {
   ObjPtr<Object> GetVerifyError() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ObjPtr<ObjectArray<DexCache>> GetObsoleteDexCaches() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> EnsureInstanceJFieldIDsArrayPresent(size_t count)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> GetInstanceJFieldIDs() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> EnsureStaticJFieldIDsArrayPresent(size_t count)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> GetStaticJFieldIDs() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> EnsureJMethodIDsArrayPresent(size_t count) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> GetJMethodIDs() REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
@@ -82,6 +109,14 @@ class MANAGED ClassExt : public Object {
   static ObjPtr<ClassExt> Alloc(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ObjPtr<PointerArray> EnsureJniIdsArrayPresent(MemberOffset off, size_t count)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  HeapReference<PointerArray> instance_jfield_ids_;
+  HeapReference<PointerArray> jmethod_ids_;
+
   // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
   HeapReference<ObjectArray<DexCache>> obsolete_dex_caches_;
 
@@ -89,12 +124,15 @@ class MANAGED ClassExt : public Object {
 
   HeapReference<Object> original_dex_file_;
 
+  HeapReference<PointerArray> static_jfield_ids_;
+
   // The saved verification error of this class.
   HeapReference<Object> verify_error_;
 
+  int32_t pre_redefine_class_def_index_;
+
   // Native pointer to DexFile and ClassDef index of this class before it was JVMTI-redefined.
   int64_t pre_redefine_dex_file_ptr_;
-  int32_t pre_redefine_class_def_index_;
 
   friend struct art::ClassExtOffsets;  // for verifying offset information
   DISALLOW_IMPLICIT_CONSTRUCTORS(ClassExt);

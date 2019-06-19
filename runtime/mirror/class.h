@@ -1229,6 +1229,20 @@ class MANAGED Class final : public Object {
   void FixupNativePointers(Class* dest, PointerSize pointer_size, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ObjPtr<PointerArray> GetOrCreateMethodIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetMethodIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetOrCreateStaticFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetStaticFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetOrCreateInstanceFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetInstanceFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  size_t GetStaticFieldIdOffset(ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t GetInstanceFieldIdOffset(ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t GetMethodIdOffset(ArtMethod* method, PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   template <typename T, VerifyObjectFlags kVerifyFlags, typename Visitor>
   void FixupNativePointer(

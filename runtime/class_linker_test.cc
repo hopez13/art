@@ -511,6 +511,7 @@ struct CheckOffsets {
       ArtField* field = is_static ? klass->GetStaticField(i) : klass->GetInstanceField(i);
       std::string_view field_name(field->GetName());
       if (field_name != offsets[i].java_name) {
+        LOG(ERROR) << "Bad offset name " << offsets[i].java_name << " vs " << field_name << " at " << i;
         error = true;
       }
     }
@@ -527,12 +528,17 @@ struct CheckOffsets {
            << " Java=" << field_name
            << " CheckOffsets=" << offset.java_name;
       }
+      LOG(ERROR) << "Expected order (instance): ";
+      for (ArtField& f : klass->GetIFields()) {
+        LOG(ERROR) << "\t" << f.PrettyField() << " off " << f.GetOffset();
+      }
     }
 
     for (size_t i = 0; i < offsets.size(); i++) {
       CheckOffset& offset = offsets[i];
       ArtField* field = is_static ? klass->GetStaticField(i) : klass->GetInstanceField(i);
       if (field->GetOffset().Uint32Value() != offset.cpp_offset) {
+        LOG(ERROR) << "Bad offset value " << offsets[i].java_name << " at " << offset.cpp_offset << " vs " << field->GetOffset().Uint32Value() << " at " << i;
         error = true;
       }
     }
@@ -610,6 +616,8 @@ struct ClassOffsets : public CheckOffsets<mirror::Class> {
 
 struct ClassExtOffsets : public CheckOffsets<mirror::ClassExt> {
   ClassExtOffsets() : CheckOffsets<mirror::ClassExt>(false, "Ldalvik/system/ClassExt;") {
+    addOffset(OFFSETOF_MEMBER(mirror::ClassExt, instance_jfield_ids_), "instanceJfieldIDs");
+    addOffset(OFFSETOF_MEMBER(mirror::ClassExt, jmethod_ids_), "jmethodIDs");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, obsolete_dex_caches_), "obsoleteDexCaches");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, obsolete_methods_), "obsoleteMethods");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, original_dex_file_), "originalDexFile");
@@ -617,6 +625,7 @@ struct ClassExtOffsets : public CheckOffsets<mirror::ClassExt> {
               "preRedefineClassDefIndex");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, pre_redefine_dex_file_ptr_),
               "preRedefineDexFilePtr");
+    addOffset(OFFSETOF_MEMBER(mirror::ClassExt, static_jfield_ids_), "staticJfieldIDs");
     addOffset(OFFSETOF_MEMBER(mirror::ClassExt, verify_error_), "verifyError");
   }
 };

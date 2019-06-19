@@ -50,7 +50,8 @@ target_config = {
         'run-test' : ['--interp-ac']
     },
     'art-jit' : {
-        'run-test' : ['--jit', '--debuggable', '--ndebuggable']
+        # TODO It might be useful to have a new column for just debuggable-jit
+        'run-test' : ['--jit', '--debuggable', '--ndebuggable', '--index-ids', '--pointer-ids']
     },
     'art-jit-on-first-use' : {
         'run-test' : ['--jit-on-first-use']
