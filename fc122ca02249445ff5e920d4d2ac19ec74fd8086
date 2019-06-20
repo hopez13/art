@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e22ef4f7_70f1c362",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-20T11:41:40Z",
+      "side": 1,
+      "message": "Add initializers for the new pairs, explicitly clearing the `first`. (I don\u0027t know if default initializer for std::pair\u003c\u003e uses value-initialization or default-initialization but I don\u0027t want to need to think about it when reading this code.)",
+      "revId": "fc122ca02249445ff5e920d4d2ac19ec74fd8086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03474cb1_d41a37ec",
         "filename": "runtime/stack.h",
         "patchSetId": 1
