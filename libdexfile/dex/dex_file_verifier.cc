@@ -167,6 +167,32 @@ const dex::ProtoId* DexFileVerifier::CheckLoadProtoId(dex::ProtoIndex idx,
     error_stmt;                                               \
   }
 
+
+template <typename ExtraCheckFn>
+bool DexFileVerifier::VerifyTypeDescriptor(dex::TypeIndex idx,
+                                           const char* error_msg1,
+                                           const char* error_msg2,
+                                           ExtraCheckFn fn) {
+  size_t index = idx.index_;
+  if (UNLIKELY(index >= verified_type_descriptors_.size())) {
+    ErrorStringPrintf("Bad index for type index: %zx >= %zx",
+                      index,
+                      verified_type_descriptors_.size());
+    return false;
+  }
+  if (verified_type_descriptors_[index]) {
+    return true;
+  }
+
+  LOAD_STRING_BY_TYPE(descriptor, idx, error_msg1)
+  if (UNLIKELY(!IsValidDescriptor(descriptor) || !fn(descriptor))) {
+    ErrorStringPrintf("%s: '%s'", error_msg2, descriptor);
+    return false;
+  }
+  verified_type_descriptors_[index] = true;
+  return true;
+}
+
 bool DexFileVerifier::Verify(const DexFile* dex_file,
                              const uint8_t* begin,
                              size_t size,
@@ -2311,16 +2337,18 @@ bool DexFileVerifier::CheckInterFieldIdItem() {
   const dex::FieldId* item = reinterpret_cast<const dex::FieldId*>(ptr_);
 
   // Check that the class descriptor is valid.
-  LOAD_STRING_BY_TYPE(class_descriptor, item->class_idx_, "inter_field_id_item class_idx")
-  if (UNLIKELY(!IsValidDescriptor(class_descriptor) || class_descriptor[0] != 'L')) {
-    ErrorStringPrintf("Invalid descriptor for class_idx: '%s'", class_descriptor);
+  if (UNLIKELY(!VerifyTypeDescriptor(item->class_idx_,
+                                     "inter_field_id_item class_idx",
+                                     "Invalid descriptor for class_idx",
+                                     [](const char* d) { return d[0] == 'L'; }))) {
     return false;
   }
 
   // Check that the type descriptor is a valid field name.
-  LOAD_STRING_BY_TYPE(type_descriptor, item->type_idx_, "inter_field_id_item type_idx")
-  if (UNLIKELY(!IsValidDescriptor(type_descriptor) || type_descriptor[0] == 'V')) {
-    ErrorStringPrintf("Invalid descriptor for type_idx: '%s'", type_descriptor);
+  if (UNLIKELY(!VerifyTypeDescriptor(item->type_idx_,
+                                     "inter_field_id_item type_idx",
+                                     "Invalid descriptor for type_idx",
+                                     [](const char* d) { return d[0] != 'V'; }))) {
     return false;
   }
 
@@ -2358,10 +2386,10 @@ bool DexFileVerifier::CheckInterMethodIdItem() {
   const dex::MethodId* item = reinterpret_cast<const dex::MethodId*>(ptr_);
 
   // Check that the class descriptor is a valid reference name.
-  LOAD_STRING_BY_TYPE(class_descriptor, item->class_idx_, "inter_method_id_item class_idx")
-  if (UNLIKELY(!IsValidDescriptor(class_descriptor) || (class_descriptor[0] != 'L' &&
-                                                        class_descriptor[0] != '['))) {
-    ErrorStringPrintf("Invalid descriptor for class_idx: '%s'", class_descriptor);
+  if (UNLIKELY(!VerifyTypeDescriptor(item->class_idx_,
+                                     "inter_method_id_item class_idx",
+                                     "Invalid descriptor for class_idx",
+                                     [](const char* d) { return d[0] == 'L' || d[0] == '['; }))) {
     return false;
   }
 
@@ -2423,9 +2451,11 @@ bool DexFileVerifier::CheckInterClassDefItem() {
   }
   defined_classes_.insert(item->class_idx_);
 
-  LOAD_STRING_BY_TYPE(class_descriptor, item->class_idx_, "inter_class_def_item class_idx")
-  if (UNLIKELY(!IsValidDescriptor(class_descriptor) || class_descriptor[0] != 'L')) {
-    ErrorStringPrintf("Invalid class descriptor: '%s'", class_descriptor);
+
+  if (UNLIKELY(!VerifyTypeDescriptor(item->class_idx_,
+                                     "inter_class_def_item class_idx",
+                                     "Invalid class descriptor",
+                                     [](const char* d) { return d[0] == 'L'; }))) {
     return false;
   }
 
@@ -2479,10 +2509,10 @@ bool DexFileVerifier::CheckInterClassDefItem() {
       }
     }
 
-    LOAD_STRING_BY_TYPE(superclass_descriptor, item->superclass_idx_,
-                        "inter_class_def_item superclass_idx")
-    if (UNLIKELY(!IsValidDescriptor(superclass_descriptor) || superclass_descriptor[0] != 'L')) {
-      ErrorStringPrintf("Invalid superclass: '%s'", superclass_descriptor);
+    if (UNLIKELY(!VerifyTypeDescriptor(item->superclass_idx_,
+                                       "inter_class_def_item superclass_idx",
+                                       "Invalid superclass",
+                                       [](const char* d) { return d[0] == 'L'; }))) {
       return false;
     }
   }
@@ -2520,10 +2550,10 @@ bool DexFileVerifier::CheckInterClassDefItem() {
       }
 
       // Ensure that the interface refers to a class (not an array nor a primitive type).
-      LOAD_STRING_BY_TYPE(inf_descriptor, interfaces->GetTypeItem(i).type_idx_,
-                          "inter_class_def_item interface type_idx")
-      if (UNLIKELY(!IsValidDescriptor(inf_descriptor) || inf_descriptor[0] != 'L')) {
-        ErrorStringPrintf("Invalid interface: '%s'", inf_descriptor);
+      if (UNLIKELY(!VerifyTypeDescriptor(interfaces->GetTypeItem(i).type_idx_,
+                                         "inter_class_def_item interface type_idx",
+                                         "Invalid interface",
+                                         [](const char* d) { return d[0] == 'L'; }))) {
         return false;
       }
     }
@@ -3021,6 +3051,8 @@ bool DexFileVerifier::Verify() {
   if (!CheckMap()) {
     return false;
   }
+
+  verified_type_descriptors_.resize(std::min(header_->type_ids_size_, kTypeIdLimit + 1), false);
 
   // Check structure within remaining sections.
   if (!CheckIntraSection()) {
