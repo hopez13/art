@@ -321,7 +321,9 @@ static void RepackEntries(PackElfFileForJITFunction pack,
     }
     CHECK_GT(added.size(), 0u);
     if (added.size() == 1 && removed.size() == 0) {
-      packed_entries.insert(entries->extract(entries->begin()));
+      auto move_it = entries->begin();
+      packed_entries.insert(std::make_pair(move_it->first, move_it->second));
+      entries->erase(move_it);
       continue;  // Nothing changed in this memory range.
     }
 
@@ -367,7 +369,9 @@ void AddNativeDebugInfoForJit(Thread* self,
   // Pack and compress all entries. This will run on first compilation after a GC.
   // Must be done before addition in case the added code_ptr is in the removed set.
   if (!g_jit_removed_entries.empty()) {
-    g_compressed_jit_debug_entries.merge(g_uncompressed_jit_debug_entries);
+    g_compressed_jit_debug_entries.insert(g_uncompressed_jit_debug_entries.begin(),
+                                          g_uncompressed_jit_debug_entries.end());
+    g_uncompressed_jit_debug_entries.clear();
     if (pack != nullptr) {
       RepackEntries(pack, isa, features, /*compress=*/ true, &g_compressed_jit_debug_entries);
     } else {
