@@ -64,7 +64,7 @@ class VerifierDeps {
 
   // Merge `other` into this `VerifierDeps`'. `other` and `this` must be for the
   // same set of dex files.
-  void MergeWith(std::unique_ptr<VerifierDeps> other, const std::vector<const DexFile*>& dex_files);
+  void MergeWith(const VerifierDeps& other, const std::vector<const DexFile*>& dex_files);
 
   // Record information that a class was verified.
   // Note that this function is different from MaybeRecordVerificationStatus() which

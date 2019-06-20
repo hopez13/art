@@ -25,8 +25,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-
-#include <set>
 #include <unordered_map>
 
 #include "dex/compact_dex_level.h"

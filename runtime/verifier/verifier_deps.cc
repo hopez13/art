@@ -24,6 +24,7 @@
 #include "base/indenter.h"
 #include "base/leb128.h"
 #include "base/mutex-inl.h"
+#include "base/stl_util.h"
 #include "compiler_callbacks.h"
 #include "dex/class_accessor-inl.h"
 #include "dex/dex_file-inl.h"
@@ -60,21 +61,20 @@ static inline void BitVectorOr(std::vector<bool>& to_update, const std::vector<b
                  std::logical_or<bool>());
 }
 
-void VerifierDeps::MergeWith(std::unique_ptr<VerifierDeps> other,
+void VerifierDeps::MergeWith(const VerifierDeps& other,
                              const std::vector<const DexFile*>& dex_files) {
-  DCHECK(other != nullptr);
-  DCHECK_EQ(dex_deps_.size(), other->dex_deps_.size());
+  DCHECK(dex_deps_.size() == other.dex_deps_.size());
   for (const DexFile* dex_file : dex_files) {
     DexFileDeps* my_deps = GetDexFileDeps(*dex_file);
-    DexFileDeps& other_deps = *other->GetDexFileDeps(*dex_file);
+    const DexFileDeps& other_deps = *other.GetDexFileDeps(*dex_file);
     // We currently collect extra strings only on the main `VerifierDeps`,
     // which should be the one passed as `this` in this method.
     DCHECK(other_deps.strings_.empty());
-    my_deps->assignable_types_.merge(other_deps.assignable_types_);
-    my_deps->unassignable_types_.merge(other_deps.unassignable_types_);
-    my_deps->classes_.merge(other_deps.classes_);
-    my_deps->fields_.merge(other_deps.fields_);
-    my_deps->methods_.merge(other_deps.methods_);
+    MergeSets(my_deps->assignable_types_, other_deps.assignable_types_);
+    MergeSets(my_deps->unassignable_types_, other_deps.unassignable_types_);
+    MergeSets(my_deps->classes_, other_deps.classes_);
+    MergeSets(my_deps->fields_, other_deps.fields_);
+    MergeSets(my_deps->methods_, other_deps.methods_);
     BitVectorOr(my_deps->verified_classes_, other_deps.verified_classes_);
     BitVectorOr(my_deps->redefined_classes_, other_deps.redefined_classes_);
   }

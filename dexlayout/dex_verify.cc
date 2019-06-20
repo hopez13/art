@@ -22,8 +22,6 @@
 
 #include <inttypes.h>
 
-#include <set>
-
 #include "android-base/stringprintf.h"
 
 namespace art {
