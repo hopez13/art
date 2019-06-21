@@ -14,11 +14,11 @@
 // limitations under the License.
 //
 
-cc_library {
-    name: "libsigchain",
-
+cc_defaults {
+    name: "libsigchain_defaults",
     host_supported: true,
-    defaults: ["art_defaults"],
+    defaults: ["art_defaults_low"],
+
     target: {
         linux: {
             shared: {
@@ -28,17 +28,37 @@ cc_library {
                 srcs: ["sigchain.cc"],
             },
         },
-
         darwin: {
             srcs: ["sigchain_dummy.cc"],
-        },
-
-        android: {
-            whole_static_libs: ["libasync_safe"],
         },
     },
 
     export_include_dirs: ["."],
+}
+
+// TODO(b/xxx): Switch all users to the NDK variant and remove this.
+cc_library {
+    name: "libsigchain",
+    defaults: ["libsigchain_defaults"],
+
+    target: {
+        android: {
+            whole_static_libs: ["libasync_safe"],
+        },
+    },
+}
+
+cc_library {
+    name: "libsigchain_ndk",
+    defaults: ["libsigchain_defaults"],
+    sdk_version: "current",
+    stl: "libc++", // *
+
+    target: {
+        android: {
+            whole_static_libs: ["libasync_safe_ndk"],
+        },
+    },
 }
 
 // Create a dummy version of libsigchain which expose the necessary symbols
@@ -47,7 +67,7 @@ cc_library {
 cc_library_static {
     name: "libsigchain_dummy",
     host_supported: true,
-    defaults: ["art_defaults"],
+    defaults: ["art_defaults_low"],
     srcs: ["sigchain_dummy.cc"],
     target: {
         android: {
@@ -64,7 +84,7 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     srcs: ["sigchain_test.cc"],
-    whole_static_libs: ["libsigchain"],
+    whole_static_libs: ["libsigchain_ndk"],
 }
 
 filegroup {

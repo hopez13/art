@@ -17,7 +17,7 @@
 art_cc_defaults {
     name: "art_verifier-defaults",
     defaults: [
-        "art_defaults",
+        "art_defaults_low",
     ],
     host_supported: true,
     srcs: [

@@ -25,8 +25,10 @@ art_cc_defaults {
         "stream/output_stream.cc",
         "stream/vector_output_stream.cc",
     ],
+    sdk_version: "current",
+    stl: "libc++",
     shared_libs: [
-        "libbase",
+        "libbase_ndk",
     ],
 }
 

@@ -20,6 +20,8 @@ cc_defaults {
         "dexdump_main.cc",
         "dexdump.cc",
     ],
+    sdk_version: "current",
+    stl: "libc++",
 }
 
 art_cc_binary {
@@ -31,7 +33,6 @@ art_cc_binary {
             shared_libs: [
                 "libdexfile",
                 "libartbase",
-                "libbase",
             ],
         },
         // Use static libs on host: required for Windows build and
@@ -41,10 +42,8 @@ art_cc_binary {
             static_libs: [
                 "libdexfile",
                 "libartbase",
-                "libbase",
                 "libartpalette",
                 "liblog",
-                "libz",
                 "libziparchive",
             ],
         },

@@ -18,9 +18,6 @@ cc_defaults {
     defaults: ["art_defaults"],
     host_supported: true,
     srcs: ["OpenjdkJvm.cc"],
-    shared_libs: [
-        "libbase",
-    ],
     header_libs: [
         "libnativehelper_header_only",
     ],

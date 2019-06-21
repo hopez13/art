@@ -38,49 +38,33 @@ cc_defaults {
         "dex/utf.cc",
     ],
 
+    sdk_version: "current",
+    stl: "libc++",
     target: {
         android: {
             static_libs: [
-                "libziparchive",
-                "libz",
+                "libziparchive_ndk",
             ],
             shared_libs: [
                 // For MemMap.
                 "libartpalette",
                 "liblog",
-                // For common macros.
-                "libbase",
-            ],
-            export_shared_lib_headers: [
-                "libbase",
             ],
         },
         not_windows: {
             shared_libs: [
-                "libziparchive",
-                "libz",
+                "libziparchive_ndk",
                 // For MemMap.
                 "libartpalette",
                 "liblog",
-                // For common macros.
-                "libbase",
-            ],
-            export_shared_lib_headers: [
-                "libbase",
             ],
         },
         windows: {
             static_libs: [
-                "libziparchive",
-                "libz",
+                "libziparchive_ndk",
                 // For MemMap.
                 "libartpalette",
                 "liblog",
-                // For common macros.
-                "libbase",
-            ],
-            export_static_lib_headers: [
-                "libbase",
             ],
             cflags: ["-Wno-thread-safety"],
         },
@@ -235,8 +219,8 @@ art_cc_test {
         "dex/utf_test.cc",
     ],
     shared_libs: [
-        "libbacktrace",
-        "libziparchive",
+        "libbacktrace_ndk",
+        "libziparchive_ndk",
     ],
 }
 
@@ -248,7 +232,23 @@ cc_library_headers {
     header_libs: ["libbase_headers"],
     export_header_lib_headers: ["libbase_headers"],
     export_include_dirs: ["external/include"],
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
+}
 
+cc_library_headers {
+    name: "libdexfile_external_headers_ndk",
+    host_supported: true,
+    vendor_available: true,
+    recovery_available: true,
+    header_libs: ["libbase_headers_ndk"],
+    export_header_lib_headers: ["libbase_headers_ndk"],
+    export_include_dirs: ["external/include"],
+    sdk_version: "current",
+    stl: "libc++",
     target: {
         windows: {
             enabled: true,
@@ -262,9 +262,11 @@ cc_defaults {
     srcs: [
         "external/dex_file_ext.cc",
     ],
-    header_libs: ["libdexfile_external_headers"],
+    sdk_version: "current",
+    stl: "libc++",
+    header_libs: ["libdexfile_external_headers_ndk"],
     shared_libs: [
-        "libbase",
+        "libbase_ndk",
     ],
     stubs: {
         symbol_file: "external/libdexfile_external.map.txt",
@@ -311,7 +313,7 @@ art_cc_test {
     srcs: [
         "external/dex_file_ext_c_test.c",
     ],
-    header_libs: ["libdexfile_external_headers"],
+    header_libs: ["libdexfile_external_headers_ndk"],
 }
 
 // Support library with a C++ API for accessing the libdexfile API for external
@@ -321,8 +323,8 @@ art_cc_test {
 // time dependency on dex file logic. It is therefore safe to use from binaries
 // compiled without dex file support, given they won't encounter any dex file
 // stack frames.
-cc_library {
-    name: "libdexfile_support",
+cc_defaults {
+    name: "libdexfile_support_defaults",
     host_supported: true,
     vendor_available: true,
     recovery_available: true,
@@ -331,14 +333,38 @@ cc_library {
     ],
     required: ["libdexfile_external"],
     shared_libs: ["liblog"],
-    header_libs: ["libdexfile_external_headers"],
-    export_header_lib_headers: ["libdexfile_external_headers"],
     target: {
         recovery: {
             cflags: ["-DNO_DEXFILE_SUPPORT"],
         },
         vendor: {
             cflags: ["-DNO_DEXFILE_SUPPORT"],
+        },
+    },
+}
+
+cc_library {
+    name: "libdexfile_support",
+    defaults: ["libdexfile_support_defaults"],
+    header_libs: ["libdexfile_external_headers"],
+    export_header_lib_headers: ["libdexfile_external_headers"],
+}
+
+cc_library {
+    name: "libdexfile_support_ndk",
+    defaults: ["libdexfile_support_defaults"],
+    vndk: {
+        enabled: true,
+        support_system_process: true,
+    },
+    sdk_version: "current",
+    stl: "libc++",
+    header_libs: ["libdexfile_external_headers_ndk"],
+    export_header_lib_headers: ["libdexfile_external_headers_ndk"],
+    target: {
+        android: {
+            // Pull in extended headers with ALOG etc that NDK liblog doesn't give us.
+            header_libs: ["liblog_headers_ndk"],
         },
     },
 }
@@ -354,7 +380,7 @@ art_cc_test {
     ],
     shared_libs: [
         "libartbase",
-        "libbase",
+        "libbase_ndk",
         "libdexfile_external",
         "libdexfile_support",
     ],

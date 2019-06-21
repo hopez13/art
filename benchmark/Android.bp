@@ -27,8 +27,7 @@ art_cc_library {
     ],
     shared_libs: [
         "libart",
-        "libbacktrace",
-        "libbase",
+        "libbacktrace_ndk",
         "libnativehelper",
     ],
     cflags: [

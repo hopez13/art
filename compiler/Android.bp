@@ -172,9 +172,6 @@ art_cc_defaults {
         },
     },
     generated_sources: ["art_compiler_operator_srcs"],
-    shared_libs: [
-        "libbase",
-    ],
     include_dirs: ["art/disassembler"],
     header_libs: [
         "art_cmdlineparser_headers", // For compiler_options.
@@ -186,8 +183,9 @@ art_cc_defaults {
 
 cc_defaults {
     name: "libart-compiler_static_base_defaults",
+    sdk_version: "current",
     static_libs: [
-        "libbase",
+        "libbase_ndk",
     ],
 }
 
@@ -339,7 +337,6 @@ art_cc_library {
         "libartd-disassembler",
         "libartbase-art-gtest",
         "libart-runtime-gtest",
-        "libbase",
     ],
 }
 
@@ -445,7 +442,7 @@ art_cc_test {
         "libartd-simulator-container",
         "libvixld",
 
-        "libbacktrace",
+        "libbacktrace_ndk",
         "libnativeloader",
     ],
 

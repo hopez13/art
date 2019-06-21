@@ -26,34 +26,33 @@ art_cc_defaults {
         "dex_writer.cc",
     ],
     export_include_dirs: ["."],
+    sdk_version: "current",
+    stl: "libc++",
     target: {
         android: {
             shared_libs: [
                 "libartpalette",
-                "libbase",
             ],
         },
         not_windows: {
             shared_libs: [
                 "libartpalette",
-                "libbase",
             ],
         },
         windows: {
             cflags: ["-Wno-thread-safety"],
             static_libs: [
                 "libartpalette",
-                "libbase",
             ],
         },
     },
-    static_libs: ["libz"],
 }
 
 cc_defaults {
     name: "libart-dexlayout_static_base_defaults",
+    sdk_version: "current",
     static_libs: [
-        "libbase",
+        "libbase_ndk",
         "libz",
     ],
 }
@@ -153,9 +152,6 @@ cc_defaults {
     name: "dexlayout-defaults",
     defaults: ["art_defaults"],
     host_supported: true,
-    shared_libs: [
-        "libbase",
-    ],
 }
 
 art_cc_binary {
@@ -229,7 +225,6 @@ art_cc_binary {
         "libdexfile",
         "libartbase",
         "libart-dexlayout",
-        "libbase",
     ],
     target: {
         android: {

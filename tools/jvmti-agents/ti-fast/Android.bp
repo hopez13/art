@@ -25,9 +25,6 @@ cc_defaults {
     // to be same ISA as what it is attached to.
     compile_multilib: "both",
 
-    shared_libs: [
-        "libbase",
-    ],
     header_libs: [
         "libopenjdkjvmti_headers",
     ],

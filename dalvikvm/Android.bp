@@ -25,10 +25,14 @@ art_cc_binary {
         "-Werror",
         "-Wextra",
     ],
+
+    sdk_version: "current",
+    stl: "libc++",
+
     shared_libs: [
         "libnativehelper",
     ],
-    whole_static_libs: ["libsigchain"],
+    whole_static_libs: ["libsigchain_ndk"],
     target: {
         android: {
             shared_libs: [

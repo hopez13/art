@@ -335,6 +335,9 @@ libart_cc_defaults {
             ],
         },
     },
+
+    sdk_version: "current",
+    stl: "libc++",
     target: {
         android: {
             srcs: [
@@ -347,7 +350,7 @@ libart_cc_defaults {
                 "libdl_android",
             ],
             static_libs: [
-                "libz", // For adler32.
+                "libz_ndk", // For adler32.
             ],
             cflags: [
                 // ART is allowed to link to libicuuc directly
@@ -374,7 +377,7 @@ libart_cc_defaults {
                 "thread_linux.cc",
             ],
             shared_libs: [
-                "libz", // For adler32.
+                "libz_ndk", // For adler32.
             ],
         },
     },
@@ -395,18 +398,17 @@ libart_cc_defaults {
         "libartpalette",
         "libnativebridge",
         "libnativeloader",
-        "libbacktrace",
+        "libbacktrace_ndk",
         "liblog",
-        // For common macros.
-        "libbase",
-        "libunwindstack",
-        "libsigchain",
+        "libbase_ndk",
+        "libunwindstack_ndk",
+        "libsigchain_ndk",
     ],
     export_include_dirs: ["."],
     // ART's macros.h depends on libbase's macros.h.
     // Note: runtime_options.h depends on cmdline. But we don't really want to export this
     //       generically. dex2oat takes care of it itself.
-    export_shared_lib_headers: ["libbase"],
+    export_shared_lib_headers: ["libbase_ndk"],
 }
 
 libart_static_cc_defaults {
@@ -563,8 +565,8 @@ art_cc_library {
     shared_libs: [
         "libartd",
         "libartbase-art-gtest",
-        "libbase",
-        "libbacktrace",
+        "libbase_ndk",
+        "libbacktrace_ndk",
     ],
     header_libs: [
         "libnativehelper_header_only",
@@ -654,7 +656,7 @@ art_cc_test {
         "verifier/reg_type_test.cc",
     ],
     shared_libs: [
-        "libbacktrace",
+        "libbacktrace_ndk",
     ],
     header_libs: [
         "art_cmdlineparser_headers", // For parsed_options_test.

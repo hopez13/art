@@ -31,10 +31,6 @@ cc_defaults {
             enabled: true,
         },
     },
-
-    shared_libs: [
-        "libbase",
-    ],
 }
 
 art_cc_binary {

@@ -21,37 +21,30 @@ cc_defaults {
     srcs: [
         "profile/profile_compilation_info.cc",
     ],
+    sdk_version: "current",
+    stl: "libc++",
     target: {
         android: {
             shared_libs: [
                 "libartpalette",
-                "libbase",
             ],
             static_libs: [
                 // ZipArchive support, the order matters here to get all symbols.
-                "libziparchive",
-                "libz",
+                "libziparchive_ndk",
             ],
-            export_shared_lib_headers: ["libbase"],
         },
         not_windows: {
             shared_libs: [
                 "libartpalette",
-                "libziparchive",
-                "libz",
-                "libbase",
+                "libziparchive_ndk",
             ],
-            export_shared_lib_headers: ["libbase"],
         },
         windows: {
             cflags: ["-Wno-thread-safety"],
             static_libs: [
                 "libartpalette",
-                "libziparchive",
-                "libz",
-                "libbase",
+                "libziparchive_ndk",
             ],
-            export_static_lib_headers: ["libbase"],
         },
         darwin: {
             enabled: true,
@@ -60,9 +53,6 @@ cc_defaults {
     //generated_sources: ["art_libartbase_operator_srcs"],
     cflags: ["-DBUILDING_LIBART=1"],
     export_include_dirs: ["."],
-    // ART's macros.h depends on libbase's macros.h.
-    // Note: runtime_options.h depends on cmdline. But we don't really want to export this
-    //       generically. dex2oat takes care of it itself.
 }
 
 cc_defaults {
@@ -102,11 +92,6 @@ art_cc_library {
     strip: {
         keep_symbols: true,
     },
-    shared_libs: [
-        "libbase",
-        "libziparchive",
-    ],
-    export_shared_lib_headers: ["libbase"],
     target: {
         android: {
             shared_libs: [
@@ -139,10 +124,6 @@ art_cc_library {
         "art_debug_defaults",
         "libprofile_defaults",
     ],
-    shared_libs: [
-        "libbase",
-        "libziparchive",
-    ],
     target: {
         android: {
             shared_libs: [
@@ -163,7 +144,6 @@ art_cc_library {
             ],
         },
     },
-    export_shared_lib_headers: ["libbase"],
 }
 
 // For now many of these tests still use CommonRuntimeTest, almost universally because of
@@ -180,7 +160,6 @@ art_cc_test {
     shared_libs: [
         "libartbased",
         "libdexfiled",
-        "libartbased",
-        "libziparchive",
+        "libziparchive_ndk",
     ],
 }

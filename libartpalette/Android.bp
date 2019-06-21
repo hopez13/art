@@ -25,7 +25,9 @@ cc_defaults {
 // only available as a shared library on Android.
 art_cc_library {
     name: "libartpalette-system",
-    defaults: ["libartpalette_defaults"],
+    defaults: ["art_defaults_low"],
+    host_supported: true,
+    export_include_dirs: ["include"],
     compile_multilib: "both",
     target: {
         android: {
@@ -64,7 +66,8 @@ art_cc_library {
     name: "libartpalette",
     defaults: ["libartpalette_defaults"],
     required: ["libartpalette-system"], // libartpalette.so dlopen()'s libartpalette-system.
-    header_libs: ["libbase_headers"],
+    header_libs: ["libbase_headers_ndk"],
+    sdk_version: "current",
     target: {
         // Targets supporting dlopen build the client library which loads
         // and binds the methods in the libartpalette-system library.
@@ -73,28 +76,24 @@ art_cc_library {
             shared: {
                 shared_libs: ["liblog"],
             },
-            static: {
-                static_libs: ["liblog"],
-            },
+            // static: {
+            //     static_libs: ["liblog"],
+            // },
             version_script: "libartpalette.map.txt",
         },
         linux_bionic: {
-            header_libs: ["libbase_headers"],
             srcs: ["system/palette_fake.cc"],
             shared: {
                 shared_libs: [
-                    "libbase",
                     "liblog",
                 ],
             },
             version_script: "libartpalette.map.txt",
         },
         linux_glibc: {
-            header_libs: ["libbase_headers"],
             srcs: ["system/palette_fake.cc"],
             shared: {
                 shared_libs: [
-                    "libbase",
                     "liblog",
                 ],
             },
@@ -104,19 +103,15 @@ art_cc_library {
         // the system library which actually implements functionality.
         darwin: {
             enabled: true,
-            header_libs: ["libbase_headers"],
             srcs: ["system/palette_fake.cc"],
             static_libs: [
-                "libbase",
                 "liblog",
             ],
         },
         windows: {
             enabled: true,
-            header_libs: ["libbase_headers"],
             srcs: ["system/palette_fake.cc"],
             static_libs: [
-                "libbase",
                 "liblog",
             ],
         },

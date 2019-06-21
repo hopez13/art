@@ -65,14 +65,12 @@ art_cc_defaults {
         "libprofiled",
         "libartbased",
 
-        "libbase",
         "libicuuc",
         "libicui18n",
         "libnativehelper",
-        "libz",
     ],
     whole_static_libs: [
-        "libsigchain",
+        "libsigchain_ndk",
     ],
 
     target: {
@@ -120,7 +118,7 @@ art_cc_defaults {
         "libartbased",
     ],
     static_libs: [
-        "libgtest",
+        "libgtest_on_ndk",
     ],
     target: {
         android32: {
@@ -146,11 +144,12 @@ art_cc_defaults {
 art_cc_library {
     name: "libart-gtest",
     host_supported: true,
+    sdk_version: "current",
     whole_static_libs: [
         "libart-compiler-gtest",
         "libart-runtime-gtest",
         "libartbase-art-gtest",
-        "libgtest",
+        "libgtest_on_ndk",
     ],
     shared_libs: [
         "libartd",
@@ -158,8 +157,7 @@ art_cc_library {
         "libdexfiled",
         "libprofiled",
         "libartbased",
-        "libbase",
-        "libbacktrace",
+        "libbacktrace_ndk",
     ],
     target: {
         darwin: {
@@ -172,11 +170,10 @@ cc_defaults {
     name: "libartagent-defaults",
     defaults: [
         "art_test_defaults",
-        "art_defaults",
+        "art_defaults_low",
     ],
     shared_libs: [
-        "libbacktrace",
-        "libbase",
+        "libbacktrace_ndk",
         "libnativehelper",
     ],
 }
@@ -336,8 +333,7 @@ art_cc_defaults {
         "1963-add-to-dex-classloader-in-memory/check_memfd_create.cc",
     ],
     static_libs: [
-        "libz",
-        "slicer_no_rtti",
+        "slicer_ndk_no_rtti",
     ],
 }
 
@@ -379,9 +375,6 @@ cc_library_static {
     static_libs: [
         "libbase_ndk",
     ],
-    shared_libs: [
-        "libz", // for slicer (using adler32).
-    ],
     sdk_version: "current",
     stl: "c++_static",
     include_dirs: [
@@ -409,8 +402,7 @@ art_cc_defaults {
     name: "libtistress-defaults",
     defaults: ["libtistress-srcs"],
     shared_libs: [
-        "libbase",
-        "slicer_no_rtti",
+        "slicer_ndk_no_rtti",
     ],
 }
 
@@ -435,7 +427,7 @@ art_cc_defaults {
         "libtistress-srcs",
         "libart_static_defaults",
     ],
-    static_libs: ["slicer_no_rtti"],
+    static_libs: ["slicer_ndk_no_rtti"],
 }
 
 art_cc_test_library {
@@ -514,8 +506,7 @@ cc_defaults {
         "common/stack_inspect.cc",
     ],
     shared_libs: [
-        "libbacktrace",
-        "libbase",
+        "libbacktrace_ndk",
         "libnativehelper",
     ],
 }

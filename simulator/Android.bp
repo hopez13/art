@@ -18,6 +18,7 @@ cc_library_headers {
     name: "libart_simulator_headers",
     host_supported: true,
     export_include_dirs: ["include"],
+    sdk_version: "current",
 }
 
 cc_defaults {
@@ -31,7 +32,6 @@ cc_defaults {
         "code_simulator_arm64.cc",
     ],
     shared_libs: [
-        "libbase",
         "liblog",
     ],
     cflags: ["-DVIXL_INCLUDE_SIMULATOR_AARCH64"],
@@ -69,9 +69,6 @@ cc_defaults {
     defaults: ["art_defaults"],
     srcs: [
         "code_simulator_container.cc",
-    ],
-    shared_libs: [
-        "libbase",
     ],
 
     header_libs: ["libart_simulator_headers"],

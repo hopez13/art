@@ -57,7 +57,7 @@ art_clang_tidy_disabled = [
 art_global_defaults {
     // Additional flags are computed by art.go
 
-    name: "art_defaults",
+    name: "art_defaults_low",
     cflags: [
         // Base set of cflags used by all things ART.
         "-fno-rtti",
@@ -195,6 +195,38 @@ art_global_defaults {
         // will still get the "real" errors.
         "-extra-arg=-Wno-unreachable-code",
     ],
+}
+
+art_cc_defaults {
+    name: "art_defaults",
+    defaults: ["art_defaults_low"],
+
+    sdk_version: "current",
+    stl: "libc++",
+
+    target: {
+        android: {
+            shared_libs: ["libbase_ndk"],
+            export_shared_lib_headers: ["libbase_ndk"],
+            static_libs: ["libz_ndk"],
+            // Pull in extended headers with ALOG etc that NDK liblog doesn't give us.
+            header_libs: ["liblog_headers_ndk"],
+        },
+        not_windows: {
+            shared_libs: [
+                "libbase_ndk",
+                "libz_ndk",
+            ],
+            export_shared_lib_headers: ["libbase_ndk"],
+        },
+        windows: {
+            static_libs: [
+                "libbase_ndk",
+                "libz_ndk",
+            ],
+            export_static_lib_headers: ["libbase_ndk"],
+        },
+    },
 }
 
 art_debug_defaults {

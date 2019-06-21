@@ -26,7 +26,6 @@ cc_defaults {
     compile_multilib: "both",
 
     shared_libs: [
-        "libz",
         "liblog",
     ],
     header_libs: [
@@ -46,15 +45,11 @@ cc_defaults {
         android: {
             static_libs: [
                 "slicer_ndk_no_rtti",
-                "libbase_ndk",
             ],
         },
         host: {
             static_libs: [
                 "slicer_no_rtti",
-            ],
-            shared_libs: [
-                "libbase",
             ],
         },
     },

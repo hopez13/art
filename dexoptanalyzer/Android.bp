@@ -28,10 +28,6 @@ cc_defaults {
             compile_multilib: "prefer32",
         },
     },
-
-    shared_libs: [
-        "libbase",
-    ],
 }
 
 art_cc_binary {
@@ -61,7 +57,7 @@ art_cc_test {
         "art_gtest_defaults",
     ],
     shared_libs: [
-        "libbacktrace",
+        "libbacktrace_ndk",
     ],
     srcs: ["dexoptanalyzer_test.cc"],
 }

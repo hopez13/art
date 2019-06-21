@@ -14,7 +14,7 @@
 
 cc_binary {
     name: "veridex",
-    defaults: ["art_defaults"],
+    defaults: ["art_defaults_low"],
     host_supported: true,
     srcs: [
         "flow_analysis.cc",
@@ -31,7 +31,7 @@ cc_binary {
     static_libs: [
         "libdexfile",
         "libartbase",
-        "libbase",
+        "libbase_ndk",
         "liblog",
         "libz",
         "libziparchive",
