@@ -22,6 +22,30 @@
       "revId": "717aa300089c50bf34d08131c20e421e65042343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d01a849_50cbf703",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-21T20:46:27Z",
+      "side": 1,
+      "message": "Just an oversight from a while ago mostly. I want to use this function in the WIP CL after this. There isn\u0027t any observable difference because right now we never call this with miranda methods.\n\nWe do have DCHECKS that all miranda-methods are copied interface methods and all default methods are copied so this will all still work.",
+      "parentUuid": "2bbbec10_52b9822a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "717aa300089c50bf34d08131c20e421e65042343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
