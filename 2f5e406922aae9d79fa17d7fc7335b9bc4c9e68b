@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a100688a_6d9e41f8",
+        "filename": "adbconnection/include/adbconnection/server.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2019-06-21T02:41:22Z",
+      "side": 1,
+      "message": "That\u0027s what their preupload hook told me, at least?",
+      "parentUuid": "8508b406_6d405912",
+      "revId": "2f5e406922aae9d79fa17d7fc7335b9bc4c9e68b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "639e210e_a8b3ce07",
         "filename": "adbconnection/include/adbconnection/server.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "2f5e406922aae9d79fa17d7fc7335b9bc4c9e68b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39ed06ee_fd0c59c6",
+        "filename": "adbconnection/include/adbconnection/server.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2019-06-21T02:41:22Z",
+      "side": 1,
+      "message": "ugh, I keep forgetting how terrible C is...",
+      "parentUuid": "639e210e_a8b3ce07",
+      "revId": "2f5e406922aae9d79fa17d7fc7335b9bc4c9e68b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
