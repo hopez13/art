@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89c2a633_21fc647d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-24T20:04:45Z",
+      "side": 1,
+      "message": "Is this correct? The extra check doesn\u0027t get run if the verified_type_descriptors_ is true.",
+      "range": {
+        "startLine": 2343,
+        "startChar": 37,
+        "endLine": 2343,
+        "endChar": 78
+      },
+      "revId": "4957a05963f1a0f34cb09745e5c650b4fb2b2a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
