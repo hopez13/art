@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f8292a_0cd21f6e",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:31:50Z",
+      "side": 1,
+      "message": "This should be documented.\n\nAnd how do you deal with overflow? Class unloading makes this not totally unreasonable...",
+      "range": {
+        "startLine": 163,
+        "startChar": 20,
+        "endLine": 163,
+        "endChar": 21
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f026f7fa_25d0fb7b",
+        "filename": "runtime/jni_id_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:31:50Z",
+      "side": 1,
+      "message": "iosfwd",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2d1f14_ffdcf954",
+        "filename": "runtime/jni_id_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:31:50Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a14ee6e_dbee5ddc",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:31:50Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 69,
+        "startChar": 100,
+        "endLine": 69,
+        "endChar": 104
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc3ccd30_5554d304",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:31:50Z",
+      "side": 1,
+      "message": "Spam.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 2,
+        "endLine": 1316,
+        "endChar": 63
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
