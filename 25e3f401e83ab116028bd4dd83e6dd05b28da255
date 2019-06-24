@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa606539_17a3f2bd",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 114,
+        "startChar": 32,
+        "endLine": 114,
+        "endChar": 41
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77fc6bf7_2bf5709d",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 122,
+        "startChar": 32,
+        "endLine": 122,
+        "endChar": 41
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8e3ebd6_bd9aa308",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 148,
+        "startChar": 34,
+        "endLine": 148,
+        "endChar": 43
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4518f6c_208458dc",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 186,
+        "startChar": 32,
+        "endLine": 186,
+        "endChar": 41
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d42ccd_4344a5dc",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 229,
+        "startChar": 32,
+        "endLine": 229,
+        "endChar": 41
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6613abd7_71edbf6e",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T18:40:58Z",
+      "side": 1,
+      "message": "Can you leave this in the loop for now? It\u0027s orthogonal to what the commit message says the CL is trying to do, and I wonder whether Clang being able to optimize it away for many cases is beneficial or not.",
+      "range": {
+        "startLine": 1960,
+        "startChar": 4,
+        "endLine": 1963,
+        "endChar": 5
+      },
+      "revId": "25e3f401e83ab116028bd4dd83e6dd05b28da255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
