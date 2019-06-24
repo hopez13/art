@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e78d6a7a_5c298a0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-24T22:49:04Z",
+      "side": 1,
+      "message": "Why this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 54,
+        "endLine": 19,
+        "endChar": 61
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8f8292a_0cd21f6e",
         "filename": "runtime/jni/jni_id_manager.cc",
         "patchSetId": 10
