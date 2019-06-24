@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcc628ab_5a0715ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "because art-jit is where we have the --debuggable run which is what we will be using this for.",
+      "parentUuid": "e78d6a7a_5c298a0e",
+      "range": {
+        "startLine": 19,
+        "startChar": 54,
+        "endLine": 19,
+        "endChar": 61
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8f8292a_0cd21f6e",
         "filename": "runtime/jni/jni_id_manager.cc",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "630dbbdc_248031be",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "Done.\n\n\u003e Class unloading makes this not totally unreasonable\n\nI dispute that. having over 2**31 methods total available is totally unreasonable. Arguably the JNI spec has the same problem too. Added a CHECK that the id doesn\u0027t overflow.",
+      "parentUuid": "b8f8292a_0cd21f6e",
+      "range": {
+        "startLine": 163,
+        "startChar": 20,
+        "endLine": 163,
+        "endChar": 21
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bcc0cb97_355bb22f",
+        "filename": "runtime/jni_id_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f026f7fa_25d0fb7b",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b2d1f14_ffdcf954",
         "filename": "runtime/jni_id_type.h",
         "patchSetId": 10
@@ -91,6 +163,30 @@
       "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9adf691d_7be9f090",
+        "filename": "runtime/jni_id_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "Done. My editor has somewhat iffy IWYU support. I\u0027d guess it got added when I was writing the ifdef and I forgot to remove it.",
+      "parentUuid": "4b2d1f14_ffdcf954",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4c1674c7_1fa514f1",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a14ee6e_dbee5ddc",
+      "range": {
+        "startLine": 69,
+        "startChar": 100,
+        "endLine": 69,
+        "endChar": 104
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3ccd30_5554d304",
         "filename": "runtime/runtime.cc",
         "patchSetId": 10
@@ -137,6 +257,30 @@
       "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf4b3c4_b6bb516f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-24T23:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc3ccd30_5554d304",
+      "range": {
+        "startLine": 1316,
+        "startChar": 2,
+        "endLine": 1316,
+        "endChar": 63
+      },
+      "revId": "ea7224bc71ef373b973159d74b71e88941bb51c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
