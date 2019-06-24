@@ -1,0 +1,2 @@
+Test a loop with invariants, which should be hoisted.
+negative because type casts are not sunk/hoisted
