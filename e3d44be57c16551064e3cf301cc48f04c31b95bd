@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3acb2ae3_74b482ef",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-25T12:24:58Z",
+      "side": 1,
+      "message": "Replace instances of `$1` with `$IMAGE` (here and below)?",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ce96dfb_114d68fd",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-25T12:24:58Z",
+      "side": 1,
+      "message": "Depending on whether the product is building flattened or non-flattened APEXes, the location of the (non-packages) manifest may change in the build tree:\n\n- when building with non-flattened APEXes, it is located under $ANDROID_PRODUCT_OUT/apex (and there\u0027s a packaged APEX under $ANDROID_PRODUCT_OUT/system/apex);\n- when building with flattened APEXes, it is located under $ANDROID_PRODUCT_OUT/system/apex (and there\u0027s no packaged APEX  in the build tree).\n\nYou can determine which case you\u0027re in using\n\n  build/soong/soong_ui.bash --dumpvar-mode TARGET_FLATTEN_APEX\n\n(see e.g. https://android.googlesource.com/platform/art/+/7d94aa16f9a3d0368b931eecd24fbfd2724ba21d/tools/buildbot-sync.sh#42)\n\nAlso, I suggest using `find` instead of `ls` here.",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 67
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa67c8e_fd1952f5",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-06-25T12:24:58Z",
+      "side": 1,
+      "message": "You can also use\n\n  $(dirname \"$m\")\n\nhere.",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
