@@ -29,6 +29,7 @@
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 
+#include "bit_utils.h"
 #include "os.h"
 
 #if defined(__APPLE__)
@@ -61,6 +62,77 @@ namespace art {
 
 using android::base::ReadFileToString;
 using android::base::StringPrintf;
+
+#if defined(__arm__)
+
+namespace {
+
+// Bitmap of caches to flush for cacheflush(2). Must be zero for ARM.
+static constexpr int kCachesForArm = 0;
+
+// Number of retry attempts when flushing cache ranges.
+static constexpr size_t kMaxFlushAttemptsForArm = 4;
+
+bool TouchAndFlushCacheLinesWithinPage(uintptr_t start, uintptr_t limit, size_t attempts) {
+  CHECK_EQ(RoundDown(start, kPageSize), RoundDown(limit, kPageSize)) << "spans page boundary";
+  volatile uint8_t v = 0;
+  for (size_t i = 0; i < attempts; ++i) {
+    // Touch page to maximize chance page is resident.
+    v = *reinterpret_cast<uint8_t*>(start);
+    if (LIKELY(cacheflush(start, limit, kCachesForArm) == 0)) {
+      return true;
+    }
+    CHECK_EQ(errno, EFAULT);
+  }
+  return false;
+}
+
+}  // namespace
+
+bool FlushCpuCaches(void* begin, void* end) {
+  // This method is specialized for ARM as the generic implementation below uses the
+  // __builtin___clear_cache() intrinsic which is declared as void.  On ARM, flushing the CPU
+  // caches is a privileged operation that may fail. Failure occurs if a page in the range is not
+  // resident, but __builtin___clear_cache since is void and it will silently swallow these
+  // failures. This is spectacularly bad if we're flushing the instruction cache in the JIT as
+  // stale code can remain in the i-cache. So this routine, uses the cacheflush() system call
+  // where we can detect the error and return.
+  //
+  // The Android bug for this is b/132205399 and there's a similar discussion on
+  // https://reviews.llvm.org/D37788. This is primarily an issue for the dual view JIT where the
+  // pages where code is executed are only ever RX and never RWX.
+
+  // In the common case, this flush of the complete range succeeds.
+  uintptr_t start = reinterpret_cast<uintptr_t>(begin);
+  const uintptr_t limit = reinterpret_cast<uintptr_t>(end);
+  if (LIKELY(cacheflush(start, limit, kCachesForArm) == 0)) {
+    return true;
+  }
+  CHECK_EQ(errno, EFAULT);
+
+  // A rare failure has occurred implying that part of the range (begin, end] has been swapped
+  // out. Retry flushing but this time grouping cache-line flushes on individual pages and
+  // touching each page before flushing.
+  uintptr_t next_page = RoundUp(start + 1, kPageSize);
+  while (start < limit) {
+    uintptr_t boundary = std::min(next_page, limit);
+    if (!TouchAndFlushCacheLinesWithinPage(start, boundary, kMaxFlushAttemptsForArm)) {
+      return false;
+    }
+    start = boundary;
+    next_page += kPageSize;
+  }
+  return true;
+}
+
+#else
+
+bool FlushCpuCaches(void* begin, void* end) {
+  __builtin___clear_cache(reinterpret_cast<char*>(begin), reinterpret_cast<char*>(end));
+  return true;
+}
+
+#endif
 
 pid_t GetTid() {
 #if defined(__APPLE__)
