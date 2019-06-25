@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "117b59ec_c4701fdf",
+        "filename": "test/2023-InvariantLoops_typecast/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1287953
+      },
+      "writtenOn": "2019-06-25T17:56:43Z",
+      "side": 1,
+      "message": "I meant the loop is not removed by any of the optimisation pass.\nI am not really sure if this case is handled by the pass. For now I have removed this line",
+      "parentUuid": "080cbd40_fb4e7cc1",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 76
+      },
+      "revId": "a0b4961fd9cf1d2667c396a64a9a436010d4d60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d47b786b_91e8dbe0",
         "filename": "test/2023-InvariantLoops_typecast/src/Main.java",
         "patchSetId": 3
