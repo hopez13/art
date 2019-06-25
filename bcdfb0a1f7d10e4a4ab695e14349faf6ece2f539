@@ -22,6 +22,30 @@
       "revId": "bcdfb0a1f7d10e4a4ab695e14349faf6ece2f539",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2167fd97_4290ac26",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2019-06-25T19:42:37Z",
+      "side": 1,
+      "message": "It should Just Work on the host. We build adbd for the host for testing purposes, and ifdefing out the jdwp stuff is somewhat annoying.",
+      "parentUuid": "98fd62e2_ad3aed77",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 25
+      },
+      "revId": "bcdfb0a1f7d10e4a4ab695e14349faf6ece2f539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
