@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b336f60c_ff5d0e36",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-06-25T15:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b03e817_ed05934b",
+      "range": {
+        "startLine": 111,
+        "startChar": 74,
+        "endLine": 111,
+        "endChar": 95
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "178732dc_3a59e078",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f925e6c1_0b950361",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-06-25T15:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "178732dc_3a59e078",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 44
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a7e8a3_706f4ee6",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 5
@@ -68,6 +116,30 @@
       "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2443e399_754f8bac",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2019-06-25T15:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a7e8a3_706f4ee6",
+      "range": {
+        "startLine": 695,
+        "startChar": 51,
+        "endLine": 695,
+        "endChar": 74
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
