@@ -22,6 +22,30 @@
       "revId": "464b92b55b7bf32d51952a1496c56e4fe4186790",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "522f1a06_9bf62fd2",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-25T15:56:01Z",
+      "side": 1,
+      "message": "\u003e Are you adding a new entry in the testing matrix to gradually transition? What would be the downside to make \u0027debuggable\u0027 imply index-ids ?\n\nI\u0027m not entirely sure what you mean by this. If you mean do I intend to make -JAVA_DEBUGGABLE imply index ids then probably yes, eventually (unless the performance impact on debuggable is too great in which case we\u0027ll make it opt-in in some way).\n\nIf you mean just in the context of testrunner the downside would mostly be that it would muddle the \u0027debuggable\u0027 axes. All the other option groups are self contained generally.",
+      "parentUuid": "8e1c7990_147449c4",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 61
+      },
+      "revId": "464b92b55b7bf32d51952a1496c56e4fe4186790",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
