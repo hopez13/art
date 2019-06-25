@@ -46,6 +46,30 @@
       "revId": "bcdfb0a1f7d10e4a4ab695e14349faf6ece2f539",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27df4e2a_79fa2c89",
+        "filename": "adbconnection/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-25T20:00:04Z",
+      "side": 1,
+      "message": "Awesome. I should make sure to use this for testing when we remove the old jdwp impl then. Would need to look into socket namespaces or something though...",
+      "parentUuid": "2167fd97_4290ac26",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 25
+      },
+      "revId": "bcdfb0a1f7d10e4a4ab695e14349faf6ece2f539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
