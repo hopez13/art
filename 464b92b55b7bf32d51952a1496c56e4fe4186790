@@ -70,6 +70,30 @@
       "revId": "464b92b55b7bf32d51952a1496c56e4fe4186790",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe2c09f1_3b6d17c8",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-06-25T16:43:07Z",
+      "side": 1,
+      "message": "I could put it in debuggable if you wish. Honestly one thing I want to add is a \u0027swappable\u0027 state that allows one to switch from pointers to indices for future id requests. This would allow us to have the indices behavior only for debuggable on device. To test this I want to add it to this group and have some tests that swap it.",
+      "parentUuid": "46bc6c0a_f9723607",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 61
+      },
+      "revId": "464b92b55b7bf32d51952a1496c56e4fe4186790",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
