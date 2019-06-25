@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b03e817_ed05934b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-25T13:41:30Z",
+      "side": 1,
+      "message": "ClassLinker::IsBootClassLoader",
+      "range": {
+        "startLine": 111,
+        "startChar": 74,
+        "endLine": 111,
+        "endChar": 95
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "178732dc_3a59e078",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-25T13:41:30Z",
+      "side": 1,
+      "message": "Add a comment about how \"just-warn\" is treated?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 44
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a7e8a3_706f4ee6",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-25T13:41:30Z",
+      "side": 1,
+      "message": "Add a comment why this means it\u0027s not provided.",
+      "range": {
+        "startLine": 695,
+        "startChar": 51,
+        "endLine": 695,
+        "endChar": 74
+      },
+      "revId": "16a961b136ee620fb2185b6aaf0fcdf7f919dec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
