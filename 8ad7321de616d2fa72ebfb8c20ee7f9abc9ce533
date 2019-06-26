@@ -22,6 +22,30 @@
       "revId": "8ad7321de616d2fa72ebfb8c20ee7f9abc9ce533",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68cec5d1_e06f41ab",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-26T18:15:07Z",
+      "side": 1,
+      "message": "I didn\u0027t want the index to escape.",
+      "parentUuid": "ff691333_8dcf9eaa",
+      "range": {
+        "startLine": 2247,
+        "startChar": 1,
+        "endLine": 2247,
+        "endChar": 3
+      },
+      "revId": "8ad7321de616d2fa72ebfb8c20ee7f9abc9ce533",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
