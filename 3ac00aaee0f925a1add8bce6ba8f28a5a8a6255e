@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0f72c2b_9851fe7e",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-26T20:01:19Z",
+      "side": 1,
+      "message": "Line is too long",
+      "range": {
+        "startLine": 1117,
+        "startChar": 0,
+        "endLine": 1117,
+        "endChar": 102
+      },
+      "revId": "3ac00aaee0f925a1add8bce6ba8f28a5a8a6255e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "208cc4c9_32fbf8fe",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-26T20:01:19Z",
+      "side": 1,
+      "message": "Can you just use a GC critical section here?",
+      "range": {
+        "startLine": 1119,
+        "startChar": 35,
+        "endLine": 1119,
+        "endChar": 59
+      },
+      "revId": "3ac00aaee0f925a1add8bce6ba8f28a5a8a6255e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
