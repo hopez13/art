@@ -55,6 +55,13 @@ static constexpr uint32_t kAccSkipAccessChecks =      0x00080000;  // method (ru
 // Used by a class to denote that the verifier has attempted to check it at least once.
 static constexpr uint32_t kAccVerificationAttempted = 0x00080000;  // class (runtime)
 static constexpr uint32_t kAccSkipHiddenapiChecks =   0x00100000;  // class (runtime)
+// This is set to note that a method or field of the class was returned to JNI code as a pointer
+// while we are still in the JniType::kSwapablePointer. Classes with this flag set should always
+// return all their fields and methods using pointer JNI ids even if we later switched to kIndicies.
+// NB This is read and written outside of the class-linker without the class object being locked.
+// All reads and writes must use atomic-operations.
+static constexpr uint32_t kAccClassHasPointerJNIIds = 0x00200000;  // class (runtime,
+                                                                   // atomic-access only)
 // This is set by the class linker during LinkInterfaceMethods. It is used by a method to represent
 // that it was copied from its declaring class into another class. All methods marked kAccMiranda
 // and kAccDefaultConflict will have this bit set. Any kAccDefault method contained in the methods_

@@ -26,6 +26,7 @@
 #include "gc/allocation_listener.h"
 #include "gc/heap.h"
 #include "jni/jni_internal.h"
+#include "jni_id_type.h"
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/class.h"
@@ -199,13 +200,23 @@ template <> size_t JniIdManager::GetLinearSearchStartId<ArtMethod>(ArtMethod* m)
 }
 
 template <typename ArtType> uintptr_t JniIdManager::EncodeGenericId(ArtType* t) {
-  if (!Runtime::Current()->JniIdsAreIndices() || t == nullptr) {
+  JniIdType id_type = Runtime::Current()->GetJniIdType();
+  if (UNLIKELY(id_type == JniIdType::kPointer || t == nullptr)) {
     return reinterpret_cast<uintptr_t>(t);
   }
   Thread* self = Thread::Current();
   ScopedExceptionStorage ses(self);
   t = Canonicalize(t);
   ObjPtr<mirror::Class> klass = t->GetDeclaringClass();
+  // NB This is a dangerous, possibly racy read of HasPointerJniIds here. If another thread runs
+  // `Runtime::SetJniIdType(JniIdType::kIndicies); EncodeGenericId(t);` after the `id_type ==
+  // JniIdType::kSwapablePointer` check but before the `klass->SetHasPointerJniIds()` call completes
+  // there will be 2 different jniIds returned for a single field/method. We avoid this race by
+  // requireing that all threads be suspended to call `Runtime::SetJniIdType`.
+  if (UNLIKELY(id_type == JniIdType::kSwapablePointer || klass->HasPointerJniIds())) {
+    klass->SetHasPointerJniIds();
+    return reinterpret_cast<uintptr_t>(t);
+  }
   DCHECK(!klass.IsNull()) << "Null declaring class " << PrettyGeneric(t);
   size_t off = GetIdOffset(klass, t, kRuntimePointerSize);
   bool allocation_failure = false;
@@ -291,7 +302,7 @@ jmethodID JniIdManager::EncodeMethodId(ArtMethod* method) {
 }
 
 template <typename ArtType> ArtType* JniIdManager::DecodeGenericId(uintptr_t t) {
-  if (Runtime::Current()->JniIdsAreIndices() && (t % 2) == 1) {
+  if (Runtime::Current()->GetJniIdType() == JniIdType::kIndices && (t % 2) == 1) {
     ReaderMutexLock mu(Thread::Current(), *Locks::jni_id_lock_);
     size_t index = IdToIndex(t);
     DCHECK_GT(GetGenericMap<ArtType>().size(), index);
