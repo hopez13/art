@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8590728d_233ee77c",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T09:15:35Z",
+      "side": 1,
+      "message": "Nope. Since we\u0027re overwriting IMAGE here, that would produce wrong error message.",
+      "parentUuid": "3acb2ae3_74b482ef",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ce96dfb_114d68fd",
         "filename": "tools/host_bcp.sh",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e99f0ccd_a94a4ac3",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T09:15:35Z",
+      "side": 1,
+      "message": "Done.\n\nI guess `find` would have to look for the directory itself (com.android.runtime*) and I\u0027d have to do an extra check to see if it contains the manifest.",
+      "parentUuid": "4ce96dfb_114d68fd",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 67
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa67c8e_fd1952f5",
         "filename": "tools/host_bcp.sh",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eebe3554_dc53e4ca",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T09:15:35Z",
+      "side": 1,
+      "message": "That would spawn an unnecessary process.",
+      "parentUuid": "1aa67c8e_fd1952f5",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "e3d44be57c16551064e3cf301cc48f04c31b95bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
