@@ -29,12 +29,14 @@
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "hidden_api.h"
 #include "jni/jni_internal.h"
+#include "jni_id_type.h"
 #include "mirror/class.h"
 #include "mirror/throwable.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
+#include "scoped_thread_state_change.h"
 #include "thread-current-inl.h"
 
 namespace art {
@@ -172,8 +174,15 @@ static jclass CacheClass(JNIEnv* env, const char* jni_class_name) {
 
 static jfieldID CacheField(JNIEnv* env, jclass c, bool is_static,
                            const char* name, const char* signature) {
-  jfieldID fid = is_static ? env->GetStaticFieldID(c, name, signature) :
+  jfieldID fid;
+  if (Runtime::Current()->GetJniIdType() != JniIdType::kSwapablePointer) {
+    fid = is_static ? env->GetStaticFieldID(c, name, signature) :
       env->GetFieldID(c, name, signature);
+  } else {
+    ScopedObjectAccess soa(env);
+    fid = jni::EncodeArtField</*kEnableIndexIds*/ false>(
+        FindFieldJNI(soa, c, name, signature, is_static));
+  }
   if (fid == nullptr) {
     ScopedObjectAccess soa(env);
     if (soa.Self()->IsExceptionPending()) {
@@ -189,8 +198,15 @@ static jfieldID CacheField(JNIEnv* env, jclass c, bool is_static,
 
 static jmethodID CacheMethod(JNIEnv* env, jclass c, bool is_static,
                              const char* name, const char* signature) {
-  jmethodID mid = is_static ? env->GetStaticMethodID(c, name, signature) :
-      env->GetMethodID(c, name, signature);
+  jmethodID mid;
+  if (Runtime::Current()->GetJniIdType() != JniIdType::kSwapablePointer) {
+    mid = is_static ? env->GetStaticMethodID(c, name, signature) :
+        env->GetMethodID(c, name, signature);
+  } else {
+    ScopedObjectAccess soa(env);
+    mid = jni::EncodeArtMethod</*kEnableIndexIds*/ false>(
+        FindMethodJNI(soa, c, name, signature, is_static));
+  }
   if (mid == nullptr) {
     ScopedObjectAccess soa(env);
     if (soa.Self()->IsExceptionPending()) {
@@ -298,55 +314,58 @@ uint32_t WellKnownClasses::StringInitToEntryPoint(ArtMethod* string_init) {
 }
 #undef STRING_INIT_LIST
 
-void WellKnownClasses::Init(JNIEnv* env) {
+template<WellKnownClasses::InitTypes kTypesToInit>
+void WellKnownClasses::InitStart(JNIEnv* env) {
   hiddenapi::ScopedHiddenApiEnforcementPolicySetting hiddenapi_exemption(
       hiddenapi::EnforcementPolicy::kDisabled);
 
-  dalvik_annotation_optimization_CriticalNative =
-      CacheClass(env, "dalvik/annotation/optimization/CriticalNative");
-  dalvik_annotation_optimization_FastNative = CacheClass(env, "dalvik/annotation/optimization/FastNative");
-  dalvik_system_BaseDexClassLoader = CacheClass(env, "dalvik/system/BaseDexClassLoader");
-  dalvik_system_DelegateLastClassLoader = CacheClass(env, "dalvik/system/DelegateLastClassLoader");
-  dalvik_system_DexClassLoader = CacheClass(env, "dalvik/system/DexClassLoader");
-  dalvik_system_DexFile = CacheClass(env, "dalvik/system/DexFile");
-  dalvik_system_DexPathList = CacheClass(env, "dalvik/system/DexPathList");
-  dalvik_system_DexPathList__Element = CacheClass(env, "dalvik/system/DexPathList$Element");
-  dalvik_system_EmulatedStackFrame = CacheClass(env, "dalvik/system/EmulatedStackFrame");
-  dalvik_system_InMemoryDexClassLoader = CacheClass(env, "dalvik/system/InMemoryDexClassLoader");
-  dalvik_system_PathClassLoader = CacheClass(env, "dalvik/system/PathClassLoader");
-  dalvik_system_VMRuntime = CacheClass(env, "dalvik/system/VMRuntime");
+  if (kTypesToInit == WellKnownClasses::InitTypes::kFull) {
+    dalvik_annotation_optimization_CriticalNative =
+        CacheClass(env, "dalvik/annotation/optimization/CriticalNative");
+    dalvik_annotation_optimization_FastNative = CacheClass(env, "dalvik/annotation/optimization/FastNative");
+    dalvik_system_BaseDexClassLoader = CacheClass(env, "dalvik/system/BaseDexClassLoader");
+    dalvik_system_DelegateLastClassLoader = CacheClass(env, "dalvik/system/DelegateLastClassLoader");
+    dalvik_system_DexClassLoader = CacheClass(env, "dalvik/system/DexClassLoader");
+    dalvik_system_DexFile = CacheClass(env, "dalvik/system/DexFile");
+    dalvik_system_DexPathList = CacheClass(env, "dalvik/system/DexPathList");
+    dalvik_system_DexPathList__Element = CacheClass(env, "dalvik/system/DexPathList$Element");
+    dalvik_system_EmulatedStackFrame = CacheClass(env, "dalvik/system/EmulatedStackFrame");
+    dalvik_system_InMemoryDexClassLoader = CacheClass(env, "dalvik/system/InMemoryDexClassLoader");
+    dalvik_system_PathClassLoader = CacheClass(env, "dalvik/system/PathClassLoader");
+    dalvik_system_VMRuntime = CacheClass(env, "dalvik/system/VMRuntime");
 
-  java_lang_annotation_Annotation__array = CacheClass(env, "[Ljava/lang/annotation/Annotation;");
-  java_lang_BootClassLoader = CacheClass(env, "java/lang/BootClassLoader");
-  java_lang_ClassLoader = CacheClass(env, "java/lang/ClassLoader");
-  java_lang_ClassNotFoundException = CacheClass(env, "java/lang/ClassNotFoundException");
-  java_lang_Daemons = CacheClass(env, "java/lang/Daemons");
-  java_lang_Object = CacheClass(env, "java/lang/Object");
-  java_lang_OutOfMemoryError = CacheClass(env, "java/lang/OutOfMemoryError");
-  java_lang_Error = CacheClass(env, "java/lang/Error");
-  java_lang_IllegalAccessError = CacheClass(env, "java/lang/IllegalAccessError");
-  java_lang_NoClassDefFoundError = CacheClass(env, "java/lang/NoClassDefFoundError");
-  java_lang_reflect_InvocationTargetException = CacheClass(env, "java/lang/reflect/InvocationTargetException");
-  java_lang_reflect_Parameter = CacheClass(env, "java/lang/reflect/Parameter");
-  java_lang_reflect_Parameter__array = CacheClass(env, "[Ljava/lang/reflect/Parameter;");
-  java_lang_reflect_Proxy = CacheClass(env, "java/lang/reflect/Proxy");
-  java_lang_RuntimeException = CacheClass(env, "java/lang/RuntimeException");
-  java_lang_StackOverflowError = CacheClass(env, "java/lang/StackOverflowError");
-  java_lang_String = CacheClass(env, "java/lang/String");
-  java_lang_StringFactory = CacheClass(env, "java/lang/StringFactory");
-  java_lang_System = CacheClass(env, "java/lang/System");
-  java_lang_Thread = CacheClass(env, "java/lang/Thread");
-  java_lang_ThreadGroup = CacheClass(env, "java/lang/ThreadGroup");
-  java_lang_Throwable = CacheClass(env, "java/lang/Throwable");
-  java_nio_ByteBuffer = CacheClass(env, "java/nio/ByteBuffer");
-  java_nio_DirectByteBuffer = CacheClass(env, "java/nio/DirectByteBuffer");
-  java_util_Collections = CacheClass(env, "java/util/Collections");
-  java_util_function_Consumer = CacheClass(env, "java/util/function/Consumer");
-  libcore_reflect_AnnotationFactory = CacheClass(env, "libcore/reflect/AnnotationFactory");
-  libcore_reflect_AnnotationMember = CacheClass(env, "libcore/reflect/AnnotationMember");
-  libcore_util_EmptyArray = CacheClass(env, "libcore/util/EmptyArray");
-  org_apache_harmony_dalvik_ddmc_Chunk = CacheClass(env, "org/apache/harmony/dalvik/ddmc/Chunk");
-  org_apache_harmony_dalvik_ddmc_DdmServer = CacheClass(env, "org/apache/harmony/dalvik/ddmc/DdmServer");
+    java_lang_annotation_Annotation__array = CacheClass(env, "[Ljava/lang/annotation/Annotation;");
+    java_lang_BootClassLoader = CacheClass(env, "java/lang/BootClassLoader");
+    java_lang_ClassLoader = CacheClass(env, "java/lang/ClassLoader");
+    java_lang_ClassNotFoundException = CacheClass(env, "java/lang/ClassNotFoundException");
+    java_lang_Daemons = CacheClass(env, "java/lang/Daemons");
+    java_lang_Object = CacheClass(env, "java/lang/Object");
+    java_lang_OutOfMemoryError = CacheClass(env, "java/lang/OutOfMemoryError");
+    java_lang_Error = CacheClass(env, "java/lang/Error");
+    java_lang_IllegalAccessError = CacheClass(env, "java/lang/IllegalAccessError");
+    java_lang_NoClassDefFoundError = CacheClass(env, "java/lang/NoClassDefFoundError");
+    java_lang_reflect_InvocationTargetException = CacheClass(env, "java/lang/reflect/InvocationTargetException");
+    java_lang_reflect_Parameter = CacheClass(env, "java/lang/reflect/Parameter");
+    java_lang_reflect_Parameter__array = CacheClass(env, "[Ljava/lang/reflect/Parameter;");
+    java_lang_reflect_Proxy = CacheClass(env, "java/lang/reflect/Proxy");
+    java_lang_RuntimeException = CacheClass(env, "java/lang/RuntimeException");
+    java_lang_StackOverflowError = CacheClass(env, "java/lang/StackOverflowError");
+    java_lang_String = CacheClass(env, "java/lang/String");
+    java_lang_StringFactory = CacheClass(env, "java/lang/StringFactory");
+    java_lang_System = CacheClass(env, "java/lang/System");
+    java_lang_Thread = CacheClass(env, "java/lang/Thread");
+    java_lang_ThreadGroup = CacheClass(env, "java/lang/ThreadGroup");
+    java_lang_Throwable = CacheClass(env, "java/lang/Throwable");
+    java_nio_ByteBuffer = CacheClass(env, "java/nio/ByteBuffer");
+    java_nio_DirectByteBuffer = CacheClass(env, "java/nio/DirectByteBuffer");
+    java_util_Collections = CacheClass(env, "java/util/Collections");
+    java_util_function_Consumer = CacheClass(env, "java/util/function/Consumer");
+    libcore_reflect_AnnotationFactory = CacheClass(env, "libcore/reflect/AnnotationFactory");
+    libcore_reflect_AnnotationMember = CacheClass(env, "libcore/reflect/AnnotationMember");
+    libcore_util_EmptyArray = CacheClass(env, "libcore/util/EmptyArray");
+    org_apache_harmony_dalvik_ddmc_Chunk = CacheClass(env, "org/apache/harmony/dalvik/ddmc/Chunk");
+    org_apache_harmony_dalvik_ddmc_DdmServer = CacheClass(env, "org/apache/harmony/dalvik/ddmc/DdmServer");
+  }
 
   dalvik_system_BaseDexClassLoader_getLdLibraryPath = CacheMethod(env, dalvik_system_BaseDexClassLoader, false, "getLdLibraryPath", "()Ljava/lang/String;");
   dalvik_system_VMRuntime_runFinalization = CacheMethod(env, dalvik_system_VMRuntime, true, "runFinalization", "(J)V");
@@ -429,7 +448,19 @@ void WellKnownClasses::Init(JNIEnv* env) {
   java_lang_Short_valueOf = CachePrimitiveBoxingMethod(env, 'S', "java/lang/Short");
 }
 
-void WellKnownClasses::LateInit(JNIEnv* env) {
+template
+void WellKnownClasses::InitStart<WellKnownClasses::InitTypes::kFull>(JNIEnv* env);
+template
+void WellKnownClasses::InitStart<WellKnownClasses::InitTypes::kMethodsAndFieldsOnly>(JNIEnv* env);
+
+
+template
+void WellKnownClasses::InitFinish<WellKnownClasses::InitTypes::kFull>(JNIEnv* env);
+template
+void WellKnownClasses::InitFinish<WellKnownClasses::InitTypes::kMethodsAndFieldsOnly>(JNIEnv* env);
+
+template<WellKnownClasses::InitTypes kTypesToInit>
+void WellKnownClasses::InitFinish(JNIEnv* env) {
   ScopedLocalRef<jclass> java_lang_Runtime(env, env->FindClass("java/lang/Runtime"));
   // CacheField and CacheMethod will initialize their classes. Classes below
   // have clinit sections that call JNI methods. Late init is required
@@ -441,15 +472,21 @@ void WellKnownClasses::LateInit(JNIEnv* env) {
   java_lang_reflect_Proxy_init =
     CacheMethod(env, java_lang_reflect_Proxy, false, "<init>",
                 "(Ljava/lang/reflect/InvocationHandler;)V");
-  // This invariant is important since otherwise we will have the entire proxy invoke system
-  // confused.
-  DCHECK_NE(
-      jni::DecodeArtMethod(java_lang_reflect_Proxy_init)->GetEntryPointFromQuickCompiledCode(),
-      GetQuickInstrumentationEntryPoint());
-  java_lang_reflect_Proxy_invoke =
-    CacheMethod(env, java_lang_reflect_Proxy, true, "invoke",
-                "(Ljava/lang/reflect/Proxy;Ljava/lang/reflect/Method;"
-                    "[Ljava/lang/Object;)Ljava/lang/Object;");
+  if (kTypesToInit == WellKnownClasses::InitTypes::kFull) {
+    // This invariant is important since otherwise we will have the entire proxy invoke system
+    // confused.
+    DCHECK_NE(
+        jni::DecodeArtMethod(java_lang_reflect_Proxy_init)->GetEntryPointFromQuickCompiledCode(),
+        GetQuickInstrumentationEntryPoint());
+    java_lang_reflect_Proxy_invoke =
+      CacheMethod(env, java_lang_reflect_Proxy, true, "invoke",
+                  "(Ljava/lang/reflect/Proxy;Ljava/lang/reflect/Method;"
+                      "[Ljava/lang/Object;)Ljava/lang/Object;");
+  }
+}
+void WellKnownClasses::HandleJniIdTypeChange(JNIEnv* env) {
+  WellKnownClasses::InitStart<WellKnownClasses::InitTypes::kMethodsAndFieldsOnly>(env);
+  WellKnownClasses::InitFinish<WellKnownClasses::InitTypes::kMethodsAndFieldsOnly>(env);
 }
 
 void WellKnownClasses::Clear() {
