@@ -31,6 +31,7 @@
 #include "common_throws.h"
 #include "dex/dex_file-inl.h"
 #include "dex/invoke_type.h"
+#include "dex/modifiers.h"
 #include "dex_cache.h"
 #include "iftable-inl.h"
 #include "imtable.h"
@@ -41,6 +42,8 @@
 #include "string.h"
 #include "subtype_check.h"
 #include "thread-current-inl.h"
+#include "verify_object.h"
+#include <atomic>
 
 namespace art {
 namespace mirror {
@@ -919,6 +922,20 @@ inline void Class::SetAccessFlags(uint32_t new_access_flags) {
   }
 }
 
+inline bool Class::CASAccessFlags(uint32_t old_flags, uint32_t new_flags) {
+  if (kIsDebugBuild) {
+    SetAccessFlagsDCheck(new_flags);
+  }
+
+  if (Runtime::Current()->IsActiveTransaction()) {
+    return CasField32<true>(
+        AccessFlagsOffset(), old_flags, new_flags, CASMode::kStrong, std::memory_order_seq_cst);
+  } else {
+    return CasField32<false>(
+        AccessFlagsOffset(), old_flags, new_flags, CASMode::kStrong, std::memory_order_seq_cst);
+  }
+}
+
 inline void Class::SetClassFlags(uint32_t new_flags) {
   if (Runtime::Current()->IsActiveTransaction()) {
     SetField32<true>(OFFSET_OF_OBJECT_MEMBER(Class, class_flags_), new_flags);
@@ -1196,6 +1213,17 @@ inline void Class::SetHasDefaultMethods() {
   DCHECK_EQ(GetLockOwnerThreadId(), Thread::Current()->GetThreadId());
   uint32_t flags = GetField32(OFFSET_OF_OBJECT_MEMBER(Class, access_flags_));
   SetAccessFlags(flags | kAccHasDefaultMethod);
+}
+
+inline void Class::SetHasPointerJniIds() {
+  if (LIKELY(HasPointerJniIds())) {
+    return;
+  }
+  uint32_t flags;
+  do {
+    flags = GetAccessFlags<kDefaultVerifyFlags, true>();
+  } while (((flags & kAccClassHasPointerJNIIds) == 0) &&
+           !CASAccessFlags(flags, flags | kAccClassHasPointerJNIIds));
 }
 
 }  // namespace mirror
