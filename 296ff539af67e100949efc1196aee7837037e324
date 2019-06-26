@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa600d1c_0e05fe04",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T16:18:55Z",
+      "side": 1,
+      "message": "Still looks weird. What about \"It is a no-op for `shift !\u003d 0` and if `shift \u003d\u003d 0` then...\"",
+      "range": {
+        "startLine": 130,
+        "startChar": 7,
+        "endLine": 130,
+        "endChar": 26
+      },
+      "revId": "296ff539af67e100949efc1196aee7837037e324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d751391b_fa46a68d",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T16:18:55Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 132,
+        "startChar": 15,
+        "endLine": 132,
+        "endChar": 20
+      },
+      "revId": "296ff539af67e100949efc1196aee7837037e324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
