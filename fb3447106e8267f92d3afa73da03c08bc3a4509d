@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7b33aca_5c335cbe",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-26T15:43:03Z",
+      "side": 1,
+      "message": "Yeah, I started with that.  But for some reason that makes clang use ALU to calculate the addresses rather than the \"ldr r,[r,r,lsl#]\" form, which actually makes the code longer.",
+      "parentUuid": "5a03994f_6b6fcb8e",
+      "range": {
+        "startLine": 126,
+        "startChar": 24,
+        "endLine": 126,
+        "endChar": 66
+      },
+      "revId": "fb3447106e8267f92d3afa73da03c08bc3a4509d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbded51e_f0b5fc79",
         "filename": "libartbase/base/bit_memory_region.h",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "fb3447106e8267f92d3afa73da03c08bc3a4509d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd3efa02_cd8ab241",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-06-26T15:43:03Z",
+      "side": 1,
+      "message": "It is actually simplified just to singe neg: -(bit_start_ + bit_offset)\nThe \"\u0026 (width -1)\" is implied by \"lsl\" so not needed at all.\nEven the dependency on shift\u0027s \"% width\" is thrown out.",
+      "parentUuid": "cbded51e_f0b5fc79",
+      "range": {
+        "startLine": 129,
+        "startChar": 33,
+        "endLine": 129,
+        "endChar": 86
+      },
+      "revId": "fb3447106e8267f92d3afa73da03c08bc3a4509d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
