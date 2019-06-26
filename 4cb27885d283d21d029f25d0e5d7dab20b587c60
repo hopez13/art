@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df915501_e83e20c2",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-26T16:02:38Z",
+      "side": 1,
+      "message": "These statements are architecture-dependent. I\u0027d prefer the architecture-independent description here. If you want to add extra note that on ARM/ARM64 the `\u0026 (width - 1)` is implicit in the instruction, add that as a note at the end of the comment.",
+      "range": {
+        "startLine": 130,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 26
+      },
+      "revId": "4cb27885d283d21d029f25d0e5d7dab20b587c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
