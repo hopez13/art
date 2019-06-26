@@ -1306,12 +1306,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
   madvise_random_access_ = runtime_options.GetOrDefault(Opt::MadviseRandomAccess);
 
-  if (!runtime_options.Exists(Opt::OpaqueJniIds)) {
-    jni_ids_indirection_ = JniIdType::kDefault;
-  } else {
-    jni_ids_indirection_ = *runtime_options.Get(Opt::OpaqueJniIds) ? JniIdType::kIndices
-                                                                   : JniIdType::kPointer;
-  }
+  jni_ids_indirection_ = runtime_options.GetOrDefault(Opt::OpaqueJniIds);
 
   plugins_ = runtime_options.ReleaseOrDefault(Opt::Plugins);
   agent_specs_ = runtime_options.ReleaseOrDefault(Opt::AgentPath);
@@ -2922,6 +2917,16 @@ void Runtime::NotifyStartupCompleted() {
 
 bool Runtime::GetStartupCompleted() const {
   return startup_completed_.load(std::memory_order_seq_cst);
+}
+
+void Runtime::SetJniIdType(JniIdType t) {
+  CHECK(CanSetJniIdType()) << "Not allowed to change id type!";
+  if (t == GetJniIdType()) {
+    return;
+  }
+  jni_ids_indirection_ = t;
+  JNIEnvExt::ResetFunctionTable();
+  // TODO: Support changing all the WellKnownClasses IDs to the appropriate type.
 }
 
 }  // namespace art
