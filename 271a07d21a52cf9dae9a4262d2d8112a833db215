@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "086f3ba1_394d4707",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "nit: comment on volatile",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 10
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a57929e_0f1bf836",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "drop, or fix grammar?",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 63
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00cc6cd0_9116b40b",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "On ARM, we cannot ignore the failure, as stale code can remain in the i-cache.",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 91
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "408799db_2645b508",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "Add a comment why this doesn\u0027t apply to other archs?",
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5e68e00_de56b80c",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 356,
+        "startChar": 21,
+        "endLine": 356,
+        "endChar": 26
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57b3c289_2bc7bef6",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "How about:\nif (cache_flush_success) {\n  cache_flush_success \u003d ...\n}\n\nAnd then drop the \u0026\u003d line 357?",
+      "range": {
+        "startLine": 361,
+        "startChar": 2,
+        "endLine": 361,
+        "endChar": 24
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8335bb0e_e6deca72",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "Make this return bool?",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 4
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e505c22a_eb68aa12",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-06-26T08:54:16Z",
+      "side": 1,
+      "message": "Replace with \u0027!\u0027.",
+      "range": {
+        "startLine": 410,
+        "startChar": 89,
+        "endLine": 410,
+        "endChar": 97
+      },
+      "revId": "271a07d21a52cf9dae9a4262d2d8112a833db215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
