@@ -3128,11 +3128,11 @@ struct JniNativeInterfaceFunctions {
 
 const JNINativeInterface* GetJniNativeInterface() {
   // The template argument is passed down through the Encode/DecodeArtMethod/Field calls so if
-  // JniIdsAreIndices is false the calls will be a simple cast with no branches. This ensures that
+  // JniIdType is kPointer the calls will be a simple cast with no branches. This ensures that
   // the normal case is still fast.
-  return Runtime::Current()->JniIdsAreIndices()
-             ? &JniNativeInterfaceFunctions<true>::gJniNativeInterface
-             : &JniNativeInterfaceFunctions<false>::gJniNativeInterface;
+  return Runtime::Current()->GetJniIdType() == JniIdType::kPointer
+             ? &JniNativeInterfaceFunctions<false>::gJniNativeInterface
+             : &JniNativeInterfaceFunctions<true>::gJniNativeInterface;
 }
 
 void (*gJniSleepForeverStub[])()  = {

@@ -39,6 +39,7 @@
 #include "gc/heap-inl.h"
 #include "handle_scope-inl.h"
 #include "hidden_api.h"
+#include "jni_id_type.h"
 #include "subtype_check.h"
 #include "method.h"
 #include "object-inl.h"
@@ -1559,7 +1560,7 @@ ObjPtr<PointerArray> Class::GetMethodIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateMethodIds() {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   StackHandleScope<1> hs(self);
   Handle<Class> h_this(hs.NewHandle(this));
@@ -1580,7 +1581,7 @@ ObjPtr<PointerArray> Class::GetStaticFieldIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateStaticFieldIds() {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   StackHandleScope<1> hs(self);
   Handle<Class> h_this(hs.NewHandle(this));
@@ -1600,7 +1601,7 @@ ObjPtr<PointerArray> Class::GetInstanceFieldIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateInstanceFieldIds() {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   StackHandleScope<1> hs(self);
   Handle<Class> h_this(hs.NewHandle(this));
