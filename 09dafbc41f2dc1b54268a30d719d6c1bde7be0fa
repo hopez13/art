@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "994e4989_0dd3c9a6",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2019-06-26T15:21:19Z",
+      "side": 1,
+      "message": "This only appears to be used in this package.",
+      "revId": "09dafbc41f2dc1b54268a30d719d6c1bde7be0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc4fa852_a043a02c",
+        "filename": "libprofile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2019-06-26T15:21:19Z",
+      "side": 1,
+      "message": "This does not seem to be used directly by //system/extras/perfprofd, it uses libart_static_defaults which uses this. That should not require this to be visible. Ditto for other defaults that are exposed to perfprofd.",
+      "revId": "09dafbc41f2dc1b54268a30d719d6c1bde7be0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
