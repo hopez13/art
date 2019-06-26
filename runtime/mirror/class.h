@@ -19,6 +19,7 @@
 
 #include <string_view>
 
+#include "base/atomic.h"
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "class_flags.h"
@@ -29,6 +30,7 @@
 #include "object.h"
 #include "object_array.h"
 #include "read_barrier_option.h"
+#include "verify_object.h"
 
 namespace art {
 
@@ -177,12 +179,12 @@ class MANAGED Class final : public Object {
     return GetStatus<kVerifyFlags>() == ClassStatus::kInitialized;
   }
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags, bool kIsVolatile = false>
   ALWAYS_INLINE uint32_t GetAccessFlags() REQUIRES_SHARED(Locks::mutator_lock_) {
     if (kIsDebugBuild) {
       GetAccessFlagsDCheck<kVerifyFlags>();
     }
-    return GetField32<kVerifyFlags>(AccessFlagsOffset());
+    return GetField32<kVerifyFlags, kIsVolatile>(AccessFlagsOffset());
   }
 
   static constexpr MemberOffset AccessFlagsOffset() {
@@ -196,6 +198,10 @@ class MANAGED Class final : public Object {
   void SetClassFlags(uint32_t new_flags) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetAccessFlags(uint32_t new_access_flags) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Attempts to atomically change access flags using CAS semantics. Care should be taken when using
+  // this that the flags being set are actually read using desired atmoic semantics.
+  bool CASAccessFlags(uint32_t old_flags, uint32_t new_flags) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if the class is an enum.
   ALWAYS_INLINE bool IsEnum() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -234,6 +240,8 @@ class MANAGED Class final : public Object {
   ALWAYS_INLINE void SetRecursivelyInitialized() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE void SetHasDefaultMethods() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE void SetHasPointerJniIds() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE void SetFinalizable() REQUIRES_SHARED(Locks::mutator_lock_) {
     uint32_t flags = GetField32(OFFSET_OF_OBJECT_MEMBER(Class, access_flags_));
@@ -905,6 +913,11 @@ class MANAGED Class final : public Object {
 
   bool HasDefaultMethods() REQUIRES_SHARED(Locks::mutator_lock_) {
     return (GetAccessFlags() & kAccHasDefaultMethod) != 0;
+  }
+
+  bool HasPointerJniIds() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return (GetAccessFlags<kDefaultVerifyFlags, /*is_volatile*/ true>() &
+            kAccClassHasPointerJNIIds) != 0;
   }
 
   bool HasBeenRecursivelyInitialized() REQUIRES_SHARED(Locks::mutator_lock_) {

@@ -29,12 +29,14 @@
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "hidden_api.h"
 #include "jni/jni_internal.h"
+#include "jni_id_type.h"
 #include "mirror/class.h"
 #include "mirror/throwable.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
+#include "scoped_thread_state_change.h"
 #include "thread-current-inl.h"
 
 namespace art {
@@ -172,10 +174,10 @@ static jclass CacheClass(JNIEnv* env, const char* jni_class_name) {
 
 static jfieldID CacheField(JNIEnv* env, jclass c, bool is_static,
                            const char* name, const char* signature) {
-  jfieldID fid = is_static ? env->GetStaticFieldID(c, name, signature) :
-      env->GetFieldID(c, name, signature);
+  ScopedObjectAccess soa(env);
+  jfieldID fid = jni::EncodeArtField</*kEnableIndexIds*/ false>(
+      FindFieldJNI(soa, c, name, signature, is_static));
   if (fid == nullptr) {
-    ScopedObjectAccess soa(env);
     if (soa.Self()->IsExceptionPending()) {
       LOG(FATAL_WITHOUT_ABORT) << soa.Self()->GetException()->Dump();
     }
@@ -189,10 +191,10 @@ static jfieldID CacheField(JNIEnv* env, jclass c, bool is_static,
 
 static jmethodID CacheMethod(JNIEnv* env, jclass c, bool is_static,
                              const char* name, const char* signature) {
-  jmethodID mid = is_static ? env->GetStaticMethodID(c, name, signature) :
-      env->GetMethodID(c, name, signature);
+  ScopedObjectAccess soa(env);
+  jmethodID mid = jni::EncodeArtMethod</*kEnableIndexIds*/ false>(
+      FindMethodJNI(soa, c, name, signature, is_static));
   if (mid == nullptr) {
-    ScopedObjectAccess soa(env);
     if (soa.Self()->IsExceptionPending()) {
       LOG(FATAL_WITHOUT_ABORT) << soa.Self()->GetException()->Dump();
     }
@@ -348,6 +350,10 @@ void WellKnownClasses::Init(JNIEnv* env) {
   org_apache_harmony_dalvik_ddmc_Chunk = CacheClass(env, "org/apache/harmony/dalvik/ddmc/Chunk");
   org_apache_harmony_dalvik_ddmc_DdmServer = CacheClass(env, "org/apache/harmony/dalvik/ddmc/DdmServer");
 
+  InitFieldsAndMethodsOnly(env);
+}
+
+void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   dalvik_system_BaseDexClassLoader_getLdLibraryPath = CacheMethod(env, dalvik_system_BaseDexClassLoader, false, "getLdLibraryPath", "()Ljava/lang/String;");
   dalvik_system_VMRuntime_runFinalization = CacheMethod(env, dalvik_system_VMRuntime, true, "runFinalization", "(J)V");
   dalvik_system_VMRuntime_hiddenApiUsed = CacheMethod(env, dalvik_system_VMRuntime, true, "hiddenApiUsed", "(ILjava/lang/String;Ljava/lang/String;IZ)V");
@@ -429,7 +435,7 @@ void WellKnownClasses::Init(JNIEnv* env) {
   java_lang_Short_valueOf = CachePrimitiveBoxingMethod(env, 'S', "java/lang/Short");
 }
 
-void WellKnownClasses::LateInit(JNIEnv* env) {
+void WellKnownClasses::LateInitFieldsAndMethodsOnly(JNIEnv* env) {
   ScopedLocalRef<jclass> java_lang_Runtime(env, env->FindClass("java/lang/Runtime"));
   // CacheField and CacheMethod will initialize their classes. Classes below
   // have clinit sections that call JNI methods. Late init is required
@@ -441,6 +447,10 @@ void WellKnownClasses::LateInit(JNIEnv* env) {
   java_lang_reflect_Proxy_init =
     CacheMethod(env, java_lang_reflect_Proxy, false, "<init>",
                 "(Ljava/lang/reflect/InvocationHandler;)V");
+}
+
+void WellKnownClasses::LateInit(JNIEnv* env) {
+  LateInitFieldsAndMethodsOnly(env);
   // This invariant is important since otherwise we will have the entire proxy invoke system
   // confused.
   DCHECK_NE(
@@ -450,6 +460,11 @@ void WellKnownClasses::LateInit(JNIEnv* env) {
     CacheMethod(env, java_lang_reflect_Proxy, true, "invoke",
                 "(Ljava/lang/reflect/Proxy;Ljava/lang/reflect/Method;"
                     "[Ljava/lang/Object;)Ljava/lang/Object;");
+}
+
+void WellKnownClasses::HandleJniIdTypeChange(JNIEnv* env) {
+  InitFieldsAndMethodsOnly(env);
+  LateInitFieldsAndMethodsOnly(env);
 }
 
 void WellKnownClasses::Clear() {

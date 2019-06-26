@@ -842,9 +842,18 @@ class Runtime {
     return jdwp_provider_;
   }
 
-  bool JniIdsAreIndices() const {
-    return jni_ids_indirection_ != JniIdType::kPointer;
+  JniIdType GetJniIdType() const {
+    return jni_ids_indirection_;
   }
+
+  bool CanSetJniIdType() const {
+    return GetJniIdType() == JniIdType::kSwapablePointer;
+  }
+
+  // Changes the JniIdType to the given type. Only allowed if CanSetJniIdType(). No threads should
+  // be actively running JNI code when this function is called (for example it should be done
+  // post-zygote-fork before running user code) to ensure consistent JNI id assignments.
+  void SetJniIdType(JniIdType t);
 
   uint32_t GetVerifierLoggingThresholdMs() const {
     return verifier_logging_threshold_ms_;

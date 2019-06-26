@@ -39,6 +39,7 @@
 #include "gc/heap-inl.h"
 #include "handle_scope-inl.h"
 #include "hidden_api.h"
+#include "jni_id_type.h"
 #include "subtype_check.h"
 #include "method.h"
 #include "object-inl.h"
@@ -1559,7 +1560,7 @@ ObjPtr<PointerArray> Class::GetMethodIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateMethodIds(Handle<Class> h_this) {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
@@ -1578,7 +1579,7 @@ ObjPtr<PointerArray> Class::GetStaticFieldIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateStaticFieldIds(Handle<Class> h_this) {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
@@ -1596,7 +1597,7 @@ ObjPtr<PointerArray> Class::GetInstanceFieldIds() {
   }
 }
 ObjPtr<PointerArray> Class::GetOrCreateInstanceFieldIds(Handle<Class> h_this) {
-  DCHECK(Runtime::Current()->JniIdsAreIndices()) << "JNI Ids are pointers!";
+  DCHECK_NE(Runtime::Current()->GetJniIdType(), JniIdType::kPointer) << "JNI Ids are pointers!";
   Thread* self = Thread::Current();
   ObjPtr<ClassExt> ext(EnsureExtDataPresent(h_this, self));
   if (ext.IsNull()) {
