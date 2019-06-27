@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf42b76_aecd7b3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-27T18:13:21Z",
+      "side": 1,
+      "message": "also",
+      "range": {
+        "startLine": 15,
+        "startChar": 43,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "78b1b41868f2eb57eda8ec778b1b6b299d37b82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dda27ebe_dcb413b7",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-27T18:13:21Z",
+      "side": 1,
+      "message": "Why? The forwardee will do this, and this frame is guaranteed to be small. Remove from all functions, and remove the macro (can do a follow-up change, but it\u0027s not integral to this CL).",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 558,
+        "endChar": 29
+      },
+      "revId": "78b1b41868f2eb57eda8ec778b1b6b299d37b82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d2ef3a3_63fec253",
+        "filename": "runtime/reflection_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-27T18:13:21Z",
+      "side": 1,
+      "message": "So you\u0027re removing all tests with jmethodID. -1.",
+      "revId": "78b1b41868f2eb57eda8ec778b1b6b299d37b82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
