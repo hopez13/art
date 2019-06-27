@@ -232,6 +232,7 @@ class MemMap {
   bool Protect(int prot);
 
   void MadviseDontNeedAndZero();
+  int MadviseDontFork();
 
   int GetProtect() const {
     return prot_;
@@ -316,6 +317,8 @@ class MemMap {
   static std::mutex* GetMemMapsLock() RETURN_CAPABILITY(mem_maps_lock_) {
     return nullptr;
   }
+
+  void ResetInForkedProcess();
 
  private:
   MemMap(const std::string& name,
