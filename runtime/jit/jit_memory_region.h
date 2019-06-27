@@ -109,6 +109,15 @@ class JitMemoryRegion {
       REQUIRES(Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void ResetWritableMappings() REQUIRES(Locks::jit_lock_) {
+    non_exec_pages_ = MemMap();
+    writable_data_pages_ = MemMap();
+    // Also clear the mspaces, which, in their implementation,
+    // point to the discarded mappings.
+    exec_mspace_ = nullptr;
+    data_mspace_ = nullptr;
+  }
+
   bool IsValid() const NO_THREAD_SAFETY_ANALYSIS {
     return exec_mspace_ != nullptr || data_mspace_ != nullptr;
   }
