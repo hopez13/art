@@ -514,18 +514,22 @@ bool InvokeMethodImpl(const ScopedObjectAccessAlreadyRunnable& soa,
 
 }  // anonymous namespace
 
-JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject obj, jmethodID mid,
-                         va_list args)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  // We want to make sure that the stack is not within a small distance from the
-  // protected region in case we are calling into a leaf function whose stack
-  // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
-    return JValue();
+// We want to make sure that the stack is not within a small distance from the
+// protected region in case we are calling into a leaf function whose stack
+// check has been elided.
+#define CHECK_OVERFLOW_JVALUE(soa) { \
+    if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) { \
+      ThrowStackOverflowError(soa.Self()); \
+      return JValue(); \
+    } \
   }
 
-  ArtMethod* method = jni::DecodeArtMethod(mid);
+template <>
+JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
+                         jobject obj,
+                         ArtMethod* method,
+                         va_list args) REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK_OVERFLOW_JVALUE(soa);
   bool is_string_init = method->GetDeclaringClass()->IsStringClass() && method->IsConstructor();
   if (is_string_init) {
     // Replace calls to String.<init> with equivalent StringFactory call.
@@ -546,17 +550,22 @@ JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   return result;
 }
 
-JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject obj, jmethodID mid,
+template <>
+JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
+                         jobject obj,
+                         jmethodID mid,
+                         va_list args) REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK_OVERFLOW_JVALUE(soa);
+  DCHECK(mid != nullptr) << "Called with null jmethodID";
+  return InvokeWithVarArgs(soa, obj, jni::DecodeArtMethod(mid), args);
+}
+
+template <>
+JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
+                         jobject obj,
+                         ArtMethod* method,
                          const jvalue* args) {
-  // We want to make sure that the stack is not within a small distance from the
-  // protected region in case we are calling into a leaf function whose stack
-  // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
-    return JValue();
-  }
-
-  ArtMethod* method = jni::DecodeArtMethod(mid);
+  CHECK_OVERFLOW_JVALUE(soa);
   bool is_string_init = method->GetDeclaringClass()->IsStringClass() && method->IsConstructor();
   if (is_string_init) {
     // Replace calls to String.<init> with equivalent StringFactory call.
@@ -577,18 +586,24 @@ JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   return result;
 }
 
-JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
-                                           jobject obj, jmethodID mid, const jvalue* args) {
-  // We want to make sure that the stack is not within a small distance from the
-  // protected region in case we are calling into a leaf function whose stack
-  // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
-    return JValue();
-  }
+template <>
+JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
+                         jobject obj,
+                         jmethodID mid,
+                         const jvalue* args) {
+  CHECK_OVERFLOW_JVALUE(soa);
+  DCHECK(mid != nullptr) << "Called with null jmethodID";
+  return InvokeWithJValues(soa, obj, jni::DecodeArtMethod(mid), args);
+}
 
+template <>
+JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
+                                           jobject obj,
+                                           ArtMethod* interface_method,
+                                           const jvalue* args) {
+  CHECK_OVERFLOW_JVALUE(soa);
   ObjPtr<mirror::Object> receiver = soa.Decode<mirror::Object>(obj);
-  ArtMethod* method = FindVirtualMethod(receiver, jni::DecodeArtMethod(mid));
+  ArtMethod* method = FindVirtualMethod(receiver, interface_method);
   bool is_string_init = method->GetDeclaringClass()->IsStringClass() && method->IsConstructor();
   if (is_string_init) {
     // Replace calls to String.<init> with equivalent StringFactory call.
@@ -609,18 +624,25 @@ JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnab
   return result;
 }
 
+template <>
+JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
+                                           jobject obj,
+                                           jmethodID mid,
+                                           const jvalue* args) {
+  CHECK_OVERFLOW_JVALUE(soa);
+  DCHECK(mid != nullptr) << "Called with null jmethodID";
+  return InvokeVirtualOrInterfaceWithJValues(soa, obj, jni::DecodeArtMethod(mid), args);
+}
+
+template <>
 JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
-                                           jobject obj, jmethodID mid, va_list args) {
-  // We want to make sure that the stack is not within a small distance from the
-  // protected region in case we are calling into a leaf function whose stack
-  // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
-    return JValue();
-  }
+                                           jobject obj,
+                                           ArtMethod* interface_method,
+                                           va_list args) {
+  CHECK_OVERFLOW_JVALUE(soa);
 
   ObjPtr<mirror::Object> receiver = soa.Decode<mirror::Object>(obj);
-  ArtMethod* method = FindVirtualMethod(receiver, jni::DecodeArtMethod(mid));
+  ArtMethod* method = FindVirtualMethod(receiver, interface_method);
   bool is_string_init = method->GetDeclaringClass()->IsStringClass() && method->IsConstructor();
   if (is_string_init) {
     // Replace calls to String.<init> with equivalent StringFactory call.
@@ -640,6 +662,18 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
   }
   return result;
 }
+
+template <>
+JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
+                                           jobject obj,
+                                           jmethodID mid,
+                                           va_list args) {
+  CHECK_OVERFLOW_JVALUE(soa);
+  DCHECK(mid != nullptr) << "Called with null jmethodID";
+  return InvokeVirtualOrInterfaceWithVarArgs(soa, obj, jni::DecodeArtMethod(mid), args);
+}
+
+#undef CHECK_OVERFLOW_JVALUE
 
 jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaMethod,
                      jobject javaReceiver, jobject javaArgs, size_t num_frames) {

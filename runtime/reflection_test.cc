@@ -140,7 +140,7 @@ class ReflectionTest : public CommonCompilerTest {
     ObjPtr<mirror::Object> receiver;
     ReflectionTestMakeInterpreted(&method, &receiver, is_static, "nop", "()V");
     ScopedLocalRef<jobject> receiver_ref(soa.Env(), soa.AddLocalReference<jobject>(receiver));
-    InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), nullptr);
+    InvokeWithJValues(soa, receiver_ref.get(), method, nullptr);
   }
 
   void InvokeIdentityByteMethod(bool is_static) {
@@ -152,20 +152,20 @@ class ReflectionTest : public CommonCompilerTest {
     jvalue args[1];
 
     args[0].b = 0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(0, result.GetB());
 
     args[0].b = -1;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-1, result.GetB());
 
     args[0].b = SCHAR_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(SCHAR_MAX, result.GetB());
 
     static_assert(SCHAR_MIN == -128, "SCHAR_MIN unexpected");
     args[0].b = SCHAR_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(SCHAR_MIN, result.GetB());
   }
 
@@ -178,19 +178,19 @@ class ReflectionTest : public CommonCompilerTest {
     jvalue args[1];
 
     args[0].i = 0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(0, result.GetI());
 
     args[0].i = -1;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-1, result.GetI());
 
     args[0].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(INT_MAX, result.GetI());
 
     args[0].i = INT_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(INT_MIN, result.GetI());
   }
 
@@ -203,19 +203,19 @@ class ReflectionTest : public CommonCompilerTest {
     jvalue args[1];
 
     args[0].d = 0.0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(0.0, result.GetD());
 
     args[0].d = -1.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(-1.0, result.GetD());
 
     args[0].d = DBL_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(DBL_MAX, result.GetD());
 
     args[0].d = DBL_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(DBL_MIN, result.GetD());
   }
 
@@ -229,22 +229,22 @@ class ReflectionTest : public CommonCompilerTest {
 
     args[0].i = 1;
     args[1].i = 2;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(3, result.GetI());
 
     args[0].i = -2;
     args[1].i = 5;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(3, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-1, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-2, result.GetI());
   }
 
@@ -259,31 +259,31 @@ class ReflectionTest : public CommonCompilerTest {
     args[0].i = 0;
     args[1].i = 0;
     args[2].i = 0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(0, result.GetI());
 
     args[0].i = 1;
     args[1].i = 2;
     args[2].i = 3;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(6, result.GetI());
 
     args[0].i = -1;
     args[1].i = 2;
     args[2].i = -3;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-2, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MIN;
     args[2].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(2147483646, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MAX;
     args[2].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(2147483645, result.GetI());
   }
 
@@ -299,35 +299,35 @@ class ReflectionTest : public CommonCompilerTest {
     args[1].i = 0;
     args[2].i = 0;
     args[3].i = 0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(0, result.GetI());
 
     args[0].i = 1;
     args[1].i = 2;
     args[2].i = 3;
     args[3].i = 4;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(10, result.GetI());
 
     args[0].i = -1;
     args[1].i = 2;
     args[2].i = -3;
     args[3].i = 4;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(2, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MIN;
     args[2].i = INT_MAX;
     args[3].i = INT_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-2, result.GetI());
 
     args[0].i = INT_MAX;
     args[1].i = INT_MAX;
     args[2].i = INT_MAX;
     args[3].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-4, result.GetI());
   }
 
@@ -344,7 +344,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].i = 0;
     args[3].i = 0;
     args[4].i = 0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(0, result.GetI());
 
     args[0].i = 1;
@@ -352,7 +352,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].i = 3;
     args[3].i = 4;
     args[4].i = 5;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(15, result.GetI());
 
     args[0].i = -1;
@@ -360,7 +360,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].i = -3;
     args[3].i = 4;
     args[4].i = -5;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(-3, result.GetI());
 
     args[0].i = INT_MAX;
@@ -368,7 +368,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].i = INT_MAX;
     args[3].i = INT_MIN;
     args[4].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(2147483645, result.GetI());
 
     args[0].i = INT_MAX;
@@ -376,7 +376,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].i = INT_MAX;
     args[3].i = INT_MAX;
     args[4].i = INT_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_EQ(2147483643, result.GetI());
   }
 
@@ -390,27 +390,27 @@ class ReflectionTest : public CommonCompilerTest {
 
     args[0].d = 0.0;
     args[1].d = 0.0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(0.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = 2.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(3.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = -2.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(-1.0, result.GetD());
 
     args[0].d = DBL_MAX;
     args[1].d = DBL_MIN;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(1.7976931348623157e308, result.GetD());
 
     args[0].d = DBL_MAX;
     args[1].d = DBL_MAX;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(INFINITY, result.GetD());
   }
 
@@ -425,19 +425,19 @@ class ReflectionTest : public CommonCompilerTest {
     args[0].d = 0.0;
     args[1].d = 0.0;
     args[2].d = 0.0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(0.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = 2.0;
     args[2].d = 3.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(6.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = -2.0;
     args[2].d = 3.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(2.0, result.GetD());
   }
 
@@ -453,21 +453,21 @@ class ReflectionTest : public CommonCompilerTest {
     args[1].d = 0.0;
     args[2].d = 0.0;
     args[3].d = 0.0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(0.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = 2.0;
     args[2].d = 3.0;
     args[3].d = 4.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(10.0, result.GetD());
 
     args[0].d = 1.0;
     args[1].d = -2.0;
     args[2].d = 3.0;
     args[3].d = -4.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(-2.0, result.GetD());
   }
 
@@ -484,7 +484,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].d = 0.0;
     args[3].d = 0.0;
     args[4].d = 0.0;
-    JValue result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    JValue result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(0.0, result.GetD());
 
     args[0].d = 1.0;
@@ -492,7 +492,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].d = 3.0;
     args[3].d = 4.0;
     args[4].d = 5.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(15.0, result.GetD());
 
     args[0].d = 1.0;
@@ -500,7 +500,7 @@ class ReflectionTest : public CommonCompilerTest {
     args[2].d = 3.0;
     args[3].d = -4.0;
     args[4].d = 5.0;
-    result = InvokeWithJValues(soa, receiver_ref.get(), jni::EncodeArtMethod(method), args);
+    result = InvokeWithJValues(soa, receiver_ref.get(), method, args);
     EXPECT_DOUBLE_EQ(3.0, result.GetD());
   }
 
@@ -535,7 +535,7 @@ TEST_F(ReflectionTest, StaticMainMethod) {
 
   jvalue args[1];
   args[0].l = nullptr;
-  InvokeWithJValues(soa, nullptr, jni::EncodeArtMethod(method), args);
+  InvokeWithJValues(soa, nullptr, method, args);
 }
 
 TEST_F(ReflectionTest, StaticNopMethod) {
