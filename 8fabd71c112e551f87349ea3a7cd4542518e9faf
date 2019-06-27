@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aab224c7_ed364f4f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2554,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-06-27T10:15:43Z",
+      "side": 1,
+      "message": "Does not seem to be worth the effort.",
+      "parentUuid": "f7ba7cf9_62632326",
+      "range": {
+        "startLine": 2554,
+        "startChar": 10,
+        "endLine": 2554,
+        "endChar": 52
+      },
+      "revId": "8fabd71c112e551f87349ea3a7cd4542518e9faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6568f7a2_d0f594ea",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 3
