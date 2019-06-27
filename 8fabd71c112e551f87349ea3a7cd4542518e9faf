@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7ba7cf9_62632326",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2554,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-27T04:10:17Z",
+      "side": 1,
+      "message": "Could add a helper function for this.",
+      "range": {
+        "startLine": 2554,
+        "startChar": 10,
+        "endLine": 2554,
+        "endChar": 52
+      },
+      "revId": "8fabd71c112e551f87349ea3a7cd4542518e9faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6568f7a2_d0f594ea",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-06-27T04:10:17Z",
+      "side": 1,
+      "message": "This will still run for preopt app images since dex2oat is debug on the host, assume that\u0027s OK?",
+      "range": {
+        "startLine": 2559,
+        "startChar": 12,
+        "endLine": 2559,
+        "endChar": 25
+      },
+      "revId": "8fabd71c112e551f87349ea3a7cd4542518e9faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
