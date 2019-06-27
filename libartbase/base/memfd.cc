@@ -16,6 +16,8 @@
 
 #include "memfd.h"
 
+#include <android-base/logging.h>
+#include <android-base/unique_fd.h>
 #include <errno.h>
 #include <stdio.h>
 #if !defined(_WIN32)
@@ -26,6 +28,10 @@
 #endif
 
 #include "macros.h"
+
+#if defined(__BIONIC__)
+#include <linux/memfd.h>  // To access memfd flags.
+#endif
 
 // When building for linux host, glibc in prebuilts does not include memfd_create system call
 // number. As a temporary testing measure, we add the definition here.
@@ -90,5 +96,36 @@ int memfd_create_compat(const char* name, unsigned int flags) {
 #endif
   return res;
 }
+
+#if defined(__BIONIC__)
+
+static bool IsSealFutureWriteSupportedInternal() {
+  android::base::unique_fd fd(art::memfd_create("test_android_memfd", MFD_ALLOW_SEALING));
+  if (fd == -1) {
+    LOG(INFO) << "memfd_create failed: " << strerror(errno) << ", no memfd support.";
+    return false;
+  }
+
+  if (fcntl(fd, F_ADD_SEALS, F_SEAL_FUTURE_WRITE) == -1) {
+    LOG(INFO) << "fcntl(F_ADD_SEALS) failed: " << strerror(errno) << ", no memfd support.";
+    return false;
+  }
+
+  LOG(INFO) << "Using memfd for future sealing";
+  return true;
+}
+
+bool IsSealFutureWriteSupported() {
+  static bool is_seal_future_write_supported = IsSealFutureWriteSupportedInternal();
+  return is_seal_future_write_supported;
+}
+
+#else
+
+bool IsSealFutureWriteSupported() {
+  return false;
+}
+
+#endif
 
 }  // namespace art
