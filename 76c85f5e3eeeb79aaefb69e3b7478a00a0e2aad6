@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1640f09_e422e0af",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Apologies for pointing these out late, but the style guide would put these after the system includes with a space between.",
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c810eb3a_0de8e3fa",
+        "filename": "libartbase/base/memfd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Should be part of the system includes.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e08f008_47659e7d",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Before android-base.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b40ced8_442ef449",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Constants",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 32
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "093d1850_aa286422",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Comment that this write will trigger a fault as addr unmapped.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 32
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d11d6b0_8d9860d0",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Clean-up mappings created in this method.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad990ca_79afca2a",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Constants",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 32
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "935e021d_62b05972",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Clean-up mappings.",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 5
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7d844f9_cd538039",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Groundhog comment? L280",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 30
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292b7827_63da43e4",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Constants",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 0
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41037c9e_62e102bb",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "Comment about MAP_FIXED here mentioning replacing existing mapping.",
+      "range": {
+        "startLine": 347,
+        "startChar": 6,
+        "endLine": 347,
+        "endChar": 42
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7751d890_5535c80c",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "CHECK_EQ(errno, EPERM)?",
+      "range": {
+        "startLine": 354,
+        "startChar": 6,
+        "endLine": 355,
+        "endChar": 27
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1a953f0_7957e061",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T12:53:02Z",
+      "side": 1,
+      "message": "clean-up mappings",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 3
+      },
+      "revId": "76c85f5e3eeeb79aaefb69e3b7478a00a0e2aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
