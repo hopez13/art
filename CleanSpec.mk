@@ -79,6 +79,10 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib*)
 # `icu-data-art-test` Make rule.
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 
+# Remove on-device files that simulate time zone data files in the TZ data
+# mainline module APEX in ART's special on-device test environment.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/tzdata_module)
+
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
