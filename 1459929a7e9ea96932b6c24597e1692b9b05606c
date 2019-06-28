@@ -16,6 +16,24 @@
       "revId": "1459929a7e9ea96932b6c24597e1692b9b05606c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d9ffd60_9b406334",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3020,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-06-28T23:42:45Z",
+      "side": 1,
+      "message": "It\u0027s hard to say, highly depends on classes vs uses types (signatures, field types etc). Maybe we should collect some average stats.",
+      "parentUuid": "663d987f_cae22821",
+      "revId": "1459929a7e9ea96932b6c24597e1692b9b05606c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
