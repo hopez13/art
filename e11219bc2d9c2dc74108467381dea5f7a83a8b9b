@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61c76fa4_183362f0",
+        "filename": "tools/generate_operator_out.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2019-06-28T18:36:03Z",
+      "side": 1,
+      "message": "(not related to this change, so not blocking, just something weird I noticed)\n\nWhy are you doing this immediately after raising Exception? sys.exit just raises SystemExit.\n\nYou probably want this function to just be:\n\n    sys.exit(f\u0027{filename}:{line_number}: confused by:\\n{line}\\ngiving up!\u0027)\n\n(or the non f-string equivalent if you can\u0027t Python 3 yet)",
+      "revId": "e11219bc2d9c2dc74108467381dea5f7a83a8b9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
