@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93f7f9d8_a8f0e22a",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-06-28T07:39:46Z",
+      "side": 1,
+      "message": "Since there is implicit inter-thread synchronization here a memory barrier just after updating shared values would be appropriate (use atomic values). Similarly anywhere a value is written to a mapped range.",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 18
+      },
+      "revId": "00fd83491067235d34c0009caeba6b79d4fd585a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
