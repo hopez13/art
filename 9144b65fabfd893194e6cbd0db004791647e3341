@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0c1bd5d3_c536e6c2",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-01T12:38:21Z",
+      "side": 1,
+      "message": "I\u0027ve added a comment before the definition of `archs` (line 29) in PS2; let me know if that\u0027s fine with you.",
+      "parentUuid": "bf27fe76_29003da8",
+      "range": {
+        "startLine": 239,
+        "startChar": 4,
+        "endLine": 239,
+        "endChar": 21
+      },
+      "revId": "9144b65fabfd893194e6cbd0db004791647e3341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5072b7f_b170f5c0",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "9144b65fabfd893194e6cbd0db004791647e3341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6939d4bb_29b575b6",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-01T12:38:21Z",
+      "side": 1,
+      "message": "Done. Note that this diverges from the style used in this file, where most paths are expressed as string literals. Do you think we should refactor them too?",
+      "parentUuid": "d5072b7f_b170f5c0",
+      "range": {
+        "startLine": 240,
+        "startChar": 19,
+        "endLine": 240,
+        "endChar": 27
+      },
+      "revId": "9144b65fabfd893194e6cbd0db004791647e3341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
