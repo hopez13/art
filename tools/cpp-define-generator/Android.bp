@@ -38,6 +38,8 @@ cc_object {
 // This extracts the compile-time constants from asm_defines.s and creates the header.
 cc_genrule {
     name: "cpp-define-generator-asm-support",
+    // TODO: Restrict to LL-NDK only.
+    vendor_available: true,
     host_supported: true,
     device_supported: true,
     srcs: [":asm_defines.s"],
@@ -48,6 +50,8 @@ cc_genrule {
 
 cc_library_headers {
     name: "cpp-define-generator-definitions",
+    // TODO: Restrict to LL-NDK only.
+    vendor_available: true,
     host_supported: true,
     export_include_dirs: ["."],
 }

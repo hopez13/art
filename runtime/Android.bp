@@ -418,7 +418,7 @@ libart_static_cc_defaults {
         "libbase",
         "libdexfile_external", // libunwindstack dependency
         "libdexfile_support", // libunwindstack dependency
-        "liblog",
+        "liblog_vendor_static",
         "libnativebridge",
         "libnativeloader",
         "libsigchain_dummy",
@@ -502,6 +502,10 @@ gensrcs {
 art_cc_library {
     name: "libart",
     defaults: ["libart_defaults"],
+    // TODO: Restrict to LLNDK only. This is necessary for static core
+    // dependency from perfprofd (at least).
+    proprietary: false,
+    vendor_available: true,
     // Leave the symbols in the shared library so that stack unwinders can
     // produce meaningful name resolution.
     strip: {

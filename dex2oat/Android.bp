@@ -169,6 +169,8 @@ cc_defaults {
 
 cc_library_headers {
     name: "dex2oat_headers",
+    // TODO: Restrict to LLNDK only? Got core dependencies from otapreopt.
+    vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
 }

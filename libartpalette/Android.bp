@@ -26,6 +26,7 @@ cc_defaults {
 art_cc_library {
     name: "libartpalette-system",
     defaults: ["libartpalette_defaults"],
+    vendor_available: false, // Revert flag inherited from art_defaults.
     compile_multilib: "both",
     target: {
         android: {
@@ -63,6 +64,10 @@ art_cc_library {
 art_cc_library {
     name: "libartpalette",
     defaults: ["libartpalette_defaults"],
+    // TODO: Restrict to LLNDK only. This is necessary for static core
+    // dependency from perfprofd (at least).
+    proprietary: false,
+    vendor_available: true,
     required: ["libartpalette-system"], // libartpalette.so dlopen()'s libartpalette-system.
     header_libs: ["libbase_headers"],
     target: {
@@ -70,12 +75,8 @@ art_cc_library {
         // and binds the methods in the libartpalette-system library.
         android: {
             srcs: ["apex/palette.cc"],
-            shared: {
-                shared_libs: ["liblog"],
-            },
-            static: {
-                static_libs: ["liblog"],
-            },
+            // TODO: Do we need to link liblog statically on target?
+            shared_libs: ["liblog"],
             version_script: "libartpalette.map.txt",
         },
         linux_bionic: {

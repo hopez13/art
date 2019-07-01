@@ -58,7 +58,7 @@ cc_defaults {
         "libbase_ndk",
     ],
     sdk_version: "current",
-    stl: "c++_static",
+    stl: "libc++",
 }
 
 cc_library {

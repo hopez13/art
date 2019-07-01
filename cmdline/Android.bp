@@ -17,6 +17,8 @@
 // TODO: this header library depends on libart. Find a way to express that.
 cc_library_headers {
     name: "art_cmdlineparser_headers",
+    // TODO: Switch to LL-NDK only.
+    vendor_available: true,
     host_supported: true,
     export_include_dirs: ["."],
 }

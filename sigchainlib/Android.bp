@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-cc_library {
-    name: "libsigchain",
+cc_defaults {
+    name: "libsigchain_defaults",
 
     host_supported: true,
     defaults: ["art_defaults"],
@@ -41,6 +41,17 @@ cc_library {
     export_include_dirs: ["."],
 }
 
+cc_library {
+    name: "libsigchain",
+    defaults: ["libsigchain_defaults"],
+}
+
+cc_library_static {
+    name: "libsigchain_core",
+    defaults: ["libsigchain_defaults"],
+    proprietary: false,
+}
+
 // Create a dummy version of libsigchain which expose the necessary symbols
 // but throws when called. This can be used to get static binaries which don't
 // need the real functionality of the sig chain but need to please the linker.
@@ -48,6 +59,7 @@ cc_library_static {
     name: "libsigchain_dummy",
     host_supported: true,
     defaults: ["art_defaults"],
+    proprietary: false, // Revert flag inherited from art_defaults.
     srcs: ["sigchain_dummy.cc"],
     target: {
         android: {

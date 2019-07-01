@@ -56,8 +56,15 @@ art_clang_tidy_disabled = [
 
 art_global_defaults {
     // Additional flags are computed by art.go
-
     name: "art_defaults",
+
+    // Create vendor image to use LL-NDK.
+    //
+    // TODO: vendor_available also creates images for core, which won't end up
+    // in the APEX. They only exist to satisfy static dependencies from e.g.
+    // perfprofd and libmedia2_jni.
+    vendor_available: true,
+
     cflags: [
         // Base set of cflags used by all things ART.
         "-fno-rtti",
@@ -199,6 +206,9 @@ art_global_defaults {
 
 art_debug_defaults {
     name: "art_debug_defaults",
+
+    vendor_available: true,
+
     cflags: [
         "-DDYNAMIC_ANNOTATIONS_ENABLED=1",
         "-DVIXL_DEBUG",

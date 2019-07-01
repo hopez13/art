@@ -145,6 +145,8 @@ art_cc_defaults {
 
 art_cc_library {
     name: "libart-gtest",
+    // TODO: Switch to LL-NDK only.
+    vendor_available: true,
     host_supported: true,
     whole_static_libs: [
         "libart-compiler-gtest",
@@ -383,7 +385,7 @@ cc_library_static {
         "libz", // for slicer (using adler32).
     ],
     sdk_version: "current",
-    stl: "c++_static",
+    stl: "libc++",
     include_dirs: [
         // This is needed to resolve the base/ header file in libdexfile. Unfortunately there are
         // many problems with how we export headers that are making doing this the 'right' way

@@ -16,6 +16,8 @@
 
 art_cc_binary {
     name: "dalvikvm",
+    // TODO: Restrict to LLNDK only.
+    vendor_available: true,
     host_supported: true,
     compile_multilib: "both",
 

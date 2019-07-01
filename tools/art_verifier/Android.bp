@@ -50,6 +50,9 @@ art_cc_binary {
         "art_verifier-defaults",
         "libart_static_defaults",
     ],
+    // Revert flag inherited from art_defaults. Cannot use vendor image here due
+    // to the static dependency on libtombstoned_client_static.
+    vendor_available: false,
 }
 
 art_cc_binary {
@@ -59,4 +62,7 @@ art_cc_binary {
         "art_verifier-defaults",
         "libartd_static_defaults",
     ],
+    // Revert flag inherited from art_defaults. Cannot use vendor image here due
+    // to the static dependency on libtombstoned_client_static.
+    vendor_available: false,
 }

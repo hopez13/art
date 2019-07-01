@@ -97,6 +97,10 @@ cc_defaults {
 art_cc_library {
     name: "libprofile",
     defaults: ["libprofile_defaults"],
+    // TODO: Restrict to LLNDK only. This is necessary for static core
+    // dependency from perfprofd (at least).
+    proprietary: false,
+    vendor_available: true,
     // Leave the symbols in the shared library so that stack unwinders can
     // produce meaningful name resolution.
     strip: {

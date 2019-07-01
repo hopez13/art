@@ -207,18 +207,21 @@ prebuilt_etc {
 // Default values shared by device Runtime APEXes.
 apex_defaults {
     name: "com.android.runtime-defaults",
+    use_vendor: true,
     compile_multilib: "both",
     manifest: "manifest.json",
     java_libs: libcore_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs +
-        bionic_native_shared_libs +
-        bionic_native_device_only_shared_libs +
         libcore_native_device_only_shared_libs +
         libcore_native_shared_libs,
+    // FIXME: Extend vendor variant to libcore libs.
+    core_native_shared_libs:
+        bionic_native_shared_libs +
+        bionic_native_device_only_shared_libs,
     multilib: {
         both: {
-            binaries: art_runtime_base_binaries_both +
-                bionic_binaries_both,
+            binaries: art_runtime_base_binaries_both,
+            core_binaries: bionic_binaries_both,
         },
         prefer32: {
             binaries: art_runtime_base_binaries_prefer32,
@@ -290,10 +293,10 @@ art_apex_test {
     ignore_system_library_special_case: true,
     native_shared_libs: art_runtime_base_native_shared_libs +
         art_runtime_debug_native_shared_libs +
-        libcore_native_shared_libs +
-        libcore_debug_native_shared_libs +
         art_runtime_libraries_zipapex +
-        art_runtime_host_run_test_libs,
+        art_runtime_host_run_test_libs +
+        libcore_native_shared_libs +
+        libcore_debug_native_shared_libs,
     multilib: {
         both: {
             binaries: art_runtime_base_binaries_both +

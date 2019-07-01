@@ -32,7 +32,6 @@ cc_binary {
         "libdexfile",
         "libartbase",
         "libbase",
-        "liblog",
         "libz",
         "libziparchive",
     ],
@@ -41,6 +40,12 @@ cc_binary {
         "art_libartbase_headers",
     ],
     target: {
+        android: {
+            shared_libs: ["liblog"],
+        },
+        host: {
+            static_libs: ["liblog"],
+        },
         darwin: {
             enabled: true,
         },

@@ -36,6 +36,10 @@ art_cc_library_static {
         "art_defaults",
         "libelffile-defaults",
     ],
+    // TODO: Restrict to LLNDK only. This is necessary for static core
+    // dependency from perfprofd (at least).
+    proprietary: false,
+    vendor_available: true,
     shared_libs: [
         "libartbase",
     ],

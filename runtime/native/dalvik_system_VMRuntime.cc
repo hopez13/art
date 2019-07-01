@@ -267,7 +267,8 @@ static void VMRuntime_setTargetSdkVersionNative(JNIEnv*, jobject, jint target_sd
                               : static_cast<uint32_t>(target_sdk_version);
   Runtime::Current()->SetTargetSdkVersion(uint_target_sdk_version);
 
-#ifdef ART_TARGET_ANDROID
+  // TODO: Fix libdl_android access.
+#if 0
   // This part is letting libc/dynamic linker know about current app's
   // target sdk version to enable compatibility workarounds.
   android_set_application_target_sdk_version(uint_target_sdk_version);
