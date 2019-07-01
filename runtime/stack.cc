@@ -201,7 +201,11 @@ bool StackVisitor::GetVRegFromDebuggerShadowFrame(uint16_t vreg,
   return false;
 }
 
-bool StackVisitor::GetVReg(ArtMethod* m, uint16_t vreg, VRegKind kind, uint32_t* val) const {
+bool StackVisitor::GetVReg(ArtMethod* m,
+                           uint16_t vreg,
+                           VRegKind kind,
+                           uint32_t* val,
+                           std::optional<DexRegisterLocation> location) const {
   if (cur_quick_frame_ != nullptr) {
     DCHECK(context_ != nullptr);  // You can't reliably read registers without a context.
     DCHECK(m == GetMethod());
@@ -210,6 +214,11 @@ bool StackVisitor::GetVReg(ArtMethod* m, uint16_t vreg, VRegKind kind, uint32_t*
       return true;
     }
     DCHECK(cur_oat_quick_method_header_->IsOptimized());
+    if (location.has_value() && kind != kReferenceVReg) {
+      // The caller already known the register location, so we can use the faster overload
+      // which does not decode the stack maps.
+      return GetVRegFromOptimizedCode(location.value(), kind, val);
+    }
     return GetVRegFromOptimizedCode(m, vreg, kind, val);
   } else {
     DCHECK(cur_shadow_frame_ != nullptr);
@@ -286,6 +295,31 @@ bool StackVisitor::GetVRegFromOptimizedCode(ArtMethod* m, uint16_t vreg, VRegKin
       return false;
     default:
       LOG(FATAL) << "Unexpected location kind " << dex_register_map[vreg].GetKind();
+      UNREACHABLE();
+  }
+}
+
+bool StackVisitor::GetVRegFromOptimizedCode(DexRegisterLocation location,
+                                            VRegKind kind,
+                                            uint32_t* val) const {
+  switch (location.GetKind()) {
+    case DexRegisterLocation::Kind::kInStack: {
+      const uint8_t* sp = reinterpret_cast<const uint8_t*>(cur_quick_frame_);
+      *val = *reinterpret_cast<const uint32_t*>(sp + location.GetStackOffsetInBytes());
+      return true;
+    }
+    case DexRegisterLocation::Kind::kInRegister:
+    case DexRegisterLocation::Kind::kInRegisterHigh:
+    case DexRegisterLocation::Kind::kInFpuRegister:
+    case DexRegisterLocation::Kind::kInFpuRegisterHigh:
+      return GetRegisterIfAccessible(location.GetMachineRegister(), kind, val);
+    case DexRegisterLocation::Kind::kConstant:
+      *val = location.GetConstant();
+      return true;
+    case DexRegisterLocation::Kind::kNone:
+      return false;
+    default:
+      LOG(FATAL) << "Unexpected location kind " << location.GetKind();
       UNREACHABLE();
   }
 }
