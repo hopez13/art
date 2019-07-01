@@ -917,18 +917,10 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
 
 void JitCodeCache::ClearEntryPointsInZygoteExecSpace() {
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-  // Iterate over profiling infos to know which methods may have been JITted. Note that
-  // to be JITted, a method must have a profiling info.
-  for (ProfilingInfo* info : profiling_infos_) {
-    ArtMethod* method = info->GetMethod();
+  for (const auto& it : method_code_map_) {
+    ArtMethod* method = it.second;
     if (IsInZygoteExecSpace(method->GetEntryPointFromQuickCompiledCode())) {
       method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
-    }
-    // If zygote does method tracing, or in some configuration where
-    // the JIT zygote does GC, we also need to clear the saved entry point
-    // in the profiling info.
-    if (IsInZygoteExecSpace(info->GetSavedEntryPoint())) {
-      info->SetSavedEntryPoint(nullptr);
     }
   }
 }
