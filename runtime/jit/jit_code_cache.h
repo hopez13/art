@@ -21,6 +21,7 @@
 #include <memory>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <unordered_set>
 #include <vector>
 
@@ -415,7 +416,7 @@ class JitCodeCache {
   SafeMap<JniStubKey, JniStubData> jni_stubs_map_ GUARDED_BY(Locks::jit_lock_);
 
   // Holds compiled code associated to the ArtMethod.
-  SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(Locks::jit_lock_);
+  std::unordered_multimap<ArtMethod*, const void*> method_code_map_ GUARDED_BY(Locks::jit_lock_);
 
   // Holds osr compiled code associated to the ArtMethod.
   SafeMap<ArtMethod*, const void*> osr_code_map_ GUARDED_BY(Locks::jit_lock_);

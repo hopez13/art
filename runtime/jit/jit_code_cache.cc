@@ -261,11 +261,7 @@ bool JitCodeCache::ContainsMethod(ArtMethod* method) {
       return true;
     }
   } else {
-    for (const auto& it : method_code_map_) {
-      if (it.second == method) {
-        return true;
-      }
-    }
+    return method_code_map_.count(method) > 0;
   }
   return false;
 }
@@ -453,7 +449,7 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
   for (const auto& entry : method_code_map_) {
     uint32_t number_of_roots = 0;
-    uint8_t* roots_data = GetRootTable(entry.first, &number_of_roots);
+    uint8_t* roots_data = GetRootTable(entry.second, &number_of_roots);
     GcRoot<mirror::Object>* roots = reinterpret_cast<GcRoot<mirror::Object>*>(roots_data);
     for (uint32_t i = 0; i < number_of_roots; ++i) {
       // This does not need a read barrier because this is called by GC.
@@ -548,8 +544,8 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
         }
       }
       for (auto it = method_code_map_.begin(); it != method_code_map_.end();) {
-        if (alloc.ContainsUnsafe(it->second)) {
-          method_headers.insert(OatQuickMethodHeader::FromCodePointer(it->first));
+        if (alloc.ContainsUnsafe(it->first)) {
+          method_headers.insert(OatQuickMethodHeader::FromCodePointer(it->second));
           it = method_code_map_.erase(it);
         } else {
           ++it;
@@ -747,7 +743,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         }
       }
     } else {
-      method_code_map_.Put(code_ptr, method);
+      method_code_map_.emplace(method, code_ptr);
       if (osr) {
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
@@ -843,16 +839,13 @@ bool JitCodeCache::RemoveMethodLocked(ArtMethod* method, bool release_memory) {
       }
     }
   } else {
-    for (auto it = method_code_map_.begin(); it != method_code_map_.end();) {
-      if (it->second == method) {
-        in_cache = true;
-        if (release_memory) {
-          FreeCodeAndData(it->first);
-        }
-        it = method_code_map_.erase(it);
-      } else {
-        ++it;
+    auto range = method_code_map_.equal_range(method);
+    for (auto it = range.first; it != range.second;) {
+      in_cache = true;
+      if (release_memory) {
+        FreeCodeAndData(it->second);
       }
+      it = method_code_map_.erase(it);
     }
 
     auto osr_it = osr_code_map_.find(method);
@@ -902,10 +895,10 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
     info->method_ = new_method;
   }
   // Update method_code_map_ to point to the new method.
-  for (auto& it : method_code_map_) {
-    if (it.second == old_method) {
-      it.second = new_method;
-    }
+  auto range = method_code_map_.equal_range(old_method);
+  for (auto it = range.first; it != range.second;) {
+    method_code_map_.emplace(new_method, it->second);
+    it = method_code_map_.erase(it);
   }
   // Update osr_code_map_ to point to the new method.
   auto code_map = osr_code_map_.find(old_method);
@@ -1195,7 +1188,7 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
       }
     }
     for (auto it = method_code_map_.begin(); it != method_code_map_.end();) {
-      const void* code_ptr = it->first;
+      const void* code_ptr = it->second;
       uintptr_t allocation = FromCodeToAllocation(code_ptr);
       if (IsInZygoteExecSpace(code_ptr) || GetLiveBitmap()->Test(allocation)) {
         ++it;
@@ -1280,8 +1273,8 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
       }
     }
     for (const auto& it : method_code_map_) {
-      ArtMethod* method = it.second;
-      const void* code_ptr = it.first;
+      ArtMethod* method = it.first;
+      const void* code_ptr = it.second;
       if (IsInZygoteExecSpace(code_ptr)) {
         continue;
       }
@@ -1340,57 +1333,53 @@ OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* 
     return nullptr;
   }
 
-  if (!kIsDebugBuild) {
-    // Called with null `method` only from MarkCodeClosure::Run() in debug build.
-    CHECK(method != nullptr);
+  // Slow search - called with null `method` only from MarkCodeClosure::Run() in debug build.
+  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  if (kIsDebugBuild && method == nullptr) {
+    if (method->IsNative()) {
+      for (auto& it : jni_stubs_map_) {
+        const JniStubData& data = it.second;
+        if (data.IsCompiled()) {
+          OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(data.GetCode());
+          if (header->Contains(pc)) {
+            return header;
+          }
+        }
+      }
+    } else {
+      for (auto& it : method_code_map_) {
+        const void* code_ptr = it.second;
+        OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+        if (header->Contains(pc)) {
+          return header;
+        }
+      }
+    }
+    return nullptr;
   }
 
-  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-  OatQuickMethodHeader* method_header = nullptr;
-  ArtMethod* found_method = nullptr;  // Only for DCHECK(), not for JNI stubs.
-  if (method != nullptr && UNLIKELY(method->IsNative())) {
+  CHECK(method != nullptr);
+  if (UNLIKELY(method->IsNative())) {
     auto it = jni_stubs_map_.find(JniStubKey(method));
     if (it == jni_stubs_map_.end() || !ContainsElement(it->second.GetMethods(), method)) {
       return nullptr;
     }
     const void* code_ptr = it->second.GetCode();
-    method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
-    if (!method_header->Contains(pc)) {
-      return nullptr;
+    OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+    if (header->Contains(pc)) {
+      return header;
     }
   } else {
-    auto it = method_code_map_.lower_bound(reinterpret_cast<const void*>(pc));
-    if (it != method_code_map_.begin()) {
-      --it;
-      const void* code_ptr = it->first;
-      if (OatQuickMethodHeader::FromCodePointer(code_ptr)->Contains(pc)) {
-        method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
-        found_method = it->second;
+    auto range = method_code_map_.equal_range(method);
+    for (auto it = range.first; it != range.second;) {
+      const void* code_ptr = it->second;
+      OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+      if (header->Contains(pc)) {
+        return header;
       }
     }
-    if (method_header == nullptr && method == nullptr) {
-      // Scan all compiled JNI stubs as well. This slow search is used only
-      // for checks in debug build, for release builds the `method` is not null.
-      for (auto&& entry : jni_stubs_map_) {
-        const JniStubData& data = entry.second;
-        if (data.IsCompiled() &&
-            OatQuickMethodHeader::FromCodePointer(data.GetCode())->Contains(pc)) {
-          method_header = OatQuickMethodHeader::FromCodePointer(data.GetCode());
-        }
-      }
-    }
-    if (method_header == nullptr) {
-      return nullptr;
-    }
   }
-
-  if (kIsDebugBuild && method != nullptr && !method->IsNative()) {
-    DCHECK_EQ(found_method, method)
-        << ArtMethod::PrettyMethod(method) << " "
-        << ArtMethod::PrettyMethod(found_method) << " "
-        << std::hex << pc;
-  }
-  return method_header;
+  return nullptr;
 }
 
 OatQuickMethodHeader* JitCodeCache::LookupOsrMethodHeader(ArtMethod* method) {
