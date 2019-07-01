@@ -324,10 +324,12 @@ void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor*
     // Get vreg value from its current location.
     uint32_t vreg_value;
     VRegKind vreg_kind = ToVRegKind(throw_vreg_map[vreg].GetKind());
-    bool get_vreg_success = stack_visitor->GetVReg(stack_visitor->GetMethod(),
-                                                   vreg,
-                                                   vreg_kind,
-                                                   &vreg_value);
+    bool get_vreg_success =
+        stack_visitor->GetVRegFast(throw_vreg_map[vreg], vreg_kind, &vreg_value) ||
+        stack_visitor->GetVReg(stack_visitor->GetMethod(),
+                               vreg,
+                               vreg_kind,
+                               &vreg_value);
     CHECK(get_vreg_success) << "VReg " << vreg << " was optimized out ("
                             << "method=" << ArtMethod::PrettyMethod(stack_visitor->GetMethod())
                             << ", dex_pc=" << stack_visitor->GetDexPc() << ", "

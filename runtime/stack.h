@@ -230,6 +230,9 @@ class StackVisitor {
                    uint64_t* val) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool GetVRegFast(DexRegisterLocation location, VRegKind kind, uint32_t* val) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Values will be set in debugger shadow frames. Debugger will make sure deoptimization
   // is triggered to make the values effective.
   bool SetVReg(ArtMethod* m, uint16_t vreg, uint32_t new_value, VRegKind kind)

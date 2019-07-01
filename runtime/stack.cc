@@ -290,6 +290,40 @@ bool StackVisitor::GetVRegFromOptimizedCode(ArtMethod* m, uint16_t vreg, VRegKin
   }
 }
 
+bool StackVisitor::GetVRegFast(DexRegisterLocation location, VRegKind kind, uint32_t* val) const {
+  if (cur_quick_frame_ == nullptr) {
+    return false;
+  }
+  DCHECK(context_ != nullptr);
+  size_t frame_id = const_cast<StackVisitor*>(this)->GetFrameId();
+  if (thread_->FindDebuggerShadowFrame(frame_id) != nullptr) {
+    return false;
+  }
+  DCHECK(cur_oat_quick_method_header_->IsOptimized());
+  switch (location.GetKind()) {
+    case DexRegisterLocation::Kind::kInStack: {
+      const uint8_t* sp = reinterpret_cast<const uint8_t*>(cur_quick_frame_);
+      *val = *reinterpret_cast<const uint32_t*>(sp + location.GetStackOffsetInBytes());
+      return true;
+    }
+    case DexRegisterLocation::Kind::kInRegister:
+    case DexRegisterLocation::Kind::kInRegisterHigh:
+    case DexRegisterLocation::Kind::kInFpuRegister:
+    case DexRegisterLocation::Kind::kInFpuRegisterHigh: {
+      return GetRegisterIfAccessible(location.GetMachineRegister(), kind, val);
+    }
+    case DexRegisterLocation::Kind::kConstant: {
+      *val = location.GetConstant();
+      return true;
+    }
+    case DexRegisterLocation::Kind::kNone:
+      return false;
+    default:
+      LOG(FATAL) << "Unexpected location kind " << location.GetKind();
+      UNREACHABLE();
+  }
+}
+
 bool StackVisitor::GetRegisterIfAccessible(uint32_t reg, VRegKind kind, uint32_t* val) const {
   const bool is_float = (kind == kFloatVReg) || (kind == kDoubleLoVReg) || (kind == kDoubleHiVReg);
 
