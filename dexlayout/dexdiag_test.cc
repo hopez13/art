@@ -102,6 +102,10 @@ class DexDiagTest : public CommonArtTest {
 // This should succeed because we have a runtime and so dexdiag should
 // be able to find the map for, e.g., boot.vdex and friends.
 TEST_F(DexDiagTest, DexDiagHelpTest) {
+  if (kIsTargetBuild) {
+    // Disable test on fugu b/136245508
+    TEST_DISABLED_FOR_X86();
+  }
   // TODO: test the resulting output.
   std::string error_msg;
   ASSERT_TRUE(Exec(getpid(), { kDexDiagHelp }, &error_msg)) << "Failed to execute -- because: "
@@ -113,6 +117,10 @@ TEST_F(DexDiagTest, DexDiagContainsTest) {
 #else
 TEST_F(DexDiagTest, DISABLED_DexDiagContainsTest) {
 #endif
+  if (kIsTargetBuild) {
+    // Disable test on fugu b/136245508
+    TEST_DISABLED_FOR_X86();
+  }
   std::unique_ptr<OatFile> oat = OpenOatAndVdexFiles();
   // TODO: test the resulting output.
   std::string error_msg;
@@ -138,6 +146,10 @@ TEST_F(DexDiagTest, DexDiagVerboseTest) {
 #else
 TEST_F(DexDiagTest, DISABLED_DexDiagVerboseTest) {
 #endif
+  if (kIsTargetBuild) {
+    // Disable test on fugu b/136245508
+    TEST_DISABLED_FOR_X86();
+  }
   // TODO: test the resulting output.
   std::unique_ptr<OatFile> oat = OpenOatAndVdexFiles();
   std::string error_msg;
