@@ -22,6 +22,30 @@
       "revId": "26c56a13ab4944765efa3a377d578192cf397429",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bd0b424_6d9b9557",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-01T15:35:29Z",
+      "side": 1,
+      "message": "The on-device environment may change again in future Android releases; I think it is simpler to set this environment variable unconditionally here.\n\nSomething I\u0027d like to do is refactor the ART testing environment (which is set in various places), but this a much larger effort (and this might be obsoleted by long-term testing plans).",
+      "parentUuid": "0349d5a4_2b7c96d9",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "26c56a13ab4944765efa3a377d578192cf397429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
