@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "84ae8d7b_3182a341",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T08:44:20Z",
+      "side": 1,
+      "message": "readelf says .text is smaller.",
+      "parentUuid": "4366c881_66f6e3c6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "969233a02ca8a4b525a0c5a89e01b9d4287d84e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52331463_251d0d7f",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "969233a02ca8a4b525a0c5a89e01b9d4287d84e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec2ae6b_6f18c4bf",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3640,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T08:44:20Z",
+      "side": 1,
+      "message": "Shall do in the next CL.",
+      "parentUuid": "52331463_251d0d7f",
+      "range": {
+        "startLine": 3640,
+        "startChar": 20,
+        "endLine": 3640,
+        "endChar": 21
+      },
+      "revId": "969233a02ca8a4b525a0c5a89e01b9d4287d84e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
