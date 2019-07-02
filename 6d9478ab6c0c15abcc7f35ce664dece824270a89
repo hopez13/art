@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "111ee086_057cc561",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T07:08:52Z",
+      "side": 1,
+      "message": "Not really right now - 99% of the lookups are with a pc as that\u0027s what stack walking does. I think you could special case LookupMethodHeader to look at the method entrypoint for a first fast check if you wanted to fix that.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "013f54c4_ac86aeff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T07:08:52Z",
+      "side": 1,
+      "message": "I don\u0027t think that will be enough. A method can have multiple compiled version. You won\u0027t know which one to pick.\n\nWhile I agree the saved entry point is super annoying, I think the way forward to remove it is:\n- Change JIT garbage collection logic\n- Change instrumentation to itself keep a record of entrypoints, and don\u0027t rely on the saved entrypoint.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
