@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2943148_ec8c6147",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T13:10:05Z",
+      "side": 1,
+      "message": "This code runs after each individual class initialization. The line 2485 runs only after we\u0027re done initializing classes and it does not call RecordClassStatus().",
+      "parentUuid": "2358b7c1_c3583bf5",
+      "range": {
+        "startLine": 2268,
+        "startChar": 0,
+        "endLine": 2271,
+        "endChar": 5
+      },
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f105cb3_698a80f9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e8615446_8cfeb38d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T13:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f105cb3_698a80f9",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 51
+      },
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb56b6f_e12c042f",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2019-06-07T08:58:05Z",
       "side": 1,
       "message": "I guess this depends on whether array classes carry static state? Which the answer is no?",
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bc577af_524048a3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T13:10:05Z",
+      "side": 1,
+      "message": "I agree but I\u0027d like to know what Hans thinks before I try to finalize an appropriate comment.\n\nIs it OK to fill the Class members, store the status (release operation) and then store the Class* in a memory location that other threads will see? Do we subtly rely on all supported architectures having implicit consume semantics when they read the Class*? Is the implicit consume enough?",
+      "parentUuid": "dfb56b6f_e12c042f",
       "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
