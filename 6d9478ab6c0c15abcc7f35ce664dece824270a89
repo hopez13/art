@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a7324ff_8f3b6203",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-07-02T09:26:29Z",
+      "side": 1,
+      "message": "Would the implementation of LookupMethodHeader in this CL work?\nThe lookup takes the ArtMethod* as argument so we don\u0027t really need to lookup by pc?",
+      "parentUuid": "111ee086_057cc561",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "013f54c4_ac86aeff",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-02T07:08:52Z",
       "side": 1,
       "message": "I don\u0027t think that will be enough. A method can have multiple compiled version. You won\u0027t know which one to pick.\n\nWhile I agree the saved entry point is super annoying, I think the way forward to remove it is:\n- Change JIT garbage collection logic\n- Change instrumentation to itself keep a record of entrypoints, and don\u0027t rely on the saved entrypoint.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "356467e8_64063ec9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2019-07-02T09:26:29Z",
+      "side": 1,
+      "message": "Would it be sufficient to somehow mark the other versions of the method as obsolete in the map?",
+      "parentUuid": "013f54c4_ac86aeff",
       "range": {
         "startLine": 11,
         "startChar": 0,
