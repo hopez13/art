@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "55f220cd_58f90278",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T10:06:44Z",
+      "side": 1,
+      "message": "Yes, didn\u0027t noticed you changed it to optimize for this.",
+      "parentUuid": "5a7324ff_8f3b6203",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "013f54c4_ac86aeff",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Would it be sufficient to somehow mark the other versions of the method as obsolete in the map?",
       "parentUuid": "013f54c4_ac86aeff",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf67d40a_7dc14a10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T10:06:44Z",
+      "side": 1,
+      "message": "Sure, but then you\u0027re adding something on top of the map again, which raises the question about being worth it (moving to multimap already has some memory costs that need to be evaluated). The current (simple) map works for most production cases (assuming we change the GC logic to get rid of the saved entry point hack), and making it less simple questions whether we\u0027ve moving hacks from one place to another.",
+      "parentUuid": "356467e8_64063ec9",
       "range": {
         "startLine": 11,
         "startChar": 0,
