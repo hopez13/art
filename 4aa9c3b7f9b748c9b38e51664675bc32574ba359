@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66b294db_e413fd38",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-02T18:19:32Z",
+      "side": 1,
+      "message": "I thought we wanted to poison the dead objects in unevac regions during full-heap GCs, even in non-debug builds. If so, then shouldn\u0027t the condition be (clear_bitmap || kPoisonDeadObjectsInUnevacuatedRegions)?",
+      "range": {
+        "startLine": 610,
+        "startChar": 14,
+        "endLine": 610,
+        "endChar": 82
+      },
+      "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
