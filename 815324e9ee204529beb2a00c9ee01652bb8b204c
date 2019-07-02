@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4371895_aafc98b9",
+        "filename": "libdexfile/dex/dex_file_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T08:23:40Z",
+      "side": 1,
+      "message": "I\u0027d prefer the large member to be last, so that other members can be accessed with a single instruction on ARM/ARM64.",
+      "revId": "815324e9ee204529beb2a00c9ee01652bb8b204c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
