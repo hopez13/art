@@ -22,6 +22,30 @@
       "revId": "1db73b0fa5ed48cc2a6f94731d19aaff9346b43d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3f83bd4_c34748e4",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-02T13:39:56Z",
+      "side": 1,
+      "message": "That would slow down normal (non-oatdump) code paths.",
+      "parentUuid": "a82be2fa_6d3e37fb",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 845,
+        "endChar": 9
+      },
+      "revId": "1db73b0fa5ed48cc2a6f94731d19aaff9346b43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
