@@ -189,6 +189,30 @@
       "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bab66e_ac23e1a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T13:10:10Z",
+      "side": 1,
+      "message": "For zygote sharing, I have a WIP where the map is indeed from method to code. But that map is special in that there\u0027s only one compiled version, and can be made read-only after a certain point. In my WIP, the map is separate from the child-process-specific map.",
+      "parentUuid": "ea4a4249_b0b6daf8",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
