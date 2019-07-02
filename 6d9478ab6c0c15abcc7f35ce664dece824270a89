@@ -141,6 +141,30 @@
       "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48db3b0c_04156c2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T10:09:51Z",
+      "side": 1,
+      "message": "Also, I forgot to mention: having the ArtMethod in LookupMethodHeader is thanks to us pushing it at every method entry. We have been discussing about removing the need for that extra push which is most of the time useless. However that would require some heavy refactoring.",
+      "parentUuid": "cf67d40a_7dc14a10",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "6d9478ab6c0c15abcc7f35ce664dece824270a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
