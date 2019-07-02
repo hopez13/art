@@ -16,6 +16,24 @@
       "revId": "0fa085beb6b74448cee60ce1f8acb65dc5ce8d12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ab61ed3_8bed9e4b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-02T07:02:54Z",
+      "side": 1,
+      "message": "How about calling this GetVRegWithLocation and if not found, at the end calling GetVReg with the ArtMethod version?",
+      "parentUuid": "c0b9d0eb_0cbdc1a4",
+      "revId": "0fa085beb6b74448cee60ce1f8acb65dc5ce8d12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
