@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a82be2fa_6d3e37fb",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-02T13:36:34Z",
+      "side": 1,
+      "message": "Instead of creating, populating and sorting an `std::vector\u003cDepsEntry\u003e`, you could use an `std::map\u003cconst DexFile*, const DexFileDeps*, Compare\u003e` where the comparison function (of type `Compare`) is the one you defined lines 843–845, which would maintain the order of the keys as elements are being inserted in this map.",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 845,
+        "endChar": 9
+      },
+      "revId": "1db73b0fa5ed48cc2a6f94731d19aaff9346b43d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
