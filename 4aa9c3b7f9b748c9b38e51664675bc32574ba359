@@ -46,6 +46,30 @@
       "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe3144c_70a853af",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-03T20:55:43Z",
+      "side": 1,
+      "message": "I understand. But, since we may identify new dead objects in unevac regions during a full-heap GC, we should be poisoning them.\n\nIIUC, we protect cleared regions and poison dead objects in unevac regions to catch dangling reference bugs. So, since we are protecting cleared regions in non-debug builds, we should also poison dead objects in non-debug builds, although only in full-heap collections as it\u0027s not required in young collections.",
+      "parentUuid": "307299bd_436e4d38",
+      "range": {
+        "startLine": 610,
+        "startChar": 14,
+        "endLine": 610,
+        "endChar": 82
+      },
+      "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
