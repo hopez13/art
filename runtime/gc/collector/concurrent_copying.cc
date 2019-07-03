@@ -2470,6 +2470,7 @@ void ConcurrentCopying::SweepArray(accounting::ObjectStack* allocations, bool sw
     count = out - objects;
   }
   // Handle the large object space.
+  // Make sure to ignore the region space objects left over, as we didn't process them earlier.
   space::LargeObjectSpace* large_object_space = GetHeap()->GetLargeObjectsSpace();
   if (large_object_space != nullptr) {
     accounting::LargeObjectBitmap* large_live_objects = large_object_space->GetLiveBitmap();
@@ -2480,7 +2481,9 @@ void ConcurrentCopying::SweepArray(accounting::ObjectStack* allocations, bool sw
     for (size_t i = 0; i < count; ++i) {
       mirror::Object* const obj = objects[i].AsMirrorPtr();
       // Handle large objects.
-      if (kUseThreadLocalAllocationStack && obj == nullptr) {
+      // Ignore region space objects.
+      if ((kUseThreadLocalAllocationStack && obj == nullptr) ||
+           region_space_->HasAddress(obj)) {
         continue;
       }
       if (!large_mark_objects->Test(obj)) {
