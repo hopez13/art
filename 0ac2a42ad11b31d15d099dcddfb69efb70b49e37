@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07251004_d1166c3d",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-03T13:14:35Z",
+      "side": 1,
+      "message": "You can replace this with:\n\n  for arg; do",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "0ac2a42ad11b31d15d099dcddfb69efb70b49e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b209510d_b99a4ea4",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-03T13:14:35Z",
+      "side": 1,
+      "message": "Instead of maintaining a counter, you can declare the array outside this function:\n\n  declare -a run_args\n\nand replace lines 178–179 with:\n\n  run_args+\u003d(\"$arg\")\n\n\nBut to be honest, I would just drop the function and replace all occurrences of \n\n  add_run_args \u003carg1\u003e … \u003cargn\u003e\n\nwith\n\n  run_args+\u003d(\u003carg1\u003e … \u003cargn\u003e)",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "0ac2a42ad11b31d15d099dcddfb69efb70b49e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
