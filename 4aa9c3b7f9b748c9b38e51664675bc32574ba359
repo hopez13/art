@@ -22,6 +22,30 @@
       "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "307299bd_436e4d38",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2019-07-03T03:32:31Z",
+      "side": 1,
+      "message": "Sorry if i have caused a confusion. My thought was Debug or non-debug PoisonDeadObjects for young_gen has no effect. kPoisonDeadObjectsInUnevacuatedRegions should still control if we want to do it at all.",
+      "parentUuid": "66b294db_e413fd38",
+      "range": {
+        "startLine": 610,
+        "startChar": 14,
+        "endLine": 610,
+        "endChar": 82
+      },
+      "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
