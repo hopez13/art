@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "957df792_942ff7fe",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-07-03T12:20:09Z",
+      "side": 1,
+      "message": "Thanks. I wasn\u0027t sure here if we\u0027d expect to find a test in arm and arm64 for the same APEX file (?).",
+      "parentUuid": "0c1bd5d3_c536e6c2",
+      "range": {
+        "startLine": 239,
+        "startChar": 4,
+        "endLine": 239,
+        "endChar": 21
+      },
+      "revId": "9144b65fabfd893194e6cbd0db004791647e3341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d5072b7f_b170f5c0",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done. Note that this diverges from the style used in this file, where most paths are expressed as string literals. Do you think we should refactor them too?",
       "parentUuid": "d5072b7f_b170f5c0",
+      "range": {
+        "startLine": 240,
+        "startChar": 19,
+        "endLine": 240,
+        "endChar": 27
+      },
+      "revId": "9144b65fabfd893194e6cbd0db004791647e3341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09fee40e_3ec05786",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2019-07-03T12:20:09Z",
+      "side": 1,
+      "message": "Yes, I agree, but see most of the existing ones as standard relative paths, whereas this is a little more custom.",
+      "parentUuid": "6939d4bb_29b575b6",
       "range": {
         "startLine": 240,
         "startChar": 19,
