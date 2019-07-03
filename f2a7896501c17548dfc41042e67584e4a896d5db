@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8b16fb3_81d4b6ef",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2486,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-03T18:37:37Z",
+      "side": 1,
+      "message": "How can the live stack have region space objects in it? If you look at AllocObjectWithAllocator() in runtime/gc/heap-inl.h, we don\u0027t push the allocated object\u0027s reference from region space into the allocation stack, which becomes live stack during thread flip. Only the objects from LOS and non-moving space could be in the stack.",
+      "range": {
+        "startLine": 2486,
+        "startChar": 11,
+        "endLine": 2486,
+        "endChar": 41
+      },
+      "revId": "f2a7896501c17548dfc41042e67584e4a896d5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
