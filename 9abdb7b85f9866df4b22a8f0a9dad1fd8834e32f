@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1efa0c5a_e02f9dfb",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-04T22:01:32Z",
+      "side": 1,
+      "message": "What about bin/tests instead, in case it gets used for other non-ART tests? It\u0027s also a bit more descriptive.",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63aa7354_19fe5beb",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-04T22:01:32Z",
+      "side": 1,
+      "message": "This is a bit opportunistic. The proper approach is to propagate the built architectures from the build system and require all of them to be present. But as we know, variants of this problem exists elsewhere in this script, and it\u0027s more effort than we\u0027d like to set up that propagation. Still, it\u0027s worth pointing out in a TODO somewhere.",
+      "range": {
+        "startLine": 250,
+        "startChar": 8,
+        "endLine": 250,
+        "endChar": 25
+      },
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2400c181_ece7d2fa",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-04T22:01:32Z",
+      "side": 1,
+      "message": "Maintaining the full list of tests here will require some effort. Is it worth it?\n\nAnother more lax variant is to just test that the appropriate test dirs exist and have at least one test, to ensure that the propagation of the test binaries into the APEX hasn\u0027t broken down entirely.",
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
