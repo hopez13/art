@@ -1460,6 +1460,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                 << "\n" << Dumpable<MemStats>(peak_stats);
     }
   }
+  if (osr) {
+    LOG(ERROR) << "OSR compiled " << method->PrettyMethod();
+  }
 
   return true;
 }
