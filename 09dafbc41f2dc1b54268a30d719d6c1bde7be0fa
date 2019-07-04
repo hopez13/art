@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3679cdbe_8668fa7d",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-04T14:30:42Z",
+      "side": 1,
+      "message": "The visibility is inherited - it\u0027s either specified here or repeated in both libdexfile_external and libdexfiled_external.\n\nHowever that said I decided to move it to libdexfile_external, because the -d variant shouldn\u0027t be more visible than it has to be.",
+      "parentUuid": "994e4989_0dd3c9a6",
+      "revId": "09dafbc41f2dc1b54268a30d719d6c1bde7be0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc4fa852_a043a02c",
         "filename": "libprofile/Android.bp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "09dafbc41f2dc1b54268a30d719d6c1bde7be0fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e08dd7f_3a76b1fa",
+        "filename": "libprofile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-04T14:30:42Z",
+      "side": 1,
+      "message": "Same argument as for libdexfile_external-defaults. In this case both libprofile and libprofiled are required by perfprofd, so keeping it here.",
+      "parentUuid": "cc4fa852_a043a02c",
+      "revId": "09dafbc41f2dc1b54268a30d719d6c1bde7be0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
