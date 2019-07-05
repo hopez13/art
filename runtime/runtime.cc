@@ -39,7 +39,6 @@
 #include <vector>
 
 #include "android-base/strings.h"
-
 #include "aot_class_linker.h"
 #include "arch/arm/registers_arm.h"
 #include "arch/arm64/registers_arm64.h"
@@ -301,7 +300,8 @@ Runtime::Runtime()
       process_state_(kProcessStateJankPerceptible),
       zygote_no_threads_(false),
       verifier_logging_threshold_ms_(100),
-      verifier_missing_kthrow_fatal_(false) {
+      verifier_missing_kthrow_fatal_(false),
+      auto_fast_detect_(false) {
   static_assert(Runtime::kCalleeSaveSize ==
                     static_cast<uint32_t>(CalleeSaveType::kLastCalleeSaveType), "Unexpected size");
   CheckConstants();
@@ -997,13 +997,12 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
 }
 
 void Runtime::InitNonZygoteOrPostFork(
-    JNIEnv* env,
-    bool is_system_server,
-    NativeBridgeAction action,
-    const char* isa,
-    bool profile_system_server) {
+  JNIEnv* env,
+  bool is_system_server,
+  NativeBridgeAction action,
+  const char* isa,
+  bool profile_system_server) {
   DCHECK(!IsZygote());
-
   if (is_native_bridge_loaded_) {
     switch (action) {
       case NativeBridgeAction::kUnload:
@@ -1281,7 +1280,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
   image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);
   dump_native_stack_on_sig_quit_ = runtime_options.GetOrDefault(Opt::DumpNativeStackOnSigQuit);
-
+  auto_fast_detect_ = runtime_options.GetOrDefault(Opt::AutoFastJni);
   vfprintf_ = runtime_options.GetOrDefault(Opt::HookVfprintf);
   exit_ = runtime_options.GetOrDefault(Opt::HookExit);
   abort_ = runtime_options.GetOrDefault(Opt::HookAbort);
