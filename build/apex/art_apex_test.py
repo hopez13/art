@@ -630,6 +630,11 @@ class ReleaseTargetChecker:
     # TODO(b/139046641): Fix proper 2nd arch checks. For now, just ignore these
     # directories.
     self._checker.ignore_path('bin/arm')
+
+    # Guest architecture proxy libraries currently end up in these
+    # subdirectories in x86 builds with native bridge.
+    # TODO(b/131155689): These are unused - fix the build rules to avoid
+    # creating them.
     self._checker.ignore_path('lib/arm')
     self._checker.ignore_path('lib64/arm')
 
