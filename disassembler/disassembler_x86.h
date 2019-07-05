@@ -22,6 +22,15 @@
 namespace art {
 namespace x86 {
 
+/// Maximum size of an instruction mnemonic string.
+#define INSTR_MNEMONIC_SIZE 32
+struct x86_instr {
+        char instr_str[INSTR_MNEMONIC_SIZE];
+        uint16_t size;
+        uint8_t prefix[4] = {0, 0, 0, 0};
+        const uint8_t* opcode;            /* Opcode byte */
+};
+
 enum RegFile { GPR, MMX, SSE };
 
 class DisassemblerX86 final : public Disassembler {
@@ -31,10 +40,11 @@ class DisassemblerX86 final : public Disassembler {
 
   size_t Dump(std::ostream& os, const uint8_t* begin) override;
   void Dump(std::ostream& os, const uint8_t* begin, const uint8_t* end) override;
+  void GetInstructionDetails(const uint8_t* instr, x86_instr *insn);
 
  private:
   size_t DumpNops(std::ostream& os, const uint8_t* instr);
-  size_t DumpInstruction(std::ostream& os, const uint8_t* instr);
+  size_t DumpInstruction(std::ostream& os, const uint8_t* instr, x86_instr *ins = nullptr);
 
   std::string DumpAddress(uint8_t mod, uint8_t rm, uint8_t rex64, uint8_t rex_w, bool no_ops,
                           bool byte_operand, bool byte_second_operand, uint8_t* prefix, bool load,
