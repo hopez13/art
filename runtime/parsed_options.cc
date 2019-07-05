@@ -381,6 +381,10 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
           .IntoKey(M::VerifierMissingKThrowFatal)
+      .Define("-Xfast-jni=_")
+          .WithType<bool>()
+          .WithValueMap({{"false", false}, {"true", true}})
+          .IntoKey(M::AutoFastJni)
       .Ignore({
           "-ea", "-da", "-enableassertions", "-disableassertions", "--runtime-arg", "-esa",
           "-dsa", "-enablesystemassertions", "-disablesystemassertions", "-Xrs", "-Xint:_",
@@ -569,6 +573,7 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
       Usage("-Xusejit:true and -Xint cannot be specified together\n");
       Exit(0);
     }
+
     args.Set(M::UseJitCompilation, false);
   }
 
@@ -657,7 +662,6 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
       args.GetOrDefault(M::HeapGrowthLimit) > args.GetOrDefault(M::MemoryMaximumSize)) {
     args.Set(M::HeapGrowthLimit, args.GetOrDefault(M::MemoryMaximumSize));
   }
-
   *runtime_options = std::move(args);
   return true;
 }
@@ -836,7 +840,9 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Xjitdisableopt\n");
   UsageMessage(stream, "  -Xjitsuspendpoll\n");
   UsageMessage(stream, "  -XX:mainThreadStackSize=N\n");
+  UsageMessage(stream, "  -Xfast-jni\n");
   UsageMessage(stream, "\n");
+
 
   Exit((error) ? 1 : 0);
 }
