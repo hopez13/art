@@ -82,6 +82,11 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 # Remove ART test target artifacts.
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/data/nativetest*/)
 
+# Remove the icu .dat file from /apex/com.android.runtime and the host equivalent.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex/com.android.runtime.debug/etc/icu/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex/com.android.runtime.release/etc/icu/*)
+$(call add-clean-step, rm -rf $(HOST_OUT)/com.android.runtime/etc/icu/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
