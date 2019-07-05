@@ -38,7 +38,9 @@
 #include <vector>
 
 #include "android-base/strings.h"
-
+#ifdef __ANDROID__
+#include "cutils/properties.h"
+#endif
 #include "aot_class_linker.h"
 #include "arch/arm/registers_arm.h"
 #include "arch/arm64/registers_arm64.h"
@@ -976,9 +978,30 @@ void Runtime::InitNonZygoteOrPostFork(
     NativeBridgeAction action,
     const char* isa,
     bool profile_system_server) {
-  is_zygote_ = false;
-  is_primary_zygote_ = false;
-
+    is_zygote_ = false;
+    is_primary_zygote_ = false;
+#ifdef AUTO_FAST_JNI_ENABLE
+#ifdef __ANDROID__
+  char property_value[PROPERTY_VALUE_MAX];
+  property_get("persist.dalvik.autofast.disable", property_value, "false");
+  SetAutoFastDetect(strcmp(property_value, "true") != 0);
+  property_get("persist.dalvik.autofast.debug", property_value, "false");
+  gLogVerbosity.autofast_jni = (strcmp(property_value, "true") == 0);
+#else
+  const char* autofast_disable = getenv("ART_AUTOFAST_DISABLE");
+  if (autofast_disable != nullptr) {
+    SetAutoFastDetect(strcmp(autofast_disable, "true") != 0);
+  } else {
+    SetAutoFastDetect(false);
+  }
+  const char* autofast_debug = getenv("ART_AUTOFAST_DEBUG");
+  if (autofast_debug != nullptr) {
+    gLogVerbosity.autofast_jni = (strcmp(autofast_debug, "true") == 0);
+  } else {
+    gLogVerbosity.autofast_jni = false;
+  }
+#endif
+#endif
   if (is_native_bridge_loaded_) {
     switch (action) {
       case NativeBridgeAction::kUnload:

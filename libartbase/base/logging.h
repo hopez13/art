@@ -56,6 +56,7 @@ struct LogVerbosity {
   bool systrace_lock_logging;  // Enabled with "-verbose:sys-locks".
   bool agents;
   bool dex;  // Some dex access output etc.
+  bool autofast_jni;  // Enabled with property "persist.dalvik.autofast.debug" as true.
 };
 
 // Global log verbosity setting, initialized by InitLogging.

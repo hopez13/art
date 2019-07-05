@@ -50,6 +50,9 @@
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "vdex_file.h"
+#ifdef AUTO_FAST_JNI_ENABLE
+#include "binary_analyzer/binary_analyzer.h"
+#endif
 
 namespace art {
 
@@ -384,10 +387,54 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
   self->PopManagedStackFragment(fragment);
 }
 
+
+
+#ifdef AUTO_FAST_JNI_ENABLE
+class AutoFastJniDetectTask final : public jit::JniTask {
+ public:
+  AutoFastJniDetectTask(ArtMethod* method, const void* native_method)
+      : method_(method), native_method_(native_method) { }
+
+  ~AutoFastJniDetectTask() { }
+
+  void Run(Thread* self) override {
+    ScopedObjectAccess soa(self);
+    bool is_fast = IsFastJNI(method_->GetDexMethodIndex(), *method_->GetDexFile(), native_method_);
+    if (is_fast) {
+      method_->SetAccessFlags(method_->GetAccessFlags() | kAccFastNative);
+    }
+  }
+
+  void Finalize() override  {
+    delete this;
+  }
+
+ private:
+  ArtMethod* const method_;
+  const void* native_method_;
+
+  DISALLOW_IMPLICIT_CONSTRUCTORS(AutoFastJniDetectTask);
+};
+#endif
+
 const void* ArtMethod::RegisterNative(const void* native_method) {
   CHECK(IsNative()) << PrettyMethod();
   CHECK(native_method != nullptr) << PrettyMethod();
   void* new_native_method = nullptr;
+#ifdef AUTO_FAST_JNI_ENABLE
+  const bool not_going_to_unregister = (native_method != GetJniDlsymLookupStub());
+  if (Runtime::Current()->IsAutoFastDetect() && not_going_to_unregister) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      jit->AddJniTask(Thread::Current(), new AutoFastJniDetectTask(this, native_method));
+    } else {
+      // auto fastJNI detection doesn't work in AOT at all.
+      // In JIT mode it works too but only between
+      // process startup and JIT creation.
+    }
+  }
+#endif
+
   Runtime::Current()->GetRuntimeCallbacks()->RegisterNativeMethod(this,
                                                                   native_method,
                                                                   /*out*/&new_native_method);

@@ -26,6 +26,40 @@
 namespace art {
 
 // Used by the JNI dlsym stub to find the native method to invoke if none is registered.
+#ifdef AUTO_FAST_JNI_ENABLE
+/*To ensure mutator lock could be held throughout the code path as a part of compiler error,added the NO_THREAD_SAFETY_ANALYSIS flag */
+extern "C" const void* artFindNativeMethod(Thread* self) NO_THREAD_SAFETY_ANALYSIS {
+  DCHECK_EQ(self, Thread::Current());
+  bool was_slow = false;
+  bool is_fast = false;
+  const void* return_val = nullptr;
+  {
+    Locks::mutator_lock_->AssertNotHeld(self);  // We come here as Native.
+    ScopedObjectAccess soa(self);
+
+    ArtMethod* method = self->GetCurrentMethod(nullptr);
+    DCHECK(method != nullptr);
+
+    // Lookup symbol address for method, on failure we'll return null with an exception set,
+    // otherwise we return the address of the method we found.
+    void* native_code = soa.Vm()->FindCodeForNativeMethod(method);
+    if (native_code == nullptr) {
+      self->AssertPendingException();
+      return nullptr;
+    } else {
+      // Register so that future calls don't come here
+      was_slow = !method->IsFastNative();
+      const void* final_function_ptr = method->RegisterNative(native_code);
+      is_fast = method->IsFastNative();
+      return_val = final_function_ptr;
+    }
+  }
+  if (was_slow && is_fast) {
+    self->TransitionFromSuspendedToRunnable();
+  }
+  return return_val;
+}
+#else
 extern "C" const void* artFindNativeMethod(Thread* self) {
   DCHECK_EQ(self, Thread::Current());
   Locks::mutator_lock_->AssertNotHeld(self);  // We come here as Native.
@@ -44,5 +78,5 @@ extern "C" const void* artFindNativeMethod(Thread* self) {
   // Register so that future calls don't come here
   return method->RegisterNative(native_code);
 }
-
+#endif
 }  // namespace art

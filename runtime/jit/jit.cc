@@ -969,7 +969,15 @@ void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
     AddSamples(thread, method, 1, /* with_backedges= */false);
   }
 }
-
+#ifdef AUTO_FAST_JNI_ENABLE
+bool Jit::AddJniTask(Thread* self, JniTask* task) {
+  if (thread_pool_ == nullptr) {
+    return false;
+  }
+  thread_pool_->AddTask(self, task);
+  return true;
+}
+#endif
 void Jit::InvokeVirtualOrInterface(ObjPtr<mirror::Object> this_object,
                                    ArtMethod* caller,
                                    uint32_t dex_pc,
