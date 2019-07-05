@@ -79,6 +79,11 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib*)
 # `icu-data-art-test` Make rule.
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 
+# Remove the icu .dat file from /apex/com.android.runtime and the host equivalent.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex/com.android.runtime.debug/etc/icu/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex/com.android.runtime.release/etc/icu/*)
+$(call add-clean-step, rm -rf $(HOST_OUT)/com.android.runtime/etc/icu/*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
