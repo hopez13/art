@@ -456,18 +456,6 @@ class ReleaseTargetChecker:
     # Check internal libraries for ART.
     self._checker.check_prefer64_library('libart-disassembler')
 
-    # Check binaries for Bionic.
-    self._checker.check_multilib_executable('linker')
-    self._checker.check_multilib_executable('linker_asan')
-
-    # Check libraries for Bionic.
-    self._checker.check_native_library('bionic/libc')
-    self._checker.check_native_library('bionic/libdl')
-    self._checker.check_native_library('bionic/libm')
-    # ... and its internal dependencies
-    self._checker.check_native_library('libc_malloc_hooks')
-    self._checker.check_native_library('libc_malloc_debug')
-
     # Check exported native libraries for Managed Core Library.
     self._checker.check_native_library('libandroidicu')
     self._checker.check_native_library('libandroidio')
@@ -791,8 +779,8 @@ def art_apex_test_default(test_parser):
 
   # TODO: Add host support
   configs = [
-    {'name': 'com.android.runtime.release', 'debug': False, 'host': False},
-    {'name': 'com.android.runtime.debug', 'debug': True, 'host': False},
+    {'name': 'com.android.art.release', 'debug': False, 'host': False},
+    {'name': 'com.android.art.debug', 'debug': True, 'host': False},
   ]
 
   for config in configs:

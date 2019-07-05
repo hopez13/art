@@ -79,6 +79,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib*)
 # `icu-data-art-test` Make rule.
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
 
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex)
+
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
