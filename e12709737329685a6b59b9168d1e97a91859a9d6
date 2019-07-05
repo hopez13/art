@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4fa67359_b279e1ea",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-05T15:58:19Z",
+      "side": 1,
+      "message": "This just moved stuff around for now. I guess one could argue that it\u0027s always \"error\" or a dex-backed string.",
+      "parentUuid": "e5a05817_6c89d838",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 11
+      },
+      "revId": "e12709737329685a6b59b9168d1e97a91859a9d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fc8caaa_61ebb64a",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e12709737329685a6b59b9168d1e97a91859a9d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c47d36cb_ad595ea7",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-05T15:58:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7fc8caaa_61ebb64a",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 11
+      },
+      "revId": "e12709737329685a6b59b9168d1e97a91859a9d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
