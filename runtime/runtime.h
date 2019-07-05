@@ -859,6 +859,16 @@ class Runtime {
     return env_snapshot_.GetSnapshot();
   }
 
+  // Should Auto fast Detection be done.
+  bool IsAutoFastDetect() const {
+    return auto_fast_detect_;
+  }
+
+  // Set Auto Fast Detection.
+  void SetAutoFastDetect(bool value) {
+    auto_fast_detect_ = value;
+  }
+
   void AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
   void RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
 
@@ -1343,6 +1353,9 @@ class Runtime {
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
   class NotifyStartupCompletedTask;
+
+  // Auto Fast JNI detection gate.
+  bool auto_fast_detect_;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };

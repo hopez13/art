@@ -296,7 +296,8 @@ Runtime::Runtime()
       process_state_(kProcessStateJankPerceptible),
       zygote_no_threads_(false),
       verifier_logging_threshold_ms_(100),
-      verifier_missing_kthrow_fatal_(false) {
+      verifier_missing_kthrow_fatal_(false),
+      auto_fast_detect_(false) {
   static_assert(Runtime::kCalleeSaveSize ==
                     static_cast<uint32_t>(CalleeSaveType::kLastCalleeSaveType), "Unexpected size");
   CheckConstants();
@@ -1285,7 +1286,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
   image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);
   dump_native_stack_on_sig_quit_ = runtime_options.GetOrDefault(Opt::DumpNativeStackOnSigQuit);
-
+  auto_fast_detect_ = runtime_options.GetOrDefault(Opt::AutoFastJni);
   vfprintf_ = runtime_options.GetOrDefault(Opt::HookVfprintf);
   exit_ = runtime_options.GetOrDefault(Opt::HookExit);
   abort_ = runtime_options.GetOrDefault(Opt::HookAbort);
