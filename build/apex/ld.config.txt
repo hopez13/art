@@ -5,7 +5,7 @@
 # There are no versioned APEX paths here - this APEX module does not support
 # having several versions mounted.
 
-dir.runtime = /apex/com.android.runtime/bin/
+dir.runtime = /apex/com.android.art/bin/
 
 [runtime]
 additional.namespaces = platform,conscrypt,runtime
@@ -31,8 +31,8 @@ namespace.runtime.isolated = true
 namespace.runtime.visible = true
 
 # Keep in sync with the "runtime" namespace in system/core/rootdir/etc/ld.config*.txt.
-namespace.runtime.search.paths = /apex/com.android.runtime/${LIB}
-namespace.runtime.asan.search.paths = /apex/com.android.runtime/${LIB}
+namespace.runtime.search.paths = /apex/com.android.art/${LIB}
+namespace.runtime.asan.search.paths = /apex/com.android.art/${LIB}
 # JVMTI libraries used in ART testing are located under /data; dalvikvm
 # has to be able to dlopen them.
 # TODO(b/129534335): Move this to the linker configuration of the Test
