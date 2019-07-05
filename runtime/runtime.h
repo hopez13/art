@@ -16,7 +16,6 @@
 
 #ifndef ART_RUNTIME_RUNTIME_H_
 #define ART_RUNTIME_RUNTIME_H_
-
 #include <jni.h>
 #include <stdio.h>
 
@@ -813,6 +812,16 @@ class Runtime {
     return env_snapshot_.GetSnapshot();
   }
 
+  // Should Auto fast Detection be done.
+  bool IsAutoFastDetect() const {
+    return auto_fast_detect_;
+  }
+
+  // Set Auto Fast Detection.
+  void SetAutoFastDetect(bool value) {
+    auto_fast_detect_ = value;
+  }
+
   void AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
   void RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
 
@@ -1283,6 +1292,9 @@ class Runtime {
   friend std::string GetFaultMessageForAbortLogging();
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
+
+  // Auto Fast JNI detection gate.
+  bool auto_fast_detect_;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };
