@@ -40,7 +40,7 @@ add_tests "/data/nativetest64"
 
 for i in $all_tests; do
   echo "$i"
-  ${ADB} shell "chroot $ART_TEST_CHROOT env ANDROID_RUNTIME_ROOT='/apex/com.android.runtime' ANDROID_TZDATA_ROOT='/apex/com.android.tzdata' $i" || fail $i
+  ${ADB} shell "chroot $ART_TEST_CHROOT env ANDROID_I18N_ROOT='/apex/com.android.i18n' ANDROID_RUNTIME_ROOT='/apex/com.android.runtime' ANDROID_TZDATA_ROOT='/apex/com.android.tzdata' $i" || fail $i
 done
 
 if [ -n "$failing_tests" ]; then
