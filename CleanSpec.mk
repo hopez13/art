@@ -90,6 +90,10 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex)
 $(call add-clean-step, rm -rf $(HOST_OUT)/com.android.runtime/etc/icu/*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/icu)
+
+# Remove all APEX artifacts for the Runtime/ART APEX split.
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/apex)
+
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
