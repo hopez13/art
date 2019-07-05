@@ -171,4 +171,6 @@ RUNTIME_OPTIONS_KEY (gc::space::ImageSpaceLoadingOrder, \
 RUNTIME_OPTIONS_KEY (bool,                FastClassNotFoundException,     true)
 RUNTIME_OPTIONS_KEY (bool,                VerifierMissingKThrowFatal,     true)
 
+RUNTIME_OPTIONS_KEY (bool,                AutoFastJni,     true)
+
 #undef RUNTIME_OPTIONS_KEY

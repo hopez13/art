@@ -500,6 +500,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libnpt')
     self._checker.check_native_library('libunwindstack')
     self._checker.check_native_library('libziparchive')
+    self._checker.check_native_library('libcapstone')
     self._checker.check_optional_native_library('libvixl')  # Only on ARM/ARM64
 
     # Allow extra dependencies that appear in ASAN builds.
@@ -545,6 +546,11 @@ class ReleaseTargetChecker:
     # TODO(b/139046641): Fix proper 2nd arch checks. For now, just ignore these
     # directories.
     self._checker.ignore_path('bin/arm')
+
+    # Guest architecture proxy libraries currently end up in these
+    # subdirectories in x86 builds with native bridge.
+    # TODO(b/131155689): These are unused - fix the build rules to avoid
+    # creating them.
     self._checker.ignore_path('lib/arm')
     self._checker.ignore_path('lib64/arm')
 
