@@ -280,12 +280,22 @@ static constexpr uint8_t kNops[][10] = {
   return 0;
 }
 
-size_t DisassemblerX86::DumpInstruction(std::ostream& os, const uint8_t* instr) {
-  size_t nop_size = DumpNops(os, instr);
-  if (nop_size != 0u) {
-    return nop_size;
+void DisassemblerX86::GetInstructionDetails(const uint8_t* instr, x86_instr *insn) {
+  std::ostream out(nullptr);
+  size_t sz = DumpInstruction(out, instr, insn);
+  if (sz == 0) {
+     insn->opcode = 0x0;
   }
+}
 
+size_t DisassemblerX86::DumpInstruction(std::ostream& os,
+                                        const uint8_t* instr, x86_instr *insn_x86) {
+  if (os) {
+     size_t nop_size = DumpNops(os, instr);
+     if (nop_size != 0u) {
+            return nop_size;
+      }
+  }
   const uint8_t* begin_instr = instr;
   bool have_prefixes = true;
   uint8_t prefix[4] = {0, 0, 0, 0};
@@ -1608,11 +1618,23 @@ DISASSEMBLER_ENTRY(cmp,
     case 0: prefix_str = ""; break;
     default: LOG(FATAL) << "Unreachable"; UNREACHABLE();
   }
-  os << FormatInstructionPointer(begin_instr)
-     << StringPrintf(": %22s    \t%-7s%s%s%s%s%s ", DumpCodeHex(begin_instr, instr).c_str(),
+  if (os) {
+    os << FormatInstructionPointer(begin_instr)
+       << StringPrintf(": %22s    \t%-7s%s%s%s%s%s ", DumpCodeHex(begin_instr, instr).c_str(),
                      prefix_str, opcode0, opcode1, opcode2, opcode3, opcode4)
-     << args.str() << '\n';
-    return instr - begin_instr;
+       << args.str() << '\n';
+  }
+  if (insn_x86 != nullptr) {
+     std::string tmp = StringPrintf("%s%s%s%s%s", opcode0, opcode1, opcode2, opcode3, opcode4);
+     strcpy(insn_x86->instr_str, tmp.c_str());
+     insn_x86->size = instr - begin_instr;
+     insn_x86->prefix[0] = prefix[0];
+     insn_x86->prefix[1] = prefix[1];
+     insn_x86->prefix[2] = prefix[2];
+     insn_x86->prefix[3] = prefix[3];
+     insn_x86->opcode = instr;
+  }
+  return instr - begin_instr;
 }  // NOLINT(readability/fn_size)
 
 }  // namespace x86

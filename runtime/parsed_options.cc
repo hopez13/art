@@ -389,6 +389,10 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .WithType<bool>()
           .WithValueMap({{"false", false}, {"true", true}})
           .IntoKey(M::VerifierMissingKThrowFatal)
+      .Define("-XAutoFastJni:_")
+          .WithType<bool>()
+          .WithValueMap({{"false", false}, {"true", true}})
+          .IntoKey(M::AutoFastJni)
       .Ignore({
           "-ea", "-da", "-enableassertions", "-disableassertions", "--runtime-arg", "-esa",
           "-dsa", "-enablesystemassertions", "-disablesystemassertions", "-Xrs", "-Xint:_",
@@ -842,6 +846,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Xjitdisableopt\n");
   UsageMessage(stream, "  -Xjitsuspendpoll\n");
   UsageMessage(stream, "  -XX:mainThreadStackSize=N\n");
+  UsageMessage(stream, "  -XAutoFastJni\n");
   UsageMessage(stream, "\n");
 
   Exit((error) ? 1 : 0);

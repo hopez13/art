@@ -54,6 +54,8 @@ namespace jit {
 class JitCodeCache;
 class JitMemoryRegion;
 class JitOptions;
+class JniTask : public Task { };
+
 
 static constexpr int16_t kJitCheckForOSR = -1;
 static constexpr int16_t kJitHotnessDisabled = -2;
@@ -417,7 +419,6 @@ class Jit {
   // at the point of loading the dex files.
   void RegisterDexFiles(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
                         jobject class_loader);
-
   // Called by the compiler to know whether it can directly encode the
   // method/class/string.
   bool CanEncodeMethod(ArtMethod* method, bool is_for_shared_region) const
@@ -428,6 +429,8 @@ class Jit {
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool CanAssumeInitialized(ObjPtr<mirror::Class> cls, bool is_for_shared_region) const
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool AddJniTask(Thread* self, JniTask* task);
 
   // Map boot image methods after all compilation in zygote has been done.
   void MapBootImageMethods() REQUIRES(Locks::mutator_lock_);
