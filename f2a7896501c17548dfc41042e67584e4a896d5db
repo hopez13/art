@@ -22,6 +22,30 @@
       "revId": "f2a7896501c17548dfc41042e67584e4a896d5db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da4cc587_41958f3a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2486,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2019-07-06T06:18:11Z",
+      "side": 1,
+      "message": "Thanks for pointing out. I wrongly assumed all allocations to be on alloc stack. Working on it.",
+      "parentUuid": "a8b16fb3_81d4b6ef",
+      "range": {
+        "startLine": 2486,
+        "startChar": 11,
+        "endLine": 2486,
+        "endChar": 41
+      },
+      "revId": "f2a7896501c17548dfc41042e67584e4a896d5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
