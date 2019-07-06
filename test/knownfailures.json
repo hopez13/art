@@ -1124,6 +1124,12 @@
         "description": ["Doesn't run on RI."]
     },
     {
+        "tests": "1972-math-prec",
+        "variant": "jvm",
+        "bug": "https://bugs.openjdk.java.net/browse/JDK-8229259",
+        "description": ["Math.hypot() occasionally fails accuracy test on RI."]
+    },
+    {
         "tests": ["121-modifiers",
                   "1929-exception-catch-exception"],
         "variant": "jvm",
