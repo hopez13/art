@@ -1,0 +1,7 @@
+This checks the accuracy of double precision division and of some java.lang.Math
+functions. It uses the arithmetic package from Google's calculator to compute
+exact answers and compare them against the floating point result and nearby
+representable floating point values, to determine whether they are within
+the promised range. We test mostly pseudo-random values generated from a random
+seed. Thus actual bugs may show up as intermittent failures, which should not be
+ignored.
