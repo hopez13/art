@@ -1674,7 +1674,7 @@ static inline bool DoCallCommon(ArtMethod* called_method,
   // Allocate shadow frame on the stack.
   const char* old_cause = self->StartAssertNoThreadSuspension("DoCallCommon");
   ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
-      CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, /* dex pc */ 0);
+      CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, accessor.Insns(), /* dex pc */ 0);
   ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
 
   // Initialize new shadow frame by copying the registers from the callee shadow frame.
