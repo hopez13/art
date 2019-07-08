@@ -353,7 +353,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     // Create shadow frame on the stack.
     const char* old_cause = self->StartAssertNoThreadSuspension("DoFastInvoke");
     ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
-        CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, /* dex pc */ 0);
+        CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, accessor.Insns(), /*pc=*/ 0);
     ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
     if (is_range) {
       size_t src = vregC;

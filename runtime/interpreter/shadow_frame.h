@@ -21,8 +21,10 @@
 #include <cstring>
 #include <string>
 
+#include "art_method.h"
 #include "base/locks.h"
 #include "base/macros.h"
+#include "dex/code_item_accessors-inl.h"
 #include "lock_count_data.h"
 #include "read_barrier.h"
 #include "stack_reference.h"
@@ -74,8 +76,7 @@ class ShadowFrame {
   // Create ShadowFrame in heap for deoptimization.
   static ShadowFrame* CreateDeoptimizedFrame(uint32_t num_vregs, ShadowFrame* link,
                                              ArtMethod* method, uint32_t dex_pc) {
-    uint8_t* memory = new uint8_t[ComputeSize(num_vregs)];
-    return CreateShadowFrameImpl(num_vregs, link, method, dex_pc, memory);
+    return new ShadowFrame(num_vregs, link, method, dex_pc);
   }
 
   // Delete a ShadowFrame allocated on the heap for deoptimization.
@@ -87,12 +88,10 @@ class ShadowFrame {
 
   // Create a shadow frame in a fresh alloca. This needs to be in the context of the caller.
   // Inlining doesn't work, the compiler will still undo the alloca. So this needs to be a macro.
-#define CREATE_SHADOW_FRAME(num_vregs, link, method, dex_pc) ({                              \
-    size_t frame_size = ShadowFrame::ComputeSize(num_vregs);                                 \
-    void* alloca_mem = alloca(frame_size);                                                   \
+#define CREATE_SHADOW_FRAME(num_vregs, ...) ({                                               \
+    void* memory = alloca(ShadowFrame::ComputeSize(num_vregs));                              \
     ShadowFrameAllocaUniquePtr(                                                              \
-        ShadowFrame::CreateShadowFrameImpl((num_vregs), (link), (method), (dex_pc),          \
-                                           (alloca_mem)));                                   \
+        new (memory) ShadowFrame(num_vregs, __VA_ARGS__));                                   \
     })
 
   ~ShadowFrame() {}
@@ -102,7 +101,7 @@ class ShadowFrame {
   }
 
   uint32_t GetDexPC() const {
-    return (dex_pc_ptr_ == nullptr) ? dex_pc_ : dex_pc_ptr_ - dex_instructions_;
+    return (dex_pc_ptr_ == nullptr) ? dex::kDexNoIndex : (dex_pc_ptr_ - dex_instructions_);
   }
 
   int16_t GetCachedHotnessCountdown() const {
@@ -122,8 +121,7 @@ class ShadowFrame {
   }
 
   void SetDexPC(uint32_t dex_pc) {
-    dex_pc_ = dex_pc;
-    dex_pc_ptr_ = nullptr;
+    dex_pc_ptr_ = (dex_pc == dex::kDexNoIndex) ? nullptr : (dex_instructions_ + dex_pc);
   }
 
   ShadowFrame* GetLink() const {
@@ -280,10 +278,6 @@ class ShadowFrame {
     return OFFSETOF_MEMBER(ShadowFrame, method_);
   }
 
-  static constexpr size_t DexPCOffset() {
-    return OFFSETOF_MEMBER(ShadowFrame, dex_pc_);
-  }
-
   static constexpr size_t NumberOfVRegsOffset() {
     return OFFSETOF_MEMBER(ShadowFrame, number_of_vregs_);
   }
@@ -300,25 +294,12 @@ class ShadowFrame {
     return OFFSETOF_MEMBER(ShadowFrame, dex_pc_ptr_);
   }
 
-  static constexpr size_t DexInstructionsOffset() {
-    return OFFSETOF_MEMBER(ShadowFrame, dex_instructions_);
-  }
-
   static constexpr size_t CachedHotnessCountdownOffset() {
     return OFFSETOF_MEMBER(ShadowFrame, cached_hotness_countdown_);
   }
 
   static constexpr size_t HotnessCountdownOffset() {
     return OFFSETOF_MEMBER(ShadowFrame, hotness_countdown_);
-  }
-
-  // Create ShadowFrame for interpreter using provided memory.
-  static ShadowFrame* CreateShadowFrameImpl(uint32_t num_vregs,
-                                            ShadowFrame* link,
-                                            ArtMethod* method,
-                                            uint32_t dex_pc,
-                                            void* memory) {
-    return new (memory) ShadowFrame(num_vregs, link, method, dex_pc);
   }
 
   const uint16_t* GetDexPCPtr() {
@@ -384,21 +365,32 @@ class ShadowFrame {
     }
   }
 
- private:
-  ShadowFrame(uint32_t num_vregs, ShadowFrame* link, ArtMethod* method, uint32_t dex_pc)
+  ShadowFrame(uint32_t num_vregs,
+              ShadowFrame* link,
+              ArtMethod* method,
+              const uint16_t* dex_instructions,
+              uint32_t dex_pc)
       : link_(link),
         method_(method),
         result_register_(nullptr),
-        dex_pc_ptr_(nullptr),
-        dex_instructions_(nullptr),
+        dex_instructions_(dex_instructions),
+        dex_pc_ptr_(dex_instructions_ + dex_pc),
         number_of_vregs_(num_vregs),
-        dex_pc_(dex_pc),
         cached_hotness_countdown_(0),
         hotness_countdown_(0),
         frame_flags_(0) {
     memset(vregs_, 0, num_vregs * (sizeof(uint32_t) + sizeof(StackReference<mirror::Object>)));
   }
 
+  ShadowFrame(uint32_t num_vregs, ShadowFrame* link, ArtMethod* method, uint32_t dex_pc)
+    : ShadowFrame(num_vregs,
+                  link,
+                  method,
+                  (method == nullptr ? nullptr : method->DexInstructionData().Insns()),
+                  dex_pc) {
+  }
+
+ private:
   void UpdateFrameFlag(bool enable, FrameFlags flag) {
     if (enable) {
       frame_flags_ |= static_cast<uint32_t>(flag);
@@ -425,12 +417,10 @@ class ShadowFrame {
   ShadowFrame* link_;
   ArtMethod* method_;
   JValue* result_register_;
+  const uint16_t* dex_instructions_;  // Dex instruction base of the code item.
   const uint16_t* dex_pc_ptr_;
-  // Dex instruction base of the code item.
-  const uint16_t* dex_instructions_;
   LockCountData lock_count_data_;  // This may contain GC roots when lock counting is active.
   const uint32_t number_of_vregs_;
-  uint32_t dex_pc_;
   int16_t cached_hotness_countdown_;
   int16_t hotness_countdown_;
 
