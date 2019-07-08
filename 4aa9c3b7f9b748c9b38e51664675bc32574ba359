@@ -94,6 +94,30 @@
       "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cede4f0c_ea93d1cb",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-08T21:15:20Z",
+      "side": 1,
+      "message": "I apologize for creating the confusion.\n\nYes, in my opinion the PS-1 is correct, although we can get away with kPoisonDeadObjectsInUnevacuatedRegions altogether.\n\nThis should be done unconditionally in full-heap GCs to be in-sync with protecting cleared regions. After all the purpose of both is same.\n\nI\u0027ll let others respond with their opinions. But it doesn\u0027t make sense to me that we protect cleared regions in both debug and non-debug builds, but only poison dead objects in unevac regions only in debug builds.",
+      "parentUuid": "3b73d968_f1bf0b65",
+      "range": {
+        "startLine": 610,
+        "startChar": 14,
+        "endLine": 610,
+        "endChar": 82
+      },
+      "revId": "4aa9c3b7f9b748c9b38e51664675bc32574ba359",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
