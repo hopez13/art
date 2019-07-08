@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c187aec_a28ac69e",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-08T16:31:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "07251004_d1166c3d",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "0ac2a42ad11b31d15d099dcddfb69efb70b49e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b209510d_b99a4ea4",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "0ac2a42ad11b31d15d099dcddfb69efb70b49e37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8465843_0e16cfae",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-08T16:31:44Z",
+      "side": 1,
+      "message": "I prefer making bash look like a real programming language, but sure, done.",
+      "parentUuid": "b209510d_b99a4ea4",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "0ac2a42ad11b31d15d099dcddfb69efb70b49e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
