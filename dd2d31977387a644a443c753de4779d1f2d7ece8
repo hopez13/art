@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "93e871b3_b0293d93",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4402,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-07-08T10:18:26Z",
+      "side": 1,
+      "message": "I may be missing something here, but:\n\nEvery object, including array class objects, needs some kind of fencing at the end of construction to ensure that the fields are visible to any readers of a pointer to that object. We need that for both mutator reads and GC reads. We could possibly do that with release stores of the pointer. That seems tricky if multiple copies can be stored. Do we try that here? Otherwise it seems to me that we need a constructor fence at the end of the class object construction, like we do for other objects. I don\u0027t see that here?\n\nI suspect the release status store doesn\u0027t help, for two reasons:\n\n1. I don\u0027t think all readers read it before accessing the other data?\n\n2. It seems to be getting set before some new_class fields are set?\n\nWe do in general rely on the implied consume ordering, both when pointer-chasing in mutator threads and when tracing in the GC. That\u0027s OK for code we generate. It\u0027s theoretically dubious for C++ runtime code, and I wish we had an alternative. But I don\u0027t think we do (short of generating acquire loads everywhere). I think pretty much all implementations of Java-like languages do this in some way. I can\u0027t think of realistic cases in which it would actually fail in our context, for simple field dereferences. The Linux kernel makes similar, and I think riskier, assumptions all over the place.",
+      "parentUuid": "5bc577af_524048a3",
+      "revId": "dd2d31977387a644a443c753de4779d1f2d7ece8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4df0583f_a09d345c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
