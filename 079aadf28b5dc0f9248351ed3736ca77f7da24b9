@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c9a7b00_5eea92a4",
+        "filename": "runtime/jit/jit_memory_region_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-08T10:45:57Z",
+      "side": 1,
+      "message": "Could you wrap this in a macro and add some warning logging (see e.g. https://android.googlesource.com/platform/art/+/refs/heads/master/runtime/common_runtime_test.h#214)?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "079aadf28b5dc0f9248351ed3736ca77f7da24b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
