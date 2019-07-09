@@ -149,6 +149,7 @@ enum {
   HIDDEN_API_ENFORCEMENT_POLICY_MASK = (1 << 12)
                                      | (1 << 13),
   PROFILE_SYSTEM_SERVER              = 1 << 14,
+  PROFILE_FROM_SHELL                 = 1 << 15,
   USE_APP_IMAGE_STARTUP_CACHE        = 1 << 16,
   DEBUG_IGNORE_APP_SIGNAL_HANDLER    = 1 << 17,
 
@@ -241,6 +242,16 @@ static uint32_t EnableDebugFeatures(uint32_t runtime_flags) {
     runtime_flags &= ~DEBUG_IGNORE_APP_SIGNAL_HANDLER;
   }
 
+  if (Dbg::IsJdwpAllowed() ||
+      (runtime_flags & PROFILE_FROM_SHELL) != 0 ||
+      (runtime->IsJavaDebuggable()) != 0) {
+    std::string err;
+    if (!runtime->EnsurePerfettoPlugin(&err)) {
+      LOG(WARNING) << "Failed to load perfetto_hprof.";
+    }
+  }
+  runtime_flags &= ~PROFILE_FROM_SHELL;
+
   return runtime_flags;
 }
 
@@ -299,7 +310,6 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
     runtime->DisableVerifier();
     runtime_flags &= ~DISABLE_VERIFIER;
   }
-
   bool only_use_system_oat_files = false;
   if ((runtime_flags & ONLY_USE_SYSTEM_OAT_FILES) != 0 || is_system_server) {
     only_use_system_oat_files = true;

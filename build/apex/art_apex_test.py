@@ -419,6 +419,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libnativeloader')
 
     # Check internal libraries for ART.
+    self._checker.check_native_library('libperfetto_hprof')
     self._checker.check_native_library('libadbconnection')
     self._checker.check_native_library('libart')
     self._checker.check_native_library('libart-compiler')
@@ -569,6 +570,7 @@ class DebugChecker:
     self._checker.check_executable('profmand')
 
     # Check internal libraries for ART.
+    self._checker.check_native_library('libperfetto_hprofd')
     self._checker.check_native_library('libadbconnectiond')
     self._checker.check_native_library('libartbased')
     self._checker.check_native_library('libartd')
