@@ -464,6 +464,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libdexfile_support')
     self._checker.check_native_library('libopenjdkjvm')
     self._checker.check_native_library('libopenjdkjvmti')
+    self._checker.check_optional_native_library('libperfetto_hprof')  # Only on target.
     self._checker.check_native_library('libprofile')
     self._checker.check_native_library('libsigchain')
 
@@ -601,6 +602,7 @@ class DebugChecker:
     self._checker.check_native_library('libdexfiled')
     self._checker.check_native_library('libopenjdkjvmd')
     self._checker.check_native_library('libopenjdkjvmtid')
+    self._checker.check_optional_native_library('libperfetto_hprofd')  # Only on target.
     self._checker.check_native_library('libprofiled')
 
     # Check internal libraries for Managed Core Library.

@@ -54,6 +54,10 @@ bionic_native_device_only_shared_libs = [
     "libc_malloc_hooks",
 ]
 
+art_runtime_base_native_device_only_shared_libs = [
+    "libperfetto_hprof",
+]
+
 bionic_binaries_both = [
     "linker",
 ]
@@ -79,6 +83,10 @@ art_runtime_debug_native_shared_libs = [
     "libdexfiled_external",
     "libopenjdkjvmd",
     "libopenjdkjvmtid",
+]
+
+art_runtime_base_native_device_only_debug_shared_libs = [
+  "libperfetto_hprofd",
 ]
 
 // Tools common to both device APEX and host APEX. Derived from art-tools in art/Android.mk.
@@ -207,7 +215,8 @@ apex {
     compile_multilib: "both",
     manifest: "manifest-runtime.json",
     native_shared_libs: bionic_native_shared_libs +
-        bionic_native_device_only_shared_libs,
+        bionic_native_device_only_shared_libs + 
+        art_runtime_base_native_device_only_shared_libs,
     multilib: {
         both: {
             binaries: bionic_binaries_both,
@@ -282,7 +291,8 @@ apex_defaults {
     name: "com.android.art-dev-defaults",
     defaults: ["com.android.art-defaults"],
     native_shared_libs: art_runtime_debug_native_shared_libs +
-        libcore_debug_native_shared_libs,
+        libcore_debug_native_shared_libs +
+        art_runtime_base_native_device_only_debug_shared_libs,
     multilib: {
         both: {
             binaries: art_tools_debug_binaries_both,
