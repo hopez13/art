@@ -1765,6 +1765,24 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   return true;
 }
 
+bool Runtime::EnsurePerfettoPlugin(std::string* error_msg) {
+  constexpr const char* plugin_name = kIsDebugBuild ? "libperfetto_hprofd.so" : "libperfetto_hprof.so";
+  // Is the plugin already loaded?
+  for (const Plugin& p : plugins_) {
+    if (p.GetLibrary() == plugin_name) {
+      return true;
+    }
+  }
+
+  Plugin new_plugin = Plugin::Create(plugin_name);
+
+  if (!new_plugin.Load(error_msg)) {
+    return false;
+  }
+  plugins_.push_back(std::move(new_plugin));
+  return true;
+}
+
 static bool EnsureJvmtiPlugin(Runtime* runtime,
                               std::vector<Plugin>* plugins,
                               std::string* error_msg) {
