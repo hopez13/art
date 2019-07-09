@@ -125,6 +125,8 @@ class Runtime {
   static bool Create(const RuntimeOptions& raw_options, bool ignore_unrecognized)
       SHARED_TRYLOCK_FUNCTION(true, Locks::mutator_lock_);
 
+  bool EnsurePerfettoPlugin(std::string* error_msg);
+
   // IsAotCompiler for compilers that don't have a running runtime. Only dex2oat currently.
   bool IsAotCompiler() const {
     return !UseJitCompilation() && IsCompiler();
