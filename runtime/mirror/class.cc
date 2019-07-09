@@ -1568,7 +1568,7 @@ ObjPtr<PointerArray> Class::GetOrCreateMethodIds() {
     self->AssertPendingOOMException();
     return nullptr;
   }
-  return ext->EnsureJMethodIDsArrayPresent(NumMethods());
+  return ext->EnsureJMethodIDsArrayPresent(h_this->NumMethods());
 }
 
 ObjPtr<PointerArray> Class::GetStaticFieldIds() {
@@ -1589,7 +1589,7 @@ ObjPtr<PointerArray> Class::GetOrCreateStaticFieldIds() {
     self->AssertPendingOOMException();
     return nullptr;
   }
-  return ext->EnsureStaticJFieldIDsArrayPresent(NumStaticFields());
+  return ext->EnsureStaticJFieldIDsArrayPresent(h_this->NumStaticFields());
 }
 ObjPtr<PointerArray> Class::GetInstanceFieldIds() {
   ObjPtr<ClassExt> ext(GetExtData());
@@ -1609,7 +1609,7 @@ ObjPtr<PointerArray> Class::GetOrCreateInstanceFieldIds() {
     self->AssertPendingOOMException();
     return nullptr;
   }
-  return ext->EnsureInstanceJFieldIDsArrayPresent(NumInstanceFields());
+  return ext->EnsureInstanceJFieldIDsArrayPresent(h_this->NumInstanceFields());
 }
 
 size_t Class::GetStaticFieldIdOffset(ArtField* field) {
