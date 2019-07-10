@@ -745,6 +745,39 @@ void InstructionCodeGeneratorX86::VisitVecMul(HVecMul* instruction) {
   }
 }
 
+void LocationsBuilderX86::VisitVecAvxMul(HVecAvxMul* instruction) {
+  CreateVecTerOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorX86::VisitVecAvxMul(HVecAvxMul* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  XmmRegister src1 = locations->InAt(0).AsFpuRegister<XmmRegister>();
+  XmmRegister src2 = locations->InAt(1).AsFpuRegister<XmmRegister>();
+  XmmRegister dst = locations->Out().AsFpuRegister<XmmRegister>();
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
+      DCHECK_EQ(8u, instruction->GetVectorLength());
+      __ vpmullw(dst, src1, src2);
+      break;
+    case DataType::Type::kInt32:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ vpmulld(dst, src1, src2);
+      break;
+    case DataType::Type::kFloat32:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ vmulps(dst, src1, src2);
+      break;
+    case DataType::Type::kFloat64:
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      __ vmulpd(dst, src1, src2);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      UNREACHABLE();
+  }
+}
+
 void LocationsBuilderX86::VisitVecDiv(HVecDiv* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
@@ -769,6 +802,30 @@ void InstructionCodeGeneratorX86::VisitVecDiv(HVecDiv* instruction) {
   }
 }
 
+void LocationsBuilderX86::VisitVecAvxDiv(HVecAvxDiv* instruction) {
+  CreateVecTerOpLocations(GetGraph()->GetAllocator(), instruction);
+}
+
+void InstructionCodeGeneratorX86::VisitVecAvxDiv(HVecAvxDiv* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  DCHECK(locations->InAt(0).Equals(locations->Out()));
+  XmmRegister src1 = locations->InAt(0).AsFpuRegister<XmmRegister>();
+  XmmRegister src2 = locations->InAt(1).AsFpuRegister<XmmRegister>();
+  XmmRegister dst = locations->Out().AsFpuRegister<XmmRegister>();
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kFloat32:
+      DCHECK_EQ(4u, instruction->GetVectorLength());
+      __ vdivps(dst, src1, src2);
+      break;
+    case DataType::Type::kFloat64:
+      DCHECK_EQ(2u, instruction->GetVectorLength());
+      __ vdivpd(dst, src1, src2);
+      break;
+    default:
+      LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
+      UNREACHABLE();
+  }
+}
 void LocationsBuilderX86::VisitVecMin(HVecMin* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }

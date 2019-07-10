@@ -1524,7 +1524,9 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(X86AndNot, Instruction)                                             \
   M(X86MaskOrResetLeastSetBit, Instruction)                             \
   M(VecAvxSub, VecOperation)                                            \
-  M(VecAvxAdd, VecOperation)
+  M(VecAvxAdd, VecOperation)                                            \
+  M(VecAvxMul, VecOperation)                                            \
+  M(VecAvxDiv, VecOperation)
 #else
 #define FOR_EACH_CONCRETE_INSTRUCTION_X86_COMMON(M)
 #endif
