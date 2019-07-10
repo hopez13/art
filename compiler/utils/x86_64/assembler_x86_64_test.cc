@@ -1375,8 +1375,18 @@ TEST_F(AssemblerX86_64Test, Mulps) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::mulps, "mulps %{reg2}, %{reg1}"), "mulps");
 }
 
+TEST_F(AssemblerX86_64AVXTest, VMulps) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vmulps, "vmulps %{reg3}, %{reg2}, %{reg1}"), "vmulps");
+}
+
 TEST_F(AssemblerX86_64Test, Mulpd) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::mulpd, "mulpd %{reg2}, %{reg1}"), "mulpd");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VMulpd) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vmulpd, "vmulpd %{reg3}, %{reg2}, %{reg1}"), "vmulpd");
 }
 
 TEST_F(AssemblerX86_64Test, Divss) {
@@ -1391,8 +1401,18 @@ TEST_F(AssemblerX86_64Test, Divps) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::divps, "divps %{reg2}, %{reg1}"), "divps");
 }
 
+TEST_F(AssemblerX86_64Test, VDivps) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vdivps, "vdivps %{reg3}, %{reg2}, %{reg1}"), "vdivps");
+}
+
 TEST_F(AssemblerX86_64Test, Divpd) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::divpd, "divpd %{reg2}, %{reg1}"), "divpd");
+}
+
+TEST_F(AssemblerX86_64Test, VDivpd) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vdivpd, "vdivpd %{reg3}, %{reg2}, %{reg1}"), "vdivpd");
 }
 
 TEST_F(AssemblerX86_64Test, Paddb) {
@@ -1436,6 +1456,11 @@ TEST_F(AssemblerX86_64Test, Pmullw) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::pmullw, "pmullw %{reg2}, %{reg1}"), "pmullw");
 }
 
+TEST_F(AssemblerX86_64AVXTest, VPmullw) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vpmullw, "vpmullw %{reg3}, %{reg2}, %{reg1}"), "vpmullw");
+}
+
 TEST_F(AssemblerX86_64Test, Paddd) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::paddd, "paddd %{reg2}, %{reg1}"), "paddd");
 }
@@ -1456,6 +1481,11 @@ TEST_F(AssemblerX86_64AVXTest, VPsubd) {
 
 TEST_F(AssemblerX86_64Test, Pmulld) {
   DriverStr(RepeatFF(&x86_64::X86_64Assembler::pmulld, "pmulld %{reg2}, %{reg1}"), "pmulld");
+}
+
+TEST_F(AssemblerX86_64AVXTest, VPmulld) {
+  DriverStr(
+      RepeatFFF(&x86_64::X86_64Assembler::vpmulld, "vpmulld %{reg3}, %{reg2}, %{reg1}"), "vpmulld");
 }
 
 TEST_F(AssemblerX86_64Test, Paddq) {

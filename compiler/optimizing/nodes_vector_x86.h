@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ class HVecAvxAdd final : public HVecOperation {
                       allocator,
                       packed_type,
                       SideEffects::None(),
-                      /* number_of_inputs */ 2,
+                      /*number_of_inputs=*/ 2,
                       vector_length,
                       dex_pc) {
     DCHECK(HasConsistentPackedTypes(src1, packed_type));
@@ -62,7 +62,7 @@ class HVecAvxSub final : public HVecOperation {
                       allocator,
                       packed_type,
                       SideEffects::None(),
-                      /* number_of_inputs */ 2,
+                      /*number_of_inputs=*/ 2,
                       vector_length,
                       dex_pc) {
     DCHECK(HasConsistentPackedTypes(src1, packed_type));
@@ -77,6 +77,64 @@ class HVecAvxSub final : public HVecOperation {
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(VecAvxSub);
+};
+
+class HVecAvxMul final : public HVecOperation {
+ public:
+  HVecAvxMul(ArenaAllocator* allocator,
+             HInstruction* src1,
+             HInstruction* src2,
+             DataType::Type packed_type,
+             size_t vector_length,
+             uint32_t dex_pc)
+      : HVecOperation(kVecAvxMul,
+                      allocator,
+                      packed_type,
+                      SideEffects::None(),
+                      /*number_of_inputs=*/ 2,
+                      vector_length,
+                      dex_pc) {
+    DCHECK(HasConsistentPackedTypes(src1, packed_type));
+    DCHECK(HasConsistentPackedTypes(src2, packed_type));
+    SetRawInputAt(0, src1);
+    SetRawInputAt(1, src2);
+  }
+
+  bool CanBeMoved() const override { return true; }
+
+  DECLARE_INSTRUCTION(VecAvxMul);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(VecAvxMul);
+};
+
+class HVecAvxDiv final : public HVecOperation {
+ public:
+  HVecAvxDiv(ArenaAllocator* allocator,
+             HInstruction* src1,
+             HInstruction* src2,
+             DataType::Type packed_type,
+             size_t vector_length,
+             uint32_t dex_pc)
+      : HVecOperation(kVecAvxMul,
+                      allocator,
+                      packed_type,
+                      SideEffects::None(),
+                      /*number_of_inputs=*/ 2,
+                      vector_length,
+                      dex_pc) {
+    DCHECK(HasConsistentPackedTypes(src1, packed_type));
+    DCHECK(HasConsistentPackedTypes(src2, packed_type));
+    SetRawInputAt(0, src1);
+    SetRawInputAt(1, src2);
+  }
+
+  bool CanBeMoved() const override { return true; }
+
+  DECLARE_INSTRUCTION(VecAvxDiv);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(VecAvxDiv);
 };
 
 }  // namespace art

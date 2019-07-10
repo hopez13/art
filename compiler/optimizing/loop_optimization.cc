@@ -1975,6 +1975,18 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
         new (global_allocator_) HVecSub(global_allocator_, opa, opb, type, vector_length_, dex_pc),
         new (global_allocator_) HSub(org_type, opa, opb, dex_pc));
     case HInstruction::kMul:
+      #if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)
+      if ((compiler_options_->GetInstructionSet() == InstructionSet::kX86 ||
+           compiler_options_->GetInstructionSet() == InstructionSet::kX86_64) &&
+           compiler_options_->GetInstructionSetFeatures()->AsX86InstructionSetFeatures()
+               ->HasAVX2()) {
+        GENERATE_VEC(
+          new (global_allocator_) HVecAvxMul(
+                                      global_allocator_, opa, opb, type, vector_length_, dex_pc),
+          new (global_allocator_) HMul(org_type, opa, opb, dex_pc));
+          UNREACHABLE();  // GENERATE_VEC ends with a "break".
+      }
+      #endif
       GENERATE_VEC(
         new (global_allocator_) HVecMul(global_allocator_, opa, opb, type, vector_length_, dex_pc),
         new (global_allocator_) HMul(org_type, opa, opb, dex_pc));
