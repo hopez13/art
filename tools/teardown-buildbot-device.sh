@@ -89,9 +89,6 @@ if [[ -n "$ART_TEST_CHROOT" ]]; then
            fi
     }
 
-    # Remove /apex from chroot.
-    remove_filesystem_from_chroot apex tmpfs true
-
     # Remove /dev from chroot.
     remove_filesystem_from_chroot dev tmpfs true
 
