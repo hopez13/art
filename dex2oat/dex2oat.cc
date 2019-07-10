@@ -2927,7 +2927,6 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   } else {
     result = CompileApp(*dex2oat);
   }
-
   return result;
 }
 }  // namespace art
