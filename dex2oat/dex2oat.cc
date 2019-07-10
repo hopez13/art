@@ -1403,7 +1403,6 @@ class Dex2Oat final {
       swap_fd_ = swap_file->Release();
       unlink(swap_file_name_.c_str());
     }
-
     return true;
   }
 
@@ -1658,7 +1657,6 @@ class Dex2Oat final {
         verification_results_->AddDexFile(dex_file);
       }
     }
-
     return dex2oat::ReturnCode::kNoFailure;
   }
 
@@ -2080,7 +2078,6 @@ class Dex2Oat final {
         // We may still need the ELF writer later for stripping.
       }
     }
-
     return true;
   }
 
@@ -2255,7 +2252,6 @@ class Dex2Oat final {
       profile_compilation_info_.reset(nullptr);
       return false;
     }
-
     return true;
   }
 
@@ -2501,7 +2497,6 @@ class Dex2Oat final {
     self->TransitionFromRunnableToSuspended(kNative);
 
     WatchDog::SetRuntime(runtime_.get());
-
     return true;
   }
 
@@ -2527,7 +2522,6 @@ class Dex2Oat final {
     }
     // Destroy ImageWriter.
     image_writer_.reset();
-
     return true;
   }
 
@@ -2927,7 +2921,6 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   } else {
     result = CompileApp(*dex2oat);
   }
-
   return result;
 }
 }  // namespace art
