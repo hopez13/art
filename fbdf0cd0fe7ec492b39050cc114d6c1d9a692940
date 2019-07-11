@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "24cfee88_8476bf43",
+        "filename": "test/543-env-long-ref/env_long_ref.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T13:38:47Z",
+      "side": 1,
+      "message": "To make it consistent I have replaced everything with \"GetCurrentShadowFrame() \u003d\u003d nullptr\" - AFAIL this is the safest option.",
+      "parentUuid": "06f20ba6_e10684bf",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 63
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20a5e055_7373fcfc",
         "filename": "test/common/stack_inspect.cc",
         "patchSetId": 11
@@ -164,6 +188,30 @@
       "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7172cbf4_c333b080",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T13:38:47Z",
+      "side": 1,
+      "message": "Replied in the previous comment.",
+      "parentUuid": "20a5e055_7373fcfc",
+      "range": {
+        "startLine": 193,
+        "startChar": 28,
+        "endLine": 193,
+        "endChar": 62
+      },
+      "revId": "fbdf0cd0fe7ec492b39050cc114d6c1d9a692940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
