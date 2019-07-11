@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24681494_a020dafc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T18:25:32Z",
+      "side": 1,
+      "message": "Nit: Could you expand the comment here mentioning that it only happens when there is no gap between ArtMethod stack location and location for first register to save and that it preserves the STP alignment optimization done in GetAssembler()-\u003eSpillRegisters?",
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "158cc1de_717d287c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T18:25:32Z",
+      "side": 1,
+      "message": "Does this mean that if (RequiresCurrentMethod() \u003d\u003d false) kArtMethodRegister will be pushed anyway?",
+      "range": {
+        "startLine": 1110,
+        "startChar": 8,
+        "endLine": 1110,
+        "endChar": 46
+      },
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08711a9b_fcdf460e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T18:25:32Z",
+      "side": 1,
+      "message": "Nit: could you comment here about \"no gap\" and no fp spills.",
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143f22a1_e1da990c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T18:25:32Z",
+      "side": 1,
+      "message": "XZR could be used here.",
+      "range": {
+        "startLine": 1160,
+        "startChar": 13,
+        "endLine": 1160,
+        "endChar": 17
+      },
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
