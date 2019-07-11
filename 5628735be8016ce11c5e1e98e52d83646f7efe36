@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1944eeb5_b02aa845",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-11T19:01:33Z",
+      "side": 1,
+      "message": "I might be mistaken but is LocationBuilder output location (SameAsFirstInput output vs arbitrary one) - the only difference between VecAvxMul and VecMul for Intel target in terms of semantics (apart from the exact encoding used - AVX vs SSE)?\n\nIf yes - what do think about possibility of changing the behavior of \"LocationsBuilderX86_64::VisitVecMul\" and \"InstructionCodeGeneratorX86_64::VisitVecMul\" to account for AVX instead of exposing a new instruction and having #ifdef\u0027s in the target-independent part?",
+      "range": {
+        "startLine": 1984,
+        "startChar": 34,
+        "endLine": 1984,
+        "endChar": 44
+      },
+      "revId": "5628735be8016ce11c5e1e98e52d83646f7efe36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
