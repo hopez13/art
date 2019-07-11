@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8426691f_25fb64d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-11T17:04:31Z",
+      "side": 1,
+      "message": "TL;DR: I\u0027d replace this with:\n\n  art/tools/buildbot-build.sh --host \u0026\u0026 make apache-harmony-jdwp-tests vogar \u0026\u0026 art/tools/run-jdwp-tests.sh --mode\u003djvm\n\n\nLong version:\n\nYou probably need to build stuff before; i.e. for the host/JVM case, I think you need to run:\n\n  art/tools/buildbot-build.sh --host\n\nfirst. After that, if you run:\n\n  art/tools/run-jdwp-tests.sh --mode\u003djvm\n\nit should show you any missing dependencies:\n\n  $ art/tools/run-jdwp-tests.sh --mode\u003djvm\n  Before running, you must build jdwp tests and vogar: make apache-harmony-jdwp-tests vogar\n\nRunning these commands should thus work:\n\n  make apache-harmony-jdwp-tests vogar\n  art/tools/run-jdwp-tests.sh --mode\u003djvm\n\n\nI ran these commands locally and there was no regression.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 71
+      },
+      "revId": "8c6af714ff593fcfa2fa1b2d4d5aa469003fb0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
