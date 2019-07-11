@@ -173,7 +173,9 @@ class LargeObjectMapSpace : public LargeObjectSpace {
   virtual ~LargeObjectMapSpace() {}
 
   bool IsZygoteLargeObject(Thread* self, mirror::Object* obj) const override REQUIRES(!lock_);
-  void SetAllLargeObjectsAsZygoteObjects(Thread* self) override REQUIRES(!lock_);
+  void SetAllLargeObjectsAsZygoteObjects(Thread* self) override
+      REQUIRES(!lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   AllocationTrackingSafeMap<mirror::Object*, LargeObject, kAllocatorTagLOSMaps> large_objects_
       GUARDED_BY(lock_);
@@ -215,7 +217,9 @@ class FreeListSpace final : public LargeObjectSpace {
   // Removes header from the free blocks set by finding the corresponding iterator and erasing it.
   void RemoveFreePrev(AllocationInfo* info) REQUIRES(lock_);
   bool IsZygoteLargeObject(Thread* self, mirror::Object* obj) const override;
-  void SetAllLargeObjectsAsZygoteObjects(Thread* self) override REQUIRES(!lock_);
+  void SetAllLargeObjectsAsZygoteObjects(Thread* self) override
+      REQUIRES(!lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   class SortByPrevFree {
    public:
