@@ -34,6 +34,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "space-inl.h"
 #include "thread-current-inl.h"
+#include "mirror/object-readbarrier-inl.h"
 
 namespace art {
 namespace gc {
@@ -180,6 +181,7 @@ void LargeObjectMapSpace::SetAllLargeObjectsAsZygoteObjects(Thread* self) {
   MutexLock mu(self, lock_);
   for (auto& pair : large_objects_) {
     pair.second.is_zygote = true;
+    CHECK(pair.first->AtomicSetMarkBit(0, 1));
   }
 }
 
@@ -587,6 +589,9 @@ void FreeListSpace::SetAllLargeObjectsAsZygoteObjects(Thread* self) {
       cur_info = cur_info->GetNextInfo()) {
     if (!cur_info->IsFree()) {
       cur_info->SetZygoteObject();
+      mirror::Object* obj =
+          reinterpret_cast<mirror::Object*>(GetAddressForAllocationInfo(cur_info));
+      CHECK(obj->AtomicSetMarkBit(0, 1));
     }
   }
 }
