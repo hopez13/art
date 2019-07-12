@@ -8,7 +8,7 @@
 dir.runtime = /apex/com.android.runtime/bin/
 
 [runtime]
-additional.namespaces = platform,conscrypt,runtime
+additional.namespaces = platform,conscrypt,runtime,neuralnetworks
 
 # The default namespace here only links to other namespaces, in particular
 # "runtime" where the real library loading takes place. Any outgoing links from
@@ -47,6 +47,7 @@ namespace.runtime.links = platform
 # TODO(b/130340935): Use a dynamically created linker namespace similar to
 # classloader-namespace for oat files, and tighten this up.
 namespace.runtime.link.platform.allow_all_shared_libs = true
+
 
 ###############################################################################
 # "platform" namespace
@@ -99,6 +100,7 @@ namespace.platform.asan.permitted.paths = /apex/com.android.runtime/${LIB}/bioni
 # the runtime Java code and binaries do not explicitly load native libraries
 # from it.
 
+
 ###############################################################################
 # "conscrypt" APEX namespace
 #
@@ -117,3 +119,23 @@ namespace.conscrypt.link.platform.shared_libs  = libc.so
 namespace.conscrypt.link.platform.shared_libs += libm.so
 namespace.conscrypt.link.platform.shared_libs += libdl.so
 namespace.conscrypt.link.platform.shared_libs += liblog.so
+
+###############################################################################
+# "neuralnetworks" APEX namespace
+#
+# This namespace is for libraries within the NEURALNETWORKS.
+###############################################################################
+namespace.neuralnetworks.isolated = true
+namespace.neuralnetworks.visible = true
+
+namespace.neuralnetworks.search.paths = /apex/com.android.neuralnetworks/${LIB}
+namespace.neuralnetworks.asan.search.paths = /apex/com.android.neuralnetworks/${LIB}
+namespace.neuralnetworks.links = platform
+namespace.neuralnetworks.link.platform.shared_libs  = libc.so
+namespace.neuralnetworks.link.platform.shared_libs += libcgrouprc.so
+namespace.neuralnetworks.link.platform.shared_libs += libdl.so
+namespace.neuralnetworks.link.platform.shared_libs += liblog.so
+namespace.neuralnetworks.link.platform.shared_libs += libm.so
+namespace.neuralnetworks.link.platform.shared_libs += libnativewindow.so
+namespace.neuralnetworks.link.platform.shared_libs += libsync.so
+namespace.neuralnetworks.link.platform.shared_libs += libvndksupport.so
