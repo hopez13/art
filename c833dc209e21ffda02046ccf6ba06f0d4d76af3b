@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b905950f_0b520398",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2129,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "Nit: what about using consistent variables name as in arm64?\n    uint32_t core_spills_offset \u003d frame_size - GetCoreSpillSize();\n    uint32_t fp_spills_offset \u003d frame_size - FrameEntrySpillSize();",
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "992f424e_137ee3eb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "Nit: this could be core_spills_offset.",
+      "range": {
+        "startLine": 2131,
+        "startChar": 6,
+        "endLine": 2131,
+        "endChar": 64
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3880c920_a7a2a820",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "Could you do some micro/macro benchmarking for that? Performance of PUSH/POP instructions might depend on the number of register pushed - from cores Software Optimization Guides.\n\nhttps://static.docs.arm.com/epm128372/20/arm_cortex_a55_software_optimization_guide_v2.pdf\nhttps://static.docs.arm.com/101398/0200/arm_cortex_a75_software_optimization_guide_v2.pdf",
+      "range": {
+        "startLine": 2136,
+        "startChar": 6,
+        "endLine": 2136,
+        "endChar": 30
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80db78a7_0eab3017",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "What about:\n\n if (RequiresCurrentMethod()) {\n   // Store r0 with preindex addressing mode.\n } else {\n   // sp adjust\n }\n\nOr 32-bit encoding of store ruins the code size decrease?",
+      "range": {
+        "startLine": 2177,
+        "startChar": 4,
+        "endLine": 2177,
+        "endChar": 31
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e017f72_5b8c22c6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "Could we add a DCHECK or if (kIsDebugBuild)?",
+      "range": {
+        "startLine": 2220,
+        "startChar": 0,
+        "endLine": 2221,
+        "endChar": 35
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6223473_52a897d5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2019-07-12T19:19:13Z",
+      "side": 1,
+      "message": "Nit: this line is a bit cryptic.",
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
