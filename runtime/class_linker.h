@@ -796,7 +796,17 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  // For early bootstrapping by Init.
+  // If we do not allow moving classes (`art::kMovingClass` is false) or if
+  // parameter `kMovable` is false (or both), the class object is allocated in
+  // the non-moving space.
+  template <bool kMovable = true, class PreFenceVisitor>
+  ObjPtr<mirror::Class> AllocClass(Thread* self,
+                                   ObjPtr<mirror::Class> java_lang_Class,
+                                   uint32_t class_size,
+                                   const PreFenceVisitor& pre_fence_visitor)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Roles::uninterruptible_);
+
   // If we do not allow moving classes (`art::kMovingClass` is false) or if
   // parameter `kMovable` is false (or both), the class object is allocated in
   // the non-moving space.
@@ -814,9 +824,17 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
-  // Allocate a primitive array class.
-  ObjPtr<mirror::Class> AllocPrimitiveArrayClass(Thread* self,
-                                                 ObjPtr<mirror::Class> java_lang_Class)
+  void AllocPrimitiveArrayClass(Thread* self,
+                                ClassRoot primitive_root,
+                                ClassRoot array_root)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Roles::uninterruptible_);
+
+  void FinishArrayClassSetup(ObjPtr<mirror::Class> array_class)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Roles::uninterruptible_);
+
+  void FinishCoreArrayClassSetup(ClassRoot array_root)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
@@ -834,7 +852,7 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
-  ObjPtr<mirror::Class> CreatePrimitiveClass(Thread* self, Primitive::Type type)
+  void CreatePrimitiveClass(Thread* self, Primitive::Type type, ClassRoot primitive_root)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
@@ -1246,20 +1264,6 @@ class ClassLinker {
 
   void SetClassRoot(ClassRoot class_root, ObjPtr<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
-
-  // Allocate primitive array class for primitive with class root
-  // `primitive_class_root`, and associate it to class root
-  // `primitive_array_class_root`.
-  //
-  // Also check this class returned when searching system classes for
-  // `descriptor` matches the allocated class.
-  void AllocAndSetPrimitiveArrayClassRoot(Thread* self,
-                                          ObjPtr<mirror::Class> java_lang_Class,
-                                          ClassRoot primitive_array_class_root,
-                                          ClassRoot primitive_class_root,
-                                          const char* descriptor)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Roles::uninterruptible_);
 
   // Return the quick generic JNI stub for testing.
   const void* GetRuntimeQuickGenericJniStub() const;
