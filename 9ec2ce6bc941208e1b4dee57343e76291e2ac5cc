@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c69ad03a_4a92e9eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-12T20:08:25Z",
+      "side": 1,
+      "message": "CMS doesn\u0027t have the read barrier wherein we set the mark-bit, thereby dirtying the page. Something else could also be causing this. I\u0027ll measure the numbers to confirm.",
+      "parentUuid": "ec8868e8_31d1e687",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e1554be5_d96c35be",
         "filename": "runtime/gc/space/large_object_space.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-12T18:08:26Z",
       "side": 1,
       "message": "I think this should be an `ObjPtr\u003cmirror::Object\u003e`.",
+      "range": {
+        "startLine": 593,
+        "startChar": 6,
+        "endLine": 593,
+        "endChar": 21
+      },
+      "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c52f80f_b6db8369",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2019-07-12T20:08:25Z",
+      "side": 1,
+      "message": "I can change that in the next patch. But why is that needed?",
+      "parentUuid": "e1554be5_d96c35be",
       "range": {
         "startLine": 593,
         "startChar": 6,
