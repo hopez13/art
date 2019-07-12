@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "3fb8e686_03f5a47c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-12T11:57:51Z",
+      "side": 1,
+      "message": "Yes, that saves code size and I assume it does not regress performance.",
+      "parentUuid": "158cc1de_717d287c",
+      "range": {
+        "startLine": 1110,
+        "startChar": 8,
+        "endLine": 1110,
+        "endChar": 46
+      },
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78565d99_ac6c3aad",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-12T11:57:51Z",
+      "side": 1,
+      "message": "Added some comments. I see no need to explicitly mention the SpillRegisters optimization, the fact that the STP is aligned should assuage concerns about preventing any useful optimizations.",
+      "parentUuid": "24681494_a020dafc",
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08711a9b_fcdf460e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -56,6 +98,24 @@
       "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10e7bc05_95d08aaa",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-12T11:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08711a9b_fcdf460e",
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -79,6 +139,30 @@
       "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc381af1_6c734055",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-12T11:57:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "143f22a1_e1da990c",
+      "range": {
+        "startLine": 1160,
+        "startChar": 13,
+        "endLine": 1160,
+        "endChar": 17
+      },
+      "revId": "fea2c7eefc0b9bfa2cef8c738ef7091a9b56ce4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
