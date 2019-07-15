@@ -22,6 +22,30 @@
       "revId": "5628735be8016ce11c5e1e98e52d83646f7efe36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "add12b6b_e53153a6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-15T08:14:13Z",
+      "side": 1,
+      "message": "I agree with you that VecMul and VecAvxMul differ in their semantics that AvxMul provides a non destructive source operand while VecMul overwrites one of the sources. As suggested, I have made necessary changes in the code generator and locations builder to handle it appropriately to get rid of #ifdef guards in loop optimization. Thank You.",
+      "parentUuid": "1944eeb5_b02aa845",
+      "range": {
+        "startLine": 1984,
+        "startChar": 34,
+        "endLine": 1984,
+        "endChar": 44
+      },
+      "revId": "5628735be8016ce11c5e1e98e52d83646f7efe36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
