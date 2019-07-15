@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "89c483ef_71f5a3af",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T15:10:02Z",
+      "side": 1,
+      "message": "The `N` in the \"store multiple\" and \"load multiple\" timings is increased only by one in the worst case. (And not at all for some cases covered by this CL.)",
+      "parentUuid": "8ac187bc_8f27dd13",
+      "range": {
+        "startLine": 2136,
+        "startChar": 6,
+        "endLine": 2136,
+        "endChar": 30
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80db78a7_0eab3017",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
