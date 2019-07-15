@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "918eca7c_7dbd718f",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T12:27:54Z",
+      "side": 1,
+      "message": "Sorry, I missed that the other_src and dst are actually XmmRegister rather than Location. Please change this to `other_src \u003d\u003d dst` to fix TreeHugger failures.",
+      "range": {
+        "startLine": 470,
+        "startChar": 24,
+        "endLine": 470,
+        "endChar": 45
+      },
+      "revId": "e081e41badea7898f2cc2bea81d9faee24c0bfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
