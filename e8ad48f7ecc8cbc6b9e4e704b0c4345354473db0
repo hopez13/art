@@ -46,6 +46,30 @@
       "revId": "e8ad48f7ecc8cbc6b9e4e704b0c4345354473db0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dc0e5bf_470a672c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7858,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T09:56:20Z",
+      "side": 0,
+      "message": "You may have removed the file in your local tree but this CL does not remove it. Use `git rm`.",
+      "parentUuid": "99e8f11f_ee6eb779",
+      "range": {
+        "startLine": 7858,
+        "startChar": 10,
+        "endLine": 7858,
+        "endChar": 28
+      },
+      "revId": "e8ad48f7ecc8cbc6b9e4e704b0c4345354473db0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
