@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "180ebc25_67731f73",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b905950f_0b520398",
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "992f424e_137ee3eb",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a051530f_203fb9b5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "992f424e_137ee3eb",
+      "range": {
+        "startLine": 2131,
+        "startChar": 6,
+        "endLine": 2131,
+        "endChar": 64
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3880c920_a7a2a820",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2019-07-12T19:19:13Z",
       "side": 1,
       "message": "Could you do some micro/macro benchmarking for that? Performance of PUSH/POP instructions might depend on the number of register pushed - from cores Software Optimization Guides.\n\nhttps://static.docs.arm.com/epm128372/20/arm_cortex_a55_software_optimization_guide_v2.pdf\nhttps://static.docs.arm.com/101398/0200/arm_cortex_a75_software_optimization_guide_v2.pdf",
+      "range": {
+        "startLine": 2136,
+        "startChar": 6,
+        "endLine": 2136,
+        "endChar": 30
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac187bc_8f27dd13",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "I\u0027d rather wait for post-submit Golem benchmarks. I expect the difference to be lost in the noise. If needed I can revert the ARM part of the CL.\n\nNote that while the PUSH/POP with extra registers may need some additional cycles, the old code has consecutive instructions with direct dependencies. I suspect that most methods do need the method pointer and a single `PUSH {r0-r2, ...}` may end up better than\n\n  PUSH {...}\n  SUB sp, #12\n  STR r0, [sp]\n\nOn the other hand, we\u0027re probably going to lose some performance on the POP where we really do not need to load the method pointer and `ADD sp, #...` can be issued with the preceding instruction.",
+      "parentUuid": "3880c920_a7a2a820",
       "range": {
         "startLine": 2136,
         "startChar": 6,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "bce9728f_4bf0058b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "Yes, the 32-bit pre-index instruction is the same size as two separate 16-bit instructions.",
+      "parentUuid": "80db78a7_0eab3017",
+      "range": {
+        "startLine": 2177,
+        "startChar": 4,
+        "endLine": 2177,
+        "endChar": 31
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e017f72_5b8c22c6",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "8d0f51a2_0214ed2a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e017f72_5b8c22c6",
+      "range": {
+        "startLine": 2220,
+        "startChar": 0,
+        "endLine": 2221,
+        "endChar": 35
+      },
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6223473_52a897d5",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 3
@@ -125,6 +239,24 @@
       "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c11c5a25_e6a27ad4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T13:04:47Z",
+      "side": 1,
+      "message": "I moved the corresponding comment above this line and changed `2u` to `r2.GetCode()`.",
+      "parentUuid": "d6223473_52a897d5",
+      "revId": "c833dc209e21ffda02046ccf6ba06f0d4d76af3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
