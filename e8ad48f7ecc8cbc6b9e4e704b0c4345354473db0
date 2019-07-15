@@ -118,6 +118,30 @@
       "revId": "e8ad48f7ecc8cbc6b9e4e704b0c4345354473db0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4038b3be_64788589",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7858,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-15T10:05:46Z",
+      "side": 0,
+      "message": "That does not remove the file, it preserves the old version. Since you\u0027re no longer using the old VecAvxSub and VecAvxAdd operations, you should remove that with\n\n  git rm compiler/optimizing/nodes_vector_x86.h\n  git commit --amend --no-edit\n  repo upload .",
+      "parentUuid": "afa82b83_a061efbb",
+      "range": {
+        "startLine": 7858,
+        "startChar": 10,
+        "endLine": 7858,
+        "endChar": 28
+      },
+      "revId": "e8ad48f7ecc8cbc6b9e4e704b0c4345354473db0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
