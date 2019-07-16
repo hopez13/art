@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Script to run all gtests located in the (Testing) Runtime APEX.
+# Script to run all gtests located in the (Testing) ART APEX.
 
 if [[ -z "$ART_TEST_CHROOT" ]]; then
   echo 'ART_TEST_CHROOT environment variable is empty; please set it before running this script.'
@@ -24,10 +24,10 @@ fi
 adb="${ADB:-adb}"
 
 android_i18n_root=/apex/com.android.i18n
-android_runtime_root=/apex/com.android.runtime
+android_runtime_root=/apex/com.android.art
 android_tzdata_root=/apex/com.android.tzdata
 
-# Search for executables under the `bin/art` directory of the Runtime APEX.
+# Search for executables under the `bin/art` directory of the ART APEX.
 tests=$("$adb" shell chroot "$ART_TEST_CHROOT" \
   find "$android_runtime_root/bin/art" -type f -perm /ugo+x | sort)
 
