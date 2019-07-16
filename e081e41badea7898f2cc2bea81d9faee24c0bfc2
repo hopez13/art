@@ -22,6 +22,30 @@
       "revId": "e081e41badea7898f2cc2bea81d9faee24c0bfc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d9c0aa7_a3469ee5",
+        "filename": "compiler/optimizing/code_generator_vector_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-16T07:35:06Z",
+      "side": 1,
+      "message": "I missed to notice it too. I have overloaded operartor \u003d\u003d in class XmmRegister and changed the code to \u003d\u003d. Thank You.",
+      "parentUuid": "918eca7c_7dbd718f",
+      "range": {
+        "startLine": 470,
+        "startChar": 24,
+        "endLine": 470,
+        "endChar": 45
+      },
+      "revId": "e081e41badea7898f2cc2bea81d9faee24c0bfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
