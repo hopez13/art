@@ -81,16 +81,17 @@ elif [[ $mode == "target" ]]; then
     # These targets are needed for the chroot environment.
     make_command+=" crash_dump event-log-tags"
   fi
-  # Build the Debug Runtime APEX (which is a superset of the Release Runtime APEX).
-  make_command+=" com.android.runtime.debug"
+  # Build the Debug ART APEX (which is a superset of the Release one).
+  make_command+=" com.android.art.debug"
   # Build the system linker configuration, which is needed to use the
   # Runtime APEX's linker configuration.
   make_command+=" ld.config.txt "
-  # Build the bootstrap Bionic artifacts links (linker, libc, libdl, libm).
-  # These targets create these symlinks:
-  # - from /system/bin/linker(64) to /apex/com.android.runtime/bin/linker(64); and
-  # - from /system/lib(64)/$lib to /apex/com.android.runtime/lib(64)/$lib.
-  make_command+=" linker libc.bootstrap libdl.bootstrap libm.bootstrap"
+  # FIXME: Need Bionic APEX stuff here?
+#  # Build the bootstrap Bionic artifacts links (linker, libc, libdl, libm).
+#  # These targets create these symlinks:
+#  # - from /system/bin/linker(64) to /apex/com.android.runtime/bin/linker(64); and
+#  # - from /system/lib(64)/$lib to /apex/com.android.runtime/lib(64)/$lib.
+#  make_command+=" linker libc.bootstrap libdl.bootstrap libm.bootstrap"
   # Build the Time Zone Data APEX.
   make_command+=" com.android.tzdata"
   mode_suffix="-target"

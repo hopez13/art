@@ -143,18 +143,17 @@ echo -e "${green}Activating Runtime APEX...${nc}"
 # Manually "activate" the flattened Debug Runtime APEX by syncing it to the
 # /apex directory in the chroot.
 #
-# We copy the files from `/system/apex/com.android.runtime.debug` to
-# `/apex/com.android.runtime` in the chroot directory, instead of simply using a
-# symlink, as Bionic's linker relies on the real path name of a binary
-# (e.g. `/apex/com.android.runtime/bin/dex2oat`) to select the linker
-# configuration.
+# We copy the files from `/system/apex/com.android.art.debug` to
+# `/apex/com.android.art` in the chroot directory, instead of simply using a
+# symlink, as Bionic's linker relies on the real path name of a binary (e.g.
+# `/apex/com.android.art/bin/dex2oat`) to select the linker configuration.
 #
 # TODO: Handle the case of build targets using non-flatted APEX packages.
 # As a workaround, one can run `export TARGET_FLATTEN_APEX=true` before building
 # a target to have its APEX packages flattened.
-adb shell rm -rf "$ART_TEST_CHROOT/apex/com.android.runtime"
-adb shell cp -a "$ART_TEST_CHROOT/system/apex/com.android.runtime.debug" \
-  "$ART_TEST_CHROOT/apex/com.android.runtime"
+adb shell rm -rf "$ART_TEST_CHROOT/apex/com.android.art"
+adb shell cp -a "$ART_TEST_CHROOT/system/apex/com.android.art.debug" \
+  "$ART_TEST_CHROOT/apex/com.android.art"
 
 echo -e "${green}Activating Time Zone Data APEX...${nc}"
 # Manually "activate" the flattened Time Zone Data APEX by syncing it to the
