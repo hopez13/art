@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5514ab26_25993c6b",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-16T16:40:33Z",
+      "side": 1,
+      "message": "Note: discussed with ccross. We\u0027re both not sure why you need to \"m clean\" anything. Leaving it as-is for now.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 66
+      },
+      "revId": "a50b6db394b02f799e484e289c1aed25affa1cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
