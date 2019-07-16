@@ -22,6 +22,30 @@
       "revId": "690b532508384d227cbf78a79868174a5186c1a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2afd139_a42a1f39",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2019-07-16T18:42:24Z",
+      "side": 1,
+      "message": "Yes. The problem is that the annotation does not get propagated/modified (!instance_-\u003eprofiler_lock_ does not become !instance-\u003eprofiler_lock_), which I think is technically correct (as instance_ might change).\n\nI could have made it a MutexLock and a ScopedUnlock inside Run. It seemed more explicit to do Lock and Unlock (and mark RELEASE).",
+      "parentUuid": "d6043904_7530ed68",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 60
+      },
+      "revId": "690b532508384d227cbf78a79868174a5186c1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
