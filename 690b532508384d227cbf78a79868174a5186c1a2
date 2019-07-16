@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6043904_7530ed68",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2019-07-16T17:36:17Z",
+      "side": 1,
+      "message": "Kind of gross, but lock is only needed to access instance_ right?",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 60
+      },
+      "revId": "690b532508384d227cbf78a79868174a5186c1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
