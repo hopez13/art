@@ -121,7 +121,7 @@ art_tools_host_only_binaries = [
     "hprof-conv",
 ]
 
-// Libraries needed to use com.android.runtime.host for zipapex run-tests
+// Libraries needed to use com.android.art.host for zipapex run-tests
 art_runtime_host_run_test_libs = [
     "libartd-disassembler",
 ]
