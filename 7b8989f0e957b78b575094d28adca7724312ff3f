@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23e36239_ad976df5",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-17T13:31:46Z",
+      "side": 1,
+      "message": "Since this link was removed from the runtime namespace it shouldn\u0027t be here either.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 72
+      },
+      "revId": "7b8989f0e957b78b575094d28adca7724312ff3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a420017d_90898fc9",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2019-07-17T13:31:46Z",
+      "side": 1,
+      "message": "Nit: Please delete extra empty line.",
+      "revId": "7b8989f0e957b78b575094d28adca7724312ff3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
