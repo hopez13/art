@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b22ec5a_e44b4aff",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2019-07-17T13:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a96a0492_210ab78f",
+      "range": {
+        "startLine": 14,
+        "startChar": 56,
+        "endLine": 15,
+        "endChar": 41
+      },
+      "revId": "ec9cbbf20764f1f613ed9b99ce1a2bbbcd5b53d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eb0c64a_167feda1",
         "filename": "build/apex/ld.config.txt",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "ec9cbbf20764f1f613ed9b99ce1a2bbbcd5b53d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef79f0f2_e58225b0",
+        "filename": "build/apex/ld.config.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2019-07-17T13:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb0c64a_167feda1",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "ec9cbbf20764f1f613ed9b99ce1a2bbbcd5b53d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
