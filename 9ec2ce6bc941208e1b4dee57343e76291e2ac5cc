@@ -117,6 +117,30 @@
       "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292d7e64_7c61bfcd",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2019-07-17T14:30:06Z",
+      "side": 1,
+      "message": "I have been reluctant to do that in GC itself. And, as you can see in the stalled https://android-review.googlesource.com/937263 , I am concerned about the heap verification. If we see heap corruption in debug build, the DCHECK_ALIGNED(ref, kObjectAlignment) in ObjPtr\u003cMirrorType\u003e::Encode() can hide other useful debugging output.",
+      "parentUuid": "5e6fc8ee_293057cd",
+      "range": {
+        "startLine": 593,
+        "startChar": 6,
+        "endLine": 593,
+        "endChar": 21
+      },
+      "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
