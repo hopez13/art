@@ -764,14 +764,14 @@ void JavaVMExt::DisallowNewWeakGlobals() {
   // mutator lock exclusively held so that we don't have any threads in the middle of
   // DecodeWeakGlobal.
   Locks::mutator_lock_->AssertExclusiveHeld(self);
-  allow_accessing_weak_globals_.store(false, std::memory_order_seq_cst);
+  allow_accessing_weak_globals_.StoreSequentiallyConsistent(false);
 }
 
 void JavaVMExt::AllowNewWeakGlobals() {
   CHECK(!kUseReadBarrier);
   Thread* self = Thread::Current();
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  allow_accessing_weak_globals_.store(true, std::memory_order_seq_cst);
+  allow_accessing_weak_globals_.StoreSequentiallyConsistent(true);
   weak_globals_add_condition_.Broadcast(self);
 }
 

@@ -1756,7 +1756,7 @@ Closure* Thread::GetFlipFunction() {
 void Thread::SetFlipFunction(Closure* function) {
   CHECK(function != nullptr);
   Atomic<Closure*>* atomic_func = reinterpret_cast<Atomic<Closure*>*>(&tlsPtr_.flip_function);
-  atomic_func->store(function, std::memory_order_seq_cst);
+  atomic_func->StoreSequentiallyConsistent(function);
 }
 
 void Thread::FullSuspendCheck() {
@@ -2595,7 +2595,7 @@ bool Thread::Interrupted() {
   // No other thread can concurrently reset the interrupted flag.
   bool interrupted = tls32_.interrupted.load(std::memory_order_seq_cst);
   if (interrupted) {
-    tls32_.interrupted.store(false, std::memory_order_seq_cst);
+    tls32_.interrupted.StoreSequentiallyConsistent(false);
   }
   return interrupted;
 }
@@ -2611,7 +2611,7 @@ void Thread::Interrupt(Thread* self) {
     if (tls32_.interrupted.load(std::memory_order_seq_cst)) {
       return;
     }
-    tls32_.interrupted.store(true, std::memory_order_seq_cst);
+    tls32_.interrupted.StoreSequentiallyConsistent(true);
     NotifyLocked(self);
   }
   Unpark();

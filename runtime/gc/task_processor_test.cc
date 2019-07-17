@@ -54,7 +54,7 @@ class WorkUntilDoneTask : public SelfDeletingTask {
   }
   void Run(Thread* self) override {
     task_processor_->RunAllTasks(self);
-    done_running_->store(true, std::memory_order_seq_cst);
+    done_running_->StoreSequentiallyConsistent(true);
   }
 
  private:
@@ -87,8 +87,8 @@ TEST_F(TaskProcessorTest, Interrupt) {
   ASSERT_TRUE(done_running.load(std::memory_order_seq_cst));
 
   // Test that we finish remaining tasks before returning from RunTasksUntilInterrupted.
-  counter.store(0, std::memory_order_seq_cst);
-  done_running.store(false, std::memory_order_seq_cst);
+  counter.StoreSequentiallyConsistent(0);
+  done_running.StoreSequentiallyConsistent(false);
   // Self interrupt before any of the other tasks run, but since we added them we should keep on
   // working until all the tasks are completed.
   task_processor.Stop(self);

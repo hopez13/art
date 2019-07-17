@@ -556,7 +556,7 @@ class Thread {
   bool IsInterrupted();
   void Interrupt(Thread* self) REQUIRES(!wait_mutex_);
   void SetInterrupted(bool i) {
-    tls32_.interrupted.store(i, std::memory_order_seq_cst);
+    tls32_.interrupted.StoreSequentiallyConsistent(i);
   }
   void Notify() REQUIRES(!wait_mutex_);
 

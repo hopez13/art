@@ -604,13 +604,13 @@ void JitCodeCache::BroadcastForInlineCacheAccess() {
 
 void JitCodeCache::AllowInlineCacheAccess() {
   DCHECK(!kUseReadBarrier);
-  is_weak_access_enabled_.store(true, std::memory_order_seq_cst);
+  is_weak_access_enabled_.StoreSequentiallyConsistent(true);
   BroadcastForInlineCacheAccess();
 }
 
 void JitCodeCache::DisallowInlineCacheAccess() {
   DCHECK(!kUseReadBarrier);
-  is_weak_access_enabled_.store(false, std::memory_order_seq_cst);
+  is_weak_access_enabled_.StoreSequentiallyConsistent(false);
 }
 
 void JitCodeCache::CopyInlineCacheInto(const InlineCache& ic,

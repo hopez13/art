@@ -123,7 +123,7 @@ class MANAGED HeapReference {
   template <bool kIsVolatile = false>
   void Assign(MirrorType* other) REQUIRES_SHARED(Locks::mutator_lock_) {
     if (kIsVolatile) {
-      reference_.store(Compression::Compress(other), std::memory_order_seq_cst);
+      reference_.StoreSequentiallyConsistent(Compression::Compress(other));
     } else {
       reference_.StoreJavaData(Compression::Compress(other));
     }

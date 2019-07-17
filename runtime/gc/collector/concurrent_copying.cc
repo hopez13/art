@@ -1719,8 +1719,8 @@ void ConcurrentCopying::DisableMarking() {
     heap_->rb_table_->ClearAll();
     DCHECK(heap_->rb_table_->IsAllCleared());
   }
-  is_mark_stack_push_disallowed_.store(1, std::memory_order_seq_cst);
-  mark_stack_mode_.store(kMarkStackModeOff, std::memory_order_seq_cst);
+  is_mark_stack_push_disallowed_.StoreSequentiallyConsistent(1);
+  mark_stack_mode_.StoreSequentiallyConsistent(kMarkStackModeOff);
 }
 
 void ConcurrentCopying::IssueEmptyCheckpoint() {
@@ -2612,9 +2612,9 @@ void ConcurrentCopying::ReclaimPhase() {
     }
     IssueEmptyCheckpoint();
     // Disable the check.
-    is_mark_stack_push_disallowed_.store(0, std::memory_order_seq_cst);
+    is_mark_stack_push_disallowed_.StoreSequentiallyConsistent(0);
     if (kUseBakerReadBarrier) {
-      updated_all_immune_objects_.store(false, std::memory_order_seq_cst);
+      updated_all_immune_objects_.StoreSequentiallyConsistent(false);
     }
     CheckEmptyMarkStack();
   }
