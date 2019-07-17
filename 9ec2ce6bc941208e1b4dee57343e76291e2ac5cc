@@ -93,6 +93,30 @@
       "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e6fc8ee_293057cd",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-17T14:22:10Z",
+      "side": 1,
+      "message": "`ObjPtr\u003c\u003e` is a debugging feature implementing \"object poisoning\", which checks we are not manipulating stale mirror::Object* pointers. It was introduced by Mathieu, and its deployment was further extended in the ART code base by Vladimir.\n\nIn the past months we\u0027ve tried to minimize the use of raw mirror::Object* in the code base, and instead either use:\n\n- `ObjPtr\u003cmirror::Object\u003e`, when the object is not expected to move between the moment its reference is captured in an `ObjPtr\u003cmirror::Object\u003e` object and all of its uses (ObjPtr helps catch stale references); or\n- `Handle\u003cmirror::Object\u003e`, if the object may move (the handle ensures the object will be visited by the GC).",
+      "parentUuid": "0c52f80f_b6db8369",
+      "range": {
+        "startLine": 593,
+        "startChar": 6,
+        "endLine": 593,
+        "endChar": 21
+      },
+      "revId": "9ec2ce6bc941208e1b4dee57343e76291e2ac5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

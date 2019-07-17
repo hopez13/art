@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c4083a2_af5e701a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-17T14:22:10Z",
+      "side": 1,
+      "message": "Maybe refactor this logic in a new method of ZygoteSpace?",
+      "range": {
+        "startLine": 2357,
+        "startChar": 0,
+        "endLine": 2366,
+        "endChar": 3
+      },
+      "revId": "8787cf87606f2a0c45b44578c7a9a254b7c6dfc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6c495d6_2df7c388",
+        "filename": "runtime/gc/space/large_object_space.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-17T14:22:10Z",
+      "side": 1,
+      "message": "We usually don\u0027t use `const` for arguments of primitive type in the ART code base.\n\nAlso, LargeObjectSpace::SetAllLargeObjectsAsZygoteObjects has very few callers: I\u0027d remove the default value (likewise in subclasses below).\n\nAlternatively, maybe consider making set_mark_bit a field of LargeObjectSpace?",
+      "range": {
+        "startLine": 112,
+        "startChar": 63,
+        "endLine": 112,
+        "endChar": 73
+      },
+      "revId": "8787cf87606f2a0c45b44578c7a9a254b7c6dfc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
