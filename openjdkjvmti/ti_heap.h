@@ -51,6 +51,8 @@ class HeapUtil {
 
   static jvmtiError ForceGarbageCollection(jvmtiEnv* env);
 
+  static jvmtiError ChangeArraySize(jvmtiEnv* env, jobject arr, jsize new_size);
+
   ObjectTagTable* GetTags() {
     return tags_;
   }
