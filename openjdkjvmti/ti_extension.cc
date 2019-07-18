@@ -370,6 +370,27 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
     return error;
   }
 
+  // ChangeArraySize
+  error = add_extension(
+      reinterpret_cast<jvmtiExtensionFunction>(HeapExtensions::ChangeArraySize),
+      "com.android.art.heap.change_array_size",
+      "Changes the size of a java array. As far as all JNI and java code is concerned this is"
+      " atomic. Must have can_tag_objects capability. If the new length of the array is smaller"
+      " than the original length the new array will appear to be truncated.",
+      {
+        { "array", JVMTI_KIND_IN, JVMTI_TYPE_JOBJECT, false },
+        { "new_size", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+      },
+      {
+         ERR(NULL_POINTER),
+         ERR(MUST_POSSESS_CAPABILITY),
+         ERR(ILLEGAL_ARGUMENT),
+         ERR(OUT_OF_MEMORY),
+      });
+  if (error != ERR(NONE)) {
+    return error;
+  }
+
   // Copy into output buffer.
 
   *extension_count_ptr = ext_vector.size();
