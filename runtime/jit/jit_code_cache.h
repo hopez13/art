@@ -25,6 +25,7 @@
 #include <vector>
 
 #include "base/arena_containers.h"
+#include "base/array_ref.h"
 #include "base/atomic.h"
 #include "base/histogram.h"
 #include "base/macros.h"
@@ -74,7 +75,54 @@ namespace jit {
 
 class MarkCodeClosure;
 
-using CodeCacheBitmap = gc::accounting::MemoryRangeBitmap<kJitCodeAlignment>;
+// Type of bitmap used for tracking live functions in the JIT code cache for the purposes
+// of garbage collecting code.
+using CodeCacheBitmap = gc::accounting::MemoryRangeBitmap<kJitCodeAccountingBytes>;
+
+// Class abstraction over a map of ArtMethod -> compiled code, where the
+// ArtMethod are compiled by the zygote, and the map acts as a communication
+// channel between the zygote and the other processes.
+// For the zygote process, this map is the only map it is placing the compiled
+// code. JitCodeCache.method_code_map_ is empty.
+//
+// This map is writable only by the zygote, and readable by all children.
+class ZygoteMap {
+ public:
+  explicit ZygoteMap(JitMemoryRegion* region) : map_(), region_(region) {}
+
+  // Initialize the data structure so it can hold `number_of_methods` mappings.
+  // Note that the map is fixed size and never grows.
+  void Initialize(uint32_t number_of_methods) REQUIRES(!Locks::jit_lock_);
+
+  // Add the mapping method -> code.
+  void Put(const void* code, ArtMethod* method) REQUIRES(Locks::jit_lock_);
+
+  // Return the code pointer for the given method. If pc is not zero, check that
+  // the pc falls into that code range. Return null otherwise.
+  const void* GetCodeFor(ArtMethod* method, uintptr_t pc = 0) const;
+
+  // Return whether the map has associated code for the given method.
+  bool ContainsMethod(ArtMethod* method) const {
+    return GetCodeFor(method) != nullptr;
+  }
+
+ private:
+  struct Entry {
+    ArtMethod* method;
+    // Note we currently only allocate code in the low 4g, so we could just reserve 4 bytes
+    // for the code pointer. For simplicity and in the case we move to 64bit
+    // addresses for code, just keep it void* for now.
+    const void* code_ptr;
+  };
+
+  // The map allocated with `region_`.
+  ArrayRef<Entry> map_;
+
+  // The region in which the map is allocated.
+  JitMemoryRegion* const region_;
+
+  DISALLOW_COPY_AND_ASSIGN(ZygoteMap);
+};
 
 class JitCodeCache {
  public:
@@ -94,7 +142,11 @@ class JitCodeCache {
                               std::string* error_msg);
   ~JitCodeCache();
 
-  bool NotifyCompilationOf(ArtMethod* method, Thread* self, bool osr, bool prejit)
+  bool NotifyCompilationOf(ArtMethod* method,
+                           Thread* self,
+                           bool osr,
+                           bool prejit,
+                           JitMemoryRegion* region)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::jit_lock_);
 
@@ -127,13 +179,13 @@ class JitCodeCache {
   uint8_t* CommitCode(Thread* self,
                       JitMemoryRegion* region,
                       ArtMethod* method,
-                      uint8_t* stack_map,
-                      uint8_t* roots_data,
                       const uint8_t* code,
                       size_t code_size,
-                      size_t data_size,
-                      bool osr,
+                      const uint8_t* stack_map,
+                      size_t stack_map_size,
+                      uint8_t* roots_data,
                       const std::vector<Handle<mirror::Object>>& roots,
+                      bool osr,
                       bool has_should_deoptimize_flag,
                       const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -152,22 +204,20 @@ class JitCodeCache {
   // Return the code pointer for a JNI-compiled stub if the method is in the cache, null otherwise.
   const void* GetJniStubCode(ArtMethod* method) REQUIRES(!Locks::jit_lock_);
 
-  // Allocate a region of data that contain `size` bytes, and potentially space
-  // for storing `number_of_roots` roots. Returns null if there is no more room.
-  // Return the number of bytes allocated.
-  size_t ReserveData(Thread* self,
-                     JitMemoryRegion* region,
-                     size_t stack_map_size,
-                     size_t number_of_roots,
-                     ArtMethod* method,
-                     uint8_t** stack_map_data,
-                     uint8_t** roots_data)
+  // Allocate a region of data that will contain a stack map of size `stack_map_size` and
+  // `number_of_roots` roots accessed by the JIT code.
+  // Return a pointer to where roots will be stored.
+  uint8_t* ReserveData(Thread* self,
+                       JitMemoryRegion* region,
+                       size_t stack_map_size,
+                       size_t number_of_roots,
+                       ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::jit_lock_);
 
   // Clear data from the data portion of the code cache.
   void ClearData(
-      Thread* self, JitMemoryRegion* region, uint8_t* stack_map_data, uint8_t* roots_data)
+      Thread* self, JitMemoryRegion* region, uint8_t* roots_data)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::jit_lock_);
 
@@ -213,7 +263,7 @@ class JitCodeCache {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool OwnsSpace(const void* mspace) const NO_THREAD_SAFETY_ANALYSIS {
-    return private_region_.OwnsSpace(mspace);
+    return private_region_.OwnsSpace(mspace) || shared_region_.OwnsSpace(mspace);
   }
 
   void* MoreCore(const void* mspace, intptr_t increment);
@@ -256,6 +306,9 @@ class JitCodeCache {
   bool GetGarbageCollectCodeUnsafe() const NO_THREAD_SAFETY_ANALYSIS {
     return garbage_collect_code_;
   }
+  ZygoteMap* GetZygoteMap() {
+    return &zygote_map_;
+  }
 
   // If Jit-gc has been disabled (and instrumentation has been enabled) this will return the
   // jit-compiled entrypoint for this method.  Otherwise it will return null.
@@ -276,7 +329,15 @@ class JitCodeCache {
   // is debuggable.
   void ClearEntryPointsInZygoteExecSpace() REQUIRES(!Locks::jit_lock_) REQUIRES(Locks::mutator_lock_);
 
-  JitMemoryRegion* GetPrivateRegion() { return &private_region_; }
+  JitMemoryRegion* GetCurrentRegion();
+  bool IsSharedRegion(const JitMemoryRegion& region) const { return &region == &shared_region_; }
+  bool CanAllocateProfilingInfo() {
+    // If we don't have a private region, we cannot allocate a profiling info.
+    // A shared region doesn't support in general GC objects, which a profiling info
+    // can reference.
+    JitMemoryRegion* region = GetCurrentRegion();
+    return region->IsValid() && !IsSharedRegion(*region);
+  }
 
  private:
   JitCodeCache();
@@ -286,21 +347,16 @@ class JitCodeCache {
   uint8_t* CommitCodeInternal(Thread* self,
                               JitMemoryRegion* region,
                               ArtMethod* method,
-                              uint8_t* stack_map,
-                              uint8_t* roots_data,
                               const uint8_t* code,
                               size_t code_size,
-                              size_t data_size,
-                              bool osr,
+                              const uint8_t* stack_map,
+                              size_t stack_map_size,
+                              uint8_t* roots_data,
                               const std::vector<Handle<mirror::Object>>& roots,
+                              bool osr,
                               bool has_should_deoptimize_flag,
                               const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES(!Locks::jit_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  // Adds the given roots to the roots_data. Only a member for annotalysis.
-  void FillRootTable(uint8_t* roots_data, const std::vector<Handle<mirror::Object>>& roots)
-      REQUIRES(Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ProfilingInfo* AddProfilingInfoInternal(Thread* self,
@@ -415,6 +471,10 @@ class JitCodeCache {
 
   // ProfilingInfo objects we have allocated.
   std::vector<ProfilingInfo*> profiling_infos_ GUARDED_BY(Locks::jit_lock_);
+
+  // Methods that the zygote has compiled and can be shared across processes
+  // forked from the zygote.
+  ZygoteMap zygote_map_;
 
   // -------------- JIT GC related data structures ----------------------- //
 

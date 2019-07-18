@@ -72,13 +72,7 @@ ART_HOST_DEPENDENCIES += $(ART_HOST_SHARED_LIBRARY_DEBUG_DEPENDENCIES)
 endif
 
 ART_TARGET_DEPENDENCIES := \
-  $(ART_TARGET_EXECUTABLES) \
-  $(ART_TARGET_DEX_DEPENDENCIES) \
-  $(ART_TARGET_SHARED_LIBRARY_DEPENDENCIES)
-
-ifeq ($(ART_BUILD_TARGET_DEBUG),true)
-ART_TARGET_DEPENDENCIES += $(ART_TARGET_SHARED_LIBRARY_DEBUG_DEPENDENCIES)
-endif
+  $(ART_TARGET_DEX_DEPENDENCIES)
 
 ########################################################################
 # test rules
@@ -551,6 +545,11 @@ PRIVATE_RUNTIME_DEPENDENCY_LIBS := \
   lib/libandroidio.so \
   lib64/libandroidio.so \
 
+# Generate copies of Bionic bootstrap artifacts and Runtime APEX
+# libraries in the `system` (TARGET_OUT) directory. This is dangerous
+# as these files could inadvertently stay in this directory and be
+# included in a system image.
+#
 # Copy some libraries into `$(TARGET_OUT)/lib(64)` (the
 # `/system/lib(64)` directory to be sync'd to the target) for ART testing
 # purposes:
@@ -566,8 +565,10 @@ PRIVATE_RUNTIME_DEPENDENCY_LIBS := \
 #   directory under the build tree containing the (Debug) Runtime APEX
 #   artifacts, which is not sync'd to the target).
 #
-# TODO(b/121117762, b/129332183): Remove this when the ART Buildbot
-# and Golem have full support for the Runtime APEX.
+# This target is only used by Golem now.
+#
+# TODO(b/129332183): Remove this when Golem has full support for the
+# Runtime APEX.
 .PHONY: standalone-apex-files
 standalone-apex-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker com.android.runtime.debug
 	for f in $(PRIVATE_BIONIC_FILES); do \
@@ -596,20 +597,20 @@ standalone-apex-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker com.
 # the Runtime APEX. This is a temporary change needed until Golem
 # fully supports the Runtime APEX.
 #
-# TODO(b/121117762, b/129332183): Remove this when the ART Buildbot
-# and Golem have full support for the Runtime APEX.
+# TODO(b/129332183): Remove this when Golem has full support for the
+# Runtime APEX.
 
 # Also include:
 # - a copy of the ICU prebuilt .dat file in /system/etc/icu on target
 #   (see module `icu-data-art-test-runtime`); and
-# - a copy of the time zone data prebuilt files in /system/etc/tz on
-#   target, (see modules `tzdata-art-test-runtime`,
-#   `tzlookup.xml-art-test-runtime`, and `tz_version-art-test-runtime`)
-# so that they can be found even if the Runtime APEX is not available,
+# so that it can be found even if the Runtime APEX is not available,
 # by setting the environment variable `ART_TEST_ANDROID_RUNTIME_ROOT`
 # to "/system" on device. This is a temporary change needed
 # until Golem fully supports the Runtime APEX.
 #
+# TODO(b/129332183): Remove this when Golem has full support for the
+# Runtime APEX.
+
 # Also include:
 # - a copy of the time zone data prebuilt files in
 #   /system/etc/tzdata_module/etc/tz and /system/etc/tzdata_module/etc/icu
@@ -620,10 +621,10 @@ standalone-apex-files: libc.bootstrap libdl.bootstrap libm.bootstrap linker com.
 # by setting the environment variable `ART_TEST_ANDROID_TZDATA_ROOT`
 # to "/system/etc/tzdata_module" on device. This is a temporary change needed
 # until Golem fully supports the Time Zone Data APEX.
-
 #
-# TODO(b/121117762, b/129332183): Remove this when the ART Buildbot
-# and Golem have full support for the Runtime APEX.
+# TODO(b/129332183): Remove this when Golem has full support for the
+# Runtime APEX (and TZ Data APEX).
+
 ART_TARGET_SHARED_LIBRARY_BENCHMARK := $(TARGET_OUT_SHARED_LIBRARIES)/libartbenchmark.so
 build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(TARGET_OUT_EXECUTABLES)/art \
@@ -635,8 +636,6 @@ build-art-target-golem: dex2oat dalvikvm linker libstdc++ \
                         $(TARGET_CORE_IMG_OUT_BASE)-interpreter.art \
                         libc.bootstrap libdl.bootstrap libm.bootstrap \
                         icu-data-art-test-runtime \
-                        tzdata-art-test-runtime tzlookup.xml-art-test-runtime \
-                        tz_version-art-test-runtime \
                         tzdata-art-test-tzdata tzlookup.xml-art-test-tzdata \
                         tz_version-art-test-tzdata icu_overlay-art-test-tzdata \
                         standalone-apex-files
