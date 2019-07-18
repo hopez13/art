@@ -738,9 +738,10 @@
     },
     {
         "tests": "660-clinit",
-        "variant": "no-image | no-prebuild | jvmti-stress | redefine-stress",
+        "variant": "no-image | no-prebuild | jvmti-stress | redefine-stress | debuggable",
         "description": ["Tests <clinit> for app images, which --no-image, --no-prebuild, ",
-                        "and --redefine-stress do not create"]
+                        "and --redefine-stress do not create. Disable for debuggable since ",
+                        "debuggable blocks AOT initialization"]
     },
     {
         "tests": ["961-default-iface-resolution-gen",
