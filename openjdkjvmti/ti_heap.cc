@@ -16,34 +16,59 @@
 
 #include "ti_heap.h"
 
+#include "android-base/logging.h"
+#include "android-base/thread_annotations.h"
+#include "arch/context.h"
 #include "art_field-inl.h"
 #include "art_jvmti.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "base/utils.h"
 #include "class_linker.h"
 #include "class_root.h"
+#include "deopt_manager.h"
 #include "dex/primitive.h"
+#include "gc/collector_type.h"
+#include "gc/gc_cause.h"
 #include "gc/heap-visit-objects-inl.h"
-#include "gc/heap.h"
+#include "gc/heap-inl.h"
+#include "gc/scoped_gc_critical_section.h"
 #include "gc_root-inl.h"
+#include "gc_root.h"
+#include "handle.h"
 #include "handle_scope.h"
 #include "java_frame_root_info.h"
 #include "jni/jni_env_ext.h"
 #include "jni/jni_id_manager.h"
 #include "jni/jni_internal.h"
+#include "jvmti.h"
 #include "jvmti_weak_table-inl.h"
+#include "mirror/array-inl.h"
+#include "mirror/array.h"
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
+#include "mirror/object-refvisitor-inl.h"
+#include "mirror/object.h"
 #include "mirror/object_array-inl.h"
+#include "mirror/object_array-alloc-inl.h"
+#include "mirror/object_reference.h"
 #include "obj_ptr-inl.h"
+#include "obj_ptr.h"
+#include "object_callbacks.h"
 #include "object_tagging.h"
+#include "offsets.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "scoped_thread_state_change.h"
 #include "stack.h"
 #include "thread-inl.h"
+#include "thread.h"
 #include "thread_list.h"
+#include "ti_logging.h"
+#include "ti_stack.h"
+#include "ti_thread.h"
 #include "well_known_classes.h"
+#include <ios>
 
 namespace openjdkjvmti {
 
@@ -1589,6 +1614,247 @@ jvmtiError HeapExtensions::IterateThroughHeapExt(jvmtiEnv* env,
                               klass,
                               callbacks,
                               user_data);
+}
+
+namespace {
+
+using ArrayPtr = art::ObjPtr<art::mirror::Array>;
+
+static void ReplaceObjectReferences(ArrayPtr old_arr_ptr, ArrayPtr new_arr_ptr)
+    REQUIRES(art::Locks::mutator_lock_,
+             art::Locks::user_code_suspension_lock_,
+             art::Roles::uninterruptible_) {
+  art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
+      [&](art::mirror::Object* ref) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+        // Rewrite all references in the object if needed.
+        class ResizeReferenceVisitor {
+         public:
+          using CompressedObj = art::mirror::CompressedReference<art::mirror::Object>;
+          ResizeReferenceVisitor(ArrayPtr old_arr, ArrayPtr new_arr)
+              : old_arr_(old_arr), new_arr_(new_arr) {}
+
+          // Ignore class roots. These do not need to be handled for arrays.
+          void VisitRootIfNonNull(CompressedObj* root ATTRIBUTE_UNUSED) const {}
+          void VisitRoot(CompressedObj* root ATTRIBUTE_UNUSED) const {}
+
+          void operator()(art::ObjPtr<art::mirror::Object> obj,
+                          art::MemberOffset off,
+                          bool is_static ATTRIBUTE_UNUSED) const
+              REQUIRES_SHARED(art::Locks::mutator_lock_) {
+            if (obj->GetFieldObject<art::mirror::Object>(off) == old_arr_) {
+              LOG(DEBUG) << "Updating field at offset " << off.Uint32Value() << " of type "
+                         << obj->GetClass()->PrettyClass();
+              obj->SetFieldObject</*transaction*/ false>(off, new_arr_);
+            }
+          }
+
+          // java.lang.ref.Reference visitor.
+          void operator()(art::ObjPtr<art::mirror::Class> klass ATTRIBUTE_UNUSED,
+                          art::ObjPtr<art::mirror::Reference> ref) const
+              REQUIRES_SHARED(art::Locks::mutator_lock_) {
+            operator()(ref, art::mirror::Reference::ReferentOffset(), /* is_static */ false);
+          }
+
+         private:
+          ArrayPtr old_arr_;
+          ArrayPtr new_arr_;
+        };
+
+        ResizeReferenceVisitor rrv(old_arr_ptr, new_arr_ptr);
+        ref->VisitReferences(rrv, rrv);
+      });
+}
+
+static void ReplaceStrongRoots(art::Thread* self, ArrayPtr old_arr_ptr, ArrayPtr new_arr_ptr)
+    REQUIRES(art::Locks::mutator_lock_,
+             art::Locks::user_code_suspension_lock_,
+             art::Roles::uninterruptible_) {
+  // replace root references expcept java frames.
+  struct ResizeRootVisitor : public art::RootVisitor {
+   public:
+    ResizeRootVisitor(ArrayPtr new_val, ArrayPtr old_val)
+        : new_val_(new_val), old_val_(old_val) {}
+
+    void VisitRoots(art::mirror::Object*** roots, size_t count, const art::RootInfo& info) override
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      art::mirror::Object*** end = roots + count;
+      for (art::mirror::Object** obj = *roots; roots != end; obj = *(++roots)) {
+        if (*obj == old_val_) {
+          // Java frames might have the JIT doing optimizations so we need to handle them specially.
+          if (info.GetType() == art::RootType::kRootJavaFrame) {
+            threads_with_roots_.insert(info.GetThreadId());
+            continue;
+          }
+          *obj = new_val_.Ptr();
+        }
+      }
+    }
+
+    void VisitRoots(art::mirror::CompressedReference<art::mirror::Object>** roots,
+                    size_t count,
+                    const art::RootInfo& info) override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      art::mirror::CompressedReference<art::mirror::Object>** end = roots + count;
+      for (art::mirror::CompressedReference<art::mirror::Object>* obj = *roots; roots != end;
+           obj = *(++roots)) {
+        if (obj->AsMirrorPtr() == old_val_) {
+          // Java frames might have the JIT doing optimizations so we need to handle them specially.
+          if (info.GetType() == art::RootType::kRootJavaFrame) {
+            threads_with_roots_.insert(info.GetThreadId());
+            continue;
+          }
+          obj->Assign(new_val_);
+        }
+      }
+    }
+
+    const std::unordered_set<uint32_t>& GetThreadsWithJavaFrameRoots() {
+      return threads_with_roots_;
+    }
+
+   private:
+    ArrayPtr new_val_;
+    ArrayPtr old_val_;
+    std::unordered_set<uint32_t> threads_with_roots_;
+  };
+  ResizeRootVisitor rrv(new_arr_ptr, old_arr_ptr);
+  art::Runtime::Current()->VisitRoots(&rrv, art::VisitRootFlags::kVisitRootFlagAllRoots);
+  const std::unordered_set<uint32_t>& threads_with_roots = rrv.GetThreadsWithJavaFrameRoots();
+  // Handle java Frames
+  if (!threads_with_roots.empty()) {
+    std::unique_ptr<art::Context> context(art::Context::Create());
+    art::MutexLock mu(self, *art::Locks::thread_list_lock_);
+    art::Runtime::Current()->GetThreadList()->ForEach(
+        [&](art::Thread* t) NO_THREAD_SAFETY_ANALYSIS {
+          if (threads_with_roots.find(t->GetThreadId()) != threads_with_roots.end()) {
+            bool needs_deopt = false;
+            bool found_roots = false;
+            art::StackVisitor::WalkStack(
+              [&](art::StackVisitor* v) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+                art::ArtMethod* method = v->GetMethod();
+                if (method->IsNative() || method->IsRuntimeMethod()) {
+                  return true;
+                }
+                uint32_t num_slots = method->DexInstructionData().RegistersSize();
+                for (uint32_t i = 0; i < num_slots; i++) {
+                  uint32_t val;
+                  if (v->GetVReg(method, i, art::VRegKind::kReferenceVReg, &val) &&
+                      static_cast<uintptr_t>(val) == reinterpret_cast<uintptr_t>(old_arr_ptr.Ptr())) {
+                    needs_deopt = needs_deopt || !v->IsShadowFrame();
+                    found_roots = true;
+                    v->SetVRegReference(method, i, new_arr_ptr);
+                    LOG(DEBUG) << "Found ptr " << old_arr_ptr << " in slot " << i << " (of "
+                               << num_slots << ") of method " << method->PrettyMethod();
+                  }
+                }
+                return true;
+              }, t, context.get(), art::StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+            DCHECK(found_roots) << "Expected to find object roots on this stack but there weren't"
+                                << " any present.";
+            if (needs_deopt) {
+              // TODO Use deopt manager. We need a version that doesn't acquire all the locks we
+              // already have.
+              art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(t);
+            }
+          }
+        });
+  }
+}
+
+static void ReplaceWeakRoots(ArrayPtr old_arr_ptr, ArrayPtr new_arr_ptr)
+    REQUIRES(art::Locks::mutator_lock_,
+             art::Locks::user_code_suspension_lock_,
+             art::Roles::uninterruptible_) {
+  struct ReplaceWeaksVisitor : public art::IsMarkedVisitor {
+   public:
+    ReplaceWeaksVisitor(ArrayPtr old_arr, ArrayPtr new_arr)
+        : old_arr_(old_arr), new_arr_(new_arr) {}
+
+    art::mirror::Object* IsMarked(art::mirror::Object* obj)
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
+      if (obj == old_arr_) {
+        return new_arr_.Ptr();
+      } else {
+        return obj;
+      }
+    }
+
+   private:
+    ArrayPtr old_arr_;
+    ArrayPtr new_arr_;
+  };
+  ReplaceWeaksVisitor rwv(old_arr_ptr, new_arr_ptr);
+  art::Runtime::Current()->SweepSystemWeaks(&rwv);
+}
+
+static void PerformArrayReferenceReplacement(art::Thread* self,
+                                             ArrayPtr old_arr_ptr,
+                                             ArrayPtr new_arr_ptr)
+    REQUIRES(art::Locks::mutator_lock_,
+             art::Locks::user_code_suspension_lock_,
+             art::Roles::uninterruptible_) {
+  ReplaceObjectReferences(old_arr_ptr, new_arr_ptr);
+  ReplaceStrongRoots(self, old_arr_ptr, new_arr_ptr);
+  ReplaceWeakRoots(old_arr_ptr, new_arr_ptr);
+}
+
+}  // namespace
+
+jvmtiError HeapExtensions::ChangeArraySize(jvmtiEnv* env, jobject arr, jsize new_size) {
+  if (ArtJvmTiEnv::AsArtJvmTiEnv(env)->capabilities.can_tag_objects != 1) {
+    return ERR(MUST_POSSESS_CAPABILITY);
+  }
+  art::Thread* self = art::Thread::Current();
+  ScopedNoUserCodeSuspension snucs(self);
+  art::ScopedObjectAccess soa(self);
+  if (arr == nullptr) {
+    JVMTI_LOG(INFO, env) << "Cannot resize a null object";
+    return ERR(NULL_POINTER);
+  }
+  art::ObjPtr<art::mirror::Class> klass(soa.Decode<art::mirror::Object>(arr)->GetClass());
+  if (!klass->IsArrayClass()) {
+    JVMTI_LOG(INFO, env) << klass->PrettyClass() << " is not an array class!";
+    return ERR(ILLEGAL_ARGUMENT);
+  }
+  if (new_size < 0) {
+    JVMTI_LOG(INFO, env) << "Cannot resize an array to a negative size";
+    return ERR(ILLEGAL_ARGUMENT);
+  }
+  // Allocate the new copy.
+  art::StackHandleScope<2> hs(self);
+  art::Handle<art::mirror::Array> old_arr(hs.NewHandle(soa.Decode<art::mirror::Array>(arr)));
+  art::MutableHandle<art::mirror::Array> new_arr(hs.NewHandle<art::mirror::Array>(nullptr));
+  if (klass->IsObjectArrayClass()) {
+    new_arr.Assign(
+        art::mirror::ObjectArray<art::mirror::Object>::Alloc(self, old_arr->GetClass(), new_size));
+    int32_t size = std::min(old_arr->GetLength(), new_size);
+    for (int32_t i = 0; i < size; i++) {
+      new_arr->AsObjectArray<art::mirror::Object>()->Set(
+          i, old_arr->AsObjectArray<art::mirror::Object>()->Get(i));
+    }
+  } else {
+    new_arr.Assign(art::mirror::Array::CopyOf(old_arr, self, new_size));
+  }
+  if (new_arr.IsNull()) {
+    self->AssertPendingOOMException();
+    JVMTI_LOG(INFO, env) << "Unable to allocate " << old_arr->GetClass()->PrettyClass()
+                         << " (length: " << new_size << ") due to OOME. Error was: "
+                         << self->GetException()->Dump();
+    self->ClearException();
+    return ERR(OUT_OF_MEMORY);
+  } else {
+    self->AssertNoPendingException();
+  }
+  // Suspend everything.
+  art::ScopedThreadSuspension sts(self, art::ThreadState::kSuspended);
+  art::gc::ScopedGCCriticalSection sgccs(
+      self, art::gc::GcCause::kGcCauseDebugger, art::gc::CollectorType::kCollectorTypeDebugger);
+  art::ScopedSuspendAll ssa("Resize array!");
+  // Replace internals.
+  new_arr->SetLockWord(old_arr->GetLockWord(false), false);
+  old_arr->SetLockWord(art::LockWord::Default(), false);
+  // Actually replace all the pointers.
+  PerformArrayReferenceReplacement(self, old_arr.Get(), new_arr.Get());
+  return OK;
 }
 
 }  // namespace openjdkjvmti
