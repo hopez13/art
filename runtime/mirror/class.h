@@ -1229,6 +1229,26 @@ class MANAGED Class final : public Object {
   void FixupNativePointers(Class* dest, PointerSize pointer_size, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Get or create the various jni id arrays in a lock-less thread safe manner.
+  static ObjPtr<PointerArray> GetOrCreateMethodIds(Handle<Class> h_this)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetMethodIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  static ObjPtr<PointerArray> GetOrCreateStaticFieldIds(Handle<Class> h_this)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetStaticFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+  static ObjPtr<PointerArray> GetOrCreateInstanceFieldIds(Handle<Class> h_this)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ObjPtr<PointerArray> GetInstanceFieldIds() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Calculate the index in the ifields_, methods_ or sfields_ arrays a method is located at. This
+  // is to be used with the above Get{,OrCreate}...Ids functions.
+  size_t GetStaticFieldIdOffset(ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t GetInstanceFieldIdOffset(ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t GetMethodIdOffset(ArtMethod* method, PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   template <typename T, VerifyObjectFlags kVerifyFlags, typename Visitor>
   void FixupNativePointer(

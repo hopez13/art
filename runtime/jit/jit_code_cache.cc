@@ -178,6 +178,7 @@ JitCodeCache* JitCodeCache::Create(bool used_only_for_profile_data,
     }
   }
 
+  size_t initial_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheInitialCapacity();
   // Check whether the provided max capacity in options is below 1GB.
   size_t max_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheMaxCapacity();
   // We need to have 32 bit offsets from method headers in code cache which point to things
@@ -191,24 +192,24 @@ JitCodeCache* JitCodeCache::Create(bool used_only_for_profile_data,
     return nullptr;
   }
 
-  size_t initial_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheInitialCapacity();
-
-  std::unique_ptr<JitCodeCache> jit_code_cache(new JitCodeCache());
-
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-  jit_code_cache->private_region_.InitializeState(initial_capacity, max_capacity);
-
-  // Zygote should never collect code to share the memory with the children.
-  if (is_zygote) {
-    jit_code_cache->garbage_collect_code_ = false;
-  }
-
-  if (!jit_code_cache->private_region_.InitializeMappings(
-        rwx_memory_allowed, is_zygote, error_msg)) {
+  JitMemoryRegion region;
+  if (!region.Initialize(initial_capacity,
+                         max_capacity,
+                         rwx_memory_allowed,
+                         is_zygote,
+                         error_msg)) {
     return nullptr;
   }
 
-  jit_code_cache->private_region_.InitializeSpaces();
+  std::unique_ptr<JitCodeCache> jit_code_cache(new JitCodeCache());
+  if (is_zygote) {
+    // Zygote should never collect code to share the memory with the children.
+    jit_code_cache->garbage_collect_code_ = false;
+    jit_code_cache->shared_region_ = std::move(region);
+  } else {
+    jit_code_cache->private_region_ = std::move(region);
+  }
 
   VLOG(jit) << "Created jit code cache: initial capacity="
             << PrettySize(initial_capacity)
@@ -221,6 +222,7 @@ JitCodeCache* JitCodeCache::Create(bool used_only_for_profile_data,
 JitCodeCache::JitCodeCache()
     : is_weak_access_enabled_(true),
       inline_cache_cond_("Jit inline cache condition variable", *Locks::jit_lock_),
+      zygote_map_(&shared_region_),
       lock_cond_("Jit code cache condition variable", *Locks::jit_lock_),
       collection_in_progress_(false),
       last_collection_increased_code_cache_(false),
@@ -264,6 +266,9 @@ bool JitCodeCache::ContainsMethod(ArtMethod* method) {
       if (it.second == method) {
         return true;
       }
+    }
+    if (zygote_map_.ContainsMethod(method)) {
+      return true;
     }
   }
   return false;
@@ -324,25 +329,25 @@ const void* JitCodeCache::GetZygoteSavedEntryPoint(ArtMethod* method) {
 uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   JitMemoryRegion* region,
                                   ArtMethod* method,
-                                  uint8_t* stack_map,
-                                  uint8_t* roots_data,
                                   const uint8_t* code,
                                   size_t code_size,
-                                  size_t data_size,
-                                  bool osr,
+                                  const uint8_t* stack_map,
+                                  size_t stack_map_size,
+                                  uint8_t* roots_data,
                                   const std::vector<Handle<mirror::Object>>& roots,
+                                  bool osr,
                                   bool has_should_deoptimize_flag,
                                   const ArenaSet<ArtMethod*>& cha_single_implementation_list) {
   uint8_t* result = CommitCodeInternal(self,
                                        region,
                                        method,
-                                       stack_map,
-                                       roots_data,
                                        code,
                                        code_size,
-                                       data_size,
-                                       osr,
+                                       stack_map,
+                                       stack_map_size,
+                                       roots_data,
                                        roots,
+                                       osr,
                                        has_should_deoptimize_flag,
                                        cha_single_implementation_list);
   if (result == nullptr) {
@@ -351,13 +356,13 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
     result = CommitCodeInternal(self,
                                 region,
                                 method,
-                                stack_map,
-                                roots_data,
                                 code,
                                 code_size,
-                                data_size,
-                                osr,
+                                stack_map,
+                                stack_map_size,
+                                roots_data,
                                 roots,
+                                osr,
                                 has_should_deoptimize_flag,
                                 cha_single_implementation_list);
   }
@@ -378,27 +383,14 @@ static uintptr_t FromCodeToAllocation(const void* code) {
   return reinterpret_cast<uintptr_t>(code) - RoundUp(sizeof(OatQuickMethodHeader), alignment);
 }
 
-static uint32_t ComputeRootTableSize(uint32_t number_of_roots) {
-  return sizeof(uint32_t) + number_of_roots * sizeof(GcRoot<mirror::Object>);
-}
-
 static uint32_t GetNumberOfRoots(const uint8_t* stack_map) {
   // The length of the table is stored just before the stack map (and therefore at the end of
   // the table itself), in order to be able to fetch it from a `stack_map` pointer.
   return reinterpret_cast<const uint32_t*>(stack_map)[-1];
 }
 
-static void FillRootTableLength(uint8_t* roots_data, uint32_t length) {
-  // Store the length of the table at the end. This will allow fetching it from a `stack_map`
-  // pointer.
-  reinterpret_cast<uint32_t*>(roots_data)[length] = length;
-}
-
-static const uint8_t* FromStackMapToRoots(const uint8_t* stack_map_data) {
-  return stack_map_data - ComputeRootTableSize(GetNumberOfRoots(stack_map_data));
-}
-
-static void DCheckRootsAreValid(const std::vector<Handle<mirror::Object>>& roots)
+static void DCheckRootsAreValid(const std::vector<Handle<mirror::Object>>& roots,
+                                bool is_shared_region)
     REQUIRES(!Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_) {
   if (!kIsDebugBuild) {
     return;
@@ -411,17 +403,10 @@ static void DCheckRootsAreValid(const std::vector<Handle<mirror::Object>>& roots
       ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
       CHECK(class_linker->GetInternTable()->LookupStrong(Thread::Current(), str) != nullptr);
     }
-  }
-}
-
-void JitCodeCache::FillRootTable(uint8_t* roots_data,
-                                 const std::vector<Handle<mirror::Object>>& roots) {
-  GcRoot<mirror::Object>* gc_roots = reinterpret_cast<GcRoot<mirror::Object>*>(roots_data);
-  const uint32_t length = roots.size();
-  // Put all roots in `roots_data`.
-  for (uint32_t i = 0; i < length; ++i) {
-    ObjPtr<mirror::Object> object = roots[i].Get();
-    gc_roots[i] = GcRoot<mirror::Object>(object);
+    // Ensure that we don't put movable objects in the shared region.
+    if (is_shared_region) {
+      CHECK(!Runtime::Current()->GetHeap()->IsMovableObject(object.Get()));
+    }
   }
 }
 
@@ -556,7 +541,6 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
     // with the classlinker_classes_lock_ held, and suspending ourselves could
     // lead to a deadlock.
     {
-      ScopedCodeCacheWrite scc(private_region_);
       for (auto it = jni_stubs_map_.begin(); it != jni_stubs_map_.end();) {
         it->second.RemoveMethodsIn(alloc);
         if (it->second.GetMethods().empty()) {
@@ -676,13 +660,13 @@ void JitCodeCache::WaitForPotentialCollectionToCompleteRunnable(Thread* self) {
 uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           JitMemoryRegion* region,
                                           ArtMethod* method,
-                                          uint8_t* stack_map,
-                                          uint8_t* roots_data,
                                           const uint8_t* code,
                                           size_t code_size,
-                                          size_t data_size,
-                                          bool osr,
+                                          const uint8_t* stack_map,
+                                          size_t stack_map_size,
+                                          uint8_t* roots_data,
                                           const std::vector<Handle<mirror::Object>>& roots,
+                                          bool osr,
                                           bool has_should_deoptimize_flag,
                                           const ArenaSet<ArtMethod*>&
                                               cha_single_implementation_list) {
@@ -691,88 +675,32 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   if (!method->IsNative()) {
     // We need to do this before grabbing the lock_ because it needs to be able to see the string
     // InternTable. Native methods do not have roots.
-    DCheckRootsAreValid(roots);
+    DCheckRootsAreValid(roots, IsSharedRegion(*region));
   }
 
-  OatQuickMethodHeader* method_header = nullptr;
-  uint8_t* code_ptr = nullptr;
+  size_t root_table_size = ComputeRootTableSize(roots.size());
+  uint8_t* stack_map_data = roots_data + root_table_size;
 
   MutexLock mu(self, *Locks::jit_lock_);
   // We need to make sure that there will be no jit-gcs going on and wait for any ongoing one to
   // finish.
   WaitForPotentialCollectionToCompleteRunnable(self);
-  {
-    ScopedCodeCacheWrite scc(*region);
-
-    size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
-    // Ensure the header ends up at expected instruction alignment.
-    size_t header_size = RoundUp(sizeof(OatQuickMethodHeader), alignment);
-    size_t total_size = header_size + code_size;
-
-    // AllocateCode allocates memory in non-executable region for alignment header and code. The
-    // header size may include alignment padding.
-    uint8_t* nox_memory = region->AllocateCode(total_size);
-    if (nox_memory == nullptr) {
-      return nullptr;
-    }
-
-    // code_ptr points to non-executable code.
-    code_ptr = nox_memory + header_size;
-    std::copy(code, code + code_size, code_ptr);
-    method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
-
-    // From here code_ptr points to executable code.
-    code_ptr = region->GetExecutableAddress(code_ptr);
-
-    new (method_header) OatQuickMethodHeader(
-        (stack_map != nullptr) ? code_ptr - stack_map : 0u,
-        code_size);
-
-    DCHECK(!Runtime::Current()->IsAotCompiler());
-    if (has_should_deoptimize_flag) {
-      method_header->SetHasShouldDeoptimizeFlag();
-    }
-
-    // Update method_header pointer to executable code region.
-    method_header = region->GetExecutableAddress(method_header);
-
-    // Both instruction and data caches need flushing to the point of unification where both share
-    // a common view of memory. Flushing the data cache ensures the dirty cachelines from the
-    // newly added code are written out to the point of unification. Flushing the instruction
-    // cache ensures the newly written code will be fetched from the point of unification before
-    // use. Memory in the code cache is re-cycled as code is added and removed. The flushes
-    // prevent stale code from residing in the instruction cache.
-    //
-    // Caches are flushed before write permission is removed because some ARMv8 Qualcomm kernels
-    // may trigger a segfault if a page fault occurs when requesting a cache maintenance
-    // operation. This is a kernel bug that we need to work around until affected devices
-    // (e.g. Nexus 5X and 6P) stop being supported or their kernels are fixed.
-    //
-    // For reference, this behavior is caused by this commit:
-    // https://android.googlesource.com/kernel/msm/+/3fbe6bc28a6b9939d0650f2f17eb5216c719950c
-    //
-    if (region->HasDualCodeMapping()) {
-      // Flush the data cache lines associated with the non-executable copy of the code just added.
-      FlushDataCache(nox_memory, nox_memory + total_size);
-    }
-    // FlushInstructionCache() flushes both data and instruction caches lines. The cacheline range
-    // flushed is for the executable mapping of the code just added.
-    uint8_t* x_memory = reinterpret_cast<uint8_t*>(method_header);
-    FlushInstructionCache(x_memory, x_memory + total_size);
-
-    // Ensure CPU instruction pipelines are flushed for all cores. This is necessary for
-    // correctness as code may still be in instruction pipelines despite the i-cache flush. It is
-    // not safe to assume that changing permissions with mprotect (RX->RWX->RX) will cause a TLB
-    // shootdown (incidentally invalidating the CPU pipelines by sending an IPI to all cores to
-    // notify them of the TLB invalidation). Some architectures, notably ARM and ARM64, have
-    // hardware support that broadcasts TLB invalidations and so their kernels have no software
-    // based TLB shootdown. The sync-core flavor of membarrier was introduced in Linux 4.16 to
-    // address this (see mbarrier(2)). The membarrier here will fail on prior kernels and on
-    // platforms lacking the appropriate support.
-    art::membarrier(art::MembarrierCommand::kPrivateExpeditedSyncCore);
-
-    number_of_compilations_++;
+  const uint8_t* code_ptr = region->AllocateCode(
+      code, code_size, stack_map_data, has_should_deoptimize_flag);
+  if (code_ptr == nullptr) {
+    return nullptr;
   }
+  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+
+  // Commit roots and stack maps before updating the entry point.
+  if (!region->CommitData(roots_data, roots, stack_map, stack_map_size)) {
+    ScopedCodeCacheWrite ccw(*region);
+    uintptr_t allocation = FromCodeToAllocation(code_ptr);
+    region->FreeCode(reinterpret_cast<uint8_t*>(allocation));
+    return nullptr;
+  }
+
+  number_of_compilations_++;
 
   // We need to update the entry point in the runnable state for the instrumentation.
   {
@@ -793,8 +721,11 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
     }
 
     // Discard the code if any single-implementation assumptions are now invalid.
-    if (!single_impl_still_valid) {
+    if (UNLIKELY(!single_impl_still_valid)) {
       VLOG(jit) << "JIT discarded jitted code due to invalid single-implementation assumptions.";
+      ScopedCodeCacheWrite ccw(*region);
+      uintptr_t allocation = FromCodeToAllocation(code_ptr);
+      region->FreeCode(reinterpret_cast<uint8_t*>(allocation));
       return nullptr;
     }
     DCHECK(cha_single_implementation_list.empty() || !Runtime::Current()->IsJavaDebuggable())
@@ -820,15 +751,11 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         }
       }
     } else {
-      // Fill the root table before updating the entry point.
-      DCHECK_EQ(FromStackMapToRoots(stack_map), roots_data);
-      DCHECK_LE(roots_data, stack_map);
-      FillRootTable(roots_data, roots);
-      {
-        // Flush data cache, as compiled code references literals in it.
-        FlushDataCache(roots_data, roots_data + data_size);
+      if (method->IsZygoteCompiled() && IsSharedRegion(*region)) {
+        zygote_map_.Put(code_ptr, method);
+      } else {
+        method_code_map_.Put(code_ptr, method);
       }
-      method_code_map_.Put(code_ptr, method);
       if (osr) {
         number_of_osr_compilations_++;
         osr_code_map_.Put(method, code_ptr);
@@ -998,18 +925,10 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
 
 void JitCodeCache::ClearEntryPointsInZygoteExecSpace() {
   MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-  // Iterate over profiling infos to know which methods may have been JITted. Note that
-  // to be JITted, a method must have a profiling info.
-  for (ProfilingInfo* info : profiling_infos_) {
-    ArtMethod* method = info->GetMethod();
+  for (const auto& it : method_code_map_) {
+    ArtMethod* method = it.second;
     if (IsInZygoteExecSpace(method->GetEntryPointFromQuickCompiledCode())) {
       method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
-    }
-    // If zygote does method tracing, or in some configuration where
-    // the JIT zygote does GC, we also need to clear the saved entry point
-    // in the profiling info.
-    if (IsInZygoteExecSpace(info->GetSavedEntryPoint())) {
-      info->SetSavedEntryPoint(nullptr);
     }
   }
 }
@@ -1029,20 +948,16 @@ size_t JitCodeCache::DataCacheSizeLocked() {
 
 void JitCodeCache::ClearData(Thread* self,
                              JitMemoryRegion* region,
-                             uint8_t* stack_map_data,
                              uint8_t* roots_data) {
-  DCHECK_EQ(FromStackMapToRoots(stack_map_data), roots_data);
   MutexLock mu(self, *Locks::jit_lock_);
   region->FreeData(reinterpret_cast<uint8_t*>(roots_data));
 }
 
-size_t JitCodeCache::ReserveData(Thread* self,
-                                 JitMemoryRegion* region,
-                                 size_t stack_map_size,
-                                 size_t number_of_roots,
-                                 ArtMethod* method,
-                                 uint8_t** stack_map_data,
-                                 uint8_t** roots_data) {
+uint8_t* JitCodeCache::ReserveData(Thread* self,
+                                   JitMemoryRegion* region,
+                                   size_t stack_map_size,
+                                   size_t number_of_roots,
+                                   ArtMethod* method) {
   size_t table_size = ComputeRootTableSize(number_of_roots);
   size_t size = RoundUp(stack_map_size + table_size, sizeof(void*));
   uint8_t* result = nullptr;
@@ -1071,16 +986,7 @@ size_t JitCodeCache::ReserveData(Thread* self,
               << " for stack maps of "
               << ArtMethod::PrettyMethod(method);
   }
-  if (result != nullptr) {
-    *roots_data = result;
-    *stack_map_data = result + table_size;
-    FillRootTableLength(*roots_data, number_of_roots);
-    return size;
-  } else {
-    *roots_data = nullptr;
-    *stack_map_data = nullptr;
-    return 0;
-  }
+  return result;
 }
 
 class MarkCodeClosure final : public Closure {
@@ -1276,7 +1182,6 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
   std::unordered_set<OatQuickMethodHeader*> method_headers;
   {
     MutexLock mu(self, *Locks::jit_lock_);
-    ScopedCodeCacheWrite scc(private_region_);
     // Iterate over all compiled code and remove entries that are not marked.
     for (auto it = jni_stubs_map_.begin(); it != jni_stubs_map_.end();) {
       JniStubData* data = &it->second;
@@ -1454,6 +1359,12 @@ OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* 
       return nullptr;
     }
   } else {
+    if (shared_region_.IsInExecSpace(reinterpret_cast<const void*>(pc))) {
+      const void* code_ptr = zygote_map_.GetCodeFor(method, pc);
+      if (code_ptr != nullptr) {
+        return OatQuickMethodHeader::FromCodePointer(code_ptr);
+      }
+    }
     auto it = method_code_map_.lower_bound(reinterpret_cast<const void*>(pc));
     if (it != method_code_map_.begin()) {
       --it;
@@ -1503,6 +1414,7 @@ ProfilingInfo* JitCodeCache::AddProfilingInfo(Thread* self,
                                               bool retry_allocation)
     // No thread safety analysis as we are using TryLock/Unlock explicitly.
     NO_THREAD_SAFETY_ANALYSIS {
+  DCHECK(CanAllocateProfilingInfo());
   ProfilingInfo* info = nullptr;
   if (!retry_allocation) {
     // If we are allocating for the interpreter, just try to lock, to avoid
@@ -1556,7 +1468,9 @@ ProfilingInfo* JitCodeCache::AddProfilingInfoInternal(Thread* self ATTRIBUTE_UNU
 }
 
 void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) {
-  return private_region_.MoreCore(mspace, increment);
+  return shared_region_.OwnsSpace(mspace)
+      ? shared_region_.MoreCore(mspace, increment)
+      : private_region_.MoreCore(mspace, increment);
 }
 
 void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_locations,
@@ -1648,7 +1562,11 @@ bool JitCodeCache::IsOsrCompiled(ArtMethod* method) {
   return osr_code_map_.find(method) != osr_code_map_.end();
 }
 
-bool JitCodeCache::NotifyCompilationOf(ArtMethod* method, Thread* self, bool osr, bool prejit) {
+bool JitCodeCache::NotifyCompilationOf(ArtMethod* method,
+                                       Thread* self,
+                                       bool osr,
+                                       bool prejit,
+                                       JitMemoryRegion* region) {
   if (!osr && ContainsPc(method->GetEntryPointFromQuickCompiledCode())) {
     return false;
   }
@@ -1710,7 +1628,7 @@ bool JitCodeCache::NotifyCompilationOf(ArtMethod* method, Thread* self, bool osr
     ProfilingInfo* info = method->GetProfilingInfo(kRuntimePointerSize);
     if (info == nullptr) {
       // When prejitting, we don't allocate a profiling info.
-      if (!prejit) {
+      if (!prejit && !IsSharedRegion(*region)) {
         VLOG(jit) << method->PrettyMethod() << " needs a ProfilingInfo to be compiled";
         // Because the counter is not atomic, there are some rare cases where we may not hit the
         // threshold for creating the ProfilingInfo. Reset the counter now to "correct" this.
@@ -1796,6 +1714,12 @@ void JitCodeCache::InvalidateCompiledCodeFor(ArtMethod* method,
       osr_code_map_.erase(it);
     }
   }
+
+  // In case the method was compiled by the zygote, clear that information so we
+  // can recompile it ourselves.
+  if (method->IsZygoteCompiled()) {
+    method->ClearZygoteCompiled();
+  }
 }
 
 void JitCodeCache::Dump(std::ostream& os) {
@@ -1818,13 +1742,28 @@ void JitCodeCache::Dump(std::ostream& os) {
 }
 
 void JitCodeCache::PostForkChildAction(bool is_system_server, bool is_zygote) {
-  if (is_zygote) {
-    // Don't transition if this is for a child zygote.
+  Thread* self = Thread::Current();
+
+  // Remove potential tasks that have been inherited from the zygote.
+  // We do this now and not in Jit::PostForkChildAction, as system server calls
+  // JitCodeCache::PostForkChildAction first, and then does some code loading
+  // that may result in new JIT tasks that we want to keep.
+  ThreadPool* pool = Runtime::Current()->GetJit()->GetThreadPool();
+  if (pool != nullptr) {
+    pool->RemoveAllTasks(self);
+  }
+
+  MutexLock mu(self, *Locks::jit_lock_);
+
+  // Reset potential writable MemMaps inherited from the zygote. We never want
+  // to write to them.
+  shared_region_.ResetWritableMappings();
+
+  if (is_zygote || Runtime::Current()->IsSafeMode()) {
+    // Don't create a private region for a child zygote. Regions are usually map shared
+    // (to satisfy dual-view), and we don't want children of a child zygote to inherit it.
     return;
   }
-  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-
-  shared_region_ = std::move(private_region_);
 
   // Reset all statistics to be specific to this process.
   number_of_compilations_ = 0;
@@ -1833,17 +1772,104 @@ void JitCodeCache::PostForkChildAction(bool is_system_server, bool is_zygote) {
 
   size_t initial_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheInitialCapacity();
   size_t max_capacity = Runtime::Current()->GetJITOptions()->GetCodeCacheMaxCapacity();
-
-  private_region_.InitializeState(initial_capacity, max_capacity);
-
   std::string error_msg;
-  if (!private_region_.InitializeMappings(
-          /* rwx_memory_allowed= */ !is_system_server, is_zygote, &error_msg)) {
-    LOG(WARNING) << "Could not reset JIT state after zygote fork: " << error_msg;
-    return;
+  if (!private_region_.Initialize(initial_capacity,
+                                  max_capacity,
+                                  /* rwx_memory_allowed= */ !is_system_server,
+                                  is_zygote,
+                                  &error_msg)) {
+    LOG(WARNING) << "Could not create private region after zygote fork: " << error_msg;
+  }
+}
+
+JitMemoryRegion* JitCodeCache::GetCurrentRegion() {
+  return Runtime::Current()->IsZygote() ? &shared_region_ : &private_region_;
+}
+
+void ZygoteMap::Initialize(uint32_t number_of_methods) {
+  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  // Allocate for 40-80% capacity. This will offer OK lookup times, and termination
+  // cases.
+  size_t capacity = RoundUpToPowerOfTwo(number_of_methods * 100 / 80);
+  Entry* data = reinterpret_cast<Entry*>(region_->AllocateData(capacity * sizeof(Entry)));
+  if (data != nullptr) {
+    region_->FillData(data, capacity, Entry { nullptr, nullptr });
+    map_ = ArrayRef(data, capacity);
+  }
+}
+
+const void* ZygoteMap::GetCodeFor(ArtMethod* method, uintptr_t pc) const {
+  if (map_.empty()) {
+    return nullptr;
   }
 
-  private_region_.InitializeSpaces();
+  if (method == nullptr) {
+    // Do a linear search. This should only be used in debug builds.
+    CHECK(kIsDebugBuild);
+    for (const Entry& entry : map_) {
+      const void* code_ptr = entry.code_ptr;
+      if (code_ptr != nullptr) {
+        OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+        if (method_header->Contains(pc)) {
+          return code_ptr;
+        }
+      }
+    }
+    return nullptr;
+  }
+
+  std::hash<ArtMethod*> hf;
+  size_t index = hf(method) & (map_.size() - 1u);
+  size_t original_index = index;
+  // Loop over the array: we know this loop terminates as we will either
+  // encounter the given method, or a null entry. Both terminate the loop.
+  // Note that the zygote may concurrently write new entries to the map. That's OK as the
+  // map is never resized.
+  while (true) {
+    const Entry& entry = map_[index];
+    if (entry.method == nullptr) {
+      // Not compiled yet.
+      return nullptr;
+    }
+    if (entry.method == method) {
+      if (entry.code_ptr == nullptr) {
+        // This is a race with the zygote which wrote the method, but hasn't written the
+        // code. Just bail and wait for the next time we need the method.
+        return nullptr;
+      }
+      if (pc != 0 && !OatQuickMethodHeader::FromCodePointer(entry.code_ptr)->Contains(pc)) {
+        return nullptr;
+      }
+      return entry.code_ptr;
+    }
+    index = (index + 1) & (map_.size() - 1);
+    DCHECK_NE(original_index, index);
+  }
+}
+
+void ZygoteMap::Put(const void* code, ArtMethod* method) {
+  if (map_.empty()) {
+    return;
+  }
+  CHECK(Runtime::Current()->IsZygote());
+  std::hash<ArtMethod*> hf;
+  size_t index = hf(method) & (map_.size() - 1);
+  size_t original_index = index;
+  // Because the size of the map is bigger than the number of methods that will
+  // be added, we are guaranteed to find a free slot in the array, and
+  // therefore for this loop to terminate.
+  while (true) {
+    Entry* entry = &map_[index];
+    if (entry->method == nullptr) {
+      // Note that readers can read this memory concurrently, but that's OK as
+      // we are writing pointers.
+      region_->WriteData(entry, Entry { method, code });
+      break;
+    }
+    index = (index + 1) & (map_.size() - 1);
+    DCHECK_NE(original_index, index);
+  }
+  DCHECK_EQ(GetCodeFor(method), code);
 }
 
 }  // namespace jit

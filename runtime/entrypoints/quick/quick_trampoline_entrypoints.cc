@@ -343,7 +343,7 @@ class QuickArgumentVisitor {
     uintptr_t outer_pc_offset = current_code->NativeQuickPcOffset(outer_pc);
 
     if (current_code->IsOptimized()) {
-      CodeInfo code_info(current_code, CodeInfo::DecodeFlags::InlineInfoOnly);
+      CodeInfo code_info = CodeInfo::DecodeInlineInfoOnly(current_code);
       StackMap stack_map = code_info.GetStackMapForNativePcOffset(outer_pc_offset);
       DCHECK(stack_map.IsValid());
       BitTableRange<InlineInfo> inline_infos = code_info.GetInlineInfosOf(stack_map);
@@ -1416,7 +1416,10 @@ extern "C" const void* artQuickResolutionTrampoline(
         DCHECK_GE(method_entry, oat_file->GetBssMethods().data());
         DCHECK_LT(method_entry,
                   oat_file->GetBssMethods().data() + oat_file->GetBssMethods().size());
-        *method_entry = called;
+        std::atomic<ArtMethod*>* atomic_entry =
+            reinterpret_cast<std::atomic<ArtMethod*>*>(method_entry);
+        static_assert(sizeof(*method_entry) == sizeof(*atomic_entry), "Size check.");
+        atomic_entry->store(called, std::memory_order_release);
       }
     }
   }
