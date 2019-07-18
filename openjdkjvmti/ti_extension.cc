@@ -370,6 +370,25 @@ jvmtiError ExtensionUtil::GetExtensionFunctions(jvmtiEnv* env,
     return error;
   }
 
+  // ChangeArraySize
+  error = add_extension(
+      reinterpret_cast<jvmtiExtensionFunction>(HeapUtil::ChangeArraySize),
+      "com.android.art.heap.change_array_size",
+      "Changes the size of a java array. The lock-state, identity-hash, and (TODO) tags are"
+      " unaffected. TODO Send events about objects being resized. Must have can_tag_objects cap",
+      {
+        { "array", JVMTI_KIND_IN, JVMTI_TYPE_JOBJECT, false },
+        { "new_size", JVMTI_KIND_IN, JVMTI_TYPE_JINT, false },
+      },
+      {
+         ERR(NULL_POINTER),
+         ERR(MUST_POSSESS_CAPABILITY),
+         ERR(ILLEGAL_ARGUMENT),
+      });
+  if (error != ERR(NONE)) {
+    return error;
+  }
+
   // Copy into output buffer.
 
   *extension_count_ptr = ext_vector.size();
