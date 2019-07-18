@@ -1114,7 +1114,8 @@
                   "1001-app-image-regions",
                   "1339-dead-reference-safe",
                   "1951-monitor-enter-no-suspend",
-                  "1957-error-ext"],
+                  "1957-error-ext",
+                  "1974-resize-array"],
         "variant": "jvm",
         "description": ["Doesn't run on RI."]
     },
