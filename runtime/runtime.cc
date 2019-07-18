@@ -1021,6 +1021,11 @@ void Runtime::InitNonZygoteOrPostFork(
 
   StartSignalCatcher();
 
+  if (IsJavaDebuggable()) {
+    SetJniIdType(JniIdType::kIndices);
+  } else {
+    SetJniIdType(JniIdType::kPointer);
+  }
   // Start the JDWP thread. If the command-line debugger flags specified "suspend=y",
   // this will pause the runtime (in the internal debugger implementation), so we probably want
   // this to come last.
