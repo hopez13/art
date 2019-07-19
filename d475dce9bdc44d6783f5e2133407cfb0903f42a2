@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f226914_cc7ca6d2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "How about:\nbool IsArrayLengthKnown(HInstruction* instruction, int32_t* length)",
+      "range": {
+        "startLine": 822,
+        "startChar": 17,
+        "endLine": 822,
+        "endChar": 35
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e8ea4f0_5c8120de",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "Given the title, I\u0027d expect the instruction to be an array.",
+      "range": {
+        "startLine": 822,
+        "startChar": 36,
+        "endLine": 822,
+        "endChar": 48
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a2dc76_22201093",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "Add high-level comment what this index is about.",
+      "range": {
+        "startLine": 828,
+        "startChar": 3,
+        "endLine": 828,
+        "endChar": 22
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6046a8f3_aff36841",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 837,
+        "startChar": 11,
+        "endLine": 838,
+        "endChar": 39
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fb70056_32af5538",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "What is this for if you found that length is a constant? Please add a comment.",
+      "range": {
+        "startLine": 842,
+        "startChar": 8,
+        "endLine": 854,
+        "endChar": 15
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2cd7245_68cf12e5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "don\u0027t",
+      "range": {
+        "startLine": 858,
+        "startChar": 14,
+        "endLine": 858,
+        "endChar": 19
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a21071_38b7c19d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "Missing braces.",
+      "range": {
+        "startLine": 863,
+        "startChar": 2,
+        "endLine": 864,
+        "endChar": 48
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffc1ec0c_0ae5cb3f",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-07-19T10:09:15Z",
+      "side": 1,
+      "message": "These get inlined in the methods right? Can you move them in each method for better clarity?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
