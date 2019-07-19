@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a0d7cf5_ca372039",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-19T12:48:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1efa0c5a_e02f9dfb",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63aa7354_19fe5beb",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-04T22:01:32Z",
       "side": 1,
       "message": "This is a bit opportunistic. The proper approach is to propagate the built architectures from the build system and require all of them to be present. But as we know, variants of this problem exists elsewhere in this script, and it\u0027s more effort than we\u0027d like to set up that propagation. Still, it\u0027s worth pointing out in a TODO somewhere.",
+      "range": {
+        "startLine": 250,
+        "startChar": 8,
+        "endLine": 250,
+        "endChar": 25
+      },
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fecb62c_675d013a",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-19T12:48:27Z",
+      "side": 1,
+      "message": "Agreed; I added a TODO.",
+      "parentUuid": "63aa7354_19fe5beb",
       "range": {
         "startLine": 250,
         "startChar": 8,
@@ -62,6 +110,24 @@
       "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba121c96_ce12dfd5",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2019-07-19T12:48:27Z",
+      "side": 1,
+      "message": "I think it\u0027s worth it. We rarely add new tests, so I don\u0027t expect the maintenance of this list to be an actual burden (and adding support for a new test here is straightforward). We do however have many tests (with long and complex build rules) and I think it would be useful to catch any mismatch when we edit ART\u0027s Blueprint files.",
+      "parentUuid": "2400c181_ece7d2fa",
+      "revId": "9abdb7b85f9866df4b22a8f0a9dad1fd8834e32f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
