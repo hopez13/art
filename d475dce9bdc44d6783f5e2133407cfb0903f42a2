@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "afadd48b_68ecdfd1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "We are actually passing InputAt(1) of the boundscheck. It could be Phi or IntConstant or ArrayLength in this context. So I put it as HInstruction.",
+      "parentUuid": "3e8ea4f0_5c8120de",
+      "range": {
+        "startLine": 822,
+        "startChar": 36,
+        "endLine": 822,
+        "endChar": 48
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53a2dc76_22201093",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -68,6 +92,30 @@
       "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "055495bf_cb5fe984",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a2dc76_22201093",
+      "range": {
+        "startLine": 828,
+        "startChar": 3,
+        "endLine": 828,
+        "endChar": 22
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "8d7818a3_c372c99f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6046a8f3_aff36841",
+      "range": {
+        "startLine": 837,
+        "startChar": 11,
+        "endLine": 838,
+        "endChar": 39
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fb70056_32af5538",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2019-07-19T10:09:15Z",
       "side": 1,
       "message": "What is this for if you found that length is a constant? Please add a comment.",
+      "range": {
+        "startLine": 842,
+        "startChar": 8,
+        "endLine": 854,
+        "endChar": 15
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49da8e1c_c1091345",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "variable length indicates the number of dimensions for the array. Next we skim through the users of this array declaration to find what value was declared at appropriate indirection level. (This indirection level is indicated by int32_t index in line  828)",
+      "parentUuid": "8fb70056_32af5538",
       "range": {
         "startLine": 842,
         "startChar": 8,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "bc7f4a5a_6a956c49",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2cd7245_68cf12e5",
+      "range": {
+        "startLine": 858,
+        "startChar": 14,
+        "endLine": 858,
+        "endChar": 19
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53a21071_38b7c19d",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "66fbfad7_7940e34d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a21071_38b7c19d",
+      "range": {
+        "startLine": 863,
+        "startChar": 2,
+        "endLine": 864,
+        "endChar": 48
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffc1ec0c_0ae5cb3f",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 1
@@ -183,6 +327,30 @@
       "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0650c183_15536616",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2019-07-19T13:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffc1ec0c_0ae5cb3f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "d475dce9bdc44d6783f5e2133407cfb0903f42a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
