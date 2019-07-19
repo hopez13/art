@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ddcc435c_b7095f1f",
+        "filename": "runtime/jni/jni_env_ext.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T20:47:50Z",
+      "side": 1,
+      "message": "Not really since we don\u0027t want to overwrite the table_override_ or race.",
+      "parentUuid": "92c60d68_b75729cb",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 328,
+        "endChar": 71
+      },
+      "revId": "e0abacc777fceab5637890066b6f91c63a46ea67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2d9321d_ce431c61",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "09d72d38_e3705de9",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T20:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2d9321d_ce431c61",
+      "range": {
+        "startLine": 797,
+        "startChar": 55,
+        "endLine": 797,
+        "endChar": 64
+      },
+      "revId": "e0abacc777fceab5637890066b6f91c63a46ea67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c818753_b6658215",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 11
@@ -68,6 +116,30 @@
       "revId": "e0abacc777fceab5637890066b6f91c63a46ea67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ed8e12a_09efe270",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2019-07-19T20:47:50Z",
+      "side": 1,
+      "message": "Some of them do when the mapping of option-\u003evalue is not entierly obvious (ex line 97).",
+      "parentUuid": "7c818753_b6658215",
+      "range": {
+        "startLine": 80,
+        "startChar": 96,
+        "endLine": 80,
+        "endChar": 129
+      },
+      "revId": "e0abacc777fceab5637890066b6f91c63a46ea67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
